@@ -1,0 +1,37 @@
+#[win32]
+mod Test {
+    #[guid(0x12345678_1234_1234_1234_123456789abc)]
+    interface Annotated {
+        #[annotation("sal", "_Ret_range_(0,100)")]
+        fn Query(&self, #[annotation("sal", "_In_range_(0,10)")] count: i32) -> i32;
+    }
+    #[annotation("sal", "_Vendor_(record)")]
+    type AnnotatedPacket = Packet;
+    #[annotation("sal", "_Vendor_(pointer)")]
+    type Buffer = *mut i32;
+    #[repr(i32)]
+    enum Choice {
+        #[annotation("sal", "_Vendor_(\"first\")")]
+        First = 1,
+    }
+    #[library("test.dll", import = "InspectAliases")]
+    extern "C" fn InspectAliases(p0: *mut AnnotatedPacket, p1: *mut Values, #[annotation("sal", "_Out_writes_($3)")] #[out] #[len_param(3)] p2: Buffer, p3: u32);
+    #[annotation("sal", "_Success_(return == 0)")]
+    #[library("test.dll", import = "Invoke")]
+    extern "C" fn Invoke(#[annotation("sal", "_In_range_(0,10)")] p0: i32, #[annotation("sal", "_When_($0 > 0,_In_reads_($0))")] p1: *mut i32) -> i32;
+    struct Packet {
+        #[annotation("sal", "_Field_range_(1,32)")]
+        size: u32,
+        #[annotation("sal", "_Field_size_bytes_(size)")]
+        data: *mut u8,
+    }
+    #[annotation("sal", "_Success_(return >= 0) _Ret_range_(0,100)")]
+    #[library("test.dll", import = "Query")]
+    extern "C" fn Query(#[annotation("sal", "_In_range_(0,10)")] p0: i32, #[annotation("sal", "_When_($0 > 0,_Out_writes_($0))")] p1: *mut i32, #[annotation("midl", "[out][size_is($0)]")] #[out] p2: *mut i32) -> i32;
+    #[annotation("sal", "_Return_type_success_(return >= 0)")]
+    type Result = i32;
+    #[library("test.dll", import = "Status")]
+    extern "C" fn Status() -> Result;
+    #[annotation("sal", "_Vendor_(array)")]
+    type Values = [i32; 4];
+}

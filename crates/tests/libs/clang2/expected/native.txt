@@ -387,6 +387,7 @@ Record {
             },
             offset: 0,
             bit_width: None,
+            annotations: [],
         },
         Field {
             name: "wide",
@@ -408,6 +409,7 @@ Record {
             },
             offset: 32,
             bit_width: None,
+            annotations: [],
         },
         Field {
             name: "pointers",
@@ -447,6 +449,7 @@ Record {
             },
             offset: 64,
             bit_width: None,
+            annotations: [],
         },
         Field {
             name: "left",
@@ -477,6 +480,7 @@ Record {
             },
             offset: 128,
             bit_width: None,
+            annotations: [],
         },
         Field {
             name: "right",
@@ -507,6 +511,7 @@ Record {
             },
             offset: 192,
             bit_width: None,
+            annotations: [],
         },
     ],
     bases: [],

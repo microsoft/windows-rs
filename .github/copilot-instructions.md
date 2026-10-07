@@ -251,6 +251,21 @@ that result-buffer address. Rust-to-C++ calls passed, but the reverse call produ
 `clang2` `project.rs` `Builder::interface` rejects by-value record results until the downstream ABI
 is fixed and covered. See `docs/crates/windows-clang2.md` for the fixture and remaining ABI gates.
 
+### Clang2 pre-scale review
+
+The five review findings have source-fixture coverage: indexed annotation ownership, reusable
+projection policy, source-marker SAL capture, compiler-rendered UUID attributes, and pointer-only
+integer probes. See `docs/crates/windows-clang2.md` under "Pre-scale critical review".
+
+Preserve captured contracts with RDL `#[annotation(source, payload)]` independently of typed
+lowering. SDK/WDK callers must force-include `clang2/src/sal.h` before SDK headers. Keep ordered
+source families and original positional parameter bindings through agreement checking.
+
+Open boundaries: long-tail SDK/WDK macro coverage, MIDL comments outside captured declaration
+extents, same-name annotated record aliases, standalone callable projection, imported data, and
+large multi-TU peak memory. Continue with `.h`/`.rdl` fixtures and real-header inventories, not
+another bindgen or native API validation campaign.
+
 ### Clang2 WebView2 cutover blockers
 
 `test_clang2` `webview.rs` covers six `HWND` inputs and two host-object `VARIANT*` inputs with an

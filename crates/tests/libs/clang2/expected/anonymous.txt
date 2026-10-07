@@ -29,6 +29,7 @@ Record {
             },
             offset: 0,
             bit_width: None,
+            annotations: [],
         },
     ],
     bases: [],
@@ -70,6 +71,7 @@ Record {
             },
             offset: 0,
             bit_width: None,
+            annotations: [],
         },
         Field {
             name: "",
@@ -87,6 +89,7 @@ Record {
             },
             offset: 64,
             bit_width: None,
+            annotations: [],
         },
         Field {
             name: "tail",
@@ -108,6 +111,7 @@ Record {
             },
             offset: 128,
             bit_width: None,
+            annotations: [],
         },
         Field {
             name: "",
@@ -125,6 +129,7 @@ Record {
             },
             offset: 160,
             bit_width: None,
+            annotations: [],
         },
     ],
     bases: [],
@@ -166,6 +171,7 @@ Record {
             },
             offset: 0,
             bit_width: None,
+            annotations: [],
         },
     ],
     bases: [],
@@ -207,6 +213,7 @@ Record {
             },
             offset: 0,
             bit_width: None,
+            annotations: [],
         },
         Field {
             name: "",
@@ -224,6 +231,7 @@ Record {
             },
             offset: 0,
             bit_width: None,
+            annotations: [],
         },
         Field {
             name: "real",
@@ -245,6 +253,7 @@ Record {
             },
             offset: 0,
             bit_width: None,
+            annotations: [],
         },
     ],
     bases: [],
@@ -286,6 +295,7 @@ Record {
             },
             offset: 0,
             bit_width: None,
+            annotations: [],
         },
         Field {
             name: "final_real",
@@ -307,6 +317,7 @@ Record {
             },
             offset: 0,
             bit_width: None,
+            annotations: [],
         },
     ],
     bases: [],
@@ -348,6 +359,7 @@ Record {
             },
             offset: 0,
             bit_width: None,
+            annotations: [],
         },
         Field {
             name: "high",
@@ -369,6 +381,7 @@ Record {
             },
             offset: 16,
             bit_width: None,
+            annotations: [],
         },
     ],
     bases: [],

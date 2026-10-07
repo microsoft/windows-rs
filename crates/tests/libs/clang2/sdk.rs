@@ -60,6 +60,18 @@ pub fn wdk_arguments(target: &str) -> Vec<String> {
     ] {
         args.extend(["-isystem".into(), dir.to_str().unwrap().into()]);
     }
+    args.extend([
+        "-include".into(),
+        tools()
+            .join("..")
+            .join("libs")
+            .join("clang2")
+            .join("src")
+            .join("sal.h")
+            .to_str()
+            .unwrap()
+            .into(),
+    ]);
     args
 }
 
@@ -344,14 +356,16 @@ fn imports(
 
 pub fn arguments(target: &str) -> Vec<String> {
     let include = include();
-    let sal = tools().join("win32").join("src").join("sal.h");
+    let sal = tools()
+        .join("..")
+        .join("libs")
+        .join("clang2")
+        .join("src")
+        .join("sal.h");
     [
         "-x",
         "c++",
         target,
-        // Install the annotation shim after the SDK's macro definitions.
-        "-include",
-        "specstrings.h",
         "-include",
         sal.to_str().unwrap(),
         "-isystem",

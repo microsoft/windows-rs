@@ -107,7 +107,11 @@ impl Encoder<'_> {
             // clang scrape and the winmd -> RDL writer place them differently). The generic
             // `encode_attrs` pass below then skips them.
             for pseudo in PSEUDO_ATTRS {
-                if let Some(attr) = param.attrs.iter().find(|a| a.path().is_ident(pseudo.short)) {
+                for attr in param
+                    .attrs
+                    .iter()
+                    .filter(|a| a.path().is_ident(pseudo.short))
+                {
                     self.emit_pseudo_attribute(
                         metadata::writer::HasAttribute::Param(param_id),
                         pseudo,

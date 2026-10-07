@@ -387,7 +387,13 @@ fn write_type_def_items(
                 .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
             let ty = write_type(namespace, &field.ty());
             let arch_attr = write_arch_attr(item.arches());
-            let tokens = quote! { #arch_attr type #name = #ty; };
+            let attrs = write_custom_attributes_except(
+                item.attributes(),
+                namespace,
+                item.index(),
+                &["SupportedArchitectureAttribute"],
+            )?;
+            let tokens = quote! { #arch_attr #(#attrs)* type #name = #ty; };
             return Ok(vec![(item.name().to_string(), tokens)]);
         }
         write_struct_items(item)
@@ -448,14 +454,17 @@ fn write_const_value(
     })
 }
 
-fn write_const_guid(
-    _namespace: &str,
-    item: &metadata::reader::Field,
-) -> Result<TokenStream, Error> {
+fn write_const_guid(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
     let arch_attr = write_arch_attr(item.arches());
     let literal = guid_attribute_literal(item)?;
-    Ok(quote! { #arch_attr const #name: GUID = #literal; })
+    let attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["SupportedArchitectureAttribute", "GuidAttribute"],
+    )?;
+    Ok(quote! { #arch_attr #(#attrs)* const #name: GUID = #literal; })
 }
 
 /// Recombines a property-key constant's `fmtid` and `pid` into RDL form.
@@ -467,11 +476,17 @@ fn write_const_property_key(
     let ty = write_type(namespace, &item.ty());
     let arch_attr = write_arch_attr(item.arches());
     let guid = guid_attribute_literal(item)?;
+    let attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["SupportedArchitectureAttribute", "GuidAttribute"],
+    )?;
     if let Some(constant) = item.constant() {
         let pid = write_value(namespace, &constant.value());
-        Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty = #pid; })
+        Ok(quote! { #arch_attr #(#attrs)* #[guid(#guid)] const #name: #ty = #pid; })
     } else {
-        Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty; })
+        Ok(quote! { #arch_attr #(#attrs)* #[guid(#guid)] const #name: #ty; })
     }
 }
 
@@ -597,7 +612,7 @@ fn write_return_type(
         .unwrap_or_default();
 
     Ok(match &signature.return_type {
-        metadata::Type::Void => quote! {},
+        metadata::Type::Void if return_attrs.is_empty() => quote! {},
         ty => {
             let ty = write_type(namespace, ty);
             quote! { -> #(#return_attrs)* #ty }

@@ -9,6 +9,28 @@ fn out_path(name: &str) -> std::path::PathBuf {
 }
 
 #[test]
+fn native_annotations_require_two_strings() {
+    for attribute in [
+        "annotation",
+        "annotation()",
+        "annotation(\"sal\")",
+        "annotation(\"sal\", 42)",
+        "annotation(\"sal\", \"payload\", \"extra\")",
+        "annotation(\"sal\", \"payload\", unknown = 1)",
+    ] {
+        let input = format!("mod Test {{ #[{attribute}] type Value = i32; }}");
+        assert!(
+            windows_rdl::reader()
+                .input_text(&input)
+                .output(out_path("annotation"))
+                .write()
+                .is_err(),
+            "{attribute}"
+        );
+    }
+}
+
+#[test]
 fn invalid_library_import_targets() {
     for (options, expected) in [
         ("ordinal = 65536", "number too large"),

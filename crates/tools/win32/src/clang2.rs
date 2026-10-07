@@ -38,13 +38,12 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
         .into_iter()
         .flat_map(|dir| ["-isystem".into(), dir])
         .collect();
-    // Install the annotation shim after the SDK's macro wrappers.
-    let mut arguments = vec!["-include".into(), "specstrings.h".into()];
-    arguments.extend(clang_arguments(
+    let arguments = clang_arguments(
         &Arch::known("x64").unwrap(),
         &include_args,
         None,
-    ));
+        "crates/libs/clang2/src/sal.h",
+    );
     let inventory = windows_clang2::discover(
         inputs.clone(),
         &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
@@ -148,8 +147,9 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
     }
 
     let mut supported = vec![];
+    let projection = resolved.projection(&options)?;
     for root in &roots {
-        let rejected = match resolved.project_roots(&options, &[root]) {
+        let rejected = match projection.project_roots(&[root]) {
             Ok(plan) if plan.omitted().is_empty() => None,
             Ok(plan) => Some(format!("projection omissions: {:?}", plan.omitted())),
             Err(error) => Some(error.to_string()),
@@ -166,17 +166,15 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
         }
     }
     report(output, &inventory, &outcomes);
-    let plan = resolved
-        .project_roots(&options, &supported)
-        .inspect_err(|error| {
-            blocked(
-                output,
-                &inventory,
-                &mut outcomes,
-                "combined projection",
-                error,
-            );
-        })?;
+    let plan = projection.project_roots(&supported).inspect_err(|error| {
+        blocked(
+            output,
+            &inventory,
+            &mut outcomes,
+            "combined projection",
+            error,
+        );
+    })?;
     assert!(
         plan.omitted().is_empty(),
         "omitted audio roots: {:?}",

@@ -7,7 +7,7 @@ mod Test {
     }
     #[guid(0x00000000_0000_0000_c000_000000000047)]
     interface IDerived: IBase {
-        fn Notify(&self, #[in] value: i32, #[out] result: *mut i32);
+        fn Notify(&self, #[annotation("sal", "_In_")] #[in] value: i32, #[annotation("sal", "_Out_")] #[out] result: *mut i32);
     }
     #[library("test.dll", import = "Use")]
     extern "C" fn Use(p0: IDerived);

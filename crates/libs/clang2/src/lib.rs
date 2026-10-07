@@ -12,7 +12,8 @@ pub use capture::{DeclarationInfo, capture, discover};
 mod project;
 mod validate;
 pub use project::{
-    FunctionImport, ImportTarget, Plan, ProjectionOptions, ReferenceKind, StringKind, TypeReference,
+    FunctionImport, ImportTarget, Plan, Projection, ProjectionOptions, ReferenceKind, StringKind,
+    TypeReference,
 };
 
 /// One translation unit. All inputs to a capture use the same compiler arguments.
@@ -68,9 +69,11 @@ pub struct Validation {
 pub struct Resolved<'a> {
     snapshot: &'a Snapshot,
     representatives: Vec<Id>,
-    groups: Vec<Vec<Id>>,
+    groups: BTreeMap<Id, Vec<Id>>,
+    names: BTreeMap<&'a str, Vec<Id>>,
+    roots: BTreeMap<&'a str, Vec<Id>>,
     guids: BTreeMap<Id, &'a str>,
-    annotations: BTreeMap<Id, BTreeMap<usize, Vec<Vec<String>>>>,
+    annotations: BTreeMap<Id, ResolvedAnnotations>,
     report: Validation,
 }
 
@@ -134,6 +137,9 @@ impl Snapshot {
             .unwrap();
             writeln!(result, "USR: {}", declaration.identity).unwrap();
             writeln!(result, "entity: {}", declaration.entity.0).unwrap();
+            if !declaration.annotations.is_empty() {
+                writeln!(result, "annotations: {:#?}", declaration.annotations).unwrap();
+            }
             writeln!(result, "{:#?}", declaration.data).unwrap();
         }
         result

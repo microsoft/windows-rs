@@ -2,10 +2,12 @@
 mod Test {
     #[guid(0xf0f0f001_1234_5678_1234_567812345678)]
     interface Properties {
+        #[annotation("midl", "[propget]")]
         #[special]
-        fn get_Value(&self, #[out] value: *mut i32) -> i32;
+        fn get_Value(&self, #[annotation("midl", "[out]")] #[out] value: *mut i32) -> i32;
+        #[annotation("midl", "[propput]")]
         #[special]
-        fn put_Value(&self, #[in] value: i32) -> i32;
-        fn get_Plain(&self, #[out] value: *mut i32) -> i32;
+        fn put_Value(&self, #[annotation("midl", "[in]")] #[in] value: i32) -> i32;
+        fn get_Plain(&self, #[annotation("midl", "[propget][out]")] #[out] value: *mut i32) -> i32;
     }
 }

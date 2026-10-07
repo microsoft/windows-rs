@@ -346,12 +346,24 @@ fn build_com() {
     ] {
         println!("cargo:rerun-if-changed={file}");
     }
-    for file in ["main.rs", "sal.h"] {
-        println!(
-            "cargo:rerun-if-changed={}",
-            sdk::tools().join("win32").join("src").join(file).display()
-        );
-    }
+    println!(
+        "cargo:rerun-if-changed={}",
+        sdk::tools()
+            .join("win32")
+            .join("src")
+            .join("main.rs")
+            .display()
+    );
+    println!(
+        "cargo:rerun-if-changed={}",
+        sdk::tools()
+            .join("..")
+            .join("libs")
+            .join("clang2")
+            .join("src")
+            .join("sal.h")
+            .display()
+    );
     let target = format!("--target={}", std::env::var("TARGET").unwrap());
     let snapshot = sdk::capture_sdk(
         &target,

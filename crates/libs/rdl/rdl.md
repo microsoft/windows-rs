@@ -487,6 +487,27 @@ mod Contoso {
 }
 ```
 
+#### Source annotations
+
+`#[annotation("source", "payload")]` retains a source contract without requiring RDL to interpret
+it. Both arguments must be strings. It maps to
+`Windows.Win32.Metadata.NativeAnnotationAttribute` with a built-in two-string constructor
+signature; no separate attribute declaration is required.
+
+```rust,ignore
+#[annotation("sal", "_Return_type_success_(return >= 0)")]
+type Status = i32;
+```
+
+Annotations can appear on types, typedefs, fields, enum members, constants, callables, parameters,
+and returns. Repeated annotations survive round trips. RDL sorts attributes when formatting; keep
+order-sensitive clauses together in one payload. A void return with attributes is written as
+`-> #[annotation("source", "payload")] void`.
+
+`windows-clang2` uses the `sal` and `midl` source names and binds callable parameter references to
+zero-based `$0`, `$1`, etc., excluding `self`. RDL transports these strings without evaluating them
+or updating positions when parameters move. Typed attributes below remain separate.
+
 #### Parameter direction attributes
 
 Parameters can carry direction and optional attributes that map to Win32 SAL annotations. These

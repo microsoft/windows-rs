@@ -26,6 +26,7 @@ pub(super) struct Declaration {
     pub unit: String,
     pub location: Location,
     pub owner: String,
+    pub annotations: Vec<Annotation>,
     pub data: DeclarationData,
 }
 
@@ -55,6 +56,7 @@ pub(super) enum DeclarationData {
         flags: bool,
         repr: Type,
         variants: Vec<(String, Value)>,
+        annotations: Vec<Vec<Annotation>>,
     },
     Function {
         ty: Type,
@@ -126,6 +128,7 @@ pub(super) struct Field {
     pub ty: Type,
     pub offset: i64,
     pub bit_width: Option<i32>,
+    pub annotations: Vec<Annotation>,
 }
 
 #[derive(Debug)]
@@ -141,6 +144,7 @@ pub(super) struct Method {
     pub ref_qualifier: i32,
     pub pure: bool,
     pub overrides: Vec<String>,
+    pub annotations: Vec<Annotation>,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -159,8 +163,45 @@ pub(super) enum AnnotationSource {
 pub(super) struct Annotation {
     pub source: AnnotationSource,
     pub text: String,
-    pub context: Vec<String>,
+    pub context: std::sync::Arc<[String]>,
     pub location: Location,
+}
+
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub(super) struct SourceAnnotations {
+    pub sal: Vec<String>,
+    pub midl: Vec<String>,
+}
+
+impl SourceAnnotations {
+    pub fn lowered(&self) -> Vec<String> {
+        let mut result = self.sal.clone();
+        if !result
+            .iter()
+            .any(|text| Annotation::direction(text).is_some())
+        {
+            let direction = self
+                .midl
+                .iter()
+                .filter_map(|text| Annotation::midl_direction(text))
+                .fold(0, |a, b| a | b);
+            match direction {
+                1 => result.push("_In_".into()),
+                2 => result.push("_Out_".into()),
+                3 => result.push("_Inout_".into()),
+                _ => {}
+            }
+        }
+        result
+    }
+}
+
+#[derive(Default)]
+pub(super) struct ResolvedAnnotations {
+    pub own: SourceAnnotations,
+    pub fields: Vec<SourceAnnotations>,
+    pub methods: Vec<SourceAnnotations>,
+    pub parameters: std::collections::BTreeMap<usize, Vec<SourceAnnotations>>,
 }
 
 impl Annotation {
@@ -179,30 +220,172 @@ impl Annotation {
         }
     }
 
-    pub fn bound_text(&self) -> String {
-        let mut result = String::new();
-        let mut word = String::new();
-        let mut arguments = false;
-        let flush = |word: &mut String, result: &mut String, arguments: bool| {
-            if arguments && let Some(index) = self.context.iter().position(|name| name == word) {
-                result.push_str(&format!("${index}"));
-            } else {
-                result.push_str(word);
-            }
-            word.clear();
-        };
-        for character in self.text.chars() {
-            if character.is_ascii_alphanumeric() || character == '_' {
-                word.push(character);
-            } else {
-                flush(&mut word, &mut result, arguments);
-                arguments |= character == '(';
-                result.push(character);
+    pub(super) fn midl_direction(text: &str) -> Option<u8> {
+        let mut direction = 0;
+        for attribute in Self::midl_attributes(text)? {
+            direction |= match attribute {
+                "in" => 1,
+                "out" => 2,
+                _ => 0,
+            };
+        }
+        (direction != 0).then_some(direction)
+    }
+
+    pub(super) fn midl_attributes(text: &str) -> Option<Vec<&str>> {
+        let mut text = text.trim();
+        if let Some(comment) = text.strip_prefix("/*") {
+            text = comment.strip_suffix("*/")?.trim();
+        }
+        let mut attributes = vec![];
+        while !text.is_empty() {
+            let group = text.strip_prefix('[')?;
+            let mut delimiters = vec![];
+            let mut start = 0;
+            let mut index = 0;
+            loop {
+                if let Some(length) = literal_length(&group[index..]) {
+                    index += length;
+                    continue;
+                }
+                let ch = group[index..].chars().next()?;
+                match ch {
+                    '(' | '[' | '{' => delimiters.push(ch),
+                    ']' if delimiters.is_empty() => {
+                        attributes.push(group[start..index].trim());
+                        text = group[index + 1..].trim();
+                        break;
+                    }
+                    ')' | ']' | '}' => {
+                        let open = delimiters.pop()?;
+                        if !matches!((open, ch), ('(', ')') | ('[', ']') | ('{', '}')) {
+                            return None;
+                        }
+                    }
+                    ',' if delimiters.is_empty() => {
+                        attributes.push(group[start..index].trim());
+                        start = index + 1;
+                    }
+                    _ => {}
+                }
+                index += ch.len_utf8();
             }
         }
-        flush(&mut word, &mut result, arguments);
+        if attributes.is_empty()
+            || attributes.iter().any(|attribute| {
+                !attribute
+                    .chars()
+                    .next()
+                    .is_some_and(|ch| ch.is_ascii_alphabetic() || ch == '_')
+            })
+        {
+            return None;
+        }
+        Some(attributes)
+    }
+    pub fn bound_text(&self) -> String {
+        let mut result = String::new();
+        let mut depth = 0usize;
+        let mut start = 0;
+        while start < self.text.len() {
+            if let Some(length) = literal_length(&self.text[start..]) {
+                result.push_str(&self.text[start..start + length]);
+                start += length;
+                continue;
+            }
+            let character = self.text[start..].chars().next().unwrap();
+            if character.is_ascii_digit()
+                || (character == '.'
+                    && self
+                        .text
+                        .as_bytes()
+                        .get(start + 1)
+                        .is_some_and(u8::is_ascii_digit))
+            {
+                let mut end = start + 1;
+                while let Some(&ch) = self.text.as_bytes().get(end) {
+                    if ch.is_ascii_alphanumeric()
+                        || matches!(ch, b'_' | b'.' | b'\'')
+                        || (matches!(ch, b'+' | b'-')
+                            && matches!(self.text.as_bytes()[end - 1], b'e' | b'E' | b'p' | b'P'))
+                    {
+                        end += 1;
+                    } else {
+                        break;
+                    }
+                }
+                result.push_str(&self.text[start..end]);
+                start = end;
+            } else if character.is_ascii_alphabetic() || character == '_' {
+                let end = start
+                    + self.text[start..]
+                        .bytes()
+                        .take_while(|ch| ch.is_ascii_alphanumeric() || *ch == b'_')
+                        .count();
+                let word = &self.text[start..end];
+                let before = self.text[..start].trim_end();
+                let after = self.text[end..].trim_start();
+                if depth != 0
+                    && !before.ends_with('.')
+                    && !before.ends_with("::")
+                    && !before.ends_with("->")
+                    && !after.starts_with("::")
+                    && let Some(index) = self.context.iter().position(|name| name == word)
+                {
+                    result.push_str(&format!("${index}"));
+                } else {
+                    result.push_str(word);
+                }
+                start = end;
+            } else {
+                if character == '(' {
+                    depth += 1;
+                } else if character == ')' {
+                    depth = depth.saturating_sub(1);
+                }
+                result.push(character);
+                start += character.len_utf8();
+            }
+        }
         result
     }
+}
+
+fn literal_length(text: &str) -> Option<usize> {
+    for prefix in ["u8R\"", "uR\"", "UR\"", "LR\"", "R\""] {
+        if let Some(rest) = text.strip_prefix(prefix)
+            && let Some((delimiter, _)) = rest.split_once('(')
+            && delimiter.len() <= 16
+            && !delimiter
+                .chars()
+                .any(|ch| ch.is_whitespace() || matches!(ch, ')' | '\\'))
+        {
+            let suffix = format!("){delimiter}\"");
+            let body = prefix.len() + delimiter.len() + 1;
+            return Some(
+                text[body..]
+                    .find(&suffix)
+                    .map_or(text.len(), |end| body + end + suffix.len()),
+            );
+        }
+    }
+    let prefix = [
+        "u8\"", "u\"", "U\"", "L\"", "\"", "u8'", "u'", "U'", "L'", "'",
+    ]
+    .into_iter()
+    .find(|prefix| text.starts_with(prefix))?;
+    let quote = prefix.as_bytes()[prefix.len() - 1];
+    let mut escaped = false;
+    for (offset, ch) in text[prefix.len()..].bytes().enumerate() {
+        if escaped {
+            escaped = false;
+        } else if ch == b'\\' {
+            escaped = true;
+        } else if ch == quote {
+            return Some(prefix.len() + offset + 1);
+        }
+    }
+    Some(text.len())
 }
 
 #[derive(Debug, Eq, PartialEq)]

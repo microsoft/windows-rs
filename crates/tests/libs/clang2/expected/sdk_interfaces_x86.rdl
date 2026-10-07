@@ -1,13 +1,17 @@
 #[win32]
 mod Test {
+    #[annotation("sal", "_Return_type_success_(return >= 0)")]
+    type HRESULT = i32;
     #[guid(0x00000001_0000_0000_c000_000000000046)]
     interface IClassFactory: IUnknown {
-        fn CreateInstance(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] riid: *const External::GUID, #[out] #[iid_is] ppvObject: *mut *mut void) -> i32;
-        fn LockServer(&self, #[in] fLock: i32) -> i32;
+        #[annotation("midl", "[local]")]
+        fn CreateInstance(&self, #[annotation("midl", "[annotation][unique][in]")] #[annotation("sal", "_In_opt_")] #[in] #[opt] pUnkOuter: IUnknown, #[annotation("midl", "[annotation][in]")] #[annotation("sal", "_In_")] #[in] riid: *const External::GUID, #[annotation("midl", "[annotation][iid_is][out]")] #[annotation("sal", "_COM_Outptr_")] #[out] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        #[annotation("midl", "[local]")]
+        fn LockServer(&self, #[annotation("midl", "[in]")] #[in] fLock: i32) -> HRESULT;
     }
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, #[in] riid: *const External::GUID, #[out] #[iid_is] ppvObject: *mut *mut void) -> i32;
+        fn QueryInterface(&self, #[annotation("midl", "[in]")] #[in] riid: *const External::GUID, #[annotation("midl", "[iid_is][out]")] #[annotation("sal", "_COM_Outptr_")] #[out] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> u32;
         fn Release(&self) -> u32;
     }

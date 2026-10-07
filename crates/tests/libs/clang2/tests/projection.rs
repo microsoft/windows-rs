@@ -146,12 +146,25 @@ fn invalid_output_byte_postconditions_reject() {
         source.replace("unsigned* written", "const unsigned* written"),
         source.replace("unsigned* written", "float* written"),
         source.replace("unsigned* written", "unsigned** written"),
-        source.replace("capacity, *written)", "capacity, *written + 1)"),
-        source.replace("capacity, *written)", "*written, capacity)"),
     ] {
         let snapshot = capture([Input::new("bad.hpp", changed)], ARGS, &["Partial"]).unwrap();
         assert!(snapshot.resolve().unwrap().project(&options()).is_err());
     }
+}
+
+#[test]
+fn uninterpreted_output_byte_postconditions_are_preserved() {
+    let source = include_str!("../input/output_buffers.h")
+        .replace("capacity, *written)", "capacity, *written + 1)");
+    let snapshot = capture([Input::new("expression.hpp", source)], ARGS, &["Partial"]).unwrap();
+    let rdl = snapshot
+        .resolve()
+        .unwrap()
+        .project(&options())
+        .unwrap()
+        .rdl();
+    assert!(rdl.contains("_Out_writes_bytes_to_($1,*$2 + 1)"), "{rdl}");
+    assert!(!rdl.contains("#[written_bytes("), "{rdl}");
 }
 
 #[test]
@@ -397,6 +410,22 @@ fn adjusted_layouts_preserve_storage_but_reject_unproven_value_calls() {
 }
 
 #[test]
+fn annotated_aliases_preserve_by_value_restrictions() {
+    let source = include_str!("../input/adjusted_layouts.h").replace(
+        "using OuterAlias = Outer;",
+        "typedef Outer OuterAlias __attribute__((annotate(\"_Vendor_(alias)\")));",
+    );
+    let snapshot = capture([Input::new("layout.hpp", source)], ARGS, &["AliasByValue"]).unwrap();
+    let error = snapshot.resolve().unwrap().project(&options()).unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("by-value calls with adjusted record layouts"),
+        "{error}"
+    );
+}
+
+#[test]
 fn selected_record_aliases_require_unambiguous_ownership() {
     let source = "struct Owner { struct { int value; } member; }; using A = decltype(Owner::member); using B = A;";
     for reverse in [false, true] {
@@ -590,13 +619,13 @@ fn double_null_annotations_are_not_silently_dropped() {
     ] {
         let snapshot =
             capture([Input::new("strings.hpp", source)], ARGS, &["MultiString"]).unwrap();
-        let error = snapshot
+        let rdl = snapshot
             .resolve()
             .unwrap()
             .project(&options())
-            .unwrap_err()
-            .to_string();
-        assert!(error.contains("_NullNull_terminated_"), "{error}");
+            .unwrap()
+            .rdl();
+        assert!(rdl.contains("_NullNull_terminated_"), "{rdl}");
     }
 }
 
@@ -609,8 +638,8 @@ fn interface_object_direction_is_not_an_output_slot() {
             .resolve()
             .unwrap()
             .project(&options())
-            .unwrap_err()
-            .to_string()
+            .unwrap()
+            .rdl()
             .contains("_Outptr_")
     );
     let snapshot = capture(
@@ -624,7 +653,8 @@ fn interface_object_direction_is_not_an_output_slot() {
     .unwrap();
     let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
     assert!(
-        plan.rdl().contains("fn Mutate(&self, #[in] context:"),
+        plan.rdl()
+            .contains("fn Mutate(&self, #[annotation(\"sal\", \"_Inout_\")] #[in] context:"),
         "{}",
         plan.rdl()
     );
@@ -690,7 +720,7 @@ fn interface_direction_distinguishes_objects_from_pointer_slots() {
                 .unwrap()
                 .rdl();
             assert!(
-                rdl.contains(&format!("fn MutateObject({attributes}p0: {projected})")),
+                rdl.contains(&format!("fn MutateObject(#[annotation(\"sal\", \"{annotation}\")] {attributes}p0: {projected})")),
                 "{rdl}"
             );
         }
@@ -1813,7 +1843,15 @@ fn real_interfaces_project_locally() {
             ["QueryInterface", "AddRef", "Release"]
         );
         let query = unknown.methods().next().unwrap();
-        assert_eq!(query.signature(&[]).return_type, Type::I32);
+        assert_eq!(
+            query.signature(&[]).return_type,
+            Type::value_named("Test", "HRESULT")
+        );
+        assert!(
+            index
+                .expect("Test", "HRESULT")
+                .has_attribute("NativeAnnotationAttribute")
+        );
         assert_eq!(
             query.signature(&[]).types,
             [
@@ -1874,10 +1912,16 @@ fn real_interfaces_project_locally() {
                 .unwrap()
                 .has_attribute("ComOutPtrAttribute")
         );
-        assert_eq!(create.signature(&[]).return_type, Type::I32);
+        assert_eq!(
+            create.signature(&[]).return_type,
+            Type::value_named("Test", "HRESULT")
+        );
         let lock = factory.methods().nth(1).unwrap();
         assert_eq!(lock.signature(&[]).types, [Type::I32]);
-        assert_eq!(lock.signature(&[]).return_type, Type::I32);
+        assert_eq!(
+            lock.signature(&[]).return_type,
+            Type::value_named("Test", "HRESULT")
+        );
 
         let Item::Fn(function) = index.expect_item("Test", "Use") else {
             panic!()
@@ -1920,7 +1964,7 @@ fn assert_guid(ty: TypeDef<'_>, first: u32, last: u8) {
 }
 
 #[test]
-fn projection_rejects_unknown_layout_and_annotations() {
+fn projection_rejects_unknown_layout() {
     for (source, root, reason) in [
         (
             "struct Data { int value; }; extern \"C\" void Use(Data value);",
@@ -1933,11 +1977,6 @@ fn projection_rejects_unknown_layout_and_annotations() {
             "by-value external",
         ),
         ("struct Packet {};", "Packet", "empty record"),
-        (
-            "extern \"C\" void Use(int n, int* __attribute__((annotate(\"_Out_writes_to_(n,n)\"))) data);",
-            "Use",
-            "annotation projection",
-        ),
     ] {
         let snapshot = capture([Input::new("api.hpp", source)], ARGS, &[root]).unwrap();
         assert!(
@@ -2239,7 +2278,7 @@ fn optional_pointers_preserve_direction() {
 }
 
 #[test]
-fn unsupported_buffer_lengths_are_errors() {
+fn buffer_contracts_reject_invalid_types_and_preserve_uninterpreted_expressions() {
     for (count, buffer, annotation, reason) in [
         (
             "int",
@@ -2322,12 +2361,6 @@ fn unsupported_buffer_lengths_are_errors() {
         ),
         (
             "int",
-            "int*",
-            "_Out_writes_to_(count,count)",
-            "annotation projection",
-        ),
-        (
-            "int",
             "int",
             "_In_reads_opt_(count)",
             "requires a buffer pointer",
@@ -2386,7 +2419,16 @@ fn unsupported_buffer_lengths_are_errors() {
             ARGS,
             &["Buffer"],
         ).unwrap();
-        let error = snapshot.resolve().unwrap().project(&options()).unwrap_err();
+        let resolved = snapshot.resolve().unwrap();
+        if matches!(
+            reason,
+            "unsupported buffer length" | "explicit string binding" | "annotation projection"
+        ) {
+            let rdl = resolved.project(&options()).unwrap().rdl();
+            assert!(rdl.contains("#[annotation(\"sal\","), "{rdl}");
+            continue;
+        }
+        let error = resolved.project(&options()).unwrap_err();
         assert!(
             error.to_string().contains(reason),
             "{count}, {buffer}, {annotation}: {error}"
@@ -2464,13 +2506,8 @@ fn strings_require_valid_explicit_bindings_and_character_pointers() {
         let resolved = snapshot.resolve().unwrap();
         let mut options = string_options();
         options.string_references.remove(&kind);
-        assert!(
-            resolved
-                .project(&options)
-                .unwrap_err()
-                .to_string()
-                .contains("explicit string binding")
-        );
+        let rdl = resolved.project(&options).unwrap().rdl();
+        assert!(rdl.contains("#[annotation(\"sal\", \"_In_z_\")]"), "{rdl}");
         let mut options = string_options();
         options.string_references.get_mut(&kind).unwrap().kind = ReferenceKind::Interface;
         assert!(
@@ -2559,7 +2596,7 @@ fn real_sdk_string_parameter_projects() {
     assert_eq!(
         function.signature(&[]).types,
         [
-            Type::value_named("External", "PCWSTR"),
+            Type::value_named("Test", "LPCWSTR"),
             Type::PtrMut(Box::new(Type::value_named("Test", "_SYSTEMTIME")), 1),
         ]
     );

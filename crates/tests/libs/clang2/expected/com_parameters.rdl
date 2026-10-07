@@ -1,9 +1,9 @@
 #[win32]
 mod Test {
     #[library("test.dll", import = "Create")]
-    extern "C" fn Create(#[out] #[iid_is] p0: *mut *mut void, #[out] p1: *mut External::IUnknown, #[in] #[opt] p2: External::IUnknown);
+    extern "C" fn Create(#[annotation("sal", "_COM_Outptr_")] #[out] #[iid_is] p0: *mut *mut void, #[annotation("sal", "_COM_Outptr_")] #[out] p1: *mut External::IUnknown, #[annotation("sal", "_In_opt_")] #[in] #[opt] p2: External::IUnknown);
     #[guid(0x00000001_0000_0000_c000_000000000046)]
     interface IFactory {
-        fn Create(&self, #[out] #[iid_is] untyped: *mut *mut void, #[out] typed: *mut External::IUnknown, #[in] #[opt] outer: External::IUnknown);
+        fn Create(&self, #[annotation("sal", "_COM_Outptr_")] #[out] #[iid_is] untyped: *mut *mut void, #[annotation("sal", "_COM_Outptr_")] #[out] typed: *mut External::IUnknown, #[annotation("sal", "_In_opt_")] #[in] #[opt] outer: External::IUnknown);
     }
 }

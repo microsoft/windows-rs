@@ -474,7 +474,7 @@ impl Encoder<'_> {
         pseudo: &PseudoAttr,
         attr: &syn::Attribute,
     ) -> Result<(), Error> {
-        let attr_ref = if matches!(attr.meta, syn::Meta::Path(_)) {
+        let attr_ref = if matches!(attr.meta, syn::Meta::Path(_)) && pseudo.short != "annotation" {
             AttributeRef {
                 type_name: metadata::TypeName::named(METADATA_NAMESPACE, pseudo.metadata),
                 args: vec![],
@@ -491,10 +491,17 @@ impl Encoder<'_> {
         attr: &syn::Attribute,
         pseudo: &PseudoAttr,
     ) -> Result<AttributeRef, Error> {
-        let info = self
-            .find_in_reference(METADATA_NAMESPACE, pseudo.metadata)
-            .or_else(|| self.find_in_index(METADATA_NAMESPACE, pseudo.metadata))
-            .ok_or_else(|| self.error(attr, "pseudo-attribute type not found"))?;
+        let info = if pseudo.short == "annotation" {
+            AttributeInfo {
+                type_name: metadata::TypeName::named(METADATA_NAMESPACE, pseudo.metadata),
+                constructors: vec![vec![metadata::Type::String, metadata::Type::String]],
+                properties: vec![],
+            }
+        } else {
+            self.find_in_reference(METADATA_NAMESPACE, pseudo.metadata)
+                .or_else(|| self.find_in_index(METADATA_NAMESPACE, pseudo.metadata))
+                .ok_or_else(|| self.error(attr, "pseudo-attribute type not found"))?
+        };
 
         let raw_args: Vec<syn::Expr> = match &attr.meta {
             syn::Meta::Path(_) => vec![],

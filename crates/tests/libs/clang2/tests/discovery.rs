@@ -197,3 +197,70 @@ fn header_partitioning_rejects_unowned_command_line_macros() {
             .contains("ownership is unavailable")
     );
 }
+#[test]
+fn aggregate_macros_do_not_receive_integer_probes() {
+    let source = include_str!("../input/macro_aggregate.h");
+    let mut outputs = vec![];
+    for prefix in ["", "#define AS_MACRO\n"] {
+        let snapshot = capture(
+            [Input::new("macro.h", format!("{prefix}{source}"))],
+            &["-x", "c++", "--target=x86_64-pc-windows-msvc"],
+            &["ID", "HANDLE_VALUE", "SCALAR_VALUE"],
+        )
+        .unwrap();
+        outputs.push(
+            snapshot
+                .resolve()
+                .unwrap()
+                .project(&ProjectionOptions::new("Test"))
+                .unwrap()
+                .rdl(),
+        );
+    }
+
+    assert_eq!(outputs[0], outputs[1]);
+    assert!(outputs[0].contains("#[guid(0x00000001000200030405060708090a0b)]"));
+}
+
+#[test]
+fn reusable_projection_keeps_root_specific_names_and_failures_isolated() {
+    let snapshot = capture(
+        [Input::new(
+            "aliases.h",
+            "struct Tag { int value; }; typedef Tag A; typedef Tag B; class Incomplete;",
+        )],
+        &["-x", "c++", "--target=x86_64-pc-windows-msvc"],
+        &["Tag", "A", "B", "Incomplete"],
+    )
+    .unwrap();
+    let resolved = snapshot.resolve().unwrap();
+    let options = ProjectionOptions::new("Test");
+    let projection = resolved.projection(&options).unwrap();
+    for roots in [
+        &["A"][..],
+        &["Incomplete"],
+        &["B"],
+        &["A", "B"],
+        &["Tag", "A", "B"],
+        &["A"],
+    ] {
+        let shared = projection.project_roots(roots);
+        let isolated = resolved.project_roots(&options, roots);
+        match (shared, isolated) {
+            (Ok(shared), Ok(isolated)) => {
+                assert_eq!(shared.rdl(), isolated.rdl());
+                assert_eq!(
+                    shared.rdl_by_header().unwrap(),
+                    isolated.rdl_by_header().unwrap()
+                );
+            }
+            (Err(shared), Err(isolated)) => {
+                assert_eq!(shared.to_string(), isolated.to_string());
+            }
+            _ => panic!("projection policy leaked state between root selections"),
+        }
+    }
+    assert!(projection.project_roots(&["A", "B"]).is_err());
+    assert!(projection.project_roots(&["missing"]).is_err());
+    assert!(projection.project_roots(&[]).is_err());
+}

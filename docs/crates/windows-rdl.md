@@ -180,7 +180,12 @@ field type through metadata and RDL roundtrips; `GuidAttribute` carries the GUID
   consumers validate the signature and success condition.
 - RDL cannot spell a metadata parameter with neither In nor Out. Omitting direction invokes the
   type-based default.
-- Attributes on a void return row cannot round-trip because there is no return type to carry them.
+- Source contracts use `#[annotation("source", "payload")]`, backed by a built-in two-string
+  `Windows.Win32.Metadata.NativeAnnotationAttribute` signature. No semantic lowering is implied.
+  Repeated attributes survive; order-sensitive clauses belong in one payload because formatting
+  sorts attributes. Typedefs, enum members, and GUID/property-key constants retain their attributes.
+- Attributes on a void return row use `-> #[annotation("source", "payload")] void`; an unannotated
+  void return is omitted.
 - `split` and `partition` clear existing `.rdl` files in the output directory before writing.
 
 ---
@@ -333,8 +338,8 @@ WDK metadata has at least one representable direction flag.
 
 - **Direction flags:** RDL has no spelling for a `Param` row with neither In nor Out. Omitting both
   invokes the type-based default, so a metadata row with neither flag reads back as In.
-- **Void return rows:** Return attributes are written after `->`. A void method has no return type
-  to carry them, so attributes on its sequence 0 row are not represented.
+- **Annotation ordering:** Separate attributes are sorted during formatting. Preserve ordered
+  source clauses in one `annotation` payload; repeated attributes are not deduplicated.
 - **Count relationships:** `#[len_param(N)]` and `#[size_param(N)]` store raw zero-based signature
   positions. Reordering parameters without updating `N` changes the relationship.
 - **Pointer constness:** `metadata::Type` stores one constness bit with a pointer depth. Uniform

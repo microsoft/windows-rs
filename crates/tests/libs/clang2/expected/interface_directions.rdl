@@ -6,9 +6,9 @@ mod Test {
     }
     #[guid(0x981a8ac7_36ca_4b94_a186_a201ed0ed052)]
     interface ITranslator {
-        fn Mutate(&self, #[in] context: IContext) -> i32;
-        fn Create(&self, #[out] context: *mut IContext) -> i32;
+        fn Mutate(&self, #[annotation("sal", "_Inout_")] #[in] context: IContext) -> i32;
+        fn Create(&self, #[annotation("sal", "_COM_Outptr_")] #[out] context: *mut IContext) -> i32;
     }
     #[library("test.dll", import = "MutateObject")]
-    extern "C" fn MutateObject(#[in] p0: IContext);
+    extern "C" fn MutateObject(#[annotation("sal", "_Inout_")] #[in] p0: IContext);
 }

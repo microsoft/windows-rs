@@ -19,9 +19,47 @@ validation. Use small `.h`/`.rdl` fixtures, compiler-reported evidence, and comp
 inventories. Keep unsupported contracts visible; a declaration count alone does not establish
 fidelity. Native execution is reserved for an ambiguity that source/compiler evidence cannot settle.
 
-The audio inventory exposes concrete remaining work: declaration-only data, ordinary output-pointer
-annotations, and nullable output results. General C++ projection, broader SAL/MIDL coverage, and
-the full Win32/WDK cutover remain outside the established subset.
+The audio inventory exposes declaration-only data as remaining work. Output-pointer and nullable
+result contracts survive as source annotations without guessing typed metadata semantics. General
+C++ projection, broader SAL/MIDL coverage, and full Win32/WDK cutover remain outside this subset.
+
+### Pre-scale critical review
+
+The five source-only review findings have targeted fixes and regression fixtures. Annotation
+preservation is independent of typed lowering; unknown captured contracts remain in RDL.
+
+| Area | Implementation | Boundary |
+| --- | --- | --- |
+| SAL capture | `src/sal.h` instruments SDK source markers and combinators. | SDK capture without the adapter rejects. |
+| Annotation ownership | Exact source-position index and shared callable contexts. | Inherited evidence keeps its original context. |
+| Per-root projection | Immutable root/group/name indices and reusable `Projection`. | Names, dependencies, and collisions remain plan-local. |
+| UUIDs | Parse actual UUID attributes from terse compiler-rendered declarations. | Deprecated messages and macro argument order cannot supply guessed UUIDs. |
+| Macro constants | Const-reference value probes; integer fallback only for pointers. | Aggregate constructors and dynamic values still reject. |
+
+One optimized x64 synthetic run used independent fixed-prototype functions with one integer
+parameter each. The annotated case adds `annotate("_In_")` to every parameter. Rust build time is
+excluded; the per-root column assesses every root individually after one capture/resolution:
+
+| Functions | Plain capture | Annotated capture | Annotated resolution | One combined projection | All per-root projections |
+| --- | --- | --- | --- | --- | --- |
+| 1,024 | 30 ms | 31 ms | 1.2 ms | 1.6 ms | 1.3 ms |
+| 2,048 | 37 ms | 50 ms | 2.4 ms | 3.5 ms | 3.0 ms |
+| 4,096 | 59 ms | 97 ms | 4.7 ms | 9.7 ms | 6.3 ms |
+
+The review baseline at 4,096 annotated functions was 1,772 ms for capture and 230 ms for all
+per-root projections. These measurements isolate indexing costs; they are not an SDK throughput or
+memory budget. Peak memory has not been measured.
+
+Keep the owned native graph, checked resolution, and closed projection plan. Written types and
+canonical types serve different contracts; separate observations prevent missing evidence from
+hiding conflicts. Deterministic output and fail-closed unsupported outcomes are useful, not cleanup
+targets. Do not add another general IR, a global projection cache, or a parallel capture framework
+to solve the measured indexing problems.
+
+Larger real-header runs should establish peak memory and multi-TU resource
+budgets. Parse reuse between discovery, capture, and macro probing is another optimization
+candidate. Streaming TUs, broad interning, and container replacement are deferred until those
+measurements justify their complexity.
 
 ## Current pipeline
 
@@ -80,14 +118,14 @@ libclang USR. General unnamed-type identity across different files is not inferr
 | Records | Kind, completeness, layout, fields, bit widths, simple bases, and method signatures. |
 | Enums | Completeness, scopedness, explicit Clang/Windows flag markers, underlying type, and member values. |
 | Callables | Prototype kind, calling convention, exception specification, result, and parameter types. |
-| Parameters | Names, SAL annotate strings, MIDL directions, source families, original contexts, and locations. |
+| Annotations | Ordered SAL and bounded MIDL payloads, declaration/member scope, parameter contexts, and locations. |
 | COM properties | Declaration-local MIDL `propget`, `propput`, and `propputref` markers, checked across observations. |
 | Variables | Native type and supported integer/floating initializer values, or an explicit unavailable value. |
 | Provenance | Input name, compiler arguments, resolved target, USR, and spelling location. |
 
 Annotation comparison binds parameter identifiers in argument expressions to their original
 positions. Missing annotation evidence does not contradict present evidence, but two nonempty,
-different sets from the same source family conflict. SAL and MIDL evidence are checked separately
+different sequences from the same source family conflict. SAL and MIDL evidence are checked separately
 across all observations, not just against one anchor. Explicit SAL direction controls local calls;
 MIDL supplies direction only when SAL has none. Conflicting MIDL observations still fail when SAL
 supplies the final direction. The SDK's `IDispatch::Invoke` has `_In_ DISPPARAMS*` alongside
@@ -96,8 +134,23 @@ supplies the final direction. The SDK's `IDispatch::Invoke` has `_In_ DISPPARAMS
 MIDL recovery accepts contiguous prefix block comments immediately after a parameter delimiter.
 Complete bracket groups such as `[in]`, `[out]`, and `[in,out]` supply direction. Trailing comments,
 prose, and nested callback parameter comments do not attach to the outer parameter. Parameterized
-groups and relationships, optionality, and retval markers are not decoded. This tokenizer is not
-a general annotation-expression parser.
+groups, relationships, optionality, and retval markers are preserved without typed lowering.
+Balanced nested brackets and quoted delimiters are retained. Callable-prefix comments inside the
+declaration extent are also captured. Comments outside these ownership boundaries are not recovered;
+this is not a general MIDL parser.
+
+`#[annotation("sal", "...")]` and `#[annotation("midl", "...")]` preserve captured contracts on
+declarations, methods, fields, enum members, and parameters. Each source family has one ordered
+payload per scope. Parameter references use `$0`, `$1`, etc.; method positions exclude `self`.
+Quoted literals and member names are not rewritten. This lexical binding is not C++ name lookup.
+Understood contracts also receive typed metadata attributes; the raw payload remains.
+
+Force-include `crates/libs/clang2/src/sal.h` before SDK headers. It disables strict wrappers that
+erase source markers, then instruments the SDK's SAL marker families and compositional operators.
+The legacy scraper has a separate adapter. This does not establish exhaustive coverage of every
+SDK/WDK annotation macro or arbitrary C++ attribute. New families need source fixtures, not silent
+defaults. Annotated same-name record aliases and standalone callable typedef projection still need
+additional representation; unsupported cases reject rather than discard their contracts.
 
 Record field enumeration uses `clang_Type_visitFields`, including implicit anonymous struct/union
 members. The graph preserves direct field order, native offsets, member types, and nested layouts.
@@ -165,6 +218,9 @@ from caller-supplied external bindings.
 captured graph must pass resolution first; this API cannot hide unsupported native evidence or
 cross-TU conflicts. Every subset still includes its output dependencies. Successful individual
 plans do not prove that a combined plan is valid: alias and output-name conflicts remain errors.
+For repeated assessments, create `Resolved::projection(&options)` once and call
+`Projection::project_roots`. It reuses binding validation and immutable lookup indices, not
+root-dependent projected items.
 
 `Plan::rdl_by_header` partitions the closed plan by source ownership. Complete definitions outrank
 forward declarations, and equally complete observations use the first lexicographic source path.
@@ -185,7 +241,7 @@ definitions, cannot be header-partitioned.
 | External pointer typedefs | Explicit pointer-sized value bindings; preserve the alias boundary and native pointee constness. |
 | External interfaces | Bind a native record; consume exactly one native pointer/reference level. |
 | Local interfaces | UUID-bearing, fieldless records with pure virtual system-ABI methods and at most one base. MIDL `propget`/`propput` become `#[special]` on unchanged native method names. |
-| Aliases | Preserve bound scalar/pointer contracts; otherwise peel at uses. A selected alias can name a record unless its named tag is also selected. Competing selected names reject. |
+| Aliases | Preserve annotated scalar, pointer, record, and array aliases at uses. Unannotated aliases can name selected records. Competing selected names reject. |
 | Constants | Scalar and raw pointer values, plus GUID/property-key aggregate storage shapes; omit interface values with a reason. |
 | Raw pointers | Collapse mixed mutability to const if any raw-pointer level is const. |
 
@@ -295,16 +351,17 @@ Resolution binds length parameter names using each annotation's original declara
 Projection uses those zero-based positions, not the representative declaration's parameter names;
 method positions exclude `self`. A referenced count must be a by-value integer parameter, and its
 index must fit `i16`. Constant element counts are decimal literals from zero through `i32::MAX`.
-Output buffers must be writable. Element-counted `void*` buffers, indirect or arithmetic capacities,
-constant byte counts, non-decimal literals, and multiple length annotations are errors.
-Other annotations remain errors, including unsupported COM output variants.
+Output buffers must be writable. Element-counted `void*` buffers, invalid understood count types,
+and multiple length annotations are errors. Expressions without typed lowering, including arithmetic
+capacities and written counts, remain in the source payload without a guessed length attribute.
+Unsupported COM output variants likewise retain their source contracts.
 Compiling length attributes to WinMD requires the standard metadata attribute definitions, supplied
 by `windows_rdl::Reader::reference_default()` in the fixtures.
 
-Scalar string annotations `_In_z_`, `_In_opt_z_`, `_Out_z_`, and `_Inout_z_` require explicit
-`ProjectionOptions::string_references`. Each binding is a trusted pointer-sized metadata value
-type, supplied by the caller's reference WinMD. The planner never invents local aliases or assumes
-a Windows metadata namespace. Missing bindings, interface bindings, and malformed names are errors.
+Scalar string annotations `_In_z_`, `_In_opt_z_`, `_Out_z_`, and `_Inout_z_` preserve raw character
+pointers when no `ProjectionOptions::string_references` binding is supplied. Each supplied binding
+is a trusted pointer-sized metadata value type. The planner never assumes a Windows metadata
+namespace. Interface bindings and malformed names are errors.
 
 | Native single-pointer target | Mutable binding | Const binding |
 | --- | --- | --- |
@@ -318,7 +375,8 @@ uses the mutable binding with input direction. Output/inout strings require writ
 Other character widths and pointer depths fail projection. Raw unannotated pointers are unchanged;
 typedef spelling alone does not establish termination. An explicitly bound pointer typedef retains
 its caller-supplied identity. When it also has a string annotation, both bindings must name the same
-metadata type. Counted `_z_` forms remain unsupported.
+metadata type. Annotated local aliases retain their own identity. Counted `_z_` forms retain their
+source payload without typed string lowering.
 
 Local COM methods must be non-static, non-const, and non-ref-qualified. Their calling convention
 must match the RDL system ABI: stdcall for x86, the platform convention for x64 and ARM64.
@@ -417,11 +475,9 @@ no annotations.
 direction, optionality, and raw pointer controls. `sdk_strings.h` projects the SDK's
 `WinHttpTimeToSystemTime` with an explicit const-wide binding and a local `SYSTEMTIME` record.
 
-The SDK fixtures force-include `specstrings.h` before the shared `tool-win32` SAL capture shim.
-`specstrings.h` redefines COM SAL macros, so loading it after the shim can erase annotation evidence.
-Capture records compiler annotation attributes, not arbitrary SAL spelling; callers must provide
-the annotation shim in the correct header order. MIDL prefix direction comments are captured
-separately and do not override explicit SAL direction.
+The SDK and WDK fixtures force-include the clang2 SAL capture header. It installs SDK wrappers before
+replacing source markers, with strict erasure disabled. MIDL prefix comments are captured separately
+and do not override explicit SAL direction.
 
 The workspace test job includes both crates on supported hosts. Like the existing clang tests,
 frontend tests are excluded from the x86 test process because the pinned runtime has no x86 DLL.
@@ -479,7 +535,7 @@ collisions, nested adjusted records, increased record alignment, and by-value re
 `tests/crypto.rs` calls the actual Windows `bcrypt.dll` through generated wrappers. Its eight
 required exports are `BCryptOpenAlgorithmProvider`, `BCryptGetProperty`, `BCryptCreateHash`,
 `BCryptHashData`, `BCryptFinishHash`, `BCryptDestroyHash`, `BCryptDeriveKeyPBKDF2`, and
-`BCryptCloseAlgorithmProvider`. The inputs come from the pinned SDK and shared SAL shim; external
+`BCryptCloseAlgorithmProvider`. The inputs come from the pinned SDK and clang2 SAL adapter; external
 `PCWSTR` and handle bindings are explicit.
 
 The hashing lifecycle opens a SHA256 or HMAC provider, queries object and digest lengths, creates
@@ -824,25 +880,21 @@ device-interface GUIDs. The original main/satellite declaration observations rem
 No macro-name parser, argument-text evaluator, or `IID_` naming guess supplies values. IID, CLSID,
 and LIBID extern declarations without initializers remain unsupported.
 
-The pinned headers produce 166 inventory rows and 102 selected names: 57 emit and 45 reject.
+The pinned headers produce 166 inventory rows and 102 selected names: 66 emit and 36 reject.
 Forward declarations and typedefs account for repeated names. One x64 debug RDL-only run resolved
-321 groups and 921 observations with 631 declaration comparisons in 4.5 seconds.
+321 groups and 921 observations with 631 declaration comparisons in 2.93 seconds.
 
-The SDK's `specstrings.h` must load before the annotation shim, or its macro wrappers erase some
-captured SAL contracts. With that ordering fixed, unsupported output-pointer annotations reject
-their affected roots rather than producing less informative RDL. The earlier 66-name result did
-not include those contracts and is not the fidelity baseline.
+Output-pointer and nullable-result annotations are retained as raw contracts. Their presence does
+not imply typed nullability or ownership lowering.
 
 | Remaining family | Names | Missing contract |
 | --- | --- | --- |
 | GUID data declarations | 16 | Initializer or imported-data evidence for IID, CLSID, and LIBID variables. |
 | RPC globals | 20 | Imported data is not a metadata constant. |
-| Ordinary output pointers | 6 | `_Outptr_` lowering, including dependencies of selected roots. |
-| Nullable output results | 3 | `_Outptr_result_maybenull_`; result nullability is not optionality of the caller's output slot. |
 
 `MMDeviceEnumerator` emits its source UUID as an opaque native class. The pinned `mmdevapi.lib`
-ordinal-17 contract is representable, but `ActivateAudioInterfaceAsync` remains rejected through
-its nullable-output dependency.
+ordinal-17 contract is representable, and `ActivateAudioInterfaceAsync` emits with its dependencies'
+nullable-output contracts preserved.
 
 The generator exits 1 while any selected name is rejected, after generating the supported
 candidate. A working consumer does not turn incomplete header

@@ -65,6 +65,7 @@ pub struct Plan {
     items: BTreeMap<String, Item>,
     omitted: BTreeMap<String, String>,
     owners: BTreeMap<String, String>,
+    annotations: BTreeMap<String, BTreeMap<String, String>>,
 }
 
 impl Plan {
@@ -104,6 +105,10 @@ impl Plan {
         let mut namespaces = self.namespace.rsplit('.');
         let mut output = format!("#[win32]\nmod {} {{\n", namespaces.next().unwrap());
         for (name, item) in items {
+            let annotations = self.annotations.get(name);
+            if let Some(attributes) = annotations.and_then(|annotations| annotations.get("")) {
+                writeln!(output, "    {}", attributes.trim_end()).unwrap();
+            }
             match item {
                 Item::Record { fields, alignment } => {
                     if let Some(alignment) = alignment {
@@ -111,6 +116,11 @@ impl Plan {
                     }
                     writeln!(output, "    struct {name} {{").unwrap();
                     for (field, ty) in fields {
+                        if let Some(attributes) =
+                            annotations.and_then(|annotations| annotations.get(field))
+                        {
+                            writeln!(output, "        {}", attributes.trim_end()).unwrap();
+                        }
                         writeln!(output, "        {field}: {},", ty.text()).unwrap();
                     }
                     output.push_str("    }\n");
@@ -129,6 +139,11 @@ impl Plan {
                     }
                     writeln!(output, "    #[repr({repr})]\n    enum {name} {{").unwrap();
                     for (variant, value) in variants {
+                        if let Some(attributes) =
+                            annotations.and_then(|annotations| annotations.get(variant))
+                        {
+                            writeln!(output, "        {}", attributes.trim_end()).unwrap();
+                        }
                         writeln!(output, "        {variant} = {value},").unwrap();
                     }
                     output.push_str("    }\n");
@@ -194,6 +209,11 @@ impl Plan {
                     }
                     output.push_str(" {\n");
                     for (method, special, parameters, result) in methods {
+                        if let Some(attributes) =
+                            annotations.and_then(|annotations| annotations.get(method))
+                        {
+                            writeln!(output, "        {}", attributes.trim_end()).unwrap();
+                        }
                         if *special {
                             output.push_str("        #[special]\n");
                         }
@@ -226,6 +246,7 @@ impl Plan {
     ) -> Option<&'static str> {
         const ADJUSTED: &str =
             "by-value calls with adjusted record layouts require native ABI coverage";
+        let ty = ty.contract();
         match ty {
             ProjectedType::Padding(_) => return Some(ADJUSTED),
             ProjectedType::RecordReference(..) => {
@@ -345,6 +366,7 @@ enum ProjectedType {
     Void,
     Scalar(&'static str, Layout),
     ScalarReference(String, &'static str, Layout),
+    Alias(String, Box<Self>),
     PointerReference {
         name: String,
         mutable: bool,
@@ -365,8 +387,15 @@ enum ProjectedType {
 }
 
 impl ProjectedType {
-    fn scalar_kind(&self) -> Option<&'static str> {
+    fn contract(&self) -> &Self {
         match self {
+            Self::Alias(_, target) => target.contract(),
+            _ => self,
+        }
+    }
+
+    fn scalar_kind(&self) -> Option<&'static str> {
+        match self.contract() {
             Self::Scalar(kind, _) | Self::ScalarReference(_, kind, _) => Some(kind),
             _ => None,
         }
@@ -379,6 +408,7 @@ impl ProjectedType {
             Self::Void => "void".into(),
             Self::Scalar(name, _) => (*name).into(),
             Self::Named(name, _)
+            | Self::Alias(name, _)
             | Self::RecordReference(name, _)
             | Self::Class(name)
             | Self::ScalarReference(name, ..) => name.clone(),
@@ -400,6 +430,7 @@ impl ProjectedType {
 
     fn layout(&self, pointer_size: i64) -> Option<Layout> {
         match self {
+            Self::Alias(_, target) => target.layout(pointer_size),
             Self::Padding(size) => Some(Layout {
                 size: *size,
                 align: 1,
@@ -422,9 +453,43 @@ impl ProjectedType {
     }
 }
 
-impl Resolved<'_> {
+/// Validated projection policy shared by independent plans. Root-specific names and caches
+/// belong to each plan, so assessing one subset cannot affect another.
+pub struct Projection<'a, 's> {
+    resolved: &'a Resolved<'s>,
+    options: &'a ProjectionOptions,
+    namespace: String,
+}
+
+impl Projection<'_, '_> {
+    pub fn project(&self) -> Result<Plan, Error> {
+        self.resolved
+            .project_ids(self.options, &self.namespace, &self.resolved.snapshot.roots)
+    }
+
+    pub fn project_roots(&self, names: &[&str]) -> Result<Plan, Error> {
+        if names.is_empty() {
+            return Err(Error("projection requires selected roots".into()));
+        }
+        let mut roots = vec![];
+        for name in names {
+            let selected = self
+                .resolved
+                .roots
+                .get(name)
+                .ok_or_else(|| Error(format!("`{name}` is not a captured root")))?;
+            roots.extend(selected);
+        }
+        roots.sort();
+        roots.dedup();
+        self.resolved
+            .project_ids(self.options, &self.namespace, &roots)
+    }
+}
+
+impl<'s> Resolved<'s> {
     pub fn project(&self, options: &ProjectionOptions) -> Result<Plan, Error> {
-        self.project_ids(options, &self.snapshot.roots)
+        self.projection(options)?.project()
     }
 
     /// Projects a subset of captured roots after the complete snapshot has passed resolution.
@@ -436,29 +501,13 @@ impl Resolved<'_> {
         options: &ProjectionOptions,
         names: &[&str],
     ) -> Result<Plan, Error> {
-        if names.is_empty() {
-            return Err(Error("projection requires selected roots".into()));
-        }
-        let mut roots = vec![];
-        for name in names {
-            let selected: Vec<_> = self
-                .snapshot
-                .roots
-                .iter()
-                .copied()
-                .filter(|id| self.snapshot.declarations[id.0].name == *name)
-                .collect();
-            if selected.is_empty() {
-                return Err(Error(format!("`{name}` is not a captured root")));
-            }
-            roots.extend(selected);
-        }
-        roots.sort();
-        roots.dedup();
-        self.project_ids(options, &roots)
+        self.projection(options)?.project_roots(names)
     }
 
-    fn project_ids(&self, options: &ProjectionOptions, roots: &[Id]) -> Result<Plan, Error> {
+    pub fn projection<'a>(
+        &'a self,
+        options: &'a ProjectionOptions,
+    ) -> Result<Projection<'a, 's>, Error> {
         if !self.snapshot.target.contains("-windows-") {
             return Err(Error(
                 "projection currently supports Windows targets only".into(),
@@ -473,9 +522,9 @@ impl Resolved<'_> {
             }
             namespace_name(reference)?;
         }
-        for group in &self.groups {
-            let declaration = &self.snapshot.declarations[group[0].0];
-            if let Some(reference) = options.references.get(&declaration.name) {
+        for (name, reference) in &options.references {
+            for id in self.names.get(name.as_str()).into_iter().flatten() {
+                let declaration = &self.snapshot.declarations[id.0];
                 let mut binding = declaration;
                 if let DeclarationData::Alias { canonical, .. } = &binding.data
                     && let TypeKind::Named(target) = canonical.kind
@@ -500,42 +549,64 @@ impl Resolved<'_> {
                 namespace_name(reference)?;
             }
         }
+        Ok(Projection {
+            resolved: self,
+            options,
+            namespace,
+        })
+    }
+
+    fn project_ids(
+        &self,
+        options: &ProjectionOptions,
+        namespace: &str,
+        roots: &[Id],
+    ) -> Result<Plan, Error> {
         let mut builder = Builder {
             resolved: self,
             options,
             aliases: BTreeMap::new(),
             names: BTreeMap::new(),
             owners: BTreeMap::new(),
-            groups: self
-                .groups
-                .iter()
-                .map(|group| (self.representatives[group[0].0], group.as_slice()))
-                .collect(),
             pending: VecDeque::new(),
             scheduled: BTreeSet::new(),
             plan: Plan {
-                namespace,
+                annotations: BTreeMap::new(),
+                namespace: namespace.into(),
                 items: BTreeMap::new(),
                 omitted: BTreeMap::new(),
                 owners: BTreeMap::new(),
             },
         };
+        let selected: BTreeSet<_> = roots
+            .iter()
+            .filter(|root| {
+                !matches!(
+                    self.snapshot.declarations[root.0].data,
+                    DeclarationData::Record { unnamed: true, .. }
+                )
+            })
+            .map(|root| self.representatives[root.0])
+            .collect();
         for root in roots {
             let alias = &self.snapshot.declarations[root.0];
             if let DeclarationData::Alias { canonical, .. } = &alias.data
+                && self.annotations[&self.representatives[root.0]]
+                    .own
+                    .sal
+                    .is_empty()
+                && self.annotations[&self.representatives[root.0]]
+                    .own
+                    .midl
+                    .is_empty()
                 && let TypeKind::Named(target) = canonical.kind
             {
                 let target = self.representatives[target.0];
                 if matches!(
                     self.snapshot.declarations[target.0].data,
                     DeclarationData::Record { .. }
-                ) && !roots.iter().any(|root| {
-                    self.representatives[root.0] == target
-                        && !matches!(
-                            self.snapshot.declarations[root.0].data,
-                            DeclarationData::Record { unnamed: true, .. }
-                        )
-                }) {
+                ) && !selected.contains(&target)
+                {
                     let name = ident(&alias.name)?;
                     if let Some(previous) = builder.names.insert(target, name.clone())
                         && previous != name
@@ -564,7 +635,6 @@ impl Resolved<'_> {
 struct Builder<'a, 's> {
     resolved: &'a Resolved<'s>,
     options: &'a ProjectionOptions,
-    groups: BTreeMap<Id, &'a [Id]>,
     aliases: BTreeMap<Id, (ProjectedType, bool)>,
     names: BTreeMap<Id, String>,
     owners: BTreeMap<Id, String>,
@@ -573,12 +643,12 @@ struct Builder<'a, 's> {
     plan: Plan,
 }
 
-impl Builder<'_, '_> {
+impl<'s> Builder<'_, 's> {
     fn owner(&self, id: Id) -> String {
         if let Some(owner) = self.owners.get(&id) {
             return owner.clone();
         }
-        self.groups[&id]
+        self.resolved.groups[&id]
             .iter()
             .map(|id| &self.resolved.snapshot.declarations[id.0])
             .min_by_key(|declaration| {
@@ -628,10 +698,51 @@ impl Builder<'_, '_> {
                 || self.names.get(&self.resolved.representatives[target.0])
                     == Some(&declaration.name))
         {
+            let annotations = &self.resolved.annotations[&id].own;
+            if !annotations.sal.is_empty() || !annotations.midl.is_empty() {
+                return Err(Error(format!(
+                    "annotated record alias `{}` requires a separate declaration",
+                    declaration.name
+                )));
+            }
             self.schedule(target);
             return Ok(());
         }
         let name = self.name(id)?;
+        let native_annotations = &self.resolved.annotations[&id];
+        let mut annotations = BTreeMap::new();
+        let own = source_attributes(&native_annotations.own);
+        if !own.is_empty() {
+            annotations.insert(String::new(), own);
+        }
+        if let DeclarationData::Record {
+            fields, methods, ..
+        } = &declaration.data
+        {
+            for (field, source) in fields.iter().zip(&native_annotations.fields) {
+                let attributes = source_attributes(source);
+                if !attributes.is_empty() {
+                    annotations.insert(ident(&field.name)?, attributes);
+                }
+            }
+            for (method, source) in methods.iter().zip(&native_annotations.methods) {
+                let attributes = source_attributes(source);
+                if !attributes.is_empty() {
+                    annotations.insert(ident(&method.name)?, attributes);
+                }
+            }
+        }
+        if let DeclarationData::Enum { variants, .. } = &declaration.data {
+            for ((name, _), source) in variants.iter().zip(&native_annotations.fields) {
+                let attributes = source_attributes(source);
+                if !attributes.is_empty() {
+                    annotations.insert(ident(name)?, attributes);
+                }
+            }
+        }
+        if !annotations.is_empty() {
+            self.plan.annotations.insert(name.clone(), annotations);
+        }
         let guid = self.resolved.guids.get(&id).copied();
         let item = match &declaration.data {
             DeclarationData::Record {
@@ -780,7 +891,6 @@ impl Builder<'_, '_> {
             }
             DeclarationData::Function {
                 canonical,
-                ty: written,
                 link_name,
                 ..
             } => {
@@ -794,7 +904,7 @@ impl Builder<'_, '_> {
                         "only fixed-prototype functions can be projected".into(),
                     ));
                 };
-                let TypeKind::Function { convention, .. } = &written.kind else {
+                let TypeKind::Function { convention, .. } = &canonical.kind else {
                     unreachable!()
                 };
                 // These are the stable CXCallingConv C, X86StdCall, and Win64 values.
@@ -870,7 +980,7 @@ impl Builder<'_, '_> {
                     })?;
                     Item::GuidConstant { ty, guid, pid }
                 } else {
-                    let value = match (value, &ty) {
+                    let value = match (value, ty.contract()) {
                         (
                             Value::Integer(value),
                             ProjectedType::Scalar(name, _)
@@ -1155,7 +1265,7 @@ impl Builder<'_, '_> {
             for (parameter, (attributes, ty)) in method.parameters.iter().zip(parameters) {
                 params.push((attributes, ident(&parameter.name)?, ty));
             }
-            if matches!(result, ProjectedType::Named(..)) {
+            if matches!(result.contract(), ProjectedType::Named(..)) {
                 return Err(Error(format!(
                     "`{name}::{}`: by-value record results are not supported for COM methods",
                     method.name
@@ -1186,8 +1296,9 @@ impl Builder<'_, '_> {
     fn parameters(
         &mut self,
         parameters: &[Type],
-        annotations: &[Vec<String>],
+        source: &[SourceAnnotations],
     ) -> Result<Vec<(String, ProjectedType)>, Error> {
+        let annotations: Vec<_> = source.iter().map(SourceAnnotations::lowered).collect();
         assert_eq!(parameters.len(), annotations.len());
         let mut types = vec![];
         for parameter in parameters {
@@ -1205,25 +1316,30 @@ impl Builder<'_, '_> {
         let attributes = annotations
             .iter()
             .enumerate()
-            .map(|(index, _)| parameter_attributes(annotations, index, &types))
+            .map(|(index, _)| {
+                let mut attributes = source_attributes(&source[index]);
+                attributes.push_str(&parameter_attributes(&annotations, index, &types)?);
+                Ok(attributes)
+            })
             .collect::<Result<Vec<_>, _>>()?;
         attributes
             .into_iter()
             .zip(types)
             .zip(annotations)
             .map(|((attributes, ty), annotations)| {
-                let Some(kind) = string_kind(annotations, &ty)? else {
+                let Some(kind) = string_kind(&annotations, &ty)? else {
                     return Ok((attributes, ty));
                 };
-                let reference = self.options.string_references.get(&kind).ok_or_else(|| {
-                    Error(format!(
-                        "null-terminated {kind:?} parameter requires an explicit string binding"
-                    ))
-                })?;
-                if let ProjectedType::PointerReference { name, .. } = &ty {
+                let Some(reference) = self.options.string_references.get(&kind) else {
+                    return Ok((attributes, ty));
+                };
+                if let ProjectedType::PointerReference { name, .. } = ty.contract() {
                     if *name != namespace_name(reference)? {
                         return Err(Error("conflicting typedef and string bindings".into()));
                     }
+                    return Ok((attributes, ty));
+                }
+                if matches!(ty, ProjectedType::Alias(..)) {
                     return Ok((attributes, ty));
                 }
                 let layout = ty.layout(self.resolved.snapshot.pointer_size);
@@ -1240,7 +1356,7 @@ impl Builder<'_, '_> {
         id: Id,
         slot: usize,
     ) -> Result<(Vec<(String, ProjectedType)>, ProjectedType), Error> {
-        let group = self.groups[&id];
+        let group = &self.resolved.groups[&id];
         let mut signature = None;
         for observation in group {
             let data = &self.resolved.snapshot.declarations[observation.0].data;
@@ -1252,13 +1368,17 @@ impl Builder<'_, '_> {
                 DeclarationData::Record { .. } => continue,
                 _ => unreachable!(),
             };
+            let ty = self.function_type(ty)?;
             let TypeKind::Function {
                 result, parameters, ..
             } = &ty.kind
             else {
                 unreachable!()
             };
-            let parameters = self.parameters(parameters, &self.resolved.annotations[&id][&slot])?;
+            let parameters = self.parameters(
+                parameters,
+                &self.resolved.annotations[&id].parameters[&slot],
+            )?;
             let (result, object) = self.lower(result, &mut BTreeSet::new())?;
             if object {
                 return Err(Error("native interface objects require a pointer".into()));
@@ -1275,6 +1395,29 @@ impl Builder<'_, '_> {
             signature = Some(projected);
         }
         Ok(signature.unwrap())
+    }
+
+    fn function_type<'t>(&self, mut ty: &'t Type) -> Result<&'t Type, Error>
+    where
+        's: 't,
+    {
+        let mut visiting = BTreeSet::new();
+        while let TypeKind::Named(id) = &ty.kind {
+            let id = self.resolved.representatives[id.0];
+            if !visiting.insert(id) {
+                return Err(Error("cyclic callable typedef".into()));
+            }
+            let DeclarationData::Alias { target, .. } =
+                &self.resolved.snapshot.declarations[id.0].data
+            else {
+                return Err(Error("callable typedef does not name a function".into()));
+            };
+            ty = target;
+        }
+        if !matches!(ty.kind, TypeKind::Function { .. }) {
+            return Err(Error("written callable type is not a function".into()));
+        }
+        Ok(ty)
     }
 
     fn typedef_reference(
@@ -1353,7 +1496,7 @@ impl Builder<'_, '_> {
             return Err(Error("cyclic native alias".into()));
         }
         let mut result = None;
-        for observation in self.groups[&id] {
+        for observation in &self.resolved.groups[&id] {
             let DeclarationData::Alias { target, .. } =
                 &self.resolved.snapshot.declarations[observation.0].data
             else {
@@ -1428,7 +1571,15 @@ impl Builder<'_, '_> {
                     {
                         return Ok((self.typedef_reference(canonical, reference)?, false));
                     }
-                    self.alias(id, aliases)?
+                    let (projected, object) = self.alias(id, aliases)?;
+                    let annotations = &self.resolved.annotations[&id].own;
+                    if !annotations.sal.is_empty() || !annotations.midl.is_empty() {
+                        self.schedule(id);
+                        let name = self.name(id)?;
+                        (ProjectedType::Alias(name, Box::new(projected)), object)
+                    } else {
+                        (projected, object)
+                    }
                 } else if let Some(reference) = self.options.references.get(&declaration.name) {
                     let name = namespace_name(reference)?;
                     if reference.kind == ReferenceKind::Interface {
@@ -1537,12 +1688,23 @@ impl Builder<'_, '_> {
     }
 }
 
+fn source_attributes(annotations: &SourceAnnotations) -> String {
+    let mut result = String::new();
+    for (source, annotations) in [("midl", &annotations.midl), ("sal", &annotations.sal)] {
+        if !annotations.is_empty() {
+            let text = annotations.join(" ");
+            write!(result, "#[annotation({source:?}, {text:?})] ").unwrap();
+        }
+    }
+    result
+}
+
 fn parameter_attributes(
     all_annotations: &[Vec<String>],
     index: usize,
     parameters: &[ProjectedType],
 ) -> Result<String, Error> {
-    let ty = &parameters[index];
+    let ty = parameters[index].contract();
     let annotations = &all_annotations[index];
     let mut attributes = String::new();
     let mut sized = false;
@@ -1585,11 +1747,7 @@ fn parameter_attributes(
                 "_In_reads_bytes_opt_" => ("#[in] ", true, true, false),
                 "_Out_writes_bytes_opt_" => ("#[out] ", true, true, true),
                 "_Inout_updates_bytes_opt_" => ("#[in] #[out] ", true, true, true),
-                _ => {
-                    return Err(Error(format!(
-                        "annotation projection is not implemented: {annotation}"
-                    )));
-                }
+                _ => continue,
             };
             if sized {
                 return Err(Error(
@@ -1614,9 +1772,13 @@ fn parameter_attributes(
             if optional {
                 attributes.push_str("#[opt] ");
             }
-            attributes.push_str(&buffer_length(capacity.trim(), bytes, parameters)?);
-            if let Some(written) = written {
-                attributes.push_str(&written_bytes(written.trim(), parameters, all_annotations)?);
+            if let Some(length) = buffer_length(capacity.trim(), bytes, parameters)? {
+                attributes.push_str(&length);
+            }
+            if let Some(written) = written
+                && let Some(written) = written_bytes(written.trim(), parameters, all_annotations)?
+            {
+                attributes.push_str(&written);
             }
             sized = true;
             continue;
@@ -1637,6 +1799,7 @@ fn parameter_attributes(
             {
                 "#[in] #[opt] "
             }
+            "_In_opt_" => return Err(Error("_In_opt_ requires a pointer".into())),
             "_In_z_" => "#[in] ",
             "_In_opt_z_" => "#[in] #[opt] ",
             "_Out_z_" | "_Inout_z_" => {
@@ -1691,11 +1854,7 @@ fn parameter_attributes(
                     ));
                 }
             },
-            _ => {
-                return Err(Error(format!(
-                    "annotation projection is not implemented: {annotation}"
-                )));
-            }
+            _ => continue,
         });
     }
     Ok(attributes)
@@ -1705,18 +1864,21 @@ fn written_bytes(
     argument: &str,
     parameters: &[ProjectedType],
     annotations: &[Vec<String>],
-) -> Result<String, Error> {
+) -> Result<Option<String>, Error> {
     let (argument, dereference) = argument
         .strip_prefix('*')
         .map_or((argument, false), |value| (value.trim(), true));
-    let index = argument
+    let Some(index) = argument
         .strip_prefix('$')
         .filter(|value| !value.is_empty() && value.bytes().all(|byte| byte.is_ascii_digit()))
         .and_then(|value| value.parse::<i16>().ok())
-        .ok_or_else(|| Error(format!("unsupported written byte count `{argument}`")))?;
+    else {
+        return Ok(None);
+    };
     let ty = parameters
         .get(index as usize)
-        .ok_or_else(|| Error("written byte count parameter is out of range".into()))?;
+        .ok_or_else(|| Error("written byte count parameter is out of range".into()))?
+        .contract();
     let scalar = if dereference {
         let ProjectedType::Pointer {
             mutable: true,
@@ -1750,12 +1912,13 @@ fn written_bytes(
     ) {
         return Err(Error("written byte count must be an integer".into()));
     }
-    Ok(format!(
+    Ok(Some(format!(
         "#[written_bytes(BytesParamIndex = {index}, Dereference = {dereference})] "
-    ))
+    )))
 }
 
 fn string_kind(annotations: &[String], ty: &ProjectedType) -> Result<Option<StringKind>, Error> {
+    let ty = ty.contract();
     if !annotations.iter().any(|annotation| {
         matches!(
             annotation.as_str(),
@@ -1796,7 +1959,7 @@ fn buffer_length(
     argument: &str,
     bytes: bool,
     parameters: &[ProjectedType],
-) -> Result<String, Error> {
+) -> Result<Option<String>, Error> {
     if let Some(index) = argument
         .strip_prefix('$')
         .filter(|value| value.bytes().all(|byte| byte.is_ascii_digit()))
@@ -1813,16 +1976,16 @@ fn buffer_length(
             )));
         };
         let attribute = if bytes { "size_param" } else { "len_param" };
-        return Ok(format!("#[{attribute}({index})] "));
+        return Ok(Some(format!("#[{attribute}({index})] ")));
     }
     if !bytes
         && argument.bytes().all(|byte| byte.is_ascii_digit())
         && (argument == "0" || !argument.starts_with('0'))
         && let Ok(value) = argument.parse::<i32>()
     {
-        return Ok(format!("#[len_const({value})] "));
+        return Ok(Some(format!("#[len_const({value})] ")));
     }
-    Err(Error(format!("unsupported buffer length `{argument}`")))
+    Ok(None)
 }
 
 fn align_up(value: i64, alignment: i64) -> i64 {

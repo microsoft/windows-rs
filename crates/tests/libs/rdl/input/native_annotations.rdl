@@ -1,0 +1,37 @@
+#[win32]
+mod Test {
+    #[no_guid]
+    #[annotation("vendor", "interface contract")]
+    interface Annotated {
+        #[annotation("vendor", "method contract")]
+        fn Read(&self, #[annotation("vendor", "parameter contract")] value: i32) -> #[annotation("vendor", "return contract")] i32;
+    }
+    #[repr(i32)]
+    enum Choice {
+        #[annotation("vendor", "enum constant contract")]
+        First = 1,
+    }
+    #[annotation("vendor", "GUID contract")]
+    const ID: GUID = 0x00000001_0002_0003_0004_000000000005;
+    struct Key {
+        id: GUID,
+        pid: u32,
+    }
+    #[library("test.dll")]
+    extern fn Notify() -> #[annotation("vendor", "void result contract")] void;
+    #[annotation("vendor", "property key contract")]
+    #[guid(0x00000001_0002_0003_0004_000000000005)]
+    const PROPERTY: Key = 1;
+    #[annotation("sal", "_Struct_size_bytes_(size)")]
+    struct Packet {
+        #[annotation("sal", "_Field_range_(1,32)")]
+        size: u32,
+        #[annotation("sal", "_Field_size_bytes_(size)")]
+        data: *mut u8,
+    }
+    #[annotation("sal", "_Success_(return>=0)")]
+    #[library("test.dll")]
+    extern fn Query(#[annotation("midl", "[out][size_is($1)]")] #[annotation("sal", "_Out_writes_bytes_($1) _When_($1>0,_Notnull_)")] #[annotation("sal", "_Vendor_(\"quoted\")")] data: *mut u8, size: u32) -> #[annotation("sal", "_Ret_range_(0,100)")] i32;
+    #[annotation("sal", "_Return_type_success_(return>=0)")]
+    type Result = i32;
+}

@@ -4,6 +4,41 @@ use windows_clang2::{Input, ProjectionOptions, ReferenceKind, TypeReference, cap
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn only_uuid_attributes_supply_identity() {
+    let source = include_str!("../input/uuid_attributes.h");
+    for root in ["Direct", "Indirect", "Combined", "Nested", "TokenMacro"] {
+        let snapshot = capture([Input::new("uuid.h", source)], ARGS, &[root]).unwrap();
+        let rdl = snapshot
+            .resolve()
+            .unwrap()
+            .project(&ProjectionOptions::new("Test"));
+        if root == "Nested" {
+            assert!(
+                snapshot
+                    .dump()
+                    .contains("12345678-1234-1234-1234-123456789abc")
+            );
+        } else {
+            assert!(
+                rdl.unwrap()
+                    .rdl()
+                    .contains("0x12345678_1234_1234_1234_123456789abc")
+            );
+        }
+    }
+    for root in ["Deprecated", "Quoted"] {
+        let snapshot = capture([Input::new("uuid.h", source)], ARGS, &[root]).unwrap();
+        assert!(!snapshot.dump().contains("guid: Some"));
+        assert!(
+            snapshot
+                .resolve()
+                .unwrap()
+                .project(&ProjectionOptions::new("Test"))
+                .is_err()
+        );
+    }
+}
+#[test]
 fn opaque_uuid_class_preserves_source_identity() {
     let header = Path::new(env!("CARGO_MANIFEST_DIR")).join("input/class.h");
     let source = Input::new(header.to_str().unwrap(), include_str!("../input/class.h"));

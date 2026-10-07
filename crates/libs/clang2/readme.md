@@ -36,6 +36,15 @@ the caller. After the complete captured graph passes resolution, `Resolved::proj
 assess selected subsets without reparsing or suppressing native conflicts. Combined projection
 still checks alias/output-name conflicts. `Plan::rdl_by_header` emits source-owned partitions,
 including dependency headers, separately from native identity and spelling evidence.
+Use `Resolved::projection(&options)` for repeated per-root assessments; lookup indices and binding
+validation are shared while names and dependency plans remain local.
+
+Captured SAL and MIDL contracts survive as `#[annotation("sal", "...")]` and
+`#[annotation("midl", "...")]`, independently of typed lowering. Ordered payloads retain conditions,
+ranges, and unknown semantics. Parameter references use original zero-based `$index` positions.
+Annotated local aliases retain their names and declaration contracts. SDK/WDK callers must
+force-include `crates/libs/clang2/src/sal.h` before SDK headers; it instruments source markers rather
+than a whitelist of supported projections. Exhaustive SDK/WDK macro coverage remains a separate gate.
 
 Projection currently covers ordinary C-layout records, integer-backed enums, fixed-prototype
 functions, scalar and raw pointer constants, UUID-bearing local COM interfaces, and external type
@@ -78,19 +87,19 @@ counts returned through writable integer pointers. Their `MemoryWrittenAttribute
 in this crate's `metadata.rdl`; supply it when compiling the emitted RDL. This is an experimental
 metadata extension, not part of the bundled default WinMD. Wrappers retain unsafe output pointers;
 callers still check statuses, returned lengths, and API-specific retained-buffer lifetimes.
-Scalar null-terminated strings require caller-supplied `ProjectionOptions::string_references`,
-keyed by `StringKind`. These trusted metadata value types preserve native constness independently
-of parameter direction; no string namespace or local alias is assumed.
+Scalar null-terminated strings can use caller-supplied `ProjectionOptions::string_references`,
+keyed by `StringKind`. Without them, raw character pointers retain source contracts. Supplied
+metadata value types preserve native constness independently of parameter direction.
 Caller-bound scalar and pointer typedefs retain their identity through
 `ProjectionOptions::references`. For example, an explicit `HRESULT` value binding enables generated
 COM result wrappers without treating every native `long` as an error code. Conflicting typedef
 contracts across observations fail projection even when their native types agree. Pointer bindings
 preserve handles and string aliases without folding them into surrounding raw-pointer levels. SAL
-string annotations still require a matching string binding.
+string bindings must agree with any explicit external typedef binding.
 
 Declaration-local MIDL prefix comments supply input/output direction when SAL has none. SAL controls
 local-call direction; evidence from each source family must independently agree across declarations.
-Parameterized MIDL relationships, optionality, and retval markers are not decoded.
+Parameterized MIDL relationships, optionality, and retval markers are retained without typed lowering.
 Output/inout mutation through a single interface object pointer projects as a borrowed input, not
 a writable interface slot. An additional native pointer level retains its output/inout direction.
 Interface-valued constants have an omission reason in `Plan::omitted`; unsupported projections are
@@ -127,9 +136,9 @@ gates.
 assembly for `mmdeviceapi.h` and `endpointvolume.h`. Header discovery feeds a declaration-outcome
 report and per-header RDL without generating metadata, Rust bindings, or an executable. An additional
 SDK definition-mode input supplies all 18 property keys and four device-interface GUIDs. With SDK
-macro wrappers loaded before the SAL shim, 57 selected names emit and 45 reject: 36 declaration-only
-data names and nine roots affected by unsupported output-pointer annotations. No missing values or
-nullable-result contracts are guessed. The generator exits nonzero for incomplete coverage.
+source-marker capture enabled, 66 selected names emit and 36 declaration-only data names reject.
+Output-pointer and nullable-result contracts remain in RDL without guessed semantics or values.
+The generator exits nonzero for incomplete coverage.
 The full Win32 scraper and committed metadata remain on their existing path.
 
 The API and diagnostic dump are experimental. See

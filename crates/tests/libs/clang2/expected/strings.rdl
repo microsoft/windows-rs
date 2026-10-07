@@ -2,8 +2,8 @@
 mod Test {
     #[guid(0x00000004_0000_0000_c000_000000000046)]
     interface IStrings {
-        fn Strings(&self, #[in] input: External::PCSTR, #[in] mutable_input: External::PSTR, #[out] output: External::PSTR, #[in] #[out] update: External::PWSTR, #[in] #[opt] optional: External::PCWSTR, raw: *mut i8);
+        fn Strings(&self, #[annotation("sal", "_In_z_")] #[in] input: External::PCSTR, #[annotation("sal", "_In_z_")] #[in] mutable_input: External::PSTR, #[annotation("sal", "_Out_z_")] #[out] output: External::PSTR, #[annotation("sal", "_Inout_z_")] #[in] #[out] update: External::PWSTR, #[annotation("sal", "_In_opt_z_")] #[in] #[opt] optional: External::PCWSTR, raw: *mut i8);
     }
     #[library("test.dll", import = "Strings")]
-    extern "C" fn Strings(#[in] p0: External::PCSTR, #[in] p1: External::PSTR, #[out] p2: External::PSTR, #[in] #[out] p3: External::PWSTR, #[in] #[opt] p4: External::PCWSTR, p5: *mut i8);
+    extern "C" fn Strings(#[annotation("sal", "_In_z_")] #[in] p0: External::PCSTR, #[annotation("sal", "_In_z_")] #[in] p1: External::PSTR, #[annotation("sal", "_Out_z_")] #[out] p2: External::PSTR, #[annotation("sal", "_Inout_z_")] #[in] #[out] p3: External::PWSTR, #[annotation("sal", "_In_opt_z_")] #[in] #[opt] p4: External::PCWSTR, p5: *mut i8);
 }

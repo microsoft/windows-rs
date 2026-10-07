@@ -1176,13 +1176,14 @@ fn clang_arguments(
     arch: &Arch,
     include_args: &[String],
     resource_dir: Option<&str>,
+    sal_shim: &str,
 ) -> Vec<String> {
     let mut owned_args: Vec<String> = CLANG_ARGS.iter().map(|arg| arg.to_string()).collect();
     owned_args.extend([
         format!("--target={}", arch.triple),
         "-fms-extensions".to_string(),
         "-include".to_string(),
-        SAL_SHIM.to_string(),
+        sal_shim.to_string(),
     ]);
     if arch.name != "x64"
         && let Some(resource_dir) = resource_dir
@@ -1203,7 +1204,7 @@ fn scrape_um_arch(
     resource_dir: Option<&str>,
     output_dir: &std::path::Path,
 ) -> ArchOutput {
-    let owned_args = clang_arguments(arch, include_args, resource_dir);
+    let owned_args = clang_arguments(arch, include_args, resource_dir, SAL_SHIM);
     let args: Vec<&str> = owned_args.iter().map(String::as_str).collect();
     let time = std::time::Instant::now();
     println!(

@@ -16,13 +16,17 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error
 
     let repr = write_type(namespace, &repr);
 
-    let fields = item.fields().filter_map(|field| {
-        field.constant().map(|constant| {
-            let name = write_ident(field.name());
-            let value = write_value(namespace, &constant.value());
-            quote! { #name = #value, }
+    let fields: Vec<_> = item
+        .fields()
+        .filter_map(|field| {
+            field.constant().map(|constant| -> Result<_, Error> {
+                let name = write_ident(field.name());
+                let value = write_value(namespace, &constant.value());
+                let attrs = write_custom_attributes(field.attributes(), namespace, item.index())?;
+                Ok(quote! { #(#attrs)* #name = #value, })
+            })
         })
-    });
+        .collect::<Result<_, _>>()?;
 
     let is_flags_attr = |attr: metadata::reader::Attribute| {
         attr.name() == "FlagsAttribute" && attr.ctor().parent().namespace() == "System"

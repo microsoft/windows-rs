@@ -4,6 +4,7 @@ use super::*;
 use clang_sys::*;
 use std::ffi::{CStr, CString};
 use std::panic::{AssertUnwindSafe, catch_unwind, resume_unwind};
+use std::sync::Arc;
 
 /// A header-owned declaration or macro, without projected types or selection policy.
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
@@ -147,6 +148,7 @@ pub fn capture(
     if roots.iter().any(|root| root.is_empty()) {
         return Err(Error("native root names cannot be empty".into()));
     }
+    let roots: BTreeSet<_> = roots.iter().copied().collect();
     for pair in inputs.windows(2) {
         if pair[0].name == pair[1].name {
             return Err(Error(format!("duplicate input `{}`", pair[0].name)));
@@ -160,11 +162,15 @@ pub fn capture(
     let mut macros = vec![];
     for (input, unit) in inputs.iter().zip(&mut units) {
         let mut selected = BTreeMap::new();
+        let mut sdk_sal = false;
+        let mut sal_capture = false;
         for cursor in children(unsafe { clang_getTranslationUnitCursor(unit.raw) }) {
             if unsafe { clang_getCursorKind(cursor) } != CXCursor_MacroDefinition {
                 continue;
             }
             let name = string(unsafe { clang_getCursorSpelling(cursor) });
+            sdk_sal |= name == "_SAL_VERSION";
+            sal_capture |= name == "__CLANG2_SAL_CAPTURE";
             if roots.contains(&name.as_str()) {
                 if unsafe { clang_Cursor_isMacroFunctionLike(cursor) } != 0 {
                     return Err(Error(format!(
@@ -174,18 +180,51 @@ pub fn capture(
                 selected.insert(name, location(cursor));
             }
         }
+        if sdk_sal && !sal_capture {
+            return Err(Error(
+                "SDK SAL requires the windows-clang2 src/sal.h capture header".into(),
+            ));
+        }
         if !selected.is_empty() {
             let mut source = input.source.clone();
             for name in selected.keys() {
                 writeln!(
                     source,
                     "\n#ifndef {name}\n#error selected macro is undefined: {name}\n#endif\n\
-                    const auto __clang2_value_{name} = ({name});\n\
-                    const __INTPTR_TYPE__ __clang2_bits_{name} = (__INTPTR_TYPE__)({name});"
+                    const auto& __clang2_value_{name} = ({name});"
                 )
                 .unwrap();
             }
-            *unit = Unit::parse(&Input::new(&input.name, source), arguments)?;
+            *unit = Unit::parse(&Input::new(&input.name, &source), arguments)?;
+            let mut pointers = false;
+            for cursor in children(unsafe { clang_getTranslationUnitCursor(unit.raw) }) {
+                if unsafe { clang_getCursorKind(cursor) } != CXCursor_VarDecl
+                    || unsafe {
+                        clang_getCanonicalType(clang_getCursorType(
+                            clang_Cursor_getVarDeclInitializer(cursor),
+                        ))
+                    }
+                    .kind
+                        != CXType_Pointer
+                {
+                    continue;
+                }
+                let name = string(unsafe { clang_getCursorSpelling(cursor) });
+                if let Some(name) = name.strip_prefix("__clang2_value_")
+                    && selected.contains_key(name)
+                    && matches!(evaluate(cursor), Value::Unavailable(_))
+                {
+                    writeln!(
+                        source,
+                        "const __INTPTR_TYPE__ __clang2_bits_{name} = (__INTPTR_TYPE__)({name});"
+                    )
+                    .unwrap();
+                    pointers = true;
+                }
+            }
+            if pointers {
+                *unit = Unit::parse(&Input::new(&input.name, source), arguments)?;
+            }
         }
         macros.push(selected);
     }
@@ -198,7 +237,7 @@ pub fn capture(
         declarations: vec![],
         entities: vec![],
         entity_cursors: (0..units.len()).map(|_| HashMap::new()).collect(),
-        contexts: (0..units.len()).map(|_| vec![]).collect(),
+        contexts: (0..units.len()).map(|_| HashMap::new()).collect(),
         flag_enums: (0..units.len()).map(|_| BTreeSet::new()).collect(),
         macros,
         identities: BTreeMap::new(),
@@ -248,7 +287,18 @@ pub fn capture(
                 unsafe { clang_getCursorKind(cursor) },
                 CXCursor_FunctionDecl | CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
             ) {
-                capture.contexts[unit].push(cursor);
+                capture.context(unit, cursor)?;
+            }
+            if matches!(
+                unsafe { clang_getCursorKind(cursor) },
+                CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_ClassDecl
+            ) {
+                for method in children(cursor)
+                    .into_iter()
+                    .filter(|child| unsafe { clang_getCursorKind(*child) == CXCursor_CXXMethod })
+                {
+                    capture.context(unit, method)?;
+                }
             }
             let identity = string(unsafe { clang_getCursorUSR(cursor) });
             if !identity.is_empty() {
@@ -267,7 +317,7 @@ pub fn capture(
         }
     }
     for root in roots {
-        if !found.contains(*root) {
+        if !found.contains(root) {
             return Err(Error(format!("native root `{root}` was not found")));
         }
     }
@@ -443,7 +493,7 @@ struct Capture<'a> {
     declarations: Vec<Declaration>,
     entities: Vec<Entity>,
     entity_cursors: Vec<HashMap<u32, Vec<(CXCursor, EntityId)>>>,
-    contexts: Vec<Vec<CXCursor>>,
+    contexts: Vec<HashMap<(CXFile, u32), Arc<[String]>>>,
     flag_enums: Vec<BTreeSet<String>>,
     macros: Vec<BTreeMap<String, Location>>,
     identities: BTreeMap<String, Vec<(usize, CXCursor)>>,
@@ -451,7 +501,68 @@ struct Capture<'a> {
     pending: VecDeque<(usize, CXCursor, Id)>,
 }
 
+fn position(location: CXSourceLocation) -> (CXFile, u32) {
+    let mut file = std::ptr::null_mut();
+    let mut offset = 0;
+    unsafe {
+        clang_getExpansionLocation(
+            location,
+            &mut file,
+            std::ptr::null_mut(),
+            std::ptr::null_mut(),
+            &mut offset,
+        );
+    }
+    (file, offset)
+}
+
 impl Capture<'_> {
+    fn context(&mut self, unit: usize, cursor: CXCursor) -> Result<(), Error> {
+        let alias = matches!(
+            unsafe { clang_getCursorKind(cursor) },
+            CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
+        );
+        let range = unsafe { clang_getCursorExtent(cursor) };
+        let (file, start) = position(unsafe { clang_getRangeStart(range) });
+        let (end_file, end) = position(unsafe { clang_getRangeEnd(range) });
+        if file.is_null() || file != end_file {
+            return Err(Error("callable source range is unavailable".into()));
+        }
+        let parameters: Vec<_> = children(cursor)
+            .into_iter()
+            .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
+            .collect();
+        let mut context = None;
+        for owner in std::iter::once(cursor).chain(parameters.iter().copied()) {
+            for attr in children(owner)
+                .into_iter()
+                .filter(|child| unsafe { clang_getCursorKind(*child) == CXCursor_AnnotateAttr })
+            {
+                let origin = position(unsafe { clang_getCursorLocation(attr) });
+                if !alias && (origin.0 != file || origin.1 < start || origin.1 >= end) {
+                    continue;
+                }
+                let context = context.get_or_insert_with(|| {
+                    parameters
+                        .iter()
+                        .map(|parameter| string(unsafe { clang_getCursorSpelling(*parameter) }))
+                        .collect::<Arc<[String]>>()
+                });
+                if let Some(previous) = self.contexts[unit].get(&origin) {
+                    if previous != context {
+                        return Err(Error(format!(
+                            "ambiguous annotation context for `{}`",
+                            qualified_name(cursor)
+                        )));
+                    }
+                } else {
+                    self.contexts[unit].insert(origin, context.clone());
+                }
+            }
+        }
+        Ok(())
+    }
+
     fn name(&self, unit: usize, cursor: CXCursor) -> String {
         let name = qualified_name(cursor);
         if let Some(name) = name.strip_prefix("__clang2_value_")
@@ -553,6 +664,14 @@ impl Capture<'_> {
             name,
             identity,
             unit: self.units[unit].name.clone(),
+            annotations: self.annotations(
+                unit,
+                cursor,
+                matches!(
+                    unsafe { clang_getCursorKind(cursor) },
+                    CXCursor_FunctionDecl | CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
+                ),
+            )?,
             data: DeclarationData::Pending,
         });
         self.pending.push_back((unit, cursor, id));
@@ -593,6 +712,7 @@ impl Capture<'_> {
                             ty: self.ty(unit, ty)?,
                             offset,
                             bit_width,
+                            annotations: self.annotations(unit, field, false)?,
                         });
                     }
                 }
@@ -604,23 +724,27 @@ impl Capture<'_> {
                                 unavailable.push("virtual base layout is not implemented".into());
                             }
                         }
-                        CXCursor_CXXMethod => methods.push(Method {
-                            property: method_property(child)?,
-                            name: string(unsafe { clang_getCursorSpelling(child) }),
-                            ty: self.ty(unit, unsafe { clang_getCursorType(child) })?,
-                            canonical: self.ty(unit, unsafe {
-                                clang_getCanonicalType(clang_getCursorType(child))
-                            })?,
-                            parameters: self.parameters(unit, child)?,
-                            virtual_method: unsafe { clang_CXXMethod_isVirtual(child) } != 0,
-                            static_method: unsafe { clang_CXXMethod_isStatic(child) } != 0,
-                            const_method: unsafe { clang_CXXMethod_isConst(child) } != 0,
-                            ref_qualifier: unsafe {
-                                clang_Type_getCXXRefQualifier(clang_getCursorType(child))
-                            },
-                            pure: unsafe { clang_CXXMethod_isPureVirtual(child) } != 0,
-                            overrides: overridden_methods(child),
-                        }),
+                        CXCursor_CXXMethod => {
+                            let annotations = self.annotations(unit, child, true)?;
+                            methods.push(Method {
+                                property: method_property(child, &annotations)?,
+                                name: string(unsafe { clang_getCursorSpelling(child) }),
+                                ty: self.ty(unit, unsafe { clang_getCursorType(child) })?,
+                                canonical: self.ty(unit, unsafe {
+                                    clang_getCanonicalType(clang_getCursorType(child))
+                                })?,
+                                parameters: self.parameters(unit, child)?,
+                                virtual_method: unsafe { clang_CXXMethod_isVirtual(child) } != 0,
+                                static_method: unsafe { clang_CXXMethod_isStatic(child) } != 0,
+                                const_method: unsafe { clang_CXXMethod_isConst(child) } != 0,
+                                ref_qualifier: unsafe {
+                                    clang_Type_getCXXRefQualifier(clang_getCursorType(child))
+                                },
+                                pure: unsafe { clang_CXXMethod_isPureVirtual(child) } != 0,
+                                overrides: overridden_methods(child),
+                                annotations,
+                            });
+                        }
                         CXCursor_Constructor | CXCursor_Destructor => unavailable.push(format!(
                             "{} capture is not implemented",
                             string(unsafe {
@@ -648,7 +772,7 @@ impl Capture<'_> {
                     fields,
                     bases,
                     methods,
-                    guid: uuid(cursor),
+                    guid: uuid(cursor)?,
                     unavailable,
                 }
             }
@@ -660,6 +784,13 @@ impl Capture<'_> {
                 parameters: self.parameters(unit, cursor)?,
             },
             CXCursor_EnumDecl => DeclarationData::Enum {
+                annotations: children(cursor)
+                    .into_iter()
+                    .filter(
+                        |child| unsafe { clang_getCursorKind(*child) } == CXCursor_EnumConstantDecl,
+                    )
+                    .map(|child| self.annotations(unit, child, false))
+                    .collect::<Result<_, _>>()?,
                 complete: unsafe { clang_isCursorDefinition(cursor) } != 0,
                 scoped: unsafe { clang_EnumDecl_isScoped(cursor) } != 0,
                 flags: children(cursor)
@@ -716,7 +847,12 @@ impl Capture<'_> {
                     let name = self.name(unit, cursor);
                     if matches!(value, Value::Unavailable(_))
                         && self.macros[unit].contains_key(&name)
-                        && unsafe { clang_getCanonicalType(clang_getCursorType(cursor)) }.kind
+                        && unsafe {
+                            clang_getCanonicalType(clang_getCursorType(
+                                clang_Cursor_getVarDeclInitializer(cursor),
+                            ))
+                        }
+                        .kind
                             == CXType_Pointer
                     {
                         let bits = format!("__clang2_bits_{name}");
@@ -746,31 +882,107 @@ impl Capture<'_> {
             .into_iter()
             .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
             .collect();
+        if params.is_empty() {
+            let mut ty = unsafe {
+                if matches!(
+                    clang_getCursorKind(cursor),
+                    CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
+                ) {
+                    clang_getTypedefDeclUnderlyingType(cursor)
+                } else {
+                    clang_getCursorType(cursor)
+                }
+            };
+            if ty.kind == CXType_Elaborated {
+                ty = unsafe { clang_Type_getNamedType(ty) };
+            }
+            if ty.kind == CXType_Typedef
+                && unsafe { clang_getNumArgTypes(clang_getCanonicalType(ty)) } > 0
+            {
+                let declaration = unsafe { clang_getTypeDeclaration(ty) };
+                if unsafe { clang_equalCursors(declaration, cursor) } == 0 {
+                    return self.parameters(unit, declaration);
+                }
+            }
+        }
         let comments = parameter_comments(cursor, &params);
-        params.into_iter().zip(comments).map(|(parameter, comments)| {
-            let mut annotations: Vec<Annotation> = children(parameter).into_iter()
-                .filter(|attr| unsafe { clang_getCursorKind(*attr) } == CXCursor_AnnotateAttr)
-                .map(|attr| {
-                    let location = expansion_location(unsafe { clang_getCursorLocation(attr) });
-                    let owner = self.contexts[unit].iter().copied().chain([cursor]).find(|owner| {
-                        let range = unsafe { clang_getCursorExtent(*owner) };
-                        let start = expansion_location(unsafe { clang_getRangeStart(range) });
-                        let end = expansion_location(unsafe { clang_getRangeEnd(range) });
-                        start.file == location.file && end.file == location.file
-                            && start.offset <= location.offset && location.offset <= end.offset
-                    }).ok_or_else(|| Error(format!("annotation context unavailable at {}:{}", location.file, location.line)))?;
-                    Ok(Annotation {
-                        source: AnnotationSource::Sal,
-                        text: string(unsafe { clang_getCursorSpelling(attr) }),
-                        context: children(owner).into_iter()
-                            .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
-                            .map(|child| string(unsafe { clang_getCursorSpelling(child) })).collect(),
-                        location,
-                    })
-                }).collect::<Result<_, Error>>()?;
-            annotations.extend(comments);
-            Ok(Parameter { name: string(unsafe { clang_getCursorSpelling(parameter) }), annotations })
-        }).collect()
+        params
+            .into_iter()
+            .zip(comments)
+            .map(|(parameter, comments)| {
+                let mut annotations = self.annotations(unit, parameter, true)?;
+                annotations.extend(comments);
+                Ok(Parameter {
+                    name: string(unsafe { clang_getCursorSpelling(parameter) }),
+                    annotations,
+                })
+            })
+            .collect()
+    }
+
+    fn annotations(
+        &self,
+        unit: usize,
+        cursor: CXCursor,
+        callable: bool,
+    ) -> Result<Vec<Annotation>, Error> {
+        let attrs: Vec<_> = children(cursor)
+            .into_iter()
+            .filter(|attr| unsafe { clang_getCursorKind(*attr) } == CXCursor_AnnotateAttr)
+            .collect();
+        let range = unsafe { clang_getCursorExtent(cursor) };
+        let start = position(unsafe { clang_getRangeStart(range) });
+        let end = position(unsafe { clang_getRangeEnd(range) });
+        let owned = |attr: CXCursor| {
+            let origin = position(unsafe { clang_getCursorLocation(attr) });
+            origin.0 == start.0 && origin.0 == end.0 && start.1 <= origin.1 && origin.1 < end.1
+        };
+        let has_owned = attrs.iter().any(|attr| owned(*attr));
+        let mut result = attrs
+            .into_iter()
+            .filter(|attr| !has_owned || owned(*attr))
+            .map(|attr| {
+                let origin = unsafe { clang_getCursorLocation(attr) };
+                let location = expansion_location(origin);
+                let context = if callable {
+                    self.contexts[unit]
+                        .get(&position(origin))
+                        .cloned()
+                        .ok_or_else(|| {
+                            Error(format!(
+                                "annotation context unavailable at {}:{}",
+                                location.file, location.line
+                            ))
+                        })?
+                } else {
+                    Arc::default()
+                };
+                let text = string(unsafe { clang_getCursorSpelling(attr) });
+                let text = text.strip_suffix("()").unwrap_or(&text).to_string();
+                Ok(Annotation {
+                    source: AnnotationSource::Sal,
+                    text,
+                    context,
+                    location,
+                })
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
+        if matches!(
+            unsafe { clang_getCursorKind(cursor) },
+            CXCursor_FunctionDecl | CXCursor_CXXMethod
+        ) {
+            result.extend(declaration_comments(cursor));
+            let mut ty = unsafe { clang_getCursorType(cursor) };
+            while ty.kind == CXType_Typedef {
+                let alias = unsafe { clang_getTypeDeclaration(ty) };
+                result.extend(self.annotations(unit, alias, true)?);
+                ty = unsafe { clang_getTypedefDeclUnderlyingType(alias) };
+                if ty.kind == CXType_Elaborated {
+                    ty = unsafe { clang_Type_getNamedType(ty) };
+                }
+            }
+        }
+        Ok(result)
     }
 
     fn ty(&mut self, unit: usize, ty: CXType) -> Result<Type, Error> {
@@ -780,6 +992,9 @@ impl Capture<'_> {
             restrict: unsafe { clang_isRestrictQualifiedType(ty) } != 0,
         };
         let kind = match ty.kind {
+            CXType_Auto if unsafe { clang_getCanonicalType(ty) }.kind != CXType_Auto => {
+                return self.ty(unit, unsafe { clang_getCanonicalType(ty) });
+            }
             CXType_Elaborated => {
                 let mut named = self.ty(unit, unsafe { clang_Type_getNamedType(ty) })?;
                 named.qualifiers.constant |= qualifiers.constant;
@@ -899,7 +1114,7 @@ fn parameter_comments(cursor: CXCursor, parameters: &[CXCursor]) -> Vec<Vec<Anno
         })
         .collect();
     unsafe { clang_disposeTokens(tu, raw, count) };
-    let context: Vec<_> = parameters
+    let context: Arc<[String]> = parameters
         .iter()
         .map(|parameter| string(unsafe { clang_getCursorSpelling(*parameter) }))
         .collect();
@@ -914,45 +1129,48 @@ fn parameter_comments(cursor: CXCursor, parameters: &[CXCursor]) -> Vec<Vec<Anno
         if begin == end || begin == 0 || tokens[begin - 1].1 != if index == 0 { "(" } else { "," } {
             continue;
         }
-        let mut direction = 0;
-        let mut location = None;
         for (_, comment, origin) in &tokens[begin..end] {
-            if origin.file == start.file
-                && let Some(value) = midl_direction(comment)
-            {
-                direction |= value;
-                location.get_or_insert(origin.clone());
+            if origin.file == start.file && Annotation::midl_attributes(comment).is_some() {
+                result[index].push(Annotation {
+                    source: AnnotationSource::Midl,
+                    text: comment
+                        .trim_start_matches("/*")
+                        .trim_end_matches("*/")
+                        .trim()
+                        .into(),
+                    context: context.clone(),
+                    location: origin.clone(),
+                });
             }
         }
-        let text = match direction {
-            1 => "_In_",
-            2 => "_Out_",
-            3 => "_Inout_",
-            _ => continue,
-        };
-        result[index].push(Annotation {
-            source: AnnotationSource::Midl,
-            text: text.into(),
-            context: context.clone(),
-            location: location.unwrap(),
-        });
     }
     result
 }
 
-fn midl_direction(comment: &str) -> Option<u8> {
-    let mut direction = 0;
-    for attribute in midl_attributes(comment)? {
-        direction |= match attribute {
-            "in" => 1,
-            "out" => 2,
-            _ => 0,
-        };
+fn method_property(cursor: CXCursor, annotations: &[Annotation]) -> Result<Option<String>, Error> {
+    let mut properties = BTreeSet::new();
+    for annotation in annotations
+        .iter()
+        .filter(|annotation| annotation.source == AnnotationSource::Midl)
+    {
+        properties.extend(
+            Annotation::midl_attributes(&annotation.text)
+                .unwrap()
+                .into_iter()
+                .filter(|attribute| matches!(*attribute, "propget" | "propput" | "propputref"))
+                .map(str::to_string),
+        );
     }
-    (direction != 0).then_some(direction)
+    if properties.len() > 1 {
+        return Err(Error(format!(
+            "conflicting MIDL property markers: {}",
+            qualified_name(cursor)
+        )));
+    }
+    Ok(properties.pop_first())
 }
 
-fn method_property(cursor: CXCursor) -> Result<Option<String>, Error> {
+fn declaration_comments(cursor: CXCursor) -> Vec<Annotation> {
     let tu = unsafe { clang_Cursor_getTranslationUnit(cursor) };
     let range = expansion_range(tu, unsafe {
         clang_getRange(
@@ -963,49 +1181,32 @@ fn method_property(cursor: CXCursor) -> Result<Option<String>, Error> {
     let mut raw = std::ptr::null_mut();
     let mut count = 0;
     unsafe { clang_tokenize(tu, range, &mut raw, &mut count) };
-    let mut properties = BTreeSet::new();
+    let context: Arc<[String]> = children(cursor)
+        .into_iter()
+        .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
+        .map(|child| string(unsafe { clang_getCursorSpelling(child) }))
+        .collect();
+    let mut result = vec![];
     for index in 0..count {
         let token = unsafe { *raw.add(index as usize) };
-        if unsafe { clang_getTokenKind(token) } == CXToken_Comment
-            && let Some(attributes) =
-                midl_attributes(&string(unsafe { clang_getTokenSpelling(tu, token) }))
-        {
-            properties.extend(
-                attributes
-                    .into_iter()
-                    .filter(|attribute| matches!(*attribute, "propget" | "propput" | "propputref"))
-                    .map(str::to_string),
-            );
+        if unsafe { clang_getTokenKind(token) } == CXToken_Comment {
+            let text = string(unsafe { clang_getTokenSpelling(tu, token) });
+            if Annotation::midl_attributes(&text).is_some() {
+                result.push(Annotation {
+                    source: AnnotationSource::Midl,
+                    text: text
+                        .trim_start_matches("/*")
+                        .trim_end_matches("*/")
+                        .trim()
+                        .into(),
+                    context: context.clone(),
+                    location: expansion_location(unsafe { clang_getTokenLocation(tu, token) }),
+                });
+            }
         }
     }
     unsafe { clang_disposeTokens(tu, raw, count) };
-    if properties.len() > 1 {
-        return Err(Error(format!(
-            "conflicting MIDL property markers: {}",
-            qualified_name(cursor)
-        )));
-    }
-    Ok(properties.pop_first())
-}
-
-fn midl_attributes(comment: &str) -> Option<Vec<&str>> {
-    let mut comment = comment.strip_prefix("/*")?.strip_suffix("*/")?.trim();
-    let mut attributes = vec![];
-    while !comment.is_empty() {
-        let (group, rest) = comment.strip_prefix('[')?.split_once(']')?;
-        for attribute in group.split(',').map(str::trim) {
-            if attribute.is_empty()
-                || !attribute
-                    .bytes()
-                    .all(|byte| byte.is_ascii_alphanumeric() || byte == b'_')
-            {
-                return None;
-            }
-            attributes.push(attribute);
-        }
-        comment = rest.trim();
-    }
-    Some(attributes)
+    result
 }
 
 fn declarations(root: CXCursor) -> Vec<CXCursor> {
@@ -1131,37 +1332,50 @@ fn expansion_location(location: CXSourceLocation) -> Location {
 
 /// Reads a `__declspec(uuid(...))` attribute directly on `cursor`, lowercase and without braces.
 ///
-/// MIDL_INTERFACE expands to this attribute. The literal is read from tokens because libclang's
-/// stable API does not expose attribute arguments directly.
-fn uuid(cursor: CXCursor) -> Option<String> {
-    let tu = unsafe { clang_Cursor_getTranslationUnit(cursor) };
-    for attr in children(cursor) {
-        if unsafe { clang_getCursorKind(attr) } != CXCursor_UnexposedAttr {
-            continue;
+/// Libclang does not expose UuidAttr's value. Its terse declaration printer preserves the
+/// compiler-expanded value without printing the body or guessing macro argument substitutions.
+fn uuid(cursor: CXCursor) -> Result<Option<String>, Error> {
+    if !children(cursor)
+        .iter()
+        .any(|attr| unsafe { clang_getCursorKind(*attr) == CXCursor_UnexposedAttr })
+    {
+        return Ok(None);
+    }
+    let policy = unsafe { clang_getCursorPrintingPolicy(cursor) };
+    unsafe { clang_PrintingPolicy_setProperty(policy, CXPrintingPolicy_TerseOutput, 1) };
+    let printed = string(unsafe { clang_getCursorPrettyPrinted(cursor, policy) });
+    unsafe { clang_PrintingPolicy_dispose(policy) };
+    let mut text = printed.as_str();
+    while !text.is_empty() {
+        if let Some(value) = text.strip_prefix("__declspec(uuid(\"") {
+            let value = value
+                .split_once("\"))")
+                .map(|(value, _)| value.trim_start_matches('{').trim_end_matches('}'))
+                .filter(|value| is_uuid(value))
+                .ok_or_else(|| {
+                    Error(format!(
+                        "UUID value unavailable for `{}`",
+                        qualified_name(cursor)
+                    ))
+                })?;
+            return Ok(Some(value.to_ascii_lowercase()));
         }
-        let range = expansion_range(tu, unsafe { clang_getCursorExtent(attr) });
-        let mut tokens = std::ptr::null_mut();
-        let mut count = 0;
-        unsafe { clang_tokenize(tu, range, &mut tokens, &mut count) };
-        let mut found = None;
-        for index in 0..count {
-            let token = unsafe { *tokens.add(index as usize) };
-            if unsafe { clang_getTokenKind(token) } != CXToken_Literal {
-                continue;
+        let character = text.chars().next().unwrap();
+        text = &text[character.len_utf8()..];
+        if matches!(character, '"' | '\'') {
+            while let Some(next) = text.chars().next() {
+                text = &text[next.len_utf8()..];
+                if next == '\\' {
+                    if let Some(escaped) = text.chars().next() {
+                        text = &text[escaped.len_utf8()..];
+                    }
+                } else if next == character {
+                    break;
+                }
             }
-            let spelling = string(unsafe { clang_getTokenSpelling(tu, token) });
-            let value = spelling.trim_matches('"');
-            if is_uuid(value) {
-                found = Some(value.to_ascii_lowercase());
-                break;
-            }
-        }
-        unsafe { clang_disposeTokens(tu, tokens, count) };
-        if found.is_some() {
-            return found;
         }
     }
-    None
+    Ok(None)
 }
 
 // `clang_getCursorExtent` for a macro-backed `__declspec(uuid(...))` attribute reports a
@@ -1228,6 +1442,28 @@ fn evaluate_initializer(cursor: CXCursor) -> Value {
     unsafe {
         let ty = clang_getCanonicalType(clang_getCursorType(cursor));
         if matches!(ty.kind, CXType_Record | CXType_ConstantArray) {
+            if matches!(
+                clang_getCursorKind(cursor),
+                CXCursor_ParenExpr | CXCursor_UnexposedExpr | CXCursor_CXXFunctionalCastExpr
+            ) {
+                let expressions: Vec<_> = children(cursor)
+                    .into_iter()
+                    .filter(|child| clang_isExpression(clang_getCursorKind(*child)) != 0)
+                    .collect();
+                if let [child] = expressions.as_slice()
+                    && (clang_equalTypes(ty, clang_getCanonicalType(clang_getCursorType(*child)))
+                        != 0
+                        || (ty.kind == CXType_Record
+                            && clang_equalCursors(
+                                clang_getTypeDeclaration(ty),
+                                clang_getTypeDeclaration(clang_getCanonicalType(
+                                    clang_getCursorType(*child),
+                                )),
+                            ) != 0))
+                {
+                    return evaluate_initializer(*child);
+                }
+            }
             if clang_getCursorKind(cursor) != CXCursor_InitListExpr {
                 return Value::Unavailable(
                     "aggregate constants require explicit initializer lists".into(),

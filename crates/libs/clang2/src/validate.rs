@@ -83,10 +83,30 @@ pub(super) fn validate(snapshot: &Snapshot) -> Result<Resolved<'_>, Error> {
         }
         annotations.insert(chosen, resolve_annotations(snapshot, candidates)?);
     }
+    let groups: BTreeMap<_, _> = groups
+        .into_values()
+        .map(|group| (representatives[group[0].0], group))
+        .collect();
+    let mut names: BTreeMap<_, Vec<_>> = BTreeMap::new();
+    for id in groups.keys() {
+        names
+            .entry(snapshot.declarations[id.0].name.as_str())
+            .or_default()
+            .push(*id);
+    }
+    let mut roots: BTreeMap<_, Vec<_>> = BTreeMap::new();
+    for id in &snapshot.roots {
+        roots
+            .entry(snapshot.declarations[id.0].name.as_str())
+            .or_default()
+            .push(*id);
+    }
     Ok(Resolved {
         snapshot,
         representatives,
-        groups: groups.into_values().collect(),
+        groups,
+        names,
+        roots,
         annotations,
         guids,
         report,
@@ -140,15 +160,62 @@ fn parameters_match(left: &[Parameter], right: &[Parameter]) -> bool {
 fn resolve_annotations(
     snapshot: &Snapshot,
     candidates: &[Id],
-) -> Result<BTreeMap<usize, Vec<Vec<String>>>, Error> {
-    #[derive(Default)]
-    struct Evidence {
-        sal: BTreeSet<String>,
-        midl: BTreeSet<String>,
-    }
-    let mut result: BTreeMap<usize, Vec<Evidence>> = BTreeMap::new();
+) -> Result<ResolvedAnnotations, Error> {
+    let mut result = ResolvedAnnotations::default();
     for id in candidates {
         let declaration = &snapshot.declarations[id.0];
+        merge_annotations(
+            &mut result.own,
+            &declaration.annotations,
+            declaration,
+            "declaration",
+        )?;
+        if let DeclarationData::Enum { annotations, .. } = &declaration.data {
+            if result.fields.is_empty() {
+                result
+                    .fields
+                    .resize_with(annotations.len(), SourceAnnotations::default);
+            }
+            for (index, annotations) in annotations.iter().enumerate() {
+                merge_annotations(
+                    &mut result.fields[index],
+                    annotations,
+                    declaration,
+                    &format!("variant {index}"),
+                )?;
+            }
+        }
+        if let DeclarationData::Record {
+            fields, methods, ..
+        } = &declaration.data
+        {
+            if result.fields.is_empty() {
+                result
+                    .fields
+                    .resize_with(fields.len(), SourceAnnotations::default);
+            }
+            if result.methods.is_empty() {
+                result
+                    .methods
+                    .resize_with(methods.len(), SourceAnnotations::default);
+            }
+            for (index, field) in fields.iter().enumerate() {
+                merge_annotations(
+                    &mut result.fields[index],
+                    &field.annotations,
+                    declaration,
+                    &format!("field {index}"),
+                )?;
+            }
+            for (index, method) in methods.iter().enumerate() {
+                merge_annotations(
+                    &mut result.methods[index],
+                    &method.annotations,
+                    declaration,
+                    &format!("method {index}"),
+                )?;
+            }
+        }
         let callables: Vec<_> = match &declaration.data {
             DeclarationData::Function { parameters, .. }
             | DeclarationData::Alias { parameters, .. } => vec![(0, parameters)],
@@ -160,9 +227,11 @@ fn resolve_annotations(
             _ => vec![],
         };
         for (slot, parameters) in callables {
-            let resolved = result
-                .entry(slot)
-                .or_insert_with(|| (0..parameters.len()).map(|_| Evidence::default()).collect());
+            let resolved = result.parameters.entry(slot).or_insert_with(|| {
+                (0..parameters.len())
+                    .map(|_| SourceAnnotations::default())
+                    .collect()
+            });
             if resolved.len() != parameters.len() {
                 return Err(unsupported(
                     declaration,
@@ -170,48 +239,44 @@ fn resolve_annotations(
                 ));
             }
             for (index, (evidence, parameter)) in resolved.iter_mut().zip(parameters).enumerate() {
-                for (source, previous) in [
-                    (AnnotationSource::Sal, &mut evidence.sal),
-                    (AnnotationSource::Midl, &mut evidence.midl),
-                ] {
-                    let annotations: BTreeSet<_> = parameter
-                        .annotations
-                        .iter()
-                        .filter(|annotation| annotation.source == source)
-                        .map(Annotation::bound_text)
-                        .collect();
-                    if !previous.is_empty() && !annotations.is_empty() && *previous != annotations {
-                        return Err(unsupported(
-                            declaration,
-                            &format!("conflicting annotations for parameter {index} ({source:?})"),
-                        ));
-                    }
-                    previous.extend(annotations);
-                }
+                merge_annotations(
+                    evidence,
+                    &parameter.annotations,
+                    declaration,
+                    &format!("parameter {index}"),
+                )?;
             }
         }
     }
-    Ok(result
-        .into_iter()
-        .map(|(slot, params)| {
-            (
-                slot,
-                params
-                    .into_iter()
-                    .map(|evidence| {
-                        let mut annotations = evidence.sal;
-                        if !annotations
-                            .iter()
-                            .any(|text| Annotation::direction(text).is_some())
-                        {
-                            annotations.extend(evidence.midl);
-                        }
-                        annotations.into_iter().collect()
-                    })
-                    .collect(),
-            )
-        })
-        .collect())
+    Ok(result)
+}
+
+fn merge_annotations(
+    target: &mut SourceAnnotations,
+    annotations: &[Annotation],
+    declaration: &Declaration,
+    scope: &str,
+) -> Result<(), Error> {
+    for (source, previous) in [
+        (AnnotationSource::Sal, &mut target.sal),
+        (AnnotationSource::Midl, &mut target.midl),
+    ] {
+        let current: Vec<_> = annotations
+            .iter()
+            .filter(|annotation| annotation.source == source)
+            .map(Annotation::bound_text)
+            .collect();
+        if !previous.is_empty() && !current.is_empty() && *previous != current {
+            return Err(unsupported(
+                declaration,
+                &format!("conflicting annotations for {scope} ({source:?})"),
+            ));
+        }
+        if previous.is_empty() {
+            *previous = current;
+        }
+    }
+    Ok(())
 }
 
 fn exception_specification(ty: &Type) -> Option<i32> {
@@ -343,6 +408,7 @@ impl<'a> Comparison<'a> {
                                 flags: af,
                                 repr: ar,
                                 variants: av,
+                                ..
                             },
                             DeclarationData::Enum {
                                 complete: bc,
@@ -350,6 +416,7 @@ impl<'a> Comparison<'a> {
                                 flags: bf,
                                 repr: br,
                                 variants: bv,
+                                ..
                             },
                         ) => {
                             types.push((ar, br));

@@ -68,8 +68,8 @@ fn midl_comments_do_not_attach_to_neighboring_or_nested_parameters() {
     .unwrap();
     snapshot.resolve().unwrap();
     let dump = snapshot.dump();
-    assert_eq!(dump.matches("text: \"_In_\"").count(), 0, "{dump}");
-    assert_eq!(dump.matches("text: \"_Out_\"").count(), 1, "{dump}");
+    assert_eq!(dump.matches("text: \"[in]\"").count(), 0, "{dump}");
+    assert_eq!(dump.matches("text: \"[out]\"").count(), 1, "{dump}");
 }
 
 #[test]

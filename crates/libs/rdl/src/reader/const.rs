@@ -158,6 +158,14 @@ impl Encoder<'_> {
             d3,
             d4,
         );
+        self.encode_attrs(
+            metadata::writer::HasAttribute::Field(field),
+            &item.attrs,
+            &[],
+        )?;
+        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
+            self.emit_arch_attribute(metadata::writer::HasAttribute::Field(field), arch_bits);
+        }
 
         Ok(())
     }
