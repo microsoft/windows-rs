@@ -43,12 +43,20 @@ path = "src/window_state.rs"
 name = "window_placement"
 path = "src/window_placement.rs"
 
+[[bin]]
+name = "tray_flyout"
+path = "src/tray_flyout.rs"
+
+[[bin]]
+name = "menu_position"
+path = "src/menu_position.rs"
+
 [dependencies]
 windows-canvas = { workspace = true, features = ["composition", "reactor"] }
 windows-core = { workspace = true }
 windows-reactor = { workspace = true }
 windows-webview = { workspace = true, features = ["reactor"] }
-windows = { workspace = true, features = ["combaseapi", "objbase", "processthreadsapi", "uiautomationclient", "uiautomationcore", "winuser"] }
+windows = { workspace = true, features = ["combaseapi", "objbase", "processthreadsapi", "shellapi", "uiautomationclient", "uiautomationcore", "winuser"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

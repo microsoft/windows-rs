@@ -178,6 +178,23 @@ This requires the same Windows App Runtime as other Reactor applications.
 
 `App::run`, `App::run_component`, and `App::run_with` retain their existing lifecycle behavior.
 
+## Application menus
+
+Notification declarations attach a `Menu` directly. `AppContext::show_menu_at` also opens a `Menu`
+at physical screen coordinates without requiring a component window. Both paths use a transparent
+Win32 window with a `DesktopWindowXamlSource`.
+The island disables work-area popup constraints so notification menus can extend over the taskbar;
+the flyout also disables root-bounds constraints. The island is released before its parent window.
+Host creation and positioning share the window-placement DPI guard, which temporarily selects
+Per-Monitor V2 awareness and restores the caller's thread context. This keeps screen coordinates
+physical even when a host process or calling thread selected another DPI mode.
+
+The `test-reactor-integration` `tray_flyout` fixture uses an application-owned notification icon,
+checks that menu items overlap the icon's monitor and extend outside its work area, and exercises
+application shutdown with the menu open.
+The `menu_position` fixture verifies exact physical host bounds under four DPI modes and checks
+that successful and rejected menu requests preserve the caller's thread context.
+
 ## Position and restore windows
 
 Publish startup placement through `context.window_visuals`. The first committed declaration is

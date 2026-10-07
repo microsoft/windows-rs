@@ -169,6 +169,10 @@ jobs:
             }
           cargo run -p test-reactor-integration --bin application_menu --quiet
           cargo run -p test-reactor-integration --bin application_menus --quiet
+          cargo run -p test-reactor-integration --bin tray_flyout --quiet
+          "pmv2", "unaware", "system", "thread-unaware" | ForEach-Object {
+            cargo run -p test-reactor-integration --bin menu_position --quiet -- $_
+          }
           "input", "close", "application" | ForEach-Object {
             cargo run -p test-reactor-integration --bin application_dispatch --quiet -- $_
           }
