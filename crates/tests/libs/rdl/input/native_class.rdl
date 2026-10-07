@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    #[guid(0xbcde0395_e52f_467c_8e3d_c4579291692e)]
+    class NativeClass;
+}

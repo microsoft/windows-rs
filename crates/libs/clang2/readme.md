@@ -3,6 +3,11 @@
 An experimental replacement for `windows-clang`, built directly on
 libclang. It drives `tool-webview`; the other production scrapers still use the existing crate.
 
+The viability decision is to proceed with this architecture. Remaining work is source-to-RDL
+coverage and incremental scraper cutover, not another downstream runtime-validation campaign.
+Header/RDL fixtures and real-header inventories are the primary checks. This is not a claim of
+complete Win32/WDK or general C++ support.
+
 The prototype captures selected native declarations and their dependencies into an owned graph,
 checks agreement across translation units, and builds a closed RDL projection plan. It retains
 separate redeclaration observations, written typedef edges, canonical callable types, native layout,
@@ -50,9 +55,13 @@ Fixed-size arrays retain their element types, extents, and native layout. Extern
 fields retain native storage layout under the caller's ABI contract; by-value calls involving
 external records or adjusted layouts remain rejected, including through arrays and local records.
 Caller-supplied `ProjectionOptions::imports` maps native linker symbols to `FunctionImport` DLL
-and export names without changing captured evidence. Unmapped functions require an explicit
-`library` fallback; the BCrypt and WebView2 fixtures instead derive imports from target-specific SDK
-COFF libraries.
+and named or ordinal import targets without changing captured evidence. Unmapped functions require
+an explicit `library` fallback; the BCrypt and WebView2 fixtures instead derive imports from
+target-specific SDK COFF libraries.
+
+UUID-bearing forward classes retain their identity as `#[guid(...)] class Name;` in RDL, without
+inventing object layout or WinRT semantics. UUID evidence survives separate declarations and complete
+definitions; conflicting UUIDs still fail resolution.
 
 Fully specified struct/array initializer lists retain compiler-evaluated values in the native graph.
 Projection supports GUID and property-key storage shapes, checking component types, offsets, sizes,
@@ -114,14 +123,14 @@ viability gate is x64 debug, not a full architecture certification matrix. Broad
 other production consumers still need coverage. See the continuation page for commands and open
 gates.
 
-`tool-win32 --clang2-audio` is a bounded x64 path through the real main/satellite input assembly for
-`mmdeviceapi.h` and `endpointvolume.h`. Header discovery feeds a persistent declaration-outcome
-report and per-header RDL, then an isolated consumer reads real audio endpoint state without
-changing settings. An additional SDK definition-mode input supplies all 18 property keys and four
-device-interface GUIDs. The supported candidate emits 64 selected names; 38 remain rejected, including
-declaration-only data, a coclass, and an ordinal import. The generator exits nonzero for incomplete
-coverage even when the supported consumer works. The full Win32 scraper and committed metadata
-remain on their existing path.
+`tool-win32 --clang2-audio --rdl-only` is a bounded x64 path through the real main/satellite input
+assembly for `mmdeviceapi.h` and `endpointvolume.h`. Header discovery feeds a declaration-outcome
+report and per-header RDL without generating metadata, Rust bindings, or an executable. An additional
+SDK definition-mode input supplies all 18 property keys and four device-interface GUIDs. With SDK
+macro wrappers loaded before the SAL shim, 57 selected names emit and 45 reject: 36 declaration-only
+data names and nine roots affected by unsupported output-pointer annotations. No missing values or
+nullable-result contracts are guessed. The generator exits nonzero for incomplete coverage.
+The full Win32 scraper and committed metadata remain on their existing path.
 
 The API and diagnostic dump are experimental. See
 [`docs/crates/windows-clang2.md`](../../../docs/crates/windows-clang2.md) for the supported subset,

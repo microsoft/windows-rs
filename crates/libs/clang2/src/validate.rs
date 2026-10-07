@@ -66,6 +66,7 @@ pub(super) fn validate(snapshot: &Snapshot) -> Result<Resolved<'_>, Error> {
     };
     let mut representatives: Vec<_> = (0..snapshot.declarations.len()).map(Id).collect();
     let mut annotations = BTreeMap::new();
+    let mut guids = BTreeMap::new();
     for candidates in groups.values() {
         let chosen = *candidates
             .iter()
@@ -73,6 +74,12 @@ pub(super) fn validate(snapshot: &Snapshot) -> Result<Resolved<'_>, Error> {
             .unwrap();
         for id in candidates {
             representatives[id.0] = chosen;
+            if let DeclarationData::Record {
+                guid: Some(guid), ..
+            } = &snapshot.declarations[id.0].data
+            {
+                guids.insert(chosen, guid.as_str());
+            }
         }
         annotations.insert(chosen, resolve_annotations(snapshot, candidates)?);
     }
@@ -81,6 +88,7 @@ pub(super) fn validate(snapshot: &Snapshot) -> Result<Resolved<'_>, Error> {
         representatives,
         groups: groups.into_values().collect(),
         annotations,
+        guids,
         report,
     })
 }

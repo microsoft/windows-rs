@@ -55,6 +55,14 @@ A top-level `mod` is a metadata namespace. Tag it `#[winrt]` or `#[win32]` to se
 system. Items include classes, interfaces, delegates, callbacks, enums, structs, unions, typedefs,
 constants, and imported functions.
 
+The semicolon form `#[guid(...)] class Name;` preserves a native class identity without inventing
+an object layout or a WinRT runtime class. Braced classes retain their WinRT semantics. Native
+class identities roundtrip without the `WindowsRuntime` flag.
+
+Imported functions distinguish `#[library("api.dll", import = "Name")]` from
+`#[library("api.dll", ordinal = 17)]`. Ordinals use the P/Invoke `#17` representation in metadata;
+the RDL writer emits the numeric `ordinal` option.
+
 ```text
 #[win32]
 mod Example {

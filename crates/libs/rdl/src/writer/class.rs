@@ -14,8 +14,37 @@ pub fn write_class(item: &metadata::reader::TypeDef) -> Result<TokenStream, Erro
         quote! { : #ty }
     };
 
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    if !item
+        .flags()
+        .contains(metadata::TypeAttributes::WindowsRuntime)
+    {
+        if !extends.is_empty()
+            || item.interface_impls().next().is_some()
+            || item.fields().next().is_some()
+            || item.methods().next().is_some()
+        {
+            return Err(writer_err!(
+                "native class `{}` has members or a base class",
+                item.name()
+            ));
+        }
+        let custom_attrs = write_custom_attributes_except(
+            item.attributes(),
+            namespace,
+            item.index(),
+            &["GuidAttribute"],
+        )?;
+        let guid = if let Some(attribute) = item.find_attribute("GuidAttribute") {
+            let (d1, d2, d3, d4) = extract_guid_from_attribute(attribute)?;
+            let value = syn::LitInt::new(&format_guid_u128(d1, d2, d3, d4), Span::call_site());
+            quote! { #[guid(#value)] }
+        } else {
+            quote! {}
+        };
+        return Ok(quote! { #guid #(#custom_attrs)* class #name; });
+    }
 
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
     let mut impls: Vec<_> = item.interface_impls().collect();
     impls.sort_by_key(|imp| !imp.has_attribute("DefaultAttribute"));
 

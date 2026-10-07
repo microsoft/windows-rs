@@ -341,6 +341,17 @@ mod Contoso {
 }
 ```
 
+#### Native class declarations
+
+```rust
+#[guid(0xbcde0395_e52f_467c_8e3d_c4579291692e)]
+class NativeClass;
+```
+
+The semicolon form declares a native class identity without an object definition. It carries no
+WinRT flag, base class, members, or implemented interfaces. A UUID is retained when supplied; none
+is derived. This differs from the braced runtime-class form below.
+
 #### Classes (WinRT)
 
 ```rust

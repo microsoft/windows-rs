@@ -116,6 +116,9 @@ impl Plan {
                     output.push_str("    }\n");
                 }
                 Item::Alias(ty) => writeln!(output, "    type {name} = {};", ty.text()).unwrap(),
+                Item::Class { guid } => {
+                    writeln!(output, "    #[guid({})]\n    class {name};", rdl_guid(guid)).unwrap();
+                }
                 Item::Enum {
                     repr,
                     flags,
@@ -140,11 +143,11 @@ impl Plan {
                     match link_name {
                         ImportTarget::Name(name) => {
                             writeln!(output, "    #[library({library:?}, import = {name:?})]")
-                                .unwrap()
+                                .unwrap();
                         }
                         ImportTarget::Ordinal(ordinal) => {
                             writeln!(output, "    #[library({library:?}, ordinal = {ordinal})]")
-                                .unwrap()
+                                .unwrap();
                         }
                     }
                     write!(output, "    extern {abi:?} fn {name}(").unwrap();
@@ -295,6 +298,9 @@ fn rdl_guid(guid: &str) -> String {
 
 #[derive(Debug)]
 enum Item {
+    Class {
+        guid: String,
+    },
     Record {
         fields: Vec<(String, ProjectedType)>,
         alignment: Option<i64>,
@@ -626,16 +632,33 @@ impl Builder<'_, '_> {
             return Ok(());
         }
         let name = self.name(id)?;
+        let guid = self.resolved.guids.get(&id).copied();
         let item = match &declaration.data {
+            DeclarationData::Record {
+                kind,
+                complete: false,
+                fields,
+                bases,
+                methods,
+                ..
+            } if kind == "ClassDecl"
+                && fields.is_empty()
+                && bases.is_empty()
+                && methods.is_empty()
+                && guid.is_some() =>
+            {
+                Item::Class {
+                    guid: guid.unwrap().into(),
+                }
+            }
             DeclarationData::Record {
                 complete: true,
                 fields,
                 bases,
                 methods,
-                guid: Some(guid),
                 ..
-            } if fields.is_empty() && !methods.is_empty() => {
-                self.interface(id, &name, guid, bases, methods)?
+            } if fields.is_empty() && !methods.is_empty() && guid.is_some() => {
+                self.interface(id, &name, guid.unwrap(), bases, methods)?
             }
             DeclarationData::Record {
                 kind,
@@ -1431,6 +1454,8 @@ impl Builder<'_, '_> {
                         false,
                     )
                 } else if let DeclarationData::Record {
+                    kind,
+                    complete,
                     layout,
                     fields,
                     bases,
@@ -1438,6 +1463,12 @@ impl Builder<'_, '_> {
                     ..
                 } = &declaration.data
                 {
+                    if kind == "ClassDecl" && !complete && self.resolved.guids.contains_key(&id) {
+                        return Err(Error(format!(
+                            "native class `{}` has identity but no captured object definition",
+                            declaration.name
+                        )));
+                    }
                     if !fields.is_empty() && (!bases.is_empty() || !methods.is_empty()) {
                         return Err(Error(format!(
                             "local C++ interface projection is not implemented for `{}`; an external binding is required",

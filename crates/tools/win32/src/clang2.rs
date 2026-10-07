@@ -4,9 +4,13 @@ use windows_clang2::{
     DeclarationInfo, FunctionImport, Input, ProjectionOptions, ReferenceKind, TypeReference,
 };
 
-pub fn audio() -> Result<(), Box<dyn std::error::Error>> {
+pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
     let time = std::time::Instant::now();
-    let output = std::path::Path::new("target/win32-clang2/audio");
+    let output = std::path::Path::new(if rdl_only {
+        "target/win32-clang2/audio-rdl"
+    } else {
+        "target/win32-clang2/audio"
+    });
     std::fs::create_dir_all(output)?;
     for file in [
         "audio.rdl",
@@ -34,7 +38,13 @@ pub fn audio() -> Result<(), Box<dyn std::error::Error>> {
         .into_iter()
         .flat_map(|dir| ["-isystem".into(), dir])
         .collect();
-    let arguments = clang_arguments(&Arch::known("x64").unwrap(), &include_args, None);
+    // Install the annotation shim after the SDK's macro wrappers.
+    let mut arguments = vec!["-include".into(), "specstrings.h".into()];
+    arguments.extend(clang_arguments(
+        &Arch::known("x64").unwrap(),
+        &include_args,
+        None,
+    ));
     let inventory = windows_clang2::discover(
         inputs.clone(),
         &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
@@ -175,10 +185,7 @@ pub fn audio() -> Result<(), Box<dyn std::error::Error>> {
     for root in &supported {
         outcomes.insert(
             root,
-            (
-                "blocked",
-                "metadata and bindings generation has not completed".into(),
-            ),
+            ("blocked", "projection output has not completed".into()),
         );
     }
     report(output, &inventory, &outcomes);
@@ -226,41 +233,43 @@ pub fn audio() -> Result<(), Box<dyn std::error::Error>> {
         owners.push_str(&format!("{name}\t{header}\n"));
     }
     std::fs::write(output.join("headers.tsv"), owners)?;
-    reader
-        .reference_default()
-        .output(&winmd)
-        .write()
-        .inspect_err(|error| {
-            blocked(output, &inventory, &mut outcomes, "metadata", error);
-        })?;
-    windows_bindgen::bindgen([
-        "--in",
-        "default",
-        winmd.to_str().unwrap(),
-        "--out",
-        output.join("src/bindings.rs").to_str().unwrap(),
-        "--flat",
-        "--minimal",
-        "--filter",
-        "Win32Audio",
-        "Windows.Win32.PROPVARIANT",
-        "Windows.Win32.IPropertyStore",
-        "Windows.Win32.PROPERTYKEY",
-        "Windows.Win32.PropVariantClear",
-        "Windows.Win32.VT_UI4",
-        "Windows.Win32.CoCreateInstance",
-        "Windows.Win32.CoTaskMemFree",
-        "Windows.Win32.StringFromIID",
-        "Windows.Win32.E_FAIL",
-    ]);
-    std::fs::write(
-        output.join("Cargo.toml"),
-        "[workspace]\n[package]\nname = \"clang2-audio-smoke\"\nversion = \"0.0.0\"\n\
+    if !rdl_only {
+        reader
+            .reference_default()
+            .output(&winmd)
+            .write()
+            .inspect_err(|error| {
+                blocked(output, &inventory, &mut outcomes, "metadata", error);
+            })?;
+        windows_bindgen::bindgen([
+            "--in",
+            "default",
+            winmd.to_str().unwrap(),
+            "--out",
+            output.join("src/bindings.rs").to_str().unwrap(),
+            "--flat",
+            "--minimal",
+            "--filter",
+            "Win32Audio",
+            "Windows.Win32.PROPVARIANT",
+            "Windows.Win32.IPropertyStore",
+            "Windows.Win32.PROPERTYKEY",
+            "Windows.Win32.PropVariantClear",
+            "Windows.Win32.VT_UI4",
+            "Windows.Win32.CoCreateInstance",
+            "Windows.Win32.CoTaskMemFree",
+            "Windows.Win32.StringFromIID",
+            "Windows.Win32.E_FAIL",
+        ]);
+        std::fs::write(
+            output.join("Cargo.toml"),
+            "[workspace]\n[package]\nname = \"clang2-audio-smoke\"\nversion = \"0.0.0\"\n\
          edition = \"2024\"\n[dependencies]\n\
          windows-core = { path = \"../../../crates/libs/core\" }\n",
-    )
-    .unwrap();
-    std::fs::write(output.join("src/main.rs"), include_str!("audio_smoke.rs")).unwrap();
+        )
+        .unwrap();
+        std::fs::write(output.join("src/main.rs"), include_str!("audio_smoke.rs")).unwrap();
+    }
     for root in &supported {
         outcomes.insert(root, ("emitted", String::new()));
     }

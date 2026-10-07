@@ -830,10 +830,11 @@ const LIBRARY_OVERRIDES: &[LibraryOverride] = &[
 fn main() {
     let time = std::time::Instant::now();
     let args: Vec<_> = std::env::args().skip(1).collect();
-    let audio = match args.as_slice() {
-        [] => false,
-        [arg] if arg == "--clang2-audio" => true,
-        _ => panic!("usage: tool-win32 [--clang2-audio]"),
+    let (audio, rdl_only) = match args.as_slice() {
+        [] => (false, false),
+        [arg] if arg == "--clang2-audio" => (true, false),
+        [arg, mode] if arg == "--clang2-audio" && mode == "--rdl-only" => (true, true),
+        _ => panic!("usage: tool-win32 [--clang2-audio [--rdl-only]]"),
     };
 
     for name in ARCHS {
@@ -853,7 +854,7 @@ fn main() {
     assert_libclang_version();
 
     if audio {
-        if let Err(error) = clang2::audio() {
+        if let Err(error) = clang2::audio(rdl_only) {
             eprintln!("{error}");
             std::process::exit(1);
         }

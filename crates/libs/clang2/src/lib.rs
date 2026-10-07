@@ -69,6 +69,7 @@ pub struct Resolved<'a> {
     snapshot: &'a Snapshot,
     representatives: Vec<Id>,
     groups: Vec<Vec<Id>>,
+    guids: BTreeMap<Id, &'a str>,
     annotations: BTreeMap<Id, BTreeMap<usize, Vec<Vec<String>>>>,
     report: Validation,
 }

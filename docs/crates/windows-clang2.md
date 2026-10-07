@@ -6,6 +6,23 @@ slice implements native capture, checked resolution, and a narrow RDL projection
 
 See the [crate readme](../../crates/libs/clang2/readme.md) for a small API example.
 
+## Viability decision
+
+Proceed with `windows-clang2` as the replacement architecture. The viability investigation is
+complete; full Win32/WDK coverage and production cutover are not. The owned native graph, checked
+cross-TU resolution, and separate RDL projection have supported real SDK declarations without
+building on the legacy extractor's output. The production WebView cutover supplies an existing
+end-to-end check. No architectural blocker has been identified in these workloads.
+
+Further work should implement missing source-to-RDL cases, not repeat downstream runtime
+validation. Use small `.h`/`.rdl` fixtures, compiler-reported evidence, and complete real-header
+inventories. Keep unsupported contracts visible; a declaration count alone does not establish
+fidelity. Native execution is reserved for an ambiguity that source/compiler evidence cannot settle.
+
+The audio inventory exposes concrete remaining work: declaration-only data, ordinary output-pointer
+annotations, and nullable output results. General C++ projection, broader SAL/MIDL coverage, and
+the full Win32/WDK cutover remain outside the established subset.
+
 ## Current pipeline
 
 ```text
@@ -188,13 +205,20 @@ as scalar fields. Externally bound record fields retain their checked native sto
 the caller's metadata ABI contract. Neither change relaxes the call gate: arrays and local records
 containing adjusted layouts or external records are also rejected in unproven by-value calls.
 
-`ProjectionOptions::imports` maps exact native linker symbols to `FunctionImport { library, name }`.
+`ProjectionOptions::imports` maps exact native linker symbols to `FunctionImport { library, target }`.
+`ImportTarget::Name` and `ImportTarget::Ordinal` preserve the import library's distinction; RDL
+represents the latter as `#[library("library.dll", ordinal = 17)]`.
 The native evidence and calling convention are unchanged. Unmapped functions require the explicit
 `library` fallback, which retains their compiler name and is suitable for static fixtures, not
 proof of DLL export spelling. The BCrypt caller disables that fallback and loads target-specific
 SDK import libraries through `windows_rdl::implib`. The reader obeys each COFF name type; it does
 not strip decoration based on the spelling alone. Ordinals remain distinct from names, and code
 imports remain distinct from data imports. Missing required imports fail projection.
+
+UUID-bearing forward class declarations emit `#[guid(...)] class Name;`, not a fabricated GUID
+variable, empty object layout, or WinRT runtime class. The native report still marks the class
+incomplete. Object use remains rejected without a captured definition. UUID evidence is combined
+across checked declarations independently of which complete definition supplies members.
 
 Record storage can include gaps required by increased member alignment. Each explicit gap is a
 union of a byte array and a zero-length array, not an ordinary initialized byte field: native
@@ -776,9 +800,11 @@ and SDK-wide production coverage remain open.
 ### Header-driven Win32 main/satellite slice
 
 ```powershell
-cargo run -p tool-win32 -- --clang2-audio
-cargo run --manifest-path target\win32-clang2\audio\Cargo.toml
+cargo run -p tool-win32 -- --clang2-audio --rdl-only
 ```
+
+This conversion-only command writes `target/win32-clang2/audio-rdl`, without generating metadata,
+Rust bindings, or a consumer. Omitting `--rdl-only` retains the separate downstream experiment.
 
 This opt-in path reuses `tool-win32`'s pinned SDK, compiler arguments, prelude, and main/satellite
 input assembly for `mmdeviceapi.h` and `endpointvolume.h`. It discovers the configured headers'
@@ -798,31 +824,40 @@ device-interface GUIDs. The original main/satellite declaration observations rem
 No macro-name parser, argument-text evaluator, or `IID_` naming guess supplies values. IID, CLSID,
 and LIBID extern declarations without initializers remain unsupported.
 
-The pinned headers produce 166 inventory rows: 93 emitted, 33 explicitly excluded, and 40 rejected.
-Forward declarations and typedefs account for repeated names. There are 102 selected names:
-64 emit and 38 reject. One x64 debug run resolved 321 groups and 921 observations with 630
-declaration comparisons, and generated the candidate in 5.4 seconds.
+The pinned headers produce 166 inventory rows and 102 selected names: 57 emit and 45 reject.
+Forward declarations and typedefs account for repeated names. One x64 debug RDL-only run resolved
+321 groups and 921 observations with 631 declaration comparisons in 4.5 seconds.
+
+The SDK's `specstrings.h` must load before the annotation shim, or its macro wrappers erase some
+captured SAL contracts. With that ordering fixed, unsupported output-pointer annotations reject
+their affected roots rather than producing less informative RDL. The earlier 66-name result did
+not include those contracts and is not the fidelity baseline.
 
 | Remaining family | Names | Missing contract |
 | --- | --- | --- |
 | GUID data declarations | 16 | Initializer or imported-data evidence for IID, CLSID, and LIBID variables. |
 | RPC globals | 20 | Imported data is not a metadata constant. |
-| `MMDeviceEnumerator` | 1 | UUID-bearing coclass projection. |
-| `ActivateAudioInterfaceAsync` | 1 | The pinned `mmdevapi.lib` imports `MMDevAPI.DLL` ordinal 17; the projection supports named imports only. |
+| Ordinary output pointers | 6 | `_Outptr_` lowering, including dependencies of selected roots. |
+| Nullable output results | 3 | `_Outptr_result_maybenull_`; result nullability is not optionality of the caller's output slot. |
+
+`MMDeviceEnumerator` emits its source UUID as an opaque native class. The pinned `mmdevapi.lib`
+ordinal-17 contract is representable, but `ActivateAudioInterfaceAsync` remains rejected through
+its nullable-output dependency.
 
 The generator exits 1 while any selected name is rejected, after generating the supported
-candidate. Run the consumer separately; a working consumer does not turn incomplete header
+candidate. A working consumer does not turn incomplete header
 coverage into success. No DLL export-name guess replaces the ordinal import.
 
-Output stays under `target/win32-clang2/audio`:
+RDL-only output stays under `target/win32-clang2/audio-rdl`. The separate downstream mode writes
+`target/win32-clang2/audio`:
 
 | Artifact | Purpose |
 | --- | --- |
 | `inventory.tsv` | Every discovered row, its status, and a stage/reason for exclusions or failures. |
 | `headers.tsv` | Output filenames and their source header paths; filename collisions fail. |
 | `rdl/*.rdl` | Separate `mmdeviceapi`, `endpointvolume`, `guiddef`, `wtypes`, and `devicetopology` partitions. |
-| `audio.winmd`, `src/bindings.rs` | The combined supported candidate, built from those partitions. |
-| `Cargo.toml`, `src/main.rs` | Standalone read-only consumer. |
+| `audio.winmd`, `src/bindings.rs` | Downstream mode only: metadata and bindings. |
+| `Cargo.toml`, `src/main.rs` | Downstream mode only: standalone consumer experiment. |
 
 Candidate definitions use `Win32Audio` so bundled Win32 metadata cannot substitute for them.
 Standard external COM references remain explicit. The native `_GUID` record and its fixed byte
@@ -867,9 +902,9 @@ The old `windows-clang` implementation remains available. `tool-webview` uses cl
 production scrapers retain their existing path. Inspect the worktree before restarting and
 preserve any local changes.
 
-The current slice has 122 passing integration tests and one passing doctest, with no ignored
-WebView2 cutover cases.
-This establishes the covered cases, not production parity or completion of the acceptance matrix.
+The established WebView slice has no ignored cutover cases. Source-focused class fixtures also
+cover UUID declarations, completion, ownership, and conflict rejection. These establish the covered
+cases, not production parity or completion of the acceptance matrix.
 
 An independent review of the BCrypt postcondition/import changes found no significant issues.
 It traced annotation lowering, metadata readback, COFF import decoding, and test-owned lifetimes,

@@ -96,8 +96,8 @@ impl<'a> Index<'a> {
                 Item::Enum(e) => e.winrt,
                 Item::Interface(i) => i.winrt,
                 Item::Attribute(a) => a.winrt,
-                // Delegates and classes are always WinRT.
-                Item::Delegate(_) | Item::Class(_) => true,
+                Item::Class(c) => !c.opaque,
+                Item::Delegate(_) => true,
                 // Unions, callbacks, and typedefs are always non-WinRT.
                 Item::Union(_) | Item::Callback(_) | Item::Typedef(_) => false,
                 Item::Fn(_) | Item::Const(_) | Item::Module(_) => false,

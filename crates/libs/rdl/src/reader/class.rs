@@ -8,6 +8,7 @@ pub struct Class {
     pub name: syn::Ident,
     pub extends: Option<syn::Path>,
     pub interfaces: Vec<ClassInterface>,
+    pub opaque: bool,
 }
 
 impl syn::parse::Parse for Class {
@@ -15,6 +16,17 @@ impl syn::parse::Parse for Class {
         let attrs = input.call(syn::Attribute::parse_outer)?;
         input.parse::<class>()?;
         let name = input.parse()?;
+
+        if input.peek(syn::Token![;]) {
+            input.parse::<syn::Token![;]>()?;
+            return Ok(Self {
+                attrs,
+                name,
+                extends: None,
+                interfaces: vec![],
+                opaque: true,
+            });
+        }
 
         let extends = if input.parse::<syn::Token![:]>().is_ok() {
             Some(input.parse()?)
@@ -35,6 +47,7 @@ impl syn::parse::Parse for Class {
             name,
             extends,
             interfaces,
+            opaque: false,
         })
     }
 }
@@ -59,7 +72,7 @@ impl Encoder<'_> {
         let extends = if let Some(path) = &item.extends {
             let extends = self.encode_path(path)?;
             if let metadata::Type::ClassName(ref tn) = extends {
-                // Classes are always WinRT - the base class must also be WinRT.
+                // Runtime classes can only extend other runtime classes.
                 self.validate_type_is_winrt(path, &extends)?;
                 self.output.TypeRef(&tn.namespace, &tn.name)
             } else {
@@ -69,9 +82,10 @@ impl Encoder<'_> {
             self.output.TypeRef("System", "Object")
         };
 
-        let flags = metadata::TypeAttributes::Public
-            | metadata::TypeAttributes::Sealed
-            | metadata::TypeAttributes::WindowsRuntime;
+        let mut flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed;
+        if !item.opaque {
+            flags |= metadata::TypeAttributes::WindowsRuntime;
+        }
 
         let class = self.output.TypeDef(
             self.namespace,
@@ -83,8 +97,18 @@ impl Encoder<'_> {
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(class),
             &item.attrs,
-            &[],
+            if item.opaque {
+                &["guid", "no_guid"]
+            } else {
+                &[]
+            },
         )?;
+        if item.opaque {
+            self.encode_guid_pseudo_attrs(
+                metadata::writer::HasAttribute::TypeDef(class),
+                &item.attrs,
+            )?;
+        }
 
         for (index, interface) in item.interfaces.iter().enumerate() {
             self.encode_implement(class, interface, index == 0)?;
@@ -107,7 +131,7 @@ impl Encoder<'_> {
             );
         }
 
-        // Classes are always WinRT - every implemented interface must also be WinRT.
+        // Runtime classes can only implement WinRT interfaces.
         self.validate_type_is_winrt(&interface.ty, &ty)?;
 
         let interface_impl = self.output.InterfaceImpl(class, &ty);

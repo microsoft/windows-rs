@@ -103,13 +103,14 @@ impl DeclarationData {
         }
     }
 
-    pub fn evidence_rank(&self) -> u8 {
-        match self {
+    pub fn evidence_rank(&self) -> (u8, bool) {
+        let rank = match self {
             Self::Variable {
                 value: Value::None, ..
             } => 0,
             _ => u8::from(self.complete()) + 1,
-        }
+        };
+        (rank, matches!(self, Self::Record { guid: Some(_), .. }))
     }
 }
 
