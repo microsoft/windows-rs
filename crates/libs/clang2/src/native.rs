@@ -144,13 +144,35 @@ pub(super) struct Parameter {
 }
 
 #[derive(Debug, Eq, PartialEq)]
+pub(super) enum AnnotationSource {
+    Sal,
+    Midl,
+}
+
+#[derive(Debug, Eq, PartialEq)]
 pub(super) struct Annotation {
+    pub source: AnnotationSource,
     pub text: String,
     pub context: Vec<String>,
     pub location: Location,
 }
 
 impl Annotation {
+    pub fn direction(text: &str) -> Option<u8> {
+        if text.starts_with("_Inout_") {
+            Some(3)
+        } else if text.starts_with("_In_") {
+            Some(1)
+        } else if text.starts_with("_Out_")
+            || text.starts_with("_Outptr_")
+            || text.starts_with("_COM_Outptr_")
+        {
+            Some(2)
+        } else {
+            None
+        }
+    }
+
     pub fn bound_text(&self) -> String {
         let mut result = String::new();
         let mut word = String::new();

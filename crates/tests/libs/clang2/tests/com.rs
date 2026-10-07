@@ -1,6 +1,12 @@
 #![cfg(target_env = "msvc")]
 
-#[allow(non_snake_case, non_camel_case_types, dead_code)]
+#[allow(
+    non_snake_case,
+    non_camel_case_types,
+    dead_code,
+    clippy::upper_case_acronyms,
+    clippy::missing_transmute_annotations
+)]
 mod bindings {
     include!(concat!(env!("OUT_DIR"), "/com.rs"));
 }
@@ -14,12 +20,36 @@ mod bindings {
 mod sys {
     include!(concat!(env!("OUT_DIR"), "/com_sys.rs"));
 }
-use bindings::IClassFactory;
+use bindings::{IClassFactory, IProperties};
 use sys::ComStats;
 use windows_core::{HRESULT, IInspectable, IUnknown, Interface};
 
 const E_NOINTERFACE: HRESULT = HRESULT(0x80004002_u32 as i32);
 const CLASS_E_NOAGGREGATION: HRESULT = HRESULT(0x80040110_u32 as i32);
+
+#[test]
+fn generated_handle_setters_and_strings_reach_native_methods() {
+    let properties = unsafe { IProperties::from_raw(sys::ComProperties()) };
+    for value in [0, 0x1234, usize::MAX] {
+        let window = core::ptr::without_provenance_mut(value);
+        unsafe {
+            properties.put_Window(window).unwrap();
+            assert_eq!(properties.get_Window().unwrap(), window);
+        }
+    }
+    unsafe {
+        properties
+            .SetText(windows_core::w!("native contract"))
+            .unwrap();
+        assert_eq!(
+            properties
+                .MatchText(windows_core::w!("native contract"))
+                .unwrap(),
+            1
+        );
+        assert_eq!(properties.MatchText(windows_core::w!("other")).unwrap(), 0);
+    }
+}
 
 fn counts(stats: &ComStats) -> [u32; 6] {
     [

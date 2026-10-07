@@ -184,17 +184,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             );
         }
     }
-    windows_bindgen::bindgen([
-        "--in",
-        "default",
-        winmd.to_str().unwrap(),
-        reference.to_str().unwrap(),
-        "--out",
-        output.join("bindings.rs").to_str().unwrap(),
-        "--filter",
-        "WebView2",
-        "--flat",
-    ]);
+    sdk::webview_bindings(&winmd, &reference, &output.join("bindings.rs"), roots);
     println!("output={}", output.display());
     Ok(())
 }

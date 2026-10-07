@@ -1,0 +1,14 @@
+#[win32]
+mod Test {
+    #[guid(0x12345678_1234_1234_1234_123456789abc)]
+    interface IHandles {
+        fn Set(&self, value: External::Handle, text: External::PCWSTR);
+        fn Get(&self) -> External::Handle;
+    }
+    struct PointerRecord {
+        handle: External::Handle,
+        text: External::PCWSTR,
+    }
+    #[library("test.dll", import = "Use")]
+    extern "C" fn Use(p0: *mut PointerRecord, p1: *mut External::Handle, p2: *mut External::PCWSTR, p3: *const External::PCWSTR) -> External::Handle;
+}

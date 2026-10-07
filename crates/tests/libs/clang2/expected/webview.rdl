@@ -6,13 +6,13 @@ mod WebView2 {
     }
     #[guid(0x0702fc30_f43b_47bb_ab52_a42cb552ad9f)]
     interface ICoreWebView2HttpHeadersCollectionIterator: Windows::Win32::System::Com::IUnknown {
-        fn GetCurrentHeader(&self, name: *mut *mut u16, value: *mut *mut u16) -> Windows::Win32::Foundation::HRESULT;
-        fn get_HasCurrentHeader(&self, hasCurrent: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
-        fn MoveNext(&self, hasNext: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetCurrentHeader(&self, #[out] name: *mut Windows::Win32::PWSTR, #[out] value: *mut Windows::Win32::PWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn get_HasCurrentHeader(&self, #[out] hasCurrent: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn MoveNext(&self, #[out] hasNext: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0xf41f3f8a_bcc3_11eb_8529_0242ac130003)]
     interface ICoreWebView2StringCollection: Windows::Win32::System::Com::IUnknown {
-        fn get_Count(&self, value: *mut u32) -> Windows::Win32::Foundation::HRESULT;
-        fn GetValueAtIndex(&self, index: u32, value: *mut *mut u16) -> Windows::Win32::Foundation::HRESULT;
+        fn get_Count(&self, #[out] value: *mut u32) -> Windows::Win32::Foundation::HRESULT;
+        fn GetValueAtIndex(&self, #[in] index: u32, #[out] value: *mut Windows::Win32::PWSTR) -> Windows::Win32::Foundation::HRESULT;
     }
 }

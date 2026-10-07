@@ -570,8 +570,9 @@ impl Capture<'_> {
             .into_iter()
             .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
             .collect();
-        params.into_iter().map(|parameter| {
-            let annotations = children(parameter).into_iter()
+        let comments = parameter_comments(cursor, &params);
+        params.into_iter().zip(comments).map(|(parameter, comments)| {
+            let mut annotations: Vec<Annotation> = children(parameter).into_iter()
                 .filter(|attr| unsafe { clang_getCursorKind(*attr) } == CXCursor_AnnotateAttr)
                 .map(|attr| {
                     let location = expansion_location(unsafe { clang_getCursorLocation(attr) });
@@ -583,6 +584,7 @@ impl Capture<'_> {
                             && start.offset <= location.offset && location.offset <= end.offset
                     }).ok_or_else(|| Error(format!("annotation context unavailable at {}:{}", location.file, location.line)))?;
                     Ok(Annotation {
+                        source: AnnotationSource::Sal,
                         text: string(unsafe { clang_getCursorSpelling(attr) }),
                         context: children(owner).into_iter()
                             .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
@@ -590,6 +592,7 @@ impl Capture<'_> {
                         location,
                     })
                 }).collect::<Result<_, Error>>()?;
+            annotations.extend(comments);
             Ok(Parameter { name: string(unsafe { clang_getCursorSpelling(parameter) }), annotations })
         }).collect()
     }
@@ -660,6 +663,97 @@ impl Capture<'_> {
         };
         Ok(Type { qualifiers, kind })
     }
+}
+
+fn parameter_comments(cursor: CXCursor, parameters: &[CXCursor]) -> Vec<Vec<Annotation>> {
+    let mut result: Vec<Vec<Annotation>> = parameters.iter().map(|_| vec![]).collect();
+    let Some(last) = parameters.last() else {
+        return result;
+    };
+    let tu = unsafe { clang_Cursor_getTranslationUnit(cursor) };
+    let range = expansion_range(tu, unsafe {
+        clang_getRange(
+            clang_getRangeStart(clang_getCursorExtent(cursor)),
+            clang_getRangeEnd(clang_getCursorExtent(*last)),
+        )
+    });
+    let mut raw = std::ptr::null_mut();
+    let mut count = 0;
+    unsafe { clang_tokenize(tu, range, &mut raw, &mut count) };
+    let tokens: Vec<_> = (0..count)
+        .map(|index| {
+            let token = unsafe { *raw.add(index as usize) };
+            (
+                unsafe { clang_getTokenKind(token) },
+                string(unsafe { clang_getTokenSpelling(tu, token) }),
+                expansion_location(unsafe { clang_getTokenLocation(tu, token) }),
+            )
+        })
+        .collect();
+    unsafe { clang_disposeTokens(tu, raw, count) };
+    let context: Vec<_> = parameters
+        .iter()
+        .map(|parameter| string(unsafe { clang_getCursorSpelling(*parameter) }))
+        .collect();
+    for (index, parameter) in parameters.iter().enumerate() {
+        let start =
+            expansion_location(unsafe { clang_getRangeStart(clang_getCursorExtent(*parameter)) });
+        let end = tokens.partition_point(|(_, _, location)| location.offset < start.offset);
+        let mut begin = end;
+        while begin > 0 && tokens[begin - 1].0 == CXToken_Comment {
+            begin -= 1;
+        }
+        if begin == end || begin == 0 || tokens[begin - 1].1 != if index == 0 { "(" } else { "," } {
+            continue;
+        }
+        let mut direction = 0;
+        let mut location = None;
+        for (_, comment, origin) in &tokens[begin..end] {
+            if origin.file == start.file
+                && let Some(value) = midl_direction(comment)
+            {
+                direction |= value;
+                location.get_or_insert(origin.clone());
+            }
+        }
+        let text = match direction {
+            1 => "_In_",
+            2 => "_Out_",
+            3 => "_Inout_",
+            _ => continue,
+        };
+        result[index].push(Annotation {
+            source: AnnotationSource::Midl,
+            text: text.into(),
+            context: context.clone(),
+            location: location.unwrap(),
+        });
+    }
+    result
+}
+
+fn midl_direction(comment: &str) -> Option<u8> {
+    let mut comment = comment.strip_prefix("/*")?.strip_suffix("*/")?.trim();
+    let mut direction = 0;
+    while !comment.is_empty() {
+        let (group, rest) = comment.strip_prefix('[')?.split_once(']')?;
+        for attribute in group.split(',').map(str::trim) {
+            if attribute.is_empty()
+                || !attribute
+                    .bytes()
+                    .all(|byte| byte.is_ascii_alphanumeric() || byte == b'_')
+            {
+                return None;
+            }
+            direction |= match attribute {
+                "in" => 1,
+                "out" => 2,
+                _ => 0,
+            };
+        }
+        comment = rest.trim();
+    }
+    (direction != 0).then_some(direction)
 }
 
 fn declarations(root: CXCursor) -> Vec<CXCursor> {

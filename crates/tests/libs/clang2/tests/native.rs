@@ -56,6 +56,23 @@ fn anonymous_aggregate_evidence_golden() {
 }
 
 #[test]
+fn midl_comments_do_not_attach_to_neighboring_or_nested_parameters() {
+    let snapshot = capture(
+        [Input::new(
+            "directions.hpp",
+            include_str!("../input/midl_directions.h"),
+        )],
+        ARGS,
+        &["Unrelated"],
+    )
+    .unwrap();
+    snapshot.resolve().unwrap();
+    let dump = snapshot.dump();
+    assert_eq!(dump.matches("text: \"_In_\"").count(), 0, "{dump}");
+    assert_eq!(dump.matches("text: \"_Out_\"").count(), 1, "{dump}");
+}
+
+#[test]
 fn anonymous_members_keep_cross_tu_dependencies() {
     let source = include_str!("../input/anonymous.h");
     for target in [

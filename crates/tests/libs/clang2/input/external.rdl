@@ -1,6 +1,7 @@
 #[win32]
 mod External {
     type Status = i32;
+    type Handle = *mut void;
     struct Data { value: i32, }
     struct GUID { data1: u32, data2: u16, data3: u16, data4: [u8; 8], }
     type PSTR = *mut i8;

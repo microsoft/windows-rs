@@ -196,6 +196,285 @@ fn scalar_options() -> ProjectionOptions {
     options
 }
 
+fn pointer_options() -> ProjectionOptions {
+    let mut options = string_options();
+    for (native, name) in [("Handle", "Handle"), ("Text", "PCWSTR")] {
+        options.references.insert(
+            native.into(),
+            TypeReference {
+                namespace: "External".into(),
+                name: name.into(),
+                kind: ReferenceKind::Value,
+            },
+        );
+    }
+    options
+}
+
+#[test]
+fn midl_directions_preserve_function_and_method_contracts() {
+    let snapshot = capture(
+        [Input::new(
+            "directions.hpp",
+            include_str!("../input/midl_directions.h"),
+        )],
+        ARGS,
+        &["Directions", "IDirections", "SalWins"],
+    )
+    .unwrap();
+    let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+    let index = compile("midl_directions", &plan);
+    let Item::Fn(function) = index.expect_item("Test", "Directions") else {
+        panic!()
+    };
+    let parameters = function.params_by_sequence(4).unwrap();
+    for (parameter, direction) in parameters.params().iter().zip([
+        ParamDirection::Input,
+        ParamDirection::Output,
+        ParamDirection::InputOutput,
+        ParamDirection::Input,
+    ]) {
+        assert_eq!(parameter.unwrap().direction(), direction);
+    }
+    assert!(parameters.params()[3].unwrap().is_optional());
+    let Item::Fn(sal_wins) = index.expect_item("Test", "SalWins") else {
+        panic!()
+    };
+    assert_eq!(
+        sal_wins.params().next().unwrap().direction(),
+        ParamDirection::Input
+    );
+    let Item::Type(interface) = index.expect_item("Test", "IDirections") else {
+        panic!()
+    };
+    let method = interface.methods().next().unwrap();
+    assert_eq!(
+        method.params().map(|p| p.direction()).collect::<Vec<_>>(),
+        [
+            ParamDirection::Input,
+            ParamDirection::Output,
+            ParamDirection::InputOutput
+        ]
+    );
+}
+
+#[test]
+fn midl_direction_evidence_agrees_across_observations() {
+    for other in [
+        "/* [in] */",
+        "__attribute__((annotate(\"_In_\")))",
+        "/* [out] */",
+    ] {
+        for reverse in [false, true] {
+            for swapped in [false, true] {
+                let mut inputs = [
+                    Input::new(
+                        if swapped { "b.hpp" } else { "a.hpp" },
+                        "extern \"C\" void Use(/* [in] */ int* first);",
+                    ),
+                    Input::new(
+                        if swapped { "a.hpp" } else { "b.hpp" },
+                        format!("extern \"C\" void Use({other} int* second);"),
+                    ),
+                ];
+                if reverse {
+                    inputs.reverse();
+                }
+                let snapshot = capture(inputs, ARGS, &["Use"]).unwrap();
+                if other == "/* [out] */" {
+                    assert!(
+                        snapshot
+                            .resolve()
+                            .err()
+                            .unwrap()
+                            .to_string()
+                            .contains("conflicting annotations")
+                    );
+                } else {
+                    assert!(snapshot.resolve().unwrap().project(&options()).is_ok());
+                }
+            }
+        }
+    }
+    let snapshot = capture([Input::new("api.hpp",
+        "extern \"C\" void Use(/* [in] */ int* first); extern \"C\" void Use(/* [out] */ int* second);")],
+        ARGS, &["Use"]).unwrap();
+    assert!(snapshot.resolve().is_err());
+}
+
+#[test]
+fn sal_precedence_cannot_hide_annotation_family_conflicts() {
+    for (midl, sal, accepted) in [
+        ("/* [out][in] */", "_In_", true),
+        ("", "_In_", true),
+        ("/* [out][in] */", "", true),
+        ("/* [in] */", "_In_", false),
+        ("/* [out][in] */", "_Out_", false),
+    ] {
+        for reverse in [false, true] {
+            let source = |midl: &str, sal: &str| {
+                let sal = if sal.is_empty() {
+                    String::new()
+                } else {
+                    format!("__attribute__((annotate(\"{sal}\")))")
+                };
+                format!("extern \"C\" void Use({midl} {sal} int* value);")
+            };
+            let mut inputs = [
+                Input::new("a.hpp", source("/* [out][in] */", "_In_")),
+                Input::new("b.hpp", source(midl, sal)),
+            ];
+            if reverse {
+                inputs.reverse();
+            }
+            let snapshot = capture(inputs, ARGS, &["Use"]).unwrap();
+            if accepted {
+                let rdl = snapshot
+                    .resolve()
+                    .unwrap()
+                    .project(&options())
+                    .unwrap()
+                    .rdl();
+                assert!(rdl.contains("#[in] p0: *mut i32"), "{rdl}");
+                assert!(!rdl.contains("#[out]"), "{rdl}");
+            } else {
+                assert!(snapshot.resolve().is_err());
+            }
+        }
+    }
+}
+
+#[test]
+fn pointer_references_preserve_value_and_indirection_contracts() {
+    let snapshot = capture(
+        [Input::new(
+            "pointers.hpp",
+            include_str!("../input/pointer_references.h"),
+        )],
+        ARGS,
+        &["Use", "IHandles", "Handle"],
+    )
+    .unwrap();
+    let plan = snapshot
+        .resolve()
+        .unwrap()
+        .project(&pointer_options())
+        .unwrap();
+    assert_eq!(plan.omitted()["Handle"], "provided by external metadata");
+    let index = compile("pointer_references", &plan);
+    let Item::Fn(function) = index.expect_item("Test", "Use") else {
+        panic!()
+    };
+    let signature = function.signature(&[]);
+    assert_eq!(
+        signature.return_type,
+        Type::value_named("External", "Handle")
+    );
+    assert_eq!(
+        signature.types[1],
+        Type::PtrMut(Box::new(Type::value_named("External", "Handle")), 1)
+    );
+    assert_eq!(
+        signature.types[2],
+        Type::PtrMut(Box::new(Type::value_named("External", "PCWSTR")), 1)
+    );
+    assert_eq!(
+        signature.types[3],
+        Type::PtrConst(Box::new(Type::value_named("External", "PCWSTR")), 1)
+    );
+    let Item::Type(interface) = index.expect_item("Test", "IHandles") else {
+        panic!()
+    };
+    let setter = interface.methods().next().unwrap();
+    assert_eq!(
+        setter.signature(&[]).types,
+        [
+            Type::value_named("External", "Handle"),
+            Type::value_named("External", "PCWSTR"),
+        ]
+    );
+    for param in setter.params() {
+        assert_eq!(param.direction(), ParamDirection::Input);
+    }
+}
+
+#[test]
+fn pointer_contracts_reject_conflicting_observations() {
+    for other in ["Handle", "Alias", "void*"] {
+        for reverse in [false, true] {
+            for swapped in [false, true] {
+                let source = |parameter: &str| {
+                    format!(
+                        "typedef void* Handle; typedef Handle Alias; extern \"C\" void Use({parameter} value);"
+                    )
+                };
+                let mut inputs = [
+                    Input::new(if swapped { "z.hpp" } else { "a.hpp" }, source("Handle")),
+                    Input::new(if swapped { "a.hpp" } else { "z.hpp" }, source(other)),
+                ];
+                if reverse {
+                    inputs.reverse();
+                }
+                let snapshot = capture(inputs, ARGS, &["Use"]).unwrap();
+                let resolved = snapshot.resolve().unwrap();
+                let plan = resolved.project(&pointer_options());
+                if other == "void*" {
+                    assert!(
+                        plan.unwrap_err()
+                            .to_string()
+                            .contains("conflicting projected typedef contracts")
+                    );
+                } else {
+                    assert!(plan.is_ok(), "{plan:?}");
+                }
+            }
+        }
+    }
+    let source = |ty: &str| format!("struct Record {{ {ty} value; }}; typedef Record* Handle;");
+    let snapshot = capture(
+        [
+            Input::new("a.hpp", source("int")),
+            Input::new("b.hpp", source("float")),
+        ],
+        ARGS,
+        &["Handle"],
+    )
+    .unwrap();
+    assert!(snapshot.resolve().is_err());
+}
+
+#[test]
+fn pointer_string_annotations_require_matching_contracts() {
+    let snapshot = capture(
+        [Input::new(
+            "strings.hpp",
+            "typedef const unsigned short* Text;
+             extern \"C\" void Use(__attribute__((annotate(\"_In_z_\"))) Text text);",
+        )],
+        ARGS,
+        &["Use"],
+    )
+    .unwrap();
+    let resolved = snapshot.resolve().unwrap();
+    assert!(resolved.project(&pointer_options()).is_ok());
+    let mut options = pointer_options();
+    options
+        .string_references
+        .get_mut(&StringKind::WideConst)
+        .unwrap()
+        .name = "Other".into();
+    assert!(
+        resolved
+            .project(&options)
+            .unwrap_err()
+            .to_string()
+            .contains("conflicting typedef and string bindings")
+    );
+    options = pointer_options();
+    options.references.get_mut("Text").unwrap().kind = ReferenceKind::Interface;
+    assert!(resolved.project(&options).is_err());
+}
+
 #[test]
 fn scalar_references_preserve_typedef_contracts() {
     let snapshot = capture(
@@ -288,7 +567,7 @@ fn scalar_contract_redeclarations_are_order_independent() {
 
 #[test]
 fn scalar_references_reject_invalid_native_contracts() {
-    for native in ["void", "int*", "double[2]"] {
+    for native in ["void", "int&", "double[2]"] {
         let source = if native == "double[2]" {
             "typedef double Status[2];".into()
         } else {

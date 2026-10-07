@@ -262,6 +262,7 @@ Function {
             name: "output",
             annotations: [
                 Annotation {
+                    source: Sal,
                     text: "_Out_writes_(count)",
                     context: [
                         "record",

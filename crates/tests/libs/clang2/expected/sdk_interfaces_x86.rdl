@@ -3,11 +3,11 @@ mod Test {
     #[guid(0x00000001_0000_0000_c000_000000000046)]
     interface IClassFactory: IUnknown {
         fn CreateInstance(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] riid: *const External::GUID, #[out] #[iid_is] ppvObject: *mut *mut void) -> i32;
-        fn LockServer(&self, fLock: i32) -> i32;
+        fn LockServer(&self, #[in] fLock: i32) -> i32;
     }
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: *const External::GUID, #[out] #[iid_is] ppvObject: *mut *mut void) -> i32;
+        fn QueryInterface(&self, #[in] riid: *const External::GUID, #[out] #[iid_is] ppvObject: *mut *mut void) -> i32;
         fn AddRef(&self) -> u32;
         fn Release(&self) -> u32;
     }

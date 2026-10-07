@@ -48,17 +48,12 @@ fn build_webview() {
         .output(&winmd)
         .write()
         .unwrap();
-    windows_bindgen::bindgen([
-        "--in",
-        "default",
-        winmd.to_str().unwrap(),
-        reference.to_str().unwrap(),
-        "--out",
-        out.join("webview.rs").to_str().unwrap(),
-        "--filter",
-        "WebView2",
-        "--flat",
-    ]);
+    sdk::webview_bindings(
+        &winmd,
+        &reference,
+        &out.join("webview.rs"),
+        &sdk::webview_roots(),
+    );
 }
 
 fn build_com() {
@@ -78,14 +73,23 @@ fn build_com() {
         );
     }
     let target = format!("--target={}", std::env::var("TARGET").unwrap());
-    let snapshot = sdk::capture_sdk(&target, include_str!("input/com.h"), &["ComFactory"]);
+    let snapshot = sdk::capture_sdk(
+        &target,
+        include_str!("input/com.h"),
+        &["ComFactory", "ComProperties"],
+    );
     let mut options = ProjectionOptions::new("Windows.Win32.System.Com");
     options.library = Some("clang2_com.dll".into());
-    for (native, name) in [("_GUID", "GUID"), ("HRESULT", "HRESULT")] {
+    for (native, namespace, name) in [
+        ("_GUID", "Windows.Win32.Foundation", "GUID"),
+        ("HRESULT", "Windows.Win32.Foundation", "HRESULT"),
+        ("HWND", "Windows.Win32", "HWND"),
+        ("LPCWSTR", "Windows.Win32.Foundation", "PCWSTR"),
+    ] {
         options.references.insert(
             native.into(),
             TypeReference {
-                namespace: "Windows.Win32.Foundation".into(),
+                namespace: namespace.into(),
                 name: name.into(),
                 kind: ReferenceKind::Value,
             },
@@ -110,22 +114,26 @@ fn build_com() {
         .unwrap();
     windows_bindgen::bindgen([
         "--in",
+        "default",
         winmd.to_str().unwrap(),
         reference.to_str().unwrap(),
         "--out",
         out.join("com.rs").to_str().unwrap(),
         "--filter",
         "Windows.Win32.System.Com.IClassFactory",
+        "Windows.Win32.System.Com.IProperties",
         "--flat",
     ]);
     windows_bindgen::bindgen([
         "--in",
+        "default",
         winmd.to_str().unwrap(),
         reference.to_str().unwrap(),
         "--out",
         out.join("com_sys.rs").to_str().unwrap(),
         "--filter",
         "Windows.Win32.System.Com.ComFactory",
+        "Windows.Win32.System.Com.ComProperties",
         "--flat",
         "--sys",
         "--extern",

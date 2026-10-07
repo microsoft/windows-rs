@@ -133,7 +133,12 @@ fn resolve_annotations(
     snapshot: &Snapshot,
     candidates: &[Id],
 ) -> Result<BTreeMap<usize, Vec<Vec<String>>>, Error> {
-    let mut result: BTreeMap<usize, Vec<BTreeSet<String>>> = BTreeMap::new();
+    #[derive(Default)]
+    struct Evidence {
+        sal: BTreeSet<String>,
+        midl: BTreeSet<String>,
+    }
+    let mut result: BTreeMap<usize, Vec<Evidence>> = BTreeMap::new();
     for id in candidates {
         let declaration = &snapshot.declarations[id.0];
         let callables: Vec<_> = match &declaration.data {
@@ -149,26 +154,32 @@ fn resolve_annotations(
         for (slot, parameters) in callables {
             let resolved = result
                 .entry(slot)
-                .or_insert_with(|| vec![BTreeSet::new(); parameters.len()]);
+                .or_insert_with(|| (0..parameters.len()).map(|_| Evidence::default()).collect());
             if resolved.len() != parameters.len() {
                 return Err(unsupported(
                     declaration,
                     "callable parameter counts disagree",
                 ));
             }
-            for (index, (previous, parameter)) in resolved.iter_mut().zip(parameters).enumerate() {
-                let annotations: BTreeSet<_> = parameter
-                    .annotations
-                    .iter()
-                    .map(Annotation::bound_text)
-                    .collect();
-                if !previous.is_empty() && !annotations.is_empty() && *previous != annotations {
-                    return Err(unsupported(
-                        declaration,
-                        &format!("conflicting annotations for parameter {index}"),
-                    ));
+            for (index, (evidence, parameter)) in resolved.iter_mut().zip(parameters).enumerate() {
+                for (source, previous) in [
+                    (AnnotationSource::Sal, &mut evidence.sal),
+                    (AnnotationSource::Midl, &mut evidence.midl),
+                ] {
+                    let annotations: BTreeSet<_> = parameter
+                        .annotations
+                        .iter()
+                        .filter(|annotation| annotation.source == source)
+                        .map(Annotation::bound_text)
+                        .collect();
+                    if !previous.is_empty() && !annotations.is_empty() && *previous != annotations {
+                        return Err(unsupported(
+                            declaration,
+                            &format!("conflicting annotations for parameter {index} ({source:?})"),
+                        ));
+                    }
+                    previous.extend(annotations);
                 }
-                previous.extend(annotations);
             }
         }
     }
@@ -179,7 +190,16 @@ fn resolve_annotations(
                 slot,
                 params
                     .into_iter()
-                    .map(|annotations| annotations.into_iter().collect())
+                    .map(|evidence| {
+                        let mut annotations = evidence.sal;
+                        if !annotations
+                            .iter()
+                            .any(|text| Annotation::direction(text).is_some())
+                        {
+                            annotations.extend(evidence.midl);
+                        }
+                        annotations.into_iter().collect()
+                    })
                     .collect(),
             )
         })

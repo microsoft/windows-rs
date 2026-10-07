@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    #[library("test.dll", import = "Directions")]
+    extern "C" fn Directions(#[in] p0: *mut i32, #[out] p1: *mut i32, #[in] #[out] p2: *mut i32, #[in] #[opt] p3: *mut i32);
+    #[guid(0x12345678_1234_1234_1234_123456789abc)]
+    interface IDirections {
+        fn Apply(&self, #[in] input: *mut i32, #[out] output: *mut i32, #[in] #[out] update: *mut i32);
+    }
+    #[library("test.dll", import = "SalWins")]
+    extern "C" fn SalWins(#[in] p0: *mut i32);
+}

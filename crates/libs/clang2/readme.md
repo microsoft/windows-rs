@@ -35,10 +35,16 @@ parameter-bound element/byte counts. Constant element counts support nonnegative
 Scalar null-terminated strings require caller-supplied `ProjectionOptions::string_references`,
 keyed by `StringKind`. These trusted metadata value types preserve native constness independently
 of parameter direction; no string namespace or local alias is assumed.
-Caller-bound scalar typedefs retain their metadata identity through `ProjectionOptions::references`.
-For example, an explicit `HRESULT` value binding enables generated COM result wrappers without
-treating every native `long` as an error code. Conflicting typedef contracts across observations
-fail projection even when their native scalar types agree.
+Caller-bound scalar and pointer typedefs retain their identity through
+`ProjectionOptions::references`. For example, an explicit `HRESULT` value binding enables generated
+COM result wrappers without treating every native `long` as an error code. Conflicting typedef
+contracts across observations fail projection even when their native types agree. Pointer bindings
+preserve handles and string aliases without folding them into surrounding raw-pointer levels. SAL
+string annotations still require a matching string binding.
+
+Declaration-local MIDL prefix comments supply input/output direction when SAL has none. SAL controls
+local-call direction; evidence from each source family must independently agree across declarations.
+Parameterized MIDL relationships, optionality, and retval markers are not decoded.
 Interface-valued constants have an omission reason in `Plan::omitted`; unsupported projections are
 errors. General SAL lowering and production generator integration are not implemented.
 
@@ -51,11 +57,11 @@ translation units. Native evidence includes anonymous aggregate fields and their
 local anonymous-aggregate projection remains unsupported. Explicit SDK bindings for `IStream` and
 `VARIANT` let the interop graph project after its native evidence has been checked.
 
-The generated consumer bindings compile, but are not ready for use: pointer typedef and MIDL
-contracts are missing, and eight input parameters become outputs. An opt-in failing cutover test
-records these cases rather than treating compiling output as correct. String, flags-enum, and
-output-name differences also remain. See the continuation page for the differential commands and
-full-consumer timing/memory measurements.
+The consumer gate preserves six handle inputs and two host-object inputs, with exact generated
+wrapper-signature assertions. A native C++ fixture checks handle setters/getters and UTF-16 string
+inputs on x64 and x86. Remaining flags-enum and output-name differences still prevent drop-in
+replacement; broader annotation and production-consumer coverage is also required. See the
+continuation page for differential commands, remaining gates, and timing/memory measurements.
 
 The API and diagnostic dump are experimental. See
 [`docs/crates/windows-clang2.md`](../../../docs/crates/windows-clang2.md) for the supported subset,

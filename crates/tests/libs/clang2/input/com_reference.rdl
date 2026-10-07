@@ -4,6 +4,7 @@ mod Windows {
         mod Foundation {
             struct GUID { data1: u32, data2: u16, data3: u16, data4: [u8; 8], }
             type HRESULT = i32;
+            type PCWSTR = *const u16;
         }
     }
 }

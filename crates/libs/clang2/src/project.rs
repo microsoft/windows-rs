@@ -25,7 +25,7 @@ pub struct TypeReference {
 pub struct ProjectionOptions {
     pub namespace: String,
     pub library: Option<String>,
-    /// External record/enum bindings and trusted scalar typedef contracts.
+    /// External record/enum bindings and trusted scalar or pointer typedef contracts.
     pub references: BTreeMap<String, TypeReference>,
     /// Trusted pointer-sized value types for SAL-annotated null-terminated strings.
     pub string_references: BTreeMap<StringKind, TypeReference>,
@@ -186,6 +186,11 @@ enum ProjectedType {
     Void,
     Scalar(&'static str, Layout),
     ScalarReference(String, &'static str, Layout),
+    PointerReference {
+        name: String,
+        mutable: bool,
+        string: Option<StringKind>,
+    },
     Named(String, Option<Layout>),
     Class(String),
     Pointer {
@@ -210,6 +215,7 @@ impl ProjectedType {
             Self::Named(name, _) | Self::Class(name) | Self::ScalarReference(name, ..) => {
                 name.clone()
             }
+            Self::PointerReference { name, .. } => name.clone(),
             Self::Pointer {
                 mutable,
                 depth,
@@ -229,7 +235,7 @@ impl ProjectedType {
             Self::Void => None,
             Self::Scalar(_, layout) | Self::ScalarReference(_, _, layout) => Some(layout.clone()),
             Self::Named(_, layout) => layout.clone(),
-            Self::Class(_) | Self::Pointer { .. } => Some(Layout {
+            Self::Class(_) | Self::Pointer { .. } | Self::PointerReference { .. } => Some(Layout {
                 size: pointer_size,
                 align: pointer_size,
             }),
@@ -269,11 +275,11 @@ impl Resolved<'_> {
                 ) && !matches!(
                     &binding.data,
                     DeclarationData::Alias { canonical, .. }
-                        if matches!(canonical.kind, TypeKind::Builtin { .. })
+                        if matches!(canonical.kind, TypeKind::Builtin { .. } | TypeKind::Pointer(_))
                             && reference.kind == ReferenceKind::Value
                 ) {
                     return Err(Error(format!(
-                        "external bindings require a native record, enum, or scalar value typedef: {}",
+                        "external bindings require a native record, enum, or scalar/pointer value typedef: {}",
                         declaration.name
                     )));
                 }
@@ -329,9 +335,12 @@ impl Builder<'_, '_> {
         let declaration = &self.resolved.snapshot.declarations[id.0];
         if self.options.references.contains_key(&declaration.name) {
             if let DeclarationData::Alias { canonical, .. } = &declaration.data
-                && matches!(canonical.kind, TypeKind::Builtin { .. })
+                && matches!(
+                    canonical.kind,
+                    TypeKind::Builtin { .. } | TypeKind::Pointer(_)
+                )
             {
-                self.scalar_reference(canonical, &self.options.references[&declaration.name])?;
+                self.typedef_reference(canonical, &self.options.references[&declaration.name])?;
             }
             self.plan.omitted.insert(
                 declaration.name.clone(),
@@ -519,9 +528,10 @@ impl Builder<'_, '_> {
                             value.to_string()
                         }
                     }
-                    (Value::Integer(value), ProjectedType::Pointer { .. }) => {
-                        (*value as i64).to_string()
-                    }
+                    (
+                        Value::Integer(value),
+                        ProjectedType::Pointer { .. } | ProjectedType::PointerReference { .. },
+                    ) => (*value as i64).to_string(),
                     (Value::Float(value), ProjectedType::Scalar("f32" | "f64", _))
                         if f64::from_bits(*value).is_finite() =>
                     {
@@ -698,6 +708,12 @@ impl Builder<'_, '_> {
                         "null-terminated {kind:?} parameter requires an explicit string binding"
                     ))
                 })?;
+                if let ProjectedType::PointerReference { name, .. } = &ty {
+                    if *name != namespace_name(reference)? {
+                        return Err(Error("conflicting typedef and string bindings".into()));
+                    }
+                    return Ok((attributes, ty));
+                }
                 let layout = ty.layout(self.resolved.snapshot.pointer_size);
                 Ok((
                     attributes,
@@ -749,11 +765,37 @@ impl Builder<'_, '_> {
         Ok(signature.unwrap())
     }
 
-    fn scalar_reference(
+    fn typedef_reference(
         &mut self,
         canonical: &Type,
         reference: &TypeReference,
     ) -> Result<ProjectedType, Error> {
+        if let TypeKind::Pointer(target) = &canonical.kind {
+            let mutable = !target.qualifiers.constant;
+            let string = match &target.kind {
+                TypeKind::Builtin { kind, layout } => match (
+                    kind.as_str(),
+                    layout.as_ref().map(|layout| layout.size),
+                    mutable,
+                ) {
+                    ("Char_S" | "SChar" | "Char_U" | "UChar", Some(1), true) => {
+                        Some(StringKind::Ansi)
+                    }
+                    ("Char_S" | "SChar" | "Char_U" | "UChar", Some(1), false) => {
+                        Some(StringKind::AnsiConst)
+                    }
+                    ("UShort" | "WChar" | "Char16", Some(2), true) => Some(StringKind::Wide),
+                    ("UShort" | "WChar" | "Char16", Some(2), false) => Some(StringKind::WideConst),
+                    _ => None,
+                },
+                _ => None,
+            };
+            return Ok(ProjectedType::PointerReference {
+                name: namespace_name(reference)?,
+                mutable,
+                string,
+            });
+        }
         let (ProjectedType::Scalar(kind, layout), false) =
             self.lower(canonical, &mut BTreeSet::new())?
         else {
@@ -867,9 +909,12 @@ impl Builder<'_, '_> {
                 let declaration = &self.resolved.snapshot.declarations[id.0];
                 if let DeclarationData::Alias { canonical, .. } = &declaration.data {
                     if let Some(reference) = self.options.references.get(&declaration.name)
-                        && matches!(canonical.kind, TypeKind::Builtin { .. })
+                        && matches!(
+                            canonical.kind,
+                            TypeKind::Builtin { .. } | TypeKind::Pointer(_)
+                        )
                     {
-                        return Ok((self.scalar_reference(canonical, reference)?, false));
+                        return Ok((self.typedef_reference(canonical, reference)?, false));
                     }
                     self.alias(id, aliases)?
                 } else if let Some(reference) = self.options.references.get(&declaration.name) {
@@ -1012,13 +1057,24 @@ fn parameter_attributes(
             "_In_" => "#[in] ",
             "_Out_" => "#[out] ",
             "_Inout_" => "#[in] #[out] ",
-            "_In_opt_" if matches!(ty, ProjectedType::Pointer { .. } | ProjectedType::Class(_)) => {
+            "_In_opt_"
+                if matches!(
+                    ty,
+                    ProjectedType::Pointer { .. }
+                        | ProjectedType::PointerReference { .. }
+                        | ProjectedType::Class(_)
+                ) =>
+            {
                 "#[in] #[opt] "
             }
             "_In_z_" => "#[in] ",
             "_In_opt_z_" => "#[in] #[opt] ",
             "_Out_z_" | "_Inout_z_" => {
-                if !matches!(ty, ProjectedType::Pointer { mutable: true, .. }) {
+                if !matches!(
+                    ty,
+                    ProjectedType::Pointer { mutable: true, .. }
+                        | ProjectedType::PointerReference { mutable: true, .. }
+                ) {
                     return Err(Error(format!(
                         "{annotation} requires a writable string pointer"
                     )));
@@ -1030,7 +1086,11 @@ fn parameter_attributes(
                 }
             }
             "_Out_opt_" | "_Inout_opt_" => {
-                if !matches!(ty, ProjectedType::Pointer { mutable: true, .. }) {
+                if !matches!(
+                    ty,
+                    ProjectedType::Pointer { mutable: true, .. }
+                        | ProjectedType::PointerReference { mutable: true, .. }
+                ) {
                     return Err(Error(format!("{annotation} requires a writable pointer")));
                 }
                 if annotation == "_Out_opt_" {
@@ -1075,6 +1135,11 @@ fn string_kind(annotations: &[String], ty: &ProjectedType) -> Result<Option<Stri
         )
     }) {
         return Ok(None);
+    }
+    if let ProjectedType::PointerReference { string, .. } = ty {
+        return string.map(Some).ok_or_else(|| {
+            Error("null-terminated strings require a single character pointer".into())
+        });
     }
     let ProjectedType::Pointer {
         mutable,

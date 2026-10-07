@@ -13,6 +13,7 @@ mod sdk;
     non_camel_case_types,
     non_upper_case_globals,
     dead_code,
+    clippy::upper_case_acronyms,
     clippy::missing_transmute_annotations
 )]
 mod bindings {
@@ -111,7 +112,6 @@ fn consumer_dependencies_project_across_targets_and_input_orders() {
 
 #[cfg(target_env = "msvc")]
 #[test]
-#[ignore = "cutover blocker: missing pointer typedef contracts and MIDL input directions"]
 fn consumer_input_contracts_cutover_gate() {
     let index = Index::read(std::path::Path::new(env!("OUT_DIR")).join("webview.winmd")).unwrap();
     let mut failures = vec![];
@@ -164,4 +164,18 @@ fn consumer_input_contracts_cutover_gate() {
         }
     }
     assert!(failures.is_empty(), "{}", failures.join("\n"));
+}
+
+#[cfg(target_env = "msvc")]
+#[test]
+fn consumer_wrappers_preserve_public_parameter_shapes() {
+    use bindings::{HWND, ICoreWebView2, ICoreWebView2Controller, VARIANT};
+    use windows_core::{HRESULT, PCWSTR, PWSTR, Result};
+    let _: unsafe fn(&ICoreWebView2Controller, HWND) -> HRESULT =
+        ICoreWebView2Controller::put_ParentWindow;
+    let _: unsafe fn(&ICoreWebView2Controller) -> Result<HWND> =
+        ICoreWebView2Controller::get_ParentWindow;
+    let _: unsafe fn(&ICoreWebView2, PCWSTR, *const VARIANT) -> HRESULT =
+        ICoreWebView2::AddHostObjectToScript::<PCWSTR>;
+    let _: unsafe fn(&ICoreWebView2) -> Result<PWSTR> = ICoreWebView2::get_Source;
 }

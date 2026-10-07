@@ -253,9 +253,12 @@ is fixed and covered. See `docs/crates/windows-clang2.md` for the fixture and re
 
 ### Clang2 WebView2 cutover blockers
 
-`test_clang2` `webview.rs` `consumer_input_contracts_cutover_gate` is an opt-in failing test for
-eight native inputs projected as outputs: six `HWND` values and two host-object `VARIANT*` inputs.
-Generated consumer Rust compiles but is not semantically usable; `put_ParentWindow` takes no input.
-The next contract work is explicit pointer typedef bindings and MIDL comment evidence, not
-method-name exceptions. See `docs/crates/windows-clang2.md` for the differential probe, other
-remaining compatibility gaps, and full-consumer timing/memory measurements.
+`test_clang2` `webview.rs` covers six `HWND` inputs and two host-object `VARIANT*` inputs with an
+ordinary passing gate and exact public-wrapper signature assertions. Concrete binding filters
+include external signature dependencies; a broad namespace filter can omit methods while the
+generated file still compiles. `com.rs` exercises handle/string wrappers against native C++.
+`clang2` preserves explicit pointer typedef contracts and separate SAL/MIDL evidence: check each
+source family across declarations, use SAL direction for local calls, and fall back to MIDL when
+SAL has none. Only bounded prefix direction comments are decoded. Remaining WebView2 differences
+include flags-enum policy and alias/tag names. DLL routing and broader annotation/production
+coverage remain gates; see `docs/crates/windows-clang2.md` for the differential and measurements.

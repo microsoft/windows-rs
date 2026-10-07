@@ -1,4 +1,4 @@
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use windows_clang2::{Input, ProjectionOptions, ReferenceKind, Snapshot, TypeReference, capture};
 
 pub fn include() -> PathBuf {
@@ -121,7 +121,44 @@ pub fn webview_options() -> ProjectionOptions {
             },
         );
     }
+    for (native, name) in [
+        ("HWND", "HWND"),
+        ("HICON", "HICON"),
+        ("HCURSOR", "HCURSOR"),
+        ("HANDLE", "HANDLE"),
+        ("PWSTR", "PWSTR"),
+        ("LPWSTR", "PWSTR"),
+        ("PCWSTR", "PCWSTR"),
+        ("LPCWSTR", "PCWSTR"),
+    ] {
+        options.references.insert(
+            native.into(),
+            TypeReference {
+                namespace: "Windows.Win32".into(),
+                name: name.into(),
+                kind: ReferenceKind::Value,
+            },
+        );
+    }
     options
+}
+
+pub fn webview_bindings(winmd: &Path, reference: &Path, output: &Path, roots: &[&str]) {
+    let mut args: Vec<String> = [
+        "--in",
+        "default",
+        winmd.to_str().unwrap(),
+        reference.to_str().unwrap(),
+        "--out",
+        output.to_str().unwrap(),
+        "--flat",
+        "--filter",
+    ]
+    .into_iter()
+    .map(str::to_string)
+    .collect();
+    args.extend(roots.iter().map(|root| format!("WebView2.{root}")));
+    windows_bindgen::bindgen(args);
 }
 
 pub fn capture_sdk(target: &str, source: &str, roots: &[&str]) -> Snapshot {
