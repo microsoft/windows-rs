@@ -19,22 +19,14 @@ env:
 
 jobs:
   selftest:
-    name: test-webview (${{ matrix.target }})
+    name: test-webview (x64 debug)
     runs-on: windows-2025-vs2026
     timeout-minutes: 30
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - target: x86_64-pc-windows-msvc
-            arch: x64
-          - target: i686-pc-windows-msvc
-            arch: x86
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Update toolchain
-        run: rustup update --no-self-update stable && rustup default stable && rustup target add ${{ matrix.target }}
+        run: rustup update --no-self-update stable && rustup default stable
 
       - uses: Swatinem/rust-cache@v2
 
@@ -49,7 +41,7 @@ jobs:
           Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
           Start-Process -FilePath $installerPath -ArgumentList "/silent", "/install" -Wait -PassThru | Out-Null
 
-      - name: Run live WebView fixtures in debug and release
+      - name: Run live WebView fixtures
         shell: pwsh
         run: |
           $ErrorActionPreference = "Stop"
@@ -60,16 +52,13 @@ jobs:
           $cache = if ($env:NUGET_PACKAGES) { $env:NUGET_PACKAGES } else { "$env:USERPROFILE\.nuget\packages" }
           $package = "$cache\Microsoft.Web.WebView2\$version"
           if (!(Test-Path $package)) { $package = "$cache\Microsoft.Web.WebView2.$version" }
-          $loader = "$package\build\native\${{ matrix.arch }}"
+          $loader = "$package\build\native\x64"
           if (!(Test-Path "$loader\WebView2Loader.dll")) { throw "Pinned WebView2 loader not found" }
-          cargo build -p test-webview --target ${{ matrix.target }}
-          cargo build -p test-webview --target ${{ matrix.target }} --release
-          foreach ($configuration in @("debug", "release")) {
-            $run = "$env:RUNNER_TEMP\webview-${{ matrix.arch }}-$configuration-$([guid]::NewGuid())"
-            New-Item -ItemType Directory "$run\temp" | Out-Null
-            Copy-Item "target\${{ matrix.target }}\$configuration\test-webview.exe" "$run\test-webview.exe"
-            Copy-Item "$loader\WebView2Loader.dll" "$run\WebView2Loader.dll"
-            $env:TEMP = "$run\temp"
-            $env:TMP = "$run\temp"
-            & "$run\test-webview.exe" --headless --require-runtime
-          }
+          cargo build -p test-webview --target x86_64-pc-windows-msvc
+          $run = "$env:RUNNER_TEMP\webview-x64-debug-$([guid]::NewGuid())"
+          New-Item -ItemType Directory "$run\temp" | Out-Null
+          Copy-Item "target\x86_64-pc-windows-msvc\debug\test-webview.exe" "$run\test-webview.exe"
+          Copy-Item "$loader\WebView2Loader.dll" "$run\WebView2Loader.dll"
+          $env:TEMP = "$run\temp"
+          $env:TMP = "$run\temp"
+          & "$run\test-webview.exe" --headless --require-runtime

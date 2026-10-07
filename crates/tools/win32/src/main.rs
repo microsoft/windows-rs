@@ -1,3 +1,4 @@
+mod clang2;
 mod km;
 
 use helpers::*;
@@ -828,6 +829,12 @@ const LIBRARY_OVERRIDES: &[LibraryOverride] = &[
 
 fn main() {
     let time = std::time::Instant::now();
+    let args: Vec<_> = std::env::args().skip(1).collect();
+    let audio = match args.as_slice() {
+        [] => false,
+        [arg] if arg == "--clang2-audio" => true,
+        _ => panic!("usage: tool-win32 [--clang2-audio]"),
+    };
 
     for name in ARCHS {
         assert!(
@@ -844,6 +851,11 @@ fn main() {
     // manual `nuget restore`. Shared by both scrape phases, so it runs once here.
     ensure_libclang();
     assert_libclang_version();
+
+    if audio {
+        clang2::audio();
+        return;
+    }
 
     if let Some(headers) = std::env::var_os("WINDOWS_CLANG") {
         if headers == "km" {
@@ -1156,15 +1168,11 @@ struct ArchOutput {
     unsupported: Vec<String>,
 }
 
-fn scrape_um_arch(
+fn clang_arguments(
     arch: &Arch,
-    inputs: Vec<windows_clang::Input>,
     include_args: &[String],
-    import_libs: &[String],
-    references: &windows_clang::MetadataReferences,
     resource_dir: Option<&str>,
-    output_dir: &std::path::Path,
-) -> ArchOutput {
+) -> Vec<String> {
     let mut owned_args: Vec<String> = CLANG_ARGS.iter().map(|arg| arg.to_string()).collect();
     owned_args.extend([
         format!("--target={}", arch.triple),
@@ -1179,6 +1187,19 @@ fn scrape_um_arch(
     }
     owned_args.extend(arch.defines.iter().cloned());
     owned_args.extend(include_args.iter().cloned());
+    owned_args
+}
+
+fn scrape_um_arch(
+    arch: &Arch,
+    inputs: Vec<windows_clang::Input>,
+    include_args: &[String],
+    import_libs: &[String],
+    references: &windows_clang::MetadataReferences,
+    resource_dir: Option<&str>,
+    output_dir: &std::path::Path,
+) -> ArchOutput {
+    let owned_args = clang_arguments(arch, include_args, resource_dir);
     let args: Vec<&str> = owned_args.iter().map(String::as_str).collect();
     let time = std::time::Instant::now();
     println!(

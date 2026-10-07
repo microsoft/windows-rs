@@ -165,55 +165,65 @@ impl Plan {
         output
     }
 
-    fn adjusted_record(&self, ty: &ProjectedType, checked: &mut BTreeMap<String, bool>) -> bool {
-        if matches!(ty, ProjectedType::Padding(_)) {
-            return true;
+    fn unproven_record(
+        &self,
+        ty: &ProjectedType,
+        checked: &mut BTreeMap<String, Option<&'static str>>,
+    ) -> Option<&'static str> {
+        const ADJUSTED: &str =
+            "by-value calls with adjusted record layouts require native ABI coverage";
+        match ty {
+            ProjectedType::Padding(_) => return Some(ADJUSTED),
+            ProjectedType::RecordReference(..) => {
+                return Some("by-value external record calls require native ABI coverage");
+            }
+            ProjectedType::Array { element, .. } => return self.unproven_record(element, checked),
+            _ => {}
         }
         let ProjectedType::Named(name, _) = ty else {
-            return false;
+            return None;
         };
         if let Some(adjusted) = checked.get(name) {
             return *adjusted;
         }
-        let adjusted = match self.items.get(name) {
+        let reason = match self.items.get(name) {
             Some(Item::Record { fields, alignment }) => {
-                alignment.is_some()
-                    || fields
+                if alignment.is_some() {
+                    Some(ADJUSTED)
+                } else {
+                    fields
                         .iter()
-                        .any(|(_, ty)| self.adjusted_record(ty, checked))
+                        .find_map(|(_, ty)| self.unproven_record(ty, checked))
+                }
             }
-            _ => false,
+            _ => None,
         };
-        checked.insert(name.clone(), adjusted);
-        adjusted
+        checked.insert(name.clone(), reason);
+        reason
     }
 
     fn validate_calls(&self) -> Result<(), Error> {
         let mut checked = BTreeMap::new();
         for (name, item) in &self.items {
-            let adjusted = match item {
+            let reason = match item {
                 Item::Function {
                     parameters, result, ..
-                } => {
-                    parameters
-                        .iter()
-                        .any(|(_, ty)| self.adjusted_record(ty, &mut checked))
-                        || self.adjusted_record(result, &mut checked)
-                }
+                } => parameters
+                    .iter()
+                    .find_map(|(_, ty)| self.unproven_record(ty, &mut checked))
+                    .or_else(|| self.unproven_record(result, &mut checked)),
                 Item::Interface { methods, .. } => {
-                    methods.iter().any(|(_, _, parameters, result)| {
+                    methods.iter().find_map(|(_, _, parameters, result)| {
                         parameters
                             .iter()
-                            .any(|(_, _, ty)| self.adjusted_record(ty, &mut checked))
-                            || self.adjusted_record(result, &mut checked)
+                            .find_map(|(_, _, ty)| self.unproven_record(ty, &mut checked))
+                            .or_else(|| self.unproven_record(result, &mut checked))
                     })
                 }
-                _ => false,
+                _ => None,
             };
-            if adjusted {
-                return Err(Error(format!(
-                    "`{name}`: by-value calls with adjusted record layouts require native ABI coverage"
-                )));
+            if let Some(reason) = reason {
+                return Err(Error(format!("`{name}`: {reason}")));
             }
         }
         Ok(())
@@ -279,6 +289,11 @@ enum ProjectedType {
         string: Option<StringKind>,
     },
     Named(String, Option<Layout>),
+    RecordReference(String, Option<Layout>),
+    Array {
+        element: Box<Self>,
+        length: i64,
+    },
     Class(String),
     Pointer {
         mutable: bool,
@@ -301,9 +316,11 @@ impl ProjectedType {
             Self::Padding(size) => format!("union {{ bytes: [u8; {size}], uninit: [u8; 0], }}"),
             Self::Void => "void".into(),
             Self::Scalar(name, _) => (*name).into(),
-            Self::Named(name, _) | Self::Class(name) | Self::ScalarReference(name, ..) => {
-                name.clone()
-            }
+            Self::Named(name, _)
+            | Self::RecordReference(name, _)
+            | Self::Class(name)
+            | Self::ScalarReference(name, ..) => name.clone(),
+            Self::Array { element, length } => format!("[{}; {length}]", element.text()),
             Self::PointerReference { name, .. } => name.clone(),
             Self::Pointer {
                 mutable,
@@ -327,7 +344,14 @@ impl ProjectedType {
             }),
             Self::Void => None,
             Self::Scalar(_, layout) | Self::ScalarReference(_, _, layout) => Some(layout.clone()),
-            Self::Named(_, layout) => layout.clone(),
+            Self::Named(_, layout) | Self::RecordReference(_, layout) => layout.clone(),
+            Self::Array { element, length } => {
+                let layout = element.layout(pointer_size)?;
+                Some(Layout {
+                    size: layout.size.checked_mul(*length)?,
+                    align: layout.align,
+                })
+            }
             Self::Class(_) | Self::Pointer { .. } | Self::PointerReference { .. } => Some(Layout {
                 size: pointer_size,
                 align: pointer_size,
@@ -1116,7 +1140,12 @@ impl Builder<'_, '_> {
                     if reference.kind == ReferenceKind::Interface {
                         (ProjectedType::Class(name), true)
                     } else {
-                        (ProjectedType::Named(name, None), false)
+                        match &declaration.data {
+                            DeclarationData::Record { layout, .. } => {
+                                (ProjectedType::RecordReference(name, layout.clone()), false)
+                            }
+                            _ => (ProjectedType::Named(name, None), false),
+                        }
                     }
                 } else if let DeclarationData::Enum {
                     complete: true,
@@ -1182,6 +1211,24 @@ impl Builder<'_, '_> {
                     };
                     (pointer, false)
                 }
+            }
+            TypeKind::Array {
+                length: Some(length),
+                element,
+            } => {
+                let length = i64::try_from(*length)
+                    .map_err(|_| Error("array length exceeds supported layout size".into()))?;
+                let (element, object) = self.lower(element, aliases)?;
+                if object {
+                    return Err(Error("native interface objects require a pointer".into()));
+                }
+                (
+                    ProjectedType::Array {
+                        element: Box::new(element),
+                        length,
+                    },
+                    false,
+                )
             }
             _ => return Err(Error("this native type has no prototype projection".into())),
         })

@@ -883,6 +883,70 @@ fn com_record_results_are_rejected() {
     }
 }
 
+#[test]
+fn external_record_fields_retain_native_layout() {
+    let source = include_str!("../input/external_field.h");
+    let mut options = options();
+    options.references.insert(
+        "_GUID".into(),
+        TypeReference {
+            namespace: "External".into(),
+            name: "GUID".into(),
+            kind: ReferenceKind::Value,
+        },
+    );
+    for conflict in [false, true] {
+        let other = source.replace("data4[8]", if conflict { "data4[7]" } else { "data4[8]" });
+        let snapshot = capture(
+            [Input::new("a.hpp", source), Input::new("b.hpp", other)],
+            ARGS,
+            &["Notification"],
+        )
+        .unwrap();
+        if conflict {
+            assert!(snapshot.resolve().is_err());
+        } else {
+            let plan = snapshot.resolve().unwrap().project(&options).unwrap();
+            compile("external_field", &plan);
+        }
+    }
+    let snapshot = capture(
+        [Input::new(
+            "call.hpp",
+            format!("{source}\nextern \"C\" void Use(Notification value);"),
+        )],
+        ARGS,
+        &["Use"],
+    )
+    .unwrap();
+    let error = snapshot
+        .resolve()
+        .unwrap()
+        .project(&options)
+        .unwrap_err()
+        .to_string();
+    assert!(error.contains("by-value external record"), "{error}");
+}
+
+#[test]
+fn fixed_arrays_preserve_layout_and_call_guards() {
+    let source = include_str!("../input/fixed_arrays.h");
+    let snapshot = capture([Input::new("arrays.hpp", source)], ARGS, &["Matrix"]).unwrap();
+    let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+    compile("fixed_arrays", &plan);
+    let snapshot = capture([Input::new("arrays.hpp", source)], ARGS, &["Use"]).unwrap();
+    let error = snapshot
+        .resolve()
+        .unwrap()
+        .project(&options())
+        .unwrap_err()
+        .to_string();
+    assert!(
+        error.contains("by-value calls with adjusted record layouts"),
+        "{error}"
+    );
+}
+
 fn options() -> ProjectionOptions {
     let mut options = ProjectionOptions::new("Test");
     options.library = Some("test.dll".into());

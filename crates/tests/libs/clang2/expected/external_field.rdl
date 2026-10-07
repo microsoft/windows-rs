@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    struct Notification {
+        context: External::GUID,
+        muted: i32,
+        volume: f32,
+        channel_count: u32,
+        channels: [f32; 1],
+    }
+}

@@ -346,19 +346,24 @@ bindings in three stages:
 
 | Stage | Implementation | Output |
 | --- | --- | --- |
-| Headers -> RDL | `windows_clang::clang()` | `target/webview/WebView2.rdl` |
+| Headers -> RDL | `windows_clang2::capture`, resolution, projection | `target/webview/WebView2.rdl` |
 | RDL -> winmd | `windows_rdl::reader()` | `target/webview/WebView2.winmd` |
 | winmd -> Rust | `windows_bindgen` | `crates/libs/webview/src/bindings.rs` |
 
-The tool downloads the pinned `Microsoft.Web.WebView2` NuGet package. It parses `WebView2.h` and
-`WebView2Interop.h` as separate inputs because the collector emits declarations owned by each
-input, then merges both translation units. It uses `Windows.Win32.winmd` for referenced Win32
-types and targets `x86_64-pc-windows-msvc` with Microsoft extensions. Regenerate with
-`cargo run -p tool-webview`; never edit `src/bindings.rs`.
+The tool downloads the pinned WebView2 and Windows SDK packages. It captures `WebView2.h` and
+`WebView2Interop.h` as separate inputs and checks their shared native declarations before
+projection. Roots come from the binding filter, plus `POINT`, `RECT`, and the five loader exports;
+the output covers this dependency closure, not the full WebView2 SDK. External type identities
+refer to the bundled default metadata. DLL routes come from the pinned loader import library.
+
+Capture targets x86 to retain the source `__stdcall` distinction that x64 normalizes to its
+platform ABI. The resulting portable bindings preserve native enum signedness, MIDL properties,
+and the `EventRegistrationToken` struct. Regenerate with `cargo run -p tool-webview`; never edit
+`src/bindings.rs`. There is no fallback to the legacy extractor.
 
 The experimental `test_clang2` `webview_consumer` example checks this crate against candidate
 bindings in a fresh scratch workspace, with every feature combination and the same production
-filter. It does not change `tool-webview` or the committed bindings. See the
+filter. This scratch check is separate from the real generator and live consumer gate. See the
 [clang2 consumer gate](windows-clang2.md#actual-consumer-and-loader-gate). Handwritten all-bits
 flags use `!0`, so their meaning does not depend on a binding's signed or unsigned representation.
 
@@ -407,5 +412,8 @@ is disabled. Keep those expectations synchronized with generator output.
 `test-webview` runs the raw host and browser feature fixtures against a live WebView2 runtime.
 The self-contained `test-reactor-integration` WebView fixture covers WinUI control initialization
 and the COM bridge. Both packages run with real windows and message pumps.
-`test-webview --headless` suppresses its interactive UI; the Reactor integration fixture manages
-and closes its own test windows.
+`test-webview --headless` exits after its fixtures instead of waiting for the user to close the
+window. It still creates native windows. Add `--require-runtime` to fail bootstrap errors rather
+than report a successful runtime-unavailable skip. The x64 debug CI gate regenerates bindings and
+runs all 33 live fixtures with the pinned loader and isolated test files. The Reactor integration
+fixture manages and closes its own test windows.

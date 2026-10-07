@@ -8,6 +8,8 @@ publish = false
 [dependencies]
 helpers = { workspace = true }
 windows-clang = { workspace = true }
+windows-clang2 = { workspace = true }
+windows-bindgen = { workspace = true }
 windows-default = { workspace = true }
 windows-metadata = { workspace = true }
 windows-rdl = { workspace = true }

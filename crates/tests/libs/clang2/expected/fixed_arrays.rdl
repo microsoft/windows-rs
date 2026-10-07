@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    struct Matrix {
+        rows: [Row; 2],
+        weights: [[f32; 3]; 2],
+    }
+    struct Row {
+        values: [i32; 3],
+    }
+}

@@ -1,7 +1,7 @@
 # windows-clang2
 
 An experimental replacement for `windows-clang`, built directly on
-libclang. The existing crate and production generators are unchanged.
+libclang. It drives `tool-webview`; the other production scrapers still use the existing crate.
 
 The prototype captures selected native declarations and their dependencies into an owned graph,
 checks agreement across translation units, and builds a closed RDL projection plan. It retains
@@ -40,6 +40,9 @@ Increased member/record alignment preserves native storage using padding unions 
 attributes. By-value calls involving adjusted layouts reject until their calling ABI is covered.
 Explicitly selected aliases can name record types unless their named tag is also selected;
 competing selected names reject.
+Fixed-size arrays retain their element types, extents, and native layout. Externally bound record
+fields retain native storage layout under the caller's ABI contract; by-value calls involving
+external records or adjusted layouts remain rejected, including through arrays and local records.
 Caller-supplied `ProjectionOptions::imports` maps native linker symbols to `FunctionImport` DLL
 and export names without changing captured evidence. Unmapped functions require an explicit
 `library` fallback; the BCrypt and WebView2 fixtures instead derive imports from target-specific SDK
@@ -69,7 +72,7 @@ Parameterized MIDL relationships, optionality, and retval markers are not decode
 Output/inout mutation through a single interface object pointer projects as a borrowed input, not
 a writable interface slot. An additional native pointer level retains its output/inout direction.
 Interface-valued constants have an omission reason in `Plan::omitted`; unsupported projections are
-errors. General SAL lowering and production generator integration are not implemented.
+errors. General SAL lowering and integration with the full Win32 scraper remain open.
 
 The test crate generates raw Rust bindings and links a C++ fixture to check record layout,
 free-function aggregate calls, and inherited virtual dispatch in both directions on x64 and x86.
@@ -92,8 +95,16 @@ inputs on x64 and x86. `webview_consumer` generates the exact production filter 
 copy of `windows-webview`, then checks every feature combination without rewriting that copy's
 application code. The consumer's all-bits constant uses `!0` with signed or unsigned bindings.
 The pinned loader DLL also executes version comparisons and failure cases on x64/x86 in debug and
-release. Production generators remain unchanged; browser activation, broader annotations, and other
-production consumers still need coverage. See the continuation page for commands and open gates.
+release. The actual `tool-webview` also uses clang2 to generate the committed bindings. All 33 live
+`test-webview` fixtures and the x64 WinUI-to-COM bridge pass with those bindings. The ongoing
+viability gate is x64 debug, not a full architecture certification matrix. Broader annotations and
+other production consumers still need coverage. See the continuation page for commands and open
+gates.
+
+`tool-win32 --clang2-audio` is a bounded x64 path through the real main/satellite input assembly for
+`mmdeviceapi.h` and `endpointvolume.h`. It generates an isolated consumer that reads real audio
+endpoint state without changing settings. The full Win32 scraper and committed metadata remain on
+their existing path.
 
 The API and diagnostic dump are experimental. See
 [`docs/crates/windows-clang2.md`](../../../docs/crates/windows-clang2.md) for the supported subset,

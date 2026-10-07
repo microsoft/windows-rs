@@ -1,8 +1,8 @@
 # windows-clang2
 
 `windows-clang2` is an unpublished, side-by-side prototype for replacing `windows-clang`. This
-slice implements native capture, checked resolution, and a narrow RDL projection. It does not
-replace any production generator.
+slice implements native capture, checked resolution, and a narrow RDL projection. It drives
+`tool-webview`; the full Win32 and WDK scrapers still use `windows-clang`.
 
 See the [crate readme](../../crates/libs/clang2/readme.md) for a small API example.
 
@@ -143,7 +143,7 @@ from caller-supplied external bindings.
 | Local dependencies | Schedule checked complete records; unsupported dependencies fail the plan. |
 | Functions | Fixed prototypes, supported Windows calling conventions, compiler link names or caller-bound DLL export names. |
 | Parameters | Positional names for functions, native names for methods; supported SAL below. |
-| External value types | Explicit native record/enum bindings; no assumed by-value layout. |
+| External value types | Explicit native record/enum bindings. Record storage retains native layout; by-value external record calls remain rejected. |
 | External scalar typedefs | Explicit value bindings; retain the checked native scalar representation and layout. |
 | External pointer typedefs | Explicit pointer-sized value bindings; preserve the alias boundary and native pointee constness. |
 | External interfaces | Bind a native record; consume exactly one native pointer/reference level. |
@@ -161,6 +161,12 @@ that same scalar representation. Pointer typedefs may also bind to external meta
 the caller guarantees the pointer representation and semantic identity. The bound value does not
 schedule its pointee for local output. Array, reference, and other arbitrary alias bindings are
 unsupported.
+
+Fixed-size arrays preserve their declared element type and extent, including nested arrays and
+arrays of records. Array storage participates in the same native offset, size, and alignment checks
+as scalar fields. Externally bound record fields retain their checked native storage layout under
+the caller's metadata ABI contract. Neither change relaxes the call gate: arrays and local records
+containing adjusted layouts or external records are also rejected in unproven by-value calls.
 
 `ProjectionOptions::imports` maps exact native linker symbols to `FunctionImport { library, name }`.
 The native evidence and calling convention are unchanged. Unmapped functions require the explicit
@@ -686,7 +692,8 @@ The example copies the actual `windows-webview` sources and manifest into a new
 including `--flat --minimal --dead-code` and every implementation/method selector, changing only
 artifact paths. External bindings use the actual default metadata identities, including
 `Windows.Foundation.HResult` and `System.Guid`, not the synthetic COM reference fixture.
-The production backend and committed generated bindings are untouched.
+The scratch example does not modify the production files. The actual `tool-webview` separately
+uses clang2 to regenerate the committed bindings with the same filter.
 
 All four feature combinations (default, `system`, `reactor`, both) compile on x64/x86 and ARM64.
 The only approved consumer adjustment is its all-bits request-source initializer: `!0` preserves
@@ -708,9 +715,76 @@ All five loader import routes and missing-route rejection are covered on x86/x64
 ARM64 consumer checks pass, but native linking remains blocked by missing Visual Studio ARM64
 runtime libraries. CI runs the gate on each native target; its ARM64 result has not been observed.
 
-The first whole-consumer gate passes on x64/x86 with one representation-neutral consumer correction.
-This strengthens replacement viability, not SDK-wide parity. Browser activation, broader
-annotations, native ARM64 execution, and other production consumers remain open.
+### Live WebView cutover
+
+`tool-webview` uses capture -> checked resolution -> projection without a legacy fallback.
+It selects the consumer's dependency closure and all five loader exports, rather than claiming
+complete SDK coverage. Capture uses x86 to retain source `__stdcall` distinctions for the portable
+bindings; native x64 testing remains the working viability gate. See
+[binding generation](windows-webview.md#binding-generation) for the configuration.
+
+The generated bindings preserve native signed flags and the `EventRegistrationToken` struct.
+No further handwritten wrapper changes are needed beyond the representation-neutral `!0`
+initializer.
+All 33 existing `test-webview` fixtures passed on x64/x86 in debug/release, covering navigation,
+scripts, IPC, DevTools, resource interception, cookies, controller settings, profiles, and host
+creation/closure. The self-contained x64 Reactor fixture also passed real WinUI-to-COM
+initialization.
+The ongoing CI gate is x64 debug with `--headless --require-runtime`; bootstrap failures cannot
+be counted as successful skips. These results establish a working consumer, not every ABI or
+lifetime property. The harness exits the process after its fixtures; general shutdown guarantees
+and untested process-failure/download paths remain outside this gate.
+
+Three local optimized runs with cached packages measured the same 81-root comparison workload:
+
+| Measurement | clang2 | Legacy |
+| --- | --- | --- |
+| Median process wall time | 1.87 s | 8.39 s |
+| Sampled peak working set | 322.8-323.3 MiB | 378.8-379.2 MiB |
+| Emitted methods | 672 | 672 |
+
+The legacy extractor captures full header facts before filtering, while clang2 captures selected
+dependencies after indexing. This is a practical workload comparison, not equal-work parser
+performance or a production resource budget. The actual switched `tool-webview` took 1.71-1.82 s
+including process startup and regenerated byte-identical bindings in all three runs.
+
+The integration needs explicit external type identities and compiler-symbol import routes, but no
+per-method WebView compatibility rewriting. Free-function parameter names are still synthesized as
+`p0`, `p1`, etc.; method parameter names are retained. Broader annotations, native ARM64 execution,
+and SDK-wide production coverage remain open.
+
+### Bounded Win32 main/satellite slice
+
+```powershell
+cargo run -p tool-win32 -- --clang2-audio
+cargo run --manifest-path target\win32-clang2\audio\Cargo.toml --target x86_64-pc-windows-msvc
+```
+
+This opt-in path reuses `tool-win32`'s pinned SDK, compiler arguments, prelude, and main/satellite
+input assembly for `mmdeviceapi.h` and `endpointvolume.h`. It captures nine selected roots and
+their dependencies with clang2: the device interfaces, endpoint-volume interfaces, notification
+record, and native `GUID`. One x64 debug run resolved 220 groups and 475 observations with 265
+declaration comparisons.
+
+Output goes only to `target/win32-clang2/audio`: RDL, WinMD, generated Rust, and a small standalone
+consumer. Candidate definitions use `Win32Audio` so bundled Win32 metadata cannot substitute for
+them during binding generation. Standard external COM references remain explicit. `GUID` is
+source-owned, including its fixed byte array; no external-layout call exception is needed for
+the local property-key record. The default full scraper, committed Win32 metadata, and header
+partitions are unchanged.
+
+The read-only consumer activates the Windows device enumerator, enumerates active render
+endpoints, reads device IDs and state, activates endpoint volume, and queries channel counts,
+volume state, and the extended interface's channel range. It passed on three local endpoints in
+x64 debug. It never changes volume, mute, or device settings, and reports an error rather than a
+pass if no active endpoint is available. It does not prove notification callback execution.
+
+The slice required fixed-array projection and storage layouts for externally referenced records.
+Both have small source/RDL fixtures. It adds no audio-specific projection rules and keeps the
+by-value external-record and adjusted-layout call gates closed. The remaining integration cost
+includes explicit references, raw COM activation outputs, and selection of native typedef roots.
+Full header-root discovery, per-header partitioning, richer annotations, and a complete Win32
+cutover remain separate work.
 
 ## Rewrite plan and restart point
 
@@ -720,10 +794,11 @@ over the old extractor's lossy output. Proceed through bounded gates, not an unc
 
 ### Current baseline
 
-The old `windows-clang` implementation and production generators are unchanged. Inspect the
-worktree before restarting and preserve any local changes.
+The old `windows-clang` implementation remains available. `tool-webview` uses clang2; the other
+production scrapers retain their existing path. Inspect the worktree before restarting and
+preserve any local changes.
 
-The current slice has 112 passing integration tests and one passing doctest, with no ignored
+The current slice has 114 passing integration tests and one passing doctest, with no ignored
 WebView2 cutover cases.
 This establishes the covered cases, not production parity or completion of the acceptance matrix.
 
@@ -850,7 +925,8 @@ The aggregate-returning COM method limit needs a downstream bindgen fix and bidi
 coverage before relaxing the projection rejection. Confirm the native ARM64 ABI run in CI.
 
 The WebView consumer and loader gates preserve source enum representation, typedef names, and MIDL
-properties. Keep these gates while moving to browser activation and other real generator inputs.
+properties and execute real browser activation. Keep the x64 debug gate while moving to other
+real generator inputs.
 Native agreement must still run before external bindings can suppress local output; do not rewrite
 source contracts to match legacy generated metadata.
 
@@ -866,7 +942,7 @@ expected rejections in fixtures. Do not broaden the slice silently as new cases 
 | 2 | SAL and MIDL relationships | Required/optional buffers, output valid-byte extents, decimal element constants, scalar strings, and MIDL prefix directions with SAL precedence are covered. Counted strings, indirect capacities, and other MIDL relationships remain. |
 | 3 | Constants and preprocessing | Cover GUID/property-key forms, redefinition/undefinition, final macro state, and poison expressions with explicit, bounded recovery outcomes. |
 | 4 | Record layout | Anonymous native evidence is covered; local projection remains rejected. Cover packed, anonymous, bitfield, and a supported inherited record; compare compiler layout with generated Rust size, alignment, and offsets. |
-| 5 | Real multi-TU consumers | WebView consumer features compile with the production filter; source flags/properties/names and five loader exports are covered. Browser activation and a WDK case with UM references/enum overlays remain. |
+| 5 | Real multi-TU consumers | `tool-webview` and the opt-in `tool-win32 --clang2-audio` slice run real consumers. Full Win32 input discovery/partitioning and a WDK case with UM references/enum overlays remain. |
 | 6 | Target and ABI coverage | Raw-binding layout, free aggregate calls, bidirectional COM-style dispatch, COM ownership, and eight BCrypt DLL imports execute on x64/x86. Native ARM64 execution, Windows COM activation, SDK-wide DLL routing, and aggregate-returning methods remain. |
 
 Use pinned real generator inputs where practical. Preserve main/satellite and WebView multi-TU

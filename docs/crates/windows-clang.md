@@ -16,6 +16,11 @@ headers -> windows-clang -> RDL -> windows-rdl -> WinMD
 It extracts declarations and source annotations into immutable facts, then plans and emits RDL
 from the completed fact graph. It does not generate Rust bindings or provision libclang.
 
+`tool-win32` keeps this implementation for its full scrape. Its opt-in `--clang2-audio` path uses
+the experimental replacement for a bounded main/satellite group without promoting candidate
+output into committed metadata. See the
+[clang2 slice](windows-clang2.md#bounded-win32-mainsatellite-slice).
+
 ## High-level generation
 
 `clang()` returns a `Clang` builder for the common case of extracting one set of headers and
