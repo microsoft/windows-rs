@@ -31,12 +31,17 @@ path = "src/window_state.rs"
 name = "window_placement"
 path = "src/window_placement.rs"
 
+[[bin]]
+name = "tray_flyout"
+path = "src/tray_flyout.rs"
+
 [dependencies]
 windows-canvas = { workspace = true, features = ["composition", "reactor"] }
 windows-core = { workspace = true }
+windows-notifyicon = { workspace = true }
 windows-reactor = { workspace = true }
 windows-webview = { workspace = true, features = ["reactor"] }
-windows = { workspace = true, features = ["processthreadsapi", "winuser"] }
+windows = { workspace = true, features = ["combaseapi", "objbase", "processthreadsapi", "uiautomationclient", "uiautomationcore", "winuser"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

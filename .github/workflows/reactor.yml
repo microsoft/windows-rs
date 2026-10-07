@@ -168,6 +168,7 @@ jobs:
                 --quiet -- $_
             }
           cargo run -p test-reactor-integration --bin application_menu --quiet
+          cargo run -p test-reactor-integration --bin tray_flyout --quiet
           cargo run -p test-reactor-integration --bin canvas_integration --quiet
           cargo run -p test-reactor-integration --bin window_state --quiet
           "normal", "maximized", "position", "offscreen", "secondary", "same-bounds", "constrained" |
