@@ -939,13 +939,11 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     output.push_str(
         "enum GeneratedCollection {\n\
          Visual(native::UIElementCollection),\n\
-         Inspectable(windows_collections::IVector<IInspectable>),\n",
+         Inspectable(IVector<IInspectable>),\n",
     );
     for item in &collection_items {
         let item = item.rsplit('.').next().unwrap();
-        output.push_str(&format!(
-            "{item}(windows_collections::IVector<native::{item}>),\n"
-        ));
+        output.push_str(&format!("{item}(IVector<native::{item}>),\n"));
     }
     output.push_str("}\nimpl GeneratedCollection {\n");
     output.push_str(
@@ -1257,7 +1255,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     };
                     output.push_str(&format!(
                         "let observed = match read_{field}() {{ Ok(value) => value, Err(error) => {{ \
-                         super::app::report_error(error); return; }} }};\n\
+                         report_error(error); return; }} }};\n\
                          let observation = Observation::SetProperty {{ \
                          object, property: Property {{ id: PropertyId::{observed}, \
                          value: PropertyValue::{variant}({observed_value}) }} }};\n\
@@ -1282,9 +1280,9 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                              .cast::<windows_reference::IReference<HSTRING>>()\
                              .and_then(|value| value.Value()) {{\
                              Ok(value) => Rc::<str>::from(value.to_string_lossy()),\
-                             Err(error) => {{ super::app::report_error(error); return; }} }},\
+                             Err(error) => {{ report_error(error); return; }} }},\
                              Err(error) if error.code().is_ok() => Rc::<str>::from(\"\"),\
-                             Err(error) => {{ super::app::report_error(error); return; }} }};\n"
+                             Err(error) => {{ report_error(error); return; }} }};\n"
                         ));
                     } else if matches!(
                         event.payload_adapter,
@@ -1294,7 +1292,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             "let args = args.unwrap();\n\
                              let payload = match args.{payload}() {{ Ok(value) => Some(value), \
                              Err(error) if error.code().is_ok() => None, Err(error) => {{ \
-                             super::app::report_error(error); return; }} }};\n"
+                             report_error(error); return; }} }};\n"
                         ));
                     } else {
                         let conversion = match event.payload_adapter {
@@ -1323,7 +1321,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         output.push_str(&format!(
                             "let args = args.unwrap();\n\
                              let payload = match args.{payload}(){conversion} {{ Ok(value) => value, \
-                             Err(error) => {{ super::app::report_error(error); return; }} }};\n"
+                             Err(error) => {{ report_error(error); return; }} }};\n"
                         ));
                     }
                 }
@@ -1357,7 +1355,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                          Ok(true) if dispatch => WinUiAdapter::dispatch_content_dialog_result(\
                          &event_for_callback, &event_queue_{field}, object, EventId::{}, \
                          observation, {dispatch_value}), Ok(_) => {{}}, Err(error) => \
-                         super::app::report_error(error.into()), }}\n",
+                         report_error(error.into()), }}\n",
                         event.name,
                     )),
                     "F64" => output.push_str(&format!(
@@ -1417,7 +1415,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                              object, &source_{field}, args, {capture_on_press}, {release_capture}, \
                              {focus_on_release}, &pending_focus_states_{field}) {{ \
                              Ok(value) => value, Err(error) => {{ \
-                             super::app::report_error(error.into()); return; }} }};\n\
+                             report_error(error.into()); return; }} }};\n\
                              if dispatch {{ WinUiAdapter::dispatch_pointer_event_info(\
                              &event_for_callback, &event_queue_{field}, object, EventId::{}, \
                              observation, value); }}\n",
@@ -1430,7 +1428,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             "let value = match WinUiAdapter::focus_event_info(\
                              object, &source_{field}, args, {got_focus}, \
                              &pending_focus_states_{field}) {{ Ok(value) => value, Err(error) => {{ \
-                             super::app::report_error(error.into()); return; }} }};\n\
+                             report_error(error.into()); return; }} }};\n\
                              if dispatch {{ WinUiAdapter::dispatch_focus_event_info(\
                              &event_for_callback, &event_queue_{field}, object, EventId::{}, \
                              observation, value); }}\n",
@@ -1440,7 +1438,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     "DragKind" => output.push_str(&format!(
                         "let value = match WinUiAdapter::drag_kind(\
                          args, &drop_policy_{field}) {{ Ok(value) => value, Err(error) => {{ \
-                         super::app::report_error(error.into()); return; }} }};\n\
+                         report_error(error.into()); return; }} }};\n\
                          if dispatch {{ WinUiAdapter::dispatch_drag_kind(\
                          &event_for_callback, &event_queue_{field}, object, EventId::{}, \
                          observation, value); }}\n",
@@ -1451,13 +1449,13 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                          if let Err(error) = WinUiAdapter::dispatch_dropped_data(\
                          &event_for_callback, &event_queue_{field}, object, EventId::{}, \
                          observation, args, &drop_policy_{field}) {{ \
-                         super::app::report_error(error.into()); }}\n",
+                         report_error(error.into()); }}\n",
                         event.name
                     )),
                     "StringList" => output.push_str(&format!(
                         "let value = match WinUiAdapter::{}(&source_{field}) {{ \
                          Ok(value) => value, Err(error) => {{ \
-                         super::app::report_error(error.into()); return; }} }};\n\
+                         report_error(error.into()); return; }} }};\n\
                          if dispatch {{ WinUiAdapter::dispatch_string_list(\
                          &event_for_callback, &event_queue_{field}, object, EventId::{}, \
                          observation, value); }}\n",
@@ -1471,21 +1469,21 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     "KeyEventInfo" => output.push_str(
                         "let args = args.unwrap();\n\
                          let value = match WinUiAdapter::key_event_info(args) { Ok(value) => value, \
-                         Err(error) => { super::app::report_error(error.into()); return; } };\n\
+                         Err(error) => { report_error(error.into()); return; } };\n\
                          let handled = event_for_callback.borrow().callback.as_ref()\
                          .is_some_and(|callback| callback.call(value));\n\
                          if let Err(error) = args.SetHandled(handled) { \
-                         super::app::report_error(error); }\n",
+                         report_error(error); }\n",
                     ),
                     "CharacterEventInfo" => output.push_str(
                         "let args = args.unwrap();\n\
                          let value = match WinUiAdapter::character_event_info(args) { \
                          Ok(value) => value, Err(error) => { \
-                         super::app::report_error(error.into()); return; } };\n\
+                         report_error(error.into()); return; } };\n\
                          let handled = event_for_callback.borrow().callback.as_ref()\
                          .is_some_and(|callback| callback.call(value));\n\
                          if let Err(error) = args.SetHandled(handled) { \
-                         super::app::report_error(error); }\n",
+                         report_error(error); }\n",
                     ),
                     "Unit" => output.push_str(&format!(
                         "if dispatch {{ WinUiAdapter::dispatch_unit(&event_for_callback, \
@@ -1599,7 +1597,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
             let item = relation.native_item.as_deref().unwrap();
             let conversion = if relation.native_collection == Some(NativeCollection::ItemCollection)
             {
-                ".and_then(|value| value.cast::<windows_collections::IVector<IInspectable>>()\
+                ".and_then(|value| value.cast::<IVector<IInspectable>>()\
                  .map(GeneratedCollection::Inspectable).map_err(Into::into))"
                     .to_string()
             } else if relation.native_collection == Some(NativeCollection::Vector) {
@@ -1614,7 +1612,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
             } else {
                 let item = item.rsplit('.').next().unwrap();
                 format!(
-                    ".and_then(|value| value.cast::<windows_collections::IVector<native::{item}>>()\
+                    ".and_then(|value| value.cast::<IVector<native::{item}>>()\
                      .map(GeneratedCollection::{item}).map_err(Into::into))"
                 )
             };
@@ -1925,7 +1923,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                  let collection = native::TransitionCollection::new()?;\n\
                  for value in values.iter() {{\n\
                  let transition = match value {{\n\
-                 crate::ThemeTransition::Reposition => native::RepositionThemeTransition::new()?\
+                 ThemeTransition::Reposition => native::RepositionThemeTransition::new()?\
                  .cast::<native::Transition>()?,\n\
                  }};\n\
                  collection.Append(&transition)?;\n\
@@ -2033,9 +2031,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     ));
                     let clear = match property.value.as_str() {
                         "Bool" => format!("PropertyValue::Bool({})", property.clear_feedback),
-                        "Color" => {
-                            "PropertyValue::Color(crate::Color::rgb(255, 255, 255))".to_string()
-                        }
+                        "Color" => "PropertyValue::Color(Color::rgb(255, 255, 255))".to_string(),
                         "String" => "PropertyValue::String(Rc::from(\"\"))".to_string(),
                         "F64" => "PropertyValue::F64(0.0)".to_string(),
                         "I32" => "PropertyValue::I32(0)".to_string(),
@@ -2301,7 +2297,8 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     output.push_str("_ => None,\n} }\n");
 
     output.push_str(
-        "fn unit_event(&self, event: EventId) -> Option<&Rc<RefCell<NativeUnitEvent>>> { \
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         fn unit_event(&self, event: EventId) -> Option<&Rc<RefCell<NativeUnitEvent>>> { \
                      match (self, event) {\n",
     );
     for object in &objects {
@@ -2623,7 +2620,7 @@ fn emit_native_property_arms(
             format!(
                 "{{ let values: Vec<Option<IInspectable>> = value.iter().map(|value| \
                      Some(windows_reference::IReference::from(value.as_ref()).into()))\
-                     .collect(); let values: windows_collections::IVector<IInspectable> = \
+                     .collect(); let values: IVector<IInspectable> = \
                      values.into(); {object}.Set{native}(&values).map_err(Into::into) }}"
             )
         });
@@ -3042,23 +3039,33 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
         }
     }
     output.push_str("_ => usize::MAX,\n} }\n");
-    output.push_str("pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[");
+    output.push_str(
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[",
+    );
     for object in &schema.objects {
         output.push_str(&format!("ObjectType::{},", object.name));
     }
     output.push_str("];\n");
-    output.push_str("pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[");
+    output.push_str(
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[",
+    );
     for property in properties.keys() {
         output.push_str(&format!("PropertyId::{property},"));
     }
     output.push_str("];\n");
-    output.push_str("fn object_index(kind: ObjectType) -> usize { match kind {\n");
+    output.push_str(
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         fn object_index(kind: ObjectType) -> usize { match kind {\n",
+    );
     for (index, object) in schema.objects.iter().enumerate() {
         output.push_str(&format!("ObjectType::{} => {index},", object.name));
     }
     output.push_str("} }\n");
     output.push_str(
-        "pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {\n\
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {\n\
          static CONTRACTS: std::sync::OnceLock<Vec<&'static [PropertyContract]>> = \
          std::sync::OnceLock::new();\n\
          let contracts = CONTRACTS.get_or_init(|| {\n\
@@ -3079,7 +3086,10 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
          }\n",
     );
 
-    output.push_str("pub(crate) fn focus_capable(kind: ObjectType) -> bool { matches!(kind,");
+    output.push_str(
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         pub(crate) fn focus_capable(kind: ObjectType) -> bool { matches!(kind,",
+    );
     if !schema.objects.iter().any(|object| object.focus) {
         output.push_str("_ if false");
     } else {
@@ -3304,6 +3314,7 @@ fn generate_declarations(
             output.push_str(&format!("pub struct {}(Declaration);\n", object.name));
         }
         if object.focus || object.reference {
+            output.push_str(&format!("impl Sealed for {} {{}}\n", object.name));
             output.push_str(&format!("impl ReferenceElement for {} {{}}\n", object.name));
         }
 

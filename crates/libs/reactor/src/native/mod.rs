@@ -1,3 +1,13 @@
+use super::*;
+use app_shim::{create_application, install_xaml_controls_resources};
+use bindings::IElementFactory;
+use transient_menu::TransientMenuHost;
+use windows_collections::*;
+use windows_core::{
+    ComObject, Event as WinEvent, HRESULT, HSTRING, IInspectable, IUnknownImpl, Interface, Ref,
+    implement_decl,
+};
+
 #[allow(
     clippy::missing_transmute_annotations,
     clippy::upper_case_acronyms,
@@ -12,7 +22,6 @@ mod app;
 mod app_shim;
 mod bootstrap;
 mod transient_menu;
-#[cfg_attr(not(any(test, feature = "test")), allow(dead_code))]
 mod winui;
 
 pub use app::*;

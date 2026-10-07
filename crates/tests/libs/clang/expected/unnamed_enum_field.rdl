@@ -1,0 +1,8 @@
+#[win32]
+mod UnnamedEnum {
+    const None: i32 = 0;
+    const One: i32 = 1;
+    struct WITH_ENUM {
+        value: i32,
+    }
+}

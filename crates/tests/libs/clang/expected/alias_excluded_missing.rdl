@@ -1,0 +1,18 @@
+#[win32]
+mod Test {
+    extern "C" fn CALLBACK(input: LPSTR, #[out] output: LPWSTR) -> LPCWSTR;
+    const EMPTY_TEXT: LPCSTR = 0;
+    struct Example {
+        text: *mut LPSTR,
+        constant: *mut LPCSTR,
+        wide: *mut LPWSTR,
+        wide_constant: *mut LPCWSTR,
+        buffers: [LPSTR; 2],
+    }
+    type LPCSTR = *const i8;
+    type LPCWSTR = *const u16;
+    type LPSTR = *mut i8;
+    type LPWSTR = *mut u16;
+    #[library("test.dll")]
+    extern "C" fn Text(input: LPSTR, #[out] output: LPWSTR) -> LPCSTR;
+}

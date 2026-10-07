@@ -1,0 +1,4 @@
+#[win32]
+mod Callbacks {
+    extern "C" fn CALLBACK_TYPE(data: *mut u8, size: u32) -> i32;
+}

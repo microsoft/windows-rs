@@ -1,0 +1,12 @@
+#[win32]
+mod AsyncInterface {
+    #[guid(0x12345678_1234_abcd_9876_0123456789ab)]
+    interface AsyncITest: IUnknown {
+        fn Begin_Read(&self, count: u32) -> i32;
+        fn Finish_Read(&self, values: *mut i32) -> i32;
+    }
+    #[no_guid]
+    interface IUnknown {
+        fn Query(&self) -> i32;
+    }
+}

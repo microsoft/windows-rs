@@ -146,6 +146,7 @@ pub enum PropertyId {
     IsAlphaEnabled,
     IsBackButtonEnabled,
     IsBackButtonVisible,
+    IsBackEnabled,
     IsCalendarOpen,
     IsChecked,
     IsClosable,
@@ -162,6 +163,7 @@ pub enum PropertyId {
     IsOpen,
     IsPaneOpen,
     IsPaneToggleButtonVisible,
+    IsPaneVisible,
     IsPrimaryButtonEnabled,
     IsReadOnly,
     IsSecondaryButtonEnabled,
@@ -263,6 +265,7 @@ pub enum RelationId {
     Pane,
     PaneCustomContent,
     PaneFooter,
+    PaneHeader,
     PrimaryCommands,
     RightHeader,
     Roots,
@@ -1508,6 +1511,14 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
                 variants: &["Collapsed", "Visible", "Auto"],
             },
         }),
+        (ObjectType::NavigationView, PropertyId::IsBackEnabled) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::NavigationView, PropertyId::IsPaneVisible) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
         (ObjectType::NavigationView, PropertyId::IsSettingsVisible) => Some(PropertyContract {
             id,
             value: ValueType::Bool,
@@ -2429,11 +2440,13 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::NavigationView, PropertyId::PaneDisplayMode) => 27,
         (ObjectType::NavigationView, PropertyId::IsPaneToggleButtonVisible) => 28,
         (ObjectType::NavigationView, PropertyId::IsBackButtonVisible) => 29,
-        (ObjectType::NavigationView, PropertyId::IsSettingsVisible) => 30,
-        (ObjectType::NavigationView, PropertyId::AlwaysShowHeader) => 31,
-        (ObjectType::NavigationView, PropertyId::PaneTitle) => 32,
-        (ObjectType::NavigationView, PropertyId::OpenPaneLength) => 33,
-        (ObjectType::NavigationView, PropertyId::IsPaneOpen) => 34,
+        (ObjectType::NavigationView, PropertyId::IsBackEnabled) => 30,
+        (ObjectType::NavigationView, PropertyId::IsPaneVisible) => 31,
+        (ObjectType::NavigationView, PropertyId::IsSettingsVisible) => 32,
+        (ObjectType::NavigationView, PropertyId::AlwaysShowHeader) => 33,
+        (ObjectType::NavigationView, PropertyId::PaneTitle) => 34,
+        (ObjectType::NavigationView, PropertyId::OpenPaneLength) => 35,
+        (ObjectType::NavigationView, PropertyId::IsPaneOpen) => 36,
         (ObjectType::NavigationViewItem, PropertyId::IsSelected) => 26,
         (ObjectType::NavigationViewItem, PropertyId::SelectsOnInvoked) => 27,
         (ObjectType::NavigationViewItem, PropertyId::IsExpanded) => 28,
@@ -2585,6 +2598,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         _ => usize::MAX,
     }
 }
+#[cfg(any(test, feature = "test"))]
 pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[
     ObjectType::TextBlock,
     ObjectType::TextBox,
@@ -2668,6 +2682,7 @@ pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[
     ObjectType::WebView2,
     ObjectType::SwapChainPanel,
 ];
+#[cfg(any(test, feature = "test"))]
 pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::AcceptsReturn,
     PropertyId::ActionButtonContent,
@@ -2730,6 +2745,7 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::IsAlphaEnabled,
     PropertyId::IsBackButtonEnabled,
     PropertyId::IsBackButtonVisible,
+    PropertyId::IsBackEnabled,
     PropertyId::IsCalendarOpen,
     PropertyId::IsChecked,
     PropertyId::IsClosable,
@@ -2746,6 +2762,7 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::IsOpen,
     PropertyId::IsPaneOpen,
     PropertyId::IsPaneToggleButtonVisible,
+    PropertyId::IsPaneVisible,
     PropertyId::IsPrimaryButtonEnabled,
     PropertyId::IsReadOnly,
     PropertyId::IsSecondaryButtonEnabled,
@@ -2833,6 +2850,7 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::Y2,
     PropertyId::YearVisible,
 ];
+#[cfg(any(test, feature = "test"))]
 fn object_index(kind: ObjectType) -> usize {
     match kind {
         ObjectType::TextBlock => 0,
@@ -2918,6 +2936,7 @@ fn object_index(kind: ObjectType) -> usize {
         ObjectType::SwapChainPanel => 80,
     }
 }
+#[cfg(any(test, feature = "test"))]
 pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
     static CONTRACTS: std::sync::OnceLock<Vec<&'static [PropertyContract]>> =
         std::sync::OnceLock::new();
@@ -2950,6 +2969,7 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
     });
     contracts[object_index(kind)]
 }
+#[cfg(any(test, feature = "test"))]
 pub(crate) fn focus_capable(kind: ObjectType) -> bool {
     matches!(
         kind,
@@ -3189,6 +3209,14 @@ pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
             },
             RelationContract {
                 id: RelationId::PaneCustomContent,
+                child: ObjectCategory::Visual,
+                allowed_objects: &[],
+                cardinality: Cardinality::One,
+                identity: Identity::Positional,
+                realization: Realization::Owned,
+            },
+            RelationContract {
+                id: RelationId::PaneHeader,
                 child: ObjectCategory::Visual,
                 allowed_objects: &[],
                 cardinality: Cardinality::One,

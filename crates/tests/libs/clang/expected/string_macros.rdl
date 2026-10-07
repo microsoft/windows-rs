@@ -1,0 +1,11 @@
+#[win32]
+mod Strings {
+    #[encoding("ansi")]
+    const ANSI_TEXT: String = "hello\\nworld";
+    #[encoding("ansi")]
+    const UTF8_BYTES: String = "é";
+    #[encoding("utf-16")]
+    const WIDE_ALIAS: String = "wide";
+    #[encoding("utf-16")]
+    const WIDE_TEXT: String = "wide";
+}

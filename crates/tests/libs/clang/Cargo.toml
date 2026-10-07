@@ -8,6 +8,7 @@ build = "build.rs"
 [dev-dependencies]
 windows-clang = { workspace = true }
 windows-rdl = { workspace = true }
+windows-metadata = { workspace = true }
 
 [lints]
 workspace = true

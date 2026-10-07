@@ -8,38 +8,10 @@ default-run = "test-reactor-selftest"
 [features]
 self-contained = []
 
-[[bin]]
-name = "application_menu"
-path = "src/application_menu.rs"
-
-[[bin]]
-name = "application_lifecycle"
-path = "src/application_lifecycle.rs"
-
-[[bin]]
-name = "canvas_integration"
-path = "src/canvas_integration.rs"
-
-[[bin]]
-name = "webview_integration"
-path = "src/webview_integration.rs"
-
-[[bin]]
-name = "tray_flyout"
-path = "src/tray_flyout.rs"
-
-[[bin]]
-name = "window_state"
-path = "src/window_state.rs"
-
 [dependencies]
-windows-canvas = { workspace = true, features = ["composition", "reactor"] }
-windows-composition = { workspace = true, default-features = false, features = ["reactor"] }
 windows-core = { workspace = true }
 windows-collections = { workspace = true }
-windows-notifyicon = { workspace = true }
 windows-reactor = { workspace = true, features = ["test"] }
-windows-webview = { workspace = true, features = ["reactor"] }
 windows = { workspace = true, features = ["UI_Input_Preview_Injection", "winuser"] }
 
 [build-dependencies]

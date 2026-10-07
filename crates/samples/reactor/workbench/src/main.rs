@@ -1,10 +1,9 @@
 #![windows_subsystem = "windows"]
 
-use std::cell::RefCell;
 use std::rc::Rc;
 use std::time::Duration;
 use windows_reactor as reactor;
-use windows_reactor::{App, AppContext};
+use windows_reactor::App;
 
 #[derive(Clone, Copy, PartialEq)]
 enum Page {
@@ -406,18 +405,6 @@ impl reactor::Component for StatusBar {
     }
 }
 
-#[derive(Clone)]
-struct WorkbenchInput {
-    on_theme: reactor::Callback<Theme>,
-    theme: Rc<reactor::Context<Theme>>,
-}
-
-impl PartialEq for WorkbenchInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.on_theme == other.on_theme && Rc::ptr_eq(&self.theme, &other.theme)
-    }
-}
-
 enum WorkbenchMessage {
     Add,
     Draft(String),
@@ -425,11 +412,13 @@ enum WorkbenchMessage {
     Reverse,
     Select(usize),
     Synced(usize),
+    Theme(Theme),
 }
 
 struct Workbench {
     draft: Rc<str>,
-    input: WorkbenchInput,
+    theme: Rc<reactor::Context<Theme>>,
+    current_theme: Theme,
     next_id: usize,
     page: Page,
     projects: Vec<Project>,
@@ -437,13 +426,14 @@ struct Workbench {
 }
 
 impl reactor::Component for Workbench {
-    type Input = WorkbenchInput;
+    type Input = ();
     type Message = WorkbenchMessage;
 
-    fn create(input: &Self::Input, _context: &reactor::ComponentContext<Self>) -> Self {
+    fn create(_input: &Self::Input, _context: &reactor::ComponentContext<Self>) -> Self {
         Self {
             draft: Rc::from(""),
-            input: input.clone(),
+            theme: Rc::new(reactor::Context::new(Theme::Light)),
+            current_theme: Theme::Light,
             next_id: 3,
             page: Page::Projects,
             projects: vec![
@@ -483,6 +473,7 @@ impl reactor::Component for Workbench {
                     project.revision += 1;
                 }
             }
+            WorkbenchMessage::Theme(theme) => self.current_theme = theme,
         }
     }
 
@@ -528,8 +519,8 @@ impl reactor::Component for Workbench {
             Page::Settings => reactor::component::<SettingsPage>(
                 "settings-page",
                 SettingsInput {
-                    on_theme: self.input.on_theme.clone(),
-                    theme: Rc::clone(&self.input.theme),
+                    on_theme: context.callback(WorkbenchMessage::Theme),
+                    theme: Rc::clone(&self.theme),
                 },
             )
             .into(),
@@ -538,9 +529,10 @@ impl reactor::Component for Workbench {
             .selected
             .and_then(|id| self.projects.iter().find(|project| project.id == id))
             .cloned();
-        reactor::StackPanel::new()
-            .spacing(10.0)
-            .children([
+        reactor::provide(
+            &self.theme,
+            self.current_theme,
+            reactor::StackPanel::new().spacing(10.0).children([
                 reactor::TextBlock::new()
                     .text("Reactor project workbench")
                     .into(),
@@ -559,71 +551,17 @@ impl reactor::Component for Workbench {
                     "status",
                     StatusInput {
                         projects: self.projects.len(),
-                        theme: Rc::clone(&self.input.theme),
+                        theme: Rc::clone(&self.theme),
                     },
                 )
                 .into(),
-            ])
-            .into()
-    }
-}
-
-struct Host {
-    host: reactor::ComponentHost<reactor::native::WinUiAdapter>,
-    _window: reactor::native::NativeWindow,
-}
-
-impl Host {
-    fn new(context: &AppContext) -> windows_core::Result<Rc<RefCell<Option<Self>>>> {
-        let theme = Rc::new(reactor::Context::new(Theme::Light));
-        let pending_theme = Rc::new(RefCell::new(None));
-        let request = Rc::clone(&pending_theme);
-        let input = WorkbenchInput {
-            on_theme: reactor::Callback::new(move |theme| {
-                *request.borrow_mut() = Some(theme);
-            }),
-            theme: Rc::clone(&theme),
-        };
-        let state = Rc::new(RefCell::new(None::<Self>));
-        let drain_state = Rc::clone(&state);
-        let drain_theme = Rc::clone(&theme);
-        let drain_pending = Rc::clone(&pending_theme);
-        let drain = context.callback(move || {
-            let mut state = drain_state.borrow_mut();
-            let host = &mut state.as_mut().unwrap().host;
-            host.drain(usize::MAX)?;
-            if let Some(theme) = drain_pending.borrow_mut().take() {
-                host.set_context(&drain_theme, theme)?;
-            }
-            Ok(())
-        });
-        let mut host = reactor::ComponentHost::mount_with_services(
-            reactor::native::WinUiAdapter::default(),
-            context.component_services(),
-            [reactor::component::<Workbench>("workbench", input)],
-        )?;
-        let wake = drain.clone();
-        host.set_waker(move || {
-            _ = wake.invoke();
-        });
-        let wake = drain;
-        host.set_native_event_waker(move || {
-            _ = wake.invoke();
-        });
-        let root = host.runtime().graph().root().unwrap();
-        let mut window = host.runtime().adapter().open_window(root)?;
-        let application = context.proxy();
-        window.set_closed(move || application.exit())?;
-        *state.borrow_mut() = Some(Self {
-            host,
-            _window: window,
-        });
-        Ok(state)
+            ]),
+        )
     }
 }
 
 fn main() -> windows_core::Result<()> {
-    App::run_with(Host::new)
+    App::run_component::<Workbench>(())
 }
 
 #[cfg(test)]
@@ -632,23 +570,12 @@ mod tests {
     use std::sync::Arc;
     use std::sync::atomic::{AtomicUsize, Ordering};
 
-    fn mount() -> (
-        reactor::ComponentHost<reactor::RecordingAdapter>,
-        Rc<reactor::Context<Theme>>,
-    ) {
-        let theme = Rc::new(reactor::Context::new(Theme::Light));
-        let host = reactor::ComponentHost::mount(
+    fn mount() -> reactor::ComponentHost<reactor::RecordingAdapter> {
+        reactor::ComponentHost::mount(
             reactor::RecordingAdapter::default(),
-            [reactor::component::<Workbench>(
-                "workbench",
-                WorkbenchInput {
-                    on_theme: reactor::Callback::new(|_| {}),
-                    theme: Rc::clone(&theme),
-                },
-            )],
+            [reactor::component::<Workbench>("workbench", ())],
         )
-        .unwrap();
-        (host, theme)
+        .unwrap()
     }
 
     fn path(keys: &[&str]) -> Vec<reactor::Key> {
@@ -695,7 +622,7 @@ mod tests {
 
     #[test]
     fn keyed_reorder_preserves_rows_and_row_work_is_isolated() {
-        let (mut host, _) = mount();
+        let mut host = mount();
         let first_path = path(&["workbench", "projects-page", "project:1"]);
         let second_path = path(&["workbench", "projects-page", "project:2"]);
         let first = host.reference_at(&first_path).unwrap().get();
@@ -724,7 +651,7 @@ mod tests {
 
     #[test]
     fn form_adds_a_keyed_project_and_selection_updates_details() {
-        let (mut host, _) = mount();
+        let mut host = mount();
         let page_path = path(&["workbench", "projects-page"]);
         let details_path = path(&["workbench", "details"]);
         let page = host.sender_at::<ProjectsPage>(&page_path).unwrap();
@@ -750,7 +677,7 @@ mod tests {
 
     #[test]
     fn navigation_retires_page_and_rejects_stale_row_messages() {
-        let (mut host, _) = mount();
+        let mut host = mount();
         let row_path = path(&["workbench", "projects-page", "project:1"]);
         let reference = host.reference_at(&row_path).unwrap();
         let stale = host.sender_at::<ProjectRow>(&row_path).unwrap();
@@ -804,8 +731,8 @@ mod tests {
     }
 
     #[test]
-    fn context_change_updates_only_the_two_subscribers() {
-        let (mut host, theme) = mount();
+    fn settings_theme_updates_subscribers_and_survives_navigation() {
+        let mut host = mount();
         assert!(
             host.sender::<Workbench>(&reactor::Key::from("workbench"))
                 .unwrap()
@@ -813,8 +740,16 @@ mod tests {
         );
         assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 1);
 
-        let report = host.set_context(&theme, Theme::Dark).unwrap();
-        assert_eq!(report.dispatched, 2);
+        let settings = path(&["workbench", "settings-page"]);
+        let reference = host.reference_at(&settings).unwrap();
+        let object = reference.get();
+        assert!(
+            host.sender_at::<SettingsPage>(&settings)
+                .unwrap()
+                .send(Theme::Dark)
+        );
+        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 2);
+        assert_eq!(reference.get(), object);
         assert_eq!(
             text(&host, &path(&["workbench", "settings-page"])).as_ref(),
             "Shared theme: Dark"
@@ -822,6 +757,30 @@ mod tests {
         assert_eq!(
             text(&host, &path(&["workbench", "status"])).as_ref(),
             "Dark theme - 2 projects"
+        );
+        let sender = host
+            .sender::<Workbench>(&reactor::Key::from("workbench"))
+            .unwrap();
+        assert!(sender.send(WorkbenchMessage::Navigate(Page::Projects)));
+        host.drain(usize::MAX).unwrap();
+        assert_eq!(reference.get(), None);
+        assert_eq!(
+            text(&host, &path(&["workbench", "status"])).as_ref(),
+            "Dark theme - 2 projects"
+        );
+        assert!(sender.send(WorkbenchMessage::Navigate(Page::Settings)));
+        host.drain(usize::MAX).unwrap();
+        assert_eq!(text(&host, &settings).as_ref(), "Shared theme: Dark");
+        assert!(
+            host.sender_at::<SettingsPage>(&settings)
+                .unwrap()
+                .send(Theme::Light)
+        );
+        host.drain(usize::MAX).unwrap();
+        assert_eq!(text(&host, &settings).as_ref(), "Shared theme: Light");
+        assert_eq!(
+            text(&host, &path(&["workbench", "status"])).as_ref(),
+            "Light theme - 2 projects"
         );
     }
 }

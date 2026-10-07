@@ -1,0 +1,8 @@
+#[win32]
+mod Namespaced {
+    #[repr(i32)]
+    enum Flags {
+        None = 0,
+        One = 1,
+    }
+}

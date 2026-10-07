@@ -1,14 +1,10 @@
 use super::*;
-use std::cell::{Cell, RefCell};
-use std::collections::VecDeque;
-use std::marker::PhantomData;
-use std::rc::{Rc, Weak};
-use std::sync::atomic::{AtomicU64, Ordering};
 
 pub(crate) const IMPERATIVE_QUEUE_CAPACITY: usize = 4_096;
 static NEXT_BINDING_ID: AtomicU64 = AtomicU64::new(1);
 static NEXT_OBSERVATION_ID: AtomicU64 = AtomicU64::new(1);
 
+#[doc(hidden)]
 pub enum AnyElement {}
 
 /// A declaration reference whose type limits control-specific integration APIs.
@@ -18,6 +14,14 @@ pub enum AnyElement {}
 ///
 /// let image = ElementRef::<Image>::new();
 /// let _ = Grid::new().element_ref(&image);
+/// ```
+///
+/// ```compile_fail
+/// use windows_reactor::ReferenceElement;
+///
+/// struct CustomElement;
+///
+/// impl ReferenceElement for CustomElement {}
 /// ```
 pub struct ElementRef<T = AnyElement> {
     target: Rc<RefCell<ReferenceTarget>>,
@@ -32,7 +36,7 @@ impl<T> ElementRef<T> {
         }
     }
 
-    pub fn get(&self) -> Option<ObjectId> {
+    fn object(&self) -> Option<ObjectId> {
         self.target
             .borrow()
             .binding
@@ -73,7 +77,7 @@ impl<T> ElementRef<T> {
     }
 
     pub(crate) fn clear(&self, object: ObjectId) {
-        if self.get() == Some(object) {
+        if self.object() == Some(object) {
             self.retire_current_binding();
             let mut target = self.target.borrow_mut();
             target.binding = None;
@@ -192,11 +196,11 @@ impl<T> Default for ElementRef<T> {
     }
 }
 
-impl<T> std::fmt::Debug for ElementRef<T> {
-    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl<T> fmt::Debug for ElementRef<T> {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         formatter
             .debug_tuple("ElementRef")
-            .field(&self.get())
+            .field(&self.object())
             .finish()
     }
 }
@@ -353,10 +357,27 @@ pub enum IntegrationError {
     Unavailable,
 }
 
+/// Identifies one binding of an [`ElementRef<SwapChainPanel>`] to a panel.
+///
+/// Metrics for the same binding carry equal tokens. Detaching and rebinding a reference
+/// produces a different token, even when the native panel is unchanged. This is not a native
+/// panel identity.
+///
+/// Compare a saved token with the latest metrics token to detect a rebind while asynchronous
+/// surface work was pending. A token does not keep the panel alive or prove it is still bound.
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub struct SwapChainPanelBinding(u64);
+
+impl SwapChainPanelBinding {
+    pub(crate) const fn new(value: u64) -> Self {
+        Self(value)
+    }
+}
+
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SwapChainPanelEvent {
     Metrics {
-        binding: u64,
+        binding: SwapChainPanelBinding,
         width: f64,
         height: f64,
         scale_x: f32,
@@ -680,22 +701,6 @@ impl ImperativeRequest {
         }
     }
 
-    #[cfg(any(test, feature = "test"))]
-    pub(crate) fn object(&self) -> ObjectId {
-        match self {
-            Self::Focus { object, .. }
-            | Self::InitializeWebView2 { object, .. }
-            | Self::ObserveSwapChainPanel { object, .. }
-            | Self::RequestSwapChainPanelFrame { object, .. }
-            | Self::SetSwapChain { object, .. }
-            | Self::SetNativeImageSource { object, .. }
-            | Self::ObserveImageScale { object, .. }
-            | Self::ObserveCompositionHost { object, .. }
-            | Self::RevokeObservation { object, .. }
-            | Self::SetCompositionChildVisual { object, .. } => *object,
-        }
-    }
-
     pub(crate) fn complete_unavailable(&self) {
         match self {
             Self::Focus { completion, .. } => {
@@ -719,12 +724,14 @@ impl ImperativeRequest {
 pub type FocusError = IntegrationError;
 
 #[doc(hidden)]
-pub trait ReferenceElement {}
+pub trait ReferenceElement: Sealed {}
 
 #[doc(hidden)]
-pub trait CompatibleElementRef<T: ReferenceElement> {
+pub trait CompatibleElementRef<T: ReferenceElement>: Sealed {
     fn erased_ref(&self) -> ElementRef;
 }
+
+impl<T> Sealed for ElementRef<T> {}
 
 impl<T: ReferenceElement> CompatibleElementRef<T> for ElementRef<T> {
     fn erased_ref(&self) -> ElementRef {
@@ -737,3 +744,7 @@ impl<T: ReferenceElement> CompatibleElementRef<T> for ElementRef<AnyElement> {
         self.clone()
     }
 }
+
+#[cfg(any(test, feature = "test"))]
+#[path = "test_support/reference.rs"]
+mod test_support;

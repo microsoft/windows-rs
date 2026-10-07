@@ -1,0 +1,8 @@
+#[win32]
+mod Redeclared {
+    type BOOLEAN = u8;
+    type HANDLE = *mut void;
+    type NTSTATUS = i32;
+    type PHANDLE = *mut HANDLE;
+    type PNTSTATUS = *mut NTSTATUS;
+}

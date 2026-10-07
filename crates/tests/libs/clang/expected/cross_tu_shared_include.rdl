@@ -1,0 +1,12 @@
+#[win32]
+mod Stable {
+    #[library("test.dll")]
+    extern "C" fn GetShared() -> IShared;
+    struct HOLDER {
+        value: IShared,
+    }
+    #[no_guid]
+    interface IShared {
+        fn Method(&self);
+    }
+}

@@ -1,0 +1,50 @@
+[package]
+name = "test-reactor-integration"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[features]
+self-contained = []
+
+[[bin]]
+name = "application_menu"
+path = "src/application_menu.rs"
+
+[[bin]]
+name = "application_lifecycle"
+path = "src/application_lifecycle.rs"
+
+[[bin]]
+name = "canvas_integration"
+path = "src/canvas_integration.rs"
+
+[[bin]]
+name = "webview_integration"
+path = "src/webview_integration.rs"
+
+[[bin]]
+name = "window_state"
+path = "src/window_state.rs"
+
+[[bin]]
+name = "window_placement"
+path = "src/window_placement.rs"
+
+[[bin]]
+name = "tray_flyout"
+path = "src/tray_flyout.rs"
+
+[dependencies]
+windows-canvas = { workspace = true, features = ["composition", "reactor"] }
+windows-core = { workspace = true }
+windows-notifyicon = { workspace = true }
+windows-reactor = { workspace = true }
+windows-webview = { workspace = true, features = ["reactor"] }
+windows = { workspace = true, features = ["combaseapi", "objbase", "processthreadsapi", "uiautomationclient", "uiautomationcore", "winuser"] }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true

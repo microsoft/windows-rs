@@ -4,6 +4,32 @@ use std::cell::OnceCell;
 use std::ffi::{CStr, CString};
 use std::marker::PhantomData;
 
+mod annotations;
+use annotations::ParameterAnnotations;
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(super) struct FunctionDeclaration {
+    canonical: Option<Location>,
+    usr: String,
+}
+
+impl FunctionDeclaration {
+    fn new(cursor: CXCursor) -> Self {
+        let canonical = unsafe { clang_getCanonicalCursor(cursor) };
+        Self {
+            canonical: cursor_locations(canonical).map(|(location, ..)| location),
+            usr: cx_string(unsafe { clang_getCursorUSR(canonical) }),
+        }
+    }
+
+    pub(super) fn same_entity(&self, other: &Self) -> bool {
+        self.canonical.is_some()
+            && self.canonical == other.canonical
+            && !self.usr.is_empty()
+            && self.usr == other.usr
+    }
+}
+
 pub fn extract(inputs: impl IntoIterator<Item = Input>, args: &[&str]) -> Result<Snapshot, Error> {
     let inputs: Vec<_> = inputs.into_iter().collect();
     let mut names = HashSet::new();
@@ -31,10 +57,16 @@ pub fn extract(inputs: impl IntoIterator<Item = Input>, args: &[&str]) -> Result
     let traversal_time = std::time::Instant::now();
     let mut facts = vec![];
     let mut constants = vec![];
+    let mut function_declarations = BTreeMap::new();
     let mut extracted = vec![];
     for (name, translation_unit) in &translation_units {
         let input = inputs.iter().find(|input| input.name == *name).unwrap();
-        extracted.push(translation_unit.extract(input, &mut facts, &mut constants));
+        extracted.push(translation_unit.extract(
+            input,
+            &mut facts,
+            &mut constants,
+            &mut function_declarations,
+        ));
     }
     decode_root_macro_definitions(&mut facts, &extracted);
     if timing {
@@ -100,7 +132,11 @@ pub fn extract(inputs: impl IntoIterator<Item = Input>, args: &[&str]) -> Result
         }
     }
     constants.sort();
-    Ok(Snapshot { facts, constants })
+    Ok(Snapshot {
+        facts,
+        constants,
+        function_declarations,
+    })
 }
 
 fn apply_macro_enum_overrides(facts: &mut [Fact], constants: &mut Vec<Constant>) {
@@ -694,6 +730,7 @@ impl TranslationUnit {
         input: &Input,
         facts: &mut Vec<Fact>,
         constants: &mut Vec<Constant>,
+        function_declarations: &mut BTreeMap<Origin, FunctionDeclaration>,
     ) -> Extracted<'tu> {
         let timing = std::env::var_os("WINDOWS_CLANG_TIMING").is_some();
         let phase_time = std::time::Instant::now();
@@ -721,6 +758,7 @@ impl TranslationUnit {
             pending_macros: vec![],
             facts,
             constants,
+            function_declarations,
         };
         extract_children(
             unsafe { clang_getTranslationUnitCursor(self.0) },
@@ -765,6 +803,7 @@ struct Traversal<'a> {
     pending_macros: Vec<(usize, CXCursor)>,
     facts: &'a mut Vec<Fact>,
     constants: &'a mut Vec<Constant>,
+    function_declarations: &'a mut BTreeMap<Origin, FunctionDeclaration>,
 }
 
 struct Extracted<'tu> {
@@ -975,6 +1014,11 @@ fn extract_child(child: CXCursor, parent: Option<&Origin>, traversal: &mut Trave
                     }
                     let deferred_struct = !root && fact_kind == FactKind::Struct;
                     let deferred_macro = !root && fact_kind == FactKind::Macro;
+                    if fact_kind == FactKind::Function {
+                        traversal
+                            .function_declarations
+                            .insert(origin.clone(), FunctionDeclaration::new(child));
+                    }
                     let data = if deferred_struct || deferred_macro {
                         FactData::None
                     } else {
@@ -2622,11 +2666,23 @@ fn callable_params(
     macros: &MacroDefinitions,
     allow_unresolved_size: bool,
 ) -> Result<Vec<Parameter>, String> {
-    let mut params = vec![];
-    for child in cursor_children(cursor)
+    let parameter_cursors: Vec<_> = cursor_children(cursor)
         .into_iter()
         .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
-    {
+        .collect();
+    let captured = ParameterAnnotations::capture(cursor, &parameter_cursors, macros);
+    project_params(&parameter_cursors, &captured, macros, allow_unresolved_size)
+}
+
+fn project_params(
+    parameter_cursors: &[CXCursor],
+    captured: &[ParameterAnnotations],
+    macros: &MacroDefinitions,
+    allow_unresolved_size: bool,
+) -> Result<Vec<Parameter>, String> {
+    assert_eq!(captured.len(), parameter_cursors.len());
+    let mut params = vec![];
+    for (&child, captured) in parameter_cursors.iter().zip(captured) {
         let param_ty = unsafe { clang_getCursorType(child) };
         let Some(ty) = function_param_type_at_cursor(child, param_ty) else {
             return Err(format!(
@@ -2634,11 +2690,11 @@ fn callable_params(
                 cx_string(unsafe { clang_getTypeSpelling(param_ty) })
             ));
         };
-        let mut name = cx_string(unsafe { clang_getCursorSpelling(child) });
+        let mut name = captured.name.clone();
         if name.is_empty() {
             name = format!("param{}", params.len());
         }
-        let mut annotation = parameter_annotation(child);
+        let mut annotation = captured.project_attributes(is_void_double_pointer(param_ty));
         normalize_constant_byte_size(param_ty, &mut annotation);
         if let Some(reason) = &annotation.unsupported {
             return Err(reason.clone());
@@ -2681,7 +2737,12 @@ fn callable_params(
             param.annotation.size = None;
         }
     }
-    apply_source_annotations(cursor, macros, &mut params);
+    for ((param, captured), &cursor) in params.iter_mut().zip(captured).zip(parameter_cursors) {
+        captured.project_source(
+            &mut param.annotation,
+            is_void_double_pointer(unsafe { clang_getCursorType(cursor) }),
+        );
+    }
     Ok(params)
 }
 
@@ -2769,136 +2830,6 @@ fn tokens_before_method_name(
         .position(|(kind, token)| *kind == CXToken_Identifier && token == &name)
         .unwrap_or(0);
     &tokens[..end]
-}
-
-fn apply_source_annotations(cursor: CXCursor, macros: &MacroDefinitions, params: &mut [Parameter]) {
-    let tokens = cursor_tokens(cursor);
-    let parameter_cursors: Vec<_> = cursor_children(cursor)
-        .into_iter()
-        .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
-        .collect();
-    let cursor_name = cx_string(unsafe { clang_getCursorSpelling(cursor) });
-    let name_index = tokens
-        .iter()
-        .position(|(kind, token)| *kind == CXToken_Identifier && token == &cursor_name);
-    let Some(open) = tokens
-        .iter()
-        .enumerate()
-        .skip(name_index.map_or(0, |index| index + 1))
-        .find(|(_, (kind, token))| *kind == CXToken_Punctuation && token == "(")
-        .map(|(index, _)| index)
-    else {
-        return;
-    };
-    let mut index = 0;
-    let mut depth = 1;
-    for (kind, token) in &tokens[open + 1..] {
-        match (*kind, token.as_str()) {
-            (CXToken_Punctuation, "(") => depth += 1,
-            (CXToken_Punctuation, ")") => {
-                depth -= 1;
-                if depth == 0 {
-                    break;
-                }
-            }
-            (CXToken_Punctuation, ",") if depth == 1 => index += 1,
-            (CXToken_Identifier, annotation)
-                if depth == 1 && index < params.len() && annotation.starts_with("_COM_Outptr_") =>
-            {
-                let param = &mut params[index].annotation;
-                param.output = true;
-                param.com_out_ptr |= parameter_cursors.get(index).is_some_and(|cursor| {
-                    is_void_double_pointer(unsafe { clang_getCursorType(*cursor) })
-                });
-                param.optional |= annotation.contains("_opt_");
-            }
-            (CXToken_Identifier, annotation)
-                if depth == 1 && index < params.len() && macros.contains_key(annotation) =>
-            {
-                let param = &mut params[index].annotation;
-                match annotation {
-                    "IN" => param.input = true,
-                    "OUT" => param.output = true,
-                    "OPTIONAL" => param.optional = true,
-                    _ => {}
-                }
-            }
-            (CXToken_Comment, comment) if depth == 1 && index < params.len() => {
-                let annotation = &mut params[index].annotation;
-                annotation.input |= comment.contains("[in]");
-                annotation.output |= comment.contains("[out]");
-                annotation.optional |= comment.contains("[optional]");
-                annotation.retval |= comment.contains("[retval]");
-                annotation.com_out_ptr |= comment.contains("[iid_is]") && annotation.output;
-            }
-            _ => {}
-        }
-    }
-}
-
-fn parameter_annotation(cursor: CXCursor) -> ParamAnnotation {
-    let mut result = ParamAnnotation::default();
-    for child in cursor_children(cursor) {
-        if unsafe { clang_getCursorKind(child) } != CXCursor_AnnotateAttr {
-            continue;
-        }
-
-        let annotation = cx_string(unsafe { clang_getCursorSpelling(child) });
-        if annotation.starts_with("_In_") || annotation.starts_with("_Inout_") {
-            result.input = true;
-        }
-        if annotation.starts_with("_Out_")
-            || annotation.starts_with("_Outptr_")
-            || annotation.starts_with("_COM_Outptr_")
-            || annotation.starts_with("_Inout_")
-        {
-            result.output = true;
-        }
-        if annotation.contains("_opt_")
-            || (annotation.starts_with("_Outptr_") && annotation.contains("_result_maybenull_"))
-        {
-            result.optional = true;
-        }
-        if annotation == "_Reserved_" {
-            result.reserved = true;
-        }
-        if annotation.starts_with("_COM_Outptr_") {
-            result.com_out_ptr = is_void_double_pointer(unsafe { clang_getCursorType(cursor) });
-        }
-        let sal_name = annotation
-            .split_once('(')
-            .map_or(annotation.as_str(), |value| value.0);
-        if sal_name.contains("_z_") || sal_name.ends_with("_z") {
-            result.null_terminated = true;
-        }
-        if result.size.is_none()
-            && (annotation.contains("_reads_")
-                || annotation.contains("_writes_")
-                || annotation.contains("_updates_"))
-            && let Some(argument) = annotation
-                .split_once('(')
-                .and_then(|(_, rest)| rest.strip_suffix(')'))
-                .and_then(|arguments| arguments.split(',').next())
-        {
-            let argument = argument.trim();
-            let value = if let Some(value) = parse_sal_integer(argument) {
-                SalSizeValue::Constant(value)
-            } else if is_c_identifier(argument) {
-                SalSizeValue::Parameter(argument.to_string())
-            } else if let Some(argument) = argument.strip_prefix('*').map(str::trim)
-                && is_c_identifier(argument)
-            {
-                SalSizeValue::IndirectParameter(argument.to_string())
-            } else {
-                SalSizeValue::Expression(argument.to_string())
-            };
-            result.size = Some(SalSize {
-                bytes: annotation.contains("_bytes"),
-                value,
-            });
-        }
-    }
-    result
 }
 
 fn function_is_noreturn(cursor: CXCursor) -> bool {

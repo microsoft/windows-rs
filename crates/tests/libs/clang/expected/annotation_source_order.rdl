@@ -1,0 +1,10 @@
+#[win32]
+mod AnnotationOrder {
+    extern "C" fn Callback(#[iid_is] value: *mut *mut void);
+    #[guid(0x12345678_1234_abcd_9876_0123456789ab)]
+    interface ITest {
+        fn Method(&self, #[iid_is] value: *mut *mut void) -> i32;
+    }
+    #[library("api.dll")]
+    extern "C" fn Use(#[iid_is] value: *mut *mut void);
+}

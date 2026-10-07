@@ -1,0 +1,5 @@
+#[win32]
+mod NestedCalling {
+    extern fn FIRST_CALLBACK();
+    extern "C" fn SECOND_CALLBACK();
+}

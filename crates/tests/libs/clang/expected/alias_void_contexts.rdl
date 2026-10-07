@@ -1,0 +1,18 @@
+#[win32]
+mod Test {
+    extern "C" fn CALLBACK(input: *const LPVOID, output: *mut *mut void);
+    #[library("test.dll")]
+    extern "C" fn Compare(direct: *mut void, output: *mut *mut void, input: *const PVOID, handle: HANDLE, view: VIEW);
+    type HANDLE = *mut void;
+    type LPVOID = *mut void;
+    type PVOID = *mut void;
+    struct Pointers {
+        direct: *mut void,
+        output: *mut *mut void,
+        input: *const PVOID,
+        nested: *const *const PVOID,
+        array: [*mut void; 2],
+        reference: *const LPVOID,
+    }
+    type VIEW = *const PVOID;
+}

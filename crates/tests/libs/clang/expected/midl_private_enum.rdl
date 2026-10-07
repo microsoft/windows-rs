@@ -1,0 +1,6 @@
+#[win32]
+mod MidlPrivateEnum {
+    const FLAG_HIGH: PUBLIC_FLAGS = 2147483648;
+    const FLAG_NONE: PUBLIC_FLAGS = 0;
+    type PUBLIC_FLAGS = u32;
+}

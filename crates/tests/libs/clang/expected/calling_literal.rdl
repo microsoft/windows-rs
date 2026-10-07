@@ -1,0 +1,7 @@
+#[win32]
+mod Calling {
+    #[library("api.dll", import = "?CCall@@YAXXZ")]
+    extern "C" fn CCall();
+    #[library("api.dll", import = "?SystemCall@@YAXXZ")]
+    extern fn SystemCall();
+}

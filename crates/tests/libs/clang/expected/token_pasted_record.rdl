@@ -1,0 +1,6 @@
+#[win32]
+mod OpaqueKey {
+    struct CONNECTION_KEY {
+        Internal: i64,
+    }
+}

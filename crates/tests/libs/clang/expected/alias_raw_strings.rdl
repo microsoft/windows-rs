@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    extern "C" fn CALLBACK(#[in] input: *mut i8, output: *mut i8);
+    #[no_guid]
+    interface IStrings {
+        fn Strings(&self, #[in] input: *mut i8, output: *mut i8);
+    }
+    #[library("test.dll")]
+    extern "C" fn Strings(#[in] input: *mut i8, constant: *const i8, output: *mut i8, #[in] #[out] both: *mut i8, #[in] wide_input: *mut u16, wide_constant: *const u16, wide_output: *mut u16);
+}

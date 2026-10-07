@@ -1,0 +1,7 @@
+#[win32]
+mod Records {
+    struct OPAQUE {
+    }
+    #[library("test.dll")]
+    extern "C" fn Use(value: *const OPAQUE);
+}

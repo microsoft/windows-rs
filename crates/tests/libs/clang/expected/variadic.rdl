@@ -1,0 +1,5 @@
+#[win32]
+mod Variadic {
+    #[library("api.dll")]
+    extern "C" fn Report(count: u32, ...) -> i32;
+}

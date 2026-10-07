@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    const EMPTY_BUFFER: LPSTR = 0;
+    const EMPTY_POINTER: *mut void = 0;
+    const EMPTY_TEXT: LPCSTR = 0;
+    type LPCSTR = *const i8;
+    type LPSTR = *mut i8;
+}

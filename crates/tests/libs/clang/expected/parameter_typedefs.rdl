@@ -1,0 +1,7 @@
+#[win32]
+mod ParameterTypedefs {
+    type LPARAM = isize;
+    type PROPERTYID = i32;
+    #[library("api.dll")]
+    extern "C" fn UseValues(value: LPARAM, property: PROPERTYID);
+}

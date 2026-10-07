@@ -396,6 +396,7 @@ pub struct Constant {
 pub struct Snapshot {
     facts: Vec<Fact>,
     constants: Vec<Constant>,
+    function_declarations: BTreeMap<Origin, extract::FunctionDeclaration>,
 }
 
 impl Snapshot {
@@ -532,6 +533,7 @@ impl Snapshot {
                     let projection = TypeProjection::new(
                         &plan.type_names,
                         &plan.interface_names,
+                        &plan.type_choices,
                         &fact.origin.tu,
                     );
                     write_callback(&planned.name, *convention, params, result, &projection)?
@@ -564,6 +566,7 @@ impl Snapshot {
                     let projection = TypeProjection::new(
                         &plan.type_names,
                         &plan.interface_names,
+                        &plan.type_choices,
                         &fact.origin.tu,
                     );
                     write_named_record(
@@ -576,15 +579,16 @@ impl Snapshot {
                     )?
                 }
                 FactData::Typedef { target } => {
+                    let projection = TypeProjection::new(
+                        &plan.type_names,
+                        &plan.interface_names,
+                        &plan.type_choices,
+                        &fact.origin.tu,
+                    );
                     format!(
                         "    type {} = {};\n",
                         rdl_ident(&planned.name),
-                        planned_emitted_type_name(
-                            target,
-                            &plan.type_names,
-                            &plan.interface_names,
-                            &fact.origin.tu,
-                        )
+                        projection.name(target)
                     )
                 }
                 FactData::Enum {
@@ -624,6 +628,7 @@ impl Snapshot {
                     let projection = TypeProjection::new(
                         &plan.type_names,
                         &plan.interface_names,
+                        &plan.type_choices,
                         &fact.origin.tu,
                     );
                     write_named_record(
@@ -643,6 +648,7 @@ impl Snapshot {
                     let projection = TypeProjection::new(
                         &plan.type_names,
                         &plan.interface_names,
+                        &plan.type_choices,
                         &fact.origin.tu,
                     );
                     write_interface(
@@ -687,8 +693,12 @@ impl Snapshot {
                     function.name
                 )));
             };
-            let projection =
-                TypeProjection::new(&plan.type_names, &plan.interface_names, &function.origin.tu);
+            let projection = TypeProjection::new(
+                &plan.type_names,
+                &plan.interface_names,
+                &plan.type_choices,
+                &function.origin.tu,
+            );
             let mut params = write_params(params, &projection)?;
             if *variadic {
                 params.push("...".to_string());
@@ -697,15 +707,7 @@ impl Snapshot {
             let result = if *result == TypeRef::Void {
                 String::new()
             } else {
-                format!(
-                    " -> {}",
-                    planned_emitted_type_name(
-                        result,
-                        &plan.type_names,
-                        &plan.interface_names,
-                        &function.origin.tu,
-                    )
-                )
+                format!(" -> {}", projection.name(result))
             };
             let library = options
                 .libraries
@@ -1036,7 +1038,11 @@ impl Snapshot {
                     type_roots.push(root);
                 }
             } else if !roots.functions.is_empty() {
-                functions.push(choose_function_root(name, &roots.functions)?);
+                functions.push(choose_function_root(
+                    name,
+                    &roots.functions,
+                    &self.function_declarations,
+                )?);
             }
             if let Some(value) = value {
                 value_roots.push(value);
@@ -1067,7 +1073,55 @@ impl Snapshot {
             phase_time = std::time::Instant::now();
         }
 
+        let mut external_alias_candidates: BTreeMap<&str, BTreeSet<String>> = BTreeMap::new();
+        if let Some(excluded) = excluded_types {
+            for fact in &self.facts {
+                if !excluded.contains(&fact.name) {
+                    continue;
+                }
+                let Some(reference) = references.get(&fact.name) else {
+                    continue;
+                };
+                if extended_reference_enums.contains(&fact.name) {
+                    continue;
+                }
+                if let FactData::Typedef {
+                    target: TypeRef::Named { name, .. },
+                } = &fact.data
+                {
+                    if references.contains_key(name) || named_type_shape(name).is_some() {
+                        continue;
+                    }
+                    external_alias_candidates
+                        .entry(name)
+                        .or_default()
+                        .insert(format!(
+                            "{}::{}",
+                            reference.namespace.replace('.', "::"),
+                            reference.name
+                        ));
+                }
+            }
+        }
+        let external_aliases: BTreeMap<_, _> = external_alias_candidates
+            .into_iter()
+            .filter_map(|(name, aliases)| {
+                let mut aliases = aliases.into_iter();
+                let alias = aliases.next()?;
+                aliases.next().is_none().then_some((name, alias))
+            })
+            .collect();
+        let canonical_available = |tu: &str, name: &str| {
+            references.contains_key(name)
+                || facts_index.get(name).is_some_and(|facts| {
+                    facts
+                        .iter()
+                        .any(|fact| fact.origin.tu == tu && is_type_fact(fact))
+                })
+        };
+        let mut type_choices = BTreeMap::new();
         let facts_by_name = loop {
+            type_choices.clear();
             let mut facts = BTreeSet::new();
             let mut queue = vec![];
             for root in &type_roots {
@@ -1086,8 +1140,17 @@ impl Snapshot {
             }
 
             while let Some((tu, edge)) = queue.pop() {
-                let ty = match edge {
-                    TypeEdge::Type(ty) => ty,
+                let (ty, preserve_alias) = match edge {
+                    TypeEdge::Type(ty) => (ty, false),
+                    TypeEdge::Pointee(ty, mutable) => (ty, !mutable),
+                    TypeEdge::Parameter(param) => {
+                        let choice = parameter_string_name(param)
+                            .filter(|name| canonical_available(tu, name))
+                            .map_or(TypeChoice::Declared(&param.ty), TypeChoice::Canonical);
+                        type_choices.insert((tu, edge), choice);
+                        queue.push((tu, choice.edge()));
+                        continue;
+                    }
                     TypeEdge::Projected(name) => {
                         if references.contains_key(name) && !root_names.contains(name) {
                             continue;
@@ -1112,13 +1175,24 @@ impl Snapshot {
                     }
                 };
                 let (name, declaration) = match ty {
-                    TypeRef::Pointer { target, .. } | TypeRef::Reference { target, .. } => {
-                        queue.push((tu, TypeEdge::Type(target)));
+                    TypeRef::Pointer { .. } => {
+                        let (mutable, _, target) = pointer_run(ty);
+                        queue.push((tu, TypeEdge::Pointee(target, mutable)));
+                        continue;
+                    }
+                    TypeRef::Reference { mutable, target } => {
+                        queue.push((tu, TypeEdge::Pointee(target, *mutable)));
                         continue;
                     }
                     TypeRef::FunctionPointer { .. } | TypeRef::OpaquePointer { .. } => continue,
                     TypeRef::Array { target, .. } => {
                         queue.push((tu, TypeEdge::Type(target)));
+                        continue;
+                    }
+                    TypeRef::Generic { args, .. } => {
+                        for arg in args {
+                            queue.push((tu, TypeEdge::Type(arg)));
+                        }
                         continue;
                     }
                     TypeRef::InlineRecord(record) => {
@@ -1130,10 +1204,10 @@ impl Snapshot {
                     TypeRef::Named { name, declaration } => (name, declaration),
                     _ => continue,
                 };
-                if excluded_local_names.contains(&(tu.to_string(), name.clone())) {
-                    continue;
-                }
-                if references.contains_key(name) && !root_names.contains(name) {
+                type_choices.insert((tu, edge), TypeChoice::Declared(ty));
+                if (references.contains_key(name) && !root_names.contains(name))
+                    || external_aliases.contains_key(name.as_str())
+                {
                     continue;
                 }
                 let matches: Vec<_> = facts_index
@@ -1158,10 +1232,29 @@ impl Snapshot {
                         "unresolved local type `{name}` in translation unit `{tu}`"
                     )));
                 };
-                if canonical_named_type(name).is_some()
-                    && matches!(fact.data, FactData::Typedef { .. })
+                if matches!(fact.data, FactData::Typedef { .. })
+                    && let Some(canonical) = canonical_named_type(name)
                 {
-                    continue;
+                    if canonical_string_name(name).is_some() {
+                        if name != canonical
+                            && canonical_available(tu, canonical)
+                            && ((references.contains_key(canonical)
+                                && !root_names.contains(canonical))
+                                || !canonical_alias_depends_on(
+                                    canonical,
+                                    tu,
+                                    declaration,
+                                    &facts_index,
+                                ))
+                        {
+                            type_choices.insert((tu, edge), TypeChoice::Canonical(canonical));
+                            queue.push((tu, TypeEdge::Projected(canonical)));
+                            continue;
+                        }
+                    } else if !(preserve_alias && matches!(name.as_str(), "PVOID" | "LPVOID")) {
+                        type_choices.insert((tu, edge), TypeChoice::Canonical(canonical));
+                        continue;
+                    }
                 }
                 if facts.insert(fact.origin.clone()) {
                     queue_type_edges(fact, &mut queue);
@@ -1429,42 +1522,8 @@ impl Snapshot {
                     .or_insert_with(|| public_name.to_string());
             }
         }
-        let mut external_alias_candidates: BTreeMap<&str, BTreeSet<String>> = BTreeMap::new();
-        if let Some(excluded) = excluded_types {
-            for fact in &self.facts {
-                if !excluded.contains(&fact.name) {
-                    continue;
-                }
-                let Some(reference) = references.get(&fact.name) else {
-                    continue;
-                };
-                if extended_reference_enums.contains(&fact.name) {
-                    continue;
-                }
-                if let FactData::Typedef {
-                    target: TypeRef::Named { name, .. },
-                } = &fact.data
-                {
-                    if references.contains_key(name) || named_type_shape(name).is_some() {
-                        continue;
-                    }
-                    external_alias_candidates
-                        .entry(name)
-                        .or_default()
-                        .insert(format!(
-                            "{}::{}",
-                            reference.namespace.replace('.', "::"),
-                            reference.name
-                        ));
-                }
-            }
-        }
-        for (name, aliases) in external_alias_candidates {
-            if let [alias] = aliases.into_iter().collect::<Vec<_>>().as_slice() {
-                type_names
-                    .entry(name.to_string())
-                    .or_insert_with(|| alias.clone());
-            }
+        for (name, alias) in external_aliases {
+            type_names.entry(name.to_string()).or_insert(alias);
         }
         if timing {
             eprintln!(
@@ -1652,10 +1711,13 @@ impl Snapshot {
                     Value::Utf8(_) | Value::Utf16(_) => Some("String".to_string()),
                     _ => constant_type_name(
                         &constant.ty,
-                        &type_names,
-                        &interface_names,
+                        &TypeProjection::new(
+                            &type_names,
+                            &interface_names,
+                            &type_choices,
+                            &constant.root.tu,
+                        ),
                         &pointer_interface_aliases,
-                        &constant.root.tu,
                     ),
                 }?;
                 Some(PlannedConstant { constant, ty })
@@ -1721,6 +1783,7 @@ impl Snapshot {
             constants,
             type_names,
             interface_names,
+            type_choices,
             interface_guids,
             flag_enums,
         })
@@ -1783,6 +1846,7 @@ struct Plan<'a> {
     constants: Vec<PlannedConstant<'a>>,
     type_names: BTreeMap<String, String>,
     interface_names: BTreeSet<(String, String)>,
+    type_choices: BTreeMap<(&'a str, TypeEdge<'a>), TypeChoice<'a>>,
     interface_guids: BTreeMap<String, String>,
     flag_enums: BTreeSet<(String, String)>,
 }
@@ -1790,6 +1854,7 @@ struct Plan<'a> {
 struct TypeProjection<'a> {
     type_names: &'a BTreeMap<String, String>,
     interface_names: &'a BTreeSet<(String, String)>,
+    type_choices: &'a BTreeMap<(&'a str, TypeEdge<'a>), TypeChoice<'a>>,
     tu: &'a str,
 }
 
@@ -1797,18 +1862,143 @@ impl<'a> TypeProjection<'a> {
     fn new(
         type_names: &'a BTreeMap<String, String>,
         interface_names: &'a BTreeSet<(String, String)>,
+        type_choices: &'a BTreeMap<(&'a str, TypeEdge<'a>), TypeChoice<'a>>,
         tu: &'a str,
     ) -> Self {
         Self {
             type_names,
             interface_names,
+            type_choices,
             tu,
         }
     }
 
     fn name(&self, ty: &TypeRef) -> String {
-        planned_emitted_type_name(ty, self.type_names, self.interface_names, self.tu)
+        self.project(TypeEdge::Type(ty)).name
     }
+
+    fn parameter(&self, param: &Parameter) -> ProjectedType {
+        if param.annotation.com_out_ptr {
+            return ProjectedType {
+                name: "*mut *mut void".to_string(),
+                mutable: true,
+            };
+        }
+        self.project(TypeEdge::Parameter(param))
+    }
+
+    fn project(&self, edge: TypeEdge<'_>) -> ProjectedType {
+        let ty = match self.type_choices.get(&(self.tu, edge)) {
+            Some(TypeChoice::Canonical(name)) => {
+                return ProjectedType {
+                    name: self
+                        .type_names
+                        .get(*name)
+                        .cloned()
+                        .unwrap_or_else(|| (*name).to_string()),
+                    mutable: *name == "*mut void",
+                };
+            }
+            Some(TypeChoice::Declared(ty)) if matches!(edge, TypeEdge::Parameter(_)) => {
+                return self.project(TypeEdge::Type(ty));
+            }
+            Some(TypeChoice::Declared(ty)) => *ty,
+            None => match edge {
+                TypeEdge::Type(ty) | TypeEdge::Pointee(ty, _) => {
+                    assert!(!matches!(ty, TypeRef::Named { .. }));
+                    ty
+                }
+                _ => unreachable!(),
+            },
+        };
+        if matches!(ty, TypeRef::FunctionPointer { .. }) {
+            return ProjectedType {
+                name: "*mut u8".to_string(),
+                mutable: true,
+            };
+        }
+        if let TypeRef::OpaquePointer { mutable, .. } = ty {
+            return ProjectedType {
+                name: format!("*{} void", if *mutable { "mut" } else { "const" }),
+                mutable: *mutable,
+            };
+        }
+        if let TypeRef::Reference { mutable, target } = ty {
+            if let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target.as_ref()
+                && self
+                    .interface_names
+                    .contains(&(self.tu.to_string(), name.clone()))
+            {
+                return ProjectedType {
+                    name: self.project(TypeEdge::Pointee(target, *mutable)).name,
+                    mutable: false,
+                };
+            }
+            return self.pointer(target, *mutable, 1);
+        }
+        if let TypeRef::Array { target, len } = ty {
+            return ProjectedType {
+                name: format!("[{}; {len}]", self.name(target)),
+                mutable: false,
+            };
+        }
+        if let TypeRef::Generic { name, args, .. } = ty {
+            return ProjectedType {
+                name: format!(
+                    "{}<{}>",
+                    rdl_ident(self.type_names.get(name).unwrap_or(name)),
+                    args.iter()
+                        .map(|arg| self.name(arg))
+                        .collect::<Vec<_>>()
+                        .join(", ")
+                ),
+                mutable: false,
+            };
+        }
+        let (mutable, depth, target) = pointer_run(ty);
+        if depth != 0
+            && let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target
+            && self
+                .interface_names
+                .contains(&(self.tu.to_string(), name.clone()))
+        {
+            return self.pointer(target, mutable, depth - 1);
+        }
+        if depth != 0 {
+            return self.pointer(target, mutable, depth);
+        }
+        ProjectedType {
+            name: match ty {
+                TypeRef::Void => "void".to_string(),
+                TypeRef::String => "String".to_string(),
+                TypeRef::Object => "Object".to_string(),
+                TypeRef::Scalar(scalar) => scalar_name(*scalar).to_string(),
+                TypeRef::Named { name, .. } => rdl_ident(self.type_names.get(name).unwrap_or(name)),
+                TypeRef::InlineRecord(record) => record
+                    .name
+                    .clone()
+                    .unwrap_or_else(|| "<inline record>".to_string()),
+                _ => unreachable!(),
+            },
+            mutable: false,
+        }
+    }
+
+    fn pointer(&self, target: &TypeRef, mutable: bool, depth: usize) -> ProjectedType {
+        ProjectedType {
+            name: format!(
+                "{}{}",
+                format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth),
+                self.project(TypeEdge::Pointee(target, mutable)).name
+            ),
+            mutable: depth != 0 && mutable,
+        }
+    }
+}
+
+struct ProjectedType {
+    name: String,
+    mutable: bool,
 }
 
 fn is_type_fact(fact: &Fact) -> bool {
@@ -2796,8 +2986,18 @@ fn constant_types_match(left: &TypeRef, right: &TypeRef) -> bool {
         )
 }
 
-fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Error> {
-    let distinct = distinct_source_declarations(roots);
+fn choose_function_root<'a>(
+    name: &str,
+    roots: &[&'a Fact],
+    declarations: &BTreeMap<Origin, extract::FunctionDeclaration>,
+) -> Result<&'a Fact, Error> {
+    let distinct = if let Some(first) = roots.first()
+        && roots.iter().all(|fact| fact.origin.tu == first.origin.tu)
+    {
+        roots.to_vec()
+    } else {
+        distinct_source_declarations(roots)
+    };
     if let [root] = distinct.as_slice() {
         return Ok(root);
     }
@@ -2808,7 +3008,7 @@ fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, 
         } = &first.data
         && distinct.iter().all(|fact| {
             fact.origin.tu == first.origin.tu
-                && fact.parent == first.parent
+                && declarations[&first.origin].same_entity(&declarations[&fact.origin])
                 && matches!(
                     &fact.data,
                     FactData::Function { link_name, .. } if link_name == first_link_name
@@ -2826,7 +3026,7 @@ fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, 
         .map(|fact| {
             format!(
                 "{}:{} {:?}",
-                fact.spelling.file, fact.spelling.offset, fact.data
+                fact.expansion.file, fact.expansion.offset, fact.data
             )
         })
         .collect::<Vec<_>>()
@@ -3069,9 +3269,70 @@ fn validate_complete_layout(
     }
 }
 
+#[derive(Clone, Copy, Eq, Ord, PartialEq, PartialOrd)]
 enum TypeEdge<'a> {
     Type(&'a TypeRef),
+    Pointee(&'a TypeRef, bool),
+    Parameter(&'a Parameter),
     Projected(&'static str),
+}
+
+#[derive(Clone, Copy)]
+enum TypeChoice<'a> {
+    Declared(&'a TypeRef),
+    Canonical(&'static str),
+}
+
+fn canonical_alias_depends_on(
+    canonical: &str,
+    tu: &str,
+    declaration: &Location,
+    facts_index: &HashMap<&str, Vec<&Fact>>,
+) -> bool {
+    let mut queue: Vec<_> = facts_index
+        .get(canonical)
+        .into_iter()
+        .flatten()
+        .filter(|fact| fact.origin.tu == tu)
+        .collect();
+    let mut seen = BTreeSet::new();
+    while let Some(fact) = queue.pop() {
+        if fact.spelling == *declaration {
+            return true;
+        }
+        if !seen.insert(&fact.spelling) {
+            continue;
+        }
+        let FactData::Typedef { target } = &fact.data else {
+            continue;
+        };
+        let mut target = target;
+        while let TypeRef::Pointer { target: inner, .. }
+        | TypeRef::Reference { target: inner, .. }
+        | TypeRef::Array { target: inner, .. } = target
+        {
+            target = inner;
+        }
+        if let TypeRef::Named { name, declaration } = target {
+            queue.extend(
+                facts_index
+                    .get(name.as_str())
+                    .into_iter()
+                    .flatten()
+                    .filter(|target| target.origin.tu == tu && target.spelling == *declaration),
+            );
+        }
+    }
+    false
+}
+
+impl<'a> TypeChoice<'a> {
+    fn edge(self) -> TypeEdge<'a> {
+        match self {
+            Self::Declared(ty) => TypeEdge::Type(ty),
+            Self::Canonical(name) => TypeEdge::Projected(name),
+        }
+    }
 }
 
 fn queue_type_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, TypeEdge<'a>)>) {
@@ -3080,7 +3341,7 @@ fn queue_type_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, TypeEdge<'a>)>
     } else if let FactData::Callback { params, result, .. } = &fact.data {
         queue.push((fact.origin.tu.as_str(), TypeEdge::Type(result)));
         for param in params {
-            queue.push((fact.origin.tu.as_str(), TypeEdge::Type(&param.ty)));
+            queue.push((fact.origin.tu.as_str(), TypeEdge::Parameter(param)));
         }
     } else if let FactData::PropertyKey { ty, .. } = &fact.data {
         queue.push((fact.origin.tu.as_str(), TypeEdge::Projected(ty)));
@@ -3098,10 +3359,7 @@ fn queue_type_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, TypeEdge<'a>)>
         for method in methods {
             queue.push((fact.origin.tu.as_str(), TypeEdge::Type(&method.result)));
             for param in &method.params {
-                queue.push((fact.origin.tu.as_str(), TypeEdge::Type(&param.ty)));
-                if let Some(name) = parameter_string_name(param) {
-                    queue.push((fact.origin.tu.as_str(), TypeEdge::Projected(name)));
-                }
+                queue.push((fact.origin.tu.as_str(), TypeEdge::Parameter(param)));
             }
         }
     }
@@ -3111,10 +3369,7 @@ fn queue_function_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, TypeEdge<'
     if let FactData::Function { params, result, .. } = &fact.data {
         queue.push((fact.origin.tu.as_str(), TypeEdge::Type(result)));
         for param in params {
-            queue.push((fact.origin.tu.as_str(), TypeEdge::Type(&param.ty)));
-            if let Some(name) = parameter_string_name(param) {
-                queue.push((fact.origin.tu.as_str(), TypeEdge::Projected(name)));
-            }
+            queue.push((fact.origin.tu.as_str(), TypeEdge::Parameter(param)));
         }
     }
 }
@@ -3199,20 +3454,12 @@ fn write_params(
     params
         .iter()
         .map(|param| {
+            let ty = projection.parameter(param);
             Ok(format!(
                 "{}{}: {}",
-                param_attributes(
-                    param,
-                    params,
-                    emitted_pointer_is_mutable(param, projection.interface_names, projection.tu),
-                )?,
+                param_attributes(param, params, ty.mutable)?,
                 rdl_ident(&param.name),
-                planned_param_type_name(
-                    param,
-                    projection.type_names,
-                    projection.interface_names,
-                    projection.tu,
-                )
+                ty.name
             ))
         })
         .collect()
@@ -3326,64 +3573,6 @@ fn rdl_uuid(guid: &str) -> String {
     )
 }
 
-fn planned_param_type_name(
-    param: &Parameter,
-    type_names: &BTreeMap<String, String>,
-    interface_names: &BTreeSet<(String, String)>,
-    tu: &str,
-) -> String {
-    if param.annotation.com_out_ptr {
-        return "*mut *mut void".to_string();
-    }
-    if let Some(name) = parameter_string_name(param) {
-        return type_names
-            .get(name)
-            .cloned()
-            .unwrap_or_else(|| name.to_string());
-    }
-    planned_emitted_type_name(&param.ty, type_names, interface_names, tu)
-}
-
-fn emitted_pointer_is_mutable(
-    param: &Parameter,
-    interface_names: &BTreeSet<(String, String)>,
-    tu: &str,
-) -> bool {
-    if param.annotation.com_out_ptr {
-        return true;
-    }
-    if parameter_string_name(param).is_some() {
-        return false;
-    }
-    match &param.ty {
-        TypeRef::Pointer { .. } => {
-            let (mutable, depth, target) = pointer_run(&param.ty);
-            if depth == 1
-                && matches!(
-                    target,
-                    TypeRef::Named { name, .. } | TypeRef::Generic { name, .. }
-                        if interface_names.contains(&(tu.to_string(), name.clone()))
-                )
-            {
-                false
-            } else {
-                mutable
-            }
-        }
-        TypeRef::Reference { mutable, target } => {
-            !matches!(
-                target.as_ref(),
-                TypeRef::Named { name, .. } | TypeRef::Generic { name, .. }
-                    if interface_names.contains(&(tu.to_string(), name.clone()))
-            ) && *mutable
-        }
-        TypeRef::FunctionPointer { .. } => true,
-        TypeRef::OpaquePointer { mutable, .. } => *mutable,
-        TypeRef::Named { name, .. } if matches!(name.as_str(), "PVOID" | "LPVOID") => true,
-        _ => false,
-    }
-}
-
 fn parameter_string_name(param: &Parameter) -> Option<&'static str> {
     match &param.ty {
         TypeRef::Pointer { mutable, target } if param.annotation.null_terminated => {
@@ -3407,70 +3596,6 @@ fn parameter_string_name(param: &Parameter) -> Option<&'static str> {
         }
         _ => None,
     }
-}
-
-fn planned_emitted_type_name(
-    ty: &TypeRef,
-    type_names: &BTreeMap<String, String>,
-    interface_names: &BTreeSet<(String, String)>,
-    tu: &str,
-) -> String {
-    if matches!(ty, TypeRef::FunctionPointer { .. }) {
-        return "*mut u8".to_string();
-    }
-    if let TypeRef::OpaquePointer { mutable, .. } = ty {
-        return format!("*{} void", if *mutable { "mut" } else { "const" });
-    }
-    if let TypeRef::Named { name, .. } = ty
-        && let Some(name) = type_names.get(name)
-    {
-        return rdl_ident(name);
-    }
-    if let TypeRef::Named { name, .. } = ty
-        && let Some(name) = canonical_named_type(name)
-    {
-        return type_names
-            .get(name)
-            .cloned()
-            .unwrap_or_else(|| name.to_string());
-    }
-    if let TypeRef::Reference { mutable, target } = ty {
-        if let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target.as_ref()
-            && interface_names.contains(&(tu.to_string(), name.clone()))
-        {
-            return planned_type_name(target, type_names);
-        }
-        return format!(
-            "*{} {}",
-            if *mutable { "mut" } else { "const" },
-            planned_emitted_type_name(target, type_names, interface_names, tu)
-        );
-    }
-    if let TypeRef::Array { target, len } = ty {
-        return format!(
-            "[{}; {len}]",
-            planned_emitted_type_name(target, type_names, interface_names, tu)
-        );
-    }
-    let (mutable, depth, target) = pointer_run(ty);
-    if depth != 0
-        && let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target
-        && interface_names.contains(&(tu.to_string(), name.clone()))
-    {
-        return format!(
-            "{}{}",
-            format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth - 1),
-            planned_emitted_type_name(target, type_names, interface_names, tu)
-        );
-    }
-    if depth != 0 {
-        return format!(
-            "{}{}",
-            format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth),
-            planned_emitted_type_name(target, type_names, interface_names, tu)
-        );
-    }
-    planned_type_name(ty, type_names)
 }
 
 fn canonical_named_type(name: &str) -> Option<&'static str> {
@@ -3797,48 +3922,6 @@ fn enum_value(value: i64, repr: Scalar) -> String {
     }
 }
 
-fn planned_type_name(ty: &TypeRef, type_names: &BTreeMap<String, String>) -> String {
-    match ty {
-        TypeRef::Void => "void".to_string(),
-        TypeRef::String => "String".to_string(),
-        TypeRef::Object => "Object".to_string(),
-        TypeRef::Scalar(scalar) => scalar_name(*scalar).to_string(),
-        TypeRef::Named { name, .. } => rdl_ident(type_names.get(name).unwrap_or(name)),
-        TypeRef::Generic { name, args, .. } => format!(
-            "{}<{}>",
-            rdl_ident(type_names.get(name).unwrap_or(name)),
-            args.iter()
-                .map(|arg| planned_type_name(arg, type_names))
-                .collect::<Vec<_>>()
-                .join(", ")
-        ),
-        TypeRef::Pointer { .. } => {
-            let (mutable, depth, target) = pointer_run(ty);
-            format!(
-                "{}{}",
-                format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth),
-                planned_type_name(target, type_names)
-            )
-        }
-        TypeRef::Reference { mutable, target } => format!(
-            "*{} {}",
-            if *mutable { "mut" } else { "const" },
-            planned_type_name(target, type_names)
-        ),
-        TypeRef::FunctionPointer { .. } => "*mut u8".to_string(),
-        TypeRef::OpaquePointer { mutable, .. } => {
-            format!("*{} void", if *mutable { "mut" } else { "const" })
-        }
-        TypeRef::Array { target, len } => {
-            format!("[{}; {len}]", planned_type_name(target, type_names))
-        }
-        TypeRef::InlineRecord(record) => record
-            .name
-            .clone()
-            .unwrap_or_else(|| "<inline record>".to_string()),
-    }
-}
-
 fn pointer_run(mut ty: &TypeRef) -> (bool, usize, &TypeRef) {
     let mut mutable = true;
     let mut depth = 0;
@@ -3856,10 +3939,8 @@ fn pointer_run(mut ty: &TypeRef) -> (bool, usize, &TypeRef) {
 
 fn constant_type_name(
     ty: &TypeRef,
-    type_names: &BTreeMap<String, String>,
-    interface_names: &BTreeSet<(String, String)>,
+    projection: &TypeProjection<'_>,
     pointer_interface_aliases: &BTreeMap<String, String>,
-    tu: &str,
 ) -> Option<String> {
     let name = match ty {
         TypeRef::Scalar(Scalar::Bool) => "u32".to_string(),
@@ -3867,21 +3948,23 @@ fn constant_type_name(
             return None;
         }
         TypeRef::Named { name, .. } | TypeRef::Generic { name, .. }
-            if interface_names.contains(&(tu.to_string(), name.clone())) =>
+            if projection
+                .interface_names
+                .contains(&(projection.tu.to_string(), name.clone())) =>
         {
             return None;
         }
-        TypeRef::Named { name, .. } if type_names.contains_key(name) => {
-            planned_type_name(ty, type_names)
-        }
-        TypeRef::Named { name, .. } => canonical_named_type(name)
-            .map_or_else(|| planned_type_name(ty, type_names), str::to_string),
         TypeRef::Void
         | TypeRef::Object
         | TypeRef::Generic { .. }
         | TypeRef::Array { .. }
         | TypeRef::InlineRecord(_) => return None,
-        _ => planned_type_name(ty, type_names),
+        TypeRef::Pointer { .. } => {
+            let (mutable, depth, target) = pointer_run(ty);
+            projection.pointer(target, mutable, depth).name
+        }
+        TypeRef::Reference { mutable, target } => projection.pointer(target, *mutable, 1).name,
+        _ => projection.name(ty),
     };
     Some(name)
 }

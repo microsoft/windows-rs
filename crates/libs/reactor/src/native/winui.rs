@@ -1,31 +1,7 @@
 use super::bindings as native;
-use crate::reconcile::{FeedbackExpectation, FeedbackState};
-use crate::{
-    AcceleratorKey, AcceleratorModifiers, Adapter, Brush, ButtonStyle, Callback, ColorScheme,
-    CommandBarCommand, CommandBarFlyout, ComponentHost, CompositionHostEvent, ContentDialogResult,
-    DragDropPolicy, ElementFocusState, EncodedImage, Event, EventDispatch, EventId, EventPayload,
-    EventValue, FlyoutPlacement, GridLength, GridLengthSize, Icon, IconValue, ImageSourceValue,
-    ImperativeRequest, IntegrationError, KeyAccelerators, Menu, MenuItem, Mutation, NativeEvent,
-    ObjectId, ObjectType, Observation, Property, PropertyId, PropertyValue, Realization,
-    RealizationRequest, RealizedContainer, RelationContract, RelationId, ResourceOverrides,
-    ResourceValue, RetirementCompletion, Runtime, SelectionContract, SwapChainPanelEvent, Symbol,
-    ThemeBrush, TooltipPlacement, WindowBackdrop, WindowPolicy, WindowSize, WindowTheme,
-    WindowVisuals, relation_contracts, selection_for_item_property, selection_for_relation,
-};
-use native::IElementFactory;
-use std::cell::{Cell, RefCell};
-use std::collections::{BTreeMap, HashMap, HashSet, VecDeque};
-use std::rc::{Rc, Weak};
-use std::sync::atomic::{AtomicU32, Ordering};
-use std::sync::{Arc, Mutex};
-use windows_collections::{
-    CollectionChange, IIterable_Impl, IIterator_Impl, IObservableVector_Impl, IVector_Impl,
-    IVectorChangedEventArgs_Impl, IVectorView_Impl, VectorChangedEventHandler,
-};
-use windows_core::{
-    ComObject, Event as WinEvent, HRESULT, HSTRING, IInspectable, IUnknownImpl, Interface, Ref,
-    implement_decl,
-};
+use super::*;
+
+mod window_placement;
 
 enum Handle {
     Generated(GeneratedHandle),
@@ -33,7 +9,7 @@ enum Handle {
     TreeView(NativeTreeView),
     TreeNode(NativeTreeNode),
     ListView(NativeListView),
-    Data(windows_collections::IObservableMap<HSTRING, IInspectable>),
+    Data(IObservableMap<HSTRING, IInspectable>),
 }
 
 struct NativeListView {
@@ -80,7 +56,7 @@ impl<T> Default for NativeValueEvent<T> {
 
 struct NativeRoutedValueEvent<T> {
     revision: u64,
-    callback: Option<crate::RoutedCallback<T>>,
+    callback: Option<RoutedCallback<T>>,
 }
 
 impl<T> Default for NativeRoutedValueEvent<T> {
@@ -93,20 +69,20 @@ impl<T> Default for NativeRoutedValueEvent<T> {
 }
 
 type NativeBoolEvent = NativeValueEvent<bool>;
-type NativeColorEvent = NativeValueEvent<crate::Color>;
-type NativeCharacterEventInfoEvent = NativeRoutedValueEvent<crate::CharacterEventInfo>;
+type NativeColorEvent = NativeValueEvent<Color>;
+type NativeCharacterEventInfoEvent = NativeRoutedValueEvent<CharacterEventInfo>;
 type NativeContentDialogResultEvent = NativeValueEvent<ContentDialogResult>;
-type NativeDragKindEvent = NativeValueEvent<crate::DragKind>;
-type NativeDroppedDataEvent = NativeValueEvent<crate::DroppedData>;
+type NativeDragKindEvent = NativeValueEvent<DragKind>;
+type NativeDroppedDataEvent = NativeValueEvent<DroppedData>;
 type NativeF64Event = NativeValueEvent<f64>;
-type NativeFocusEventInfoEvent = NativeValueEvent<crate::FocusEventInfo>;
+type NativeFocusEventInfoEvent = NativeValueEvent<FocusEventInfo>;
 type NativeOptionalBoolEvent = NativeValueEvent<Option<bool>>;
-type NativeOptionalDateTimeEvent = NativeValueEvent<Option<windows_time::DateTime>>;
+type NativeOptionalDateTimeEvent = NativeValueEvent<Option<DateTime>>;
 type NativeOptionalF64Event = NativeValueEvent<Option<f64>>;
-type NativeOptionalTimeSpanEvent = NativeValueEvent<Option<windows_time::TimeSpan>>;
-type NativeNavigationViewDisplayModeEvent = NativeValueEvent<crate::NavigationViewDisplayMode>;
-type NativePointerEventInfoEvent = NativeValueEvent<crate::PointerEventInfo>;
-type NativeKeyEventInfoEvent = NativeRoutedValueEvent<crate::KeyEventInfo>;
+type NativeOptionalTimeSpanEvent = NativeValueEvent<Option<TimeSpan>>;
+type NativeNavigationViewDisplayModeEvent = NativeValueEvent<NavigationViewDisplayMode>;
+type NativePointerEventInfoEvent = NativeValueEvent<PointerEventInfo>;
+type NativeKeyEventInfoEvent = NativeRoutedValueEvent<KeyEventInfo>;
 type NativeSelectionEvent = NativeValueEvent<Option<Rc<str>>>;
 type NativeSelectionIndexEvent = NativeValueEvent<Option<usize>>;
 type NativeTextEvent = NativeValueEvent<Rc<str>>;
@@ -180,14 +156,14 @@ struct NativeContentDialogState {
 struct NativeMenu {
     menu: Menu,
     revision: u64,
-    flyout: Option<native::MenuFlyout>,
+    _flyout: Option<native::MenuFlyout>,
     _revokers: Vec<windows_core::EventRevoker>,
 }
 
 struct NativeCommandBarFlyout {
     flyout: CommandBarFlyout,
     revision: u64,
-    native: native::CommandBarFlyout,
+    _native: native::CommandBarFlyout,
     _revokers: Vec<windows_core::EventRevoker>,
 }
 
@@ -639,8 +615,7 @@ impl NativeVirtualItems {
         })
         .into_interface();
         let source = ComObject::new(NativeVirtualSource::new(item_count)?);
-        let source_interface: windows_collections::IObservableVector<IInspectable> =
-            source.to_interface();
+        let source_interface: IObservableVector<IInspectable> = source.to_interface();
         repeater.SetItemTemplate(&factory)?;
         repeater.SetItemsSource(&source_interface)?;
         Ok(Self {
@@ -662,12 +637,12 @@ impl NativeVirtualItems {
 const E_BOUNDS: HRESULT = HRESULT(0x8000000B_u32 as i32);
 const E_ILLEGAL_METHOD_CALL: HRESULT = HRESULT(0x8000000E_u32 as i32);
 
-type NativeObservableVector = windows_collections::IObservableVector<IInspectable>;
-type NativeVector = windows_collections::IVector<IInspectable>;
-type NativeVectorView = windows_collections::IVectorView<IInspectable>;
-type NativeIterable = windows_collections::IIterable<IInspectable>;
-type NativeIterator = windows_collections::IIterator<IInspectable>;
-type NativeVectorChangedEventArgs = windows_collections::IVectorChangedEventArgs;
+type NativeObservableVector = IObservableVector<IInspectable>;
+type NativeVector = IVector<IInspectable>;
+type NativeVectorView = IVectorView<IInspectable>;
+type NativeIterable = IIterable<IInspectable>;
+type NativeIterator = IIterator<IInspectable>;
+type NativeVectorChangedEventArgs = IVectorChangedEventArgs;
 
 implement_decl! {
     impl NativeVirtualSource as NativeVirtualSource_Impl: [
@@ -749,9 +724,8 @@ impl NativeVirtualSource_Impl {
 
     fn reset(&self, count: u32) {
         self.item_count.store(count, Ordering::Release);
-        let source: windows_collections::IObservableVector<IInspectable> =
-            self.to_object().into_interface();
-        let args: windows_collections::IVectorChangedEventArgs =
+        let source: IObservableVector<IInspectable> = self.to_object().into_interface();
+        let args: IVectorChangedEventArgs =
             ComObject::new(NativeVirtualChangedEventArgs).into_interface();
         self.handlers
             .call(|handler: &VectorChangedEventHandler<IInspectable>| {
@@ -775,7 +749,7 @@ impl IObservableVector_Impl<IInspectable> for NativeVirtualSource_Impl {
 }
 
 impl IIterable_Impl<IInspectable> for NativeVirtualSource_Impl {
-    fn First(&self) -> windows_core::Result<windows_collections::IIterator<IInspectable>> {
+    fn First(&self) -> windows_core::Result<IIterator<IInspectable>> {
         Ok(ComObject::new(NativeVirtualSourceIterator {
             source: self.to_object(),
             current: AtomicU32::new(0),
@@ -793,7 +767,7 @@ impl IVector_Impl<IInspectable> for NativeVirtualSource_Impl {
         Ok(self.count())
     }
 
-    fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<IInspectable>> {
+    fn GetView(&self) -> windows_core::Result<IVectorView<IInspectable>> {
         Ok(self.to_object().into_interface())
     }
 
@@ -1125,7 +1099,7 @@ impl From<WinUiError> for windows_core::Error {
     }
 }
 
-fn solid_color_brush(value: crate::Color) -> Result<native::SolidColorBrush, WinUiError> {
+fn solid_color_brush(value: Color) -> Result<native::SolidColorBrush, WinUiError> {
     let brush = native::SolidColorBrush::new()?;
     brush.SetColor(native::Color {
         a: value.a,
@@ -1136,7 +1110,7 @@ fn solid_color_brush(value: crate::Color) -> Result<native::SolidColorBrush, Win
     Ok(brush)
 }
 
-fn to_native_color(value: crate::Color) -> native::Color {
+fn to_native_color(value: Color) -> native::Color {
     native::Color {
         a: value.a,
         r: value.r,
@@ -1145,17 +1119,17 @@ fn to_native_color(value: crate::Color) -> native::Color {
     }
 }
 
-fn from_native_color(value: native::Color) -> crate::Color {
-    crate::Color::argb(value.a, value.r, value.g, value.b)
+fn from_native_color(value: native::Color) -> Color {
+    Color::argb(value.a, value.r, value.g, value.b)
 }
 
 fn navigation_view_display_mode(
     value: native::NavigationViewDisplayMode,
-) -> crate::NavigationViewDisplayMode {
+) -> NavigationViewDisplayMode {
     match value {
-        native::NavigationViewDisplayMode::Minimal => crate::NavigationViewDisplayMode::Minimal,
-        native::NavigationViewDisplayMode::Compact => crate::NavigationViewDisplayMode::Compact,
-        native::NavigationViewDisplayMode::Expanded => crate::NavigationViewDisplayMode::Expanded,
+        native::NavigationViewDisplayMode::Minimal => NavigationViewDisplayMode::Minimal,
+        native::NavigationViewDisplayMode::Compact => NavigationViewDisplayMode::Compact,
+        native::NavigationViewDisplayMode::Expanded => NavigationViewDisplayMode::Expanded,
         _ => unreachable!(),
     }
 }
@@ -1178,7 +1152,7 @@ fn uri_image(value: &str) -> Result<native::ImageSource, WinUiError> {
     }
 }
 
-fn icon_image_source(value: &crate::ImageSource) -> Result<native::ImageSource, WinUiError> {
+fn icon_image_source(value: &ImageSource) -> Result<native::ImageSource, WinUiError> {
     match value.value() {
         ImageSourceValue::Uri(value) => uri_image(value),
         ImageSourceValue::Encoded(value) => encoded_bitmap_image(value, None)?
@@ -1272,26 +1246,26 @@ fn encoded_bitmap_image(
     let decode_image = image.clone();
     if let Err(error) = store.when(move |result| {
         if let Err(error) = result {
-            super::app::report_error(error);
+            report_error(error);
             return;
         }
         if let Err(error) = writer.DetachStream() {
-            super::app::report_error(error);
+            report_error(error);
             return;
         }
         if let Err(error) = stream.Seek(0) {
-            super::app::report_error(error);
+            report_error(error);
             return;
         }
         let source = match decode_image.cast::<native::IBitmapSource>() {
             Ok(source) => source,
             Err(error) => {
-                super::app::report_error(error);
+                report_error(error);
                 return;
             }
         };
         if let Err(error) = source.SetSourceAsync(&stream) {
-            super::app::report_error(error);
+            report_error(error);
         }
     }) {
         return Err(error.into());
@@ -1301,7 +1275,7 @@ fn encoded_bitmap_image(
 
 fn build_menu_items(
     items: &[MenuItem],
-    output: &windows_collections::IVector<native::MenuFlyoutItemBase>,
+    output: &IVector<native::MenuFlyoutItemBase>,
     revokers: &mut Vec<windows_core::EventRevoker>,
     event_queue: &Rc<NativeEventQueue>,
     target: ObjectId,
@@ -1396,45 +1370,44 @@ fn build_command_bar_element(
 
 fn set_rich_text_blocks(
     target: &native::RichTextBlock,
-    value: Option<&crate::RichText>,
+    value: Option<&RichText>,
 ) -> Result<(), WinUiError> {
     let blocks = target.Blocks()?;
     blocks.Clear()?;
     let Some(value) = value else {
         return Ok(());
     };
-    let append_run = |inlines: &windows_collections::IVector<native::Inline>,
-                      value: &crate::RichTextRun|
-     -> Result<(), WinUiError> {
-        let run = native::Run::new()?;
-        run.SetText(&value.text)?;
-        if value.is_bold {
-            run.cast::<native::ITextElement>()?
-                .SetFontWeight(native::FontWeight { weight: 700 })?;
-        }
-        if value.is_italic {
-            run.cast::<native::ITextElement>()?
-                .SetFontStyle(native::FontStyle::Italic)?;
-        }
-        let run: native::Inline = run.cast()?;
-        inlines.Append(&run)?;
-        Ok(())
-    };
+    let append_run =
+        |inlines: &IVector<native::Inline>, value: &RichTextRun| -> Result<(), WinUiError> {
+            let run = native::Run::new()?;
+            run.SetText(&value.text)?;
+            if value.is_bold {
+                run.cast::<native::ITextElement>()?
+                    .SetFontWeight(native::FontWeight { weight: 700 })?;
+            }
+            if value.is_italic {
+                run.cast::<native::ITextElement>()?
+                    .SetFontStyle(native::FontStyle::Italic)?;
+            }
+            let run: native::Inline = run.cast()?;
+            inlines.Append(&run)?;
+            Ok(())
+        };
     for paragraph in value.paragraphs.iter() {
         let native_paragraph = native::Paragraph::new()?;
         let inlines = native_paragraph.Inlines()?;
         for inline in &paragraph.inlines {
             match inline {
-                crate::RichTextInline::Run(value) => append_run(&inlines, value)?,
-                crate::RichTextInline::Hyperlink(value) => {
+                RichTextInline::Run(value) => append_run(&inlines, value)?,
+                RichTextInline::Hyperlink(value) => {
                     let hyperlink = native::Hyperlink::new()?;
                     hyperlink.SetNavigateUri(&native::Uri::CreateUri(&value.uri)?)?;
                     let hyperlink_inlines = hyperlink.cast::<native::ISpan>()?.Inlines()?;
-                    append_run(&hyperlink_inlines, &crate::RichTextRun::plain(&value.text))?;
+                    append_run(&hyperlink_inlines, &RichTextRun::plain(&value.text))?;
                     let hyperlink: native::Inline = hyperlink.cast()?;
                     inlines.Append(&hyperlink)?;
                 }
-                crate::RichTextInline::LineBreak => {
+                RichTextInline::LineBreak => {
                     let line_break: native::Inline = native::LineBreak::new()?.cast()?;
                     inlines.Append(&line_break)?;
                 }
@@ -1457,15 +1430,14 @@ fn parse_path_data(value: &str) -> Result<native::Geometry, WinUiError> {
 
 fn set_opacity_transition(
     element: &native::UIElement,
-    duration: Option<std::time::Duration>,
+    duration: Option<Duration>,
 ) -> Result<(), WinUiError> {
     let Some(duration) = duration else {
         return element
             .SetOpacityTransition(None::<&native::ScalarTransition>)
             .map_err(Into::into);
     };
-    let duration =
-        windows_time::TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
+    let duration = TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
     let transition = native::ScalarTransition::new()?;
     transition.SetDuration(duration)?;
     element.SetOpacityTransition(&transition)?;
@@ -1490,15 +1462,14 @@ fn set_implicit_scale(element: &native::UIElement, value: f64) -> Result<(), Win
 
 fn set_scale_transition(
     element: &native::UIElement,
-    duration: Option<std::time::Duration>,
+    duration: Option<Duration>,
 ) -> Result<(), WinUiError> {
     let Some(duration) = duration else {
         return element
             .SetScaleTransition(None::<&native::Vector3Transition>)
             .map_err(Into::into);
     };
-    let duration =
-        windows_time::TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
+    let duration = TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
     let transition = native::Vector3Transition::new()?;
     transition.SetDuration(duration)?;
     element.SetScaleTransition(&transition)?;
@@ -1700,6 +1671,7 @@ pub struct NativeWindow {
     published_title: bool,
     published_visuals: bool,
     size_changed: Option<windows_core::EventRevoker>,
+    placement_changed: Option<windows_core::EventRevoker>,
     visuals: WindowVisuals,
 }
 
@@ -1708,6 +1680,43 @@ struct NativeWindowState {
     root: ObjectId,
     root_element: native::FrameworkElement,
     title_bar: Cell<Option<(ObjectId, WindowTitleBarHeight)>>,
+    shown: Cell<bool>,
+    closed: Cell<bool>,
+    maximize_on_first_show: Cell<bool>,
+    placement_callback: RefCell<Option<Rc<dyn Fn(WindowPlacement)>>>,
+    last_placement: Cell<Option<WindowPlacement>>,
+}
+
+impl NativeWindowState {
+    fn observe_placement(&self) -> windows_core::Result<()> {
+        if !self.shown.get() || self.closed.get() {
+            return Ok(());
+        }
+        let Some(callback) = self.placement_callback.borrow().clone() else {
+            return Ok(());
+        };
+        let mut hwnd = std::ptr::null_mut();
+        unsafe {
+            self.window
+                .cast::<native::IWindowNative>()?
+                .WindowHandle(&mut hwnd)
+                .ok()?;
+        }
+        if let Some(placement) = window_placement::read_placement(hwnd.cast())?
+            && self.last_placement.replace(Some(placement)) != Some(placement)
+        {
+            callback(placement);
+        }
+        Ok(())
+    }
+}
+
+impl Drop for NativeWindow {
+    fn drop(&mut self) {
+        if self.placement_changed.take().is_some() {
+            self.state.placement_callback.borrow_mut().take();
+        }
+    }
 }
 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1726,6 +1735,7 @@ impl Clone for NativeWindow {
             published_title: self.published_title,
             published_visuals: self.published_visuals,
             size_changed: None,
+            placement_changed: None,
             visuals: self.visuals.clone(),
         }
     }
@@ -1754,6 +1764,7 @@ impl NativeWindow {
         visuals: Option<&WindowVisuals>,
         color_scheme_observer: Option<Rc<dyn Fn(ColorScheme)>>,
         size_observer: Option<Rc<dyn Fn(WindowSize)>>,
+        initial: bool,
     ) -> Result<(), WinUiError> {
         self.actual_theme_changed = None;
         self.size_changed = size_observer
@@ -1780,10 +1791,23 @@ impl NativeWindow {
         }
 
         if let Some(visuals) = visuals {
-            self.apply_visuals(visuals)?;
+            if initial
+                && let Some(position) = visuals
+                    .initial_placement
+                    .map(|placement| ScreenPoint::new(placement.x, placement.y))
+                    .or(visuals.initial_position)
+            {
+                // Resolve the target DPI before applying DIP constraints and client sizing.
+                window_placement::position_hidden(self.raw_handle()?.cast(), position)?;
+            }
+            self.apply_visuals(visuals, initial)?;
+            if initial && let Some(placement) = visuals.initial_placement {
+                window_placement::restore_hidden(self.raw_handle()?.cast(), placement)?;
+                self.state.maximize_on_first_show.set(placement.maximized);
+            }
             self.published_visuals = true;
         } else if self.published_visuals {
-            self.apply_visuals(&WindowVisuals::default())?;
+            self.apply_visuals(&WindowVisuals::default(), false)?;
             self.published_visuals = false;
         }
 
@@ -1812,7 +1836,7 @@ impl NativeWindow {
         Ok(())
     }
 
-    fn apply_visuals(&mut self, visuals: &WindowVisuals) -> Result<(), WinUiError> {
+    fn apply_visuals(&mut self, visuals: &WindowVisuals, initial: bool) -> Result<(), WinUiError> {
         let changes = window_visual_changes(&self.visuals, visuals);
         let window_2 = self.state.window.cast::<native::IWindow2>()?;
         let app_window = window_2.AppWindow()?;
@@ -1875,7 +1899,7 @@ impl NativeWindow {
             }
         }
 
-        if changes.constraints {
+        if changes.constraints || initial {
             let presenter = app_window
                 .Presenter()?
                 .cast::<native::IOverlappedPresenter3>()?;
@@ -1911,7 +1935,8 @@ impl NativeWindow {
             presenter.SetPreferredMaximumHeight(max_height)?;
         }
 
-        if changes.client_size
+        if (changes.client_size || initial)
+            && !(initial && visuals.initial_placement.is_some())
             && let Some((width, height)) = visuals.client_size
         {
             let dpi = unsafe { native::GetDpiForWindow(window_handle()?.cast()) }.max(96);
@@ -1929,7 +1954,40 @@ impl NativeWindow {
     }
 
     pub fn activate(&self) -> Result<(), WinUiError> {
-        self.state.window.Activate().map_err(Into::into)
+        if self.state.maximize_on_first_show.replace(false) {
+            window_placement::show_maximized(self.raw_handle()?.cast())?;
+        }
+        self.state.window.Activate()?;
+        self.state.shown.set(true);
+        self.state.observe_placement()?;
+        Ok(())
+    }
+
+    pub(crate) fn set_placement_observer(
+        &mut self,
+        observer: Option<Rc<dyn Fn(WindowPlacement)>>,
+    ) -> Result<(), WinUiError> {
+        self.placement_changed = None;
+        self.state.last_placement.set(None);
+        *self.state.placement_callback.borrow_mut() = observer;
+        if self.state.placement_callback.borrow().is_some() {
+            let state = Rc::downgrade(&self.state);
+            self.placement_changed = Some(
+                self.state
+                    .window
+                    .cast::<native::IWindow2>()?
+                    .AppWindow()?
+                    .Changed(move |_, _| {
+                        if let Some(state) = state.upgrade()
+                            && let Err(error) = state.observe_placement()
+                        {
+                            report_error(error);
+                        }
+                    })?,
+            );
+            self.state.observe_placement()?;
+        }
+        Ok(())
     }
 
     pub fn close(&self) -> Result<(), WinUiError> {
@@ -1940,9 +1998,13 @@ impl NativeWindow {
         &mut self,
         callback: impl Fn() -> windows_core::Result<()> + 'static,
     ) -> Result<(), WinUiError> {
+        let state = Rc::downgrade(&self.state);
         self.closed = Some(self.state.window.Closed(move |_, _| {
+            if let Some(state) = state.upgrade() {
+                state.closed.set(true);
+            }
             if let Err(error) = callback() {
-                super::app::report_error(error);
+                report_error(error);
             }
         })?);
         Ok(())
@@ -1988,7 +2050,8 @@ fn clear_window_icon(hwnd: *mut core::ffi::c_void) {
 include!("winui/hosting.rs");
 
 #[cfg(any(test, feature = "test"))]
-include!("winui/diagnostics.rs");
+#[path = "../test_support/native/winui.rs"]
+mod test_support;
 
 include!("winui/objects.rs");
 include!("winui/events.rs");
@@ -2165,4 +2228,5 @@ fn set_grid_definitions(
 }
 
 #[cfg(test)]
-include!("winui/tests.rs");
+#[path = "../tests/native/winui.rs"]
+mod tests;

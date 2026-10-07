@@ -78,10 +78,10 @@ cargo test -p windows-reactor --all-features --quiet
 # Integration tests (launches WinUI window)
 cargo run -p test-reactor-selftest
 cargo run -p test-reactor-selftest -- --headless    # CI mode
-cargo run -p test-reactor-selftest --bin application_menu
-cargo run -p test-reactor-selftest --bin canvas_integration
-cargo run -p test-reactor-selftest --bin webview_integration
-cargo run -p test-reactor-selftest --bin window_state
+cargo run -p test-reactor-integration --bin application_menu
+cargo run -p test-reactor-integration --bin canvas_integration
+cargo run -p test-reactor-integration --bin webview_integration
+cargo run -p test-reactor-integration --bin window_state
 
 # Clippy
 cargo clippy -p windows-reactor --all-targets
@@ -166,7 +166,9 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 - **No `thread_local!` in app code** - keep state in components and pass shared values through typed
   contexts. `thread_local!` is reserved for framework plumbing.
 - **Test naming**: Reactor unit tests live in `windows-reactor`; live WinUI coverage lives in
-  `test-reactor-selftest`. Canvas tests use WARP software rendering.
+  `test-reactor-selftest`. Public application and companion-crate fixtures live in
+  `test-reactor-integration` without the Reactor `test` feature. Build that package separately
+  from privileged tests to avoid Cargo feature unification. Canvas tests use WARP rendering.
 
 ## Documentation
 

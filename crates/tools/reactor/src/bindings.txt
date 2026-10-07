@@ -22,7 +22,7 @@ Microsoft::UI::Input::IPointerPointProperties::{get_IsLeftButtonPressed, get_IsM
 Microsoft::UI::Text::ITextDocument::{GetText, SetText}
 Microsoft::UI::Text::TextGetOptions
 Microsoft::UI::Text::TextSetOptions
-Microsoft::UI::Windowing::IAppWindow::{get_TitleBar, get_Presenter, get_Size, SetIcon}
+Microsoft::UI::Windowing::IAppWindow::{add_Changed, get_Presenter, get_Size, get_TitleBar, remove_Changed, SetIcon}
 Microsoft::UI::Windowing::IAppWindow2::{get_ClientSize, ResizeClient}
 Microsoft::UI::Windowing::IAppWindowTitleBar2::put_PreferredHeightOption
 Microsoft::UI::Windowing::IAppWindowTitleBar3::put_PreferredTheme
@@ -137,7 +137,7 @@ Microsoft::UI::Xaml::Controls::IMenuFlyout::get_Items
 Microsoft::UI::Xaml::Controls::IMenuFlyoutItem::{add_Click, put_Text, remove_Click}
 Microsoft::UI::Xaml::Controls::IMenuFlyoutSubItem::{get_Items, put_Text}
 Microsoft::UI::Xaml::Controls::INavigationView::{add_DisplayModeChanged, add_SelectionChanged, get_FooterMenuItems, get_IsPaneOpen, get_MenuItems, get_SelectedItem, put_AlwaysShowHeader, put_Header, put_IsPaneOpen, put_IsPaneToggleButtonVisible, put_IsSettingsVisible, put_OpenPaneLength, put_PaneFooter, put_SelectedItem, remove_DisplayModeChanged, remove_SelectionChanged}
-Microsoft::UI::Xaml::Controls::INavigationView2::{put_IsBackButtonVisible, put_PaneCustomContent, put_PaneDisplayMode, put_PaneTitle}
+Microsoft::UI::Xaml::Controls::INavigationView2::{get_IsBackEnabled, get_IsPaneVisible, get_PaneHeader, put_IsBackButtonVisible, put_IsBackEnabled, put_IsPaneVisible, put_PaneCustomContent, put_PaneDisplayMode, put_PaneHeader, put_PaneTitle}
 Microsoft::UI::Xaml::Controls::INavigationViewDisplayModeChangedEventArgs::get_DisplayMode
 Microsoft::UI::Xaml::Controls::INavigationViewItem::put_Icon
 Microsoft::UI::Xaml::Controls::INavigationViewItem2::{get_MenuItems, put_IsExpanded, put_SelectsOnInvoked}
@@ -146,7 +146,7 @@ Microsoft::UI::Xaml::Controls::INavigationViewItemBaseStatics::get_IsSelectedPro
 Microsoft::UI::Xaml::Controls::INavigationViewItemStatics2::{get_IsExpandedProperty, get_SelectsOnInvokedProperty}
 Microsoft::UI::Xaml::Controls::INavigationViewSelectionChangedEventArgs::get_SelectedItem
 Microsoft::UI::Xaml::Controls::INavigationViewStatics::{get_AlwaysShowHeaderProperty, get_IsPaneOpenProperty, get_IsPaneToggleButtonVisibleProperty, get_IsSettingsVisibleProperty, get_OpenPaneLengthProperty}
-Microsoft::UI::Xaml::Controls::INavigationViewStatics2::{get_IsBackButtonVisibleProperty, get_PaneDisplayModeProperty, get_PaneTitleProperty}
+Microsoft::UI::Xaml::Controls::INavigationViewStatics2::{get_IsBackButtonVisibleProperty, get_IsBackEnabledProperty, get_IsPaneVisibleProperty, get_PaneDisplayModeProperty, get_PaneTitleProperty}
 Microsoft::UI::Xaml::Controls::InfoBadge::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBar::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBarSeverity
@@ -433,7 +433,11 @@ Windows::Win32::ERROR_INSUFFICIENT_BUFFER
 Windows::Win32::GetCurrentPackageFullName
 Windows::Win32::GetDpiForWindow
 Windows::Win32::GetKeyboardState
+Windows::Win32::GetMonitorInfoW
 Windows::Win32::GetProcessHeap
+Windows::Win32::GetWindowLongW
+Windows::Win32::GetWindowPlacement
+Windows::Win32::GWL_EXSTYLE
 Windows::Win32::HeapFree
 Windows::Win32::HWND_TOPMOST
 Windows::Win32::ICON_BIG
@@ -443,6 +447,9 @@ Windows::Win32::LWA_ALPHA
 Windows::Win32::MB_ICONERROR
 Windows::Win32::MB_YESNO
 Windows::Win32::MessageBoxW
+Windows::Win32::MONITOR_DEFAULTTONEAREST
+Windows::Win32::MonitorFromRect
+Windows::Win32::MonitorFromWindow
 Windows::Win32::PACKAGE_VERSION
 Windows::Win32::PackageDependencyProcessorArchitectures::{PackageDependencyProcessorArchitectures_Arm, PackageDependencyProcessorArchitectures_Arm64, PackageDependencyProcessorArchitectures_Neutral, PackageDependencyProcessorArchitectures_None, PackageDependencyProcessorArchitectures_X64, PackageDependencyProcessorArchitectures_X86}
 Windows::Win32::PostQuitMessage
@@ -451,13 +458,19 @@ Windows::Win32::SendMessageW
 Windows::Win32::SetForegroundWindow
 Windows::Win32::SetLayeredWindowAttributes
 Windows::Win32::SetProcessDpiAwarenessContext
+Windows::Win32::SetThreadDpiAwarenessContext
+Windows::Win32::SetWindowPlacement
 Windows::Win32::SetWindowPos
 Windows::Win32::ShellExecuteW
 Windows::Win32::STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED
 Windows::Win32::SW_SHOWNORMAL
+Windows::Win32::SW_HIDE
+Windows::Win32::SW_SHOWMAXIMIZED
+Windows::Win32::SW_SHOWMINIMIZED
 Windows::Win32::SWP_NOACTIVATE
+Windows::Win32::SWP_NOSIZE
+Windows::Win32::SWP_NOZORDER
 Windows::Win32::TryCreatePackageDependency
-Windows::Win32::WM_GETICON
 Windows::Win32::WM_SETICON
 Windows::Win32::WS_EX_LAYERED
 Windows::Win32::WS_EX_TOOLWINDOW

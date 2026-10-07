@@ -1,10 +1,5 @@
-use super::app::{ScreenPoint, report_error};
-use super::bindings::*;
-use crate::{Key, Menu, MenuItem};
-use std::cell::RefCell;
-use std::collections::HashSet;
-use std::rc::{Rc, Weak};
-use windows_core::Interface;
+use super::*;
+use bindings::{Grid, HorizontalAlignment, VerticalAlignment, *};
 
 const HOST_SIZE: i32 = 2;
 
@@ -147,7 +142,7 @@ fn validate_menu_items(items: &[MenuItem], keys: &mut HashSet<Key>) -> windows_c
         };
         if !keys.insert(key.clone()) {
             return Err(windows_core::Error::new(
-                windows_core::HRESULT(0x80070057u32 as i32),
+                HRESULT(0x80070057u32 as i32),
                 "application menu keys must be unique",
             ));
         }
@@ -171,9 +166,9 @@ impl Drop for TransientMenuHost {
 
 fn build_menu_items(
     items: &[MenuItem],
-    output: &windows_collections::IVector<MenuFlyoutItemBase>,
+    output: &IVector<MenuFlyoutItemBase>,
     revokers: &mut Vec<windows_core::EventRevoker>,
-    callback: &crate::Callback<Key>,
+    callback: &Callback<Key>,
 ) -> windows_core::Result<()> {
     for entry in items {
         let item: MenuFlyoutItemBase = match entry {
@@ -271,19 +266,5 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn application_menu_rejects_duplicate_nested_keys() {
-        let menu = [
-            MenuItem::item("duplicate", "First"),
-            MenuItem::submenu(
-                "submenu",
-                "Submenu",
-                [MenuItem::item("duplicate", "Second")],
-            ),
-        ];
-        assert!(validate_menu_items(&menu, &mut HashSet::new()).is_err());
-    }
-}
+#[path = "../tests/native/transient_menu.rs"]
+mod tests;

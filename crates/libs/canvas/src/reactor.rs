@@ -4,7 +4,7 @@ use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 use windows_reactor::{
     Callback, Component, ComponentContext, ElementRef, IntegrationError, SwapChainPanel,
-    SwapChainPanelEvent, View, ViewContext,
+    SwapChainPanelBinding, SwapChainPanelEvent, View, ViewContext,
 };
 
 /// Per-frame drawing state for a Reactor canvas.
@@ -209,27 +209,21 @@ enum ContentState {
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-enum AttachmentState {
+// Generic so lifecycle tests can use simple values without making binding tokens constructible.
+enum AttachmentState<P = SwapChainPanelBinding> {
     Detached,
-    Attaching {
-        request: u64,
-        panel: u64,
-        chain: u64,
-    },
-    Attached {
-        panel: u64,
-        chain: u64,
-    },
+    Attaching { request: u64, panel: P, chain: u64 },
+    Attached { panel: P, chain: u64 },
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-struct SurfaceLifecycle {
+struct SurfaceLifecycle<P = SwapChainPanelBinding> {
     content: ContentState,
-    attachment: AttachmentState,
+    attachment: AttachmentState<P>,
     next_request: u64,
 }
 
-impl SurfaceLifecycle {
+impl<P: Copy + Eq> SurfaceLifecycle<P> {
     fn new() -> Self {
         Self {
             content: ContentState::Clean,
@@ -248,7 +242,7 @@ impl SurfaceLifecycle {
         self.content = ContentState::NeedsRebuild;
     }
 
-    fn update_panel(&mut self, panel: u64) {
+    fn update_panel(&mut self, panel: P) {
         if !matches!(
             self.attachment,
             AttachmentState::Attaching {
@@ -266,11 +260,11 @@ impl SurfaceLifecycle {
         self.attachment = AttachmentState::Detached;
     }
 
-    fn is_attached(&self, panel: u64, chain: u64) -> bool {
+    fn is_attached(&self, panel: P, chain: u64) -> bool {
         self.attachment == AttachmentState::Attached { panel, chain }
     }
 
-    fn begin_attachment(&mut self, panel: u64, chain: u64) -> Option<u64> {
+    fn begin_attachment(&mut self, panel: P, chain: u64) -> Option<u64> {
         if self.attachment != AttachmentState::Detached {
             return None;
         }
@@ -283,7 +277,7 @@ impl SurfaceLifecycle {
         Some(self.next_request)
     }
 
-    fn complete_attachment(&mut self, request: u64, panel: u64, chain: u64, success: bool) -> bool {
+    fn complete_attachment(&mut self, request: u64, panel: P, chain: u64, success: bool) -> bool {
         if self.attachment
             != (AttachmentState::Attaching {
                 request,
@@ -386,7 +380,7 @@ impl Component for CanvasHost {
 
 #[derive(Clone, Copy, Debug, PartialEq)]
 struct ObservedSurface {
-    binding: u64,
+    binding: SwapChainPanelBinding,
     metrics: SurfaceMetrics,
 }
 
@@ -627,7 +621,7 @@ impl CanvasRuntime {
         true
     }
 
-    fn request_surface_attachment(self: &Rc<Self>, panel: u64) {
+    fn request_surface_attachment(self: &Rc<Self>, panel: SwapChainPanelBinding) {
         let request = {
             let mut state_slot = self.state.borrow_mut();
             let Some(state) = state_slot.as_mut() else {
@@ -663,7 +657,7 @@ impl CanvasRuntime {
     fn finish_surface_attachment(
         self: &Rc<Self>,
         request: u64,
-        panel: u64,
+        panel: SwapChainPanelBinding,
         chain: u64,
         result: std::result::Result<(), IntegrationError>,
     ) {

@@ -1,0 +1,21 @@
+#[win32]
+mod Test {
+    type AMBIGUOUS = *mut void;
+    extern "C" fn CALLBACK(input: *const LPVOID, output: *mut *mut void);
+    #[library("test.dll")]
+    extern "C" fn Compare(direct: *mut void, output: *mut *mut void, input: *const PVOID) -> *const PVOID;
+    struct Example {
+        direct: *mut void,
+        output: *mut *mut void,
+        input: *const PVOID,
+        long_input: *const LPVOID,
+        nested: *const *const PVOID,
+        array: [*mut void; 2],
+        scalar: u64,
+        custom: External::KnownCustom,
+        ambiguous: AMBIGUOUS,
+        record: External::KnownRecord,
+    }
+    type LPVOID = *mut void;
+    type PVOID = *mut void;
+}

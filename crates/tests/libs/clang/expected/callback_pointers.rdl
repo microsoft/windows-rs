@@ -1,0 +1,10 @@
+#[win32]
+mod Callbacks {
+    extern fn ALLOCATOR(size: u32) -> *mut void;
+    extern "C" fn CALLBACK(value: i32);
+    struct TABLE {
+        callback: CALLBACK,
+    }
+    #[library("test.dll", import = "?UseCallback@@YAXP6AXH@ZPEAP6AXH@ZP6APEAXI@Z@Z")]
+    extern "C" fn UseCallback(callback: CALLBACK, previous: *mut CALLBACK, allocator: ALLOCATOR);
+}

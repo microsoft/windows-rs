@@ -107,6 +107,67 @@ do not mutate state inside the native event callback.
 `context.window_frame` publishes the window title and returns the standard title-bar layout. For a
 static view with no state or events, call `App::run(view)` instead.
 
+## Application menus
+
+`AppContext::show_menu_at` opens a `Menu` at physical screen coordinates without requiring a
+component window. The native host uses a transparent Win32 window with a `DesktopWindowXamlSource`.
+The island disables work-area popup constraints so notification menus can extend over the taskbar;
+the flyout also disables root-bounds constraints. The island is released before its parent window.
+
+The `test-reactor-integration` `tray_flyout` fixture checks popup placement against the notification
+icon's monitor and exercises application shutdown with the menu open.
+
+## Position and restore windows
+
+Publish startup placement through `context.window_visuals`. The first committed declaration is
+applied before the native window becomes visible, for both primary and secondary windows.
+
+| Setting | Meaning |
+| --- | --- |
+| `initial_position(ScreenPoint)` | Initial outer-window top-left in physical screen pixels |
+| `initial_placement(WindowPlacement)` | Restored outer bounds in physical screen pixels, plus maximized state |
+| `client_size(width, height)` | Client-area size in DIPs; later explicit changes still resize |
+| `constraints(WindowConstraints)` | Client-size limits in DIPs, including when restoring placement |
+
+Full placement takes precedence over initial position and initial client size. Later changes to
+either initial setting do not move or resize an open window. Load saved placement before opening
+the window; an asynchronous update after startup is too late. Negative coordinates are valid on a
+multi-monitor desktop. Windows adjusts fully off-screen bounds to an available monitor.
+
+```rust,ignore
+context.window_visuals(WindowVisuals::new().initial_placement(saved_placement));
+context.on_window_placement(context.callback(Message::Placement));
+```
+
+`on_window_placement` reports the initial placement and native changes while subscribed.
+Notifications contain the restored outer bounds even when maximized, are coalesced, and exclude
+minimized state. An unchanged subscription does not replay unchanged placement on each render;
+a replacement or new subscription receives the current non-minimized placement. Each window
+allows one placement subscriber. Removing its declaration or closing the component/window ends
+the subscription.
+
+Applications own persistence: store each observation in the message handler, rather than wait for
+a final shutdown notification. This is observed native state, not a continuously controlled
+position. Keeping a saved value in `initial_placement` does not cause snapback after a user move.
+Reactor converts Win32 workspace coordinates internally; application values use screen pixels,
+not DIPs.
+
+Run `cargo run -p reactor-window-placement` to move, resize, or maximize a window and open a copy
+at its observed placement. The sample retains placement in memory, without a persistence backend.
+
+For restoration across a full process restart, run
+`cargo run -p reactor-window-placement-registry`. Move, resize, or maximize the window, close it,
+then run the command again. This sample uses `windows-registry` to save each placement observation
+in the `Placement` string value under `HKCU\Software\windows-rs\samples\window-placement`. It loads
+that value before opening the window. The five fields are `x y width height maximized`, with
+maximized encoded as `0` or `1`; one registry value keeps the fields together.
+
+Persistence is best-effort: missing or invalid placement and registry read errors use the default
+window size. Write failures do not interrupt the application. Fallback and save failures are
+reported in the console, without adding error state to the component. Delete the `Placement` value
+to reset the sample.
+Minimized state is not saved.
+
 ## Add icon content
 
 `Icon` describes icon content for control slots. Reactor realizes the same value as WinUI's visual
@@ -125,6 +186,37 @@ StackPanel::new().children((
 Use `Icon::symbol`, `Icon::font`, `Icon::bitmap`, `Icon::image_*`, or `Icon::path` for control icon
 slots. Use `SymbolIcon`, `FontIcon`, `BitmapIcon`, `ImageIcon`, and `PathIcon` when the icon is a
 standalone visual that needs layout or other visual properties.
+
+## Configure navigation
+
+`NavigationView` exposes separate pane content and visibility settings:
+
+```rust,ignore
+NavigationView::new()
+    .pane_header("Workspace")
+    .pane_footer("Account")
+    .is_back_enabled(false)
+    .is_pane_visible(true)
+    .content("Page")
+```
+
+`pane_header` owns one visual, like `pane_footer`; strings become text views. Updating it follows
+the usual positional reconciliation rules, and omitting it on a later render removes the header.
+It is separate from `header`, which belongs above the main content.
+`is_back_enabled` controls the back button's enabled state, not its visibility or navigation
+behavior. `is_pane_visible` controls pane visibility, not whether a visible pane is open.
+Omitting either Boolean property clears its local value and restores WinUI's default or styled
+value. Neither property changes application selection or maintains navigation history.
+
+Run the [interactive sample](../../crates/samples/reactor/navigation-view-properties):
+
+```text
+cargo run -p reactor-navigation-view-properties
+```
+
+Cycle the pane header between text, a bordered replacement, and no header. Toggle the back arrow
+between disabled and enabled, then hide and restore the pane. The controls stay in the main content
+so the pane can always be restored. The back arrow has no navigation action in this sample.
 
 ## Add editable state
 
@@ -247,3 +339,112 @@ cargo run -p tool-reactor --quiet
 
 The command updates the Reactor declarations, native adapter, native bindings, and live coverage.
 `crates/tools/reactor/src/bindings.txt` is the handwritten native binding filter.
+
+### Module imports
+
+Handwritten modules use `use super::*;`, with shared imports supplied by `src/lib.rs` and
+`src/native/mod.rs`. Keep native binding names separate where they overlap Reactor declarations;
+the WinUI adapter uses the `native::` prefix for those bindings. `Weak` denotes an `Rc` weak
+reference, while `SyncWeak` denotes an `Arc` weak reference.
+
+### Test boundaries
+
+The default API exposes application components, declarations, references, and window integration.
+Host/runtime protocols such as `ComponentHost`, `Runtime`, `Adapter`, retained graphs, mutations,
+service injection, schema metadata, and generic property/event records are available only with
+the `test` feature. Applications should use `App::run_component`, component messages, and `provide`
+rather than drive a retained host directly.
+Typed control callbacks and reference integration methods do not expose the runtime records.
+`ElementRef` exposes typed asynchronous operations rather than native object identity. The `test`
+feature retains `ElementRef::get()` and `ObjectId` for graph assertions and benchmarks.
+The reference compatibility traits are sealed because only generated controls and `ElementRef`
+implementations participate in that contract. The public API snapshot includes doc-hidden items so
+internal marker traits and methods cannot change without review.
+`AnyElement` remains a doc-hidden default marker for erased references, including component roots.
+Swap-chain metrics carry an opaque binding token so companion crates can reject stale completions
+without depending on Reactor's internal binding counter.
+
+Callback and view conversion traits are sealed. They accept the closure, callback, tuple, array,
+and vector forms supplied by Reactor without creating downstream implementation protocols.
+This is a closed conversion policy, not a requirement for runtime correctness. Custom collection
+wrappers must produce `Vec<View>` or another supported input instead of implementing `IntoViews`.
+Task and timer handles expose cancellation and delivery rejection in normal builds; full queue-state
+inspection is diagnostic and remains available with the `test` feature.
+`is_rejected()` polls for terminal queue rejection, not completion: `false` also includes pending
+and cancelled work. It does not notify the application or retry a rejected message.
+
+`src/lib.rs` explicitly exports handwritten application types. Generated controls and their value
+enums are exported from `declaration::generated_declarations`; the metadata in `generated` and
+validation errors in `ir` stay internal by default. These protocols still run in production.
+Restricting their exports does not make their implementations test-only. Keep application exports
+separate from internal wildcard imports so adding a public helper to an implementation module
+does not automatically add an application API.
+
+| Location | Purpose | Compilation |
+| --- | --- | --- |
+| `src/tests` | Unit tests and their private fixtures | `cfg(test)` |
+| `src/test_support` | Recording adapters, diagnostics, and live-test helpers | `cfg(test)` or the `test` feature, as gated by the owner |
+| Other `src` modules | Production implementation | Normal library builds |
+
+`test_support` mirrors the owning modules: `component`, `reconcile`, `reference`, and `native`.
+Headless host operations and services also live in this directory. The recording adapter remains
+a root module. Support files are private child modules loaded with
+`#[path]`, so diagnostic implementations can inspect their owner's state without widening
+production visibility. Existing diagnostic exports remain available through the `test` feature.
+Live application helpers in `test_support/native/app.rs` require that feature.
+
+Keep only representation and trait hooks beside the production code: conditional fields,
+counter updates, and conditional erased-component inspection methods. Diagnostic queries and
+test-only implementations belong in `test_support`. Unit-only mutation capture and reference
+scan instrumentation remain gated by `cfg(test)`, not the `test` feature, so external benchmarks
+do not acquire their allocation or layout costs.
+
+Handwritten native WinUI code compiles without a module-wide dead-code allowance. Diagnostic
+window helpers and event simulation live in `test_support`; generated bindings retain their
+separate allowance for unused metadata projections.
+
+Full property-contract enumeration and queued key/character payloads are diagnostic-only.
+Production validates individual properties and invokes routed input callbacks synchronously.
+
+Both directories are included in the published package. In particular, `test_support` cannot be
+excluded while a published feature depends on it. The Cargo `test` feature is an ordinary
+opt-in feature, not the compiler's unit-test configuration.
+
+### Private unit tests
+
+Unit test sources live under `crates/libs/reactor/src/tests`. The directory contains library test
+modules, not separate Cargo integration-test targets.
+
+| Files | Scope |
+| --- | --- |
+| `mod.rs` and its child modules | Shared fixtures and headless subsystem tests |
+| `component/mod.rs` and its child modules | Component-host tests and shared private fixtures |
+| `native/app.rs`, `native/transient_menu.rs`, `native/winui.rs` | Native implementation tests |
+
+Keep tests that need private implementation details beneath the owning module, using `#[path]`
+to place their files in this directory. Test modules inherit imports with `use super::*;`; do not
+widen production visibility to make a test helper accessible.
+
+The directory layout groups tests by ownership, but `#[path]` determines their module scope.
+For example, `tests/native/app.rs` is `native::app::tests`, not `tests::native::app`. Component
+tests are grouped by context, lifecycle, messaging, reconciliation, virtualization, and window
+services. Keep a fixture with its consumers; only fixtures used by multiple groups belong in
+`component/mod.rs`.
+
+Filter tests by function name, for example
+`cargo test -p windows-reactor --all-features context_change_renders_only_subscribers`, rather
+than a full module path. This keeps commands independent of subsystem file organization.
+
+Run the unit tests with `cargo test -p windows-reactor --all-features --lib`. Privileged WinUI
+coverage lives in `test-reactor-selftest`; performance runners keep the diagnostic `test` feature.
+Application lifecycle, menu, Canvas, WebView, and window-state fixtures live in
+[`test-reactor-integration`](../../crates/tests/libs/reactor_integration/readme.md), which does not
+enable that feature. Build it in a separate Cargo invocation from privileged packages to avoid
+feature unification. Unit test sources are included in the published package.
+
+The Workbench sample uses `App::run_component` and owns its theme through `provide`. Its normal
+build does not enable the `test` feature; only its headless regression tests do.
+
+The coverage gate in `crates/tests/libs/reactor_selftest/coverage.ps1` checks production and
+headless support files separately, not the unit-test bodies. Use modules rather than `include!`
+for handwritten support so coverage is attributed to the support files.

@@ -8,7 +8,7 @@ impl WinUiAdapter {
             .ui_element(object)?
             .cast::<native::IFrameworkElement>()?
             .Resources()?;
-        let map = dictionary.cast::<windows_collections::IMap<IInspectable, IInspectable>>()?;
+        let map = dictionary.cast::<IMap<IInspectable, IInspectable>>()?;
         let desired = resources
             .values()
             .map(|(key, _)| key.to_string())
@@ -198,7 +198,7 @@ impl WinUiAdapter {
     fn lookup_button_style(&self, style: ButtonStyle) -> Result<native::Style, WinUiError> {
         let resources = native::Application::Current()?.Resources()?;
         let resources =
-            resources.cast::<windows_collections::IMap<IInspectable, IInspectable>>()?;
+            resources.cast::<IMap<IInspectable, IInspectable>>()?;
         let key = windows_reference::IReference::from(button_style_resource(style));
         Ok(resources.Lookup(&key)?.cast()?)
     }
@@ -207,10 +207,6 @@ impl WinUiAdapter {
         if !self.event_queue.events.borrow().is_empty() {
             Self::schedule_event_wake(&self.event_queue);
         }
-    }
-
-    pub fn create_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
-        self.create_window_with_policy(root, &WindowPolicy::new())
     }
 
     pub fn create_window_with_policy(
@@ -235,6 +231,11 @@ impl WinUiAdapter {
             root: root_object,
             root_element: root.cast()?,
             title_bar: Cell::new(None),
+            shown: Cell::new(false),
+            closed: Cell::new(false),
+            maximize_on_first_show: Cell::new(false),
+            placement_callback: RefCell::new(None),
+            last_placement: Cell::new(None),
         });
         self.windows.borrow_mut().push(Rc::downgrade(&state));
         if let Some((object, height)) = self.window_title_bar
@@ -249,10 +250,11 @@ impl WinUiAdapter {
             published_title: false,
             published_visuals: false,
             size_changed: None,
+            placement_changed: None,
             visuals: WindowVisuals {
                 client_size: policy.client_size,
                 constraints: policy.minimum_client_size.map(|(width, height)| {
-                    crate::WindowConstraints {
+                    WindowConstraints {
                         min_width: Some(width),
                         min_height: Some(height),
                         ..Default::default()
@@ -587,7 +589,7 @@ impl WinUiAdapter {
             NativeMenu {
                 menu: menu.clone(),
                 revision,
-                flyout,
+                _flyout: flyout,
                 _revokers: revokers,
             },
         );
@@ -641,7 +643,7 @@ impl WinUiAdapter {
             NativeCommandBarFlyout {
                 flyout: flyout.clone(),
                 revision,
-                native,
+                _native: native,
                 _revokers: revokers,
             },
         );
@@ -821,22 +823,6 @@ impl WinUiAdapter {
             }
         }
         Ok(())
-    }
-
-    pub fn open_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
-        let window = self.create_window(root)?;
-        window.activate()?;
-        Ok(window)
-    }
-
-    pub fn open_window_with_policy(
-        &self,
-        root: ObjectId,
-        policy: &WindowPolicy,
-    ) -> Result<NativeWindow, WinUiError> {
-        let window = self.create_window_with_policy(root, policy)?;
-        window.activate()?;
-        Ok(window)
     }
 
     fn apply_window_policy(

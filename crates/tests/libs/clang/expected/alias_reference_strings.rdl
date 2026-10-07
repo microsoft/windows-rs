@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern "C" fn Strings(input: Windows::Win32::PSTR, text: TEXT, wide: *mut Windows::Win32::PWSTR);
+    type TEXT = Windows::Win32::PSTR;
+}

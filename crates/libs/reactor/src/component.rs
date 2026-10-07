@@ -1,14 +1,4 @@
 use super::*;
-use std::any::{Any, TypeId};
-#[cfg(test)]
-use std::cell::Cell;
-use std::cell::RefCell;
-use std::collections::{HashMap, HashSet, VecDeque};
-use std::mem::size_of;
-use std::rc::Rc;
-use std::sync::atomic::{AtomicU8, AtomicU64, Ordering};
-use std::sync::{Arc, Condvar, Mutex, Weak};
-use std::time::Duration;
 
 const MESSAGE_CAPACITY: usize = 4_096;
 static NEXT_CONTEXT_ID: AtomicU64 = AtomicU64::new(1);
@@ -59,8 +49,8 @@ impl ContextProvision {
     }
 }
 
-impl std::fmt::Debug for ContextProvision {
-    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl fmt::Debug for ContextProvision {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         formatter
             .debug_tuple("ContextProvision")
             .field(&self.id)
@@ -121,7 +111,7 @@ pub struct LocalSender<M> {
     component: ComponentId,
     queue: LocalQueue,
     wake: SharedQueue,
-    marker: std::marker::PhantomData<fn(M)>,
+    marker: PhantomData<fn(M)>,
 }
 
 impl<M> Clone for LocalSender<M> {
@@ -130,7 +120,7 @@ impl<M> Clone for LocalSender<M> {
             component: self.component,
             queue: Rc::clone(&self.queue),
             wake: Arc::clone(&self.wake),
-            marker: std::marker::PhantomData,
+            marker: PhantomData,
         }
     }
 }
@@ -202,7 +192,7 @@ impl<M: 'static> LocalSender<M> {
 pub struct ComponentSender<M> {
     component: ComponentId,
     queue: SharedQueue,
-    marker: std::marker::PhantomData<fn(M)>,
+    marker: PhantomData<fn(M)>,
 }
 
 impl<M> Clone for ComponentSender<M> {
@@ -210,7 +200,7 @@ impl<M> Clone for ComponentSender<M> {
         Self {
             component: self.component,
             queue: Arc::clone(&self.queue),
-            marker: std::marker::PhantomData,
+            marker: PhantomData,
         }
     }
 }
@@ -308,20 +298,20 @@ pub struct ComponentContext<C: Component> {
     local_sender: LocalSender<C::Message>,
     sender: ComponentSender<C::Message>,
     services: Arc<dyn ComponentServices>,
-    tasks: Arc<Mutex<Vec<Weak<TaskControl>>>>,
+    tasks: Arc<Mutex<Vec<SyncWeak<TaskControl>>>>,
     ui_services: Rc<dyn ComponentUiServices>,
 }
 
 pub struct WindowHandle<'a> {
     raw: *mut core::ffi::c_void,
-    marker: std::marker::PhantomData<(&'a mut (), Rc<()>)>,
+    marker: PhantomData<(&'a mut (), Rc<()>)>,
 }
 
 impl WindowHandle<'_> {
     fn new(raw: *mut core::ffi::c_void) -> Self {
         Self {
             raw,
-            marker: std::marker::PhantomData,
+            marker: PhantomData,
         }
     }
 
@@ -531,6 +521,7 @@ pub(crate) trait ComponentUiServices {
 pub(crate) struct WindowPublication {
     pub(crate) on_color_scheme: Option<Callback<ColorScheme>>,
     pub(crate) on_size: Option<Callback<WindowSize>>,
+    pub(crate) on_placement: Option<Callback<WindowPlacement>>,
     pub(crate) title: Option<String>,
     pub(crate) visuals: Option<WindowVisuals>,
 }
@@ -546,62 +537,9 @@ enum ComponentDeclarationError {
     Effect(EffectKey),
     WindowColorScheme,
     WindowSize,
+    WindowPlacement,
     WindowTitle,
     WindowVisuals,
-}
-
-#[derive(Default)]
-struct DefaultComponentUiServices;
-
-impl ComponentUiServices for DefaultComponentUiServices {
-    fn open_window(&self, _root: ComponentNode, _policy: WindowPolicy) -> bool {
-        false
-    }
-}
-
-#[derive(Default)]
-pub struct DefaultComponentServices;
-
-impl ComponentServices for DefaultComponentServices {
-    fn spawn_background(&self, work: Box<dyn FnOnce() + Send>) {
-        windows_threading::submit(work);
-    }
-
-    fn set_timeout(
-        &self,
-        delay: Duration,
-        callback: Box<dyn FnOnce() + Send>,
-    ) -> Arc<dyn ComponentTimerRegistration> {
-        let timer = Arc::new(ThreadPoolTimer::default());
-        let thread_timer = Arc::clone(&timer);
-        windows_threading::submit(move || {
-            let wait = thread_timer.wait.lock().unwrap();
-            let _ = thread_timer
-                .changed
-                .wait_timeout_while(wait, delay, |_| {
-                    !thread_timer.cancelled.load(Ordering::Acquire)
-                })
-                .unwrap();
-            if !thread_timer.cancelled.load(Ordering::Acquire) {
-                callback();
-            }
-        });
-        timer
-    }
-}
-
-#[derive(Default)]
-struct ThreadPoolTimer {
-    cancelled: std::sync::atomic::AtomicBool,
-    changed: Condvar,
-    wait: Mutex<()>,
-}
-
-impl ComponentTimerRegistration for ThreadPoolTimer {
-    fn cancel(&self) {
-        self.cancelled.store(true, Ordering::Release);
-        self.changed.notify_all();
-    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -711,8 +649,13 @@ impl ComponentTask {
         self.control.cancel();
     }
 
-    pub fn status(&self) -> ComponentTaskStatus {
-        self.control.status()
+    /// Returns whether the result message was rejected because the component queue was full
+    /// or closed. Rejection is terminal; the result is not retried.
+    ///
+    /// This is a snapshot, not a notification. `false` does not imply successful delivery:
+    /// the task may still be running, queued, delivered, or cancelled.
+    pub fn is_rejected(&self) -> bool {
+        self.control.status() == ComponentTaskStatus::Rejected
     }
 }
 
@@ -726,8 +669,13 @@ impl ComponentTimer {
         self.task.cancel();
     }
 
-    pub fn status(&self) -> ComponentTaskStatus {
-        self.task.status()
+    /// Returns whether the timer message was rejected because the component queue was full
+    /// or closed. Rejection is terminal; the message is not retried.
+    ///
+    /// This is a snapshot, not a notification. `false` does not imply successful delivery:
+    /// the timer may still be waiting, queued, delivered, or cancelled.
+    pub fn is_rejected(&self) -> bool {
+        self.task.is_rejected()
     }
 }
 
@@ -879,6 +827,7 @@ pub struct ViewContext<'a, C: Component> {
     window: WindowPublication,
     window_color_scheme_duplicate: bool,
     window_size_duplicate: bool,
+    window_placement_duplicate: bool,
     window_title_duplicate: bool,
     window_visuals_duplicate: bool,
 }
@@ -945,6 +894,20 @@ impl<C: Component> ViewContext<'_, C> {
         self.window_size_duplicate |= self
             .window
             .on_size
+            .replace(callback.into_payload_callback())
+            .is_some();
+    }
+
+    /// Observes restored outer bounds and maximized state, including the initial placement.
+    ///
+    /// Notifications are coalesced, exclude minimized state, and stop when the window or
+    /// subscribing component closes. Persist values in this callback's message handler rather
+    /// than relying on a shutdown notification. Repeated unchanged declarations do not replay
+    /// the current placement.
+    pub fn on_window_placement(&mut self, callback: impl IntoPayloadCallback<WindowPlacement>) {
+        self.window_placement_duplicate |= self
+            .window
+            .on_placement
             .replace(callback.into_payload_callback())
             .is_some();
     }
@@ -1091,13 +1054,13 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
         let sender = ComponentSender {
             component: id,
             queue: queues.shared,
-            marker: std::marker::PhantomData,
+            marker: PhantomData,
         };
         let local_sender = LocalSender {
             component: id,
             queue: queues.local,
             wake: Arc::clone(&sender.queue),
-            marker: std::marker::PhantomData,
+            marker: PhantomData,
         };
         let tasks = Arc::new(Mutex::new(Vec::new()));
         let context: ComponentContext<C> = ComponentContext {
@@ -1109,9 +1072,10 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
             ui_services: Rc::clone(&ui_services),
         };
         let component = C::create(&self.input, &context);
-        let scope = TypedScope {
+        let mut scope = TypedScope {
             component,
             input: self.input.clone(),
+            view: None,
             local_sender,
             sender,
             services,
@@ -1184,10 +1148,12 @@ trait ErasedComponent {
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> Result<ComponentRender, ComponentDeclarationError>;
     fn render_view(
-        &self,
+        &mut self,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> Result<ComponentRender, ComponentDeclarationError>;
+    fn cached_view(&self) -> View;
+    #[cfg(any(test, feature = "test"))]
     fn sender(&self) -> &dyn Any;
     #[cfg(any(test, feature = "test"))]
     fn tracked_tasks(&self) -> usize;
@@ -1196,10 +1162,11 @@ trait ErasedComponent {
 struct TypedScope<C: Component> {
     component: C,
     input: C::Input,
+    view: Option<View>,
     local_sender: LocalSender<C::Message>,
     sender: ComponentSender<C::Message>,
     services: Arc<dyn ComponentServices>,
-    tasks: Arc<Mutex<Vec<Weak<TaskControl>>>>,
+    tasks: Arc<Mutex<Vec<SyncWeak<TaskControl>>>>,
     ui_services: Rc<dyn ComponentUiServices>,
 }
 
@@ -1216,7 +1183,7 @@ impl<C: Component> TypedScope<C> {
     }
 
     fn render_view(
-        &self,
+        &mut self,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> Result<ComponentRender, ComponentDeclarationError> {
@@ -1228,6 +1195,7 @@ impl<C: Component> TypedScope<C> {
             window: WindowPublication::default(),
             window_color_scheme_duplicate: false,
             window_size_duplicate: false,
+            window_placement_duplicate: false,
             window_title_duplicate: false,
             window_visuals_duplicate: false,
         };
@@ -1241,12 +1209,16 @@ impl<C: Component> TypedScope<C> {
         if context.window_size_duplicate {
             return Err(ComponentDeclarationError::WindowSize);
         }
+        if context.window_placement_duplicate {
+            return Err(ComponentDeclarationError::WindowPlacement);
+        }
         if context.window_title_duplicate {
             return Err(ComponentDeclarationError::WindowTitle);
         }
         if context.window_visuals_duplicate {
             return Err(ComponentDeclarationError::WindowVisuals);
         }
+        self.view = Some(view.clone());
         Ok(ComponentRender {
             dependencies: context.dependencies,
             effects: context.effects,
@@ -1303,13 +1275,18 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
     }
 
     fn render_view(
-        &self,
+        &mut self,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> Result<ComponentRender, ComponentDeclarationError> {
         self.render_view(reference, contexts)
     }
 
+    fn cached_view(&self) -> View {
+        self.view.clone().unwrap()
+    }
+
+    #[cfg(any(test, feature = "test"))]
     fn sender(&self) -> &dyn Any {
         &self.sender
     }
@@ -1337,6 +1314,21 @@ struct Scope {
     reference: ElementRef,
     root: Option<ObjectId>,
     window: Option<Box<WindowPublication>>,
+}
+
+impl Scope {
+    fn dependencies_changed(&self, contexts: &HashMap<ContextId, ContextValue>) -> bool {
+        self.dependencies
+            .iter()
+            .any(|id| match (self.contexts.get(id), contexts.get(id)) {
+                (None, None) => false,
+                (Some(left), Some(right)) => {
+                    !Rc::ptr_eq(&left.value, &right.value)
+                        && !(left.equals)(left.value.as_ref(), right.value.as_ref())
+                }
+                _ => true,
+            })
+    }
 }
 
 struct ScopeSlot {
@@ -1388,6 +1380,30 @@ struct ExpansionState {
     seen: HashMap<ComponentId, HashSet<Key>>,
 }
 
+impl ExpansionState {
+    fn push_render(
+        &mut self,
+        id: ComponentId,
+        render: ComponentRender,
+        environment: OwnedContextEnvironment,
+    ) -> View {
+        let ComponentRender {
+            dependencies,
+            effects,
+            view,
+            window,
+        } = render;
+        self.pending.push(PendingScopeRender {
+            dependencies,
+            environment: Box::new(environment),
+            effects,
+            id,
+            window,
+        });
+        view
+    }
+}
+
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct ComponentDrain {
     pub dispatched: usize,
@@ -1404,6 +1420,7 @@ pub enum ComponentError<E> {
     DuplicateKey(Key),
     DuplicateWindowColorScheme,
     DuplicateWindowSize,
+    DuplicateWindowPlacement,
     DuplicateWindowTitle,
     DuplicateWindowVisuals,
     MissingComponent(Key),
@@ -1422,13 +1439,14 @@ impl<E> From<ComponentDeclarationError> for ComponentError<E> {
             ComponentDeclarationError::Effect(key) => Self::DuplicateEffect(key),
             ComponentDeclarationError::WindowColorScheme => Self::DuplicateWindowColorScheme,
             ComponentDeclarationError::WindowSize => Self::DuplicateWindowSize,
+            ComponentDeclarationError::WindowPlacement => Self::DuplicateWindowPlacement,
             ComponentDeclarationError::WindowTitle => Self::DuplicateWindowTitle,
             ComponentDeclarationError::WindowVisuals => Self::DuplicateWindowVisuals,
         }
     }
 }
 
-impl<E: std::fmt::Debug> From<ComponentError<E>> for windows_core::Error {
+impl<E: fmt::Debug> From<ComponentError<E>> for windows_core::Error {
     fn from(value: ComponentError<E>) -> Self {
         Self::new(
             windows_core::HRESULT(0x80004005_u32 as i32),
@@ -1471,23 +1489,6 @@ pub struct ComponentHost<A: Adapter> {
     free_scopes: Vec<u32>,
     scopes: Vec<ScopeSlot>,
     virtual_rows: HashMap<(ObjectId, Key), ComponentId>,
-}
-
-#[cfg(any(test, feature = "test"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ComponentHostState {
-    pub live_scopes: usize,
-    pub scope_slots: usize,
-    pub free_scopes: usize,
-    pub effects: usize,
-    pub tasks: usize,
-    pub contexts: usize,
-    pub context_consumers: usize,
-    pub virtual_rows: usize,
-    pub queued_messages: usize,
-    pub queue_closed: bool,
-    pub graph_objects: usize,
-    pub retirements: usize,
 }
 
 impl<A: Adapter> Drop for ComponentHost<A> {
@@ -1534,6 +1535,14 @@ impl<A: Adapter> ComponentHost<A> {
             {
                 return Err(ComponentError::DuplicateWindowSize);
             }
+            if let Some(on_placement) = &window.on_placement
+                && publication
+                    .on_placement
+                    .replace(on_placement.clone())
+                    .is_some()
+            {
+                return Err(ComponentError::DuplicateWindowPlacement);
+            }
             if let Some(title) = &window.title
                 && publication.title.replace(title.clone()).is_some()
             {
@@ -1565,31 +1574,6 @@ impl<A: Adapter> ComponentHost<A> {
             };
             child = parent;
         }
-    }
-
-    pub fn mount(
-        adapter: A,
-        components: impl IntoIterator<Item = ComponentNode>,
-    ) -> Result<Self, ComponentError<A::Error>> {
-        Self::mount_with_all_services(
-            adapter,
-            Arc::new(DefaultComponentServices),
-            Rc::new(DefaultComponentUiServices),
-            components,
-        )
-    }
-
-    pub fn mount_with_services(
-        adapter: A,
-        services: Arc<dyn ComponentServices>,
-        components: impl IntoIterator<Item = ComponentNode>,
-    ) -> Result<Self, ComponentError<A::Error>> {
-        Self::mount_with_all_services(
-            adapter,
-            services,
-            Rc::new(DefaultComponentUiServices),
-            components,
-        )
     }
 
     pub(crate) fn mount_with_all_services(
@@ -1631,20 +1615,18 @@ impl<A: Adapter> ComponentHost<A> {
             let (id, render) = host.create_scope(None, node, contexts.clone(), HashSet::new())?;
             host.order.push(id);
             host.keys.insert(key, id);
-            expansion.pending.push(PendingScopeRender {
-                dependencies: render.dependencies,
-                environment: Box::new(OwnedContextEnvironment {
+            let view = expansion.push_render(
+                id,
+                render,
+                OwnedContextEnvironment {
                     contexts: contexts.clone(),
                     provided: HashSet::new(),
-                }),
-                effects: render.effects,
-                id,
-                window: render.window,
-            });
+                },
+            );
             let provided = HashSet::new();
             let view = host.expand_view(
                 id,
-                render.view,
+                view,
                 &ContextEnvironment {
                     contexts: &contexts,
                     provided: &provided,
@@ -1680,55 +1662,6 @@ impl<A: Adapter> ComponentHost<A> {
         &mut self.runtime
     }
 
-    pub fn adapter(&self) -> &A {
-        self.runtime.adapter()
-    }
-
-    #[cfg(any(test, feature = "test"))]
-    pub fn test_adapter_mut(&mut self) -> &mut A {
-        self.runtime.adapter_mut()
-    }
-
-    #[cfg(any(test, feature = "test"))]
-    pub fn test_state(&self) -> ComponentHostState {
-        let queue = self.queue.lock().unwrap();
-        ComponentHostState {
-            live_scopes: self
-                .scopes
-                .iter()
-                .filter(|slot| slot.scope.is_some())
-                .count(),
-            scope_slots: self.scopes.len(),
-            free_scopes: self.free_scopes.len(),
-            effects: self
-                .scopes
-                .iter()
-                .filter_map(|slot| slot.scope.as_ref())
-                .map(|scope| scope.effects.len())
-                .sum(),
-            tasks: self
-                .scopes
-                .iter()
-                .filter_map(|slot| slot.scope.as_ref())
-                .map(|scope| scope.component.tracked_tasks())
-                .sum(),
-            contexts: self.contexts.len(),
-            context_consumers: self.context_consumers.values().map(HashSet::len).sum(),
-            virtual_rows: self.virtual_rows.len(),
-            queued_messages: queue.messages.len() + self.local_queue.borrow().len(),
-            queue_closed: queue.closed,
-            graph_objects: self.runtime.graph().object_count(),
-            retirements: self.runtime.graph().retired_count(),
-        }
-    }
-
-    pub fn focus(&mut self, reference: &ElementRef) -> Result<bool, ComponentError<A::Error>> {
-        self.ensure_active()?;
-        self.runtime
-            .focus(reference)
-            .map_err(|error| self.runtime_error(error))
-    }
-
     pub fn set_waker(&mut self, waker: impl Fn() + Send + Sync + 'static) {
         let mut queue = self.queue.lock().unwrap();
         if queue.closed {
@@ -1747,160 +1680,6 @@ impl<A: Adapter> ComponentHost<A> {
 
     pub(crate) fn set_continuation_waker(&mut self, waker: impl Fn() + 'static) {
         self.continuation_waker = Some(Rc::new(waker));
-    }
-
-    pub fn sender<C: Component>(&self, key: &Key) -> Option<ComponentSender<C::Message>>
-    where
-        C::Message: Send,
-    {
-        self.sender_at::<C>(std::slice::from_ref(key))
-    }
-
-    pub fn sender_at<C: Component>(&self, path: &[Key]) -> Option<ComponentSender<C::Message>>
-    where
-        C::Message: Send,
-    {
-        if self.poisoned {
-            return None;
-        }
-        let scope = self.scope(self.find_path(path)?)?;
-        (scope.component.component_type() == TypeId::of::<C>()).then(|| {
-            scope
-                .component
-                .sender()
-                .downcast_ref::<ComponentSender<C::Message>>()
-                .unwrap()
-                .clone()
-        })
-    }
-
-    pub fn reference(&self, key: &Key) -> Option<ElementRef> {
-        self.reference_at(std::slice::from_ref(key))
-    }
-
-    pub fn reference_at(&self, path: &[Key]) -> Option<ElementRef> {
-        if self.poisoned {
-            return None;
-        }
-        self.scope(self.find_path(path)?)
-            .map(|scope| scope.reference.clone())
-    }
-
-    pub fn update_input<C: Component>(
-        &mut self,
-        key: &Key,
-        input: C::Input,
-    ) -> Result<UpdateStats, ComponentError<A::Error>> {
-        self.update_input_at::<C>(std::slice::from_ref(key), input)
-    }
-
-    pub fn update_input_at<C: Component>(
-        &mut self,
-        path: &[Key],
-        input: C::Input,
-    ) -> Result<UpdateStats, ComponentError<A::Error>> {
-        self.ensure_active()?;
-        self.prepare_operation()?;
-        let key = path.last().cloned().unwrap_or_else(|| Key::from(""));
-        let id = self
-            .find_path(path)
-            .ok_or_else(|| ComponentError::MissingComponent(key.clone()))?;
-        if self.scope(id).unwrap().component.component_type() != TypeId::of::<C>() {
-            return Err(ComponentError::ComponentType(key));
-        }
-        self.run_component_operation(move |host| {
-            let contexts = host.scope(id).unwrap().contexts.clone();
-            let scope = host.scope_mut(id).unwrap();
-            let reference = scope.reference.clone();
-            let Some(render) = scope
-                .component
-                .apply_input(&input, reference, &contexts)
-                .map_err(ComponentError::from)?
-            else {
-                return Ok(UpdateStats::default());
-            };
-            host.apply_render(id, render)
-        })
-    }
-
-    pub fn set_context<T: Clone + PartialEq + 'static>(
-        &mut self,
-        context: &Context<T>,
-        value: T,
-    ) -> Result<ComponentDrain, ComponentError<A::Error>> {
-        self.ensure_active()?;
-        self.prepare_operation()?;
-        if self
-            .contexts
-            .get(&context.id)
-            .is_some_and(|current| (current.equals)(current.value.as_ref(), &value))
-        {
-            return Ok(ComponentDrain::default());
-        }
-        self.run_component_operation(move |host| {
-            let mut contexts = host.contexts.clone();
-            let value = ContextValue {
-                equals: |left, right| {
-                    left.downcast_ref::<T>()
-                        .zip(right.downcast_ref::<T>())
-                        .is_some_and(|(left, right)| left == right)
-                },
-                value: Rc::new(value),
-            };
-            contexts.insert(context.id, value.clone());
-            for slot in &mut host.scopes {
-                if let Some(scope) = slot.scope.as_mut()
-                    && !scope.provided_contexts.contains(&context.id)
-                {
-                    scope.contexts.insert(context.id, value.clone());
-                }
-            }
-            host.contexts = contexts;
-            let affected = host
-                .context_consumers
-                .get(&context.id)
-                .map(|consumers| {
-                    consumers
-                        .iter()
-                        .copied()
-                        .filter(|id| {
-                            host.scope(*id)
-                                .is_some_and(|scope| !scope.provided_contexts.contains(&context.id))
-                        })
-                        .collect::<Vec<_>>()
-                })
-                .unwrap_or_default();
-            let affected_set = affected.iter().copied().collect::<HashSet<_>>();
-            let affected = affected
-                .into_iter()
-                .filter(|id| {
-                    let mut parent = host.scope(*id).and_then(|scope| scope.parent);
-                    while let Some(current) = parent {
-                        if affected_set.contains(&current) {
-                            return false;
-                        }
-                        parent = host.scope(current).and_then(|scope| scope.parent);
-                    }
-                    true
-                })
-                .collect::<Vec<_>>();
-            let mut pending = Vec::with_capacity(affected.len());
-            for id in affected {
-                let scope = host.scope(id).unwrap();
-                let render = scope
-                    .component
-                    .render_view(scope.reference.clone(), &scope.contexts)
-                    .map_err(ComponentError::from)?;
-                pending.push((id, render));
-            }
-            let mut report = ComponentDrain::default();
-            for (id, render) in pending {
-                let mutations = host.apply_render(id, render)?;
-                report.dispatched += 1;
-                report.mutations += mutations.len();
-            }
-            Ok(report)
-        })
     }
 
     pub fn drain(&mut self, limit: usize) -> Result<ComponentDrain, ComponentError<A::Error>> {
@@ -2053,18 +1832,39 @@ impl<A: Adapter> ComponentHost<A> {
                 let provided_contexts = owner.map_or_else(HashSet::new, |owner| {
                     self.scope(owner).unwrap().provided_contexts.clone()
                 });
-                let (id, render, created_row) = if let Some(id) = existing {
+                let mut expansion = ExpansionState::default();
+                let (id, view, created_row) = if let Some(id) = existing {
                     let reference = self.scope(id).unwrap().reference.clone();
-                    let rendered = {
+                    let view = {
                         let scope = self.scope_mut(id).unwrap();
-                        scope
+                        let render = scope
                             .component
                             .apply_input(&view, reference.clone(), &contexts)
-                            .map_err(ComponentError::from)?
-                            .map_or_else(|| scope.component.render_view(reference, &contexts), Ok)
-                            .map_err(ComponentError::from)?
+                            .map_err(ComponentError::from)?;
+                        let render = match render {
+                            Some(render) => Some(render),
+                            None if scope.dependencies_changed(&contexts) => Some(
+                                scope
+                                    .component
+                                    .render_view(reference, &contexts)
+                                    .map_err(ComponentError::from)?,
+                            ),
+                            None => None,
+                        };
+                        if let Some(render) = render {
+                            expansion.push_render(
+                                id,
+                                render,
+                                OwnedContextEnvironment {
+                                    contexts: contexts.clone(),
+                                    provided: provided_contexts.clone(),
+                                },
+                            )
+                        } else {
+                            scope.component.cached_view()
+                        }
                     };
-                    (id, rendered, false)
+                    (id, view, false)
                 } else {
                     let node = component::<VirtualRow>(lease.key.clone(), view);
                     let (id, render) = self.create_scope(
@@ -2073,20 +1873,19 @@ impl<A: Adapter> ComponentHost<A> {
                         contexts.clone(),
                         provided_contexts.clone(),
                     )?;
-                    (id, render, true)
+                    let view = expansion.push_render(
+                        id,
+                        render,
+                        OwnedContextEnvironment {
+                            contexts: contexts.clone(),
+                            provided: provided_contexts.clone(),
+                        },
+                    );
+                    (id, view, true)
                 };
-                let mut expansion = ExpansionState::default();
-                expansion.pending.push(PendingScopeRender {
-                    dependencies: render.dependencies,
-                    environment: Box::new(OwnedContextEnvironment {
-                        contexts,
-                        provided: provided_contexts,
-                    }),
-                    effects: render.effects,
-                    id,
-                    window: render.window,
-                });
-                let declaration = match self.expand_virtual_view(id, render.view, &mut expansion) {
+                self.scope_mut(id).unwrap().contexts = contexts;
+                self.scope_mut(id).unwrap().provided_contexts = provided_contexts;
+                let declaration = match self.expand_virtual_view(id, view, &mut expansion) {
                     Ok(declaration) => declaration,
                     Err(error) => {
                         self.discard_created(&expansion.created);
@@ -2120,7 +1919,10 @@ impl<A: Adapter> ComponentHost<A> {
                 self.virtual_rows.insert(row_key, id);
                 self.refresh_roots_from(declaration.0.as_object().unwrap(), root);
                 for pending in expansion.pending {
+                    let environment = *pending.environment;
                     self.scope_mut(pending.id).unwrap().window = pending.window;
+                    self.scope_mut(pending.id).unwrap().contexts = environment.contexts;
+                    self.scope_mut(pending.id).unwrap().provided_contexts = environment.provided;
                     pending
                         .effects
                         .commit(&mut self.scope_mut(pending.id).unwrap().effects);
@@ -2206,31 +2008,6 @@ impl<A: Adapter> ComponentHost<A> {
             }
         };
         Ok(View(DeclaredNode::Object(declaration)))
-    }
-
-    pub fn remove(&mut self, key: &Key) -> Result<(), ComponentError<A::Error>> {
-        self.ensure_active()?;
-        self.prepare_operation()?;
-        let id = self
-            .find(key)
-            .ok_or_else(|| ComponentError::MissingComponent(key.clone()))?;
-        let parent = self.runtime.graph().root().unwrap();
-        let child = self.scope(id).unwrap().root.unwrap();
-        if let Err(error) = self
-            .runtime
-            .remove_child(parent, RelationId::Children, child)
-        {
-            return Err(self.runtime_error(error));
-        }
-        self.run_component_operation(|host| {
-            host.order.retain(|current| *current != id);
-            host.keys.remove(key);
-            host.retire_scope(id);
-            host.context_consumers
-                .retain(|_, consumers| !consumers.is_empty());
-            host.publish_window();
-            Ok(())
-        })
     }
 
     fn create_scope(
@@ -2639,13 +2416,13 @@ impl<A: Adapter> ComponentHost<A> {
         let existing = self
             .scope(owner)
             .and_then(|scope| scope.children.get(&component_key).copied());
-        let (id, render) = if let Some(id) = existing {
+        let (id, view) = if let Some(id) = existing {
             if self.scope(id).unwrap().component.component_type() != node.factory.component_type() {
                 return Err(ComponentError::ComponentType(component_key));
             }
             let scope = self.scope_mut(id).unwrap();
             let reference = scope.reference.clone();
-            let rendered = scope
+            let render = scope
                 .component
                 .apply_input(
                     node.factory.input(),
@@ -2653,14 +2430,31 @@ impl<A: Adapter> ComponentHost<A> {
                     environment.contexts,
                 )
                 .map_err(ComponentError::from)?;
-            let render = match rendered {
-                Some(rendered) => rendered,
-                None => scope
-                    .component
-                    .render_view(reference, environment.contexts)
-                    .map_err(ComponentError::from)?,
+            let render = match render {
+                Some(render) => Some(render),
+                None if scope.dependencies_changed(environment.contexts) => Some(
+                    scope
+                        .component
+                        .render_view(reference, environment.contexts)
+                        .map_err(ComponentError::from)?,
+                ),
+                None => None,
             };
-            (id, render)
+            let view = if let Some(render) = render {
+                expansion.push_render(
+                    id,
+                    render,
+                    OwnedContextEnvironment {
+                        contexts: environment.contexts.clone(),
+                        provided: environment.provided.clone(),
+                    },
+                )
+            } else {
+                scope.contexts.clone_from(environment.contexts);
+                scope.provided_contexts.clone_from(environment.provided);
+                scope.component.cached_view()
+            };
+            (id, view)
         } else {
             let created = self.create_scope(
                 Some(owner),
@@ -2673,23 +2467,21 @@ impl<A: Adapter> ComponentHost<A> {
                 .unwrap()
                 .children
                 .insert(component_key, created.0);
-            created
+            let view = expansion.push_render(
+                created.0,
+                created.1,
+                OwnedContextEnvironment {
+                    contexts: environment.contexts.clone(),
+                    provided: environment.provided.clone(),
+                },
+            );
+            (created.0, view)
         };
-        expansion.pending.push(PendingScopeRender {
-            dependencies: render.dependencies,
-            environment: Box::new(OwnedContextEnvironment {
-                contexts: environment.contexts.clone(),
-                provided: environment.provided.clone(),
-            }),
-            effects: render.effects,
-            id,
-            window: render.window,
-        });
         Ok(Box::new(PreparedComponentExpansion {
             attachments,
             declaration_key,
             id,
-            view: Some(render.view),
+            view: Some(view),
         }))
     }
 
@@ -2861,19 +2653,17 @@ impl<A: Adapter> ComponentHost<A> {
     ) -> Result<UpdateStats, ComponentError<A::Error>> {
         let root = self.scope(id).unwrap().root.unwrap();
         let mut expansion = ExpansionState::default();
-        expansion.pending.push(PendingScopeRender {
-            dependencies: render.dependencies,
-            environment: Box::new(OwnedContextEnvironment {
+        let view = expansion.push_render(
+            id,
+            render,
+            OwnedContextEnvironment {
                 contexts: contexts.clone(),
                 provided: provided_contexts.clone(),
-            }),
-            effects: render.effects,
-            id,
-            window: render.window,
-        });
+            },
+        );
         let view = match self.expand_view(
             id,
-            render.view,
+            view,
             &ContextEnvironment {
                 contexts: &contexts,
                 provided: &provided_contexts,
@@ -3000,21 +2790,6 @@ impl<A: Adapter> ComponentHost<A> {
             .collect()
     }
 
-    fn find(&self, key: &Key) -> Option<ComponentId> {
-        self.keys.get(key).copied()
-    }
-
-    fn find_path(&self, path: &[Key]) -> Option<ComponentId> {
-        let (first, rest) = path.split_first()?;
-        let mut id = self.find(first)?;
-        for key in rest {
-            let parent = id;
-            id = *self.scope(parent)?.children.get(key)?;
-            debug_assert_eq!(self.scope(id)?.parent, Some(parent));
-        }
-        Some(id)
-    }
-
     fn scope(&self, id: ComponentId) -> Option<&Scope> {
         let slot = self.scopes.get(id.index as usize)?;
         (slot.generation == id.generation)
@@ -3100,19 +2875,6 @@ impl<A: Adapter> ComponentHost<A> {
         }
     }
 
-    fn prepare_operation(&mut self) -> Result<(), ComponentError<A::Error>> {
-        match self.runtime.prepare_update() {
-            Ok(()) => Ok(()),
-            Err(UpdateError::PendingNativeEvent) => {
-                self.drain(usize::MAX)?;
-                self.runtime
-                    .prepare_update()
-                    .map_err(|error| self.runtime_error(error))
-            }
-            Err(error) => Err(self.runtime_error(error)),
-        }
-    }
-
     fn runtime_error(&mut self, error: UpdateError<A::Error>) -> ComponentError<A::Error> {
         if matches!(
             &error,
@@ -3189,3057 +2951,11 @@ fn prepare_scope_retirement(scopes: &mut [ScopeSlot], roots: &[ComponentId]) {
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-    use std::cell::RefCell;
-    use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
-
-    type PendingTimer = (Arc<TestTimerRegistration>, Box<dyn FnOnce() + Send>);
-
-    #[derive(Default)]
-    struct TestServices {
-        background: Mutex<VecDeque<Box<dyn FnOnce() + Send>>>,
-        timers: Mutex<VecDeque<PendingTimer>>,
-    }
-
-    impl TestServices {
-        fn run_background(&self) {
-            self.background.lock().unwrap().pop_front().unwrap()();
-        }
-
-        fn fire_timer(&self) {
-            let (timer, callback) = self.timers.lock().unwrap().pop_front().unwrap();
-            if !timer.cancelled.load(Ordering::Acquire) {
-                callback();
-            }
-        }
-    }
-
-    impl ComponentServices for TestServices {
-        fn spawn_background(&self, work: Box<dyn FnOnce() + Send>) {
-            self.background.lock().unwrap().push_back(work);
-        }
-
-        fn set_timeout(
-            &self,
-            _delay: Duration,
-            callback: Box<dyn FnOnce() + Send>,
-        ) -> Arc<dyn ComponentTimerRegistration> {
-            let timer = Arc::new(TestTimerRegistration::default());
-            self.timers
-                .lock()
-                .unwrap()
-                .push_back((Arc::clone(&timer), callback));
-            timer
-        }
-    }
-
-    #[derive(Default)]
-    struct TestTimerRegistration {
-        cancelled: AtomicBool,
-    }
-
-    impl ComponentTimerRegistration for TestTimerRegistration {
-        fn cancel(&self) {
-            self.cancelled.store(true, Ordering::Release);
-        }
-    }
-
-    #[derive(Clone)]
-    struct LocalMessageInput {
-        seen: Rc<Cell<usize>>,
-        sender: Rc<RefCell<Option<LocalSender<Rc<Cell<usize>>>>>>,
-    }
-
-    impl PartialEq for LocalMessageInput {
-        fn eq(&self, other: &Self) -> bool {
-            Rc::ptr_eq(&self.seen, &other.seen) && Rc::ptr_eq(&self.sender, &other.sender)
-        }
-    }
-
-    struct LocalMessageProbe {
-        _timer: ComponentTimer,
-        seen: Rc<Cell<usize>>,
-    }
-
-    impl Component for LocalMessageProbe {
-        type Input = LocalMessageInput;
-        type Message = Rc<Cell<usize>>;
-
-        fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
-            input.sender.replace(Some(context.sender()));
-            Self {
-                _timer: context.set_local_timeout(Duration::ZERO, || Rc::new(Cell::new(2))),
-                seen: Rc::clone(&input.seen),
-            }
-        }
-
-        fn update(&mut self, message: Self::Message, _context: &ComponentContext<Self>) {
-            self.seen.set(message.get());
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            Grid::new().into()
-        }
-    }
-
-    #[derive(Clone)]
-    struct MessageOrderInput {
-        local: Rc<RefCell<Option<LocalSender<u8>>>>,
-        seen: Rc<RefCell<Vec<u8>>>,
-    }
-
-    impl PartialEq for MessageOrderInput {
-        fn eq(&self, other: &Self) -> bool {
-            Rc::ptr_eq(&self.local, &other.local) && Rc::ptr_eq(&self.seen, &other.seen)
-        }
-    }
-
-    struct MessageOrderProbe {
-        seen: Rc<RefCell<Vec<u8>>>,
-    }
-
-    impl Component for MessageOrderProbe {
-        type Input = MessageOrderInput;
-        type Message = u8;
-
-        fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
-            input.local.replace(Some(context.sender()));
-            Self {
-                seen: Rc::clone(&input.seen),
-            }
-        }
-
-        fn update(&mut self, message: Self::Message, _context: &ComponentContext<Self>) {
-            self.seen.borrow_mut().push(message);
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            Grid::new().into()
-        }
-    }
-
-    #[derive(Default)]
-    struct TestUiServices {
-        activated: Cell<usize>,
-        closed: Cell<usize>,
-        operations: Cell<usize>,
-        publications: RefCell<Vec<WindowPublication>>,
-        requests: RefCell<Vec<(ComponentNode, WindowPolicy)>>,
-    }
-
-    impl ComponentUiServices for TestUiServices {
-        fn open_window(&self, root: ComponentNode, policy: WindowPolicy) -> bool {
-            self.requests.borrow_mut().push((root, policy));
-            true
-        }
-
-        fn publish_window(&self, publication: WindowPublication) {
-            self.publications.borrow_mut().push(publication);
-        }
-
-        fn activate_window(&self) -> bool {
-            self.activated.set(self.activated.get() + 1);
-            true
-        }
-
-        fn close_window(&self) -> bool {
-            self.closed.set(self.closed.get() + 1);
-            true
-        }
-
-        fn run_window(&self, operation: Box<dyn FnOnce(*mut core::ffi::c_void)>) -> bool {
-            self.operations.set(self.operations.get() + 1);
-            operation(std::ptr::dangling_mut::<core::ffi::c_void>());
-            true
-        }
-    }
-
-    struct WindowContent;
-
-    impl Component for WindowContent {
-        type Input = String;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            TextBlock::new().text(input.as_str()).into()
-        }
-    }
-
-    #[derive(Clone)]
-    struct WindowRequesterInput {
-        accepted: Rc<Cell<Option<bool>>>,
-    }
-
-    impl PartialEq for WindowRequesterInput {
-        fn eq(&self, other: &Self) -> bool {
-            Rc::ptr_eq(&self.accepted, &other.accepted)
-        }
-    }
-
-    struct WindowRequester {
-        accepted: Rc<Cell<Option<bool>>>,
-    }
-
-    struct WindowPublisher;
-
-    impl Component for WindowPublisher {
-        type Input = bool;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-            if *input {
-                context.window_title("Published");
-                context.window_visuals(
-                    WindowVisuals::new()
-                        .theme(WindowTheme::Dark)
-                        .backdrop(WindowBackdrop::Mica)
-                        .client_size(640.0, 480.0)
-                        .constraints(WindowConstraints {
-                            min_width: Some(320.0),
-                            min_height: Some(240.0),
-                            max_width: Some(1280.0),
-                            max_height: Some(960.0),
-                        }),
-                );
-                context.on_color_scheme(|_| {});
-                context.on_window_size(|_| {});
-            }
-            TextBlock::new().text("Window publisher").into()
-        }
-    }
-
-    struct WindowTitlePublisher;
-
-    impl Component for WindowTitlePublisher {
-        type Input = &'static str;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-            context.window_title(*input);
-            TextBlock::new().text(*input).into()
-        }
-    }
-
-    enum WindowRequestMessage {
-        Activate,
-        Close,
-        Open,
-        Run,
-        Window(usize),
-    }
-
-    impl Component for WindowRequester {
-        type Input = WindowRequesterInput;
-        type Message = WindowRequestMessage;
-
-        fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self {
-                accepted: Rc::clone(&input.accepted),
-            }
-        }
-
-        fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
-            let accepted = match message {
-                WindowRequestMessage::Activate => context.activate_window(),
-                WindowRequestMessage::Close => context.close_window(),
-                WindowRequestMessage::Open => context.open_window_with_policy::<WindowContent>(
-                    "secondary".to_string(),
-                    WindowPolicy::new()
-                        .title("Secondary")
-                        .client_size(320.0, 200.0),
-                ),
-                WindowRequestMessage::Run => context
-                    .run_window(|window| WindowRequestMessage::Window(window.as_raw() as usize)),
-                WindowRequestMessage::Window(raw) => raw == 1,
-            };
-            self.accepted.set(Some(accepted));
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            TextBlock::new().text("primary").into()
-        }
-    }
-
-    #[derive(Clone)]
-    struct CounterInput {
-        cleanup: Arc<AtomicUsize>,
-        value: usize,
-    }
-
-    impl PartialEq for CounterInput {
-        fn eq(&self, other: &Self) -> bool {
-            self.value == other.value && Arc::ptr_eq(&self.cleanup, &other.cleanup)
-        }
-    }
-
-    struct Counter {
-        value: usize,
-    }
-
-    impl Component for Counter {
-        type Input = CounterInput;
-        type Message = usize;
-
-        fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self { value: input.value }
-        }
-
-        fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-            self.value = input.value;
-        }
-
-        fn update(&mut self, message: usize, _context: &ComponentContext<Self>) {
-            self.value += message;
-        }
-
-        fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-            let cleanup = Arc::clone(&input.cleanup);
-            context.use_effect_guard("value", self.value, move || Cleanup(cleanup));
-            TextBlock::new().text(self.value.to_string()).into()
-        }
-    }
-
-    #[derive(Clone)]
-    struct OrderedInput {
-        rendered: Rc<RefCell<String>>,
-        seen: Rc<RefCell<Vec<(String, String)>>>,
-    }
-
-    impl PartialEq for OrderedInput {
-        fn eq(&self, other: &Self) -> bool {
-            Rc::ptr_eq(&self.rendered, &other.rendered) && Rc::ptr_eq(&self.seen, &other.seen)
-        }
-    }
-
-    struct OrderedText {
-        callback: Callback<Rc<str>>,
-        text: String,
-    }
-
-    impl Component for OrderedText {
-        type Input = OrderedInput;
-        type Message = String;
-
-        fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
-            let sender = context.sender();
-            let rendered = Rc::clone(&input.rendered);
-            let seen = Rc::clone(&input.seen);
-            Self {
-                callback: Callback::new(move |value: Rc<str>| {
-                    seen.borrow_mut()
-                        .push((value.to_string(), rendered.borrow().clone()));
-                    let _ = sender.send(value.to_string());
-                }),
-                text: String::from("Before"),
-            }
-        }
-
-        fn update(&mut self, message: Self::Message, _context: &ComponentContext<Self>) {
-            self.text = message;
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            input.rendered.replace(self.text.clone());
-            TextBox::new(self.text.clone())
-                .on_text_changed(self.callback.clone())
-                .into()
-        }
-    }
-
-    struct Label;
-
-    impl Component for Label {
-        type Input = Rc<str>;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            TextBlock::new().text(input.clone()).into()
-        }
-    }
-
-    struct TooltipParent;
-
-    impl Component for TooltipParent {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            Border::new()
-                .content(component::<Label>("label", Rc::from("Label")).tooltip("Help"))
-                .into()
-        }
-    }
-
-    struct ContentDialogParent;
-
-    impl Component for ContentDialogParent {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            Border::new()
-                .content(
-                    component::<Label>("owner", Rc::from("Owner")).content_dialog(
-                        ContentDialog::new()
-                            .content(component::<Label>("dialog", Rc::from("Dialog"))),
-                    ),
-                )
-                .into()
-        }
-    }
-
-    struct Cleanup(Arc<AtomicUsize>);
-
-    impl Drop for Cleanup {
-        fn drop(&mut self) {
-            self.0.fetch_add(1, Ordering::Relaxed);
-        }
-    }
-
-    #[derive(Clone)]
-    struct ContextInput {
-        context: Rc<Context<usize>>,
-        renders: Arc<AtomicUsize>,
-        subscribe: bool,
-    }
-
-    impl PartialEq for ContextInput {
-        fn eq(&self, other: &Self) -> bool {
-            Rc::ptr_eq(&self.context, &other.context)
-                && Arc::ptr_eq(&self.renders, &other.renders)
-                && self.subscribe == other.subscribe
-        }
-    }
-
-    struct ContextReader;
-
-    impl Component for ContextReader {
-        type Input = ContextInput;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-            input.renders.fetch_add(1, Ordering::Relaxed);
-            let value = if input.subscribe {
-                context.use_context(&input.context)
-            } else {
-                0
-            };
-            TextBlock::new().text(value.to_string()).into()
-        }
-    }
-
-    struct ContextParent;
-
-    impl Component for ContextParent {
-        type Input = ContextInput;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-            input.renders.fetch_add(1, Ordering::Relaxed);
-            let _ = context.use_context(&input.context);
-            Border::new()
-                .content(component::<ContextReader>("reader", input.clone()))
-                .into()
-        }
-    }
-
-    #[derive(Clone)]
-    struct ProviderInput {
-        context: Rc<Context<usize>>,
-        seen: Rc<RefCell<Vec<usize>>>,
-        value: usize,
-    }
-
-    impl PartialEq for ProviderInput {
-        fn eq(&self, other: &Self) -> bool {
-            Rc::ptr_eq(&self.context, &other.context)
-                && Rc::ptr_eq(&self.seen, &other.seen)
-                && self.value == other.value
-        }
-    }
-
-    struct ProviderChild;
-
-    impl Component for ProviderChild {
-        type Input = ProviderInput;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-            let value = context.use_context(&input.context);
-            input.seen.borrow_mut().push(value);
-            TextBlock::new().text(value.to_string()).into()
-        }
-    }
-
-    struct ProviderParent;
-
-    impl Component for ProviderParent {
-        type Input = ProviderInput;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            provide(
-                &input.context,
-                input.value,
-                Border::new().content(component::<ProviderChild>("child", input.clone())),
-            )
-        }
-    }
-
-    #[derive(Clone)]
-    struct WorkerInput {
-        cancelled: Arc<AtomicUsize>,
-        started: Arc<AtomicUsize>,
-        task: Arc<Mutex<Option<ComponentTask>>>,
-    }
-
-    impl PartialEq for WorkerInput {
-        fn eq(&self, other: &Self) -> bool {
-            Arc::ptr_eq(&self.cancelled, &other.cancelled)
-                && Arc::ptr_eq(&self.started, &other.started)
-                && Arc::ptr_eq(&self.task, &other.task)
-        }
-    }
-
-    enum WorkerMessage {
-        Complete,
-        Start,
-    }
-
-    struct Worker(WorkerInput);
-
-    impl Component for Worker {
-        type Input = WorkerInput;
-        type Message = WorkerMessage;
-
-        fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self(input.clone())
-        }
-
-        fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
-            match message {
-                WorkerMessage::Complete => {}
-                WorkerMessage::Start => {
-                    let started = Arc::clone(&self.0.started);
-                    let cancelled = Arc::clone(&self.0.cancelled);
-                    let task = context.spawn_background(move |token| {
-                        started.store(1, Ordering::Release);
-                        while !token.is_cancelled() {
-                            std::thread::yield_now();
-                        }
-                        cancelled.store(1, Ordering::Release);
-                        WorkerMessage::Complete
-                    });
-                    *self.0.task.lock().unwrap() = Some(task);
-                }
-            }
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            TextBlock::new().text("Worker").into()
-        }
-    }
-
-    #[derive(Clone, Default)]
-    struct ServiceProbeInput {
-        task: Arc<Mutex<Option<ComponentTask>>>,
-        timer: Arc<Mutex<Option<ComponentTimer>>>,
-    }
-
-    impl PartialEq for ServiceProbeInput {
-        fn eq(&self, other: &Self) -> bool {
-            Arc::ptr_eq(&self.task, &other.task) && Arc::ptr_eq(&self.timer, &other.timer)
-        }
-    }
-
-    enum ServiceProbeMessage {
-        Background,
-        BackgroundComplete,
-        Timer,
-        TimerComplete,
-    }
-
-    struct ServiceProbe {
-        input: ServiceProbeInput,
-        value: usize,
-    }
-
-    impl Component for ServiceProbe {
-        type Input = ServiceProbeInput;
-        type Message = ServiceProbeMessage;
-
-        fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self {
-                input: input.clone(),
-                value: 0,
-            }
-        }
-
-        fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
-            match message {
-                ServiceProbeMessage::Background => {
-                    let task =
-                        context.spawn_background(|_| ServiceProbeMessage::BackgroundComplete);
-                    *self.input.task.lock().unwrap() = Some(task);
-                    self.value += 1;
-                }
-                ServiceProbeMessage::BackgroundComplete => self.value += 1,
-                ServiceProbeMessage::Timer => {
-                    let timer =
-                        context.set_timeout(Duration::ZERO, ServiceProbeMessage::TimerComplete);
-                    *self.input.timer.lock().unwrap() = Some(timer);
-                    self.value += 1;
-                }
-                ServiceProbeMessage::TimerComplete => self.value += 1,
-            }
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            TextBlock::new().text(self.value.to_string()).into()
-        }
-    }
-
-    struct RootSwitch(bool);
-
-    impl Component for RootSwitch {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self(false)
-        }
-
-        fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
-            self.0 = true;
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            if self.0 {
-                Border::new().into()
-            } else {
-                TextBlock::new().text("Stable").into()
-            }
-        }
-    }
-
-    struct NestedRoot;
-
-    impl Component for NestedRoot {
-        type Input = (f64, bool);
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            let root = Border::new().canvas_left(input.0);
-            if input.1 {
-                root.content(component::<RootSwitch>("child", ())).into()
-            } else {
-                root.into()
-            }
-        }
-    }
-
-    struct CounterParent;
-
-    impl Component for CounterParent {
-        type Input = CounterInput;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            Border::new()
-                .content(component::<Counter>("counter", input.clone()))
-                .into()
-        }
-    }
-
-    struct ReorderParent(bool);
-
-    impl Component for ReorderParent {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self(false)
-        }
-
-        fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
-            self.0 = !self.0;
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            let first = component::<RootSwitch>("first", ()).keyed();
-            let second = component::<RootSwitch>("second", ()).keyed();
-            if self.0 {
-                Grid::new().keyed_children([second, first]).into()
-            } else {
-                Grid::new().keyed_children([first, second]).into()
-            }
-        }
-    }
-
-    struct RelationOwnedReorder(bool);
-
-    impl Component for RelationOwnedReorder {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self(false)
-        }
-
-        fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
-            self.0 = !self.0;
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            let first = keyed("first", View::component::<RootSwitch>(()));
-            let second = keyed("second", View::component::<RootSwitch>(()));
-            if self.0 {
-                Grid::new().keyed_children([second, first]).into()
-            } else {
-                Grid::new().keyed_children([first, second]).into()
-            }
-        }
-    }
-
-    struct RelationOwnedSiblings;
-
-    impl Component for RelationOwnedSiblings {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            StackPanel::new()
-                .children((
-                    Border::new().content(View::component::<RootSwitch>(())),
-                    Border::new().content(View::component::<RootSwitch>(())),
-                ))
-                .into()
-        }
-    }
-
-    struct RelationOwnedTypeSwitch(bool);
-
-    impl Component for RelationOwnedTypeSwitch {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self(false)
-        }
-
-        fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
-            self.0 = !self.0;
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            let child = if self.0 {
-                View::component::<AlternateRoot>(())
-            } else {
-                View::component::<RootSwitch>(())
-            };
-            Border::new().content(child).into()
-        }
-    }
-
-    struct AlternateRoot;
-
-    impl Component for AlternateRoot {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            Button::new().content("alternate").into()
-        }
-    }
-
-    struct DuplicateNested;
-
-    impl Component for DuplicateNested {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            StackPanel::new()
-                .children([
-                    component::<RootSwitch>("child", ()).into(),
-                    component::<RootSwitch>("child", ()).into(),
-                ])
-                .into()
-        }
-    }
-
-    struct TreeContent(usize);
-
-    impl Component for TreeContent {
-        type Input = Rc<str>;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self(0)
-        }
-
-        fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
-            self.0 += 1;
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            StackPanel::new()
-                .children([
-                    TextBlock::new().text(input.clone()).into(),
-                    TextBlock::new().text(self.0.to_string()).into(),
-                ])
-                .into()
-        }
-    }
-
-    struct TreeComponents(bool);
-
-    impl Component for TreeComponents {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self(false)
-        }
-
-        fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
-            self.0 = !self.0;
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            let first = TreeNode::new("first", "First")
-                .expanded(true)
-                .content(component::<TreeContent>("first-content", Rc::from("First")));
-            let second = TreeNode::new("second", "Second")
-                .expanded(true)
-                .content(component::<TreeContent>(
-                    "second-content",
-                    Rc::from("Second"),
-                ));
-            if self.0 {
-                TreeView::new().nodes([second, first]).into()
-            } else {
-                TreeView::new().nodes([first, second]).into()
-            }
-        }
-    }
-
-    struct RecursiveComponent;
-
-    impl Component for RecursiveComponent {
-        type Input = usize;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            if *input == 0 {
-                TextBlock::new().text("leaf").into()
-            } else {
-                Border::new()
-                    .content(component::<Self>("child", *input - 1))
-                    .into()
-            }
-        }
-    }
-
-    struct MismatchedKey;
-
-    impl Component for MismatchedKey {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            Grid::new()
-                .keyed_children([keyed("relation", component::<RootSwitch>("component", ()))])
-                .into()
-        }
-    }
-
-    #[derive(Clone)]
-    struct RootSwitchEffects(Rc<RefCell<Vec<(&'static str, Option<ObjectId>)>>>);
-
-    impl PartialEq for RootSwitchEffects {
-        fn eq(&self, other: &Self) -> bool {
-            Rc::ptr_eq(&self.0, &other.0)
-        }
-    }
-
-    struct NestedEffects;
-
-    impl Component for NestedEffects {
-        type Input = (RootSwitchEffects, bool);
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            let root = Border::new();
-            if input.1 {
-                root.content(component::<EffectRootSwitch>("effect", input.0.clone()))
-                    .into()
-            } else {
-                root.into()
-            }
-        }
-    }
-
-    struct EffectRootSwitch(bool);
-
-    impl Component for EffectRootSwitch {
-        type Input = RootSwitchEffects;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self(false)
-        }
-
-        fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
-            self.0 = true;
-        }
-
-        fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-            let events = Rc::clone(&input.0);
-            let reference = context.root();
-            context.use_effect("root", self.0, move || {
-                events.borrow_mut().push(("setup", reference.get()));
-                Some(Box::new(move || {
-                    events.borrow_mut().push(("cleanup", reference.get()));
-                }))
-            });
-            if self.0 {
-                Border::new().into()
-            } else {
-                TextBlock::new().text("Stable").into()
-            }
-        }
-    }
-
-    struct InvalidEffectUpdate(bool);
-
-    impl Component for InvalidEffectUpdate {
-        type Input = RootSwitchEffects;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self(false)
-        }
-
-        fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
-            self.0 = true;
-        }
-
-        fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-            let events = Rc::clone(&input.0);
-            context.use_effect("root", self.0, move || {
-                events.borrow_mut().push(("setup", None));
-                Some(Box::new(move || {
-                    events.borrow_mut().push(("cleanup", None));
-                }))
-            });
-            if self.0 {
-                Grid::new()
-                    .keyed_children([
-                        keyed("duplicate", TextBlock::new().text("First")),
-                        keyed("duplicate", TextBlock::new().text("Second")),
-                    ])
-                    .into()
-            } else {
-                TextBlock::new().text("Valid").into()
-            }
-        }
-    }
-
-    #[derive(Clone)]
-    struct StatefulInput {
-        changes: Rc<Cell<usize>>,
-        value: usize,
-    }
-
-    impl PartialEq for StatefulInput {
-        fn eq(&self, other: &Self) -> bool {
-            self.value == other.value && Rc::ptr_eq(&self.changes, &other.changes)
-        }
-    }
-
-    struct StatefulInputComponent;
-
-    impl Component for StatefulInputComponent {
-        type Input = StatefulInput;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-            input.changes.set(input.changes.get() + 1);
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            TextBlock::new().text(input.value.to_string()).into()
-        }
-    }
-
-    struct DropPayload(Arc<AtomicUsize>);
-
-    impl Drop for DropPayload {
-        fn drop(&mut self) {
-            self.0.fetch_add(1, Ordering::Relaxed);
-        }
-    }
-
-    struct PayloadComponent;
-
-    impl Component for PayloadComponent {
-        type Input = usize;
-        type Message = DropPayload;
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            TextBlock::new().text(input.to_string()).into()
-        }
-    }
-
-    struct CallbackRenderFailure(bool);
-
-    impl Component for CallbackRenderFailure {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self(false)
-        }
-
-        fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
-            self.0 = true;
-        }
-
-        fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-            if self.0 {
-                Grid::new()
-                    .keyed_children([
-                        keyed("duplicate", TextBlock::new().text("first")),
-                        keyed("duplicate", TextBlock::new().text("second")),
-                    ])
-                    .into()
-            } else {
-                Button::new().on_click(context.message(())).into()
-            }
-        }
-    }
-
-    struct StableForward;
-
-    impl Component for StableForward {
-        type Input = ();
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-            Button::new().on_click(context.forward()).into()
-        }
-    }
-
-    struct ControlledApplyAdapter {
-        fail_after: Rc<Cell<Option<usize>>>,
-        inner: RecordingAdapter,
-        successful: Rc<Cell<usize>>,
-    }
-
-    impl Adapter for ControlledApplyAdapter {
-        type Error = ();
-
-        fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
-            self.inner.preview_native_events(events);
-        }
-
-        fn pop_native_event(&mut self) -> Option<NativeEvent> {
-            self.inner.pop_native_event()
-        }
-
-        fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error> {
-            self.inner.validate(mutations).map_err(|_| ())
-        }
-
-        fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
-            if let Some(remaining) = self.fail_after.get() {
-                if remaining == 0 {
-                    return Err(());
-                }
-                self.fail_after.set(Some(remaining - 1));
-            }
-            self.inner.apply(mutations).map_err(|_| ())?;
-            self.successful.set(self.successful.get() + 1);
-            Ok(())
-        }
-
-        fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
-            self.inner.focus(object).map_err(|_| ())
-        }
-    }
-
-    #[derive(Clone)]
-    struct VirtualEffectLog(Rc<RefCell<Vec<&'static str>>>);
-
-    impl PartialEq for VirtualEffectLog {
-        fn eq(&self, other: &Self) -> bool {
-            Rc::ptr_eq(&self.0, &other.0)
-        }
-    }
-
-    struct VirtualEffect;
-
-    impl Component for VirtualEffect {
-        type Input = VirtualEffectLog;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-            let setup = Rc::clone(&input.0);
-            let cleanup = Rc::clone(&input.0);
-            context.use_effect("virtual", (), move || {
-                setup.borrow_mut().push("setup");
-                Some(Box::new(move || cleanup.borrow_mut().push("cleanup")))
-            });
-            TextBlock::new().text("virtual").into()
-        }
-    }
-
-    struct VirtualParent;
-
-    impl Component for VirtualParent {
-        type Input = VirtualEffectLog;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            let log = input.clone();
-            ItemsRepeater::new()
-                .virtual_source(VirtualSource::new(
-                    1,
-                    10_000,
-                    Key::from,
-                    move |index| -> View { component::<VirtualEffect>(index, log.clone()).into() },
-                ))
-                .into()
-        }
-    }
-
-    #[derive(Clone)]
-    struct VirtualCleanupInput {
-        events: Rc<RefCell<Vec<(Option<ObjectId>, bool, ComponentTaskStatus)>>>,
-        fail_apply: Rc<Cell<bool>>,
-        fail_validate: Rc<Cell<bool>>,
-        published: Rc<Cell<bool>>,
-        reference: ElementRef,
-        task: Arc<Mutex<Option<ComponentTask>>>,
-    }
-
-    impl PartialEq for VirtualCleanupInput {
-        fn eq(&self, other: &Self) -> bool {
-            Rc::ptr_eq(&self.events, &other.events)
-                && Rc::ptr_eq(&self.published, &other.published)
-                && self.reference == other.reference
-                && Arc::ptr_eq(&self.task, &other.task)
-        }
-    }
-
-    struct VirtualCleanup;
-
-    impl Component for VirtualCleanup {
-        type Input = VirtualCleanupInput;
-        type Message = ();
-
-        fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
-            *input.task.lock().unwrap() = Some(context.spawn_background(|_| ()));
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-            let events = Rc::clone(&input.events);
-            let published = Rc::clone(&input.published);
-            let reference = input.reference.clone();
-            let task = Arc::clone(&input.task);
-            context.use_effect("cleanup", (), move || {
-                Some(Box::new(move || {
-                    events.borrow_mut().push((
-                        reference.get(),
-                        published.get(),
-                        task.lock().unwrap().as_ref().unwrap().status(),
-                    ));
-                }))
-            });
-            Button::new().element_ref(&input.reference).into()
-        }
-    }
-
-    struct VirtualCleanupParent;
-
-    impl Component for VirtualCleanupParent {
-        type Input = VirtualCleanupInput;
-        type Message = ();
-
-        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-            Self
-        }
-
-        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-            let input = input.clone();
-            ItemsRepeater::new()
-                .virtual_source(VirtualSource::new(1, 1, Key::from, move |_| {
-                    component::<VirtualCleanup>("row", input.clone())
-                }))
-                .into()
-        }
-    }
-
-    struct VirtualLifecycleAdapter {
-        inner: RecordingAdapter,
-        fail_apply: Rc<Cell<bool>>,
-        fail_validate: Rc<Cell<bool>>,
-        published: Rc<Cell<bool>>,
-    }
-
-    impl Adapter for VirtualLifecycleAdapter {
-        type Error = ();
-
-        fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
-            self.inner.preview_native_events(events);
-        }
-
-        fn pop_native_event(&mut self) -> Option<NativeEvent> {
-            self.inner.pop_native_event()
-        }
-
-        fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error> {
-            if self.fail_validate.get() {
-                Err(())
-            } else {
-                self.inner.validate(mutations).map_err(|_| ())
-            }
-        }
-
-        fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
-            self.published.set(true);
-            if self.fail_apply.get() {
-                Err(())
-            } else {
-                self.inner.apply(mutations).map_err(|_| ())
-            }
-        }
-
-        fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
-            self.inner.focus(object).map_err(|_| ())
-        }
-    }
-
-    fn virtual_cleanup_host(
-        fail_validate: bool,
-        fail_apply: bool,
-    ) -> (
-        ComponentHost<VirtualLifecycleAdapter>,
-        VirtualCleanupInput,
-        ObjectId,
-    ) {
-        let input = VirtualCleanupInput {
-            events: Rc::new(RefCell::new(Vec::new())),
-            fail_apply: Rc::new(Cell::new(false)),
-            fail_validate: Rc::new(Cell::new(false)),
-            published: Rc::new(Cell::new(false)),
-            reference: ElementRef::default(),
-            task: Arc::new(Mutex::new(None)),
-        };
-        let adapter = VirtualLifecycleAdapter {
-            inner: RecordingAdapter::default(),
-            fail_apply: Rc::clone(&input.fail_apply),
-            fail_validate: Rc::clone(&input.fail_validate),
-            published: Rc::clone(&input.published),
-        };
-        let mut host = ComponentHost::mount_with_services(
-            adapter,
-            Arc::new(TestServices::default()),
-            [component::<VirtualCleanupParent>("virtual", input.clone())],
-        )
-        .unwrap();
-        let root = host.runtime().graph().root().unwrap();
-        let collection = host
-            .runtime()
-            .graph()
-            .children(root, RelationId::Children)
-            .unwrap()[0];
-        host.runtime
-            .adapter_mut()
-            .inner
-            .queue_realization(RealizationRequest::Realize {
-                collection,
-                container: RealizedContainer(1),
-                index: 0,
-                source_revision: 0,
-            });
-        host.drain(10).unwrap();
-        input.published.set(false);
-        input.fail_validate.set(fail_validate);
-        input.fail_apply.set(fail_apply);
-        (host, input, collection)
-    }
-
-    #[test]
-    fn heterogeneous_components_update_isolated_subtrees() {
-        let cleanup = Arc::new(AtomicUsize::new(0));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [
-                component::<Counter>(
-                    "counter",
-                    CounterInput {
-                        cleanup: Arc::clone(&cleanup),
-                        value: 0,
-                    },
-                ),
-                component::<Label>("label", Rc::from("Label")),
-            ],
-        )
-        .unwrap();
-        let counter = host.reference(&Key::from("counter")).unwrap();
-        let label = host.reference(&Key::from("label")).unwrap();
-        let counter_root = counter.get().unwrap();
-        let label_root = label.get().unwrap();
-
-        let mutations = host
-            .update_input::<Label>(&Key::from("label"), Rc::from("Changed"))
-            .unwrap();
-        assert_eq!(mutations.len(), 1);
-        assert_eq!(counter.get(), Some(counter_root));
-        assert_eq!(label.get(), Some(label_root));
-
-        let sender = host.sender::<Counter>(&Key::from("counter")).unwrap();
-        assert!(sender.send(1));
-        assert_eq!(host.drain(1).unwrap().mutations, 1);
-        assert_eq!(cleanup.load(Ordering::Relaxed), 1);
-
-        assert!(sender.send(0));
-        assert_eq!(host.drain(1).unwrap().mutations, 0);
-        assert_eq!(cleanup.load(Ordering::Relaxed), 1);
-    }
-
-    #[test]
-    fn tooltip_attachment_expands_across_component_boundary() {
-        let host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<TooltipParent>("parent", ())],
-        )
-        .unwrap();
-        let target = host
-            .reference_at(&[Key::from("parent"), Key::from("label")])
-            .unwrap()
-            .get()
-            .unwrap();
-        let tooltip = host.runtime().graph().tooltip(target).unwrap();
-
-        assert_eq!(
-            host.runtime().adapter().tooltip(target),
-            Some((tooltip, TooltipPlacement::Top))
-        );
-    }
-
-    #[test]
-    fn content_dialog_attachment_expands_and_refreshes_component_roots() {
-        let host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<ContentDialogParent>("parent", ())],
-        )
-        .unwrap();
-        let owner = host
-            .reference_at(&[Key::from("parent"), Key::from("owner")])
-            .unwrap()
-            .get()
-            .unwrap();
-        let content = host
-            .reference_at(&[Key::from("parent"), Key::from("dialog")])
-            .unwrap()
-            .get()
-            .unwrap();
-        let dialog = host.runtime().graph().content_dialog(owner).unwrap().0;
-
-        assert_eq!(
-            host.runtime().graph().child(dialog, RelationId::Content),
-            Some(content)
-        );
-        assert_eq!(
-            host.runtime().adapter().content_dialog(owner),
-            Some((dialog, false))
-        );
-    }
-
-    #[test]
-    fn retired_component_drops_effects_and_async_completion() {
-        let cleanup = Arc::new(AtomicUsize::new(0));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<Counter>(
-                "counter",
-                CounterInput {
-                    cleanup: Arc::clone(&cleanup),
-                    value: 0,
-                },
-            )],
-        )
-        .unwrap();
-        let reference = host.reference(&Key::from("counter")).unwrap();
-        let completion = host
-            .sender::<Counter>(&Key::from("counter"))
-            .unwrap()
-            .completion();
-
-        host.remove(&Key::from("counter")).unwrap();
-        assert!(
-            std::thread::spawn(move || completion.complete(1))
-                .join()
-                .unwrap()
-        );
-        let report = host.drain(1).unwrap();
-
-        assert_eq!(reference.get(), None);
-        assert_eq!(cleanup.load(Ordering::Relaxed), 1);
-        assert_eq!(report.dropped, 1);
-        assert_eq!(report.dispatched, 0);
-    }
-
-    #[test]
-    fn exit_retirement_does_not_retain_component_or_effect_ownership() {
-        #[derive(Clone)]
-        struct Input(Arc<AtomicUsize>);
-
-        impl PartialEq for Input {
-            fn eq(&self, other: &Self) -> bool {
-                Arc::ptr_eq(&self.0, &other.0)
-            }
-        }
-
-        struct Exiting;
-
-        impl Component for Exiting {
-            type Input = Input;
-            type Message = ();
-
-            fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-                Self
-            }
-
-            fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-                let cleanup = Arc::clone(&input.0);
-                context.use_effect("cleanup", (), move || {
-                    Some(Box::new(move || {
-                        cleanup.fetch_add(1, Ordering::Relaxed);
-                    }))
-                });
-                Button::new().exit_fade(Duration::from_millis(200)).into()
-            }
-        }
-
-        let cleanup = Arc::new(AtomicUsize::new(0));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<Exiting>("exiting", Input(Arc::clone(&cleanup)))],
-        )
-        .unwrap();
-        let reference = host.reference(&Key::from("exiting")).unwrap();
-        let root = reference.get().unwrap();
-
-        host.remove(&Key::from("exiting")).unwrap();
-        assert_eq!(reference.get(), None);
-        assert_eq!(cleanup.load(Ordering::Relaxed), 1);
-        assert!(host.sender::<Exiting>(&Key::from("exiting")).is_none());
-        assert_eq!(host.runtime().graph().retired_count(), 1);
-        assert_eq!(host.runtime().adapter().retirement_count(), 1);
-
-        assert!(host.runtime.adapter_mut().complete_retirement(root));
-        host.drain(1).unwrap();
-        assert_eq!(host.runtime().graph().retired_count(), 0);
-        assert_eq!(host.runtime().adapter().retirement_count(), 0);
-    }
-
-    #[test]
-    fn context_change_renders_only_subscribers() {
-        let context = Rc::new(Context::new(0usize));
-        let subscriber_renders = Arc::new(AtomicUsize::new(0));
-        let other_renders = Arc::new(AtomicUsize::new(0));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [
-                component::<ContextReader>(
-                    "subscriber",
-                    ContextInput {
-                        context: Rc::clone(&context),
-                        renders: Arc::clone(&subscriber_renders),
-                        subscribe: true,
-                    },
-                ),
-                component::<ContextReader>(
-                    "other",
-                    ContextInput {
-                        context: Rc::clone(&context),
-                        renders: Arc::clone(&other_renders),
-                        subscribe: false,
-                    },
-                ),
-            ],
-        )
-        .unwrap();
-
-        let report = host.set_context(&context, 1).unwrap();
-
-        assert_eq!(report.dispatched, 1);
-        assert_eq!(report.mutations, 1);
-        assert_eq!(subscriber_renders.load(Ordering::Relaxed), 2);
-        assert_eq!(other_renders.load(Ordering::Relaxed), 1);
-        assert_eq!(
-            host.set_context(&context, 1).unwrap(),
-            ComponentDrain::default()
-        );
-    }
-
-    #[test]
-    fn context_change_renders_nested_subscribers_once() {
-        let context = Rc::new(Context::new(0usize));
-        let renders = Arc::new(AtomicUsize::new(0));
-        let input = ContextInput {
-            context: Rc::clone(&context),
-            renders: Arc::clone(&renders),
-            subscribe: true,
-        };
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<ContextParent>("parent", input)],
-        )
-        .unwrap();
-        assert_eq!(renders.load(Ordering::Relaxed), 2);
-
-        let report = host.set_context(&context, 1).unwrap();
-        assert_eq!(report.dispatched, 1);
-        assert_eq!(renders.load(Ordering::Relaxed), 4);
-    }
-
-    #[test]
-    fn provided_context_shadows_host_context_across_updates() {
-        let context = Rc::new(Context::new(0usize));
-        let seen = Rc::new(RefCell::new(Vec::new()));
-        let input = ProviderInput {
-            context: Rc::clone(&context),
-            seen: Rc::clone(&seen),
-            value: 1,
-        };
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<ProviderParent>("parent", input.clone())],
-        )
-        .unwrap();
-        assert_eq!(&*seen.borrow(), &[1]);
-
-        assert_eq!(
-            host.set_context(&context, 9).unwrap(),
-            ComponentDrain::default()
-        );
-        assert_eq!(&*seen.borrow(), &[1]);
-
-        host.update_input::<ProviderParent>(
-            &Key::from("parent"),
-            ProviderInput { value: 2, ..input },
-        )
-        .unwrap();
-        assert_eq!(&*seen.borrow(), &[1, 2]);
-
-        let sender = host
-            .sender_at::<ProviderChild>(&[Key::from("parent"), Key::from("child")])
-            .unwrap();
-        assert!(sender.send(()));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(&*seen.borrow(), &[1, 2, 2]);
-    }
-
-    #[test]
-    fn broad_context_update_does_not_scan_all_graph_references_per_consumer() {
-        let count = 16_384;
-        let context = Rc::new(Context::new(0usize));
-        let renders = Arc::new(AtomicUsize::new(0));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            (0..count).map(|index| {
-                component::<ContextReader>(
-                    index,
-                    ContextInput {
-                        context: Rc::clone(&context),
-                        renders: Arc::clone(&renders),
-                        subscribe: true,
-                    },
-                )
-            }),
-        )
-        .unwrap();
-        let scans = host.runtime().graph().full_reference_scan_count();
-
-        let report = host.set_context(&context, 1).unwrap();
-
-        assert_eq!(report.dispatched, count);
-        assert_eq!(host.runtime().graph().full_reference_scan_count(), scans);
-    }
-
-    #[test]
-    fn retirement_cancels_background_delivery() {
-        let input = WorkerInput {
-            cancelled: Arc::new(AtomicUsize::new(0)),
-            started: Arc::new(AtomicUsize::new(0)),
-            task: Arc::new(Mutex::new(None)),
-        };
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<Worker>("worker", input.clone())],
-        )
-        .unwrap();
-        assert!(
-            host.sender::<Worker>(&Key::from("worker"))
-                .unwrap()
-                .send(WorkerMessage::Start)
-        );
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        while input.started.load(Ordering::Acquire) == 0 {
-            std::thread::yield_now();
-        }
-
-        host.remove(&Key::from("worker")).unwrap();
-        while input.cancelled.load(Ordering::Acquire) == 0 {
-            std::thread::yield_now();
-        }
-
-        assert_eq!(
-            input.task.lock().unwrap().as_ref().unwrap().status(),
-            ComponentTaskStatus::Cancelled
-        );
-        assert_eq!(host.drain(1).unwrap(), ComponentDrain::default());
-    }
-
-    #[test]
-    fn ui_local_services_accept_typed_window_requests() {
-        let accepted = Rc::new(Cell::new(None));
-        let input = WindowRequesterInput {
-            accepted: Rc::clone(&accepted),
-        };
-        let ui_services = Rc::new(TestUiServices::default());
-        let mut host = ComponentHost::mount_with_all_services(
-            RecordingAdapter::default(),
-            Arc::new(DefaultComponentServices),
-            ui_services.clone(),
-            [component::<WindowRequester>("requester", input.clone())],
-        )
-        .unwrap();
-        let sender = host
-            .sender::<WindowRequester>(&Key::from("requester"))
-            .unwrap();
-
-        assert!(sender.send(WindowRequestMessage::Open));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(accepted.get(), Some(true));
-        let (root, policy) = ui_services.requests.borrow_mut().pop().unwrap();
-        assert_eq!(
-            policy,
-            WindowPolicy::new()
-                .title("Secondary")
-                .client_size(320.0, 200.0)
-        );
-        let secondary = ComponentHost::mount(RecordingAdapter::default(), [root]).unwrap();
-        let root = secondary
-            .reference_at(&[Key::from("root")])
-            .unwrap()
-            .get()
-            .unwrap();
-        assert_eq!(
-            secondary.runtime().graph().kind(root),
-            Some(ObjectType::TextBlock)
-        );
-        assert!(sender.send(WindowRequestMessage::Activate));
-        assert!(sender.send(WindowRequestMessage::Close));
-        assert_eq!(host.drain(2).unwrap().dispatched, 2);
-        assert_eq!(ui_services.activated.get(), 1);
-        assert_eq!(ui_services.closed.get(), 1);
-        assert!(sender.send(WindowRequestMessage::Run));
-        assert_eq!(host.drain(2).unwrap().dispatched, 2);
-        assert_eq!(accepted.get(), Some(true));
-        assert_eq!(ui_services.operations.get(), 1);
-
-        let mut headless = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<WindowRequester>("requester", input)],
-        )
-        .unwrap();
-        let sender = headless
-            .sender::<WindowRequester>(&Key::from("requester"))
-            .unwrap();
-        assert!(sender.send(WindowRequestMessage::Open));
-        assert_eq!(headless.drain(1).unwrap().dispatched, 1);
-        assert_eq!(accepted.get(), Some(false));
-    }
-
-    #[test]
-    fn component_window_declarations_follow_scope_updates() {
-        let ui_services = Rc::new(TestUiServices::default());
-        let mut host = ComponentHost::mount_with_all_services(
-            RecordingAdapter::default(),
-            Arc::new(DefaultComponentServices),
-            ui_services.clone(),
-            [component::<WindowPublisher>("publisher", true)],
-        )
-        .unwrap();
-
-        let published = ui_services.publications.borrow().last().unwrap().clone();
-        assert_eq!(published.title.as_deref(), Some("Published"));
-        assert_eq!(
-            published.visuals,
-            Some(
-                WindowVisuals::new()
-                    .theme(WindowTheme::Dark)
-                    .backdrop(WindowBackdrop::Mica)
-                    .client_size(640.0, 480.0)
-                    .constraints(WindowConstraints {
-                        min_width: Some(320.0),
-                        min_height: Some(240.0),
-                        max_width: Some(1280.0),
-                        max_height: Some(960.0),
-                    })
-            )
-        );
-        assert!(published.on_color_scheme.is_some());
-        assert!(published.on_size.is_some());
-
-        host.update_input::<WindowPublisher>(&Key::from("publisher"), false)
-            .unwrap();
-        assert_eq!(
-            ui_services.publications.borrow().last().unwrap(),
-            &WindowPublication::default()
-        );
-    }
-
-    #[test]
-    fn duplicate_component_window_declarations_are_rejected() {
-        let result = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [
-                component::<WindowTitlePublisher>("first", "First"),
-                component::<WindowTitlePublisher>("second", "Second"),
-            ],
-        );
-        assert!(matches!(result, Err(ComponentError::DuplicateWindowTitle)));
-
-        let result = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [
-                component::<WindowPublisher>("first", true),
-                component::<WindowPublisher>("second", true),
-            ],
-        );
-        assert!(matches!(
-            result,
-            Err(ComponentError::DuplicateWindowColorScheme)
-        ));
-    }
-
-    #[test]
-    fn local_messages_and_timers_support_ui_thread_values() {
-        let services = Arc::new(TestServices::default());
-        let input = LocalMessageInput {
-            seen: Rc::new(Cell::new(0)),
-            sender: Rc::new(RefCell::new(None)),
-        };
-        let mut host = ComponentHost::mount_with_services(
-            RecordingAdapter::default(),
-            services.clone(),
-            [component::<LocalMessageProbe>("probe", input.clone())],
-        )
-        .unwrap();
-
-        let message = Rc::new(Cell::new(1));
-        assert!(input.sender.borrow().as_ref().unwrap().send(message));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(input.seen.get(), 1);
-
-        services.fire_timer();
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(input.seen.get(), 2);
-    }
-
-    #[test]
-    fn local_and_cross_thread_messages_preserve_enqueue_order() {
-        let input = MessageOrderInput {
-            local: Rc::new(RefCell::new(None)),
-            seen: Rc::new(RefCell::new(Vec::new())),
-        };
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<MessageOrderProbe>("probe", input.clone())],
-        )
-        .unwrap();
-        let remote = host
-            .sender::<MessageOrderProbe>(&Key::from("probe"))
-            .unwrap();
-        let local = input.local.borrow().as_ref().unwrap().clone();
-
-        assert!(remote.send(1));
-        assert!(local.send(2));
-        assert!(local.send(3));
-        assert!(remote.send(4));
-        assert_eq!(host.drain(4).unwrap().dispatched, 4);
-        assert_eq!(&*input.seen.borrow(), &[1, 2, 3, 4]);
-    }
-
-    #[test]
-    fn injected_services_preserve_task_and_timer_statuses() {
-        let services = Arc::new(TestServices::default());
-        let input = ServiceProbeInput::default();
-        let mut host = ComponentHost::mount_with_services(
-            RecordingAdapter::default(),
-            services.clone(),
-            [component::<ServiceProbe>("probe", input.clone())],
-        )
-        .unwrap();
-        let sender = host.sender::<ServiceProbe>(&Key::from("probe")).unwrap();
-
-        assert!(sender.send(ServiceProbeMessage::Background));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(
-            input.task.lock().unwrap().as_ref().unwrap().status(),
-            ComponentTaskStatus::Running
-        );
-        services.run_background();
-        assert_eq!(
-            input.task.lock().unwrap().as_ref().unwrap().status(),
-            ComponentTaskStatus::Queued
-        );
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(
-            input.task.lock().unwrap().as_ref().unwrap().status(),
-            ComponentTaskStatus::Delivered
-        );
-
-        assert!(sender.send(ServiceProbeMessage::Timer));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(
-            input.timer.lock().unwrap().as_ref().unwrap().status(),
-            ComponentTaskStatus::Running
-        );
-        services.fire_timer();
-        assert_eq!(
-            input.timer.lock().unwrap().as_ref().unwrap().status(),
-            ComponentTaskStatus::Queued
-        );
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(
-            input.timer.lock().unwrap().as_ref().unwrap().status(),
-            ComponentTaskStatus::Delivered
-        );
-    }
-
-    #[test]
-    fn retirement_cancels_injected_timer() {
-        let services = Arc::new(TestServices::default());
-        let input = ServiceProbeInput::default();
-        let mut host = ComponentHost::mount_with_services(
-            RecordingAdapter::default(),
-            services.clone(),
-            [component::<ServiceProbe>("probe", input.clone())],
-        )
-        .unwrap();
-        assert!(
-            host.sender::<ServiceProbe>(&Key::from("probe"))
-                .unwrap()
-                .send(ServiceProbeMessage::Timer)
-        );
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-
-        host.remove(&Key::from("probe")).unwrap();
-        assert_eq!(
-            input.timer.lock().unwrap().as_ref().unwrap().status(),
-            ComponentTaskStatus::Cancelled
-        );
-        services.fire_timer();
-        assert_eq!(host.drain(1).unwrap(), ComponentDrain::default());
-    }
-
-    #[test]
-    fn installing_waker_rearms_queued_messages() {
-        let wakes = Arc::new(AtomicUsize::new(0));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<Label>("label", Rc::from("Label"))],
-        )
-        .unwrap();
-        let sender = host.sender::<Label>(&Key::from("label")).unwrap();
-        assert!(sender.send(()));
-        assert_eq!(wakes.load(Ordering::Relaxed), 0);
-
-        let callback_wakes = Arc::clone(&wakes);
-        host.set_waker(move || {
-            callback_wakes.fetch_add(1, Ordering::Relaxed);
-        });
-
-        assert_eq!(wakes.load(Ordering::Relaxed), 1);
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-    }
-
-    #[test]
-    fn queued_messages_coalesce_host_wake() {
-        let wakes = Arc::new(AtomicUsize::new(0));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<Label>("label", Rc::from("Label"))],
-        )
-        .unwrap();
-        let callback_wakes = Arc::clone(&wakes);
-        host.set_waker(move || {
-            callback_wakes.fetch_add(1, Ordering::Relaxed);
-        });
-        let sender = host.sender::<Label>(&Key::from("label")).unwrap();
-
-        assert!(sender.send(()));
-        assert!(sender.send(()));
-        assert!(sender.send(()));
-        assert_eq!(wakes.load(Ordering::Relaxed), 1);
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(wakes.load(Ordering::Relaxed), 2);
-        assert_eq!(host.drain(2).unwrap().dispatched, 2);
-
-        assert!(sender.send(()));
-        assert_eq!(wakes.load(Ordering::Relaxed), 3);
-    }
-
-    #[test]
-    fn component_boundary_preserves_scope_across_root_type_changes() {
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [
-                component::<RootSwitch>("switch", ()),
-                component::<Label>("label", Rc::from("Label")),
-            ],
-        )
-        .unwrap();
-        let switch = host.sender::<RootSwitch>(&Key::from("switch")).unwrap();
-        let label = host.sender::<Label>(&Key::from("label")).unwrap();
-        let switch_reference = host.reference(&Key::from("switch")).unwrap();
-        let label_reference = host.reference(&Key::from("label")).unwrap();
-        let switch_root = switch_reference.get();
-        let label_root = label_reference.get();
-        host.runtime.adapter_mut().record_batches(true);
-
-        assert!(switch.send(()));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(switch_reference.get(), switch_root);
-        assert_eq!(label_reference.get(), label_root);
-        assert!(
-            host.runtime()
-                .adapter()
-                .batches()
-                .last()
-                .unwrap()
-                .iter()
-                .any(|mutation| matches!(
-                    mutation,
-                    Mutation::Replace {
-                        object,
-                        kind: ObjectType::Border
-                    } if Some(*object) == switch_root
-                ))
-        );
-
-        assert!(label.send(()));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(label_reference.get(), label_root);
-    }
-
-    #[test]
-    fn nested_component_updates_through_its_retained_owner() {
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<NestedRoot>("parent", (0.0, true))],
-        )
-        .unwrap();
-        let path = [Key::from("parent"), Key::from("child")];
-        let sender = host.sender_at::<RootSwitch>(&path).unwrap();
-        let reference = host.reference_at(&path).unwrap();
-        let root = reference.get().unwrap();
-        let parent = host.runtime().graph().owner(root).unwrap();
-        assert_eq!(parent.1, RelationId::Content);
-        assert_eq!(
-            host.runtime().graph().kind(root),
-            Some(ObjectType::TextBlock)
-        );
-
-        assert!(sender.send(()));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(reference.get(), Some(root));
-        assert_eq!(host.runtime().graph().kind(root), Some(ObjectType::Border));
-        assert_eq!(host.runtime().graph().owner(root), Some(parent));
-    }
-
-    #[test]
-    fn parent_rerender_preserves_and_retires_nested_scope() {
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<NestedRoot>("parent", (0.0, true))],
-        )
-        .unwrap();
-        let path = [Key::from("parent"), Key::from("child")];
-        let sender = host.sender_at::<RootSwitch>(&path).unwrap();
-        let reference = host.reference_at(&path).unwrap();
-        let child = reference.get();
-
-        host.update_input::<NestedRoot>(&Key::from("parent"), (12.0, true))
-            .unwrap();
-        assert_eq!(reference.get(), child);
-        assert!(host.sender_at::<RootSwitch>(&path).is_some());
-
-        assert!(sender.send(()));
-        host.update_input::<NestedRoot>(&Key::from("parent"), (12.0, false))
-            .unwrap();
-        assert_eq!(reference.get(), None);
-        assert!(host.sender_at::<RootSwitch>(&path).is_none());
-        assert_eq!(host.drain(1).unwrap().dropped, 1);
-
-        host.update_input::<NestedRoot>(&Key::from("parent"), (24.0, true))
-            .unwrap();
-        assert_eq!(host.scopes.len(), 2);
-        let replacement = host.sender_at::<RootSwitch>(&path).unwrap();
-        assert!(sender.send(()));
-        assert_eq!(host.drain(1).unwrap().dropped, 1);
-        assert!(replacement.send(()));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-    }
-
-    #[test]
-    fn native_callbacks_reconcile_before_the_next_native_occurrence() {
-        let rendered = Rc::new(RefCell::new(String::new()));
-        let seen = Rc::new(RefCell::new(Vec::new()));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<OrderedText>(
-                "ordered",
-                OrderedInput {
-                    rendered: Rc::clone(&rendered),
-                    seen: Rc::clone(&seen),
-                },
-            )],
-        )
-        .unwrap();
-        let object = host
-            .reference_at(&[Key::from("ordered")])
-            .unwrap()
-            .get()
-            .unwrap();
-        let callback = match &host.runtime().graph().events(object).unwrap()[0].value {
-            EventValue::String(callback) => callback.clone(),
-            _ => unreachable!(),
-        };
-        for value in ["A", "B"] {
-            host.runtime.adapter_mut().queue_native_event(
-                Some(Observation::SetProperty {
-                    object,
-                    property: Property {
-                        id: PropertyId::Text,
-                        value: PropertyValue::String(Rc::from(value)),
-                    },
-                }),
-                Some(EventDispatch::new(
-                    object,
-                    EventId::TextChanged,
-                    EventValue::String(callback.clone()),
-                    EventPayload::String(Rc::from(value)),
-                )),
-            );
-        }
-
-        let report = host.drain(usize::MAX).unwrap();
-
-        assert_eq!(report.dispatched, 2);
-        assert_eq!(
-            &*seen.borrow(),
-            &[
-                (String::from("A"), String::from("Before")),
-                (String::from("B"), String::from("A")),
-            ]
-        );
-        assert_eq!(rendered.borrow().as_str(), "B");
-    }
-
-    #[test]
-    fn drain_budget_counts_native_work_and_rearms() {
-        let rendered = Rc::new(RefCell::new(String::new()));
-        let seen = Rc::new(RefCell::new(Vec::new()));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<OrderedText>(
-                "ordered",
-                OrderedInput {
-                    rendered,
-                    seen: Rc::clone(&seen),
-                },
-            )],
-        )
-        .unwrap();
-        let object = host
-            .reference_at(&[Key::from("ordered")])
-            .unwrap()
-            .get()
-            .unwrap();
-        let callback = match &host.runtime().graph().events(object).unwrap()[0].value {
-            EventValue::String(callback) => callback.clone(),
-            _ => unreachable!(),
-        };
-        for value in ["A", "B"] {
-            host.runtime.adapter_mut().queue_native_event(
-                None,
-                Some(EventDispatch::new(
-                    object,
-                    EventId::TextChanged,
-                    EventValue::String(callback.clone()),
-                    EventPayload::String(Rc::from(value)),
-                )),
-            );
-        }
-        let continuations = Rc::new(Cell::new(0));
-        let woken = Rc::clone(&continuations);
-        host.set_continuation_waker(move || woken.set(woken.get() + 1));
-
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(seen.borrow().len(), 1);
-        assert_eq!(continuations.get(), 1);
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(seen.borrow().len(), 2);
-    }
-
-    #[test]
-    fn nested_input_update_isolated_to_child_subtree() {
-        let cleanup = Arc::new(AtomicUsize::new(0));
-        let input = CounterInput {
-            cleanup: Arc::clone(&cleanup),
-            value: 1,
-        };
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<CounterParent>("parent", input)],
-        )
-        .unwrap();
-        let path = [Key::from("parent"), Key::from("counter")];
-        let parent = host.reference(&Key::from("parent")).unwrap().get();
-        let child = host.reference_at(&path).unwrap().get();
-        host.runtime.adapter_mut().record_batches(true);
-
-        host.update_input_at::<Counter>(
-            &path,
-            CounterInput {
-                cleanup: Arc::clone(&cleanup),
-                value: 2,
-            },
-        )
-        .unwrap();
-        assert_eq!(host.reference(&Key::from("parent")).unwrap().get(), parent);
-        assert_eq!(host.reference_at(&path).unwrap().get(), child);
-        assert_eq!(cleanup.load(Ordering::Relaxed), 1);
-        assert!(
-            host.runtime()
-                .adapter()
-                .batches()
-                .last()
-                .is_some_and(|batch| batch.iter().all(|mutation| match mutation {
-                    Mutation::SetProperties { object, .. } => Some(*object) == child,
-                    _ => false,
-                }))
-        );
-    }
-
-    #[test]
-    fn nested_keys_are_parent_local_and_stable_through_reorder() {
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [
-                component::<ReorderParent>("left", ()),
-                component::<NestedRoot>("right", (0.0, true)),
-            ],
-        )
-        .unwrap();
-        let first_path = [Key::from("left"), Key::from("first")];
-        let second_path = [Key::from("left"), Key::from("second")];
-        let right_path = [Key::from("right"), Key::from("child")];
-        let first = host.reference_at(&first_path).unwrap().get().unwrap();
-        let second = host.reference_at(&second_path).unwrap().get().unwrap();
-        assert!(host.reference_at(&right_path).unwrap().get().is_some());
-        let parent = host.reference(&Key::from("left")).unwrap().get().unwrap();
-        assert_eq!(
-            host.runtime()
-                .graph()
-                .children(parent, RelationId::Children)
-                .unwrap(),
-            [first, second]
-        );
-
-        assert!(
-            host.sender::<ReorderParent>(&Key::from("left"))
-                .unwrap()
-                .send(())
-        );
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(
-            host.runtime()
-                .graph()
-                .children(parent, RelationId::Children)
-                .unwrap(),
-            [second, first]
-        );
-        assert_eq!(host.reference_at(&first_path).unwrap().get(), Some(first));
-        assert_eq!(host.reference_at(&second_path).unwrap().get(), Some(second));
-    }
-
-    #[test]
-    fn relation_owned_component_keys_preserve_objects_through_reorder() {
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<RelationOwnedReorder>("parent", ())],
-        )
-        .unwrap();
-        let parent = host.reference(&Key::from("parent")).unwrap().get().unwrap();
-        let before = host
-            .runtime()
-            .graph()
-            .children(parent, RelationId::Children)
-            .unwrap()
-            .to_vec();
-
-        assert!(
-            host.sender::<RelationOwnedReorder>(&Key::from("parent"))
-                .unwrap()
-                .send(())
-        );
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(
-            host.runtime()
-                .graph()
-                .children(parent, RelationId::Children)
-                .unwrap(),
-            [before[1], before[0]]
-        );
-    }
-
-    #[test]
-    fn relation_owned_component_keys_include_the_complete_native_path() {
-        let host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<RelationOwnedSiblings>("parent", ())],
-        )
-        .unwrap();
-        let parent = host.reference(&Key::from("parent")).unwrap().get().unwrap();
-        let borders = host
-            .runtime()
-            .graph()
-            .children(parent, RelationId::Children)
-            .unwrap();
-        let first = host
-            .runtime()
-            .graph()
-            .child(borders[0], RelationId::Content)
-            .unwrap();
-        let second = host
-            .runtime()
-            .graph()
-            .child(borders[1], RelationId::Content)
-            .unwrap();
-        assert_ne!(first, second);
-    }
-
-    #[test]
-    fn relation_owned_component_keys_include_component_type() {
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<RelationOwnedTypeSwitch>("parent", ())],
-        )
-        .unwrap();
-        let parent = host.reference(&Key::from("parent")).unwrap().get().unwrap();
-        let before = host
-            .runtime()
-            .graph()
-            .child(parent, RelationId::Content)
-            .unwrap();
-
-        assert!(
-            host.sender::<RelationOwnedTypeSwitch>(&Key::from("parent"))
-                .unwrap()
-                .send(())
-        );
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        let after = host
-            .runtime()
-            .graph()
-            .child(parent, RelationId::Content)
-            .unwrap();
-        assert_ne!(before, after);
-    }
-
-    #[test]
-    fn duplicate_nested_keys_are_rejected_per_parent() {
-        assert!(matches!(
-            ComponentHost::mount(
-                RecordingAdapter::default(),
-                [component::<DuplicateNested>("parent", ())]
-            ),
-            Err(ComponentError::DuplicateKey(key)) if key == Key::from("child")
-        ));
-    }
-
-    #[test]
-    fn component_and_relation_keys_cannot_diverge() {
-        assert!(matches!(
-            ComponentHost::mount(
-                RecordingAdapter::default(),
-                [component::<MismatchedKey>("parent", ())]
-            ),
-            Err(ComponentError::ComponentKey {
-                component,
-                relation
-            }) if component == Key::from("component") && relation == Key::from("relation")
-        ));
-    }
-
-    #[test]
-    fn recursive_component_expansion_enforces_depth_limit() {
-        assert!(matches!(
-            ComponentHost::mount(
-                RecordingAdapter::default(),
-                [component::<RecursiveComponent>("root", MAX_DEPTH + 2)]
-            ),
-            Err(ComponentError::Runtime(UpdateError::Graph(
-                GraphError::DepthExceeded
-            )))
-        ));
-    }
-
-    #[test]
-    fn tree_node_component_content_survives_structural_reorder() {
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<TreeComponents>("tree", ())],
-        )
-        .unwrap();
-        let first_path = [Key::from("tree"), Key::from("first-content")];
-        let second_path = [Key::from("tree"), Key::from("second-content")];
-        let first = host.reference_at(&first_path).unwrap().get().unwrap();
-        let second = host.reference_at(&second_path).unwrap().get().unwrap();
-        assert_eq!(
-            host.runtime().graph().kind(first),
-            Some(ObjectType::StackPanel)
-        );
-        assert_eq!(
-            host.runtime().graph().owner(first).unwrap().1,
-            RelationId::Content
-        );
-
-        assert!(host.sender_at::<TreeContent>(&first_path).unwrap().send(()));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(host.reference_at(&first_path).unwrap().get(), Some(first));
-
-        assert!(
-            host.sender::<TreeComponents>(&Key::from("tree"))
-                .unwrap()
-                .send(())
-        );
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(host.reference_at(&first_path).unwrap().get(), Some(first));
-        assert_eq!(host.reference_at(&second_path).unwrap().get(), Some(second));
-
-        assert!(host.sender_at::<TreeContent>(&first_path).unwrap().send(()));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        assert_eq!(host.reference_at(&first_path).unwrap().get(), Some(first));
-    }
-
-    #[test]
-    fn root_effect_cleanup_precedes_replacement_and_setup_follows_it() {
-        let events = Rc::new(RefCell::new(Vec::new()));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<EffectRootSwitch>(
-                "switch",
-                RootSwitchEffects(Rc::clone(&events)),
-            )],
-        )
-        .unwrap();
-        let sender = host
-            .sender::<EffectRootSwitch>(&Key::from("switch"))
-            .unwrap();
-        let reference = host.reference(&Key::from("switch")).unwrap();
-        let previous = reference.get();
-
-        assert!(sender.send(()));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
-        let next = reference.get();
-
-        assert_eq!(previous, next);
-        assert_eq!(
-            events.borrow().as_slice(),
-            [("setup", previous), ("cleanup", previous), ("setup", next)]
-        );
-    }
-
-    #[test]
-    fn nested_effect_cleanup_sees_root_before_removal() {
-        let events = Rc::new(RefCell::new(Vec::new()));
-        let input = RootSwitchEffects(Rc::clone(&events));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<NestedEffects>("parent", (input.clone(), true))],
-        )
-        .unwrap();
-        let path = [Key::from("parent"), Key::from("effect")];
-        let reference = host.reference_at(&path).unwrap();
-        let root = reference.get();
-        assert_eq!(events.borrow().as_slice(), [("setup", root)]);
-
-        host.update_input::<NestedEffects>(&Key::from("parent"), (input, false))
-            .unwrap();
-        assert_eq!(
-            events.borrow().as_slice(),
-            [("setup", root), ("cleanup", root)]
-        );
-        assert_eq!(reference.get(), None);
-    }
-
-    #[test]
-    fn invalid_update_poisons_host_and_cleans_active_effects() {
-        let events = Rc::new(RefCell::new(Vec::new()));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<InvalidEffectUpdate>(
-                "invalid",
-                RootSwitchEffects(Rc::clone(&events)),
-            )],
-        )
-        .unwrap();
-        let sender = host
-            .sender::<InvalidEffectUpdate>(&Key::from("invalid"))
-            .unwrap();
-        let wakes = Arc::new(AtomicUsize::new(0));
-        let callback_wakes = Arc::clone(&wakes);
-        host.set_waker(move || {
-            callback_wakes.fetch_add(1, Ordering::Relaxed);
-        });
-
-        assert!(sender.send(()));
-        assert!(sender.send(()));
-        assert_eq!(wakes.load(Ordering::Relaxed), 1);
-        assert!(matches!(
-            host.drain(1),
-            Err(ComponentError::Runtime(UpdateError::Graph(
-                GraphError::DuplicateKey(_)
-            )))
-        ));
-        assert_eq!(wakes.load(Ordering::Relaxed), 1);
-        assert_eq!(
-            events.borrow().as_slice(),
-            [("setup", None), ("cleanup", None)]
-        );
-        assert!(
-            host.sender::<InvalidEffectUpdate>(&Key::from("invalid"))
-                .is_none()
-        );
-        assert!(matches!(
-            host.drain(1),
-            Err(ComponentError::Runtime(UpdateError::Poisoned))
-        ));
-
-        drop(host);
-        assert_eq!(
-            events.borrow().as_slice(),
-            [("setup", None), ("cleanup", None)]
-        );
-    }
-
-    #[test]
-    fn input_state_change_followed_by_adapter_error_poisons_same_input_retry() {
-        let fail_after = Rc::new(Cell::new(None));
-        let successful = Rc::new(Cell::new(0));
-        let changes = Rc::new(Cell::new(0));
-        let mut host = ComponentHost::mount(
-            ControlledApplyAdapter {
-                fail_after: Rc::clone(&fail_after),
-                inner: RecordingAdapter::default(),
-                successful,
-            },
-            [component::<StatefulInputComponent>(
-                "input",
-                StatefulInput {
-                    changes: Rc::clone(&changes),
-                    value: 0,
-                },
-            )],
-        )
-        .unwrap();
-        let reference = host.reference(&Key::from("input")).unwrap();
-        fail_after.set(Some(0));
-        let next = StatefulInput {
-            changes: Rc::clone(&changes),
-            value: 1,
-        };
-
-        assert!(matches!(
-            host.update_input::<StatefulInputComponent>(&Key::from("input"), next.clone()),
-            Err(ComponentError::Runtime(UpdateError::Adapter(())))
-        ));
-        assert_eq!(changes.get(), 1);
-        assert_eq!(reference.get(), None);
-        assert!(matches!(
-            host.update_input::<StatefulInputComponent>(&Key::from("input"), next),
-            Err(ComponentError::Runtime(UpdateError::Poisoned))
-        ));
-    }
-
-    #[test]
-    fn closed_queue_rejects_stale_sender_completion_and_callback() {
-        let fail_after = Rc::new(Cell::new(None));
-        let rendered = Rc::new(RefCell::new(String::new()));
-        let seen = Rc::new(RefCell::new(Vec::new()));
-        let input = OrderedInput {
-            rendered: Rc::clone(&rendered),
-            seen: Rc::clone(&seen),
-        };
-        let changes = Rc::new(Cell::new(0));
-        let mut host = ComponentHost::mount(
-            ControlledApplyAdapter {
-                fail_after: Rc::clone(&fail_after),
-                inner: RecordingAdapter::default(),
-                successful: Rc::new(Cell::new(0)),
-            },
-            [
-                component::<OrderedText>("ordered", input),
-                component::<StatefulInputComponent>(
-                    "poison",
-                    StatefulInput {
-                        changes: Rc::clone(&changes),
-                        value: 0,
-                    },
-                ),
-            ],
-        )
-        .unwrap();
-        let sender = host.sender::<OrderedText>(&Key::from("ordered")).unwrap();
-        let completion = sender.completion();
-        let object = host
-            .reference(&Key::from("ordered"))
-            .unwrap()
-            .get()
-            .unwrap();
-        let EventValue::String(callback) = host.runtime().graph().events(object).unwrap()[0]
-            .value
-            .clone()
-        else {
-            panic!("expected string callback");
-        };
-        fail_after.set(Some(0));
-
-        assert!(matches!(
-            host.update_input::<StatefulInputComponent>(
-                &Key::from("poison"),
-                StatefulInput { changes, value: 1 }
-            ),
-            Err(ComponentError::Runtime(UpdateError::Adapter(())))
-        ));
-        assert!(host.queue.lock().unwrap().closed);
-        assert!(!sender.send(String::from("sender")));
-        assert!(!completion.complete(String::from("completion")));
-        callback.call(Rc::from("callback"));
-        assert!(host.queue.lock().unwrap().messages.is_empty());
-        assert_eq!(
-            seen.borrow().as_slice(),
-            [(String::from("callback"), String::from("Before"))]
-        );
-    }
-
-    #[test]
-    fn queue_capacity_and_closure_release_all_payloads() {
-        let fail_after = Rc::new(Cell::new(None));
-        let drops = Arc::new(AtomicUsize::new(0));
-        let mut host = ComponentHost::mount(
-            ControlledApplyAdapter {
-                fail_after: Rc::clone(&fail_after),
-                inner: RecordingAdapter::default(),
-                successful: Rc::new(Cell::new(0)),
-            },
-            [component::<PayloadComponent>("payload", 0)],
-        )
-        .unwrap();
-        let sender = host
-            .sender::<PayloadComponent>(&Key::from("payload"))
-            .unwrap();
-        for _ in 0..MESSAGE_CAPACITY {
-            assert!(sender.send(DropPayload(Arc::clone(&drops))));
-        }
-        assert!(!sender.send(DropPayload(Arc::clone(&drops))));
-        assert_eq!(drops.load(Ordering::Relaxed), 1);
-        fail_after.set(Some(0));
-
-        assert!(matches!(
-            host.update_input::<PayloadComponent>(&Key::from("payload"), 1),
-            Err(ComponentError::Runtime(UpdateError::Adapter(())))
-        ));
-        assert_eq!(drops.load(Ordering::Relaxed), MESSAGE_CAPACITY + 1);
-        assert!(!sender.send(DropPayload(Arc::clone(&drops))));
-        assert_eq!(drops.load(Ordering::Relaxed), MESSAGE_CAPACITY + 2);
-        assert!(host.queue.lock().unwrap().messages.is_empty());
-    }
-
-    #[test]
-    fn controlled_task_send_after_closure_is_cancelled_or_rejected() {
-        let services = Arc::new(TestServices::default());
-        let task_input = ServiceProbeInput::default();
-        let fail_after = Rc::new(Cell::new(None));
-        let changes = Rc::new(Cell::new(0));
-        let mut host = ComponentHost::mount_with_services(
-            ControlledApplyAdapter {
-                fail_after: Rc::clone(&fail_after),
-                inner: RecordingAdapter::default(),
-                successful: Rc::new(Cell::new(0)),
-            },
-            services,
-            [
-                component::<ServiceProbe>("task", task_input.clone()),
-                component::<StatefulInputComponent>(
-                    "poison",
-                    StatefulInput {
-                        changes: Rc::clone(&changes),
-                        value: 0,
-                    },
-                ),
-            ],
-        )
-        .unwrap();
-        let sender = host.sender::<ServiceProbe>(&Key::from("task")).unwrap();
-        assert!(sender.send(ServiceProbeMessage::Background));
-        host.drain(1).unwrap();
-        let task = task_input.task.lock().unwrap().as_ref().unwrap().clone();
-        let control = Arc::clone(&task.control);
-        assert!(control.queue());
-        fail_after.set(Some(0));
-
-        assert!(matches!(
-            host.update_input::<StatefulInputComponent>(
-                &Key::from("poison"),
-                StatefulInput { changes, value: 1 }
-            ),
-            Err(ComponentError::Runtime(UpdateError::Adapter(())))
-        ));
-        assert_eq!(task.status(), ComponentTaskStatus::Cancelled);
-        assert!(!sender.send_controlled(
-            ServiceProbeMessage::BackgroundComplete,
-            Arc::clone(&control)
-        ));
-        assert_eq!(control.status(), ComponentTaskStatus::Cancelled);
-
-        let untracked = Arc::new(TaskControl::default());
-        assert!(untracked.queue());
-        assert!(!sender.send_controlled(
-            ServiceProbeMessage::BackgroundComplete,
-            Arc::clone(&untracked)
-        ));
-        assert_eq!(untracked.status(), ComponentTaskStatus::Rejected);
-    }
-
-    #[test]
-    fn context_failure_after_one_consumer_commit_poisons_every_consumer() {
-        let context = Rc::new(Context::new(0usize));
-        let fail_after = Rc::new(Cell::new(None));
-        let successful = Rc::new(Cell::new(0));
-        let first_renders = Arc::new(AtomicUsize::new(0));
-        let second_renders = Arc::new(AtomicUsize::new(0));
-        let mut host = ComponentHost::mount(
-            ControlledApplyAdapter {
-                fail_after: Rc::clone(&fail_after),
-                inner: RecordingAdapter::default(),
-                successful: Rc::clone(&successful),
-            },
-            [
-                component::<ContextReader>(
-                    "first",
-                    ContextInput {
-                        context: Rc::clone(&context),
-                        renders: Arc::clone(&first_renders),
-                        subscribe: true,
-                    },
-                ),
-                component::<ContextReader>(
-                    "second",
-                    ContextInput {
-                        context: Rc::clone(&context),
-                        renders: Arc::clone(&second_renders),
-                        subscribe: true,
-                    },
-                ),
-            ],
-        )
-        .unwrap();
-        let first = host.reference(&Key::from("first")).unwrap();
-        let second = host.reference(&Key::from("second")).unwrap();
-        let baseline = successful.get();
-        fail_after.set(Some(1));
-
-        assert!(matches!(
-            host.set_context(&context, 1),
-            Err(ComponentError::Runtime(UpdateError::Adapter(())))
-        ));
-        assert_eq!(successful.get(), baseline + 1);
-        assert_eq!(first_renders.load(Ordering::Relaxed), 2);
-        assert_eq!(second_renders.load(Ordering::Relaxed), 2);
-        assert_eq!(first.get(), None);
-        assert_eq!(second.get(), None);
-        assert!(matches!(
-            host.set_context(&context, 1),
-            Err(ComponentError::Runtime(UpdateError::Poisoned))
-        ));
-    }
-
-    #[test]
-    fn callback_triggered_render_failure_poisons_host() {
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<CallbackRenderFailure>("callback", ())],
-        )
-        .unwrap();
-        let reference = host.reference(&Key::from("callback")).unwrap();
-        let object = reference.get().unwrap();
-        let event = host.runtime().graph().events(object).unwrap()[0].clone();
-        host.queue_event(EventDispatch::new(
-            object,
-            event.id,
-            event.value,
-            EventPayload::Unit,
-        ));
-
-        assert!(matches!(
-            host.drain(usize::MAX),
-            Err(ComponentError::Runtime(UpdateError::Graph(
-                GraphError::DuplicateKey(_)
-            )))
-        ));
-        assert_eq!(reference.get(), None);
-        assert!(matches!(
-            host.drain(1),
-            Err(ComponentError::Runtime(UpdateError::Poisoned))
-        ));
-    }
-
-    #[test]
-    fn captureless_component_callbacks_keep_event_identity() {
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<StableForward>("callback", ())],
-        )
-        .unwrap();
-        let object = host
-            .reference(&Key::from("callback"))
-            .unwrap()
-            .get()
-            .unwrap();
-        let before = host.runtime().graph().events(object).unwrap()[0].clone();
-        host.queue_event(EventDispatch::new(
-            object,
-            before.id,
-            before.value.clone(),
-            EventPayload::Unit,
-        ));
-
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 1);
-        let after = host.runtime().graph().events(object).unwrap()[0].clone();
-        assert_eq!(before.value, after.value);
-    }
-
-    #[test]
-    fn virtual_rows_own_components_only_while_realized() {
-        let events = Rc::new(RefCell::new(Vec::new()));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<VirtualParent>(
-                "virtual",
-                VirtualEffectLog(Rc::clone(&events)),
-            )],
-        )
-        .unwrap();
-        let root = host.runtime().graph().root().unwrap();
-        let collection = host
-            .runtime()
-            .graph()
-            .children(root, RelationId::Children)
-            .unwrap()[0];
-        assert_eq!(host.runtime().adapter().object_count(), 2);
-
-        host.runtime
-            .adapter_mut()
-            .queue_realization(RealizationRequest::Realize {
-                collection,
-                container: RealizedContainer(1),
-                index: 9_999,
-                source_revision: 0,
-            });
-        host.drain(10).unwrap();
-        assert_eq!(events.borrow().as_slice(), ["setup"]);
-        assert_eq!(host.runtime().adapter().object_count(), 3);
-
-        host.runtime
-            .adapter_mut()
-            .queue_realization(RealizationRequest::Recycle {
-                collection,
-                container: RealizedContainer(1),
-                source_revision: 0,
-            });
-        host.drain(10).unwrap();
-        assert_eq!(events.borrow().as_slice(), ["setup", "cleanup"]);
-        assert_eq!(host.runtime().adapter().object_count(), 2);
-    }
-
-    #[test]
-    fn pending_virtual_work_precedes_queued_component_messages() {
-        let events = Rc::new(RefCell::new(Vec::new()));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<VirtualParent>(
-                "virtual",
-                VirtualEffectLog(Rc::clone(&events)),
-            )],
-        )
-        .unwrap();
-        let root = host.runtime().graph().root().unwrap();
-        let collection = host
-            .runtime()
-            .graph()
-            .children(root, RelationId::Children)
-            .unwrap()[0];
-
-        host.runtime
-            .adapter_mut()
-            .queue_realization(RealizationRequest::Realize {
-                collection,
-                container: RealizedContainer(1),
-                index: 9_999,
-                source_revision: 0,
-            });
-        assert!(
-            host.sender::<VirtualParent>(&Key::from("virtual"))
-                .unwrap()
-                .send(())
-        );
-
-        assert_eq!(host.drain(10).unwrap().dispatched, 1);
-        assert_eq!(events.borrow().as_slice(), ["setup"]);
-    }
-
-    #[test]
-    fn component_update_drains_pending_virtual_work_exactly_once() {
-        let events = Rc::new(RefCell::new(Vec::new()));
-        let input = VirtualEffectLog(Rc::clone(&events));
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<VirtualParent>("virtual", input.clone())],
-        )
-        .unwrap();
-        let root = host.runtime().graph().root().unwrap();
-        let collection = host
-            .runtime()
-            .graph()
-            .children(root, RelationId::Children)
-            .unwrap()[0];
-
-        host.runtime
-            .adapter_mut()
-            .queue_realization(RealizationRequest::Realize {
-                collection,
-                container: RealizedContainer(1),
-                index: 9_999,
-                source_revision: 0,
-            });
-        host.update_input::<VirtualParent>(&Key::from("virtual"), input.clone())
-            .unwrap();
-        assert_eq!(events.borrow().as_slice(), ["setup"]);
-        assert_eq!(host.runtime().adapter().object_count(), 3);
-        host.drain(10).unwrap();
-        assert_eq!(events.borrow().as_slice(), ["setup"]);
-
-        host.runtime
-            .adapter_mut()
-            .queue_realization(RealizationRequest::Recycle {
-                collection,
-                container: RealizedContainer(1),
-                source_revision: 0,
-            });
-        host.update_input::<VirtualParent>(&Key::from("virtual"), input)
-            .unwrap();
-        assert_eq!(events.borrow().as_slice(), ["setup", "cleanup"]);
-        assert_eq!(host.runtime().adapter().object_count(), 2);
-        host.drain(10).unwrap();
-        assert_eq!(events.borrow().as_slice(), ["setup", "cleanup"]);
-    }
-
-    #[test]
-    fn virtual_cleanup_precedes_native_recycle_publication() {
-        let (mut host, input, collection) = virtual_cleanup_host(false, false);
-        let object = input.reference.get();
-        assert!(object.is_some());
-        assert_eq!(
-            input.task.lock().unwrap().as_ref().unwrap().status(),
-            ComponentTaskStatus::Running
-        );
-
-        host.runtime
-            .adapter_mut()
-            .inner
-            .queue_realization(RealizationRequest::Recycle {
-                collection,
-                container: RealizedContainer(1),
-                source_revision: 0,
-            });
-        host.drain(10).unwrap();
-
-        assert_eq!(
-            input.events.borrow().as_slice(),
-            [(object, false, ComponentTaskStatus::Cancelled)]
-        );
-        assert!(input.published.get());
-        assert_eq!(input.reference.get(), None);
-    }
-
-    #[test]
-    fn virtual_cleanup_is_committed_once_when_native_recycle_apply_fails() {
-        let (mut host, input, collection) = virtual_cleanup_host(false, true);
-        let object = input.reference.get();
-
-        host.runtime
-            .adapter_mut()
-            .inner
-            .queue_realization(RealizationRequest::Recycle {
-                collection,
-                container: RealizedContainer(1),
-                source_revision: 0,
-            });
-        assert!(matches!(
-            host.drain(10),
-            Err(ComponentError::Runtime(UpdateError::Adapter(())))
-        ));
-        assert_eq!(
-            input.events.borrow().as_slice(),
-            [(object, false, ComponentTaskStatus::Cancelled)]
-        );
-        assert!(input.published.get());
-        assert_eq!(input.reference.get(), None);
-
-        drop(host);
-        assert_eq!(input.events.borrow().len(), 1);
-    }
-
-    #[test]
-    fn virtual_cleanup_waits_for_successful_recycle_validation() {
-        let (mut host, input, collection) = virtual_cleanup_host(true, false);
-
-        host.runtime
-            .adapter_mut()
-            .inner
-            .queue_realization(RealizationRequest::Recycle {
-                collection,
-                container: RealizedContainer(1),
-                source_revision: 0,
-            });
-        assert!(matches!(
-            host.drain(10),
-            Err(ComponentError::Runtime(UpdateError::Adapter(())))
-        ));
-        assert_eq!(input.events.borrow().len(), 1);
-        assert!(!input.published.get());
-        assert_eq!(
-            input.task.lock().unwrap().as_ref().unwrap().status(),
-            ComponentTaskStatus::Cancelled
-        );
-
-        drop(host);
-        assert_eq!(input.events.borrow().len(), 1);
-    }
-}
+#[path = "tests/component/mod.rs"]
+mod tests;
+
+#[cfg(any(test, feature = "test"))]
+#[path = "test_support/component.rs"]
+mod test_support;
+#[cfg(any(test, feature = "test"))]
+pub use test_support::*;
