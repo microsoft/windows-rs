@@ -35,21 +35,20 @@ fn write_record(
     hoisted: &mut Vec<(String, TokenStream)>,
 ) -> Result<TokenStream, Error> {
     let nested: Vec<metadata::reader::TypeDef> = item.index().nested(*item).collect();
+    let record_name = item.full_name();
 
-    let bare: HashSet<String> = item
+    let inline_names: HashSet<String> = item
         .fields()
         .filter_map(|field| match field.ty() {
-            metadata::Type::ValueName(tn) if tn.namespace.is_empty() && !tn.name.contains('/') => {
-                Some(tn.name)
-            }
+            metadata::Type::ValueName(tn) => nested_leaf(&tn, &record_name).map(str::to_string),
             _ => None,
         })
         .collect();
 
-    // Non-bare nested references must be hoisted to flat helper names.
+    // Nested types without a direct value field need flat helper names.
     let mut flat_names: HashMap<String, String> = HashMap::new();
     for (index, child) in nested.iter().enumerate() {
-        if bare.contains(child.name()) {
+        if inline_names.contains(child.name()) {
             continue;
         }
         let flat_name = format!("{}_{index}", item.name());
@@ -68,7 +67,7 @@ fn write_record(
 
     let inline_map: HashMap<String, metadata::reader::TypeDef> = nested
         .iter()
-        .filter(|child| bare.contains(child.name()))
+        .filter(|child| inline_names.contains(child.name()))
         .map(|child| (child.name().to_string(), *child))
         .collect();
 
@@ -76,8 +75,8 @@ fn write_record(
         .fields()
         .map(|field| -> Result<TokenStream, Error> {
             if let metadata::Type::ValueName(tn) = field.ty()
-                && tn.namespace.is_empty()
-                && let Some(child) = inline_map.get(&tn.name)
+                && let Some(leaf) = nested_leaf(&tn, &record_name)
+                && let Some(child) = inline_map.get(leaf)
             {
                 let effective_arches = parent_arches | child.arches();
                 let effective_packing = packing_of(child).or(parent_packing);
@@ -94,7 +93,7 @@ fn write_record(
                     write_custom_attributes(field.attributes(), namespace, field.index())?;
                 return Ok(quote! { #(#field_attrs)* #name: #inner, });
             }
-            write_field_flat(namespace, &field, &flat_names)
+            write_field_flat(namespace, &field, &record_name, &flat_names)
         })
         .collect::<Result<Vec<_>, _>>()?;
 
@@ -161,9 +160,10 @@ fn hoist_subtree(
     }
 
     let name_ident = write_ident(flat_name);
+    let record_name = node.full_name();
     let fields: Vec<TokenStream> = node
         .fields()
-        .map(|field| write_field_flat(namespace, &field, &child_flat_names))
+        .map(|field| write_field_flat(namespace, &field, &record_name, &child_flat_names))
         .collect::<Result<Vec<_>, _>>()?;
     let keyword = struct_keyword(node);
     let arch_attr = write_arch_attr(arches);
@@ -192,10 +192,11 @@ fn packing_of(item: &metadata::reader::TypeDef) -> Option<u16> {
 fn write_field_flat(
     namespace: &str,
     item: &metadata::reader::Field,
+    record_name: &metadata::TypeName,
     flat_names: &HashMap<String, String>,
 ) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
-    let resolved_ty = resolve_nested(&item.ty(), namespace, flat_names);
+    let resolved_ty = resolve_nested(&item.ty(), namespace, record_name, flat_names);
     let ty = write_type(namespace, &resolved_ty);
 
     // Bit-field backing units render as C-like blocks instead of raw attributes.
@@ -254,29 +255,41 @@ fn write_bitfield_block(members: &[(String, u32, u32)]) -> Vec<TokenStream> {
     out
 }
 
+fn nested_leaf<'a>(name: &'a metadata::TypeName, parent: &metadata::TypeName) -> Option<&'a str> {
+    // Accept the unscoped leaf references in existing metadata as well.
+    if name.namespace.is_empty() && !name.name.contains('/') {
+        return Some(&name.name);
+    }
+    let (outer, leaf) = name.name.rsplit_once('/')?;
+    (name.namespace == parent.namespace && outer == parent.name).then_some(leaf)
+}
+
 fn resolve_nested(
     ty: &metadata::Type,
     namespace: &str,
+    record_name: &metadata::TypeName,
     flat_names: &HashMap<String, String>,
 ) -> metadata::Type {
     match ty {
-        metadata::Type::ValueName(tn) if tn.namespace.is_empty() => {
-            let leaf = tn.name.rsplit('/').next().unwrap_or(&tn.name);
-            if let Some(flat) = flat_names.get(leaf) {
+        metadata::Type::ValueName(tn) => {
+            if let Some(leaf) = nested_leaf(tn, record_name)
+                && let Some(flat) = flat_names.get(leaf)
+            {
                 metadata::Type::value_named(namespace, flat)
             } else {
                 ty.clone()
             }
         }
-        metadata::Type::ArrayFixed(inner, len) => {
-            metadata::Type::ArrayFixed(Box::new(resolve_nested(inner, namespace, flat_names)), *len)
-        }
+        metadata::Type::ArrayFixed(inner, len) => metadata::Type::ArrayFixed(
+            Box::new(resolve_nested(inner, namespace, record_name, flat_names)),
+            *len,
+        ),
         metadata::Type::PtrMut(inner, ptrs) => metadata::Type::PtrMut(
-            Box::new(resolve_nested(inner, namespace, flat_names)),
+            Box::new(resolve_nested(inner, namespace, record_name, flat_names)),
             *ptrs,
         ),
         metadata::Type::PtrConst(inner, ptrs) => metadata::Type::PtrConst(
-            Box::new(resolve_nested(inner, namespace, flat_names)),
+            Box::new(resolve_nested(inner, namespace, record_name, flat_names)),
             *ptrs,
         ),
         _ => ty.clone(),

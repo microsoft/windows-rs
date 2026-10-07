@@ -171,7 +171,7 @@ impl<'a> Blob<'a> {
                 if let TypeDefOrRef::TypeSpec(def) = tdr {
                     def.ty(generics)
                 } else {
-                    Type::ValueName(TypeName::named(tdr.namespace(), tdr.name()))
+                    Type::ValueName(tdr.full_name())
                 }
             }
             ELEMENT_TYPE_CLASS => {
@@ -179,7 +179,7 @@ impl<'a> Blob<'a> {
                 if let TypeDefOrRef::TypeSpec(def) = tdr {
                     def.ty(generics)
                 } else {
-                    Type::ClassName(TypeName::named(tdr.namespace(), tdr.name()))
+                    Type::ClassName(tdr.full_name())
                 }
             }
             ELEMENT_TYPE_VAR => generics[self.read_compressed()].clone(),
@@ -216,11 +216,8 @@ impl<'a> Blob<'a> {
                     ty_generics.push(self.read_type_code(generics));
                 }
 
-                let type_name = TypeName {
-                    namespace: ty.namespace().to_string(),
-                    name: ty.name().to_string(),
-                    generics: ty_generics,
-                };
+                let mut type_name = ty.full_name();
+                type_name.generics = ty_generics;
 
                 if type_code == ELEMENT_TYPE_VALUETYPE {
                     Type::ValueName(type_name)

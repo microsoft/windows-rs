@@ -194,7 +194,10 @@ impl File {
     pub fn TypeSpec(&mut self, namespace: &str, name: &str, generics: &[Type]) -> TypeSpec {
         debug_assert!(!generics.is_empty());
         // Avoid doubling an existing generic arity suffix read from a winmd.
-        let base = name.split_once('`').map_or(name, |(base, _)| base);
+        let base = name
+            .rsplit_once('`')
+            .filter(|(_, arity)| !arity.contains('/'))
+            .map_or(name, |(base, _)| base);
         let name = format!("{base}`{}", generics.len());
         let type_ref = self.TypeRef(namespace, &name);
 
@@ -528,7 +531,10 @@ impl File {
         let pos = if !generics.is_empty() {
             buffer.push(ELEMENT_TYPE_GENERICINST);
             // Strip any existing `N suffix before re-deriving it (see TypeSpec).
-            let base = name.split_once('`').map_or(name, |(base, _)| base);
+            let base = name
+                .rsplit_once('`')
+                .filter(|(_, arity)| !arity.contains('/'))
+                .map_or(name, |(base, _)| base);
             let name = format!("{base}`{}", generics.len());
             self.TypeRef(namespace, &name)
         } else {

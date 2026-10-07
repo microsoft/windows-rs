@@ -1,0 +1,26 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[arch(X86)]
+    struct ArchNest {
+        Anonymous: struct {
+            value: u32,
+        },
+    }
+    #[arch(X64 | Arm64)]
+    struct ArchNest {
+        Anonymous: struct {
+            value: u64,
+        },
+    }
+    struct Outer {
+        header: u32,
+        Anonymous: union {
+            integer: i32,
+            nested: struct {
+                value: f32,
+            },
+        },
+        tail: u16,
+    }
+}

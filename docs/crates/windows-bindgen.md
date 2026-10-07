@@ -233,6 +233,11 @@ signatures, dependencies, and remapping. Separate writers preserve the different
 - Win32 also has free exports, constants, handles, unions, nested types, and architecture-specific
   layout.
 
+Nested record references retain their outer namespace and enclosing type path from metadata.
+Bindgen resolves direct children against the containing record's architecture variant and keeps
+the generated flat helper names. Existing unscoped leaf references remain supported.
+`test_bindgen`'s `struct_nested_anon` fixture covers nested unions, structs, and architecture variants.
+
 ### Bit-field accessors
 
 Winmd has no bit-field syntax. The header pipeline stores each run in an integer field named
