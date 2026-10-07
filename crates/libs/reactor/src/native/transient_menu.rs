@@ -188,6 +188,8 @@ impl MenuThemeState {
                 return Ok(());
             }
         };
+        // Record the in-flight theme before native code can reenter. Setter failures terminate
+        // the application; only registry read failures are recoverable.
         if self.applied.replace(theme) != theme {
             self.anchor.SetRequestedTheme(theme)?;
         }
