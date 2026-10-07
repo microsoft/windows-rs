@@ -262,3 +262,17 @@ source family across declarations, use SAL direction for local calls, and fall b
 SAL has none. Only bounded prefix direction comments are decoded. Remaining WebView2 differences
 include flags-enum policy and alias/tag names. DLL routing and broader annotation/production
 coverage remain gates; see `docs/crates/windows-clang2.md` for the differential and measurements.
+
+### Clang2 issue-driven correctness gate
+
+Open issue repros exposed lost `clang::flag_enum` evidence and output-slot projection for borrowed
+interface objects; both have prototype fixes and regression fixtures. Member alignment and
+double-NUL annotations remain explicit rejections. A native overload experiment showed incorrect
+dispatch for `Echo(int)`/`Echo(float)` despite compiling wrappers: `project.rs` `Builder::interface`
+rejects same-name methods until MSVC vtable ordering is modeled and covered. Do not replace that
+gate with name-based slot-reversal rules. See `docs/crates/windows-clang2.md` for issue scope and
+remaining production gates; these changes do not fix or close the production-backend issues.
+The independent review also found inherited pure virtual overrides emitted as new slots. Capture
+retains compiler override relationships; local projection rejects slot reuse, including implicit
+and indirect overrides, until that ABI is modeled. Existing metadata, RDL, generated bindings, and
+legacy parity are not correctness oracles: use original API contracts and compiler/native evidence.

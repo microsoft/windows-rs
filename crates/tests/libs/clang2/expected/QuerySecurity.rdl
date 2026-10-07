@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    struct QuerySecurity {
+        SecurityInformation: u32,
+        Length: u32,
+    }
+}

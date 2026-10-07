@@ -16,6 +16,7 @@ struct __declspec(uuid("12345678-1234-1234-1234-123456789abc")) IProperties : IU
     virtual HRESULT __stdcall get_Window(/* [out] */ HWND* value) = 0;
     virtual HRESULT __stdcall SetText(/* [in] */ LPCWSTR value) = 0;
     virtual HRESULT __stdcall MatchText(/* [in] */ LPCWSTR value, /* [out] */ BOOL* equal) = 0;
+    virtual HRESULT __stdcall Inspect(/* [in,out] */ IUnknown* value) = 0;
 };
 
 extern "C" IProperties* ComProperties();

@@ -295,6 +295,7 @@ impl<'a> Comparison<'a> {
                                             && a.const_method == b.const_method
                                             && a.ref_qualifier == b.ref_qualifier
                                             && a.pure == b.pure
+                                            && a.overrides == b.overrides
                                             && parameters_match(&a.parameters, &b.parameters)
                                             && exception_specification(&a.ty)
                                                 == exception_specification(&b.ty)
@@ -327,18 +328,20 @@ impl<'a> Comparison<'a> {
                             DeclarationData::Enum {
                                 complete: ac,
                                 scoped: asc,
+                                flags: af,
                                 repr: ar,
                                 variants: av,
                             },
                             DeclarationData::Enum {
                                 complete: bc,
                                 scoped: bsc,
+                                flags: bf,
                                 repr: br,
                                 variants: bv,
                             },
                         ) => {
                             types.push((ar, br));
-                            asc == bsc && (!(*ac && *bc) || av == bv)
+                            asc == bsc && af == bf && (!(*ac && *bc) || av == bv)
                         }
                         (
                             DeclarationData::Function {

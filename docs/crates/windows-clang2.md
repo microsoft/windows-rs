@@ -61,7 +61,7 @@ libclang USR. General unnamed-type identity across different files is not inferr
 | Indirection | Typedef edges, pointer levels, and distinct lvalue/rvalue references. |
 | Arrays | Constant extent or explicitly incomplete extent. |
 | Records | Kind, completeness, layout, fields, bit widths, simple bases, and method signatures. |
-| Enums | Completeness, scopedness, underlying type, and member values. |
+| Enums | Completeness, scopedness, explicit `clang::flag_enum`, underlying type, and member values. |
 | Callables | Prototype kind, calling convention, exception specification, result, and parameter types. |
 | Parameters | Names, SAL annotate strings, MIDL directions, source families, original contexts, and locations. |
 | Variables | Native type and supported integer/floating initializer values, or an explicit unavailable value. |
@@ -86,7 +86,8 @@ members. The graph preserves direct field order, native offsets, member types, a
 Anonymous member names are empty rather than libclang's filename-dependent synthesized spelling.
 The checked owner and field slot distinguish sibling anonymous records even when their USRs match.
 
-Method evidence includes virtual/pure/static/const flags and reference qualifiers. Virtual bases,
+Method evidence includes virtual/pure/static/const flags, reference qualifiers, and compiler-reported
+overridden-method USRs. Virtual bases,
 multiple or data-bearing inheritance, constructors/destructors,
 template specializations, member pointers, and unsupported initializer expressions are reported as
 unavailable evidence. Non-ABI member templates are not modeled. Available record fields remain in
@@ -134,7 +135,7 @@ libclang. The renderer performs no native type classification or dependency disc
 | Surface | Current policy |
 | --- | --- |
 | Records | Ordinary, nonempty structs; verify field offsets, final size, and alignment. |
-| Enums | Complete integer-backed enums; preserve native width, signedness, names, and values. No flags inference. |
+| Enums | Complete integer-backed enums; preserve native width, signedness, names, values, and explicit `clang::flag_enum`. No flags inference. |
 | Local dependencies | Schedule checked complete records; unsupported dependencies fail the plan. |
 | Functions | Fixed prototypes, supported Windows calling conventions, compiler link names. |
 | Parameters | Positional names for functions, native names for methods; supported SAL below. |
@@ -175,6 +176,11 @@ Functions and methods share annotation lowering. `_In_`, `_Out_`, and `_Inout_` 
 writable pointers and preserve output/inout direction with `#[opt]`. `_COM_Outptr_` requires a writable
 `void**` or interface output pointer. A `void**` receives `#[out] #[iid_is]` (the metadata
 `ComOutPtrAttribute`); typed interface outputs retain their interface type and receive `#[out]`.
+
+An interface object pointer and a pointer to an interface slot are different contracts. After
+consuming one native interface pointer level, `_Out_`/`_Inout_` describe mutation of the borrowed
+object, not replacement of the caller's pointer. These project as input interface values;
+optional forms retain optionality. An outer pointer retains its output/inout slot direction.
 
 Buffer annotations preserve their direction and length units:
 
@@ -219,6 +225,10 @@ metadata type. Counted `_z_` forms remain unsupported.
 Local COM methods must be non-static, non-const, and non-ref-qualified. Their calling convention
 must match the RDL system ABI: stdcall for x86, the platform convention for x64 and ARM64.
 Inheritance is represented by a base-interface reference, with declared method order preserved.
+Same-name methods within an interface are rejected: source order is not sufficient to establish
+MSVC's overloaded virtual-method slot order. Rust name disambiguation does not repair that ABI.
+Methods that override inherited slots are also rejected, including implicit and indirect-base
+overrides. Appending their declarations would create slots that do not exist in the native vtable.
 An interface parameter consumes exactly one native pointer/reference level. By-value record results
 are rejected for COM methods on all targets until the downstream aggregate-return ABI is covered.
 Record pointers and free-function record results remain supported.
@@ -283,6 +293,10 @@ Local anonymous-aggregate emission remains an explicit projection error.
 negative narrow values, and the maximum unsigned 64-bit value. RDL and semantic metadata checks
 run on x86, x64, and ARM64. Booleans and unsupported representations fail explicitly. Signed
 constants are sign-extended from the captured representation width before rendering.
+`flag_enums.h` distinguishes an explicit Clang flag marker from an equivalent plain enum.
+The marker becomes `#[flags]` without changing the native representation. Marker presence must
+agree across observations, including forward declarations; mixed annotated/unannotated
+declarations are conservatively rejected. Macro-based flags policy is still outside this slice.
 
 `sal_buffers.h` covers element and byte relationships for functions and methods, forward parameter
 references, direction, and constant count bounds. The redeclaration fixture verifies that renaming
@@ -368,6 +382,10 @@ the default WinMD's actual `Windows.Win32.HWND` contract. `pointer_references.h`
 alias boundaries, output indirection, constant pointers, fields, and incompatible bindings.
 `midl_directions.h` covers function/method directions, SAL precedence, and misleading comments;
 cross-observation mutations verify independent source-family conflicts and order invariance.
+
+`IProperties::Inspect` mutates an existing borrowed interface object. The generated implementation
+trait must accept `Ref<IUnknown>`, not `OutRef<IUnknown>`. Calling the native implementation checks
+the object pointer, QueryInterface result, and reference counts on x64/x86 in debug and release.
 
 ### Multi-TU review and scale probe
 
@@ -467,10 +485,11 @@ RDL hashes remain unchanged within each backend at 2, 4, and 8 TUs. Rewrite decl
 comparisons are 909, 2357, and 5253; type-pair comparisons are 4176, 12530, and 29238. This supports
 continued work on the selected graph, but does not establish a production resource budget.
 
-A fresh two-TU, 79-root release run with the current contracts and filters measured 1027 ms capture,
+A two-TU, 79-root release run after the handle/string contract gate measured 1027 ms capture,
 2349 us resolve, 2459 us project, and 322.7 MiB peak for the rewrite. Legacy measured 6927 ms capture,
 333 ms emit, and 378.9 MiB peak. It used the same cached-input, compilation-excluded method and
-25 ms sampling. This is one run, not a distribution or a refreshed 4/8-TU scaling result.
+25 ms sampling. This predates the issue-driven enum/override changes; it is one run, not a
+distribution or a refreshed 4/8-TU scaling result.
 
 `webview_compare` compares type kinds, attributes, enum/field values, IIDs, base interfaces, method
 order, signatures, import names/libraries, directions, optionality, buffer relationships, and COM
@@ -519,7 +538,7 @@ over the old extractor's lossy output. Proceed through bounded gates, not an unc
 The old `windows-clang` implementation and production generators are unchanged. Inspect the
 worktree before restarting and preserve any local changes.
 
-The current slice has 85 passing integration tests and one passing doctest, with no ignored
+The current slice has 94 passing integration tests and one passing doctest, with no ignored
 WebView2 cutover cases.
 This establishes the covered cases, not production parity or completion of the acceptance matrix.
 
@@ -550,6 +569,8 @@ This establishes the covered cases, not production parity or completion of the a
 | All 79 WebView2 consumer roots project across targets/orders and generated wrappers compile | `test_clang2/tests/webview.rs`, `test_clang2/build.rs` |
 | Bound pointer contracts and MIDL directions preserve eight WebView2 inputs and exact public signatures | `test_clang2/tests/webview.rs::consumer_input_contracts_cutover_gate`, `consumer_wrappers_preserve_public_parameter_shapes` |
 | Handle/string wrappers reach native implementations on x64/x86 | `test_clang2/tests/com.rs::generated_handle_setters_and_strings_reach_native_methods` |
+| Borrowed interface objects remain distinct from output slots in metadata and generated wrappers | `test_clang2/tests/projection.rs::interface_direction_distinguishes_objects_from_pointer_slots`, `test_clang2/tests/com.rs::generated_object_borrows_reach_native_methods` |
+| Explicit enum flags survive; unsupported member layouts, annotations, and overloaded COM methods fail visibly | `test_clang2/tests/projection.rs`, `input/flag_enums.h`, `input/member_alignment.h`, `input/double_null.h`, `input/overloads.h` |
 
 The test crate is at `crates/tests/libs/clang2`. Real-header local COM metadata is covered, with
 synthetic positive and negative controls alongside it. The synthetic ABI fixture executes on x64
@@ -567,6 +588,44 @@ $env:RUSTFLAGS = "-D warnings"
 cargo test -p windows-clang2 -p test_clang2 --quiet
 cargo clippy -p windows-clang2 -p test_clang2 --all-targets --quiet
 ```
+
+### Issue-driven risk gate
+
+Open issue repros challenge the rewrite independently of matching the legacy output. These are
+prototype results, not fixes to the production backend or grounds for closing the issues.
+
+| Issue | Reproduction and current outcome |
+| --- | --- |
+| [#4998](https://github.com/microsoft/windows-rs/issues/4998), in/out interface objects | The exact fixture rejects unsupported `_Outptr_`. Its supported `_COM_Outptr_` counterpart exposed incorrect in/out direction on a borrowed object. Direct object pointers now project as borrowed inputs, while interface output slots retain their direction. Metadata and native COM coverage distinguish both. |
+| [#4967](https://github.com/microsoft/windows-rs/issues/4967), member alignment | `DeviceIoControl` and `QuerySecurity` patterns reject unsupported member alignment on x64/ARM64 rather than emitting incorrect offsets. Their ordinary x86 layouts project. Padding/alignment emission remains a completeness gap. |
+| [#5042](https://github.com/microsoft/windows-rs/issues/5042), double-NUL strings | The exact SAL repro and a control without `_Post_` both reject `_NullNull_terminated_`. This is an explicit unsupported contract, not silent loss. |
+| [#5047](https://github.com/microsoft/windows-rs/issues/5047), explicit enum flags | The repro exposed a lost `clang::flag_enum` marker. Capture, agreement, and projection now preserve it through `FlagsAttribute`, with unchanged width and values and an unflagged negative control. |
+| [#4186](https://github.com/microsoft/windows-rs/issues/4186), duplicate symbols | Relevant C++ cases distinguish rejected free-function output-name collisions from method overloads. A native x64 experiment showed that accepted same-name COM methods could dispatch incorrectly despite distinct generated Rust names. These interfaces now reject before RDL emission. WinRT duplicate properties and architecture overlays are outside this gate. |
+
+The overloaded-method experiment added `Echo(int)` and `Echo(float)` to the native COM fixture.
+The generated integer wrapper returned an incorrect value, even though metadata and Rust compiled.
+Source declaration order cannot stand in for the compiler's vtable order. `overloads.h` retains the
+declarations as a rejection regression on x86, x64, and ARM64; support requires an explicit native
+slot-order contract and executable coverage, not a method-name reversal heuristic.
+
+This gate found correctness defects, not just missing features. Correcting the bounded cases and
+rejecting unproven layouts strengthens the stage boundaries but does not establish that all
+remaining work is completeness. Production Win32/WDK inputs and resource budgets remain unproven.
+
+The independent review found another slot-layout defect: a derived pure virtual override reuses
+an inherited native slot, but appending it in RDL adds a new slot. A compiler check for the Windows
+MSVC target put `IDerived::F` at slot 0 and its new `G` at slot 1; the accepted projection placed
+them at slots 1 and 2. That comparison used native compiler output, not committed bindings.
+Capture now retains `clang_getOverriddenCursors` evidence, agreement checks it, and local
+projection rejects inherited-slot reuse. `interface_overrides.h` covers direct and indirect
+overrides, with and without the `override` keyword, and an external base binding on all three
+targets. Slot reuse remains unsupported rather than guessed. The review established no further
+high-confidence defect within its bounded pointer-contract and SAL/MIDL scope.
+
+Committed metadata, RDL, generated Rust, and the legacy backend are comparison targets, not
+correctness oracles. Annotation meaning requires native API-contract evidence; ABI and layout
+require compiler evidence or native execution. Golden equality and metadata round-trips establish
+consistency only. Caller-provided external bindings remain assumptions unless independently checked.
 
 ### Architecture rules to preserve
 

@@ -50,6 +50,7 @@ pub(super) enum DeclarationData {
     Enum {
         complete: bool,
         scoped: bool,
+        flags: bool,
         repr: Type,
         variants: Vec<(String, Value)>,
     },
@@ -135,6 +136,7 @@ pub(super) struct Method {
     pub const_method: bool,
     pub ref_qualifier: i32,
     pub pure: bool,
+    pub overrides: Vec<String>,
 }
 
 #[derive(Debug, Eq, PartialEq)]

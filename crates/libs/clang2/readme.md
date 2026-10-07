@@ -29,9 +29,14 @@ Repository tests and the inspection example use the shared pinned dependency hel
 Projection currently covers ordinary C-layout records, integer-backed enums, fixed-prototype
 functions, scalar and raw pointer constants, UUID-bearing local COM interfaces, and external type
 bindings. Local interfaces support a single base and pure virtual system-ABI methods, but reject
-by-value record results until the downstream aggregate-return ABI is covered. Supported
-parameter annotations include direction, optional pointers and buffers, COM output pointers, and
-parameter-bound element/byte counts. Constant element counts support nonnegative decimal literals.
+by-value record results until the downstream aggregate-return ABI is covered. Same-name COM methods
+are rejected until native vtable ordering is covered; disambiguating Rust names is not enough.
+Inherited-slot overrides are captured but rejected until projection models slot reuse.
+Explicit `clang::flag_enum` markers survive without changing enum representation.
+
+Supported parameter annotations include direction, optional pointers and buffers, COM output
+pointers, and parameter-bound element/byte counts. Constant element counts support nonnegative
+decimal literals.
 Scalar null-terminated strings require caller-supplied `ProjectionOptions::string_references`,
 keyed by `StringKind`. These trusted metadata value types preserve native constness independently
 of parameter direction; no string namespace or local alias is assumed.
@@ -45,6 +50,8 @@ string annotations still require a matching string binding.
 Declaration-local MIDL prefix comments supply input/output direction when SAL has none. SAL controls
 local-call direction; evidence from each source family must independently agree across declarations.
 Parameterized MIDL relationships, optionality, and retval markers are not decoded.
+Output/inout mutation through a single interface object pointer projects as a borrowed input, not
+a writable interface slot. An additional native pointer level retains its output/inout direction.
 Interface-valued constants have an omission reason in `Plan::omitted`; unsupported projections are
 errors. General SAL lowering and production generator integration are not implemented.
 

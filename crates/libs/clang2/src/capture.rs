@@ -450,6 +450,7 @@ impl Capture<'_> {
                                 clang_Type_getCXXRefQualifier(clang_getCursorType(child))
                             },
                             pure: unsafe { clang_CXXMethod_isPureVirtual(child) } != 0,
+                            overrides: overridden_methods(child),
                         }),
                         CXCursor_Constructor | CXCursor_Destructor => unavailable.push(format!(
                             "{} capture is not implemented",
@@ -491,6 +492,9 @@ impl Capture<'_> {
             CXCursor_EnumDecl => DeclarationData::Enum {
                 complete: unsafe { clang_isCursorDefinition(cursor) } != 0,
                 scoped: unsafe { clang_EnumDecl_isScoped(cursor) } != 0,
+                flags: children(cursor)
+                    .iter()
+                    .any(|child| unsafe { clang_getCursorKind(*child) == CXCursor_FlagEnum }),
                 repr: self.ty(unit, unsafe { clang_getEnumDeclIntegerType(cursor) })?,
                 variants: children(cursor)
                     .into_iter()
@@ -663,6 +667,18 @@ impl Capture<'_> {
         };
         Ok(Type { qualifiers, kind })
     }
+}
+
+fn overridden_methods(cursor: CXCursor) -> Vec<String> {
+    let mut raw = std::ptr::null_mut();
+    let mut count = 0;
+    unsafe { clang_getOverriddenCursors(cursor, &mut raw, &mut count) };
+    let mut methods: Vec<_> = (0..count)
+        .map(|index| string(unsafe { clang_getCursorUSR(*raw.add(index as usize)) }))
+        .collect();
+    unsafe { clang_disposeOverriddenCursors(raw) };
+    methods.sort();
+    methods
 }
 
 fn parameter_comments(cursor: CXCursor, parameters: &[CXCursor]) -> Vec<Vec<Annotation>> {

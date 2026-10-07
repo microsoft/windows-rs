@@ -13,6 +13,277 @@ use sdk::capture_sdk as sdk_capture;
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn explicit_enum_flags_survive_projection() {
+    let snapshot = capture(
+        [Input::new(
+            "flags.hpp",
+            include_str!("../input/flag_enums.h"),
+        )],
+        ARGS,
+        &["NativeFlags", "PlainEnum"],
+    )
+    .unwrap();
+    let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+    assert!(plan.rdl().contains("#[flags]"), "{}", plan.rdl());
+    let index = compile("flag_enums", &plan);
+    for (name, flags) in [("NativeFlags", true), ("PlainEnum", false)] {
+        let Item::Type(ty) = index.expect_item("Test", name) else {
+            panic!()
+        };
+        assert_eq!(ty.find_attribute("FlagsAttribute").is_some(), flags);
+        assert_eq!(ty.underlying_type(), Some(Type::U32));
+        assert_eq!(
+            ty.fields()
+                .filter_map(|field| field.constant())
+                .map(|value| value.value())
+                .collect::<Vec<_>>(),
+            [Value::U32(0), Value::U32(1), Value::U32(2), Value::U32(3)]
+        );
+    }
+}
+
+#[test]
+fn enum_flag_conflicts_cannot_be_hidden_by_external_bindings() {
+    let source = include_str!("../input/flag_enums.h");
+    for other in [
+        source.replace("[[clang::flag_enum]]", ""),
+        "enum NativeFlags : unsigned int;".into(),
+    ] {
+        for swapped in [false, true] {
+            let snapshot = capture(
+                [
+                    Input::new(if swapped { "z.hpp" } else { "a.hpp" }, source),
+                    Input::new(if swapped { "a.hpp" } else { "z.hpp" }, &other),
+                ],
+                ARGS,
+                &["NativeFlags"],
+            )
+            .unwrap();
+            assert!(snapshot.resolve().is_err());
+        }
+    }
+}
+
+#[test]
+fn member_alignment_is_preserved_or_rejected() {
+    for target in ["i686", "x86_64", "aarch64"] {
+        let target_arg = format!("--target={target}-pc-windows-msvc");
+        for root in ["DeviceIoControl", "QuerySecurity"] {
+            let snapshot = capture(
+                [Input::new(
+                    "alignment.hpp",
+                    include_str!("../input/member_alignment.h"),
+                )],
+                &["-x", "c++", &target_arg],
+                &[root],
+            )
+            .unwrap();
+            let resolved = snapshot.resolve().unwrap();
+            let plan = resolved.project(&options());
+            if target == "i686" {
+                let index = compile(root, &plan.unwrap());
+                let Item::Type(ty) = index.expect_item("Test", root) else {
+                    panic!()
+                };
+                assert_eq!(
+                    ty.fields().count(),
+                    if root == "DeviceIoControl" { 4 } else { 2 }
+                );
+            } else {
+                let error = plan.unwrap_err().to_string();
+                assert!(
+                    error.contains("unsupported packing or field alignment"),
+                    "{target}: {error}"
+                );
+            }
+        }
+    }
+}
+
+#[test]
+fn double_null_annotations_are_not_silently_dropped() {
+    for source in [
+        include_str!("../input/double_null.h").to_string(),
+        include_str!("../input/double_null.h").replace("SAL(\"_Post_\")", ""),
+    ] {
+        let snapshot =
+            capture([Input::new("strings.hpp", source)], ARGS, &["MultiString"]).unwrap();
+        let error = snapshot
+            .resolve()
+            .unwrap()
+            .project(&options())
+            .unwrap_err()
+            .to_string();
+        assert!(error.contains("_NullNull_terminated_"), "{error}");
+    }
+}
+
+#[test]
+fn interface_object_direction_is_not_an_output_slot() {
+    let source = include_str!("../input/interface_directions.h");
+    let snapshot = capture([Input::new("objects.hpp", source)], ARGS, &["ITranslator"]).unwrap();
+    assert!(
+        snapshot
+            .resolve()
+            .unwrap()
+            .project(&options())
+            .unwrap_err()
+            .to_string()
+            .contains("_Outptr_")
+    );
+    let snapshot = capture(
+        [Input::new(
+            "objects.hpp",
+            source.replace("annotate(\"_Outptr_\")", "annotate(\"_COM_Outptr_\")"),
+        )],
+        ARGS,
+        &["ITranslator", "MutateObject"],
+    )
+    .unwrap();
+    let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+    assert!(
+        plan.rdl().contains("fn Mutate(&self, #[in] context:"),
+        "{}",
+        plan.rdl()
+    );
+    let index = compile("interface_directions", &plan);
+    let Item::Type(ty) = index.expect_item("Test", "ITranslator") else {
+        panic!()
+    };
+    let methods: Vec<_> = ty.methods().collect();
+    assert_eq!(
+        methods[0].params().next().unwrap().direction(),
+        ParamDirection::Input
+    );
+    assert_eq!(
+        methods[1].params().next().unwrap().direction(),
+        ParamDirection::Output
+    );
+    assert_eq!(
+        methods[0].signature(&[]).types,
+        [Type::class_named("Test", "IContext")]
+    );
+    assert_eq!(
+        methods[1].signature(&[]).types,
+        [Type::PtrMut(
+            Box::new(Type::class_named("Test", "IContext")),
+            1
+        )]
+    );
+    let Item::Fn(function) = index.expect_item("Test", "MutateObject") else {
+        panic!()
+    };
+    assert_eq!(
+        function.params().next().unwrap().direction(),
+        ParamDirection::Input
+    );
+}
+
+#[test]
+fn interface_direction_distinguishes_objects_from_pointer_slots() {
+    for (annotation, object, slot) in [
+        ("_Out_", "#[in] ", "#[out] "),
+        ("_Inout_", "#[in] ", "#[in] #[out] "),
+        ("_Out_opt_", "#[in] #[opt] ", "#[out] #[opt] "),
+        ("_Inout_opt_", "#[in] #[opt] ", "#[in] #[out] #[opt] "),
+    ] {
+        for (pointers, attributes, projected) in
+            [("*", object, "IContext"), ("**", slot, "*mut IContext")]
+        {
+            let source = include_str!("../input/interface_directions.h")
+                .replace(
+                    "annotate(\"_Inout_\")",
+                    &format!("annotate(\"{annotation}\")"),
+                )
+                .replace(
+                    "void MutateObject(_Inout_ IContext*",
+                    &format!("void MutateObject(_Inout_ IContext{pointers}"),
+                );
+            let snapshot =
+                capture([Input::new("objects.hpp", source)], ARGS, &["MutateObject"]).unwrap();
+            let rdl = snapshot
+                .resolve()
+                .unwrap()
+                .project(&options())
+                .unwrap()
+                .rdl();
+            assert!(
+                rdl.contains(&format!("fn MutateObject({attributes}p0: {projected})")),
+                "{rdl}"
+            );
+        }
+    }
+}
+
+#[test]
+fn output_name_collisions_and_unproven_overload_abi_are_rejected() {
+    let source = include_str!("../input/overloads.h");
+    for target in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={target}-pc-windows-msvc");
+        let args = &["-x", "c++", &target];
+        let snapshot = capture([Input::new("overloads.hpp", source)], args, &["Use"]).unwrap();
+        let error = snapshot
+            .resolve()
+            .unwrap()
+            .project(&options())
+            .unwrap_err()
+            .to_string();
+        assert!(error.contains("multiple native entities"), "{error}");
+        let snapshot =
+            capture([Input::new("overloads.hpp", source)], args, &["IOverloads"]).unwrap();
+        let error = snapshot
+            .resolve()
+            .unwrap()
+            .project(&options())
+            .unwrap_err()
+            .to_string();
+        assert!(
+            error.contains("overloaded COM methods require native vtable ordering"),
+            "{error}"
+        );
+    }
+}
+
+#[test]
+fn inherited_virtual_slots_are_not_projected_as_new_methods() {
+    for target in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={target}-pc-windows-msvc");
+        for explicit in [false, true] {
+            let source = include_str!("../input/interface_overrides.h");
+            let source = if explicit {
+                source.to_string()
+            } else {
+                source.replace(" override", "")
+            };
+            for root in ["IDirect", "IIndirect"] {
+                let snapshot = capture(
+                    [Input::new("overrides.hpp", &source)],
+                    &["-x", "c++", &target],
+                    &[root],
+                )
+                .unwrap();
+                let resolved = snapshot.resolve().unwrap();
+                for external_base in [false, true] {
+                    let mut options = options();
+                    if external_base {
+                        options.references.insert(
+                            "IBase".into(),
+                            TypeReference {
+                                namespace: "External".into(),
+                                name: "IUnknown".into(),
+                                kind: ReferenceKind::Interface,
+                            },
+                        );
+                    }
+                    let error = resolved.project(&options).unwrap_err().to_string();
+                    assert!(error.contains("inherited virtual slot"), "{error}");
+                }
+            }
+        }
+    }
+}
+
+#[test]
 fn enums_preserve_representation_values_and_uses() {
     for target in [
         "--target=x86_64-pc-windows-msvc",

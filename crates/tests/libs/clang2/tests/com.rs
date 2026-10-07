@@ -63,6 +63,28 @@ fn counts(stats: &ComStats) -> [u32; 6] {
 }
 
 #[test]
+fn generated_object_borrows_reach_native_methods() {
+    fn _implementation_signature<T: bindings::IProperties_Impl>() {
+        let _: fn(&T, windows_core::Ref<IUnknown>) -> windows_core::Result<()> = T::Inspect;
+    }
+    let properties = unsafe { IProperties::from_raw(sys::ComProperties()) };
+    let mut factory_stats = ComStats::default();
+    let mut instance_stats = ComStats::default();
+    let factory = unsafe {
+        IClassFactory::from_raw(sys::ComFactory(
+            &raw mut factory_stats,
+            &raw mut instance_stats,
+        ))
+    };
+    unsafe {
+        properties.Inspect(&factory).unwrap();
+    }
+    assert_eq!(counts(&factory_stats), [1, 1, 1, 1, 1, 0]);
+    drop(factory);
+    assert_eq!(counts(&factory_stats), [0, 1, 2, 1, 1, 1]);
+}
+
+#[test]
 fn query_clone_and_drop_preserve_identity_and_ownership() {
     let mut factory_stats = ComStats::default();
     let mut instance_stats = ComStats::default();

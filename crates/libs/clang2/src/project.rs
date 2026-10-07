@@ -69,7 +69,14 @@ impl Plan {
                     output.push_str("    }\n");
                 }
                 Item::Alias(ty) => writeln!(output, "    type {name} = {};", ty.text()).unwrap(),
-                Item::Enum { repr, variants } => {
+                Item::Enum {
+                    repr,
+                    flags,
+                    variants,
+                } => {
+                    if *flags {
+                        output.push_str("    #[flags]\n");
+                    }
                     writeln!(output, "    #[repr({repr})]\n    enum {name} {{").unwrap();
                     for (variant, value) in variants {
                         writeln!(output, "        {variant} = {value},").unwrap();
@@ -161,6 +168,7 @@ enum Item {
     Alias(ProjectedType),
     Enum {
         repr: &'static str,
+        flags: bool,
         variants: Vec<(String, String)>,
     },
     Interface {
@@ -438,6 +446,7 @@ impl Builder<'_, '_> {
             DeclarationData::Enum {
                 complete: true,
                 repr,
+                flags,
                 variants,
                 ..
             } => {
@@ -457,7 +466,11 @@ impl Builder<'_, '_> {
                         Ok((ident(name)?, value))
                     })
                     .collect::<Result<_, _>>()?;
-                Item::Enum { repr, variants }
+                Item::Enum {
+                    repr,
+                    flags: *flags,
+                    variants,
+                }
             }
             DeclarationData::Function {
                 canonical,
@@ -606,7 +619,19 @@ impl Builder<'_, '_> {
             }
         };
         let mut projected = vec![];
+        let mut names = BTreeSet::new();
         for (index, method) in methods.iter().enumerate() {
+            if !method.overrides.is_empty() {
+                return Err(Error(format!(
+                    "`{name}::{}` reuses an inherited virtual slot; override projection is not implemented",
+                    method.name
+                )));
+            }
+            if !names.insert(&method.name) {
+                return Err(Error(format!(
+                    "`{name}`: overloaded COM methods require native vtable ordering"
+                )));
+            }
             if !method.virtual_method || !method.pure || method.static_method {
                 return Err(Error(format!(
                     "`{name}::{}` must be a pure virtual COM method",
@@ -1055,6 +1080,8 @@ fn parameter_attributes(
         }
         attributes.push_str(match annotation.as_str() {
             "_In_" => "#[in] ",
+            // A consumed interface pointer borrows an object, not a writable pointer slot.
+            "_Out_" | "_Inout_" if matches!(ty, ProjectedType::Class(_)) => "#[in] ",
             "_Out_" => "#[out] ",
             "_Inout_" => "#[in] #[out] ",
             "_In_opt_"
@@ -1086,6 +1113,10 @@ fn parameter_attributes(
                 }
             }
             "_Out_opt_" | "_Inout_opt_" => {
+                if matches!(ty, ProjectedType::Class(_)) {
+                    attributes.push_str("#[in] #[opt] ");
+                    continue;
+                }
                 if !matches!(
                     ty,
                     ProjectedType::Pointer { mutable: true, .. }

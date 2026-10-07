@@ -116,6 +116,13 @@ public:
         *equal = *stored == *value;
         return S_OK;
     }
+    HRESULT __stdcall Inspect(IUnknown* value) override {
+        if (!value) return E_INVALIDARG;
+        IUnknown* identity = nullptr;
+        auto status = value->QueryInterface(__uuidof(IUnknown), reinterpret_cast<void**>(&identity));
+        if (identity) identity->Release();
+        return status;
+    }
 };
 
 IProperties* ComProperties() {
