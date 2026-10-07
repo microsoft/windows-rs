@@ -5,10 +5,13 @@ extras::WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR
 extras::WINDOWSAPPSDK_RUNTIME_VERSION_MINOR
 extras::WINDOWSAPPSDK_RUNTIME_VERSION_REVISION
 extras::WINDOWSAPPSDK_RUNTIME_VERSION_UINT64
+Microsoft::UI::WindowId
 Microsoft::UI::Composition::Compositor::{}
 Microsoft::UI::Composition::ICompositionObject::get_Compositor
 Microsoft::UI::Composition::SystemBackdrops::MicaKind
 Microsoft::UI::Composition::Visual::{}
+Microsoft::UI::Content::ContentSizePolicy::ResizeContentToParentWindow
+Microsoft::UI::Content::IDesktopChildSiteBridge::put_ResizePolicy
 Microsoft::UI::Dispatching::DispatcherQueue::GetForCurrentThread
 Microsoft::UI::Dispatching::DispatcherQueueHandler
 Microsoft::UI::Dispatching::DispatcherQueuePriority::{High, Low, Normal}
@@ -19,11 +22,10 @@ Microsoft::UI::Input::IPointerPointProperties::{get_IsLeftButtonPressed, get_IsM
 Microsoft::UI::Text::ITextDocument::{GetText, SetText}
 Microsoft::UI::Text::TextGetOptions
 Microsoft::UI::Text::TextSetOptions
-Microsoft::UI::Windowing::IAppWindow::{add_Changed, get_Presenter, get_Size, get_TitleBar, Hide, MoveAndResize, put_IsShownInSwitchers, remove_Changed, SetIcon}
+Microsoft::UI::Windowing::IAppWindow::{add_Changed, get_Presenter, get_Size, get_TitleBar, remove_Changed, SetIcon}
 Microsoft::UI::Windowing::IAppWindow2::{get_ClientSize, ResizeClient}
 Microsoft::UI::Windowing::IAppWindowTitleBar2::put_PreferredHeightOption
 Microsoft::UI::Windowing::IAppWindowTitleBar3::put_PreferredTheme
-Microsoft::UI::Windowing::IOverlappedPresenter::{put_IsAlwaysOnTop, SetBorderAndTitleBar}
 Microsoft::UI::Windowing::IOverlappedPresenter3::{put_PreferredMaximumHeight, put_PreferredMaximumWidth, put_PreferredMinimumHeight, put_PreferredMinimumWidth}
 Microsoft::UI::Windowing::TitleBarHeightOption::{Standard, Tall}
 Microsoft::UI::Windowing::TitleBarTheme::{Dark, Light, UseDefaultAppMode}
@@ -329,7 +331,10 @@ Microsoft::UI::Xaml::FocusState::{Keyboard, Pointer, Programmatic, Unfocused}
 Microsoft::UI::Xaml::GridLength
 Microsoft::UI::Xaml::GridUnitType
 Microsoft::UI::Xaml::HorizontalAlignment
+Microsoft::UI::Xaml::Hosting::DesktopWindowXamlSource::CreateInstance
 Microsoft::UI::Xaml::Hosting::ElementCompositionPreview::{GetElementVisual, SetElementChildVisual}
+Microsoft::UI::Xaml::Hosting::IDesktopWindowXamlSource::{Initialize, get_SiteBridge, put_Content}
+Microsoft::UI::Xaml::Hosting::IDesktopWindowXamlSource2::put_ShouldConstrainPopupsToWorkArea
 Microsoft::UI::Xaml::IApplication::get_Resources
 Microsoft::UI::Xaml::IApplication3::put_DispatcherShutdownMode
 Microsoft::UI::Xaml::IApplicationOverrides::{}
@@ -406,7 +411,7 @@ Windows::ApplicationModel::DataTransfer::DataPackageOperation::{Copy, Link, Move
 Windows::ApplicationModel::DataTransfer::IDataPackageView::{Contains, GetStorageItemsAsync, GetTextAsync}
 Windows::Foundation::Numerics::Vector3
 Windows::Foundation::Uri::CreateUri
-Windows::Graphics::{RectInt32, SizeInt32}
+Windows::Graphics::{SizeInt32}
 Windows::Storage::IStorageItem::{get_Name, get_Path}
 Windows::Storage::Streams::DataWriter::CreateDataWriter
 Windows::Storage::Streams::IDataWriter::{DetachStream, StoreAsync, WriteBytes}
@@ -420,7 +425,6 @@ Windows::UI::Xaml::Interop::TypeKind::Metadata
 Windows::UI::Xaml::Interop::TypeName
 Windows::Win32::AddPackageDependency
 Windows::Win32::APPMODEL_ERROR_NO_PACKAGE
-Windows::Win32::ClientToScreen
 Windows::Win32::COINIT_APARTMENTTHREADED
 Windows::Win32::CoInitializeEx
 Windows::Win32::DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
@@ -429,13 +433,13 @@ Windows::Win32::ERROR_INSUFFICIENT_BUFFER
 Windows::Win32::GetCurrentPackageFullName
 Windows::Win32::GetDpiForWindow
 Windows::Win32::GetKeyboardState
-Windows::Win32::GetLastError
 Windows::Win32::GetMonitorInfoW
 Windows::Win32::GetProcessHeap
 Windows::Win32::GetWindowLongW
 Windows::Win32::GetWindowPlacement
 Windows::Win32::GWL_EXSTYLE
 Windows::Win32::HeapFree
+Windows::Win32::HWND_TOPMOST
 Windows::Win32::ICON_BIG
 Windows::Win32::ICON_SMALL
 Windows::Win32::IDYES
@@ -452,11 +456,9 @@ Windows::Win32::PostQuitMessage
 Windows::Win32::RPC_E_CHANGED_MODE
 Windows::Win32::SendMessageW
 Windows::Win32::SetForegroundWindow
-Windows::Win32::SetLastError
 Windows::Win32::SetLayeredWindowAttributes
 Windows::Win32::SetProcessDpiAwarenessContext
 Windows::Win32::SetThreadDpiAwarenessContext
-Windows::Win32::SetWindowLongW
 Windows::Win32::SetWindowPlacement
 Windows::Win32::SetWindowPos
 Windows::Win32::ShellExecuteW
@@ -472,3 +474,5 @@ Windows::Win32::TryCreatePackageDependency
 Windows::Win32::WM_SETICON
 Windows::Win32::WS_EX_LAYERED
 Windows::Win32::WS_EX_TOOLWINDOW
+Windows::Win32::WS_EX_TOPMOST
+Windows::Win32::WS_POPUP
