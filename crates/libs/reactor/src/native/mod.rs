@@ -21,8 +21,33 @@ mod bindings;
 mod app;
 mod app_shim;
 mod bootstrap;
+mod notifyicon;
 mod transient_menu;
 mod winui;
 
 pub use app::*;
 pub use winui::*;
+
+struct PhysicalCoordinates(bindings::DPI_AWARENESS_CONTEXT);
+
+impl PhysicalCoordinates {
+    fn enter() -> windows_core::Result<Self> {
+        let previous = unsafe {
+            bindings::SetThreadDpiAwarenessContext(
+                bindings::DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2,
+            )
+        };
+        if previous.is_null() {
+            return Err(windows_core::Error::from_thread());
+        }
+        Ok(Self(previous))
+    }
+}
+
+impl Drop for PhysicalCoordinates {
+    fn drop(&mut self) {
+        unsafe {
+            _ = bindings::SetThreadDpiAwarenessContext(self.0);
+        }
+    }
+}

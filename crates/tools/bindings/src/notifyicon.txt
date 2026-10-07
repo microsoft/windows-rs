@@ -1,4 +1,4 @@
---out crates/libs/notifyicon/src/bindings.rs
+--out crates/libs/reactor/src/native/notifyicon/bindings.rs
 --flat --minimal --dead-code
 
 --filter

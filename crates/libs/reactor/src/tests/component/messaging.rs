@@ -850,3 +850,55 @@ fn captureless_component_callbacks_keep_event_identity() {
     let after = host.runtime().graph().events(object).unwrap()[0].clone();
     assert_eq!(before.value, after.value);
 }
+
+#[test]
+fn coalesced_root_inputs_drop_outside_message_queue_borrows() {
+    struct Window;
+    impl Component for Window {
+        type Input = View;
+        type Message = ();
+
+        fn create(_: &View, _: &ComponentContext<Self>) -> Self {
+            Self
+        }
+        fn view(&self, input: &View, _: &mut ViewContext<Self>) -> View {
+            input.clone()
+        }
+    }
+
+    struct Probe {
+        shared: SharedQueue,
+        local: LocalQueue,
+        dropped: Rc<Cell<bool>>,
+    }
+    impl Drop for Probe {
+        fn drop(&mut self) {
+            assert!(self.shared.try_lock().is_ok());
+            assert!(self.local.try_borrow_mut().is_ok());
+            self.dropped.set(true);
+        }
+    }
+
+    let mut host = ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<Window>("main", TextBlock::new().into())],
+    )
+    .unwrap();
+    let dropped = Rc::new(Cell::new(false));
+    let probe = Probe {
+        shared: Arc::clone(&host.queue),
+        local: Rc::clone(&host.local_queue),
+        dropped: Rc::clone(&dropped),
+    };
+    let view = Button::new()
+        .on_click(move || {
+            let _ = &probe;
+        })
+        .into();
+    host.update_root(component::<Window>("main", view)).unwrap();
+    assert!(!dropped.get());
+    host.update_root(component::<Window>("main", TextBlock::new().into()))
+        .unwrap();
+    assert!(dropped.get());
+    host.drain(64).unwrap();
+}

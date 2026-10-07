@@ -16,6 +16,18 @@ name = "application_lifecycle"
 path = "src/application_lifecycle.rs"
 
 [[bin]]
+name = "application_resources"
+path = "src/application_resources.rs"
+
+[[bin]]
+name = "application_dispatch"
+path = "src/application_dispatch.rs"
+
+[[bin]]
+name = "application_menus"
+path = "src/application_menus.rs"
+
+[[bin]]
 name = "canvas_integration"
 path = "src/canvas_integration.rs"
 
@@ -35,13 +47,16 @@ path = "src/window_placement.rs"
 name = "tray_flyout"
 path = "src/tray_flyout.rs"
 
+[[bin]]
+name = "menu_position"
+path = "src/menu_position.rs"
+
 [dependencies]
 windows-canvas = { workspace = true, features = ["composition", "reactor"] }
 windows-core = { workspace = true }
-windows-notifyicon = { workspace = true }
 windows-reactor = { workspace = true }
 windows-webview = { workspace = true, features = ["reactor"] }
-windows = { workspace = true, features = ["combaseapi", "objbase", "processthreadsapi", "uiautomationclient", "uiautomationcore", "winuser"] }
+windows = { workspace = true, features = ["combaseapi", "objbase", "processthreadsapi", "shellapi", "uiautomationclient", "uiautomationcore", "winuser"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

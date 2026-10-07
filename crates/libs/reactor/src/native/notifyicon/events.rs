@@ -6,19 +6,22 @@
     clippy::missing_transmute_annotations,
     clippy::upper_case_acronyms
 )]
-#[path = "support/bindings.rs"]
+#[path = "test_bindings.rs"]
 mod bindings;
 
+use super::{NotifyIcon, NotifyIconEvent};
 use bindings::*;
 use std::time::{Duration, Instant};
-use windows_notifyicon::{NotifyIcon, NotifyIconEvent};
 
 const CALLBACK_MESSAGE: u32 = WM_USER as u32 + 1;
 
 #[test]
 #[ignore = "requires an interactive Windows shell"]
 fn raw_message_loop_dispatches_posted_events() {
-    let path = concat!(env!("CARGO_MANIFEST_DIR"), "\\assets\\icon.ico");
+    let path = concat!(
+        env!("CARGO_MANIFEST_DIR"),
+        "\\..\\..\\tests\\libs\\reactor_integration\\icon.ico"
+    );
     let activated = std::rc::Rc::new(std::cell::Cell::new(false));
     let callback_activated = std::rc::Rc::clone(&activated);
     let icon = NotifyIcon::new(path)
@@ -55,7 +58,10 @@ fn raw_message_loop_dispatches_posted_events() {
 #[test]
 #[ignore = "requires an interactive Windows shell"]
 fn nested_message_loop_defers_callback_until_the_active_handler_returns() {
-    let path = concat!(env!("CARGO_MANIFEST_DIR"), "\\assets\\icon.ico");
+    let path = concat!(
+        env!("CARGO_MANIFEST_DIR"),
+        "\\..\\..\\tests\\libs\\reactor_integration\\icon.ico"
+    );
     let delivered = std::rc::Rc::new(std::cell::Cell::new(0));
     let callback_delivered = std::rc::Rc::clone(&delivered);
     let callback_hwnd = std::rc::Rc::new(std::cell::Cell::new(0_usize));

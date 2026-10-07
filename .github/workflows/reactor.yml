@@ -168,7 +168,22 @@ jobs:
                 --quiet -- $_
             }
           cargo run -p test-reactor-integration --bin application_menu --quiet
+          cargo run -p test-reactor-integration --bin application_menus --quiet
           cargo run -p test-reactor-integration --bin tray_flyout --quiet
+          "pmv2", "unaware", "system", "thread-unaware" | ForEach-Object {
+            cargo run -p test-reactor-integration --bin menu_position --quiet -- $_
+          }
+          "input", "close", "application" | ForEach-Object {
+            cargo run -p test-reactor-integration --bin application_dispatch --quiet -- $_
+          }
+          "lifecycle", "menus", "empty", "exit", "unknown", "invalid-icon", "duplicate",
+          "window-only", "runtime-error", "explicit-exit" |
+            ForEach-Object {
+              cargo run -p test-reactor-integration --bin application_resources `
+                --quiet -- $_
+            }
+          cargo test -p windows-reactor --lib native::notifyicon `
+            --quiet -- --ignored --test-threads=1
           cargo run -p test-reactor-integration --bin canvas_integration --quiet
           cargo run -p test-reactor-integration --bin window_state --quiet
           "normal", "maximized", "position", "offscreen", "secondary", "same-bounds", "constrained" |

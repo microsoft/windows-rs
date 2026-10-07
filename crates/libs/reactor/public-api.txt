@@ -481,6 +481,8 @@ pub fn windows_reactor::App::run(impl core::convert::Into<windows_reactor::View>
 pub fn windows_reactor::App::run_component<C: windows_reactor::Component>(<C as windows_reactor::Component>::Input) -> windows_result::Result<()>
 pub fn windows_reactor::App::run_component_with_policy<C: windows_reactor::Component>(<C as windows_reactor::Component>::Input, windows_reactor::WindowPolicy) -> windows_result::Result<()>
 pub fn windows_reactor::App::run_with<T>(impl core::ops::function::FnOnce(&windows_reactor::AppContext) -> windows_result::Result<T> + 'static) -> windows_result::Result<()> where T: 'static
+impl windows_reactor::App
+pub fn windows_reactor::App::run_application<A: windows_reactor::Application>(<A as windows_reactor::Application>::Input) -> windows_result::Result<()>
 pub struct windows_reactor::AppBarButton(_)
 impl windows_reactor::AppBarButton
 pub fn windows_reactor::AppBarButton::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
@@ -572,6 +574,24 @@ pub struct windows_reactor::AppProxy
 impl windows_reactor::AppProxy
 pub fn windows_reactor::AppProxy::dispatch(&self, impl core::ops::function::FnOnce(&windows_reactor::AppContext) -> windows_result::Result<()> + core::marker::Send + 'static) -> windows_result::Result<()>
 pub fn windows_reactor::AppProxy::exit(&self) -> windows_result::Result<()>
+pub struct windows_reactor::ApplicationContext<A: windows_reactor::Application>
+impl<A: windows_reactor::Application> windows_reactor::ApplicationContext<A>
+pub fn windows_reactor::ApplicationContext<A>::callback<T>(&self, impl core::ops::function::Fn(T) -> <A as windows_reactor::Application>::Message + 'static) -> windows_reactor::Callback<T>
+pub fn windows_reactor::ApplicationContext<A>::exit(&self)
+pub fn windows_reactor::ApplicationContext<A>::forward(&self) -> windows_reactor::Callback<<A as windows_reactor::Application>::Message>
+pub fn windows_reactor::ApplicationContext<A>::message(&self, <A as windows_reactor::Application>::Message) -> windows_reactor::Callback<()> where <A as windows_reactor::Application>::Message: core::clone::Clone
+pub fn windows_reactor::ApplicationContext<A>::sender(&self) -> windows_reactor::LocalSender<<A as windows_reactor::Application>::Message>
+pub fn windows_reactor::ApplicationContext<A>::show_window(&self, impl core::convert::Into<windows_reactor::Key>)
+pub struct windows_reactor::ApplicationView
+impl windows_reactor::ApplicationView
+pub fn windows_reactor::ApplicationView::new() -> Self
+pub fn windows_reactor::ApplicationView::notify_icon(self, impl core::convert::Into<windows_reactor::Key>, windows_reactor::NotifyIcon) -> Self
+pub fn windows_reactor::ApplicationView::window<C: windows_reactor::Component>(self, impl core::convert::Into<windows_reactor::Key>, <C as windows_reactor::Component>::Input) -> Self
+pub struct windows_reactor::ApplicationViewContext<A: windows_reactor::Application>
+impl<A: windows_reactor::Application> windows_reactor::ApplicationViewContext<A>
+pub fn windows_reactor::ApplicationViewContext<A>::callback<T>(&self, impl core::ops::function::Fn(T) -> <A as windows_reactor::Application>::Message + 'static) -> windows_reactor::Callback<T>
+pub fn windows_reactor::ApplicationViewContext<A>::forward(&self) -> windows_reactor::Callback<<A as windows_reactor::Application>::Message>
+pub fn windows_reactor::ApplicationViewContext<A>::message(&self, <A as windows_reactor::Application>::Message) -> windows_reactor::Callback<()> where <A as windows_reactor::Application>::Message: core::clone::Clone
 pub struct windows_reactor::AutoSuggestBox(_)
 impl windows_reactor::AutoSuggestBox
 pub fn windows_reactor::AutoSuggestBox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
@@ -2382,6 +2402,12 @@ impl core::convert::From<windows_reactor::NavigationViewItem> for windows_reacto
 pub fn windows_reactor::View::from(windows_reactor::NavigationViewItem) -> Self
 impl core::default::Default for windows_reactor::NavigationViewItem
 pub fn windows_reactor::NavigationViewItem::default() -> Self
+pub struct windows_reactor::NotifyIcon
+impl windows_reactor::NotifyIcon
+pub fn windows_reactor::NotifyIcon::menu(self, windows_reactor::Menu) -> Self
+pub fn windows_reactor::NotifyIcon::new(impl core::convert::Into<std::path::PathBuf>) -> Self
+pub fn windows_reactor::NotifyIcon::on_activate(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::ScreenPoint>) -> Self
+pub fn windows_reactor::NotifyIcon::tooltip(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub struct windows_reactor::NumberBox(_)
 impl windows_reactor::NumberBox
 pub fn windows_reactor::NumberBox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
@@ -4343,6 +4369,12 @@ pub fn windows_reactor::WindowVisuals::initial_placement(self, windows_reactor::
 pub fn windows_reactor::WindowVisuals::initial_position(self, windows_reactor::ScreenPoint) -> Self
 pub fn windows_reactor::WindowVisuals::new() -> Self
 pub fn windows_reactor::WindowVisuals::theme(self, windows_reactor::WindowTheme) -> Self
+pub trait windows_reactor::Application: core::marker::Sized + 'static
+pub type windows_reactor::Application::Input: 'static
+pub type windows_reactor::Application::Message: 'static
+pub fn windows_reactor::Application::create(&Self::Input, &windows_reactor::ApplicationContext<Self>) -> Self
+pub fn windows_reactor::Application::update(&mut self, Self::Message, &windows_reactor::ApplicationContext<Self>)
+pub fn windows_reactor::Application::view(&self, &Self::Input, &windows_reactor::ApplicationViewContext<Self>) -> windows_reactor::ApplicationView
 pub trait windows_reactor::CommandBarFlyoutExt: core::convert::Into<windows_reactor::View> + core::marker::Sized
 pub fn windows_reactor::CommandBarFlyoutExt::command_bar_flyout(self, windows_reactor::CommandBarFlyout) -> windows_reactor::View
 impl<T> windows_reactor::CommandBarFlyoutExt for T where T: core::convert::Into<windows_reactor::View>

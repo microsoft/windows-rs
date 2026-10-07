@@ -437,6 +437,9 @@ Windows::Win32::GetMonitorInfoW
 Windows::Win32::GetProcessHeap
 Windows::Win32::GetWindowLongW
 Windows::Win32::GetWindowPlacement
+Windows::Win32::IsIconic
+Windows::Win32::ShowWindow
+Windows::Win32::SW_RESTORE
 Windows::Win32::GWL_EXSTYLE
 Windows::Win32::HeapFree
 Windows::Win32::HWND_TOPMOST
