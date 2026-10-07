@@ -35,8 +35,45 @@ pub fn webview_headers() -> [PathBuf; 2] {
     ]
 }
 
+pub fn webview_roots() -> Vec<&'static str> {
+    include_str!("../../../tools/webview/src/webview.txt")
+        .lines()
+        .filter_map(|line| line.trim().strip_prefix("WebView2."))
+        .map(|name| name.split(':').next().unwrap())
+        .collect::<std::collections::BTreeSet<_>>()
+        .into_iter()
+        .collect()
+}
+
+pub fn capture_webview(target: &str, roots: &[&str], swapped: bool) -> Snapshot {
+    let mut arguments = arguments(target);
+    for header in webview_headers() {
+        arguments.push(format!("-I{}", header.parent().unwrap().display()));
+    }
+    let mut inputs = [
+        Input::new(
+            if swapped { "z.hpp" } else { "a.hpp" },
+            "#include <WebView2.h>",
+        ),
+        Input::new(
+            if swapped { "a.hpp" } else { "z.hpp" },
+            "#include <WebView2Interop.h>",
+        ),
+    ];
+    if swapped {
+        inputs.reverse();
+    }
+    capture(
+        inputs,
+        &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
+        roots,
+    )
+    .unwrap()
+}
+
 pub fn webview_options() -> ProjectionOptions {
     let mut options = ProjectionOptions::new("WebView2");
+    options.library = Some("WebView2Loader.dll".into());
     for (native, namespace, name, kind) in [
         (
             "_GUID",
@@ -61,6 +98,18 @@ pub fn webview_options() -> ProjectionOptions {
             "Windows.Win32.System.Com",
             "IUnknown",
             ReferenceKind::Interface,
+        ),
+        (
+            "IStream",
+            "Windows.Win32",
+            "IStream",
+            ReferenceKind::Interface,
+        ),
+        (
+            "tagVARIANT",
+            "Windows.Win32",
+            "VARIANT",
+            ReferenceKind::Value,
         ),
     ] {
         options.references.insert(

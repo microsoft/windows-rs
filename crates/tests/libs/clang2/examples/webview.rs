@@ -9,13 +9,14 @@ mod sdk;
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<_> = std::env::args().skip(1).collect();
     let [backend, pairs, roots] = args.as_slice() else {
-        return Err("usage: webview <new|old> <TU pairs> <1|3|interop>".into());
+        return Err("usage: webview <new|old> <TU pairs> <1|3|interop|consumer>".into());
     };
     let pairs: usize = pairs.parse()?;
     if pairs == 0 {
         return Err("TU pairs must be positive".into());
     }
     let root_set = roots;
+    let consumer_roots = sdk::webview_roots();
     let roots: &[&str] = match root_set.as_str() {
         "1" => &["ICoreWebView2Deferral"],
         "3" => &[
@@ -24,7 +25,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "ICoreWebView2HttpHeadersCollectionIterator",
         ],
         "interop" => &["ICoreWebView2Interop2"],
-        _ => return Err("roots must be 1, 3, or interop".into()),
+        "consumer" => &consumer_roots,
+        _ => return Err("roots must be 1, 3, interop, or consumer".into()),
     };
     helpers::ensure_libclang();
     helpers::assert_libclang_version();
@@ -49,6 +51,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let output =
         std::path::Path::new(env!("OUT_DIR")).join(format!("webview-{backend}-{pairs}-{root_set}"));
     std::fs::create_dir_all(&output)?;
+    println!("roots={} output={}", roots.len(), output.display());
     let start = Instant::now();
     let rdl = match backend.as_str() {
         "new" => {
@@ -57,19 +60,19 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             let start = Instant::now();
             let resolved = snapshot.resolve()?;
             let resolution = start.elapsed();
-            let start = Instant::now();
-            let plan = resolved.project(&options)?;
-            let projection = start.elapsed();
             println!(
-                "capture_ms={} resolve_us={} project_us={} groups={} observations={} declaration_pairs={} type_pairs={}",
+                "capture_ms={} resolve_us={} groups={} observations={} declaration_pairs={} type_pairs={} incomplete={:?}",
                 capture.as_millis(),
                 resolution.as_micros(),
-                projection.as_micros(),
                 resolved.group_count(),
                 resolved.report().observations,
                 resolved.report().declaration_pairs,
-                resolved.report().type_pairs
+                resolved.report().type_pairs,
+                resolved.report().incomplete
             );
+            let start = Instant::now();
+            let plan = resolved.project(&options)?;
+            println!("project_us={}", start.elapsed().as_micros());
             plan.rdl()
         }
         "old" => {
@@ -110,6 +113,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 })
                 .collect();
             let mut options = windows_clang::EmitOptions::new("WebView2", &references);
+            options.library = Some("WebView2Loader.dll");
             options.excluded = Some(&excluded);
             let start = Instant::now();
             let rdl = snapshot.emit_with_options(&options)?;
@@ -140,14 +144,25 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let index =
         windows_metadata::reader::Index::read(&winmd).ok_or("invalid generated metadata")?;
     use windows_metadata::reader::{HasAttributes, Item};
+    println!(
+        "types={} methods={}",
+        index.types().count(),
+        index.types().map(|ty| ty.methods().count()).sum::<usize>()
+    );
     for root in roots {
+        if root_set == "consumer" {
+            index.expect_item("WebView2", root);
+            continue;
+        }
         let Item::Type(ty) = index.expect_item("WebView2", root) else {
-            panic!()
+            println!("{root} function");
+            continue;
         };
-        println!(
-            "{root} guid={:?}",
-            ty.find_attribute("GuidAttribute").unwrap().value()
-        );
+        let Some(guid) = ty.find_attribute("GuidAttribute") else {
+            println!("{root} value");
+            continue;
+        };
+        println!("{root} guid={:?}", guid.value());
         println!(
             "  bases={:?}",
             ty.interface_impls()

@@ -1,0 +1,35 @@
+#[win32]
+mod Test {
+    #[library("test.dll", import = "_ConvertEnum")]
+    extern "C" fn ConvertEnum(p0: *mut EnumPacket, p1: Wide) -> State;
+    struct EnumPacket {
+        small: Signed,
+        scoped: Scoped,
+        state: State,
+        wide: Wide,
+    }
+    #[guid(0x12345678_1234_1234_1234_123456789abc)]
+    interface IEnums {
+        fn Get(&self, value: Scoped, output: *mut State) -> State;
+    }
+    #[repr(u16)]
+    enum Scoped {
+        First = 0,
+        Last = 65535,
+    }
+    #[repr(i8)]
+    enum Signed {
+        Negative = -128,
+        Positive = 127,
+    }
+    #[repr(i32)]
+    enum State {
+        Ready = -1,
+        Done = 2,
+        AlsoDone = 2,
+    }
+    #[repr(u64)]
+    enum Wide {
+        High = 18446744073709551615,
+    }
+}

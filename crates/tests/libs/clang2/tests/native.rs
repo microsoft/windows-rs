@@ -37,6 +37,56 @@ fn native_evidence_golden() {
 }
 
 #[test]
+fn anonymous_aggregate_evidence_golden() {
+    let snapshot = capture(
+        [Input::new(
+            "anonymous.h",
+            include_str!("../input/anonymous.h"),
+        )],
+        ARGS,
+        &["Packet", "NamedMember"],
+    )
+    .unwrap();
+    assert!(snapshot.resolve().unwrap().report().incomplete.is_empty());
+    let expected = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("expected/anonymous.txt");
+    if std::env::var_os("UPDATE_EXPECT").is_some() {
+        std::fs::write(&expected, snapshot.dump()).unwrap();
+    }
+    assert_eq!(snapshot.dump(), std::fs::read_to_string(expected).unwrap());
+}
+
+#[test]
+fn anonymous_members_keep_cross_tu_dependencies() {
+    let source = include_str!("../input/anonymous.h");
+    for target in [
+        "--target=x86_64-pc-windows-msvc",
+        "--target=i686-pc-windows-msvc",
+        "--target=aarch64-pc-windows-msvc",
+    ] {
+        for mutation in [
+            source.to_string(),
+            source.replace("#define VALUE int", "#define VALUE float"),
+            source.replace("short high;", "short upper;"),
+            source.replace("int final_number;", "float final_number;"),
+        ] {
+            for reverse in [false, true] {
+                for swapped in [false, true] {
+                    let mut inputs = [
+                        Input::new(if swapped { "b.hpp" } else { "a.hpp" }, source),
+                        Input::new(if swapped { "a.hpp" } else { "b.hpp" }, &mutation),
+                    ];
+                    if reverse {
+                        inputs.reverse();
+                    }
+                    let snapshot = capture(inputs, &["-x", "c++", target], &["Use"]).unwrap();
+                    assert_eq!(snapshot.resolve().is_ok(), mutation == source);
+                }
+            }
+        }
+    }
+}
+
+#[test]
 fn legacy_and_native_capture_run_side_by_side() {
     let legacy =
         windows_clang::extract([windows_clang::Input::new("native.h", NATIVE)], ARGS).unwrap();

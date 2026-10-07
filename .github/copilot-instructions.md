@@ -250,3 +250,12 @@ native caller in the clang2 ABI experiment read the returned aggregate through E
 that result-buffer address. Rust-to-C++ calls passed, but the reverse call produced incorrect data.
 `clang2` `project.rs` `Builder::interface` rejects by-value record results until the downstream ABI
 is fixed and covered. See `docs/crates/windows-clang2.md` for the fixture and remaining ABI gates.
+
+### Clang2 WebView2 cutover blockers
+
+`test_clang2` `webview.rs` `consumer_input_contracts_cutover_gate` is an opt-in failing test for
+eight native inputs projected as outputs: six `HWND` values and two host-object `VARIANT*` inputs.
+Generated consumer Rust compiles but is not semantically usable; `put_ParentWindow` takes no input.
+The next contract work is explicit pointer typedef bindings and MIDL comment evidence, not
+method-name exceptions. See `docs/crates/windows-clang2.md` for the differential probe, other
+remaining compatibility gaps, and full-consumer timing/memory measurements.

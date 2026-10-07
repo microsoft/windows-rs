@@ -91,7 +91,7 @@ pub fn capture(
             }
             let identity = string(unsafe { clang_getCursorUSR(cursor) });
             if !identity.is_empty() {
-                let key = capture.candidate(unit, cursor, &identity);
+                let key = capture.candidate(unit, cursor, &identity)?;
                 capture
                     .identities
                     .entry(key)
@@ -158,6 +158,7 @@ impl Library {
         if !clang_Cursor_getVarDeclInitializer::is_loaded()
             || !clang_Cursor_isAnonymousRecordDecl::is_loaded()
             || !clang_getTranslationUnitTargetInfo::is_loaded()
+            || !clang_Type_visitFields::is_loaded()
         {
             return Err(Error("loaded libclang lacks the native capture APIs; use the repository's pinned runtime".into()));
         }
@@ -299,13 +300,41 @@ impl Capture<'_> {
         name
     }
 
-    fn candidate(&self, unit: usize, cursor: CXCursor, identity: &str) -> String {
+    fn candidate(&self, unit: usize, cursor: CXCursor, identity: &str) -> Result<String, Error> {
+        let parent = unsafe { clang_getCursorSemanticParent(cursor) };
+        if unsafe { clang_Cursor_isAnonymousRecordDecl(cursor) } != 0
+            && matches!(
+                unsafe { clang_getCursorKind(parent) },
+                CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_ClassDecl
+            )
+        {
+            // Sibling anonymous records can share a USR; their owner and field slot distinguish them.
+            let slot = record_fields(parent)
+                .iter()
+                .position(|field| unsafe {
+                    clang_equalCursors(
+                        clang_getCanonicalCursor(clang_getTypeDeclaration(clang_getCursorType(
+                            *field,
+                        ))),
+                        clang_getCanonicalCursor(cursor),
+                    ) != 0
+                })
+                .ok_or_else(|| {
+                    Error(format!(
+                        "anonymous member ownership unavailable for `{}`",
+                        qualified_name(cursor)
+                    ))
+                })?;
+            let parent_identity = string(unsafe { clang_getCursorUSR(parent) });
+            let parent = self.candidate(unit, parent, &parent_identity)?;
+            return Ok(format!("anonymous:{parent}:{slot}"));
+        }
         let name = self.name(unit, cursor);
-        if self.macros[unit].contains_key(&name) {
+        Ok(if self.macros[unit].contains_key(&name) {
             format!("macro:{name}")
         } else {
             candidate(&self.units[unit].name, cursor, identity)
-        }
+        })
     }
 
     fn intern(&mut self, unit: usize, cursor: CXCursor) -> Result<Id, Error> {
@@ -352,7 +381,7 @@ impl Capture<'_> {
                 .get(&name)
                 .cloned()
                 .unwrap_or_else(|| location(cursor)),
-            candidate: self.candidate(unit, canonical, &identity),
+            candidate: self.candidate(unit, canonical, &identity)?,
             name,
             identity,
             unit: self.units[unit].name.clone(),
@@ -374,22 +403,33 @@ impl Capture<'_> {
                 if unsafe { clang_Cursor_isNull(clang_getSpecializedCursorTemplate(cursor)) } == 0 {
                     unavailable.push("template specialization capture is not implemented".into());
                 }
+                if complete {
+                    for field in record_fields(cursor) {
+                        let offset = unsafe { clang_Cursor_getOffsetOfField(field) };
+                        let bit_width = (unsafe { clang_Cursor_isBitField(field) } != 0)
+                            .then(|| unsafe { clang_getFieldDeclBitWidth(field) });
+                        if offset < 0 || bit_width.is_some_and(|width| width < 0) {
+                            unavailable.push("field layout unavailable".into());
+                        }
+                        let ty = unsafe { clang_getCursorType(field) };
+                        // Implicit anonymous members have synthesized spellings containing file paths.
+                        let anonymous = unsafe {
+                            clang_Cursor_isAnonymousRecordDecl(clang_getTypeDeclaration(ty)) != 0
+                        };
+                        fields.push(Field {
+                            name: if anonymous {
+                                String::new()
+                            } else {
+                                string(unsafe { clang_getCursorSpelling(field) })
+                            },
+                            ty: self.ty(unit, ty)?,
+                            offset,
+                            bit_width,
+                        });
+                    }
+                }
                 for child in children(cursor) {
                     match unsafe { clang_getCursorKind(child) } {
-                        CXCursor_FieldDecl => {
-                            let offset = unsafe { clang_Cursor_getOffsetOfField(child) };
-                            let bit_width = (unsafe { clang_Cursor_isBitField(child) } != 0)
-                                .then(|| unsafe { clang_getFieldDeclBitWidth(child) });
-                            if offset < 0 || bit_width.is_some_and(|width| width < 0) {
-                                unavailable.push("field layout unavailable".into());
-                            }
-                            fields.push(Field {
-                                name: string(unsafe { clang_getCursorSpelling(child) }),
-                                ty: self.ty(unit, unsafe { clang_getCursorType(child) })?,
-                                offset,
-                                bit_width,
-                            });
-                        }
                         CXCursor_CXXBaseSpecifier => {
                             bases.push(self.ty(unit, unsafe { clang_getCursorType(child) })?);
                             if unsafe { clang_isVirtualBase(child) } != 0 {
@@ -417,12 +457,6 @@ impl Capture<'_> {
                                 clang_getCursorKindSpelling(clang_getCursorKind(child))
                             })
                         )),
-                        CXCursor_StructDecl | CXCursor_UnionDecl
-                            if unsafe { clang_Cursor_isAnonymousRecordDecl(child) } != 0 =>
-                        {
-                            unavailable
-                                .push("anonymous aggregate capture is not implemented".into());
-                        }
                         _ => {}
                     }
                 }
@@ -877,28 +911,53 @@ fn string(value: CXString) -> String {
     }
 }
 
-fn children(cursor: CXCursor) -> Vec<CXCursor> {
-    struct State {
-        cursors: Vec<CXCursor>,
-        panic: Option<Box<dyn std::any::Any + Send>>,
-    }
-    extern "C" fn visit(cursor: CXCursor, _: CXCursor, data: CXClientData) -> CXChildVisitResult {
-        let state = unsafe { &mut *data.cast::<State>() };
-        match catch_unwind(AssertUnwindSafe(|| state.cursors.push(cursor))) {
-            Ok(()) => CXChildVisit_Continue,
+#[derive(Default)]
+struct CursorCollector {
+    cursors: Vec<CXCursor>,
+    panic: Option<Box<dyn std::any::Any + Send>>,
+}
+
+impl CursorCollector {
+    fn push(&mut self, cursor: CXCursor) -> bool {
+        match catch_unwind(AssertUnwindSafe(|| self.cursors.push(cursor))) {
+            Ok(()) => true,
             Err(panic) => {
-                state.panic = Some(panic);
-                CXChildVisit_Break
+                self.panic = Some(panic);
+                false
             }
         }
     }
-    let mut state = State {
-        cursors: vec![],
-        panic: None,
-    };
-    unsafe { clang_visitChildren(cursor, visit, (&mut state as *mut State).cast()) };
-    if let Some(panic) = state.panic {
-        resume_unwind(panic);
+
+    fn finish(self) -> Vec<CXCursor> {
+        if let Some(panic) = self.panic {
+            resume_unwind(panic);
+        }
+        self.cursors
     }
-    state.cursors
+}
+
+fn children(cursor: CXCursor) -> Vec<CXCursor> {
+    extern "C" fn visit(cursor: CXCursor, _: CXCursor, data: CXClientData) -> CXChildVisitResult {
+        if unsafe { &mut *data.cast::<CursorCollector>() }.push(cursor) {
+            CXChildVisit_Continue
+        } else {
+            CXChildVisit_Break
+        }
+    }
+    let mut state = CursorCollector::default();
+    unsafe { clang_visitChildren(cursor, visit, (&raw mut state).cast()) };
+    state.finish()
+}
+
+fn record_fields(cursor: CXCursor) -> Vec<CXCursor> {
+    extern "C" fn visit(cursor: CXCursor, data: CXClientData) -> CXVisitorResult {
+        if unsafe { &mut *data.cast::<CursorCollector>() }.push(cursor) {
+            CXVisit_Continue
+        } else {
+            CXVisit_Break
+        }
+    }
+    let mut state = CursorCollector::default();
+    unsafe { clang_Type_visitFields(clang_getCursorType(cursor), visit, (&raw mut state).cast()) };
+    state.finish()
 }

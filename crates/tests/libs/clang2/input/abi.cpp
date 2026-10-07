@@ -9,6 +9,12 @@ unsigned long AbiLayout(unsigned long index) {
     case 3: return offsetof(AbiPacket, count);
     case 4: return offsetof(AbiPacket, scale);
     case 5: return offsetof(AbiPacket, value);
+    case 6: return sizeof(EnumPacket);
+    case 7: return alignof(EnumPacket);
+    case 8: return offsetof(EnumPacket, small);
+    case 9: return offsetof(EnumPacket, scoped);
+    case 10: return offsetof(EnumPacket, state);
+    case 11: return offsetof(EnumPacket, wide);
     default: return 0xffffffff;
     }
 }
@@ -44,4 +50,28 @@ long __stdcall AbiCall(
     AbiPacket* packet, int* values, unsigned long count) {
     return object->Base(value) + static_cast<long>(object->Measure(measure))
         + static_cast<long>(object->Mutate(packet, values, count));
+}
+
+StateAlias ConvertEnum(EnumPacket* packet, Wide wide) {
+    packet->small = Negative;
+    packet->scoped = Scoped::Last;
+    packet->state = Ready;
+    packet->wide = wide;
+    return wide == High ? Done : Ready;
+}
+
+class NativeEnums final : public IEnums {
+    State __stdcall Get(Scoped value, StateAlias* output) override {
+        *output = Ready;
+        return value == Scoped::Last ? Done : Ready;
+    }
+};
+
+IEnums* AbiEnums() {
+    static NativeEnums object;
+    return &object;
+}
+
+State AbiEnumCall(IEnums* object, Scoped value, State* output) {
+    return object->Get(value, output);
 }

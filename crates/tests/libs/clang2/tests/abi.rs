@@ -1,6 +1,11 @@
 #![cfg(target_env = "msvc")]
 
-#[allow(non_snake_case, non_camel_case_types, dead_code)]
+#[allow(
+    non_snake_case,
+    non_camel_case_types,
+    non_upper_case_globals,
+    dead_code
+)]
 mod bindings {
     include!(concat!(env!("OUT_DIR"), "/abi.rs"));
 }
@@ -16,6 +21,12 @@ fn record_layout_matches_cpp() {
         std::mem::offset_of!(AbiPacket, count),
         std::mem::offset_of!(AbiPacket, scale),
         std::mem::offset_of!(AbiPacket, value),
+        size_of::<EnumPacket>(),
+        align_of::<EnumPacket>(),
+        std::mem::offset_of!(EnumPacket, small),
+        std::mem::offset_of!(EnumPacket, scoped),
+        std::mem::offset_of!(EnumPacket, state),
+        std::mem::offset_of!(EnumPacket, wide),
     ]
     .into_iter()
     .enumerate()
@@ -24,6 +35,37 @@ fn record_layout_matches_cpp() {
             unsafe { AbiLayout(index.try_into().unwrap()) },
             u32::try_from(value).unwrap()
         );
+    }
+}
+
+#[test]
+fn enum_values_cross_native_calls_in_both_directions() {
+    let mut packet = EnumPacket::default();
+    assert_eq!(unsafe { ConvertEnum(&mut packet, High) }, Done);
+    assert_eq!(packet.small, Negative);
+    assert_eq!(packet.scoped, Last);
+    assert_eq!(packet.state, Ready);
+    assert_eq!(packet.wide, u64::MAX);
+    unsafe extern "system" fn get(_: *mut c_void, value: Scoped, output: *mut State) -> State {
+        unsafe { *output = Done };
+        if value == Last { Ready } else { Done }
+    }
+    let vtable = IEnums_Vtbl { Get: get };
+    let mut object = &vtable;
+    let native = unsafe { AbiEnums() };
+    let native_vtable = unsafe { &**native.cast::<*const IEnums_Vtbl>() };
+    for _ in 0..256 {
+        let mut output = 0;
+        assert_eq!(
+            unsafe { (native_vtable.Get)(native, Last, &mut output) },
+            Done
+        );
+        assert_eq!(output, Ready);
+        assert_eq!(
+            unsafe { AbiEnumCall((&raw mut object).cast(), Last, &mut output) },
+            Ready
+        );
+        assert_eq!(output, Done);
     }
 }
 

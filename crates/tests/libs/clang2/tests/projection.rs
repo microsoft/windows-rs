@@ -13,6 +13,102 @@ use sdk::capture_sdk as sdk_capture;
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn enums_preserve_representation_values_and_uses() {
+    for target in [
+        "--target=x86_64-pc-windows-msvc",
+        "--target=i686-pc-windows-msvc",
+        "--target=aarch64-pc-windows-msvc",
+    ] {
+        for reverse in [false, true] {
+            let source = include_str!("../input/enums.h");
+            let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", source)];
+            if reverse {
+                inputs.reverse();
+            }
+            let snapshot = capture(
+                inputs,
+                &["-x", "c++", target],
+                &["ConvertEnum", "IEnums", "State"],
+            )
+            .unwrap();
+            let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+            let index = compile(
+                if target == "--target=i686-pc-windows-msvc" {
+                    "enums_x86"
+                } else {
+                    "enums"
+                },
+                &plan,
+            );
+            for (name, repr, values) in [
+                ("Signed", Type::I8, vec![Value::I8(-128), Value::I8(127)]),
+                ("Wide", Type::U64, vec![Value::U64(u64::MAX)]),
+                (
+                    "Scoped",
+                    Type::U16,
+                    vec![Value::U16(0), Value::U16(u16::MAX)],
+                ),
+                (
+                    "State",
+                    Type::I32,
+                    vec![Value::I32(-1), Value::I32(2), Value::I32(2)],
+                ),
+            ] {
+                let Item::Type(ty) = index.expect_item("Test", name) else {
+                    panic!()
+                };
+                assert_eq!(ty.underlying_type(), Some(repr));
+                assert_eq!(
+                    ty.fields()
+                        .filter_map(|field| field.constant())
+                        .map(|value| value.value())
+                        .collect::<Vec<_>>(),
+                    values
+                );
+            }
+            let Item::Type(ty) = index.expect_item("Test", "IEnums") else {
+                panic!()
+            };
+            let signature = ty.methods().next().unwrap().signature(&[]);
+            assert_eq!(signature.return_type, Type::value_named("Test", "State"));
+            assert_eq!(signature.types[0], Type::value_named("Test", "Scoped"));
+        }
+    }
+}
+
+#[test]
+fn enum_conflicts_and_unsupported_representations_are_rejected() {
+    for reverse in [false, true] {
+        let mut inputs = [
+            Input::new("a.hpp", "enum E : int { A = 1 };"),
+            Input::new("b.hpp", "enum E : int { A = 2 };"),
+        ];
+        if reverse {
+            inputs.reverse();
+        }
+        assert!(capture(inputs, ARGS, &["E"]).unwrap().resolve().is_err());
+    }
+    let snapshot = capture(
+        [Input::new(
+            "a.hpp",
+            "enum E : bool { A = false, B = true };",
+        )],
+        ARGS,
+        &["E"],
+    )
+    .unwrap();
+    assert!(
+        snapshot
+            .resolve()
+            .unwrap()
+            .project(&options())
+            .unwrap_err()
+            .to_string()
+            .contains("enum representation requires an integer scalar")
+    );
+}
+
+#[test]
 fn com_record_results_are_rejected() {
     for target in [
         "--target=i686-pc-windows-msvc",
@@ -321,6 +417,49 @@ fn same_name_tag_roots_emit_one_definition() {
         let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
         compile("tag_alias", &plan);
         assert!(plan.omitted().is_empty());
+    }
+}
+
+#[test]
+fn anonymous_aggregate_bindings_cannot_hide_member_conflicts() {
+    let source = include_str!("../input/anonymous.h");
+    for conflict in [false, true] {
+        let snapshot = capture(
+            [
+                Input::new("a.hpp", source),
+                Input::new(
+                    "b.hpp",
+                    source.replace(
+                        "#define VALUE int",
+                        if conflict {
+                            "#define VALUE float"
+                        } else {
+                            "#define VALUE int"
+                        },
+                    ),
+                ),
+            ],
+            ARGS,
+            &["Use"],
+        )
+        .unwrap();
+        if conflict {
+            assert!(snapshot.resolve().is_err());
+        } else {
+            let resolved = snapshot.resolve().unwrap();
+            let error = resolved.project(&options()).unwrap_err().to_string();
+            assert!(error.contains("anonymous aggregate projection"), "{error}");
+            let mut options = options();
+            options.references.insert(
+                "Packet".into(),
+                TypeReference {
+                    namespace: "External".into(),
+                    name: "Data".into(),
+                    kind: ReferenceKind::Value,
+                },
+            );
+            compile("anonymous_external", &resolved.project(&options).unwrap());
+        }
     }
 }
 

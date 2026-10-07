@@ -1,38 +1,22 @@
-use windows_clang2::{Input, capture};
 use windows_metadata::{
     Type,
-    reader::{Index, Item},
+    reader::{Index, Item, ParamDirection},
 };
 
 #[allow(dead_code)]
 #[path = "../sdk.rs"]
 mod sdk;
 
-fn snapshot(roots: &[&str], swapped: bool) -> windows_clang2::Snapshot {
-    let headers = sdk::webview_headers();
-    let mut arguments = sdk::arguments("--target=x86_64-pc-windows-msvc");
-    for header in headers {
-        arguments.push(format!("-I{}", header.parent().unwrap().display()));
-    }
-    let mut inputs = [
-        Input::new(
-            if swapped { "z.hpp" } else { "a.hpp" },
-            "#include <WebView2.h>",
-        ),
-        Input::new(
-            if swapped { "a.hpp" } else { "z.hpp" },
-            "#include <WebView2Interop.h>",
-        ),
-    ];
-    if swapped {
-        inputs.reverse();
-    }
-    capture(
-        inputs,
-        &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
-        roots,
-    )
-    .unwrap()
+#[cfg(target_env = "msvc")]
+#[allow(
+    non_snake_case,
+    non_camel_case_types,
+    non_upper_case_globals,
+    dead_code,
+    clippy::missing_transmute_annotations
+)]
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "/webview.rs"));
 }
 
 #[test]
@@ -53,7 +37,7 @@ fn core_interfaces_agree_across_main_and_interop_tus() {
         .write()
         .unwrap();
     for swapped in [false, true] {
-        let snapshot = snapshot(&roots, swapped);
+        let snapshot = sdk::capture_webview("--target=x86_64-pc-windows-msvc", &roots, swapped);
         let resolved = snapshot.resolve().unwrap();
         assert_eq!(resolved.group_count(), 17);
         assert_eq!(resolved.report().observations, 48);
@@ -94,12 +78,90 @@ fn core_interfaces_agree_across_main_and_interop_tus() {
 }
 
 #[test]
-fn interop_dependency_reports_unsupported_native_evidence() {
-    let snapshot = snapshot(&["ICoreWebView2Interop2"], false);
-    let error = snapshot.resolve().err().unwrap().to_string();
-    assert!(error.contains("`tagVARIANT`"), "{error}");
-    assert!(
-        error.contains("anonymous aggregate capture is not implemented"),
-        "{error}"
-    );
+fn consumer_dependencies_project_across_targets_and_input_orders() {
+    let roots = sdk::webview_roots();
+    assert_eq!(roots.len(), 79);
+    for target in [
+        "--target=x86_64-pc-windows-msvc",
+        "--target=i686-pc-windows-msvc",
+        "--target=aarch64-pc-windows-msvc",
+    ] {
+        let mut expected = None;
+        for swapped in [false, true] {
+            let snapshot = sdk::capture_webview(target, &roots, swapped);
+            let resolved = snapshot.resolve().unwrap();
+            assert!(resolved.report().incomplete.is_empty());
+            let rdl = resolved.project(&sdk::webview_options()).unwrap().rdl();
+            std::fs::write(
+                std::path::Path::new(env!("OUT_DIR")).join(format!(
+                    "consumer-{}.rdl",
+                    target.trim_start_matches("--target=")
+                )),
+                &rdl,
+            )
+            .unwrap();
+            if let Some(expected) = &expected {
+                assert_eq!(&rdl, expected, "{target}: swapped={swapped}");
+            } else {
+                expected = Some(rdl);
+            }
+        }
+    }
+}
+
+#[cfg(target_env = "msvc")]
+#[test]
+#[ignore = "cutover blocker: missing pointer typedef contracts and MIDL input directions"]
+fn consumer_input_contracts_cutover_gate() {
+    let index = Index::read(std::path::Path::new(env!("OUT_DIR")).join("webview.winmd")).unwrap();
+    let mut failures = vec![];
+    for (owner, method, position) in [
+        ("ICoreWebView2", "AddHostObjectToScript", 1),
+        ("ICoreWebView2Controller", "put_ParentWindow", 0),
+        (
+            "ICoreWebView2Environment",
+            "CreateCoreWebView2Controller",
+            0,
+        ),
+        (
+            "ICoreWebView2Environment10",
+            "CreateCoreWebView2ControllerWithOptions",
+            0,
+        ),
+        (
+            "ICoreWebView2Environment10",
+            "CreateCoreWebView2CompositionControllerWithOptions",
+            0,
+        ),
+        (
+            "ICoreWebView2Environment3",
+            "CreateCoreWebView2CompositionController",
+            0,
+        ),
+        (
+            "ICoreWebView2Environment4",
+            "GetAutomationProviderForWindow",
+            0,
+        ),
+        ("ICoreWebView2Frame", "AddHostObjectToScriptWithOrigins", 1),
+    ] {
+        let Item::Type(ty) = index.expect_item("WebView2", owner) else {
+            panic!()
+        };
+        let method = ty
+            .methods()
+            .find(|candidate| candidate.name() == method)
+            .unwrap();
+        let parameters = method
+            .params_by_sequence(method.signature(&[]).types.len())
+            .unwrap();
+        let direction = parameters.params()[position].unwrap().direction();
+        if direction != ParamDirection::Input {
+            failures.push(format!(
+                "{owner}::{} parameter {position}: {direction:?}",
+                method.name()
+            ));
+        }
+    }
+    assert!(failures.is_empty(), "{}", failures.join("\n"));
 }

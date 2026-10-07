@@ -69,6 +69,13 @@ impl Plan {
                     output.push_str("    }\n");
                 }
                 Item::Alias(ty) => writeln!(output, "    type {name} = {};", ty.text()).unwrap(),
+                Item::Enum { repr, variants } => {
+                    writeln!(output, "    #[repr({repr})]\n    enum {name} {{").unwrap();
+                    for (variant, value) in variants {
+                        writeln!(output, "        {variant} = {value},").unwrap();
+                    }
+                    output.push_str("    }\n");
+                }
                 Item::Function {
                     abi,
                     library,
@@ -152,6 +159,10 @@ fn rdl_guid(guid: &str) -> String {
 enum Item {
     Record(Vec<(String, ProjectedType)>),
     Alias(ProjectedType),
+    Enum {
+        repr: &'static str,
+        variants: Vec<(String, String)>,
+    },
     Interface {
         base: Option<String>,
         guid: String,
@@ -370,6 +381,11 @@ impl Builder<'_, '_> {
                             "bitfield projection is not implemented for `{name}`"
                         )));
                     }
+                    if field.name.is_empty() {
+                        return Err(Error(format!(
+                            "anonymous aggregate projection is not implemented for `{name}`"
+                        )));
+                    }
                     let (ty, object) = self.lower(&field.ty, &mut BTreeSet::new())?;
                     if object {
                         return Err(Error("native interface objects require a pointer".into()));
@@ -409,6 +425,30 @@ impl Builder<'_, '_> {
                     ));
                 }
                 Item::Alias(ty)
+            }
+            DeclarationData::Enum {
+                complete: true,
+                repr,
+                variants,
+                ..
+            } => {
+                let (repr, layout) = self.enum_repr(repr)?;
+                let variants = variants
+                    .iter()
+                    .map(|(name, value)| {
+                        let Value::Integer(value) = value else {
+                            return Err(Error(format!("enum value unavailable for `{name}`")));
+                        };
+                        let value = if repr.starts_with('i') {
+                            let shift = 64 - layout.size * 8;
+                            (((*value << shift) as i64) >> shift).to_string()
+                        } else {
+                            value.to_string()
+                        };
+                        Ok((ident(name)?, value))
+                    })
+                    .collect::<Result<_, _>>()?;
+                Item::Enum { repr, variants }
             }
             DeclarationData::Function {
                 canonical,
@@ -728,6 +768,25 @@ impl Builder<'_, '_> {
         ))
     }
 
+    fn enum_repr(&mut self, repr: &Type) -> Result<(&'static str, Layout), Error> {
+        let (ProjectedType::Scalar(kind, layout), false) =
+            self.lower(repr, &mut BTreeSet::new())?
+        else {
+            return Err(Error(
+                "enum representation requires an integer scalar".into(),
+            ));
+        };
+        if !matches!(
+            kind,
+            "i8" | "u8" | "i16" | "u16" | "i32" | "u32" | "i64" | "u64"
+        ) {
+            return Err(Error(
+                "enum representation requires an integer scalar".into(),
+            ));
+        }
+        Ok((kind, layout))
+    }
+
     fn alias(
         &mut self,
         id: Id,
@@ -820,6 +879,18 @@ impl Builder<'_, '_> {
                     } else {
                         (ProjectedType::Named(name, None), false)
                     }
+                } else if let DeclarationData::Enum {
+                    complete: true,
+                    repr,
+                    ..
+                } = &declaration.data
+                {
+                    let (kind, layout) = self.enum_repr(repr)?;
+                    self.schedule(id);
+                    (
+                        ProjectedType::ScalarReference(ident(&declaration.name)?, kind, layout),
+                        false,
+                    )
                 } else if let DeclarationData::Record {
                     layout,
                     fields,

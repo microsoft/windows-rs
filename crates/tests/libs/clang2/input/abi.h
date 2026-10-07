@@ -1,3 +1,5 @@
+#include "enums.h"
+
 struct AbiPacket {
     unsigned char tag;
     unsigned long count;
@@ -21,3 +23,5 @@ extern "C" IAbiDerived* AbiGet();
 extern "C" long __stdcall AbiCall(
     IAbiDerived* object, long value, double measure,
     AbiPacket* packet, int* values, unsigned long count);
+extern "C" IEnums* AbiEnums();
+extern "C" State AbiEnumCall(IEnums* object, Scoped value, State* output);

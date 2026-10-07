@@ -9,7 +9,56 @@ fn main() {
     if std::env::var("CARGO_CFG_TARGET_ENV").unwrap() == "msvc" {
         build_abi();
         build_com();
+        build_webview();
     }
+}
+
+fn build_webview() {
+    for file in ["main.rs", "webview.txt"] {
+        println!(
+            "cargo:rerun-if-changed={}",
+            sdk::tools()
+                .join("webview")
+                .join("src")
+                .join(file)
+                .display()
+        );
+    }
+    println!("cargo:rerun-if-changed=input/webview_reference.rdl");
+    let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    let snapshot = sdk::capture_webview(&target, &sdk::webview_roots(), false);
+    let plan = snapshot
+        .resolve()
+        .unwrap()
+        .project(&sdk::webview_options())
+        .unwrap();
+    let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+    let reference = out.join("webview_reference.winmd");
+    windows_rdl::reader()
+        .input_text(include_str!("input/webview_reference.rdl"))
+        .reference_default()
+        .output(&reference)
+        .write()
+        .unwrap();
+    let winmd = out.join("webview.winmd");
+    windows_rdl::reader()
+        .input_text(&plan.rdl())
+        .reference_default()
+        .reference(&reference)
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_bindgen::bindgen([
+        "--in",
+        "default",
+        winmd.to_str().unwrap(),
+        reference.to_str().unwrap(),
+        "--out",
+        out.join("webview.rs").to_str().unwrap(),
+        "--filter",
+        "WebView2",
+        "--flat",
+    ]);
 }
 
 fn build_com() {
@@ -95,6 +144,7 @@ fn build_com() {
 fn build_abi() {
     println!("cargo:rerun-if-changed=input/abi.h");
     println!("cargo:rerun-if-changed=input/abi.cpp");
+    println!("cargo:rerun-if-changed=input/enums.h");
     helpers::ensure_libclang();
     let target = format!("--target={}", std::env::var("TARGET").unwrap());
     let snapshot = windows_clang2::capture(
@@ -102,8 +152,16 @@ fn build_abi() {
             "abi.hpp",
             include_str!("input/abi.h"),
         )],
-        &["-x", "c++", &target],
-        &["AbiLayout", "AbiRoundtrip", "AbiGet", "AbiCall"],
+        &["-x", "c++", &target, "-I", "input"],
+        &[
+            "AbiLayout",
+            "AbiRoundtrip",
+            "AbiGet",
+            "AbiCall",
+            "ConvertEnum",
+            "AbiEnums",
+            "AbiEnumCall",
+        ],
     )
     .unwrap();
     let mut options = windows_clang2::ProjectionOptions::new("Abi");

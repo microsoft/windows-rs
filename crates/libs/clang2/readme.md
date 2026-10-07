@@ -26,8 +26,8 @@ println!("{}", plan.rdl());
 The caller must make libclang available through `LIBCLANG_PATH` or its normal loader search paths.
 Repository tests and the inspection example use the shared pinned dependency helper.
 
-Projection currently covers ordinary C-layout records, fixed-prototype functions, scalar and raw
-pointer constants, UUID-bearing local COM interfaces, and explicit external record/interface
+Projection currently covers ordinary C-layout records, integer-backed enums, fixed-prototype
+functions, scalar and raw pointer constants, UUID-bearing local COM interfaces, and external type
 bindings. Local interfaces support a single base and pure virtual system-ABI methods, but reject
 by-value record results until the downstream aggregate-return ABI is covered. Supported
 parameter annotations include direction, optional pointers and buffers, COM output pointers, and
@@ -46,9 +46,16 @@ The test crate generates raw Rust bindings and links a C++ fixture to check reco
 free-function aggregate calls, and inherited virtual dispatch in both directions on x64 and x86.
 It also generates normal Rust wrappers from SDK `IUnknown`/`IClassFactory` declarations and checks
 reference counts, identity, output ownership, and failure paths against a C++ implementation.
-Pinned WebView2 fixtures cover selected core interfaces across main and interop translation units.
-The actual interop bridge remains blocked by unsupported anonymous aggregate evidence.
-This is bounded ABI coverage, not production parity.
+Pinned WebView2 fixtures cover all 79 roots in the production binding filter across main and interop
+translation units. Native evidence includes anonymous aggregate fields and their dependency graphs;
+local anonymous-aggregate projection remains unsupported. Explicit SDK bindings for `IStream` and
+`VARIANT` let the interop graph project after its native evidence has been checked.
+
+The generated consumer bindings compile, but are not ready for use: pointer typedef and MIDL
+contracts are missing, and eight input parameters become outputs. An opt-in failing cutover test
+records these cases rather than treating compiling output as correct. String, flags-enum, and
+output-name differences also remain. See the continuation page for the differential commands and
+full-consumer timing/memory measurements.
 
 The API and diagnostic dump are experimental. See
 [`docs/crates/windows-clang2.md`](../../../docs/crates/windows-clang2.md) for the supported subset,

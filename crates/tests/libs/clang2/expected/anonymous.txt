@@ -1,0 +1,372 @@
+target: x86_64-pc-windows-msvc19.0.0
+[0] NamedMember [root] (anonymous.h:23:8, TU anonymous.h)
+USR: c:@S@NamedMember
+entity: 0
+Record {
+    kind: "StructDecl",
+    complete: true,
+    layout: Some(
+        Layout {
+            size: 4,
+            align: 4,
+        },
+    ),
+    fields: [
+        Field {
+            name: "named",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Named(
+                    Id(
+                        2,
+                    ),
+                ),
+            },
+            offset: 0,
+            bit_width: None,
+        },
+    ],
+    bases: [],
+    methods: [],
+    guid: None,
+    unavailable: [],
+}
+[1] Packet [root] (anonymous.h:5:8, TU anonymous.h)
+USR: c:@S@Packet
+entity: 1
+Record {
+    kind: "StructDecl",
+    complete: true,
+    layout: Some(
+        Layout {
+            size: 24,
+            align: 8,
+        },
+    ),
+    fields: [
+        Field {
+            name: "tag",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Char_S",
+                    layout: Some(
+                        Layout {
+                            size: 1,
+                            align: 1,
+                        },
+                    ),
+                },
+            },
+            offset: 0,
+            bit_width: None,
+        },
+        Field {
+            name: "",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Named(
+                    Id(
+                        3,
+                    ),
+                ),
+            },
+            offset: 64,
+            bit_width: None,
+        },
+        Field {
+            name: "tail",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Int",
+                    layout: Some(
+                        Layout {
+                            size: 4,
+                            align: 4,
+                        },
+                    ),
+                },
+            },
+            offset: 128,
+            bit_width: None,
+        },
+        Field {
+            name: "",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Named(
+                    Id(
+                        4,
+                    ),
+                ),
+            },
+            offset: 160,
+            bit_width: None,
+        },
+    ],
+    bases: [],
+    methods: [],
+    guid: None,
+    unavailable: [],
+}
+[2] NamedMember::(unnamed struct at anonymous.h:24:5) (anonymous.h:24:5, TU anonymous.h)
+USR: c:@S@NamedMember@S@anonymous.h@345
+entity: 2
+Record {
+    kind: "StructDecl",
+    complete: true,
+    layout: Some(
+        Layout {
+            size: 4,
+            align: 4,
+        },
+    ),
+    fields: [
+        Field {
+            name: "value",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Int",
+                    layout: Some(
+                        Layout {
+                            size: 4,
+                            align: 4,
+                        },
+                    ),
+                },
+            },
+            offset: 0,
+            bit_width: None,
+        },
+    ],
+    bases: [],
+    methods: [],
+    guid: None,
+    unavailable: [],
+}
+[3] Packet::(anonymous union at anonymous.h:7:5) (anonymous.h:7:5, TU anonymous.h)
+USR: c:@S@Packet@Ua
+entity: 3
+Record {
+    kind: "UnionDecl",
+    complete: true,
+    layout: Some(
+        Layout {
+            size: 8,
+            align: 8,
+        },
+    ),
+    fields: [
+        Field {
+            name: "number",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Int",
+                    layout: Some(
+                        Layout {
+                            size: 4,
+                            align: 4,
+                        },
+                    ),
+                },
+            },
+            offset: 0,
+            bit_width: None,
+        },
+        Field {
+            name: "",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Named(
+                    Id(
+                        5,
+                    ),
+                ),
+            },
+            offset: 0,
+            bit_width: None,
+        },
+        Field {
+            name: "real",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Double",
+                    layout: Some(
+                        Layout {
+                            size: 8,
+                            align: 8,
+                        },
+                    ),
+                },
+            },
+            offset: 0,
+            bit_width: None,
+        },
+    ],
+    bases: [],
+    methods: [],
+    guid: None,
+    unavailable: [],
+}
+[4] Packet::(anonymous union at anonymous.h:17:5) (anonymous.h:17:5, TU anonymous.h)
+USR: c:@S@Packet@Ua
+entity: 4
+Record {
+    kind: "UnionDecl",
+    complete: true,
+    layout: Some(
+        Layout {
+            size: 4,
+            align: 4,
+        },
+    ),
+    fields: [
+        Field {
+            name: "final_number",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Int",
+                    layout: Some(
+                        Layout {
+                            size: 4,
+                            align: 4,
+                        },
+                    ),
+                },
+            },
+            offset: 0,
+            bit_width: None,
+        },
+        Field {
+            name: "final_real",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Float",
+                    layout: Some(
+                        Layout {
+                            size: 4,
+                            align: 4,
+                        },
+                    ),
+                },
+            },
+            offset: 0,
+            bit_width: None,
+        },
+    ],
+    bases: [],
+    methods: [],
+    guid: None,
+    unavailable: [],
+}
+[5] Packet::(anonymous union at anonymous.h:7:5)::(anonymous struct at anonymous.h:9:9) (anonymous.h:9:9, TU anonymous.h)
+USR: c:@S@Packet@Ua@Sa
+entity: 5
+Record {
+    kind: "StructDecl",
+    complete: true,
+    layout: Some(
+        Layout {
+            size: 4,
+            align: 2,
+        },
+    ),
+    fields: [
+        Field {
+            name: "low",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Short",
+                    layout: Some(
+                        Layout {
+                            size: 2,
+                            align: 2,
+                        },
+                    ),
+                },
+            },
+            offset: 0,
+            bit_width: None,
+        },
+        Field {
+            name: "high",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Short",
+                    layout: Some(
+                        Layout {
+                            size: 2,
+                            align: 2,
+                        },
+                    ),
+                },
+            },
+            offset: 16,
+            bit_width: None,
+        },
+    ],
+    bases: [],
+    methods: [],
+    guid: None,
+    unavailable: [],
+}
