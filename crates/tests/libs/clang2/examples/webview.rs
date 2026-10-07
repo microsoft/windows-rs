@@ -47,7 +47,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             ]
         })
         .collect();
-    let options = sdk::webview_options();
+    let options = sdk::webview_options("--target=x86_64-pc-windows-msvc");
     let output =
         std::path::Path::new(env!("OUT_DIR")).join(format!("webview-{backend}-{pairs}-{root_set}"));
     std::fs::create_dir_all(&output)?;

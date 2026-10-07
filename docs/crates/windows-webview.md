@@ -356,6 +356,12 @@ input, then merges both translation units. It uses `Windows.Win32.winmd` for ref
 types and targets `x86_64-pc-windows-msvc` with Microsoft extensions. Regenerate with
 `cargo run -p tool-webview`; never edit `src/bindings.rs`.
 
+The experimental `test_clang2` `webview_consumer` example checks this crate against candidate
+bindings in a fresh scratch workspace, with every feature combination and the same production
+filter. It does not change `tool-webview` or the committed bindings. See the
+[clang2 consumer gate](windows-clang2.md#actual-consumer-and-loader-gate). Handwritten all-bits
+flags use `!0`, so their meaning does not depend on a binding's signed or unsigned representation.
+
 Bindings use `--flat --minimal` and the filter in `crates/tools/webview/src/webview.txt`. Filter
 method names are raw metadata names such as `put_Bounds` and `get_CoreWebView2`, not projected
 names. Implemented interfaces belong in `--implement`, without method filters. The `--dead-code`

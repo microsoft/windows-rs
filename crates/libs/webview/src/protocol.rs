@@ -7,8 +7,7 @@ pub(crate) const WEB_RESOURCE_CONTEXT_ALL: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 0
 
 /// Request sources matching every kind (`COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL`),
 /// so a filter also intercepts requests from iframes and workers.
-const WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
-    u32::MAX;
+const WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = !0;
 
 /// Registers a filter for every request source when the runtime supports it.
 pub(crate) unsafe fn add_requested_filter(

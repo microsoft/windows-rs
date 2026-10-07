@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    #[guid(0xf0f0f001_1234_5678_1234_567812345678)]
+    interface Properties {
+        #[special]
+        fn get_Value(&self, #[out] value: *mut i32) -> i32;
+        #[special]
+        fn put_Value(&self, #[in] value: i32) -> i32;
+        fn get_Plain(&self, #[out] value: *mut i32) -> i32;
+    }
+}

@@ -61,9 +61,10 @@ libclang USR. General unnamed-type identity across different files is not inferr
 | Indirection | Typedef edges, pointer levels, and distinct lvalue/rvalue references. |
 | Arrays | Constant extent or explicitly incomplete extent. |
 | Records | Kind, completeness, layout, fields, bit widths, simple bases, and method signatures. |
-| Enums | Completeness, scopedness, explicit `clang::flag_enum`, underlying type, and member values. |
+| Enums | Completeness, scopedness, explicit Clang/Windows flag markers, underlying type, and member values. |
 | Callables | Prototype kind, calling convention, exception specification, result, and parameter types. |
 | Parameters | Names, SAL annotate strings, MIDL directions, source families, original contexts, and locations. |
+| COM properties | Declaration-local MIDL `propget`, `propput`, and `propputref` markers, checked across observations. |
 | Variables | Native type and supported integer/floating initializer values, or an explicit unavailable value. |
 | Provenance | Input name, compiler arguments, resolved target, USR, and spelling location. |
 
@@ -131,11 +132,14 @@ registration is preserved.
 `Resolved::project` accepts a destination namespace, an optional import library, explicit export
 names, and external type bindings. It returns an owned `Plan`; `Plan::rdl` needs neither the
 snapshot nor libclang. The renderer performs no native type classification or dependency discovery.
+The default is to preserve source contracts, not to rewrite them for downstream convenience or
+match legacy output. Native enum signedness, typedef names, and annotation evidence remain separate
+from caller-supplied external bindings.
 
 | Surface | Current policy |
 | --- | --- |
 | Records | Nonempty structs with natural or increased member/record alignment; verify every offset, final size, and alignment. |
-| Enums | Complete integer-backed enums; preserve native width, signedness, names, values, and explicit `clang::flag_enum`. No flags inference. |
+| Enums | Complete integer-backed enums; preserve native width, signedness, names, values, and explicit Clang/Windows flag markers. No value-based flags inference. |
 | Local dependencies | Schedule checked complete records; unsupported dependencies fail the plan. |
 | Functions | Fixed prototypes, supported Windows calling conventions, compiler link names or caller-bound DLL export names. |
 | Parameters | Positional names for functions, native names for methods; supported SAL below. |
@@ -143,8 +147,8 @@ snapshot nor libclang. The renderer performs no native type classification or de
 | External scalar typedefs | Explicit value bindings; retain the checked native scalar representation and layout. |
 | External pointer typedefs | Explicit pointer-sized value bindings; preserve the alias boundary and native pointee constness. |
 | External interfaces | Bind a native record; consume exactly one native pointer/reference level. |
-| Local interfaces | UUID-bearing, fieldless records with pure virtual system-ABI methods and at most one base. |
-| Aliases | Preserve bound scalar/pointer contracts; otherwise peel at uses. A selected alias can name an unnamed record. Competing selected names reject. |
+| Local interfaces | UUID-bearing, fieldless records with pure virtual system-ABI methods and at most one base. MIDL `propget`/`propput` become `#[special]` on unchanged native method names. |
+| Aliases | Preserve bound scalar/pointer contracts; otherwise peel at uses. A selected alias can name a record unless its named tag is also selected. Competing selected names reject. |
 | Constants | Supported scalar and raw pointer values; omit interface values with a reason. |
 | Raw pointers | Collapse mixed mutability to const if any raw-pointer level is const. |
 
@@ -173,10 +177,11 @@ record alignment uses `#[align(N)]`; packing and reduced alignment still reject.
 check rejects by-value calls involving an adjusted record, including nested records and aliases.
 Matching storage layout does not prove its calling ABI.
 
-Explicitly selected aliases of unnamed records own the output name. This permits `decltype` to
-select real nested WDK member types without copying their declarations. Native candidate identity
+Explicitly selected record aliases own the output name unless the named tag is also selected.
+This preserves `POINT`/`RECT` and permits `decltype` to select real nested WDK member types without
+copying their declarations. Native candidate identity
 still uses the checked owner and field slot, including fields containing arrays or pointers to
-unnamed records. Multiple selected aliases naming the same unnamed record reject instead of
+unnamed records. Multiple selected aliases naming the same record reject instead of
 choosing by traversal order. General anonymous aggregate emission remains unsupported.
 
 Callable projection retains written typedef paths, not just canonical ABI types. For example,
@@ -339,7 +344,15 @@ constants are sign-extended from the captured representation width before render
 `flag_enums.h` distinguishes an explicit Clang flag marker from an equivalent plain enum.
 The marker becomes `#[flags]` without changing the native representation. Marker presence must
 agree across observations, including forward declarations; mixed annotated/unannotated
-declarations are conservatively rejected. Macro-based flags policy is still outside this slice.
+declarations are conservatively rejected. `operator_flags.h` covers the Windows
+`DEFINE_ENUM_FLAG_OPERATORS` marker. Capture associates its expansion location with the emitted
+`operator|` and the compiler's canonical enum type, not a textual argument name. Ordinary operators,
+same-named types in another namespace, and an empty macro redefinition do not imply flags. Native
+signedness stays unchanged, and conflicting observations reject.
+
+`midl_properties.h` covers declaration-prefix `propget`/`propput` comments. Only marked methods get
+`SpecialName`; a matching method-name prefix or a parameter comment is not evidence. Conflicting
+observations and marker/name mismatches reject. `propputref` is captured but projection rejects it.
 
 `sal_buffers.h` covers element and byte relationships for functions and methods, forward parameter
 references, direction, and constant count bounds. The redeclaration fixture verifies that renaming
@@ -591,8 +604,9 @@ unmeasured.
 
 ### Full-consumer viability probe
 
-All 79 WebView2 roots in the production binding filter capture, resolve, and project on x86, x64,
-and ARM64, in both filename orders. They form 530 native groups and 1,431 observations across two
+All 79 WebView2 roots in the production binding filter, plus the native `POINT`/`RECT` typedef
+roots, capture, resolve, and project on x86, x64, and ARM64, in both filename orders. They form 530
+native groups and 1,431 observations across two
 TUs, with no incomplete declarations. The build script compiles the projected RDL and generates
 normal Rust wrappers using concrete root filters so external signature dependencies are included.
 A broad namespace filter can replace methods with private vtable slots when those dependencies
@@ -602,10 +616,10 @@ wrappers compile on x64 and x86. Run capture tests in the x64 process: the pinne
 libclang runtime is a 64-bit DLL and cannot load in an x86 test executable.
 
 The rewrite emits 209 types and 672 methods; the comparison backend emits 210 types and the same
-672 methods. Legacy retains a local `VARIANT` alias, while `POINT`/`RECT` become their native tag
-names in the rewrite. Matching method counts and compiling wrappers are not semantic parity.
-The two loader exports selected by this filter are covered; this is not every WebView2 export or
-the complete Win32/WDK production gate.
+672 methods. Legacy retains a local `VARIANT` alias; the rewrite references the bound external type.
+Both retain the selected `POINT`/`RECT` names. Matching method counts and compiling wrappers are not
+semantic parity. The separate loader gate adds all five exports selected by `tool-webview`; this
+is not the complete Win32/WDK production gate.
 
 The scaling baseline below predates pointer-typedef bindings, MIDL-direction capture, and concrete
 binding filters. One local Windows x64 release run per cell used cached packages and excluded
@@ -628,9 +642,9 @@ A two-TU, 79-root release run after the handle/string contract gate measured 102
 25 ms sampling. This predates the issue-driven enum/override changes; it is one run, not a
 distribution or a refreshed 4/8-TU scaling result.
 
-`webview_compare` compares type kinds, attributes, enum/field values, IIDs, base interfaces, method
-order, signatures, import names/libraries, directions, optionality, buffer relationships, and COM
-output markers. Pass the two `test.winmd` paths printed by the examples:
+`webview_compare` compares type kinds, attributes, enum/field values, IIDs, base interfaces,
+method flags/order, signatures, import names/libraries, directions, optionality, buffer
+relationships, and COM output markers. Pass the two `test.winmd` paths printed by the examples:
 
 ```powershell
 cargo run -p test_clang2 --example webview_compare -- <old-test.winmd> <new-test.winmd>
@@ -638,18 +652,18 @@ cargo run -p test_clang2 --example webview_compare -- <old-test.winmd> <new-test
 
 It reports differences and exits unsuccessfully; it does not normalize known gaps into a green
 parity result. With identical explicit bindings, the x64 consumer probe has matching IIDs, bases,
-method order, parameter directions, optionality, buffer relationships, and COM output markers.
-There are 25 signature differences: 23 `POINT`/`RECT` tag-name differences and two local-versus-
-external `VARIANT` aliases. The full difference counts are 16 added facts, 22 removed facts,
-4 attributes, 4 representations, 47 fields, 25 signatures, and 2 calling conventions. These are
+method flags/order, parameter directions, optionality, buffer relationships, and COM output markers.
+There are two signature differences, both local-versus-external `VARIANT` aliases. The full
+difference counts are 6 removed facts, 4 representations, 47 fields, 2 signatures, and 2 calling
+conventions. These are
 metadata facts, not counts of distinct defects. Classification explains the differences, not
 approves them.
 
 | Difference | Assessment / remaining contract |
 | --- | --- |
-| Four flags enums use signed native representation without `FlagsAttribute` | Native enum evidence is retained, but the legacy flags policy is not implemented. Decide explicit projection policy rather than changing native facts. |
-| Alias/tag names differ | Naming/ownership policy is incomplete; no caller migration has been accepted. |
-| Two loader exports use `C` rather than `system` on x64 | Same platform ABI on this target; x86 emits stdcall and decorated native link names. WebView2 loader DLL routing is still untested; the BCrypt slice has explicit native-tested export bindings. |
+| Four flags enums retain signed native representation and values | Both outputs carry `FlagsAttribute`. The rewrite preserves the compiler's `i32`, including native `ALL = -1`, instead of the legacy `u32` conversion. |
+| Legacy retains a local `VARIANT` alias | The rewrite uses the explicit external `VARIANT` contract directly; no native pointer level is removed. |
+| Two loader exports use `C` rather than `system` on x64 | Same platform ABI on this target. Exact imports for all five exports are checked on three targets; real DLL calls execute on x64/x86. |
 
 `consumer_input_contracts_cutover_gate` is an ordinary passing test covering six `HWND` inputs and
 two host-object `VARIANT*` inputs. Exact wrapper assertions also require a handle-valued setter,
@@ -659,10 +673,44 @@ a handle-valued getter, a `PWSTR` getter, and a host-object input pointer:
 cargo test -p test_clang2 --test webview consumer_
 ```
 
-The architectural verdict is a viable candidate worth continuing, not a viable drop-in replacement
-today. Handle/string contracts and declaration-local MIDL directions survive generated wrappers
-and native calls without WebView2 method-name exceptions. The next compatibility decisions concern
-enum flags and output names; broader annotation, DLL-routing, and production-consumer gates remain.
+### Actual consumer and loader gate
+
+```powershell
+cargo run -p test_clang2 --example webview_consumer -- x86_64-pc-windows-msvc
+cargo run -p test_clang2 --example webview_consumer -- i686-pc-windows-msvc
+cargo run -p test_clang2 --example webview_consumer -- aarch64-pc-windows-msvc
+```
+
+The example copies the actual `windows-webview` sources and manifest into a new
+`target/clang2-webview/<target>/run-<pid>` directory. It uses the production binding filter,
+including `--flat --minimal --dead-code` and every implementation/method selector, changing only
+artifact paths. External bindings use the actual default metadata identities, including
+`Windows.Foundation.HResult` and `System.Guid`, not the synthetic COM reference fixture.
+The production backend and committed generated bindings are untouched.
+
+All four feature combinations (default, `system`, `reactor`, both) compile on x64/x86 and ARM64.
+The only approved consumer adjustment is its all-bits request-source initializer: `!0` preserves
+the same bits under the existing unsigned binding and the native signed binding. No scratch-source
+rewrites hide incompatible generated APIs. This gate exposed missing MIDL property markers that
+ordinary wrapper compilation and the earlier differential did not detect; capture and metadata now
+preserve those markers.
+
+The example also generates an independent loader executable. Its child-only DLL search path points
+to the pinned architecture package, and the executable verifies the loaded module's absolute path.
+It calls the generated `CompareBrowserVersions` declaration with equal/older/newer versions,
+channel suffixes, guarded output storage, malformed strings, and null parameters. Debug and release
+pass on x64/x86 without browser installation or activation. The pinned DLL returns `E_POINTER` for
+a null result pointer, despite the published reference saying `E_INVALIDARG` for any null parameter;
+the fixture records that observed distinction. Other tested invalid inputs return `E_INVALIDARG`.
+No failure-output initialization guarantee is inferred.
+
+All five loader import routes and missing-route rejection are covered on x86/x64/ARM64. Local
+ARM64 consumer checks pass, but native linking remains blocked by missing Visual Studio ARM64
+runtime libraries. CI runs the gate on each native target; its ARM64 result has not been observed.
+
+The first whole-consumer gate passes on x64/x86 with one representation-neutral consumer correction.
+This strengthens replacement viability, not SDK-wide parity. Browser activation, broader
+annotations, native ARM64 execution, and other production consumers remain open.
 
 ## Rewrite plan and restart point
 
@@ -675,9 +723,14 @@ over the old extractor's lossy output. Proceed through bounded gates, not an unc
 The old `windows-clang` implementation and production generators are unchanged. Inspect the
 worktree before restarting and preserve any local changes.
 
-The current slice has 108 passing integration tests and one passing doctest, with no ignored
+The current slice has 112 passing integration tests and one passing doctest, with no ignored
 WebView2 cutover cases.
 This establishes the covered cases, not production parity or completion of the acceptance matrix.
+
+An independent review of the BCrypt postcondition/import changes found no significant issues.
+It traced annotation lowering, metadata readback, COFF import decoding, and test-owned lifetimes,
+and reran focused regressions plus native crypto on x64/x86 in debug/release. It did not add fuzzing
+or establish generalized ownership, opaque-storage initialization, or native ARM64 guarantees.
 
 | Established behavior | Primary evidence |
 | --- | --- |
@@ -704,6 +757,8 @@ This establishes the covered cases, not production parity or completion of the a
 | Anonymous aggregate members retain native identity, layout, and conflicting dependencies | `test_clang2/tests/native.rs` |
 | Integer enums preserve representation and values through metadata and bidirectional native calls | `test_clang2/tests/projection.rs`, `test_clang2/tests/abi.rs` |
 | All 79 WebView2 consumer roots project across targets/orders and generated wrappers compile | `test_clang2/tests/webview.rs`, `test_clang2/build.rs` |
+| Actual WebView consumer feature matrix and pinned loader execution | `test_clang2/examples/webview_consumer.rs`, `input/webview_loader.rs`, `.github/workflows/test.yml` |
+| Native flags, selected typedef names, and MIDL property markers survive projection | `input/operator_flags.h`, `input/named_alias.h`, `input/midl_properties.h` |
 | Bound pointer contracts and MIDL directions preserve eight WebView2 inputs and exact public signatures | `test_clang2/tests/webview.rs::consumer_input_contracts_cutover_gate`, `consumer_wrappers_preserve_public_parameter_shapes` |
 | Handle/string wrappers reach native implementations on x64/x86 | `test_clang2/tests/com.rs::generated_handle_setters_and_strings_reach_native_methods` |
 | Borrowed interface objects remain distinct from output slots in metadata and generated wrappers | `test_clang2/tests/projection.rs::interface_direction_distinguishes_objects_from_pointer_slots`, `test_clang2/tests/com.rs::generated_object_borrows_reach_native_methods` |
@@ -794,10 +849,10 @@ reconstruction, and whole-language ODR verification are not goals.
 The aggregate-returning COM method limit needs a downstream bindgen fix and bidirectional native
 coverage before relaxing the projection rejection. Confirm the native ARM64 ABI run in CI.
 
-The remaining real-consumer differences are enum-flags policy and alias/tag naming, not graph
-reachability. Preserve the pointer-contract and MIDL direction gates while defining these separate
-projection policies. Native agreement must still run before external bindings can suppress local
-output.
+The WebView consumer and loader gates preserve source enum representation, typedef names, and MIDL
+properties. Keep these gates while moving to browser activation and other real generator inputs.
+Native agreement must still run before external bindings can suppress local output; do not rewrite
+source contracts to match legacy generated metadata.
 
 Remaining SAL and MIDL work includes indirect capacities, counted strings, and relationships beyond
 the bounded prefix-direction decoder. Preserve explicit string bindings; do not invent unbound
@@ -811,7 +866,7 @@ expected rejections in fixtures. Do not broaden the slice silently as new cases 
 | 2 | SAL and MIDL relationships | Required/optional buffers, output valid-byte extents, decimal element constants, scalar strings, and MIDL prefix directions with SAL precedence are covered. Counted strings, indirect capacities, and other MIDL relationships remain. |
 | 3 | Constants and preprocessing | Cover GUID/property-key forms, redefinition/undefinition, final macro state, and poison expressions with explicit, bounded recovery outcomes. |
 | 4 | Record layout | Anonymous native evidence is covered; local projection remains rejected. Cover packed, anonymous, bitfield, and a supported inherited record; compare compiler layout with generated Rust size, alignment, and offsets. |
-| 5 | Real multi-TU consumers | All 79 WebView2 consumer roots emit with measured scaling and covered handle/string/input contracts. Enum flags, alias/tag names, full exports, and a WDK case with UM references/enum overlays remain. |
+| 5 | Real multi-TU consumers | WebView consumer features compile with the production filter; source flags/properties/names and five loader exports are covered. Browser activation and a WDK case with UM references/enum overlays remain. |
 | 6 | Target and ABI coverage | Raw-binding layout, free aggregate calls, bidirectional COM-style dispatch, COM ownership, and eight BCrypt DLL imports execute on x64/x86. Native ARM64 execution, Windows COM activation, SDK-wide DLL routing, and aggregate-returning methods remain. |
 
 Use pinned real generator inputs where practical. Preserve main/satellite and WebView multi-TU

@@ -417,6 +417,69 @@ fn selected_record_aliases_require_unambiguous_ownership() {
 }
 
 #[test]
+fn selected_named_record_alias_owns_the_projected_definition() {
+    let source = include_str!("../input/named_alias.h");
+    for swapped in [false, true] {
+        let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", source)];
+        if swapped {
+            inputs.reverse();
+        }
+        let snapshot = capture(inputs, ARGS, &["Use", "Point"]).unwrap();
+        let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+        let index = compile("named_alias", &plan);
+        assert_eq!(index.types().filter(|ty| ty.name() == "Point").count(), 1);
+    }
+    let snapshot = capture([Input::new("a.hpp", source)], ARGS, &["Point", "Other"]).unwrap();
+    assert!(snapshot.resolve().unwrap().project(&options()).is_err());
+    let snapshot = capture([Input::new("a.hpp", source)], ARGS, &["Point", "tagPoint"]).unwrap();
+    let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+    compile("named_alias_explicit_tag", &plan);
+}
+
+#[test]
+fn windows_flag_operators_preserve_native_signedness_and_identity() {
+    let source = include_str!("../input/operator_flags.h");
+    for target in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={target}-pc-windows-msvc");
+        for (root, flags) in [("Flags", true), ("Plain", false)] {
+            let snapshot = capture(
+                [Input::new("flags.hpp", source)],
+                &["-x", "c++", &target],
+                &[root],
+            )
+            .unwrap();
+            let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+            let index = compile(&format!("operator_{}", root.replace("::", "_")), &plan);
+            let Item::Type(ty) = index.expect_item("Test", root) else {
+                panic!()
+            };
+            assert_eq!(ty.has_attribute("FlagsAttribute"), flags);
+            assert_eq!(ty.underlying_type(), Some(Type::I32));
+        }
+        let snapshot = capture(
+            [Input::new("flags.hpp", source)],
+            &["-x", "c++", &target],
+            &["Second::Flags"],
+        )
+        .unwrap();
+        assert!(snapshot.dump().contains("flags: false"));
+        let snapshot = capture(
+            [
+                Input::new("a.hpp", source),
+                Input::new(
+                    "b.hpp",
+                    source.replace("DEFINE_ENUM_FLAG_OPERATORS(Flags)", ""),
+                ),
+            ],
+            &["-x", "c++", &target],
+            &["Flags"],
+        )
+        .unwrap();
+        assert!(snapshot.resolve().is_err());
+    }
+}
+
+#[test]
 fn explicit_enum_flags_survive_projection() {
     let snapshot = capture(
         [Input::new(
@@ -885,6 +948,57 @@ fn pointer_options() -> ProjectionOptions {
         );
     }
     options
+}
+
+#[test]
+fn midl_properties_preserve_source_markers_not_method_name_heuristics() {
+    let source = include_str!("../input/midl_properties.h");
+    for target in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={target}-pc-windows-msvc");
+        let args = ["-x", "c++", &target];
+        for swapped in [false, true] {
+            let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", source)];
+            if swapped {
+                inputs.reverse();
+            }
+            let snapshot = capture(inputs, &args, &["Properties"]).unwrap();
+            let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+            let index = compile("midl_properties", &plan);
+            let Item::Type(ty) = index.expect_item("Test", "Properties") else {
+                panic!()
+            };
+            for (method, special) in ty.methods().zip([true, true, false]) {
+                assert_eq!(
+                    method
+                        .flags()
+                        .contains(windows_metadata::MethodAttributes::SpecialName),
+                    special,
+                );
+            }
+        }
+        for changed in [
+            source.replace("[propget]", "[propput]"),
+            source.replace("/* [propget] */", ""),
+        ] {
+            let snapshot = capture(
+                [Input::new("a.hpp", source), Input::new("b.hpp", changed)],
+                &args,
+                &["Properties"],
+            )
+            .unwrap();
+            assert!(snapshot.resolve().is_err());
+        }
+        let snapshot = capture(
+            [Input::new(
+                "a.hpp",
+                source.replace("get_Value", "put_Other"),
+            )],
+            &args,
+            &["Properties"],
+        )
+        .unwrap();
+        assert!(snapshot.resolve().unwrap().project(&options()).is_err());
+    }
 }
 
 #[test]

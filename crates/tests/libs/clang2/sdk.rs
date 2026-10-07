@@ -82,6 +82,7 @@ pub fn webview_roots() -> Vec<&'static str> {
         .lines()
         .filter_map(|line| line.trim().strip_prefix("WebView2."))
         .map(|name| name.split(':').next().unwrap())
+        .chain(["POINT", "RECT"])
         .collect::<std::collections::BTreeSet<_>>()
         .into_iter()
         .collect()
@@ -113,9 +114,35 @@ pub fn capture_webview(target: &str, roots: &[&str], swapped: bool) -> Snapshot 
     .unwrap()
 }
 
-pub fn webview_options() -> ProjectionOptions {
+pub fn webview_library(target: &str) -> PathBuf {
+    let arch = if target.contains("x86_64") {
+        "x64"
+    } else if target.contains("aarch64") {
+        "arm64"
+    } else {
+        assert!(target.contains("i686"), "unsupported target: {target}");
+        "x86"
+    };
+    webview_headers()[0]
+        .parent()
+        .unwrap()
+        .parent()
+        .unwrap()
+        .join(arch)
+        .join("WebView2Loader.dll.lib")
+}
+
+pub const WEBVIEW_EXPORTS: &[&str] = &[
+    "CompareBrowserVersions",
+    "CreateCoreWebView2Environment",
+    "CreateCoreWebView2EnvironmentWithOptions",
+    "GetAvailableCoreWebView2BrowserVersionString",
+    "GetAvailableCoreWebView2BrowserVersionStringWithOptions",
+];
+
+pub fn webview_options(target: &str) -> ProjectionOptions {
     let mut options = ProjectionOptions::new("WebView2");
-    options.library = Some("WebView2Loader.dll".into());
+    options.imports = imports(&webview_library(target), WEBVIEW_EXPORTS);
     for (native, namespace, name, kind) in [
         (
             "_GUID",
@@ -255,34 +282,12 @@ pub fn crypto_library(target: &str) -> PathBuf {
 
 pub fn crypto_options(target: &str) -> ProjectionOptions {
     let mut options = ProjectionOptions::new("Crypto");
-    let bytes = std::fs::read(crypto_library(target)).unwrap();
-    let mut found = std::collections::BTreeSet::new();
-    for import in windows_rdl::implib::read(&bytes).unwrap() {
-        let windows_rdl::implib::ImportTarget::Name(name) = import.target else {
-            continue;
-        };
-        if !CRYPTO_ROOTS.contains(&name.as_str()) {
-            continue;
-        }
-        assert_eq!(import.kind, windows_rdl::implib::ImportKind::Code);
-        found.insert(name.clone());
-        let value = windows_clang2::FunctionImport {
-            library: import.dll,
-            name,
-        };
-        if let Some(previous) = options.imports.insert(import.symbol.clone(), value) {
-            assert_eq!(previous, options.imports[&import.symbol]);
-        }
-    }
-    for root in CRYPTO_ROOTS
+    let exports: Vec<_> = CRYPTO_ROOTS
         .iter()
+        .copied()
         .filter(|root| root.starts_with("BCrypt"))
-    {
-        assert!(
-            found.contains(*root),
-            "missing import-library export: {root}"
-        );
-    }
+        .collect();
+    options.imports = imports(&crypto_library(target), &exports);
     options.string_references.insert(
         StringKind::WideConst,
         TypeReference {
@@ -302,6 +307,39 @@ pub fn crypto_options(target: &str) -> ProjectionOptions {
         );
     }
     options
+}
+
+fn imports(
+    library: &Path,
+    exports: &[&str],
+) -> std::collections::BTreeMap<String, windows_clang2::FunctionImport> {
+    let bytes = std::fs::read(library).unwrap();
+    let mut imports = std::collections::BTreeMap::new();
+    let mut found = std::collections::BTreeSet::new();
+    for import in windows_rdl::implib::read(&bytes).unwrap() {
+        let windows_rdl::implib::ImportTarget::Name(name) = import.target else {
+            continue;
+        };
+        if !exports.contains(&name.as_str()) {
+            continue;
+        }
+        assert_eq!(import.kind, windows_rdl::implib::ImportKind::Code);
+        found.insert(name.clone());
+        let value = windows_clang2::FunctionImport {
+            library: import.dll,
+            name,
+        };
+        if let Some(previous) = imports.insert(import.symbol.clone(), value) {
+            assert_eq!(previous, imports[&import.symbol]);
+        }
+    }
+    for root in exports {
+        assert!(
+            found.contains(*root),
+            "missing import-library export: {root}"
+        );
+    }
+    imports
 }
 
 pub fn arguments(target: &str) -> Vec<String> {

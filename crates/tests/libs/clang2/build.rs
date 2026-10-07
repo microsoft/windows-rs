@@ -149,11 +149,15 @@ fn build_webview() {
     }
     println!("cargo:rerun-if-changed=input/webview_reference.rdl");
     let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    println!(
+        "cargo:rerun-if-changed={}",
+        sdk::webview_library(&target).display()
+    );
     let snapshot = sdk::capture_webview(&target, &sdk::webview_roots(), false);
     let plan = snapshot
         .resolve()
         .unwrap()
-        .project(&sdk::webview_options())
+        .project(&sdk::webview_options(&target))
         .unwrap();
     let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
     let reference = out.join("webview_reference.winmd");

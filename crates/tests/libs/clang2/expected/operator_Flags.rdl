@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    #[flags]
+    #[repr(i32)]
+    enum Flags {
+        None = 0,
+        One = 1,
+        Two = 2,
+    }
+}

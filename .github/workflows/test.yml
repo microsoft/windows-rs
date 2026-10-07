@@ -93,6 +93,8 @@ jobs:
         # Capture and generation run in the x64 build script; the x86 executable needs no libclang.
         if: matrix.target == 'i686-pc-windows-msvc'
         run: cargo test -p test_clang2 --test abi --test com --test wdk --test crypto --target ${{ matrix.target }}
+      - name: Test clang2 WebView consumer and loader
+        run: cargo run -p test_clang2 --example webview_consumer --target ${{ matrix.host }} -- ${{ matrix.target }}
       - name: Test notification icon Shell integration
         if: matrix.target == 'x86_64-pc-windows-msvc'
         run: cargo test -p test_notifyicon --target ${{ matrix.target }} -- --ignored --test-threads=1

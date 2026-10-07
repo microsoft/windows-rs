@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Plain {
+        PlainNone = 0,
+        PlainOne = 1,
+        PlainTwo = 2,
+    }
+}

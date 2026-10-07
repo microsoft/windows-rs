@@ -129,6 +129,7 @@ pub(super) struct Field {
 #[derive(Debug)]
 pub(super) struct Method {
     pub name: String,
+    pub property: Option<String>,
     pub ty: Type,
     pub canonical: Type,
     pub parameters: Vec<Parameter>,

@@ -139,7 +139,10 @@ impl Plan {
                         write!(output, ": {base}").unwrap();
                     }
                     output.push_str(" {\n");
-                    for (method, parameters, result) in methods {
+                    for (method, special, parameters, result) in methods {
+                        if *special {
+                            output.push_str("        #[special]\n");
+                        }
                         write!(output, "        fn {method}(&self").unwrap();
                         for (attributes, parameter, ty) in parameters {
                             write!(output, ", {attributes}{parameter}: {}", ty.text()).unwrap();
@@ -197,12 +200,14 @@ impl Plan {
                         .any(|(_, ty)| self.adjusted_record(ty, &mut checked))
                         || self.adjusted_record(result, &mut checked)
                 }
-                Item::Interface { methods, .. } => methods.iter().any(|(_, parameters, result)| {
-                    parameters
-                        .iter()
-                        .any(|(_, _, ty)| self.adjusted_record(ty, &mut checked))
-                        || self.adjusted_record(result, &mut checked)
-                }),
+                Item::Interface { methods, .. } => {
+                    methods.iter().any(|(_, _, parameters, result)| {
+                        parameters
+                            .iter()
+                            .any(|(_, _, ty)| self.adjusted_record(ty, &mut checked))
+                            || self.adjusted_record(result, &mut checked)
+                    })
+                }
                 _ => false,
             };
             if adjusted {
@@ -242,7 +247,12 @@ enum Item {
     Interface {
         base: Option<String>,
         guid: String,
-        methods: Vec<(String, Vec<(String, String, ProjectedType)>, ProjectedType)>,
+        methods: Vec<(
+            String,
+            bool,
+            Vec<(String, String, ProjectedType)>,
+            ProjectedType,
+        )>,
     },
     Function {
         abi: &'static str,
@@ -395,14 +405,20 @@ impl Resolved<'_> {
                 let target = self.representatives[target.0];
                 if matches!(
                     self.snapshot.declarations[target.0].data,
-                    DeclarationData::Record { unnamed: true, .. }
-                ) {
+                    DeclarationData::Record { .. }
+                ) && !self.snapshot.roots.iter().any(|root| {
+                    self.representatives[root.0] == target
+                        && !matches!(
+                            self.snapshot.declarations[root.0].data,
+                            DeclarationData::Record { unnamed: true, .. }
+                        )
+                }) {
                     let name = ident(&alias.name)?;
                     if let Some(previous) = builder.names.insert(target, name.clone())
                         && previous != name
                     {
                         return Err(Error(
-                            "multiple selected aliases name the same anonymous record".into(),
+                            "multiple selected aliases name the same record".into(),
                         ));
                     }
                 }
@@ -757,6 +773,18 @@ impl Builder<'_, '_> {
         let mut projected = vec![];
         let mut names = BTreeSet::new();
         for (index, method) in methods.iter().enumerate() {
+            if let Some(property) = &method.property
+                && !match property.as_str() {
+                    "propget" => method.name.starts_with("get_"),
+                    "propput" => method.name.starts_with("put_"),
+                    _ => false,
+                }
+            {
+                return Err(Error(format!(
+                    "`{name}::{}` has an unsupported MIDL property contract: {property}",
+                    method.name
+                )));
+            }
             if !method.overrides.is_empty() {
                 return Err(Error(format!(
                     "`{name}::{}` reuses an inherited virtual slot; override projection is not implemented",
@@ -823,7 +851,12 @@ impl Builder<'_, '_> {
                     method.name
                 )));
             }
-            projected.push((ident(&method.name)?, params, result));
+            projected.push((
+                ident(&method.name)?,
+                method.property.is_some(),
+                params,
+                result,
+            ));
         }
         Ok(Item::Interface {
             base,

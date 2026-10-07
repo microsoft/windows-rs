@@ -32,14 +32,17 @@ bindings. Local interfaces support a single base and pure virtual system-ABI met
 by-value record results until the downstream aggregate-return ABI is covered. Same-name COM methods
 are rejected until native vtable ordering is covered; disambiguating Rust names is not enough.
 Inherited-slot overrides are captured but rejected until projection models slot reuse.
-Explicit `clang::flag_enum` markers survive without changing enum representation.
+Explicit `clang::flag_enum` and `DEFINE_ENUM_FLAG_OPERATORS` markers survive without changing enum
+representation. MIDL `propget`/`propput` comments preserve property semantics without renaming
+native methods or guessing from a `get_`/`put_` prefix.
 
 Increased member/record alignment preserves native storage using padding unions and alignment
 attributes. By-value calls involving adjusted layouts reject until their calling ABI is covered.
-Explicitly selected aliases can name unnamed record types; competing selected names reject.
+Explicitly selected aliases can name record types unless their named tag is also selected;
+competing selected names reject.
 Caller-supplied `ProjectionOptions::imports` maps native linker symbols to `FunctionImport` DLL
 and export names without changing captured evidence. Unmapped functions require an explicit
-`library` fallback; the BCrypt fixture instead derives all imports from target-specific SDK
+`library` fallback; the BCrypt and WebView2 fixtures instead derive imports from target-specific SDK
 COFF libraries.
 
 Supported parameter annotations include direction, optional pointers and buffers, COM output
@@ -85,9 +88,12 @@ These cases execute on x64/x86 in debug and release; ARM64 has capture/metadata 
 
 The consumer gate preserves six handle inputs and two host-object inputs, with exact generated
 wrapper-signature assertions. A native C++ fixture checks handle setters/getters and UTF-16 string
-inputs on x64 and x86. Remaining flags-enum and output-name differences still prevent drop-in
-replacement; broader annotation and production-consumer coverage is also required. See the
-continuation page for differential commands, remaining gates, and timing/memory measurements.
+inputs on x64 and x86. `webview_consumer` generates the exact production filter into a fresh scratch
+copy of `windows-webview`, then checks every feature combination without rewriting that copy's
+application code. The consumer's all-bits constant uses `!0` with signed or unsigned bindings.
+The pinned loader DLL also executes version comparisons and failure cases on x64/x86 in debug and
+release. Production generators remain unchanged; browser activation, broader annotations, and other
+production consumers still need coverage. See the continuation page for commands and open gates.
 
 The API and diagnostic dump are experimental. See
 [`docs/crates/windows-clang2.md`](../../../docs/crates/windows-clang2.md) for the supported subset,

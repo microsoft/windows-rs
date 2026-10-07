@@ -74,6 +74,7 @@ pub fn capture(
         entities: vec![],
         entity_cursors: (0..units.len()).map(|_| HashMap::new()).collect(),
         contexts: (0..units.len()).map(|_| vec![]).collect(),
+        flag_enums: (0..units.len()).map(|_| BTreeSet::new()).collect(),
         macros,
         identities: BTreeMap::new(),
         interned: (0..units.len()).map(|_| HashMap::new()).collect(),
@@ -82,7 +83,42 @@ pub fn capture(
     let mut selected = vec![];
     let mut found = BTreeSet::new();
     for (unit, parsed) in units.iter().enumerate() {
-        for cursor in declarations(unsafe { clang_getTranslationUnitCursor(parsed.raw) }) {
+        let root = unsafe { clang_getTranslationUnitCursor(parsed.raw) };
+        let flag_macros: BTreeSet<_> = children(root)
+            .into_iter()
+            .filter(|cursor| {
+                (unsafe { clang_getCursorKind(*cursor) }) == CXCursor_MacroExpansion
+                    && string(unsafe { clang_getCursorSpelling(*cursor) })
+                        == "DEFINE_ENUM_FLAG_OPERATORS"
+            })
+            .map(|cursor| {
+                let location = expansion_location(unsafe { clang_getCursorLocation(cursor) });
+                (location.file, location.offset)
+            })
+            .collect();
+        for cursor in declarations(root) {
+            if unsafe { clang_getCursorKind(cursor) } == CXCursor_FunctionDecl
+                && string(unsafe { clang_getCursorSpelling(cursor) }) == "operator|"
+            {
+                let location = expansion_location(unsafe { clang_getCursorLocation(cursor) });
+                if flag_macros.contains(&(location.file, location.offset)) {
+                    let ty = unsafe { clang_getCursorType(cursor) };
+                    let result = unsafe { clang_getCanonicalType(clang_getResultType(ty)) };
+                    if result.kind == CXType_Enum
+                        && unsafe { clang_getNumArgTypes(ty) } == 2
+                        && (0..2).all(|index| unsafe {
+                            clang_equalTypes(
+                                result,
+                                clang_getCanonicalType(clang_getArgType(ty, index)),
+                            ) != 0
+                        })
+                    {
+                        capture.flag_enums[unit].insert(string(unsafe {
+                            clang_getCursorUSR(clang_getTypeDeclaration(result))
+                        }));
+                    }
+                }
+            }
             if matches!(
                 unsafe { clang_getCursorKind(cursor) },
                 CXCursor_FunctionDecl | CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
@@ -283,6 +319,7 @@ struct Capture<'a> {
     entities: Vec<Entity>,
     entity_cursors: Vec<HashMap<u32, Vec<(CXCursor, EntityId)>>>,
     contexts: Vec<Vec<CXCursor>>,
+    flag_enums: Vec<BTreeSet<String>>,
     macros: Vec<BTreeMap<String, Location>>,
     identities: BTreeMap<String, Vec<(usize, CXCursor)>>,
     interned: Vec<HashMap<u32, Vec<(CXCursor, Id)>>>,
@@ -439,6 +476,7 @@ impl Capture<'_> {
                             }
                         }
                         CXCursor_CXXMethod => methods.push(Method {
+                            property: method_property(child)?,
                             name: string(unsafe { clang_getCursorSpelling(child) }),
                             ty: self.ty(unit, unsafe { clang_getCursorType(child) })?,
                             canonical: self.ty(unit, unsafe {
@@ -497,7 +535,9 @@ impl Capture<'_> {
                 scoped: unsafe { clang_EnumDecl_isScoped(cursor) } != 0,
                 flags: children(cursor)
                     .iter()
-                    .any(|child| unsafe { clang_getCursorKind(*child) == CXCursor_FlagEnum }),
+                    .any(|child| unsafe { clang_getCursorKind(*child) == CXCursor_FlagEnum })
+                    || self.flag_enums[unit]
+                        .contains(&string(unsafe { clang_getCursorUSR(cursor) })),
                 repr: self.ty(unit, unsafe { clang_getEnumDeclIntegerType(cursor) })?,
                 variants: children(cursor)
                     .into_iter()
@@ -772,8 +812,56 @@ fn parameter_comments(cursor: CXCursor, parameters: &[CXCursor]) -> Vec<Vec<Anno
 }
 
 fn midl_direction(comment: &str) -> Option<u8> {
-    let mut comment = comment.strip_prefix("/*")?.strip_suffix("*/")?.trim();
     let mut direction = 0;
+    for attribute in midl_attributes(comment)? {
+        direction |= match attribute {
+            "in" => 1,
+            "out" => 2,
+            _ => 0,
+        };
+    }
+    (direction != 0).then_some(direction)
+}
+
+fn method_property(cursor: CXCursor) -> Result<Option<String>, Error> {
+    let tu = unsafe { clang_Cursor_getTranslationUnit(cursor) };
+    let range = expansion_range(tu, unsafe {
+        clang_getRange(
+            clang_getRangeStart(clang_getCursorExtent(cursor)),
+            clang_getCursorLocation(cursor),
+        )
+    });
+    let mut raw = std::ptr::null_mut();
+    let mut count = 0;
+    unsafe { clang_tokenize(tu, range, &mut raw, &mut count) };
+    let mut properties = BTreeSet::new();
+    for index in 0..count {
+        let token = unsafe { *raw.add(index as usize) };
+        if unsafe { clang_getTokenKind(token) } == CXToken_Comment
+            && let Some(attributes) =
+                midl_attributes(&string(unsafe { clang_getTokenSpelling(tu, token) }))
+        {
+            properties.extend(
+                attributes
+                    .into_iter()
+                    .filter(|attribute| matches!(*attribute, "propget" | "propput" | "propputref"))
+                    .map(str::to_string),
+            );
+        }
+    }
+    unsafe { clang_disposeTokens(tu, raw, count) };
+    if properties.len() > 1 {
+        return Err(Error(format!(
+            "conflicting MIDL property markers: {}",
+            qualified_name(cursor)
+        )));
+    }
+    Ok(properties.pop_first())
+}
+
+fn midl_attributes(comment: &str) -> Option<Vec<&str>> {
+    let mut comment = comment.strip_prefix("/*")?.strip_suffix("*/")?.trim();
+    let mut attributes = vec![];
     while !comment.is_empty() {
         let (group, rest) = comment.strip_prefix('[')?.split_once(']')?;
         for attribute in group.split(',').map(str::trim) {
@@ -784,15 +872,11 @@ fn midl_direction(comment: &str) -> Option<u8> {
             {
                 return None;
             }
-            direction |= match attribute {
-                "in" => 1,
-                "out" => 2,
-                _ => 0,
-            };
+            attributes.push(attribute);
         }
         comment = rest.trim();
     }
-    (direction != 0).then_some(direction)
+    Some(attributes)
 }
 
 fn declarations(root: CXCursor) -> Vec<CXCursor> {

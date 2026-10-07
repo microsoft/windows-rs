@@ -1,6 +1,6 @@
 use windows_metadata::{
     Type,
-    reader::{Index, Item, ParamDirection},
+    reader::{HasAttributes, Index, Item, ParamDirection},
 };
 
 #[allow(dead_code)]
@@ -27,7 +27,7 @@ fn core_interfaces_agree_across_main_and_interop_tus() {
         "ICoreWebView2StringCollection",
         "ICoreWebView2HttpHeadersCollectionIterator",
     ];
-    let options = sdk::webview_options();
+    let options = sdk::webview_options("--target=x86_64-pc-windows-msvc");
     let out = std::path::Path::new(env!("OUT_DIR")).join("webview-test");
     std::fs::create_dir_all(&out).unwrap();
     let reference = out.join("reference.winmd");
@@ -81,7 +81,7 @@ fn core_interfaces_agree_across_main_and_interop_tus() {
 #[test]
 fn consumer_dependencies_project_across_targets_and_input_orders() {
     let roots = sdk::webview_roots();
-    assert_eq!(roots.len(), 79);
+    assert_eq!(roots.len(), 81);
     for target in [
         "--target=x86_64-pc-windows-msvc",
         "--target=i686-pc-windows-msvc",
@@ -92,7 +92,10 @@ fn consumer_dependencies_project_across_targets_and_input_orders() {
             let snapshot = sdk::capture_webview(target, &roots, swapped);
             let resolved = snapshot.resolve().unwrap();
             assert!(resolved.report().incomplete.is_empty());
-            let rdl = resolved.project(&sdk::webview_options()).unwrap().rdl();
+            let rdl = resolved
+                .project(&sdk::webview_options(target))
+                .unwrap()
+                .rdl();
             std::fs::write(
                 std::path::Path::new(env!("OUT_DIR")).join(format!(
                     "consumer-{}.rdl",
@@ -106,6 +109,60 @@ fn consumer_dependencies_project_across_targets_and_input_orders() {
             } else {
                 expected = Some(rdl);
             }
+        }
+    }
+}
+
+#[test]
+fn loader_exports_and_source_enum_contracts_survive_metadata() {
+    let mut roots = sdk::webview_roots();
+    roots.extend(sdk::WEBVIEW_EXPORTS);
+    roots.sort_unstable();
+    roots.dedup();
+    for arch in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={arch}-pc-windows-msvc");
+        let snapshot = sdk::capture_webview(&target, &roots, false);
+        let resolved = snapshot.resolve().unwrap();
+        let options = sdk::webview_options(&target);
+        let plan = resolved.project(&options).unwrap();
+        assert!(
+            plan.omitted()
+                .keys()
+                .all(|name| options.references.contains_key(name))
+        );
+        let out = std::path::Path::new(env!("OUT_DIR")).join(format!("webview-loader-{arch}"));
+        std::fs::create_dir_all(&out).unwrap();
+        let winmd = out.join("test.winmd");
+        windows_rdl::reader()
+            .input_text(&plan.rdl())
+            .input_text(include_str!("../input/webview_reference.rdl"))
+            .reference_default()
+            .output(&winmd)
+            .write()
+            .unwrap();
+        let index = Index::read(winmd).unwrap();
+        for export in sdk::WEBVIEW_EXPORTS {
+            let Item::Fn(method) = index.expect_item("WebView2", export) else {
+                panic!()
+            };
+            let import = method.impl_map().unwrap();
+            assert_eq!(import.import_name(), *export);
+            assert_eq!(import.import_scope().name(), "WebView2Loader.dll");
+            let mut missing = sdk::webview_options(&target);
+            missing.imports.retain(|_, import| import.name != *export);
+            assert!(resolved.project(&missing).is_err());
+        }
+        for name in [
+            "COREWEBVIEW2_BROWSING_DATA_KINDS",
+            "COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS",
+            "COREWEBVIEW2_PDF_TOOLBAR_ITEMS",
+            "COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS",
+        ] {
+            let Item::Type(ty) = index.expect_item("WebView2", name) else {
+                panic!()
+            };
+            assert!(ty.has_attribute("FlagsAttribute"));
+            assert_eq!(ty.underlying_type(), Some(Type::I32));
         }
     }
 }
@@ -172,10 +229,10 @@ fn consumer_wrappers_preserve_public_parameter_shapes() {
     use bindings::{HWND, ICoreWebView2, ICoreWebView2Controller, VARIANT};
     use windows_core::{HRESULT, PCWSTR, PWSTR, Result};
     let _: unsafe fn(&ICoreWebView2Controller, HWND) -> HRESULT =
-        ICoreWebView2Controller::put_ParentWindow;
+        ICoreWebView2Controller::SetParentWindow;
     let _: unsafe fn(&ICoreWebView2Controller) -> Result<HWND> =
-        ICoreWebView2Controller::get_ParentWindow;
+        ICoreWebView2Controller::ParentWindow;
     let _: unsafe fn(&ICoreWebView2, PCWSTR, *const VARIANT) -> HRESULT =
         ICoreWebView2::AddHostObjectToScript::<PCWSTR>;
-    let _: unsafe fn(&ICoreWebView2) -> Result<PWSTR> = ICoreWebView2::get_Source;
+    let _: unsafe fn(&ICoreWebView2) -> Result<PWSTR> = ICoreWebView2::Source;
 }

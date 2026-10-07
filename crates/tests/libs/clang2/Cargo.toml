@@ -20,6 +20,7 @@ windows-clang = { workspace = true }
 windows-clang2 = { workspace = true }
 windows-rdl = { workspace = true }
 windows-metadata = { workspace = true }
+toml = "1.0"
 
 [lints]
 workspace = true

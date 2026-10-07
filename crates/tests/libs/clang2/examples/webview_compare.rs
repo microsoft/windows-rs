@@ -50,6 +50,7 @@ fn facts(index: &Index) -> BTreeMap<String, String> {
         for (slot, method) in ty.methods().enumerate() {
             let key = format!("{name}/method/{slot}");
             let signature = method.signature(&[]);
+            facts.insert(format!("{key}/attributes"), format!("{:?}", method.flags()));
             facts.insert(format!("{key}/name"), method.name().into());
             facts.insert(format!("{key}/signature"), format!("{signature:?}"));
             facts.insert(

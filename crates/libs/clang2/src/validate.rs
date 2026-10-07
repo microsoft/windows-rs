@@ -293,6 +293,7 @@ impl<'a> Comparison<'a> {
                                     && am.len() == bm.len()
                                     && am.iter().zip(bm).all(|(a, b)| {
                                         a.name == b.name
+                                            && a.property == b.property
                                             && a.virtual_method == b.virtual_method
                                             && a.static_method == b.static_method
                                             && a.const_method == b.const_method
