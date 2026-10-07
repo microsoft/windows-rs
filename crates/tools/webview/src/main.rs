@@ -1,4 +1,6 @@
 use helpers::*;
+use std::collections::BTreeSet;
+use windows_clang2::{FunctionImport, Input, ProjectionOptions, ReferenceKind, TypeReference};
 use windows_rdl::*;
 
 // WebView2 owns its SDK pin here: the headers are downloaded from this exact NuGet package
@@ -8,57 +10,143 @@ use windows_rdl::*;
 const WEBVIEW2_PKG: &str = "Microsoft.Web.WebView2";
 const WEBVIEW2_VERSION: &str = "1.0.4078.44";
 
+const EXPORTS: &[&str] = &[
+    "CompareBrowserVersions",
+    "CreateCoreWebView2Environment",
+    "CreateCoreWebView2EnvironmentWithOptions",
+    "GetAvailableCoreWebView2BrowserVersionString",
+    "GetAvailableCoreWebView2BrowserVersionStringWithOptions",
+];
+
 fn main() {
     let time = std::time::Instant::now();
-
-    // Like `tool-win32`, provision and pin libclang before the first parse: download
-    // the exact `LIBCLANG_VERSION` wheel on demand (unless `LIBCLANG_PATH` is set) and assert the
-    // loaded version, so the WebView2 metadata is generated against the same clang everywhere - in
-    // CI and on a fresh checkout - instead of whatever LLVM happens to be installed.
     ensure_libclang();
     assert_libclang_version();
 
-    // The pinned NuGet package lays the C/C++ headers out under `build/native`: the core API and
-    // options header live in `include/`, while the COM<->WinRT bridge header sits in
-    // `include-winrt/`.
-    let pkg = nuget_package(WEBVIEW2_PKG, WEBVIEW2_VERSION);
-    let include = pkg.join("build").join("native").join("include");
-    let include_winrt = pkg.join("build").join("native").join("include-winrt");
-    // `WebView2Interop.h` (in `include-winrt/`) `#include`s `"WebView2.h"` from the sibling
-    // `include/` dir, so that directory has to be on the header search path.
-    let include_arg = format!("-I{}", include.display());
+    let native = nuget_package(WEBVIEW2_PKG, WEBVIEW2_VERSION)
+        .join("build")
+        .join("native");
+    let sdk_version = read_str_const("crates/tools/win32/src/main.rs", "SDK_VERSION");
+    let (marketing, _) = sdk_version.rsplit_once('.').unwrap();
+    let sdk = nuget_package("microsoft.windows.sdk.cpp", &sdk_version)
+        .join("c")
+        .join("Include")
+        .join(format!("{marketing}.0"));
+    let arguments = [
+        "-x".to_string(),
+        "c++".into(),
+        // x86 retains the source stdcall distinction that x64 normalizes to its platform ABI.
+        "--target=i686-pc-windows-msvc".into(),
+        "-fms-extensions".into(),
+        "-include".into(),
+        "specstrings.h".into(),
+        "-include".into(),
+        "crates/tools/win32/src/sal.h".into(),
+        "-isystem".into(),
+        sdk.join("shared").to_str().unwrap().into(),
+        "-isystem".into(),
+        sdk.join("um").to_str().unwrap().into(),
+        format!("-I{}", native.join("include").display()),
+        format!("-I{}", native.join("include-winrt").display()),
+    ];
+    let roots: Vec<_> = include_str!("webview.txt")
+        .lines()
+        .filter_map(|line| line.trim().strip_prefix("WebView2."))
+        .map(|name| name.split(':').next().unwrap())
+        .chain(["POINT", "RECT"])
+        .chain(EXPORTS.iter().copied())
+        .collect::<BTreeSet<_>>()
+        .into_iter()
+        .collect();
 
-    // WebView2 ships only a C/C++ header, so the binding pipeline starts there:
-    // WebView2*.h -> WebView2.rdl (clang) -> WebView2.winmd (reader) -> bindings.rs (bindgen).
-    // Each header is parsed as its own translation unit (only its own declarations are
-    // emitted, not its #includes), so both headers are listed: WebView2.h yields the core
-    // COM API and WebView2Interop.h yields the ICoreWebView2Interop2::GetComICoreWebView2
-    // bridge used to reuse these COM wrappers from the WinUI/WinRT WebView2 XAML control.
-    windows_clang::clang()
-        .inputs([
-            include.join("WebView2.h"),
-            include_winrt.join("WebView2Interop.h"),
-        ])
-        .args([
-            "-x",
-            "c++",
-            "--target=x86_64-pc-windows-msvc",
-            "-fms-extensions",
-            &include_arg,
-        ])
-        .reference_default()
-        .symbols([
-            "CompareBrowserVersions",
-            "CreateCoreWebView2Environment",
-            "CreateCoreWebView2EnvironmentWithOptions",
-            "GetAvailableCoreWebView2BrowserVersionString",
-            "GetAvailableCoreWebView2BrowserVersionStringWithOptions",
-        ])
-        .namespace("WebView2")
-        .library("WebView2Loader.dll")
-        .output("target/webview/WebView2.rdl")
-        .write()
-        .unwrap();
+    let snapshot = windows_clang2::capture(
+        [
+            Input::new("webview.hpp", "#include <WebView2.h>"),
+            Input::new("interop.hpp", "#include <WebView2Interop.h>"),
+        ],
+        &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
+        &roots,
+    )
+    .unwrap();
+    let mut options = ProjectionOptions::new("WebView2");
+    for (native, namespace, name, kind) in [
+        ("_GUID", "System", "Guid", ReferenceKind::Value),
+        (
+            "HRESULT",
+            "Windows.Foundation",
+            "HResult",
+            ReferenceKind::Value,
+        ),
+        ("BOOL", "Windows.Win32", "BOOL", ReferenceKind::Value),
+        (
+            "IUnknown",
+            "Windows.Win32",
+            "IUnknown",
+            ReferenceKind::Interface,
+        ),
+        (
+            "IStream",
+            "Windows.Win32",
+            "IStream",
+            ReferenceKind::Interface,
+        ),
+        (
+            "tagVARIANT",
+            "Windows.Win32",
+            "VARIANT",
+            ReferenceKind::Value,
+        ),
+        ("HWND", "Windows.Win32", "HWND", ReferenceKind::Value),
+        ("HICON", "Windows.Win32", "HICON", ReferenceKind::Value),
+        ("HCURSOR", "Windows.Win32", "HCURSOR", ReferenceKind::Value),
+        ("HANDLE", "Windows.Win32", "HANDLE", ReferenceKind::Value),
+        ("PWSTR", "Windows.Win32", "PWSTR", ReferenceKind::Value),
+        ("LPWSTR", "Windows.Win32", "PWSTR", ReferenceKind::Value),
+        ("PCWSTR", "Windows.Win32", "PCWSTR", ReferenceKind::Value),
+        ("LPCWSTR", "Windows.Win32", "PCWSTR", ReferenceKind::Value),
+    ] {
+        options.references.insert(
+            native.into(),
+            TypeReference {
+                namespace: namespace.into(),
+                name: name.into(),
+                kind,
+            },
+        );
+    }
+    let library = std::fs::read(native.join("x86").join("WebView2Loader.dll.lib")).unwrap();
+    let mut found = BTreeSet::new();
+    for import in implib::read(&library).unwrap() {
+        let implib::ImportTarget::Name(name) = import.target else {
+            continue;
+        };
+        if !EXPORTS.contains(&name.as_str()) {
+            continue;
+        }
+        assert_eq!(import.kind, implib::ImportKind::Code);
+        found.insert(name.clone());
+        let value = FunctionImport {
+            library: import.dll,
+            name,
+        };
+        if let Some(previous) = options.imports.insert(import.symbol.clone(), value) {
+            assert_eq!(previous, options.imports[&import.symbol]);
+        }
+    }
+    for export in EXPORTS {
+        assert!(
+            found.contains(*export),
+            "missing import-library export: {export}"
+        );
+    }
+    let plan = snapshot.resolve().unwrap().project(&options).unwrap();
+    assert!(
+        plan.omitted().is_empty(),
+        "omitted WebView roots: {:?}",
+        plan.omitted()
+    );
+    std::fs::create_dir_all("target/webview").unwrap();
+    std::fs::write("target/webview/WebView2.rdl", plan.rdl()).unwrap();
 
     reader()
         .input("target/webview/WebView2.rdl")

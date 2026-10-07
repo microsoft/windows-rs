@@ -25,12 +25,18 @@ fn main() {
         .position(|arg| arg == "--filter")
         .and_then(|index| args.get(index + 1).cloned());
     let headless = args.iter().any(|arg| arg == "--headless");
+    let require_runtime = args.iter().any(|arg| arg == "--require-runtime");
     let interactive = !headless && std::io::stdout().is_terminal();
 
     let harness = match Harness::bootstrap("windows-webview - self-test") {
         Ok(harness) => harness,
         Err(error) => {
             println!("TAP version 14");
+            if require_runtime {
+                println!("Bail out! WebView2 bootstrap failed ({error:?})");
+                let _ = std::io::stdout().flush();
+                std::process::exit(1);
+            }
             println!("1..0");
             println!("# SKIP windows-webview: WebView2 runtime unavailable ({error:?})");
             let _ = std::io::stdout().flush();
