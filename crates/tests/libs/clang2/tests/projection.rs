@@ -1,5 +1,5 @@
 use windows_clang2::{
-    Input, Plan, ProjectionOptions, ReferenceKind, StringKind, TypeReference, capture,
+    Input, Plan, PointerSized, ProjectionOptions, ReferenceKind, StringKind, TypeReference, capture,
 };
 use windows_metadata::{
     Type, Value,
@@ -476,7 +476,250 @@ fn selected_named_record_alias_owns_the_projected_definition() {
     assert!(snapshot.resolve().unwrap().project(&options()).is_err());
     let snapshot = capture([Input::new("a.hpp", source)], ARGS, &["Point", "tagPoint"]).unwrap();
     let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
-    compile("named_alias_explicit_tag", &plan);
+    let index = compile("named_alias_explicit_tag", &plan);
+    let alias = index.expect("Test", "Point");
+    assert!(alias.has_attribute("NativeTypedefAttribute"));
+    let fields: Vec<_> = alias.fields().collect();
+    assert_eq!(fields.len(), 1);
+    assert_eq!(fields[0].name(), "Value");
+    assert_eq!(fields[0].ty(), Type::value_named("Test", "tagPoint"));
+    assert_eq!(index.expect("Test", "tagPoint").fields().count(), 2);
+}
+
+#[test]
+fn pointer_sized_contracts_preserve_type_uses() {
+    for target in ["i686", "x86_64", "aarch64"] {
+        let argument = format!("--target={target}-pc-windows-msvc");
+        let snapshot = capture(
+            [Input::new(
+                "sizes.hpp",
+                include_str!("../input/pointer_sized.h"),
+            )],
+            &["-x", "c++", &argument],
+            &[
+                "SignedSize",
+                "UnsignedSize",
+                "Sizes",
+                "Measure",
+                "Annotated",
+                "Write",
+                "MinOffset",
+                "MaxCount",
+            ],
+        )
+        .unwrap();
+        let mut options = options();
+        options
+            .pointer_sized
+            .insert("SignedSize".into(), PointerSized::Signed);
+        options
+            .pointer_sized
+            .insert("UnsignedSize".into(), PointerSized::Unsigned);
+        let plan = snapshot.resolve().unwrap().project(&options).unwrap();
+        let name = if target == "i686" {
+            "pointer_sized_x86"
+        } else {
+            "pointer_sized"
+        };
+        let index = compile(name, &plan);
+        let Item::Fn(method) = index.expect_item("Test", "Measure") else {
+            panic!()
+        };
+        let signature = method.signature(&[]);
+        assert_eq!(signature.return_type, Type::ISize);
+        assert_eq!(
+            signature.types,
+            [
+                Type::USize,
+                Type::ISize,
+                Type::PtrMut(Box::new(Type::USize), 1),
+                Type::U64
+            ]
+        );
+        let Item::Fn(method) = index.expect_item("Test", "Write") else {
+            panic!()
+        };
+        let params = method.params_by_sequence(3).unwrap();
+        let buffer = params.params()[0].unwrap();
+        assert_eq!(
+            buffer.buffer_relationship(),
+            Some(BufferRelationship::BytesParam(1))
+        );
+        assert_eq!(
+            buffer.bytes_written(),
+            Some(BytesWritten {
+                parameter: 2,
+                dereference: true
+            })
+        );
+        assert!(
+            index
+                .expect("Test", "AnnotatedSize")
+                .has_attribute("NativeAnnotationAttribute")
+        );
+    }
+}
+
+#[test]
+fn pointer_sized_bindings_require_matching_native_integer_typedefs() {
+    for native in [
+        "unsigned long",
+        "long long",
+        "double",
+        "void*",
+        "Object",
+        "bool",
+    ] {
+        let snapshot = capture(
+            [Input::new(
+                "bad.hpp",
+                format!(
+                    "#define NATIVE_TYPE {native}\n#define ALIAS_TYPE Size\n{}",
+                    include_str!("../input/pointer_sized_contract.h"),
+                ),
+            )],
+            ARGS,
+            &["Use"],
+        )
+        .unwrap();
+        let mut options = options();
+        options
+            .pointer_sized
+            .insert("Size".into(), PointerSized::Unsigned);
+        let error = snapshot.resolve().unwrap().project(&options).unwrap_err();
+        assert!(
+            error.to_string().contains("pointer-sized binding `Size`"),
+            "{native}: {error}"
+        );
+    }
+    let snapshot = capture(
+        [Input::new(
+            "sizes.hpp",
+            include_str!("../input/pointer_sized.h"),
+        )],
+        ARGS,
+        &["Sizes"],
+    )
+    .unwrap();
+    let resolved = snapshot.resolve().unwrap();
+    let mut options = options();
+    options
+        .pointer_sized
+        .insert("UnsignedSize".into(), PointerSized::Signed);
+    assert!(
+        resolved
+            .project(&options)
+            .unwrap_err()
+            .to_string()
+            .contains("native isize")
+    );
+    options.pointer_sized.clear();
+    options
+        .pointer_sized
+        .insert("Sizes".into(), PointerSized::Unsigned);
+    assert!(
+        resolved
+            .project(&options)
+            .unwrap_err()
+            .to_string()
+            .contains("integer typedef")
+    );
+    options.pointer_sized.clear();
+    options
+        .pointer_sized
+        .insert("UnsignedSize".into(), PointerSized::Unsigned);
+    options.references.insert(
+        "UnsignedSize".into(),
+        TypeReference {
+            namespace: "External".into(),
+            name: "Size".into(),
+            kind: ReferenceKind::Value,
+        },
+    );
+    assert!(
+        resolved
+            .project(&options)
+            .unwrap_err()
+            .to_string()
+            .contains("conflicting pointer-sized")
+    );
+}
+
+#[test]
+fn pointer_sized_contracts_cannot_hide_behind_alias_representatives() {
+    for root in ["Alias", "Use", "Container"] {
+        for reverse in [false, true] {
+            let source = |alias: &str| {
+                format!(
+                    "#define NATIVE_TYPE unsigned long long\n#define ALIAS_TYPE {alias}\n{}",
+                    include_str!("../input/pointer_sized_contract.h"),
+                )
+            };
+            let mut inputs = [
+                Input::new("a.hpp", source("Size")),
+                Input::new("b.hpp", source("unsigned long long")),
+            ];
+            if reverse {
+                inputs.reverse();
+            }
+            let snapshot = capture(inputs, ARGS, &[root]).unwrap();
+            let resolved = snapshot.resolve().unwrap();
+            assert!(resolved.project(&options()).is_ok());
+            let mut options = options();
+            options
+                .pointer_sized
+                .insert("Size".into(), PointerSized::Unsigned);
+            let error = resolved.project(&options).unwrap_err();
+            assert!(
+                error
+                    .to_string()
+                    .contains("conflicting projected typedef contracts"),
+                "{error}"
+            );
+        }
+    }
+}
+
+#[test]
+fn pointer_sized_contracts_do_not_erase_annotated_dependencies() {
+    let snapshot = capture(
+        [Input::new(
+            "sizes.hpp",
+            format!(
+                "#define NATIVE_TYPE AnnotatedBase\n#define ALIAS_TYPE Size\n{}",
+                include_str!("../input/pointer_sized_contract.h"),
+            ),
+        )],
+        ARGS,
+        &["Use", "Size"],
+    )
+    .unwrap();
+    let resolved = snapshot.resolve().unwrap();
+    let mut options = options();
+    options
+        .pointer_sized
+        .insert("Size".into(), PointerSized::Unsigned);
+    let error = resolved.project(&options).unwrap_err();
+    assert!(
+        error.to_string().contains("written typedef contract"),
+        "{error}"
+    );
+    options
+        .pointer_sized
+        .insert("AnnotatedBase".into(), PointerSized::Unsigned);
+    let index = compile(
+        "pointer_sized_annotations",
+        &resolved.project(&options).unwrap(),
+    );
+    assert!(
+        index
+            .expect("Test", "AnnotatedBase")
+            .has_attribute("NativeAnnotationAttribute")
+    );
+    assert_eq!(
+        index.expect("Test", "Size").fields().next().unwrap().ty(),
+        Type::value_named("Test", "AnnotatedBase")
+    );
 }
 
 #[test]

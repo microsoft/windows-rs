@@ -97,6 +97,12 @@ contracts across observations fail projection even when their native types agree
 preserve handles and string aliases without folding them into surrounding raw-pointer levels. SAL
 string bindings must agree with any explicit external typedef binding.
 
+`ProjectionOptions::pointer_sized` maps explicit native integer typedefs to `PointerSized::Signed`
+or `PointerSized::Unsigned`. Every captured observation must have the corresponding signedness and
+the target's pointer size and alignment. Uses become existing RDL `isize`/`usize` types; unbound
+fixed-width integers stay fixed-width. Annotated alias dependencies must have consistent contracts,
+not disappear behind the mapping.
+
 Declaration-local MIDL prefix comments supply input/output direction when SAL has none. SAL controls
 local-call direction; evidence from each source family must independently agree across declarations.
 Parameterized MIDL relationships, optionality, and retval markers are retained without typed lowering.
@@ -144,9 +150,9 @@ The full Win32 scraper and committed metadata remain on their existing path.
 `tool-win32 --clang2-headers shellscalingapi.h,tlhelp32.h --rdl-only` provides an explicit
 source-only route for further header groups. These two headers emit all 72 selected names with no
 fallback. `pathcch.h` remains blocked on an unexposed compiler type in a size macro. The default
-scraper is not switched: tag/typedef representation and pointer-sized spellings need a publication
-contract before replacing the existing RDL partitions. See the continuation page for source
-differences and resource measurements.
+scraper is not switched. Explicit SDK integer contracts preserve pointer-sized spellings. Existing
+RDL typedefs represent the selected record aliases; public record/tag naming still differs from
+the committed partitions. See the continuation page for source differences and resource measurements.
 
 The API and diagnostic dump are experimental. See
 [`docs/crates/windows-clang2.md`](../../../docs/crates/windows-clang2.md) for the supported subset,

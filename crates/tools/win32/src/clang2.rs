@@ -1,7 +1,8 @@
 use super::*;
 use std::collections::{BTreeMap, BTreeSet};
 use windows_clang2::{
-    DeclarationInfo, FunctionImport, Input, ProjectionOptions, ReferenceKind, TypeReference,
+    DeclarationInfo, FunctionImport, Input, PointerSized, ProjectionOptions, ReferenceKind,
+    TypeReference,
 };
 
 pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
@@ -75,6 +76,24 @@ fn validate_headers(headers: &[&str]) -> Result<(), Box<dyn std::error::Error>> 
 
 fn header_options() -> ProjectionOptions {
     let mut options = ProjectionOptions::new(ROOT);
+    for name in [
+        "UINT_PTR",
+        "ULONG_PTR",
+        "DWORD_PTR",
+        "SIZE_T",
+        "size_t",
+        "rsize_t",
+        "uintptr_t",
+    ] {
+        options
+            .pointer_sized
+            .insert(name.into(), PointerSized::Unsigned);
+    }
+    for name in ["INT_PTR", "LONG_PTR", "SSIZE_T", "intptr_t", "ptrdiff_t"] {
+        options
+            .pointer_sized
+            .insert(name.into(), PointerSized::Signed);
+    }
     for name in [
         "HRESULT",
         "BOOL",

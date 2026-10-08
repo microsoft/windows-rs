@@ -15,6 +15,37 @@ pub enum StringKind {
     WideConst,
 }
 
+/// A caller-supplied integer typedef contract, checked against the native target layout.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum PointerSized {
+    Signed,
+    Unsigned,
+}
+
+impl PointerSized {
+    fn name(self) -> &'static str {
+        match self {
+            Self::Signed => "isize",
+            Self::Unsigned => "usize",
+        }
+    }
+
+    fn accepts(self, ty: &Type, pointer_size: i64) -> bool {
+        let TypeKind::Builtin {
+            kind,
+            layout: Some(layout),
+        } = &ty.kind
+        else {
+            return false;
+        };
+        let integer = match self {
+            Self::Signed => matches!(kind.as_str(), "Int" | "Long" | "LongLong"),
+            Self::Unsigned => matches!(kind.as_str(), "UInt" | "ULong" | "ULongLong"),
+        };
+        integer && layout.size == pointer_size && layout.align == pointer_size
+    }
+}
+
 /// A trusted metadata binding, not evidence that the external ABI matches the native declaration.
 pub struct TypeReference {
     pub namespace: String,
@@ -42,6 +73,8 @@ pub struct ProjectionOptions {
     pub imports: BTreeMap<String, FunctionImport>,
     /// External record/enum bindings and trusted scalar or pointer typedef contracts.
     pub references: BTreeMap<String, TypeReference>,
+    /// Explicit native integer typedefs that use `isize` or `usize` in RDL.
+    pub pointer_sized: BTreeMap<String, PointerSized>,
     /// Trusted pointer-sized value types for SAL-annotated null-terminated strings.
     pub string_references: BTreeMap<StringKind, TypeReference>,
 }
@@ -53,6 +86,7 @@ impl ProjectionOptions {
             library: None,
             imports: BTreeMap::new(),
             references: BTreeMap::new(),
+            pointer_sized: BTreeMap::new(),
             string_references: BTreeMap::new(),
         }
     }
@@ -514,6 +548,28 @@ impl<'s> Resolved<'s> {
             ));
         }
         let namespace = namespace(&options.namespace)?;
+        for (name, contract) in &options.pointer_sized {
+            if options.references.contains_key(name) {
+                return Err(Error(format!(
+                    "conflicting pointer-sized and external bindings for `{name}`"
+                )));
+            }
+            for id in self.names.get(name.as_str()).into_iter().flatten() {
+                for observation in &self.groups[id] {
+                    let declaration = &self.snapshot.declarations[observation.0];
+                    if !matches!(
+                        &declaration.data,
+                        DeclarationData::Alias { canonical, .. }
+                            if contract.accepts(canonical, self.snapshot.pointer_size)
+                    ) {
+                        return Err(Error(format!(
+                            "pointer-sized binding `{name}` requires a native {} integer typedef with pointer size and alignment",
+                            contract.name()
+                        )));
+                    }
+                }
+            }
+        }
         for reference in options.string_references.values() {
             if reference.kind != ReferenceKind::Value {
                 return Err(Error(
@@ -1499,6 +1555,8 @@ impl<'s> Builder<'_, 's> {
         if let Some(result) = self.aliases.get(&id) {
             return Ok(result.clone());
         }
+        let name = &self.resolved.snapshot.declarations[id.0].name;
+        let contract = self.options.pointer_sized.get(name);
         if !visiting.insert(id) {
             return Err(Error("cyclic native alias".into()));
         }
@@ -1509,7 +1567,20 @@ impl<'s> Builder<'_, 's> {
             else {
                 unreachable!()
             };
-            let projected = self.lower(target, visiting)?;
+            let (mut ty, object) = self.lower(target, visiting)?;
+            if let Some(contract) = contract {
+                match &mut ty {
+                    ProjectedType::Scalar(kind, _) => *kind = contract.name(),
+                    ProjectedType::Alias(_, target)
+                        if target.scalar_kind() == Some(contract.name()) => {}
+                    _ => {
+                        return Err(Error(format!(
+                            "pointer-sized binding `{name}` conflicts with its written typedef contract"
+                        )));
+                    }
+                }
+            }
+            let projected = (ty, object);
             if let Some(previous) = &result
                 && previous != &projected
             {
@@ -1919,7 +1990,7 @@ fn written_bytes(
     };
     if !matches!(
         scalar,
-        Some("i8" | "u8" | "i16" | "u16" | "i32" | "u32" | "i64" | "u64")
+        Some("i8" | "u8" | "i16" | "u16" | "i32" | "u32" | "i64" | "u64" | "isize" | "usize")
     ) {
         return Err(Error("written byte count must be an integer".into()));
     }
@@ -1976,7 +2047,7 @@ fn buffer_length(
         .filter(|value| value.bytes().all(|byte| byte.is_ascii_digit()))
         .and_then(|value| value.parse::<i16>().ok())
     {
-        let Some("i8" | "u8" | "i16" | "u16" | "i32" | "u32" | "i64" | "u64") =
+        let Some("i8" | "u8" | "i16" | "u16" | "i32" | "u32" | "i64" | "u64" | "isize" | "usize") =
             usize::try_from(index)
                 .ok()
                 .and_then(|index| parameters.get(index))

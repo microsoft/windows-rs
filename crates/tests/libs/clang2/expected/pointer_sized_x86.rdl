@@ -1,0 +1,22 @@
+#[win32]
+mod Test {
+    #[library("test.dll", import = "_Annotated")]
+    extern "C" fn Annotated(p0: AnnotatedSize) -> AnnotatedSize;
+    #[annotation("sal", "_In_range_(0, 1024)")]
+    type AnnotatedSize = usize;
+    const MaxCount: usize = 4294967295;
+    #[library("test.dll", import = "_Measure")]
+    extern "C" fn Measure(p0: usize, p1: isize, p2: *mut usize, p3: u64) -> isize;
+    const MinOffset: isize = -1;
+    type SignedSize = isize;
+    struct Sizes {
+        count: usize,
+        offset: isize,
+        values: [usize; 2],
+        pointer: *mut usize,
+        fixed: u64,
+    }
+    type UnsignedSize = usize;
+    #[library("test.dll", import = "_Write")]
+    extern "C" fn Write(#[annotation("sal", "_Out_writes_bytes_to_($1,*$2)")] #[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = true)] p0: *mut u8, p1: usize, #[annotation("sal", "_Out_")] #[out] p2: *mut usize);
+}

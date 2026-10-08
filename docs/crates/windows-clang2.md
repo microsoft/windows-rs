@@ -238,6 +238,7 @@ definitions, cannot be header-partitioned.
 | Parameters | Positional names for functions, native names for methods; supported SAL below. |
 | External value types | Explicit native record/enum bindings. Record storage retains native layout; by-value external record calls remain rejected. |
 | External scalar typedefs | Explicit value bindings; retain the checked native scalar representation and layout. |
+| Pointer-sized integers | Explicit typedef contracts; check native signedness, pointer size, and alignment before emitting `isize` or `usize`. |
 | External pointer typedefs | Explicit pointer-sized value bindings; preserve the alias boundary and native pointee constness. |
 | External interfaces | Bind a native record; consume exactly one native pointer/reference level. |
 | Local interfaces | UUID-bearing, fieldless records with pure virtual system-ABI methods and at most one base. MIDL `propget`/`propput` become `#[special]` on unchanged native method names. |
@@ -254,6 +255,18 @@ that same scalar representation. Pointer typedefs may also bind to external meta
 the caller guarantees the pointer representation and semantic identity. The bound value does not
 schedule its pointee for local output. Array, reference, and other arbitrary alias bindings are
 unsupported.
+
+`ProjectionOptions::pointer_sized` binds native integer typedef names to `PointerSized::Signed` or
+`PointerSized::Unsigned`. The policy checks every captured observation, not just the representative.
+The same name cannot also have an external metadata binding. The planner follows written alias
+chains and uses the existing RDL `isize`/`usize` primitives in fields, parameters, results, arrays,
+and constants. Integer SAL length and written-byte checks accept both types. Unbound fixed-width
+integers remain fixed-width, even when their size matches a pointer.
+
+An annotated intermediate alias retains its declaration and type-use identity. Its contract must
+agree with the requested pointer-sized type; an outer binding cannot erase the annotation to force
+a different representation. `pointer_sized.h` covers x86, x64, and ARM64 source-to-RDL output.
+`pointer_sized_contract.h` covers invalid bindings, conflicting observations, and annotated chains.
 
 Fixed-size arrays preserve their declared element type and extent, including nested arrays and
 arrays of records. Array storage participates in the same native offset, size, and alignment checks
@@ -982,17 +995,25 @@ These are per-process OS peak-working-set counters sampled every 10 ms, not a la
 budget. The successful group's source generation was byte-identical on repetition.
 
 **The default production scraper remains on clang1.** Source completeness alone is not sufficient
-to replace the committed partitions. The RDL comparison exposes these publication decisions:
+to replace the committed partitions. Use `metadata/`'s RDL as the representation baseline, while
+allowing corrections supported by native evidence. The source comparison shows:
 
 - Toolhelp's named tags and typedefs are separately selected. `HEAPENTRY32` becomes an RDL typedef
-  of `tagHEAPENTRY32`; RDL typedefs represent wrapper types, not transparent C synonyms.
-- Pointer-sized source aliases emit their target's fixed-width integer spelling (`u64` on x64),
-  while the committed surface uses `usize`. This needs a pointer-sized type-use contract, not a
-  textual replacement or a value-width guess.
+  of `tagHEAPENTRY32`. Existing `NativeTypedefAttribute` metadata supports this record alias; its
+  `Value` field is an encoding detail, not evidence of a public wrapper. Primitive/pointer typedefs
+  have separate handle behavior. No RDL extension is needed for these record aliases.
+- Explicit SDK contracts for `SIZE_T`, `DWORD_PTR`, and their signed/unsigned families preserve
+  `usize`/`isize` uses without textual replacement or value-width guessing. Toolhelp's record fields,
+  heap IDs, read sizes, and the scaling event cookie use the committed pointer-sized spellings.
 - `SCALE_CHANGE_FLAGS` retains native signedness plus the explicit flags marker. Do not restore the
   legacy unsigned rewrite merely to eliminate a diff.
 
-Resolve the tag/typedef and pointer-sized contracts before switching default production ownership.
+After resolving explicit aliases and namespace qualification, all seven record field lists
+(including eight pointer-sized fields) and all 26 function type signatures agree with the committed
+RDL. This comparison does not equate annotations or calling-convention spellings. Repeating the
+header run produces byte-identical RDL and inventory reports.
+
+Public record/tag naming and production partition ownership remain cutover decisions.
 Path APIs remain blocked rather than excluding their problematic macros to inflate coverage.
 
 ## Rewrite plan and restart point

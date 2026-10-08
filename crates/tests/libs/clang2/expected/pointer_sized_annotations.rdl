@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    #[annotation("sal", "_In_range_(0, 1024)")]
+    type AnnotatedBase = usize;
+    type Size = AnnotatedBase;
+    #[library("test.dll", import = "Use")]
+    extern "C" fn Use(p0: AnnotatedBase) -> AnnotatedBase;
+}
