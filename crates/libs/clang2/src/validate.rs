@@ -80,13 +80,11 @@ fn validate_groups<'a>(
     let mut completions: Vec<_> = (0..snapshot.declarations.len()).map(Id).collect();
     let mut incomplete = vec![];
     for candidates in groups.values() {
-        if let Some(complete) = candidates
-            .iter()
-            .find(|id| snapshot.declarations[id.0].data.complete())
-        {
+        let chosen = representative(snapshot, candidates);
+        if snapshot.declarations[chosen.0].data.complete() {
             for id in candidates {
                 if !snapshot.declarations[id.0].data.complete() {
-                    completions[id.0] = *complete;
+                    completions[id.0] = chosen;
                 }
             }
         } else {
@@ -116,11 +114,7 @@ fn validate_groups<'a>(
                 uuid = Some((*id, guid));
             }
         }
-        let anchor = candidates
-            .iter()
-            .max_by_key(|id| snapshot.declarations[id.0].data.evidence_rank())
-            .copied()
-            .unwrap_or(candidates[0]);
+        let anchor = representative(snapshot, candidates);
         for other in candidates {
             comparison.compare(anchor, *other)?;
         }
@@ -145,10 +139,7 @@ fn validate_groups<'a>(
     let mut annotations = BTreeMap::new();
     let mut guids = BTreeMap::new();
     for candidates in groups.values() {
-        let chosen = *candidates
-            .iter()
-            .max_by_key(|id| snapshot.declarations[id.0].data.evidence_rank())
-            .unwrap();
+        let chosen = representative(snapshot, candidates);
         for id in candidates {
             representatives[id.0] = chosen;
             if let DeclarationData::Record {
@@ -191,6 +182,21 @@ fn validate_groups<'a>(
         guids,
         report,
     })
+}
+
+fn representative(snapshot: &Snapshot, candidates: &[Id]) -> Id {
+    *candidates
+        .iter()
+        .min_by_key(|id| {
+            let declaration = &snapshot.declarations[id.0];
+            (
+                std::cmp::Reverse(declaration.data.evidence_rank()),
+                &declaration.location.file,
+                declaration.location.offset,
+                &declaration.unit,
+            )
+        })
+        .unwrap()
 }
 
 fn available(declaration: &Declaration) -> Result<(), Error> {

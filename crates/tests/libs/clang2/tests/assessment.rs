@@ -1,6 +1,76 @@
 use windows_clang2::{Input, ProjectionOptions, capture, capture_report};
+use windows_metadata::{Type, Value, reader::*};
 
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
+
+#[test]
+fn macros_do_not_replace_same_named_native_declarations() {
+    let source = include_str!("../input/macro_identity.h");
+    for reverse in [false, true] {
+        let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", source)];
+        if reverse {
+            inputs.reverse();
+        }
+        let report =
+            capture_report(inputs, ARGS, &["Name", "External", "Initialized", "Use"]).unwrap();
+        assert!(report.rejected.is_empty());
+        let snapshot = report.snapshot.unwrap();
+        assert!(snapshot.resolve().is_err());
+        let assessed = snapshot.assess().unwrap();
+        assert_eq!(
+            assessed
+                .rejected
+                .keys()
+                .map(String::as_str)
+                .collect::<Vec<_>>(),
+            ["External", "Name"]
+        );
+        let resolved = assessed.resolved.unwrap();
+        let mut options = ProjectionOptions::new("Test");
+        options.library = Some("test.dll".into());
+        let plan = resolved.project(&options).unwrap();
+        let rdl = plan.rdl();
+        let expected =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("expected\\macro_identity.rdl");
+        if std::env::var_os("UPDATE_EXPECT").is_some() {
+            std::fs::write(&expected, &rdl).unwrap();
+        }
+        assert_eq!(rdl, std::fs::read_to_string(expected).unwrap());
+        let output = std::path::Path::new(env!("OUT_DIR")).join("macro_identity.winmd");
+        windows_rdl::reader()
+            .input_text(&rdl)
+            .output(&output)
+            .write()
+            .unwrap();
+        let index = Index::read(output).unwrap();
+        assert_eq!(
+            index.expect("Test", "Name").fields().next().unwrap().ty(),
+            Type::I32
+        );
+        let Item::Const(value) = index.expect_item("Test", "Initialized") else {
+            panic!()
+        };
+        assert_eq!(value.constant().unwrap().value(), Value::I32(17));
+        assert!(resolved.project_roots(&options, &["Name"]).is_err());
+        assert!(resolved.project_roots(&options, &["Use"]).is_ok());
+    }
+}
+
+#[test]
+fn macro_value_conflicts_are_not_hidden_by_internal_variable_identity() {
+    let source = include_str!("../input/macro_identity.h");
+    let snapshot = capture(
+        [
+            Input::new("a.hpp", source),
+            Input::new("b.hpp", source.replace("= 17", "= 19")),
+        ],
+        ARGS,
+        &["Initialized"],
+    )
+    .unwrap();
+    assert!(snapshot.resolve().is_err());
+    assert!(snapshot.assess().is_err());
+}
 
 #[test]
 fn failed_probes_do_not_supply_error_bearing_native_evidence() {

@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    struct Packet {
+        shared: *mut Shared,
+        count: u32,
+    }
+    struct Shared {
+        value: i32,
+    }
+    #[library("test.dll", import = "Use")]
+    extern "C" fn Use(#[annotation("sal", "_In_")] #[in] packet: *mut Packet, count: u32);
+}

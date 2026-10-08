@@ -13,6 +13,12 @@ checks agreement across translation units, and builds a closed RDL projection pl
 separate redeclaration observations, written typedef edges, canonical callable types, native layout,
 and annotation origins. Projection cannot bypass native resolution.
 
+Capture accepts multiple uniquely named TUs with independent preprocessing state and shared compiler
+arguments. Common-header declarations retain every captured observation but emit once after
+agreement. Include order and input priority cannot override conflicting native types or contracts.
+Forward declarations can use a checked completion from another TU. Mutually exclusive configurations
+need separate assessments; independently captured snapshots do not have a merge API.
+
 ```rust,no_run
 use windows_clang2::{Input, ProjectionOptions, capture};
 
@@ -64,6 +70,10 @@ declaration in the same file. Inherited annotations keep that owner's parameter 
 prefix annotations survive alongside annotations inside the declaration range.
 `DeclarationInfo::record_member` identifies declarations scoped to a record. Header inventories
 select their owners as roots; capture still follows the member types and checks their evidence.
+
+Macro identity and source ownership apply only to generated value probes, not same-named native
+records or variables. A selected macro supplies its root through the probe while native declarations
+remain distinct dependencies. Declaration-only values reject without aborting unrelated roots.
 
 Captured SAL and MIDL contracts survive as `#[annotation("sal", "...")]` and
 `#[annotation("midl", "...")]`, independently of typed lowering. Ordered payloads retain conditions,

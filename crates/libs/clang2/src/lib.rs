@@ -17,6 +17,9 @@ pub use project::{
 };
 
 /// One translation unit. All inputs to a capture use the same compiler arguments.
+///
+/// Each source has its own preprocessing state and can supply profile-specific includes or defines.
+/// Matched declarations must agree across inputs; input order does not grant override priority.
 #[derive(Clone, Debug)]
 pub struct Input {
     pub name: String,

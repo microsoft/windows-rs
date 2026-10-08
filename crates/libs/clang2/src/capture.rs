@@ -484,7 +484,10 @@ pub fn capture_report(
                     .push((unit, cursor));
             }
             let name = capture.name(unit, cursor);
-            if roots.contains(&name.as_str()) {
+            if roots.contains(&name.as_str())
+                && (!capture.macros[unit].contains_key(&name)
+                    || capture.macro_probe(unit, cursor).is_some())
+            {
                 found.insert(name);
                 selected.push((unit, cursor));
             }
@@ -875,14 +878,19 @@ impl Capture<'_> {
         }
     }
 
-    fn name(&self, unit: usize, cursor: CXCursor) -> String {
-        let name = qualified_name(cursor);
-        if let Some(name) = name.strip_prefix("__clang2_value_")
-            && self.macros[unit].contains_key(name)
-        {
-            return name.to_string();
+    fn macro_probe(&self, unit: usize, cursor: CXCursor) -> Option<&str> {
+        if unsafe { clang_getCursorKind(cursor) } != CXCursor_VarDecl {
+            return None;
         }
-        name
+        let name = qualified_name(cursor);
+        self.macros[unit]
+            .get_key_value(name.strip_prefix("__clang2_value_")?)
+            .map(|(name, _)| name.as_str())
+    }
+
+    fn name(&self, unit: usize, cursor: CXCursor) -> String {
+        self.macro_probe(unit, cursor)
+            .map_or_else(|| qualified_name(cursor), str::to_string)
     }
 
     fn candidate(&self, unit: usize, cursor: CXCursor, identity: &str) -> Result<String, Error> {
@@ -916,8 +924,7 @@ impl Capture<'_> {
             let parent = self.candidate(unit, parent, &parent_identity)?;
             return Ok(format!("anonymous:{parent}:{slot}"));
         }
-        let name = self.name(unit, cursor);
-        Ok(if self.macros[unit].contains_key(&name) {
+        Ok(if let Some(name) = self.macro_probe(unit, cursor) {
             format!("macro:{name}")
         } else {
             candidate(&self.units[unit].name, cursor, identity)
@@ -962,16 +969,18 @@ impl Capture<'_> {
         bucket.push((cursor, id));
         self.entities[entity.0].observations.push(id);
         let name = self.name(unit, cursor);
+        let origin = self
+            .macro_probe(unit, cursor)
+            .map(|name| &self.macros[unit][name]);
+        let owner = origin.map_or_else(
+            || expansion_location(unsafe { clang_getCursorLocation(cursor) }).file,
+            |location| location.file.clone(),
+        );
+        let location = origin.cloned().unwrap_or_else(|| location(cursor));
         self.declarations.push(Declaration {
             entity,
-            owner: self.macros[unit].get(&name).map_or_else(
-                || expansion_location(unsafe { clang_getCursorLocation(cursor) }).file,
-                |location| location.file.clone(),
-            ),
-            location: self.macros[unit]
-                .get(&name)
-                .cloned()
-                .unwrap_or_else(|| location(cursor)),
+            owner,
+            location,
             candidate: self.candidate(unit, canonical, &identity)?,
             name,
             identity,
@@ -1149,13 +1158,15 @@ impl Capture<'_> {
                 parameters: self.parameters(unit, cursor)?,
             },
             CXCursor_VarDecl => {
-                let source = if self.macros[unit].contains_key(&self.name(unit, cursor)) {
-                    children(cursor)
-                        .into_iter()
-                        .find(|child| unsafe {
-                            clang_isExpression(clang_getCursorKind(*child)) != 0
-                        })
-                        .ok_or_else(|| Error("selected macro probe has no initializer".into()))?
+                let source = if let Some(name) = self.macro_probe(unit, cursor) {
+                    let source = unsafe { clang_Cursor_getVarDeclInitializer(cursor) };
+                    if unsafe { clang_Cursor_isNull(source) } != 0 {
+                        return Err(Error(format!(
+                            "selected macro probe `{name}` has no initializer in `{}`",
+                            self.units[unit].name
+                        )));
+                    }
+                    source
                 } else {
                     cursor
                 };
@@ -1167,7 +1178,7 @@ impl Capture<'_> {
                         let value = evaluate(cursor);
                         let name = self.name(unit, cursor);
                         if matches!(value, Value::Unavailable(_))
-                            && self.macros[unit].contains_key(&name)
+                            && self.macro_probe(unit, cursor).is_some()
                             && unsafe {
                                 clang_getCanonicalType(clang_getCursorType(
                                     clang_Cursor_getVarDeclInitializer(cursor),

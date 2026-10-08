@@ -109,6 +109,50 @@ checker or ABI-equivalence solver. Unnamed record members match by their checked
 candidate identity and direct field slot, not by USR alone: sibling anonymous unions can share a
 libclang USR. General unnamed-type identity across different files is not inferred.
 
+### Translation units and compilation profiles
+
+A capture accepts any nonempty collection of uniquely named TUs, not a fixed SDK/WDK pair. Each TU
+has independent preprocessing state. All share one compiler argument list and must resolve to the
+same target. Source preludes can supply different defines and include sequences; per-input compiler
+arguments and merging independently captured snapshots are not implemented.
+
+| Situation | Resolution contract |
+| --- | --- |
+| A common header appears in many TUs | Retain each observation, check candidate agreement, and emit one closed declaration group. |
+| A dependency is selected only through a root in another TU | Capture its matching observations from all indexed TUs, including written typedef edges. |
+| One TU has a forward declaration, another a definition | Use a checked completion without discarding the forward observation's UUID or annotations. |
+| Include order or macros change a matched type or contract | Reject with source and TU provenance; neither order nor priority suppresses the contradiction. |
+| Shared records have unsupported evidence in one TU | Reject the affected closure; a supported observation cannot certify the unsupported one. |
+| Declarations have internal linkage or anonymous-namespace scope | Keep TU-local identity rather than merging unrelated entities by name. |
+| Multiple observations have equal evidence rank | Choose the first lexicographic spelling-file path, byte offset, and TU name. All observations still participate in agreement. |
+
+Representative selection prefers the strongest evidence before its provenance tie-break. The same
+rule chooses completion candidates and comparison anchors. Parameter presentation and merged
+annotations have separate policies; choosing a representative is not an override mechanism.
+Source partition ownership also remains separate from TU grouping.
+
+Mutually exclusive native configurations must be assessed separately until their intended metadata
+representation is specified. Splitting an incompatible include set into TUs can remove a compiler
+name collision, but cannot make contradictory declarations agree. Missing prerequisites should be
+corrected in an explicit input profile, not hidden by selecting a higher-priority TU.
+
+`translation_units` fixtures include the same physical headers in 1, 4, 16, and 64 TUs, retain exactly
+four observations per TU, and check four declaration comparisons per additional TU for that graph.
+The RDL and source partitions are identical, and metadata readback checks the dependency and callable
+types. Other cases cover many forward-only inputs, reversed input order, renamed TUs, and
+include-order or annotation conflicts. These bounded checks are not an SDK-wide memory budget.
+Capture retains all live TUs until dependency observations are owned. The header runner's shared
+main/satellite construction is not a general profile manifest; full combined SDK/WDK profile
+agreement and large multi-TU resource limits remain production gates.
+
+The pinned SDK `winternl.h` exposes a subset of the WDK `wdm.h` `FILE_INFORMATION_CLASS` members.
+The SDK/WDK profile fixture compiles each source independently to metadata, checks that every shared
+member has the same value, and verifies that strict combined resolution rejects the different
+complete enums. This is a real publication boundary, not a parser failure. Canonical metadata needs
+an explicit source-profile reconciliation rule for such extensions, with evidence of compatible
+representation and common members. No automatic enum union, profile priority, or SDK/WDK snapshot
+merge is implemented in clang2.
+
 ## Captured evidence
 
 | Surface | Evidence |
@@ -177,6 +221,14 @@ macro expressions, and poison-expression recovery are outside this slice. `disco
 declarations and macro definitions by exact Clang file identity, without choosing export policy.
 It uses expansion locations, so a macro-generated declaration belongs to its invocation header.
 Discovery is a separate parse pass; selected names then enter ordinary capture and resolution.
+
+Only generated value-probe cursors receive macro identity and macro source ownership. A native
+record or variable with the same name keeps its own identity, location, and written type. When
+a selected macro shadows a native declaration, its probe supplies the root; native declarations
+remain available as dependencies. The initializer comes from Clang's variable-initializer API, not
+the first expression child. Declaration-only values still reject, while initialized values and
+dependency records retain their source contracts. `macro_identity.h` covers these cases across TUs,
+including conflicting macro values backed by distinct internal-linkage variables.
 
 ## Agreement and completion
 
@@ -1175,7 +1227,7 @@ every header's output to WinMD. Independent headers do not test agreement across
 or across architectures. No full-manifest peak-memory budget was measured.
 More rejections can mean that formerly blocked roots now reach assessment, not that support regressed.
 
-The largest remaining measured blocks need source fixtures before corrections:
+The largest measured blocks in that full-manifest run were:
 
 | Header | Blocked names | Capture or combined-output boundary |
 | --- | ---: | --- |
@@ -1190,6 +1242,23 @@ The alias collision is a combined publication boundary, not permission to choose
 from iteration order. Capture conflicts and ambiguous contexts also remain errors until their
 source evidence is understood. The 24 unavailable discovery inventories are a separate prerequisite
 gate; their unknown counts are not included in this table or the measured sums.
+
+The subsequent macro-identity slice removes the global capture blocks in three of those headers.
+Independent names and their remaining rejected roots are:
+
+| Header | Selected | Emitted | Rejected | Blocked |
+| --- | ---: | ---: | ---: | ---: |
+| `ks.h` | 458 | 369 | 89 | 0 |
+| `wincodec.h` | 433 | 173 | 260 | 0 |
+| `wmcodecdsp.h` | 833 | 605 | 228 | 0 |
+
+Their shared failure was name-based probe classification, not missing native initializers or a
+source qualifier conflict. Combining them with `devicetopology.h` in the existing main/satellite
+profiles emits 1,174 of 1,798 selected names, with 624 rejected and none blocked. The combined
+graph checks 2,363 available groups and 3,457 observations. All four emitted RDL sets compile to
+WinMD and reach a stable metadata-to-RDL roundtrip. This checks semantic validity of the supported
+closure, not publication parity, runtime ABI coverage, or certification of the rejected roots.
+The full-manifest totals above have not been refreshed for this slice.
 
 The tool audit separates source-derived policy from repairs that would conceal missing evidence:
 

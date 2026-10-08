@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    const Initialized: i32 = 17;
+    struct Name {
+        value: i32,
+    }
+    #[library("test.dll", import = "Use")]
+    extern "C" fn Use(value: *mut Name);
+}
