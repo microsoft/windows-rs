@@ -22838,6 +22838,47 @@ pub struct IXamlMetadataProvider_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IXamlOptionalChanges,
+    IXamlOptionalChanges_Vtbl,
+    0x387572ae_ac51_5cb0_8317_2d6e118bea6a
+);
+impl windows_core::RuntimeType for IXamlOptionalChanges {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IXamlOptionalChanges_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IXamlOptionalChangesStatics,
+    IXamlOptionalChangesStatics_Vtbl,
+    0xedb65323_1884_51c9_8b79_719554de4dd9
+);
+impl windows_core::RuntimeType for IXamlOptionalChangesStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IXamlOptionalChangesStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub EnableChange: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        XamlChangeId,
+        *mut bool,
+    ) -> windows_core::HRESULT,
+    pub DisableChange: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        XamlChangeId,
+        *mut bool,
+    ) -> windows_core::HRESULT,
+    pub IsChangeEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        XamlChangeId,
+        *mut bool,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IXamlReader,
     IXamlReader_Vtbl,
     0x54ce54c8_38c6_50d9_ac98_4b03eddbde9f
@@ -31945,6 +31986,17 @@ impl windows_core::RuntimeName for XamlBindingHelper {
 unsafe impl Send for XamlBindingHelper {}
 unsafe impl Sync for XamlBindingHelper {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XamlChangeId(pub i32);
+impl windows_core::imp::TypeKind for XamlChangeId {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for XamlChangeId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Settings.XamlChangeId;i4)",
+    );
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XamlControlsResources(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
@@ -32034,6 +32086,80 @@ impl windows_core::RuntimeName for XamlControlsXamlMetaDataProvider {
 }
 unsafe impl Send for XamlControlsXamlMetaDataProvider {}
 unsafe impl Sync for XamlControlsXamlMetaDataProvider {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct XamlOptionalChanges(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    XamlOptionalChanges,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl XamlOptionalChanges {
+    pub(crate) fn EnableChange(changeid: XamlChangeId) -> windows_core::Result<bool> {
+        Self::IXamlOptionalChangesStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EnableChange)(
+                windows_core::Interface::as_raw(this),
+                changeid,
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub(crate) fn DisableChange(changeid: XamlChangeId) -> windows_core::Result<bool> {
+        Self::IXamlOptionalChangesStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisableChange)(
+                windows_core::Interface::as_raw(this),
+                changeid,
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub(crate) fn IsChangeEnabled(changeid: XamlChangeId) -> windows_core::Result<bool> {
+        Self::IXamlOptionalChangesStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsChangeEnabled)(
+                windows_core::Interface::as_raw(this),
+                changeid,
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    fn IXamlOptionalChangesStatics<
+        R,
+        F: FnOnce(&IXamlOptionalChangesStatics) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            XamlOptionalChanges,
+            IXamlOptionalChangesStatics,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for XamlOptionalChanges {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IXamlOptionalChanges>();
+}
+unsafe impl windows_core::Interface for XamlOptionalChanges {
+    type Vtable = <IXamlOptionalChanges as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IXamlOptionalChanges as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for XamlOptionalChanges {
+    type Target = IXamlOptionalChanges;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for XamlOptionalChanges {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Settings.XamlOptionalChanges";
+}
+unsafe impl Send for XamlOptionalChanges {}
+unsafe impl Sync for XamlOptionalChanges {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XamlReader(windows_core::IUnknown);

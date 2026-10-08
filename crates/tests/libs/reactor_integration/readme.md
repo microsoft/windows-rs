@@ -9,6 +9,9 @@ cargo check -p test-reactor-integration --all-targets
 cargo run -p test-reactor-integration --bin application_lifecycle -- replacement
 cargo run -p test-reactor-integration --bin application_lifecycle -- multiple
 cargo run -p test-reactor-integration --bin application_lifecycle -- startup-error
+cargo run -p test-reactor-integration --bin optional_changes -- enable
+cargo run -p test-reactor-integration --bin optional_changes -- disable
+cargo run -p test-reactor-integration --bin optional_changes -- query
 cargo run -p test-reactor-integration --bin application_menu
 cargo run -p test-reactor-integration --bin application_menus
 cargo run -p test-reactor-integration --bin application_resources -- lifecycle
@@ -34,6 +37,9 @@ It measures menu-item bounds through UI Automation rather than the popup window'
 and requires a running Windows shell with a notification area. Companion-crate fixtures exercise
 Canvas drawing and WebView initialization. The window-state fixture observes size and icon changes
 through the public window callback and Win32 APIs.
+
+The optional-changes modes test each method before runtime initialization, then query state and
+check that mutations fail after XAML starts.
 
 The menu-position fixture covers `pmv2`, `unaware`, `system`, and `thread-unaware` DPI modes. It
 checks exact physical host bounds and restoration of the caller's thread context, including when

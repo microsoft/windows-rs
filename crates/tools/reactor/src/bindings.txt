@@ -390,6 +390,8 @@ Microsoft::UI::Xaml::Media::Stretch
 Microsoft::UI::Xaml::Media::SystemBackdrop::{}
 Microsoft::UI::Xaml::ResourceDictionary::{}
 Microsoft::UI::Xaml::ScalarTransition::CreateInstance
+Microsoft::UI::Xaml::Settings::XamlChangeId::{}
+Microsoft::UI::Xaml::Settings::XamlOptionalChanges::{DisableChange, EnableChange, IsChangeEnabled}
 Microsoft::UI::Xaml::Shapes::Ellipse::CreateInstance
 Microsoft::UI::Xaml::Shapes::ILine::{put_X1, put_X2, put_Y1, put_Y2}
 Microsoft::UI::Xaml::Shapes::ILineStatics::{get_X1Property, get_X2Property, get_Y1Property, get_Y2Property}

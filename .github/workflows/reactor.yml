@@ -137,6 +137,10 @@ jobs:
             --bin window_state --quiet
           cargo run -p test-reactor-integration --features self-contained `
             --bin webview_integration --quiet
+          "enable", "disable", "query" | ForEach-Object {
+            cargo run -p test-reactor-integration --features self-contained `
+              --bin optional_changes --quiet -- $_
+          }
 
       - name: Install Windows App Runtime
         shell: pwsh
@@ -168,6 +172,9 @@ jobs:
                 --quiet -- $_
             }
           cargo run -p test-reactor-integration --bin application_menu --quiet
+          "enable", "disable", "query" | ForEach-Object {
+            cargo run -p test-reactor-integration --bin optional_changes --quiet -- $_
+          }
           cargo run -p test-reactor-integration --bin application_menus --quiet
           cargo run -p test-reactor-integration --bin tray_flyout --quiet
           "pmv2", "unaware", "system", "thread-unaware" | ForEach-Object {

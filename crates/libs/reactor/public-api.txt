@@ -2452,6 +2452,11 @@ pub fn windows_reactor::View::from(windows_reactor::NumberBox) -> Self
 impl core::default::Default for windows_reactor::NumberBox
 pub fn windows_reactor::NumberBox::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::NumberBox
+pub struct windows_reactor::OptionalChanges
+impl windows_reactor::OptionalChanges
+pub fn windows_reactor::OptionalChanges::disable(i32) -> windows_result::Result<bool>
+pub fn windows_reactor::OptionalChanges::enable(i32) -> windows_result::Result<bool>
+pub fn windows_reactor::OptionalChanges::is_enabled(i32) -> windows_result::Result<bool>
 pub struct windows_reactor::PasswordBox(_)
 impl windows_reactor::PasswordBox
 pub fn windows_reactor::PasswordBox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self

@@ -22,10 +22,12 @@ mod app;
 mod app_shim;
 mod bootstrap;
 mod notifyicon;
+mod optional_changes;
 mod transient_menu;
 mod winui;
 
 pub use app::*;
+pub use optional_changes::*;
 pub use winui::*;
 
 struct PhysicalCoordinates(bindings::DPI_AWARENESS_CONTEXT);

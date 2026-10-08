@@ -1260,7 +1260,7 @@ fn is_packaged_process() -> windows_core::Result<bool> {
     }
 }
 
-fn bootstrap_runtime() -> windows_core::Result<()> {
+pub(super) fn bootstrap_runtime() -> windows_core::Result<()> {
     if is_packaged_process()? {
         return Ok(());
     }
