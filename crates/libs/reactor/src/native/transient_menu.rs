@@ -181,15 +181,9 @@ impl MenuThemeState {
         if self.mode != MenuTheme::System {
             return Ok(());
         }
-        let theme = match self.read() {
-            Ok(theme) => theme,
-            Err(error) => {
-                eprintln!("windows-reactor: could not read the system theme: {error}");
-                return Ok(());
-            }
-        };
+        let theme = self.read()?;
         // Record the in-flight theme before native code can reenter. Setter failures terminate
-        // the application; only registry read failures are recoverable.
+        // the application rather than retrying.
         if self.applied.replace(theme) != theme {
             self.anchor.SetRequestedTheme(theme)?;
         }

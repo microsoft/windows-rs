@@ -200,10 +200,10 @@ the app's window themes. Control-attached menus inherit their control's theme, w
 The notification host reads `SystemUsesLightTheme` before opening a popup and queues a refresh on
 `WM_SETTINGCHANGE` or `WM_THEMECHANGED`. Refreshes coalesce, update open menus, and do not retain a
 retired host. A notification arriving during a refresh schedules another pass. The window procedure
-does not access mutable popup state or change XAML properties. A missing preference uses WinUI's
-default; other registry read failures retain the last theme and emit a diagnostic without
-terminating the application. Native theme tests inject preferences without changing Windows settings
-and cover live changes, reopening, fallback, invalidation during refresh, and queued teardown.
+does not access mutable popup state or change XAML properties. A missing preference silently uses
+WinUI's default; unexpected registry failures follow the application error path, just like native
+setter failures. Native theme tests inject preferences without changing Windows settings and cover
+live changes, reopening, fallback, invalidation during refresh, teardown, and error propagation.
 
 The `test-reactor-integration` `tray_flyout` fixture uses an application-owned notification icon,
 checks that menu items overlap the icon's monitor and extend outside its work area, and exercises

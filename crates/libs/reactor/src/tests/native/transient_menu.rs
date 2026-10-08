@@ -49,7 +49,7 @@ fn system_theme_preference_preserves_query_errors() {
 
 #[test]
 #[ignore = "requires an interactive WinUI desktop"]
-fn system_menu_theme_updates_live_and_retires_queued_refreshes() {
+fn system_menu_theme_updates_live_and_propagates_errors() {
     fn assert_theme(state: &TransientMenuState, expected: ElementTheme) {
         assert_eq!(state.theme.anchor.ActualTheme().unwrap(), expected);
         let flyout = state
@@ -77,7 +77,7 @@ fn system_menu_theme_updates_live_and_retires_queued_refreshes() {
 
     let completed = Rc::new(Cell::new(false));
     let finished = Rc::clone(&completed);
-    App::run_with(move |app| {
+    let error = App::run_with(move |_| {
         let dispatcher = DispatcherQueue::GetForCurrentThread()?;
         let host = TransientMenuHost::new(dispatcher.clone(), MenuTheme::System)?;
         let default = TransientMenuHost::new(dispatcher.clone(), MenuTheme::Application)?;
@@ -124,7 +124,6 @@ fn system_menu_theme_updates_live_and_retires_queued_refreshes() {
         let scheduled_reads = Cell::new(0);
         let retired_reads = Rc::new(Cell::new(0));
         let invalidated_reads = Rc::new(Cell::new(0));
-        let app = app.clone();
         let tick = timer.Tick(move |_, _| {
             let result = (|| -> windows_core::Result<()> {
                 let state = handle.state.upgrade().unwrap();
@@ -148,22 +147,17 @@ fn system_menu_theme_updates_live_and_retires_queued_refreshes() {
                         assert_theme(&state.borrow(), ElementTheme::Light);
                         assert_eq!(reads.get(), scheduled_reads.get());
                         assert!(!theme.refresh_pending.get());
-                        preference.set((5, 0));
-                        theme.schedule(&dispatcher)?;
-                    }
-                    2 => {
-                        assert_theme(&state.borrow(), ElementTheme::Light);
                         handle.hide()?;
                         preference.set((0, 0));
                         handle.show(ScreenPoint::new(600, 400), menu.clone())?;
                         assert_eq!(theme.applied.get(), ElementTheme::Dark);
                     }
-                    3 => {
+                    2 => {
                         assert_theme(&state.borrow(), ElementTheme::Dark);
                         preference.set((ERROR_FILE_NOT_FOUND, 0));
                         theme.schedule(&dispatcher)?;
                     }
-                    4 => {
+                    3 => {
                         assert_eq!(theme.applied.get(), ElementTheme::Default);
                         assert_theme(&state.borrow(), default_theme);
                         let retiring =
@@ -183,9 +177,16 @@ fn system_menu_theme_updates_live_and_retires_queued_refreshes() {
                         drop(retiring);
                         assert!(weak.upgrade().is_none());
                     }
-                    5 => {
+                    4 => {
                         assert_eq!(retired_reads.get(), 0);
                         handle.hide()?;
+                        preference.set((5, 0));
+                        let error = handle
+                            .show(ScreenPoint::new(600, 400), menu.clone())
+                            .unwrap_err();
+                        assert_eq!(error.code(), windows_core::WIN32_ERROR(5).to_hresult());
+                        assert!(!handle.is_open());
+                        preference.set((ERROR_FILE_NOT_FOUND, 0));
                         handle.show(ScreenPoint::new(600, 400), menu.clone())?;
                         let count = Rc::clone(&invalidated_reads);
                         let hwnd = state.borrow().host.hwnd();
@@ -203,11 +204,14 @@ fn system_menu_theme_updates_live_and_retires_queued_refreshes() {
                         })));
                         theme.schedule(&dispatcher)?;
                     }
-                    6 => {
+                    5 => {
                         assert_eq!(invalidated_reads.get(), 2);
                         assert_theme(&state.borrow(), ElementTheme::Dark);
+                        theme
+                            .reader
+                            .replace(Some(Rc::new(|| theme_preference(5, 0))));
                         finished.set(true);
-                        app.exit()?;
+                        theme.schedule(&dispatcher)?;
                     }
                     _ => unreachable!(),
                 }
@@ -219,6 +223,7 @@ fn system_menu_theme_updates_live_and_retires_queued_refreshes() {
         timer.Start()?;
         Ok((host, default, timer, tick))
     })
-    .unwrap();
+    .unwrap_err();
     assert!(completed.get());
+    assert_eq!(error.code(), windows_core::WIN32_ERROR(5).to_hresult());
 }
