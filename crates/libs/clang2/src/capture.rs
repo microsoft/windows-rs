@@ -22,8 +22,10 @@ pub struct DeclarationInfo {
     pub record_member: bool,
     /// Single-identifier macro chains ending at a captured native type or function declaration.
     pub macro_alias: Option<String>,
-    /// Declaration-attribute macros, including single-identifier chains ending at attributes.
+    /// Declaration attributes and object-like wrappers beginning with an attribute macro.
     pub macro_attribute: bool,
+    /// Non-value declaration fragments and object-like wrappers beginning with such fragments.
+    pub macro_declaration: bool,
 }
 
 /// Inventories declarations whose expansion locations belong to the specified header files.
@@ -138,6 +140,7 @@ pub fn discover(
                     .as_ref()
                     .is_some_and(|definition| definition.empty),
                 macro_attribute: matches!(target, Some(MacroTarget::Attribute)),
+                macro_declaration: matches!(target, Some(MacroTarget::DeclarationFragment)),
                 record_member: matches!(
                     unsafe { clang_getCursorKind(clang_getCursorSemanticParent(cursor)) },
                     CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_ClassDecl
@@ -164,13 +167,16 @@ pub fn discover(
 enum MacroTarget {
     Declaration(String),
     Attribute,
+    DeclarationFragment,
 }
 
 struct MacroDefinition {
     function: bool,
     empty: bool,
-    alias: Option<String>,
+    alias: bool,
+    prefix: Option<String>,
     attribute: bool,
+    declaration: bool,
 }
 
 fn macro_target(
@@ -182,7 +188,8 @@ fn macro_target(
 ) -> Option<MacroTarget> {
     let mut target = name.to_string();
     let mut visited = BTreeSet::new();
-    let result = loop {
+    let mut path = vec![];
+    let mut result = loop {
         if let Some(result) = cache.get(&target) {
             break result.clone();
         }
@@ -196,14 +203,30 @@ fn macro_target(
         };
         let definition = macro_definition(unit, *cursor);
         if definition.attribute {
+            cache.insert(target, Some(MacroTarget::Attribute));
             break Some(MacroTarget::Attribute);
         }
-        let Some(next) = definition.alias else {
+        if definition.declaration {
+            cache.insert(target, Some(MacroTarget::DeclarationFragment));
+            break Some(MacroTarget::DeclarationFragment);
+        }
+        let Some(next) = definition.prefix else {
+            cache.insert(target, None);
             break None;
         };
+        path.push((target, definition.alias));
         target = next;
     };
-    for name in visited {
+    for (name, alias) in path.into_iter().rev() {
+        // Trailing tokens preserve a non-value fragment, not a type or function alias.
+        if !alias
+            && !matches!(
+                result,
+                Some(MacroTarget::Attribute | MacroTarget::DeclarationFragment)
+            )
+        {
+            result = None;
+        }
         cache.insert(name, result.clone());
     }
     result
@@ -243,14 +266,10 @@ fn macro_definition(unit: CXTranslationUnit, cursor: CXCursor) -> MacroDefinitio
     } else {
         false
     };
-    let alias = if let [_, token] = significant.as_slice()
-        && !function
-        && unsafe { clang_getTokenKind(*token) } == CXToken_Identifier
-    {
-        Some(spellings[1].clone())
-    } else {
-        None
-    };
+    let prefix = significant.get(1).and_then(|token| {
+        (!function && unsafe { clang_getTokenKind(*token) } == CXToken_Identifier)
+            .then(|| spellings[1].clone())
+    });
     let attribute = !function
         && (matches!(
             spellings.get(1).map(String::as_str),
@@ -258,12 +277,23 @@ fn macro_definition(unit: CXTranslationUnit, cursor: CXCursor) -> MacroDefinitio
         ) || spellings
             .get(1..3)
             .is_some_and(|tokens| tokens == ["[", "["]));
+    let declaration = !function
+        && (spellings.get(1).is_some_and(|token| token == "extern")
+            || matches!(
+                spellings.get(1..),
+                Some([token])
+                    if matches!(token.as_str(),
+                        "noexcept" | "__cdecl" | "__stdcall" | "__fastcall" |
+                        "__thiscall" | "__vectorcall" | "{" | "}")
+            ));
     unsafe { clang_disposeTokens(unit, tokens, count) };
     MacroDefinition {
         function,
         empty: significant.len() <= 1,
-        alias,
+        alias: significant.len() == 2,
+        prefix,
         attribute,
+        declaration,
     }
 }
 

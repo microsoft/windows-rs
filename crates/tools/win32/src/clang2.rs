@@ -540,6 +540,8 @@ fn exclusion(declaration: &DeclarationInfo) -> Option<&'static str> {
         Some("preprocessing alias of a native type or function")
     } else if declaration.macro_attribute {
         Some("declaration-attribute preprocessing helper")
+    } else if declaration.macro_declaration {
+        Some("declaration-fragment preprocessing helper")
     } else if declaration.function_macro {
         Some("function-like preprocessing helper")
     } else if declaration.empty_macro {
@@ -741,6 +743,7 @@ mod tests {
             record_member: false,
             macro_alias: None,
             macro_attribute: false,
+            macro_declaration: false,
         };
         assert!(exclusion(&declaration).is_none());
         let mut inventory = vec![declaration.clone()];
@@ -776,11 +779,16 @@ mod tests {
         attribute.kind = "macro definition".into();
         attribute.name = "Attribute".into();
         attribute.macro_attribute = true;
+        let mut fragment = declaration.clone();
+        fragment.kind = "macro definition".into();
+        fragment.name = "Fragment".into();
+        fragment.macro_declaration = true;
         let mut rejected = declaration;
         rejected.name = "Unsupported".into();
         inventory.push(rejected);
         inventory.push(alias);
         inventory.push(attribute);
+        inventory.push(fragment);
         let mut outcomes = BTreeMap::from([
             ("Data", ("blocked", String::new())),
             ("__CONFIG", ("blocked", String::new())),
@@ -836,6 +844,10 @@ mod tests {
         assert_eq!(
             &rows[7][4..],
             ["excluded", "declaration-attribute preprocessing helper"]
+        );
+        assert_eq!(
+            &rows[8][4..],
+            ["excluded", "declaration-fragment preprocessing helper"]
         );
         std::fs::remove_file(output.join("inventory.tsv")).unwrap();
         std::fs::remove_dir(output).unwrap();

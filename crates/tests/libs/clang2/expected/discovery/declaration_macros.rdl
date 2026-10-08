@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    #[library("test.dll", import = "Imported")]
+    extern "C" fn Imported(value: i32);
+    #[encoding("ansi")]
+    const KeywordText: String = "extern noexcept __cdecl";
+    #[library("test.dll", import = "Native")]
+    extern "C" fn Native(value: i32);
+    const NoexceptValue: bool = true;
+    const ValueExpression: i32 = 18;
+}

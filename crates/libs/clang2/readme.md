@@ -63,6 +63,11 @@ Discovery also identifies declaration-attribute macros and their identifier chai
 `DeclarationInfo::macro_attribute`. Function-like classification uses the source definition,
 including line splices, so an undefined helper keeps its original kind. Attribute helpers are
 reported separately from values rather than entering expression probes.
+`DeclarationInfo::macro_declaration` identifies linkage fragments, standalone calling conventions,
+bare `noexcept`, and declaration braces. Object-like wrappers beginning with a known attribute or
+declaration fragment retain that classification; trailing tokens do not create a type/function
+alias. `noexcept(expression)`, keyword text in strings, value expressions, and unknown or cyclic
+prefixes remain value candidates. No helper-name list supplies the classification.
 Annotation-context ambiguity is indexed but fails only when captured evidence consumes that
 context; unrelated declarations do not abort the selected closure.
 Prefix annotations before macro-started declaration ranges use the nearest Clang-attached

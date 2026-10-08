@@ -137,6 +137,81 @@ fn inputs() -> Vec<Input> {
 }
 
 #[test]
+fn declaration_fragments_do_not_hide_macro_values_or_calls() {
+    let file = Path::new(env!("CARGO_MANIFEST_DIR")).join("input\\discovery\\declaration_macros.h");
+    let input = Input::new(
+        file.to_str().unwrap(),
+        include_str!("../input/discovery/declaration_macros.h"),
+    );
+    let inventory = discover([input.clone()], ARGS, &[&input.name]).unwrap();
+    let helpers: Vec<_> = inventory
+        .iter()
+        .filter(|declaration| declaration.macro_declaration)
+        .map(|declaration| declaration.name.as_str())
+        .collect();
+    assert_eq!(
+        helpers,
+        [
+            "Linkage",
+            "LinkageAlias",
+            "PublicApi",
+            "PublicApiAlias",
+            "BeginDeclarations",
+            "EndDeclarations",
+            "Convention",
+            "ConventionAlias",
+            "Noexcept",
+            "NoexceptAlias",
+        ]
+    );
+    for name in [
+        "NoexceptValue",
+        "KeywordText",
+        "Value",
+        "ValueAlias",
+        "ValueExpression",
+        "CallExpression",
+        "CycleA",
+        "CycleB",
+        "CyclePrefix",
+    ] {
+        let declaration = inventory
+            .iter()
+            .find(|declaration| declaration.name == name)
+            .unwrap();
+        assert!(!declaration.macro_declaration, "{name}");
+        assert!(!declaration.macro_attribute, "{name}");
+        assert!(declaration.macro_alias.is_none(), "{name}");
+    }
+    let snapshot = capture(
+        [input],
+        ARGS,
+        &[
+            "NoexceptValue",
+            "KeywordText",
+            "ValueExpression",
+            "Native",
+            "Imported",
+        ],
+    )
+    .unwrap();
+    let mut options = ProjectionOptions::new("Test");
+    options.library = Some("test.dll".into());
+    let plan = snapshot.resolve().unwrap().project(&options).unwrap();
+    let expected =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("expected\\discovery\\declaration_macros.rdl");
+    if std::env::var_os("UPDATE_EXPECT").is_some() {
+        std::fs::write(&expected, plan.rdl()).unwrap();
+    }
+    assert_eq!(
+        plan.rdl(),
+        std::fs::read_to_string(expected)
+            .unwrap()
+            .replace("\r\n", "\n")
+    );
+}
+
+#[test]
 fn exact_header_identity_and_macro_ownership() {
     let inputs = inputs();
     let header = &inputs[0].name;

@@ -153,6 +153,23 @@ an explicit source-profile reconciliation rule for such extensions, with evidenc
 representation and common members. No automatic enum union, profile priority, or SDK/WDK snapshot
 merge is implemented in clang2.
 
+The bounded profile inventory compares enum tags defined in SDK `winternl.h` and WDK
+`wdm.h`/`ntifs.h`, under the same x64 compiler arguments. Each profile passes native resolution
+independently and compiles its projected enums to WinMD. The checked-in outcome table records both
+the emitted member relation and the result of strict combined native resolution:
+
+| Native enum | SDK members | WDK members | Emitted member relation | Combined native result |
+| --- | ---: | ---: | --- | --- |
+| `_FILE_INFORMATION_CLASS` | 1 | 84 | SDK is a subset with matching common values. | Rejects different complete definitions. |
+| `_KEY_SET_INFORMATION_CLASS` | 7 | 8 | `MaxKeySetInfoClass` changes from 6 to 7. | Rejects the value conflict. |
+| `_OBJECT_INFORMATION_CLASS` | 2 | 2 | Identical members and representation. | Agrees. |
+
+The key-set change is present in the original headers: WDK adds `KeySetLayerInformation` before the
+terminal member. A larger member count does not make a source authoritative, and a `Max*` spelling
+does not permit rewriting its value. An extension rule must keep common-value conflicts visible and
+must check native representation, annotations, and dependent contracts before publishing. This
+three-enum inventory is not full SDK/WDK reconciliation or a general C++ equivalence check.
+
 ## Captured evidence
 
 | Surface | Evidence |
@@ -221,6 +238,15 @@ macro expressions, and poison-expression recovery are outside this slice. `disco
 declarations and macro definitions by exact Clang file identity, without choosing export policy.
 It uses expansion locations, so a macro-generated declaration belongs to its invocation header.
 Discovery is a separate parse pass; selected names then enter ordinary capture and resolution.
+
+Discovery distinguishes declaration fragments from values using macro definition tokens.
+Linkage fragments beginning with `extern`, standalone calling-convention keywords, bare `noexcept`,
+and declaration braces are reported helpers. Leading identifier chains propagate a known attribute
+or declaration fragment through object-like wrappers, with memoized results and cycle detection.
+Only a single-identifier body can alias a native type or function. `noexcept(expression)`, string
+literals containing keywords, arithmetic, and unknown prefixes still reach ordinary value probing.
+`declaration_macros.h` and its RDL fixture cover the helper boundaries alongside emitted constants
+and native functions. The header runner records exclusion reasons rather than listing helper names.
 
 Only generated value-probe cursors receive macro identity and macro source ownership. A native
 record or variable with the same name keeps its own identity, location, and written type. When
@@ -1260,6 +1286,15 @@ WinMD and reach a stable metadata-to-RDL roundtrip. This checks semantic validit
 closure, not publication parity, runtime ABI coverage, or certification of the rejected roots.
 The full-manifest totals above have not been refreshed for this slice.
 
+Declaration-fragment classification removes ICU's global probe block. The independent `icu.h`
+inventory selects 1,615 names, emits 1,583, and rejects 32, with no blocked roots. Its 12 declaration
+helpers are excluded by source syntax, not by ICU names. Unsupported callable types and variadics
+remain explicit rejections. Combining ICU with the four-header main/satellite control selects
+3,413 names, emits 2,757, and rejects 656, with none blocked. The combined graph checks 4,164 available
+groups and 5,265 observations. Both emitted RDL sets compile to WinMD and reach a stable
+metadata-to-RDL roundtrip. These results extend the supported closure, not production publication
+parity; the full-manifest totals above still describe the earlier run.
+
 The tool audit separates source-derived policy from repairs that would conceal missing evidence:
 
 | Boundary | Current behavior or remaining risk |
@@ -1268,7 +1303,7 @@ The tool audit separates source-derived policy from repairs that would conceal m
 | DLL routing | Full ordered SDK import libraries supply exact COFF symbols and export targets; all candidates are reported. Conflicting entries within an archive reject, including shadowed archives. |
 | Legacy production repairs | `LibraryMap` applies `LIBRARY_OVERRIDES`, including synthetic `InitializeXamlDiagnosticsEx` routing, and source-name fallback. The clang2 header route adopts neither. |
 | Pointer-sized typedefs | Explicit SDK semantic contracts survive only after compiler width, alignment, and signedness checks. Width alone cannot establish `usize`/`isize` intent. |
-| Selection | Inline helpers, empty markers, attribute helpers, declaration aliases, and record-member roots have reported exclusion reasons. Reserved names do not imply exclusion. |
+| Selection | Inline helpers, empty markers, attribute/declaration fragments, declaration aliases, and record-member roots have reported exclusion reasons. Reserved names do not imply exclusion. |
 | Input construction | Shared `clang_inputs` supplies source/include profiles; no legacy extraction result or parser fallback is consumed. Individual headers still need verified prerequisites. |
 | Macro probing | Compiler file identity and byte ranges assign errors to appended probes. A clean reparse excludes rejected probes; fatal and unowned diagnostics still fail capture. |
 | Annotation indexing | Ambiguity is retained until evidence consumes the indexed context. Unrelated CRT declarations do not abort capture; selected ambiguity still rejects. |

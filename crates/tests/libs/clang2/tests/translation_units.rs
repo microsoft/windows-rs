@@ -241,3 +241,150 @@ fn sdk_and_wdk_enum_profiles_are_not_silently_unioned() {
         }
     }
 }
+
+#[test]
+fn shared_sdk_wdk_enum_profiles_have_explicit_outcomes() {
+    let arguments = sdk::wdk_arguments("--target=x86_64-pc-windows-msvc");
+    let arguments: Vec<_> = arguments.iter().map(String::as_str).collect();
+    let profiles = [
+        Input::new(
+            "sdk.hpp",
+            include_str!("../input/translation_units/sdk_profile.h"),
+        ),
+        Input::new(
+            "wdk.hpp",
+            include_str!("../input/translation_units/wdk_profile.h"),
+        ),
+    ];
+    let headers = [
+        vec![sdk::include().join("um").join("winternl.h")],
+        vec![
+            sdk::wdk_include().join("km").join("wdm.h"),
+            sdk::wdk_include().join("km").join("ntifs.h"),
+        ],
+    ];
+    let names: Vec<_> = profiles
+        .iter()
+        .zip(&headers)
+        .map(|(profile, headers)| {
+            windows_clang2::discover(
+                [profile.clone()],
+                &arguments,
+                &headers
+                    .iter()
+                    .map(|header| header.to_str().unwrap())
+                    .collect::<Vec<_>>(),
+            )
+            .unwrap()
+            .into_iter()
+            .filter(|declaration| declaration.kind == "EnumDecl")
+            .map(|declaration| declaration.name)
+            .collect::<std::collections::BTreeSet<_>>()
+        })
+        .collect();
+    let names: Vec<_> = names[0]
+        .intersection(&names[1])
+        .map(String::as_str)
+        .collect();
+    assert!(!names.is_empty());
+    let snapshots: Vec<_> = profiles
+        .iter()
+        .map(|profile| capture([profile.clone()], &arguments, &names).unwrap())
+        .collect();
+    let indices: Vec<_> = snapshots
+        .iter()
+        .enumerate()
+        .map(|(profile, snapshot)| {
+            let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+            let output = Path::new(env!("OUT_DIR")).join(format!("enum_profile_{profile}.winmd"));
+            windows_rdl::reader()
+                .input_text(&plan.rdl())
+                .output(&output)
+                .write()
+                .unwrap();
+            Index::read(output).unwrap()
+        })
+        .collect();
+    let mut report = String::from(
+        "enum\tsdk_members\twdk_members\tprojected_relation\tnative_agreement\tconflicts\n",
+    );
+    for name in names {
+        let enums: Vec<_> = indices
+            .iter()
+            .map(|index| index.expect("Test", name))
+            .collect();
+        let members: Vec<_> = enums
+            .iter()
+            .map(|ty| {
+                ty.fields()
+                    .filter_map(|field| {
+                        field
+                            .constant()
+                            .map(|value| (field.name().to_string(), value.value()))
+                    })
+                    .collect::<BTreeMap<_, _>>()
+            })
+            .collect();
+        let conflicts: Vec<_> = members[0]
+            .iter()
+            .filter_map(|(name, value)| {
+                members[1]
+                    .get(name)
+                    .filter(|other| *other != value)
+                    .map(|other| format!("{name}: {value:?} -> {other:?}"))
+            })
+            .collect();
+        let relation = if enums[0].underlying_type() != enums[1].underlying_type() {
+            "different representations"
+        } else if !conflicts.is_empty() {
+            "conflicting member values"
+        } else if members[0] == members[1] {
+            "same emitted members"
+        } else if members[0]
+            .iter()
+            .all(|(name, value)| members[1].get(name) == Some(value))
+        {
+            "candidate WDK extension"
+        } else if members[1]
+            .iter()
+            .all(|(name, value)| members[0].get(name) == Some(value))
+        {
+            "candidate SDK extension"
+        } else {
+            "different member sets"
+        };
+        let snapshot = capture(profiles.clone(), &arguments, &[name]).unwrap();
+        let agreement = match snapshot.resolve() {
+            Ok(_) => "agrees",
+            Err(error) => {
+                assert!(
+                    error
+                        .to_string()
+                        .contains("conflicting native declarations"),
+                    "{name}: {error}"
+                );
+                "rejects"
+            }
+        };
+        let conflicts = if conflicts.is_empty() {
+            "-".into()
+        } else {
+            conflicts.join("; ")
+        };
+        report.push_str(&format!(
+            "{name}\t{}\t{}\t{relation}\t{agreement}\t{conflicts}\n",
+            members[0].len(),
+            members[1].len(),
+        ));
+    }
+    let expected = Path::new(env!("CARGO_MANIFEST_DIR")).join("expected\\enum_profiles.tsv");
+    if std::env::var_os("UPDATE_EXPECT").is_some() {
+        std::fs::write(&expected, &report).unwrap();
+    }
+    assert_eq!(
+        report,
+        std::fs::read_to_string(expected)
+            .unwrap()
+            .replace("\r\n", "\n")
+    );
+}

@@ -1,0 +1,4 @@
+enum	sdk_members	wdk_members	projected_relation	native_agreement	conflicts
+_FILE_INFORMATION_CLASS	1	84	candidate WDK extension	rejects	-
+_KEY_SET_INFORMATION_CLASS	7	8	conflicting member values	rejects	MaxKeySetInfoClass: I32(6) -> I32(7)
+_OBJECT_INFORMATION_CLASS	2	2	same emitted members	agrees	-
