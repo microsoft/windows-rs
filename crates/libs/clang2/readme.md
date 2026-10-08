@@ -38,6 +38,17 @@ still checks alias/output-name conflicts. `Plan::rdl_by_header` emits source-own
 including dependency headers, separately from native identity and spelling evidence.
 Use `Resolved::projection(&options)` for repeated per-root assessments; lookup indices and binding
 validation are shared while names and dependency plans remain local.
+
+Inventory callers can use `capture_report` to report failed macro probes by compiler location.
+All probes are batched; rejected probes are removed before a clean reparse supplies native evidence.
+Source errors and fatal or unowned probe diagnostics still fail capture. `capture` retains its
+strict all-roots contract.
+`Snapshot::assess` reports unavailable roots and checks the remaining closed native graph.
+Unavailability follows every observation's written and canonical dependencies, including cycles.
+Rejected names cannot be projected, including names with an unavailable overload. Native conflicts
+in the available graph remain errors; rejected roots are not certified. `Snapshot::resolve` still
+rejects any unavailable evidence. No external binding can bypass these checks.
+
 Discovery identifies single-identifier macro chains ending at native type or function declarations
 through `DeclarationInfo::macro_alias`. The header runner reports these aliases and their targets
 instead of probing them as constants. Constants, enumerator aliases, unknown expressions, and cyclic
@@ -46,6 +57,8 @@ Discovery also identifies declaration-attribute macros and their identifier chai
 `DeclarationInfo::macro_attribute`. Function-like classification uses the source definition,
 including line splices, so an undefined helper keeps its original kind. Attribute helpers are
 reported separately from values rather than entering expression probes.
+Annotation-context ambiguity is indexed but fails only when captured evidence consumes that
+context; unrelated declarations do not abort the selected closure.
 `DeclarationInfo::record_member` identifies declarations scoped to a record. Header inventories
 select their owners as roots; capture still follows the member types and checks their evidence.
 

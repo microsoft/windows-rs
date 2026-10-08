@@ -558,8 +558,10 @@ pub struct Projection<'a, 's> {
 
 impl Projection<'_, '_> {
     pub fn project(&self) -> Result<Plan, Error> {
+        let mut roots: Vec<_> = self.resolved.roots.values().flatten().copied().collect();
+        roots.sort();
         self.resolved
-            .project_ids(self.options, &self.namespace, &self.resolved.snapshot.roots)
+            .project_ids(self.options, &self.namespace, &roots)
     }
 
     pub fn project_roots(&self, names: &[&str]) -> Result<Plan, Error> {

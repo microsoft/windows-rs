@@ -285,7 +285,7 @@ adjacency. `sysinfoapi.h` reaches projection; NLS still references an unavailabl
 `MUI_CALLBACK_FLAG_UPGRADED_INSTALLATION`. Emission counts are not publication parity: PSAPI's native
 `K32*` names differ from committed public aliases.
 
-`tool-win32 --clang2-headers all --rdl-only` attempts all 369 manifest headers independently:
+The recorded `tool-win32 --clang2-headers all --rdl-only` baseline attempts 369 headers independently:
 36 complete, 333 incomplete, 28,758 emitted names, 8,552 rejected, and 62,252 blocked. Another
 24 headers fail before discovery inventory; their counts are unavailable, not zero. These summed
 per-header names are not deduplicated APIs or publication parity. `manifest.tsv` persists after
@@ -297,10 +297,22 @@ Named callbacks retain compiler TypeRef-backed typedef edges, calling convention
 and pointer depth. Incomplete C records preserve nominal pointer identity but reject by-value
 calls without layout. Variable redeclarations compare canonical types and retain/check written
 typedef contracts. Nested record members are captured through their owner, not independent roots.
-Prioritize compiler-owned macro probe isolation, selected annotation-context ownership, verified
-header prerequisites, and record layouts using `docs/crates/windows-clang2.md`. Broad annotation
-indexing still hits unrelated `_snprintf` ambiguity in `dshow.h`/`txfw32.h`. Do not solve these
-with symbol whitelists, guessed constants, or legacy extraction fallback. The production backend
+Inventory `capture_report` now assigns failed probes by compiler file identity and byte ranges,
+then reparses without rejected probes. Source, fatal, and unowned errors remain fatal; an errored
+AST never supplies evidence. Strict `capture` is unchanged. `Snapshot::assess` propagates
+unavailability over every observation's written/canonical dependencies and checks the closed
+available graph; unavailable roots are explicit rejections, including whole overloaded names.
+Available native conflicts still fail globally. Strict `resolve` remains unchanged.
+Annotation ambiguity fails when selected evidence consumes the context, not during broad indexing.
+
+The bounded controls now emit 727/732 NLS names, 4137/4245 WinUser names, and 8689/9466 names from
+combined GDI/Crypto/IO, with no blocked roots. The full manifest has not been rerun after this
+checkpoint. A combined D3D12/D3DKMT/SetupAPI/NTSTATUS main TU plus DeviceTopology satellite checks
+8158 available groups and 11624 observations in 5.38 s at 362.4 MiB sampled peak working set.
+It emits 6111/6971 names; these are debug source-to-RDL results, not metadata/runtime certification.
+Capture dominates measured costs; no global projection cache or alternate IR is justified.
+Prioritize verified header prerequisites and record layouts using `docs/crates/windows-clang2.md`,
+not symbol whitelists, guessed constants, or legacy extraction fallback. The production backend
 remains unchanged; full source/RDL inventory is not a completed replacement gate.
 
 ### Clang2 WebView2 cutover blockers

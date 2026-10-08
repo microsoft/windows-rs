@@ -276,6 +276,24 @@ pub fn capture(
     arguments: &[&str],
     roots: &[&str],
 ) -> Result<Snapshot, Error> {
+    let report = capture_report(inputs, arguments, roots)?;
+    if !report.rejected.is_empty() {
+        return Err(Error(
+            report.rejected.into_values().collect::<Vec<_>>().join("\n"),
+        ));
+    }
+    Ok(report.snapshot.unwrap())
+}
+
+/// Captures valid roots while reporting failed macro probes by compiler diagnostic ownership.
+///
+/// All remaining native evidence still requires resolution. This does not suppress source errors,
+/// native conflicts, or unavailable dependencies.
+pub fn capture_report(
+    inputs: impl IntoIterator<Item = Input>,
+    arguments: &[&str],
+    roots: &[&str],
+) -> Result<CaptureReport, Error> {
     let mut inputs: Vec<_> = inputs.into_iter().collect();
     inputs.sort_by(|left, right| left.name.cmp(&right.name));
     if inputs.is_empty() || roots.is_empty() {
@@ -296,8 +314,11 @@ pub fn capture(
         .map(|input| Unit::parse(input, arguments))
         .collect::<Result<Vec<_>, _>>()?;
     let mut macros = vec![];
+    let mut rejected = BTreeMap::new();
+    let mut parses = units.len();
     for (input, unit) in inputs.iter().zip(&mut units) {
         let mut selected = BTreeMap::new();
+        let mut function_macros = BTreeSet::new();
         let mut sdk_sal = false;
         let mut sal_capture = false;
         for cursor in children(unsafe { clang_getTranslationUnitCursor(unit.raw) }) {
@@ -308,10 +329,10 @@ pub fn capture(
             sdk_sal |= name == "_SAL_VERSION";
             sal_capture |= name == "__CLANG2_SAL_CAPTURE";
             if roots.contains(&name.as_str()) {
-                if unsafe { clang_Cursor_isMacroFunctionLike(cursor) } != 0 {
-                    return Err(Error(format!(
-                        "function-like macro `{name}` cannot be a constant root"
-                    )));
+                if macro_definition(unit.raw, cursor).function {
+                    function_macros.insert(name.clone());
+                } else {
+                    function_macros.remove(&name);
                 }
                 selected.insert(name, location(cursor));
             }
@@ -321,18 +342,22 @@ pub fn capture(
                 "SDK SAL requires the windows-clang2 src/sal.h capture header".into(),
             ));
         }
+        for name in function_macros {
+            rejected.insert(
+                name.clone(),
+                format!("function-like macro `{name}` cannot be a constant root"),
+            );
+        }
         if !selected.is_empty() {
-            let mut source = input.source.clone();
-            for name in selected.keys() {
-                writeln!(
-                    source,
-                    "\n#ifndef {name}\n#error selected macro is undefined: {name}\n#endif\n\
-                    const auto& __clang2_value_{name} = ({name});"
-                )
-                .unwrap();
-            }
-            *unit = Unit::parse(&Input::new(&input.name, &source), arguments)?;
-            let mut pointers = false;
+            *unit = Unit::probe(
+                input,
+                arguments,
+                &selected,
+                &BTreeSet::new(),
+                &mut rejected,
+                &mut parses,
+            )?;
+            let mut pointers = BTreeSet::new();
             for cursor in children(unsafe { clang_getTranslationUnitCursor(unit.raw) }) {
                 if unsafe { clang_getCursorKind(cursor) } != CXCursor_VarDecl
                     || unsafe {
@@ -350,19 +375,32 @@ pub fn capture(
                     && selected.contains_key(name)
                     && matches!(evaluate(cursor), Value::Unavailable(_))
                 {
-                    writeln!(
-                        source,
-                        "const __INTPTR_TYPE__ __clang2_bits_{name} = (__INTPTR_TYPE__)({name});"
-                    )
-                    .unwrap();
-                    pointers = true;
+                    pointers.insert(name.to_string());
                 }
             }
-            if pointers {
-                *unit = Unit::parse(&Input::new(&input.name, source), arguments)?;
+            if !pointers.is_empty() {
+                *unit = Unit::probe(
+                    input,
+                    arguments,
+                    &selected,
+                    &pointers,
+                    &mut rejected,
+                    &mut parses,
+                )?;
             }
         }
         macros.push(selected);
+    }
+    let roots: BTreeSet<_> = roots
+        .into_iter()
+        .filter(|root| !rejected.contains_key(*root))
+        .collect();
+    if roots.is_empty() {
+        return Ok(CaptureReport {
+            snapshot: None,
+            rejected,
+            parses,
+        });
     }
     let target = units[0].target.clone();
     if units.iter().any(|unit| unit.target != target) {
@@ -423,7 +461,7 @@ pub fn capture(
                 unsafe { clang_getCursorKind(cursor) },
                 CXCursor_FunctionDecl | CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
             ) {
-                capture.context(unit, cursor)?;
+                capture.context(unit, cursor);
             }
             if matches!(
                 unsafe { clang_getCursorKind(cursor) },
@@ -433,7 +471,7 @@ pub fn capture(
                     .into_iter()
                     .filter(|child| unsafe { clang_getCursorKind(*child) == CXCursor_CXXMethod })
                 {
-                    capture.context(unit, method)?;
+                    capture.context(unit, method);
                 }
             }
             let identity = string(unsafe { clang_getCursorUSR(cursor) });
@@ -452,8 +490,8 @@ pub fn capture(
             }
         }
     }
-    for root in roots {
-        if !found.contains(root) {
+    for root in &roots {
+        if !found.contains(*root) {
             return Err(Error(format!("native root `{root}` was not found")));
         }
     }
@@ -477,17 +515,21 @@ pub fn capture(
             }
         }
     }
-    Ok(Snapshot {
-        entities: capture.entities,
-        declarations: capture.declarations,
-        roots: root_ids.into_iter().collect(),
-        target,
-        pointer_size: units[0].pointer_size,
-        arguments: arguments.iter().map(|arg| (*arg).to_string()).collect(),
-        diagnostics: units
-            .iter()
-            .flat_map(|unit| unit.diagnostics.clone())
-            .collect(),
+    Ok(CaptureReport {
+        snapshot: Some(Snapshot {
+            entities: capture.entities,
+            declarations: capture.declarations,
+            roots: root_ids.into_iter().collect(),
+            target,
+            pointer_size: units[0].pointer_size,
+            arguments: arguments.iter().map(|arg| (*arg).to_string()).collect(),
+            diagnostics: units
+                .iter()
+                .flat_map(|unit| unit.diagnostics.clone())
+                .collect(),
+        }),
+        rejected,
+        parses,
     })
 }
 
@@ -528,10 +570,95 @@ struct Unit {
     target: String,
     pointer_size: i64,
     diagnostics: Vec<String>,
+    errors: Vec<CompilerError>,
+}
+
+struct CompilerError {
+    location: Location,
+    input: bool,
+    fatal: bool,
+    text: String,
 }
 
 impl Unit {
     fn parse(input: &Input, arguments: &[&str]) -> Result<Self, Error> {
+        let unit = Self::parse_raw(input, arguments)?;
+        if !unit.errors.is_empty() {
+            return Err(Error(unit.diagnostics.join("\n")));
+        }
+        Ok(unit)
+    }
+
+    fn probe(
+        input: &Input,
+        arguments: &[&str],
+        macros: &BTreeMap<String, Location>,
+        pointers: &BTreeSet<String>,
+        rejected: &mut BTreeMap<String, String>,
+        parses: &mut usize,
+    ) -> Result<Self, Error> {
+        let mut arguments = arguments.to_vec();
+        arguments.push("-ferror-limit=0");
+        let arguments = arguments.as_slice();
+        let source = |rejected: &BTreeMap<String, String>| {
+            let mut source = input.source.clone();
+            let mut ranges = BTreeMap::new();
+            for name in macros.keys().filter(|name| !rejected.contains_key(*name)) {
+                let start = source.len();
+                writeln!(
+                    source,
+                    "\n#ifndef {name}\n#error selected macro is undefined: {name}\n#endif\n\
+                     const auto& __clang2_value_{name} = ({name});"
+                )
+                .unwrap();
+                if pointers.contains(name) {
+                    writeln!(
+                        source,
+                        "const __INTPTR_TYPE__ __clang2_bits_{name} = (__INTPTR_TYPE__)({name});"
+                    )
+                    .unwrap();
+                }
+                ranges.insert(start, (source.len(), name));
+            }
+            (Input::new(&input.name, source), ranges)
+        };
+        let (probes, ranges) = source(rejected);
+        *parses += 1;
+        let unit = Self::parse_raw(&probes, arguments)?;
+        if unit.errors.is_empty() {
+            return Ok(unit);
+        }
+        for error in &unit.errors {
+            let offset = error.location.offset as usize;
+            let owner = ranges
+                .range(..=offset)
+                .next_back()
+                .map(|(_, (end, name))| (end, name));
+            let Some((_, name)) =
+                owner.filter(|(end, _)| offset < **end && error.input && !error.fatal)
+            else {
+                return Err(Error(unit.diagnostics.join("\n")));
+            };
+            let origin = &macros[*name];
+            let reason = format!(
+                "macro `{name}` at {}:{}: {}",
+                origin.file, origin.line, error.text
+            );
+            rejected
+                .entry((*name).clone())
+                .and_modify(|previous| {
+                    previous.push('\n');
+                    previous.push_str(&reason);
+                })
+                .or_insert(reason);
+        }
+        drop(unit);
+        let (clean, _) = source(rejected);
+        *parses += 1;
+        Self::parse(&clean, arguments)
+    }
+
+    fn parse_raw(input: &Input, arguments: &[&str]) -> Result<Self, Error> {
         let name = c_string(&input.name)?;
         let source = c_string(&input.source)?;
         let args = arguments
@@ -586,19 +713,30 @@ impl Unit {
                 target: String::new(),
                 pointer_size: 0,
                 diagnostics: vec![],
+                errors: vec![],
             };
-            let mut errors = false;
             for i in 0..clang_getNumDiagnostics(raw) {
                 let diagnostic = clang_getDiagnostic(raw, i);
-                errors |= clang_getDiagnosticSeverity(diagnostic) >= CXDiagnostic_Error;
-                unit.diagnostics.push(string(clang_formatDiagnostic(
+                let severity = clang_getDiagnosticSeverity(diagnostic);
+                let text = string(clang_formatDiagnostic(
                     diagnostic,
                     clang_defaultDiagnosticDisplayOptions(),
-                )));
+                ));
+                if severity >= CXDiagnostic_Error {
+                    let origin = clang_getDiagnosticLocation(diagnostic);
+                    let (file, _) = position(origin);
+                    let input_file = clang_getFile(raw, name.as_ptr());
+                    unit.errors.push(CompilerError {
+                        location: expansion_location(origin),
+                        input: !file.is_null()
+                            && !input_file.is_null()
+                            && clang_File_isEqual(file, input_file) != 0,
+                        fatal: severity >= CXDiagnostic_Fatal,
+                        text: text.clone(),
+                    });
+                }
+                unit.diagnostics.push(text);
                 clang_disposeDiagnostic(diagnostic);
-            }
-            if errors {
-                return Err(Error(unit.diagnostics.join("\n")));
             }
             let target = clang_getTranslationUnitTargetInfo(raw);
             if target.is_null() {
@@ -629,7 +767,7 @@ struct Capture<'a> {
     declarations: Vec<Declaration>,
     entities: Vec<Entity>,
     entity_cursors: Vec<HashMap<u32, Vec<(CXCursor, EntityId)>>>,
-    contexts: Vec<HashMap<(CXFile, u32), Arc<[String]>>>,
+    contexts: Vec<HashMap<(CXFile, u32), Result<Arc<[String]>, String>>>,
     flag_enums: Vec<BTreeSet<String>>,
     macros: Vec<BTreeMap<String, Location>>,
     identities: BTreeMap<String, Vec<(usize, CXCursor)>>,
@@ -653,7 +791,7 @@ fn position(location: CXSourceLocation) -> (CXFile, u32) {
 }
 
 impl Capture<'_> {
-    fn context(&mut self, unit: usize, cursor: CXCursor) -> Result<(), Error> {
+    fn context(&mut self, unit: usize, cursor: CXCursor) {
         let alias = matches!(
             unsafe { clang_getCursorKind(cursor) },
             CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
@@ -661,9 +799,6 @@ impl Capture<'_> {
         let range = unsafe { clang_getCursorExtent(cursor) };
         let (file, start) = position(unsafe { clang_getRangeStart(range) });
         let (end_file, end) = position(unsafe { clang_getRangeEnd(range) });
-        if file.is_null() || file != end_file {
-            return Err(Error("callable source range is unavailable".into()));
-        }
         let parameters: Vec<_> = children(cursor)
             .into_iter()
             .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
@@ -675,6 +810,11 @@ impl Capture<'_> {
                 .filter(|child| unsafe { clang_getCursorKind(*child) == CXCursor_AnnotateAttr })
             {
                 let origin = position(unsafe { clang_getCursorLocation(attr) });
+                if file.is_null() || file != end_file {
+                    self.contexts[unit]
+                        .insert(origin, Err("callable source range is unavailable".into()));
+                    continue;
+                }
                 if !alias && (origin.0 != file || origin.1 < start || origin.1 >= end) {
                     continue;
                 }
@@ -685,18 +825,20 @@ impl Capture<'_> {
                         .collect::<Arc<[String]>>()
                 });
                 if let Some(previous) = self.contexts[unit].get(&origin) {
-                    if previous != context {
-                        return Err(Error(format!(
-                            "ambiguous annotation context for `{}`",
-                            qualified_name(cursor)
-                        )));
+                    if previous.as_ref().is_ok_and(|previous| previous != context) {
+                        self.contexts[unit].insert(
+                            origin,
+                            Err(format!(
+                                "ambiguous annotation context for `{}`",
+                                qualified_name(cursor)
+                            )),
+                        );
                     }
                 } else {
-                    self.contexts[unit].insert(origin, context.clone());
+                    self.contexts[unit].insert(origin, Ok(context.clone()));
                 }
             }
         }
-        Ok(())
     }
 
     fn name(&self, unit: usize, cursor: CXCursor) -> String {
@@ -1139,13 +1281,15 @@ impl Capture<'_> {
                 let context = if callable {
                     self.contexts[unit]
                         .get(&position(origin))
-                        .cloned()
                         .ok_or_else(|| {
                             Error(format!(
                                 "annotation context unavailable at {}:{}",
                                 location.file, location.line
                             ))
                         })?
+                        .as_ref()
+                        .map_err(|reason| Error(reason.clone()))?
+                        .clone()
                 } else {
                     Arc::default()
                 };

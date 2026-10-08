@@ -3,6 +3,31 @@
 mod sdk;
 
 #[test]
+fn unrelated_annotation_ambiguity_does_not_poison_selected_evidence() {
+    let source = include_str!("../input/annotation_index.h");
+    let arguments = sdk::arguments("--target=x86_64-pc-windows-msvc");
+    let arguments: Vec<_> = arguments.iter().map(String::as_str).collect();
+    let snapshot = windows_clang2::capture(
+        [windows_clang2::Input::new("index.hpp", source)],
+        &arguments,
+        &["Packet"],
+    )
+    .unwrap();
+    snapshot.resolve().unwrap();
+    let error = windows_clang2::capture(
+        [windows_clang2::Input::new("index.hpp", source)],
+        &arguments,
+        &["_snprintf"],
+    )
+    .err()
+    .unwrap();
+    assert!(
+        error.to_string().contains("ambiguous annotation context"),
+        "{error}"
+    );
+}
+
+#[test]
 fn source_families_and_scopes_survive_projection() {
     let snapshot = sdk::capture_sdk(
         "--target=x86_64-pc-windows-msvc",

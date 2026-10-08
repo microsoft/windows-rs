@@ -9,6 +9,74 @@ pub(super) fn validate(snapshot: &Snapshot) -> Result<Resolved<'_>, Error> {
             .or_default()
             .push(Id(index));
     }
+    validate_groups(snapshot, groups)
+}
+
+pub(super) fn assess(snapshot: &Snapshot) -> Result<Assessment<'_>, Error> {
+    let mut groups: BTreeMap<&str, Vec<Id>> = BTreeMap::new();
+    let mut unavailable = BTreeMap::new();
+    let mut dependents: BTreeMap<&str, BTreeSet<&str>> = BTreeMap::new();
+    for (index, declaration) in snapshot.declarations.iter().enumerate() {
+        let group = declaration.candidate.as_str();
+        groups.entry(group).or_default().push(Id(index));
+        if let Err(error) = available(declaration) {
+            unavailable
+                .entry(group)
+                .or_insert_with(|| error.to_string());
+        }
+        let mut pending = declaration.data.types();
+        while let Some(ty) = pending.pop() {
+            if let TypeKind::Named(id) = ty.kind {
+                dependents
+                    .entry(&snapshot.declarations[id.0].candidate)
+                    .or_default()
+                    .insert(group);
+            }
+            pending.extend(ty.children());
+        }
+    }
+    let mut pending: VecDeque<_> = unavailable.keys().copied().collect();
+    while let Some(group) = pending.pop_front() {
+        for dependent in dependents.get(group).into_iter().flatten() {
+            if !unavailable.contains_key(dependent) {
+                unavailable.insert(*dependent, unavailable[group].clone());
+                pending.push_back(*dependent);
+            }
+        }
+    }
+    let mut rejected = BTreeMap::new();
+    for id in &snapshot.roots {
+        let declaration = &snapshot.declarations[id.0];
+        if let Some(reason) = unavailable.get(declaration.candidate.as_str()) {
+            rejected.insert(
+                declaration.name.clone(),
+                format!("native closure for `{}`: {reason}", declaration.name),
+            );
+        }
+    }
+    let dependency_edges = dependents.values().map(BTreeSet::len).sum();
+    let unavailable_groups = unavailable.len();
+    let groups = groups
+        .into_iter()
+        .filter(|(group, _)| !unavailable.contains_key(group))
+        .collect();
+    let mut resolved = validate_groups(snapshot, groups)?;
+    resolved
+        .roots
+        .retain(|name, _| !rejected.contains_key(*name));
+    let resolved = (!resolved.roots.is_empty()).then_some(resolved);
+    Ok(Assessment {
+        resolved,
+        rejected,
+        dependency_edges,
+        unavailable_groups,
+    })
+}
+
+fn validate_groups<'a>(
+    snapshot: &'a Snapshot,
+    groups: BTreeMap<&str, Vec<Id>>,
+) -> Result<Resolved<'a>, Error> {
     let mut completions: Vec<_> = (0..snapshot.declarations.len()).map(Id).collect();
     let mut incomplete = vec![];
     for candidates in groups.values() {
@@ -58,8 +126,17 @@ pub(super) fn validate(snapshot: &Snapshot) -> Result<Resolved<'_>, Error> {
         }
     }
     let report = Validation {
-        declarations: snapshot.entities.len(),
-        observations: snapshot.declarations.len(),
+        declarations: snapshot
+            .entities
+            .iter()
+            .filter(|entity| {
+                entity
+                    .observations
+                    .iter()
+                    .any(|id| groups.contains_key(snapshot.declarations[id.0].candidate.as_str()))
+            })
+            .count(),
+        observations: groups.values().map(Vec::len).sum(),
         declaration_pairs: comparison.declaration_pairs,
         type_pairs: comparison.type_pairs,
         incomplete,
@@ -96,6 +173,9 @@ pub(super) fn validate(snapshot: &Snapshot) -> Result<Resolved<'_>, Error> {
     }
     let mut roots: BTreeMap<_, Vec<_>> = BTreeMap::new();
     for id in &snapshot.roots {
+        if !groups.contains_key(&representatives[id.0]) {
+            continue;
+        }
         roots
             .entry(snapshot.declarations[id.0].name.as_str())
             .or_default()

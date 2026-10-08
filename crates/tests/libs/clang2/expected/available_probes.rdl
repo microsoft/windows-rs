@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    const Changed: i32 = 23;
+    const Good: i32 = 17;
+    struct Packet {
+        value: i32,
+    }
+    #[library("test.dll", import = "Use")]
+    extern "C" fn Use(p0: *mut Packet);
+}

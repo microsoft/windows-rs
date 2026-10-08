@@ -15,6 +15,50 @@ use sdk::capture_sdk as sdk_capture;
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn assessed_native_and_probe_roots_compile_to_metadata() {
+    let report = windows_clang2::capture_report(
+        [Input::new(
+            "probes.hpp",
+            include_str!("../input/probe_failures.h"),
+        )],
+        ARGS,
+        &["Good", "Changed", "Missing", "Use"],
+    )
+    .unwrap();
+    assert_eq!(report.rejected.len(), 1);
+    let snapshot = report.snapshot.unwrap();
+    let resolved = snapshot.resolve().unwrap();
+    let index = compile("available_probes", &resolved.project(&options()).unwrap());
+    let Item::Const(constant) = index.expect_item("Test", "Good") else {
+        panic!()
+    };
+    assert_eq!(constant.constant().unwrap().value(), Value::I32(17));
+    let snapshot = capture(
+        [Input::new(
+            "unavailable.hpp",
+            include_str!("../input/unavailable_closure.h"),
+        )],
+        ARGS,
+        &["Invalid", "Use"],
+    )
+    .unwrap();
+    let assessed = snapshot.assess().unwrap();
+    assert_eq!(assessed.rejected.len(), 1);
+    let resolved = assessed.resolved.unwrap();
+    let index = compile("available_native", &resolved.project(&options()).unwrap());
+    let Item::Fn(function) = index.expect_item("Test", "Use") else {
+        panic!()
+    };
+    assert_eq!(
+        function.signature(&[]).types,
+        [Type::PtrMut(
+            Box::new(Type::value_named("Test", "Packet")),
+            1
+        )]
+    );
+}
+
+#[test]
 fn variable_redeclarations_compare_canonical_types_and_preserve_written_contracts() {
     let source = include_str!("../input/variable_typedefs.h");
     for root in ["Value", "Count", "Pointer"] {

@@ -278,6 +278,7 @@ fn generate(
         &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
         &files.iter().map(String::as_str).collect::<Vec<_>>(),
     )?;
+    let discovery_time = time.elapsed();
     let mut roots = BTreeSet::new();
     for declaration in &inventory {
         if exclusion(declaration).is_none() {
@@ -301,7 +302,8 @@ fn generate(
     }
     let mut capture_inputs = inputs;
     capture_inputs.extend(definitions);
-    let snapshot = windows_clang2::capture(
+    let capture_start = std::time::Instant::now();
+    let captured = windows_clang2::capture_report(
         capture_inputs,
         &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
         &roots,
@@ -309,9 +311,30 @@ fn generate(
     .inspect_err(|error| {
         blocked(output, &inventory, &mut outcomes, "capture", error);
     })?;
-    let resolved = snapshot.resolve().inspect_err(|error| {
+    let capture_time = capture_start.elapsed();
+    for (root, reason) in &captured.rejected {
+        outcomes.insert(root.as_str(), ("rejected", format!("capture: {reason}")));
+    }
+    report(output, &inventory, &outcomes);
+    let Some(snapshot) = &captured.snapshot else {
+        return Err("all selected roots have failed macro probes".into());
+    };
+    let resolution_start = std::time::Instant::now();
+    let assessment = snapshot.assess().inspect_err(|error| {
         blocked(output, &inventory, &mut outcomes, "resolution", error);
     })?;
+    let resolution_time = resolution_start.elapsed();
+    for (root, reason) in &assessment.rejected {
+        outcomes.insert(
+            root.as_str(),
+            ("rejected", format!("native availability: {reason}")),
+        );
+    }
+    report(output, &inventory, &outcomes);
+    let Some(resolved) = &assessment.resolved else {
+        return Err("all selected roots have unavailable native evidence".into());
+    };
+    let projection_start = std::time::Instant::now();
     let mut supported = vec![];
     let projection = resolved.projection(options).inspect_err(|error| {
         blocked(
@@ -323,6 +346,9 @@ fn generate(
         );
     })?;
     for root in &roots {
+        if outcomes[root].0 == "rejected" {
+            continue;
+        }
         let rejected = match projection.project_roots(&[root]) {
             Ok(plan) if plan.omitted().is_empty() => None,
             Ok(plan) => Some(format!("projection omissions: {:?}", plan.omitted())),
@@ -356,6 +382,8 @@ fn generate(
             error,
         );
     })?;
+    let projection_time = projection_start.elapsed();
+    let output_start = std::time::Instant::now();
     assert!(
         plan.omitted().is_empty(),
         "omitted header roots: {:?}",
@@ -440,6 +468,20 @@ fn generate(
         outcomes.insert(root, ("emitted", String::new()));
     }
     report(output, &inventory, &outcomes);
+    println!(
+        "clang2 {name}: stages discovery {:.2}s, capture {:.2}s ({} parses), \
+         resolution {:.2}s, projection {:.2}s, output {:.2}s; {} type pairs, \
+         {} availability edges, {} unavailable groups",
+        discovery_time.as_secs_f32(),
+        capture_time.as_secs_f32(),
+        captured.parses,
+        resolution_time.as_secs_f32(),
+        projection_time.as_secs_f32(),
+        output_start.elapsed().as_secs_f32(),
+        resolved.report().type_pairs,
+        assessment.dependency_edges,
+        assessment.unavailable_groups,
+    );
     println!(
         "clang2 {name}: {} discovered rows, {} selected names, {} emitted, {} rejected; \
          {} groups, {} observations, {} declaration pairs; generated in {:.2}s at {}",

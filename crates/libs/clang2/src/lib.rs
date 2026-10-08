@@ -7,7 +7,7 @@ mod native;
 use native::*;
 
 mod capture;
-pub use capture::{DeclarationInfo, capture, discover};
+pub use capture::{DeclarationInfo, capture, capture_report, discover};
 
 mod project;
 mod validate;
@@ -54,6 +54,17 @@ pub struct Snapshot {
     diagnostics: Vec<String>,
 }
 
+/// Inventory capture with explicit failures for compiler-owned macro probes.
+///
+/// The snapshot contains the remaining roots. Source errors and unowned probe diagnostics still
+/// fail capture; an error-bearing compiler AST is never used as native evidence.
+pub struct CaptureReport {
+    pub snapshot: Option<Snapshot>,
+    pub rejected: BTreeMap<String, String>,
+    /// Translation-unit parses, including probes and clean reparses after rejected probes.
+    pub parses: usize,
+}
+
 /// Work performed while checking the captured evidence.
 #[derive(Debug)]
 pub struct Validation {
@@ -77,6 +88,18 @@ pub struct Resolved<'a> {
     report: Validation,
 }
 
+/// Available native closure checked for agreement, with unsupported roots reported separately.
+///
+/// Rejected roots are not certified. Every observation and dependency of the available graph
+/// participates in the same strict agreement checks as `Snapshot::resolve`.
+pub struct Assessment<'a> {
+    pub resolved: Option<Resolved<'a>>,
+    pub rejected: BTreeMap<String, String>,
+    /// Unique group-to-group dependencies used to propagate unavailability.
+    pub dependency_edges: usize,
+    pub unavailable_groups: usize,
+}
+
 impl Resolved<'_> {
     pub fn report(&self) -> &Validation {
         &self.report
@@ -87,7 +110,7 @@ impl Resolved<'_> {
     }
 
     pub fn resolved_observations(&self) -> usize {
-        self.representatives.len()
+        self.report.observations
     }
 }
 
@@ -102,6 +125,14 @@ impl Snapshot {
 
     pub fn resolve(&self) -> Result<Resolved<'_>, Error> {
         validate::validate(self)
+    }
+
+    /// Reports roots with unavailable evidence and checks the remaining closed native graph.
+    ///
+    /// Unavailability propagates through every redeclaration's written and canonical dependencies.
+    /// Native conflicts in the available graph remain errors, not per-root exclusions.
+    pub fn assess(&self) -> Result<Assessment<'_>, Error> {
+        validate::assess(self)
     }
 
     pub fn target(&self) -> &str {

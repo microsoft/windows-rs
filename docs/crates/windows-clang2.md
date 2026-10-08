@@ -1049,7 +1049,7 @@ unsigned rewrite. The combined run's three RDL partitions are byte-identical to 
 Run independent headers with `--clang2-headers all --rdl-only` to expose shared failure classes
 without one malformed macro preventing assessment of unrelated headers. `manifest.tsv` is updated
 after every attempt. Headers failing discovery have unavailable counts, not zero selected names.
-A nonzero exit means incomplete coverage. The following x64 control batch uses
+A nonzero exit means incomplete coverage. The recorded x64 control baseline uses
 the pinned SDK and the explicit imports above. Counts are case-sensitive selected names per header,
 not inventory rows, generated dependencies, or a deduplicated cross-header API count.
 
@@ -1111,8 +1111,9 @@ remain incomplete. Keep the existing 98-name group as a separate passing control
 
 ### Full manifest and orchestration audit
 
-The independent x64 run attempted all 369 manifest headers using the pinned SDK. These are
-source-to-RDL results, not production or runtime certification.
+The recorded independent x64 baseline attempted all 369 manifest headers using the pinned SDK.
+These are source-to-RDL results, not production or runtime certification. The full manifest has not
+been rerun for the failure-ownership checkpoint below.
 
 | Measure | Result |
 | --- | ---: |
@@ -1141,8 +1142,9 @@ The tool audit separates source-derived policy from repairs that would conceal m
 | Pointer-sized typedefs | Explicit SDK semantic contracts survive only after compiler width, alignment, and signedness checks. Width alone cannot establish `usize`/`isize` intent. |
 | Selection | Inline helpers, empty markers, attribute helpers, declaration aliases, and record-member roots have reported exclusion reasons. Reserved names do not imply exclusion. |
 | Input construction | Shared `clang_inputs` supplies source/include profiles; no legacy extraction result or parser fallback is consumed. Individual headers still need verified prerequisites. |
-| Macro probing | A failed appended probe can block unrelated roots in the same header. Isolate failures using compiler diagnostics and probe ownership, not guessed values, error-string rules, or symbol whitelists. |
-| Annotation indexing | `dshow.h` and `txfw32.h` encounter an ambiguous `_snprintf` context during broad indexing. Unrelated CRT evidence must not block selected closure; selected ambiguity must still reject. |
+| Macro probing | Compiler file identity and byte ranges assign errors to appended probes. A clean reparse excludes rejected probes; fatal and unowned diagnostics still fail capture. |
+| Annotation indexing | Ambiguity is retained until evidence consumes the indexed context. Unrelated CRT declarations do not abort capture; selected ambiguity still rejects. |
+| Native availability | Inventory assessment rejects unavailable root closures explicitly. All observations of the available graph still pass strict agreement; rejected roots are not certified. |
 | Metadata validity | RDL emission is not semantic WinMD compilation, wrapper ABI validation, public-name parity, or DLL usability. |
 
 The remaining failures include unavailable macro identifiers and non-value expressions,
@@ -1150,11 +1152,70 @@ declaration-only GUID/property-key data, packing, unions and bitfields, anonymou
 general C++ inheritance/templates, SAL lowering, and missing header prerequisites. Treat these as
 shared source/capture/projection classes. Do not patch individual symbols to improve the totals.
 
-Next gates are compiler-owned probe isolation, selected annotation-context ownership, verified
-header profiles, and record-layout coverage with native evidence. Production replacement also
+Next gates are verified header profiles and record-layout coverage with native evidence.
+Production replacement also
 requires combined cross-header and architecture agreement, semantic RDL compilation, public
 partition/name policy, DLL-contract checks, and resource budgets. The manifest run exposes the
 remaining work; it does not justify switching the production Win32/WDK backend yet.
+
+### Failure-ownership and scaling checkpoint
+
+The checkpoint preserves strict `capture` and `Snapshot::resolve` for production callers.
+`capture_report` gives inventory callers explicit per-name macro rejections alongside the remaining
+snapshot. Only diagnostics whose expansion file and byte offset belong to an appended probe are
+isolated. Diagnostics are not classified by message text. The compiler error limit is disabled
+for the probe batch so one clean reparse removes all reported failures. Error-bearing compiler
+ASTs are never used as evidence. Fatal diagnostics, source errors, and unowned probe errors still
+abort capture.
+
+`Snapshot::assess` propagates unavailability over unique group dependencies, including written and
+canonical edges from every observation. It checks the closed available graph with the same native
+comparison and annotation agreement rules as strict resolution. Available conflicts remain global
+errors; unavailable roots are explicit rejections, not accepted incomplete definitions. A rejected
+name cannot retain a successful overload in the projected root set. Rejected graphs are not
+certified for native agreement.
+
+Annotation indexing retains ambiguous contexts without throwing for unrelated declarations.
+Consuming that context in selected evidence still fails. The pinned CRT fixture checks both an
+unrelated record and `_snprintf` itself. Mixed header fixtures check clean probe evidence,
+cross-TU rejection, native conflicts, cycles, and semantic WinMD compilation. Batches with
+32/64/128 bad macros take three capture parses each, not one parse per macro. Cyclic availability
+fixtures check exact unique-edge counts.
+
+| Real control | Selected | Emitted | Rejected | Blocked |
+| --- | ---: | ---: | ---: | ---: |
+| `dshow.h` | 2 | 2 | 0 | 0 |
+| `winnls.h` | 732 | 727 | 5 | 0 |
+| `winuser.h` | 4245 | 4137 | 108 | 0 |
+| `wingdi.h`, `wincrypt.h`, `winioctl.h` | 9466 | 8689 | 777 | 0 |
+
+NLS's unavailable identifier remains a failed probe; it does not acquire a guessed value.
+The large graphics/crypto/IO control retains 14 unavailable native groups as rejections. Its
+remaining failures include packing, declaration-only data, annotation lowering, and exact imports.
+None of these partial controls is a publication gate.
+
+One local x64 debug measurement used fresh processes, the full import manifest, and OS peak
+working-set counters requested every 20 ms. Wall time includes startup and import loading; Rust
+builds are excluded. Main and satellite inputs retain the shared source profiles.
+
+| Input | Available groups | Observations | Declaration pairs | Wall time | Sampled peak working set |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Scaling, Toolhelp, Path | 134 | 137 | 3 | 1.45 s | 190.7 MiB |
+| D3D12, D3DKMT, SetupAPI, NTSTATUS | 8024 | 8217 | 193 | 3.57 s | 267.1 MiB |
+| Same main group plus DeviceTopology satellite | 8158 | 11624 | 3467 | 5.38 s | 362.4 MiB |
+| GDI, Crypto, IO | 9749 | 9783 | 34 | 6.20 s | 247.6 MiB |
+
+The multi-TU control uses four capture parses, including probes. It visits 11,636 availability
+edges and 3,565 comparison type pairs. Discovery takes 1.72 s, capture 2.51 s, resolution 0.06 s,
+per-root plus combined projection 0.73 s, and output 0.06 s. It emits 6,111 of 6,971 selected names
+and reports 860 rejections. GDI/Crypto/IO uses four capture parses, 8,586 availability edges,
+and 28 comparison type pairs; capture takes 4.42 s versus 0.73 s for projection.
+
+These bounded runs expose capture and repeated parsing as the larger measured costs, not native
+graph comparison. They do not establish full-SDK memory limits or worst-case per-root shared
+closure cost. Keep plan-local projection caches; no global cache, parallel capture framework,
+or alternate IR is justified by these results. Broader profiles, architecture agreement, and
+semantic compilation of the large emitted partitions remain production gates.
 
 ## Rewrite plan and restart point
 
