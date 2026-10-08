@@ -38,6 +38,14 @@ still checks alias/output-name conflicts. `Plan::rdl_by_header` emits source-own
 including dependency headers, separately from native identity and spelling evidence.
 Use `Resolved::projection(&options)` for repeated per-root assessments; lookup indices and binding
 validation are shared while names and dependency plans remain local.
+Discovery identifies single-identifier macro chains ending at native type or function declarations
+through `DeclarationInfo::macro_alias`. The header runner reports these aliases and their targets
+instead of probing them as constants. Constants, enumerator aliases, unknown expressions, and cyclic
+macros are not excluded by this rule. Public alias naming remains a separate publication decision.
+Discovery also identifies declaration-attribute macros and their identifier chains through
+`DeclarationInfo::macro_attribute`. Function-like classification uses the source definition,
+including line splices, so an undefined helper keeps its original kind. Attribute helpers are
+reported separately from values rather than entering expression probes.
 
 Captured SAL and MIDL contracts survive as `#[annotation("sal", "...")]` and
 `#[annotation("midl", "...")]`, independently of typed lowering. Ordered payloads retain conditions,

@@ -277,6 +277,16 @@ character-pointer bindings preserve SAL buffer contracts. The header route expli
 inline helper overloads without hiding missing non-inline imports. See the bounded migration section
 in the clang2 docs.
 
+The broader ten-header inventory emits 947 names, rejects 210 during projection, and blocks 732
+before projection in `winnls.h`. Discovery classifies declaration-alias and attribute macros with
+memoized identifier chains; the header runner reports helpers instead of probing them as constants.
+Function-like classification preserves undefined helpers using source tokens and line-splice-aware
+adjacency. `sysinfoapi.h` reaches projection; NLS still references an unavailable
+`MUI_CALLBACK_FLAG_UPGRADED_INSTALLATION`. Emission counts are not publication parity: PSAPI's native
+`K32*` names differ from committed public aliases. Prioritize callable types, record layouts, and
+remaining macro classes
+using the failure table in `docs/crates/windows-clang2.md`, not more one-header-at-a-time validation.
+
 ### Clang2 WebView2 cutover blockers
 
 `test_clang2` `webview.rs` covers six `HWND` inputs and two host-object `VARIANT*` inputs with an

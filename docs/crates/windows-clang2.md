@@ -969,8 +969,9 @@ fallback, emit WinMD or Rust, or replace committed metadata. Outputs are under
 Stale RDL is cleared before capture, including on a failed rerun. Duplicate or unknown manifest
 headers reject. Selected roots cannot be supplied by external bindings.
 
-The current policy supplies exact code imports from `shcore.lib`, `kernel32.lib`, and `pathcch.lib`,
-plus explicit foundational value bindings. Unmapped functions reject; no default DLL is guessed.
+The current policy supplies exact code imports from `shcore.lib`, `kernel32.lib`, `pathcch.lib`,
+`advapi32.lib`, `cabinet.lib`, and `winmm.lib`, plus explicit foundational value bindings.
+Unmapped functions reject; no default DLL is guessed.
 Additional header families can require additional bindings or import libraries.
 `exclude_inline_functions` is enabled for this route. It excludes only function groups whose
 captured observations are all inline, including header-only overloads of imported functions.
@@ -1036,6 +1037,61 @@ Public record/tag naming and production partition ownership remain cutover decis
 Path output matches all 22 committed function type signatures and three constants for x64, retaining
 all 12 counted-buffer markers. `PATHCCH_OPTIONS` retains native signedness rather than the committed
 unsigned rewrite. The combined run's three RDL partitions are byte-identical to their separate runs.
+
+### Broader header inventory
+
+Run independent headers with `--clang2-headers <header> --rdl-only` to expose shared failure classes
+without one malformed macro preventing assessment of unrelated headers. Each run writes a complete
+declaration inventory; a nonzero exit still means incomplete coverage. The following x64 batch uses
+the pinned SDK and the explicit imports above. Counts are case-sensitive selected names per header,
+not inventory rows, generated dependencies, or a deduplicated cross-header API count.
+
+| Header | Selected | Emitted | Rejected | Blocked before projection |
+| --- | ---: | ---: | ---: | ---: |
+| `fileapi.h` | 134 | 119 | 15 | 0 |
+| `processthreadsapi.h` | 158 | 141 | 17 | 0 |
+| `sysinfoapi.h` | 64 | 47 | 17 | 0 |
+| `memoryapi.h` | 98 | 62 | 36 | 0 |
+| `psapi.h` | 76 | 56 | 20 | 0 |
+| `winnls.h` | 732 | 0 | 0 | 732 |
+| `winreg.h` | 177 | 158 | 19 | 0 |
+| `winsvc.h` | 406 | 334 | 72 | 0 |
+| `compressapi.h` | 31 | 24 | 7 | 0 |
+| `timeapi.h` | 13 | 6 | 7 | 0 |
+| Total | 1989 | 947 | 210 | 732 |
+
+Discovery reports single-identifier macro chains ending at native types or functions as
+`macro_alias` targets. The runner excludes those preprocessing aliases from constant probing and
+records the target in `inventory.tsv`. This distinguishes A/W selectors and callback-type aliases
+from scalar constants, enumerator aliases, strings, and unknown expressions. Target lookup is
+memoized per translation unit and only tokenizes requested alias chains. Cycles remain unclassified.
+This rule unblocks capture for file, process/thread, PSAPI, registry, and service headers; it does
+not claim that every preprocessing construct is classified.
+
+Declaration attributes beginning with `__declspec`, `__attribute__`, or `[[`, including
+single-identifier macro chains ending at those tokens, have a separate `macro_attribute` marker.
+The runner reports them as excluded declaration helpers, not failed constants. Function-like
+classification uses the definition's token positions and source bytes, including line splices,
+rather than libclang's current-state query. A helper undefined after the header remains classified
+as function-like. Parenthesized values, whitespace/comment-separated replacement lists, string
+literals, and attributes redefined as values stay on the value path.
+
+The 210 rejections split into 72 callable/unsupported-type projections, 69 record/layout/opaque-type
+projections, 36 missing exact imports, 22 annotation-contract failures, and 11 declaration-only GUID
+values. `sysinfoapi.h` reaches projection after excluding `NOT_BUILD_WINDOWS_DEPRECATE`, retaining
+47 emitted roots and explicit layout/import failures. `winnls.h` excludes the temporary
+`DEPRECATED(x)` helper and `WINNORMALIZEAPI` attribute chain, but capture still fails on
+`MUI_CALLBACK_ALL_FLAGS`: its replacement references `MUI_CALLBACK_FLAG_UPGRADED_INSTALLATION`,
+which is unavailable in the configured input. No value is invented for that identifier.
+Callable types, record layouts, and this unresolved macro remain higher-leverage next fixes than
+adding headers one at a time. The nine projection runs take about 1.0-1.5 seconds each in the debug
+build; this is not a full-SDK throughput or memory measurement.
+
+Emitted does not mean publication parity. For example, PSAPI emits the native `K32EnumProcesses`
+name while committed RDL publishes `EnumProcesses` with `import = "K32EnumProcesses"`. The macro
+alias target remains in the report, but public-name selection must be settled before publishing
+these partitions. None of these ten headers is fully covered yet. Keep the existing 98-name group
+as a separate passing control.
 
 ## Rewrite plan and restart point
 

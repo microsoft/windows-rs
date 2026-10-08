@@ -8,6 +8,95 @@ use windows_metadata::{
 
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
+#[test]
+fn macro_alias_discovery_distinguishes_declarations_from_values() {
+    let file = Path::new(env!("CARGO_MANIFEST_DIR")).join("input/discovery/macro_aliases.h");
+    let input = Input::new(
+        file.to_str().unwrap(),
+        include_str!("../input/discovery/macro_aliases.h"),
+    );
+    let inventory = discover([input.clone()], ARGS, &[&input.name]).unwrap();
+    let aliases: BTreeMap<_, _> = inventory
+        .iter()
+        .filter_map(|declaration| {
+            declaration
+                .macro_alias
+                .as_ref()
+                .map(|target| (declaration.name.as_str(), target.as_str()))
+        })
+        .collect();
+    assert_eq!(
+        aliases,
+        BTreeMap::from([
+            ("Function", "FunctionW"),
+            ("FunctionChain", "FunctionW"),
+            ("TypeAlias", "Record"),
+            ("PointerAlias", "Pointer"),
+            ("CallbackAlias", "Callback"),
+            ("EnumAlias", "Mode"),
+            ("TemporaryObject", "FunctionW"),
+        ])
+    );
+    let find = |name: &str| inventory.iter().find(|item| item.name == name).unwrap();
+    for name in [
+        "DeclarationAttribute",
+        "AttributeAlias",
+        "AttributeChain",
+        "ImportAttribute",
+        "BracketAttribute",
+    ] {
+        assert!(find(name).macro_attribute, "{name}");
+    }
+    for name in [
+        "AttributeText",
+        "ParenthesizedValue",
+        "CommentSeparated",
+        "SpacedContinuation",
+        "ChangedAttribute",
+    ] {
+        assert!(!find(name).macro_attribute, "{name}");
+        assert!(!find(name).function_macro, "{name}");
+    }
+    for name in ["TemporaryFunction", "TemporarySpliced"] {
+        assert!(find(name).function_macro, "{name}");
+    }
+    let snapshot = capture(
+        [input],
+        ARGS,
+        &[
+            "EnumValue",
+            "ConstantAlias",
+            "LiteralValue",
+            "Expression",
+            "StringValue",
+            "Changed",
+            "ValueChain",
+            "AttributeText",
+            "ParenthesizedValue",
+            "CommentSeparated",
+            "SpacedContinuation",
+            "ChangedAttribute",
+        ],
+    )
+    .unwrap();
+    let plan = snapshot
+        .resolve()
+        .unwrap()
+        .project(&ProjectionOptions::new("Test"))
+        .unwrap();
+    let expected =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("expected/discovery/macro_aliases.rdl");
+    if std::env::var_os("UPDATE_EXPECT").is_some() {
+        std::fs::write(&expected, plan.rdl()).unwrap();
+    }
+    assert_eq!(
+        plan.rdl(),
+        std::fs::read_to_string(expected)
+            .unwrap()
+            .replace("\r\n", "\n")
+    );
+}
+
 fn inputs() -> Vec<Input> {
     let directory = Path::new(env!("CARGO_MANIFEST_DIR")).join("input/discovery");
     [

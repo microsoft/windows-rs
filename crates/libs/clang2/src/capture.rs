@@ -18,6 +18,10 @@ pub struct DeclarationInfo {
     pub initializer: bool,
     pub function_macro: bool,
     pub empty_macro: bool,
+    /// Single-identifier macro chains ending at a captured native type or function declaration.
+    pub macro_alias: Option<String>,
+    /// Declaration-attribute macros, including single-identifier chains ending at attributes.
+    pub macro_attribute: bool,
 }
 
 /// Inventories declarations whose expansion locations belong to the specified header files.
@@ -55,13 +59,33 @@ pub fn discover(
             })
             .collect();
         let root = unsafe { clang_getTranslationUnitCursor(unit.raw) };
-        for cursor in
-            declarations(root)
-                .into_iter()
-                .chain(children(root).into_iter().filter(|cursor| unsafe {
-                    clang_getCursorKind(*cursor) == CXCursor_MacroDefinition
-                }))
-        {
+        let declarations = declarations(root);
+        let macro_definitions: Vec<_> = children(root)
+            .into_iter()
+            .filter(|cursor| unsafe { clang_getCursorKind(*cursor) == CXCursor_MacroDefinition })
+            .collect();
+        let names: BTreeSet<_> = declarations
+            .iter()
+            .filter(|cursor| {
+                matches!(
+                    unsafe { clang_getCursorKind(**cursor) },
+                    CXCursor_FunctionDecl
+                        | CXCursor_TypedefDecl
+                        | CXCursor_TypeAliasDecl
+                        | CXCursor_StructDecl
+                        | CXCursor_UnionDecl
+                        | CXCursor_ClassDecl
+                        | CXCursor_EnumDecl
+                )
+            })
+            .map(|cursor| qualified_name(*cursor))
+            .collect();
+        let macros: BTreeMap<_, _> = macro_definitions
+            .iter()
+            .map(|cursor| (qualified_name(*cursor), *cursor))
+            .collect();
+        let mut aliases = BTreeMap::new();
+        for cursor in declarations.into_iter().chain(macro_definitions) {
             let position = unsafe { clang_getCursorLocation(cursor) };
             let mut file = std::ptr::null_mut();
             unsafe {
@@ -81,26 +105,17 @@ pub fn discover(
                 continue;
             }
             let kind = unsafe { clang_getCursorKind(cursor) };
-            let mut empty_macro = false;
-            if kind == CXCursor_MacroDefinition {
-                let mut tokens = std::ptr::null_mut();
-                let mut count = 0;
-                unsafe {
-                    clang_tokenize(
-                        unit.raw,
-                        clang_getCursorExtent(cursor),
-                        &mut tokens,
-                        &mut count,
-                    );
-                };
-                empty_macro = (0..count)
-                    .filter(|index| unsafe {
-                        clang_getTokenKind(*tokens.add(*index as usize)) != CXToken_Comment
-                    })
-                    .count()
-                    <= 1;
-                unsafe { clang_disposeTokens(unit.raw, tokens, count) };
-            }
+            let definition =
+                (kind == CXCursor_MacroDefinition).then(|| macro_definition(unit.raw, cursor));
+            let target = definition.as_ref().and_then(|_| {
+                macro_target(
+                    unit.raw,
+                    &qualified_name(cursor),
+                    &macros,
+                    &names,
+                    &mut aliases,
+                )
+            });
             let location = expansion_location(position);
             result.insert(DeclarationInfo {
                 header: location.file,
@@ -114,9 +129,17 @@ pub fn discover(
                     && unsafe {
                         clang_Cursor_isNull(clang_Cursor_getVarDeclInitializer(cursor)) == 0
                     },
-                function_macro: kind == CXCursor_MacroDefinition
-                    && unsafe { clang_Cursor_isMacroFunctionLike(cursor) != 0 },
-                empty_macro,
+                function_macro: definition
+                    .as_ref()
+                    .is_some_and(|definition| definition.function),
+                empty_macro: definition
+                    .as_ref()
+                    .is_some_and(|definition| definition.empty),
+                macro_attribute: matches!(target, Some(MacroTarget::Attribute)),
+                macro_alias: match target {
+                    Some(MacroTarget::Declaration(name)) => Some(name),
+                    _ => None,
+                },
             });
         }
     }
@@ -129,6 +152,113 @@ pub fn discover(
         }
     }
     Ok(result.into_iter().collect())
+}
+
+#[derive(Clone)]
+enum MacroTarget {
+    Declaration(String),
+    Attribute,
+}
+
+struct MacroDefinition {
+    function: bool,
+    empty: bool,
+    alias: Option<String>,
+    attribute: bool,
+}
+
+fn macro_target(
+    unit: CXTranslationUnit,
+    name: &str,
+    macros: &BTreeMap<String, CXCursor>,
+    declarations: &BTreeSet<String>,
+    cache: &mut BTreeMap<String, Option<MacroTarget>>,
+) -> Option<MacroTarget> {
+    let mut target = name.to_string();
+    let mut visited = BTreeSet::new();
+    let result = loop {
+        if let Some(result) = cache.get(&target) {
+            break result.clone();
+        }
+        if !visited.insert(target.clone()) {
+            break None;
+        }
+        let Some(cursor) = macros.get(&target) else {
+            break declarations
+                .contains(&target)
+                .then_some(MacroTarget::Declaration(target));
+        };
+        let definition = macro_definition(unit, *cursor);
+        if definition.attribute {
+            break Some(MacroTarget::Attribute);
+        }
+        let Some(next) = definition.alias else {
+            break None;
+        };
+        target = next;
+    };
+    for name in visited {
+        cache.insert(name, result.clone());
+    }
+    result
+}
+
+fn macro_definition(unit: CXTranslationUnit, cursor: CXCursor) -> MacroDefinition {
+    let mut tokens = std::ptr::null_mut();
+    let mut count = 0;
+    unsafe { clang_tokenize(unit, clang_getCursorExtent(cursor), &mut tokens, &mut count) };
+    let significant: Vec<_> = (0..count)
+        .map(|index| unsafe { *tokens.add(index as usize) })
+        .filter(|token| unsafe { clang_getTokenKind(*token) } != CXToken_Comment)
+        .collect();
+    let spellings: Vec<_> = significant
+        .iter()
+        .map(|token| {
+            string(unsafe { clang_getTokenSpelling(unit, *token) })
+                .replace("\\\r\n", "")
+                .replace("\\\n", "")
+        })
+        .collect();
+    // The libclang function-like query uses current state, which can lose undefined helpers.
+    let function = if spellings.get(1).is_some_and(|token| token == "(") {
+        let (file, end) =
+            position(unsafe { clang_getRangeEnd(clang_getTokenExtent(unit, significant[0])) });
+        let (next_file, start) = position(unsafe { clang_getTokenLocation(unit, significant[1]) });
+        let mut size = 0;
+        let contents = unsafe { clang_getFileContents(unit, file, &mut size) };
+        !contents.is_null()
+            && file == next_file
+            && end <= start
+            && start as usize <= size
+            && unsafe { std::slice::from_raw_parts(contents.cast::<u8>(), size) }
+                [end as usize..start as usize]
+                .split_inclusive(|byte| *byte == b'\n')
+                .all(|part| part == b"\\\n" || part == b"\\\r\n")
+    } else {
+        false
+    };
+    let alias = if let [_, token] = significant.as_slice()
+        && !function
+        && unsafe { clang_getTokenKind(*token) } == CXToken_Identifier
+    {
+        Some(spellings[1].clone())
+    } else {
+        None
+    };
+    let attribute = !function
+        && (matches!(
+            spellings.get(1).map(String::as_str),
+            Some("__declspec" | "__attribute__")
+        ) || spellings
+            .get(1..3)
+            .is_some_and(|tokens| tokens == ["[", "["]));
+    unsafe { clang_disposeTokens(unit, tokens, count) };
+    MacroDefinition {
+        function,
+        empty: significant.len() <= 1,
+        alias,
+        attribute,
+    }
 }
 
 /// Captures the native closure of explicitly named roots and their cross-TU observations.

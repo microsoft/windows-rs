@@ -1,0 +1,21 @@
+#[win32]
+mod Test {
+    #[encoding("ansi")]
+    const AttributeText: String = "__declspec(deprecated)";
+    const Changed: i32 = 17;
+    const ChangedAttribute: i32 = 23;
+    const CommentSeparated: i32 = 23;
+    const ConstantAlias: i32 = 7;
+    const EnumValue: Mode = 3;
+    const Expression: i32 = 12;
+    const LiteralValue: i32 = 11;
+    #[repr(i32)]
+    enum Mode {
+        Active = 3,
+    }
+    const ParenthesizedValue: i32 = 23;
+    const SpacedContinuation: i32 = 23;
+    #[encoding("ansi")]
+    const StringValue: String = "FunctionW";
+    const ValueChain: i32 = 23;
+}

@@ -51,7 +51,17 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
 pub fn headers(headers: &[&str]) -> Result<(), Box<dyn std::error::Error>> {
     validate_headers(headers)?;
     let mut options = header_options();
-    imports(&mut options, &["shcore.lib", "kernel32.lib", "pathcch.lib"])?;
+    imports(
+        &mut options,
+        &[
+            "shcore.lib",
+            "kernel32.lib",
+            "pathcch.lib",
+            "advapi32.lib",
+            "cabinet.lib",
+            "winmm.lib",
+        ],
+    )?;
     let name = headers
         .iter()
         .map(|header| rdl_partition_stem(header))
@@ -405,7 +415,11 @@ fn clear_outputs(output: &std::path::Path) -> std::io::Result<()> {
 }
 
 fn exclusion(declaration: &DeclarationInfo) -> Option<&'static str> {
-    if declaration.function_macro {
+    if declaration.macro_alias.is_some() {
+        Some("preprocessing alias of a native type or function")
+    } else if declaration.macro_attribute {
+        Some("declaration-attribute preprocessing helper")
+    } else if declaration.function_macro {
         Some("function-like preprocessing helper")
     } else if declaration.empty_macro {
         Some("empty preprocessing marker")
@@ -430,6 +444,11 @@ fn report(
         } else {
             let (status, reason) = &outcomes[declaration.name.as_str()];
             (*status, reason.as_str())
+        };
+        let reason = if let Some(target) = &declaration.macro_alias {
+            format!("{reason}: {target}")
+        } else {
+            reason.into()
         };
         text.push_str(&format!(
             "{}\t{}\t{}\t{}\t{status}\t{}\n",
@@ -510,6 +529,8 @@ mod tests {
             initializer: false,
             function_macro: false,
             empty_macro: false,
+            macro_alias: None,
+            macro_attribute: false,
         };
         assert!(exclusion(&declaration).is_none());
         let mut inventory = vec![declaration.clone()];
@@ -531,9 +552,19 @@ mod tests {
         reserved.name = "__CONFIG".into();
         assert!(exclusion(&reserved).is_some());
         inventory.push(reserved);
+        let mut alias = declaration.clone();
+        alias.kind = "macro definition".into();
+        alias.name = "Alias".into();
+        alias.macro_alias = Some("NativeFunction".into());
+        let mut attribute = declaration.clone();
+        attribute.kind = "macro definition".into();
+        attribute.name = "Attribute".into();
+        attribute.macro_attribute = true;
         let mut rejected = declaration;
         rejected.name = "Unsupported".into();
         inventory.push(rejected);
+        inventory.push(alias);
+        inventory.push(attribute);
         let mut outcomes = BTreeMap::from([
             ("Data", ("blocked", String::new())),
             (
@@ -573,6 +604,17 @@ mod tests {
         assert_eq!(
             &rows[5][4..],
             ["rejected", "projection: missing initializer"]
+        );
+        assert_eq!(
+            &rows[6][4..],
+            [
+                "excluded",
+                "preprocessing alias of a native type or function: NativeFunction"
+            ]
+        );
+        assert_eq!(
+            &rows[7][4..],
+            ["excluded", "declaration-attribute preprocessing helper"]
         );
         std::fs::remove_file(output.join("inventory.tsv")).unwrap();
         std::fs::remove_dir(output).unwrap();
