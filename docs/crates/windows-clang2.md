@@ -243,7 +243,7 @@ definitions, cannot be header-partitioned.
 | External interfaces | Bind a native record; consume exactly one native pointer/reference level. |
 | Local interfaces | UUID-bearing, fieldless records with pure virtual system-ABI methods and at most one base. MIDL `propget`/`propput` become `#[special]` on unchanged native method names. |
 | Aliases | Preserve annotated scalar, pointer, record, and array aliases at uses. Unannotated aliases can name selected records. Competing selected names reject. |
-| Constants | Scalar and raw pointer values, plus GUID/property-key aggregate storage shapes; omit interface values with a reason. |
+| Constants | Scalar, raw pointer, and string literals, plus GUID/property-key aggregate storage shapes; omit interface values with a reason. |
 | Raw pointers | Collapse mixed mutability to const if any raw-pointer level is const. |
 
 External bindings are trusted metadata contracts, not native ABI proof. All captured native
@@ -972,23 +972,42 @@ headers reject. Selected roots cannot be supplied by external bindings.
 The current policy supplies exact code imports from `shcore.lib`, `kernel32.lib`, and `pathcch.lib`,
 plus explicit foundational value bindings. Unmapped functions reject; no default DLL is guessed.
 Additional header families can require additional bindings or import libraries.
+`exclude_inline_functions` is enabled for this route. It excludes only function groups whose
+captured observations are all inline, including header-only overloads of imported functions.
+The declaration inventory still reports these inline rows as exclusions. Non-inline functions
+without an import remain errors; an inline overload cannot hide an imported function's output.
 
 | Input | Inventory rows | Selected names | Outcome |
 | --- | --- | --- | --- |
 | `shellscalingapi.h`, `tlhelp32.h` | 88 | 72 | All emit; 100 native groups, 101 observations. |
-| `pathcch.h` | 37 | 26 | Complete graph blocked by `VOLUME_PREFIX_LEN`'s unexposed `const __size_t` type. |
+| `pathcch.h` | 37 | 26 | All emit; 38 native groups, 40 observations. |
+| All three headers | 125 | 98 | All emit; 134 native groups, 137 observations. |
 | Audio control | 166 | 102 | 66 emit, 36 declaration-only data rejects. |
 
 The scaling API exposed a projection bug: externally bound enums lost their known scalar layout.
 Enum bindings now retain compiler-reported width and signedness for fields, parameters, and returns;
 they must bind metadata value types. `external_enum.h` covers the source-to-RDL boundary.
 
+Path header coverage includes compiler-opaque scalar types with an exposed canonical builtin,
+`char8_t`, and string literals. The string decoder reads compiler-rendered escapes, not raw source
+tokens or libclang's NUL-terminated evaluated-string copy. Native evidence retains every code unit
+and the literal encoding. Projection uses existing `String` constants with `encoding("ansi")` for
+UTF-8 byte storage and `encoding("utf-16")` for wide storage. Unrepresentable bytes, unpaired
+surrogates, UTF-32 output, and padded or truncated storage reject rather than changing the value.
+`string_constants.h` covers x86, x64, and ARM64, including embedded NULs, Unicode, concatenation,
+raw strings, escapes, and declaration annotations.
+
+Counted `PWSTR`/`PCWSTR` bindings retain buffer length, direction, and native mutability checks.
+`counted_strings.h` covers element and byte counts, including rejected const output buffers and
+opaque handles. `inline_overload.h` covers explicit inline exclusion and missing-import failures.
+
 One local debug run, excluding Rust builds but including process startup and dependency checks:
 
 | Input | Wall time | Sampled peak working set |
 | --- | --- | --- |
 | Scaling and Toolhelp | 1.18 s | 180 MiB |
-| Path APIs, blocked | 0.95 s | 180 MiB |
+| Path APIs | 1.03 s | 179 MiB |
+| All three headers | 1.00 s | 180 MiB |
 | Audio control | 2.76 s | 362 MiB |
 
 These are per-process OS peak-working-set counters sampled every 10 ms, not a large-input memory
@@ -1014,7 +1033,9 @@ RDL. This comparison does not equate annotations or calling-convention spellings
 header run produces byte-identical RDL and inventory reports.
 
 Public record/tag naming and production partition ownership remain cutover decisions.
-Path APIs remain blocked rather than excluding their problematic macros to inflate coverage.
+Path output matches all 22 committed function type signatures and three constants for x64, retaining
+all 12 counted-buffer markers. `PATHCCH_OPTIONS` retains native signedness rather than the committed
+unsigned rewrite. The combined run's three RDL partitions are byte-identical to their separate runs.
 
 ## Rewrite plan and restart point
 

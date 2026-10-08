@@ -15,6 +15,226 @@ use sdk::capture_sdk as sdk_capture;
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn string_constants_preserve_code_units_and_encoding() {
+    for target in ["i686", "x86_64", "aarch64"] {
+        let argument = format!("--target={target}-pc-windows-msvc");
+        let snapshot = capture(
+            [Input::new(
+                "strings.hpp",
+                include_str!("../input/string_constants.h"),
+            )],
+            &["-x", "c++", "-std=c++20", &argument],
+            &[
+                "VOLUME_PREFIX",
+                "VOLUME_PREFIX_LEN",
+                "NARROW",
+                "UTF8",
+                "WIDE",
+                "UTF16",
+                "RAW",
+                "EMPTY",
+                "CONCAT",
+                "ESCAPES",
+                "Pointer",
+            ],
+        )
+        .unwrap();
+        let name = if target == "i686" {
+            "string_constants_x86"
+        } else {
+            "string_constants"
+        };
+        let index = compile(
+            name,
+            &snapshot.resolve().unwrap().project(&options()).unwrap(),
+        );
+        for (name, encoding, value) in [
+            ("VOLUME_PREFIX", "utf-16", "\\\\?\\Volume"),
+            ("NARROW", "ansi", "a\0b"),
+            ("UTF8", "ansi", "\u{03a9}\u{1f600}"),
+            ("WIDE", "utf-16", "\u{1234}A\0z\u{1f600}"),
+            ("UTF16", "utf-16", "\u{03a9}\u{1f600}"),
+            ("RAW", "ansi", "a\\n\"b"),
+            ("EMPTY", "utf-16", ""),
+            ("CONCAT", "utf-16", "abc"),
+            ("ESCAPES", "ansi", "\u{7}\u{8}\t\n\u{b}\u{c}\r\\\"\0"),
+            ("Pointer", "utf-16", "pointer"),
+        ] {
+            let Item::Const(field) = index.expect_item("Test", name) else {
+                panic!()
+            };
+            assert_eq!(
+                field.constant().unwrap().value(),
+                Value::Utf16(value.into())
+            );
+            assert_eq!(
+                field
+                    .find_attribute("NativeEncodingAttribute")
+                    .unwrap()
+                    .value()[0]
+                    .1,
+                Value::Utf8(encoding.into())
+            );
+            if name == "Pointer" {
+                assert!(field.has_attribute("NativeAnnotationAttribute"));
+            }
+        }
+        let Item::Const(field) = index.expect_item("Test", "VOLUME_PREFIX_LEN") else {
+            panic!()
+        };
+        assert_eq!(
+            field.constant().unwrap().value(),
+            if target == "i686" {
+                Value::U32(10)
+            } else {
+                Value::U64(10)
+            }
+        );
+    }
+}
+
+#[test]
+fn string_constants_reject_unrepresentable_values_without_data_loss() {
+    for (ty, literal, extent, reason) in [
+        ("const char*", r#""\xff""#, "", "not valid UTF-8"),
+        ("const wchar_t*", r#"L"\xd800""#, "", "unpaired UTF-16"),
+        ("const char32_t*", r#"U"abc""#, "", "UTF-32"),
+        ("const wchar_t", r#"L"x""#, "[4]", "native extent"),
+    ] {
+        let source = format!(
+            "#define TYPE {ty}\n#define LITERAL {literal}\n#define EXTENT {extent}\n{}",
+            include_str!("../input/string_constant_case.h")
+        );
+        let snapshot = capture([Input::new("bad.hpp", source)], ARGS, &["Value"]).unwrap();
+        let error = snapshot
+            .resolve()
+            .and_then(|resolved| resolved.project(&options()))
+            .unwrap_err();
+        assert!(error.to_string().contains(reason), "{error}");
+    }
+    for (left, right, agrees) in [
+        (r#"L"a\0b""#, r#"L"a\0c""#, false),
+        (r#"L"\x41""#, r#"L"A""#, true),
+    ] {
+        let source = |literal: &str| {
+            format!(
+                "#define TYPE const wchar_t*\n#define LITERAL {literal}\n{}",
+                include_str!("../input/string_constant_case.h")
+            )
+        };
+        for reverse in [false, true] {
+            let mut inputs = [
+                Input::new("a.hpp", source(left)),
+                Input::new("b.hpp", source(right)),
+            ];
+            if reverse {
+                inputs.reverse();
+            }
+            let snapshot = capture(inputs, ARGS, &["Value"]).unwrap();
+            assert_eq!(snapshot.resolve().is_ok(), agrees);
+        }
+    }
+}
+
+#[test]
+fn counted_string_bindings_preserve_buffer_contracts() {
+    let source = include_str!("../input/counted_strings.h");
+    let mut options = options();
+    for (native, name) in [("Text", "PWSTR"), ("ConstText", "PCWSTR")] {
+        options.references.insert(
+            native.into(),
+            TypeReference {
+                namespace: "External".into(),
+                name: name.into(),
+                kind: ReferenceKind::Value,
+            },
+        );
+    }
+    let snapshot = capture(
+        [Input::new("counted.hpp", source)],
+        ARGS,
+        &["Update", "Read", "Bytes"],
+    )
+    .unwrap();
+    let index = compile(
+        "counted_strings",
+        &snapshot.resolve().unwrap().project(&options).unwrap(),
+    );
+    for (name, direction, relationship) in [
+        (
+            "Update",
+            ParamDirection::InputOutput,
+            BufferRelationship::ElementsParam(1),
+        ),
+        (
+            "Read",
+            ParamDirection::Input,
+            BufferRelationship::ElementsParam(1),
+        ),
+        (
+            "Bytes",
+            ParamDirection::Output,
+            BufferRelationship::BytesParam(1),
+        ),
+    ] {
+        let Item::Fn(method) = index.expect_item("Test", name) else {
+            panic!()
+        };
+        let params = method.params_by_sequence(2).unwrap();
+        let buffer = params.params()[0].unwrap();
+        assert_eq!(buffer.direction(), direction);
+        assert_eq!(buffer.buffer_relationship(), Some(relationship));
+    }
+    for (replacement, reason) in [
+        ("typedef const wchar_t* Text;", "writable buffer"),
+        ("typedef void* Text;", "buffer pointer"),
+    ] {
+        let source = source.replace("typedef wchar_t* Text;", replacement);
+        let snapshot = capture([Input::new("bad.hpp", source)], ARGS, &["Update"]).unwrap();
+        let error = snapshot.resolve().unwrap().project(&options).unwrap_err();
+        assert!(error.to_string().contains(reason), "{error}");
+    }
+}
+
+#[test]
+fn inline_overloads_are_excluded_only_by_explicit_policy() {
+    for reverse in [false, true] {
+        let source = include_str!("../input/inline_overload.h");
+        let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", source)];
+        if reverse {
+            inputs.reverse();
+        }
+        let snapshot = capture(inputs, ARGS, &["Find", "Helper", "Missing"]).unwrap();
+        let resolved = snapshot.resolve().unwrap();
+        let mut options = options();
+        options.library = None;
+        options.imports.insert(
+            "Find".into(),
+            windows_clang2::FunctionImport {
+                library: "test.dll".into(),
+                target: windows_clang2::ImportTarget::Name("Find".into()),
+            },
+        );
+        assert!(resolved.project_roots(&options, &["Find"]).is_err());
+        options.exclude_inline_functions = true;
+        let plan = resolved.project_roots(&options, &["Find"]).unwrap();
+        assert!(plan.omitted().is_empty());
+        compile("inline_overload", &plan);
+        let plan = resolved
+            .project_roots(&options, &["Find", "Helper"])
+            .unwrap();
+        assert_eq!(
+            plan.omitted()
+                .keys()
+                .map(String::as_str)
+                .collect::<Vec<_>>(),
+            ["Helper"]
+        );
+        assert!(resolved.project_roots(&options, &["Missing"]).is_err());
+    }
+}
+
+#[test]
 fn output_byte_postconditions_survive_metadata_and_roundtrip() {
     for target in ["i686", "x86_64", "aarch64"] {
         let target = format!("--target={target}-pc-windows-msvc");

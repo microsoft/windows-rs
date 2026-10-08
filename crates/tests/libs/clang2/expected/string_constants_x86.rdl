@@ -1,0 +1,25 @@
+#[win32]
+mod Test {
+    #[encoding("utf-16")]
+    const CONCAT: String = "abc";
+    #[encoding("utf-16")]
+    const EMPTY: String = "";
+    #[encoding("ansi")]
+    const ESCAPES: String = "\u{7}\u{8}\t\n\u{b}\u{c}\r\\\"\0";
+    #[encoding("ansi")]
+    const NARROW: String = "a\0b";
+    #[annotation("sal", "_Literal_contract_")]
+    #[encoding("utf-16")]
+    const Pointer: String = "pointer";
+    #[encoding("ansi")]
+    const RAW: String = "a\\n\"b";
+    #[encoding("utf-16")]
+    const UTF16: String = "Ω😀";
+    #[encoding("ansi")]
+    const UTF8: String = "Ω😀";
+    #[encoding("utf-16")]
+    const VOLUME_PREFIX: String = "\\\\?\\Volume";
+    const VOLUME_PREFIX_LEN: u32 = 10;
+    #[encoding("utf-16")]
+    const WIDE: String = "ሴA\0z😀";
+}

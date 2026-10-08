@@ -271,8 +271,11 @@ The explicit route has no clang1 fallback and does not replace committed metadat
 supports the record aliases; public record/tag naming and production partition ownership remain
 cutover decisions. Explicit `ProjectionOptions::pointer_sized` SDK contracts preserve `usize`/`isize`
 uses after native signedness and layout checks. Use `metadata/` RDL as the representation baseline,
-not as a replacement for native evidence. `pathcch.h` currently blocks on `VOLUME_PREFIX_LEN` and its
-unexposed `const __size_t` type. See the bounded migration section in the clang2 docs.
+not as a replacement for native evidence. Adding `pathcch.h` emits all 98 selected names. String
+literals preserve compiler-rendered code units in existing RDL `String` constants; counted
+character-pointer bindings preserve SAL buffer contracts. The header route explicitly excludes
+inline helper overloads without hiding missing non-inline imports. See the bounded migration section
+in the clang2 docs.
 
 ### Clang2 WebView2 cutover blockers
 

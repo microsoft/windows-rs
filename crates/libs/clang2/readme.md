@@ -67,6 +67,13 @@ Caller-supplied `ProjectionOptions::imports` maps native linker symbols to `Func
 and named or ordinal import targets without changing captured evidence. Unmapped functions require
 an explicit `library` fallback; the BCrypt and WebView2 fixtures instead derive imports from
 target-specific SDK COFF libraries.
+`ProjectionOptions::exclude_inline_functions` explicitly excludes header-only function roots;
+an inline overload does not suppress an imported function with the same source name.
+
+String literals use the existing RDL `String` constant and `encoding` attribute. Capture decodes
+compiler-rendered literals, preserving embedded NULs, concatenation, escapes, and UTF-16 surrogate
+pairs rather than using libclang's NUL-terminated evaluated-string API. Invalid UTF-8 byte strings,
+unpaired UTF-16 surrogates, UTF-32 output, and padded or truncated string storage reject explicitly.
 
 UUID-bearing forward classes retain their identity as `#[guid(...)] class Name;` in RDL, without
 inventing object layout or WinRT semantics. UUID evidence survives separate declarations and complete
@@ -149,7 +156,9 @@ The full Win32 scraper and committed metadata remain on their existing path.
 
 `tool-win32 --clang2-headers shellscalingapi.h,tlhelp32.h --rdl-only` provides an explicit
 source-only route for further header groups. These two headers emit all 72 selected names with no
-fallback. `pathcch.h` remains blocked on an unexposed compiler type in a size macro. The default
+fallback. Adding `pathcch.h` emits all 98 selected names across the three headers, including its
+string and size macros. Counted character-pointer bindings retain their native mutability and SAL
+buffer relationships; inline C++ helper overloads are excluded by explicit policy. The default
 scraper is not switched. Explicit SDK integer contracts preserve pointer-sized spellings. Existing
 RDL typedefs represent the selected record aliases; public record/tag naming still differs from
 the committed partitions. See the continuation page for source differences and resource measurements.

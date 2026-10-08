@@ -59,6 +59,7 @@ pub(super) enum DeclarationData {
         annotations: Vec<Vec<Annotation>>,
     },
     Function {
+        inline: bool,
         ty: Type,
         canonical: Type,
         parameters: Vec<Parameter>,
@@ -393,8 +394,20 @@ pub(super) enum Value {
     None,
     Integer(u64),
     Float(u64),
+    String {
+        encoding: StringEncoding,
+        units: Vec<u32>,
+    },
     Aggregate(Vec<Self>),
     Unavailable(String),
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub(super) enum StringEncoding {
+    Narrow,
+    Utf8,
+    Utf16,
+    Utf32,
 }
 
 #[derive(Debug, Default, Eq, PartialEq)]

@@ -76,6 +76,7 @@ fn validate_headers(headers: &[&str]) -> Result<(), Box<dyn std::error::Error>> 
 
 fn header_options() -> ProjectionOptions {
     let mut options = ProjectionOptions::new(ROOT);
+    options.exclude_inline_functions = true;
     for name in [
         "UINT_PTR",
         "ULONG_PTR",

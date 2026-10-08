@@ -819,6 +819,7 @@ impl Capture<'_> {
                     .collect(),
             },
             CXCursor_FunctionDecl => DeclarationData::Function {
+                inline: unsafe { clang_Cursor_isFunctionInlined(cursor) } != 0,
                 ty: self.ty(unit, unsafe { clang_getCursorType(cursor) })?,
                 canonical: self.ty(unit, unsafe {
                     clang_getCanonicalType(clang_getCursorType(cursor))
@@ -994,6 +995,30 @@ impl Capture<'_> {
         let kind = match ty.kind {
             CXType_Auto if unsafe { clang_getCanonicalType(ty) }.kind != CXType_Auto => {
                 return self.ty(unit, unsafe { clang_getCanonicalType(ty) });
+            }
+            CXType_Unexposed
+                if matches!(
+                    unsafe { clang_getCanonicalType(ty) }.kind,
+                    CXType_Void..=CXType_LongDouble
+                ) =>
+            {
+                let mut canonical = self.ty(unit, unsafe { clang_getCanonicalType(ty) })?;
+                canonical.qualifiers.constant |= qualifiers.constant;
+                canonical.qualifiers.volatile |= qualifiers.volatile;
+                canonical.qualifiers.restrict |= qualifiers.restrict;
+                return Ok(canonical);
+            }
+            CXType_Unexposed
+                if unsafe { clang_getCanonicalType(ty) }.kind == CXType_Unexposed
+                    && string(unsafe {
+                        clang_getTypeSpelling(clang_getUnqualifiedType(clang_getCanonicalType(ty)))
+                    }) == "char8_t" =>
+            {
+                // libclang has no CXType kind for the C++20 builtin char8_t.
+                TypeKind::Builtin {
+                    kind: "Char8".into(),
+                    layout: layout(ty),
+                }
             }
             CXType_Elaborated => {
                 let mut named = self.ty(unit, unsafe { clang_Type_getNamedType(ty) })?;
@@ -1441,29 +1466,43 @@ fn evaluate(cursor: CXCursor) -> Value {
 fn evaluate_initializer(cursor: CXCursor) -> Value {
     unsafe {
         let ty = clang_getCanonicalType(clang_getCursorType(cursor));
-        if matches!(ty.kind, CXType_Record | CXType_ConstantArray) {
-            if matches!(
-                clang_getCursorKind(cursor),
-                CXCursor_ParenExpr | CXCursor_UnexposedExpr | CXCursor_CXXFunctionalCastExpr
-            ) {
-                let expressions: Vec<_> = children(cursor)
-                    .into_iter()
-                    .filter(|child| clang_isExpression(clang_getCursorKind(*child)) != 0)
-                    .collect();
-                if let [child] = expressions.as_slice()
-                    && (clang_equalTypes(ty, clang_getCanonicalType(clang_getCursorType(*child)))
-                        != 0
-                        || (ty.kind == CXType_Record
-                            && clang_equalCursors(
-                                clang_getTypeDeclaration(ty),
-                                clang_getTypeDeclaration(clang_getCanonicalType(
-                                    clang_getCursorType(*child),
-                                )),
-                            ) != 0))
-                {
-                    return evaluate_initializer(*child);
-                }
+        if matches!(
+            ty.kind,
+            CXType_Record | CXType_ConstantArray | CXType_Pointer
+        ) && matches!(
+            clang_getCursorKind(cursor),
+            CXCursor_ParenExpr | CXCursor_UnexposedExpr | CXCursor_CXXFunctionalCastExpr
+        ) {
+            let expressions: Vec<_> = children(cursor)
+                .into_iter()
+                .filter(|child| clang_isExpression(clang_getCursorKind(*child)) != 0)
+                .collect();
+            if let [child] = expressions.as_slice()
+                && (clang_equalTypes(ty, clang_getCanonicalType(clang_getCursorType(*child))) != 0
+                    || (ty.kind == CXType_Record
+                        && clang_equalCursors(
+                            clang_getTypeDeclaration(ty),
+                            clang_getTypeDeclaration(clang_getCanonicalType(clang_getCursorType(
+                                *child,
+                            ))),
+                        ) != 0)
+                    || (ty.kind == CXType_Pointer
+                        && clang_getCanonicalType(clang_getCursorType(*child)).kind
+                            == CXType_ConstantArray
+                        && clang_equalTypes(
+                            clang_getUnqualifiedType(clang_getPointeeType(ty)),
+                            clang_getUnqualifiedType(clang_getArrayElementType(
+                                clang_getCanonicalType(clang_getCursorType(*child)),
+                            )),
+                        ) != 0))
+            {
+                return evaluate_initializer(*child);
             }
+        }
+        if clang_getCursorKind(cursor) == CXCursor_StringLiteral {
+            return string_literal(cursor).unwrap_or_else(|error| Value::Unavailable(error.0));
+        }
+        if matches!(ty.kind, CXType_Record | CXType_ConstantArray) {
             if clang_getCursorKind(cursor) != CXCursor_InitListExpr {
                 return Value::Unavailable(
                     "aggregate constants require explicit initializer lists".into(),
@@ -1516,6 +1555,105 @@ fn evaluate_initializer(cursor: CXCursor) -> Value {
         clang_EvalResult_dispose(result);
         value
     }
+}
+
+fn string_literal(cursor: CXCursor) -> Result<Value, Error> {
+    // The evaluated-string API uses a NUL-terminated copy. The compiler's escaped spelling
+    // retains every code unit, including embedded NULs and UTF-16 surrogates.
+    let spelling = string(unsafe { clang_getCursorSpelling(cursor) });
+    let (prefix, text) = spelling
+        .split_once('"')
+        .and_then(|(prefix, text)| text.strip_suffix('"').map(|text| (prefix, text)))
+        .ok_or_else(|| Error("compiler string literal spelling is unavailable".into()))?;
+    let ty = unsafe { clang_getCanonicalType(clang_getCursorType(cursor)) };
+    let width = unsafe { clang_Type_getSizeOf(clang_getArrayElementType(ty)) };
+    let encoding = match (prefix, width) {
+        ("", 1) => StringEncoding::Narrow,
+        ("u8", 1) => StringEncoding::Utf8,
+        ("L" | "u", 2) => StringEncoding::Utf16,
+        ("L" | "U", 4) => StringEncoding::Utf32,
+        _ => return Err(Error("unsupported compiler string literal encoding".into())),
+    };
+    let mut units = vec![];
+    let mut chars = text.chars().peekable();
+    while let Some(character) = chars.next() {
+        if character == '"' {
+            if chars.next() != Some('"') {
+                return Err(Error("invalid compiler string literal boundary".into()));
+            }
+            continue;
+        }
+        let mut unicode = false;
+        let value = if character != '\\' {
+            u32::from(character)
+        } else {
+            match chars.next() {
+                Some('\\') => u32::from('\\'),
+                Some('"') => u32::from('"'),
+                Some('\'') => u32::from('\''),
+                Some('?') => u32::from('?'),
+                Some('a') => 7,
+                Some('b') => 8,
+                Some('t') => 9,
+                Some('n') => 10,
+                Some('v') => 11,
+                Some('f') => 12,
+                Some('r') => 13,
+                Some(prefix @ ('x' | 'u' | 'U' | '0'..='7')) => {
+                    let (radix, maximum, mut value, mut count) = match prefix {
+                        'x' => (16, usize::MAX, 0u32, 0),
+                        'u' => (16, 4, 0, 0),
+                        'U' => (16, 8, 0, 0),
+                        digit => (8, 3, digit.to_digit(8).unwrap(), 1),
+                    };
+                    while count < maximum {
+                        let Some(digit) = chars.peek().and_then(|next| next.to_digit(radix)) else {
+                            break;
+                        };
+                        chars.next();
+                        value = value
+                            .checked_mul(radix)
+                            .and_then(|value| value.checked_add(digit))
+                            .ok_or_else(|| {
+                                Error("compiler string escape exceeds a code unit".into())
+                            })?;
+                        count += 1;
+                    }
+                    unicode = matches!(prefix, 'u' | 'U');
+                    if count == 0 || (unicode && count != maximum) {
+                        return Err(Error("invalid compiler string escape".into()));
+                    }
+                    value
+                }
+                _ => return Err(Error("unsupported compiler string escape".into())),
+            }
+        };
+        if unicode && width == 2 {
+            let character = char::from_u32(value)
+                .ok_or_else(|| Error("invalid compiler Unicode escape".into()))?;
+            units.extend(
+                character
+                    .encode_utf16(&mut [0; 2])
+                    .iter()
+                    .map(|unit| u32::from(*unit)),
+            );
+        } else {
+            if (width == 1 && value > u32::from(u8::MAX))
+                || (width == 2 && value > u32::from(u16::MAX))
+            {
+                return Err(Error(
+                    "compiler string escape exceeds its native code unit".into(),
+                ));
+            }
+            units.push(value);
+        }
+    }
+    if unsafe { clang_getArraySize(ty) } != units.len() as i64 + 1 {
+        return Err(Error(
+            "compiler string spelling disagrees with its native extent".into(),
+        ));
+    }
+    Ok(Value::String { encoding, units })
 }
 
 fn c_string(value: &str) -> Result<CString, Error> {

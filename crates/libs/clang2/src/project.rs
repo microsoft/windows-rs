@@ -75,6 +75,8 @@ pub struct ProjectionOptions {
     pub references: BTreeMap<String, TypeReference>,
     /// Explicit native integer typedefs that use `isize` or `usize` in RDL.
     pub pointer_sized: BTreeMap<String, PointerSized>,
+    /// Omit inline function roots, including header-only overloads of imported functions.
+    pub exclude_inline_functions: bool,
     /// Trusted pointer-sized value types for SAL-annotated null-terminated strings.
     pub string_references: BTreeMap<StringKind, TypeReference>,
 }
@@ -87,6 +89,7 @@ impl ProjectionOptions {
             imports: BTreeMap::new(),
             references: BTreeMap::new(),
             pointer_sized: BTreeMap::new(),
+            exclude_inline_functions: false,
             string_references: BTreeMap::new(),
         }
     }
@@ -214,6 +217,13 @@ impl Plan {
                 }
                 Item::Constant { ty, value } => {
                     writeln!(output, "    const {name}: {} = {value};", ty.text()).unwrap();
+                }
+                Item::StringConstant { encoding, value } => {
+                    writeln!(
+                        output,
+                        "    #[encoding({encoding:?})]\n    const {name}: String = {value:?};"
+                    )
+                    .unwrap();
                 }
                 Item::GuidConstant { ty, guid, pid } => {
                     write!(
@@ -353,6 +363,10 @@ fn rdl_guid(guid: &str) -> String {
 
 #[derive(Debug)]
 enum Item {
+    StringConstant {
+        encoding: &'static str,
+        value: String,
+    },
     Class {
         guid: String,
     },
@@ -625,6 +639,29 @@ impl<'s> Resolved<'s> {
         namespace: &str,
         roots: &[Id],
     ) -> Result<Plan, Error> {
+        let (excluded, roots): (Vec<_>, Vec<_>) = roots.iter().copied().partition(|root| {
+            options.exclude_inline_functions
+                && self.groups[&self.representatives[root.0]].iter().all(|id| {
+                    matches!(
+                        self.snapshot.declarations[id.0].data,
+                        DeclarationData::Function { inline: true, .. }
+                    )
+                })
+        });
+        let omitted = if excluded.is_empty() {
+            BTreeMap::new()
+        } else {
+            let included: BTreeSet<_> = roots
+                .iter()
+                .map(|id| self.snapshot.declarations[id.0].name.as_str())
+                .collect();
+            excluded
+                .iter()
+                .map(|id| &self.snapshot.declarations[id.0].name)
+                .filter(|name| !included.contains(name.as_str()))
+                .map(|name| (name.clone(), "inline function excluded by policy".into()))
+                .collect()
+        };
         let mut builder = Builder {
             resolved: self,
             options,
@@ -637,7 +674,7 @@ impl<'s> Resolved<'s> {
                 annotations: BTreeMap::new(),
                 namespace: namespace.into(),
                 items: BTreeMap::new(),
-                omitted: BTreeMap::new(),
+                omitted,
                 owners: BTreeMap::new(),
             },
         };
@@ -651,7 +688,7 @@ impl<'s> Resolved<'s> {
             })
             .map(|root| self.representatives[root.0])
             .collect();
-        for root in roots {
+        for root in &roots {
             let alias = &self.snapshot.declarations[root.0];
             if let DeclarationData::Alias { canonical, .. } = &alias.data
                 && self.annotations[&self.representatives[root.0]]
@@ -684,7 +721,7 @@ impl<'s> Resolved<'s> {
                 }
             }
         }
-        for root in roots {
+        for root in &roots {
             builder.schedule(*root);
         }
         while let Some(id) = builder.pending.pop_front() {
@@ -1035,7 +1072,53 @@ impl<'s> Builder<'_, 's> {
                         "initializer unavailable for `{name}`; declaration-only data cannot be emitted as a constant"
                     )));
                 }
-                if matches!(value, Value::Aggregate(_)) {
+                if let Value::String { encoding, units } = value {
+                    if let ProjectedType::Array { length, .. } = ty.contract()
+                        && *length != units.len() as i64 + 1
+                    {
+                        return Err(Error(format!(
+                            "string constant `{name}` has padded or truncated storage"
+                        )));
+                    }
+                    let (encoding, value) = match encoding {
+                        StringEncoding::Narrow | StringEncoding::Utf8 => {
+                            let bytes = units
+                                .iter()
+                                .map(|unit| u8::try_from(*unit))
+                                .collect::<Result<Vec<_>, _>>()
+                                .map_err(|_| {
+                                    Error(format!("string constant `{name}` exceeds byte storage"))
+                                })?;
+                            let value = String::from_utf8(bytes).map_err(|_| {
+                                Error(format!("string constant `{name}` is not valid UTF-8"))
+                            })?;
+                            ("ansi", value)
+                        }
+                        StringEncoding::Utf16 => {
+                            let units = units
+                                .iter()
+                                .map(|unit| u16::try_from(*unit))
+                                .collect::<Result<Vec<_>, _>>()
+                                .map_err(|_| {
+                                    Error(format!(
+                                        "string constant `{name}` exceeds UTF-16 storage"
+                                    ))
+                                })?;
+                            let value = String::from_utf16(&units).map_err(|_| {
+                                Error(format!(
+                                    "string constant `{name}` contains unpaired UTF-16 surrogates"
+                                ))
+                            })?;
+                            ("utf-16", value)
+                        }
+                        StringEncoding::Utf32 => {
+                            return Err(Error(format!(
+                                "UTF-32 string constant `{name}` has no supported RDL encoding"
+                            )));
+                        }
+                    };
+                    Item::StringConstant { encoding, value }
+                } else if matches!(value, Value::Aggregate(_)) {
                     let (guid, pid) = self.guid_constant(native_ty, value).ok_or_else(|| {
                         Error(format!(
                             "aggregate constant representation is not supported for `{name}`"
@@ -1496,10 +1579,10 @@ impl<'s> Builder<'_, 's> {
                     layout.as_ref().map(|layout| layout.size),
                     mutable,
                 ) {
-                    ("Char_S" | "SChar" | "Char_U" | "UChar", Some(1), true) => {
+                    ("Char_S" | "SChar" | "Char_U" | "UChar" | "Char8", Some(1), true) => {
                         Some(StringKind::Ansi)
                     }
-                    ("Char_S" | "SChar" | "Char_U" | "UChar", Some(1), false) => {
+                    ("Char_S" | "SChar" | "Char_U" | "UChar" | "Char8", Some(1), false) => {
                         Some(StringKind::AnsiConst)
                     }
                     ("UShort" | "WChar" | "Char16", Some(2), true) => Some(StringKind::Wide),
@@ -1608,7 +1691,7 @@ impl<'s> Builder<'_, 's> {
                     "Void" => return Ok((ProjectedType::Void, false)),
                     "Bool" => "bool",
                     "Char_S" | "SChar" => "i8",
-                    "Char_U" | "UChar" => "u8",
+                    "Char_U" | "UChar" | "Char8" => "u8",
                     "Short" => "i16",
                     "UShort" | "WChar" | "Char16" => "u16",
                     "Int" | "Long" => "i32",
@@ -1836,18 +1919,26 @@ fn parameter_attributes(
                     "multiple buffer-length annotations are not supported".into(),
                 ));
             }
-            let ProjectedType::Pointer {
-                mutable,
-                depth,
-                target,
-            } = ty
-            else {
-                return Err(Error(format!("{name} requires a buffer pointer")));
+            let (mutable, void) = match ty {
+                ProjectedType::Pointer {
+                    mutable,
+                    depth,
+                    target,
+                } => (
+                    *mutable,
+                    *depth == 1 && matches!(target.contract(), ProjectedType::Void),
+                ),
+                ProjectedType::PointerReference {
+                    mutable,
+                    string: Some(_),
+                    ..
+                } => (*mutable, false),
+                _ => return Err(Error(format!("{name} requires a buffer pointer"))),
             };
             if output && !mutable {
                 return Err(Error(format!("{name} requires a writable buffer")));
             }
-            if !bytes && *depth == 1 && matches!(**target, ProjectedType::Void) {
+            if !bytes && void {
                 return Err(Error(format!("{name} requires a non-void element type")));
             }
             attributes.push_str(direction);

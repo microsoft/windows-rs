@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[library("test.dll", import = "Bytes")]
+    extern "C" fn Bytes(#[annotation("sal", "_Out_writes_bytes_($1)")] #[out] #[size_param(1)] p0: External::PWSTR, p1: u32);
+    #[library("test.dll", import = "Read")]
+    extern "C" fn Read(#[annotation("sal", "_In_reads_($1)")] #[in] #[len_param(1)] p0: External::PCWSTR, p1: u32);
+    #[library("test.dll", import = "Update")]
+    extern "C" fn Update(#[annotation("sal", "_Inout_updates_($1)")] #[in] #[out] #[len_param(1)] p0: External::PWSTR, p1: u32);
+}

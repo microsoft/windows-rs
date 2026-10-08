@@ -3,6 +3,7 @@ target: x86_64-pc-windows-msvc19.0.0
 USR: c:@F@Use
 entity: 0
 Function {
+    inline: false,
     ty: Type {
         qualifiers: Qualifiers {
             constant: false,
