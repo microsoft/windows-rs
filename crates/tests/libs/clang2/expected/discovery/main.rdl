@@ -7,6 +7,7 @@ mod Test {
         other: *mut Completed,
     }
     const HEADER_VALUE: i32 = 7;
+    struct Missing {}
     struct Owned {
         value: i32,
     }

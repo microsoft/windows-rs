@@ -49,25 +49,88 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
 }
 
 pub fn headers(headers: &[&str]) -> Result<(), Box<dyn std::error::Error>> {
-    validate_headers(headers)?;
+    let all = headers == ["all"];
+    if !all {
+        validate_headers(headers)?;
+    }
     let mut options = header_options();
-    imports(
-        &mut options,
-        &[
-            "shcore.lib",
-            "kernel32.lib",
-            "pathcch.lib",
-            "advapi32.lib",
-            "cabinet.lib",
-            "winmm.lib",
-        ],
-    )?;
+    let provenance = imports(&mut options, IMPORT_LIBS)?;
+    let output = std::path::Path::new("target\\win32-clang2");
+    std::fs::create_dir_all(output)?;
+    std::fs::write(output.join("imports.tsv"), provenance)?;
+    if all {
+        return all_headers(&options, output);
+    }
     let name = headers
         .iter()
         .map(|header| rdl_partition_stem(header))
         .collect::<Vec<_>>()
         .join("-");
     generate(&name, headers, &options, vec![], true)
+}
+
+fn all_headers(
+    options: &ProjectionOptions,
+    output: &std::path::Path,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let mut summary = String::from("header\tstatus\tselected\temitted\trejected\tblocked\terror\n");
+    let mut failed = 0;
+    for header in HEADERS.iter().chain(SATELLITE_HEADERS) {
+        let name = rdl_partition_stem(header);
+        let result = generate(&name, &[header], options, vec![], true);
+        let error = result
+            .as_ref()
+            .err()
+            .map(ToString::to_string)
+            .unwrap_or_default();
+        if result.is_err() {
+            failed += 1;
+            eprintln!("clang2 {header}: {error}");
+        }
+        let inventory = output.join(format!("{name}-rdl")).join("inventory.tsv");
+        let counts = if inventory.exists() {
+            let mut names = BTreeMap::new();
+            for row in std::fs::read_to_string(inventory)?.lines().skip(1) {
+                let fields: Vec<_> = row.split('\t').collect();
+                if fields.len() != 6 {
+                    return Err("malformed generated declaration inventory".into());
+                }
+                if fields[4] != "excluded" {
+                    names.insert(fields[3].to_string(), fields[4].to_string());
+                }
+            }
+            format!(
+                "{}\t{}\t{}\t{}",
+                names.len(),
+                names.values().filter(|status| *status == "emitted").count(),
+                names
+                    .values()
+                    .filter(|status| *status == "rejected")
+                    .count(),
+                names.values().filter(|status| *status == "blocked").count(),
+            )
+        } else {
+            "unavailable\tunavailable\tunavailable\tunavailable".into()
+        };
+        summary.push_str(&format!(
+            "{header}\t{}\t{counts}\t{}\n",
+            if result.is_ok() {
+                "complete"
+            } else {
+                "incomplete"
+            },
+            error.replace(['\t', '\r', '\n'], " "),
+        ));
+        std::fs::write(output.join("manifest.tsv"), &summary)?;
+    }
+    if failed != 0 {
+        return Err(format!(
+            "{failed} manifest headers have incomplete coverage; see {}",
+            output.join("manifest.tsv").display()
+        )
+        .into());
+    }
+    Ok(())
 }
 
 fn validate_headers(headers: &[&str]) -> Result<(), Box<dyn std::error::Error>> {
@@ -105,57 +168,71 @@ fn header_options() -> ProjectionOptions {
             .pointer_sized
             .insert(name.into(), PointerSized::Signed);
     }
-    for name in [
-        "HRESULT",
-        "BOOL",
-        "HANDLE",
-        "HWND",
-        "HMONITOR",
-        "HMODULE",
-        "DEVICE_SCALE_FACTOR",
-        "PCWSTR",
-        "PWSTR",
-    ] {
-        options.references.insert(
-            name.into(),
-            TypeReference {
-                namespace: ROOT.into(),
-                name: name.into(),
-                kind: ReferenceKind::Value,
-            },
-        );
-    }
     options
 }
 
 fn imports(
     options: &mut ProjectionOptions,
     libraries: &[&str],
-) -> Result<(), Box<dyn std::error::Error>> {
+) -> Result<String, Box<dyn std::error::Error>> {
     let dirs = sdk_lib_dirs();
+    let mut provenance = String::from("source\tsymbol\tlibrary\ttarget\tselected\n");
     for library in libraries {
-        let library = resolve(library, &dirs, "library", "pinned SDK libraries");
-        for import in windows_rdl::implib::read(&std::fs::read(library)?)? {
-            if import.kind != windows_rdl::implib::ImportKind::Code {
-                continue;
+        let path = resolve(library, &dirs, "library", "pinned SDK libraries");
+        append_imports(
+            options,
+            library,
+            windows_rdl::implib::read(&std::fs::read(path)?)?,
+            &mut provenance,
+        )?;
+    }
+    Ok(provenance)
+}
+
+fn append_imports(
+    options: &mut ProjectionOptions,
+    library: &str,
+    imports: Vec<windows_rdl::implib::Import>,
+    provenance: &mut String,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let mut entries = BTreeMap::new();
+    for import in imports {
+        if import.kind != windows_rdl::implib::ImportKind::Code {
+            continue;
+        }
+        if let Some(previous) = entries.insert(import.symbol.clone(), import.clone())
+            && previous != import
+        {
+            return Err(format!(
+                "conflicting DLL imports within `{library}` for `{}`",
+                import.symbol
+            )
+            .into());
+        }
+        let target = match import.target {
+            windows_rdl::implib::ImportTarget::Name(name) => {
+                windows_clang2::ImportTarget::Name(name)
             }
-            let target = match import.target {
-                windows_rdl::implib::ImportTarget::Name(name) => {
-                    windows_clang2::ImportTarget::Name(name)
-                }
-                windows_rdl::implib::ImportTarget::Ordinal(ordinal) => {
-                    windows_clang2::ImportTarget::Ordinal(ordinal)
-                }
-            };
-            let value = FunctionImport {
-                library: import.dll,
-                target,
-            };
-            if let Some(previous) = options.imports.insert(import.symbol.clone(), value)
-                && previous != options.imports[&import.symbol]
-            {
-                return Err(format!("conflicting DLL imports for `{}`", import.symbol).into());
+            windows_rdl::implib::ImportTarget::Ordinal(ordinal) => {
+                windows_clang2::ImportTarget::Ordinal(ordinal)
             }
+        };
+        let value = FunctionImport {
+            library: import.dll,
+            target,
+        };
+        let selected = !options.imports.contains_key(&import.symbol);
+        provenance.push_str(&format!(
+            "{library}\t{}\t{}\t{}\t{selected}\n",
+            import.symbol,
+            value.library,
+            match &value.target {
+                windows_clang2::ImportTarget::Name(name) => name.clone(),
+                windows_clang2::ImportTarget::Ordinal(ordinal) => format!("#{ordinal}"),
+            },
+        ));
+        if selected {
+            options.imports.insert(import.symbol, value);
         }
     }
     Ok(())
@@ -415,7 +492,9 @@ fn clear_outputs(output: &std::path::Path) -> std::io::Result<()> {
 }
 
 fn exclusion(declaration: &DeclarationInfo) -> Option<&'static str> {
-    if declaration.macro_alias.is_some() {
+    if declaration.record_member {
+        Some("record-member declaration captured through its owner")
+    } else if declaration.macro_alias.is_some() {
         Some("preprocessing alias of a native type or function")
     } else if declaration.macro_attribute {
         Some("declaration-attribute preprocessing helper")
@@ -423,8 +502,6 @@ fn exclusion(declaration: &DeclarationInfo) -> Option<&'static str> {
         Some("function-like preprocessing helper")
     } else if declaration.empty_macro {
         Some("empty preprocessing marker")
-    } else if declaration.kind == "macro definition" && declaration.name.starts_with("__") {
-        Some("reserved preprocessing configuration")
     } else if declaration.inline {
         Some("inline helper without an exported entry point")
     } else {
@@ -482,6 +559,96 @@ mod tests {
     use super::*;
 
     #[test]
+    fn exact_imports_preserve_precedence_targets_and_provenance() {
+        use windows_rdl::implib::{Import, ImportKind, ImportTarget};
+        let candidate = Import {
+            symbol: "_Native@4".into(),
+            dll: "first.dll".into(),
+            target: ImportTarget::Name("Export".into()),
+            kind: ImportKind::Code,
+        };
+        let mut options = header_options();
+        let mut provenance = String::new();
+        append_imports(
+            &mut options,
+            "first.lib",
+            vec![candidate.clone(), candidate.clone()],
+            &mut provenance,
+        )
+        .unwrap();
+        let mut later = candidate.clone();
+        later.dll = "later.dll".into();
+        later.target = ImportTarget::Ordinal(7);
+        let mut ordinal = later.clone();
+        ordinal.symbol = "Ordinal".into();
+        let mut data = candidate;
+        data.symbol = "Data".into();
+        data.kind = ImportKind::Data;
+        append_imports(
+            &mut options,
+            "later.lib",
+            vec![later, ordinal, data],
+            &mut provenance,
+        )
+        .unwrap();
+        assert_eq!(
+            options.imports["_Native@4"],
+            FunctionImport {
+                library: "first.dll".into(),
+                target: windows_clang2::ImportTarget::Name("Export".into()),
+            }
+        );
+        assert_eq!(
+            options.imports["Ordinal"].target,
+            windows_clang2::ImportTarget::Ordinal(7)
+        );
+        assert!(!options.imports.contains_key("Native"));
+        assert!(!options.imports.contains_key("Data"));
+        assert_eq!(
+            provenance,
+            "first.lib\t_Native@4\tfirst.dll\tExport\ttrue\n\
+             first.lib\t_Native@4\tfirst.dll\tExport\tfalse\n\
+             later.lib\t_Native@4\tlater.dll\t#7\tfalse\n\
+             later.lib\tOrdinal\tlater.dll\t#7\ttrue\n"
+        );
+    }
+
+    #[test]
+    fn conflicting_imports_reject_even_in_a_shadowed_archive() {
+        use windows_rdl::implib::{Import, ImportKind, ImportTarget};
+        let candidate = Import {
+            symbol: "Native".into(),
+            dll: "first.dll".into(),
+            target: ImportTarget::Name("Native".into()),
+            kind: ImportKind::Code,
+        };
+        let mut options = header_options();
+        let mut provenance = String::new();
+        append_imports(
+            &mut options,
+            "first.lib",
+            vec![candidate.clone()],
+            &mut provenance,
+        )
+        .unwrap();
+        let mut conflicting = candidate.clone();
+        conflicting.dll = "conflict.dll".into();
+        let error = append_imports(
+            &mut options,
+            "later.lib",
+            vec![candidate, conflicting],
+            &mut provenance,
+        )
+        .unwrap_err();
+        assert!(
+            error
+                .to_string()
+                .contains("conflicting DLL imports within `later.lib`"),
+            "{error}"
+        );
+    }
+
+    #[test]
     fn header_selection_is_explicit_and_bounded() {
         assert!(validate_headers(&["shellscalingapi.h", "tlhelp32.h"]).is_ok());
         for headers in [
@@ -493,8 +660,8 @@ mod tests {
             assert!(validate_headers(headers).is_err());
         }
         let options = header_options();
-        assert!(!options.references.contains_key("PROCESSENTRY32"));
-        assert!(!options.references.contains_key("MONITOR_DPI_TYPE"));
+        assert!(options.references.is_empty());
+        assert!(options.string_references.is_empty());
         assert!(options.library.is_none());
     }
 
@@ -529,6 +696,7 @@ mod tests {
             initializer: false,
             function_macro: false,
             empty_macro: false,
+            record_member: false,
             macro_alias: None,
             macro_attribute: false,
         };
@@ -550,8 +718,14 @@ mod tests {
         let mut reserved = declaration.clone();
         reserved.kind = "macro definition".into();
         reserved.name = "__CONFIG".into();
-        assert!(exclusion(&reserved).is_some());
+        assert!(exclusion(&reserved).is_none());
         inventory.push(reserved);
+        let mut member = declaration.clone();
+        member.record_member = true;
+        assert_eq!(
+            exclusion(&member),
+            Some("record-member declaration captured through its owner")
+        );
         let mut alias = declaration.clone();
         alias.kind = "macro definition".into();
         alias.name = "Alias".into();
@@ -567,6 +741,7 @@ mod tests {
         inventory.push(attribute);
         let mut outcomes = BTreeMap::from([
             ("Data", ("blocked", String::new())),
+            ("__CONFIG", ("blocked", String::new())),
             (
                 "Unsupported",
                 ("rejected", "projection: missing\ninitializer".into()),
@@ -600,7 +775,11 @@ mod tests {
             &rows[0][4..],
             ["blocked", "resolution: native disagreement"]
         );
-        assert!(rows[1..5].iter().all(|row| row[4] == "excluded"));
+        assert!(rows[1..4].iter().all(|row| row[4] == "excluded"));
+        assert_eq!(
+            &rows[4][4..],
+            ["blocked", "resolution: native disagreement"]
+        );
         assert_eq!(
             &rows[5][4..],
             ["rejected", "projection: missing initializer"]

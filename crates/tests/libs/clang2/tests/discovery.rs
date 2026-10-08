@@ -9,6 +9,31 @@ use windows_metadata::{
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn record_members_remain_in_the_owning_native_closure() {
+    let file = Path::new(env!("CARGO_MANIFEST_DIR")).join("input/discovery/record_members.h");
+    let input = Input::new(
+        file.to_str().unwrap(),
+        include_str!("../input/discovery/record_members.h"),
+    );
+    let inventory = discover([input.clone()], ARGS, &[&input.name]).unwrap();
+    assert_eq!(
+        inventory
+            .iter()
+            .map(|declaration| (declaration.name.as_str(), declaration.record_member))
+            .collect::<BTreeMap<_, _>>(),
+        BTreeMap::from([
+            ("Outer", false),
+            ("Outer::Inner", true),
+            ("Outer::Mode", true)
+        ]),
+    );
+    let snapshot = capture([input], ARGS, &["Outer"]).unwrap();
+    let resolved = snapshot.resolve().unwrap();
+    assert_eq!(resolved.report().declarations, 3);
+    assert!(resolved.report().incomplete.is_empty());
+}
+
+#[test]
 fn macro_alias_discovery_distinguishes_declarations_from_values() {
     let file = Path::new(env!("CARGO_MANIFEST_DIR")).join("input/discovery/macro_aliases.h");
     let input = Input::new(
@@ -171,11 +196,12 @@ fn selected_projection_is_closed_and_source_partitioned() {
     let resolved = snapshot.resolve().unwrap();
     let options = ProjectionOptions::new("Test");
     assert!(resolved.project(&options).is_err());
-    for name in ["Missing", "NoInitializer", "not_captured"] {
+    for name in ["NoInitializer", "not_captured"] {
         assert!(resolved.project_roots(&options, &[name]).is_err());
     }
     assert!(resolved.project_roots(&options, &[]).is_err());
     let selected = [
+        "Missing",
         "Owned",
         "Consumer",
         "Second",

@@ -162,6 +162,14 @@ impl Plan {
                     }
                     output.push_str("    }\n");
                 }
+                Item::Opaque { union } => {
+                    writeln!(
+                        output,
+                        "    {} {name} {{}}",
+                        if *union { "union" } else { "struct" }
+                    )
+                    .unwrap();
+                }
                 Item::Alias(ty) => writeln!(output, "    type {name} = {};", ty.text()).unwrap(),
                 Item::Class { guid } => {
                     writeln!(output, "    #[guid({})]\n    class {name};", rdl_guid(guid)).unwrap();
@@ -273,6 +281,24 @@ impl Plan {
                     }
                     output.push_str("    }\n");
                 }
+                Item::Callback {
+                    abi,
+                    parameters,
+                    result,
+                } => {
+                    write!(output, "    extern {abi:?} fn {name}(").unwrap();
+                    for (index, (attributes, ty)) in parameters.iter().enumerate() {
+                        if index > 0 {
+                            output.push_str(", ");
+                        }
+                        write!(output, "{attributes}p{index}: {}", ty.text()).unwrap();
+                    }
+                    output.push(')');
+                    if !matches!(result, ProjectedType::Void) {
+                        write!(output, " -> {}", result.text()).unwrap();
+                    }
+                    output.push_str(";\n");
+                }
             }
         }
         output.push_str("}\n");
@@ -299,9 +325,12 @@ impl Plan {
             ProjectedType::Array { element, .. } => return self.unproven_record(element, checked),
             _ => {}
         }
-        let ProjectedType::Named(name, _) = ty else {
+        let ProjectedType::Named(name, layout) = ty else {
             return None;
         };
+        if layout.is_none() {
+            return Some("by-value incomplete record calls require a native layout");
+        }
         if let Some(adjusted) = checked.get(name) {
             return *adjusted;
         }
@@ -326,6 +355,9 @@ impl Plan {
         for (name, item) in &self.items {
             let reason = match item {
                 Item::Function {
+                    parameters, result, ..
+                }
+                | Item::Callback {
                     parameters, result, ..
                 } => parameters
                     .iter()
@@ -363,6 +395,9 @@ fn rdl_guid(guid: &str) -> String {
 
 #[derive(Debug)]
 enum Item {
+    Opaque {
+        union: bool,
+    },
     StringConstant {
         encoding: &'static str,
         value: String,
@@ -397,6 +432,11 @@ enum Item {
         parameters: Vec<(String, ProjectedType)>,
         result: ProjectedType,
     },
+    Callback {
+        abi: &'static str,
+        parameters: Vec<(String, ProjectedType)>,
+        result: ProjectedType,
+    },
     Constant {
         ty: ProjectedType,
         value: String,
@@ -427,6 +467,8 @@ enum ProjectedType {
         length: i64,
     },
     Class(String),
+    Callback(String),
+    Callable(String),
     Pointer {
         mutable: bool,
         depth: usize,
@@ -459,6 +501,8 @@ impl ProjectedType {
             | Self::Alias(name, _)
             | Self::RecordReference(name, _)
             | Self::Class(name)
+            | Self::Callback(name)
+            | Self::Callable(name)
             | Self::ScalarReference(name, ..) => name.clone(),
             Self::Array { element, length } => format!("[{}; {length}]", element.text()),
             Self::PointerReference { name, .. } => name.clone(),
@@ -483,7 +527,7 @@ impl ProjectedType {
                 size: *size,
                 align: 1,
             }),
-            Self::Void => None,
+            Self::Void | Self::Callable(_) => None,
             Self::Scalar(_, layout) | Self::ScalarReference(_, _, layout) => Some(layout.clone()),
             Self::Named(_, layout) | Self::RecordReference(_, layout) => layout.clone(),
             Self::Array { element, length } => {
@@ -493,7 +537,10 @@ impl ProjectedType {
                     align: layout.align,
                 })
             }
-            Self::Class(_) | Self::Pointer { .. } | Self::PointerReference { .. } => Some(Layout {
+            Self::Class(_)
+            | Self::Callback(_)
+            | Self::Pointer { .. }
+            | Self::PointerReference { .. } => Some(Layout {
                 size: pointer_size,
                 align: pointer_size,
             }),
@@ -848,6 +895,23 @@ impl<'s> Builder<'_, 's> {
             DeclarationData::Record {
                 kind,
                 complete: false,
+                layout: None,
+                fields,
+                bases,
+                methods,
+                ..
+            } if matches!(kind.as_str(), "StructDecl" | "UnionDecl")
+                && fields.is_empty()
+                && bases.is_empty()
+                && methods.is_empty() =>
+            {
+                Item::Opaque {
+                    union: kind == "UnionDecl",
+                }
+            }
+            DeclarationData::Record {
+                kind,
+                complete: false,
                 fields,
                 bases,
                 methods,
@@ -951,6 +1015,32 @@ impl<'s> Builder<'_, 's> {
                     alignment: (layout.align > align).then_some(layout.align),
                 }
             }
+            DeclarationData::Alias { target, .. }
+                if matches!(
+                    target.kind,
+                    TypeKind::Function { .. } | TypeKind::Pointer(_)
+                ) && self.function_type(target).is_ok() =>
+            {
+                let ty = self.function_type(target)?;
+                let TypeKind::Function {
+                    convention,
+                    prototype: true,
+                    variadic: false,
+                    ..
+                } = &ty.kind
+                else {
+                    return Err(Error(
+                        "only fixed-prototype callbacks can be projected".into(),
+                    ));
+                };
+                let abi = calling_convention(*convention)?;
+                let (parameters, result) = self.signature(id, 0)?;
+                Item::Callback {
+                    abi,
+                    parameters,
+                    result,
+                }
+            }
             DeclarationData::Alias { .. } => {
                 let (ty, object) = self.alias(id, &mut BTreeSet::new())?;
                 if object || matches!(ty, ProjectedType::Class(_)) {
@@ -1007,16 +1097,7 @@ impl<'s> Builder<'_, 's> {
                 let TypeKind::Function { convention, .. } = &canonical.kind else {
                     unreachable!()
                 };
-                // These are the stable CXCallingConv C, X86StdCall, and Win64 values.
-                let abi = match convention {
-                    1 => "C",
-                    2 | 10 => "system",
-                    _ => {
-                        return Err(Error(format!(
-                            "calling convention {convention} is not supported by this projection"
-                        )));
-                    }
-                };
+                let abi = calling_convention(*convention)?;
                 let (library, import_name) =
                     if let Some(import) = self.options.imports.get(link_name) {
                         (import.library.clone(), import.target.clone())
@@ -1058,8 +1139,26 @@ impl<'s> Builder<'_, 's> {
             DeclarationData::Variable {
                 ty: native_ty,
                 value,
+                ..
             } => {
-                let (ty, object) = self.lower(native_ty, &mut BTreeSet::new())?;
+                let mut projected = None;
+                for observation in &self.resolved.groups[&id] {
+                    let DeclarationData::Variable { ty, .. } =
+                        &self.resolved.snapshot.declarations[observation.0].data
+                    else {
+                        unreachable!()
+                    };
+                    let value = self.lower(ty, &mut BTreeSet::new())?;
+                    if let Some(previous) = &projected
+                        && previous != &value
+                    {
+                        return Err(Error(format!(
+                            "conflicting projected typedef contracts for `{name}`"
+                        )));
+                    }
+                    projected = Some(value);
+                }
+                let (ty, object) = projected.unwrap();
                 if object || matches!(ty, ProjectedType::Class(_)) {
                     self.plan.omitted.insert(
                         declaration.name.clone(),
@@ -1445,7 +1544,11 @@ impl<'s> Builder<'_, 's> {
         source: &[SourceAnnotations],
     ) -> Result<Vec<(String, ProjectedType)>, Error> {
         let annotations: Vec<_> = source.iter().map(SourceAnnotations::lowered).collect();
-        assert_eq!(parameters.len(), annotations.len());
+        if parameters.len() != annotations.len() {
+            return Err(Error(
+                "callable parameter annotation evidence is incomplete".into(),
+            ));
+        }
         let mut types = vec![];
         for parameter in parameters {
             let (ty, object) = self.lower(parameter, &mut BTreeSet::new())?;
@@ -1507,7 +1610,8 @@ impl<'s> Builder<'_, 's> {
         for observation in group {
             let data = &self.resolved.snapshot.declarations[observation.0].data;
             let ty = match data {
-                DeclarationData::Function { ty, .. } => ty,
+                DeclarationData::Function { ty, .. }
+                | DeclarationData::Alias { target: ty, .. } => ty,
                 DeclarationData::Record { methods, .. } if !methods.is_empty() => {
                     &methods[slot - 1].ty
                 }
@@ -1548,7 +1652,19 @@ impl<'s> Builder<'_, 's> {
         's: 't,
     {
         let mut visiting = BTreeSet::new();
-        while let TypeKind::Named(id) = &ty.kind {
+        let mut pointer = false;
+        loop {
+            if let TypeKind::Pointer(target) = &ty.kind {
+                if pointer {
+                    return Err(Error("callable typedef has multiple pointer levels".into()));
+                }
+                pointer = true;
+                ty = target;
+                continue;
+            }
+            let TypeKind::Named(id) = &ty.kind else {
+                break;
+            };
             let id = self.resolved.representatives[id.0];
             if !visiting.insert(id) {
                 return Err(Error("cyclic callable typedef".into()));
@@ -1732,6 +1848,25 @@ impl<'s> Builder<'_, 's> {
                     {
                         return Ok((self.typedef_reference(canonical, reference)?, false));
                     }
+                    let DeclarationData::Alias { target, .. } = &declaration.data else {
+                        unreachable!()
+                    };
+                    if matches!(
+                        target.kind,
+                        TypeKind::Function { .. } | TypeKind::Pointer(_)
+                    ) && self.function_type(target).is_ok()
+                    {
+                        let name = self.name(id)?;
+                        self.schedule(id);
+                        return Ok((
+                            if matches!(canonical.kind, TypeKind::Function { .. }) {
+                                ProjectedType::Callable(name)
+                            } else {
+                                ProjectedType::Callback(name)
+                            },
+                            false,
+                        ));
+                    }
                     let (projected, object) = self.alias(id, aliases)?;
                     let annotations = &self.resolved.annotations[&id].own;
                     if !annotations.sal.is_empty() || !annotations.midl.is_empty() {
@@ -1809,6 +1944,8 @@ impl<'s> Builder<'_, 's> {
                 let (projected, object) = self.lower(target, aliases)?;
                 if object {
                     (projected, false)
+                } else if let ProjectedType::Callable(name) = projected {
+                    (ProjectedType::Callback(name), false)
                 } else {
                     let mutable = !target.qualifiers.constant;
                     let pointer = match projected {
@@ -1850,6 +1987,17 @@ impl<'s> Builder<'_, 's> {
             }
             _ => return Err(Error("this native type has no prototype projection".into())),
         })
+    }
+}
+
+fn calling_convention(convention: i32) -> Result<&'static str, Error> {
+    // Stable CXCallingConv C, X86StdCall, and Win64 values.
+    match convention {
+        1 => Ok("C"),
+        2 | 10 => Ok("system"),
+        _ => Err(Error(format!(
+            "calling convention {convention} is not supported by this projection"
+        ))),
     }
 }
 
@@ -1968,6 +2116,7 @@ fn parameter_attributes(
                     ProjectedType::Pointer { .. }
                         | ProjectedType::PointerReference { .. }
                         | ProjectedType::Class(_)
+                        | ProjectedType::Callback(_)
                 ) =>
             {
                 "#[in] #[opt] "

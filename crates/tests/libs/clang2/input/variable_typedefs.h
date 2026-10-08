@@ -1,0 +1,10 @@
+struct Packet { int value; };
+typedef Packet Alias;
+extern const Alias Value;
+extern const Packet Value;
+typedef int Scalar;
+extern const Scalar Count;
+extern const int Count;
+typedef void Function(int);
+extern Function* Pointer;
+extern void (*Pointer)(int);

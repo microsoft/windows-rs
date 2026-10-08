@@ -46,6 +46,8 @@ Discovery also identifies declaration-attribute macros and their identifier chai
 `DeclarationInfo::macro_attribute`. Function-like classification uses the source definition,
 including line splices, so an undefined helper keeps its original kind. Attribute helpers are
 reported separately from values rather than entering expression probes.
+`DeclarationInfo::record_member` identifies declarations scoped to a record. Header inventories
+select their owners as roots; capture still follows the member types and checks their evidence.
 
 Captured SAL and MIDL contracts survive as `#[annotation("sal", "...")]` and
 `#[annotation("midl", "...")]`, independently of typed lowering. Ordered payloads retain conditions,
@@ -63,6 +65,16 @@ Inherited-slot overrides are captured but rejected until projection models slot 
 Explicit `clang::flag_enum` and `DEFINE_ENUM_FLAG_OPERATORS` markers survive without changing enum
 representation. MIDL `propget`/`propput` comments preserve property semantics without renaming
 native methods or guessing from a `get_`/`put_` prefix.
+
+Named fixed-prototype callbacks retain calling convention, parameter contracts, dependent types,
+and pointer depth in existing RDL callback declarations. Function typedefs and pointers to them
+remain distinct in native capture; compiler `TypeRef` edges recover written callable aliases when
+libclang exposes only their expanded function type. Anonymous callable types, variadic callbacks,
+and unsupported calling conventions still reject.
+Incomplete C structs and unions emit nominal empty declarations for pointer use, without claiming
+a native storage layout. By-value parameters and results with unavailable layouts reject.
+Variable redeclarations compare canonical types while retaining written typedef dependencies;
+projection also checks that their written typedef contracts agree.
 
 Increased member/record alignment preserves native storage using padding unions and alignment
 attributes. By-value calls involving adjusted layouts reject until their calling ABI is covered.

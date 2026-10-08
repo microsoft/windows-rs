@@ -67,6 +67,7 @@ pub(super) enum DeclarationData {
     },
     Variable {
         ty: Type,
+        canonical: Type,
         value: Value,
     },
     Unavailable(String),
@@ -97,7 +98,8 @@ impl DeclarationData {
                         .flat_map(|method| [&method.ty, &method.canonical]),
                 )
                 .collect(),
-            Self::Enum { repr: ty, .. } | Self::Variable { ty, .. } => vec![ty],
+            Self::Enum { repr: ty, .. } => vec![ty],
+            Self::Variable { ty, canonical, .. } => vec![ty, canonical],
             Self::Alias {
                 target, canonical, ..
             } => vec![target, canonical],

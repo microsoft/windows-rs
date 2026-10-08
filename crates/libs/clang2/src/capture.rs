@@ -18,6 +18,8 @@ pub struct DeclarationInfo {
     pub initializer: bool,
     pub function_macro: bool,
     pub empty_macro: bool,
+    /// Type declarations scoped to a record rather than independently exported declarations.
+    pub record_member: bool,
     /// Single-identifier macro chains ending at a captured native type or function declaration.
     pub macro_alias: Option<String>,
     /// Declaration-attribute macros, including single-identifier chains ending at attributes.
@@ -136,6 +138,10 @@ pub fn discover(
                     .as_ref()
                     .is_some_and(|definition| definition.empty),
                 macro_attribute: matches!(target, Some(MacroTarget::Attribute)),
+                record_member: matches!(
+                    unsafe { clang_getCursorKind(clang_getCursorSemanticParent(cursor)) },
+                    CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_ClassDecl
+                ),
                 macro_alias: match target {
                     Some(MacroTarget::Declaration(name)) => Some(name),
                     _ => None,
@@ -839,7 +845,7 @@ impl Capture<'_> {
                             } else {
                                 string(unsafe { clang_getCursorSpelling(field) })
                             },
-                            ty: self.ty(unit, ty)?,
+                            ty: self.written_type(unit, field, ty)?,
                             offset,
                             bit_width,
                             annotations: self.annotations(unit, field, false)?,
@@ -859,7 +865,9 @@ impl Capture<'_> {
                             methods.push(Method {
                                 property: method_property(child, &annotations)?,
                                 name: string(unsafe { clang_getCursorSpelling(child) }),
-                                ty: self.ty(unit, unsafe { clang_getCursorType(child) })?,
+                                ty: self.written_type(unit, child, unsafe {
+                                    clang_getCursorType(child)
+                                })?,
                                 canonical: self.ty(unit, unsafe {
                                     clang_getCanonicalType(clang_getCursorType(child))
                                 })?,
@@ -907,7 +915,9 @@ impl Capture<'_> {
                 }
             }
             CXCursor_TypedefDecl | CXCursor_TypeAliasDecl => DeclarationData::Alias {
-                target: self.ty(unit, unsafe { clang_getTypedefDeclUnderlyingType(cursor) })?,
+                target: self.written_type(unit, cursor, unsafe {
+                    clang_getTypedefDeclUnderlyingType(cursor)
+                })?,
                 canonical: self.ty(unit, unsafe {
                     clang_getCanonicalType(clang_getTypedefDeclUnderlyingType(cursor))
                 })?,
@@ -950,57 +960,59 @@ impl Capture<'_> {
             },
             CXCursor_FunctionDecl => DeclarationData::Function {
                 inline: unsafe { clang_Cursor_isFunctionInlined(cursor) } != 0,
-                ty: self.ty(unit, unsafe { clang_getCursorType(cursor) })?,
+                ty: self.written_type(unit, cursor, unsafe { clang_getCursorType(cursor) })?,
                 canonical: self.ty(unit, unsafe {
                     clang_getCanonicalType(clang_getCursorType(cursor))
                 })?,
                 link_name: string(unsafe { clang_Cursor_getMangling(cursor) }),
                 parameters: self.parameters(unit, cursor)?,
             },
-            CXCursor_VarDecl => DeclarationData::Variable {
-                ty: {
-                    let source = if self.macros[unit].contains_key(&self.name(unit, cursor)) {
-                        children(cursor)
+            CXCursor_VarDecl => {
+                let source = if self.macros[unit].contains_key(&self.name(unit, cursor)) {
+                    children(cursor)
+                        .into_iter()
+                        .find(|child| unsafe {
+                            clang_isExpression(clang_getCursorKind(*child)) != 0
+                        })
+                        .ok_or_else(|| Error("selected macro probe has no initializer".into()))?
+                } else {
+                    cursor
+                };
+                let ty = unsafe { clang_getCursorType(source) };
+                DeclarationData::Variable {
+                    ty: self.written_type(unit, source, ty)?,
+                    canonical: self.ty(unit, unsafe { clang_getCanonicalType(ty) })?,
+                    value: {
+                        let value = evaluate(cursor);
+                        let name = self.name(unit, cursor);
+                        if matches!(value, Value::Unavailable(_))
+                            && self.macros[unit].contains_key(&name)
+                            && unsafe {
+                                clang_getCanonicalType(clang_getCursorType(
+                                    clang_Cursor_getVarDeclInitializer(cursor),
+                                ))
+                            }
+                            .kind
+                                == CXType_Pointer
+                        {
+                            let bits = format!("__clang2_bits_{name}");
+                            let bits = children(unsafe {
+                                clang_getTranslationUnitCursor(self.units[unit].raw)
+                            })
                             .into_iter()
-                            .find(|child| unsafe {
-                                clang_isExpression(clang_getCursorKind(*child)) != 0
+                            .find(|cursor| {
+                                string(unsafe { clang_getCursorSpelling(*cursor) }) == bits
                             })
                             .ok_or_else(|| {
-                                Error("selected macro probe has no initializer".into())
-                            })?
-                    } else {
-                        cursor
-                    };
-                    self.ty(unit, unsafe { clang_getCursorType(source) })?
-                },
-                value: {
-                    let value = evaluate(cursor);
-                    let name = self.name(unit, cursor);
-                    if matches!(value, Value::Unavailable(_))
-                        && self.macros[unit].contains_key(&name)
-                        && unsafe {
-                            clang_getCanonicalType(clang_getCursorType(
-                                clang_Cursor_getVarDeclInitializer(cursor),
-                            ))
+                                Error(format!("missing pointer constant probe for `{name}`"))
+                            })?;
+                            evaluate(bits)
+                        } else {
+                            value
                         }
-                        .kind
-                            == CXType_Pointer
-                    {
-                        let bits = format!("__clang2_bits_{name}");
-                        let bits = children(unsafe {
-                            clang_getTranslationUnitCursor(self.units[unit].raw)
-                        })
-                        .into_iter()
-                        .find(|cursor| string(unsafe { clang_getCursorSpelling(*cursor) }) == bits)
-                        .ok_or_else(|| {
-                            Error(format!("missing pointer constant probe for `{name}`"))
-                        })?;
-                        evaluate(bits)
-                    } else {
-                        value
-                    }
-                },
-            },
+                    },
+                }
+            }
             _ => DeclarationData::Unavailable(format!(
                 "{} capture is not implemented",
                 string(unsafe { clang_getCursorKindSpelling(kind) })
@@ -1024,16 +1036,27 @@ impl Capture<'_> {
                     clang_getCursorType(cursor)
                 }
             };
-            if ty.kind == CXType_Elaborated {
-                ty = unsafe { clang_Type_getNamedType(ty) };
+            while matches!(ty.kind, CXType_Elaborated | CXType_Pointer) {
+                ty = unsafe {
+                    if ty.kind == CXType_Elaborated {
+                        clang_Type_getNamedType(ty)
+                    } else {
+                        clang_getPointeeType(ty)
+                    }
+                };
             }
-            if ty.kind == CXType_Typedef
-                && unsafe { clang_getNumArgTypes(clang_getCanonicalType(ty)) } > 0
-            {
+            let mut canonical = unsafe { clang_getCanonicalType(ty) };
+            if canonical.kind == CXType_Pointer {
+                canonical = unsafe { clang_getPointeeType(canonical) };
+            }
+            if ty.kind == CXType_Typedef && unsafe { clang_getNumArgTypes(canonical) } >= 0 {
                 let declaration = unsafe { clang_getTypeDeclaration(ty) };
                 if unsafe { clang_equalCursors(declaration, cursor) } == 0 {
                     return self.parameters(unit, declaration);
                 }
+            }
+            if let Some(declaration) = callable_reference(cursor, canonical)? {
+                return self.parameters(unit, declaration);
             }
         }
         let comments = parameter_comments(cursor, &params);
@@ -1049,6 +1072,44 @@ impl Capture<'_> {
                 })
             })
             .collect()
+    }
+
+    fn written_type(&mut self, unit: usize, cursor: CXCursor, ty: CXType) -> Result<Type, Error> {
+        let mut result = self.ty(unit, ty)?;
+        let mut written = &mut result;
+        let mut native = ty;
+        while matches!(
+            written.kind,
+            TypeKind::Pointer(_) | TypeKind::LValueReference(_) | TypeKind::RValueReference(_)
+        ) {
+            written = match &mut written.kind {
+                TypeKind::Pointer(target)
+                | TypeKind::LValueReference(target)
+                | TypeKind::RValueReference(target) => target,
+                _ => unreachable!(),
+            };
+            native = unsafe { clang_getPointeeType(native) };
+        }
+        if matches!(written.kind, TypeKind::Function { .. }) {
+            if let Some(declaration) =
+                callable_reference(cursor, unsafe { clang_getCanonicalType(native) })?
+            {
+                written.kind = TypeKind::Named(self.intern(unit, declaration)?);
+            } else if let TypeKind::Function { parameters, .. } = &mut written.kind {
+                let declarations: Vec<_> = children(cursor)
+                    .into_iter()
+                    .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
+                    .collect();
+                if declarations.len() == parameters.len() {
+                    for (parameter, declaration) in parameters.iter_mut().zip(declarations) {
+                        *parameter = self.written_type(unit, declaration, unsafe {
+                            clang_getCursorType(declaration)
+                        })?;
+                    }
+                }
+            }
+        }
+        Ok(result)
     }
 
     fn annotations(
@@ -1241,6 +1302,38 @@ fn overridden_methods(cursor: CXCursor) -> Vec<String> {
     unsafe { clang_disposeOverriddenCursors(raw) };
     methods.sort();
     methods
+}
+
+fn callable_reference(cursor: CXCursor, ty: CXType) -> Result<Option<CXCursor>, Error> {
+    if !matches!(ty.kind, CXType_FunctionProto | CXType_FunctionNoProto) {
+        return Ok(None);
+    }
+    let mut result = None;
+    for reference in children(cursor)
+        .into_iter()
+        .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_TypeRef)
+    {
+        let declaration = unsafe { clang_getCursorReferenced(reference) };
+        if !matches!(
+            unsafe { clang_getCursorKind(declaration) },
+            CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
+        ) || unsafe {
+            clang_equalTypes(
+                ty,
+                clang_getCanonicalType(clang_getTypedefDeclUnderlyingType(declaration)),
+            )
+        } == 0
+        {
+            continue;
+        }
+        if let Some(previous) = result
+            && unsafe { clang_equalCursors(previous, declaration) } == 0
+        {
+            return Err(Error("ambiguous written callable typedef reference".into()));
+        }
+        result = Some(declaration);
+    }
+    Ok(result)
 }
 
 fn parameter_comments(cursor: CXCursor, parameters: &[CXCursor]) -> Vec<Vec<Annotation>> {

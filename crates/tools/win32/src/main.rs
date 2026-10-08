@@ -838,7 +838,7 @@ fn main() {
             (false, true, Some(headers))
         }
         _ => panic!(
-            "usage: tool-win32 [--clang2-audio [--rdl-only] | --clang2-headers header,... --rdl-only]"
+            "usage: tool-win32 [--clang2-audio [--rdl-only] | --clang2-headers header,...|all --rdl-only]"
         ),
     };
 

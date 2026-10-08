@@ -320,6 +320,34 @@ Variable {
             },
         },
     },
+    canonical: Type {
+        qualifiers: Qualifiers {
+            constant: false,
+            volatile: false,
+            restrict: false,
+        },
+        kind: Array {
+            length: Some(
+                0,
+            ),
+            element: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Int",
+                    layout: Some(
+                        Layout {
+                            size: 4,
+                            align: 4,
+                        },
+                    ),
+                },
+            },
+        },
+    },
     value: None,
 }
 [2] incomplete_array [root] (native.h:12:12, TU native.h)
@@ -327,6 +355,32 @@ USR: c:@incomplete_array
 entity: 2
 Variable {
     ty: Type {
+        qualifiers: Qualifiers {
+            constant: false,
+            volatile: false,
+            restrict: false,
+        },
+        kind: Array {
+            length: None,
+            element: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Int",
+                    layout: Some(
+                        Layout {
+                            size: 4,
+                            align: 4,
+                        },
+                    ),
+                },
+            },
+        },
+    },
+    canonical: Type {
         qualifiers: Qualifiers {
             constant: false,
             volatile: false,

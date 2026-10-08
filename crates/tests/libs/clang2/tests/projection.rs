@@ -15,6 +15,181 @@ use sdk::capture_sdk as sdk_capture;
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn variable_redeclarations_compare_canonical_types_and_preserve_written_contracts() {
+    let source = include_str!("../input/variable_typedefs.h");
+    for root in ["Value", "Count", "Pointer"] {
+        let snapshot = capture([Input::new("variables.hpp", source)], ARGS, &[root]).unwrap();
+        snapshot.resolve().unwrap();
+    }
+    let snapshot = capture([Input::new("variables.hpp", source)], ARGS, &["Count"]).unwrap();
+    let resolved = snapshot.resolve().unwrap();
+    let mut policy = options();
+    policy.references.insert(
+        "Scalar".into(),
+        TypeReference {
+            namespace: "External".into(),
+            name: "Scalar".into(),
+            kind: ReferenceKind::Value,
+        },
+    );
+    let error = resolved.project(&policy).unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("conflicting projected typedef contracts"),
+        "{error}"
+    );
+}
+
+#[test]
+fn opaque_records_preserve_identity_without_inventing_layout() {
+    for target in ["i686", "x86_64", "aarch64"] {
+        let argument = format!("--target={target}-pc-windows-msvc");
+        let inputs = [Input::new(
+            "opaque.hpp",
+            include_str!("../input/opaque_records.h"),
+        )];
+        let args = ["-x", "c++", &argument];
+        let snapshot = capture(
+            inputs.clone(),
+            &args,
+            &["Context", "Payload", "ContextPointer", "Owner", "Use"],
+        )
+        .unwrap();
+        let resolved = snapshot.resolve().unwrap();
+        assert_eq!(resolved.report().incomplete, ["Context", "Payload"]);
+        let index = compile(
+            if target == "i686" {
+                "opaque_records_x86"
+            } else {
+                "opaque_records"
+            },
+            &resolved.project(&options()).unwrap(),
+        );
+        let Item::Type(context) = index.expect_item("Test", "Context") else {
+            panic!()
+        };
+        assert!(context.fields().next().is_none());
+        for root in ["ByValue", "Result"] {
+            let snapshot = capture(inputs.clone(), &args, &[root]).unwrap();
+            let error = snapshot.resolve().unwrap().project(&options()).unwrap_err();
+            assert!(error.to_string().contains("layout"), "{error}");
+        }
+    }
+}
+
+#[test]
+fn callbacks_preserve_callable_abi_annotations_and_pointer_depth() {
+    for target in ["i686", "x86_64", "aarch64"] {
+        let argument = format!("--target={target}-pc-windows-msvc");
+        let snapshot = capture(
+            [Input::new(
+                "callbacks.hpp",
+                include_str!("../input/callbacks.h"),
+            )],
+            &["-x", "c++", &argument],
+            &[
+                "Callback",
+                "CallbackAlias",
+                "CallbackSlot",
+                "Function",
+                "FunctionPointer",
+                "Factory",
+                "Callbacks",
+                "Use",
+            ],
+        )
+        .unwrap();
+        let name = if target == "i686" {
+            "callbacks_x86"
+        } else {
+            "callbacks"
+        };
+        let resolved = snapshot.resolve().unwrap();
+        for root in [
+            "Callback",
+            "CallbackAlias",
+            "CallbackSlot",
+            "Function",
+            "FunctionPointer",
+            "Factory",
+            "Callbacks",
+            "Use",
+        ] {
+            resolved
+                .project_roots(&options(), &[root])
+                .unwrap_or_else(|error| panic!("{root}: {error}"));
+        }
+        let plan = resolved.project(&options()).unwrap();
+        let index = compile(name, &plan);
+        let Item::Type(callback) = index.expect_item("Test", "Callback") else {
+            panic!()
+        };
+        let invoke = callback.methods().next().unwrap();
+        assert_eq!(invoke.name(), "Invoke");
+        assert_eq!(
+            invoke.signature(&[]).types,
+            [
+                Type::PtrMut(Box::new(Type::I32), 1),
+                Type::PtrConst(Box::new(Type::I8), 1),
+                Type::U32,
+            ]
+        );
+        assert!(
+            invoke
+                .params()
+                .all(|param| param.direction() == ParamDirection::Input)
+        );
+        assert_eq!(
+            invoke.params().nth(1).unwrap().buffer_relationship(),
+            Some(BufferRelationship::ElementsParam(2))
+        );
+        let Item::Type(pointer) = index.expect_item("Test", "FunctionPointer") else {
+            panic!()
+        };
+        assert_eq!(
+            pointer
+                .methods()
+                .next()
+                .unwrap()
+                .params()
+                .next()
+                .unwrap()
+                .direction(),
+            ParamDirection::Input
+        );
+        let Item::Fn(function) = index.expect_item("Test", "Use") else {
+            panic!()
+        };
+        assert_eq!(
+            function.signature(&[]).types,
+            [
+                Type::class_named("Test", "Callback"),
+                Type::PtrMut(Box::new(Type::class_named("Test", "Callback")), 1),
+                Type::class_named("Test", "Function"),
+                Type::class_named("Test", "FunctionPointer"),
+            ]
+        );
+    }
+    for (root, reason) in [
+        ("Variadic", "fixed-prototype callbacks"),
+        ("Fast", "calling convention"),
+    ] {
+        let snapshot = capture(
+            [Input::new(
+                "callbacks.hpp",
+                include_str!("../input/callbacks.h"),
+            )],
+            &["-x", "c++", "--target=i686-pc-windows-msvc"],
+            &[root],
+        )
+        .unwrap();
+        let error = snapshot.resolve().unwrap().project(&options()).unwrap_err();
+        assert!(error.to_string().contains(reason), "{error}");
+    }
+}
+
+#[test]
 fn string_constants_preserve_code_units_and_encoding() {
     for target in ["i686", "x86_64", "aarch64"] {
         let argument = format!("--target={target}-pc-windows-msvc");

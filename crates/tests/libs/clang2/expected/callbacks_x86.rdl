@@ -1,0 +1,18 @@
+#[win32]
+mod Test {
+    extern "system" fn Callback(#[annotation("sal", "_In_")] #[in] p0: *mut i32, #[annotation("sal", "_In_reads_($2)")] #[in] #[len_param(2)] p1: *const i8, p2: u32) -> i32;
+    type CallbackAlias = Callback;
+    type CallbackSlot = *mut Callback;
+    struct Callbacks {
+        callback: Callback,
+        alias: Callback,
+        slot: *mut Callback,
+        factory: Factory,
+        function: Function,
+    }
+    extern "system" fn Factory(p0: Callback) -> i32;
+    extern "C" fn Function(#[annotation("sal", "_In_")] #[in] p0: *mut i32) -> i32;
+    extern "C" fn FunctionPointer(#[annotation("sal", "_In_")] #[in] p0: *mut i32) -> i32;
+    #[library("test.dll", import = "_Use@16")]
+    extern "system" fn Use(#[annotation("sal", "_In_opt_")] #[in] #[opt] p0: Callback, p1: *mut Callback, p2: Function, p3: FunctionPointer) -> i32;
+}

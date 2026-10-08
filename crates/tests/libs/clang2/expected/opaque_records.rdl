@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    struct Context {}
+    type ContextPointer = *mut Context;
+    struct Owner {
+        context: *mut Context,
+        payload: *mut Payload,
+    }
+    union Payload {}
+    #[library("test.dll", import = "Use")]
+    extern "C" fn Use(p0: *mut Context, p1: *mut Payload);
+}

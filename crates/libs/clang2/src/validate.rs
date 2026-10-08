@@ -444,8 +444,16 @@ impl<'a> Comparison<'a> {
                                 && exception_specification(aw) == exception_specification(bw)
                         }
                         (
-                            DeclarationData::Variable { ty: at, value: av },
-                            DeclarationData::Variable { ty: bt, value: bv },
+                            DeclarationData::Variable {
+                                canonical: at,
+                                value: av,
+                                ..
+                            },
+                            DeclarationData::Variable {
+                                canonical: bt,
+                                value: bv,
+                                ..
+                            },
                         ) => {
                             types.push((at, bt));
                             *av == Value::None || *bv == Value::None || av == bv

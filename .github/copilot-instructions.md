@@ -262,7 +262,7 @@ lowering. SDK/WDK callers must force-include `clang2/src/sal.h` before SDK heade
 source families and original positional parameter bindings through agreement checking.
 
 Open boundaries: long-tail SDK/WDK macro coverage, MIDL comments outside captured declaration
-extents, same-name annotated record aliases, standalone callable projection, imported data, and
+extents, same-name annotated record aliases, imported data, and
 large multi-TU peak memory. Continue with `.h`/`.rdl` fixtures and real-header inventories, not
 another bindgen or native API validation campaign.
 
@@ -277,15 +277,31 @@ character-pointer bindings preserve SAL buffer contracts. The header route expli
 inline helper overloads without hiding missing non-inline imports. See the bounded migration section
 in the clang2 docs.
 
-The broader ten-header inventory emits 947 names, rejects 210 during projection, and blocks 732
+The broader ten-header control emits 1046 names, rejects 100 during projection, and blocks 732
 before projection in `winnls.h`. Discovery classifies declaration-alias and attribute macros with
 memoized identifier chains; the header runner reports helpers instead of probing them as constants.
 Function-like classification preserves undefined helpers using source tokens and line-splice-aware
 adjacency. `sysinfoapi.h` reaches projection; NLS still references an unavailable
 `MUI_CALLBACK_FLAG_UPGRADED_INSTALLATION`. Emission counts are not publication parity: PSAPI's native
-`K32*` names differ from committed public aliases. Prioritize callable types, record layouts, and
-remaining macro classes
-using the failure table in `docs/crates/windows-clang2.md`, not more one-header-at-a-time validation.
+`K32*` names differ from committed public aliases.
+
+`tool-win32 --clang2-headers all --rdl-only` attempts all 369 manifest headers independently:
+36 complete, 333 incomplete, 28,758 emitted names, 8,552 rejected, and 62,252 blocked. Another
+24 headers fail before discovery inventory; their counts are unavailable, not zero. These summed
+per-header names are not deduplicated APIs or publication parity. `manifest.tsv` persists after
+each attempt; `imports.tsv` records the full ordered SDK COFF import candidates. The generic
+route has no external bindings, source-name DLL fallback, or legacy `LIBRARY_OVERRIDES`.
+RDL-only does not compile every output to WinMD or establish cross-header/architecture agreement.
+
+Named callbacks retain compiler TypeRef-backed typedef edges, calling conventions, annotations,
+and pointer depth. Incomplete C records preserve nominal pointer identity but reject by-value
+calls without layout. Variable redeclarations compare canonical types and retain/check written
+typedef contracts. Nested record members are captured through their owner, not independent roots.
+Prioritize compiler-owned macro probe isolation, selected annotation-context ownership, verified
+header prerequisites, and record layouts using `docs/crates/windows-clang2.md`. Broad annotation
+indexing still hits unrelated `_snprintf` ambiguity in `dshow.h`/`txfw32.h`. Do not solve these
+with symbol whitelists, guessed constants, or legacy extraction fallback. The production backend
+remains unchanged; full source/RDL inventory is not a completed replacement gate.
 
 ### Clang2 WebView2 cutover blockers
 
@@ -319,5 +335,5 @@ alignment, and pointer calls. `crypto.rs` exercises eight real BCrypt exports an
 lifecycle on x64/x86. `ProjectionOptions::imports` maps native linker symbols to DLL/export
 contracts; `windows_rdl::implib` derives these from COFF name types, not spelling heuristics.
 `clang2/metadata.rdl` supplies experimental output valid-byte postconditions separately from
-capacity; keep both through RDL/WinMD. The production metadata seed is unchanged. SDK-wide library
-selection, broader annotation semantics, and full production inputs remain open.
+capacity; keep both through RDL/WinMD. The production metadata seed is unchanged. SDK-wide DLL
+correctness, broader annotation semantics, and full production inputs remain open.

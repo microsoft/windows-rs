@@ -120,7 +120,7 @@ libclang USR. General unnamed-type identity across different files is not inferr
 | Callables | Prototype kind, calling convention, exception specification, result, and parameter types. |
 | Annotations | Ordered SAL and bounded MIDL payloads, declaration/member scope, parameter contexts, and locations. |
 | COM properties | Declaration-local MIDL `propget`, `propput`, and `propputref` markers, checked across observations. |
-| Variables | Native type and supported integer/floating initializer values, or an explicit unavailable value. |
+| Variables | Written and canonical types, supported initializer values, or explicit unavailable evidence. |
 | Provenance | Input name, compiler arguments, resolved target, USR, and spelling location. |
 
 Annotation comparison binds parameter identifiers in argument expressions to their original
@@ -149,7 +149,7 @@ Force-include `crates/libs/clang2/src/sal.h` before SDK headers. It disables str
 erase source markers, then instruments the SDK's SAL marker families and compositional operators.
 The legacy scraper has a separate adapter. This does not establish exhaustive coverage of every
 SDK/WDK annotation macro or arbitrary C++ attribute. New families need source fixtures, not silent
-defaults. Annotated same-name record aliases and standalone callable typedef projection still need
+defaults. Annotated same-name record aliases and anonymous callable projection still need
 additional representation; unsupported cases reject rather than discard their contracts.
 
 Record field enumeration uses `clang_Type_visitFields`, including implicit anonymous struct/union
@@ -233,8 +233,9 @@ definitions, cannot be header-partitioned.
 | --- | --- |
 | Records | Nonempty structs with natural or increased member/record alignment; verify every offset, final size, and alignment. |
 | Enums | Complete integer-backed enums; preserve native width, signedness, names, values, and explicit Clang/Windows flag markers. No value-based flags inference. |
-| Local dependencies | Schedule checked complete records; unsupported dependencies fail the plan. |
+| Local dependencies | Checked complete records and nominal incomplete C records; unknown by-value layouts reject. |
 | Functions | Fixed prototypes, supported Windows calling conventions, compiler link names or caller-bound DLL export names. |
+| Callbacks | Named fixed prototypes with checked parameter contracts, calling convention, and pointer depth. |
 | Parameters | Positional names for functions, native names for methods; supported SAL below. |
 | External value types | Explicit native record/enum bindings. Record storage retains native layout; by-value external record calls remain rejected. |
 | External scalar typedefs | Explicit value bindings; retain the checked native scalar representation and layout. |
@@ -402,8 +403,8 @@ An interface parameter consumes exactly one native pointer/reference level. By-v
 are rejected for COM methods on all targets until the downstream aggregate-return ABI is covered.
 Record pointers and free-function results with ordinary record layouts remain supported.
 
-Packing, bitfield projection, anonymous aggregate projection, array projection,
-and callback emission remain outside this slice. Qualified native names can select roots, but local
+Packing, bitfield projection, anonymous aggregate projection, and anonymous callable projection
+remain outside this slice. Qualified native names can select roots, but local
 output names currently require unqualified identifiers. UUIDs decode from `__declspec(uuid(...))`
 only (no `GUID`-typed value decoding yet). General SAL lowering, MIDL relationships, WinRT mapping,
 header ownership, and automatic DLL routing are not implemented.
@@ -951,15 +952,16 @@ The slice exercises fixed arrays, storage layouts for externally referenced reco
 whose native type is an enum or a caller-bound scalar typedef. Source/RDL fixtures cover exact
 header identity despite matching basenames, macro expansion ownership, forward completion,
 selected-alias ownership, combined-plan collisions, and native conflicts. No audio-specific
-projection rules or by-value layout exceptions are added. The next cutover work is the rejected
-families above, followed by another header group; richer annotations and full Win32 coverage remain
-open.
+projection rules or by-value layout exceptions are added. The full-manifest inventory below
+identifies the shared capture and projection blockers; richer annotations and production Win32
+coverage remain open.
 
 ## Bounded tool-win32 header migration
 
 ```powershell
 cargo run -p tool-win32 --quiet -- --clang2-headers shellscalingapi.h,tlhelp32.h --rdl-only
 cargo run -p tool-win32 --quiet -- --clang2-headers pathcch.h --rdl-only
+cargo run -p tool-win32 --quiet -- --clang2-headers all --rdl-only
 ```
 
 This explicit x64 route shares discovery, complete-graph resolution, per-root assessment, combined
@@ -969,10 +971,14 @@ fallback, emit WinMD or Rust, or replace committed metadata. Outputs are under
 Stale RDL is cleared before capture, including on a failed rerun. Duplicate or unknown manifest
 headers reject. Selected roots cannot be supplied by external bindings.
 
-The current policy supplies exact code imports from `shcore.lib`, `kernel32.lib`, `pathcch.lib`,
-`advapi32.lib`, `cabinet.lib`, and `winmm.lib`, plus explicit foundational value bindings.
-Unmapped functions reject; no default DLL is guessed.
-Additional header families can require additional bindings or import libraries.
+The header route reads the full ordered `IMPORT_LIBS` manifest from pinned SDK COFF libraries.
+The first code import for an exact native linker symbol wins, matching the manifest's archive
+precedence. `target/win32-clang2/imports.tsv` records each candidate's source library, native symbol,
+DLL, export name or ordinal, and whether it was selected. Unmapped functions reject; no default DLL,
+source-name fallback, or per-symbol library override is applied.
+The generic route has no external value, enum, record, or interface bindings. Dependencies come
+from the captured source closure, including nominal incomplete records. The audio consumer remains
+a separate experiment with explicit external contracts.
 `exclude_inline_functions` is enabled for this route. It excludes only function groups whose
 captured observations are all inline, including header-only overloads of imported functions.
 The declaration inventory still reports these inline rows as exclusions. Non-inline functions
@@ -1040,25 +1046,26 @@ unsigned rewrite. The combined run's three RDL partitions are byte-identical to 
 
 ### Broader header inventory
 
-Run independent headers with `--clang2-headers <header> --rdl-only` to expose shared failure classes
-without one malformed macro preventing assessment of unrelated headers. Each run writes a complete
-declaration inventory; a nonzero exit still means incomplete coverage. The following x64 batch uses
+Run independent headers with `--clang2-headers all --rdl-only` to expose shared failure classes
+without one malformed macro preventing assessment of unrelated headers. `manifest.tsv` is updated
+after every attempt. Headers failing discovery have unavailable counts, not zero selected names.
+A nonzero exit means incomplete coverage. The following x64 control batch uses
 the pinned SDK and the explicit imports above. Counts are case-sensitive selected names per header,
 not inventory rows, generated dependencies, or a deduplicated cross-header API count.
 
 | Header | Selected | Emitted | Rejected | Blocked before projection |
 | --- | ---: | ---: | ---: | ---: |
 | `fileapi.h` | 134 | 119 | 15 | 0 |
-| `processthreadsapi.h` | 158 | 141 | 17 | 0 |
-| `sysinfoapi.h` | 64 | 47 | 17 | 0 |
-| `memoryapi.h` | 98 | 62 | 36 | 0 |
-| `psapi.h` | 76 | 56 | 20 | 0 |
+| `processthreadsapi.h` | 158 | 151 | 7 | 0 |
+| `sysinfoapi.h` | 62 | 55 | 7 | 0 |
+| `memoryapi.h` | 95 | 77 | 18 | 0 |
+| `psapi.h` | 72 | 60 | 12 | 0 |
 | `winnls.h` | 732 | 0 | 0 | 732 |
-| `winreg.h` | 177 | 158 | 19 | 0 |
-| `winsvc.h` | 406 | 334 | 72 | 0 |
-| `compressapi.h` | 31 | 24 | 7 | 0 |
+| `winreg.h` | 177 | 163 | 14 | 0 |
+| `winsvc.h` | 404 | 384 | 20 | 0 |
+| `compressapi.h` | 31 | 31 | 0 | 0 |
 | `timeapi.h` | 13 | 6 | 7 | 0 |
-| Total | 1989 | 947 | 210 | 732 |
+| Total | 1878 | 1046 | 100 | 732 |
 
 Discovery reports single-identifier macro chains ending at native types or functions as
 `macro_alias` targets. The runner excludes those preprocessing aliases from constant probing and
@@ -1076,22 +1083,78 @@ rather than libclang's current-state query. A helper undefined after the header 
 as function-like. Parenthesized values, whitespace/comment-separated replacement lists, string
 literals, and attributes redefined as values stay on the value path.
 
-The 210 rejections split into 72 callable/unsupported-type projections, 69 record/layout/opaque-type
-projections, 36 missing exact imports, 22 annotation-contract failures, and 11 declaration-only GUID
-values. `sysinfoapi.h` reaches projection after excluding `NOT_BUILD_WINDOWS_DEPRECATE`, retaining
-47 emitted roots and explicit layout/import failures. `winnls.h` excludes the temporary
+Named callable typedefs preserve calling convention, buffer annotations, and callback pointer
+depth through existing RDL function declarations. Compiler TypeRef cursors recover written
+function typedef edges when libclang expands them to raw function types; ambiguous edges reject.
+Incomplete C records emit nominal declarations for pointer identity without claiming a layout.
+By-value parameters and results still require proven layout. Variable redeclarations compare
+canonical native types while retaining written typedef dependencies and checking their projected
+contracts. This allows equivalent IID/GUID spellings without weakening declaration agreement.
+Dedicated callback, opaque-record, and variable-redeclaration fixtures cover these boundaries.
+
+Record-member declarations are excluded as independent roots and captured through their owner's
+dependency closure. Nonempty reserved-name macros remain selected; their name is not a reason to
+hide a value or a failure.
+
+`sysinfoapi.h` reaches projection after excluding `NOT_BUILD_WINDOWS_DEPRECATE`, retaining
+55 emitted roots and explicit layout/import failures. `winnls.h` excludes the temporary
 `DEPRECATED(x)` helper and `WINNORMALIZEAPI` attribute chain, but capture still fails on
 `MUI_CALLBACK_ALL_FLAGS`: its replacement references `MUI_CALLBACK_FLAG_UPGRADED_INSTALLATION`,
 which is unavailable in the configured input. No value is invented for that identifier.
-Callable types, record layouts, and this unresolved macro remain higher-leverage next fixes than
-adding headers one at a time. The nine projection runs take about 1.0-1.5 seconds each in the debug
-build; this is not a full-SDK throughput or memory measurement.
+Record layouts and unresolved macro probes remain shared blockers.
 
 Emitted does not mean publication parity. For example, PSAPI emits the native `K32EnumProcesses`
 name while committed RDL publishes `EnumProcesses` with `import = "K32EnumProcesses"`. The macro
 alias target remains in the report, but public-name selection must be settled before publishing
-these partitions. None of these ten headers is fully covered yet. Keep the existing 98-name group
-as a separate passing control.
+these partitions. `compressapi.h` has complete source-to-RDL coverage; the other nine controls
+remain incomplete. Keep the existing 98-name group as a separate passing control.
+
+### Full manifest and orchestration audit
+
+The independent x64 run attempted all 369 manifest headers using the pinned SDK. These are
+source-to-RDL results, not production or runtime certification.
+
+| Measure | Result |
+| --- | ---: |
+| Headers attempted | 369 |
+| Complete source-to-RDL coverage | 36 |
+| Incomplete coverage | 333 |
+| Headers with some emitted output | 217 |
+| Headers failing before discovery inventory | 24 |
+| Emitted selected names | 28,758 |
+| Rejected selected names | 8,552 |
+| Selected names blocked before projection/output | 62,252 |
+
+Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
+are not deduplicated APIs. Each header's supported roots must also pass combined projection and
+source ownership before being marked emitted. RDL-only writes the source plan; it does not compile
+every header's output to WinMD. Independent headers do not test agreement across the full manifest
+or across architectures. No full-manifest peak-memory budget was measured.
+
+The tool audit separates source-derived policy from repairs that would conceal missing evidence:
+
+| Boundary | Current behavior or remaining risk |
+| --- | --- |
+| Dependency types | Generic header runs use local captured closure, not external metadata bindings. Audio retains separate explicit external contracts. |
+| DLL routing | Full ordered SDK import libraries supply exact COFF symbols and export targets; all candidates are reported. Conflicting entries within an archive reject, including shadowed archives. |
+| Legacy production repairs | `LibraryMap` applies `LIBRARY_OVERRIDES`, including synthetic `InitializeXamlDiagnosticsEx` routing, and source-name fallback. The clang2 header route adopts neither. |
+| Pointer-sized typedefs | Explicit SDK semantic contracts survive only after compiler width, alignment, and signedness checks. Width alone cannot establish `usize`/`isize` intent. |
+| Selection | Inline helpers, empty markers, attribute helpers, declaration aliases, and record-member roots have reported exclusion reasons. Reserved names do not imply exclusion. |
+| Input construction | Shared `clang_inputs` supplies source/include profiles; no legacy extraction result or parser fallback is consumed. Individual headers still need verified prerequisites. |
+| Macro probing | A failed appended probe can block unrelated roots in the same header. Isolate failures using compiler diagnostics and probe ownership, not guessed values, error-string rules, or symbol whitelists. |
+| Annotation indexing | `dshow.h` and `txfw32.h` encounter an ambiguous `_snprintf` context during broad indexing. Unrelated CRT evidence must not block selected closure; selected ambiguity must still reject. |
+| Metadata validity | RDL emission is not semantic WinMD compilation, wrapper ABI validation, public-name parity, or DLL usability. |
+
+The remaining failures include unavailable macro identifiers and non-value expressions,
+declaration-only GUID/property-key data, packing, unions and bitfields, anonymous aggregate output,
+general C++ inheritance/templates, SAL lowering, and missing header prerequisites. Treat these as
+shared source/capture/projection classes. Do not patch individual symbols to improve the totals.
+
+Next gates are compiler-owned probe isolation, selected annotation-context ownership, verified
+header profiles, and record-layout coverage with native evidence. Production replacement also
+requires combined cross-header and architecture agreement, semantic RDL compilation, public
+partition/name policy, DLL-contract checks, and resource budgets. The manifest run exposes the
+remaining work; it does not justify switching the production Win32/WDK backend yet.
 
 ## Rewrite plan and restart point
 
