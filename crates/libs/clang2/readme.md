@@ -101,8 +101,10 @@ native methods or guessing from a `get_`/`put_` prefix.
 Named fixed-prototype callbacks retain calling convention, parameter contracts, dependent types,
 and pointer depth in existing RDL callback declarations. Function typedefs and pointers to them
 remain distinct in native capture; compiler `TypeRef` edges recover written callable aliases when
-libclang exposes only their expanded function type. Anonymous callable types, variadic callbacks,
-and unsupported calling conventions still reject.
+libclang exposes only their expanded function type. Inline record-field callbacks retain source-owned
+signatures under owner/field-slot identity, with checked parameter contracts and pointer depth.
+Their generated names use the native owner and field; output collisions reject. Other anonymous
+callable positions, variadic callbacks, and unsupported calling conventions still reject.
 Incomplete C structs and unions emit nominal empty declarations for pointer use, without claiming
 a native storage layout. By-value parameters and results with unavailable layouts reject.
 Variable redeclarations compare canonical types while retaining written typedef dependencies;

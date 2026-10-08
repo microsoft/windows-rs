@@ -57,6 +57,11 @@ pub(super) enum DeclarationData {
         canonical: Type,
         parameters: Vec<Parameter>,
     },
+    Callable {
+        ty: Type,
+        canonical: Type,
+        parameters: Vec<Parameter>,
+    },
     Enum {
         complete: bool,
         scoped: bool,
@@ -110,7 +115,9 @@ impl DeclarationData {
             Self::Alias {
                 target, canonical, ..
             } => vec![target, canonical],
-            Self::Function { ty, canonical, .. } => vec![ty, canonical],
+            Self::Function { ty, canonical, .. } | Self::Callable { ty, canonical, .. } => {
+                vec![ty, canonical]
+            }
             Self::Pending | Self::Unavailable(_) => vec![],
         }
     }

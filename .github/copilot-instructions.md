@@ -367,8 +367,11 @@ position, with collision-safe positional fallbacks; filename and input order do 
 Keep source annotation bindings positional. The BCrypt consumer explicitly binds native `LPCWSTR`
 to `PCWSTR`; generic header projection does not infer that wrapper. See the clang2 docs restart point.
 
-The bounded OLE inventory still rejects anonymous callables and named nested records. Combined
-`oaidl.h`/`shellapi.h` capture reaches root assessment with Shell return annotations preserved.
+Inline record-field callbacks retain owner/field-slot identity and compiler-owned parameter contexts
+across TUs, rather than merging by function shape or fabricating typedefs. `test_clang2` `ole.rs`
+compiles the real OAIDL/WIC `IDispatch`/`ITypeInfo`/`EXCEPINFO` closure on all three targets without
+external OLE value bindings. Other anonymous callable positions and named nested-record publication
+remain gates. Combined `oaidl.h`/`shellapi.h` capture preserves Shell return annotations.
 `annotation_macro_return.h` covers Clang-attached prefix annotations outside macro-started extents,
 original inherited parameter contexts, and mixed prefix/in-range ownership. Keep equal-rank
 ambiguities visible; do not suppress annotations or substitute OLE types to improve header counts.

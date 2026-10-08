@@ -15,6 +15,149 @@ use sdk::capture_sdk as sdk_capture;
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn anonymous_callable_fields_preserve_owned_signatures_and_pointer_depth() {
+    let source = include_str!("../input/anonymous_callbacks.h");
+    for target in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={target}-pc-windows-msvc");
+        for reversed in [false, true] {
+            let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", source)];
+            if reversed {
+                inputs.reverse();
+            }
+            let snapshot = capture(inputs, &["-x", "c++", &target], &["CallbackFields"]).unwrap();
+            let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+            let name = if target.contains("i686") {
+                "anonymous_callbacks_x86"
+            } else {
+                "anonymous_callbacks"
+            };
+            let index = compile(name, &plan);
+            let Item::Type(record) = index.expect_item("Test", "CallbackFields") else {
+                panic!()
+            };
+            let fields: Vec<_> = record.fields().collect();
+            assert_eq!(fields.len(), 6);
+            assert_eq!(
+                fields[0].ty(),
+                Type::class_named("Test", "CallbackFields_fill_Callback")
+            );
+            assert_eq!(
+                fields[2].ty(),
+                Type::PtrMut(
+                    Box::new(Type::class_named(
+                        "Test",
+                        "CallbackFields_indirect_Callback"
+                    )),
+                    1
+                )
+            );
+            let Item::Type(callback) = index.expect_item("Test", "CallbackFields_read_Callback")
+            else {
+                panic!()
+            };
+            let method = callback
+                .methods()
+                .find(|method| method.name() == "Invoke")
+                .unwrap();
+            let parameters = method.params_by_sequence(3).unwrap();
+            assert_eq!(
+                parameters.params()[1].unwrap().buffer_relationship(),
+                Some(BufferRelationship::ElementsParam(0))
+            );
+            assert_eq!(
+                parameters.params()[2].unwrap().direction(),
+                ParamDirection::Output
+            );
+        }
+    }
+}
+
+#[test]
+fn anonymous_callable_fields_reject_conflicts_and_unmodeled_shapes() {
+    let source = include_str!("../input/anonymous_callbacks.h");
+    for target in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={target}-pc-windows-msvc");
+        let args = &["-x", "c++", &target];
+        for changed in [
+            source.replace("OUT int* result", "IN int* result"),
+            source.replace(
+                "void (**indirect)(int value)",
+                "void (**indirect)(float value)",
+            ),
+        ] {
+            for reversed in [false, true] {
+                let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", &changed)];
+                if reversed {
+                    inputs.reverse();
+                }
+                let snapshot = capture(inputs, args, &["CallbackFields"]).unwrap();
+                let error = snapshot.resolve().err().unwrap().to_string();
+                assert!(error.contains("conflicting"), "{error}");
+            }
+        }
+        for (root, reason) in [
+            ("Collision", "multiple native entities"),
+            ("VariadicCallback", "only fixed-prototype callbacks"),
+            ("NestedCallback", "no prototype projection"),
+        ] {
+            let snapshot = capture([Input::new("a.hpp", source)], args, &[root]).unwrap();
+            let error = snapshot
+                .resolve()
+                .unwrap()
+                .project(&options())
+                .unwrap_err()
+                .to_string();
+            assert!(error.contains(reason), "{root}: {error}");
+        }
+        if target.contains("i686") {
+            let snapshot = capture([Input::new("a.hpp", source)], args, &["FastCallback"]).unwrap();
+            let error = snapshot
+                .resolve()
+                .unwrap()
+                .project(&options())
+                .unwrap_err()
+                .to_string();
+            assert!(error.contains("calling convention"), "{error}");
+        }
+    }
+    let source = include_str!("../input/anonymous_callbacks_c.h");
+    let args = &["-x", "c", "--target=x86_64-pc-windows-msvc"];
+    let snapshot = capture([Input::new("a.h", source)], args, &["NoPrototype"]).unwrap();
+    let error = snapshot
+        .resolve()
+        .unwrap()
+        .project(&options())
+        .unwrap_err()
+        .to_string();
+    assert!(error.contains("only fixed-prototype callbacks"), "{error}");
+    let snapshot = capture([Input::new("a.h", source)], args, &["FixedPrototype"]).unwrap();
+    let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+    compile("anonymous_callbacks_c", &plan);
+}
+
+#[test]
+fn anonymous_callable_parameter_names_are_presentation_not_tu_priority() {
+    let source = include_str!("../input/anonymous_callbacks.h");
+    let changed = source
+        .replace("count", "length")
+        .replace("int value", "int renamed");
+    let mut baseline = None;
+    for reversed in [false, true] {
+        let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", &changed)];
+        if reversed {
+            inputs.reverse();
+        }
+        let snapshot = capture(inputs, ARGS, &["CallbackFields"]).unwrap();
+        let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+        if let Some(expected) = &baseline {
+            assert_eq!(&plan.rdl(), expected);
+        } else {
+            baseline = Some(plan.rdl());
+        }
+    }
+}
+
+#[test]
 fn named_underscore_fields_preserve_native_names() {
     let snapshot = capture(
         [Input::new(

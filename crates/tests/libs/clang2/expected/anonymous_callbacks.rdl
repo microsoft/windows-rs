@@ -1,0 +1,17 @@
+#[win32]
+mod Test {
+    struct CallbackFields {
+        fill: CallbackFields_fill_Callback,
+        read: CallbackFields_read_Callback,
+        indirect: *mut CallbackFields_indirect_Callback,
+        named: CallbackFields_named_Callback,
+        other: CallbackFields_other_Callback,
+        unnamed: CallbackFields_unnamed_Callback,
+    }
+    extern "C" fn CallbackFields_fill_Callback(#[annotation("sal", "_In_")] #[in] owner: *mut CallbackFields) -> i32;
+    extern "C" fn CallbackFields_indirect_Callback(value: i32);
+    extern "C" fn CallbackFields_named_Callback(value: u32) -> u32;
+    extern "C" fn CallbackFields_other_Callback(value: i32);
+    extern "C" fn CallbackFields_read_Callback(count: u32, #[annotation("sal", "_In_reads_($0)")] #[in] #[len_param(0)] data: *const i32, #[annotation("sal", "_Out_")] #[out] result: *mut i32);
+    extern "C" fn CallbackFields_unnamed_Callback(p0_: i32, p0: i32);
+}

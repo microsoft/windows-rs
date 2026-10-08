@@ -497,6 +497,18 @@ pub fn capture_report(
                 unsafe { clang_getCursorKind(cursor) },
                 CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_ClassDecl
             ) {
+                for field in record_fields(cursor) {
+                    if field_callable_type(field).is_some() {
+                        capture.context(unit, field);
+                        let identity = string(unsafe { clang_getCursorUSR(field) });
+                        let key = capture.candidate(unit, field, &identity)?;
+                        capture
+                            .identities
+                            .entry(key)
+                            .or_default()
+                            .push((unit, field));
+                    }
+                }
                 for method in children(cursor)
                     .into_iter()
                     .filter(|child| unsafe { clang_getCursorKind(*child) == CXCursor_CXXMethod })
@@ -814,6 +826,17 @@ struct AnnotationContext {
     prefix_owners: Vec<CXCursor>,
 }
 
+fn field_callable_type(cursor: CXCursor) -> Option<CXType> {
+    let mut ty = unsafe { clang_getCursorType(cursor) };
+    if ty.kind != CXType_Pointer {
+        return None;
+    }
+    while ty.kind == CXType_Pointer {
+        ty = unsafe { clang_getPointeeType(ty) };
+    }
+    matches!(ty.kind, CXType_FunctionProto | CXType_FunctionNoProto).then_some(ty)
+}
+
 fn position(location: CXSourceLocation) -> (CXFile, u32) {
     let mut file = std::ptr::null_mut();
     let mut offset = 0;
@@ -831,9 +854,10 @@ fn position(location: CXSourceLocation) -> (CXFile, u32) {
 
 impl Capture<'_> {
     fn context(&mut self, unit: usize, cursor: CXCursor) {
-        let alias = matches!(
+        // Type declarator extents can stop at the name, before the callback parameters.
+        let type_declarator = matches!(
             unsafe { clang_getCursorKind(cursor) },
-            CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
+            CXCursor_TypedefDecl | CXCursor_TypeAliasDecl | CXCursor_FieldDecl
         );
         let range = unsafe { clang_getCursorExtent(cursor) };
         let (file, start) = position(unsafe { clang_getRangeStart(range) });
@@ -860,12 +884,12 @@ impl Capture<'_> {
                     );
                     continue;
                 }
-                if !alias && (origin.0 != file || origin.1 >= end) {
+                if !type_declarator && (origin.0 != file || origin.1 >= end) {
                     continue;
                 }
                 // Prefix attributes can precede a macro-started declaration extent. Inherited
                 // attributes keep the nearest attached declaration's original parameter context.
-                let distance = if alias {
+                let distance = if type_declarator {
                     0
                 } else {
                     start.saturating_sub(origin.1)
@@ -925,6 +949,20 @@ impl Capture<'_> {
 
     fn candidate(&self, unit: usize, cursor: CXCursor, identity: &str) -> Result<String, Error> {
         let parent = unsafe { clang_getCursorSemanticParent(cursor) };
+        if unsafe { clang_getCursorKind(cursor) } == CXCursor_FieldDecl {
+            let slot = record_fields(parent)
+                .iter()
+                .position(|field| unsafe {
+                    clang_equalCursors(
+                        clang_getCanonicalCursor(*field),
+                        clang_getCanonicalCursor(cursor),
+                    ) != 0
+                })
+                .ok_or_else(|| Error("callable field ownership unavailable".into()))?;
+            let parent_identity = string(unsafe { clang_getCursorUSR(parent) });
+            let parent = self.candidate(unit, parent, &parent_identity)?;
+            return Ok(format!("callable:{parent}:{slot}"));
+        }
         if unsafe { clang_Cursor_isAnonymous(cursor) } != 0
             && matches!(
                 unsafe { clang_getCursorKind(cursor) },
@@ -1015,14 +1053,18 @@ impl Capture<'_> {
             name,
             identity,
             unit: self.units[unit].name.clone(),
-            annotations: self.annotations(
-                unit,
-                cursor,
-                matches!(
-                    unsafe { clang_getCursorKind(cursor) },
-                    CXCursor_FunctionDecl | CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
-                ),
-            )?,
+            annotations: if unsafe { clang_getCursorKind(cursor) } == CXCursor_FieldDecl {
+                vec![]
+            } else {
+                self.annotations(
+                    unit,
+                    cursor,
+                    matches!(
+                        unsafe { clang_getCursorKind(cursor) },
+                        CXCursor_FunctionDecl | CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
+                    ),
+                )?
+            },
             data: DeclarationData::Pending,
         });
         self.pending.push_back((unit, cursor, id));
@@ -1032,6 +1074,15 @@ impl Capture<'_> {
     fn declaration(&mut self, unit: usize, cursor: CXCursor) -> Result<DeclarationData, Error> {
         let kind = unsafe { clang_getCursorKind(cursor) };
         Ok(match kind {
+            CXCursor_FieldDecl => {
+                let ty = field_callable_type(cursor)
+                    .ok_or_else(|| Error("owned callable field type unavailable".into()))?;
+                DeclarationData::Callable {
+                    ty: self.written_type(unit, cursor, ty)?,
+                    canonical: self.ty(unit, unsafe { clang_getCanonicalType(ty) })?,
+                    parameters: self.parameters(unit, cursor)?,
+                }
+            }
             CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_ClassDecl => {
                 let complete = unsafe { clang_isCursorDefinition(cursor) } != 0;
                 let mut fields = vec![];
@@ -1317,6 +1368,10 @@ impl Capture<'_> {
                 callable_reference(cursor, unsafe { clang_getCanonicalType(native) })?
             {
                 written.kind = TypeKind::Named(self.intern(unit, declaration)?);
+            } else if ty.kind == CXType_Pointer
+                && unsafe { clang_getCursorKind(cursor) } == CXCursor_FieldDecl
+            {
+                written.kind = TypeKind::Named(self.intern(unit, cursor)?);
             } else if let TypeKind::Function { parameters, .. } = &mut written.kind {
                 let declarations: Vec<_> = children(cursor)
                     .into_iter()

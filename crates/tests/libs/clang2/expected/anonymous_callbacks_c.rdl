@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    struct FixedPrototype {
+        invoke: FixedPrototype_invoke_Callback,
+    }
+    extern "C" fn FixedPrototype_invoke_Callback(value: i32) -> i32;
+}

@@ -305,6 +305,7 @@ fn resolve_annotations(
         }
         let callables: Vec<_> = match &declaration.data {
             DeclarationData::Function { parameters, .. }
+            | DeclarationData::Callable { parameters, .. }
             | DeclarationData::Alias { parameters, .. } => vec![(0, parameters)],
             DeclarationData::Record { methods, .. } => methods
                 .iter()
@@ -530,6 +531,22 @@ impl<'a> Comparison<'a> {
                         ) => {
                             types.push((a, b));
                             parameters_match(ap, bp)
+                        }
+                        (
+                            DeclarationData::Callable {
+                                ty: aw,
+                                canonical: a,
+                                parameters: ap,
+                            },
+                            DeclarationData::Callable {
+                                ty: bw,
+                                canonical: b,
+                                parameters: bp,
+                            },
+                        ) => {
+                            types.push((a, b));
+                            parameters_match(ap, bp)
+                                && exception_specification(aw) == exception_specification(bw)
                         }
                         (
                             DeclarationData::Enum {

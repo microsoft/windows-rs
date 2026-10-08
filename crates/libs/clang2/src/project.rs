@@ -827,7 +827,19 @@ impl<'s> Builder<'_, 's> {
 
     fn name(&self, id: Id) -> Result<String, Error> {
         self.names.get(&id).cloned().map_or_else(
-            || ident(&self.resolved.snapshot.declarations[id.0].name),
+            || {
+                let declaration = &self.resolved.snapshot.declarations[id.0];
+                if matches!(declaration.data, DeclarationData::Callable { .. }) {
+                    let names = declaration
+                        .name
+                        .split("::")
+                        .map(ident)
+                        .collect::<Result<Vec<_>, _>>()?;
+                    Ok(format!("{}_Callback", names.join("_")))
+                } else {
+                    ident(&declaration.name)
+                }
+            },
             Ok,
         )
     }
@@ -970,6 +982,26 @@ impl<'s> Builder<'_, 's> {
                 ) && self.function_type(target).is_ok() =>
             {
                 let ty = self.function_type(target)?;
+                let TypeKind::Function {
+                    convention,
+                    prototype: true,
+                    variadic: false,
+                    ..
+                } = &ty.kind
+                else {
+                    return Err(Error(
+                        "only fixed-prototype callbacks can be projected".into(),
+                    ));
+                };
+                let abi = calling_convention(*convention)?;
+                let (parameters, result) = self.signature(id, 0)?;
+                Item::Callback {
+                    abi,
+                    parameters,
+                    result,
+                }
+            }
+            DeclarationData::Callable { ty, .. } => {
                 let TypeKind::Function {
                     convention,
                     prototype: true,
@@ -1555,6 +1587,7 @@ impl<'s> Builder<'_, 's> {
             let data = &self.resolved.snapshot.declarations[observation.0].data;
             let ty = match data {
                 DeclarationData::Function { ty, .. }
+                | DeclarationData::Callable { ty, .. }
                 | DeclarationData::Alias { target: ty, .. } => ty,
                 DeclarationData::Record { methods, .. } if !methods.is_empty() => {
                     &methods[slot - 1].ty
@@ -1790,7 +1823,11 @@ impl<'s> Builder<'_, 's> {
             TypeKind::Named(id) => {
                 let id = self.resolved.representatives[id.0];
                 let declaration = &self.resolved.snapshot.declarations[id.0];
-                if let DeclarationData::Alias { canonical, .. } = &declaration.data {
+                if matches!(declaration.data, DeclarationData::Callable { .. }) {
+                    let name = self.name(id)?;
+                    self.schedule(id);
+                    return Ok((ProjectedType::Callable(name), false));
+                } else if let DeclarationData::Alias { canonical, .. } = &declaration.data {
                     if let Some(reference) = self.options.references.get(&declaration.name)
                         && matches!(
                             canonical.kind,

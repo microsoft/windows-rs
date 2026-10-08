@@ -214,7 +214,7 @@ Force-include `crates/libs/clang2/src/sal.h` before SDK headers. It disables str
 erase source markers, then instruments the SDK's SAL marker families and compositional operators.
 The legacy scraper has a separate adapter. This does not establish exhaustive coverage of every
 SDK/WDK annotation macro or arbitrary C++ attribute. New families need source fixtures, not silent
-defaults. Annotated same-name record aliases and anonymous callable projection still need
+defaults. Annotated same-name record aliases and anonymous callables outside record fields still need
 additional representation; unsupported cases reject rather than discard their contracts.
 
 Record field enumeration uses `clang_Type_visitFields`, including implicit anonymous struct/union
@@ -521,8 +521,8 @@ An interface parameter consumes exactly one native pointer/reference level. By-v
 are rejected for COM methods on all targets until the downstream aggregate-return ABI is covered.
 Record pointers and free-function results with ordinary record layouts remain supported.
 
-Packing that changes storage layout, bitfield projection, and anonymous callable projection
-remain outside this slice. Qualified native names can select roots, but local
+Packing that changes storage layout, bitfield projection, and anonymous callables outside record
+fields remain outside this slice. Qualified native names can select roots, but local
 output names currently require unqualified identifiers. UUIDs decode from `__declspec(uuid(...))`
 only (no `GUID`-typed value decoding yet). General SAL lowering, MIDL relationships, WinRT mapping,
 header ownership, and automatic DLL routing are not implemented.
@@ -1271,6 +1271,25 @@ canonical native types while retaining written typedef dependencies and checking
 contracts. This allows equivalent IID/GUID spellings without weakening declaration agreement.
 Dedicated callback, opaque-record, and variable-redeclaration fixtures cover these boundaries.
 
+Inline record-field function pointers capture a separate callable declaration anchored to the native
+field cursor. Candidate identity combines the owning record's identity and direct field slot; it does
+not merge equal function shapes or invent a native typedef. All retained TU observations participate
+in signature and positional annotation agreement. Field annotations stay on field storage, while
+callback parameter contracts keep their original source contexts. A field's libclang extent can end
+at its name before the function parameters, so those contexts use compiler-attached parameter cursors
+rather than the enclosing extent as an ownership test.
+
+Projection names these callbacks from the qualified native owner and field, with a `_Callback`
+suffix. Output collisions reject. Existing callback projection retains calling convention, written
+typedef contracts, and pointer depth. `anonymous_callbacks.h` and target-specific RDL goldens cover
+self-reference, counted inputs, outputs, unnamed parameters, distinct fields, and double pointers.
+The conflict matrix changes signatures, annotation direction, parameter names, and TU order.
+Variadic, unsupported-convention, no-prototype C, and nested anonymous callback positions reject.
+`tests/ole.rs` compiles the real OAIDL/WIC closure for `IDispatch`, `ITypeInfo`, and `EXCEPINFO` on
+x86/x64/ARM64 in both TU orders, using attribute vocabulary without default API references or
+external value bindings. Metadata readback checks the self-referential callback, `HRESULT` contract,
+record fields, and interface methods.
+
 Record-member declarations are excluded as independent roots and captured through their owner's
 dependency closure. Nonempty reserved-name macros remain selected; their name is not a reason to
 hide a value or a failure.
@@ -1389,14 +1408,24 @@ requires combined cross-header and architecture agreement, semantic RDL compilat
 partition/name policy, DLL-contract checks, and resource budgets. The manifest run exposes the
 remaining work; it does not justify switching the production Win32/WDK backend yet.
 
-The bounded union slice does not complete `oaidl.h`: the generic route reports 359 selected names,
-108 emitted, and 251 rejected, with no unavailable native groups. Anonymous callable types and
-named nested records still block dependency closures, including OLE value types. These are shared
-representation gaps, not reasons to externally bind `VARIANT` in the generic header runner.
-The combined `oaidl.h`/`shellapi.h` route reaches root assessment: 695 selected names, 436 emitted,
-259 rejected, and one unavailable native group. Both `SHGetNewLinkInfoA/W` retain their `_Success_`
-contracts. Coverage is incomplete because the remaining dependency and projection rejections are
-still reported. These counts are source-to-RDL inventory, not semantic certification of all output.
+The focused inline-callback refresh runs the mandatory semantic compilation gate without external
+OLE value bindings. These profiles remain incomplete:
+
+| Profile | Selected | Emitted | Rejected | Blocked |
+| --- | ---: | ---: | ---: | ---: |
+| `oaidl.h` | 359 | 172 | 187 | 0 |
+| `objidl.h` | 448 | 111 | 337 | 0 |
+| `wincodec.h` | 433 | 174 | 259 | 0 |
+| `oaidl.h` + `shellapi.h` | 693 | 500 | 193 | 0 |
+
+The shared field-callable representation unblocks 64 OAIDL roots, including `IDispatch`, `ITypeInfo`,
+and `ITypeLib`; WIC gains one root, and ObjIDL's selected coverage is unchanged. The combined profile
+excludes `SHSTDAPI`/`SHDOCAPI` as declaration helpers, explaining its two-name selection difference
+from the bounded union inventory. Both `SHGetNewLinkInfoA/W` retain their `_Success_` contracts.
+Named nested records, explicit interface aliases, optional written-count outputs, declaration-only
+data, and unavailable import contracts still reject. These are shared representation/publication
+gaps, not reasons to externally bind `VARIANT` in the generic header runner. This focused refresh
+does not replace the full 369-header snapshot or establish public metadata parity.
 
 Clang can attach a prefix annotation to a function while starting the function's extent at a later
 declaration macro. The context index accepts that same-file prefix and chooses the nearest attached
