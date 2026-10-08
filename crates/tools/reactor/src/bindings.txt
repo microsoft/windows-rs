@@ -429,7 +429,9 @@ Windows::Win32::COINIT_APARTMENTTHREADED
 Windows::Win32::CoInitializeEx
 Windows::Win32::DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
 Windows::Win32::E_FAIL
+Windows::Win32::ERROR_FILE_NOT_FOUND
 Windows::Win32::ERROR_INSUFFICIENT_BUFFER
+Windows::Win32::ERROR_PATH_NOT_FOUND
 Windows::Win32::GetCurrentPackageFullName
 Windows::Win32::GetDpiForWindow
 Windows::Win32::GetKeyboardState
@@ -442,6 +444,7 @@ Windows::Win32::ShowWindow
 Windows::Win32::SW_RESTORE
 Windows::Win32::GWL_EXSTYLE
 Windows::Win32::HeapFree
+Windows::Win32::HKEY_CURRENT_USER
 Windows::Win32::HWND_TOPMOST
 Windows::Win32::ICON_BIG
 Windows::Win32::ICON_SMALL
@@ -456,7 +459,9 @@ Windows::Win32::MonitorFromWindow
 Windows::Win32::PACKAGE_VERSION
 Windows::Win32::PackageDependencyProcessorArchitectures::{PackageDependencyProcessorArchitectures_Arm, PackageDependencyProcessorArchitectures_Arm64, PackageDependencyProcessorArchitectures_Neutral, PackageDependencyProcessorArchitectures_None, PackageDependencyProcessorArchitectures_X64, PackageDependencyProcessorArchitectures_X86}
 Windows::Win32::PostQuitMessage
+Windows::Win32::RegGetValueW
 Windows::Win32::RPC_E_CHANGED_MODE
+Windows::Win32::RRF_RT_REG_DWORD
 Windows::Win32::SendMessageW
 Windows::Win32::SetForegroundWindow
 Windows::Win32::SetLayeredWindowAttributes
@@ -475,6 +480,8 @@ Windows::Win32::SWP_NOSIZE
 Windows::Win32::SWP_NOZORDER
 Windows::Win32::TryCreatePackageDependency
 Windows::Win32::WM_SETICON
+Windows::Win32::WM_SETTINGCHANGE
+Windows::Win32::WM_THEMECHANGED
 Windows::Win32::WS_EX_LAYERED
 Windows::Win32::WS_EX_TOOLWINDOW
 Windows::Win32::WS_EX_TOPMOST

@@ -13,6 +13,7 @@ windows_core::link!("user32.dll" "system" fn MessageBoxW(hwnd : HWND, lptext : w
 windows_core::link!("user32.dll" "system" fn MonitorFromRect(lprc : LPCRECT, dwflags : u32) -> HMONITOR);
 windows_core::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : HWND, dwflags : u32) -> HMONITOR);
 windows_core::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
+windows_core::link!("advapi32.dll" "system" fn RegGetValueW(hkey : HKEY, lpsubkey : windows_core::PCWSTR, lpvalue : windows_core::PCWSTR, dwflags : u32, pdwtype : LPDWORD, pvdata : *mut core::ffi::c_void, pcbdata : LPDWORD) -> LSTATUS);
 windows_core::link!("user32.dll" "system" fn SendMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn SetForegroundWindow(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetLayeredWindowAttributes(hwnd : HWND, crkey : COLORREF, balpha : u8, dwflags : u32) -> windows_core::BOOL);
@@ -3654,7 +3655,9 @@ impl windows_core::RuntimeName for DropDownButton {
 }
 unsafe impl Send for DropDownButton {}
 unsafe impl Sync for DropDownButton {}
+pub const ERROR_FILE_NOT_FOUND: i32 = 2;
 pub const ERROR_INSUFFICIENT_BUFFER: i32 = 122;
+pub const ERROR_PATH_NOT_FOUND: i32 = 3;
 pub const E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80004005_u32 as _);
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -4921,6 +4924,13 @@ pub type HINSTANCE = *mut HINSTANCE__;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HINSTANCE__ {
+    pub unused: i32,
+}
+pub type HKEY = *mut HKEY__;
+pub const HKEY_CURRENT_USER: HKEY = -2147483647 as _;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HKEY__ {
     pub unused: i32,
 }
 pub type HMONITOR = *mut HMONITOR__;
@@ -23897,8 +23907,10 @@ impl windows_core::RuntimeType for KeyboardAcceleratorPlacementMode {
 }
 pub type LPARAM = isize;
 pub type LPCRECT = *const RECT;
+pub type LPDWORD = *mut u32;
 pub type LPMONITORINFO = *mut MONITORINFO;
 pub type LRESULT = isize;
+pub type LSTATUS = i32;
 pub const LWA_ALPHA: i32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -26411,6 +26423,7 @@ pub struct RECT {
     pub bottom: i32,
 }
 pub const RPC_E_CHANGED_MODE: windows_core::HRESULT = windows_core::HRESULT(0x80010106_u32 as _);
+pub const RRF_RT_REG_DWORD: i32 = 16;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadioButton(windows_core::IUnknown);
@@ -31733,6 +31746,8 @@ pub const WINDOWSAPPSDK_RUNTIME_VERSION_MINOR: u32 = 5;
 pub const WINDOWSAPPSDK_RUNTIME_VERSION_REVISION: u32 = 0;
 pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562971428323328;
 pub const WM_SETICON: i32 = 128;
+pub const WM_SETTINGCHANGE: i32 = 26;
+pub const WM_THEMECHANGED: i32 = 794;
 pub type WPARAM = usize;
 pub const WS_EX_LAYERED: i32 = 524288;
 pub const WS_EX_TOOLWINDOW: i32 = 128;

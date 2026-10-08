@@ -124,7 +124,10 @@ impl AppContext {
         let handle = APP_TRANSIENT_MENU.with(|host| {
             let mut host = host.borrow_mut();
             if host.is_none() {
-                *host = Some(TransientMenuHost::new(self.dispatcher.clone())?);
+                *host = Some(TransientMenuHost::new(
+                    self.dispatcher.clone(),
+                    MenuTheme::Application,
+                )?);
             }
             Ok::<_, windows_core::Error>(host.as_ref().unwrap().handle())
         })?;

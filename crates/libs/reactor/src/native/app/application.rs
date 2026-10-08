@@ -287,6 +287,7 @@ impl<A: Application> ApplicationState<A> {
                 if self.menu_host.is_none() {
                     self.menu_host = Some(TransientMenuHost::new(
                         self.application.state.borrow().context.dispatcher.clone(),
+                        MenuTheme::System,
                     )?);
                 }
                 self.menu_host
@@ -296,12 +297,7 @@ impl<A: Application> ApplicationState<A> {
                     .show(ScreenPoint::new(position.x, position.y), menu)?;
                 self.menu_owner = Some(event.key);
             }
-            NotifyIconEvent::Unavailable => {
-                return Err(windows_core::Error::new(
-                    E_FAIL,
-                    "the Windows Shell could not restore the notification icon",
-                ));
-            }
+            NotifyIconEvent::Recover => icon.native.recover()?,
         }
         Ok(())
     }

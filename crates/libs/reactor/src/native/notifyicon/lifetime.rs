@@ -8,7 +8,7 @@ fn builder_accepts_the_public_configuration() {
             NotifyIconEvent::Activate { position } | NotifyIconEvent::ContextMenu { position } => {
                 let _ = position;
             }
-            NotifyIconEvent::Unavailable => {}
+            NotifyIconEvent::Recover => {}
         });
 }
 
