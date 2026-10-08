@@ -1,4 +1,7 @@
 #[allow(dead_code)]
+#[path = "../../../tools/bindings/src/animation.rs"]
+mod animation;
+#[allow(dead_code)]
 mod sdk;
 
 fn main() {
@@ -14,7 +17,58 @@ fn main() {
         build_crypto();
         build_constants();
         build_ordinal();
+        build_animation();
     }
+}
+
+fn build_animation() {
+    let include = sdk::include();
+    let sal = sdk::tools()
+        .join("..")
+        .join("libs")
+        .join("clang2")
+        .join("src")
+        .join("sal.h");
+    for file in [
+        sdk::tools().join("bindings/src/animation.rs"),
+        sdk::tools().join("bindings/src/animation.txt"),
+        sal.clone(),
+        include.join("um/UIAnimation.h"),
+        include.join("um/dcomp.h"),
+        sdk::projection_metadata(),
+    ] {
+        println!("cargo:rerun-if-changed={}", file.display());
+    }
+    for file in ["input/animation.cpp", "input/animation_slots.cpp"] {
+        println!("cargo:rerun-if-changed={file}");
+    }
+    let plan = animation::project(
+        &std::env::var("TARGET").unwrap(),
+        &include,
+        &sal,
+        animation::inputs(),
+    )
+    .unwrap();
+    assert!(plan.omitted().is_empty(), "{:?}", plan.omitted());
+    let output = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+    let winmd = output.join("animation.winmd");
+    windows_rdl::reader()
+        .input_text(&plan.rdl())
+        .input(sdk::projection_metadata())
+        .reference_default()
+        .output(&winmd)
+        .write()
+        .unwrap();
+    sdk::animation_bindings(&winmd, &output.join("animation.rs"));
+    let mut build = cc::Build::new();
+    build.cpp(true);
+    for directory in ["shared", "um", "ucrt"] {
+        build.include(include.join(directory));
+    }
+    build
+        .file("input/animation.cpp")
+        .file("input/animation_slots.cpp")
+        .compile("clang2_animation");
 }
 
 fn build_ordinal() {

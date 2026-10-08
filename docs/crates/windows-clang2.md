@@ -2,17 +2,20 @@
 
 `windows-clang2` is an unpublished, side-by-side prototype for replacing `windows-clang`. This
 slice implements native capture, checked resolution, and a narrow RDL projection. It drives
-`tool-webview`; the full Win32 and WDK scrapers still use `windows-clang`.
+`tool-webview` and the animation profile in `tool-bindings`; the full Win32 and WDK scrapers still
+use `windows-clang`.
 
 See the [crate readme](../../crates/libs/clang2/readme.md) for a small API example.
 
 ## Viability decision
 
-Proceed with `windows-clang2` as the replacement architecture. The viability investigation is
-complete; full Win32/WDK coverage and production cutover are not. The owned native graph, checked
-cross-TU resolution, and separate RDL projection have supported real SDK declarations without
-building on the legacy extractor's output. The production WebView cutover supplies an existing
-end-to-end check. No architectural blocker has been identified in these workloads.
+Proceed with `windows-clang2` as the replacement architecture. The bounded consumer and header
+evidence supports that choice, not full Win32/WDK replacement approval. The owned native graph,
+checked cross-TU resolution, and separate RDL projection have supported real SDK declarations
+without building on the legacy extractor's output. WebView and Animation use the new path in their
+actual binding generators. No architectural blocker has been identified in these workloads.
+Remaining canonical profile/name reconciliation, unsupported projection families, and resource
+budgets are replacement gates, not exceptions to hide.
 
 Further work should implement missing source-to-RDL cases, not repeat downstream runtime
 validation. Use small `.h`/`.rdl` fixtures, compiler-reported evidence, and complete real-header
@@ -368,6 +371,13 @@ UUID-bearing forward class declarations emit `#[guid(...)] class Name;`, not a f
 variable, empty object layout, or WinRT runtime class. The native report still marks the class
 incomplete. Object use remains rejected without a captured definition. UUID evidence is combined
 across checked declarations independently of which complete definition supplies members.
+
+`ProjectionOptions::class_guids` selects GUID-constant publication for these opaque classes and
+supplies the trusted metadata GUID value type. It requires a value binding, retains source
+ownership, and uses the checked compiler UUID. It does not create a missing object definition,
+infer a class factory, or supply a value for a declaration-only data symbol. Animation uses this
+policy for the native activation class identities; generic inventories retain the default class
+representation.
 
 Record storage can include gaps required by increased member alignment. Each explicit gap is a
 union of a byte array and a zero-length array, not an ordinary initialized byte field: native
@@ -987,6 +997,46 @@ agreement, and source annotation contexts keep their original positional binding
 `parameter_names.h` checks permutations, escaping, fallback collisions, and buffer metadata.
 Broader annotations, native ARM64 execution, and SDK-wide production coverage remain open.
 
+### Live Animation cutover
+
+`tool-bindings` generates `windows-animation` through clang2 using the pinned Win32 SDK. Its
+existing filter selects eight native roots; no local animation interface, enum, keyframe, or
+activation identity is supplied by bundled animation metadata. UI Animation and DirectComposition
+have separate translation units. Core COM types and `IDCompositionAnimation` are explicit external
+contracts, as appropriate for the crate's COM and graphics bridge.
+
+The DirectComposition interface has a by-value `LARGE_INTEGER` method that generic projection still
+rejects. This profile does not remove that ABI gate or pretend to support that call. Its exposed
+operation passes an interface pointer to native Animation; a C++ receiver checks that handoff.
+Opaque animation activation classes use the typed `class_guids` publication policy. Their constants
+come from checked source UUID attributes; default class projection remains unchanged.
+
+| Gate | Result and scope |
+| --- | --- |
+| Source closure | All eight filter roots project on x86/x64/ARM64, with reversed input order producing the same RDL. |
+| Safe consumer | The actual `Manager`, `Variable`, `Storyboard`, `Keyframe`, and transition wrapper sources compile unchanged. |
+| Native identity and slots | MSVC checks eight identities, all 13 selected method offsets, and keyframe size/alignment on x86/x64. |
+| Live COM behavior | x86/x64 execute exact-value linear and instantaneous transitions, accelerated storyboard sequencing, and native curve handoff. |
+| Actual generator | `tool-bindings` writes the committed animation bindings from `target/animation/Animation.winmd`; other generated bindings remain unchanged. |
+| Remaining scope | ARM64 execution, generic by-value union ABI, canonical Win32/WDK publication, and broad projection parity are not certified. |
+
+The generated animation-only types retain source record-pointer storage and native enum tags.
+Those are private binding details; the crate's safe application API does not change. The headless
+storyboard sample and the animation crate's existing integration coverage run against the actual
+switched bindings.
+
+```text
+cargo run -p tool-bindings --quiet
+cargo test -p test_clang2 --test animation
+cargo test -p test_clang2 --target i686-pc-windows-msvc --test animation native
+cargo test -p test_animation
+cargo run -p animation-storyboard
+```
+
+This is a second bounded production consumer, not a replacement for the full-header inventory.
+Continue with shared callable/record representation, source data definitions, and explicit
+profile/name reconciliation instead of adding another downstream validation campaign.
+
 ### Header-driven Win32 main/satellite slice
 
 ```powershell
@@ -1425,9 +1475,9 @@ over the old extractor's lossy output. Proceed through bounded gates, not an unc
 
 ### Current baseline
 
-The old `windows-clang` implementation remains available. `tool-webview` uses clang2; the other
-production scrapers retain their existing path. Inspect the worktree before restarting and
-preserve any local changes.
+The old `windows-clang` implementation remains available. `tool-webview` and the animation profile
+in `tool-bindings` use clang2; the full Win32/WDK scrapers retain their existing path. Inspect the
+worktree before restarting and preserve any local changes.
 
 The green baseline includes the explicit BCrypt string contract and preserved WebView MIDL
 annotations. Callable names are deterministic presentation data, independent of input filenames and

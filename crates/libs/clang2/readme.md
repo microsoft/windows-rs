@@ -168,6 +168,11 @@ contracts across observations fail projection even when their native types agree
 preserve handles and string aliases without folding them into surrounding raw-pointer levels. SAL
 string bindings must agree with any explicit external typedef binding.
 
+`ProjectionOptions::class_guids` optionally supplies a GUID value binding for publishing
+UUID-bearing opaque native classes as constants. The UUID still comes from checked compiler
+attributes; this policy supplies neither an object definition nor an initializer for unrelated
+data declarations. Without the policy, those classes retain their opaque RDL declarations.
+
 `ProjectionOptions::pointer_sized` maps explicit native integer typedefs to `PointerSized::Signed`
 or `PointerSized::Unsigned`. Every captured observation must have the corresponding signedness and
 the target's pointer size and alignment. Uses become existing RDL `isize`/`usize` types; unbound
@@ -209,6 +214,14 @@ release. The actual `tool-webview` also uses clang2 to generate the committed bi
 viability gate is x64 debug, not a full architecture certification matrix. Broader annotations and
 other production consumers still need coverage. See the continuation page for commands and open
 gates.
+
+`tool-bindings` also uses clang2 for `windows-animation`. Its eight filter roots come from the
+pinned SDK's UI Animation header, with a separate DirectComposition translation unit and explicit
+core COM/DirectComposition contracts. The actual safe wrapper sources compile unchanged against
+the resulting bindings. Native x86/x64 gates check SDK UUIDs, all 13 selected method slots,
+opaque keyframe layout, exact-value transitions and storyboards, and curve handoff to a C++
+DirectComposition receiver. Capture/projection covers x86, x64, and ARM64; ARM64 runtime remains
+unverified. The full Win32/WDK metadata route is not switched by these consumer cutovers.
 
 `tool-win32 --clang2-audio --rdl-only` is a bounded x64 path through the real main/satellite input
 assembly for `mmdeviceapi.h` and `endpointvolume.h`. Header discovery feeds a declaration-outcome

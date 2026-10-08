@@ -40,7 +40,7 @@ impl IUIAnimationManager2 {
         &self,
         variable: P0,
         transition: P1,
-        timenow: UI_ANIMATION_SECONDS,
+        timenow: f64,
     ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAnimationVariable2>,
@@ -67,8 +67,8 @@ impl IUIAnimationManager2 {
     }
     pub(crate) unsafe fn Update(
         &self,
-        timenow: UI_ANIMATION_SECONDS,
-        updateresult: Option<*mut UI_ANIMATION_UPDATE_RESULT>,
+        timenow: f64,
+        updateresult: Option<*mut __MIDL___MIDL_itf_UIAnimation_0000_0000_0001>,
     ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Update)(
@@ -92,7 +92,7 @@ pub struct IUIAnimationManager2_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        UI_ANIMATION_SECONDS,
+        f64,
     ) -> windows_core::HRESULT,
     pub CreateStoryboard: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -102,8 +102,8 @@ pub struct IUIAnimationManager2_Vtbl {
     AbandonAllStoryboards: usize,
     pub Update: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        UI_ANIMATION_SECONDS,
-        *mut UI_ANIMATION_UPDATE_RESULT,
+        f64,
+        *mut __MIDL___MIDL_itf_UIAnimation_0000_0000_0001,
     ) -> windows_core::HRESULT,
     GetVariableFromTag: usize,
     GetStoryboardFromTag: usize,
@@ -148,7 +148,7 @@ impl IUIAnimationStoryboard2 {
     pub(crate) unsafe fn AddKeyframeAfterTransition<P0>(
         &self,
         transition: P0,
-    ) -> windows_core::Result<UI_ANIMATION_KEYFRAME>
+    ) -> windows_core::Result<*mut __MIDL___MIDL_itf_UIAnimation_0000_0002_0003>
     where
         P0: windows_core::Param<IUIAnimationTransition2>,
     {
@@ -166,7 +166,7 @@ impl IUIAnimationStoryboard2 {
         &self,
         variable: P0,
         transition: P1,
-        startkeyframe: UI_ANIMATION_KEYFRAME,
+        startkeyframe: *const __MIDL___MIDL_itf_UIAnimation_0000_0002_0003,
     ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAnimationVariable2>,
@@ -183,8 +183,8 @@ impl IUIAnimationStoryboard2 {
     }
     pub(crate) unsafe fn Schedule(
         &self,
-        timenow: UI_ANIMATION_SECONDS,
-        schedulingresult: Option<*mut UI_ANIMATION_SCHEDULING_RESULT>,
+        timenow: f64,
+        schedulingresult: Option<*mut __MIDL___MIDL_itf_UIAnimation_0000_0002_0002>,
     ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Schedule)(
@@ -207,13 +207,13 @@ pub struct IUIAnimationStoryboard2_Vtbl {
     pub AddKeyframeAfterTransition: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut UI_ANIMATION_KEYFRAME,
+        *mut *mut __MIDL___MIDL_itf_UIAnimation_0000_0002_0003,
     ) -> windows_core::HRESULT,
     pub AddTransitionAtKeyframe: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        UI_ANIMATION_KEYFRAME,
+        *const __MIDL___MIDL_itf_UIAnimation_0000_0002_0003,
     ) -> windows_core::HRESULT,
     AddTransitionBetweenKeyframes: usize,
     RepeatBetweenKeyframes: usize,
@@ -222,8 +222,8 @@ pub struct IUIAnimationStoryboard2_Vtbl {
     SetSkipDuration: usize,
     pub Schedule: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        UI_ANIMATION_SECONDS,
-        *mut UI_ANIMATION_SCHEDULING_RESULT,
+        f64,
+        *mut __MIDL___MIDL_itf_UIAnimation_0000_0002_0002,
     ) -> windows_core::HRESULT,
     Conclude: usize,
     Finish: usize,
@@ -276,7 +276,7 @@ impl IUIAnimationTransitionLibrary2 {
     }
     pub(crate) unsafe fn CreateLinearTransition(
         &self,
-        duration: UI_ANIMATION_SECONDS,
+        duration: f64,
         finalvalue: f64,
     ) -> windows_core::Result<IUIAnimationTransition2> {
         unsafe {
@@ -292,7 +292,7 @@ impl IUIAnimationTransitionLibrary2 {
     }
     pub(crate) unsafe fn CreateAccelerateDecelerateTransition(
         &self,
-        duration: UI_ANIMATION_SECONDS,
+        duration: f64,
         finalvalue: f64,
         accelerationratio: f64,
         decelerationratio: f64,
@@ -325,7 +325,7 @@ pub struct IUIAnimationTransitionLibrary2_Vtbl {
     CreateDiscreteVectorTransition: usize,
     pub CreateLinearTransition: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        UI_ANIMATION_SECONDS,
+        f64,
         f64,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -336,7 +336,7 @@ pub struct IUIAnimationTransitionLibrary2_Vtbl {
     CreateSinusoidalTransitionFromRange: usize,
     pub CreateAccelerateDecelerateTransition: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        UI_ANIMATION_SECONDS,
+        f64,
         f64,
         f64,
         f64,
@@ -420,7 +420,11 @@ pub const UIAnimationManager2: windows_core::GUID =
     windows_core::GUID::from_u128(0xd25d8842_8884_4a4a_b321_091314379bdd);
 pub const UIAnimationTransitionLibrary2: windows_core::GUID =
     windows_core::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
-pub type UI_ANIMATION_KEYFRAME = *mut core::ffi::c_void;
-pub type UI_ANIMATION_SCHEDULING_RESULT = i32;
-pub type UI_ANIMATION_SECONDS = f64;
-pub type UI_ANIMATION_UPDATE_RESULT = i32;
+pub type UI_ANIMATION_KEYFRAME = *mut __MIDL___MIDL_itf_UIAnimation_0000_0002_0003;
+pub type __MIDL___MIDL_itf_UIAnimation_0000_0000_0001 = i32;
+pub type __MIDL___MIDL_itf_UIAnimation_0000_0002_0002 = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct __MIDL___MIDL_itf_UIAnimation_0000_0002_0003 {
+    pub unused: i32,
+}

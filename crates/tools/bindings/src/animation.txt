@@ -1,13 +1,14 @@
+--in target/animation/Animation.winmd default
 --out crates/libs/animation/src/bindings.rs
 --flat --minimal --dead-code
 
 
 --filter
-    IUIAnimationManager2::{CreateAnimationVariable, CreateStoryboard, Update, ScheduleTransition}
-    IUIAnimationStoryboard2::{AddTransition, AddKeyframeAfterTransition, AddTransitionAtKeyframe, Schedule}
-    IUIAnimationTransition2::{}
-    IUIAnimationTransitionLibrary2::{CreateAccelerateDecelerateTransition, CreateLinearTransition, CreateInstantaneousTransition}
-    IUIAnimationVariable2::{GetValue, GetCurve}
-    UI_ANIMATION_KEYFRAME
-    UIAnimationManager2
-    UIAnimationTransitionLibrary2
+    Animation.IUIAnimationManager2::{CreateAnimationVariable, CreateStoryboard, Update, ScheduleTransition}
+    Animation.IUIAnimationStoryboard2::{AddTransition, AddKeyframeAfterTransition, AddTransitionAtKeyframe, Schedule}
+    Animation.IUIAnimationTransition2::{}
+    Animation.IUIAnimationTransitionLibrary2::{CreateAccelerateDecelerateTransition, CreateLinearTransition, CreateInstantaneousTransition}
+    Animation.IUIAnimationVariable2::{GetValue, GetCurve}
+    Animation.UI_ANIMATION_KEYFRAME
+    Animation.UIAnimationManager2
+    Animation.UIAnimationTransitionLibrary2

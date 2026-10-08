@@ -1,5 +1,7 @@
 use windows_bindgen::*;
 
+mod animation;
+
 fn main() {
     let time = std::time::Instant::now();
 
@@ -20,7 +22,7 @@ fn main() {
     bindgen(["--etc", "crates/tools/bindings/src/services.txt"]);
 
     bindgen(["--etc", "crates/tools/bindings/src/canvas.txt"]);
-    bindgen(["--etc", "crates/tools/bindings/src/animation.txt"]);
+    animation::generate();
     bindgen(["--etc", "crates/tools/bindings/src/pickers.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/notifyicon.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/notifyicon_test.txt"]);

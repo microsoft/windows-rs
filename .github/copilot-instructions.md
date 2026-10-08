@@ -308,6 +308,16 @@ Prioritize verified header prerequisites and record layouts using `docs/crates/w
 not symbol whitelists, guessed constants, or legacy extraction fallback. The production backend
 remains unchanged; full source/RDL inventory is not a completed replacement gate.
 
+### Clang2 Animation cutover
+
+`tool-bindings` generates Animation through clang2 from the pinned SDK and the actual
+`animation.txt` filter. Core COM and `IDCompositionAnimation` are explicit subsystem contracts;
+local animation declarations do not resolve through default metadata. `class_guids` publishes
+opaque source class UUIDs as typed GUID constants without inventing object definitions or data
+initializers. `test_clang2` `animation.rs` checks actual wrapper sources, native identities/slots,
+keyframe layout, live transitions/storyboards, and curve handoff on x86/x64. ARM64 is projection
+only; the generic by-value union gate stays closed.
+
 ### Clang2 WebView2 cutover blockers
 
 `test_clang2` `webview.rs` covers six `HWND` inputs and two host-object `VARIANT*` inputs with an

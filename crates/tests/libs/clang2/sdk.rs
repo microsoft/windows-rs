@@ -3,6 +3,31 @@ use windows_clang2::{
     Input, ProjectionOptions, ReferenceKind, Snapshot, StringKind, TypeReference, capture,
 };
 
+pub fn animation_bindings(winmd: &Path, output: &Path) {
+    let mut arguments = vec![
+        "--in".to_string(),
+        "default".into(),
+        winmd.to_str().unwrap().into(),
+        "--out".into(),
+        output.to_str().unwrap().into(),
+        "--flat".into(),
+        "--minimal".into(),
+        "--dead-code".into(),
+        "--filter".into(),
+    ];
+    arguments.extend(
+        include_str!("../../../tools/bindings/src/animation.txt")
+            .split_once("--filter")
+            .unwrap()
+            .1
+            .lines()
+            .map(str::trim)
+            .filter(|line| !line.is_empty())
+            .map(str::to_string),
+    );
+    windows_bindgen::bindgen(arguments);
+}
+
 pub fn include() -> PathBuf {
     let version = helpers::read_str_const(
         tools().join("win32").join("src").join("main.rs"),

@@ -41,7 +41,7 @@ jobs:
       - name: Install rustfmt
         run: rustup component add rustfmt
       - name: Configure Windows SDK include paths
-        if: matrix.tool == 'webview'
+        if: matrix.tool == 'webview' || matrix.tool == 'bindings'
         uses: ./.github/actions/fix-environment
         with:
           update-packages: false

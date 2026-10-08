@@ -82,6 +82,8 @@ pub struct ProjectionOptions {
     pub exclude_inline_functions: bool,
     /// Trusted pointer-sized value types for SAL-annotated null-terminated strings.
     pub string_references: BTreeMap<StringKind, TypeReference>,
+    /// Publish UUID-bearing opaque native classes as GUID constants instead of class declarations.
+    pub class_guids: Option<TypeReference>,
 }
 
 impl ProjectionOptions {
@@ -94,6 +96,7 @@ impl ProjectionOptions {
             pointer_sized: BTreeMap::new(),
             exclude_inline_functions: false,
             string_references: BTreeMap::new(),
+            class_guids: None,
         }
     }
 }
@@ -614,6 +617,14 @@ impl<'s> Resolved<'s> {
             ));
         }
         let namespace = namespace(&options.namespace)?;
+        if let Some(reference) = &options.class_guids {
+            if reference.kind != ReferenceKind::Value {
+                return Err(Error(
+                    "class GUID constants require a metadata value type".into(),
+                ));
+            }
+            namespace_name(reference)?;
+        }
         for (name, contract) in &options.pointer_sized {
             if options.references.contains_key(name) {
                 return Err(Error(format!(
@@ -918,8 +929,16 @@ impl<'s> Builder<'_, 's> {
                 && methods.is_empty()
                 && guid.is_some() =>
             {
-                Item::Class {
-                    guid: guid.unwrap().into(),
+                if let Some(reference) = &self.options.class_guids {
+                    Item::GuidConstant {
+                        ty: ProjectedType::Named(namespace_name(reference)?, None),
+                        guid: u128::from_str_radix(&guid.unwrap().replace('-', ""), 16).unwrap(),
+                        pid: None,
+                    }
+                } else {
+                    Item::Class {
+                        guid: guid.unwrap().into(),
+                    }
                 }
             }
             DeclarationData::Record {

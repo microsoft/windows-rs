@@ -135,3 +135,51 @@ fn identity_does_not_supply_layout_or_missing_values() {
         );
     }
 }
+
+#[test]
+fn class_guid_publication_preserves_compiler_identity_and_source_ownership() {
+    let header = Path::new(env!("CARGO_MANIFEST_DIR")).join("input/class.h");
+    let snapshot = capture(
+        [
+            Input::new(header.to_str().unwrap(), include_str!("../input/class.h")),
+            Input::new("plain.h", "class NativeClass;"),
+        ],
+        ARGS,
+        &["NativeClass"],
+    )
+    .unwrap();
+    let mut options = ProjectionOptions::new("Test");
+    options.class_guids = Some(TypeReference {
+        namespace: "Windows.Win32".into(),
+        name: "GUID".into(),
+        kind: ReferenceKind::Value,
+    });
+    let plan = snapshot.resolve().unwrap().project(&options).unwrap();
+    let expected = include_str!("../expected/class_guids.rdl").replace("\r\n", "\n");
+    assert_eq!(plan.rdl(), expected);
+    let partitions = plan.rdl_by_header().unwrap();
+    assert_eq!(partitions.len(), 1);
+    let (owner, text) = partitions.first_key_value().unwrap();
+    assert_eq!(Path::new(owner), header);
+    assert_eq!(text, &expected);
+    options.class_guids.as_mut().unwrap().kind = ReferenceKind::Interface;
+    let error = snapshot.resolve().unwrap().project(&options).unwrap_err();
+    assert!(error.to_string().contains("metadata value type"), "{error}");
+    options.class_guids.as_mut().unwrap().kind = ReferenceKind::Value;
+    options.library = Some("test.dll".into());
+    for root in ["Missing", "Empty", "Data", "UseIdentity", "UnknownValue"] {
+        let snapshot = capture(
+            [Input::new(
+                "limits.h",
+                include_str!("../input/class_limits.h"),
+            )],
+            ARGS,
+            &[root],
+        )
+        .unwrap();
+        assert!(
+            snapshot.resolve().unwrap().project(&options).is_err(),
+            "{root}"
+        );
+    }
+}
