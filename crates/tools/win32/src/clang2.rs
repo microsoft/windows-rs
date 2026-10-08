@@ -5,32 +5,154 @@ use windows_clang2::{
 };
 
 pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
-    let time = std::time::Instant::now();
-    let output = std::path::Path::new(if rdl_only {
-        "target/win32-clang2/audio-rdl"
-    } else {
-        "target/win32-clang2/audio"
-    });
-    std::fs::create_dir_all(output)?;
-    for file in [
-        "audio.rdl",
-        "audio.winmd",
-        "src/bindings.rs",
-        "inventory.tsv",
-        "headers.tsv",
+    let mut options = ProjectionOptions::new("Win32Audio");
+    for (native, namespace, name, kind) in [
+        (
+            "HRESULT",
+            "Windows.Foundation",
+            "HResult",
+            ReferenceKind::Value,
+        ),
+        ("BOOL", ROOT, "BOOL", ReferenceKind::Value),
+        ("IUnknown", ROOT, "IUnknown", ReferenceKind::Interface),
+        (
+            "IPropertyStore",
+            ROOT,
+            "IPropertyStore",
+            ReferenceKind::Interface,
+        ),
+        ("tagPROPVARIANT", ROOT, "PROPVARIANT", ReferenceKind::Value),
+        ("LPWSTR", ROOT, "PWSTR", ReferenceKind::Value),
+        ("LPCWSTR", ROOT, "PCWSTR", ReferenceKind::Value),
     ] {
-        let file = output.join(file);
-        if file.exists() {
-            std::fs::remove_file(file)?;
+        options.references.insert(
+            native.into(),
+            TypeReference {
+                namespace: namespace.into(),
+                name: name.into(),
+                kind,
+            },
+        );
+    }
+    imports(&mut options, &["mmdevapi.lib"])?;
+    generate(
+        "audio",
+        &["mmdeviceapi.h", "endpointvolume.h"],
+        &options,
+        vec![Input::new(
+            "clang-win32-audio-values.hpp",
+            format!("{PRELUDE}\n#include <initguid.h>\n#include <mmdeviceapi.h>"),
+        )],
+        rdl_only,
+    )
+}
+
+pub fn headers(headers: &[&str]) -> Result<(), Box<dyn std::error::Error>> {
+    validate_headers(headers)?;
+    let mut options = header_options();
+    imports(&mut options, &["shcore.lib", "kernel32.lib", "pathcch.lib"])?;
+    let name = headers
+        .iter()
+        .map(|header| rdl_partition_stem(header))
+        .collect::<Vec<_>>()
+        .join("-");
+    generate(&name, headers, &options, vec![], true)
+}
+
+fn validate_headers(headers: &[&str]) -> Result<(), Box<dyn std::error::Error>> {
+    if headers.is_empty()
+        || headers
+            .iter()
+            .any(|header| !HEADERS.contains(header) && !SATELLITE_HEADERS.contains(header))
+    {
+        return Err("clang2 headers must name entries in the tool-win32 header manifest".into());
+    }
+    if headers.iter().copied().collect::<BTreeSet<_>>().len() != headers.len() {
+        return Err("clang2 headers must not contain duplicate entries".into());
+    }
+    Ok(())
+}
+
+fn header_options() -> ProjectionOptions {
+    let mut options = ProjectionOptions::new(ROOT);
+    for name in [
+        "HRESULT",
+        "BOOL",
+        "HANDLE",
+        "HWND",
+        "HMONITOR",
+        "HMODULE",
+        "DEVICE_SCALE_FACTOR",
+        "PCWSTR",
+        "PWSTR",
+    ] {
+        options.references.insert(
+            name.into(),
+            TypeReference {
+                namespace: ROOT.into(),
+                name: name.into(),
+                kind: ReferenceKind::Value,
+            },
+        );
+    }
+    options
+}
+
+fn imports(
+    options: &mut ProjectionOptions,
+    libraries: &[&str],
+) -> Result<(), Box<dyn std::error::Error>> {
+    let dirs = sdk_lib_dirs();
+    for library in libraries {
+        let library = resolve(library, &dirs, "library", "pinned SDK libraries");
+        for import in windows_rdl::implib::read(&std::fs::read(library)?)? {
+            if import.kind != windows_rdl::implib::ImportKind::Code {
+                continue;
+            }
+            let target = match import.target {
+                windows_rdl::implib::ImportTarget::Name(name) => {
+                    windows_clang2::ImportTarget::Name(name)
+                }
+                windows_rdl::implib::ImportTarget::Ordinal(ordinal) => {
+                    windows_clang2::ImportTarget::Ordinal(ordinal)
+                }
+            };
+            let value = FunctionImport {
+                library: import.dll,
+                target,
+            };
+            if let Some(previous) = options.imports.insert(import.symbol.clone(), value)
+                && previous != options.imports[&import.symbol]
+            {
+                return Err(format!("conflicting DLL imports for `{}`", import.symbol).into());
+            }
         }
     }
+    Ok(())
+}
+
+fn generate(
+    name: &str,
+    headers: &[&str],
+    options: &ProjectionOptions,
+    definitions: Vec<Input>,
+    rdl_only: bool,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let time = std::time::Instant::now();
+    let output = std::path::PathBuf::from(if rdl_only {
+        format!("target/win32-clang2/{name}-rdl")
+    } else {
+        format!("target/win32-clang2/{name}")
+    });
+    let output = output.as_path();
+    clear_outputs(output)?;
+    let rdl = output.join("rdl");
     let include_dirs = sdk_include_dirs();
-    let headers = ["mmdeviceapi.h", "endpointvolume.h"];
     let files: Vec<_> = headers
         .iter()
         .map(|header| resolve(header, &include_dirs, "header", "pinned SDK include"))
         .collect();
-    let inputs: Vec<_> = clang_inputs(&headers, &include_dirs, false)
+    let inputs: Vec<_> = clang_inputs(headers, &include_dirs, false)
         .into_iter()
         .map(|input| Input::new(input.name, input.source))
         .collect();
@@ -61,12 +183,17 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
         .map(|name| (*name, ("blocked", "capture has not completed".to_string())))
         .collect();
     report(output, &inventory, &outcomes);
+    if let Some(root) = roots
+        .iter()
+        .find(|root| options.references.contains_key(**root))
+    {
+        let error =
+            format!("selected header declaration `{root}` has an external metadata binding");
+        blocked(output, &inventory, &mut outcomes, "selection", &error);
+        return Err(error.into());
+    }
     let mut capture_inputs = inputs;
-    // The SDK's definition mode supplies initializers without replacing declaration observations.
-    capture_inputs.push(Input::new(
-        "clang-win32-audio-values.hpp",
-        format!("{PRELUDE}\n#include <initguid.h>\n#include <mmdeviceapi.h>"),
-    ));
+    capture_inputs.extend(definitions);
     let snapshot = windows_clang2::capture(
         capture_inputs,
         &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
@@ -78,76 +205,16 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
     let resolved = snapshot.resolve().inspect_err(|error| {
         blocked(output, &inventory, &mut outcomes, "resolution", error);
     })?;
-    // Keep candidate definitions distinct from the bundled metadata used for external references.
-    let mut options = ProjectionOptions::new("Win32Audio");
-    for (native, namespace, name, kind) in [
-        (
-            "HRESULT",
-            "Windows.Foundation",
-            "HResult",
-            ReferenceKind::Value,
-        ),
-        ("BOOL", "Windows.Win32", "BOOL", ReferenceKind::Value),
-        (
-            "IUnknown",
-            "Windows.Win32",
-            "IUnknown",
-            ReferenceKind::Interface,
-        ),
-        (
-            "IPropertyStore",
-            "Windows.Win32",
-            "IPropertyStore",
-            ReferenceKind::Interface,
-        ),
-        (
-            "tagPROPVARIANT",
-            "Windows.Win32",
-            "PROPVARIANT",
-            ReferenceKind::Value,
-        ),
-        ("LPWSTR", "Windows.Win32", "PWSTR", ReferenceKind::Value),
-        ("LPCWSTR", "Windows.Win32", "PCWSTR", ReferenceKind::Value),
-    ] {
-        options.references.insert(
-            native.into(),
-            TypeReference {
-                namespace: namespace.into(),
-                name: name.into(),
-                kind,
-            },
-        );
-    }
-
-    let library = resolve(
-        "mmdevapi.lib",
-        &sdk_lib_dirs(),
-        "library",
-        "pinned SDK libraries",
-    );
-    for import in windows_rdl::implib::read(&std::fs::read(library)?)? {
-        if import.kind != windows_rdl::implib::ImportKind::Code {
-            continue;
-        }
-        let target = match import.target {
-            windows_rdl::implib::ImportTarget::Name(name) => {
-                windows_clang2::ImportTarget::Name(name)
-            }
-            windows_rdl::implib::ImportTarget::Ordinal(ordinal) => {
-                windows_clang2::ImportTarget::Ordinal(ordinal)
-            }
-        };
-        let value = FunctionImport {
-            library: import.dll,
-            target,
-        };
-        if let Some(previous) = options.imports.insert(import.symbol.clone(), value) {
-            assert_eq!(previous, options.imports[&import.symbol]);
-        }
-    }
-
     let mut supported = vec![];
-    let projection = resolved.projection(&options)?;
+    let projection = resolved.projection(options).inspect_err(|error| {
+        blocked(
+            output,
+            &inventory,
+            &mut outcomes,
+            "projection policy",
+            error,
+        );
+    })?;
     for root in &roots {
         let rejected = match projection.project_roots(&[root]) {
             Ok(plan) if plan.omitted().is_empty() => None,
@@ -155,7 +222,7 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
             Err(error) => Some(error.to_string()),
         };
         if let Some(reason) = rejected {
-            eprintln!("clang2 audio: rejected {root}: {reason}");
+            eprintln!("clang2 {name}: rejected {root}: {reason}");
             outcomes.insert(root, ("rejected", format!("projection: {reason}")));
         } else {
             supported.push(*root);
@@ -166,6 +233,13 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
         }
     }
     report(output, &inventory, &outcomes);
+    if supported.is_empty() {
+        return Err(format!(
+            "no header roots can be projected; see {}",
+            output.join("inventory.tsv").display()
+        )
+        .into());
+    }
     let plan = projection.project_roots(&supported).inspect_err(|error| {
         blocked(
             output,
@@ -177,7 +251,7 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
     })?;
     assert!(
         plan.omitted().is_empty(),
-        "omitted audio roots: {:?}",
+        "omitted header roots: {:?}",
         plan.omitted()
     );
     for root in &supported {
@@ -187,19 +261,6 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
         );
     }
     report(output, &inventory, &outcomes);
-    let rdl = output.join("rdl");
-    std::fs::create_dir_all(&rdl)?;
-    for entry in std::fs::read_dir(&rdl)? {
-        let entry = entry?;
-        if entry.file_type()?.is_file()
-            && entry
-                .path()
-                .extension()
-                .is_some_and(|extension| extension == "rdl")
-        {
-            std::fs::remove_file(entry.path())?;
-        }
-    }
     let winmd = output.join("audio.winmd");
     let mut reader = windows_rdl::reader();
     let mut partitions = BTreeMap::new();
@@ -273,7 +334,7 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
     }
     report(output, &inventory, &outcomes);
     println!(
-        "clang2 audio: {} discovered rows, {} selected names, {} emitted, {} rejected; \
+        "clang2 {name}: {} discovered rows, {} selected names, {} emitted, {} rejected; \
          {} groups, {} observations, {} declaration pairs; generated in {:.2}s at {}",
         inventory.len(),
         roots.len(),
@@ -287,10 +348,38 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
     );
     if supported.len() != roots.len() {
         return Err(format!(
-            "audio header coverage is incomplete; see {}",
+            "header coverage is incomplete; see {}",
             output.join("inventory.tsv").display()
         )
         .into());
+    }
+    Ok(())
+}
+
+fn clear_outputs(output: &std::path::Path) -> std::io::Result<()> {
+    std::fs::create_dir_all(output.join("rdl"))?;
+    for file in [
+        "audio.rdl",
+        "audio.winmd",
+        "src/bindings.rs",
+        "inventory.tsv",
+        "headers.tsv",
+    ] {
+        let file = output.join(file);
+        if file.exists() {
+            std::fs::remove_file(file)?;
+        }
+    }
+    for entry in std::fs::read_dir(output.join("rdl"))? {
+        let entry = entry?;
+        if entry.file_type()?.is_file()
+            && entry
+                .path()
+                .extension()
+                .is_some_and(|extension| extension == "rdl")
+        {
+            std::fs::remove_file(entry.path())?;
+        }
     }
     Ok(())
 }
@@ -352,6 +441,42 @@ fn blocked(
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn header_selection_is_explicit_and_bounded() {
+        assert!(validate_headers(&["shellscalingapi.h", "tlhelp32.h"]).is_ok());
+        for headers in [
+            &[][..],
+            &[""],
+            &["missing.h"],
+            &["shellscalingapi.h", "shellscalingapi.h"],
+        ] {
+            assert!(validate_headers(headers).is_err());
+        }
+        let options = header_options();
+        assert!(!options.references.contains_key("PROCESSENTRY32"));
+        assert!(!options.references.contains_key("MONITOR_DPI_TYPE"));
+        assert!(options.library.is_none());
+    }
+
+    #[test]
+    fn output_cleanup_removes_stale_results_before_capture() {
+        let output = std::env::temp_dir().join(format!("clang2-cleanup-{}", std::process::id()));
+        std::fs::create_dir_all(output.join("rdl")).unwrap();
+        std::fs::write(output.join("rdl/previous.rdl"), "stale").unwrap();
+        std::fs::write(output.join("rdl/keep.txt"), "keep").unwrap();
+        std::fs::write(output.join("inventory.tsv"), "stale").unwrap();
+        clear_outputs(&output).unwrap();
+        assert!(!output.join("rdl/previous.rdl").exists());
+        assert!(!output.join("inventory.tsv").exists());
+        assert_eq!(
+            std::fs::read_to_string(output.join("rdl/keep.txt")).unwrap(),
+            "keep"
+        );
+        std::fs::remove_file(output.join("rdl/keep.txt")).unwrap();
+        std::fs::remove_dir(output.join("rdl")).unwrap();
+        std::fs::remove_dir(output).unwrap();
+    }
 
     #[test]
     fn inventory_reports_rejections_and_exclusions_without_hiding_data() {

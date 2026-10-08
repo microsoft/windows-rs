@@ -830,11 +830,16 @@ const LIBRARY_OVERRIDES: &[LibraryOverride] = &[
 fn main() {
     let time = std::time::Instant::now();
     let args: Vec<_> = std::env::args().skip(1).collect();
-    let (audio, rdl_only) = match args.as_slice() {
-        [] => (false, false),
-        [arg] if arg == "--clang2-audio" => (true, false),
-        [arg, mode] if arg == "--clang2-audio" && mode == "--rdl-only" => (true, true),
-        _ => panic!("usage: tool-win32 [--clang2-audio [--rdl-only]]"),
+    let (audio, rdl_only, headers) = match args.as_slice() {
+        [] => (false, false, None),
+        [arg] if arg == "--clang2-audio" => (true, false, None),
+        [arg, mode] if arg == "--clang2-audio" && mode == "--rdl-only" => (true, true, None),
+        [arg, headers, mode] if arg == "--clang2-headers" && mode == "--rdl-only" => {
+            (false, true, Some(headers))
+        }
+        _ => panic!(
+            "usage: tool-win32 [--clang2-audio [--rdl-only] | --clang2-headers header,... --rdl-only]"
+        ),
     };
 
     for name in ARCHS {
@@ -852,6 +857,14 @@ fn main() {
     // manual `nuget restore`. Shared by both scrape phases, so it runs once here.
     ensure_libclang();
     assert_libclang_version();
+
+    if let Some(headers) = headers {
+        if let Err(error) = clang2::headers(&headers.split(',').collect::<Vec<_>>()) {
+            eprintln!("{error}");
+            std::process::exit(1);
+        }
+        return;
+    }
 
     if audio {
         if let Err(error) = clang2::audio(rdl_only) {

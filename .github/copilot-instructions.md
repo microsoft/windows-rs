@@ -266,6 +266,12 @@ extents, same-name annotated record aliases, standalone callable projection, imp
 large multi-TU peak memory. Continue with `.h`/`.rdl` fixtures and real-header inventories, not
 another bindgen or native API validation campaign.
 
+`tool-win32 --clang2-headers shellscalingapi.h,tlhelp32.h --rdl-only` emits all 72 selected names.
+The explicit route has no clang1 fallback and does not replace committed metadata. Before default
+cutover, settle tag/typedef representation (`HEAPENTRY32` versus `tagHEAPENTRY32`) and pointer-sized
+type uses (`usize` versus target-width scalars). `pathcch.h` currently blocks on `VOLUME_PREFIX_LEN`
+and its unexposed `const __size_t` type. See the bounded migration section in the clang2 docs.
+
 ### Clang2 WebView2 cutover blockers
 
 `test_clang2` `webview.rs` covers six `HWND` inputs and two host-object `VARIANT*` inputs with an

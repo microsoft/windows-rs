@@ -141,6 +141,13 @@ Output-pointer and nullable-result contracts remain in RDL without guessed seman
 The generator exits nonzero for incomplete coverage.
 The full Win32 scraper and committed metadata remain on their existing path.
 
+`tool-win32 --clang2-headers shellscalingapi.h,tlhelp32.h --rdl-only` provides an explicit
+source-only route for further header groups. These two headers emit all 72 selected names with no
+fallback. `pathcch.h` remains blocked on an unexposed compiler type in a size macro. The default
+scraper is not switched: tag/typedef representation and pointer-sized spellings need a publication
+contract before replacing the existing RDL partitions. See the continuation page for source
+differences and resource measurements.
+
 The API and diagnostic dump are experimental. See
 [`docs/crates/windows-clang2.md`](../../../docs/crates/windows-clang2.md) for the supported subset,
 validation contract, and remaining prototype work.

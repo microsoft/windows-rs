@@ -532,6 +532,13 @@ impl<'s> Resolved<'s> {
                 {
                     binding = &self.snapshot.declarations[target.0];
                 }
+                if matches!(binding.data, DeclarationData::Enum { .. })
+                    && reference.kind != ReferenceKind::Value
+                {
+                    return Err(Error(format!(
+                        "enum binding `{name}` requires a metadata value type"
+                    )));
+                }
                 if !matches!(
                     binding.data,
                     DeclarationData::Record { .. } | DeclarationData::Enum { .. }
@@ -1588,6 +1595,10 @@ impl<'s> Builder<'_, 's> {
                         match &declaration.data {
                             DeclarationData::Record { layout, .. } => {
                                 (ProjectedType::RecordReference(name, layout.clone()), false)
+                            }
+                            DeclarationData::Enum { repr, .. } => {
+                                let (kind, layout) = self.enum_repr(repr)?;
+                                (ProjectedType::ScalarReference(name, kind, layout), false)
                             }
                             _ => (ProjectedType::Named(name, None), false),
                         }

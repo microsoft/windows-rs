@@ -942,6 +942,59 @@ projection rules or by-value layout exceptions are added. The next cutover work 
 families above, followed by another header group; richer annotations and full Win32 coverage remain
 open.
 
+## Bounded tool-win32 header migration
+
+```powershell
+cargo run -p tool-win32 --quiet -- --clang2-headers shellscalingapi.h,tlhelp32.h --rdl-only
+cargo run -p tool-win32 --quiet -- --clang2-headers pathcch.h --rdl-only
+```
+
+This explicit x64 route shares discovery, complete-graph resolution, per-root assessment, combined
+projection, and header ownership reporting with the audio inventory. It does not call clang1 as a
+fallback, emit WinMD or Rust, or replace committed metadata. Outputs are under
+`target/win32-clang2/<header-stems>-rdl`, including `inventory.tsv`, `headers.tsv`, and `rdl/`.
+Stale RDL is cleared before capture, including on a failed rerun. Duplicate or unknown manifest
+headers reject. Selected roots cannot be supplied by external bindings.
+
+The current policy supplies exact code imports from `shcore.lib`, `kernel32.lib`, and `pathcch.lib`,
+plus explicit foundational value bindings. Unmapped functions reject; no default DLL is guessed.
+Additional header families can require additional bindings or import libraries.
+
+| Input | Inventory rows | Selected names | Outcome |
+| --- | --- | --- | --- |
+| `shellscalingapi.h`, `tlhelp32.h` | 88 | 72 | All emit; 100 native groups, 101 observations. |
+| `pathcch.h` | 37 | 26 | Complete graph blocked by `VOLUME_PREFIX_LEN`'s unexposed `const __size_t` type. |
+| Audio control | 166 | 102 | 66 emit, 36 declaration-only data rejects. |
+
+The scaling API exposed a projection bug: externally bound enums lost their known scalar layout.
+Enum bindings now retain compiler-reported width and signedness for fields, parameters, and returns;
+they must bind metadata value types. `external_enum.h` covers the source-to-RDL boundary.
+
+One local debug run, excluding Rust builds but including process startup and dependency checks:
+
+| Input | Wall time | Sampled peak working set |
+| --- | --- | --- |
+| Scaling and Toolhelp | 1.18 s | 180 MiB |
+| Path APIs, blocked | 0.95 s | 180 MiB |
+| Audio control | 2.76 s | 362 MiB |
+
+These are per-process OS peak-working-set counters sampled every 10 ms, not a large-input memory
+budget. The successful group's source generation was byte-identical on repetition.
+
+**The default production scraper remains on clang1.** Source completeness alone is not sufficient
+to replace the committed partitions. The RDL comparison exposes these publication decisions:
+
+- Toolhelp's named tags and typedefs are separately selected. `HEAPENTRY32` becomes an RDL typedef
+  of `tagHEAPENTRY32`; RDL typedefs represent wrapper types, not transparent C synonyms.
+- Pointer-sized source aliases emit their target's fixed-width integer spelling (`u64` on x64),
+  while the committed surface uses `usize`. This needs a pointer-sized type-use contract, not a
+  textual replacement or a value-width guess.
+- `SCALE_CHANGE_FLAGS` retains native signedness plus the explicit flags marker. Do not restore the
+  legacy unsigned rewrite merely to eliminate a diff.
+
+Resolve the tag/typedef and pointer-sized contracts before switching default production ownership.
+Path APIs remain blocked rather than excluding their problematic macros to inflate coverage.
+
 ## Rewrite plan and restart point
 
 This page contains the continuation plan; resuming work must not require conversation history or

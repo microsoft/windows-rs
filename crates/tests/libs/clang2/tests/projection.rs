@@ -860,6 +860,43 @@ fn enums_preserve_representation_values_and_uses() {
 }
 
 #[test]
+fn external_enums_keep_native_scalar_layout() {
+    let source = include_str!("../input/external_enum.h");
+    let snapshot = capture(
+        [Input::new("enum.hpp", source)],
+        ARGS,
+        &["Convert", "Packet"],
+    )
+    .unwrap();
+    let mut options = options();
+    options.references.insert(
+        "Kind".into(),
+        TypeReference {
+            namespace: "External".into(),
+            name: "Kind".into(),
+            kind: ReferenceKind::Value,
+        },
+    );
+    let rdl = snapshot.resolve().unwrap().project(&options).unwrap().rdl();
+    assert!(
+        rdl.contains("fn Convert(p0: External::Kind) -> External::Kind;"),
+        "{rdl}"
+    );
+    assert!(rdl.contains("kind: External::Kind,"), "{rdl}");
+    assert!(!rdl.contains("enum Kind"), "{rdl}");
+    options.references.get_mut("Kind").unwrap().kind = ReferenceKind::Interface;
+    assert!(
+        snapshot
+            .resolve()
+            .unwrap()
+            .project(&options)
+            .unwrap_err()
+            .to_string()
+            .contains("requires a metadata value type")
+    );
+}
+
+#[test]
 fn enum_conflicts_and_unsupported_representations_are_rejected() {
     for reverse in [false, true] {
         let mut inputs = [
