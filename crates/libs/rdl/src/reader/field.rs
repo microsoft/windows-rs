@@ -28,7 +28,12 @@ pub struct NestedRecord {
 impl syn::parse::Parse for Field {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
-        let name: syn::Ident = input.parse()?;
+        let name = if input.peek(syn::Token![_]) {
+            let token = input.parse::<syn::Token![_]>()?;
+            syn::Ident::new("_", token.span)
+        } else {
+            input.parse::<syn::Ident>()?
+        };
         input.parse::<syn::Token![:]>()?;
 
         // The type position may be an inline anonymous nested struct/union,

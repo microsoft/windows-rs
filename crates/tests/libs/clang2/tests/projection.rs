@@ -15,6 +15,32 @@ use sdk::capture_sdk as sdk_capture;
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn named_underscore_fields_preserve_native_names() {
+    let snapshot = capture(
+        [Input::new(
+            "underscore.hpp",
+            include_str!("../input/underscore_field.h"),
+        )],
+        ARGS,
+        &["NativeUnderscore", "UnionUnderscore", "NestedUnderscore"],
+    )
+    .unwrap();
+    let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+    let index = compile("underscore_field", &plan);
+    for name in ["NativeUnderscore", "UnionUnderscore"] {
+        let Item::Type(record) = index.expect_item("Test", name) else {
+            panic!()
+        };
+        assert_eq!(record.fields().next().unwrap().name(), "_");
+    }
+    let Item::Type(record) = index.expect_item("Test", "NestedUnderscore") else {
+        panic!()
+    };
+    let nested = index.nested(record).next().unwrap();
+    assert_eq!(nested.fields().next().unwrap().name(), "_");
+}
+
+#[test]
 fn union_and_anonymous_storage_matches_compiler_evidence() {
     for target in [
         "x86_64-pc-windows-msvc",

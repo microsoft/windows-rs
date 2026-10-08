@@ -993,8 +993,10 @@ Broader annotations, native ARM64 execution, and SDK-wide production coverage re
 cargo run -p tool-win32 -- --clang2-audio --rdl-only
 ```
 
-This conversion-only command writes `target/win32-clang2/audio-rdl`, without generating metadata,
-Rust bindings, or a consumer. Omitting `--rdl-only` retains the separate downstream experiment.
+This conversion-only command writes `target/win32-clang2/audio-rdl`. It compiles the combined RDL
+to a temporary WinMD before marking supported roots emitted, then removes that binary. It retains
+no metadata, Rust bindings, or consumer. Omitting `--rdl-only` retains the separate downstream
+experiment.
 
 This opt-in path reuses `tool-win32`'s pinned SDK, compiler arguments, prelude, and main/satellite
 input assembly for `mmdeviceapi.h` and `endpointvolume.h`. It discovers the configured headers'
@@ -1086,7 +1088,7 @@ cargo run -p tool-win32 --quiet -- --clang2-headers all --rdl-only
 
 This explicit x64 route shares discovery, complete-graph resolution, per-root assessment, combined
 projection, and header ownership reporting with the audio inventory. It does not call clang1 as a
-fallback, emit WinMD or Rust, or replace committed metadata. Outputs are under
+fallback, retain WinMD or Rust, or replace committed metadata. Outputs are under
 `target/win32-clang2/<header-stems>-rdl`, including `inventory.tsv`, `headers.tsv`, and `rdl/`.
 Stale RDL is cleared before capture, including on a failed rerun. Duplicate or unknown manifest
 headers reject. Selected roots cannot be supplied by external bindings.
@@ -1099,6 +1101,13 @@ source-name fallback, or per-symbol library override is applied.
 The generic route has no external value, enum, record, or interface bindings. Dependencies come
 from the captured source closure, including nominal incomplete records. The audio consumer remains
 a separate experiment with explicit external contracts.
+Every supported combined closure must compile to WinMD before its roots are marked emitted.
+Generic header compilation uses the hand-authored attribute vocabulary and clang2's experimental
+metadata attributes, not bundled API references. A missing dependency cannot resolve against
+committed metadata. Default references are available only to profiles with explicit external
+bindings, such as audio. Metadata failures leave supported roots blocked with the compiler's
+diagnostic; prior capture/projection rejections remain rejected. RDL-only removes the temporary
+WinMD after a successful check.
 `exclude_inline_functions` is enabled for this route. It excludes only function groups whose
 captured observations are all inline, including header-only overloads of imported functions.
 The declaration inventory still reports these inline rows as exclusions. Non-inline functions
@@ -1231,25 +1240,26 @@ remain incomplete. Keep the existing 98-name group as a separate passing control
 
 ### Full manifest and orchestration audit
 
-The 2026-10-08 independent x64 run attempted all 369 manifest headers using the pinned SDK, after
-the failure-ownership, union-storage, and annotation-prefix changes. These are source-to-RDL
-results, not production or runtime certification. Incomplete coverage produces a nonzero exit.
+The independent x64 refresh attempts all 369 manifest headers using the pinned SDK. Emitted
+closures pass combined WinMD compilation without bundled API references. These are source and
+semantic metadata results, not production or runtime certification. Incomplete coverage produces
+a nonzero exit.
 
-| Measure | Earlier baseline | Current run |
+| Measure | Before macro fixes and semantic gate | Semantic refresh |
 | --- | ---: | ---: |
 | Headers attempted | 369 | 369 |
-| Complete source-to-RDL coverage | 36 | 48 |
-| Incomplete coverage | 333 | 321 |
-| Headers with some emitted output | 217 | 322 |
+| Complete selected-root coverage | 48 | 49 |
+| Incomplete coverage | 321 | 320 |
+| Headers with some emitted output | 322 | 325 |
 | Headers failing before discovery inventory | 24 | 24 |
-| Emitted selected names | 28,758 | 76,382 |
-| Rejected selected names | 8,552 | 18,770 |
-| Selected names blocked before projection/output | 62,252 | 4,410 |
+| Emitted selected names | 76,382 | 79,048 |
+| Rejected selected names | 18,770 | 19,357 |
+| Selected names blocked before projection/output | 4,410 | 1,110 |
 
 Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
 are not deduplicated APIs. Each header's supported roots must also pass combined projection and
-source ownership before being marked emitted. RDL-only writes the source plan; it does not compile
-every header's output to WinMD. Independent headers do not test agreement across the full manifest
+source ownership before being marked emitted. The refreshed run also checks combined WinMD
+compilation. Independent headers do not test agreement across the full manifest
 or across architectures. No full-manifest peak-memory budget was measured.
 More rejections can mean that formerly blocked roots now reach assessment, not that support regressed.
 
@@ -1257,19 +1267,27 @@ The largest measured blocks in that full-manifest run were:
 
 | Header | Blocked names | Capture or combined-output boundary |
 | --- | ---: | --- |
-| `icu.h` | 1,627 | Probe expressions include unsupported type syntax and `noexcept`. |
-| `wmcodecdsp.h` | 833 | Strict native type-qualifier conflict on a data declaration. |
 | `sspi.h` | 717 | Multiple selected aliases name the same record. |
-| `ks.h` | 458 | A selected macro probe has no initializer. |
-| `wincodec.h` | 433 | A selected macro probe has no initializer. |
-| `xaudio2.h` | 121 | Inherited callable annotation context is ambiguous. |
+| `xaudio2.h` | 120 | Inherited callable annotation context is ambiguous. |
+| `cfapi.h` | 106 | Multiple selected aliases name the same record. |
+| `uianimation.h` | 64 | RDL rejects a native record field named `_`. |
+| `sensorsapi.h` | 43 | Multiple selected aliases name the same record. |
+| `ws2tcpip.h` | 40 | Multiple selected aliases name the same record. |
+| `xmllite.h` | 20 | Multiple selected aliases name the same record. |
+
+The semantic gate exposed the `_` field failure rather than counting invalid RDL as emitted.
+RDL now accepts that native record field name and preserves it through metadata roundtrips,
+including nested structs and unions. It does not rename `_` to `unused`, which could collide with
+a separate native field. The focused UI Animation rerun emits 64 of 134 selected names, rejects 70,
+and blocks none. The full-refresh totals retain the recorded pre-fix result; replacing that one
+row yields 79,112 emitted and 1,046 blocked names, with 326 headers having emitted output.
 
 The alias collision is a combined publication boundary, not permission to choose a public name
 from iteration order. Capture conflicts and ambiguous contexts also remain errors until their
 source evidence is understood. The 24 unavailable discovery inventories are a separate prerequisite
 gate; their unknown counts are not included in this table or the measured sums.
 
-The subsequent macro-identity slice removes the global capture blocks in three of those headers.
+The macro-identity slice removes the global capture blocks in three large headers.
 Independent names and their remaining rejected roots are:
 
 | Header | Selected | Emitted | Rejected | Blocked |
@@ -1284,7 +1302,7 @@ profiles emits 1,174 of 1,798 selected names, with 624 rejected and none blocked
 graph checks 2,363 available groups and 3,457 observations. All four emitted RDL sets compile to
 WinMD and reach a stable metadata-to-RDL roundtrip. This checks semantic validity of the supported
 closure, not publication parity, runtime ABI coverage, or certification of the rejected roots.
-The full-manifest totals above have not been refreshed for this slice.
+The full-manifest refresh above includes this slice.
 
 Declaration-fragment classification removes ICU's global probe block. The independent `icu.h`
 inventory selects 1,615 names, emits 1,583, and rejects 32, with no blocked roots. Its 12 declaration
@@ -1293,7 +1311,7 @@ remain explicit rejections. Combining ICU with the four-header main/satellite co
 3,413 names, emits 2,757, and rejects 656, with none blocked. The combined graph checks 4,164 available
 groups and 5,265 observations. Both emitted RDL sets compile to WinMD and reach a stable
 metadata-to-RDL roundtrip. These results extend the supported closure, not production publication
-parity; the full-manifest totals above still describe the earlier run.
+parity. The full-manifest refresh above includes the independent ICU result.
 
 The tool audit separates source-derived policy from repairs that would conceal missing evidence:
 
@@ -1308,7 +1326,7 @@ The tool audit separates source-derived policy from repairs that would conceal m
 | Macro probing | Compiler file identity and byte ranges assign errors to appended probes. A clean reparse excludes rejected probes; fatal and unowned diagnostics still fail capture. |
 | Annotation indexing | Ambiguity is retained until evidence consumes the indexed context. Unrelated CRT declarations do not abort capture; selected ambiguity still rejects. |
 | Native availability | Inventory assessment rejects unavailable root closures explicitly. All observations of the available graph still pass strict agreement; rejected roots are not certified. |
-| Metadata validity | RDL emission is not semantic WinMD compilation, wrapper ABI validation, public-name parity, or DLL usability. |
+| Metadata validity | Emitted roots pass combined WinMD compilation without default API fallback in generic profiles. Wrapper ABI, public-name parity, and DLL usability remain separate gates. |
 
 The remaining failures include unavailable macro identifiers and non-value expressions,
 declaration-only GUID/property-key data, packing and bitfields, unsupported union/anonymous shapes,

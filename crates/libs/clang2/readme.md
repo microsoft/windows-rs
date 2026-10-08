@@ -212,12 +212,18 @@ gates.
 
 `tool-win32 --clang2-audio --rdl-only` is a bounded x64 path through the real main/satellite input
 assembly for `mmdeviceapi.h` and `endpointvolume.h`. Header discovery feeds a declaration-outcome
-report and per-header RDL without generating metadata, Rust bindings, or an executable. An additional
+report and per-header RDL without retaining metadata, Rust bindings, or an executable. An additional
 SDK definition-mode input supplies all 18 property keys and four device-interface GUIDs. With SDK
 source-marker capture enabled, 66 selected names emit and 36 declaration-only data names reject.
 Output-pointer and nullable-result contracts remain in RDL without guessed semantics or values.
 The generator exits nonzero for incomplete coverage.
 The full Win32 scraper and committed metadata remain on their existing path.
+
+Inventory roots are marked emitted only after their combined RDL compiles to WinMD. RDL-only
+removes the temporary binary after that check. Generic header profiles supply only the metadata
+attribute vocabulary, not bundled API references that could hide a missing source dependency.
+Explicit external-binding profiles retain their declared metadata references. A semantic failure
+blocks the supported closure and remains visible in the inventory.
 
 `tool-win32 --clang2-headers shellscalingapi.h,tlhelp32.h --rdl-only` provides an explicit
 source-only route for further header groups. These two headers emit all 72 selected names with no

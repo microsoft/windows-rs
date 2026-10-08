@@ -1,0 +1,16 @@
+#[win32]
+mod Test {
+    struct NativeUnderscore {
+        _: i32,
+        unused: u32,
+    }
+    struct NestedUnderscore {
+        value: struct {
+            _: i32,
+        },
+    }
+    union UnionUnderscore {
+        _: i32,
+        value: f32,
+    }
+}

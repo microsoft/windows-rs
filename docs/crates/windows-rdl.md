@@ -94,6 +94,9 @@ Most attributes name a metadata attribute type directly. Some attributes use sho
 names. The reader expands those names to full metadata attributes. See `PSEUDO_ATTRS` in
 `windows-rdl`.
 
+Record fields may use the native name `_`; this remains a named field in metadata. Inside a
+bit-field block, `_: width` instead denotes anonymous padding.
+
 Struct bit fields use their own syntax. A run of bit fields packed into one backing integer is
 written as a C-like block on that field. Each member uses `Name: width`. Anonymous padding uses
 `_: width`.

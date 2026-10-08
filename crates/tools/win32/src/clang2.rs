@@ -427,14 +427,10 @@ fn generate(
         owners.push_str(&format!("{name}\t{header}\n"));
     }
     std::fs::write(output.join("headers.tsv"), owners)?;
+    compile_metadata(reader, &winmd, options, rdl_only).inspect_err(|error| {
+        blocked(output, &inventory, &mut outcomes, "metadata", error);
+    })?;
     if !rdl_only {
-        reader
-            .reference_default()
-            .output(&winmd)
-            .write()
-            .inspect_err(|error| {
-                blocked(output, &inventory, &mut outcomes, "metadata", error);
-            })?;
         windows_bindgen::bindgen([
             "--in",
             "default",
@@ -501,6 +497,25 @@ fn generate(
             output.join("inventory.tsv").display()
         )
         .into());
+    }
+    Ok(())
+}
+
+fn compile_metadata(
+    mut reader: windows_rdl::Reader,
+    output: &std::path::Path,
+    options: &ProjectionOptions,
+    rdl_only: bool,
+) -> Result<(), Box<dyn std::error::Error>> {
+    reader
+        .input_text(include_str!("../../../../metadata/metadata.rdl"))
+        .input_text(include_str!("../../../libs/clang2/metadata.rdl"));
+    if !options.references.is_empty() || !options.string_references.is_empty() {
+        reader.reference_default();
+    }
+    reader.output(output).write()?;
+    if rdl_only {
+        std::fs::remove_file(output)?;
     }
     Ok(())
 }
@@ -601,6 +616,74 @@ fn blocked(
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn semantic_metadata_gate_preserves_rdl_only_output() {
+        let directory =
+            std::env::temp_dir().join(format!("clang2-metadata-gate-{}", std::process::id()));
+        std::fs::create_dir(&directory).unwrap();
+        let output = directory.join("test.winmd");
+        let reader = || {
+            let mut reader = windows_rdl::reader();
+            reader.input_text(
+                "#[win32] mod Test {
+                    struct Packet { count: i32, }
+                    #[library(\"test.dll\")]
+                    extern \"C\" fn Use(#[in] #[len_param(1)] data: *const i32, count: u32);
+                }",
+            );
+            reader
+        };
+        compile_metadata(reader(), &output, &header_options(), true).unwrap();
+        assert!(!output.exists());
+        compile_metadata(reader(), &output, &header_options(), false).unwrap();
+        let index = windows_metadata::reader::Index::read(&output).unwrap();
+        assert_eq!(
+            index.expect("Test", "Packet").fields().next().unwrap().ty(),
+            windows_metadata::Type::I32
+        );
+        let windows_metadata::reader::Item::Fn(function) = index.expect_item("Test", "Use") else {
+            panic!()
+        };
+        assert_eq!(
+            function.params().next().unwrap().buffer_relationship(),
+            Some(windows_metadata::reader::BufferRelationship::ElementsParam(
+                1
+            ))
+        );
+        std::fs::remove_file(output).unwrap();
+        std::fs::remove_dir(directory).unwrap();
+    }
+
+    #[test]
+    fn generic_metadata_gate_cannot_resolve_missing_types_from_default_metadata() {
+        let directory =
+            std::env::temp_dir().join(format!("clang2-metadata-references-{}", std::process::id()));
+        std::fs::create_dir(&directory).unwrap();
+        let output = directory.join("test.winmd");
+        let reader = || {
+            let mut reader = windows_rdl::reader();
+            reader.input_text(
+                "#[win32] mod Test { struct Packet { point: Windows::Foundation::Point, } }",
+            );
+            reader
+        };
+        let mut options = header_options();
+        let error = compile_metadata(reader(), &output, &options, true).unwrap_err();
+        assert!(error.to_string().contains("type not found"), "{error}");
+        assert!(!output.exists());
+        options.references.insert(
+            "NativePoint".into(),
+            TypeReference {
+                namespace: "Windows.Foundation".into(),
+                name: "Point".into(),
+                kind: ReferenceKind::Value,
+            },
+        );
+        compile_metadata(reader(), &output, &options, true).unwrap();
+        assert!(!output.exists());
+        std::fs::remove_dir(directory).unwrap();
+    }
 
     #[test]
     fn exact_imports_preserve_precedence_targets_and_provenance() {

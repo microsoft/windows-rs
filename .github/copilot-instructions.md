@@ -285,9 +285,11 @@ Public aliases remain a publication decision, not a native export-name guess.
 `tool-win32 --clang2-headers all --rdl-only` inventories manifest headers independently.
 `manifest.tsv` persists after each attempt; unavailable discovery counts remain unknown, not zero.
 `imports.tsv` records the full ordered SDK COFF import candidates. The generic route has no external
-bindings, source-name DLL fallback, or legacy `LIBRARY_OVERRIDES`. RDL-only does not compile every
-output to WinMD or establish cross-header/architecture agreement. Keep dated measurements and
-failure tables in `docs/crates/windows-clang2.md`, not this instruction file.
+bindings, source-name DLL fallback, or legacy `LIBRARY_OVERRIDES`. Emitted roots must pass combined
+WinMD compilation with the attribute vocabulary but no default API references in generic profiles.
+RDL-only removes the temporary binary; it does not establish cross-header/architecture agreement.
+Keep dated measurements and failure tables in `docs/crates/windows-clang2.md`, not this instruction
+file.
 
 Named callbacks retain compiler TypeRef-backed typedef edges, calling conventions, annotations,
 and pointer depth. Incomplete C records preserve nominal pointer identity but reject by-value

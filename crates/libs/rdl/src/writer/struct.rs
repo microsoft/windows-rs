@@ -89,7 +89,7 @@ fn write_record(
                     effective_packing,
                     hoisted,
                 )?;
-                let name = write_ident(field.name());
+                let name = write_field_name(field.name());
                 let field_attrs =
                     write_custom_attributes(field.attributes(), namespace, field.index())?;
                 return Ok(quote! { #(#field_attrs)* #name: #inner, });
@@ -194,7 +194,7 @@ fn write_field_flat(
     item: &metadata::reader::Field,
     flat_names: &HashMap<String, String>,
 ) -> Result<TokenStream, Error> {
-    let name = write_ident(item.name());
+    let name = write_field_name(item.name());
     let resolved_ty = resolve_nested(&item.ty(), namespace, flat_names);
     let ty = write_type(namespace, &resolved_ty);
 
@@ -213,6 +213,14 @@ fn write_field_flat(
 
     let field_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
     Ok(quote! { #(#field_attrs)* #name: #ty, })
+}
+
+fn write_field_name(name: &str) -> TokenStream {
+    if name == "_" {
+        quote! { _ }
+    } else {
+        write_ident(name)
+    }
 }
 
 fn collect_bitfield_members(item: &metadata::reader::Field) -> Vec<(String, u32, u32)> {
