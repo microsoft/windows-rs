@@ -1,0 +1,21 @@
+#[win32]
+mod Test {
+    struct Packet {
+        tag: i8,
+        Anonymous1: union {
+            number: i32,
+            Anonymous1: struct {
+                low: i16,
+                high: i16,
+            },
+            real: f64,
+        },
+        tail: i32,
+        Anonymous3: union {
+            final_number: i32,
+            final_real: f32,
+        },
+    }
+    #[library("test.dll", import = "Use")]
+    extern "C" fn Use(packet: *mut Packet);
+}

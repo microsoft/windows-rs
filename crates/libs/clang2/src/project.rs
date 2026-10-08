@@ -1,5 +1,8 @@
 use super::*;
 
+mod record;
+use record::*;
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ReferenceKind {
     Value,
@@ -147,20 +150,10 @@ impl Plan {
                 writeln!(output, "    {}", attributes.trim_end()).unwrap();
             }
             match item {
-                Item::Record { fields, alignment } => {
-                    if let Some(alignment) = alignment {
-                        writeln!(output, "    #[align({alignment})]").unwrap();
-                    }
-                    writeln!(output, "    struct {name} {{").unwrap();
-                    for (field, ty) in fields {
-                        if let Some(attributes) =
-                            annotations.and_then(|annotations| annotations.get(field))
-                        {
-                            writeln!(output, "        {}", attributes.trim_end()).unwrap();
-                        }
-                        writeln!(output, "        {field}: {},", ty.text()).unwrap();
-                    }
-                    output.push_str("    }\n");
+                Item::Record(record) => {
+                    output.push_str("    ");
+                    record.write(&mut output, Some(name), 4);
+                    output.push('\n');
                 }
                 Item::Opaque { union } => {
                     writeln!(
@@ -211,11 +204,11 @@ impl Plan {
                         }
                     }
                     write!(output, "    extern {abi:?} fn {name}(").unwrap();
-                    for (index, (attributes, ty)) in parameters.iter().enumerate() {
+                    for (index, (attributes, parameter, ty)) in parameters.iter().enumerate() {
                         if index != 0 {
                             output.push_str(", ");
                         }
-                        write!(output, "{attributes}p{index}: {}", ty.text()).unwrap();
+                        write!(output, "{attributes}{parameter}: {}", ty.text()).unwrap();
                     }
                     output.push(')');
                     if !matches!(result, ProjectedType::Void) {
@@ -287,11 +280,11 @@ impl Plan {
                     result,
                 } => {
                     write!(output, "    extern {abi:?} fn {name}(").unwrap();
-                    for (index, (attributes, ty)) in parameters.iter().enumerate() {
+                    for (index, (attributes, parameter, ty)) in parameters.iter().enumerate() {
                         if index > 0 {
                             output.push_str(", ");
                         }
-                        write!(output, "{attributes}p{index}: {}", ty.text()).unwrap();
+                        write!(output, "{attributes}{parameter}: {}", ty.text()).unwrap();
                     }
                     output.push(')');
                     if !matches!(result, ProjectedType::Void) {
@@ -319,6 +312,9 @@ impl Plan {
         let ty = ty.contract();
         match ty {
             ProjectedType::Padding(_) => return Some(ADJUSTED),
+            ProjectedType::InlineRecord(_) => {
+                return Some("by-value unions or anonymous records require native ABI coverage");
+            }
             ProjectedType::RecordReference(..) => {
                 return Some("by-value external record calls require native ABI coverage");
             }
@@ -335,13 +331,16 @@ impl Plan {
             return *adjusted;
         }
         let reason = match self.items.get(name) {
-            Some(Item::Record { fields, alignment }) => {
-                if alignment.is_some() {
+            Some(Item::Record(record)) => {
+                if record.kind == RecordKind::Union || record.anonymous_fields {
+                    Some("by-value unions or anonymous records require native ABI coverage")
+                } else if record.alignment.is_some() {
                     Some(ADJUSTED)
                 } else {
-                    fields
+                    record
+                        .fields
                         .iter()
-                        .find_map(|(_, ty)| self.unproven_record(ty, checked))
+                        .find_map(|(_, _, ty)| self.unproven_record(ty, checked))
                 }
             }
             _ => None,
@@ -361,7 +360,7 @@ impl Plan {
                     parameters, result, ..
                 } => parameters
                     .iter()
-                    .find_map(|(_, ty)| self.unproven_record(ty, &mut checked))
+                    .find_map(|(_, _, ty)| self.unproven_record(ty, &mut checked))
                     .or_else(|| self.unproven_record(result, &mut checked)),
                 Item::Interface { methods, .. } => {
                     methods.iter().find_map(|(_, _, parameters, result)| {
@@ -405,10 +404,7 @@ enum Item {
     Class {
         guid: String,
     },
-    Record {
-        fields: Vec<(String, ProjectedType)>,
-        alignment: Option<i64>,
-    },
+    Record(Record),
     Alias(ProjectedType),
     Enum {
         repr: &'static str,
@@ -429,12 +425,12 @@ enum Item {
         abi: &'static str,
         library: String,
         link_name: ImportTarget,
-        parameters: Vec<(String, ProjectedType)>,
+        parameters: Vec<(String, String, ProjectedType)>,
         result: ProjectedType,
     },
     Callback {
         abi: &'static str,
-        parameters: Vec<(String, ProjectedType)>,
+        parameters: Vec<(String, String, ProjectedType)>,
         result: ProjectedType,
     },
     Constant {
@@ -461,6 +457,7 @@ enum ProjectedType {
         string: Option<StringKind>,
     },
     Named(String, Option<Layout>),
+    InlineRecord(Box<Record>),
     RecordReference(String, Option<Layout>),
     Array {
         element: Box<Self>,
@@ -495,6 +492,11 @@ impl ProjectedType {
         match self {
             // Padding can remain uninitialized when native code copies a record.
             Self::Padding(size) => format!("union {{ bytes: [u8; {size}], uninit: [u8; 0], }}"),
+            Self::InlineRecord(record) => {
+                let mut output = String::new();
+                record.write(&mut output, None, 0);
+                output
+            }
             Self::Void => "void".into(),
             Self::Scalar(name, _) => (*name).into(),
             Self::Named(name, _)
@@ -530,6 +532,7 @@ impl ProjectedType {
             Self::Void | Self::Callable(_) => None,
             Self::Scalar(_, layout) | Self::ScalarReference(_, _, layout) => Some(layout.clone()),
             Self::Named(_, layout) | Self::RecordReference(_, layout) => layout.clone(),
+            Self::InlineRecord(record) => Some(record.layout.clone()),
             Self::Array { element, length } => {
                 let layout = element.layout(pointer_size)?;
                 Some(Layout {
@@ -864,16 +867,7 @@ impl<'s> Builder<'_, 's> {
         if !own.is_empty() {
             annotations.insert(String::new(), own);
         }
-        if let DeclarationData::Record {
-            fields, methods, ..
-        } = &declaration.data
-        {
-            for (field, source) in fields.iter().zip(&native_annotations.fields) {
-                let attributes = source_attributes(source);
-                if !attributes.is_empty() {
-                    annotations.insert(ident(&field.name)?, attributes);
-                }
-            }
+        if let DeclarationData::Record { methods, .. } = &declaration.data {
             for (method, source) in methods.iter().zip(&native_annotations.methods) {
                 let attributes = source_attributes(source);
                 if !attributes.is_empty() {
@@ -940,82 +934,15 @@ impl<'s> Builder<'_, 's> {
             DeclarationData::Record {
                 kind,
                 complete: true,
-                layout: Some(layout),
-                fields,
+                layout: Some(_),
                 bases,
                 methods,
                 ..
-            } if kind == "StructDecl" && bases.is_empty() && methods.is_empty() => {
-                let mut projected = vec![];
-                if fields.is_empty() {
-                    return Err(Error(format!(
-                        "empty record projection is not implemented for `{name}`"
-                    )));
-                }
-                let mut size = 0;
-                let mut align = 1;
-                let mut names: BTreeSet<_> =
-                    fields.iter().map(|field| field.name.clone()).collect();
-                for (index, field) in fields.iter().enumerate() {
-                    if field.bit_width.is_some() {
-                        return Err(Error(format!(
-                            "bitfield projection is not implemented for `{name}`"
-                        )));
-                    }
-                    if field.name.is_empty() {
-                        return Err(Error(format!(
-                            "anonymous aggregate projection is not implemented for `{name}`"
-                        )));
-                    }
-                    let (ty, object) = self.lower(&field.ty, &mut BTreeSet::new())?;
-                    if object {
-                        return Err(Error("native interface objects require a pointer".into()));
-                    }
-                    let field_layout =
-                        ty.layout(self.resolved.snapshot.pointer_size)
-                            .ok_or_else(|| {
-                                Error(format!(
-                                    "projected layout unavailable for `{name}::{}`",
-                                    field.name
-                                ))
-                            })?;
-                    let natural = align_up(size, field_layout.align);
-                    if field.offset < natural * 8 || field.offset % (field_layout.align * 8) != 0 {
-                        return Err(Error(format!(
-                            "`{name}` requires unsupported packing or field alignment"
-                        )));
-                    }
-                    let offset = field.offset / 8;
-                    if offset > natural {
-                        let mut padding = format!("__padding{index}");
-                        while !names.insert(padding.clone()) {
-                            padding.push('_');
-                        }
-                        projected.push((padding, ProjectedType::Padding(offset - size)));
-                    }
-                    size = offset;
-                    size += field_layout.size;
-                    align = align.max(field_layout.align);
-                    projected.push((ident(&field.name)?, ty));
-                }
-                if layout.align < align
-                    || layout.align > 32768
-                    || !layout.align.is_positive()
-                    || !(layout.align as u64).is_power_of_two()
-                {
-                    return Err(Error(format!("unsupported record alignment for `{name}`")));
-                }
-                let expected = Layout {
-                    size: align_up(size, layout.align),
-                    align: layout.align,
-                };
-                if expected != *layout {
-                    return Err(Error(format!("projected layout differs for `{name}`")));
-                }
-                Item::Record {
-                    fields: projected,
-                    alignment: (layout.align > align).then_some(layout.align),
-                }
+            } if matches!(kind.as_str(), "StructDecl" | "UnionDecl")
+                && bases.is_empty()
+                && methods.is_empty() =>
+            {
+                Item::Record(self.record(id)?)
             }
             DeclarationData::Alias { target, .. }
                 if matches!(
@@ -1508,10 +1435,6 @@ impl<'s> Builder<'_, 's> {
                 )));
             }
             let (parameters, result) = self.signature(id, index + 1)?;
-            let mut params = vec![];
-            for (parameter, (attributes, ty)) in method.parameters.iter().zip(parameters) {
-                params.push((attributes, ident(&parameter.name)?, ty));
-            }
             if matches!(result.contract(), ProjectedType::Named(..)) {
                 return Err(Error(format!(
                     "`{name}::{}`: by-value record results are not supported for COM methods",
@@ -1529,7 +1452,7 @@ impl<'s> Builder<'_, 's> {
             projected.push((
                 ident(&method.name)?,
                 method.property.is_some(),
-                params,
+                parameters,
                 result,
             ));
         }
@@ -1606,7 +1529,7 @@ impl<'s> Builder<'_, 's> {
         &mut self,
         id: Id,
         slot: usize,
-    ) -> Result<(Vec<(String, ProjectedType)>, ProjectedType), Error> {
+    ) -> Result<(Vec<(String, String, ProjectedType)>, ProjectedType), Error> {
         let group = &self.resolved.groups[&id];
         let mut signature = None;
         for observation in group {
@@ -1646,7 +1569,14 @@ impl<'s> Builder<'_, 's> {
             }
             signature = Some(projected);
         }
-        Ok(signature.unwrap())
+        let (parameters, result) = signature.unwrap();
+        let names = &self.resolved.annotations[&id].parameter_names[&slot];
+        let parameters = parameters
+            .into_iter()
+            .zip(names)
+            .map(|((attributes, ty), name)| Ok((attributes, ident(name)?, ty)))
+            .collect::<Result<_, Error>>()?;
+        Ok((parameters, result))
     }
 
     fn function_type<'t>(&self, mut ty: &'t Type) -> Result<&'t Type, Error>
@@ -2374,6 +2304,20 @@ fn ident(value: &str) -> Result<String, Error> {
                 | "dyn"
                 | "true"
                 | "false"
+                | "abstract"
+                | "become"
+                | "box"
+                | "do"
+                | "final"
+                | "gen"
+                | "macro"
+                | "override"
+                | "priv"
+                | "try"
+                | "typeof"
+                | "unsized"
+                | "virtual"
+                | "yield"
         ) {
             format!("r#{value}")
         } else {

@@ -1,7 +1,7 @@
 #[win32]
 mod Test {
     #[library("test.dll", import = "ConvertEnum")]
-    extern "C" fn ConvertEnum(p0: *mut EnumPacket, p1: Wide) -> State;
+    extern "C" fn ConvertEnum(packet: *mut EnumPacket, wide: Wide) -> State;
     struct EnumPacket {
         small: Signed,
         scoped: Scoped,

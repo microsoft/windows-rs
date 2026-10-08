@@ -3,7 +3,7 @@ mod Test {
     #[annotation("sal", "_Null_terminated_")]
     type LPCWSTR = *const u16;
     #[library("winhttp.dll", import = "WinHttpTimeToSystemTime")]
-    extern "C" fn WinHttpTimeToSystemTime(#[annotation("sal", "_In_z_")] #[in] p0: LPCWSTR, #[annotation("sal", "_Out_")] #[out] p1: *mut _SYSTEMTIME) -> i32;
+    extern "C" fn WinHttpTimeToSystemTime(#[annotation("sal", "_In_z_")] #[in] pwszTime: LPCWSTR, #[annotation("sal", "_Out_")] #[out] pst: *mut _SYSTEMTIME) -> i32;
     struct _SYSTEMTIME {
         wYear: u16,
         wMonth: u16,

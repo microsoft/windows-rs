@@ -8,5 +8,5 @@ mod Test {
     }
     union Payload {}
     #[library("test.dll", import = "_Use")]
-    extern "C" fn Use(p0: *mut Context, p1: *mut Payload);
+    extern "C" fn Use(context: *mut Context, payload: *mut Payload);
 }

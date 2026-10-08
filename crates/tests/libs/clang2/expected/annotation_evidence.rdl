@@ -15,10 +15,10 @@ mod Test {
         First = 1,
     }
     #[library("test.dll", import = "InspectAliases")]
-    extern "C" fn InspectAliases(p0: *mut AnnotatedPacket, p1: *mut Values, #[annotation("sal", "_Out_writes_($3)")] #[out] #[len_param(3)] p2: Buffer, p3: u32);
+    extern "C" fn InspectAliases(packet: *mut AnnotatedPacket, values: *mut Values, #[annotation("sal", "_Out_writes_($3)")] #[out] #[len_param(3)] buffer: Buffer, count: u32);
     #[annotation("sal", "_Success_(return == 0)")]
     #[library("test.dll", import = "Invoke")]
-    extern "C" fn Invoke(#[annotation("sal", "_In_range_(0,10)")] p0: i32, #[annotation("sal", "_When_($0 > 0,_In_reads_($0))")] p1: *mut i32) -> i32;
+    extern "C" fn Invoke(#[annotation("sal", "_In_range_(0,10)")] count: i32, #[annotation("sal", "_When_($0 > 0,_In_reads_($0))")] values: *mut i32) -> i32;
     struct Packet {
         #[annotation("sal", "_Field_range_(1,32)")]
         size: u32,
@@ -27,7 +27,7 @@ mod Test {
     }
     #[annotation("sal", "_Success_(return >= 0) _Ret_range_(0,100)")]
     #[library("test.dll", import = "Query")]
-    extern "C" fn Query(#[annotation("sal", "_In_range_(0,10)")] p0: i32, #[annotation("sal", "_When_($0 > 0,_Out_writes_($0))")] p1: *mut i32, #[annotation("midl", "[out][size_is($0)]")] #[out] p2: *mut i32) -> i32;
+    extern "C" fn Query(#[annotation("sal", "_In_range_(0,10)")] count: i32, #[annotation("sal", "_When_($0 > 0,_Out_writes_($0))")] values: *mut i32, #[annotation("midl", "[out][size_is($0)]")] #[out] raw: *mut i32) -> i32;
     #[annotation("sal", "_Return_type_success_(return >= 0)")]
     type Result = i32;
     #[library("test.dll", import = "Status")]

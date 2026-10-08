@@ -1,5 +1,5 @@
 #[win32]
 mod Test {
     #[library("test.dll", import = "Use")]
-    extern "C" fn Use(p0: *mut External::Data);
+    extern "C" fn Use(packet: *mut External::Data);
 }

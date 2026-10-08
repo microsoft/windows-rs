@@ -349,3 +349,22 @@ contracts; `windows_rdl::implib` derives these from COFF name types, not spellin
 `clang2/metadata.rdl` supplies experimental output valid-byte postconditions separately from
 capacity; keep both through RDL/WinMD. The production metadata seed is unchanged. SDK-wide DLL
 correctness, broader annotation semantics, and full production inputs remain open.
+
+### Clang2 hard-layout continuation
+
+`clang2` `project/record.rs` checks union storage and recursively lowers unnamed records in direct
+fields to existing nested RDL. `test_clang2` `layouts.h`/`layouts.rdl` cover source contracts and
+three-target metadata; `layouts.cpp` and `abi.rs` compare MSVC size, alignment, offsets, and pointer
+mutation in both directions on x86/x64. Union and anonymous-storage by-value calls still reject.
+Packing, bitfields, anonymous arrays/pointer identities, and inherited layouts remain separate gates.
+Do not infer calling support from matching storage or extend coverage with symbol-specific repairs.
+
+Callable presentation names select the lexicographically smallest usable observed name per original
+position, with collision-safe positional fallbacks; filename and input order do not choose names.
+Keep source annotation bindings positional. The BCrypt consumer explicitly binds native `LPCWSTR`
+to `PCWSTR`; generic header projection does not infer that wrapper. See the clang2 docs restart point.
+
+The bounded OLE inventory still rejects anonymous callables and named nested records. Combined
+`oaidl.h`/`shellapi.h` capture exposes missing callable context for the `_Success_` annotation before
+`SHGetNewLinkInfoW`. Reproduce that macro-declaration ownership case in a fixture; do not suppress the
+annotation or substitute OLE value types to improve header counts.

@@ -1,19 +1,19 @@
 #[win32]
 mod Test {
     #[library("test.dll", import = "All")]
-    extern "C" fn All(#[annotation("sal", "_Out_writes_bytes_all_($1)")] #[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 1, Dereference = false)] p0: *mut u8, p1: u32);
+    extern "C" fn All(#[annotation("sal", "_Out_writes_bytes_all_($1)")] #[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 1, Dereference = false)] buffer: *mut u8, capacity: u32);
     #[library("test.dll", import = "AllOptional")]
-    extern "C" fn AllOptional(#[annotation("sal", "_Out_writes_bytes_all_opt_($1)")] #[out] #[opt] #[size_param(1)] #[written_bytes(BytesParamIndex = 1, Dereference = false)] p0: *mut u8, p1: u32);
+    extern "C" fn AllOptional(#[annotation("sal", "_Out_writes_bytes_all_opt_($1)")] #[out] #[opt] #[size_param(1)] #[written_bytes(BytesParamIndex = 1, Dereference = false)] buffer: *mut u8, capacity: u32);
     #[library("test.dll", import = "Capacity")]
-    extern "C" fn Capacity(#[annotation("sal", "_Out_writes_bytes_($1)")] #[out] #[size_param(1)] p0: *mut u8, p1: u32);
+    extern "C" fn Capacity(#[annotation("sal", "_Out_writes_bytes_($1)")] #[out] #[size_param(1)] buffer: *mut u8, capacity: u32);
     #[guid(0x24610fde_d2d0_4fe6_bd47_2ea5bc3d59b9)]
     interface IOutput {
         fn Partial(&self, #[annotation("sal", "_Out_writes_bytes_to_($1,*$2)")] #[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = true)] buffer: *mut u8, capacity: u32, #[annotation("sal", "_Out_")] #[out] written: *mut u32);
     }
     #[library("test.dll", import = "Partial")]
-    extern "C" fn Partial(#[annotation("sal", "_Out_writes_bytes_to_($1,*$2)")] #[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = true)] p0: *mut u8, p1: u32, #[annotation("sal", "_Out_")] #[out] p2: *mut u32);
+    extern "C" fn Partial(#[annotation("sal", "_Out_writes_bytes_to_($1,*$2)")] #[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = true)] buffer: *mut u8, capacity: u32, #[annotation("sal", "_Out_")] #[out] written: *mut u32);
     #[library("test.dll", import = "PartialOptional")]
-    extern "C" fn PartialOptional(#[annotation("sal", "_Out_writes_bytes_to_opt_($1,*$2)")] #[out] #[opt] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = true)] p0: *mut u8, p1: u32, #[annotation("sal", "_Out_")] #[out] p2: *mut u32);
+    extern "C" fn PartialOptional(#[annotation("sal", "_Out_writes_bytes_to_opt_($1,*$2)")] #[out] #[opt] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = true)] buffer: *mut u8, capacity: u32, #[annotation("sal", "_Out_")] #[out] written: *mut u32);
     #[library("test.dll", import = "ValueCount")]
-    extern "C" fn ValueCount(#[annotation("sal", "_Out_writes_bytes_to_($1,$2)")] #[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = false)] p0: *mut u8, p1: u32, p2: u32);
+    extern "C" fn ValueCount(#[annotation("sal", "_Out_writes_bytes_to_($1,$2)")] #[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = false)] buffer: *mut u8, capacity: u32, written: u32);
 }

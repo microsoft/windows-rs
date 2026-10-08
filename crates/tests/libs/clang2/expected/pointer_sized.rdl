@@ -1,12 +1,12 @@
 #[win32]
 mod Test {
     #[library("test.dll", import = "Annotated")]
-    extern "C" fn Annotated(p0: AnnotatedSize) -> AnnotatedSize;
+    extern "C" fn Annotated(value: AnnotatedSize) -> AnnotatedSize;
     #[annotation("sal", "_In_range_(0, 1024)")]
     type AnnotatedSize = usize;
     const MaxCount: usize = 18446744073709551615;
     #[library("test.dll", import = "Measure")]
-    extern "C" fn Measure(p0: usize, p1: isize, p2: *mut usize, p3: u64) -> isize;
+    extern "C" fn Measure(count: usize, offset: isize, result: *mut usize, fixed: u64) -> isize;
     const MinOffset: isize = -1;
     type SignedSize = isize;
     struct Sizes {
@@ -18,5 +18,5 @@ mod Test {
     }
     type UnsignedSize = usize;
     #[library("test.dll", import = "Write")]
-    extern "C" fn Write(#[annotation("sal", "_Out_writes_bytes_to_($1,*$2)")] #[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = true)] p0: *mut u8, p1: usize, #[annotation("sal", "_Out_")] #[out] p2: *mut usize);
+    extern "C" fn Write(#[annotation("sal", "_Out_writes_bytes_to_($1,*$2)")] #[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = true)] buffer: *mut u8, capacity: usize, #[annotation("sal", "_Out_")] #[out] written: *mut usize);
 }

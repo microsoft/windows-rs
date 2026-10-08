@@ -16,5 +16,5 @@ mod Test {
         fn Release(&self) -> u32;
     }
     #[library("test.dll", import = "Use")]
-    extern "C" fn Use(p0: IUnknown, p1: *mut IUnknown, p2: IClassFactory);
+    extern "C" fn Use(input: IUnknown, output: *mut IUnknown, factory: IClassFactory);
 }

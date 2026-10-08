@@ -10,5 +10,5 @@ mod Test {
         text: External::PCWSTR,
     }
     #[library("test.dll", import = "Use")]
-    extern "C" fn Use(p0: *mut PointerRecord, p1: *mut External::Handle, p2: *mut External::PCWSTR, p3: *const External::PCWSTR) -> External::Handle;
+    extern "C" fn Use(record: *mut PointerRecord, output: *mut External::Handle, text: *mut External::PCWSTR, input: *const External::PCWSTR) -> External::Handle;
 }

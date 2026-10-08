@@ -2,5 +2,5 @@
 mod Test {
     const INTEGER_CONSTANT: i32 = 42;
     #[library("test.dll", import = "Use")]
-    extern "C" fn Use(p0: External::IUnknown, p1: *mut External::IUnknown);
+    extern "C" fn Use(input: External::IUnknown, output: *mut External::IUnknown);
 }

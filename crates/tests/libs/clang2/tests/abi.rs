@@ -13,6 +13,86 @@ use bindings::*;
 use core::ffi::c_void;
 
 #[test]
+fn union_and_nested_layout_matches_cpp() {
+    let anonymous = std::mem::offset_of!(LayoutPacket, Anonymous1_);
+    let inner = anonymous + std::mem::offset_of!(LayoutPacket_0, Anonymous1);
+    let named = std::mem::offset_of!(LayoutPacket, named);
+    for (index, value) in [
+        size_of::<LayoutChoice>(),
+        align_of::<LayoutChoice>(),
+        std::mem::offset_of!(LayoutChoice, number),
+        std::mem::offset_of!(LayoutChoice, real),
+        std::mem::offset_of!(LayoutChoice, bytes),
+        size_of::<LayoutAligned>(),
+        align_of::<LayoutAligned>(),
+        std::mem::offset_of!(LayoutAligned, bytes),
+        std::mem::offset_of!(LayoutAligned, number),
+        size_of::<LayoutPacket>(),
+        align_of::<LayoutPacket>(),
+        std::mem::offset_of!(LayoutPacket, tag),
+        anonymous + std::mem::offset_of!(LayoutPacket_0, number),
+        inner + std::mem::offset_of!(LayoutPacket_0_0, low),
+        inner + std::mem::offset_of!(LayoutPacket_0_0, high),
+        anonymous + std::mem::offset_of!(LayoutPacket_0, real),
+        std::mem::offset_of!(LayoutPacket, Anonymous1),
+        std::mem::offset_of!(LayoutPacket, choices),
+        named,
+        named + std::mem::offset_of!(LayoutPacket_1, value),
+        named + std::mem::offset_of!(LayoutPacket_1, marker),
+        std::mem::offset_of!(LayoutPacket, aligned),
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        assert_eq!(
+            unsafe { LayoutEvidence(index.try_into().unwrap()) },
+            u32::try_from(value).unwrap(),
+            "layout observation {index}"
+        );
+    }
+}
+
+#[test]
+fn union_storage_crosses_pointer_calls_in_both_directions() {
+    let mut packet = LayoutPacket {
+        tag: 1,
+        Anonymous1: 2,
+        named: LayoutPacket_1 {
+            value: -5,
+            marker: 6,
+        },
+        ..Default::default()
+    };
+    packet.Anonymous1_.real = 1.25;
+    packet.choices[0].number = 3;
+    packet.choices[1].real = 4.25;
+    packet.aligned.number = 7;
+    unsafe { LayoutMutate(&mut packet) };
+    assert_eq!(packet.tag, 2);
+    assert_eq!(unsafe { packet.Anonymous1_.real }, 2.5);
+    assert_eq!(packet.Anonymous1, 5);
+    assert_eq!(unsafe { packet.choices[0].number }, 8);
+    assert_eq!(unsafe { packet.choices[1].real }, 4.75);
+    assert_eq!(packet.named.value, -12);
+    assert_eq!(packet.named.marker, 15);
+    assert_eq!(unsafe { packet.aligned.number }, 18);
+
+    unsafe extern "C" fn callback(packet: *mut LayoutPacket) {
+        let packet = unsafe { &mut *packet };
+        packet.tag += 2;
+        packet.Anonymous1_.Anonymous1 = LayoutPacket_0_0 { low: -7, high: 9 };
+        packet.named.value = 31;
+        packet.aligned.number = 42;
+    }
+    unsafe { LayoutInvoke(Some(callback), &mut packet) };
+    assert_eq!(packet.tag, 4);
+    assert_eq!(unsafe { packet.Anonymous1_.Anonymous1.low }, -7);
+    assert_eq!(unsafe { packet.Anonymous1_.Anonymous1.high }, 9);
+    assert_eq!(packet.named.value, 31);
+    assert_eq!(unsafe { packet.aligned.number }, 42);
+}
+
+#[test]
 fn record_layout_matches_cpp() {
     for (index, value) in [
         size_of::<AbiPacket>(),

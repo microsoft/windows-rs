@@ -69,10 +69,11 @@ Annotated local aliases retain their names and declaration contracts. SDK/WDK ca
 force-include `crates/libs/clang2/src/sal.h` before SDK headers; it instruments source markers rather
 than a whitelist of supported projections. Exhaustive SDK/WDK macro coverage remains a separate gate.
 
-Projection currently covers ordinary C-layout records, integer-backed enums, fixed-prototype
-functions, scalar and raw pointer constants, UUID-bearing local COM interfaces, and external type
-bindings. Local interfaces support a single base and pure virtual system-ABI methods, but reject
-by-value record results until the downstream aggregate-return ABI is covered. Same-name COM methods
+Projection currently covers ordinary C-layout structs and unions, integer-backed enums,
+fixed-prototype functions, scalar and raw pointer constants, UUID-bearing local COM interfaces, and
+external type bindings. Local interfaces support a single base and pure virtual system-ABI methods,
+but reject by-value record results until the downstream aggregate-return ABI is covered.
+Same-name COM methods
 are rejected until native vtable ordering is covered; disambiguating Rust names is not enough.
 Inherited-slot overrides are captured but rejected until projection models slot reuse.
 Explicit `clang::flag_enum` and `DEFINE_ENUM_FLAG_OPERATORS` markers survive without changing enum
@@ -88,6 +89,18 @@ Incomplete C structs and unions emit nominal empty declarations for pointer use,
 a native storage layout. By-value parameters and results with unavailable layouts reject.
 Variable redeclarations compare canonical types while retaining written typedef dependencies;
 projection also checks that their written typedef contracts agree.
+
+Callable parameter names are presentation only. Resolution selects the lexicographically smallest
+usable observed name at each position, with collision-safe `p{index}` fallbacks. Functions, callbacks,
+and methods share this policy; input paths and order do not select names. Annotation references keep
+their original positional bindings.
+
+Record storage must match compiler size, alignment, and field offsets. Unions require zero member
+offsets. Direct fields containing unnamed structs or unions use existing nested RDL records;
+implicit anonymous fields get collision-safe `Anonymous{index}` names. Reduced alignment, packing
+that changes field placement, and bitfields still reject. Unions and records containing anonymous
+storage support pointer use, but their by-value calls remain rejected until native ABI coverage
+establishes support.
 
 Increased member/record alignment preserves native storage using padding unions and alignment
 attributes. By-value calls involving adjusted layouts reject until their calling ABI is covered.

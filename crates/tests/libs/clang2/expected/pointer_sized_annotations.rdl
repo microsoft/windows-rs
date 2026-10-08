@@ -4,5 +4,5 @@ mod Test {
     type AnnotatedBase = usize;
     type Size = AnnotatedBase;
     #[library("test.dll", import = "Use")]
-    extern "C" fn Use(p0: AnnotatedBase) -> AnnotatedBase;
+    extern "C" fn Use(value: AnnotatedBase) -> AnnotatedBase;
 }

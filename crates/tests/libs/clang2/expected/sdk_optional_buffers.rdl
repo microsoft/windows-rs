@@ -2,7 +2,7 @@
 mod Test {
     #[annotation("sal", "_Must_inspect_result_")]
     #[library("bcrypt.dll", import = "BCryptDeriveKeyPBKDF2")]
-    extern "C" fn BCryptDeriveKeyPBKDF2(#[annotation("sal", "_In_")] #[in] p0: *mut void, #[annotation("sal", "_In_reads_bytes_opt_($2)")] #[in] #[opt] #[size_param(2)] p1: *mut u8, #[annotation("sal", "_In_")] #[in] p2: u32, #[annotation("sal", "_In_reads_bytes_opt_($4)")] #[in] #[opt] #[size_param(4)] p3: *mut u8, #[annotation("sal", "_In_")] #[in] p4: u32, #[annotation("sal", "_In_")] #[in] p5: u64, #[annotation("sal", "_Out_writes_bytes_($7)")] #[out] #[size_param(7)] p6: *mut u8, #[annotation("sal", "_In_")] #[in] p7: u32, #[annotation("sal", "_In_")] #[in] p8: u32) -> NTSTATUS;
+    extern "C" fn BCryptDeriveKeyPBKDF2(#[annotation("sal", "_In_")] #[in] hPrf: *mut void, #[annotation("sal", "_In_reads_bytes_opt_($2)")] #[in] #[opt] #[size_param(2)] pbPassword: *mut u8, #[annotation("sal", "_In_")] #[in] cbPassword: u32, #[annotation("sal", "_In_reads_bytes_opt_($4)")] #[in] #[opt] #[size_param(4)] pbSalt: *mut u8, #[annotation("sal", "_In_")] #[in] cbSalt: u32, #[annotation("sal", "_In_")] #[in] cIterations: u64, #[annotation("sal", "_Out_writes_bytes_($7)")] #[out] #[size_param(7)] pbDerivedKey: *mut u8, #[annotation("sal", "_In_")] #[in] cbDerivedKey: u32, #[annotation("sal", "_In_")] #[in] dwFlags: u32) -> NTSTATUS;
     #[annotation("sal", "_Return_type_success_(return >= 0)")]
     type NTSTATUS = i32;
 }

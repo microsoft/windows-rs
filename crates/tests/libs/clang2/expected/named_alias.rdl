@@ -5,5 +5,5 @@ mod Test {
         y: i32,
     }
     #[library("test.dll", import = "Use")]
-    extern "C" fn Use(p0: Point);
+    extern "C" fn Use(value: Point);
 }

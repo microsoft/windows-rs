@@ -10,5 +10,5 @@ mod Test {
         fn Create(&self, #[annotation("sal", "_COM_Outptr_")] #[out] context: *mut IContext) -> i32;
     }
     #[library("test.dll", import = "MutateObject")]
-    extern "C" fn MutateObject(#[annotation("sal", "_Inout_")] #[in] p0: IContext);
+    extern "C" fn MutateObject(#[annotation("sal", "_Inout_")] #[in] context: IContext);
 }

@@ -78,6 +78,7 @@ Inputs + compiler arguments + named roots
 | `native.rs` | Private native model with explicit typedef edges and incomplete/unavailable states. |
 | `validate.rs` | Checks available evidence with an iterative node-pair worklist. |
 | `project.rs` | Applies explicit projection policy and renders only planned items. |
+| `project/record.rs` | Checks struct/union storage and lowers direct unnamed record fields. |
 | `lib.rs` | Experimental input, snapshot, report, and diagnostic inspection API. |
 
 There is no dependency on `windows-clang` in the library. The comparison test crate depends on both.
@@ -297,12 +298,41 @@ record alignment uses `#[align(N)]`; packing and reduced alignment still reject.
 check rejects by-value calls involving an adjusted record, including nested records and aliases.
 Matching storage layout does not prove its calling ABI.
 
+Complete unions use the maximum member size and natural alignment, with every compiler member
+offset required to be zero. Increased alignment uses the same checked alignment attribute as
+structs. Unnamed records in direct fields lower recursively to the existing nested RDL form, rather
+than acquiring guessed global names. Implicit anonymous fields receive `Anonymous{index}`, with
+underscores appended to avoid all native and generated field names. Named fields of unnamed types
+retain their field names. Source annotations stay attached to the nested type or field.
+
+| Shape | Storage policy | Calling policy |
+| --- | --- | --- |
+| Ordinary struct | Exact compiler offsets, size, and alignment. | Existing ordinary by-value support. |
+| Union | Exact compiler size/alignment; all member offsets zero. | Pointer use only. |
+| Direct anonymous struct/union field | Checked recursively; existing nested RDL representation. | Enclosing by-value calls reject. |
+| Increased field/record alignment | Explicit padding and alignment attributes. | Adjusted by-value calls reject. |
+| Reduced alignment or displaced packed fields | Reject rather than expose misaligned field access. | Unsupported. |
+| Bitfields | Reject; mixed signedness needs a representation contract. | Unsupported. |
+
+`layouts.h` and `layouts.rdl` cover nested structs/unions, named anonymous-record members, arrays of
+named unions, explicit union alignment, generated-name collisions, and nested source annotations.
+Semantic metadata checks run on x86, x64, and ARM64. `layouts.cpp` supplies MSVC size, alignment,
+member-offset, and pointer-mutation evidence in both call directions on x86/x64. Native ARM64
+execution remains open. `layouts_rejected.h` keeps reduced alignment, packed field placement, and
+bitfields rejected, including inside nested records. Function parameters, results, and callbacks
+keep the by-value rejection gate.
+
+Selecting an alias for a direct anonymous member cannot remove the enclosing record's ABI gate.
+That fact is retained from native field ownership, not inferred from the output type spelling.
+`anonymous_by_value.h` covers that selected-alias path.
+
 Explicitly selected record aliases own the output name unless the named tag is also selected.
 This preserves `POINT`/`RECT` and permits `decltype` to select real nested WDK member types without
 copying their declarations. Native candidate identity
 still uses the checked owner and field slot, including fields containing arrays or pointers to
 unnamed records. Multiple selected aliases naming the same record reject instead of
-choosing by traversal order. General anonymous aggregate emission remains unsupported.
+choosing by traversal order. Anonymous arrays, pointer targets without a public identity, and general
+C++ record layouts remain outside the direct-field slice.
 
 Callable projection retains written typedef paths, not just canonical ABI types. For example,
 explicitly binding native `HRESULT` to `Windows.Win32.Foundation.HRESULT` preserves error and COM
@@ -403,7 +433,7 @@ An interface parameter consumes exactly one native pointer/reference level. By-v
 are rejected for COM methods on all targets until the downstream aggregate-return ABI is covered.
 Record pointers and free-function results with ordinary record layouts remain supported.
 
-Packing, bitfield projection, anonymous aggregate projection, and anonymous callable projection
+Packing that changes storage layout, bitfield projection, and anonymous callable projection
 remain outside this slice. Qualified native names can select roots, but local
 output names currently require unqualified identifiers. UUIDs decode from `__declspec(uuid(...))`
 only (no `GUID`-typed value decoding yet). General SAL lowering, MIDL relationships, WinRT mapping,
@@ -457,7 +487,8 @@ calling conventions, and invalid COM output types.
 `anonymous.h` covers nested and sibling anonymous aggregates, named members of unnamed records, and
 mutations with unchanged size/alignment. The cross-TU matrix changes both input and filename order
 on all three targets. An external record binding cannot hide a contradictory anonymous member.
-Local anonymous-aggregate emission remains an explicit projection error.
+Local direct-field anonymous aggregates emit checked nested RDL records. The conflict checks still
+run before storage projection or external substitution.
 
 `enums.h` covers scoped/unscoped enums, same-name typedef roots, alias uses, duplicate values,
 negative narrow values, and the maximum unsigned 64-bit value. RDL and semantic metadata checks
@@ -550,7 +581,10 @@ collisions, nested adjusted records, increased record alignment, and by-value re
 required exports are `BCryptOpenAlgorithmProvider`, `BCryptGetProperty`, `BCryptCreateHash`,
 `BCryptHashData`, `BCryptFinishHash`, `BCryptDestroyHash`, `BCryptDeriveKeyPBKDF2`, and
 `BCryptCloseAlgorithmProvider`. The inputs come from the pinned SDK and clang2 SAL adapter; external
-`PCWSTR` and handle bindings are explicit.
+`PCWSTR` and handle bindings are explicit. The consumer binds native `LPCWSTR` to
+`Windows.Win32.PCWSTR`; generic projection retains the local annotated typedef unless the caller
+supplies that contract. Metadata assertions check both provider string inputs and the property
+name on all three targets. This is a typedef-level consumer policy, not a per-export string repair.
 
 The hashing lifecycle opens a SHA256 or HMAC provider, queries object and digest lengths, creates
 a hash, feeds incremental chunks, finishes it, destroys it, and closes the provider. Both
@@ -863,9 +897,13 @@ performance or a production resource budget. The actual switched `tool-webview` 
 including process startup and regenerated byte-identical bindings in all three runs.
 
 The integration needs explicit external type identities and compiler-symbol import routes, but no
-per-method WebView compatibility rewriting. Free-function parameter names are still synthesized as
-`p0`, `p1`, etc.; method parameter names are retained. Broader annotations, native ARM64 execution,
-and SDK-wide production coverage remain open.
+per-method WebView compatibility rewriting. Functions, callbacks, and methods select the
+lexicographically smallest usable observed parameter name at each original position. Empty,
+unusable, or duplicate names get collision-safe `p{index}` fallbacks; Rust keywords are escaped.
+Filename and input order cannot choose presentation names. Names do not participate in native
+agreement, and source annotation contexts keep their original positional bindings.
+`parameter_names.h` checks permutations, escaping, fallback collisions, and buffer metadata.
+Broader annotations, native ARM64 execution, and SDK-wide production coverage remain open.
 
 ### Header-driven Win32 main/satellite slice
 
@@ -1148,7 +1186,7 @@ The tool audit separates source-derived policy from repairs that would conceal m
 | Metadata validity | RDL emission is not semantic WinMD compilation, wrapper ABI validation, public-name parity, or DLL usability. |
 
 The remaining failures include unavailable macro identifiers and non-value expressions,
-declaration-only GUID/property-key data, packing, unions and bitfields, anonymous aggregate output,
+declaration-only GUID/property-key data, packing and bitfields, unsupported union/anonymous shapes,
 general C++ inheritance/templates, SAL lowering, and missing header prerequisites. Treat these as
 shared source/capture/projection classes. Do not patch individual symbols to improve the totals.
 
@@ -1157,6 +1195,14 @@ Production replacement also
 requires combined cross-header and architecture agreement, semantic RDL compilation, public
 partition/name policy, DLL-contract checks, and resource budgets. The manifest run exposes the
 remaining work; it does not justify switching the production Win32/WDK backend yet.
+
+The bounded union slice does not complete `oaidl.h`: the generic route reports 359 selected names,
+108 emitted, and 251 rejected, with no unavailable native groups. Anonymous callable types and
+named nested records still block dependency closures, including OLE value types. These are shared
+representation gaps, not reasons to externally bind `VARIANT` in the generic header runner.
+The combined `oaidl.h`/`shellapi.h` route fails capture because the selected `_Success_` annotation
+before `SHGetNewLinkInfoW` has no indexed callable context. Keep that ownership/indexing failure
+visible and reproduce the macro-declaration shape in a fixture before repairing it.
 
 ### Failure-ownership and scaling checkpoint
 
@@ -1228,6 +1274,18 @@ over the old extractor's lossy output. Proceed through bounded gates, not an unc
 The old `windows-clang` implementation remains available. `tool-webview` uses clang2; the other
 production scrapers retain their existing path. Inspect the worktree before restarting and
 preserve any local changes.
+
+The green baseline includes the explicit BCrypt string contract and preserved WebView MIDL
+annotations. Callable names are deterministic presentation data, independent of input filenames and
+order. The first hard-layout slice projects checked union storage and direct anonymous fields through
+`project/record.rs`, with semantic metadata and x86/x64 native storage/pointer checks. Continue with
+packed storage, bitfield representation, and their calling policies as separate slices. Do not
+remove the union/anonymous by-value gate or claim complete hard-layout support from storage equality.
+
+Generated ARM64 union bindings pass isolated Rust size/alignment/offset assertions. The full ARM64
+test-package build is blocked by the existing WDK fixture selecting an x64 MSVC compiler with ARM64
+defines; do not treat that as native ARM64 execution or expand this storage slice to repair the
+unrelated build profile.
 
 The established WebView slice has no ignored cutover cases. Source-focused class fixtures also
 cover UUID declarations, completion, ownership, and conflict rejection. These establish the covered
@@ -1372,7 +1430,7 @@ expected rejections in fixtures. Do not broaden the slice silently as new cases 
 | 1 | Local COM and UUIDs from `unknwnbase.h` | Metadata case covered: local `IUnknown` and `IClassFactory`, IID, inheritance, method order, system calling conventions, pointer levels, and COM output attributes on three targets. Synthetic executable ABI coverage is in gate 6. |
 | 2 | SAL and MIDL relationships | Required/optional buffers, output valid-byte extents, decimal element constants, scalar strings, and MIDL prefix directions with SAL precedence are covered. Counted strings, indirect capacities, and other MIDL relationships remain. |
 | 3 | Constants and preprocessing | Fully initialized GUID/property-key shapes have native-byte and roundtrip coverage. Declaration-only data, redefinition/undefinition, final macro state, and poison-expression recovery remain. |
-| 4 | Record layout | Anonymous native evidence is covered; local projection remains rejected. Cover packed, anonymous, bitfield, and a supported inherited record; compare compiler layout with generated Rust size, alignment, and offsets. |
+| 4 | Record layout | Union and direct anonymous-field storage have semantic and x86/x64 native layout/pointer coverage. Packing, bitfields, inherited storage, and their calling policies remain; union/anonymous by-value calls reject. |
 | 5 | Real multi-TU consumers | `tool-webview` and the header-driven `tool-win32 --clang2-audio` candidate run real consumers. Audio records every discovered declaration and emits per-header RDL, but 38 selected names still reject. Full Win32 cutover and a WDK case with UM references/enum overlays remain. |
 | 6 | Target and ABI coverage | Raw-binding layout, free aggregate calls, bidirectional COM-style dispatch, COM ownership, and eight BCrypt DLL imports execute on x64/x86. Native ARM64 execution, Windows COM activation, SDK-wide DLL routing, and aggregate-returning methods remain. |
 

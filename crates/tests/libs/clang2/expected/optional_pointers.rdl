@@ -5,5 +5,5 @@ mod Test {
         fn Use(&self, #[annotation("sal", "_In_opt_")] #[in] #[opt] input: *const i32, #[annotation("sal", "_Out_opt_")] #[out] #[opt] output: *mut i32, #[annotation("sal", "_Inout_opt_")] #[in] #[out] #[opt] update: *mut i32);
     }
     #[library("test.dll", import = "Use")]
-    extern "C" fn Use(#[annotation("sal", "_In_opt_")] #[in] #[opt] p0: *const i32, #[annotation("sal", "_Out_opt_")] #[out] #[opt] p1: *mut i32, #[annotation("sal", "_Inout_opt_")] #[in] #[out] #[opt] p2: *mut i32);
+    extern "C" fn Use(#[annotation("sal", "_In_opt_")] #[in] #[opt] input: *const i32, #[annotation("sal", "_Out_opt_")] #[out] #[opt] output: *mut i32, #[annotation("sal", "_Inout_opt_")] #[in] #[out] #[opt] update: *mut i32);
 }

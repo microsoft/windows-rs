@@ -205,6 +205,7 @@ pub(super) struct ResolvedAnnotations {
     pub fields: Vec<SourceAnnotations>,
     pub methods: Vec<SourceAnnotations>,
     pub parameters: std::collections::BTreeMap<usize, Vec<SourceAnnotations>>,
+    pub parameter_names: std::collections::BTreeMap<usize, Vec<String>>,
 }
 
 impl Annotation {

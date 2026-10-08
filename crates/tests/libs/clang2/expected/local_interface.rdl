@@ -10,5 +10,5 @@ mod Test {
         fn Notify(&self, #[annotation("sal", "_In_")] #[in] value: i32, #[annotation("sal", "_Out_")] #[out] result: *mut i32);
     }
     #[library("test.dll", import = "Use")]
-    extern "C" fn Use(p0: IDerived);
+    extern "C" fn Use(value: IDerived);
 }

@@ -11,7 +11,7 @@ mod Test {
         value: u32,
     }
     #[library("test.dll", import = "ByPointer")]
-    extern "C" fn ByPointer(p0: *mut Outer);
+    extern "C" fn ByPointer(value: *mut Outer);
     struct Outer {
         tag: u8,
         value: Adjusted,

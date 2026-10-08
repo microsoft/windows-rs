@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    #[library("test.dll", import = "Buffer")]
+    extern "C" fn Buffer(count: u32, #[annotation("sal", "_In_reads_($0)")] #[in] #[len_param(0)] data: *const i8);
+    extern "C" fn Callback(alpha: i32, p1: i32);
+    #[guid(0x6f3577c1_2047_4713_a2c9_9239f4ded029)]
+    interface IExample {
+        fn Method(&self, alpha: i32, p1: i32, p2: i32);
+    }
+    #[library("test.dll", import = "Names")]
+    extern "C" fn Names(alpha: i32, p1_: i32, p1: i32, p3_: i32, p3: i32, r#type: i32, p6: i32, r#gen: i32, r#box: i32, r#priv: i32, r#yield: i32);
+}

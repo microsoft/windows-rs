@@ -308,9 +308,14 @@ pub fn crypto_options(target: &str) -> ProjectionOptions {
             kind: ReferenceKind::Value,
         },
     );
-    for name in ["BCRYPT_ALG_HANDLE", "BCRYPT_HASH_HANDLE", "BCRYPT_HANDLE"] {
+    for (native, name) in [
+        ("BCRYPT_ALG_HANDLE", "BCRYPT_ALG_HANDLE"),
+        ("BCRYPT_HASH_HANDLE", "BCRYPT_HASH_HANDLE"),
+        ("BCRYPT_HANDLE", "BCRYPT_HANDLE"),
+        ("LPCWSTR", "PCWSTR"),
+    ] {
         options.references.insert(
-            name.into(),
+            native.into(),
             TypeReference {
                 namespace: "Windows.Win32".into(),
                 name: name.into(),

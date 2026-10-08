@@ -4,5 +4,5 @@ mod Test {
         value: i32,
     }
     #[library("test.dll", import = "Use")]
-    extern "C" fn Use(p0: *mut Packet);
+    extern "C" fn Use(packet: *mut Packet);
 }

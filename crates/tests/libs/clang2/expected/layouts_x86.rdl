@@ -1,0 +1,38 @@
+#[win32]
+mod Test {
+    #[align(16)]
+    union LayoutAligned {
+        bytes: [u8; 16],
+        number: u32,
+    }
+    extern "C" fn LayoutCallback(packet: *mut LayoutPacket);
+    union LayoutChoice {
+        number: u32,
+        real: f64,
+        bytes: [u8; 8],
+    }
+    #[library("test.dll", import = "_LayoutEvidence")]
+    extern "C" fn LayoutEvidence(index: u32) -> u32;
+    #[library("test.dll", import = "_LayoutInvoke")]
+    extern "C" fn LayoutInvoke(callback: LayoutCallback, packet: *mut LayoutPacket);
+    #[library("test.dll", import = "_LayoutMutate")]
+    extern "C" fn LayoutMutate(packet: *mut LayoutPacket);
+    struct LayoutPacket {
+        tag: u8,
+        Anonymous1_: #[annotation("sal", "_Vendor_(nested)")] union {
+            number: u32,
+            Anonymous1: struct {
+                low: i16,
+                high: i16,
+            },
+            real: f64,
+        },
+        Anonymous1: u32,
+        choices: [LayoutChoice; 2],
+        named: struct {
+            value: i32,
+            marker: u16,
+        },
+        aligned: LayoutAligned,
+    }
+}

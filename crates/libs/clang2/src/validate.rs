@@ -242,6 +242,7 @@ fn resolve_annotations(
     candidates: &[Id],
 ) -> Result<ResolvedAnnotations, Error> {
     let mut result = ResolvedAnnotations::default();
+    let mut names: BTreeMap<usize, Vec<BTreeSet<String>>> = BTreeMap::new();
     for id in candidates {
         let declaration = &snapshot.declarations[id.0];
         merge_annotations(
@@ -307,6 +308,9 @@ fn resolve_annotations(
             _ => vec![],
         };
         for (slot, parameters) in callables {
+            let candidates = names
+                .entry(slot)
+                .or_insert_with(|| vec![BTreeSet::new(); parameters.len()]);
             let resolved = result.parameters.entry(slot).or_insert_with(|| {
                 (0..parameters.len())
                     .map(|_| SourceAnnotations::default())
@@ -319,6 +323,9 @@ fn resolve_annotations(
                 ));
             }
             for (index, (evidence, parameter)) in resolved.iter_mut().zip(parameters).enumerate() {
+                if valid_parameter_name(&parameter.name) {
+                    candidates[index].insert(parameter.name.clone());
+                }
                 merge_annotations(
                     evidence,
                     &parameter.annotations,
@@ -328,7 +335,44 @@ fn resolve_annotations(
             }
         }
     }
+    result.parameter_names = names
+        .into_iter()
+        .map(|(slot, candidates)| {
+            let preferred: Vec<_> = candidates
+                .into_iter()
+                .map(|names| names.into_iter().next())
+                .collect();
+            let reserved: BTreeSet<_> = preferred.iter().flatten().cloned().collect();
+            let mut used = BTreeSet::new();
+            let names = preferred
+                .into_iter()
+                .enumerate()
+                .map(|(index, name)| {
+                    if let Some(name) = name
+                        && used.insert(name.clone())
+                    {
+                        return name;
+                    }
+                    let mut name = format!("p{index}");
+                    while reserved.contains(&name) || !used.insert(name.clone()) {
+                        name.push('_');
+                    }
+                    name
+                })
+                .collect();
+            (slot, names)
+        })
+        .collect();
     Ok(result)
+}
+
+fn valid_parameter_name(value: &str) -> bool {
+    let mut chars = value.chars();
+    !matches!(value, "_" | "self" | "Self" | "super" | "crate")
+        && chars
+            .next()
+            .is_some_and(|c| c.is_ascii_alphabetic() || c == '_')
+        && chars.all(|c| c.is_ascii_alphanumeric() || c == '_')
 }
 
 fn merge_annotations(

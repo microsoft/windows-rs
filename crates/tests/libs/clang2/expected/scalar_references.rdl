@@ -1,7 +1,7 @@
 #[win32]
 mod Test {
     #[library("test.dll", import = "Convert")]
-    extern "C" fn Convert(p0: External::Status, p1: *mut External::Status, p2: StatusRecord) -> External::Status;
+    extern "C" fn Convert(input: External::Status, output: *mut External::Status, value: StatusRecord) -> External::Status;
     #[guid(0x00000001_0000_0000_c000_000000000046)]
     interface IStatus {
         fn Convert(&self, input: External::Status, output: *mut External::Status) -> External::Status;

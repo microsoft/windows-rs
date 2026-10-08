@@ -2,10 +2,10 @@
 mod Test {
     #[annotation("sal", "_Must_inspect_result_")]
     #[library("bcrypt.dll", import = "BCryptGenRandom")]
-    extern "C" fn BCryptGenRandom(#[annotation("sal", "_In_opt_")] #[in] #[opt] p0: *mut void, #[annotation("sal", "_Out_writes_bytes_($2)")] #[out] #[size_param(2)] p1: *mut u8, #[annotation("sal", "_In_")] #[in] p2: u32, #[annotation("sal", "_In_")] #[in] p3: u32) -> NTSTATUS;
+    extern "C" fn BCryptGenRandom(#[annotation("sal", "_In_opt_")] #[in] #[opt] hAlgorithm: *mut void, #[annotation("sal", "_Out_writes_bytes_($2)")] #[out] #[size_param(2)] pbBuffer: *mut u8, #[annotation("sal", "_In_")] #[in] cbBuffer: u32, #[annotation("sal", "_In_")] #[in] dwFlags: u32) -> NTSTATUS;
     #[annotation("sal", "_Must_inspect_result_")]
     #[library("bcrypt.dll", import = "BCryptHashData")]
-    extern "C" fn BCryptHashData(#[annotation("sal", "_Inout_")] #[in] #[out] p0: *mut void, #[annotation("sal", "_In_reads_bytes_($2)")] #[in] #[size_param(2)] p1: *mut u8, #[annotation("sal", "_In_")] #[in] p2: u32, #[annotation("sal", "_In_")] #[in] p3: u32) -> NTSTATUS;
+    extern "C" fn BCryptHashData(#[annotation("sal", "_Inout_")] #[in] #[out] hHash: *mut void, #[annotation("sal", "_In_reads_bytes_($2)")] #[in] #[size_param(2)] pbInput: *mut u8, #[annotation("sal", "_In_")] #[in] cbInput: u32, #[annotation("sal", "_In_")] #[in] dwFlags: u32) -> NTSTATUS;
     #[annotation("sal", "_Return_type_success_(return >= 0)")]
     type NTSTATUS = i32;
 }

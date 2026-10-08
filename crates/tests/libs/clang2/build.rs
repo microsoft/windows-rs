@@ -445,6 +445,8 @@ fn build_abi() {
     println!("cargo:rerun-if-changed=input/abi.h");
     println!("cargo:rerun-if-changed=input/abi.cpp");
     println!("cargo:rerun-if-changed=input/enums.h");
+    println!("cargo:rerun-if-changed=input/layouts.h");
+    println!("cargo:rerun-if-changed=input/layouts.cpp");
     helpers::ensure_libclang();
     let target = format!("--target={}", std::env::var("TARGET").unwrap());
     let snapshot = windows_clang2::capture(
@@ -461,6 +463,9 @@ fn build_abi() {
             "ConvertEnum",
             "AbiEnums",
             "AbiEnumCall",
+            "LayoutEvidence",
+            "LayoutMutate",
+            "LayoutInvoke",
         ],
     )
     .unwrap();
@@ -491,5 +496,6 @@ fn build_abi() {
         .std("c++17")
         .warnings_into_errors(true)
         .file("input/abi.cpp")
+        .file("input/layouts.cpp")
         .compile("clang2_abi");
 }

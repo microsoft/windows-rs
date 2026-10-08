@@ -1,5 +1,5 @@
 #[win32]
 mod Test {
     #[library("test.dll", import = "Fill")]
-    extern "C" fn Fill(#[annotation("sal", "_Out_")] #[out] p0: *mut i32);
+    extern "C" fn Fill(#[annotation("sal", "_Out_")] #[out] buffer: *mut i32);
 }

@@ -15,6 +15,173 @@ use sdk::capture_sdk as sdk_capture;
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn union_and_anonymous_storage_matches_compiler_evidence() {
+    for target in [
+        "x86_64-pc-windows-msvc",
+        "i686-pc-windows-msvc",
+        "aarch64-pc-windows-msvc",
+    ] {
+        let snapshot = capture(
+            [Input::new(
+                "layouts.hpp",
+                include_str!("../input/layouts.h"),
+            )],
+            &["-x", "c++", &format!("--target={target}")],
+            &["LayoutEvidence", "LayoutMutate", "LayoutInvoke"],
+        )
+        .unwrap();
+        let resolved = snapshot.resolve().unwrap();
+        let name = if target.starts_with("i686") {
+            "layouts_x86"
+        } else {
+            "layouts"
+        };
+        let index = compile(name, &resolved.project(&options()).unwrap());
+        let Item::Type(union) = index.expect_item("Test", "LayoutChoice") else {
+            panic!()
+        };
+        assert!(
+            union
+                .flags()
+                .contains(windows_metadata::TypeAttributes::ExplicitLayout)
+        );
+        assert_eq!(union.fields().count(), 3);
+        let Item::Type(packet) = index.expect_item("Test", "LayoutPacket") else {
+            panic!()
+        };
+        let names: Vec<_> = packet
+            .fields()
+            .map(|field| field.name().to_string())
+            .collect();
+        assert_eq!(
+            names,
+            [
+                "tag",
+                "Anonymous1_",
+                "Anonymous1",
+                "choices",
+                "named",
+                "aligned"
+            ]
+        );
+        assert_eq!(index.nested_recursive(packet).len(), 3);
+        let anonymous = index
+            .nested(packet)
+            .find(|ty| {
+                ty.flags()
+                    .contains(windows_metadata::TypeAttributes::ExplicitLayout)
+            })
+            .unwrap();
+        assert!(anonymous.has_attribute("NativeAnnotationAttribute"));
+    }
+}
+
+#[test]
+fn union_and_anonymous_calls_by_value_remain_rejected() {
+    for (root, declaration) in [
+        (
+            "UseChoice",
+            "extern \"C\" void UseChoice(LayoutChoice value);",
+        ),
+        ("ReturnChoice", "extern \"C\" LayoutChoice ReturnChoice();"),
+        (
+            "UsePacket",
+            "extern \"C\" void UsePacket(LayoutPacket value);",
+        ),
+        ("ReturnPacket", "extern \"C\" LayoutPacket ReturnPacket();"),
+        (
+            "Callback",
+            "typedef LayoutChoice (*Callback)(LayoutChoice value);",
+        ),
+    ] {
+        let source = format!("{}\n{declaration}", include_str!("../input/layouts.h"));
+        let snapshot = capture([Input::new("layouts.hpp", source)], ARGS, &[root]).unwrap();
+        let resolved = snapshot.resolve().unwrap();
+        let error = resolved.project(&options()).unwrap_err().to_string();
+        assert!(
+            error.contains("by-value unions or anonymous records"),
+            "{error}"
+        );
+    }
+    let snapshot = capture(
+        [Input::new(
+            "anonymous.hpp",
+            include_str!("../input/anonymous_by_value.h"),
+        )],
+        ARGS,
+        &["Inner", "ByValue"],
+    )
+    .unwrap();
+    let resolved = snapshot.resolve().unwrap();
+    let error = resolved.project(&options()).unwrap_err().to_string();
+    assert!(
+        error.contains("by-value unions or anonymous records"),
+        "{error}"
+    );
+}
+
+#[test]
+fn union_and_anonymous_storage_does_not_hide_packing_or_bitfields() {
+    let source = include_str!("../input/layouts_rejected.h");
+    for (root, reason) in [
+        ("PackedUnion", "unsupported record alignment"),
+        ("PackedNested", "unsupported record alignment"),
+        ("PackedField", "unsupported packing or field alignment"),
+        ("BitfieldUnion", "bitfield projection"),
+        ("BitfieldNested", "bitfield projection"),
+    ] {
+        let snapshot = capture([Input::new("layouts.hpp", source)], ARGS, &[root]).unwrap();
+        let resolved = snapshot.resolve().unwrap();
+        let error = resolved.project(&options()).unwrap_err().to_string();
+        assert!(error.contains(reason), "{error}");
+    }
+}
+
+#[test]
+fn parameter_names_are_presentation_only_and_filename_independent() {
+    let source = include_str!("../input/parameter_names.h");
+    for swapped in [false, true] {
+        for reversed in [false, true] {
+            let mut inputs = [
+                Input::new(if swapped { "z.hpp" } else { "a.hpp" }, source),
+                Input::new(
+                    if swapped { "a.hpp" } else { "z.hpp" },
+                    format!("#define SECOND\n{source}"),
+                ),
+            ];
+            if reversed {
+                inputs.reverse();
+            }
+            let snapshot =
+                capture(inputs, ARGS, &["Names", "Buffer", "Callback", "IExample"]).unwrap();
+            let resolved = snapshot.resolve().unwrap();
+            let index = compile("parameter_names", &resolved.project(&options()).unwrap());
+            let Item::Fn(function) = index.expect_item("Test", "Names") else {
+                panic!()
+            };
+            let names: Vec<_> = function
+                .params()
+                .map(|parameter| parameter.name().to_string())
+                .collect();
+            assert_eq!(
+                names,
+                [
+                    "alpha", "p1_", "p1", "p3_", "p3", "type", "p6", "gen", "box", "priv", "yield"
+                ]
+            );
+            let Item::Fn(function) = index.expect_item("Test", "Buffer") else {
+                panic!()
+            };
+            let params = function.params_by_sequence(2).unwrap();
+            assert_eq!(
+                params.params()[1].unwrap().buffer_relationship(),
+                Some(BufferRelationship::ElementsParam(0))
+            );
+        }
+    }
+}
+
+#[test]
 fn assessed_native_and_probe_roots_compile_to_metadata() {
     let report = windows_clang2::capture_report(
         [Input::new(
@@ -666,6 +833,19 @@ fn real_crypto_roots_imports_and_postconditions_are_complete() {
         let index = Index::read(scratch).unwrap();
         for root in sdk::CRYPTO_ROOTS {
             index.expect_item("Crypto", root);
+        }
+        for (name, position) in [
+            ("BCryptOpenAlgorithmProvider", 1),
+            ("BCryptOpenAlgorithmProvider", 2),
+            ("BCryptGetProperty", 1),
+        ] {
+            let Item::Fn(function) = index.expect_item("Crypto", name) else {
+                panic!()
+            };
+            assert_eq!(
+                function.signature(&[]).types[position],
+                Type::value_named("Windows.Win32", "PCWSTR"),
+            );
         }
         for (name, position, written, capacity, optional) in [
             (
@@ -1402,7 +1582,7 @@ fn interface_direction_distinguishes_objects_from_pointer_slots() {
                 .unwrap()
                 .rdl();
             assert!(
-                rdl.contains(&format!("fn MutateObject(#[annotation(\"sal\", \"{annotation}\")] {attributes}p0: {projected})")),
+                rdl.contains(&format!("fn MutateObject(#[annotation(\"sal\", \"{annotation}\")] {attributes}context: {projected})")),
                 "{rdl}"
             );
         }
@@ -1561,7 +1741,7 @@ fn external_enums_keep_native_scalar_layout() {
     );
     let rdl = snapshot.resolve().unwrap().project(&options).unwrap().rdl();
     assert!(
-        rdl.contains("fn Convert(p0: External::Kind) -> External::Kind;"),
+        rdl.contains("fn Convert(value: External::Kind) -> External::Kind;"),
         "{rdl}"
     );
     assert!(rdl.contains("kind: External::Kind,"), "{rdl}");
@@ -1952,7 +2132,7 @@ fn sal_precedence_cannot_hide_annotation_family_conflicts() {
                     .project(&options())
                     .unwrap()
                     .rdl();
-                assert!(rdl.contains("#[in] p0: *mut i32"), "{rdl}");
+                assert!(rdl.contains("#[in] value: *mut i32"), "{rdl}");
                 assert!(!rdl.contains("#[out]"), "{rdl}");
             } else {
                 assert!(snapshot.resolve().is_err());
@@ -2343,8 +2523,7 @@ fn anonymous_aggregate_bindings_cannot_hide_member_conflicts() {
             assert!(snapshot.resolve().is_err());
         } else {
             let resolved = snapshot.resolve().unwrap();
-            let error = resolved.project(&options()).unwrap_err().to_string();
-            assert!(error.contains("anonymous aggregate projection"), "{error}");
+            compile("anonymous", &resolved.project(&options()).unwrap());
             let mut options = options();
             options.references.insert(
                 "Packet".into(),
