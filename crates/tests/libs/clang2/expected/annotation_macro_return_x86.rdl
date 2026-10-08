@@ -1,0 +1,14 @@
+#[win32]
+mod Test {
+    #[guid(0xd8e52d74_e90f_4f9f_9817_e19352eaa808)]
+    interface IQuery {
+        #[annotation("sal", "_Success_(return >= $0)")]
+        fn Get(&self, limit: i32) -> i32;
+    }
+    #[annotation("sal", "_Success_(return >= $0) _Ret_range_(0,100)")]
+    #[library("test.dll", import = "_Mixed@4")]
+    extern "system" fn Mixed(amount: i32) -> i32;
+    #[annotation("sal", "_Success_(return >= $0)")]
+    #[library("test.dll", import = "_Query@4")]
+    extern "system" fn Query(count: i32) -> i32;
+}

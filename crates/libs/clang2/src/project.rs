@@ -896,13 +896,13 @@ impl<'s> Builder<'_, 's> {
                 bases,
                 methods,
                 ..
-            } if matches!(kind.as_str(), "StructDecl" | "UnionDecl")
+            } if matches!(kind, RecordKind::Struct | RecordKind::Union)
                 && fields.is_empty()
                 && bases.is_empty()
                 && methods.is_empty() =>
             {
                 Item::Opaque {
-                    union: kind == "UnionDecl",
+                    union: *kind == RecordKind::Union,
                 }
             }
             DeclarationData::Record {
@@ -912,7 +912,7 @@ impl<'s> Builder<'_, 's> {
                 bases,
                 methods,
                 ..
-            } if kind == "ClassDecl"
+            } if *kind == RecordKind::Class
                 && fields.is_empty()
                 && bases.is_empty()
                 && methods.is_empty()
@@ -938,7 +938,7 @@ impl<'s> Builder<'_, 's> {
                 bases,
                 methods,
                 ..
-            } if matches!(kind.as_str(), "StructDecl" | "UnionDecl")
+            } if matches!(kind, RecordKind::Struct | RecordKind::Union)
                 && bases.is_empty()
                 && methods.is_empty() =>
             {
@@ -1229,7 +1229,7 @@ impl<'s> Builder<'_, 's> {
         else {
             return None;
         };
-        (kind == "StructDecl"
+        (*kind == RecordKind::Struct
             && bases.is_empty()
             && methods.is_empty()
             && *layout == Layout { size, align: 4 }
@@ -1846,7 +1846,10 @@ impl<'s> Builder<'_, 's> {
                     ..
                 } = &declaration.data
                 {
-                    if kind == "ClassDecl" && !complete && self.resolved.guids.contains_key(&id) {
+                    if *kind == RecordKind::Class
+                        && !complete
+                        && self.resolved.guids.contains_key(&id)
+                    {
                         return Err(Error(format!(
                             "native class `{}` has identity but no captured object definition",
                             declaration.name

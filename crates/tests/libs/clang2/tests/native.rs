@@ -7,6 +7,40 @@ const FORWARD: &str = include_str!("../input/forward.h");
 const DEFINITION: &str = include_str!("../input/definition.h");
 const CYCLE: &str = include_str!("../input/cycle.h");
 
+#[test]
+fn annotation_byte_offsets_follow_input_line_endings() {
+    let source = "\nextern \"C\" void Use(int* __attribute__((annotate(\"_In_\"))) value);";
+    let dumps: Vec<_> = [source.to_string(), source.replace('\n', "\r\n")]
+        .into_iter()
+        .map(|source| {
+            capture([Input::new("source.h", source)], ARGS, &["Use"])
+                .unwrap()
+                .dump()
+        })
+        .collect();
+    let offsets: Vec<u32> = dumps
+        .iter()
+        .map(|dump| {
+            dump.lines()
+                .find_map(|line| line.trim().strip_prefix("offset: "))
+                .unwrap()
+                .trim_end_matches(',')
+                .parse()
+                .unwrap()
+        })
+        .collect();
+    assert_eq!(offsets[1], offsets[0] + 1);
+    let without_offsets: Vec<_> = dumps
+        .iter()
+        .map(|dump| {
+            dump.lines()
+                .filter(|line| !line.trim().starts_with("offset: "))
+                .collect::<Vec<_>>()
+        })
+        .collect();
+    assert_eq!(without_offsets[0], without_offsets[1]);
+}
+
 fn pair(source: &str, left: &str, right: &str, roots: &[&str]) -> Snapshot {
     capture(
         [
@@ -21,8 +55,9 @@ fn pair(source: &str, left: &str, right: &str, roots: &[&str]) -> Snapshot {
 
 #[test]
 fn native_evidence_golden() {
+    let source = NATIVE.replace("\r\n", "\n");
     let snapshot = capture(
-        [Input::new("native.h", NATIVE)],
+        [Input::new("native.h", source)],
         ARGS,
         &["Use", "incomplete_array", "zero_array"],
     )
@@ -38,11 +73,9 @@ fn native_evidence_golden() {
 
 #[test]
 fn anonymous_aggregate_evidence_golden() {
+    let source = include_str!("../input/anonymous.h").replace("\r\n", "\n");
     let snapshot = capture(
-        [Input::new(
-            "anonymous.h",
-            include_str!("../input/anonymous.h"),
-        )],
+        [Input::new("anonymous.h", source)],
         ARGS,
         &["Packet", "NamedMember"],
     )

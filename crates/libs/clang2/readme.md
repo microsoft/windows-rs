@@ -59,6 +59,9 @@ including line splices, so an undefined helper keeps its original kind. Attribut
 reported separately from values rather than entering expression probes.
 Annotation-context ambiguity is indexed but fails only when captured evidence consumes that
 context; unrelated declarations do not abort the selected closure.
+Prefix annotations before macro-started declaration ranges use the nearest Clang-attached
+declaration in the same file. Inherited annotations keep that owner's parameter context, and owned
+prefix annotations survive alongside annotations inside the declaration range.
 `DeclarationInfo::record_member` identifies declarations scoped to a record. Header inventories
 select their owners as roots; capture still follows the member types and checks their evidence.
 
@@ -170,8 +173,9 @@ It also generates normal Rust wrappers from SDK `IUnknown`/`IClassFactory` decla
 reference counts, identity, output ownership, and failure paths against a C++ implementation.
 Pinned WebView2 fixtures cover all 79 roots in the production binding filter across main and interop
 translation units. Native evidence includes anonymous aggregate fields and their dependency graphs;
-local anonymous-aggregate projection remains unsupported. Explicit SDK bindings for `IStream` and
-`VARIANT` let the interop graph project after its native evidence has been checked.
+direct anonymous record fields project under the checked storage policy above. Explicit SDK
+bindings for `IStream` and `VARIANT` let the interop graph project after its native evidence has
+been checked.
 
 Real pinned WDK member types are checked against MSVC for every offset, size, and alignment, then
 passed through native pointer calls. Generated BCrypt wrappers exercise a full hashing lifecycle,

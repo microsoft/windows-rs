@@ -3,7 +3,7 @@ target: x86_64-pc-windows-msvc19.0.0
 USR: c:@S@NamedMember
 entity: 0
 Record {
-    kind: "StructDecl",
+    kind: Struct,
     unnamed: false,
     complete: true,
     layout: Some(
@@ -41,7 +41,7 @@ Record {
 USR: c:@S@Packet
 entity: 1
 Record {
-    kind: "StructDecl",
+    kind: Struct,
     unnamed: false,
     complete: true,
     layout: Some(
@@ -138,10 +138,10 @@ Record {
     unavailable: [],
 }
 [2] NamedMember::(unnamed struct at anonymous.h:24:5) (anonymous.h:24:5, TU anonymous.h)
-USR: c:@S@NamedMember@S@anonymous.h@345
+USR: c:@S@NamedMember@S@anonymous.h@322
 entity: 2
 Record {
-    kind: "StructDecl",
+    kind: Struct,
     unnamed: true,
     complete: true,
     layout: Some(
@@ -183,7 +183,7 @@ Record {
 USR: c:@S@Packet@Ua
 entity: 3
 Record {
-    kind: "UnionDecl",
+    kind: Union,
     unnamed: true,
     complete: true,
     layout: Some(
@@ -265,7 +265,7 @@ Record {
 USR: c:@S@Packet@Ua
 entity: 4
 Record {
-    kind: "UnionDecl",
+    kind: Union,
     unnamed: true,
     complete: true,
     layout: Some(
@@ -329,7 +329,7 @@ Record {
 USR: c:@S@Packet@Ua@Sa
 entity: 5
 Record {
-    kind: "StructDecl",
+    kind: Struct,
     unnamed: true,
     complete: true,
     layout: Some(

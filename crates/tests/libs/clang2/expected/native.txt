@@ -276,7 +276,7 @@ Function {
                         file: "native.h",
                         line: 18,
                         column: 25,
-                        offset: 415,
+                        offset: 398,
                     },
                 },
             ],
@@ -412,7 +412,7 @@ Variable {
 USR: c:@S@Native
 entity: 3
 Record {
-    kind: "StructDecl",
+    kind: Struct,
     unnamed: false,
     complete: true,
     layout: Some(
@@ -665,7 +665,7 @@ Alias {
 USR: c:@S@Forward
 entity: 6
 Record {
-    kind: "StructDecl",
+    kind: Struct,
     unnamed: false,
     complete: false,
     layout: None,

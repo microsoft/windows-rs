@@ -460,6 +460,10 @@ agreement report. The library itself does not install or configure dependencies.
 
 Dedicated headers live in `crates/tests/libs/clang2/input`. The native evidence golden specifies
 its target environment version so host Visual Studio versions do not change its target line.
+Native dump golden inputs are normalized to LF before capture, including anonymous-record USRs
+that contain byte positions. Production capture keeps the actual source byte offsets; a separate
+LF/CRLF test checks that provenance rather than removing it from the dump. Native record kinds are
+typed once at capture and shared by validation and projection.
 Update it only when the model change is intentional:
 
 ```powershell
@@ -1149,26 +1153,43 @@ remain incomplete. Keep the existing 98-name group as a separate passing control
 
 ### Full manifest and orchestration audit
 
-The recorded independent x64 baseline attempted all 369 manifest headers using the pinned SDK.
-These are source-to-RDL results, not production or runtime certification. The full manifest has not
-been rerun for the failure-ownership checkpoint below.
+The 2026-10-08 independent x64 run attempted all 369 manifest headers using the pinned SDK, after
+the failure-ownership, union-storage, and annotation-prefix changes. These are source-to-RDL
+results, not production or runtime certification. Incomplete coverage produces a nonzero exit.
 
-| Measure | Result |
-| --- | ---: |
-| Headers attempted | 369 |
-| Complete source-to-RDL coverage | 36 |
-| Incomplete coverage | 333 |
-| Headers with some emitted output | 217 |
-| Headers failing before discovery inventory | 24 |
-| Emitted selected names | 28,758 |
-| Rejected selected names | 8,552 |
-| Selected names blocked before projection/output | 62,252 |
+| Measure | Earlier baseline | Current run |
+| --- | ---: | ---: |
+| Headers attempted | 369 | 369 |
+| Complete source-to-RDL coverage | 36 | 48 |
+| Incomplete coverage | 333 | 321 |
+| Headers with some emitted output | 217 | 322 |
+| Headers failing before discovery inventory | 24 | 24 |
+| Emitted selected names | 28,758 | 76,382 |
+| Rejected selected names | 8,552 | 18,770 |
+| Selected names blocked before projection/output | 62,252 | 4,410 |
 
 Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
 are not deduplicated APIs. Each header's supported roots must also pass combined projection and
 source ownership before being marked emitted. RDL-only writes the source plan; it does not compile
 every header's output to WinMD. Independent headers do not test agreement across the full manifest
 or across architectures. No full-manifest peak-memory budget was measured.
+More rejections can mean that formerly blocked roots now reach assessment, not that support regressed.
+
+The largest remaining measured blocks need source fixtures before corrections:
+
+| Header | Blocked names | Capture or combined-output boundary |
+| --- | ---: | --- |
+| `icu.h` | 1,627 | Probe expressions include unsupported type syntax and `noexcept`. |
+| `wmcodecdsp.h` | 833 | Strict native type-qualifier conflict on a data declaration. |
+| `sspi.h` | 717 | Multiple selected aliases name the same record. |
+| `ks.h` | 458 | A selected macro probe has no initializer. |
+| `wincodec.h` | 433 | A selected macro probe has no initializer. |
+| `xaudio2.h` | 121 | Inherited callable annotation context is ambiguous. |
+
+The alias collision is a combined publication boundary, not permission to choose a public name
+from iteration order. Capture conflicts and ambiguous contexts also remain errors until their
+source evidence is understood. The 24 unavailable discovery inventories are a separate prerequisite
+gate; their unknown counts are not included in this table or the measured sums.
 
 The tool audit separates source-derived policy from repairs that would conceal missing evidence:
 
@@ -1200,9 +1221,20 @@ The bounded union slice does not complete `oaidl.h`: the generic route reports 3
 108 emitted, and 251 rejected, with no unavailable native groups. Anonymous callable types and
 named nested records still block dependency closures, including OLE value types. These are shared
 representation gaps, not reasons to externally bind `VARIANT` in the generic header runner.
-The combined `oaidl.h`/`shellapi.h` route fails capture because the selected `_Success_` annotation
-before `SHGetNewLinkInfoW` has no indexed callable context. Keep that ownership/indexing failure
-visible and reproduce the macro-declaration shape in a fixture before repairing it.
+The combined `oaidl.h`/`shellapi.h` route reaches root assessment: 695 selected names, 436 emitted,
+259 rejected, and one unavailable native group. Both `SHGetNewLinkInfoA/W` retain their `_Success_`
+contracts. Coverage is incomplete because the remaining dependency and projection rejections are
+still reported. These counts are source-to-RDL inventory, not semantic certification of all output.
+
+Clang can attach a prefix annotation to a function while starting the function's extent at a later
+declaration macro. The context index accepts that same-file prefix and chooses the nearest attached
+declaration, not an arbitrary nearby token or API name. Inherited attributes keep the original
+parameter context; tied conflicting contexts still reject. Prefix ownership also participates in
+annotation filtering, so an in-range attribute cannot hide an owned prefix.
+`annotation_macro_return.h` and its RDL goldens cover function and method prefixes, mixed
+prefix/in-range annotations, and redeclarations with different parameter names before or after the
+annotated declaration. Three-target, reversed-input metadata checks read back the original
+zero-based bindings. No Shell-specific parsing or annotation exclusions are added.
 
 ### Failure-ownership and scaling checkpoint
 

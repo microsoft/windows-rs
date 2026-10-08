@@ -1,11 +1,5 @@
 use super::*;
 
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub(super) enum RecordKind {
-    Struct,
-    Union,
-}
-
 #[derive(Clone, Debug, PartialEq)]
 pub(super) struct Record {
     pub kind: RecordKind,
@@ -32,6 +26,7 @@ impl Record {
         output.push_str(match self.kind {
             RecordKind::Struct => "struct",
             RecordKind::Union => "union",
+            RecordKind::Class => unreachable!(),
         });
         if let Some(name) = name {
             write!(output, " {name}").unwrap();
@@ -90,11 +85,9 @@ impl Builder<'_, '_> {
         else {
             return Err(Error(format!("record layout unavailable for `{name}`")));
         };
-        let kind = match kind.as_str() {
-            "StructDecl" => RecordKind::Struct,
-            "UnionDecl" => RecordKind::Union,
-            _ => return Err(Error(format!("unsupported record kind for `{name}`"))),
-        };
+        if *kind == RecordKind::Class {
+            return Err(Error(format!("unsupported record kind for `{name}`")));
+        }
         if !bases.is_empty() || !methods.is_empty() {
             return Err(Error(format!(
                 "unsupported C++ record storage for `{name}`"
@@ -146,7 +139,7 @@ impl Builder<'_, '_> {
                         "projected layout unavailable for `{name}::{field_name}`"
                     ))
                 })?;
-            if kind == RecordKind::Union {
+            if *kind == RecordKind::Union {
                 if field.offset != 0 {
                     return Err(Error(format!("nonzero union field offset for `{name}`")));
                 }
@@ -194,7 +187,7 @@ impl Builder<'_, '_> {
             return Err(Error(format!("projected layout differs for `{name}`")));
         }
         Ok(Record {
-            kind,
+            kind: *kind,
             fields: projected,
             layout: layout.clone(),
             alignment: (layout.align > align).then_some(layout.align),

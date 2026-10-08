@@ -3,6 +3,117 @@
 mod sdk;
 
 #[test]
+fn return_annotations_before_declaration_macros_keep_callable_context() {
+    use windows_metadata::{
+        Value,
+        reader::{HasAttributes, Index, Item},
+    };
+
+    let source = include_str!("../input/annotation_macro_return.h");
+    for target in [
+        "--target=x86_64-pc-windows-msvc",
+        "--target=i686-pc-windows-msvc",
+        "--target=aarch64-pc-windows-msvc",
+    ] {
+        for reversed in [false, true] {
+            let mut inputs = [
+                windows_clang2::Input::new("a.hpp", source),
+                windows_clang2::Input::new("b.hpp", format!("#define REDECLARE_FIRST\n{source}")),
+            ];
+            if reversed {
+                inputs.reverse();
+            }
+            let arguments = sdk::arguments(target);
+            let snapshot = windows_clang2::capture(
+                inputs,
+                &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
+                &["Query", "Mixed", "IQuery"],
+            )
+            .unwrap();
+            let mut options = windows_clang2::ProjectionOptions::new("Test");
+            options.library = Some("test.dll".into());
+            let rdl = snapshot.resolve().unwrap().project(&options).unwrap().rdl();
+            let name = if target.contains("i686") {
+                "annotation_macro_return_x86"
+            } else {
+                "annotation_macro_return"
+            };
+            let expected = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                .join("expected")
+                .join(format!("{name}.rdl"));
+            if std::env::var_os("UPDATE_EXPECT").is_some() {
+                std::fs::write(&expected, &rdl).unwrap();
+            }
+            assert_eq!(rdl, std::fs::read_to_string(expected).unwrap());
+            let output = std::path::Path::new(env!("OUT_DIR")).join(format!("{name}.winmd"));
+            windows_rdl::reader()
+                .input_text(&rdl)
+                .output(&output)
+                .write()
+                .unwrap();
+            let index = Index::read(output).unwrap();
+            for (name, expected) in [
+                ("Query", "_Success_(return >= $0)"),
+                ("Mixed", "_Success_(return >= $0) _Ret_range_(0,100)"),
+            ] {
+                let Item::Fn(function) = index.expect_item("Test", name) else {
+                    panic!()
+                };
+                let attribute = function
+                    .attributes()
+                    .find(|attribute| attribute.name() == "NativeAnnotationAttribute")
+                    .unwrap();
+                assert_eq!(
+                    attribute.value(),
+                    [
+                        (String::new(), Value::Utf8("sal".into())),
+                        (String::new(), Value::Utf8(expected.into())),
+                    ]
+                );
+            }
+            let Item::Type(interface) = index.expect_item("Test", "IQuery") else {
+                panic!()
+            };
+            let method = interface.methods().next().unwrap();
+            let attribute = method
+                .attributes()
+                .find(|attribute| attribute.name() == "NativeAnnotationAttribute")
+                .unwrap();
+            assert_eq!(
+                attribute.value(),
+                [
+                    (String::new(), Value::Utf8("sal".into())),
+                    (String::new(), Value::Utf8("_Success_(return >= $0)".into())),
+                ]
+            );
+        }
+    }
+}
+
+#[test]
+fn conflicting_macro_prefix_annotations_are_not_hidden() {
+    let source = include_str!("../input/annotation_macro_return.h");
+    let arguments = sdk::arguments("--target=x86_64-pc-windows-msvc");
+    let snapshot = windows_clang2::capture(
+        [
+            windows_clang2::Input::new("a.hpp", source),
+            windows_clang2::Input::new(
+                "b.hpp",
+                source.replace("return >= count", "return > count"),
+            ),
+        ],
+        &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
+        &["Query"],
+    )
+    .unwrap();
+    let error = snapshot.resolve().err().unwrap();
+    assert!(
+        error.to_string().contains("conflicting annotations"),
+        "{error}"
+    );
+}
+
+#[test]
 fn unrelated_annotation_ambiguity_does_not_poison_selected_evidence() {
     let source = include_str!("../input/annotation_index.h");
     let arguments = sdk::arguments("--target=x86_64-pc-windows-msvc");

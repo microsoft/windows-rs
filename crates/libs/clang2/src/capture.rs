@@ -767,12 +767,18 @@ struct Capture<'a> {
     declarations: Vec<Declaration>,
     entities: Vec<Entity>,
     entity_cursors: Vec<HashMap<u32, Vec<(CXCursor, EntityId)>>>,
-    contexts: Vec<HashMap<(CXFile, u32), Result<Arc<[String]>, String>>>,
+    contexts: Vec<HashMap<(CXFile, u32), AnnotationContext>>,
     flag_enums: Vec<BTreeSet<String>>,
     macros: Vec<BTreeMap<String, Location>>,
     identities: BTreeMap<String, Vec<(usize, CXCursor)>>,
     interned: Vec<HashMap<u32, Vec<(CXCursor, Id)>>>,
     pending: VecDeque<(usize, CXCursor, Id)>,
+}
+
+struct AnnotationContext {
+    distance: u32,
+    parameters: Result<Arc<[String]>, String>,
+    prefix_owners: Vec<CXCursor>,
 }
 
 fn position(location: CXSourceLocation) -> (CXFile, u32) {
@@ -811,31 +817,59 @@ impl Capture<'_> {
             {
                 let origin = position(unsafe { clang_getCursorLocation(attr) });
                 if file.is_null() || file != end_file {
-                    self.contexts[unit]
-                        .insert(origin, Err("callable source range is unavailable".into()));
+                    self.contexts[unit].insert(
+                        origin,
+                        AnnotationContext {
+                            distance: 0,
+                            parameters: Err("callable source range is unavailable".into()),
+                            prefix_owners: vec![],
+                        },
+                    );
                     continue;
                 }
-                if !alias && (origin.0 != file || origin.1 < start || origin.1 >= end) {
+                if !alias && (origin.0 != file || origin.1 >= end) {
                     continue;
                 }
+                // Prefix attributes can precede a macro-started declaration extent. Inherited
+                // attributes keep the nearest attached declaration's original parameter context.
+                let distance = if alias {
+                    0
+                } else {
+                    start.saturating_sub(origin.1)
+                };
                 let context = context.get_or_insert_with(|| {
                     parameters
                         .iter()
                         .map(|parameter| string(unsafe { clang_getCursorSpelling(*parameter) }))
                         .collect::<Arc<[String]>>()
                 });
-                if let Some(previous) = self.contexts[unit].get(&origin) {
-                    if previous.as_ref().is_ok_and(|previous| previous != context) {
-                        self.contexts[unit].insert(
-                            origin,
-                            Err(format!(
+                if let Some(previous) = self.contexts[unit].get_mut(&origin)
+                    && previous.distance <= distance
+                {
+                    if previous.distance == distance {
+                        if previous
+                            .parameters
+                            .as_ref()
+                            .is_ok_and(|previous| previous != context)
+                        {
+                            previous.parameters = Err(format!(
                                 "ambiguous annotation context for `{}`",
                                 qualified_name(cursor)
-                            )),
-                        );
+                            ));
+                        }
+                        if distance > 0 {
+                            previous.prefix_owners.push(owner);
+                        }
                     }
                 } else {
-                    self.contexts[unit].insert(origin, Ok(context.clone()));
+                    self.contexts[unit].insert(
+                        origin,
+                        AnnotationContext {
+                            distance,
+                            parameters: Ok(context.clone()),
+                            prefix_owners: if distance > 0 { vec![owner] } else { vec![] },
+                        },
+                    );
                 }
             }
         }
@@ -1045,7 +1079,12 @@ impl Capture<'_> {
                         .push("data-bearing or multiple inheritance is not implemented".into());
                 }
                 DeclarationData::Record {
-                    kind: string(unsafe { clang_getCursorKindSpelling(kind) }),
+                    kind: match kind {
+                        CXCursor_StructDecl => RecordKind::Struct,
+                        CXCursor_UnionDecl => RecordKind::Union,
+                        CXCursor_ClassDecl => RecordKind::Class,
+                        _ => unreachable!(),
+                    },
                     unnamed: unsafe { clang_Cursor_isAnonymous(cursor) } != 0,
                     complete,
                     layout,
@@ -1269,7 +1308,13 @@ impl Capture<'_> {
         let end = position(unsafe { clang_getRangeEnd(range) });
         let owned = |attr: CXCursor| {
             let origin = position(unsafe { clang_getCursorLocation(attr) });
-            origin.0 == start.0 && origin.0 == end.0 && start.1 <= origin.1 && origin.1 < end.1
+            (origin.0 == start.0 && origin.0 == end.0 && start.1 <= origin.1 && origin.1 < end.1)
+                || self.contexts[unit].get(&origin).is_some_and(|context| {
+                    context
+                        .prefix_owners
+                        .iter()
+                        .any(|owner| unsafe { clang_equalCursors(*owner, cursor) } != 0)
+                })
         };
         let has_owned = attrs.iter().any(|attr| owned(*attr));
         let mut result = attrs
@@ -1287,6 +1332,7 @@ impl Capture<'_> {
                                 location.file, location.line
                             ))
                         })?
+                        .parameters
                         .as_ref()
                         .map_err(|reason| Error(reason.clone()))?
                         .clone()

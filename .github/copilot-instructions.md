@@ -277,21 +277,17 @@ character-pointer bindings preserve SAL buffer contracts. The header route expli
 inline helper overloads without hiding missing non-inline imports. See the bounded migration section
 in the clang2 docs.
 
-The broader ten-header control emits 1046 names, rejects 100 during projection, and blocks 732
-before projection in `winnls.h`. Discovery classifies declaration-alias and attribute macros with
-memoized identifier chains; the header runner reports helpers instead of probing them as constants.
-Function-like classification preserves undefined helpers using source tokens and line-splice-aware
-adjacency. `sysinfoapi.h` reaches projection; NLS still references an unavailable
-`MUI_CALLBACK_FLAG_UPGRADED_INSTALLATION`. Emission counts are not publication parity: PSAPI's native
-`K32*` names differ from committed public aliases.
+Discovery classifies declaration-alias and attribute macros with memoized identifier chains;
+the header runner reports helpers instead of probing them as constants. Function-like
+classification preserves undefined helpers using source tokens and line-splice-aware adjacency.
+Public aliases remain a publication decision, not a native export-name guess.
 
-The recorded `tool-win32 --clang2-headers all --rdl-only` baseline attempts 369 headers independently:
-36 complete, 333 incomplete, 28,758 emitted names, 8,552 rejected, and 62,252 blocked. Another
-24 headers fail before discovery inventory; their counts are unavailable, not zero. These summed
-per-header names are not deduplicated APIs or publication parity. `manifest.tsv` persists after
-each attempt; `imports.tsv` records the full ordered SDK COFF import candidates. The generic
-route has no external bindings, source-name DLL fallback, or legacy `LIBRARY_OVERRIDES`.
-RDL-only does not compile every output to WinMD or establish cross-header/architecture agreement.
+`tool-win32 --clang2-headers all --rdl-only` inventories manifest headers independently.
+`manifest.tsv` persists after each attempt; unavailable discovery counts remain unknown, not zero.
+`imports.tsv` records the full ordered SDK COFF import candidates. The generic route has no external
+bindings, source-name DLL fallback, or legacy `LIBRARY_OVERRIDES`. RDL-only does not compile every
+output to WinMD or establish cross-header/architecture agreement. Keep dated measurements and
+failure tables in `docs/crates/windows-clang2.md`, not this instruction file.
 
 Named callbacks retain compiler TypeRef-backed typedef edges, calling conventions, annotations,
 and pointer depth. Incomplete C records preserve nominal pointer identity but reject by-value
@@ -305,11 +301,6 @@ available graph; unavailable roots are explicit rejections, including whole over
 Available native conflicts still fail globally. Strict `resolve` remains unchanged.
 Annotation ambiguity fails when selected evidence consumes the context, not during broad indexing.
 
-The bounded controls now emit 727/732 NLS names, 4137/4245 WinUser names, and 8689/9466 names from
-combined GDI/Crypto/IO, with no blocked roots. The full manifest has not been rerun after this
-checkpoint. A combined D3D12/D3DKMT/SetupAPI/NTSTATUS main TU plus DeviceTopology satellite checks
-8158 available groups and 11624 observations in 5.38 s at 362.4 MiB sampled peak working set.
-It emits 6111/6971 names; these are debug source-to-RDL results, not metadata/runtime certification.
 Capture dominates measured costs; no global projection cache or alternate IR is justified.
 Prioritize verified header prerequisites and record layouts using `docs/crates/windows-clang2.md`,
 not symbol whitelists, guessed constants, or legacy extraction fallback. The production backend
@@ -365,6 +356,7 @@ Keep source annotation bindings positional. The BCrypt consumer explicitly binds
 to `PCWSTR`; generic header projection does not infer that wrapper. See the clang2 docs restart point.
 
 The bounded OLE inventory still rejects anonymous callables and named nested records. Combined
-`oaidl.h`/`shellapi.h` capture exposes missing callable context for the `_Success_` annotation before
-`SHGetNewLinkInfoW`. Reproduce that macro-declaration ownership case in a fixture; do not suppress the
-annotation or substitute OLE value types to improve header counts.
+`oaidl.h`/`shellapi.h` capture reaches root assessment with Shell return annotations preserved.
+`annotation_macro_return.h` covers Clang-attached prefix annotations outside macro-started extents,
+original inherited parameter contexts, and mixed prefix/in-range ownership. Keep equal-rank
+ambiguities visible; do not suppress annotations or substitute OLE types to improve header counts.

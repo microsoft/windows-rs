@@ -30,11 +30,18 @@ pub(super) struct Declaration {
     pub data: DeclarationData,
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(super) enum RecordKind {
+    Struct,
+    Union,
+    Class,
+}
+
 #[derive(Debug)]
 pub(super) enum DeclarationData {
     Pending,
     Record {
-        kind: String,
+        kind: RecordKind,
         unnamed: bool,
         complete: bool,
         layout: Option<Layout>,
