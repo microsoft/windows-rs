@@ -549,8 +549,8 @@ impl Adapter for WinUiAdapter {
                         "image unavailable",
                     )),
                 };
-                if result.is_ok() {
-                    self.release_image(object);
+                if result.is_ok() && self.image_subscriptions.remove(&object).is_some() {
+                    self.images.retain(|_, image| image.strong_count() != 0);
                 }
                 completion.call(result.map_err(integration_error));
             }

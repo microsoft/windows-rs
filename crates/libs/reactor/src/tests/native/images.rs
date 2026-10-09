@@ -206,6 +206,7 @@ fn equal_image_sources_share_native_images_across_page_replacement() {
                     })
                     .unwrap();
                 assert!(!runtime.adapter().image_subscriptions.contains_key(&object));
+                assert!(runtime.adapter().images.is_empty());
                 runtime
                     .update(single(Some(EncodedImage::new([PNG, &[0]].concat()))))
                     .unwrap();
