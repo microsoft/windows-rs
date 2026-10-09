@@ -66,28 +66,8 @@ impl PartialEq for EncodedImage {
     }
 }
 
-/// A reusable image resource. Keep a source in application state and clone it into views to
-/// retain the loaded image across control replacement.
-#[derive(Clone)]
-pub struct ImageSource {
-    value: ImageSourceValue,
-    pub(crate) native: Rc<std::cell::OnceCell<native::NativeImageSource>>,
-}
-
-impl fmt::Debug for ImageSource {
-    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
-        formatter
-            .debug_tuple("ImageSource")
-            .field(&self.value)
-            .finish()
-    }
-}
-
-impl PartialEq for ImageSource {
-    fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.native, &other.native) || self.value == other.value
-    }
-}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ImageSource(ImageSourceValue);
 
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum ImageSourceValue {
@@ -96,53 +76,22 @@ pub(crate) enum ImageSourceValue {
 }
 
 impl ImageSource {
-    fn new(value: ImageSourceValue) -> Self {
-        Self {
-            value,
-            native: Rc::default(),
-        }
-    }
-
     pub fn uri(value: impl Into<Rc<str>>) -> windows_core::Result<Self> {
         let value = value.into();
         validate_uri(&value)?;
-        Ok(Self::new(ImageSourceValue::Uri(value)))
+        Ok(Self(ImageSourceValue::Uri(value)))
     }
 
     pub fn file(path: impl AsRef<Path>) -> windows_core::Result<Self> {
-        Ok(Self::new(ImageSourceValue::Uri(
-            file_uri(path.as_ref())?.into(),
-        )))
+        Ok(Self(ImageSourceValue::Uri(file_uri(path.as_ref())?.into())))
     }
 
     pub fn encoded(value: EncodedImage) -> Self {
-        Self::new(ImageSourceValue::Encoded(value))
+        Self(ImageSourceValue::Encoded(value))
     }
 
     pub(crate) fn value(&self) -> &ImageSourceValue {
-        &self.value
-    }
-}
-
-/// A URI string or an [`ImageSource`].
-pub trait IntoImageSource: sealed::ImageSourceInput {
-    #[doc(hidden)]
-    fn into_image_source(self) -> windows_core::Result<ImageSource>;
-}
-
-impl sealed::ImageSourceInput for ImageSource {}
-
-impl IntoImageSource for ImageSource {
-    fn into_image_source(self) -> windows_core::Result<ImageSource> {
-        Ok(self)
-    }
-}
-
-impl<T: Into<Rc<str>>> sealed::ImageSourceInput for T {}
-
-impl<T: Into<Rc<str>>> IntoImageSource for T {
-    fn into_image_source(self) -> windows_core::Result<ImageSource> {
-        ImageSource::uri(self)
+        &self.0
     }
 }
 
