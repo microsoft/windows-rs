@@ -335,6 +335,7 @@ struct GeneratedInfoBar {
 }
 struct GeneratedImage {
     value: native::Image,
+    source: Rc<Cell<bool>>,
     image_opened: Rc<RefCell<NativeUnitEvent>>,
     _image_opened: GeneratedRevoker,
     image_failed: Rc<RefCell<NativeUnitEvent>>,
@@ -2037,11 +2038,13 @@ impl GeneratedHandle {
             ObjectType::ScrollView => Self::ScrollView(native::ScrollView::new()?),
             ObjectType::Image => {
                 let value = native::Image::new()?;
+                let source = Rc::new(Cell::new(false));
+                let managed_source = Rc::clone(&source);
                 let image_opened = Rc::new(RefCell::new(NativeUnitEvent::default()));
                 let event_for_callback = Rc::clone(&image_opened);
                 let event_queue_image_opened = Rc::clone(event_queue);
                 let revoker = value.ImageOpened(move |_, _| {
-                    let dispatch = true;
+                    let dispatch = !managed_source.get();
                     let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
@@ -2054,11 +2057,12 @@ impl GeneratedHandle {
                     }
                 })?;
                 let _image_opened = GeneratedRevoker::Event(revoker);
+                let managed_source = Rc::clone(&source);
                 let image_failed = Rc::new(RefCell::new(NativeUnitEvent::default()));
                 let event_for_callback = Rc::clone(&image_failed);
                 let event_queue_image_failed = Rc::clone(event_queue);
                 let revoker = value.ImageFailed(move |_, _| {
-                    let dispatch = true;
+                    let dispatch = !managed_source.get();
                     let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
@@ -2073,6 +2077,7 @@ impl GeneratedHandle {
                 let _image_failed = GeneratedRevoker::Event(revoker);
                 Self::Image(Box::new(GeneratedImage {
                     value,
+                    source,
                     image_opened,
                     _image_opened,
                     image_failed,
@@ -6881,15 +6886,6 @@ impl GeneratedHandle {
             (Self::Image(object), PropertyId::Source, None) => {
                 Some(object.value.SetSource(None).map_err(Into::into))
             }
-            (Self::Image(object), PropertyId::Source, Some(PropertyValue::ImageSource(value))) => {
-                match value.value() {
-                    ImageSourceValue::Uri(value) => Some(
-                        uri_image(value)
-                            .and_then(|image| object.value.SetSource(&image).map_err(Into::into)),
-                    ),
-                    ImageSourceValue::Encoded(_) => None,
-                }
-            }
             (Self::Image(object), PropertyId::Stretch, None) => Some(
                 object
                     .value
@@ -7504,16 +7500,6 @@ impl GeneratedHandle {
             (Self::ImageIcon(object), PropertyId::Source, None) => {
                 Some(object.SetSource(None).map_err(Into::into))
             }
-            (
-                Self::ImageIcon(object),
-                PropertyId::Source,
-                Some(PropertyValue::ImageSource(value)),
-            ) => match value.value() {
-                ImageSourceValue::Uri(value) => Some(
-                    uri_image(value).and_then(|image| object.SetSource(&image).map_err(Into::into)),
-                ),
-                ImageSourceValue::Encoded(_) => None,
-            },
             (Self::FontIcon(object), PropertyId::Glyph, None) => Some(
                 object
                     .cast::<native::IDependencyObject>()
