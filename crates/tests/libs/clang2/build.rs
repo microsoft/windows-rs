@@ -666,6 +666,8 @@ fn build_com() {
         "input/com.h",
         "input/com.cpp",
         "input/com_reference.rdl",
+        "input/inherited_interfaces.h",
+        "input/inherited_interfaces.cpp",
         "sdk.rs",
     ] {
         println!("cargo:rerun-if-changed={file}");
@@ -691,12 +693,19 @@ fn build_com() {
     let target = format!("--target={}", std::env::var("TARGET").unwrap());
     let snapshot = sdk::capture_sdk(
         &target,
-        include_str!("input/com.h"),
+        &format!(
+            "{}\n{}",
+            include_str!("input/com.h"),
+            include_str!("input/inherited_interfaces.h")
+        ),
         &[
             "ComFactory",
             "ComProperties",
             "FirstFactory",
             "SecondFactory",
+            "InheritedCreate",
+            "InheritedRead",
+            "InheritedExtra",
         ],
     );
     let mut options = ProjectionOptions::new("Windows.Win32.System.Com");
@@ -745,6 +754,10 @@ fn build_com() {
         "Windows.Win32.System.Com.IProperties",
         "Windows.Win32.System.Com.FirstFactory",
         "Windows.Win32.System.Com.SecondFactory",
+        "Windows.Win32.System.Com.IBaseValue",
+        "Windows.Win32.System.Com.IMarker",
+        "Windows.Win32.System.Com.ILeaf",
+        "Windows.Win32.System.Com.IExtended",
         "--flat",
     ]);
     windows_bindgen::bindgen([
@@ -757,6 +770,9 @@ fn build_com() {
         "--filter",
         "Windows.Win32.System.Com.ComFactory",
         "Windows.Win32.System.Com.ComProperties",
+        "Windows.Win32.System.Com.InheritedCreate",
+        "Windows.Win32.System.Com.InheritedRead",
+        "Windows.Win32.System.Com.InheritedExtra",
         "--flat",
         "--sys",
         "--extern",
@@ -769,6 +785,7 @@ fn build_com() {
         .include(include.join("shared"))
         .include(include.join("um"))
         .file("input/com.cpp")
+        .file("input/inherited_interfaces.cpp")
         .compile("clang2_com");
 }
 

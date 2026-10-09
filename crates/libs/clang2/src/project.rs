@@ -431,6 +431,19 @@ fn rdl_guid(guid: &str) -> String {
     )
 }
 
+fn interface_storage(data: &DeclarationData) -> bool {
+    matches!(
+        data,
+        DeclarationData::Record {
+            complete: true,
+            fields,
+            bases,
+            methods,
+            ..
+        } if fields.is_empty() && (!bases.is_empty() || !methods.is_empty())
+    )
+}
+
 #[derive(Debug)]
 enum Item {
     Opaque {
@@ -1038,11 +1051,10 @@ impl<'s> Builder<'_, 's> {
             }
             DeclarationData::Record {
                 complete: true,
-                fields,
                 bases,
                 methods,
                 ..
-            } if fields.is_empty() && !methods.is_empty() && guid.is_some() => {
+            } if interface_storage(&declaration.data) && guid.is_some() => {
                 self.interface(id, &name, guid.unwrap(), bases, methods)?
             }
             DeclarationData::Record {
@@ -1478,14 +1490,7 @@ impl<'s> Builder<'_, 's> {
                         )));
                     }
                     Some(namespace_name(reference)?)
-                } else if let DeclarationData::Record {
-                    fields: base_fields,
-                    methods: base_methods,
-                    ..
-                } = &base_declaration.data
-                    && base_fields.is_empty()
-                    && !base_methods.is_empty()
-                {
+                } else if interface_storage(&base_declaration.data) {
                     self.schedule(base_id);
                     Some(self.name(base_id)?)
                 } else {
@@ -2001,7 +2006,7 @@ impl<'s> Builder<'_, 's> {
                     }
                     let name = self.name(id)?;
                     self.schedule(id);
-                    if fields.is_empty() && !methods.is_empty() {
+                    if interface_storage(&declaration.data) {
                         (ProjectedType::Class(name), true)
                     } else {
                         (ProjectedType::Named(name, layout.clone()), false)

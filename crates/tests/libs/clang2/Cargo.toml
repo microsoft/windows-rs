@@ -13,7 +13,7 @@ windows-bindgen = { workspace = true }
 
 [dev-dependencies]
 windows-bindgen = { workspace = true }
-windows-core = { workspace = true }
+windows-core = { workspace = true, features = ["proc-macros"] }
 windows-link = { workspace = true }
 helpers = { workspace = true }
 clang-sys = { version = "1.8.1", features = ["runtime", "clang_18_0"] }

@@ -363,6 +363,15 @@ definitions, cannot be header-partitioned.
 | Constants | Scalar, raw pointer, and string literals, plus GUID/property-key aggregate storage shapes; omit interface values with a reason. |
 | Raw pointers | Collapse mixed mutability to const if any raw-pointer level is const. |
 
+An inherited local interface can add no methods. Declaration, base, and pointer classification use
+the same field-free storage rule; publication still requires a native UUID and a projectable base.
+Each interface retains its own IID and base edge without duplicating inherited slots.
+`inherited_interfaces.h`/`.rdl` cover two method-free levels followed by a new method, three-target
+agreement, metadata roundtrips, and changed-IID/base/slot conflicts. The MSVC fixture checks slots,
+queries, and ownership on x64/x86 in debug/release, including native calls into a Rust implementation.
+Real `IFontDisp`, `IFontEventsDisp`, and `IPictureDisp` closures pass on all three targets. Missing
+identity, data-bearing storage, overrides, and by-value interface objects remain rejected.
+
 External bindings are trusted metadata contracts, not native ABI proof. All captured native
 dependencies must agree before an external binding can suppress local output. Metadata readers
 still need the referenced WinMD files when compiling RDL. Scalar typedefs may bind to external
@@ -1428,20 +1437,20 @@ a nonzero exit.
 | Measure | Current semantic refresh |
 | --- | ---: |
 | Headers attempted | 369 |
-| Complete selected-root coverage | 82 |
-| Incomplete coverage | 287 |
+| Complete selected-root coverage | 83 |
+| Incomplete coverage | 286 |
 | Headers with some emitted output | 364 |
 | Headers failing before discovery inventory | 0 |
 | Known selected names | 103,719 |
-| Emitted selected names | 93,903 |
-| Rejected selected names | 9,816 |
+| Emitted selected names | 94,095 |
+| Rejected selected names | 9,624 |
 | Selected names blocked before projection/output | 0 |
 
 Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
 are not deduplicated APIs. Each header's supported roots must also pass combined projection and
 source ownership before being marked emitted. The refreshed run also checks combined WinMD
 compilation. Independent headers do not test agreement across the full manifest or across
-architectures. The final aggregate-expression x64 debug runner takes 410.2 seconds, excluding Cargo;
+architectures. The inherited-interface x64 debug runner takes 435.1 seconds, excluding Cargo;
 no controlled performance comparison is implied. A separate resource run
 takes 784.0 seconds, peaks at 735.9 MiB working set, and has 636.9 MiB sampled peak private memory
 (100 ms sampling). A serial header run is not a
@@ -1474,6 +1483,11 @@ selection, no output loss, and zero blocked roots. Gains include 472 in `ksmedia
 `codecapi.h`, and 82 in `ks.h`. `devpkey.h`, `ntddser.h`, `ntddkbd.h`, `ntddmou.h`, `usbiodef.h`, and
 `hidclass.h` reach complete selected-root coverage. Initializer-list macros such as `INIT_PKEY_*`
 still have no independently established type; the runner does not infer one from their names.
+
+Method-free inherited interface support adds 192 emitted names across 27 profiles, with unchanged
+selection, no output loss, and zero blocked roots. Gains include 55 in `uiautomationclient.h`, 36 in
+`xpsobjectmodel.h`, and 17 in `d3d12.h`. `dwrite.h` reaches complete selected-root coverage. Interface
+classification adds no compiler parses; unsupported contracts in inherited closures still reject.
 
 Source classification of the 9,399-entry declaration-only baseline finds 4,137 definition-macro
 entries and 5,262 explicit declarations. The SDK definition configuration adds 4,317 emitted names

@@ -1,0 +1,44 @@
+#[win32]
+mod Test {
+    #[annotation("sal", "_Return_type_success_(return >= 0)")]
+    type HRESULT = i32;
+    #[guid(0x1e5b7c91_241a_4175_b520_552b1687b411)]
+    interface IBaseValue: IUnknown {
+        fn Read(&self) -> i32;
+    }
+    #[guid(0x1e5b7c94_241a_4175_b520_552b1687b411)]
+    interface IExtended: ILeaf {
+        fn Extra(&self) -> i32;
+    }
+    #[guid(0x1e5b7c93_241a_4175_b520_552b1687b411)]
+    interface ILeaf: IMarker {
+    }
+    #[guid(0x1e5b7c92_241a_4175_b520_552b1687b411)]
+    interface IMarker: IBaseValue {
+    }
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, #[annotation("midl", "[in]")] #[in] riid: *const _GUID, #[annotation("midl", "[iid_is][out]")] #[annotation("sal", "_COM_Outptr_")] #[out] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> u32;
+        fn Release(&self) -> u32;
+    }
+    #[library("clang2_com.dll", import = "_InheritedCreate")]
+    extern "C" fn InheritedCreate(stats: *mut InheritedStats) -> IExtended;
+    #[library("clang2_com.dll", import = "_InheritedExtra")]
+    extern "C" fn InheritedExtra(value: IExtended) -> i32;
+    #[library("clang2_com.dll", import = "_InheritedRead")]
+    extern "C" fn InheritedRead(value: ILeaf) -> i32;
+    struct InheritedStats {
+        references: u32,
+        adds: u32,
+        releases: u32,
+        queries: u32,
+        destroyed: u32,
+    }
+    struct _GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+}
