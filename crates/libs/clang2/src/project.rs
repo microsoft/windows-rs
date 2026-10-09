@@ -2217,6 +2217,58 @@ fn parameter_attributes(
             _ => continue,
         });
     }
+    attributes.push_str(&termination_attributes(annotations, ty)?);
+    Ok(attributes)
+}
+
+fn termination_attributes(annotations: &[String], ty: &ProjectedType) -> Result<String, Error> {
+    if !annotations.iter().any(|annotation| {
+        matches!(
+            annotation.as_str(),
+            "_Null_terminated_" | "_NullNull_terminated_"
+        )
+    }) {
+        return Ok(String::new());
+    }
+    character_pointer_kind(ty)?;
+    let mut phase = 0u8;
+    let mut contracts: BTreeSet<(u8, u8)> = BTreeSet::new();
+    let mut insert = |phase, count| {
+        contracts.insert((phase, count));
+    };
+    for annotation in annotations {
+        match annotation.as_str() {
+            "_Deref_" | "_Notref_" => {
+                return Err(Error("scoped string terminators are not supported".into()));
+            }
+            "_Pre_" => phase = 1,
+            "_Post_" => phase = 2,
+            "_Null_terminated_" => insert(phase, 1),
+            "_NullNull_terminated_" => insert(phase, 2),
+            "_In_z_" | "_In_opt_z_" => insert(1, 1),
+            "_Out_z_" => insert(2, 1),
+            "_Inout_z_" => {
+                insert(1, 1);
+                insert(2, 1);
+            }
+            _ => {}
+        }
+    }
+    if contracts.iter().any(|(_, count)| *count == 2)
+        && matches!(ty.contract(), ProjectedType::PointerReference { .. })
+    {
+        return Err(Error(
+            "double-NUL strings cannot use an ordinary string pointer binding".into(),
+        ));
+    }
+    let mut attributes = String::new();
+    for (phase, count) in contracts {
+        write!(
+            attributes,
+            "#[termination(Count = {count}, Phase = {phase})] "
+        )
+        .unwrap();
+    }
     Ok(attributes)
 }
 
@@ -2278,7 +2330,12 @@ fn written_bytes(
 }
 
 fn string_kind(annotations: &[String], ty: &ProjectedType) -> Result<Option<StringKind>, Error> {
-    let ty = ty.contract();
+    if annotations
+        .iter()
+        .any(|annotation| annotation == "_NullNull_terminated_")
+    {
+        return Ok(None);
+    }
     if !annotations.iter().any(|annotation| {
         matches!(
             annotation.as_str(),
@@ -2287,8 +2344,13 @@ fn string_kind(annotations: &[String], ty: &ProjectedType) -> Result<Option<Stri
     }) {
         return Ok(None);
     }
+    character_pointer_kind(ty).map(Some)
+}
+
+fn character_pointer_kind(ty: &ProjectedType) -> Result<StringKind, Error> {
+    let ty = ty.contract();
     if let ProjectedType::PointerReference { string, .. } = ty {
-        return string.map(Some).ok_or_else(|| {
+        return string.ok_or_else(|| {
             Error("null-terminated strings require a single character pointer".into())
         });
     }
@@ -2302,7 +2364,7 @@ fn string_kind(annotations: &[String], ty: &ProjectedType) -> Result<Option<Stri
             "null-terminated strings require a single character pointer".into(),
         ));
     };
-    Ok(Some(match (target.scalar_kind(), mutable) {
+    Ok(match (target.scalar_kind(), mutable) {
         (Some("i8" | "u8"), true) => StringKind::Ansi,
         (Some("i8" | "u8"), false) => StringKind::AnsiConst,
         (Some("u16"), true) => StringKind::Wide,
@@ -2312,7 +2374,7 @@ fn string_kind(annotations: &[String], ty: &ProjectedType) -> Result<Option<Stri
                 "null-terminated strings require 8-bit or unsigned 16-bit characters".into(),
             ));
         }
-    }))
+    })
 }
 
 fn buffer_length(

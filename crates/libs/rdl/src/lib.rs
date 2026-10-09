@@ -72,6 +72,11 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
         prop: None,
     },
     PseudoAttr {
+        short: "termination",
+        metadata: "NativeStringTerminationAttribute",
+        prop: None,
+    },
+    PseudoAttr {
         short: "reserved",
         metadata: "ReservedAttribute",
         prop: None,

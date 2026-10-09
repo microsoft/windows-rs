@@ -183,6 +183,10 @@ field type through metadata and RDL roundtrips; `GuidAttribute` carries the GUID
   consumers validate the signature and success condition.
 - RDL cannot spell a metadata parameter with neither In nor Out. Omitting direction invokes the
   type-based default.
+- `termination(Count = 1|2, Phase = 0|1|2)` preserves character-pointer terminator contracts.
+  Phase is unspecified, precondition, or postcondition, independent of direction and capacity.
+  Its experimental `NativeStringTerminationAttribute` definition is supplied by
+  `crates/libs/clang2/metadata.rdl`, not the default WinMD. Repeated phase attributes survive.
 - Source contracts use `#[annotation("source", "payload")]`, backed by a built-in two-string
   `Windows.Win32.Metadata.NativeAnnotationAttribute` signature. No semantic lowering is implied.
   Repeated attributes survive; order-sensitive clauses belong in one payload because formatting

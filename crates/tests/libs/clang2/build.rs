@@ -18,7 +18,53 @@ fn main() {
         build_constants();
         build_ordinal();
         build_animation();
+        build_string_termination();
     }
+}
+
+fn build_string_termination() {
+    for file in ["input/double_null_native.h", "input/double_null_native.cpp"] {
+        println!("cargo:rerun-if-changed={file}");
+    }
+    let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    let snapshot = windows_clang2::capture(
+        [windows_clang2::Input::new(
+            "strings.hpp",
+            include_str!("input/double_null_native.h"),
+        )],
+        &["-x", "c++", &target],
+        &["MultiLength", "MakeMulti"],
+    )
+    .unwrap();
+    let mut options = windows_clang2::ProjectionOptions::new("Test");
+    options.library = Some("clang2_strings.dll".into());
+    let plan = snapshot.resolve().unwrap().project(&options).unwrap();
+    let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+    let winmd = out.join("string_termination_native.winmd");
+    windows_rdl::reader()
+        .input_text(&plan.rdl())
+        .input(sdk::projection_metadata())
+        .reference_default()
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_bindgen::bindgen([
+        "--in",
+        "default",
+        winmd.to_str().unwrap(),
+        "--out",
+        out.join("string_termination_native.rs").to_str().unwrap(),
+        "--flat",
+        "--sys",
+        "--extern",
+        "--filter",
+        "Test",
+    ]);
+    cc::Build::new()
+        .cpp(true)
+        .warnings_into_errors(true)
+        .file("input/double_null_native.cpp")
+        .compile("clang2_strings");
 }
 
 fn build_animation() {

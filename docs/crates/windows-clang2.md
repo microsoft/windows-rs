@@ -444,6 +444,18 @@ writable pointers and preserve output/inout direction with `#[opt]`. `_COM_Outpt
 `void**` or interface output pointer. A `void**` receives `#[out] #[iid_is]` (the metadata
 `ComOutPtrAttribute`); typed interface outputs retain their interface type and receive `#[out]`.
 
+`_Null_terminated_` and `_NullNull_terminated_` retain typed character-pointer contracts as
+`#[termination(Count = 1|2, Phase = 0|1|2)]`. Phase is unspecified, precondition, or postcondition;
+a bare marker does not acquire a guessed direction. Distinct contracts survive together: double-NUL
+termination also satisfies ordinary NUL termination. The experimental
+`NativeStringTerminationAttribute` definition lives in `crates/libs/clang2/metadata.rdl`, not the
+production metadata seed.
+Double-NUL parameters retain raw pointers rather than ordinary string bindings. The source/RDL
+fixtures check exact metadata roundtrips, optionality, and counted buffers on all three targets;
+native input/output calls run on x86/x64. Four real SDK environment/volume APIs preserve their
+terminator phases across reversed TUs. Dereferenced/scoped terminators and broader SAL combinators
+remain outside typed lowering; MIDL evidence stays separate.
+
 An interface object pointer and a pointer to an interface slot are different contracts. After
 consuming one native interface pointer level, `_Out_`/`_Inout_` describe mutation of the borrowed
 object, not replacement of the caller's pointer. These project as input interface values;
@@ -1339,23 +1351,25 @@ a nonzero exit.
 | Headers attempted | 369 |
 | Complete selected-root coverage | 52 |
 | Incomplete coverage | 317 |
-| Headers with some emitted output | 329 |
+| Headers with some emitted output | 335 |
 | Headers failing before discovery inventory | 24 |
-| Emitted selected names | 80,144 |
-| Rejected selected names | 18,325 |
-| Selected names blocked before projection/output | 1,046 |
+| Known selected names | 99,515 |
+| Emitted selected names | 81,268 |
+| Rejected selected names | 18,247 |
+| Selected names blocked before projection/output | 0 |
 
 Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
 are not deduplicated APIs. Each header's supported roots must also pass combined projection and
 source ownership before being marked emitted. The refreshed run also checks combined WinMD
 compilation. Independent headers do not test agreement across the full manifest or across
-architectures. The x64 debug run takes 784.0 seconds, peaks at 735.9 MiB working set, and has
-636.9 MiB sampled peak private memory (100 ms sampling). This serial header run is not a large
-multi-TU memory bound: capture retains the participating ASTs until the owned graph is extracted.
+architectures. The current x64 debug run takes 422.6 seconds. A separate baseline resource run
+takes 784.0 seconds, peaks at 735.9 MiB working set, and has 636.9 MiB sampled peak private memory
+(100 ms sampling). No controlled performance comparison is implied. A serial header run is not a
+large multi-TU memory bound: capture retains the participating ASTs until the owned graph is extracted.
 Streaming disposal and an agreed resource budget remain open.
 More rejections can mean that formerly blocked roots now reach assessment, not that support regressed.
 
-The largest measured blocks in that full-manifest run were:
+The baseline blocked-root boundaries below are absent from the current full-manifest snapshot:
 
 | Header | Blocked names | Capture or combined-output boundary |
 | --- | ---: | --- |
@@ -1376,7 +1390,7 @@ from iteration order. Capture conflicts and ambiguous contexts also remain error
 source evidence is understood. The 24 unavailable discovery inventories are a separate prerequisite
 gate; their unknown counts are not included in this table or the measured sums.
 
-The focused shared-record publication pass after that full snapshot clears 926 blocked names:
+Shared-record publication clears the baseline's 926 blocked names:
 
 | Header | Emitted | Rejected | Blocked |
 | --- | ---: | ---: | ---: |
@@ -1389,13 +1403,15 @@ The focused shared-record publication pass after that full snapshot clears 926 b
 Each profile passes combined metadata compilation without default API references. Source fixtures
 cover root/TU order, retained named definitions, and unnamed/conflicting rejections. The real
 SSPI/XmlLite alias closure passes on all three targets; generated COM aliases preserve native
-identity and clone/release counts on x86/x64. The full snapshot is not retroactively rewritten.
+identity and clone/release counts on x86/x64. The full refresh reproduces these focused counts.
 Compiler source-location identity separates annotation tokens that share one macro expansion
 position. The focused XAudio2 refresh clears its 120 capture blocks, emits 98 names, and rejects
 22. The fixture checks distinct buffer-count parameter bindings, legal parameter renames, reversed
 TUs, conflicting annotations, and retained override rejection on all three targets. The real
 XAudio2 multi-TU capture passes on all three targets; inherited-slot projection, non-COM virtual
 objects, packed records, and aggregate constants still reject. No header-specific exception is used.
+The full refresh reports zero blocked selected names; 18,247 roots still reject and 24 discovery
+inventories remain unavailable. Zero global blocks is not full metadata parity.
 
 The macro-identity slice removes the global capture blocks in three large headers.
 Independent names and their remaining rejected roots are:
@@ -1604,7 +1620,8 @@ or establish generalized ownership, opaque-storage initialization, or native ARM
 | Bound pointer contracts and MIDL directions preserve eight WebView2 inputs and exact public signatures | `test_clang2/tests/webview.rs::consumer_input_contracts_cutover_gate`, `consumer_wrappers_preserve_public_parameter_shapes` |
 | Handle/string wrappers reach native implementations on x64/x86 | `test_clang2/tests/com.rs::generated_handle_setters_and_strings_reach_native_methods` |
 | Borrowed interface objects remain distinct from output slots in metadata and generated wrappers | `test_clang2/tests/projection.rs::interface_direction_distinguishes_objects_from_pointer_slots`, `test_clang2/tests/com.rs::generated_object_borrows_reach_native_methods` |
-| Explicit enum flags survive; unsupported member layouts, annotations, and overloaded COM methods fail visibly | `test_clang2/tests/projection.rs`, `input/flag_enums.h`, `input/member_alignment.h`, `input/double_null.h`, `input/overloads.h` |
+| Explicit enum flags survive; unsupported member layouts and overloaded COM methods fail visibly | `test_clang2/tests/projection.rs`, `input/flag_enums.h`, `input/member_alignment.h`, `input/overloads.h` |
+| Double-NUL contracts retain terminator count and phase through metadata and native pointer calls | `test_clang2/tests/string_termination.rs`, `input/double_null.h`, `input/string_termination.h`, `input/double_null_native.cpp` |
 | Real WDK member storage matches every native offset, size, and alignment | `test_clang2/tests/wdk.rs`, `input/wdk_layout.cpp` |
 | Generated BCrypt wrappers preserve optional counted inputs, output bounds, and native DLL imports | `test_clang2/tests/crypto.rs` |
 | Full/partial output byte postconditions survive RDL/WinMD; invalid counts reject | `test_clang2/tests/projection.rs`, `test_metadata/tests/method_params.rs` |
@@ -1635,7 +1652,7 @@ prototype results, not fixes to the production backend or grounds for closing th
 | --- | --- |
 | [#4998](https://github.com/microsoft/windows-rs/issues/4998), in/out interface objects | The exact fixture rejects unsupported `_Outptr_`. Its supported `_COM_Outptr_` counterpart exposed incorrect in/out direction on a borrowed object. Direct object pointers now project as borrowed inputs, while interface output slots retain their direction. Metadata and native COM coverage distinguish both. |
 | [#4967](https://github.com/microsoft/windows-rs/issues/4967), member alignment | Real WDK `DeviceIoControl` and `QuerySecurity` member types preserve offsets, size, and alignment. MSVC layout and pointer-call fixtures execute on x64/x86; ARM64 has capture/metadata coverage. Adjusted-record by-value calls still reject. |
-| [#5042](https://github.com/microsoft/windows-rs/issues/5042), double-NUL strings | The exact SAL repro and a control without `_Post_` both reject `_NullNull_terminated_`. This is an explicit unsupported contract, not silent loss. |
+| [#5042](https://github.com/microsoft/windows-rs/issues/5042), double-NUL strings | The SAL repro and bare-marker control retain different typed phases. Metadata roundtrips preserve terminator counts; generated native pointer calls preserve every string and both trailing NULs. Ordinary string binding does not replace the sequence contract. |
 | [#5047](https://github.com/microsoft/windows-rs/issues/5047), explicit enum flags | The repro exposed a lost `clang::flag_enum` marker. Capture, agreement, and projection now preserve it through `FlagsAttribute`, with unchanged width and values and an unflagged negative control. |
 | [#4186](https://github.com/microsoft/windows-rs/issues/4186), duplicate symbols | Relevant C++ cases distinguish rejected free-function output-name collisions from method overloads. A native x64 experiment showed that accepted same-name COM methods could dispatch incorrectly despite distinct generated Rust names. These interfaces now reject before RDL emission. WinRT duplicate properties and architecture overlays are outside this gate. |
 

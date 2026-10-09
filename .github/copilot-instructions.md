@@ -334,8 +334,8 @@ coverage remain gates; see `docs/crates/windows-clang2.md` for the differential 
 
 Open issue repros exposed lost `clang::flag_enum` evidence and output-slot projection for borrowed
 interface objects; both have prototype fixes and regression fixtures. Real WDK member alignment
-has native-checked storage support; adjusted-record by-value calls and double-NUL annotations
-remain explicit rejections. A native overload experiment showed incorrect
+has native-checked storage support; adjusted-record by-value calls remain explicit rejections.
+A native overload experiment showed incorrect
 dispatch for `Echo(int)`/`Echo(float)` despite compiling wrappers: `project.rs` `Builder::interface`
 rejects same-name methods until MSVC vtable ordering is modeled and covered. Do not replace that
 gate with name-based slot-reversal rules. See `docs/crates/windows-clang2.md` for issue scope and
@@ -383,7 +383,7 @@ typedef name for unselected tags without MIDL-prefix heuristics. Animation uses 
 checked `UINT_PTR` pointer-sized contract. Its differential gate compares every source interface
 slot/signature/GUID and public value types against committed metadata, with native checks as the ABI
 oracle. No further consumer cutovers precede a classified differential. Packed records, bitfields,
-typed double-NUL contracts, function-macro aliases, and streaming TU disposal remain open porting work.
+function-macro aliases, and streaming TU disposal remain open porting work.
 
 Multiple selected aliases to a named record retain the source definition and publish all aliases;
 do not choose a winner or structurally merge types. Unnamed-owner ambiguity still rejects.
@@ -392,3 +392,8 @@ identity and clone/release behavior. The focused SSPI/CFAPI/SensorsAPI/WS2TCPIP/
 926 global publication blocks. Annotation contexts use compiler source-location identity rather
 than expansion position alone: several macro-generated methods can share an expansion position.
 The XAudio2 refresh clears 120 capture blocks without weakening inherited-slot or layout gates.
+
+Double-NUL parameter contracts preserve terminator count and explicit pre/post/unspecified phase
+through the experimental `NativeStringTerminationAttribute`; keep raw pointers, not ordinary
+string wrappers. Preserve optionality, buffer capacity, and raw SAL/MIDL evidence separately.
+Scoped/dereferenced terminators and broader combinator lowering remain unsupported.

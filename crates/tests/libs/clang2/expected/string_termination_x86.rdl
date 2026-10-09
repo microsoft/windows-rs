@@ -1,0 +1,21 @@
+#[win32]
+mod Test {
+    #[library("test.dll", import = "_Bare")]
+    extern "C" fn Bare(#[annotation("sal", "_NullNull_terminated_")] #[termination(Count = 2, Phase = 0)] renamed: *const u16);
+    #[library("test.dll", import = "_Combined")]
+    extern "C" fn Combined(#[annotation("sal", "_In_z_ _Pre_ _NullNull_terminated_")] #[in] #[termination(Count = 1, Phase = 1)] #[termination(Count = 2, Phase = 1)] renamed: *const u16);
+    #[library("test.dll", import = "_Counted")]
+    extern "C" fn Counted(#[annotation("sal", "_In_ _Pre_ _NullNull_terminated_ _In_reads_($1)")] #[in] #[in] #[len_param(1)] #[termination(Count = 2, Phase = 1)] renamed: *const u16, count: u32);
+    #[library("test.dll", import = "_Input")]
+    extern "C" fn Input(#[annotation("sal", "_Pre_ _NullNull_terminated_")] #[termination(Count = 2, Phase = 1)] renamed: *const i8);
+    #[library("test.dll", import = "_Mixed")]
+    extern "C" fn Mixed(#[annotation("sal", "_In_z_ _Post_ _NullNull_terminated_")] #[in] #[termination(Count = 1, Phase = 1)] #[termination(Count = 2, Phase = 2)] renamed: *mut u16);
+    #[library("test.dll", import = "_Optional")]
+    extern "C" fn Optional(#[annotation("sal", "_In_opt_ _Pre_ _NullNull_terminated_")] #[in] #[opt] #[termination(Count = 2, Phase = 1)] renamed: *const u16);
+    #[library("test.dll", import = "_Ordinary")]
+    extern "C" fn Ordinary(#[annotation("sal", "_In_z_")] #[in] renamed: *const u16);
+    #[library("test.dll", import = "_Output")]
+    extern "C" fn Output(#[annotation("sal", "_Post_ _NullNull_terminated_")] #[termination(Count = 2, Phase = 2)] renamed: *mut u16);
+    #[library("test.dll", import = "_Single")]
+    extern "C" fn Single(#[annotation("sal", "_Pre_ _Null_terminated_")] #[termination(Count = 1, Phase = 1)] renamed: *const u16);
+}

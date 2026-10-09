@@ -1667,6 +1667,11 @@ fn double_null_annotations_are_not_silently_dropped() {
             .unwrap()
             .rdl();
         assert!(rdl.contains("_NullNull_terminated_"), "{rdl}");
+        let phase = if rdl.contains("_Post_") { 2 } else { 0 };
+        assert!(
+            rdl.contains(&format!("termination(Count = 2, Phase = {phase})")),
+            "{rdl}"
+        );
     }
 }
 
