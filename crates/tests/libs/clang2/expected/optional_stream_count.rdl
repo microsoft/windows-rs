@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    #[annotation("sal", "_Return_type_success_(return >= 0)")]
+    type HRESULT = i32;
+    #[guid(0x0c733a30_2a1c_11ce_ade5_00aa0044773d)]
+    interface ISequentialStream: External::IUnknown {
+        #[annotation("midl", "[local]")]
+        fn Read(&self, #[annotation("midl", "[annotation]")] #[annotation("sal", "_Out_writes_bytes_to_($1,*$2)")] #[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = true)] pv: *mut void, #[annotation("midl", "[annotation][in]")] #[annotation("sal", "_In_")] #[in] cb: u32, #[annotation("midl", "[annotation]")] #[annotation("sal", "_Out_opt_")] #[out] #[opt] pcbRead: *mut u32) -> HRESULT;
+        #[annotation("midl", "[local]")]
+        fn Write(&self, #[annotation("midl", "[annotation]")] #[annotation("sal", "_In_reads_bytes_($1)")] #[in] #[size_param(1)] pv: *const void, #[annotation("midl", "[annotation][in]")] #[annotation("sal", "_In_")] #[in] cb: u32, #[annotation("midl", "[annotation]")] #[annotation("sal", "_Out_opt_")] #[out] #[opt] pcbWritten: *mut u32) -> HRESULT;
+    }
+}

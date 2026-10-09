@@ -910,7 +910,6 @@ fn invalid_output_byte_postconditions_reject() {
     let source = include_str!("../input/output_buffers.h");
     for changed in [
         source.replace("_Out_ unsigned* written", "_In_ unsigned* written"),
-        source.replace("_Out_ unsigned* written", "_Out_opt_ unsigned* written"),
         source.replace(
             "_Out_ unsigned* written",
             "_Out_ _Out_opt_ unsigned* written",
@@ -921,6 +920,177 @@ fn invalid_output_byte_postconditions_reject() {
     ] {
         let snapshot = capture([Input::new("bad.hpp", changed)], ARGS, &["Partial"]).unwrap();
         assert!(snapshot.resolve().unwrap().project(&options()).is_err());
+    }
+}
+
+#[test]
+fn optional_output_counts_preserve_conditional_extent_and_parameter_positions() {
+    let source = include_str!("../input/optional_output_counts.h");
+    let renamed = source
+        .replace("capacity", "space")
+        .replace("written", "used");
+    for arch in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={arch}-pc-windows-msvc");
+        for reversed in [false, true] {
+            let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", &renamed)];
+            if reversed {
+                inputs.reverse();
+            }
+            let snapshot = capture(
+                inputs,
+                &["-x", "c++", &target],
+                &[
+                    "FillRequired",
+                    "FillOptional",
+                    "FillInout",
+                    "ReadCount",
+                    "InvokeOptional",
+                    "IOptionalOutput",
+                ],
+            )
+            .unwrap();
+            let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+            let name = if arch == "i686" {
+                "optional_counts_x86"
+            } else {
+                "optional_counts"
+            };
+            let index = compile(name, &plan);
+            check_optional_counts(&index);
+            let scratch = std::path::Path::new(env!("OUT_DIR")).join(name);
+            let rdl = scratch.join("roundtrip.rdl");
+            windows_rdl::writer()
+                .input(scratch.join("test.winmd"))
+                .filter("Test")
+                .output(&rdl)
+                .write()
+                .unwrap();
+            let winmd = scratch.join("roundtrip.winmd");
+            windows_rdl::reader()
+                .input(rdl)
+                .input(sdk::projection_metadata())
+                .reference_default()
+                .output(&winmd)
+                .write()
+                .unwrap();
+            check_optional_counts(&Index::read(winmd).unwrap());
+        }
+    }
+}
+
+fn check_optional_counts(index: &Index) {
+    let Item::Fn(read) = index.expect_item("Test", "ReadCount") else {
+        panic!()
+    };
+    assert!(matches!(read.signature(&[]).types[0], Type::PtrConst(_, 1)));
+    for (name, buffer_index, count_index, optional, direction) in [
+        ("FillRequired", 0, 2, false, ParamDirection::Output),
+        ("FillOptional", 0, 2, true, ParamDirection::Output),
+        ("FillInout", 0, 2, false, ParamDirection::InputOutput),
+        ("InvokeOptional", 1, 3, false, ParamDirection::Output),
+        ("OptionalCallback", 0, 2, false, ParamDirection::Output),
+        ("IOptionalOutput", 0, 2, false, ParamDirection::Output),
+    ] {
+        let method = match index.expect_item("Test", name) {
+            Item::Fn(method) => method,
+            Item::Type(ty) => ty.methods().next().unwrap(),
+            _ => panic!(),
+        };
+        let params = method
+            .params_by_sequence(method.signature(&[]).types.len())
+            .unwrap();
+        let buffer = params.params()[buffer_index].unwrap();
+        let count = params.params()[count_index as usize].unwrap();
+        assert_eq!(
+            buffer.buffer_relationship(),
+            Some(BufferRelationship::BytesParam(count_index - 1))
+        );
+        assert_eq!(
+            buffer.bytes_written(),
+            Some(BytesWritten {
+                parameter: count_index,
+                dereference: true
+            })
+        );
+        assert_eq!(buffer.direction(), ParamDirection::Output);
+        assert_eq!(buffer.is_optional(), optional);
+        assert_eq!(count.direction(), direction);
+        assert!(count.is_optional());
+    }
+}
+
+#[test]
+fn optional_output_counts_reject_conflicting_and_invalid_contracts() {
+    let source = include_str!("../input/optional_output_counts.h");
+    for changed in [
+        source.replace("_Out_opt_ unsigned* written", "_In_opt_ unsigned* written"),
+        source.replace(
+            "_Out_opt_ unsigned* written",
+            "_Out_ _In_opt_ unsigned* written",
+        ),
+        source.replace(
+            "_Out_opt_ unsigned* written",
+            "_Out_ _Out_opt_ unsigned* written",
+        ),
+        source.replace("unsigned* written", "const unsigned* written"),
+        source.replace("unsigned* written", "float* written"),
+        source.replace("unsigned* written", "unsigned** written"),
+        source.replace("capacity, *written)", "capacity, *$9)"),
+        format!(
+            "typedef const unsigned ReadOnly;\n{}",
+            source.replace("_Out_opt_ unsigned* written", "_Out_opt_ ReadOnly* written")
+        ),
+    ] {
+        let snapshot = capture([Input::new("bad.hpp", changed)], ARGS, &["FillRequired"]).unwrap();
+        assert!(snapshot.resolve().unwrap().project(&options()).is_err());
+    }
+    for reversed in [false, true] {
+        let changed = source.replace("_Out_opt_ unsigned* written", "_Out_ unsigned* written");
+        let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", changed)];
+        if reversed {
+            inputs.reverse();
+        }
+        let snapshot = capture(inputs, ARGS, &["FillRequired"]).unwrap();
+        assert!(snapshot.resolve().is_err());
+    }
+}
+
+#[test]
+fn real_sequential_stream_preserves_optional_read_count() {
+    for arch in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={arch}-pc-windows-msvc");
+        let snapshot = sdk_capture(&target, "#include <objidl.h>", &["ISequentialStream"]);
+        let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+        let index = compile("optional_stream_count", &plan);
+        let stream = index.expect("Test", "ISequentialStream");
+        let read = stream
+            .methods()
+            .find(|method| method.name() == "Read")
+            .unwrap();
+        let params = read.params_by_sequence(3).unwrap();
+        let buffer = params.params()[0].unwrap();
+        assert_eq!(
+            buffer.buffer_relationship(),
+            Some(BufferRelationship::BytesParam(1))
+        );
+        assert_eq!(
+            buffer.bytes_written(),
+            Some(BytesWritten {
+                parameter: 2,
+                dereference: true
+            })
+        );
+        assert!(!buffer.is_optional());
+        let count = params.params()[2].unwrap();
+        assert_eq!(count.direction(), ParamDirection::Output);
+        assert!(count.is_optional());
+        let write = stream
+            .methods()
+            .find(|method| method.name() == "Write")
+            .unwrap();
+        let params = write.params_by_sequence(3).unwrap();
+        assert_eq!(params.params()[0].unwrap().bytes_written(), None);
+        assert!(params.params()[2].unwrap().is_optional());
     }
 }
 

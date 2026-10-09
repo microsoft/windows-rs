@@ -20,7 +20,61 @@ fn main() {
         build_animation();
         build_string_termination();
         build_bitfields();
+        build_optional_counts();
     }
+}
+
+fn build_optional_counts() {
+    for file in [
+        "input/optional_output_counts.h",
+        "input/optional_output_counts.cpp",
+    ] {
+        println!("cargo:rerun-if-changed={file}");
+    }
+    let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    let snapshot = windows_clang2::capture(
+        [windows_clang2::Input::new(
+            "optional.hpp",
+            include_str!("input/optional_output_counts.h"),
+        )],
+        &["-x", "c++", &target],
+        &[
+            "FillRequired",
+            "FillOptional",
+            "FillInout",
+            "InvokeOptional",
+        ],
+    )
+    .unwrap();
+    let mut options = windows_clang2::ProjectionOptions::new("Test");
+    options.library = Some("clang2_optional_counts.dll".into());
+    let plan = snapshot.resolve().unwrap().project(&options).unwrap();
+    let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+    let winmd = out.join("optional_counts.winmd");
+    windows_rdl::reader()
+        .input_text(&plan.rdl())
+        .input(sdk::projection_metadata())
+        .reference_default()
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_bindgen::bindgen([
+        "--in",
+        "default",
+        winmd.to_str().unwrap(),
+        "--out",
+        out.join("optional_counts.rs").to_str().unwrap(),
+        "--flat",
+        "--sys",
+        "--extern",
+        "--filter",
+        "Test",
+    ]);
+    cc::Build::new()
+        .cpp(true)
+        .warnings_into_errors(true)
+        .file("input/optional_output_counts.cpp")
+        .compile("clang2_optional_counts");
 }
 
 fn build_bitfields() {

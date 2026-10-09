@@ -493,15 +493,26 @@ a separate successful-return valid-byte extent:
 | --- | --- | --- |
 | `_Out_writes_bytes_all_(capacity)` | By-value integer parameter | The same parameter value |
 | `_Out_writes_bytes_to_(capacity, count)` | By-value integer parameter | A by-value integer parameter |
-| `_Out_writes_bytes_to_(capacity, *count)` | By-value integer parameter | Dereferenced nonoptional writable integer output parameter |
+| `_Out_writes_bytes_to_(capacity, *count)` | By-value integer parameter | Dereferenced writable integer output parameter, when non-null |
 
 RDL spells this as `#[written_bytes(BytesParamIndex = N, Dereference = true|false)]`, independently
 of `#[size_param(M)]`. The experimental `MemoryWrittenAttribute` definition lives in
 `crates/libs/clang2/metadata.rdl`; supply that file as an input or compile it as a reference when
 compiling these plans. It is not added to the production metadata seed or bundled default WinMD.
 `MethodParam::bytes_written()` reads it separately from capacity. RDL/WinMD round-trips preserve
-both relationships. Constant/arithmetic written counts, optional count pointers, and noninteger
-counts reject. Declaration-local names resolve to original parameter positions before lowering.
+both relationships. `_Out_opt_` and `_Inout_opt_` count pointers retain their own optional flags.
+A null count pointer leaves the valid-byte extent unavailable; it does not imply zero bytes or full
+capacity. Conflicting nullability, input-only counts, and noninteger or non-writable counts reject.
+Unmodeled count expressions retain source evidence without a guessed extent. Declaration-local
+names resolve to original parameter positions before lowering.
+Writable checks include canonical const qualifiers hidden by typedefs; those pointers remain
+read-only in RDL rather than gaining writable output contracts.
+
+`project/buffer.rs` owns supported buffer relationships, capacity validation, and valid-byte
+postconditions. `optional_output_counts.h` checks functions, callbacks, interfaces, renamed
+parameters, and reversed TUs across x86/x64/ARM64, including RDL/WinMD roundtrips. Its C++ fixture
+checks x86/x64 pointer calls and reverse callbacks with null counts, zero capacity, and partial
+output. The pinned SDK `ISequentialStream::Read` supplies a real optional output-count contract.
 
 Generated output wrappers still expose unsafe pointers and raw NTSTATUS results. They do not
 assume output initialization on failure or turn capacity into a returned slice length. The caller
@@ -1378,21 +1389,26 @@ a nonzero exit.
 | Headers with some emitted output | 360 |
 | Headers failing before discovery inventory | 0 |
 | Known selected names | 103,719 |
-| Emitted selected names | 87,405 |
-| Rejected selected names | 16,314 |
+| Emitted selected names | 87,542 |
+| Rejected selected names | 16,177 |
 | Selected names blocked before projection/output | 0 |
 
 Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
 are not deduplicated APIs. Each header's supported roots must also pass combined projection and
 source ownership before being marked emitted. The refreshed run also checks combined WinMD
 compilation. Independent headers do not test agreement across the full manifest or across
-architectures. The unsigned-bitfield x64 debug refresh takes 406.4 seconds, including its Cargo
+architectures. The optional-count x64 debug refresh takes 425.3 seconds, including its Cargo
 invocation; no controlled performance comparison is implied. A separate resource run
 takes 784.0 seconds, peaks at 735.9 MiB working set, and has 636.9 MiB sampled peak private memory
 (100 ms sampling). A serial header run is not a
 large multi-TU memory bound: capture retains the participating ASTs until the owned graph is extracted.
 Streaming disposal and an agreed resource budget remain open.
 More rejections can mean that formerly blocked roots now reach assessment, not that support regressed.
+
+Optional output counts add 137 emitted names across 16 profiles, with unchanged selection and no
+profile losing output. Many COM closures instead reach the existing by-value-union ABI gate;
+1,029 entries reject there. Declaration-only data remains the largest bucket at 9,399 entries.
+The next data pass must distinguish header-defined GUID/property values from true imported data.
 
 The baseline blocked-root boundaries below are absent from the current full-manifest snapshot:
 
@@ -1518,7 +1534,7 @@ Named nested records retain shared nominal references with checked scope-prefixe
 they are not copied into each field or merged by shape. This adds nine OAIDL roots and two ObjIDL
 roots, including wire SAFEARRAY/VARIANT and GDI storage. Three-target reversed-TU metadata fixtures
 check shared pointers, aliases, distinct same-shaped owners, collisions, and retained by-value gates.
-Transparent interface aliases add 18 OAIDL and eight ObjIDL roots. Optional written-count outputs,
+Transparent interface aliases add 18 OAIDL and eight ObjIDL roots. By-value-union ABI,
 declaration-only data, and unavailable import contracts still reject. These are shared
 representation/publication gaps, not reasons to externally bind `VARIANT` in the generic header
 runner. This focused refresh does not establish public metadata parity.

@@ -22,7 +22,9 @@ pub enum BufferRelationship {
 /// Valid byte extent on successful return for a non-null buffer, not its capacity.
 ///
 /// With `dereference`, `parameter` names an output integer pointer. Otherwise it names
-/// a by-value integer. Consumers must validate the signature and the API's success contract.
+/// a by-value integer. A dereferenced count is usable only when its pointer is non-null;
+/// check that parameter's optional flag. An absent count does not imply the buffer's capacity
+/// was written. Consumers must validate the signature and the API's success contract.
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub struct BytesWritten {
     pub parameter: i16,

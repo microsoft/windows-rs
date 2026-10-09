@@ -10,8 +10,8 @@ mod Windows {
                 Phase: u8,
             }
 
-            // Valid bytes after a successful call, when the buffer is non-null, not capacity.
-            // Dereference selects an output integer pointer; otherwise the count is by value.
+            // Valid bytes on success when the buffer and any dereferenced count are non-null.
+            // This is not capacity. Count-pointer nullability is stored on its parameter.
             attribute MemoryWrittenAttribute {
                 fn();
                 BytesParamIndex: i16,
