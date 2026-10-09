@@ -1795,10 +1795,10 @@ pub fn windows_reactor::Image::relative_align_left(self) -> Self
 pub fn windows_reactor::Image::relative_align_right(self) -> Self
 pub fn windows_reactor::Image::relative_align_top(self) -> Self
 pub fn windows_reactor::Image::relative_align_vertical_center(self) -> Self
-pub fn windows_reactor::Image::source(self, impl core::convert::Into<windows_reactor::ImageSource>) -> windows_result::Result<Self>
+pub fn windows_reactor::Image::source(self, impl windows_reactor::IntoImageSource) -> windows_result::Result<Self>
 pub fn windows_reactor::Image::source_data(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::Image::source_file(self, impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
-pub fn windows_reactor::Image::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<windows_reactor::ImageSource>
+pub fn windows_reactor::Image::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: windows_reactor::IntoImageSource
 pub fn windows_reactor::Image::stretch(self, windows_reactor::Stretch) -> Self
 pub fn windows_reactor::Image::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::Image::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
@@ -1837,10 +1837,10 @@ pub fn windows_reactor::ImageIcon::relative_align_left(self) -> Self
 pub fn windows_reactor::ImageIcon::relative_align_right(self) -> Self
 pub fn windows_reactor::ImageIcon::relative_align_top(self) -> Self
 pub fn windows_reactor::ImageIcon::relative_align_vertical_center(self) -> Self
-pub fn windows_reactor::ImageIcon::source(self, impl core::convert::Into<windows_reactor::ImageSource>) -> windows_result::Result<Self>
+pub fn windows_reactor::ImageIcon::source(self, impl windows_reactor::IntoImageSource) -> windows_result::Result<Self>
 pub fn windows_reactor::ImageIcon::source_data(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::ImageIcon::source_file(self, impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
-pub fn windows_reactor::ImageIcon::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<windows_reactor::ImageSource>
+pub fn windows_reactor::ImageIcon::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: windows_reactor::IntoImageSource
 pub fn windows_reactor::ImageIcon::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ImageIcon::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ImageIcon::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
@@ -1858,8 +1858,8 @@ impl core::cmp::PartialEq for windows_reactor::ImageSource
 pub fn windows_reactor::ImageSource::eq(&self, &Self) -> bool
 impl core::fmt::Debug for windows_reactor::ImageSource
 pub fn windows_reactor::ImageSource::fmt(&self, &mut core::fmt::Formatter<'_>) -> core::fmt::Result
-impl<T: core::convert::Into<alloc::rcs::rc::Rc<str>>> core::convert::From<T> for windows_reactor::ImageSource
-pub fn windows_reactor::ImageSource::from(T) -> Self
+impl windows_reactor::IntoImageSource for windows_reactor::ImageSource
+pub fn windows_reactor::ImageSource::into_image_source(self) -> windows_result::Result<windows_reactor::ImageSource>
 pub struct windows_reactor::InfoBadge(_)
 impl windows_reactor::InfoBadge
 pub fn windows_reactor::InfoBadge::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
@@ -4408,6 +4408,12 @@ pub fn windows_reactor::FlyoutExt::flyout_with(self, windows_reactor::Flyout) ->
 impl<T> windows_reactor::FlyoutExt for T where T: core::convert::Into<windows_reactor::View>
 pub fn T::flyout(self, impl core::convert::AsRef<str>) -> windows_reactor::View
 pub fn T::flyout_with(self, windows_reactor::Flyout) -> windows_reactor::View
+pub trait windows_reactor::IntoImageSource: windows_reactor::sealed::ImageSourceInput
+pub fn windows_reactor::IntoImageSource::into_image_source(self) -> windows_result::Result<windows_reactor::ImageSource>
+impl windows_reactor::IntoImageSource for windows_reactor::ImageSource
+pub fn windows_reactor::ImageSource::into_image_source(self) -> windows_result::Result<windows_reactor::ImageSource>
+impl<T: core::convert::Into<alloc::rcs::rc::Rc<str>>> windows_reactor::IntoImageSource for T
+pub fn T::into_image_source(self) -> windows_result::Result<windows_reactor::ImageSource>
 pub trait windows_reactor::IntoPayloadCallback<T>: windows_reactor::sealed::PayloadCallback<T>
 pub fn windows_reactor::IntoPayloadCallback::into_payload_callback(self) -> windows_reactor::Callback<T>
 impl<T, F> windows_reactor::IntoPayloadCallback<T> for F where F: core::ops::function::Fn(T) + 'static

@@ -1182,14 +1182,13 @@ impl ImageLoadState {
         }
     }
 
-    fn subscribe(&self, callback: &Rc<dyn Fn(bool)>) {
-        if let Some(result) = self.result.get() {
-            callback(result);
-        } else {
+    fn subscribe(&self, callback: &Rc<dyn Fn(bool)>) -> Option<bool> {
+        if self.result.get().is_none() {
             let mut subscribers = self.subscribers.borrow_mut();
             subscribers.retain(|subscriber| subscriber.strong_count() != 0);
             subscribers.push(Rc::downgrade(callback));
         }
+        self.result.get()
     }
 }
 

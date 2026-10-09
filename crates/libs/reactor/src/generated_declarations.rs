@@ -4505,21 +4505,21 @@ impl Image {
         let declaration = Declaration::new(ObjectType::Image);
         Self(declaration)
     }
-    pub fn source(mut self, value: impl Into<ImageSource>) -> windows_core::Result<Self> {
+    pub fn source(mut self, value: impl IntoImageSource) -> windows_core::Result<Self> {
         self.0 = self.0.property(
             PropertyId::Source,
-            PropertyValue::ImageSource(value.into().validated()?),
+            PropertyValue::ImageSource(value.into_image_source()?),
         );
         Ok(self)
     }
     pub fn source_optional<T>(mut self, value: Option<T>) -> windows_core::Result<Self>
     where
-        T: Into<ImageSource>,
+        T: IntoImageSource,
     {
         if let Some(value) = value {
             self.0 = self.0.property(
                 PropertyId::Source,
-                PropertyValue::ImageSource(value.into().validated()?),
+                PropertyValue::ImageSource(value.into_image_source()?),
             );
         }
         Ok(self)
@@ -4527,14 +4527,14 @@ impl Image {
     pub fn source_file(mut self, path: impl AsRef<Path>) -> windows_core::Result<Self> {
         self.0 = self.0.property(
             PropertyId::Source,
-            PropertyValue::ImageSource(ImageSource::file(path)?.by_value()),
+            PropertyValue::ImageSource(ImageSource::file(path)?),
         );
         Ok(self)
     }
     pub fn source_data(mut self, value: EncodedImage) -> Self {
         self.0 = self.0.property(
             PropertyId::Source,
-            PropertyValue::ImageSource(ImageSource::encoded(value).by_value()),
+            PropertyValue::ImageSource(ImageSource::encoded(value)),
         );
         self
     }
@@ -4881,21 +4881,21 @@ impl ImageIcon {
         let declaration = Declaration::new(ObjectType::ImageIcon);
         Self(declaration)
     }
-    pub fn source(mut self, value: impl Into<ImageSource>) -> windows_core::Result<Self> {
+    pub fn source(mut self, value: impl IntoImageSource) -> windows_core::Result<Self> {
         self.0 = self.0.property(
             PropertyId::Source,
-            PropertyValue::ImageSource(value.into().validated()?),
+            PropertyValue::ImageSource(value.into_image_source()?),
         );
         Ok(self)
     }
     pub fn source_optional<T>(mut self, value: Option<T>) -> windows_core::Result<Self>
     where
-        T: Into<ImageSource>,
+        T: IntoImageSource,
     {
         if let Some(value) = value {
             self.0 = self.0.property(
                 PropertyId::Source,
-                PropertyValue::ImageSource(value.into().validated()?),
+                PropertyValue::ImageSource(value.into_image_source()?),
             );
         }
         Ok(self)
@@ -4903,14 +4903,14 @@ impl ImageIcon {
     pub fn source_file(mut self, path: impl AsRef<Path>) -> windows_core::Result<Self> {
         self.0 = self.0.property(
             PropertyId::Source,
-            PropertyValue::ImageSource(ImageSource::file(path)?.by_value()),
+            PropertyValue::ImageSource(ImageSource::file(path)?),
         );
         Ok(self)
     }
     pub fn source_data(mut self, value: EncodedImage) -> Self {
         self.0 = self.0.property(
             PropertyId::Source,
-            PropertyValue::ImageSource(ImageSource::encoded(value).by_value()),
+            PropertyValue::ImageSource(ImageSource::encoded(value)),
         );
         self
     }

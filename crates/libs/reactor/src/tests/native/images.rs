@@ -15,14 +15,14 @@ fn image_load_subscriptions_complete_once_and_do_not_retain_controls() {
     let result = Rc::clone(&values);
     let callback: Rc<dyn Fn(bool)> = Rc::new(move |value| result.borrow_mut().push(value));
     let removed: Rc<dyn Fn(bool)> = Rc::new(|_| panic!("removed subscription"));
-    state.subscribe(&removed);
+    assert_eq!(state.subscribe(&removed), None);
     drop(removed);
-    state.subscribe(&callback);
+    assert_eq!(state.subscribe(&callback), None);
     state.complete(true);
     state.complete(false);
     assert_eq!(*values.borrow(), [true]);
-    state.subscribe(&callback);
-    assert_eq!(*values.borrow(), [true, true]);
+    assert_eq!(state.subscribe(&callback), Some(true));
+    assert_eq!(*values.borrow(), [true]);
     assert!(state.subscribers.borrow().is_empty());
 }
 
@@ -55,6 +55,13 @@ fn page(
             ),
         )])
         .into()
+}
+
+fn source_property(source: &ImageSource) -> Property {
+    Property {
+        id: PropertyId::Source,
+        value: PropertyValue::ImageSource(source.clone()),
+    }
 }
 
 #[test]
@@ -114,6 +121,8 @@ fn retained_images_survive_remounts_and_release_with_their_owner() {
         let window = RefCell::new(Some(window));
         let phase = Cell::new(0);
         let ticks = Cell::new(0);
+        let notifications = Rc::new(RefCell::new(Vec::new()));
+        let image = Cell::new(None);
         let app = app.clone();
         let tick = timer.Tick(move |_, _| {
             ticks.set(ticks.get() + 1);
@@ -158,105 +167,93 @@ fn retained_images_survive_remounts_and_release_with_their_owner() {
                         .update(page(phase.get(), &sources.borrow(), &events))
                         .unwrap();
                 } else {
-                    let notifications = Rc::new(RefCell::new(Vec::new()));
                     let opened = Rc::clone(&notifications);
                     let failed = Rc::clone(&notifications);
-                    let opened = Callback::new(move |()| opened.borrow_mut().push(true));
-                    let failed = Callback::new(move |()| failed.borrow_mut().push(false));
-                    let view = |source: Option<ImageSource>| {
-                        StackPanel::new().children((Image::new()
-                            .source_optional(source)
-                            .unwrap()
-                            .on_opened(opened.clone())
-                            .on_failed(failed.clone()),))
-                    };
                     runtime
-                        .update(view(Some(sources.borrow()[0].clone())))
+                        .update(
+                            StackPanel::new().children((Image::new()
+                                .source(sources.borrow()[0].clone())
+                                .unwrap()
+                                .on_opened(move || opened.borrow_mut().push(true))
+                                .on_failed(move || failed.borrow_mut().push(false)),)),
+                        )
                         .unwrap();
                     let object = runtime
                         .graph()
                         .children(root, RelationId::Children)
                         .unwrap()[0];
-                    let property = |index: usize| Property {
-                        id: PropertyId::Source,
-                        value: PropertyValue::ImageSource(sources.borrow()[index].clone()),
-                    };
+                    image.set(Some(object));
                     runtime
                         .adapter_mut()
-                        .set_properties(object, &[property(3)], &[])
+                        .set_properties(object, &[source_property(&sources.borrow()[3])], &[])
                         .unwrap();
-                    runtime.dispatch_native_events().unwrap();
-                    assert_eq!(*notifications.borrow(), [false]);
-                    notifications.borrow_mut().clear();
-                    runtime
-                        .adapter_mut()
-                        .set_properties(object, &[property(0)], &[])
-                        .unwrap();
-                    runtime
-                        .adapter_mut()
-                        .set_properties(object, &[], &[PropertyId::Source])
-                        .unwrap();
-                    runtime.dispatch_native_events().unwrap();
-                    assert!(notifications.borrow().is_empty());
-                    runtime
-                        .adapter_mut()
-                        .set_properties(object, &[property(0)], &[])
-                        .unwrap();
-                    runtime
-                        .adapter_mut()
-                        .imperative(ImperativeRequest::SetNativeImageSource {
-                            object,
-                            source: None,
-                            completion: Callback::new(|result: Result<(), IntegrationError>| {
-                                result.unwrap();
-                            }),
-                        })
-                        .unwrap();
-                    assert!(!runtime.adapter().image_subscriptions.contains_key(&object));
-                    runtime.dispatch_native_events().unwrap();
-                    assert!(notifications.borrow().is_empty());
-                    let temporary = ImageSource::encoded(EncodedImage::from_static(PNG));
-                    let retained = Rc::downgrade(&temporary.native);
-                    runtime
-                        .adapter_mut()
-                        .set_properties(
-                            object,
-                            &[Property {
-                                id: PropertyId::Source,
-                                value: PropertyValue::ImageSource(temporary),
-                            }],
-                            &[],
-                        )
-                        .unwrap();
-                    assert!(retained.upgrade().is_some());
-                    runtime
-                        .adapter_mut()
-                        .set_properties(object, &[], &[PropertyId::Source])
-                        .unwrap();
-                    assert!(retained.upgrade().is_none());
-                    runtime.dispatch_native_events().unwrap();
-                    assert!(notifications.borrow().is_empty());
-                    runtime
-                        .update(
-                            StackPanel::new().children((
-                                ImageIcon::new()
-                                    .source(sources.borrow()[0].clone())
-                                    .unwrap(),
-                                AppBarButton::new().icon(Icon::image(sources.borrow()[1].clone())),
-                                TitleBar::new().icon(Icon::image(sources.borrow()[2].clone())),
-                            )),
-                        )
-                        .unwrap();
-                    runtime.update(StackPanel::new()).unwrap();
-                    window.borrow_mut().take().unwrap().close().unwrap();
-                    sources.borrow_mut().clear();
                 }
+            } else if phase.get() == 3 {
+                if notifications.borrow().is_empty() {
+                    return;
+                }
+                assert_eq!(*notifications.borrow(), [false]);
+                notifications.borrow_mut().clear();
+                let object = image.get().unwrap();
+                let property = |index: usize| source_property(&sources.borrow()[index]);
+                runtime
+                    .adapter_mut()
+                    .set_properties(object, &[property(0)], &[])
+                    .unwrap();
+                runtime
+                    .adapter_mut()
+                    .set_properties(object, &[], &[PropertyId::Source])
+                    .unwrap();
+                runtime
+                    .adapter_mut()
+                    .set_properties(object, &[property(0)], &[])
+                    .unwrap();
+                runtime
+                    .adapter_mut()
+                    .imperative(ImperativeRequest::SetNativeImageSource {
+                        object,
+                        source: None,
+                        completion: Callback::new(|result: Result<(), IntegrationError>| {
+                            result.unwrap();
+                        }),
+                    })
+                    .unwrap();
+                assert!(!runtime.adapter().image_subscriptions.contains_key(&object));
+                let temporary = ImageSource::encoded(EncodedImage::from_static(PNG));
+                let retained = Rc::downgrade(&temporary.native);
+                runtime
+                    .adapter_mut()
+                    .set_properties(object, &[source_property(&temporary)], &[])
+                    .unwrap();
+                drop(temporary);
+                assert!(retained.upgrade().is_some());
+                runtime
+                    .adapter_mut()
+                    .set_properties(object, &[], &[PropertyId::Source])
+                    .unwrap();
+                assert!(retained.upgrade().is_none());
+                runtime
+                    .update(
+                        StackPanel::new().children((
+                            ImageIcon::new()
+                                .source(sources.borrow()[0].clone())
+                                .unwrap(),
+                            AppBarButton::new().icon(Icon::image(sources.borrow()[1].clone())),
+                            TitleBar::new().icon(Icon::image(sources.borrow()[2].clone())),
+                        )),
+                    )
+                    .unwrap();
+                runtime.update(StackPanel::new()).unwrap();
+                window.borrow_mut().take().unwrap().close().unwrap();
+                sources.borrow_mut().clear();
+                phase.set(4);
             } else if weak
                 .borrow()
                 .iter()
                 .all(|source| source.upgrade().is_none())
             {
                 assert!(events.borrow().is_empty());
+                assert!(notifications.borrow().is_empty());
                 finished.set(true);
                 app.exit().unwrap();
             }

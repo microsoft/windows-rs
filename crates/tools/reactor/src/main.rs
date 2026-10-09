@@ -1040,10 +1040,15 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     output.push_str(&format!("let {field} = Rc::new(Cell::new(false));\n"));
                 }
             }
+            let managed_source = object
+                .properties
+                .iter()
+                .find(|property| property.adapter == Some(PropertyAdapter::ImageUri))
+                .map(|property| snake_case(&property.name));
             for event in &object.events {
                 let field = snake_case(&event.name);
-                if object.name == "Image" {
-                    output.push_str("let managed_source = Rc::clone(&source);\n");
+                if let Some(source) = &managed_source {
+                    output.push_str(&format!("let managed_source = Rc::clone(&{source});\n"));
                 }
                 let selection = object
                     .selection
@@ -1267,7 +1272,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                          let observation = dispatch.then_some(observation);\n",
                         event.name
                     ));
-                } else if object.name == "Image" {
+                } else if managed_source.is_some() {
                     output.push_str(
                         "let dispatch = !managed_source.get();\nlet observation = None;\n",
                     );
@@ -3367,29 +3372,29 @@ fn generate_declarations(
             let name = property.method();
             if property.adapter == Some(PropertyAdapter::ImageUri) {
                 output.push_str(&format!(
-                    "pub fn {name}(mut self, value: impl Into<ImageSource>) -> \
+                    "pub fn {name}(mut self, value: impl IntoImageSource) -> \
                      windows_core::Result<Self> {{\n\
                      self.0 = self.0.property(PropertyId::{}, \
-                     PropertyValue::ImageSource(value.into().validated()?));\n\
+                     PropertyValue::ImageSource(value.into_image_source()?));\n\
                      Ok(self)\n\
                      }}\n\
                      pub fn {name}_optional<T>(mut self, value: Option<T>) -> \
-                     windows_core::Result<Self> where T: Into<ImageSource> {{\n\
+                     windows_core::Result<Self> where T: IntoImageSource {{\n\
                      if let Some(value) = value {{\n\
                      self.0 = self.0.property(PropertyId::{}, \
-                     PropertyValue::ImageSource(value.into().validated()?));\n\
+                     PropertyValue::ImageSource(value.into_image_source()?));\n\
                      }}\n\
                      Ok(self)\n\
                      }}\n\
                      pub fn {name}_file(mut self, path: impl AsRef<Path>) -> \
                      windows_core::Result<Self> {{\n\
                      self.0 = self.0.property(PropertyId::{}, \
-                     PropertyValue::ImageSource(ImageSource::file(path)?.by_value()));\n\
+                     PropertyValue::ImageSource(ImageSource::file(path)?));\n\
                      Ok(self)\n\
                      }}\n\
                      pub fn {name}_data(mut self, value: EncodedImage) -> Self {{\n\
                      self.0 = self.0.property(PropertyId::{}, \
-                     PropertyValue::ImageSource(ImageSource::encoded(value).by_value()));\n\
+                     PropertyValue::ImageSource(ImageSource::encoded(value)));\n\
                      self\n\
                      }}\n",
                     property.name, property.name, property.name, property.name

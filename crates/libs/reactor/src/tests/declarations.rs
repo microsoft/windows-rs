@@ -685,14 +685,16 @@ fn button_content_and_click_use_generated_contracts() {
 }
 
 #[test]
-fn image_sources_preserve_resource_identity_and_value_equality() {
+fn image_sources_share_resources_and_compare_values() {
     let source = ImageSource::encoded(EncodedImage::from_static(b"image"));
     let cloned = source.clone();
     let independent = ImageSource::encoded(EncodedImage::new(Vec::from(b"image")));
+    let different = ImageSource::encoded(EncodedImage::from_static(b"other"));
     assert!(Rc::ptr_eq(&source.native, &cloned.native));
     assert!(!Rc::ptr_eq(&source.native, &independent.native));
     assert_eq!(source, cloned);
-    assert_ne!(source, independent);
+    assert_eq!(source, independent);
+    assert_ne!(source, different);
     assert!(source.native.get().is_none());
 
     let mut runtime = Runtime::new(RecordingAdapter::default());
@@ -707,11 +709,11 @@ fn image_sources_preserve_resource_identity_and_value_equality() {
     assert!(Rc::ptr_eq(&source.native, &retained.native));
     assert!(source.native.get().is_none());
     let mutations = runtime
-        .update(Image::new().source_optional(Some(cloned)).unwrap())
+        .update(Image::new().source_optional(Some(independent)).unwrap())
         .unwrap();
     assert!(mutations.is_empty());
     let mutations = runtime
-        .update(Image::new().source(independent).unwrap())
+        .update(Image::new().source(different).unwrap())
         .unwrap();
     assert!(matches!(
         mutations.as_slice(),
@@ -721,18 +723,22 @@ fn image_sources_preserve_resource_identity_and_value_equality() {
         .update(Image::new().source_optional(None::<ImageSource>).unwrap())
         .unwrap();
     assert!(runtime.graph().properties(object).unwrap().is_empty());
-    assert!(Image::new().source(ImageSource::from("not a URI")).is_err());
+    assert!(Image::new().source("not a URI").is_err());
 }
 
 #[test]
-fn image_shorthand_setters_compare_values() {
+fn image_setters_compare_values() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(Image::new().source_file(r"C:\image.png").unwrap())
         .unwrap();
     assert!(
         runtime
-            .update(Image::new().source_file(r"C:\image.png").unwrap())
+            .update(
+                Image::new()
+                    .source(ImageSource::file(r"C:\image.png").unwrap())
+                    .unwrap()
+            )
             .unwrap()
             .is_empty()
     );

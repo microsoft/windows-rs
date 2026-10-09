@@ -19,6 +19,7 @@ pub mod native;
 mod reconcile;
 mod reference;
 mod sealed {
+    pub trait ImageSourceInput {}
     pub trait PayloadCallback<T> {}
     pub trait Sealed {}
     pub trait UnitCallback {}
@@ -68,12 +69,12 @@ pub use declaration::{
     ContentDialogResult, CornerRadius, DragDropAction, DragDropOperation, DragDropPolicy, DragKind,
     DroppedData, DroppedStorageItem, ElementFocusState, EncodedImage, ExitTransition, Flyout,
     FlyoutExt, FlyoutPlacement, FocusEventInfo, FontWeight, GridLength, Icon, ImageSource,
-    InputModifiers, IntoPayloadCallback, IntoUnitCallback, IntoViews, Key, KeyAccelerator,
-    KeyAccelerators, KeyEventInfo, KeyedView, Menu, MenuExt, MenuItem, NavigationViewDisplayMode,
-    PhysicalKeyStatus, PointerEventInfo, ResourceOverrides, ResourceValue, RichText,
-    RichTextHyperlink, RichTextInline, RichTextParagraph, RichTextRun, RoutedCallback, ThemeBrush,
-    ThemeTransition, Thickness, Tooltip, TooltipExt, TooltipPlacement, View, VirtualKey,
-    VirtualSource, keyed,
+    InputModifiers, IntoImageSource, IntoPayloadCallback, IntoUnitCallback, IntoViews, Key,
+    KeyAccelerator, KeyAccelerators, KeyEventInfo, KeyedView, Menu, MenuExt, MenuItem,
+    NavigationViewDisplayMode, PhysicalKeyStatus, PointerEventInfo, ResourceOverrides,
+    ResourceValue, RichText, RichTextHyperlink, RichTextInline, RichTextParagraph, RichTextRun,
+    RoutedCallback, ThemeBrush, ThemeTransition, Thickness, Tooltip, TooltipExt, TooltipPlacement,
+    View, VirtualKey, VirtualSource, keyed,
 };
 #[cfg(not(any(test, feature = "test")))]
 use generated::*;

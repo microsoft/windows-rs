@@ -72,7 +72,6 @@ impl PartialEq for EncodedImage {
 pub struct ImageSource {
     value: ImageSourceValue,
     pub(crate) native: Rc<std::cell::OnceCell<native::NativeImageSource>>,
-    compare_value: bool,
 }
 
 impl fmt::Debug for ImageSource {
@@ -86,14 +85,7 @@ impl fmt::Debug for ImageSource {
 
 impl PartialEq for ImageSource {
     fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.native, &other.native)
-            || (self.compare_value && other.compare_value && self.value == other.value)
-    }
-}
-
-impl<T: Into<Rc<str>>> From<T> for ImageSource {
-    fn from(value: T) -> Self {
-        Self::new(ImageSourceValue::Uri(value.into())).by_value()
+        Rc::ptr_eq(&self.native, &other.native) || self.value == other.value
     }
 }
 
@@ -108,12 +100,13 @@ impl ImageSource {
         Self {
             value,
             native: Rc::default(),
-            compare_value: false,
         }
     }
 
     pub fn uri(value: impl Into<Rc<str>>) -> windows_core::Result<Self> {
-        Self::new(ImageSourceValue::Uri(value.into())).validated()
+        let value = value.into();
+        validate_uri(&value)?;
+        Ok(Self::new(ImageSourceValue::Uri(value)))
     }
 
     pub fn file(path: impl AsRef<Path>) -> windows_core::Result<Self> {
@@ -129,18 +122,27 @@ impl ImageSource {
     pub(crate) fn value(&self) -> &ImageSourceValue {
         &self.value
     }
+}
 
-    pub(crate) fn by_value(mut self) -> Self {
-        // Shorthand setters compare content; retained resources compare identity.
-        self.compare_value = true;
-        self
-    }
+/// A URI string or an [`ImageSource`].
+pub trait IntoImageSource: sealed::ImageSourceInput {
+    #[doc(hidden)]
+    fn into_image_source(self) -> windows_core::Result<ImageSource>;
+}
 
-    pub(crate) fn validated(self) -> windows_core::Result<Self> {
-        if let ImageSourceValue::Uri(value) = &self.value {
-            validate_uri(value)?;
-        }
+impl sealed::ImageSourceInput for ImageSource {}
+
+impl IntoImageSource for ImageSource {
+    fn into_image_source(self) -> windows_core::Result<ImageSource> {
         Ok(self)
+    }
+}
+
+impl<T: Into<Rc<str>>> sealed::ImageSourceInput for T {}
+
+impl<T: Into<Rc<str>>> IntoImageSource for T {
+    fn into_image_source(self) -> windows_core::Result<ImageSource> {
+        ImageSource::uri(self)
     }
 }
 
@@ -183,15 +185,15 @@ impl Icon {
     }
 
     pub fn image_uri(uri: impl Into<Rc<str>>) -> windows_core::Result<Self> {
-        Ok(Self::image(ImageSource::uri(uri)?.by_value()))
+        Ok(Self::image(ImageSource::uri(uri)?))
     }
 
     pub fn image_file(path: impl AsRef<Path>) -> windows_core::Result<Self> {
-        Ok(Self::image(ImageSource::file(path)?.by_value()))
+        Ok(Self::image(ImageSource::file(path)?))
     }
 
     pub fn image_data(data: EncodedImage) -> Self {
-        Self::image(ImageSource::encoded(data).by_value())
+        Self::image(ImageSource::encoded(data))
     }
 
     pub fn path(data: impl Into<Rc<str>>) -> Self {

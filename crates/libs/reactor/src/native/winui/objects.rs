@@ -320,9 +320,6 @@ impl WinUiAdapter {
             }
         }
         for property in set {
-            if property.id == PropertyId::Source {
-                self.image_subscriptions.remove(&object);
-            }
             let feedback =
                 GeneratedHandle::feedback_expectation(kind, property.id, Some(&property.value));
             if let Some((event, expectation)) = feedback.clone() {
@@ -411,43 +408,7 @@ impl WinUiAdapter {
                 if property.id == PropertyId::Source
                     && let PropertyValue::ImageSource(source) = &property.value
                 {
-                    let image = image_source(source)?;
-                    match self.handles.get(&object) {
-                        Some(Handle::Generated(GeneratedHandle::Image(control))) => {
-                            control.invalidate_source_events();
-                            control.source.set(true);
-                            control.value.SetSource(&image.value)?;
-                            let opened = Rc::clone(&control.image_opened);
-                            let failed = Rc::clone(&control.image_failed);
-                            let event_queue = Rc::clone(&self.event_queue);
-                            let callback: Rc<dyn Fn(bool)> = Rc::new(move |success| {
-                                Self::dispatch_unit(
-                                    if success { &opened } else { &failed },
-                                    &event_queue,
-                                    object,
-                                    if success {
-                                        EventId::ImageOpened
-                                    } else {
-                                        EventId::ImageFailed
-                                    },
-                                    None,
-                                );
-                            });
-                            image.state.subscribe(&callback);
-                            self.image_subscriptions.insert(
-                                object,
-                                ImageSubscription {
-                                    _source: source.clone(),
-                                    _callback: callback,
-                                },
-                            );
-                        }
-                        Some(Handle::Generated(GeneratedHandle::ImageIcon(control))) => {
-                            control.SetSource(&image.value)?;
-                        }
-                        _ => break 'apply Err(WinUiError::InvalidObject(object)),
-                    }
-                    break 'apply Ok(());
+                    break 'apply self.set_image_source(object, source);
                 }
                 if let Some(Handle::Generated(handle)) = self.handles.get(&object)
                     && let Some(result) = handle.set_property(property.id, Some(&property.value))
@@ -507,6 +468,52 @@ impl WinUiAdapter {
             }
         }
         Ok(())
+    }
+
+    fn set_image_source(&mut self, object: ObjectId, source: &ImageSource) -> Result<(), WinUiError> {
+        let image = image_source(source)?;
+        match self.handles.get(&object) {
+            Some(Handle::Generated(GeneratedHandle::Image(control))) => {
+                control.value.SetSource(&image.value)?;
+                control.invalidate_source_events();
+                control.source.set(true);
+                let opened = Rc::clone(&control.image_opened);
+                let failed = Rc::clone(&control.image_failed);
+                let event_queue = Rc::clone(&self.event_queue);
+                let callback: Rc<dyn Fn(bool)> = Rc::new(move |success| {
+                    let (event, id) = if success {
+                        (&opened, EventId::ImageOpened)
+                    } else {
+                        (&failed, EventId::ImageFailed)
+                    };
+                    Self::dispatch_unit(event, &event_queue, object, id, None);
+                });
+                let result = image.state.subscribe(&callback);
+                let replay = Rc::downgrade(&callback);
+                self.image_subscriptions.insert(
+                    object,
+                    ImageSubscription {
+                        _source: source.clone(),
+                        _callback: callback,
+                    },
+                );
+                if let Some(result) = result {
+                    // Replay a completed load after the current update applies event handlers.
+                    let handler = native::DispatcherQueueHandler::new(move || {
+                        if let Some(callback) = replay.upgrade() {
+                            callback(result);
+                        }
+                    });
+                    native::DispatcherQueue::GetForCurrentThread()?
+                        .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)?;
+                }
+                Ok(())
+            }
+            Some(Handle::Generated(GeneratedHandle::ImageIcon(control))) => {
+                control.SetSource(&image.value).map_err(Into::into)
+            }
+            _ => Err(WinUiError::InvalidObject(object)),
+        }
     }
 
     fn replace(&mut self, object: ObjectId, kind: ObjectType) -> Result<(), WinUiError> {
