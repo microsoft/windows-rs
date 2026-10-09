@@ -1,0 +1,6 @@
+#[win32]
+mod SdkOptional {
+    extern "system" fn LINEDDAPROC(p0: i32, p1: i32, p2: isize);
+    #[library("GDI32.dll", import = "LineDDA")]
+    extern "system" fn LineDDA(#[annotation("sal", "_In_")] #[in] xStart: i32, #[annotation("sal", "_In_")] #[in] yStart: i32, #[annotation("sal", "_In_")] #[in] xEnd: i32, #[annotation("sal", "_In_")] #[in] yEnd: i32, #[annotation("sal", "_In_")] #[in] lpProc: LINEDDAPROC, #[annotation("sal", "_In_opt_")] #[in] data: isize) -> i32;
+}

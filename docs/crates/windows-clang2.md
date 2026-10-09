@@ -497,7 +497,13 @@ pointer. Pointer-valued contracts cannot serve as integer buffer counts. Counted
 on bound pointer values remain unsupported.
 
 Functions and methods share annotation lowering. `_In_`, `_Out_`, and `_Inout_` retain direction.
-`_In_opt_` adds input optionality for pointer parameters. `_Out_opt_` and `_Inout_opt_` require
+`_In_opt_` adds nullability for pointer-like parameters. By-value inputs retain the source annotation
+and input direction without `#[opt]`; nullability does not invent an omitted scalar or a zero default.
+`optional_inputs.h`/`.rdl` cover integers, pointer-sized aliases, enums, floats, records, pointers,
+and callbacks. Metadata roundtrips and source conflicts pass on all three targets. MSVC value calls
+and real `LineDDA` regular/sys callbacks preserve zero and nonzero contexts on x64/x86 in
+debug/release; DLL routing comes from the pinned GDI import library.
+`_Out_opt_` and `_Inout_opt_` require
 writable pointers and preserve output/inout direction with `#[opt]`. `_COM_Outptr_` requires a writable
 `void**` or interface output pointer. A `void**` receives `#[out] #[iid_is]` (the metadata
 `ComOutPtrAttribute`); typed interface outputs retain their interface type and receive `#[out]`.
@@ -1437,20 +1443,20 @@ a nonzero exit.
 | Measure | Current semantic refresh |
 | --- | ---: |
 | Headers attempted | 369 |
-| Complete selected-root coverage | 83 |
-| Incomplete coverage | 286 |
+| Complete selected-root coverage | 91 |
+| Incomplete coverage | 278 |
 | Headers with some emitted output | 364 |
 | Headers failing before discovery inventory | 0 |
 | Known selected names | 103,719 |
-| Emitted selected names | 94,095 |
-| Rejected selected names | 9,624 |
+| Emitted selected names | 94,312 |
+| Rejected selected names | 9,407 |
 | Selected names blocked before projection/output | 0 |
 
 Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
 are not deduplicated APIs. Each header's supported roots must also pass combined projection and
 source ownership before being marked emitted. The refreshed run also checks combined WinMD
 compilation. Independent headers do not test agreement across the full manifest or across
-architectures. The inherited-interface x64 debug runner takes 435.1 seconds, excluding Cargo;
+architectures. The input-nullability x64 debug runner takes 411.8 seconds, excluding Cargo;
 no controlled performance comparison is implied. A separate resource run
 takes 784.0 seconds, peaks at 735.9 MiB working set, and has 636.9 MiB sampled peak private memory
 (100 ms sampling). A serial header run is not a
@@ -1488,6 +1494,11 @@ Method-free inherited interface support adds 192 emitted names across 27 profile
 selection, no output loss, and zero blocked roots. Gains include 55 in `uiautomationclient.h`, 36 in
 `xpsobjectmodel.h`, and 17 in `d3d12.h`. `dwrite.h` reaches complete selected-root coverage. Interface
 classification adds no compiler parses; unsupported contracts in inherited closures still reject.
+
+Input nullability adds 217 emitted names across 38 profiles without changing selection or adding
+rejected roots. `ntenclv.h`, `winspool.h`, `mmeapi.h`, `cryptuiapi.h`, `aclapi.h`, `fltuser.h`, `qos2.h`,
+and `wct.h` reach complete selected-root coverage. Pointer, buffer, output, and adjusted-call gates
+are unchanged.
 
 Source classification of the 9,399-entry declaration-only baseline finds 4,137 definition-macro
 entries and 5,262 explicit declarations. The SDK definition configuration adds 4,317 emitted names

@@ -2125,7 +2125,8 @@ fn parameter_attributes(
             {
                 "#[in] #[opt] "
             }
-            "_In_opt_" => return Err(Error("_In_opt_ requires a pointer".into())),
+            // Nullability does not make a by-value input optional.
+            "_In_opt_" => "#[in] ",
             "_In_z_" => "#[in] ",
             "_In_opt_z_" => "#[in] #[opt] ",
             "_Out_z_" | "_Inout_z_" => {

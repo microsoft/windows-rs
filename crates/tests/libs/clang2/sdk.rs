@@ -331,6 +331,10 @@ pub fn projection_metadata() -> PathBuf {
 }
 
 pub fn crypto_library(target: &str) -> PathBuf {
+    library(target, "bcrypt.lib")
+}
+
+pub fn library(target: &str, name: &str) -> PathBuf {
     let arch = if target.contains("x86_64") {
         "x64"
     } else if target.contains("aarch64") {
@@ -347,7 +351,41 @@ pub fn crypto_library(target: &str) -> PathBuf {
         .join("c")
         .join("um")
         .join(arch)
-        .join("bcrypt.lib")
+        .join(name)
+}
+
+pub fn optional_input_options(target: &str) -> ProjectionOptions {
+    let mut options = ProjectionOptions::new("SdkOptional");
+    options.imports = imports(&library(target, "gdi32.lib"), &["LineDDA"]);
+    options
+        .pointer_sized
+        .insert("LPARAM".into(), windows_clang2::PointerSized::Signed);
+    options
+}
+
+pub const OPTIONAL_INPUT_ROOTS: &[&str] = &[
+    "OptionalInteger",
+    "OptionalUnsigned",
+    "OptionalSignedWord",
+    "OptionalEnum",
+    "OptionalFloat",
+    "OptionalRecord",
+    "OptionalPointer",
+    "OptionalInvoke",
+];
+
+pub fn optional_value_options() -> ProjectionOptions {
+    let mut options = ProjectionOptions::new("Test");
+    options.library = Some("clang2_optional_inputs.dll".into());
+    options.pointer_sized.insert(
+        "OptionalWord".into(),
+        windows_clang2::PointerSized::Unsigned,
+    );
+    options.pointer_sized.insert(
+        "OptionalSigned".into(),
+        windows_clang2::PointerSized::Signed,
+    );
+    options
 }
 
 pub fn crypto_options(target: &str) -> ProjectionOptions {

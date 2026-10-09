@@ -18,6 +18,7 @@ fn main() {
         build_constants();
         build_sdk_data();
         build_guid_expressions();
+        build_optional_inputs();
         build_ordinal();
         build_animation();
         build_string_termination();
@@ -429,6 +430,73 @@ fn build_sdk_data() {
         .include(include.join("ucrt"))
         .file("input/sdk_data.cpp")
         .compile("clang2_sdk_data");
+}
+
+fn build_optional_inputs() {
+    for file in ["input/optional_inputs.h", "input/optional_inputs.cpp"] {
+        println!("cargo:rerun-if-changed={file}");
+    }
+    let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    let source = include_str!("input/optional_inputs.h");
+    let options = sdk::optional_value_options();
+    let snapshot = windows_clang2::capture(
+        [windows_clang2::Input::new("optional.hpp", source)],
+        &["-x", "c++", &target],
+        sdk::OPTIONAL_INPUT_ROOTS,
+    )
+    .unwrap();
+    let plans = [
+        (
+            "optional_inputs",
+            snapshot.resolve().unwrap().project(&options).unwrap(),
+        ),
+        (
+            "optional_sdk_inputs",
+            sdk::capture_sdk(&target, "#include <windows.h>", &["LineDDA"])
+                .resolve()
+                .unwrap()
+                .project(&sdk::optional_input_options(&target))
+                .unwrap(),
+        ),
+    ];
+    let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+    for (name, plan) in plans {
+        let winmd = out.join(format!("{name}.winmd"));
+        windows_rdl::reader()
+            .input_text(&plan.rdl())
+            .output(&winmd)
+            .write()
+            .unwrap();
+        for sys in [false, true] {
+            let output = out.join(format!("{name}{}.rs", if sys { "_sys" } else { "" }));
+            let mut args = vec![
+                "--in",
+                winmd.to_str().unwrap(),
+                "--out",
+                output.to_str().unwrap(),
+                "--filter",
+                if name == "optional_inputs" {
+                    "Test"
+                } else {
+                    "SdkOptional"
+                },
+                "--flat",
+            ];
+            if sys {
+                args.push("--sys");
+                if name == "optional_inputs" {
+                    args.push("--extern");
+                }
+            }
+            windows_bindgen::bindgen(args);
+        }
+    }
+    cc::Build::new()
+        .cpp(true)
+        .std("c++17")
+        .warnings_into_errors(true)
+        .file("input/optional_inputs.cpp")
+        .compile("clang2_optional_inputs");
 }
 
 fn build_guid_expressions() {

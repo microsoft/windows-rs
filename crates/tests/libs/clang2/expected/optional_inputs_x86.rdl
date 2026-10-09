@@ -1,0 +1,28 @@
+#[win32]
+mod Test {
+    extern "system" fn OptionalCallback(#[annotation("sal", "_In_opt_")] #[in] value: i64) -> i64;
+    #[library("clang2_optional_inputs.dll", import = "_OptionalEnum")]
+    extern "C" fn OptionalEnum(#[annotation("sal", "_In_opt_")] #[in] value: OptionalKind) -> OptionalKind;
+    #[library("clang2_optional_inputs.dll", import = "_OptionalFloat")]
+    extern "C" fn OptionalFloat(#[annotation("sal", "_In_opt_")] #[in] value: f32) -> f32;
+    #[library("clang2_optional_inputs.dll", import = "_OptionalInteger")]
+    extern "C" fn OptionalInteger(#[annotation("sal", "_In_opt_")] #[in] value: i64) -> i64;
+    #[library("clang2_optional_inputs.dll", import = "_OptionalInvoke")]
+    extern "C" fn OptionalInvoke(#[annotation("sal", "_In_opt_")] #[in] #[opt] callback: OptionalCallback, #[annotation("sal", "_In_opt_")] #[in] value: i64) -> i64;
+    #[repr(u32)]
+    enum OptionalKind {
+        OptionalNone = 0,
+        OptionalReady = 7,
+    }
+    struct OptionalPair {
+        value: i32,
+    }
+    #[library("clang2_optional_inputs.dll", import = "_OptionalPointer")]
+    extern "C" fn OptionalPointer(#[annotation("sal", "_In_opt_")] #[in] #[opt] value: *const i64) -> i64;
+    #[library("clang2_optional_inputs.dll", import = "_OptionalRecord")]
+    extern "C" fn OptionalRecord(#[annotation("sal", "_In_opt_")] #[in] value: OptionalPair) -> i32;
+    #[library("clang2_optional_inputs.dll", import = "_OptionalSignedWord")]
+    extern "C" fn OptionalSignedWord(#[annotation("sal", "_In_opt_")] #[in] value: isize) -> isize;
+    #[library("clang2_optional_inputs.dll", import = "_OptionalUnsigned")]
+    extern "C" fn OptionalUnsigned(#[annotation("sal", "_In_opt_")] #[in] value: usize) -> usize;
+}
