@@ -1138,28 +1138,100 @@ pub(crate) fn validate_native_uri(value: &str) -> windows_core::Result<()> {
     native::Uri::CreateUri(value).map(drop)
 }
 
-fn uri_image(value: &str) -> Result<native::ImageSource, WinUiError> {
-    let uri = native::Uri::CreateUri(value)?;
-    let path = value.split(['?', '#']).next().unwrap_or(value);
-    if path.to_ascii_lowercase().ends_with(".svg") {
-        let image = native::SvgImageSource::new()?;
-        image.SetUriSource(&uri)?;
-        image.cast().map_err(Into::into)
-    } else {
-        let image = native::BitmapImage::new()?;
-        image.SetUriSource(&uri)?;
-        image.cast().map_err(Into::into)
+fn icon_image_source(value: &ImageSource) -> Result<native::ImageSource, WinUiError> {
+    Ok(image_source(value)?.value.clone())
+}
+
+pub(crate) struct NativeImageSource {
+    value: native::ImageSource,
+    state: Rc<ImageLoadState>,
+    _opened: windows_core::EventRevoker,
+    _failed: windows_core::EventRevoker,
+}
+
+struct ImageSubscription {
+    _source: ImageSource,
+    _callback: Rc<dyn Fn(bool)>,
+}
+
+impl GeneratedImage {
+    fn invalidate_source_events(&self) {
+        for event in [&self.image_opened, &self.image_failed] {
+            let mut event = event.borrow_mut();
+            event.revision = event.revision.wrapping_add(1);
+        }
     }
 }
 
-fn icon_image_source(value: &ImageSource) -> Result<native::ImageSource, WinUiError> {
-    match value.value() {
-        ImageSourceValue::Uri(value) => uri_image(value),
-        ImageSourceValue::Encoded(value) => encoded_bitmap_image(value, None)?
-            .0
-            .cast()
-            .map_err(Into::into),
+#[derive(Default)]
+struct ImageLoadState {
+    result: Cell<Option<bool>>,
+    subscribers: RefCell<Vec<Weak<dyn Fn(bool)>>>,
+}
+
+impl ImageLoadState {
+    fn complete(&self, result: bool) {
+        if self.result.get().is_none() {
+            self.result.set(Some(result));
+            let subscribers = std::mem::take(&mut *self.subscribers.borrow_mut());
+            for subscriber in subscribers {
+                if let Some(subscriber) = subscriber.upgrade() {
+                    subscriber(result);
+                }
+            }
+        }
     }
+
+    fn subscribe(&self, callback: &Rc<dyn Fn(bool)>) {
+        if let Some(result) = self.result.get() {
+            callback(result);
+        } else {
+            let mut subscribers = self.subscribers.borrow_mut();
+            subscribers.retain(|subscriber| subscriber.strong_count() != 0);
+            subscribers.push(Rc::downgrade(callback));
+        }
+    }
+}
+
+fn image_source(source: &ImageSource) -> Result<&NativeImageSource, WinUiError> {
+    if source.native.get().is_none() {
+        let state = Rc::new(ImageLoadState::default());
+        let opened = Rc::clone(&state);
+        let failed = Rc::clone(&state);
+        let svg = matches!(source.value(), ImageSourceValue::Uri(uri)
+            if uri.split(['?', '#']).next().unwrap().to_ascii_lowercase().ends_with(".svg"));
+        let (value, opened, failed) = if svg {
+            let image = native::SvgImageSource::new()?;
+            let opened = image.Opened(move |_, _| opened.complete(true))?;
+            let failed = image.OpenFailed(move |_, _| failed.complete(false))?;
+            let ImageSourceValue::Uri(uri) = source.value() else {
+                unreachable!()
+            };
+            image.SetUriSource(&native::Uri::CreateUri(uri)?)?;
+            (image.cast()?, opened, failed)
+        } else {
+            let image = native::BitmapImage::new()?;
+            let opened = image.ImageOpened(move |_, _| opened.complete(true))?;
+            let failed = image.ImageFailed(move |_, _| failed.complete(false))?;
+            match source.value() {
+                ImageSourceValue::Uri(uri) => image.SetUriSource(&native::Uri::CreateUri(uri)?)?,
+                ImageSourceValue::Encoded(value) => load_encoded_bitmap(value, &image)?,
+            }
+            (image.cast()?, opened, failed)
+        };
+        assert!(
+            source
+                .native
+                .set(NativeImageSource {
+                    value,
+                    state,
+                    _opened: opened,
+                    _failed: failed,
+                })
+                .is_ok()
+        );
+    }
+    Ok(source.native.get().unwrap())
 }
 
 fn icon_element(value: &Icon) -> Result<native::IconElement, WinUiError> {
@@ -1230,47 +1302,33 @@ fn icon_source(value: &Icon) -> Result<native::IconSource, WinUiError> {
     }
 }
 
-fn encoded_bitmap_image(
+fn load_encoded_bitmap(
     value: &EncodedImage,
-    failed: Option<Rc<dyn Fn()>>,
-) -> Result<(native::BitmapImage, Option<windows_core::EventRevoker>), WinUiError> {
+    image: &native::BitmapImage,
+) -> Result<(), WinUiError> {
     let stream = native::InMemoryRandomAccessStream::new()?;
     let output = stream.GetOutputStreamAt(0)?;
     let writer = native::DataWriter::CreateDataWriter(&output)?;
     writer.WriteBytes(value.as_bytes())?;
     let store = writer.StoreAsync()?;
-    let image = native::BitmapImage::new()?;
-    let failed = failed
-        .map(|failed| image.ImageFailed(move |_, _| failed()))
-        .transpose()?;
     let decode_image = image.clone();
     if let Err(error) = store.when(move |result| {
+        let result = (|| {
+            result?;
+            writer.DetachStream()?;
+            stream.Seek(0)?;
+            decode_image
+                .cast::<native::IBitmapSource>()?
+                .SetSourceAsync(&stream)?;
+            windows_core::Result::Ok(())
+        })();
         if let Err(error) = result {
-            report_error(error);
-            return;
-        }
-        if let Err(error) = writer.DetachStream() {
-            report_error(error);
-            return;
-        }
-        if let Err(error) = stream.Seek(0) {
-            report_error(error);
-            return;
-        }
-        let source = match decode_image.cast::<native::IBitmapSource>() {
-            Ok(source) => source,
-            Err(error) => {
-                report_error(error);
-                return;
-            }
-        };
-        if let Err(error) = source.SetSourceAsync(&stream) {
             report_error(error);
         }
     }) {
         return Err(error.into());
     }
-    Ok((image, failed))
+    Ok(())
 }
 
 fn build_menu_items(
@@ -1551,7 +1609,7 @@ fn observe_xaml_scale(
 
 pub struct WinUiAdapter {
     handles: HashMap<ObjectId, Handle>,
-    encoded_image_failures: HashMap<ObjectId, windows_core::EventRevoker>,
+    image_subscriptions: HashMap<ObjectId, ImageSubscription>,
     owners: HashMap<ObjectId, (ObjectId, RelationId)>,
     tree_template: Option<native::DataTemplate>,
     list_template: Option<native::DataTemplate>,
@@ -1591,7 +1649,7 @@ impl Default for WinUiAdapter {
     fn default() -> Self {
         Self {
             handles: HashMap::new(),
-            encoded_image_failures: HashMap::new(),
+            image_subscriptions: HashMap::new(),
             owners: HashMap::new(),
             tree_template: None,
             list_template: None,

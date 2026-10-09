@@ -210,7 +210,13 @@ impl WinUiAdapter {
         let set = sorted_set.as_deref().unwrap_or(set);
         for property in clear.iter().copied() {
             if property == PropertyId::Source {
-                self.encoded_image_failures.remove(&object);
+                self.image_subscriptions.remove(&object);
+                if let Some(Handle::Generated(GeneratedHandle::Image(control))) =
+                    self.handles.get(&object)
+                {
+                    control.invalidate_source_events();
+                    control.source.set(false);
+                }
             }
             let feedback = GeneratedHandle::feedback_expectation(kind, property, None);
             if let Some((event, expectation)) = feedback.clone() {
@@ -315,7 +321,7 @@ impl WinUiAdapter {
         }
         for property in set {
             if property.id == PropertyId::Source {
-                self.encoded_image_failures.remove(&object);
+                self.image_subscriptions.remove(&object);
             }
             let feedback =
                 GeneratedHandle::feedback_expectation(kind, property.id, Some(&property.value));
@@ -404,37 +410,42 @@ impl WinUiAdapter {
                 }
                 if property.id == PropertyId::Source
                     && let PropertyValue::ImageSource(source) = &property.value
-                    && let ImageSourceValue::Encoded(value) = source.value()
                 {
-                    let failed = match self.handles.get(&object) {
-                        Some(Handle::Generated(GeneratedHandle::Image(control))) => {
-                            let event = Rc::clone(&control.image_failed);
-                            let event_queue = Rc::clone(&self.event_queue);
-                            Some(Rc::new(move || {
-                                Self::dispatch_unit(
-                                    &event,
-                                    &event_queue,
-                                    object,
-                                    EventId::ImageFailed,
-                                    None,
-                                );
-                            }) as Rc<dyn Fn()>)
-                        }
-                        _ => None,
-                    };
-                    let (image, failed) = encoded_bitmap_image(value, failed)?;
-                    let image = image.cast::<native::ImageSource>()?;
+                    let image = image_source(source)?;
                     match self.handles.get(&object) {
                         Some(Handle::Generated(GeneratedHandle::Image(control))) => {
-                            control.value.SetSource(&image).map_err(Into::into)
+                            control.invalidate_source_events();
+                            control.source.set(true);
+                            control.value.SetSource(&image.value)?;
+                            let opened = Rc::clone(&control.image_opened);
+                            let failed = Rc::clone(&control.image_failed);
+                            let event_queue = Rc::clone(&self.event_queue);
+                            let callback: Rc<dyn Fn(bool)> = Rc::new(move |success| {
+                                Self::dispatch_unit(
+                                    if success { &opened } else { &failed },
+                                    &event_queue,
+                                    object,
+                                    if success {
+                                        EventId::ImageOpened
+                                    } else {
+                                        EventId::ImageFailed
+                                    },
+                                    None,
+                                );
+                            });
+                            image.state.subscribe(&callback);
+                            self.image_subscriptions.insert(
+                                object,
+                                ImageSubscription {
+                                    _source: source.clone(),
+                                    _callback: callback,
+                                },
+                            );
                         }
                         Some(Handle::Generated(GeneratedHandle::ImageIcon(control))) => {
-                            control.SetSource(&image).map_err(Into::into)
+                            control.SetSource(&image.value)?;
                         }
-                        _ => Err(WinUiError::InvalidObject(object)),
-                    }?;
-                    if let Some(failed) = failed {
-                        self.encoded_image_failures.insert(object, failed);
+                        _ => break 'apply Err(WinUiError::InvalidObject(object)),
                     }
                     break 'apply Ok(());
                 }
@@ -557,7 +568,7 @@ impl WinUiAdapter {
         self.handles
             .remove(&object)
             .ok_or(WinUiError::MissingObject(object))?;
-        self.encoded_image_failures.remove(&object);
+        self.image_subscriptions.remove(&object);
         self.resource_override_keys.remove(&object);
         self.style_states.remove(&object);
         self.create(object, kind)?;

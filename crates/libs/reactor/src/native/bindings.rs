@@ -6210,6 +6210,36 @@ impl IBitmapImage {
             .ok()
         }
     }
+    pub(crate) fn ImageOpened<F>(
+        &self,
+        handler: F,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + 'static,
+    {
+        let handler: RoutedEventHandler = {
+            let com = windows_core::imp::DelegateBox::<RoutedEventHandler, F>::new(
+                &RoutedEventHandlerBox::<F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).ImageOpened)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveImageOpened,
+            ))
+        }
+    }
     pub(crate) fn ImageFailed<F>(
         &self,
         handler: F,
@@ -6265,8 +6295,13 @@ pub struct IBitmapImage_Vtbl {
     SetAutoPlay: usize,
     DownloadProgress: usize,
     RemoveDownloadProgress: usize,
-    ImageOpened: usize,
-    RemoveImageOpened: usize,
+    pub ImageOpened: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveImageOpened:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub ImageFailed: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -18083,6 +18118,69 @@ impl ISvgImageSource {
             .ok()
         }
     }
+    pub(crate) fn Opened<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<SvgImageSource>, windows_core::Ref<SvgImageSourceOpenedEventArgs>)
+            + 'static,
+    {
+        let handler: TypedEventHandler<SvgImageSource, SvgImageSourceOpenedEventArgs> = {
+            let com = windows_core::imp::DelegateBox::<
+                TypedEventHandler<SvgImageSource, SvgImageSourceOpenedEventArgs>,
+                F,
+            >::new(
+                &TypedEventHandlerBox::<SvgImageSource, SvgImageSourceOpenedEventArgs, F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).Opened)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveOpened,
+            ))
+        }
+    }
+    pub(crate) fn OpenFailed<F>(
+        &self,
+        handler: F,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<SvgImageSource>, windows_core::Ref<SvgImageSourceFailedEventArgs>)
+            + 'static,
+    {
+        let handler: TypedEventHandler<SvgImageSource, SvgImageSourceFailedEventArgs> = {
+            let com = windows_core::imp::DelegateBox::<
+                TypedEventHandler<SvgImageSource, SvgImageSourceFailedEventArgs>,
+                F,
+            >::new(
+                &TypedEventHandlerBox::<SvgImageSource, SvgImageSourceFailedEventArgs, F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).OpenFailed)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveOpenFailed,
+            ))
+        }
+    }
 }
 #[repr(C)]
 pub struct ISvgImageSource_Vtbl {
@@ -18092,6 +18190,24 @@ pub struct ISvgImageSource_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+    RasterizePixelWidth: usize,
+    SetRasterizePixelWidth: usize,
+    RasterizePixelHeight: usize,
+    SetRasterizePixelHeight: usize,
+    pub Opened: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveOpened:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub OpenFailed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveOpenFailed:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ISvgImageSourceFactory,
@@ -18111,6 +18227,32 @@ pub struct ISvgImageSourceFactory_Vtbl {
         *mut *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ISvgImageSourceFailedEventArgs,
+    ISvgImageSourceFailedEventArgs_Vtbl,
+    0x76e66278_7804_5439_a50d_14c5ba896714
+);
+impl windows_core::RuntimeType for ISvgImageSourceFailedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISvgImageSourceFailedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    ISvgImageSourceOpenedEventArgs,
+    ISvgImageSourceOpenedEventArgs_Vtbl,
+    0x1c9860d5_38d0_5b21_8d48_072f1e254e39
+);
+impl windows_core::RuntimeType for ISvgImageSourceOpenedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISvgImageSourceOpenedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
     ISwapChainPanel,
@@ -28973,6 +29115,62 @@ impl windows_core::RuntimeName for SvgImageSource {
 }
 unsafe impl Send for SvgImageSource {}
 unsafe impl Sync for SvgImageSource {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SvgImageSourceFailedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    SvgImageSourceFailedEventArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for SvgImageSourceFailedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ISvgImageSourceFailedEventArgs>();
+}
+unsafe impl windows_core::Interface for SvgImageSourceFailedEventArgs {
+    type Vtable = <ISvgImageSourceFailedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <ISvgImageSourceFailedEventArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for SvgImageSourceFailedEventArgs {
+    type Target = ISvgImageSourceFailedEventArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for SvgImageSourceFailedEventArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Media.Imaging.SvgImageSourceFailedEventArgs";
+}
+unsafe impl Send for SvgImageSourceFailedEventArgs {}
+unsafe impl Sync for SvgImageSourceFailedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SvgImageSourceOpenedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    SvgImageSourceOpenedEventArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for SvgImageSourceOpenedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ISvgImageSourceOpenedEventArgs>();
+}
+unsafe impl windows_core::Interface for SvgImageSourceOpenedEventArgs {
+    type Vtable = <ISvgImageSourceOpenedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <ISvgImageSourceOpenedEventArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for SvgImageSourceOpenedEventArgs {
+    type Target = ISvgImageSourceOpenedEventArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for SvgImageSourceOpenedEventArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Media.Imaging.SvgImageSourceOpenedEventArgs";
+}
+unsafe impl Send for SvgImageSourceOpenedEventArgs {}
+unsafe impl Sync for SvgImageSourceOpenedEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SwapChainPanel(windows_core::IUnknown);

@@ -3070,20 +3070,18 @@ impl Planner<'_, '_> {
             object,
             kind: declaration.kind,
         });
-        if !declaration.properties.as_slice().is_empty() {
-            self.mutations.push(Mutation::SetProperties {
+        let properties =
+            (!declaration.properties.as_slice().is_empty()).then(|| Mutation::SetProperties {
                 object,
                 set: Rc::from(declaration.properties.as_slice()),
                 clear: Rc::from([]),
             });
-        }
-        if !declaration.events.as_slice().is_empty() {
-            self.mutations.push(Mutation::SetEvents {
-                object,
-                set: Rc::from(declaration.events.as_slice()),
-                clear: Rc::from([]),
-            });
-        }
+        let events = (!declaration.events.as_slice().is_empty()).then(|| Mutation::SetEvents {
+            object,
+            set: Rc::from(declaration.events.as_slice()),
+            clear: Rc::from([]),
+        });
+        self.push_value_mutations(declaration.kind, properties, events);
         if let Some(items) = &self.retained.get(object).unwrap().virtual_items {
             self.mutations.push(Mutation::SetVirtualSource {
                 object,
@@ -3183,27 +3181,30 @@ impl Planner<'_, '_> {
             object,
             kind: declaration.kind,
         });
-        if !self
+        let properties = (!self
             .retained
             .get(object)
             .unwrap()
             .properties
             .as_slice()
-            .is_empty()
-        {
-            self.mutations.push(Mutation::SetProperties {
-                object,
-                set: Rc::from(self.retained.get(object).unwrap().properties.as_slice()),
-                clear: Rc::from([]),
-            });
-        }
-        if self.retained.get(object).unwrap().events.is_some() {
-            self.mutations.push(Mutation::SetEvents {
+            .is_empty())
+        .then(|| Mutation::SetProperties {
+            object,
+            set: Rc::from(self.retained.get(object).unwrap().properties.as_slice()),
+            clear: Rc::from([]),
+        });
+        let events = self
+            .retained
+            .get(object)
+            .unwrap()
+            .events
+            .is_some()
+            .then(|| Mutation::SetEvents {
                 object,
                 set: Rc::from(retained_events(&self.retained.get(object).unwrap().events)),
                 clear: Rc::from([]),
             });
-        }
+        self.push_value_mutations(declaration.kind, properties, events);
         if let Some(items) = &self.retained.get(object).unwrap().virtual_items {
             self.mutations.push(Mutation::SetVirtualSource {
                 object,
@@ -3418,6 +3419,8 @@ impl Planner<'_, '_> {
                 false,
             )?;
         }
+        let mut property_mutation = None;
+        let mut event_mutation = None;
         let properties = declaration.properties.as_slice();
         if self.retained.get(object).unwrap().properties.as_slice() != properties {
             let previous = self.retained.get(object).unwrap().properties.clone();
@@ -3434,8 +3437,7 @@ impl Planner<'_, '_> {
                 .map(|property| property.id)
                 .collect::<Rc<[_]>>();
             self.retained.get_mut(object).properties = declaration.properties.clone();
-            self.mutations
-                .push(Mutation::SetProperties { object, set, clear });
+            property_mutation = Some(Mutation::SetProperties { object, set, clear });
         }
         let events = declaration.events.as_slice();
         if retained_events(&self.retained.get(object).unwrap().events) != events {
@@ -3456,14 +3458,30 @@ impl Planner<'_, '_> {
                 .map(|event| event.id)
                 .collect::<Rc<[_]>>();
             self.retained.get_mut(object).events = retain_events(&declaration.events);
-            self.mutations
-                .push(Mutation::SetEvents { object, set, clear });
+            event_mutation = Some(Mutation::SetEvents { object, set, clear });
         }
+        self.push_value_mutations(declaration.kind, property_mutation, event_mutation);
         self.reconcile_virtual_items(object, declaration)?;
         for contract in relation_contracts(declaration.kind) {
             self.reconcile_relation(object, declaration, contract)?;
         }
         Ok(object)
+    }
+
+    fn push_value_mutations(
+        &mut self,
+        kind: ObjectType,
+        properties: Option<Mutation>,
+        events: Option<Mutation>,
+    ) {
+        // A cached image can finish loading during SetSource, before attachment to the tree.
+        if kind == ObjectType::Image {
+            self.mutations.extend(events);
+            self.mutations.extend(properties);
+        } else {
+            self.mutations.extend(properties);
+            self.mutations.extend(events);
+        }
     }
 
     fn reconcile_relation(

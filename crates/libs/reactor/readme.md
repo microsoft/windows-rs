@@ -87,3 +87,7 @@ Control icon slots accept the shared `Icon` content value. Reactor realizes it a
 `IconElement` or `IconSource` required by each control, so the same value works with APIs such as
 `AutoSuggestBox::query_icon`, `AppBarButton::icon`, and `TitleBar::icon`. Standalone visual icons
 continue to use `SymbolIcon`, `FontIcon`, `BitmapIcon`, `ImageIcon`, and `PathIcon`.
+
+Keep an `ImageSource` in application state and pass its clones to `Image::source`,
+`ImageIcon::source`, or `Icon::image` to reuse loaded images across page replacement. See the
+[image reuse sample](../../samples/reactor/image-reuse).

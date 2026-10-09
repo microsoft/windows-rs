@@ -685,6 +685,90 @@ fn button_content_and_click_use_generated_contracts() {
 }
 
 #[test]
+fn image_sources_preserve_resource_identity_and_value_equality() {
+    let source = ImageSource::encoded(EncodedImage::from_static(b"image"));
+    let cloned = source.clone();
+    let independent = ImageSource::encoded(EncodedImage::new(Vec::from(b"image")));
+    assert!(Rc::ptr_eq(&source.native, &cloned.native));
+    assert!(!Rc::ptr_eq(&source.native, &independent.native));
+    assert_eq!(source, cloned);
+    assert_ne!(source, independent);
+    assert!(source.native.get().is_none());
+
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Image::new().source(source.clone()).unwrap())
+        .unwrap();
+    let object = runtime.graph().root().unwrap();
+    let value = &runtime.graph().properties(object).unwrap()[0].value;
+    let PropertyValue::ImageSource(retained) = value else {
+        panic!("expected image source");
+    };
+    assert!(Rc::ptr_eq(&source.native, &retained.native));
+    assert!(source.native.get().is_none());
+    let mutations = runtime
+        .update(Image::new().source_optional(Some(cloned)).unwrap())
+        .unwrap();
+    assert!(mutations.is_empty());
+    let mutations = runtime
+        .update(Image::new().source(independent).unwrap())
+        .unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { .. }]
+    ));
+    runtime
+        .update(Image::new().source_optional(None::<ImageSource>).unwrap())
+        .unwrap();
+    assert!(runtime.graph().properties(object).unwrap().is_empty());
+    assert!(Image::new().source(ImageSource::from("not a URI")).is_err());
+}
+
+#[test]
+fn image_shorthand_setters_compare_values() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Image::new().source_file(r"C:\image.png").unwrap())
+        .unwrap();
+    assert!(
+        runtime
+            .update(Image::new().source_file(r"C:\image.png").unwrap())
+            .unwrap()
+            .is_empty()
+    );
+    runtime
+        .update(Image::new().source_data(EncodedImage::from_static(b"image")))
+        .unwrap();
+    assert!(
+        runtime
+            .update(Image::new().source_data(EncodedImage::new(Vec::from(b"image"))))
+            .unwrap()
+            .is_empty()
+    );
+    runtime
+        .update(
+            Image::new()
+                .source("https://example.com/image.png")
+                .unwrap(),
+        )
+        .unwrap();
+    assert!(
+        runtime
+            .update(
+                Image::new()
+                    .source("https://example.com/image.png")
+                    .unwrap()
+            )
+            .unwrap()
+            .is_empty()
+    );
+    assert_eq!(
+        Icon::image_data(EncodedImage::from_static(b"image")),
+        Icon::image_data(EncodedImage::new(Vec::from(b"image")))
+    );
+}
+
+#[test]
 fn final_value_parity_contracts_are_typed() {
     let mut image = Runtime::new(RecordingAdapter::default());
     image

@@ -66,8 +66,36 @@ impl PartialEq for EncodedImage {
     }
 }
 
-#[derive(Clone, Debug, PartialEq)]
-pub struct ImageSource(ImageSourceValue);
+/// A reusable image resource. Keep a source in application state and clone it into views to
+/// retain the loaded image across control replacement.
+#[derive(Clone)]
+pub struct ImageSource {
+    value: ImageSourceValue,
+    pub(crate) native: Rc<std::cell::OnceCell<native::NativeImageSource>>,
+    compare_value: bool,
+}
+
+impl fmt::Debug for ImageSource {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_tuple("ImageSource")
+            .field(&self.value)
+            .finish()
+    }
+}
+
+impl PartialEq for ImageSource {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.native, &other.native)
+            || (self.compare_value && other.compare_value && self.value == other.value)
+    }
+}
+
+impl<T: Into<Rc<str>>> From<T> for ImageSource {
+    fn from(value: T) -> Self {
+        Self::new(ImageSourceValue::Uri(value.into())).by_value()
+    }
+}
 
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum ImageSourceValue {
@@ -76,22 +104,43 @@ pub(crate) enum ImageSourceValue {
 }
 
 impl ImageSource {
+    fn new(value: ImageSourceValue) -> Self {
+        Self {
+            value,
+            native: Rc::default(),
+            compare_value: false,
+        }
+    }
+
     pub fn uri(value: impl Into<Rc<str>>) -> windows_core::Result<Self> {
-        let value = value.into();
-        validate_uri(&value)?;
-        Ok(Self(ImageSourceValue::Uri(value)))
+        Self::new(ImageSourceValue::Uri(value.into())).validated()
     }
 
     pub fn file(path: impl AsRef<Path>) -> windows_core::Result<Self> {
-        Ok(Self(ImageSourceValue::Uri(file_uri(path.as_ref())?.into())))
+        Ok(Self::new(ImageSourceValue::Uri(
+            file_uri(path.as_ref())?.into(),
+        )))
     }
 
     pub fn encoded(value: EncodedImage) -> Self {
-        Self(ImageSourceValue::Encoded(value))
+        Self::new(ImageSourceValue::Encoded(value))
     }
 
     pub(crate) fn value(&self) -> &ImageSourceValue {
-        &self.0
+        &self.value
+    }
+
+    pub(crate) fn by_value(mut self) -> Self {
+        // Shorthand setters compare content; retained resources compare identity.
+        self.compare_value = true;
+        self
+    }
+
+    pub(crate) fn validated(self) -> windows_core::Result<Self> {
+        if let ImageSourceValue::Uri(value) = &self.value {
+            validate_uri(value)?;
+        }
+        Ok(self)
     }
 }
 
@@ -134,15 +183,15 @@ impl Icon {
     }
 
     pub fn image_uri(uri: impl Into<Rc<str>>) -> windows_core::Result<Self> {
-        Ok(Self::image(ImageSource::uri(uri)?))
+        Ok(Self::image(ImageSource::uri(uri)?.by_value()))
     }
 
     pub fn image_file(path: impl AsRef<Path>) -> windows_core::Result<Self> {
-        Ok(Self::image(ImageSource::file(path)?))
+        Ok(Self::image(ImageSource::file(path)?.by_value()))
     }
 
     pub fn image_data(data: EncodedImage) -> Self {
-        Self::image(ImageSource::encoded(data))
+        Self::image(ImageSource::encoded(data).by_value())
     }
 
     pub fn path(data: impl Into<Rc<str>>) -> Self {

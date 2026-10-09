@@ -262,6 +262,30 @@ reported in the console, without adding error state to the component. Delete the
 to reset the sample.
 Minimized state is not saved.
 
+## Reuse images
+
+Keep an `ImageSource` in component or application state and clone it into views:
+
+```rust,ignore
+let icon = ImageSource::file(path)?;
+let image = Image::new().source(icon.clone())?;
+let image_icon = ImageIcon::new().source(icon.clone())?;
+let button = AppBarButton::new().icon(Icon::image(icon.clone()));
+```
+
+Sources load on first use on the UI thread. Clones share the native image across simultaneous
+controls and page replacement, including when no control is displaying it. Keep the source above
+any component that is recreated. Construct a new source to reload the same path or bytes.
+`ImageSource::encoded(EncodedImage::from_static(bytes))` provides the same ownership for encoded
+bitmap data. Resources are released when their owners, controls, and pending loads release them.
+
+The `source("uri")`, `source_file(path)`, and `source_data(bytes)` shorthand setters still compare
+values to avoid reloading on ordinary rerenders; they do not share resources across new controls.
+Each `Image` source assignment reports `on_opened` or `on_failed` once when loading completes,
+including reuse of a completed source. Clearing or replacing a source cancels its pending event.
+
+Run `cargo run -p reactor-image-reuse` to replace a page containing 48 copies of one retained SVG.
+
 ## Add icon content
 
 `Icon` describes icon content for control slots. Reactor realizes the same value as WinUI's visual

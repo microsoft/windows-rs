@@ -378,9 +378,9 @@ Microsoft::UI::Xaml::Media::DesktopAcrylicBackdrop::CreateInstance
 Microsoft::UI::Xaml::Media::Geometry::{}
 Microsoft::UI::Xaml::Media::ImageSource::{}
 Microsoft::UI::Xaml::Media::Imaging::BitmapImage::CreateInstance
-Microsoft::UI::Xaml::Media::Imaging::IBitmapImage::{add_ImageFailed, put_UriSource, remove_ImageFailed}
+Microsoft::UI::Xaml::Media::Imaging::IBitmapImage::{add_ImageFailed, add_ImageOpened, put_UriSource, remove_ImageFailed, remove_ImageOpened}
 Microsoft::UI::Xaml::Media::Imaging::IBitmapSource::SetSourceAsync
-Microsoft::UI::Xaml::Media::Imaging::ISvgImageSource::put_UriSource
+Microsoft::UI::Xaml::Media::Imaging::ISvgImageSource::{add_Opened, add_OpenFailed, put_UriSource, remove_Opened, remove_OpenFailed}
 Microsoft::UI::Xaml::Media::Imaging::SvgImageSource::CreateInstance
 Microsoft::UI::Xaml::Media::IMicaBackdrop::put_Kind
 Microsoft::UI::Xaml::Media::ISolidColorBrush::put_Color

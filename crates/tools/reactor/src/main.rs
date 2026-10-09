@@ -235,7 +235,7 @@ impl PropertyAdapter {
     fn has_managed_state(self) -> bool {
         matches!(
             self,
-            Self::PointerCapture | Self::PointerFocus | Self::DropPolicy
+            Self::PointerCapture | Self::PointerFocus | Self::DropPolicy | Self::ImageUri
         )
     }
 
@@ -1042,6 +1042,9 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
             }
             for event in &object.events {
                 let field = snake_case(&event.name);
+                if object.name == "Image" {
+                    output.push_str("let managed_source = Rc::clone(&source);\n");
+                }
                 let selection = object
                     .selection
                     .as_ref()
@@ -1264,6 +1267,10 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                          let observation = dispatch.then_some(observation);\n",
                         event.name
                     ));
+                } else if object.name == "Image" {
+                    output.push_str(
+                        "let dispatch = !managed_source.get();\nlet observation = None;\n",
+                    );
                 } else if !event.routed {
                     output.push_str("let dispatch = true;\nlet observation = None;\n");
                 }
@@ -2482,20 +2489,7 @@ fn emit_native_property_arms(
         let clear = native_interface_call(target, target_class, interface, metadata, |object| {
             format!("{object}.Set{native}(None).map_err(Into::into)")
         });
-        let set = native_interface_call(target, target_class, interface, metadata, |object| {
-            format!(
-                "uri_image(value).and_then(|image| \
-                     {object}.Set{native}(&image).map_err(Into::into))"
-            )
-        });
-        output.push_str(&format!(
-            "{pattern}None) => Some({clear}),\n\
-             {pattern}Some(PropertyValue::ImageSource(value))) => match value.value() {{\n\
-             ImageSourceValue::Uri(value) => \
-             Some({set}),\n\
-             ImageSourceValue::Encoded(_) => None,\n\
-             }},\n"
-        ));
+        output.push_str(&format!("{pattern}None) => Some({clear}),\n"));
         return;
     }
     if matches!(
@@ -3373,29 +3367,29 @@ fn generate_declarations(
             let name = property.method();
             if property.adapter == Some(PropertyAdapter::ImageUri) {
                 output.push_str(&format!(
-                    "pub fn {name}(mut self, value: impl Into<Rc<str>>) -> \
+                    "pub fn {name}(mut self, value: impl Into<ImageSource>) -> \
                      windows_core::Result<Self> {{\n\
                      self.0 = self.0.property(PropertyId::{}, \
-                     PropertyValue::ImageSource(ImageSource::uri(value)?));\n\
+                     PropertyValue::ImageSource(value.into().validated()?));\n\
                      Ok(self)\n\
                      }}\n\
                      pub fn {name}_optional<T>(mut self, value: Option<T>) -> \
-                     windows_core::Result<Self> where T: Into<Rc<str>> {{\n\
+                     windows_core::Result<Self> where T: Into<ImageSource> {{\n\
                      if let Some(value) = value {{\n\
                      self.0 = self.0.property(PropertyId::{}, \
-                     PropertyValue::ImageSource(ImageSource::uri(value)?));\n\
+                     PropertyValue::ImageSource(value.into().validated()?));\n\
                      }}\n\
                      Ok(self)\n\
                      }}\n\
                      pub fn {name}_file(mut self, path: impl AsRef<Path>) -> \
                      windows_core::Result<Self> {{\n\
                      self.0 = self.0.property(PropertyId::{}, \
-                     PropertyValue::ImageSource(ImageSource::file(path)?));\n\
+                     PropertyValue::ImageSource(ImageSource::file(path)?.by_value()));\n\
                      Ok(self)\n\
                      }}\n\
                      pub fn {name}_data(mut self, value: EncodedImage) -> Self {{\n\
                      self.0 = self.0.property(PropertyId::{}, \
-                     PropertyValue::ImageSource(ImageSource::encoded(value)));\n\
+                     PropertyValue::ImageSource(ImageSource::encoded(value).by_value()));\n\
                      self\n\
                      }}\n",
                     property.name, property.name, property.name, property.name

@@ -231,7 +231,7 @@ impl Adapter for WinUiAdapter {
                         .handles
                         .remove(object)
                         .ok_or(WinUiError::MissingObject(*object))?;
-                    self.encoded_image_failures.remove(object);
+                    self.image_subscriptions.remove(object);
                     if let Handle::TreeNode(node) = &handle {
                         self.tree_node_texts
                             .borrow_mut()
@@ -520,11 +520,20 @@ impl Adapter for WinUiAdapter {
                 completion,
             } => {
                 let result = match self.handles.get(&object) {
-                    Some(Handle::Generated(GeneratedHandle::Image(control))) => source
-                        .as_ref()
-                        .map(|source| source.cast::<native::ImageSource>())
-                        .transpose()
-                        .and_then(|source| control.value.SetSource(source.as_ref())),
+                    Some(Handle::Generated(GeneratedHandle::Image(control))) => (|| {
+                        let source = source
+                            .as_ref()
+                            .map(|source| source.cast::<native::ImageSource>())
+                            .transpose()?;
+                        control.invalidate_source_events();
+                        let managed = control.source.replace(false);
+                        if let Err(error) = control.value.SetSource(source.as_ref()) {
+                            control.source.set(managed);
+                            return Err(error);
+                        }
+                        self.image_subscriptions.remove(&object);
+                        Ok(())
+                    })(),
                     _ => Err(windows_core::Error::new(
                         HRESULT(0x8000000E_u32 as i32),
                         "image unavailable",
