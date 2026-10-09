@@ -1,0 +1,31 @@
+#[win32]
+mod Test {
+    #[guid(0xa45c254edf1c4efd802067d146a850e0)]
+    const DEVPKEY_Device_ClassGuid: _DEVPROPKEY = 10;
+    #[guid(0x0d0a64a138fc4db89fe73f4352cd7c5c)]
+    const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: _GUID;
+    #[guid(0xfdd39ad0238f46afadb46c85480369c7)]
+    const FOLDERID_Documents: _GUID;
+    #[guid(0x0002002000000000c000000000000046)]
+    const IID_IAVIFile: _GUID;
+    #[guid(0x0000001600000010800000aa00389b71)]
+    const MFVideoFormat_RGB32: _GUID;
+    #[guid(0x4f27f2de14e2430ba5497cd48cbc8245)]
+    const NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: _GUID;
+    #[guid(0xc07b4199e1df4493b1e1de5946fb58f8)]
+    const PKEY_Address_Country: _tagpropertykey = 100;
+    struct _DEVPROPKEY {
+        fmtid: _GUID,
+        pid: u32,
+    }
+    struct _GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    struct _tagpropertykey {
+        fmtid: _GUID,
+        pid: u32,
+    }
+}

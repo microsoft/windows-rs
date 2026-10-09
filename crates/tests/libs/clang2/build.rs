@@ -16,6 +16,7 @@ fn main() {
         build_wdk();
         build_crypto();
         build_constants();
+        build_sdk_data();
         build_ordinal();
         build_animation();
         build_string_termination();
@@ -376,6 +377,57 @@ fn build_constants() {
         .cpp(true)
         .file("input/guid_constants.cpp")
         .compile("clang2_constants");
+}
+
+fn build_sdk_data() {
+    for file in ["input/sdk_data.h", "input/sdk_data.cpp"] {
+        println!("cargo:rerun-if-changed={file}");
+    }
+    let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    let snapshot = sdk::capture_sdk(&target, sdk::DATA_DEFINITIONS, sdk::DATA_ROOTS);
+    let plan = snapshot
+        .resolve()
+        .unwrap()
+        .project(&windows_clang2::ProjectionOptions::new("Test"))
+        .unwrap();
+    let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+    let winmd = out.join("sdk_data.winmd");
+    windows_rdl::reader()
+        .input_text(&plan.rdl())
+        .reference_default()
+        .output(&winmd)
+        .write()
+        .unwrap();
+    for sys in [false, true] {
+        let output = out.join(if sys {
+            "sdk_data_sys.rs"
+        } else {
+            "sdk_data.rs"
+        });
+        let mut args = vec![
+            "--in",
+            "default",
+            winmd.to_str().unwrap(),
+            "--out",
+            output.to_str().unwrap(),
+            "--flat",
+            "--filter",
+            "Test",
+        ];
+        if sys {
+            args.push("--sys");
+        }
+        windows_bindgen::bindgen(args);
+    }
+    let include = sdk::include();
+    cc::Build::new()
+        .cpp(true)
+        .warnings_into_errors(true)
+        .include(include.join("shared"))
+        .include(include.join("um"))
+        .include(include.join("ucrt"))
+        .file("input/sdk_data.cpp")
+        .compile("clang2_sdk_data");
 }
 
 fn build_crypto() {

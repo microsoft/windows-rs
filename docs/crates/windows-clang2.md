@@ -234,6 +234,24 @@ including scalar conversions. They are native aggregate observations, not GUID-s
 records. Partial lists, dynamic expressions, and copied-record initializers are rejected instead
 of filling missing values. Nested value differences participate in ordinary cross-TU agreement.
 
+The experimental header runner supplies the SDK's GUID definition configuration, not decoded macro
+arguments. It includes `initguid.h` after the base prelude and before requested headers. The SDK
+expands GUID, property-key, device-property, known-folder, media-type, and AVI wrappers into ordinary
+initializer lists. Capture and resolution use those compiler-owned values through the existing
+aggregate path. The legacy input mode and its satellite GUID resets are unchanged.
+
+`sdk_data.h`/`sdk_data.rdl` check declaration/definition agreement, reversed TUs, and semantic
+roundtrips across x86/x64/ARM64. `sdk_data.cpp` compares seven generated values byte-for-byte with
+the pinned SDK's MSVC initializers on x86/x64. Explicit extern IIDs without supplied definitions
+remain rejected; an interface UUID or a similar symbol name does not invent an initializer.
+
+Enabling definition mode before the full prelude makes storage GUID blocks outside include guards
+produce duplicate native definitions in five profiles. Those source errors are not suppressed.
+The runner's later definition mode keeps all profiles available but leaves 14 base-header GUID
+initializers unavailable in `winioctl.h` and `winsvc.h`. The native fixture captures two of these
+values in a separate legal include configuration; a general definition-ownership solution remains
+open rather than adding symbol-specific repairs.
+
 Selected object-like macros use C++ expression probes. Capture reads the initializer's written type,
 not the probe's deduced `auto` type, so a direct or indirect interface-pointer cast keeps its typedef
 chain. A separate integer probe evaluates pointer bits when needed. Function-like macros, arbitrary
@@ -1384,20 +1402,20 @@ a nonzero exit.
 | Measure | Current semantic refresh |
 | --- | ---: |
 | Headers attempted | 369 |
-| Complete selected-root coverage | 69 |
-| Incomplete coverage | 300 |
-| Headers with some emitted output | 360 |
+| Complete selected-root coverage | 73 |
+| Incomplete coverage | 296 |
+| Headers with some emitted output | 364 |
 | Headers failing before discovery inventory | 0 |
 | Known selected names | 103,719 |
-| Emitted selected names | 87,542 |
-| Rejected selected names | 16,177 |
+| Emitted selected names | 91,859 |
+| Rejected selected names | 11,860 |
 | Selected names blocked before projection/output | 0 |
 
 Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
 are not deduplicated APIs. Each header's supported roots must also pass combined projection and
 source ownership before being marked emitted. The refreshed run also checks combined WinMD
 compilation. Independent headers do not test agreement across the full manifest or across
-architectures. The optional-count x64 debug refresh takes 425.3 seconds, including its Cargo
+architectures. The definition-mode x64 debug refresh takes 409.5 seconds, including its Cargo
 invocation; no controlled performance comparison is implied. A separate resource run
 takes 784.0 seconds, peaks at 735.9 MiB working set, and has 636.9 MiB sampled peak private memory
 (100 ms sampling). A serial header run is not a
@@ -1407,8 +1425,16 @@ More rejections can mean that formerly blocked roots now reach assessment, not t
 
 Optional output counts add 137 emitted names across 16 profiles, with unchanged selection and no
 profile losing output. Many COM closures instead reach the existing by-value-union ABI gate;
-1,029 entries reject there. Declaration-only data remains the largest bucket at 9,399 entries.
-The next data pass must distinguish header-defined GUID/property values from true imported data.
+1,029 entries reject there.
+
+Source classification of the 9,399-entry declaration-only baseline finds 4,137 definition-macro
+entries and 5,262 explicit declarations. The SDK definition configuration adds 4,317 emitted names
+across 64 profiles, including 194 declarations completed by matching header definitions. Selection
+is unchanged, no profile loses output, and no roots are blocked. `bthledef.h`, `knownfolders.h`,
+`poclass.h`, and `batclass.h` have complete selected-root coverage. Declaration-only data remains
+the largest rejection bucket at 5,082 entries, including 1,860 RPC interface handles and the 14
+base-header definition boundaries above. These entries need source definitions or a separate
+imported-data representation, not fabricated metadata constants.
 
 The baseline blocked-root boundaries below are absent from the current full-manifest snapshot:
 

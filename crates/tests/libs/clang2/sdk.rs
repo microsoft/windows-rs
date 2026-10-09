@@ -289,6 +289,21 @@ pub const CRYPTO_ROOTS: &[&str] = &[
     "BCRYPT_ALG_HANDLE_HMAC_FLAG",
 ];
 
+pub const DATA_ROOTS: &[&str] = &[
+    "PKEY_Address_Country",
+    "DEVPKEY_Device_ClassGuid",
+    "FOLDERID_Documents",
+    "MFVideoFormat_RGB32",
+    "IID_IAVIFile",
+    "FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE",
+    "NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID",
+];
+
+pub const DATA_DEFINITIONS: &str = concat!(
+    "#include <guiddef.h>\n#include <cguid.h>\n#include <initguid.h>\n",
+    include_str!("input/sdk_data.h")
+);
+
 pub fn projection_metadata() -> PathBuf {
     tools()
         .join("..")

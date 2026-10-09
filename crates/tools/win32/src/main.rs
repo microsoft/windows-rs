@@ -1113,7 +1113,7 @@ fn clang_inputs(
     include_dirs: &[String],
     full: bool,
 ) -> Vec<windows_clang::Input> {
-    clang_inputs_with_prerequisites(headers, include_dirs, full, |_| &[])
+    clang_inputs_with_prerequisites(headers, include_dirs, full, |_| &[], false)
 }
 
 fn clang_inputs_with_prerequisites(
@@ -1121,17 +1121,24 @@ fn clang_inputs_with_prerequisites(
     include_dirs: &[String],
     full: bool,
     prerequisites: impl Fn(&str) -> &'static [&'static str],
+    define_guids: bool,
 ) -> Vec<windows_clang::Input> {
     let (satellite_headers, main_headers): (Vec<_>, Vec<_>) = headers
         .iter()
         .copied()
         .partition(|header| SATELLITE_HEADERS.contains(header));
     let mut inputs = Vec::new();
+    let prelude = if define_guids {
+        // Definitions after the base pass avoid duplicate unguarded storage GUIDs.
+        format!("{PRELUDE}\n#include <initguid.h>")
+    } else {
+        PRELUDE.to_string()
+    };
     if !main_headers.is_empty() {
         let roots = main_headers
             .iter()
             .map(|header| resolve(header, include_dirs, "header", "pinned SDK include"));
-        let mut source = String::from(PRELUDE);
+        let mut source = prelude.clone();
         // Some main headers reach devicetopology.h before the manifest's ks.h entry. Load KS
         // first so devicetopology.h does not declare its layout-compatible fallback types.
         if satellite_headers.contains(&"devicetopology.h") {
@@ -1159,8 +1166,10 @@ fn clang_inputs_with_prerequisites(
         let roots = satellite_headers
             .iter()
             .map(|header| resolve(header, include_dirs, "header", "pinned SDK include"));
-        let mut source = String::from(PRELUDE);
-        source.push_str(GUID_RESET);
+        let mut source = prelude;
+        if !define_guids {
+            source.push_str(GUID_RESET);
+        }
         for header in &satellite_headers {
             // Its internal ks.h include requests only IKsControl and otherwise declares fallback
             // KS types. Load the full KS surface first so those duplicate fallbacks stay disabled.
@@ -1171,7 +1180,9 @@ fn clang_inputs_with_prerequisites(
                 source.push_str(&format!("\n#include <{prerequisite}>"));
             }
             source.push_str(&format!("\n#include <{header}>"));
-            source.push_str(GUID_RESET);
+            if !define_guids {
+                source.push_str(GUID_RESET);
+            }
         }
         inputs
             .push(windows_clang::Input::new("clang-win32-satellite.hpp", source).with_roots(roots));
@@ -1479,12 +1490,17 @@ mod tests {
     use super::*;
 
     #[test]
-    fn experimental_prerequisites_do_not_change_legacy_inputs_or_root_scope() {
+    fn experimental_definitions_do_not_change_legacy_inputs_or_root_scope() {
         let dirs = sdk_include_dirs();
         let headers = ["mfreadwrite.h", "ksmedia.h", "winternl.h"];
         let legacy = clang_inputs(&headers, &dirs, false);
-        let experimental =
-            clang_inputs_with_prerequisites(&headers, &dirs, false, header_profiles::prerequisites);
+        let experimental = clang_inputs_with_prerequisites(
+            &headers,
+            &dirs,
+            false,
+            header_profiles::prerequisites,
+            true,
+        );
         assert_eq!(legacy.len(), experimental.len());
         for (legacy, experimental) in legacy.iter().zip(&experimental) {
             assert_eq!(legacy.name, experimental.name);
@@ -1497,10 +1513,13 @@ mod tests {
         assert_eq!(
             experimental[0].source,
             format!(
-                "{PRELUDE}\n#include <mfidl.h>\n#include <mfreadwrite.h>\n#include <ks.h>\n#include <ksmedia.h>"
+                "{PRELUDE}\n#include <initguid.h>\n#include <mfidl.h>\n#include <mfreadwrite.h>\n#include <ks.h>\n#include <ksmedia.h>"
             )
         );
-        assert_eq!(legacy[1].source, experimental[1].source);
+        assert_eq!(
+            experimental[1].source,
+            format!("{PRELUDE}\n#include <initguid.h>\n#include <winternl.h>")
+        );
     }
 
     #[test]
@@ -1530,6 +1549,7 @@ mod tests {
                     &dirs,
                     false,
                     header_profiles::prerequisites,
+                    true,
                 )
                 .into_iter()
                 .map(|input| windows_clang2::Input::new(input.name, input.source));
@@ -1589,6 +1609,7 @@ mod tests {
                         &dirs,
                         false,
                         header_profiles::prerequisites,
+                        true,
                     );
                     assert_eq!(profile.len(), 1);
                     let profile = profile.pop().unwrap();
@@ -1609,6 +1630,7 @@ mod tests {
                         &dirs,
                         false,
                         header_profiles::prerequisites,
+                        true,
                     );
                     assert_eq!(grouped.len(), 1);
                     inputs = grouped

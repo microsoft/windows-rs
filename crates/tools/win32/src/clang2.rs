@@ -264,6 +264,7 @@ fn generate(
         &include_dirs,
         false,
         header_profiles::prerequisites,
+        true,
     )
     .into_iter()
     .map(|input| Input::new(input.name, input.source))
