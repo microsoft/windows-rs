@@ -364,7 +364,10 @@ correctness, broader annotation semantics, and full production inputs remain ope
 fields to existing nested RDL. `test_clang2` `layouts.h`/`layouts.rdl` cover source contracts and
 three-target metadata; `layouts.cpp` and `abi.rs` compare MSVC size, alignment, offsets, and pointer
 mutation in both directions on x86/x64. Union and anonymous-storage by-value calls still reject.
-Packing, bitfields, anonymous arrays/pointer identities, and inherited layouts remain separate gates.
+Checked packing and unsigned MSVC struct bitfields use existing RDL layout/bitfield metadata.
+Bitfield allocation units preserve compiler offsets and unsigned widths; const/volatile typedef
+qualifiers and per-member annotations must not be erased. Signed/enum, direct union, and qualified
+or annotated bitfields, anonymous arrays/pointer identities, and inherited layouts remain gates.
 Do not infer calling support from matching storage or extend coverage with symbol-specific repairs.
 
 Callable presentation names select the lexicographically smallest usable observed name per original
@@ -387,7 +390,7 @@ ambiguities visible; do not suppress annotations or substitute OLE types to impr
 typedef name for unselected tags without MIDL-prefix heuristics. Animation uses this policy and the
 checked `UINT_PTR` pointer-sized contract. Its differential gate compares every source interface
 slot/signature/GUID and public value types against committed metadata, with native checks as the ABI
-oracle. No further consumer cutovers precede a classified differential. Packed records, bitfields,
+oracle. No further consumer cutovers precede a classified differential. Remaining bitfield contracts,
 function-macro aliases, and streaming TU disposal remain open porting work.
 
 Multiple selected aliases to a named record retain the source definition and publish all aliases;

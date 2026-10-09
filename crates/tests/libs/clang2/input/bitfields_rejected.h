@@ -1,0 +1,14 @@
+enum BitKind : unsigned long { BitEmpty = 0, BitReady = 1 };
+struct BitEnum { BitKind kind : 2; };
+struct BitSigned { int value : 3; };
+struct BitMixed { unsigned long first : 4; long second : 4; };
+struct BitBool { bool flag : 1; };
+struct BitConst { const unsigned long value : 4; };
+struct BitVolatile { volatile unsigned long value : 4; };
+struct BitAnnotated { __attribute__((annotate("_Vendor_(bits)"))) unsigned long value : 4; };
+union BitUnion { unsigned long first : 4; unsigned long second : 4; };
+struct BitUnderscore { unsigned long _ : 4; };
+typedef const unsigned long ConstBitWord;
+typedef volatile unsigned long VolatileBitWord;
+struct BitConstAlias { ConstBitWord value : 4; };
+struct BitVolatileAlias { VolatileBitWord value : 4; };

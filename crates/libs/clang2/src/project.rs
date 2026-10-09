@@ -340,7 +340,8 @@ impl Plan {
             Some(Item::Record(record)) => {
                 if record.kind == RecordKind::Union || record.anonymous_fields {
                     Some("by-value unions or anonymous records require native ABI coverage")
-                } else if record.alignment.is_some() || record.packing.is_some() {
+                } else if record.alignment.is_some() || record.packing.is_some() || record.bitfields
+                {
                     Some(ADJUSTED)
                 } else {
                     record

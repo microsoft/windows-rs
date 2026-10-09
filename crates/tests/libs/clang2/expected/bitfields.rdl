@@ -1,0 +1,57 @@
+#[win32]
+mod Test {
+    struct BitFull {
+        __bitfield0: u64 {
+            whole: 64,
+        },
+    }
+    struct BitNested {
+        entries: [BitPacked; 2],
+        choice: union {
+            bits: struct {
+                __bitfield0: u32 {
+                    count: 11,
+                    remaining: 21,
+                },
+            },
+            raw: u32,
+        },
+    }
+    #[packed(1)]
+    struct BitPacked {
+        tag: u8,
+        __bitfield1: u32 {
+            enabled: 1,
+            level: 7,
+            _: 24,
+        },
+        value: u32,
+    }
+    struct BitUnits {
+        __bitfield0_: u8 {
+            flag: 1,
+            _: 2,
+            mode: 5,
+        },
+        __bitfield3: u16 {
+            low: 4,
+            high: 12,
+        },
+        __bitfield5: u32 {
+            first: 3,
+            second: 29,
+        },
+        __bitfield7: u32 {
+            next: 2,
+        },
+        __bitfield9: u32 {
+            after: 7,
+        },
+        __bitfield10: u64 {
+            wide: 40,
+            tail: 24,
+        },
+        __bitfield0: u32,
+        end: u8,
+    }
+}

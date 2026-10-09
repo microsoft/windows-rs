@@ -290,7 +290,7 @@ fn union_and_anonymous_calls_by_value_remain_rejected() {
 }
 
 #[test]
-fn union_and_anonymous_storage_does_not_hide_bitfields() {
+fn union_and_anonymous_storage_does_not_hide_unmodeled_bitfields() {
     let source = include_str!("../input/layouts_rejected.h");
     for (root, reason) in [
         ("BitfieldUnion", "bitfield projection"),

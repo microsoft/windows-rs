@@ -7,8 +7,17 @@ pub(super) struct Record {
     pub layout: Layout,
     pub alignment: Option<i64>,
     pub packing: Option<i64>,
+    pub bitfields: bool,
     pub anonymous_fields: bool,
     attributes: String,
+    bitfield_members: BTreeMap<String, Vec<(String, i32)>>,
+}
+
+struct BitfieldUnit {
+    name: String,
+    offset: i64,
+    layout: Layout,
+    used: i64,
 }
 
 impl Record {
@@ -51,6 +60,20 @@ impl Record {
                 record.write(output, None, field_indent);
             } else {
                 output.push_str(&ty.text());
+            }
+            if let Some(members) = self.bitfield_members.get(field) {
+                output.push_str(" {\n");
+                for (name, width) in members {
+                    let name = if name.is_empty() { "_" } else { name };
+                    writeln!(
+                        output,
+                        "{:member_indent$}{name}: {width},",
+                        "",
+                        member_indent = field_indent + 4
+                    )
+                    .unwrap();
+                }
+                write!(output, "{:field_indent$}}}", "").unwrap();
             }
             output.push_str(",\n");
         }
@@ -120,12 +143,9 @@ impl Builder<'_, '_> {
             return Err(Error(format!("unsupported record alignment for `{name}`")));
         }
         let mut packing = None;
+        let mut bitfield_members: BTreeMap<String, Vec<(String, i32)>> = BTreeMap::new();
+        let mut bitfield_unit: Option<BitfieldUnit> = None;
         for (index, field) in fields.iter().enumerate() {
-            if field.bit_width.is_some() {
-                return Err(Error(format!(
-                    "bitfield projection is not implemented for `{name}`"
-                )));
-            }
             if let TypeKind::Named(target) = field.ty.kind {
                 let target = self.resolved.representatives[target.0];
                 anonymous_fields |= matches!(
@@ -134,7 +154,9 @@ impl Builder<'_, '_> {
                 );
             }
             let ty = self.record_field(&field.ty)?;
-            let field_name = if field.name.is_empty() {
+            let mut field_name = if field.bit_width.is_some() {
+                String::new()
+            } else if field.name.is_empty() {
                 if !matches!(ty, ProjectedType::InlineRecord(_)) {
                     return Err(Error(format!(
                         "anonymous field requires a captured nested record in `{name}`"
@@ -155,6 +177,78 @@ impl Builder<'_, '_> {
                         "projected layout unavailable for `{name}::{field_name}`"
                     ))
                 })?;
+            let attributes = source_attributes(&annotations.fields[index]);
+            if let Some(width) = field.bit_width {
+                if *kind != RecordKind::Struct
+                    || !self.resolved.snapshot.target.contains("-windows-msvc")
+                {
+                    return Err(Error(format!(
+                        "bitfield projection requires MSVC struct allocation units for `{name}`"
+                    )));
+                }
+                let alias_qualified = if let TypeKind::Named(id) = field.ty.kind
+                    && let DeclarationData::Alias { canonical, .. } =
+                        &self.resolved.snapshot.declarations[self.resolved.representatives[id.0].0]
+                            .data
+                {
+                    canonical.qualifiers != Qualifiers::default()
+                } else {
+                    false
+                };
+                if field.ty.qualifiers != Qualifiers::default()
+                    || alias_qualified
+                    || !attributes.is_empty()
+                {
+                    return Err(Error(format!(
+                        "qualified or annotated bitfield projection is not implemented for `{name}`"
+                    )));
+                }
+                if width == 0 {
+                    bitfield_unit = None;
+                    continue;
+                }
+                if !matches!(ty, ProjectedType::Scalar("u8" | "u16" | "u32" | "u64", _))
+                    || width < 0
+                    || i64::from(width) > field_layout.size * 8
+                    || field.name == "_"
+                {
+                    return Err(Error(format!(
+                        "bitfield projection requires an unsigned integer backing and representable member name for `{name}`"
+                    )));
+                }
+                let member = if field.name.is_empty() {
+                    String::new()
+                } else {
+                    ident(&field.name)?
+                };
+                if let Some(unit) = &mut bitfield_unit
+                    && unit.layout == field_layout
+                    && field.offset >= unit.offset + unit.used
+                    && field.offset + i64::from(width) <= unit.offset + unit.layout.size * 8
+                {
+                    let members = bitfield_members.get_mut(&unit.name).unwrap();
+                    let gap = field.offset - unit.offset - unit.used;
+                    if gap > 0 {
+                        members.push((String::new(), gap.try_into().unwrap()));
+                    }
+                    members.push((member, width));
+                    unit.used = field.offset - unit.offset + i64::from(width);
+                    continue;
+                }
+                field_name = format!("__bitfield{index}");
+                while !names.insert(field_name.clone()) {
+                    field_name.push('_');
+                }
+                bitfield_members.insert(field_name.clone(), vec![(member, width)]);
+                bitfield_unit = Some(BitfieldUnit {
+                    name: field_name.clone(),
+                    offset: field.offset,
+                    layout: field_layout.clone(),
+                    used: i64::from(width),
+                });
+            } else {
+                bitfield_unit = None;
+            }
             // This cap describes equivalent storage, not the original packing directive.
             let field_align = field_layout.align.min(layout.align);
             if field_align < field_layout.align {
@@ -187,11 +281,7 @@ impl Builder<'_, '_> {
                 size = offset + field_layout.size;
             }
             align = align.max(field_align);
-            projected.push((
-                source_attributes(&annotations.fields[index]),
-                field_name,
-                ty,
-            ));
+            projected.push((attributes, field_name, ty));
         }
         let expected = Layout {
             size: align_up(size, layout.align),
@@ -206,8 +296,10 @@ impl Builder<'_, '_> {
             layout: layout.clone(),
             alignment: (layout.align > align).then_some(layout.align),
             packing,
+            bitfields: fields.iter().any(|field| field.bit_width.is_some()),
             anonymous_fields,
             attributes: source_attributes(&annotations.own),
+            bitfield_members,
         })
     }
 }

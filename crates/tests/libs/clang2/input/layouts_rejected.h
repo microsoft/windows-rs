@@ -6,7 +6,7 @@ union BitfieldUnion {
 struct BitfieldNested {
     union {
         struct {
-            unsigned int value : 3;
+            int value : 3;
         };
         unsigned int other;
     };

@@ -19,7 +19,63 @@ fn main() {
         build_ordinal();
         build_animation();
         build_string_termination();
+        build_bitfields();
     }
+}
+
+fn build_bitfields() {
+    for file in ["input/bitfields.h", "input/bitfields.cpp"] {
+        println!("cargo:rerun-if-changed={file}");
+    }
+    let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    let snapshot = windows_clang2::capture(
+        [windows_clang2::Input::new(
+            "bits.hpp",
+            include_str!("input/bitfields.h"),
+        )],
+        &["-x", "c++", &target],
+        &[
+            "BitUnits",
+            "BitPacked",
+            "BitNested",
+            "BitFull",
+            "BitLayoutEvidence",
+            "BitRead",
+            "BitWrite",
+            "BitPackedRead",
+            "BitPackedWrite",
+            "BitInvoke",
+        ],
+    )
+    .unwrap();
+    let mut options = windows_clang2::ProjectionOptions::new("Bits");
+    options.library = Some("clang2_bits.dll".into());
+    let rdl = snapshot.resolve().unwrap().project(&options).unwrap().rdl();
+    let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+    let winmd = out.join("bitfields.winmd");
+    windows_rdl::reader()
+        .input_text(&rdl)
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_bindgen::bindgen([
+        "--in",
+        winmd.to_str().unwrap(),
+        "--out",
+        out.join("bitfields_types.rs").to_str().unwrap(),
+        "--flat",
+        "--filter",
+        "Bits.BitUnits",
+        "Bits.BitPacked",
+        "Bits.BitNested",
+        "Bits.BitFull",
+    ]);
+    cc::Build::new()
+        .cpp(true)
+        .std("c++17")
+        .warnings_into_errors(true)
+        .file("input/bitfields.cpp")
+        .compile("clang2_bits");
 }
 
 fn build_string_termination() {

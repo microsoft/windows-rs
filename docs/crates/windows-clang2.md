@@ -404,7 +404,8 @@ retain their field names. Source annotations stay attached to the nested type or
 | Direct anonymous struct/union field | Checked recursively; existing nested RDL representation. | Enclosing by-value calls reject. |
 | Increased field/record alignment | Explicit padding and alignment attributes. | Adjusted by-value calls reject. |
 | Representable packed struct/union | Checked packing cap, offsets, size, and alignment. | Adjusted by-value calls reject, including through arrays and enclosing records. |
-| Bitfields | Reject; mixed signedness needs a representation contract. | Unsupported. |
+| Unsigned MSVC struct bitfields | Checked allocation units and member offsets through existing RDL bitfield metadata. | Adjusted by-value calls reject. |
+| Signed/enum/qualified/annotated or direct union bitfields | Reject rather than erase member contracts or assume another allocation policy. | Unsupported. |
 
 `layouts.h` and `layouts.rdl` cover nested structs/unions, named anonymous-record members, arrays of
 named unions, explicit union alignment, generated-name collisions, and nested source annotations.
@@ -414,8 +415,14 @@ execution remains open. `packed.h` and `packed.rdl` cover caps 1/2/4, nested pac
 storage, arrays, pointers, explicit padding, and name collisions. Their metadata roundtrips pass
 on all three targets; 42 MSVC size/alignment/offset checks and pointer calls pass on x86/x64.
 Packed field access in the Rust native fixture uses unaligned reads/writes. `layouts_rejected.h`
-keeps bitfields rejected, including inside nested records. Function parameters, results, and
-callbacks keep the by-value rejection gate.
+keeps unsupported bitfields rejected, including inside nested records. Function parameters, results,
+and callbacks keep the by-value rejection gate.
+
+`bitfields.h`/`bitfields.rdl` retain unsigned member positions, unnamed gaps, zero-width unit
+boundaries, backing-width changes, full-width words, packed units, and nested/array storage.
+Metadata roundtrips agree on x86/x64/ARM64. `bitfields.cpp` checks 14 MSVC layout observations
+and direct member reads/writes against generated Rust accessors on x86/x64. Const and volatile
+qualifiers also reject through canonical typedef evidence; writable storage does not erase them.
 
 Selecting an alias for a direct anonymous member cannot remove the enclosing record's ABI gate.
 That fact is retained from native field ownership, not inferred from the output type spelling.
@@ -1366,22 +1373,23 @@ a nonzero exit.
 | Measure | Current semantic refresh |
 | --- | ---: |
 | Headers attempted | 369 |
-| Complete selected-root coverage | 66 |
-| Incomplete coverage | 303 |
+| Complete selected-root coverage | 69 |
+| Incomplete coverage | 300 |
 | Headers with some emitted output | 360 |
 | Headers failing before discovery inventory | 0 |
 | Known selected names | 103,719 |
-| Emitted selected names | 85,710 |
-| Rejected selected names | 18,009 |
+| Emitted selected names | 87,405 |
+| Rejected selected names | 16,314 |
 | Selected names blocked before projection/output | 0 |
 
 Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
 are not deduplicated APIs. Each header's supported roots must also pass combined projection and
 source ownership before being marked emitted. The refreshed run also checks combined WinMD
 compilation. Independent headers do not test agreement across the full manifest or across
-architectures. The prerequisite-profile x64 debug run takes 402.5 seconds. A separate resource run
+architectures. The unsigned-bitfield x64 debug refresh takes 406.4 seconds, including its Cargo
+invocation; no controlled performance comparison is implied. A separate resource run
 takes 784.0 seconds, peaks at 735.9 MiB working set, and has 636.9 MiB sampled peak private memory
-(100 ms sampling). No controlled performance comparison is implied. A serial header run is not a
+(100 ms sampling). A serial header run is not a
 large multi-TU memory bound: capture retains the participating ASTs until the owned graph is extracted.
 Streaming disposal and an agreed resource budget remain open.
 More rejections can mean that formerly blocked roots now reach assessment, not that support regressed.
@@ -1432,8 +1440,11 @@ Checked packed storage adds 1,172 emitted names across 44 profiles without chang
 reducing any profile's output. `joystickapi.h`, `dwmapi.h`, `txfw32.h`, `timeapi.h`, and `hidsdi.h`
 reach complete coverage. The largest gains are `mmeapi.h` (+363), `usbioctl.h` (+110), and
 `cfgmgr32.h` (+109). All emitted closures pass combined metadata compilation; adjusted by-value
-calls and bitfields remain rejected.
-The full refresh reports zero blocked selected names; 18,009 roots still reject. Zero global blocks
+calls remain rejected.
+Unsigned bitfield storage adds 1,695 emitted names across 37 profiles, with unchanged selection
+and no profile losing output. The largest gains are `d3dkmthk.h` (+369), `nvme.h` (+354), and
+`ntddmmc.h` (+177). `ntddcdrm.h`, `usbioctl.h`, and `ifdef.h` reach complete coverage.
+The full refresh reports zero blocked selected names; 16,314 roots still reject. Zero global blocks
 and complete discovery are not full metadata parity.
 
 The macro-identity slice removes the global capture blocks in three large headers.
@@ -1478,9 +1489,9 @@ The tool audit separates source-derived policy from repairs that would conceal m
 | Metadata validity | Emitted roots pass combined WinMD compilation without default API fallback in generic profiles. Wrapper ABI, public-name parity, and DLL usability remain separate gates. |
 
 The remaining failures include unavailable macro identifiers and non-value expressions,
-declaration-only GUID/property-key data, unrepresentable packing and bitfields, unsupported
-union/anonymous shapes,
-general C++ inheritance/templates, SAL lowering, and missing header prerequisites. Treat these as
+declaration-only GUID/property-key data, unrepresentable packing and unsupported bitfield contracts,
+unsupported union/anonymous shapes, general C++ inheritance/templates, SAL lowering, and missing
+header prerequisites. Treat these as
 shared source/capture/projection classes. Do not patch individual symbols to improve the totals.
 
 Next gates are verified header profiles and record-layout coverage with native evidence.
@@ -1597,8 +1608,9 @@ The green baseline includes the explicit BCrypt string contract and preserved We
 annotations. Callable names are deterministic presentation data, independent of input filenames and
 order. The first hard-layout slice projects checked union storage and direct anonymous fields through
 `project/record.rs`, with semantic metadata and x86/x64 native storage/pointer checks. Checked packed
-storage uses the same boundary. Continue with bitfield representation and adjusted calling policies
-as separate slices. Do not remove the union/anonymous by-value gate or claim complete hard-layout
+storage and unsigned MSVC bitfield units use the same boundary. Continue with remaining bitfield
+contracts and adjusted calling policies as separate slices. Do not remove the union/anonymous
+by-value gate or claim complete hard-layout
 support from storage equality.
 
 Generated ARM64 union bindings pass isolated Rust size/alignment/offset assertions. The full ARM64
@@ -1750,7 +1762,7 @@ expected rejections in fixtures. Do not broaden the slice silently as new cases 
 | 1 | Local COM and UUIDs from `unknwnbase.h` | Metadata case covered: local `IUnknown` and `IClassFactory`, IID, inheritance, method order, system calling conventions, pointer levels, and COM output attributes on three targets. Synthetic executable ABI coverage is in gate 6. |
 | 2 | SAL and MIDL relationships | Required/optional buffers, output valid-byte extents, decimal element constants, scalar strings, and MIDL prefix directions with SAL precedence are covered. Counted strings, indirect capacities, and other MIDL relationships remain. |
 | 3 | Constants and preprocessing | Fully initialized GUID/property-key shapes have native-byte and roundtrip coverage. Declaration-only data, redefinition/undefinition, final macro state, and poison-expression recovery remain. |
-| 4 | Record layout | Union and direct anonymous-field storage have semantic and x86/x64 native layout/pointer coverage. Packing, bitfields, inherited storage, and their calling policies remain; union/anonymous by-value calls reject. |
+| 4 | Record layout | Union, anonymous, packed, and unsigned MSVC bitfield storage have semantic and x86/x64 native coverage. Remaining bitfield contracts, inherited storage, and adjusted calling policies remain; adjusted/union/anonymous by-value calls reject. |
 | 5 | Real multi-TU consumers | `tool-webview` and the header-driven `tool-win32 --clang2-audio` candidate run real consumers. Audio records every discovered declaration and emits per-header RDL, but 38 selected names still reject. Full Win32 cutover and a WDK case with UM references/enum overlays remain. |
 | 6 | Target and ABI coverage | Raw-binding layout, free aggregate calls, bidirectional COM-style dispatch, COM ownership, and eight BCrypt DLL imports execute on x64/x86. Native ARM64 execution, Windows COM activation, SDK-wide DLL routing, and aggregate-returning methods remain. |
 
