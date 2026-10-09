@@ -3,6 +3,9 @@ use super::*;
 #[path = "images.rs"]
 mod images;
 
+#[path = "lifecycle.rs"]
+mod lifecycle;
+
 #[test]
 fn placement_coordinates_round_trip_negative_monitors_and_taskbar_offsets() {
     let screen = native::RECT {

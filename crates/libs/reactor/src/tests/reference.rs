@@ -297,6 +297,33 @@ fn destroying_observed_object_discards_queued_revocation() {
 }
 
 #[test]
+fn retiring_observed_object_forwards_queued_revocation() {
+    let reference = ElementRef::<Grid>::new();
+    let _observation = reference.observe_composition_host(|_| {});
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(
+            Grid::new().keyed_children([keyed(
+                "observed",
+                Grid::new()
+                    .element_ref(&reference)
+                    .exit_fade(Duration::from_millis(50)),
+            )]),
+        )
+        .unwrap();
+    runtime.dispatch_native_events().unwrap();
+
+    runtime.update(Grid::new()).unwrap();
+    runtime.dispatch_native_events().unwrap();
+
+    assert_eq!(reference.get(), None);
+    assert!(matches!(
+        runtime.adapter().imperatives().last(),
+        Some(ImperativeRequest::RevokeObservation { .. })
+    ));
+}
+
+#[test]
 fn dropping_runtime_clears_typed_reference_and_pending_completion() {
     let reference = ElementRef::<SwapChainPanel>::new();
     let results = Rc::new(RefCell::new(Vec::new()));
