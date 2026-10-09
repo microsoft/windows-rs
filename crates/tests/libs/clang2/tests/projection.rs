@@ -290,12 +290,9 @@ fn union_and_anonymous_calls_by_value_remain_rejected() {
 }
 
 #[test]
-fn union_and_anonymous_storage_does_not_hide_packing_or_bitfields() {
+fn union_and_anonymous_storage_does_not_hide_bitfields() {
     let source = include_str!("../input/layouts_rejected.h");
     for (root, reason) in [
-        ("PackedUnion", "unsupported record alignment"),
-        ("PackedNested", "unsupported record alignment"),
-        ("PackedField", "unsupported packing or field alignment"),
         ("BitfieldUnion", "bitfield projection"),
         ("BitfieldNested", "bitfield projection"),
     ] {
@@ -2841,11 +2838,11 @@ fn indirect_interface_constants_are_omitted_after_native_resolution() {
 }
 
 #[test]
-fn mismatched_record_layout_is_not_emitted() {
+fn packing_with_unrepresentable_overalignment_is_not_emitted() {
     let snapshot = capture(
         [Input::new(
             "pack.hpp",
-            "#pragma pack(push, 1)\nstruct Packet { char flag; int value; };\n#pragma pack(pop)",
+            "#pragma pack(push, 1)\nstruct __declspec(align(8)) Packet { char flag; int value; };\n#pragma pack(pop)",
         )],
         ARGS,
         &["Packet"],

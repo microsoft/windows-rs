@@ -1,4 +1,5 @@
 #include "layouts.h"
+#include "packed.h"
 #include <stddef.h>
 
 unsigned long LayoutEvidence(unsigned long index) {
@@ -41,5 +42,64 @@ void LayoutMutate(LayoutPacket* packet) {
 }
 
 void LayoutInvoke(LayoutCallback callback, LayoutPacket* packet) {
+    callback(packet);
+}
+
+unsigned long PackedLayoutEvidence(unsigned long index) {
+    switch (index) {
+    case 0: return sizeof(Packed1);
+    case 1: return alignof(Packed1);
+    case 2: return offsetof(Packed1, tag);
+    case 3: return offsetof(Packed1, value);
+    case 4: return offsetof(Packed1, wide);
+    case 5: return offsetof(Packed1, pointer);
+    case 6: return sizeof(PackedChoice);
+    case 7: return alignof(PackedChoice);
+    case 8: return offsetof(PackedChoice, record);
+    case 9: return offsetof(PackedChoice, bits);
+    case 10: return sizeof(PackedAnonymous);
+    case 11: return alignof(PackedAnonymous);
+    case 12: return offsetof(PackedAnonymous, tag);
+    case 13: return offsetof(PackedAnonymous, value);
+    case 14: return offsetof(PackedAnonymous, halves);
+    case 15: return sizeof(Packed2);
+    case 16: return alignof(Packed2);
+    case 17: return offsetof(Packed2, tag);
+    case 18: return offsetof(Packed2, values);
+    case 19: return offsetof(Packed2, choice);
+    case 20: return sizeof(Packed4);
+    case 21: return alignof(Packed4);
+    case 22: return offsetof(Packed4, tag);
+    case 23: return offsetof(Packed4, wide);
+    case 24: return offsetof(Packed4, pointer);
+    case 25: return sizeof(PackedContainer);
+    case 26: return alignof(PackedContainer);
+    case 27: return offsetof(PackedContainer, records);
+    case 28: return offsetof(PackedContainer, tail);
+    case 29: return sizeof(NaturalChoice);
+    case 30: return alignof(NaturalChoice);
+    case 31: return offsetof(NaturalChoice, value);
+    case 32: return offsetof(NaturalChoice, real);
+    case 33: return sizeof(PackedField);
+    case 34: return alignof(PackedField);
+    case 35: return offsetof(PackedField, tag);
+    case 36: return offsetof(PackedField, choice);
+    case 37: return sizeof(PackedGap);
+    case 38: return alignof(PackedGap);
+    case 39: return offsetof(PackedGap, __padding1);
+    case 40: return offsetof(PackedGap, marker);
+    case 41: return offsetof(PackedGap, value);
+    default: return 0xffffffff;
+    }
+}
+
+void PackedMutate(Packed1* packet) {
+    packet->tag += 1;
+    packet->value += 3;
+    packet->wide += 5;
+    packet->pointer = packet;
+}
+
+void PackedInvoke(PackedCallback callback, Packed1* packet) {
     callback(packet);
 }

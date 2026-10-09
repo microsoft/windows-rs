@@ -382,8 +382,12 @@ representation.
 Record storage can include gaps required by increased member alignment. Each explicit gap is a
 union of a byte array and a zero-length array, not an ordinary initialized byte field: native
 copies need not initialize padding. Padding names avoid native field-name collisions. Increased
-record alignment uses `#[align(N)]`; packing and reduced alignment still reject. A closed-plan
-check rejects by-value calls involving an adjusted record, including nested records and aliases.
+record alignment uses `#[align(N)]`. Reduced alignment uses `#[packed(N)]` only after every native
+field offset, record size, and alignment agrees with that representation. The cap describes
+equivalent storage, not the original pragma spelling. Forced alignment inside packed storage,
+unproven external record alignment, and layouts requiring both packing and over-alignment reject.
+A closed-plan check rejects by-value calls involving an adjusted record, including nested records
+and aliases.
 Matching storage layout does not prove its calling ABI.
 
 Complete unions use the maximum member size and natural alignment, with every compiler member
@@ -399,16 +403,19 @@ retain their field names. Source annotations stay attached to the nested type or
 | Union | Exact compiler size/alignment; all member offsets zero. | Pointer use only. |
 | Direct anonymous struct/union field | Checked recursively; existing nested RDL representation. | Enclosing by-value calls reject. |
 | Increased field/record alignment | Explicit padding and alignment attributes. | Adjusted by-value calls reject. |
-| Reduced alignment or displaced packed fields | Reject rather than expose misaligned field access. | Unsupported. |
+| Representable packed struct/union | Checked packing cap, offsets, size, and alignment. | Adjusted by-value calls reject, including through arrays and enclosing records. |
 | Bitfields | Reject; mixed signedness needs a representation contract. | Unsupported. |
 
 `layouts.h` and `layouts.rdl` cover nested structs/unions, named anonymous-record members, arrays of
 named unions, explicit union alignment, generated-name collisions, and nested source annotations.
 Semantic metadata checks run on x86, x64, and ARM64. `layouts.cpp` supplies MSVC size, alignment,
 member-offset, and pointer-mutation evidence in both call directions on x86/x64. Native ARM64
-execution remains open. `layouts_rejected.h` keeps reduced alignment, packed field placement, and
-bitfields rejected, including inside nested records. Function parameters, results, and callbacks
-keep the by-value rejection gate.
+execution remains open. `packed.h` and `packed.rdl` cover caps 1/2/4, nested packed and natural
+storage, arrays, pointers, explicit padding, and name collisions. Their metadata roundtrips pass
+on all three targets; 42 MSVC size/alignment/offset checks and pointer calls pass on x86/x64.
+Packed field access in the Rust native fixture uses unaligned reads/writes. `layouts_rejected.h`
+keeps bitfields rejected, including inside nested records. Function parameters, results, and
+callbacks keep the by-value rejection gate.
 
 Selecting an alias for a direct anonymous member cannot remove the enclosing record's ABI gate.
 That fact is retained from native field ownership, not inferred from the output type spelling.
@@ -1341,6 +1348,16 @@ remain incomplete. Keep the existing 98-name group as a separate passing control
 
 ### Full manifest and orchestration audit
 
+Standalone SDK input prerequisites live in `tool-win32/src/header_profiles.rs`. They include the
+header that owns a required declaration, such as `mfidl.h` for `IMFMediaSource`, `lmcons.h` for
+`NET_API_STATUS`, and `ks.h` for KS types. `d3dkmdt.h` uses its supported `d3dkmthk.h` entry header
+rather than defining an include guard to bypass the SDK's direct-inclusion error. These profiles
+apply only to the experimental route; requested-header file identity still controls discovery roots.
+Each report retains the exact input sources and compiler arguments. The 24 prerequisite profiles
+pass discovery on x86/x64/ARM64. A four-profile native closure agrees across separate TUs, grouped
+inputs, and reversed include order, then passes semantic RDL compilation without default API types.
+This bounded agreement check is not an SDK-wide TU reconciliation or memory bound.
+
 The independent x64 refresh attempts all 369 manifest headers using the pinned SDK. Emitted
 closures pass combined WinMD compilation without bundled API references. These are source and
 semantic metadata results, not production or runtime certification. Incomplete coverage produces
@@ -1349,20 +1366,20 @@ a nonzero exit.
 | Measure | Current semantic refresh |
 | --- | ---: |
 | Headers attempted | 369 |
-| Complete selected-root coverage | 52 |
-| Incomplete coverage | 317 |
-| Headers with some emitted output | 335 |
-| Headers failing before discovery inventory | 24 |
-| Known selected names | 99,515 |
-| Emitted selected names | 81,268 |
-| Rejected selected names | 18,247 |
+| Complete selected-root coverage | 66 |
+| Incomplete coverage | 303 |
+| Headers with some emitted output | 360 |
+| Headers failing before discovery inventory | 0 |
+| Known selected names | 103,719 |
+| Emitted selected names | 85,710 |
+| Rejected selected names | 18,009 |
 | Selected names blocked before projection/output | 0 |
 
 Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
 are not deduplicated APIs. Each header's supported roots must also pass combined projection and
 source ownership before being marked emitted. The refreshed run also checks combined WinMD
 compilation. Independent headers do not test agreement across the full manifest or across
-architectures. The current x64 debug run takes 422.6 seconds. A separate baseline resource run
+architectures. The prerequisite-profile x64 debug run takes 402.5 seconds. A separate resource run
 takes 784.0 seconds, peaks at 735.9 MiB working set, and has 636.9 MiB sampled peak private memory
 (100 ms sampling). No controlled performance comparison is implied. A serial header run is not a
 large multi-TU memory bound: capture retains the participating ASTs until the owned graph is extracted.
@@ -1387,8 +1404,9 @@ a separate native field. UI Animation emits 64 of 134 selected names, rejects 70
 
 The alias collision is a combined publication boundary, not permission to choose a public name
 from iteration order. Capture conflicts and ambiguous contexts also remain errors until their
-source evidence is understood. The 24 unavailable discovery inventories are a separate prerequisite
-gate; their unknown counts are not included in this table or the measured sums.
+source evidence is understood. The 24 prerequisite profiles now have discovery inventories.
+They add 4,204 selected names: 3,270 emitted and 934 rejected, with no global blocks. Counts are
+case-sensitive: `DXVA2_ModeMPEG2_MoComp` and `DXVA2_ModeMPEG2_MOCOMP` are distinct source names.
 
 Shared-record publication clears the baseline's 926 blocked names:
 
@@ -1409,9 +1427,14 @@ position. The focused XAudio2 refresh clears its 120 capture blocks, emits 98 na
 22. The fixture checks distinct buffer-count parameter bindings, legal parameter renames, reversed
 TUs, conflicting annotations, and retained override rejection on all three targets. The real
 XAudio2 multi-TU capture passes on all three targets; inherited-slot projection, non-COM virtual
-objects, packed records, and aggregate constants still reject. No header-specific exception is used.
-The full refresh reports zero blocked selected names; 18,247 roots still reject and 24 discovery
-inventories remain unavailable. Zero global blocks is not full metadata parity.
+objects and aggregate constants still reject. No header-specific exception is used.
+Checked packed storage adds 1,172 emitted names across 44 profiles without changing selection or
+reducing any profile's output. `joystickapi.h`, `dwmapi.h`, `txfw32.h`, `timeapi.h`, and `hidsdi.h`
+reach complete coverage. The largest gains are `mmeapi.h` (+363), `usbioctl.h` (+110), and
+`cfgmgr32.h` (+109). All emitted closures pass combined metadata compilation; adjusted by-value
+calls and bitfields remain rejected.
+The full refresh reports zero blocked selected names; 18,009 roots still reject. Zero global blocks
+and complete discovery are not full metadata parity.
 
 The macro-identity slice removes the global capture blocks in three large headers.
 Independent names and their remaining rejected roots are:
@@ -1455,7 +1478,8 @@ The tool audit separates source-derived policy from repairs that would conceal m
 | Metadata validity | Emitted roots pass combined WinMD compilation without default API fallback in generic profiles. Wrapper ABI, public-name parity, and DLL usability remain separate gates. |
 
 The remaining failures include unavailable macro identifiers and non-value expressions,
-declaration-only GUID/property-key data, packing and bitfields, unsupported union/anonymous shapes,
+declaration-only GUID/property-key data, unrepresentable packing and bitfields, unsupported
+union/anonymous shapes,
 general C++ inheritance/templates, SAL lowering, and missing header prerequisites. Treat these as
 shared source/capture/projection classes. Do not patch individual symbols to improve the totals.
 
@@ -1572,9 +1596,10 @@ worktree before restarting and preserve any local changes.
 The green baseline includes the explicit BCrypt string contract and preserved WebView MIDL
 annotations. Callable names are deterministic presentation data, independent of input filenames and
 order. The first hard-layout slice projects checked union storage and direct anonymous fields through
-`project/record.rs`, with semantic metadata and x86/x64 native storage/pointer checks. Continue with
-packed storage, bitfield representation, and their calling policies as separate slices. Do not
-remove the union/anonymous by-value gate or claim complete hard-layout support from storage equality.
+`project/record.rs`, with semantic metadata and x86/x64 native storage/pointer checks. Checked packed
+storage uses the same boundary. Continue with bitfield representation and adjusted calling policies
+as separate slices. Do not remove the union/anonymous by-value gate or claim complete hard-layout
+support from storage equality.
 
 Generated ARM64 union bindings pass isolated Rust size/alignment/offset assertions. The full ARM64
 test-package build is blocked by the existing WDK fixture selecting an x64 MSVC compiler with ARM64

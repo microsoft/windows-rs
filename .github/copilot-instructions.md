@@ -291,6 +291,11 @@ RDL-only removes the temporary binary; it does not establish cross-header/archit
 Keep dated measurements and failure tables in `docs/crates/windows-clang2.md`, not this instruction
 file.
 
+Experimental SDK prerequisites live in `tool-win32/src/header_profiles.rs`, not parser repairs.
+Keep requested-header file identity as the discovery root scope; dependencies only supply native
+declarations. Persist actual TU sources and arguments. The legacy input route does not use these
+profiles; do not bypass a native header's include contract with synthesized typedefs or guards.
+
 Named callbacks retain compiler TypeRef-backed typedef edges, calling conventions, annotations,
 and pointer depth. Incomplete C records preserve nominal pointer identity but reject by-value
 calls without layout. Variable redeclarations compare canonical types and retain/check written

@@ -554,6 +554,7 @@ fn build_abi() {
     println!("cargo:rerun-if-changed=input/enums.h");
     println!("cargo:rerun-if-changed=input/layouts.h");
     println!("cargo:rerun-if-changed=input/layouts.cpp");
+    println!("cargo:rerun-if-changed=input/packed.h");
     helpers::ensure_libclang();
     let target = format!("--target={}", std::env::var("TARGET").unwrap());
     let snapshot = windows_clang2::capture(
@@ -573,6 +574,16 @@ fn build_abi() {
             "LayoutEvidence",
             "LayoutMutate",
             "LayoutInvoke",
+            "PackedLayoutEvidence",
+            "PackedMutate",
+            "PackedInvoke",
+            "PackedChoice",
+            "PackedAnonymous",
+            "Packed2",
+            "Packed4",
+            "PackedContainer",
+            "PackedField",
+            "PackedGap",
         ],
     )
     .unwrap();

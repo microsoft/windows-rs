@@ -13,6 +13,91 @@ use bindings::*;
 use core::ffi::c_void;
 
 #[test]
+fn packed_layout_matches_cpp() {
+    let anonymous = std::mem::offset_of!(PackedAnonymous, Anonymous1);
+    for (index, value) in [
+        size_of::<Packed1>(),
+        align_of::<Packed1>(),
+        std::mem::offset_of!(Packed1, tag),
+        std::mem::offset_of!(Packed1, value),
+        std::mem::offset_of!(Packed1, wide),
+        std::mem::offset_of!(Packed1, pointer),
+        size_of::<PackedChoice>(),
+        align_of::<PackedChoice>(),
+        std::mem::offset_of!(PackedChoice, record),
+        std::mem::offset_of!(PackedChoice, bits),
+        size_of::<PackedAnonymous>(),
+        align_of::<PackedAnonymous>(),
+        std::mem::offset_of!(PackedAnonymous, tag),
+        anonymous + std::mem::offset_of!(PackedAnonymous_0, value),
+        anonymous + std::mem::offset_of!(PackedAnonymous_0, halves),
+        size_of::<Packed2>(),
+        align_of::<Packed2>(),
+        std::mem::offset_of!(Packed2, tag),
+        std::mem::offset_of!(Packed2, values),
+        std::mem::offset_of!(Packed2, choice),
+        size_of::<Packed4>(),
+        align_of::<Packed4>(),
+        std::mem::offset_of!(Packed4, tag),
+        std::mem::offset_of!(Packed4, wide),
+        std::mem::offset_of!(Packed4, pointer),
+        size_of::<PackedContainer>(),
+        align_of::<PackedContainer>(),
+        std::mem::offset_of!(PackedContainer, records),
+        std::mem::offset_of!(PackedContainer, tail),
+        size_of::<NaturalChoice>(),
+        align_of::<NaturalChoice>(),
+        std::mem::offset_of!(NaturalChoice, value),
+        std::mem::offset_of!(NaturalChoice, real),
+        size_of::<PackedField>(),
+        align_of::<PackedField>(),
+        std::mem::offset_of!(PackedField, tag),
+        std::mem::offset_of!(PackedField, choice),
+        size_of::<PackedGap>(),
+        align_of::<PackedGap>(),
+        std::mem::offset_of!(PackedGap, __padding1),
+        std::mem::offset_of!(PackedGap, marker),
+        std::mem::offset_of!(PackedGap, value),
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        assert_eq!(
+            unsafe { PackedLayoutEvidence(index.try_into().unwrap()) },
+            u32::try_from(value).unwrap(),
+            "packed layout observation {index}"
+        );
+    }
+}
+
+#[test]
+fn packed_storage_crosses_pointer_calls_in_both_directions() {
+    unsafe extern "C" fn callback(packet: *mut Packed1) {
+        unsafe {
+            let value = &raw mut (*packet).wide;
+            value.write_unaligned(value.read_unaligned() + 7);
+        }
+    }
+    let mut packet = Packed1 {
+        tag: 1,
+        value: 2,
+        wide: 3,
+        pointer: core::ptr::null_mut(),
+    };
+    unsafe {
+        PackedMutate(&raw mut packet);
+        PackedInvoke(Some(callback), &raw mut packet);
+        assert_eq!(packet.tag, 2);
+        assert_eq!((&raw const packet.value).read_unaligned(), 5);
+        assert_eq!((&raw const packet.wide).read_unaligned(), 15);
+        assert_eq!(
+            (&raw const packet.pointer).read_unaligned(),
+            (&raw mut packet).cast()
+        );
+    }
+}
+
+#[test]
 fn union_and_nested_layout_matches_cpp() {
     let anonymous = std::mem::offset_of!(LayoutPacket, Anonymous1_);
     let inner = anonymous + std::mem::offset_of!(LayoutPacket_0, Anonymous1);

@@ -6,6 +6,7 @@ pub(super) struct Record {
     pub fields: Vec<(String, String, ProjectedType)>,
     pub layout: Layout,
     pub alignment: Option<i64>,
+    pub packing: Option<i64>,
     pub anonymous_fields: bool,
     attributes: String,
 }
@@ -14,6 +15,14 @@ impl Record {
     pub fn write(&self, output: &mut String, name: Option<&str>, indent: usize) {
         if name.is_none() {
             output.push_str(&self.attributes);
+        }
+        if let Some(packing) = self.packing {
+            write!(output, "#[packed({packing})]").unwrap();
+            if name.is_some() {
+                write!(output, "\n{:indent$}", "").unwrap();
+            } else {
+                output.push(' ');
+            }
         }
         if let Some(alignment) = self.alignment {
             write!(output, "#[align({alignment})]").unwrap();
@@ -104,6 +113,13 @@ impl Builder<'_, '_> {
         let mut align = 1;
         let mut anonymous_fields = false;
         let mut names: BTreeSet<_> = fields.iter().map(|field| field.name.clone()).collect();
+        if layout.align > 32768
+            || !layout.align.is_positive()
+            || !(layout.align as u64).is_power_of_two()
+        {
+            return Err(Error(format!("unsupported record alignment for `{name}`")));
+        }
+        let mut packing = None;
         for (index, field) in fields.iter().enumerate() {
             if field.bit_width.is_some() {
                 return Err(Error(format!(
@@ -139,14 +155,19 @@ impl Builder<'_, '_> {
                         "projected layout unavailable for `{name}::{field_name}`"
                     ))
                 })?;
+            // This cap describes equivalent storage, not the original packing directive.
+            let field_align = field_layout.align.min(layout.align);
+            if field_align < field_layout.align {
+                packing = Some(layout.align);
+            }
             if *kind == RecordKind::Union {
                 if field.offset != 0 {
                     return Err(Error(format!("nonzero union field offset for `{name}`")));
                 }
                 size = size.max(field_layout.size);
             } else {
-                let natural = align_up(size, field_layout.align);
-                if field.offset < natural * 8 || field.offset % (field_layout.align * 8) != 0 {
+                let natural = align_up(size, field_align);
+                if field.offset < natural * 8 || field.offset % (field_align * 8) != 0 {
                     return Err(Error(format!(
                         "`{name}` requires unsupported packing or field alignment"
                     )));
@@ -165,19 +186,12 @@ impl Builder<'_, '_> {
                 }
                 size = offset + field_layout.size;
             }
-            align = align.max(field_layout.align);
+            align = align.max(field_align);
             projected.push((
                 source_attributes(&annotations.fields[index]),
                 field_name,
                 ty,
             ));
-        }
-        if layout.align < align
-            || layout.align > 32768
-            || !layout.align.is_positive()
-            || !(layout.align as u64).is_power_of_two()
-        {
-            return Err(Error(format!("unsupported record alignment for `{name}`")));
         }
         let expected = Layout {
             size: align_up(size, layout.align),
@@ -191,8 +205,76 @@ impl Builder<'_, '_> {
             fields: projected,
             layout: layout.clone(),
             alignment: (layout.align > align).then_some(layout.align),
+            packing,
             anonymous_fields,
             attributes: source_attributes(&annotations.own),
         })
+    }
+}
+
+impl Plan {
+    pub(super) fn validate_record_storage(&self) -> Result<(), Error> {
+        for (name, item) in &self.items {
+            if let Item::Record(record) = item {
+                self.validate_packed_record(record, name)?;
+            }
+        }
+        Ok(())
+    }
+
+    fn validate_packed_record(&self, record: &Record, name: &str) -> Result<(), Error> {
+        for (_, _, ty) in &record.fields {
+            if record.packing.is_some()
+                && self.has_unproven_packed_alignment(ty, &mut BTreeSet::new())
+            {
+                return Err(Error(format!(
+                    "packed record `{name}` contains forced or unproven external alignment"
+                )));
+            }
+            self.validate_inline_packing(ty, name)?;
+        }
+        Ok(())
+    }
+
+    fn validate_inline_packing(&self, ty: &ProjectedType, name: &str) -> Result<(), Error> {
+        match ty.contract() {
+            ProjectedType::InlineRecord(record) => self.validate_packed_record(record, name),
+            ProjectedType::Array { element, .. } => self.validate_inline_packing(element, name),
+            _ => Ok(()),
+        }
+    }
+
+    fn has_unproven_packed_alignment(
+        &self,
+        ty: &ProjectedType,
+        checked: &mut BTreeSet<String>,
+    ) -> bool {
+        match ty.contract() {
+            ProjectedType::RecordReference(..) => true,
+            ProjectedType::Array { element, .. } => {
+                self.has_unproven_packed_alignment(element, checked)
+            }
+            ProjectedType::InlineRecord(record) => {
+                record.alignment.is_some()
+                    || record
+                        .fields
+                        .iter()
+                        .any(|(_, _, ty)| self.has_unproven_packed_alignment(ty, checked))
+            }
+            ProjectedType::Named(name, _) if checked.insert(name.clone()) => {
+                self.items.get(name).is_some_and(|item| {
+                    if let Item::Record(record) = item {
+                        record.alignment.is_some()
+                            || record
+                                .fields
+                                .iter()
+                                .any(|(_, _, ty)| self.has_unproven_packed_alignment(ty, checked))
+                    } else {
+                        false
+                    }
+                })
+            }
+            _ => false,
+        }
     }
 }

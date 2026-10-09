@@ -1,4 +1,5 @@
 mod clang2;
+mod header_profiles;
 mod km;
 
 use helpers::*;
@@ -1112,6 +1113,15 @@ fn clang_inputs(
     include_dirs: &[String],
     full: bool,
 ) -> Vec<windows_clang::Input> {
+    clang_inputs_with_prerequisites(headers, include_dirs, full, |_| &[])
+}
+
+fn clang_inputs_with_prerequisites(
+    headers: &[&str],
+    include_dirs: &[String],
+    full: bool,
+    prerequisites: impl Fn(&str) -> &'static [&'static str],
+) -> Vec<windows_clang::Input> {
     let (satellite_headers, main_headers): (Vec<_>, Vec<_>) = headers
         .iter()
         .copied()
@@ -1128,6 +1138,9 @@ fn clang_inputs(
             source.push_str("\n#include <ks.h>");
         }
         for header in &main_headers {
+            for prerequisite in prerequisites(header) {
+                source.push_str(&format!("\n#include <{prerequisite}>"));
+            }
             source.push_str(&format!("\n#include <{header}>"));
         }
         let mut input = windows_clang::Input::new("clang-win32-main.hpp", source).with_roots(roots);
@@ -1153,6 +1166,9 @@ fn clang_inputs(
             // KS types. Load the full KS surface first so those duplicate fallbacks stay disabled.
             if *header == "devicetopology.h" {
                 source.push_str("\n#include <ks.h>\n#define _KS_");
+            }
+            for prerequisite in prerequisites(header) {
+                source.push_str(&format!("\n#include <{prerequisite}>"));
             }
             source.push_str(&format!("\n#include <{header}>"));
             source.push_str(GUID_RESET);
@@ -1461,6 +1477,168 @@ fn resolve(name: &str, dirs: &[String], kind: &str, var: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn experimental_prerequisites_do_not_change_legacy_inputs_or_root_scope() {
+        let dirs = sdk_include_dirs();
+        let headers = ["mfreadwrite.h", "ksmedia.h", "winternl.h"];
+        let legacy = clang_inputs(&headers, &dirs, false);
+        let experimental =
+            clang_inputs_with_prerequisites(&headers, &dirs, false, header_profiles::prerequisites);
+        assert_eq!(legacy.len(), experimental.len());
+        for (legacy, experimental) in legacy.iter().zip(&experimental) {
+            assert_eq!(legacy.name, experimental.name);
+            assert_eq!(legacy.roots, experimental.roots);
+        }
+        assert_eq!(
+            legacy[0].source,
+            format!("{PRELUDE}\n#include <mfreadwrite.h>\n#include <ksmedia.h>")
+        );
+        assert_eq!(
+            experimental[0].source,
+            format!(
+                "{PRELUDE}\n#include <mfidl.h>\n#include <mfreadwrite.h>\n#include <ks.h>\n#include <ksmedia.h>"
+            )
+        );
+        assert_eq!(legacy[1].source, experimental[1].source);
+    }
+
+    #[test]
+    fn sdk_prerequisite_profiles_discover_requested_headers_on_all_targets() {
+        ensure_libclang();
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
+        let sal = root.join("crates\\libs\\clang2\\src\\sal.h");
+        let dirs = sdk_include_dirs();
+        let include_args: Vec<_> = dirs
+            .iter()
+            .flat_map(|dir| ["-isystem".into(), dir.clone()])
+            .collect();
+        for arch in ["x86", "x64", "arm64"] {
+            let arguments = clang_arguments(
+                &Arch::known(arch).unwrap(),
+                &include_args,
+                None,
+                sal.to_str().unwrap(),
+            );
+            let arguments: Vec<_> = arguments.iter().map(String::as_str).collect();
+            for header in HEADERS.iter().chain(SATELLITE_HEADERS) {
+                if header_profiles::prerequisites(header).is_empty() {
+                    continue;
+                }
+                let inputs = clang_inputs_with_prerequisites(
+                    &[header],
+                    &dirs,
+                    false,
+                    header_profiles::prerequisites,
+                )
+                .into_iter()
+                .map(|input| windows_clang2::Input::new(input.name, input.source));
+                let file = resolve(header, &dirs, "header", "pinned SDK include");
+                let inventory = windows_clang2::discover(inputs, &arguments, &[&file]).unwrap();
+                assert!(!inventory.is_empty(), "{arch}: {header}");
+                for declaration in inventory {
+                    assert_eq!(
+                        std::path::Path::new(&declaration.header)
+                            .file_name()
+                            .unwrap()
+                            .to_str()
+                            .unwrap()
+                            .to_ascii_lowercase(),
+                        header.to_ascii_lowercase(),
+                        "{arch}: {header}: {}",
+                        declaration.name
+                    );
+                }
+            }
+        }
+    }
+
+    #[test]
+    fn mixed_sdk_profile_observations_agree_without_header_order_precedence() {
+        ensure_libclang();
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
+        let sal = root.join("crates\\libs\\clang2\\src\\sal.h");
+        let dirs = sdk_include_dirs();
+        let include_args: Vec<_> = dirs
+            .iter()
+            .flat_map(|dir| ["-isystem".into(), dir.clone()])
+            .collect();
+        let headers = ["mfreadwrite.h", "ntsecpkg.h", "ksmedia.h", "d3dkmdt.h"];
+        let roots = [
+            "MF_SOURCE_READER_FLAG",
+            "_LSA_TOKEN_INFORMATION_NULL",
+            "KSAUDIO_POSITION",
+            "D3DKMDT_HVIDPN__",
+            "GUID",
+            "SYSTEMTIME",
+        ];
+        for arch in ["x86", "x64", "arm64"] {
+            let arguments = clang_arguments(
+                &Arch::known(arch).unwrap(),
+                &include_args,
+                None,
+                sal.to_str().unwrap(),
+            );
+            let arguments: Vec<_> = arguments.iter().map(String::as_str).collect();
+            let mut baseline = None;
+            for grouping in 0..4 {
+                let mut inputs = vec![];
+                for header in headers {
+                    let mut profile = clang_inputs_with_prerequisites(
+                        &[header],
+                        &dirs,
+                        false,
+                        header_profiles::prerequisites,
+                    );
+                    assert_eq!(profile.len(), 1);
+                    let profile = profile.pop().unwrap();
+                    inputs.push(windows_clang2::Input::new(
+                        format!("{header}.hpp"),
+                        profile.source,
+                    ));
+                }
+                if grouping == 1 {
+                    inputs.reverse();
+                } else if grouping >= 2 {
+                    let mut grouped_headers = headers;
+                    if grouping == 3 {
+                        grouped_headers.reverse();
+                    }
+                    let grouped = clang_inputs_with_prerequisites(
+                        &grouped_headers,
+                        &dirs,
+                        false,
+                        header_profiles::prerequisites,
+                    );
+                    assert_eq!(grouped.len(), 1);
+                    inputs = grouped
+                        .into_iter()
+                        .map(|input| windows_clang2::Input::new(input.name, input.source))
+                        .collect();
+                }
+                let snapshot = windows_clang2::capture(inputs, &arguments, &roots).unwrap();
+                let options = windows_clang2::ProjectionOptions::new("Test");
+                let rdl = snapshot.resolve().unwrap().project(&options).unwrap().rdl();
+                if let Some(expected) = &baseline {
+                    assert_eq!(&rdl, expected);
+                } else {
+                    baseline = Some(rdl.clone());
+                }
+                let output = std::env::temp_dir().join(format!(
+                    "clang2-mixed-profiles-{}-{arch}-{grouping}.winmd",
+                    std::process::id()
+                ));
+                windows_rdl::reader()
+                    .input_text(&rdl)
+                    .input(root.join("crates\\libs\\clang2\\metadata.rdl"))
+                    .input(root.join("metadata\\metadata.rdl"))
+                    .output(&output)
+                    .write()
+                    .unwrap();
+                std::fs::remove_file(output).unwrap();
+            }
+        }
+    }
 
     #[test]
     fn library_overrides_are_checked_and_applied() {

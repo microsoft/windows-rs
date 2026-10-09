@@ -1,0 +1,54 @@
+#[win32]
+mod Test {
+    union NaturalChoice {
+        value: u32,
+        real: f32,
+    }
+    #[packed(1)]
+    struct Packed1 {
+        tag: u8,
+        value: u32,
+        wide: u64,
+        pointer: *mut void,
+    }
+    #[packed(2)]
+    struct Packed2 {
+        tag: u8,
+        values: [u32; 2],
+        choice: PackedChoice,
+    }
+    #[packed(4)]
+    struct Packed4 {
+        tag: u8,
+        wide: u64,
+        pointer: *mut void,
+    }
+    struct PackedAnonymous {
+        tag: u8,
+        Anonymous1: #[packed(1)] union {
+            value: u32,
+            halves: [u16; 2],
+        },
+    }
+    #[packed(1)]
+    union PackedChoice {
+        record: Packed1,
+        bits: u64,
+    }
+    struct PackedContainer {
+        records: [Packed1; 2],
+        tail: u32,
+    }
+    #[packed(1)]
+    struct PackedField {
+        tag: u8,
+        choice: NaturalChoice,
+    }
+    #[packed(2)]
+    struct PackedGap {
+        __padding1: u8,
+        __padding1_: union { bytes: [u8; 1], uninit: [u8; 0], },
+        marker: u8,
+        value: u32,
+    }
+}

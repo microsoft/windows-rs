@@ -259,10 +259,15 @@ fn generate(
         .iter()
         .map(|header| resolve(header, &include_dirs, "header", "pinned SDK include"))
         .collect();
-    let inputs: Vec<_> = clang_inputs(headers, &include_dirs, false)
-        .into_iter()
-        .map(|input| Input::new(input.name, input.source))
-        .collect();
+    let inputs: Vec<_> = clang_inputs_with_prerequisites(
+        headers,
+        &include_dirs,
+        false,
+        header_profiles::prerequisites,
+    )
+    .into_iter()
+    .map(|input| Input::new(input.name, input.source))
+    .collect();
     let include_args: Vec<_> = include_dirs
         .into_iter()
         .flat_map(|dir| ["-isystem".into(), dir])
@@ -273,6 +278,10 @@ fn generate(
         None,
         "crates/libs/clang2/src/sal.h",
     );
+    for input in inputs.iter().chain(&definitions) {
+        std::fs::write(output.join(&input.name), &input.source)?;
+    }
+    std::fs::write(output.join("arguments.txt"), arguments.join("\n"))?;
     let inventory = windows_clang2::discover(
         inputs.clone(),
         &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
