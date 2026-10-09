@@ -1,0 +1,44 @@
+#[win32]
+mod Test {
+    #[library("test.dll", import = "_Consume")]
+    extern "C" fn Consume(first: *mut First_Shared, second: *mut Second_Shared, alias: *mut First_Shared);
+    struct First {
+        owned: First_Shared,
+        borrowed: *mut First_Shared,
+        aliased: *mut First_Shared,
+        choice: First_Choice,
+        kind: First_Kind,
+    }
+    union First_Choice {
+        shared: *mut First_Shared,
+        scalar: f64,
+    }
+    #[repr(u32)]
+    enum First_Kind {
+        Empty = 0,
+        Full = 1,
+    }
+    #[annotation("sal", "_Vendor_(nested)")]
+    struct First_Shared {
+        value: i32,
+        next: *mut First_Shared,
+        visit: First_Shared_visit_Callback,
+    }
+    extern "C" fn First_Shared_visit_Callback(value: *mut First_Shared);
+    struct Packet {
+        first: First,
+        second: Second,
+        first_shared: *mut First_Shared,
+        second_shared: *mut Second_Shared,
+    }
+    struct Second {
+        owned: Second_Shared,
+        borrowed: *mut Second_Shared,
+    }
+    struct Second_Shared {
+        value: i32,
+        next: *mut Second_Shared,
+        visit: Second_Shared_visit_Callback,
+    }
+    extern "C" fn Second_Shared_visit_Callback(value: *mut Second_Shared);
+}

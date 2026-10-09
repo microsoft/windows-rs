@@ -1,0 +1,32 @@
+#[win32]
+mod Test {
+    type FIRST = Shared;
+    type KEYFRAME = *mut __MIDL_keyframe;
+    struct POINT {
+        x: i32,
+        y: i32,
+    }
+    #[repr(i32)]
+    enum RESULT {
+        ResultNone = 0,
+        ResultDone = 1,
+    }
+    type SECOND = Shared;
+    type SECONDS = f64;
+    struct Shared {
+        value: i32,
+    }
+    #[library("test.dll", import = "Update")]
+    extern "C" fn Update(time: SECONDS, frame: KEYFRAME, point: *mut POINT) -> RESULT;
+    struct Values {
+        time: SECONDS,
+        result: RESULT,
+        frame: KEYFRAME,
+        point: POINT,
+        first: FIRST,
+        second: SECOND,
+    }
+    struct __MIDL_keyframe {
+        unused: i32,
+    }
+}

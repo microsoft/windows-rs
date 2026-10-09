@@ -114,7 +114,154 @@ fn conflicting_macro_prefix_annotations_are_not_hidden() {
 }
 
 #[test]
-fn unrelated_annotation_ambiguity_does_not_poison_selected_evidence() {
+fn macro_generated_methods_keep_distinct_annotation_contexts() {
+    use windows_metadata::{
+        Value,
+        reader::{BufferRelationship, HasAttributes, Index},
+    };
+
+    let source = include_str!("../input/annotation_macro_methods.h");
+    for target in [
+        "--target=x86_64-pc-windows-msvc",
+        "--target=i686-pc-windows-msvc",
+        "--target=aarch64-pc-windows-msvc",
+    ] {
+        let args = sdk::arguments(target);
+        let args: Vec<_> = args.iter().map(String::as_str).collect();
+        let mut baseline = None;
+        for reversed in [false, true] {
+            let mut inputs = [
+                windows_clang2::Input::new("a.hpp", source),
+                windows_clang2::Input::new("b.hpp", source.replace("count", "renamedCount")),
+            ];
+            if reversed {
+                inputs.reverse();
+            }
+            let rdl = windows_clang2::capture(inputs, &args, &["IMethods"])
+                .unwrap()
+                .resolve()
+                .unwrap()
+                .project(&windows_clang2::ProjectionOptions::new("Test"))
+                .unwrap()
+                .rdl();
+            if let Some(expected) = &baseline {
+                assert_eq!(&rdl, expected);
+            } else {
+                baseline = Some(rdl.clone());
+            }
+            let output =
+                std::path::Path::new(env!("OUT_DIR")).join("annotation_macro_methods.winmd");
+            windows_rdl::reader()
+                .input_text(&rdl)
+                .input(sdk::projection_metadata())
+                .input(
+                    sdk::tools()
+                        .join("..")
+                        .join("..")
+                        .join("metadata")
+                        .join("metadata.rdl"),
+                )
+                .output(&output)
+                .write()
+                .unwrap();
+            let index = Index::read(output).unwrap();
+            let interface = index.expect("Test", "IMethods");
+            let methods: Vec<_> = interface.methods().collect();
+            assert_eq!(methods.len(), 2);
+            for (method, name, pointer, count) in
+                [(&methods[0], "First", 0, 1), (&methods[1], "Second", 1, 0)]
+            {
+                assert_eq!(method.name(), name);
+                let parameters = method.params_by_sequence(2).unwrap();
+                let parameter = parameters.params()[pointer].unwrap();
+                assert_eq!(
+                    parameter.buffer_relationship(),
+                    Some(BufferRelationship::ElementsParam(count))
+                );
+                let attribute = parameter
+                    .attributes()
+                    .find(|attribute| attribute.name() == "NativeAnnotationAttribute")
+                    .unwrap();
+                assert_eq!(
+                    attribute.value(),
+                    [
+                        (String::new(), Value::Utf8("sal".into())),
+                        (String::new(), Value::Utf8(format!("_In_reads_(${count})"))),
+                    ]
+                );
+            }
+        }
+        let snapshot = sdk::capture_sdk(target, source, &["IRepeated"]);
+        let resolved = snapshot.resolve().unwrap();
+        let error = resolved
+            .project(&windows_clang2::ProjectionOptions::new("Test"))
+            .err()
+            .unwrap();
+        assert!(
+            error.to_string().contains("inherited virtual slot"),
+            "{error}"
+        );
+        let snapshot = windows_clang2::capture(
+            [
+                windows_clang2::Input::new("a.hpp", source),
+                windows_clang2::Input::new(
+                    "b.hpp",
+                    source.replace("_In_reads_(length)", "_In_reads_(length + 1)"),
+                ),
+            ],
+            &args,
+            &["IMethods"],
+        )
+        .unwrap();
+        let error = snapshot.resolve().err().unwrap();
+        assert!(
+            error.to_string().contains("conflicting annotations"),
+            "{error}"
+        );
+    }
+}
+
+#[test]
+fn real_xaudio_macro_methods_capture_without_weakening_override_gates() {
+    for target in [
+        "--target=x86_64-pc-windows-msvc",
+        "--target=i686-pc-windows-msvc",
+        "--target=aarch64-pc-windows-msvc",
+    ] {
+        let arguments = sdk::arguments(target);
+        let arguments: Vec<_> = arguments.iter().map(String::as_str).collect();
+        for reversed in [false, true] {
+            let mut inputs = [
+                windows_clang2::Input::new("a.hpp", "#include <xaudio2.h>"),
+                windows_clang2::Input::new("b.hpp", "#include <xaudio2.h>"),
+            ];
+            if reversed {
+                inputs.reverse();
+            }
+            let snapshot = windows_clang2::capture(
+                inputs,
+                &arguments,
+                &["IXAudio2", "IXAudio2MasteringVoice"],
+            )
+            .unwrap();
+            let resolved = snapshot.resolve().unwrap();
+            let error = resolved
+                .project_roots(
+                    &windows_clang2::ProjectionOptions::new("Test"),
+                    &["IXAudio2"],
+                )
+                .err()
+                .unwrap();
+            assert!(
+                error.to_string().contains("inherited virtual slot"),
+                "{error}"
+            );
+        }
+    }
+}
+
+#[test]
+fn unrelated_macro_declarations_keep_their_annotation_contexts() {
     let source = include_str!("../input/annotation_index.h");
     let arguments = sdk::arguments("--target=x86_64-pc-windows-msvc");
     let arguments: Vec<_> = arguments.iter().map(String::as_str).collect();
@@ -125,17 +272,13 @@ fn unrelated_annotation_ambiguity_does_not_poison_selected_evidence() {
     )
     .unwrap();
     snapshot.resolve().unwrap();
-    let error = windows_clang2::capture(
+    let snapshot = windows_clang2::capture(
         [windows_clang2::Input::new("index.hpp", source)],
         &arguments,
         &["_snprintf"],
     )
-    .err()
     .unwrap();
-    assert!(
-        error.to_string().contains("ambiguous annotation context"),
-        "{error}"
-    );
+    snapshot.resolve().unwrap();
 }
 
 #[test]

@@ -414,12 +414,15 @@ Selecting an alias for a direct anonymous member cannot remove the enclosing rec
 That fact is retained from native field ownership, not inferred from the output type spelling.
 `anonymous_by_value.h` covers that selected-alias path.
 
-Explicitly selected record aliases own the output name unless the named tag is also selected.
+One explicitly selected record alias owns the output name unless the named tag is also selected.
 This preserves `POINT`/`RECT` and permits `decltype` to select real nested WDK member types without
 copying their declarations. Native candidate identity
 still uses the checked owner and field slot, including fields containing arrays or pointers to
-unnamed records. Multiple selected aliases naming the same record reject instead of
-choosing by traversal order. Anonymous arrays, pointer targets without a public identity, and general
+unnamed records. Multiple selected aliases to a named record retain that native definition and emit
+transparent aliases; none acquires ownership by traversal order. Multiple aliases to an unnamed
+record still reject without a publication identity. Interface aliases use the existing native-typedef
+representation, preserving COM identity rather than cloning interface declarations.
+Anonymous arrays, pointer targets without a public identity, and general
 C++ record layouts remain outside the direct-field slice.
 
 Callable projection retains written typedef paths, not just canonical ABI types. For example,
@@ -522,8 +525,8 @@ are rejected for COM methods on all targets until the downstream aggregate-retur
 Record pointers and free-function results with ordinary record layouts remain supported.
 
 Packing that changes storage layout, bitfield projection, and anonymous callables outside record
-fields remain outside this slice. Qualified native names can select roots, but local
-output names currently require unqualified identifiers. UUIDs decode from `__declspec(uuid(...))`
+fields remain outside this slice. Named types publish checked scope-prefixed identifiers, retaining
+native nominal identity and rejecting output collisions. UUIDs decode from `__declspec(uuid(...))`
 only (no `GUID`-typed value decoding yet). General SAL lowering, MIDL relationships, WinRT mapping,
 header ownership, and automatic DLL routing are not implemented.
 
@@ -1020,8 +1023,25 @@ come from checked source UUID attributes; default class projection remains uncha
 | Actual generator | `tool-bindings` writes the committed animation bindings from `target/animation/Animation.winmd`; other generated bindings remain unchanged. |
 | Remaining scope | ARM64 execution, generic by-value union ABI, canonical Win32/WDK publication, and broad projection parity are not certified. |
 
-The generated animation-only types retain source record-pointer storage and native enum tags.
-Those are private binding details; the crate's safe application API does not change. The headless
+The `preserve_typedefs` policy retains written non-interface typedefs and prefers a unique typedef
+name for an unselected record or enum tag. It has no MIDL-prefix test or Animation symbol rules;
+multiple aliases do not acquire an arbitrary winner, and explicitly selected tags stay published.
+Animation enables it for source names such as `UI_ANIMATION_SECONDS`, the result enums, and
+`UI_ANIMATION_KEYFRAME`. The profile also binds the checked native `UINT_PTR` contract to `usize`.
+The interface parity gate compares every source slot, signature, GUID, and selected public value
+type against committed metadata on all three targets. Native compiler tests remain the ABI oracle.
+
+The cutover gate requires unchanged consumer APIs and no unexplained generated differences.
+The bounded differences are:
+
+| Consumer | Difference and boundary |
+| --- | --- |
+| Animation | Source keyframe record-pointer storage replaces the metadata seed's `void*` target; pointer ABI is native-checked. Written scalar aliases are retained. Source UUID activation constants replace opaque class declarations. |
+| WebView2 | External `VARIANT` replaces a local alias. Explicit handle/string typedef and loader import contracts retain native ABI and safe-wrapper signatures; source annotations and properties remain covered by the consumer gates. |
+
+These are not blanket waivers for layout, slots, signatures, annotations, or missing roots. Further
+consumer cutovers wait for their own classified differential and native contract gates.
+The crate's safe application API does not change. The headless
 storyboard sample and the animation crate's existing integration coverage run against the actual
 switched bindings.
 
@@ -1314,22 +1334,25 @@ closures pass combined WinMD compilation without bundled API references. These a
 semantic metadata results, not production or runtime certification. Incomplete coverage produces
 a nonzero exit.
 
-| Measure | Before macro fixes and semantic gate | Semantic refresh |
-| --- | ---: | ---: |
-| Headers attempted | 369 | 369 |
-| Complete selected-root coverage | 48 | 49 |
-| Incomplete coverage | 321 | 320 |
-| Headers with some emitted output | 322 | 325 |
-| Headers failing before discovery inventory | 24 | 24 |
-| Emitted selected names | 76,382 | 79,048 |
-| Rejected selected names | 18,770 | 19,357 |
-| Selected names blocked before projection/output | 4,410 | 1,110 |
+| Measure | Current semantic refresh |
+| --- | ---: |
+| Headers attempted | 369 |
+| Complete selected-root coverage | 52 |
+| Incomplete coverage | 317 |
+| Headers with some emitted output | 329 |
+| Headers failing before discovery inventory | 24 |
+| Emitted selected names | 80,144 |
+| Rejected selected names | 18,325 |
+| Selected names blocked before projection/output | 1,046 |
 
 Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
 are not deduplicated APIs. Each header's supported roots must also pass combined projection and
 source ownership before being marked emitted. The refreshed run also checks combined WinMD
-compilation. Independent headers do not test agreement across the full manifest
-or across architectures. No full-manifest peak-memory budget was measured.
+compilation. Independent headers do not test agreement across the full manifest or across
+architectures. The x64 debug run takes 784.0 seconds, peaks at 735.9 MiB working set, and has
+636.9 MiB sampled peak private memory (100 ms sampling). This serial header run is not a large
+multi-TU memory bound: capture retains the participating ASTs until the owned graph is extracted.
+Streaming disposal and an agreed resource budget remain open.
 More rejections can mean that formerly blocked roots now reach assessment, not that support regressed.
 
 The largest measured blocks in that full-manifest run were:
@@ -1337,9 +1360,8 @@ The largest measured blocks in that full-manifest run were:
 | Header | Blocked names | Capture or combined-output boundary |
 | --- | ---: | --- |
 | `sspi.h` | 717 | Multiple selected aliases name the same record. |
-| `xaudio2.h` | 120 | Inherited callable annotation context is ambiguous. |
+| `xaudio2.h` | 120 | Callable annotation contexts share macro expansion positions. |
 | `cfapi.h` | 106 | Multiple selected aliases name the same record. |
-| `uianimation.h` | 64 | RDL rejects a native record field named `_`. |
 | `sensorsapi.h` | 43 | Multiple selected aliases name the same record. |
 | `ws2tcpip.h` | 40 | Multiple selected aliases name the same record. |
 | `xmllite.h` | 20 | Multiple selected aliases name the same record. |
@@ -1347,14 +1369,33 @@ The largest measured blocks in that full-manifest run were:
 The semantic gate exposed the `_` field failure rather than counting invalid RDL as emitted.
 RDL now accepts that native record field name and preserves it through metadata roundtrips,
 including nested structs and unions. It does not rename `_` to `unused`, which could collide with
-a separate native field. The focused UI Animation rerun emits 64 of 134 selected names, rejects 70,
-and blocks none. The full-refresh totals retain the recorded pre-fix result; replacing that one
-row yields 79,112 emitted and 1,046 blocked names, with 326 headers having emitted output.
+a separate native field. UI Animation emits 64 of 134 selected names, rejects 70, and blocks none.
 
 The alias collision is a combined publication boundary, not permission to choose a public name
 from iteration order. Capture conflicts and ambiguous contexts also remain errors until their
 source evidence is understood. The 24 unavailable discovery inventories are a separate prerequisite
 gate; their unknown counts are not included in this table or the measured sums.
+
+The focused shared-record publication pass after that full snapshot clears 926 blocked names:
+
+| Header | Emitted | Rejected | Blocked |
+| --- | ---: | ---: | ---: |
+| `sspi.h` | 717 | 3 | 0 |
+| `cfapi.h` | 106 | 16 | 0 |
+| `sensorsapi.h` | 43 | 22 | 0 |
+| `ws2tcpip.h` | 40 | 1 | 0 |
+| `xmllite.h` | 20 | 12 | 0 |
+
+Each profile passes combined metadata compilation without default API references. Source fixtures
+cover root/TU order, retained named definitions, and unnamed/conflicting rejections. The real
+SSPI/XmlLite alias closure passes on all three targets; generated COM aliases preserve native
+identity and clone/release counts on x86/x64. The full snapshot is not retroactively rewritten.
+Compiler source-location identity separates annotation tokens that share one macro expansion
+position. The focused XAudio2 refresh clears its 120 capture blocks, emits 98 names, and rejects
+22. The fixture checks distinct buffer-count parameter bindings, legal parameter renames, reversed
+TUs, conflicting annotations, and retained override rejection on all three targets. The real
+XAudio2 multi-TU capture passes on all three targets; inherited-slot projection, non-COM virtual
+objects, packed records, and aggregate constants still reject. No header-specific exception is used.
 
 The macro-identity slice removes the global capture blocks in three large headers.
 Independent names and their remaining rejected roots are:
@@ -1408,24 +1449,28 @@ requires combined cross-header and architecture agreement, semantic RDL compilat
 partition/name policy, DLL-contract checks, and resource budgets. The manifest run exposes the
 remaining work; it does not justify switching the production Win32/WDK backend yet.
 
-The focused inline-callback refresh runs the mandatory semantic compilation gate without external
-OLE value bindings. These profiles remain incomplete:
+The focused callable and nested-record refresh runs the mandatory semantic compilation gate without
+external OLE value bindings. These profiles remain incomplete:
 
 | Profile | Selected | Emitted | Rejected | Blocked |
 | --- | ---: | ---: | ---: | ---: |
-| `oaidl.h` | 359 | 172 | 187 | 0 |
-| `objidl.h` | 448 | 111 | 337 | 0 |
+| `oaidl.h` | 359 | 199 | 160 | 0 |
+| `objidl.h` | 448 | 121 | 327 | 0 |
 | `wincodec.h` | 433 | 174 | 259 | 0 |
-| `oaidl.h` + `shellapi.h` | 693 | 500 | 193 | 0 |
+| `oaidl.h` + `shellapi.h` | 693 | 527 | 166 | 0 |
 
 The shared field-callable representation unblocks 64 OAIDL roots, including `IDispatch`, `ITypeInfo`,
 and `ITypeLib`; WIC gains one root, and ObjIDL's selected coverage is unchanged. The combined profile
 excludes `SHSTDAPI`/`SHDOCAPI` as declaration helpers, explaining its two-name selection difference
 from the bounded union inventory. Both `SHGetNewLinkInfoA/W` retain their `_Success_` contracts.
-Named nested records, explicit interface aliases, optional written-count outputs, declaration-only
-data, and unavailable import contracts still reject. These are shared representation/publication
-gaps, not reasons to externally bind `VARIANT` in the generic header runner. This focused refresh
-does not replace the full 369-header snapshot or establish public metadata parity.
+Named nested records retain shared nominal references with checked scope-prefixed output names;
+they are not copied into each field or merged by shape. This adds nine OAIDL roots and two ObjIDL
+roots, including wire SAFEARRAY/VARIANT and GDI storage. Three-target reversed-TU metadata fixtures
+check shared pointers, aliases, distinct same-shaped owners, collisions, and retained by-value gates.
+Transparent interface aliases add 18 OAIDL and eight ObjIDL roots. Optional written-count outputs,
+declaration-only data, and unavailable import contracts still reject. These are shared
+representation/publication gaps, not reasons to externally bind `VARIANT` in the generic header
+runner. This focused refresh does not establish public metadata parity.
 
 Clang can attach a prefix annotation to a function while starting the function's extent at a later
 declaration macro. The context index accepts that same-file prefix and chooses the nearest attached

@@ -28,6 +28,26 @@ const E_NOINTERFACE: HRESULT = HRESULT(0x80004002_u32 as i32);
 const CLASS_E_NOAGGREGATION: HRESULT = HRESULT(0x80040110_u32 as i32);
 
 #[test]
+fn shared_interface_aliases_preserve_identity_clone_and_release() {
+    let mut factory_stats = ComStats::default();
+    let mut instance_stats = ComStats::default();
+    let factory: bindings::FirstFactory = unsafe {
+        IClassFactory::from_raw(sys::ComFactory(
+            &raw mut factory_stats,
+            &raw mut instance_stats,
+        ))
+    };
+    let other: bindings::SecondFactory = factory.clone();
+    assert_eq!(bindings::FirstFactory::IID, bindings::SecondFactory::IID);
+    assert_eq!(factory.as_raw(), other.as_raw());
+    assert_eq!(counts(&factory_stats), [2, 1, 0, 0, 1, 0]);
+    drop(other);
+    assert_eq!(counts(&factory_stats), [1, 1, 1, 0, 1, 0]);
+    drop(factory);
+    assert_eq!(counts(&factory_stats), [0, 1, 2, 0, 1, 1]);
+}
+
+#[test]
 fn generated_handle_setters_and_strings_reach_native_methods() {
     let properties = unsafe { IProperties::from_raw(sys::ComProperties()) };
     for value in [0, 0x1234, usize::MAX] {

@@ -1,6 +1,6 @@
 use std::collections::BTreeSet;
 use std::path::Path;
-use windows_clang2::{Input, Plan, ProjectionOptions, ReferenceKind, TypeReference};
+use windows_clang2::{Input, Plan, PointerSized, ProjectionOptions, ReferenceKind, TypeReference};
 
 pub fn generate() {
     helpers::ensure_libclang();
@@ -97,6 +97,10 @@ pub fn project(
         &roots(),
     )?;
     let mut options = ProjectionOptions::new("Animation");
+    options.preserve_typedefs = true;
+    options
+        .pointer_sized
+        .insert("UINT_PTR".into(), PointerSized::Unsigned);
     options.class_guids = Some(TypeReference {
         namespace: "Windows.Win32".into(),
         name: "GUID".into(),

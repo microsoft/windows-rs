@@ -20,3 +20,6 @@ struct __declspec(uuid("12345678-1234-1234-1234-123456789abc")) IProperties : IU
 };
 
 extern "C" IProperties* ComProperties();
+
+typedef IClassFactory FirstFactory;
+typedef IClassFactory SecondFactory;

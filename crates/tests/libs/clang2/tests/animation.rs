@@ -1,4 +1,7 @@
-use windows_metadata::reader::{Index, Item};
+use windows_metadata::{
+    Type,
+    reader::{HasAttributes, Index, Item, TypeCategory},
+};
 
 #[allow(dead_code)]
 #[path = "../../../../tools/bindings/src/animation.rs"]
@@ -98,6 +101,43 @@ fn consumer_closure_agrees_across_targets_and_translation_units() {
                 .write()
                 .unwrap();
             let index = Index::read(&winmd).unwrap();
+            for name in [
+                "UI_ANIMATION_UPDATE_RESULT",
+                "UI_ANIMATION_SCHEDULING_RESULT",
+            ] {
+                assert_eq!(
+                    index.expect("Animation", name).category(),
+                    TypeCategory::Enum
+                );
+            }
+            assert!(
+                index
+                    .expect("Animation", "UI_ANIMATION_SECONDS")
+                    .has_attribute("NativeTypedefAttribute")
+            );
+            assert!(
+                index
+                    .expect("Animation", "UI_ANIMATION_KEYFRAME")
+                    .has_attribute("NativeTypedefAttribute")
+            );
+            let manager = index.expect("Animation", "IUIAnimationManager2");
+            let update = manager
+                .methods()
+                .find(|method| method.name() == "Update")
+                .unwrap();
+            assert_eq!(
+                update.signature(&[]).types[0],
+                Type::value_named("Animation", "UI_ANIMATION_SECONDS")
+            );
+            let storyboard = index.expect("Animation", "IUIAnimationStoryboard2");
+            let add = storyboard
+                .methods()
+                .find(|method| method.name() == "AddTransitionAtKeyframe")
+                .unwrap();
+            assert_eq!(
+                add.signature(&[]).types[2],
+                Type::value_named("Animation", "UI_ANIMATION_KEYFRAME")
+            );
             for root in animation::roots() {
                 let item = index.expect_item("Animation", root);
                 if root.starts_with("UIAnimation") {
@@ -107,6 +147,179 @@ fn consumer_closure_agrees_across_targets_and_translation_units() {
                 }
             }
             sdk::animation_bindings(&winmd, &output.join(format!("{target}.rs")));
+        }
+    }
+}
+
+fn parity_type(index: &Index, ty: &Type) -> Type {
+    match ty {
+        Type::PtrConst(target, depth) => {
+            Type::PtrConst(Box::new(parity_type(index, target)), *depth)
+        }
+        Type::PtrMut(target, depth) => Type::PtrMut(Box::new(parity_type(index, target)), *depth),
+        Type::ValueName(name) | Type::ClassName(name) => {
+            let value = matches!(ty, Type::ValueName(_));
+            if name.name == "HRESULT"
+                || (name.namespace == "Windows.Foundation" && name.name == "HResult")
+            {
+                return Type::value_named("Contract", "HRESULT");
+            }
+            if !name.name.starts_with("UI_ANIMATION_")
+                && let Some(definition) = index.get(&name.namespace, &name.name).next()
+                && definition.has_attribute("NativeTypedefAttribute")
+            {
+                return parity_type(index, &definition.fields().next().unwrap().ty());
+            }
+            let namespace = if name.namespace == "Animation"
+                || name.name.starts_with("IUIAnimation")
+                || name.name.starts_with("UI_ANIMATION_")
+            {
+                "Animation"
+            } else {
+                &name.namespace
+            };
+            if value {
+                Type::value_named(namespace, &name.name)
+            } else {
+                Type::class_named(namespace, &name.name)
+            }
+        }
+        _ => ty.clone(),
+    }
+}
+
+#[test]
+fn animation_cutover_matches_committed_interface_abi_and_public_type_names() {
+    let output = std::path::Path::new(env!("OUT_DIR")).join("animation-parity");
+    std::fs::create_dir_all(&output).unwrap();
+    let baseline_path = output.join("committed.winmd");
+    windows_rdl::reader()
+        .input(
+            sdk::tools()
+                .join("..")
+                .join("..")
+                .join("metadata")
+                .join("win32")
+                .join("uianimation.rdl"),
+        )
+        .reference_default()
+        .output(&baseline_path)
+        .write()
+        .unwrap();
+    let baseline = Index::read(&baseline_path).unwrap();
+    for target in [
+        "i686-pc-windows-msvc",
+        "x86_64-pc-windows-msvc",
+        "aarch64-pc-windows-msvc",
+    ] {
+        let plan = animation::project(
+            target,
+            &sdk::include(),
+            &sdk::tools()
+                .join("..")
+                .join("libs")
+                .join("clang2")
+                .join("src")
+                .join("sal.h"),
+            animation::inputs(),
+        )
+        .unwrap();
+        let actual_path = output.join(format!("{target}.winmd"));
+        windows_rdl::reader()
+            .input_text(&plan.rdl())
+            .input(sdk::projection_metadata())
+            .reference_default()
+            .output(&actual_path)
+            .write()
+            .unwrap();
+        let actual = Index::read(actual_path).unwrap();
+        for name in [
+            "UI_ANIMATION_SECONDS",
+            "UI_ANIMATION_UPDATE_RESULT",
+            "UI_ANIMATION_SCHEDULING_RESULT",
+        ] {
+            let expected = baseline.expect("Windows.Win32", name);
+            let projected = actual.expect("Animation", name);
+            assert_eq!(expected.category(), projected.category(), "{target} {name}");
+            let fields = |index: &Index, definition: windows_metadata::reader::TypeDef<'_>| {
+                definition
+                    .fields()
+                    .map(|field| {
+                        (
+                            field.name().to_string(),
+                            parity_type(index, &field.ty()),
+                            field.constant().map(|constant| constant.value()),
+                        )
+                    })
+                    .collect::<Vec<_>>()
+            };
+            assert_eq!(
+                fields(&baseline, expected),
+                fields(&actual, projected),
+                "{target} {name}"
+            );
+        }
+        let expected = baseline.expect("Windows.Win32", "UI_ANIMATION_KEYFRAME");
+        let projected = actual.expect("Animation", "UI_ANIMATION_KEYFRAME");
+        assert_eq!(
+            expected.fields().next().unwrap().ty(),
+            Type::PtrMut(Box::new(Type::Void), 1)
+        );
+        let Type::PtrMut(target_type, 1) = projected.fields().next().unwrap().ty() else {
+            panic!("source keyframe typedef must retain one native pointer")
+        };
+        let Type::ValueName(record) = *target_type else {
+            panic!("source keyframe typedef must point to its captured record")
+        };
+        assert_eq!(
+            actual.expect(&record.namespace, &record.name).category(),
+            TypeCategory::Struct
+        );
+        for name in animation::roots()
+            .into_iter()
+            .filter(|name| name.starts_with("IUIAnimation"))
+        {
+            let expected = baseline.expect("Windows.Win32", name);
+            let projected = actual.expect("Animation", name);
+            assert_eq!(
+                expected.find_attribute("GuidAttribute").unwrap().value(),
+                projected.find_attribute("GuidAttribute").unwrap().value(),
+                "{target} {name}"
+            );
+            let expected_methods: Vec<_> = expected.methods().collect();
+            let actual_methods: Vec<_> = projected.methods().collect();
+            assert_eq!(
+                expected_methods.len(),
+                actual_methods.len(),
+                "{target} {name}"
+            );
+            for (expected, actual_method) in expected_methods.iter().zip(actual_methods) {
+                assert_eq!(expected.name(), actual_method.name(), "{target} {name}");
+                let expected = expected.signature(&[]);
+                let projected = actual_method.signature(&[]);
+                assert_eq!(
+                    parity_type(&baseline, &expected.return_type),
+                    parity_type(&actual, &projected.return_type),
+                    "{target} {name} {}",
+                    actual_method.name()
+                );
+                let expected: Vec<_> = expected
+                    .types
+                    .iter()
+                    .map(|ty| parity_type(&baseline, ty))
+                    .collect();
+                let projected: Vec<_> = projected
+                    .types
+                    .iter()
+                    .map(|ty| parity_type(&actual, ty))
+                    .collect();
+                assert_eq!(
+                    expected,
+                    projected,
+                    "{target} {name} {}",
+                    actual_method.name()
+                );
+            }
         }
     }
 }

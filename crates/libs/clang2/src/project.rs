@@ -84,6 +84,8 @@ pub struct ProjectionOptions {
     pub string_references: BTreeMap<StringKind, TypeReference>,
     /// Publish UUID-bearing opaque native classes as GUID constants instead of class declarations.
     pub class_guids: Option<TypeReference>,
+    /// Preserve written non-interface typedefs and prefer unique typedef names for unselected tags.
+    pub preserve_typedefs: bool,
 }
 
 impl ProjectionOptions {
@@ -97,6 +99,7 @@ impl ProjectionOptions {
             exclude_inline_functions: false,
             string_references: BTreeMap::new(),
             class_guids: None,
+            preserve_typedefs: false,
         }
     }
 }
@@ -751,6 +754,7 @@ impl<'s> Resolved<'s> {
             })
             .map(|root| self.representatives[root.0])
             .collect();
+        let mut selected_aliases: BTreeMap<Id, BTreeSet<Id>> = BTreeMap::new();
         for root in &roots {
             let alias = &self.snapshot.declarations[root.0];
             if let DeclarationData::Alias { canonical, .. } = &alias.data
@@ -770,17 +774,60 @@ impl<'s> Resolved<'s> {
                     DeclarationData::Record { .. }
                 ) && !selected.contains(&target)
                 {
-                    let name = ident(&alias.name)?;
-                    if let Some(previous) = builder.names.insert(target, name.clone())
-                        && previous != name
+                    selected_aliases
+                        .entry(target)
+                        .or_default()
+                        .insert(self.representatives[root.0]);
+                }
+            }
+        }
+        for (target, aliases) in selected_aliases {
+            if aliases.len() == 1 {
+                let alias = *aliases.first().unwrap();
+                builder.names.insert(target, builder.name(alias)?);
+                builder.owners.insert(target, builder.owner(alias));
+            } else if matches!(
+                self.snapshot.declarations[target.0].data,
+                DeclarationData::Record { unnamed: true, .. }
+            ) {
+                return Err(Error(
+                    "multiple selected aliases name the same unnamed record".into(),
+                ));
+            } else {
+                builder.name(target)?;
+            }
+        }
+        if options.preserve_typedefs {
+            let mut candidates: BTreeMap<Id, BTreeSet<Id>> = BTreeMap::new();
+            for alias in self.groups.keys() {
+                let declaration = &self.snapshot.declarations[alias.0];
+                if options.references.contains_key(&declaration.name) {
+                    continue;
+                }
+                if let DeclarationData::Alias { canonical, .. } = &declaration.data
+                    && self.annotations[alias].own.sal.is_empty()
+                    && self.annotations[alias].own.midl.is_empty()
+                    && let TypeKind::Named(target) = canonical.kind
+                {
+                    let target = self.representatives[target.0];
+                    if matches!(
+                        self.snapshot.declarations[target.0].data,
+                        DeclarationData::Record { .. } | DeclarationData::Enum { .. }
+                    ) && !selected.contains(&target)
+                        && !builder.names.contains_key(&target)
+                        && !options
+                            .references
+                            .contains_key(&self.snapshot.declarations[target.0].name)
                     {
-                        return Err(Error(
-                            "multiple selected aliases name the same record".into(),
-                        ));
+                        candidates.entry(target).or_default().insert(*alias);
                     }
-                    builder
-                        .owners
-                        .insert(target, builder.owner(self.representatives[root.0]));
+                }
+            }
+            for (target, aliases) in candidates {
+                if aliases.len() == 1 {
+                    let alias = *aliases.first().unwrap();
+                    builder.names.insert(target, builder.name(alias)?);
+                    builder.owners.insert(target, builder.owner(alias));
                 }
             }
         }
@@ -830,12 +877,14 @@ impl<'s> Builder<'_, 's> {
             || {
                 let declaration = &self.resolved.snapshot.declarations[id.0];
                 if matches!(declaration.data, DeclarationData::Callable { .. }) {
-                    let names = declaration
-                        .name
-                        .split("::")
-                        .map(ident)
-                        .collect::<Result<Vec<_>, _>>()?;
-                    Ok(format!("{}_Callback", names.join("_")))
+                    Ok(format!("{}_Callback", scoped_ident(&declaration.name)?))
+                } else if matches!(
+                    declaration.data,
+                    DeclarationData::Record { unnamed: false, .. }
+                        | DeclarationData::Enum { .. }
+                        | DeclarationData::Alias { .. }
+                ) {
+                    scoped_ident(&declaration.name)
                 } else {
                     ident(&declaration.name)
                 }
@@ -871,7 +920,7 @@ impl<'s> Builder<'_, 's> {
             && let TypeKind::Named(target) = canonical.kind
             && (self.resolved.snapshot.declarations[target.0].name == declaration.name
                 || self.names.get(&self.resolved.representatives[target.0])
-                    == Some(&declaration.name))
+                    == Some(&self.name(id)?))
         {
             let annotations = &self.resolved.annotations[&id].own;
             if !annotations.sal.is_empty() || !annotations.midl.is_empty() {
@@ -1022,12 +1071,7 @@ impl<'s> Builder<'_, 's> {
                 }
             }
             DeclarationData::Alias { .. } => {
-                let (ty, object) = self.alias(id, &mut BTreeSet::new())?;
-                if object || matches!(ty, ProjectedType::Class(_)) {
-                    return Err(Error(
-                        "explicit interface alias emission is not implemented".into(),
-                    ));
-                }
+                let (ty, _) = self.alias(id, &mut BTreeSet::new())?;
                 Item::Alias(ty)
             }
             DeclarationData::Enum {
@@ -1409,7 +1453,7 @@ impl<'s> Builder<'_, 's> {
                     && !base_methods.is_empty()
                 {
                     self.schedule(base_id);
-                    Some(ident(&base_declaration.name)?)
+                    Some(self.name(base_id)?)
                 } else {
                     return Err(Error(format!(
                         "interface base `{}` is not a projectable interface",
@@ -1857,7 +1901,10 @@ impl<'s> Builder<'_, 's> {
                     }
                     let (projected, object) = self.alias(id, aliases)?;
                     let annotations = &self.resolved.annotations[&id].own;
-                    if !annotations.sal.is_empty() || !annotations.midl.is_empty() {
+                    if !annotations.sal.is_empty()
+                        || !annotations.midl.is_empty()
+                        || (self.options.preserve_typedefs && !object)
+                    {
                         self.schedule(id);
                         let name = self.name(id)?;
                         (ProjectedType::Alias(name, Box::new(projected)), object)
@@ -1889,7 +1936,7 @@ impl<'s> Builder<'_, 's> {
                     let (kind, layout) = self.enum_repr(repr)?;
                     self.schedule(id);
                     (
-                        ProjectedType::ScalarReference(ident(&declaration.name)?, kind, layout),
+                        ProjectedType::ScalarReference(self.name(id)?, kind, layout),
                         false,
                     )
                 } else if let DeclarationData::Record {
@@ -2311,6 +2358,13 @@ fn namespace_name(reference: &TypeReference) -> Result<String, Error> {
         namespace(&reference.namespace)?.replace('.', "::"),
         ident(&reference.name)?
     ))
+}
+
+fn scoped_ident(value: &str) -> Result<String, Error> {
+    for segment in value.split("::") {
+        ident(segment)?;
+    }
+    ident(&value.replace("::", "_"))
 }
 
 fn ident(value: &str) -> Result<String, Error> {

@@ -370,8 +370,25 @@ to `PCWSTR`; generic header projection does not infer that wrapper. See the clan
 Inline record-field callbacks retain owner/field-slot identity and compiler-owned parameter contexts
 across TUs, rather than merging by function shape or fabricating typedefs. `test_clang2` `ole.rs`
 compiles the real OAIDL/WIC `IDispatch`/`ITypeInfo`/`EXCEPINFO` closure on all three targets without
-external OLE value bindings. Other anonymous callable positions and named nested-record publication
-remain gates. Combined `oaidl.h`/`shellapi.h` capture preserves Shell return annotations.
+external OLE value bindings. Named nested records keep nominal identity and shared references under
+checked scope-prefixed publication; collisions and unsupported by-value calls still reject.
+Other anonymous callable positions remain gates. Combined `oaidl.h`/`shellapi.h` capture preserves
+Shell return annotations.
 `annotation_macro_return.h` covers Clang-attached prefix annotations outside macro-started extents,
 original inherited parameter contexts, and mixed prefix/in-range ownership. Keep equal-rank
 ambiguities visible; do not suppress annotations or substitute OLE types to improve header counts.
+
+`ProjectionOptions::preserve_typedefs` retains non-interface written typedefs and prefers a unique
+typedef name for unselected tags without MIDL-prefix heuristics. Animation uses this policy and the
+checked `UINT_PTR` pointer-sized contract. Its differential gate compares every source interface
+slot/signature/GUID and public value types against committed metadata, with native checks as the ABI
+oracle. No further consumer cutovers precede a classified differential. Packed records, bitfields,
+typed double-NUL contracts, function-macro aliases, and streaming TU disposal remain open porting work.
+
+Multiple selected aliases to a named record retain the source definition and publish all aliases;
+do not choose a winner or structurally merge types. Unnamed-owner ambiguity still rejects.
+Transparent interface aliases use existing native typedef metadata and are native-checked for COM
+identity and clone/release behavior. The focused SSPI/CFAPI/SensorsAPI/WS2TCPIP/XmlLite refresh clears
+926 global publication blocks. Annotation contexts use compiler source-location identity rather
+than expansion position alone: several macro-generated methods can share an expansion position.
+The XAudio2 refresh clears 120 capture blocks without weakening inherited-slot or layout gates.

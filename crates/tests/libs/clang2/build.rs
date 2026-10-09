@@ -422,7 +422,12 @@ fn build_com() {
     let snapshot = sdk::capture_sdk(
         &target,
         include_str!("input/com.h"),
-        &["ComFactory", "ComProperties"],
+        &[
+            "ComFactory",
+            "ComProperties",
+            "FirstFactory",
+            "SecondFactory",
+        ],
     );
     let mut options = ProjectionOptions::new("Windows.Win32.System.Com");
     options.library = Some("clang2_com.dll".into());
@@ -468,6 +473,8 @@ fn build_com() {
         "--filter",
         "Windows.Win32.System.Com.IClassFactory",
         "Windows.Win32.System.Com.IProperties",
+        "Windows.Win32.System.Com.FirstFactory",
+        "Windows.Win32.System.Com.SecondFactory",
         "--flat",
     ]);
     windows_bindgen::bindgen([

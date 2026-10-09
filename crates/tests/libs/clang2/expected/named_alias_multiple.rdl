@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    type Other = tagPoint;
+    type Point = tagPoint;
+    struct tagPoint {
+        x: i32,
+        y: i32,
+    }
+}

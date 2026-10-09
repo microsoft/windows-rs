@@ -3,6 +3,7 @@
 use super::*;
 use clang_sys::*;
 use std::ffi::{CStr, CString};
+use std::hash::{Hash, Hasher};
 use std::panic::{AssertUnwindSafe, catch_unwind, resume_unwind};
 use std::sync::Arc;
 
@@ -812,7 +813,7 @@ struct Capture<'a> {
     declarations: Vec<Declaration>,
     entities: Vec<Entity>,
     entity_cursors: Vec<HashMap<u32, Vec<(CXCursor, EntityId)>>>,
-    contexts: Vec<HashMap<(CXFile, u32), AnnotationContext>>,
+    contexts: Vec<HashMap<AnnotationOrigin, AnnotationContext>>,
     flag_enums: Vec<BTreeSet<String>>,
     macros: Vec<BTreeMap<String, Location>>,
     identities: BTreeMap<String, Vec<(usize, CXCursor)>>,
@@ -824,6 +825,24 @@ struct AnnotationContext {
     distance: u32,
     parameters: Result<Arc<[String]>, String>,
     prefix_owners: Vec<CXCursor>,
+}
+
+#[derive(Clone, Copy)]
+struct AnnotationOrigin(CXSourceLocation);
+
+impl PartialEq for AnnotationOrigin {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { clang_equalLocations(self.0, other.0) != 0 }
+    }
+}
+
+impl Eq for AnnotationOrigin {}
+
+impl Hash for AnnotationOrigin {
+    fn hash<H: Hasher>(&self, state: &mut H) {
+        // Expansion positions select a bucket; compiler identity separates tokens within a macro.
+        position(self.0).hash(state);
+    }
 }
 
 fn field_callable_type(cursor: CXCursor) -> Option<CXType> {
@@ -872,7 +891,8 @@ impl Capture<'_> {
                 .into_iter()
                 .filter(|child| unsafe { clang_getCursorKind(*child) == CXCursor_AnnotateAttr })
             {
-                let origin = position(unsafe { clang_getCursorLocation(attr) });
+                let origin = AnnotationOrigin(unsafe { clang_getCursorLocation(attr) });
+                let expanded = position(origin.0);
                 if file.is_null() || file != end_file {
                     self.contexts[unit].insert(
                         origin,
@@ -884,7 +904,7 @@ impl Capture<'_> {
                     );
                     continue;
                 }
-                if !type_declarator && (origin.0 != file || origin.1 >= end) {
+                if !type_declarator && (expanded.0 != file || expanded.1 >= end) {
                     continue;
                 }
                 // Prefix attributes can precede a macro-started declaration extent. Inherited
@@ -892,7 +912,7 @@ impl Capture<'_> {
                 let distance = if type_declarator {
                     0
                 } else {
-                    start.saturating_sub(origin.1)
+                    start.saturating_sub(expanded.1)
                 };
                 let context = context.get_or_insert_with(|| {
                     parameters
@@ -1403,8 +1423,12 @@ impl Capture<'_> {
         let start = position(unsafe { clang_getRangeStart(range) });
         let end = position(unsafe { clang_getRangeEnd(range) });
         let owned = |attr: CXCursor| {
-            let origin = position(unsafe { clang_getCursorLocation(attr) });
-            (origin.0 == start.0 && origin.0 == end.0 && start.1 <= origin.1 && origin.1 < end.1)
+            let origin = AnnotationOrigin(unsafe { clang_getCursorLocation(attr) });
+            let expanded = position(origin.0);
+            (expanded.0 == start.0
+                && expanded.0 == end.0
+                && start.1 <= expanded.1
+                && expanded.1 < end.1)
                 || self.contexts[unit].get(&origin).is_some_and(|context| {
                     context
                         .prefix_owners
@@ -1421,7 +1445,7 @@ impl Capture<'_> {
                 let location = expansion_location(origin);
                 let context = if callable {
                     self.contexts[unit]
-                        .get(&position(origin))
+                        .get(&AnnotationOrigin(origin))
                         .ok_or_else(|| {
                             Error(format!(
                                 "annotation context unavailable at {}:{}",

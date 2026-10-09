@@ -450,7 +450,7 @@ fn reusable_projection_keeps_root_specific_names_and_failures_isolated() {
             _ => panic!("projection policy leaked state between root selections"),
         }
     }
-    assert!(projection.project_roots(&["A", "B"]).is_err());
+    assert!(projection.project_roots(&["A", "B"]).is_ok());
     assert!(projection.project_roots(&["missing"]).is_err());
     assert!(projection.project_roots(&[]).is_err());
 }

@@ -1261,7 +1261,17 @@ fn selected_named_record_alias_owns_the_projected_definition() {
         assert_eq!(index.types().filter(|ty| ty.name() == "Point").count(), 1);
     }
     let snapshot = capture([Input::new("a.hpp", source)], ARGS, &["Point", "Other"]).unwrap();
-    assert!(snapshot.resolve().unwrap().project(&options()).is_err());
+    let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+    let index = compile("named_alias_multiple", &plan);
+    for name in ["Point", "Other"] {
+        let alias = index.expect("Test", name);
+        assert!(alias.has_attribute("NativeTypedefAttribute"));
+        assert_eq!(
+            alias.fields().next().unwrap().ty(),
+            Type::value_named("Test", "tagPoint")
+        );
+    }
+    assert_eq!(index.expect("Test", "tagPoint").fields().count(), 2);
     let snapshot = capture([Input::new("a.hpp", source)], ARGS, &["Point", "tagPoint"]).unwrap();
     let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
     let index = compile("named_alias_explicit_tag", &plan);
