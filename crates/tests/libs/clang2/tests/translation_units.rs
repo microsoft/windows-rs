@@ -38,6 +38,40 @@ fn options() -> ProjectionOptions {
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 const INCLUDE: &str = "#include \"shared.h\"\n#include \"shared.h\"\n";
 
+#[test]
+#[cfg(target_env = "msvc")]
+fn sdk_string_profiles_do_not_unify_distinct_native_record_tags() {
+    let source = include_str!("../input/sdk_string_profiles.h");
+    let nt = format!("#define SDK_STRING_NT_PROFILE\n{source}");
+    for arch in ["i686", "x86_64", "aarch64"] {
+        let arguments = sdk::arguments(&format!("--target={arch}-pc-windows-msvc"));
+        let args: Vec<_> = arguments.iter().map(String::as_str).collect();
+        for source in [source, nt.as_str()] {
+            capture([Input::new("single.hpp", source)], &args, &["STRING"])
+                .unwrap()
+                .resolve()
+                .unwrap();
+        }
+        for reversed in [false, true] {
+            let mut inputs = [Input::new("lsa.hpp", source), Input::new("nt.hpp", &nt)];
+            if reversed {
+                inputs.reverse();
+            }
+            let error = capture(inputs, &args, &["STRING"])
+                .unwrap()
+                .resolve()
+                .err()
+                .unwrap()
+                .to_string();
+            assert!(error.contains("native identities differ"), "{error}");
+            assert!(
+                error.contains("`_LSA_STRING`") && error.contains("`_STRING`"),
+                "{error}"
+            );
+        }
+    }
+}
+
 fn check_metadata(name: &str, rdl: &str) {
     let output = Path::new(env!("OUT_DIR")).join(format!("{name}.winmd"));
     windows_rdl::reader()

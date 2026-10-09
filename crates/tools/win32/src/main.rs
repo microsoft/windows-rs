@@ -1490,6 +1490,129 @@ mod tests {
     use super::*;
 
     #[test]
+    #[ignore = "manual full-production grouped SDK source gate"]
+    fn production_inputs_require_clean_clang2_source_on_all_targets() {
+        ensure_libclang();
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
+        let sal = root.join("crates\\libs\\clang2\\src\\sal.h");
+        let dirs = sdk_include_dirs();
+        let headers: Vec<_> = HEADERS.iter().chain(SATELLITE_HEADERS).copied().collect();
+        let files: Vec<_> = headers
+            .iter()
+            .map(|header| resolve(header, &dirs, "header", "pinned SDK include"))
+            .collect();
+        let include_args: Vec<_> = dirs
+            .iter()
+            .flat_map(|dir| ["-isystem".into(), dir.clone()])
+            .collect();
+        for arch in ["x64", "arm64", "x86"] {
+            let arguments = clang_arguments(
+                &Arch::known(arch).unwrap(),
+                &include_args,
+                None,
+                sal.to_str().unwrap(),
+            );
+            let output = root
+                .join("target\\win32-clang2\\production-source")
+                .join(arch);
+            std::fs::create_dir_all(&output).unwrap();
+            std::fs::write(output.join("arguments.txt"), arguments.join("\n")).unwrap();
+            let inputs = clang_inputs(&headers, &dirs, true);
+            for input in &inputs {
+                std::fs::write(output.join(&input.name), &input.source).unwrap();
+            }
+            let time = std::time::Instant::now();
+            let inventory = windows_clang2::discover(
+                inputs
+                    .into_iter()
+                    .map(|input| windows_clang2::Input::new(input.name, input.source)),
+                &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
+                &files.iter().map(String::as_str).collect::<Vec<_>>(),
+            )
+            .unwrap_or_else(|error| panic!("{arch}: production source rejected: {error}"));
+            println!(
+                "{arch}: {} requested-header observations in {:.2}s",
+                inventory.len(),
+                time.elapsed().as_secs_f32()
+            );
+        }
+    }
+
+    #[test]
+    #[ignore = "manual grouped-production SDK capture and agreement gate"]
+    fn production_roots_require_clang2_capture_and_agreement() {
+        ensure_libclang();
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
+        let sal = root.join("crates\\libs\\clang2\\src\\sal.h");
+        let dirs = sdk_include_dirs();
+        let headers: Vec<_> = HEADERS.iter().chain(SATELLITE_HEADERS).copied().collect();
+        let files: Vec<_> = headers
+            .iter()
+            .map(|header| resolve(header, &dirs, "header", "pinned SDK include"))
+            .collect();
+        let include_args: Vec<_> = dirs
+            .iter()
+            .flat_map(|dir| ["-isystem".into(), dir.clone()])
+            .collect();
+        let arguments = clang_arguments(
+            &Arch::known("x64").unwrap(),
+            &include_args,
+            None,
+            sal.to_str().unwrap(),
+        );
+        let args: Vec<_> = arguments.iter().map(String::as_str).collect();
+        let inputs: Vec<_> = clang_inputs(&headers, &dirs, true)
+            .into_iter()
+            .map(|input| windows_clang2::Input::new(input.name, input.source))
+            .collect();
+        let inventory = windows_clang2::discover(
+            inputs.clone(),
+            &args,
+            &files.iter().map(String::as_str).collect::<Vec<_>>(),
+        )
+        .unwrap();
+        let roots: std::collections::BTreeSet<_> = inventory
+            .iter()
+            .filter(|declaration| clang2::exclusion(declaration).is_none())
+            .map(|declaration| declaration.name.as_str())
+            .collect();
+        let roots: Vec<_> = roots.into_iter().collect();
+        let time = std::time::Instant::now();
+        let captured = windows_clang2::capture_report(inputs, &args, &roots).unwrap();
+        println!(
+            "x64 grouped production: {} roots, {} rejected probes, {} parses, capture {:.2}s",
+            roots.len(),
+            captured.rejected.len(),
+            captured.parses,
+            time.elapsed().as_secs_f32()
+        );
+        let output = root.join("target\\win32-clang2\\production-source\\x64");
+        std::fs::create_dir_all(&output).unwrap();
+        let mut rejected = String::from("name\treason\n");
+        for (name, reason) in &captured.rejected {
+            rejected.push_str(&format!(
+                "{name}\t{}\n",
+                reason.replace(['\t', '\r', '\n'], " ")
+            ));
+        }
+        std::fs::write(output.join("capture-rejections.tsv"), rejected).unwrap();
+        let snapshot = captured.snapshot.unwrap();
+        let assessment = snapshot.assess().unwrap();
+        println!(
+            "x64 grouped production: {} unavailable roots",
+            assessment.rejected.len()
+        );
+        assert!(
+            captured.rejected.is_empty(),
+            "production macro roots rejected"
+        );
+        assert!(
+            assessment.rejected.is_empty(),
+            "production native roots unavailable"
+        );
+    }
+
+    #[test]
     fn experimental_definitions_do_not_change_legacy_inputs_or_root_scope() {
         let dirs = sdk_include_dirs();
         let headers = ["mfreadwrite.h", "ksmedia.h", "winternl.h"];

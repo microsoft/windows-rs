@@ -1316,7 +1316,27 @@ These are per-process OS peak-working-set counters sampled every 10 ms, not a la
 budget. The successful group's source generation was byte-identical on repetition.
 
 **The default production scraper remains on clang1.** Source completeness alone is not sufficient
-to replace the committed partitions. Use `metadata/`'s RDL as the representation baseline, while
+to replace the committed partitions.
+
+The manual `tool-win32` tests with the `production_` prefix reuse its grouped main/satellite
+inputs and compiler arguments, substituting the clang2 SAL adapter. Strict source parsing passes
+x64, ARM64, and x86 in about 10 seconds each. The x64 capture selects 102,610 distinct requested-header
+roots, takes 108.43 seconds across nine parses, and records 1,515 rejected macro probes. Native
+agreement then fails: `STRING` aliases `_LSA_STRING` through `ntsecapi.h` in the main profile and
+`_STRING` through `winternl.h` in the satellite profile. A small real-header regression preserves
+that rejection on all three targets and in both TU orders; matching layouts do not establish
+matching native identities. This is a profile-dependent definition, not a source parsing failure.
+Canonical publication needs explicit TU/profile precedence with consistent dependency closures;
+agreement within an authoritative profile must still reject conflicting declarations.
+
+Run these readiness gates with
+`cargo test -p tool-win32 production_ -- --ignored --nocapture --test-threads=1`.
+The capture/agreement gate currently fails. Its requested-header inventory is not the complete
+transitive production root scope; WDK extraction, architecture merging, and publication remain
+separate gates. Failed probes are written to
+`target/win32-clang2/production-source/x64/capture-rejections.tsv`.
+
+Use `metadata/`'s RDL as the representation baseline, while
 allowing corrections supported by native evidence. The source comparison shows:
 
 - Toolhelp's named tags and typedefs are separately selected. `HEAPENTRY32` becomes an RDL typedef

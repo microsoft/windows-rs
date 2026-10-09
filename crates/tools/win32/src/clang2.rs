@@ -561,7 +561,7 @@ fn clear_outputs(output: &std::path::Path) -> std::io::Result<()> {
     Ok(())
 }
 
-fn exclusion(declaration: &DeclarationInfo) -> Option<&'static str> {
+pub(super) fn exclusion(declaration: &DeclarationInfo) -> Option<&'static str> {
     if declaration.record_member {
         Some("record-member declaration captured through its owner")
     } else if declaration.macro_alias.is_some() {
