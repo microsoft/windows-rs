@@ -246,31 +246,186 @@ fn union_and_anonymous_storage_matches_compiler_evidence() {
 }
 
 #[test]
-fn union_and_anonymous_calls_by_value_remain_rejected() {
-    for (root, declaration) in [
+fn union_parameter_signatures_agree_and_roundtrip_on_all_targets() {
+    let source = include_str!("../input/union_calls.h");
+    let roots = [
+        "UnionMeasure",
+        "UnionInvoke",
+        "UnionObject",
+        "UnionVirtualInvoke",
+    ];
+    for arch in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={arch}-pc-windows-msvc");
+        let mut baseline = None;
+        for reversed in [false, true] {
+            let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", source)];
+            if reversed {
+                inputs.reverse();
+            }
+            let plan = capture(inputs, &["-x", "c++", &target], &roots)
+                .unwrap()
+                .resolve()
+                .unwrap()
+                .project(&options())
+                .unwrap();
+            if let Some(baseline) = &baseline {
+                assert_eq!(baseline, &plan.rdl());
+            } else {
+                baseline = Some(plan.rdl());
+            }
+            compile(
+                if arch == "i686" {
+                    "union_calls_x86"
+                } else {
+                    "union_calls"
+                },
+                &plan,
+            );
+            let out = std::path::Path::new(env!("OUT_DIR"));
+            let winmd = out.join(format!("union-parameters-{arch}-{reversed}.winmd"));
+            windows_rdl::reader()
+                .input_text(&plan.rdl())
+                .output(&winmd)
+                .write()
+                .unwrap();
+            let original = std::fs::read(&winmd).unwrap();
+            let index = Index::new(vec![
+                windows_metadata::reader::File::new(original.clone()).unwrap(),
+            ]);
+            let method = index
+                .expect("Test", "Apis")
+                .methods()
+                .find(|method| method.name() == "UnionMeasure")
+                .unwrap();
+            let signature = method.signature(&[]);
+            assert_eq!(signature.return_type, Type::F64);
+            assert_eq!(
+                signature.types,
+                [
+                    Type::U32,
+                    Type::F64,
+                    Type::value_named("Test", "AbiByte"),
+                    Type::value_named("Test", "AbiHalf"),
+                    Type::value_named("Test", "AbiWord"),
+                    Type::value_named("Test", "AbiWide"),
+                    Type::value_named("Test", "AbiLarge"),
+                    Type::value_named("Test", "AbiHuge"),
+                    Type::value_named("Test", "AbiAnonymous"),
+                    Type::F64,
+                    Type::U32,
+                ],
+            );
+            let roundtrip = winmd.with_extension("rdl");
+            windows_rdl::writer()
+                .input_bytes(&original)
+                .output(&roundtrip)
+                .write()
+                .unwrap();
+            windows_rdl::reader()
+                .input(&roundtrip)
+                .output(&winmd)
+                .write()
+                .unwrap();
+            assert_eq!(original, std::fs::read(&winmd).unwrap());
+        }
+        for (root, declaration) in [
+            (
+                "ReturnUnion",
+                "extern \"C\" AbiWide ReturnUnion(AbiWide input);",
+            ),
+            (
+                "ReturnAnonymous",
+                "extern \"C\" AbiAnonymous ReturnAnonymous(AbiAnonymous input);",
+            ),
+        ] {
+            let snapshot = capture(
+                [Input::new("result.hpp", format!("{source}\n{declaration}"))],
+                &["-x", "c++", &target],
+                &[root],
+            )
+            .unwrap();
+            let error = snapshot
+                .resolve()
+                .unwrap()
+                .project(&options())
+                .unwrap_err()
+                .to_string();
+            assert!(
+                error.contains("by-value unions or anonymous records"),
+                "{error}"
+            );
+        }
+    }
+}
+
+#[test]
+fn sdk_stream_retains_by_value_seek_displacement() {
+    for arch in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={arch}-pc-windows-msvc");
+        let snapshot = sdk_capture(&target, "#include <objidl.h>", &["IStream"]);
+        let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+        let index = compile("stream", &plan);
+        let stream = index.expect("Test", "IStream");
+        let seek = stream
+            .methods()
+            .find(|method| method.name() == "Seek")
+            .unwrap();
+        let signature = seek.signature(&[]);
+        assert_eq!(
+            signature.types[0],
+            Type::value_named("Test", "_LARGE_INTEGER")
+        );
+        assert_eq!(signature.types[1], Type::U32);
+        assert_eq!(
+            signature.types[2],
+            Type::PtrMut(Box::new(Type::value_named("Test", "_ULARGE_INTEGER")), 1),
+        );
+        assert!(
+            seek.params_by_sequence(3).unwrap().params()[2]
+                .unwrap()
+                .is_optional()
+        );
+    }
+}
+
+#[test]
+fn union_parameters_do_not_enable_unproven_aggregate_results() {
+    for (root, declaration, reason) in [
         (
             "UseChoice",
             "extern \"C\" void UseChoice(LayoutChoice value);",
+            None,
         ),
-        ("ReturnChoice", "extern \"C\" LayoutChoice ReturnChoice();"),
+        (
+            "ReturnChoice",
+            "extern \"C\" LayoutChoice ReturnChoice();",
+            Some("by-value unions or anonymous records"),
+        ),
         (
             "UsePacket",
             "extern \"C\" void UsePacket(LayoutPacket value);",
+            Some("by-value calls with adjusted record layouts"),
         ),
-        ("ReturnPacket", "extern \"C\" LayoutPacket ReturnPacket();"),
+        (
+            "ReturnPacket",
+            "extern \"C\" LayoutPacket ReturnPacket();",
+            Some("by-value unions or anonymous records"),
+        ),
         (
             "Callback",
             "typedef LayoutChoice (*Callback)(LayoutChoice value);",
+            Some("by-value unions or anonymous records"),
         ),
     ] {
         let source = format!("{}\n{declaration}", include_str!("../input/layouts.h"));
         let snapshot = capture([Input::new("layouts.hpp", source)], ARGS, &[root]).unwrap();
         let resolved = snapshot.resolve().unwrap();
-        let error = resolved.project(&options()).unwrap_err().to_string();
-        assert!(
-            error.contains("by-value unions or anonymous records"),
-            "{error}"
-        );
+        if let Some(reason) = reason {
+            let error = resolved.project(&options()).unwrap_err().to_string();
+            assert!(error.contains(reason), "{error}");
+        } else {
+            resolved.project(&options()).unwrap();
+        }
     }
     let snapshot = capture(
         [Input::new(
@@ -282,11 +437,7 @@ fn union_and_anonymous_calls_by_value_remain_rejected() {
     )
     .unwrap();
     let resolved = snapshot.resolve().unwrap();
-    let error = resolved.project(&options()).unwrap_err().to_string();
-    assert!(
-        error.contains("by-value unions or anonymous records"),
-        "{error}"
-    );
+    resolved.project(&options()).unwrap();
 }
 
 #[test]

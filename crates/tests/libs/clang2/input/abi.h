@@ -1,6 +1,7 @@
 #include "enums.h"
 #include "layouts.h"
 #include "packed.h"
+#include "union_calls.h"
 
 struct AbiPacket {
     unsigned char tag;

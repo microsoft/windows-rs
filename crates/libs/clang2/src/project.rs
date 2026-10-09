@@ -4,6 +4,12 @@ mod buffer;
 mod record;
 use record::*;
 
+#[derive(Clone, Copy, Eq, Ord, PartialEq, PartialOrd)]
+enum CallPosition {
+    Parameter,
+    Result,
+}
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ReferenceKind {
     Value,
@@ -312,20 +318,26 @@ impl Plan {
     fn unproven_record(
         &self,
         ty: &ProjectedType,
-        checked: &mut BTreeMap<String, Option<&'static str>>,
+        checked: &mut BTreeMap<(String, CallPosition), Option<&'static str>>,
+        position: CallPosition,
     ) -> Option<&'static str> {
         const ADJUSTED: &str =
             "by-value calls with adjusted record layouts require native ABI coverage";
         let ty = ty.contract();
         match ty {
             ProjectedType::Padding(_) => return Some(ADJUSTED),
+            ProjectedType::InlineRecord(record) if position == CallPosition::Parameter => {
+                return self.unproven_record_fields(record, checked, position);
+            }
             ProjectedType::InlineRecord(_) => {
                 return Some("by-value unions or anonymous records require native ABI coverage");
             }
             ProjectedType::RecordReference(..) => {
                 return Some("by-value external record calls require native ABI coverage");
             }
-            ProjectedType::Array { element, .. } => return self.unproven_record(element, checked),
+            ProjectedType::Array { element, .. } => {
+                return self.unproven_record(element, checked, position);
+            }
             _ => {}
         }
         let ProjectedType::Named(name, layout) = ty else {
@@ -334,27 +346,40 @@ impl Plan {
         if layout.is_none() {
             return Some("by-value incomplete record calls require a native layout");
         }
-        if let Some(adjusted) = checked.get(name) {
+        let key = (name.clone(), position);
+        if let Some(adjusted) = checked.get(&key) {
             return *adjusted;
         }
         let reason = match self.items.get(name) {
             Some(Item::Record(record)) => {
-                if record.kind == RecordKind::Union || record.anonymous_fields {
-                    Some("by-value unions or anonymous records require native ABI coverage")
-                } else if record.alignment.is_some() || record.packing.is_some() || record.bitfields
+                if position == CallPosition::Result
+                    && (record.kind == RecordKind::Union || record.anonymous_fields)
                 {
-                    Some(ADJUSTED)
+                    Some("by-value unions or anonymous records require native ABI coverage")
                 } else {
-                    record
-                        .fields
-                        .iter()
-                        .find_map(|(_, _, ty)| self.unproven_record(ty, checked))
+                    self.unproven_record_fields(record, checked, position)
                 }
             }
             _ => None,
         };
-        checked.insert(name.clone(), reason);
+        checked.insert(key, reason);
         reason
+    }
+
+    fn unproven_record_fields(
+        &self,
+        record: &Record,
+        checked: &mut BTreeMap<(String, CallPosition), Option<&'static str>>,
+        position: CallPosition,
+    ) -> Option<&'static str> {
+        if record.alignment.is_some() || record.packing.is_some() || record.bitfields {
+            Some("by-value calls with adjusted record layouts require native ABI coverage")
+        } else {
+            record
+                .fields
+                .iter()
+                .find_map(|(_, _, ty)| self.unproven_record(ty, checked, position))
+        }
     }
 
     fn validate_calls(&self) -> Result<(), Error> {
@@ -368,14 +393,20 @@ impl Plan {
                     parameters, result, ..
                 } => parameters
                     .iter()
-                    .find_map(|(_, _, ty)| self.unproven_record(ty, &mut checked))
-                    .or_else(|| self.unproven_record(result, &mut checked)),
+                    .find_map(|(_, _, ty)| {
+                        self.unproven_record(ty, &mut checked, CallPosition::Parameter)
+                    })
+                    .or_else(|| self.unproven_record(result, &mut checked, CallPosition::Result)),
                 Item::Interface { methods, .. } => {
                     methods.iter().find_map(|(_, _, parameters, result)| {
                         parameters
                             .iter()
-                            .find_map(|(_, _, ty)| self.unproven_record(ty, &mut checked))
-                            .or_else(|| self.unproven_record(result, &mut checked))
+                            .find_map(|(_, _, ty)| {
+                                self.unproven_record(ty, &mut checked, CallPosition::Parameter)
+                            })
+                            .or_else(|| {
+                                self.unproven_record(result, &mut checked, CallPosition::Result)
+                            })
                     })
                 }
                 _ => None,

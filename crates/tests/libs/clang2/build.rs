@@ -717,6 +717,8 @@ fn build_abi() {
     println!("cargo:rerun-if-changed=input/layouts.h");
     println!("cargo:rerun-if-changed=input/layouts.cpp");
     println!("cargo:rerun-if-changed=input/packed.h");
+    println!("cargo:rerun-if-changed=input/union_calls.h");
+    println!("cargo:rerun-if-changed=input/union_calls.cpp");
     helpers::ensure_libclang();
     let target = format!("--target={}", std::env::var("TARGET").unwrap());
     let snapshot = windows_clang2::capture(
@@ -728,6 +730,10 @@ fn build_abi() {
         &[
             "AbiLayout",
             "AbiRoundtrip",
+            "UnionMeasure",
+            "UnionInvoke",
+            "UnionObject",
+            "UnionVirtualInvoke",
             "AbiGet",
             "AbiCall",
             "ConvertEnum",
@@ -777,5 +783,6 @@ fn build_abi() {
         .warnings_into_errors(true)
         .file("input/abi.cpp")
         .file("input/layouts.cpp")
+        .file("input/union_calls.cpp")
         .compile("clang2_abi");
 }

@@ -110,20 +110,20 @@ fn scoped_publication_does_not_hide_native_or_name_conflicts() {
             let error = snapshot.resolve().err().unwrap().to_string();
             assert!(error.contains("conflicting native declarations"), "{error}");
         }
-        for (root, reason) in [
-            ("Collision", "multiple native entities"),
-            ("ConsumeUnion", "by-value unions"),
+        let snapshot = capture([Input::new("a.hpp", SOURCE)], args, &["Collision"]).unwrap();
+        let error = snapshot
+            .resolve()
+            .unwrap()
+            .project(&options())
+            .unwrap_err()
+            .to_string();
+        assert!(error.contains("multiple native entities"), "{error}");
+        for root in [
+            "First::Shared",
+            "First::Alias",
+            "First::Kind",
+            "ConsumeUnion",
         ] {
-            let snapshot = capture([Input::new("a.hpp", SOURCE)], args, &[root]).unwrap();
-            let error = snapshot
-                .resolve()
-                .unwrap()
-                .project(&options())
-                .unwrap_err()
-                .to_string();
-            assert!(error.contains(reason), "{root}: {error}");
-        }
-        for root in ["First::Shared", "First::Alias", "First::Kind"] {
             let snapshot = capture([Input::new("a.hpp", SOURCE)], args, &[root]).unwrap();
             let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
             assert!(plan.rdl().contains(&root.replace("::", "_")));

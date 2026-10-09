@@ -1,0 +1,50 @@
+#[win32]
+mod Test {
+    struct AbiAnonymous {
+        Anonymous0: union {
+            bits: u64,
+            real: f64,
+        },
+        tail: struct {
+            value: u32,
+            tag: u32,
+        },
+    }
+    union AbiByte {
+        bits: u8,
+        signed_bits: i8,
+    }
+    union AbiHalf {
+        bits: u16,
+        signed_bits: i16,
+    }
+    union AbiHuge {
+        bits: [u64; 3],
+        reals: [f64; 3],
+    }
+    union AbiLarge {
+        bits: [u64; 2],
+        reals: [f64; 2],
+    }
+    union AbiWide {
+        bits: u64,
+        real: f64,
+    }
+    union AbiWord {
+        bits: u32,
+        real: f32,
+    }
+    #[guid(0xb5b15b61_4ef2_40ab_9723_61b6b4e8e927)]
+    interface IUnionAbi {
+        fn Measure(&self, head: u32, first: f64, a: AbiByte, b: AbiHalf, c: AbiWord, d: AbiWide, e: AbiLarge, f: AbiHuge, g: AbiAnonymous, last: f64, tail: u32) -> f64;
+    }
+    extern "C" fn UnionCallback(head: u32, first: f64, a: AbiByte, b: AbiHalf, c: AbiWord, d: AbiWide, e: AbiLarge, f: AbiHuge, g: AbiAnonymous, last: f64, tail: u32) -> f64;
+    #[library("test.dll", import = "UnionInvoke")]
+    extern "C" fn UnionInvoke(callback: UnionCallback, head: u32, first: f64, a: AbiByte, b: AbiHalf, c: AbiWord, d: AbiWide, e: AbiLarge, f: AbiHuge, g: AbiAnonymous, last: f64, tail: u32) -> f64;
+    #[library("test.dll", import = "UnionMeasure")]
+    extern "C" fn UnionMeasure(head: u32, first: f64, a: AbiByte, b: AbiHalf, c: AbiWord, d: AbiWide, e: AbiLarge, f: AbiHuge, g: AbiAnonymous, last: f64, tail: u32) -> f64;
+    #[library("test.dll", import = "UnionObject")]
+    extern "C" fn UnionObject() -> IUnionAbi;
+    #[library("test.dll", import = "UnionVirtualInvoke")]
+    extern "C" fn UnionVirtualInvoke(object: IUnionAbi, head: u32, first: f64, a: AbiByte, b: AbiHalf, c: AbiWord, d: AbiWide, e: AbiLarge, f: AbiHuge, g: AbiAnonymous, last: f64, tail: u32) -> f64;
+}

@@ -35,7 +35,7 @@ pub fn audio(rdl_only: bool) -> Result<(), Box<dyn std::error::Error>> {
             },
         );
     }
-    imports(&mut options, &["mmdevapi.lib"])?;
+    imports(&mut options, ["mmdevapi.lib"])?;
     generate(
         "audio",
         &["mmdeviceapi.h", "endpointvolume.h"],
@@ -54,7 +54,10 @@ pub fn headers(headers: &[&str]) -> Result<(), Box<dyn std::error::Error>> {
         validate_headers(headers)?;
     }
     let mut options = header_options();
-    let provenance = imports(&mut options, IMPORT_LIBS)?;
+    let provenance = imports(
+        &mut options,
+        IMPORT_LIBS.iter().copied().chain(["windows.ui.lib"]),
+    )?;
     let output = std::path::Path::new("target\\win32-clang2");
     std::fs::create_dir_all(output)?;
     std::fs::write(output.join("imports.tsv"), provenance)?;
@@ -171,9 +174,9 @@ fn header_options() -> ProjectionOptions {
     options
 }
 
-fn imports(
+fn imports<'a>(
     options: &mut ProjectionOptions,
-    libraries: &[&str],
+    libraries: impl IntoIterator<Item = &'a str>,
 ) -> Result<String, Box<dyn std::error::Error>> {
     let dirs = sdk_lib_dirs();
     let mut provenance = String::from("source\tsymbol\tlibrary\ttarget\tselected\n");
@@ -748,6 +751,24 @@ mod tests {
              later.lib\t_Native@4\tlater.dll\t#7\tfalse\n\
              later.lib\tOrdinal\tlater.dll\t#7\ttrue\n"
         );
+    }
+
+    #[test]
+    fn sdk_control_input_imports_preserve_recorded_ordinals() {
+        let mut options = header_options();
+        let provenance = imports(&mut options, ["windows.ui.lib"]).unwrap();
+        for (symbol, ordinal) in [("CreateControlInput", 1601), ("CreateControlInputEx", 1603)] {
+            assert_eq!(
+                options.imports[symbol],
+                FunctionImport {
+                    library: "Windows.UI.dll".into(),
+                    target: windows_clang2::ImportTarget::Ordinal(ordinal),
+                }
+            );
+            assert!(provenance.contains(&format!(
+                "windows.ui.lib\t{symbol}\tWindows.UI.dll\t#{ordinal}\ttrue\n"
+            )));
+        }
     }
 
     #[test]

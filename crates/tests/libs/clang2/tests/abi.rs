@@ -265,6 +265,140 @@ fn aggregates_pass_and_return_by_value() {
     assert_packet(&input, &packet());
 }
 
+#[allow(clippy::too_many_arguments)]
+unsafe extern "C" fn union_callback(
+    head: u32,
+    first: f64,
+    a: AbiByte,
+    b: AbiHalf,
+    c: AbiWord,
+    d: AbiWide,
+    e: AbiLarge,
+    f: AbiHuge,
+    g: AbiAnonymous,
+    last: f64,
+    tail: u32,
+) -> f64 {
+    unsafe {
+        f64::from(head)
+            + first
+            + f64::from(a.bits) * 2.0
+            + f64::from(b.bits) * 3.0
+            + f64::from(c.real) * 5.0
+            + d.real * 7.0
+            + e.bits[0] as f64 * 11.0
+            + e.bits[1] as f64 * 13.0
+            + f.bits[0] as f64 * 17.0
+            + f.bits[1] as f64 * 19.0
+            + f.bits[2] as f64 * 23.0
+            + g.Anonymous0.real * 29.0
+            + f64::from(g.tail.value) * 31.0
+            + f64::from(g.tail.tag) * 37.0
+            + last * 41.0
+            + f64::from(tail) * 43.0
+    }
+}
+
+#[allow(clippy::too_many_arguments)]
+unsafe extern "system" fn union_virtual(
+    _: *mut c_void,
+    head: u32,
+    first: f64,
+    a: AbiByte,
+    b: AbiHalf,
+    c: AbiWord,
+    d: AbiWide,
+    e: AbiLarge,
+    f: AbiHuge,
+    g: AbiAnonymous,
+    last: f64,
+    tail: u32,
+) -> f64 {
+    unsafe { union_callback(head, first, a, b, c, d, e, f, g, last, tail) + 19.0 }
+}
+
+#[test]
+fn unions_pass_by_value_in_both_directions() {
+    let a = AbiByte { bits: 251 };
+    let b = AbiHalf { bits: 60001 };
+    let c = AbiWord { real: 1.25 };
+    let d = AbiWide { real: -2.75 };
+    let e = AbiLarge { bits: [17, 23] };
+    let f = AbiHuge { bits: [31, 43, 59] };
+    let g = AbiAnonymous {
+        Anonymous0: AbiAnonymous_0 { real: -3.25 },
+        tail: AbiAnonymous_1 { value: 67, tag: 71 },
+    };
+    let native = unsafe { UnionObject() };
+    assert!(!native.is_null());
+    let native_vtable = unsafe { &**native.cast::<*const IUnionAbi_Vtbl>() };
+    let rust_vtable = IUnionAbi_Vtbl {
+        Measure: union_virtual,
+    };
+    let mut rust_object = &rust_vtable;
+    for head in 0..256 {
+        let expected = f64::from(head) + 1.5 + 251.0 * 2.0 + 60001.0 * 3.0 + 1.25 * 5.0
+            - 2.75 * 7.0
+            + 17.0 * 11.0
+            + 23.0 * 13.0
+            + 31.0 * 17.0
+            + 43.0 * 19.0
+            + 59.0 * 23.0
+            - 3.25 * 29.0
+            + 67.0 * 31.0
+            + 71.0 * 37.0
+            - 4.5 * 41.0
+            + 73.0 * 43.0;
+        unsafe {
+            assert_eq!(
+                UnionMeasure(head, 1.5, a, b, c, d, e, f, g, -4.5, 73),
+                expected,
+            );
+            assert_eq!(
+                UnionInvoke(
+                    Some(union_callback),
+                    head,
+                    1.5,
+                    a,
+                    b,
+                    c,
+                    d,
+                    e,
+                    f,
+                    g,
+                    -4.5,
+                    73
+                ),
+                expected,
+            );
+            assert_eq!(
+                (native_vtable.Measure)(native, head, 1.5, a, b, c, d, e, f, g, -4.5, 73),
+                expected,
+            );
+            assert_eq!(
+                UnionVirtualInvoke(
+                    (&raw mut rust_object).cast(),
+                    head,
+                    1.5,
+                    a,
+                    b,
+                    c,
+                    d,
+                    e,
+                    f,
+                    g,
+                    -4.5,
+                    73,
+                ),
+                expected + 19.0,
+            );
+            assert_eq!(c.real, 1.25);
+            assert_eq!(e.bits, [17, 23]);
+            assert_eq!(g.Anonymous0.real, -3.25);
+        }
+    }
+}
+
 #[test]
 fn rust_calls_cpp_inherited_vtable() {
     let object = unsafe { AbiGet() };

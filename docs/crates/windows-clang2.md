@@ -418,8 +418,8 @@ retain their field names. Source annotations stay attached to the nested type or
 | Shape | Storage policy | Calling policy |
 | --- | --- | --- |
 | Ordinary struct | Exact compiler offsets, size, and alignment. | Existing ordinary by-value support. |
-| Union | Exact compiler size/alignment; all member offsets zero. | Pointer use only. |
-| Direct anonymous struct/union field | Checked recursively; existing nested RDL representation. | Enclosing by-value calls reject. |
+| Union | Exact compiler size/alignment; all member offsets zero. | Natural-layout parameters supported; union results reject. |
+| Direct anonymous struct/union field | Checked recursively; existing nested RDL representation. | Natural-layout parameters supported; enclosing results reject. |
 | Increased field/record alignment | Explicit padding and alignment attributes. | Adjusted by-value calls reject. |
 | Representable packed struct/union | Checked packing cap, offsets, size, and alignment. | Adjusted by-value calls reject, including through arrays and enclosing records. |
 | Unsigned MSVC struct bitfields | Checked allocation units and member offsets through existing RDL bitfield metadata. | Adjusted by-value calls reject. |
@@ -433,8 +433,8 @@ execution remains open. `packed.h` and `packed.rdl` cover caps 1/2/4, nested pac
 storage, arrays, pointers, explicit padding, and name collisions. Their metadata roundtrips pass
 on all three targets; 42 MSVC size/alignment/offset checks and pointer calls pass on x86/x64.
 Packed field access in the Rust native fixture uses unaligned reads/writes. `layouts_rejected.h`
-keeps unsupported bitfields rejected, including inside nested records. Function parameters, results,
-and callbacks keep the by-value rejection gate.
+keeps unsupported bitfields rejected, including inside nested records. Adjusted layouts still reject
+by value through parameters, results, callbacks, arrays, and enclosing records.
 
 `bitfields.h`/`bitfields.rdl` retain unsigned member positions, unnamed gaps, zero-width unit
 boundaries, backing-width changes, full-width words, packed units, and nested/array storage.
@@ -442,9 +442,10 @@ Metadata roundtrips agree on x86/x64/ARM64. `bitfields.cpp` checks 14 MSVC layou
 and direct member reads/writes against generated Rust accessors on x86/x64. Const and volatile
 qualifiers also reject through canonical typedef evidence; writable storage does not erase them.
 
-Selecting an alias for a direct anonymous member cannot remove the enclosing record's ABI gate.
-That fact is retained from native field ownership, not inferred from the output type spelling.
-`anonymous_by_value.h` covers that selected-alias path.
+Selecting an alias for a direct anonymous member retains its enclosing ownership and layout.
+`anonymous_by_value.h` covers that selected-alias path. Calling checks distinguish parameters from
+results, including in their recursive cache: admitting an input type must not admit the same type
+as an unproven result.
 
 One explicitly selected record alias owns the output name unless the named tag is also selected.
 This preserves `POINT`/`RECT` and permits `decltype` to select real nested WDK member types without
@@ -696,6 +697,15 @@ DLL export lookup or decorated import-name policy.
 The fixture also includes `enums.h`: record layout containing four enum representations, signed
 and unsigned enum values through a free function, and enum arguments/results through virtual calls
 in both directions execute on x64 and x86, in debug and release.
+
+`union_calls.h`/`union_calls.cpp` exercise natural-layout unions of 1/2/4/8/16/24 bytes and an enclosing
+anonymous record. Mixed integer/floating arguments cross free functions, callbacks, and virtual
+calls in both directions, including stack arguments. Generated bindings execute on x64/x86 in
+debug and release. Source agreement, exact signatures, and metadata roundtrips pass on all three
+targets; native ARM64 execution remains open. `stream.rdl` checks the real SDK `IStream` closure,
+including its by-value seek displacement and optional output position. Packed, aligned, bitfield,
+external, and incomplete by-value records retain their rejection gates, as do union/anonymous
+results and all aggregate-returning COM methods.
 
 An aggregate-returning virtual-method experiment exposed a downstream limit:
 `windows-bindgen`'s `CppMethod::write_abi` emits an explicit result pointer with a void return, and
@@ -1063,9 +1073,9 @@ activation identity is supplied by bundled animation metadata. UI Animation and 
 have separate translation units. Core COM types and `IDCompositionAnimation` are explicit external
 contracts, as appropriate for the crate's COM and graphics bridge.
 
-The DirectComposition interface has a by-value `LARGE_INTEGER` method that generic projection still
-rejects. This profile does not remove that ABI gate or pretend to support that call. Its exposed
-operation passes an interface pointer to native Animation; a C++ receiver checks that handoff.
+The profile keeps DirectComposition as an external interface contract. Its exposed operation passes
+an interface pointer to native Animation; a C++ receiver checks that handoff. Generic natural-layout
+union parameter coverage does not certify the unselected DirectComposition calls.
 Opaque animation activation classes use the typed `class_guids` publication policy. Their constants
 come from checked source UUID attributes; default class projection remains unchanged.
 
@@ -1076,7 +1086,7 @@ come from checked source UUID attributes; default class projection remains uncha
 | Native identity and slots | MSVC checks eight identities, all 13 selected method offsets, and keyframe size/alignment on x86/x64. |
 | Live COM behavior | x86/x64 execute exact-value linear and instantaneous transitions, accelerated storyboard sequencing, and native curve handoff. |
 | Actual generator | `tool-bindings` writes the committed animation bindings from `target/animation/Animation.winmd`; other generated bindings remain unchanged. |
-| Remaining scope | ARM64 execution, generic by-value union ABI, canonical Win32/WDK publication, and broad projection parity are not certified. |
+| Remaining scope | ARM64 execution, adjusted-layout and aggregate-result ABI, canonical Win32/WDK publication, and broad projection parity are not certified. |
 
 The `preserve_typedefs` policy retains written non-interface typedefs and prefers a unique typedef
 name for an unselected record or enum tag. It has no MIDL-prefix test or Animation symbol rules;
@@ -1402,20 +1412,20 @@ a nonzero exit.
 | Measure | Current semantic refresh |
 | --- | ---: |
 | Headers attempted | 369 |
-| Complete selected-root coverage | 73 |
-| Incomplete coverage | 296 |
+| Complete selected-root coverage | 76 |
+| Incomplete coverage | 293 |
 | Headers with some emitted output | 364 |
 | Headers failing before discovery inventory | 0 |
 | Known selected names | 103,719 |
-| Emitted selected names | 91,859 |
-| Rejected selected names | 11,860 |
+| Emitted selected names | 92,886 |
+| Rejected selected names | 10,833 |
 | Selected names blocked before projection/output | 0 |
 
 Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
 are not deduplicated APIs. Each header's supported roots must also pass combined projection and
 source ownership before being marked emitted. The refreshed run also checks combined WinMD
 compilation. Independent headers do not test agreement across the full manifest or across
-architectures. The definition-mode x64 debug refresh takes 409.5 seconds, including its Cargo
+architectures. The current x64 debug refresh takes 423.1 seconds, including its Cargo
 invocation; no controlled performance comparison is implied. A separate resource run
 takes 784.0 seconds, peaks at 735.9 MiB working set, and has 636.9 MiB sampled peak private memory
 (100 ms sampling). A serial header run is not a
@@ -1424,8 +1434,16 @@ Streaming disposal and an agreed resource budget remain open.
 More rejections can mean that formerly blocked roots now reach assessment, not that support regressed.
 
 Optional output counts add 137 emitted names across 16 profiles, with unchanged selection and no
-profile losing output. Many COM closures instead reach the existing by-value-union ABI gate;
-1,029 entries reject there.
+profile losing output. The subsequent definition-mode snapshot has 1,029 rejections at the
+union/anonymous by-value gate; natural-layout parameter coverage addresses that boundary separately
+from adjusted storage and aggregate results.
+
+Natural union/anonymous parameters and the two proven ordinal imports add 1,027 emitted names
+across 79 profiles, with unchanged selection, no output loss, and zero blocked roots. The parameter
+rule adds 1,025; import routing adds two. Gains include 112 in `mfidl.h`, 81 in `propvarutil.h`, and
+53 in `objidl.h`. `prntvpt.h`, `robuffer.h`, and `shcore.h` reach complete selected-root coverage.
+The rule checks record representation recursively, not SDK names, and keeps result validation
+separate.
 
 Source classification of the 9,399-entry declaration-only baseline finds 4,137 definition-macro
 entries and 5,262 explicit declarations. The SDK definition configuration adds 4,317 emitted names
@@ -1435,6 +1453,15 @@ is unchanged, no profile loses output, and no roots are blocked. `bthledef.h`, `
 the largest rejection bucket at 5,082 entries, including 1,860 RPC interface handles and the 14
 base-header definition boundaries above. These entries need source definitions or a separate
 imported-data representation, not fabricated metadata constants.
+
+An exact-symbol scan of all 461 pinned SDK x64 libraries classifies the 946 missing-import entries
+(938 distinct linker symbols). Only `CreateControlInput` and `CreateControlInputEx` have short-import
+code contracts: `windows.ui.lib` records `Windows.UI.dll` ordinals 1601 and 1603. The experimental
+library list includes that archive; `corewindow.h` emits both functions. Ordered cross-library
+precedence, code-only filtering, and candidate provenance are unchanged. `GetdfDIJoystick` has an
+ordinary COFF definition in `dinput8.lib`, not a short-import DLL contract. The other symbols have
+neither inspected form. These findings do not justify guessed DLL routes, proxy/stub exclusions,
+or source-name repairs.
 
 The baseline blocked-root boundaries below are absent from the current full-manifest snapshot:
 
@@ -1804,7 +1831,7 @@ expected rejections in fixtures. Do not broaden the slice silently as new cases 
 | 1 | Local COM and UUIDs from `unknwnbase.h` | Metadata case covered: local `IUnknown` and `IClassFactory`, IID, inheritance, method order, system calling conventions, pointer levels, and COM output attributes on three targets. Synthetic executable ABI coverage is in gate 6. |
 | 2 | SAL and MIDL relationships | Required/optional buffers, output valid-byte extents, decimal element constants, scalar strings, and MIDL prefix directions with SAL precedence are covered. Counted strings, indirect capacities, and other MIDL relationships remain. |
 | 3 | Constants and preprocessing | Fully initialized GUID/property-key shapes have native-byte and roundtrip coverage. Declaration-only data, redefinition/undefinition, final macro state, and poison-expression recovery remain. |
-| 4 | Record layout | Union, anonymous, packed, and unsigned MSVC bitfield storage have semantic and x86/x64 native coverage. Remaining bitfield contracts, inherited storage, and adjusted calling policies remain; adjusted/union/anonymous by-value calls reject. |
+| 4 | Record layout | Union, anonymous, packed, and unsigned MSVC bitfield storage have semantic and x86/x64 native coverage. Natural union/anonymous parameters have bidirectional native coverage; adjusted layouts and union/anonymous results still reject. Remaining bitfield contracts and inherited storage remain. |
 | 5 | Real multi-TU consumers | `tool-webview` and the header-driven `tool-win32 --clang2-audio` candidate run real consumers. Audio records every discovered declaration and emits per-header RDL, but 38 selected names still reject. Full Win32 cutover and a WDK case with UM references/enum overlays remain. |
 | 6 | Target and ABI coverage | Raw-binding layout, free aggregate calls, bidirectional COM-style dispatch, COM ownership, and eight BCrypt DLL imports execute on x64/x86. Native ARM64 execution, Windows COM activation, SDK-wide DLL routing, and aggregate-returning methods remain. |
 
