@@ -174,6 +174,252 @@ fn header_options() -> ProjectionOptions {
     options
 }
 
+pub(super) fn production_options(
+    libraries: &[String],
+    references: &windows_metadata::reader::Index,
+    output: &std::path::Path,
+) -> Result<(ProjectionOptions, BTreeSet<String>), Box<dyn std::error::Error>> {
+    use windows_metadata::reader::{Item, TypeCategory};
+    let mut options = header_options();
+    let mut ambiguous = BTreeSet::new();
+    for (namespace, name, ty) in references.iter() {
+        let kind = match ty.category() {
+            TypeCategory::Interface => ReferenceKind::Interface,
+            TypeCategory::Struct | TypeCategory::Enum => ReferenceKind::Value,
+            _ => continue,
+        };
+        let reference = TypeReference {
+            namespace: namespace.into(),
+            name: name.into(),
+            kind,
+        };
+        if let Some(previous) = options.references.insert(name.into(), reference)
+            && (previous.namespace != namespace || previous.name != name || previous.kind != kind)
+        {
+            ambiguous.insert(name.to_string());
+        }
+    }
+    options
+        .references
+        .retain(|name, _| !ambiguous.contains(name));
+    let mut excluded: BTreeSet<_> = options.references.keys().cloned().collect();
+    for (_, name, item) in references.iter_items() {
+        if matches!(item, Item::Fn(_) | Item::Const(_)) {
+            excluded.insert(name.into());
+        }
+    }
+    let mut provenance = String::from("source\tsymbol\tlibrary\ttarget\tselected\n");
+    for library in libraries {
+        append_imports(
+            &mut options,
+            library,
+            windows_rdl::implib::read(&std::fs::read(library)?)?,
+            &mut provenance,
+        )?;
+    }
+    std::fs::create_dir_all(output)?;
+    std::fs::write(output.join("imports.tsv"), provenance)?;
+    Ok((options, excluded))
+}
+
+pub(super) fn production_libraries(
+    libraries: &[&str],
+    directories: &[String],
+    output: &std::path::Path,
+) -> Result<Vec<String>, Box<dyn std::error::Error>> {
+    let mut paths = Vec::new();
+    let mut report = String::from("library\tstatus\tpath\n");
+    for library in libraries {
+        if let Some(path) = find_in_dirs(library, directories) {
+            report.push_str(&format!("{library}\tavailable\t{path}\n"));
+            paths.push(path);
+        } else {
+            report.push_str(&format!("{library}\tunavailable\t\n"));
+            eprintln!(
+                "clang2 {}: import archive `{library}` is not shipped for this target",
+                output.display()
+            );
+        }
+    }
+    std::fs::create_dir_all(output)?;
+    std::fs::write(output.join("libraries.tsv"), report)?;
+    if paths.is_empty() {
+        return Err("no production import archives are available".into());
+    }
+    Ok(paths)
+}
+
+pub(super) struct ScrapeResult {
+    pub functions: usize,
+    pub unsupported: Vec<String>,
+}
+
+pub(super) fn scrape(
+    inputs: Vec<HeaderInput>,
+    arguments: &[&str],
+    options: &ProjectionOptions,
+    excluded: &BTreeSet<String>,
+    output: &std::path::Path,
+) -> Result<ScrapeResult, Box<dyn std::error::Error>> {
+    clear_outputs(output)?;
+    std::fs::write(output.join("arguments.txt"), arguments.join("\n"))?;
+    let mut inventory = BTreeSet::new();
+    for input in &inputs {
+        std::fs::write(output.join(&input.name), &input.source)?;
+        inventory.extend(windows_clang2::discover_in_scope(
+            [Input::new(&input.name, &input.source)],
+            arguments,
+            &input.roots.iter().map(String::as_str).collect::<Vec<_>>(),
+            &input
+                .root_dirs
+                .iter()
+                .map(String::as_str)
+                .collect::<Vec<_>>(),
+            &input
+                .excluded_roots
+                .iter()
+                .map(String::as_str)
+                .collect::<Vec<_>>(),
+        )?);
+    }
+    let inventory: Vec<_> = inventory.into_iter().collect();
+    let mut roots = BTreeSet::new();
+    let mut outcomes = BTreeMap::new();
+    for declaration in &inventory {
+        if exclusion(declaration).is_some() {
+            continue;
+        }
+        let name = declaration.name.as_str();
+        if excluded.contains(name) {
+            outcomes.insert(name, ("excluded", "external metadata item".into()));
+        } else {
+            roots.insert(name);
+            outcomes.insert(name, ("blocked", "capture has not completed".into()));
+        }
+    }
+    report(output, &inventory, &outcomes);
+    let roots: Vec<_> = roots.into_iter().collect();
+    println!(
+        "clang2 {}: {} selected production roots",
+        output.display(),
+        roots.len()
+    );
+    let captured = windows_clang2::capture_report(
+        inputs
+            .into_iter()
+            .map(|input| Input::new(input.name, input.source)),
+        arguments,
+        &roots,
+    )
+    .inspect_err(|error| blocked(output, &inventory, &mut outcomes, "capture", error))?;
+    for (root, reason) in &captured.rejected {
+        outcomes.insert(root.as_str(), ("rejected", format!("capture: {reason}")));
+    }
+    report(output, &inventory, &outcomes);
+    let snapshot = captured
+        .snapshot
+        .as_ref()
+        .ok_or("no production native roots captured")?;
+    let assessment = snapshot
+        .assess()
+        .inspect_err(|error| blocked(output, &inventory, &mut outcomes, "resolution", error))?;
+    for (root, reason) in &assessment.rejected {
+        outcomes.insert(
+            root.as_str(),
+            ("rejected", format!("native availability: {reason}")),
+        );
+    }
+    report(output, &inventory, &outcomes);
+    let resolved = assessment
+        .resolved
+        .as_ref()
+        .ok_or("no available production native roots")?;
+    let projection = resolved.projection(options).inspect_err(|error| {
+        blocked(
+            output,
+            &inventory,
+            &mut outcomes,
+            "projection policy",
+            error,
+        );
+    })?;
+    let mut supported = Vec::new();
+    for root in &roots {
+        if outcomes[root].0 == "rejected" {
+            continue;
+        }
+        if let Some(reason) = projection_rejection(&projection, root) {
+            outcomes.insert(root, ("rejected", format!("projection: {reason}")));
+        } else {
+            supported.push(*root);
+        }
+    }
+    report(output, &inventory, &outcomes);
+    if supported.is_empty() {
+        return Err("no production roots can be projected".into());
+    }
+    let plan = projection.project_roots(&supported).inspect_err(|error| {
+        blocked(
+            output,
+            &inventory,
+            &mut outcomes,
+            "combined projection",
+            error,
+        );
+    })?;
+    if !plan.omitted().is_empty() {
+        return Err(format!(
+            "combined production projection omissions: {:?}",
+            plan.omitted()
+        )
+        .into());
+    }
+    let partitions = plan.rdl_by_header().inspect_err(|error| {
+        blocked(output, &inventory, &mut outcomes, "source ownership", error);
+    })?;
+    let mut names = BTreeSet::new();
+    for (header, text) in partitions {
+        let stem = rdl_partition_stem(&header);
+        if !names.insert(stem.clone()) {
+            return Err(format!("production source headers collide on partition `{stem}`").into());
+        }
+        std::fs::write(output.join("rdl").join(format!("{stem}.rdl")), text)?;
+    }
+    for root in &supported {
+        outcomes.insert(
+            root,
+            (
+                "projected",
+                "RDL staged; metadata compilation is separate".into(),
+            ),
+        );
+    }
+    report(output, &inventory, &outcomes);
+    let unsupported: Vec<_> = outcomes
+        .iter()
+        .filter(|(_, (status, _))| *status == "rejected")
+        .map(|(name, (_, reason))| format!("{name}: {reason}"))
+        .collect();
+    for reason in &unsupported {
+        eprintln!("clang2 {}: rejected {reason}", output.display());
+    }
+    let functions = inventory
+        .iter()
+        .filter(|item| {
+            item.kind == "FunctionDecl"
+                && outcomes
+                    .get(item.name.as_str())
+                    .is_some_and(|(status, _)| *status == "projected")
+        })
+        .map(|item| &item.name)
+        .collect::<BTreeSet<_>>()
+        .len();
+    Ok(ScrapeResult {
+        functions,
+        unsupported,
+    })
+}
+
 fn imports<'a>(
     options: &mut ProjectionOptions,
     libraries: impl IntoIterator<Item = &'a str>,
@@ -362,11 +608,7 @@ fn generate(
         if outcomes[root].0 == "rejected" {
             continue;
         }
-        let rejected = match projection.project_roots(&[root]) {
-            Ok(plan) if plan.omitted().is_empty() => None,
-            Ok(plan) => Some(format!("projection omissions: {:?}", plan.omitted())),
-            Err(error) => Some(error.to_string()),
-        };
+        let rejected = projection_rejection(&projection, root);
         if let Some(reason) = rejected {
             eprintln!("clang2 {name}: rejected {root}: {reason}");
             outcomes.insert(root, ("rejected", format!("projection: {reason}")));
@@ -533,11 +775,25 @@ fn compile_metadata(
     Ok(())
 }
 
-fn clear_outputs(output: &std::path::Path) -> std::io::Result<()> {
+fn projection_rejection(
+    projection: &windows_clang2::Projection<'_, '_>,
+    root: &str,
+) -> Option<String> {
+    match projection.project_roots(&[root]) {
+        Ok(plan) if plan.omitted().is_empty() => None,
+        Ok(plan) => Some(format!("projection omissions: {:?}", plan.omitted())),
+        Err(error) => Some(error.to_string()),
+    }
+}
+
+pub(super) fn clear_outputs(output: &std::path::Path) -> std::io::Result<()> {
     std::fs::create_dir_all(output.join("rdl"))?;
     for file in [
         "audio.rdl",
         "audio.winmd",
+        "Windows.Win32.winmd",
+        "Windows.Win32.km.winmd",
+        "Windows.Win32.merged.winmd",
         "src/bindings.rs",
         "inventory.tsv",
         "headers.tsv",
@@ -562,14 +818,16 @@ fn clear_outputs(output: &std::path::Path) -> std::io::Result<()> {
 }
 
 pub(super) fn exclusion(declaration: &DeclarationInfo) -> Option<&'static str> {
-    if declaration.record_member {
+    if declaration.kind == "StaticAssert" {
+        Some("compile-time assertion without a published declaration")
+    } else if declaration.record_member {
         Some("record-member declaration captured through its owner")
     } else if declaration.macro_alias.is_some() {
         Some("preprocessing alias of a native type or function")
     } else if declaration.macro_attribute {
         Some("declaration-attribute preprocessing helper")
     } else if declaration.macro_declaration {
-        Some("declaration-fragment preprocessing helper")
+        Some("declaration/statement-fragment preprocessing helper")
     } else if declaration.function_macro {
         Some("function-like preprocessing helper")
     } else if declaration.empty_macro {
@@ -629,6 +887,68 @@ fn blocked(
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn production_scrape_stages_supported_rdl_without_hiding_unrouted_functions() {
+        ensure_libclang();
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
+        let file = root.join("crates\\tests\\libs\\clang2\\input\\discovery\\production_scrape.h");
+        let output = std::env::temp_dir().join(format!(
+            "clang2-production-scrape-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos(),
+        ));
+        let result = scrape(
+            vec![HeaderInput {
+                name: "production.hpp".into(),
+                source: format!("#include \"{}\"\n", file.display()),
+                roots: vec![file.to_str().unwrap().into()],
+                root_dirs: vec![],
+                excluded_roots: vec![],
+            }],
+            &["-x", "c++", "--target=x86_64-pc-windows-msvc"],
+            &header_options(),
+            &BTreeSet::new(),
+            &output,
+        )
+        .unwrap();
+        assert_eq!(result.functions, 0);
+        assert_eq!(result.unsupported.len(), 1);
+        assert!(
+            result.unsupported[0].starts_with("Unrouted:"),
+            "{:?}",
+            result.unsupported
+        );
+        let inventory = std::fs::read_to_string(output.join("inventory.tsv")).unwrap();
+        assert!(inventory.contains("\tUnrouted\trejected\t"), "{inventory}");
+        assert!(
+            inventory.contains("\tProductionRecord\tprojected\t"),
+            "{inventory}"
+        );
+        let winmd = output.join("test.winmd");
+        windows_rdl::reader()
+            .input(output.join("rdl"))
+            .input(root.join(METADATA_SEED))
+            .input(root.join("crates\\libs\\clang2\\metadata.rdl"))
+            .output(&winmd)
+            .write()
+            .unwrap();
+        let index = windows_metadata::reader::Index::read(&winmd).unwrap();
+        assert_eq!(
+            index
+                .expect(ROOT, "ProductionRecord")
+                .fields()
+                .next()
+                .unwrap()
+                .ty(),
+            windows_metadata::Type::I32
+        );
+        drop(index);
+        std::fs::remove_dir_all(output).unwrap();
+    }
 
     #[test]
     fn semantic_metadata_gate_preserves_rdl_only_output() {
@@ -961,7 +1281,10 @@ mod tests {
         );
         assert_eq!(
             &rows[8][4..],
-            ["excluded", "declaration-fragment preprocessing helper"]
+            [
+                "excluded",
+                "declaration/statement-fragment preprocessing helper"
+            ]
         );
         std::fs::remove_file(output.join("inventory.tsv")).unwrap();
         std::fs::remove_dir(output).unwrap();

@@ -293,8 +293,13 @@ file.
 
 Experimental SDK prerequisites live in `tool-win32/src/header_profiles.rs`, not parser repairs.
 Keep requested-header file identity as the discovery root scope; dependencies only supply native
-declarations. Persist actual TU sources and arguments. The legacy input route does not use these
-profiles; do not bypass a native header's include contract with synthesized typedefs or guards.
+declarations. Persist actual TU sources and arguments. Grouped production inputs do not apply
+standalone prerequisites; do not bypass include contracts with synthesized typedefs or guards.
+
+The rewrite branch's default SDK and WDK paths use windows-clang2, without a clang1 dependency or
+fallback. Generated candidate RDL is validated against master, not kept stable by legacy repairs.
+Full replacement coverage and canonical TU/profile precedence remain open. Source and native-graph
+errors still fail explicitly; incomplete published candidates return a nonzero exit.
 
 Named callbacks retain compiler TypeRef-backed typedef edges, calling conventions, annotations,
 and pointer depth. Incomplete C records preserve nominal pointer identity but reject by-value

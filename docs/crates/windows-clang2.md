@@ -1315,11 +1315,37 @@ One local debug run, excluding Rust builds but including process startup and dep
 These are per-process OS peak-working-set counters sampled every 10 ms, not a large-input memory
 budget. The successful group's source generation was byte-identical on repetition.
 
-**The default production scraper remains on clang1.** Source completeness alone is not sufficient
-to replace the committed partitions.
+**The default SDK and WDK scraper uses clang2 on the rewrite branch.** `tool-win32` has no clang1
+dependency or fallback. It stages source, arguments, inventories, archive availability, exact
+import candidates, RDL, and WinMD under `target/win32-clang2/production`. The grouped SDK main
+profile includes declarations from actually included `um`/`shared` files, with the manifest's
+excluded headers removed; satellite roots retain their explicit file scope. Architectures run
+serially, using each target's import archives and preserving archive precedence.
+
+The ordinary `WINDOWS_CLANG=shellscalingapi.h,tlhelp32.h` route emits all 72 selected roots on
+x64, ARM64, and x86, compiles each WinMD, and merges six RDL partitions and the final WinMD.
+The x86 SDK does not ship `winhvplatform.lib` or `vertdll.lib`; availability is recorded rather
+than substituting x64 linker symbols. Missing non-inline imports remain rejected roots.
+The WDK profile uses `ntifs.h` before `wdm.h`; `offreg.h` uses a separate real Windows SDK prelude,
+not synthetic prerequisite typedefs.
+
+Default publication replaces `metadata/win32`, `metadata/wdk`, and the bundled WinMD after
+compilation and architecture/UM-KM merging. Supported candidate output can be published with
+explicit rejected-root inventories, but incomplete coverage still exits nonzero. Source errors,
+unowned probe errors, and unresolved native conflicts stop publication. Compare published RDL
+with `git diff master -- metadata/win32 metadata/wdk`; do not hand-repair generated partitions.
+Bounded `WINDOWS_CLANG` runs stage output without replacing the full committed snapshots.
+Source completeness alone does not establish replacement correctness.
+
+The full directory-scoped x64 run selects 155,564 roots. It stops during macro probing on
+unowned compiler diagnostics, before producing a resolved snapshot or publishing metadata.
+This broader scope exposes non-value macros and diagnostic-ownership cases absent from the
+requested-header-only preflight. Static assertions are compiler checks, not named roots;
+statement-fragment macros such as `__try {` are reported as preprocessing helpers. Remaining
+probe failures stay explicit rather than certifying an error-bearing AST.
 
 The manual `tool-win32` tests with the `production_` prefix reuse its grouped main/satellite
-inputs and compiler arguments, substituting the clang2 SAL adapter. Strict source parsing passes
+inputs and compiler arguments. Strict source parsing passes
 x64, ARM64, and x86 in about 10 seconds each. The x64 capture selects 102,610 distinct requested-header
 roots, takes 108.43 seconds across nine parses, and records 1,515 rejected macro probes. Native
 agreement then fails: `STRING` aliases `_LSA_STRING` through `ntsecapi.h` in the main profile and
@@ -1623,7 +1649,7 @@ The tool audit separates source-derived policy from repairs that would conceal m
 | --- | --- |
 | Dependency types | Generic header runs use local captured closure, not external metadata bindings. Audio retains separate explicit external contracts. |
 | DLL routing | Full ordered SDK import libraries supply exact COFF symbols and export targets; all candidates are reported. Conflicting entries within an archive reject, including shadowed archives. |
-| Legacy production repairs | `LibraryMap` applies `LIBRARY_OVERRIDES`, including synthetic `InitializeXamlDiagnosticsEx` routing, and source-name fallback. The clang2 header route adopts neither. |
+| Production DLL policy | Symbol-specific library overrides and source-name fallback are absent. An entry point without an archive-derived contract remains rejected. |
 | Pointer-sized typedefs | Explicit SDK semantic contracts survive only after compiler width, alignment, and signedness checks. Width alone cannot establish `usize`/`isize` intent. |
 | Selection | Inline helpers, empty markers, attribute/declaration fragments, declaration aliases, and record-member roots have reported exclusion reasons. Reserved names do not imply exclusion. |
 | Input construction | Shared `clang_inputs` supplies source/include profiles; no legacy extraction result or parser fallback is consumed. Individual headers still need verified prerequisites. |
@@ -1642,7 +1668,7 @@ Next gates are verified header profiles and record-layout coverage with native e
 Production replacement also
 requires combined cross-header and architecture agreement, semantic RDL compilation, public
 partition/name policy, DLL-contract checks, and resource budgets. The manifest run exposes the
-remaining work; it does not justify switching the production Win32/WDK backend yet.
+remaining work; the branch's default backend cutover does not certify complete replacement.
 
 The focused callable and nested-record refresh runs the mandatory semantic compilation gate without
 external OLE value bindings. These profiles remain incomplete:

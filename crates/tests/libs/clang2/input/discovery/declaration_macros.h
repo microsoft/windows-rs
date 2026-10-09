@@ -24,3 +24,8 @@ EndDeclarations
 
 PublicApi void Imported(int value);
 #define CallExpression Native(17)
+#define BeginTry __try {
+#define BeginTryAlias BeginTry
+#define BeginConditional if (true) {
+#define BeginConditionalAlias BeginConditional
+#define ReturnStatement return 42

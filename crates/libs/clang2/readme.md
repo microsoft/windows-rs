@@ -1,7 +1,8 @@
 # windows-clang2
 
 An experimental replacement for `windows-clang`, built directly on
-libclang. It drives `tool-webview`; the other production scrapers still use the existing crate.
+libclang. It drives `tool-webview` and the default SDK/WDK paths in `tool-win32`. Full Win32
+replacement coverage and canonical header-profile policy remain incomplete on the rewrite branch.
 
 The viability decision is to proceed with this architecture. Remaining work is source-to-RDL
 coverage and incremental scraper cutover, not another downstream runtime-validation campaign.
@@ -38,7 +39,9 @@ The caller must make libclang available through `LIBCLANG_PATH` or its normal lo
 Repository tests and the inspection example use the shared pinned dependency helper.
 
 `discover` inventories specified headers by exact Clang file identity, leaving selection policy to
-the caller. After the complete captured graph passes resolution, `Resolved::project_roots` can
+the caller. `discover_in_scope` also selects actually included files under canonical directories;
+excluded files take precedence over explicit roots and directory scope. After the complete captured
+graph passes resolution, `Resolved::project_roots` can
 assess selected subsets without reparsing or suppressing native conflicts. Combined projection
 still checks alias/output-name conflicts. `Plan::rdl_by_header` emits source-owned partitions,
 including dependency headers, separately from native identity and spelling evidence.

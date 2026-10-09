@@ -28,7 +28,7 @@ pub struct DeclarationInfo {
     pub macro_alias: Option<String>,
     /// Declaration attributes and object-like wrappers beginning with an attribute macro.
     pub macro_attribute: bool,
-    /// Non-value declaration fragments and object-like wrappers beginning with such fragments.
+    /// Non-value declaration or statement fragments and object-like wrappers beginning with them.
     pub macro_declaration: bool,
 }
 
@@ -41,9 +41,37 @@ pub fn discover(
     arguments: &[&str],
     headers: &[&str],
 ) -> Result<Vec<DeclarationInfo>, Error> {
-    if headers.is_empty() {
-        return Err(Error("discovery requires header files".into()));
+    discover_in_scope(inputs, arguments, headers, &[], &[])
+}
+
+/// Inventories specified headers and included files under the specified directories.
+///
+/// Excluded files take precedence over both explicit headers and directories. Explicit headers
+/// must be included by at least one input. Directory scope does not include headers absent from
+/// the compiler's inclusion graph.
+pub fn discover_in_scope(
+    inputs: impl IntoIterator<Item = Input>,
+    arguments: &[&str],
+    headers: &[&str],
+    directories: &[&str],
+    excluded: &[&str],
+) -> Result<Vec<DeclarationInfo>, Error> {
+    if headers.is_empty() && directories.is_empty() {
+        return Err(Error(
+            "discovery requires header files or directories".into(),
+        ));
     }
+    let directories: Vec<_> = directories
+        .iter()
+        .map(|directory| {
+            std::fs::canonicalize(directory)
+                .map_err(|error| Error(format!("discovery directory `{directory}`: {error}")))
+        })
+        .collect::<Result<_, _>>()?;
+    let excluded = excluded
+        .iter()
+        .map(|header| c_string(header))
+        .collect::<Result<Vec<_>, _>>()?;
     let headers = headers
         .iter()
         .map(|header| c_string(header))
@@ -53,12 +81,23 @@ pub fn discover(
     let mut result = BTreeSet::new();
     for input in inputs {
         let unit = Unit::parse(&input, arguments)?;
-        let files: Vec<_> = headers
+        let mut included: Vec<CXFile> = Vec::new();
+        extern "C" fn visit(file: CXFile, _: *mut CXSourceLocation, _: u32, data: CXClientData) {
+            unsafe { &mut *data.cast::<Vec<CXFile>>() }.push(file);
+        }
+        unsafe {
+            clang_getInclusions(unit.raw, visit, (&mut included as *mut Vec<CXFile>).cast());
+        }
+        let mut files: Vec<_> = headers
             .iter()
             .enumerate()
             .filter_map(|(index, header)| {
                 let file = unsafe { clang_getFile(unit.raw, header.as_ptr()) };
-                if file.is_null() {
+                if file.is_null()
+                    || !included
+                        .iter()
+                        .any(|included| unsafe { clang_File_isEqual(file, *included) != 0 })
+                {
                     None
                 } else {
                     found.insert(index);
@@ -66,6 +105,41 @@ pub fn discover(
                 }
             })
             .collect();
+        if !directories.is_empty() {
+            let mut seen = BTreeSet::new();
+            let input_name = c_string(&input.name)?;
+            let main_file = unsafe { clang_getFile(unit.raw, input_name.as_ptr()) };
+            for file in included {
+                if !seen.insert(file as usize) {
+                    continue;
+                }
+                if !main_file.is_null()
+                    && unsafe { clang_File_isEqual(file, main_file) != 0 }
+                    && !std::path::Path::new(&input.name).is_file()
+                {
+                    continue;
+                }
+                let name = string(unsafe { clang_getFileName(file) });
+                let path = std::fs::canonicalize(&name)
+                    .map_err(|error| Error(format!("included discovery file `{name}`: {error}")))?;
+                if directories
+                    .iter()
+                    .any(|directory| path.starts_with(directory))
+                {
+                    files.push(file);
+                }
+            }
+        }
+        let excluded: Vec<_> = excluded
+            .iter()
+            .map(|header| unsafe { clang_getFile(unit.raw, header.as_ptr()) })
+            .filter(|file| !file.is_null())
+            .collect();
+        files.retain(|file| {
+            !excluded
+                .iter()
+                .any(|excluded| unsafe { clang_File_isEqual(*file, *excluded) != 0 })
+        });
         let root = unsafe { clang_getTranslationUnitCursor(unit.raw) };
         let declarations = declarations(root);
         let macro_definitions: Vec<_> = children(root)
@@ -282,14 +356,35 @@ fn macro_definition(unit: CXTranslationUnit, cursor: CXCursor) -> MacroDefinitio
             .get(1..3)
             .is_some_and(|tokens| tokens == ["[", "["]));
     let declaration = !function
-        && (spellings.get(1).is_some_and(|token| token == "extern")
-            || matches!(
-                spellings.get(1..),
-                Some([token])
-                    if matches!(token.as_str(),
-                        "noexcept" | "__cdecl" | "__stdcall" | "__fastcall" |
-                        "__thiscall" | "__vectorcall" | "{" | "}")
-            ));
+        && (spellings.get(1).is_some_and(|token| {
+            matches!(
+                token.as_str(),
+                "extern"
+                    | "try"
+                    | "__try"
+                    | "catch"
+                    | "__except"
+                    | "__finally"
+                    | "if"
+                    | "else"
+                    | "for"
+                    | "while"
+                    | "do"
+                    | "switch"
+                    | "case"
+                    | "break"
+                    | "continue"
+                    | "return"
+                    | "goto"
+                    | "throw"
+            )
+        }) || matches!(
+            spellings.get(1..),
+            Some([token])
+                if matches!(token.as_str(),
+                    "noexcept" | "__cdecl" | "__stdcall" | "__fastcall" |
+                    "__thiscall" | "__vectorcall" | "{" | "}")
+        ));
     unsafe { clang_disposeTokens(unit, tokens, count) };
     MacroDefinition {
         function,

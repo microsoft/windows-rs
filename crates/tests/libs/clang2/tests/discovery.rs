@@ -1,12 +1,55 @@
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::Path;
-use windows_clang2::{Input, ProjectionOptions, capture, discover};
+use windows_clang2::{Input, ProjectionOptions, capture, discover, discover_in_scope};
 use windows_metadata::{
     Value,
     reader::{Index, Item},
 };
 
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
+
+#[test]
+fn directory_scope_uses_included_files_and_honors_explicit_exclusions() {
+    let directory = Path::new(env!("CARGO_MANIFEST_DIR")).join("input\\discovery");
+    let excluded = directory.join("macro_aliases.h");
+    let source = format!(
+        "#include \"{}\"\n#include \"{}\"\n#include \"{}\"\n",
+        directory.join("record_members.h").display(),
+        excluded.display(),
+        Path::new(env!("CARGO_MANIFEST_DIR"))
+            .join("input\\translation_units\\shared.h")
+            .display(),
+    );
+    let inventory = discover_in_scope(
+        [Input::new("directory-scope.hpp", &source)],
+        ARGS,
+        &[excluded.to_str().unwrap()],
+        &[directory.to_str().unwrap()],
+        &[excluded.to_str().unwrap()],
+    )
+    .unwrap();
+    assert_eq!(
+        inventory
+            .iter()
+            .map(|item| item.name.as_str())
+            .collect::<BTreeSet<_>>(),
+        BTreeSet::from(["Outer", "Outer::Inner", "Outer::Mode"]),
+    );
+    let error = discover_in_scope(
+        [Input::new("missing-header.hpp", "")],
+        ARGS,
+        &[excluded.to_str().unwrap()],
+        &[directory.to_str().unwrap()],
+        &[],
+    )
+    .unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("discovery header was not included"),
+        "{error}"
+    );
+}
 
 #[test]
 fn record_members_remain_in_the_owning_native_closure() {
@@ -162,6 +205,11 @@ fn declaration_fragments_do_not_hide_macro_values_or_calls() {
             "ConventionAlias",
             "Noexcept",
             "NoexceptAlias",
+            "BeginTry",
+            "BeginTryAlias",
+            "BeginConditional",
+            "BeginConditionalAlias",
+            "ReturnStatement",
         ]
     );
     for name in [

@@ -7,7 +7,7 @@ mod native;
 use native::*;
 
 mod capture;
-pub use capture::{DeclarationInfo, capture, capture_report, discover};
+pub use capture::{DeclarationInfo, capture, capture_report, discover, discover_in_scope};
 
 mod project;
 mod validate;

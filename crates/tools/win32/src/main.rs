@@ -10,6 +10,7 @@ use helpers::*;
 /// point `--in` at this stable in-repo winmd (and the bundled `"default"` bindings resolve against
 /// it). Re-derived on every run; treat it as generated output.
 const MERGED_WINMD: &str = "crates/libs/default/Windows.Win32.winmd";
+const OUTPUT_DIR: &str = "target\\win32-clang2\\production";
 
 /// Where the per-header RDL snapshot is written. Unlike the binary winmd, the
 /// `.rdl` text is committed to the repository so the canonical Windows API surface
@@ -39,17 +40,15 @@ const SDK_VERSION: &str = "10.0.28000.2270";
 /// annotations, and constant expressions that rely on C++20 shift semantics are all understood.
 /// The target triple is set separately per architecture; the SDK include directories are added as
 /// `-isystem`.
-/// `-ferror-limit=0` disables clang's default ~20-error cap so a transitive-only projection header
-/// that fails to parse (tolerated by the scraper's scoped diagnostics) does not cause clang to drop
-/// the later declarations the scrape needs.
+/// `-ferror-limit=0` retains all diagnostics. Error-bearing ASTs are rejected by clang2.
 const CLANG_ARGS: [&str; 4] = ["-x", "c++", "-std=c++20", "-ferror-limit=0"];
 
 /// SAL capture shim, force-included (`-include`) ahead of the translation unit.
 /// Under a clang `*-windows-msvc` target the SDK's `<sal.h>` expands SAL to forms
 /// libclang drops, so SAL is otherwise invisible; this shim trips the real
 /// `<sal.h>` guard and then redefines the high-value macros as `annotate` stubs the
-/// scraper can read. See the file header in `sal.h` for details.
-const SAL_SHIM: &str = "crates/tools/win32/src/sal.h";
+/// scraper can read.
+const SAL_SHIM: &str = "crates/libs/clang2/src/sal.h";
 
 /// Prelude included ahead of every API header. `winsock2.h` precedes `windows.h` so
 /// its include guard suppresses the legacy `winsock.h` that `windows.h` would otherwise
@@ -72,10 +71,9 @@ const PRELUDE: &str = "#define SECURITY_WIN32\n#define WIN32_NO_STATUS\n#include
 /// translation unit (where `winusb.h` -> `initguid.h` leaves `INITGUID` defined). Parsed in
 /// their own satellite TU with this reset after every include, `INITGUID` stays undefined
 /// and `guiddef.h` re-derives `DEFINE_GUID` as a plain `extern const GUID` declaration that
-/// is harmless to repeat. The GUID values are read from the `DEFINE_GUID` macro
-/// arguments, so the declaration/definition distinction does not affect the captured
-/// metadata. (The main TU keeps definition mode so its wrapper-macro GUIDs - `vfw.h`'s
-/// `DEFINE_AVIGUID`, ... - whose values live only in the expanded initializer are preserved.)
+/// is harmless to repeat. Declaration-only GUIDs remain unavailable until a definition supplies
+/// compiler-owned values. The main TU keeps definition mode so its wrapper-macro GUIDs - `vfw.h`'s
+/// `DEFINE_AVIGUID`, ... - whose values live only in the expanded initializer are preserved.
 const GUID_RESET: &str = "\n#undef INITGUID\n#include <guiddef.h>";
 
 // The orchestration manifest describes which SDK headers to emit, partitioned by their defining
@@ -468,13 +466,11 @@ const HEADERS: &[&str] = &[
     "windows.ui.xaml.media.dxinterop.h",
     "windows.ui.xaml.hosting.desktopwindowxamlsource.h",
     "windows.ui.xaml.hosting.referencetracker.h",
-    // XAML diagnostics has no SDK import library. Its exported entry point is mapped by
-    // `LIBRARY_OVERRIDES`.
+    // XAML diagnostics has no SDK import library; its entry point remains unrouted.
     "xamlOM.h",
     "WindowsStorageCOM.h",
-    // Interop headers that `#include` a `winrt\` C++/WinRT projection header whose transitive
-    // closure fails to parse; the scraper tolerates errors in those out-of-scope projection
-    // headers and scrapes only the trivial interop interfaces from these in-scope headers
+    // Interop headers that include a `winrt\` C++/WinRT projection header. The complete
+    // transitive source must parse before the in-scope declarations can be captured
     // (capture names no projected type; composition names a few
     // `ABI::Windows::UI::Composition::*` interfaces resolved via the resolution winmd).
     "Windows.Graphics.Capture.Interop.h",
@@ -739,95 +735,6 @@ const IMPORT_LIBS: &[&str] = &[
     "vertdll.lib",
 ];
 
-/// Corrections for known defects in the pinned SDK import-library data.
-///
-/// `sdk` is the value that must be present before applying the correction. This makes an SDK
-/// update fail generation when upstream changes the mapping, prompting removal or revalidation
-/// instead of silently retaining a stale override.
-struct LibraryOverride {
-    symbol: &'static str,
-    sdk_library: Option<&'static str>,
-    corrected_library: &'static str,
-}
-
-const LIBRARY_OVERRIDES: &[LibraryOverride] = &[
-    LibraryOverride {
-        symbol: "DecodeRemotePointer",
-        sdk_library: Some("api-ms-win-core-util-l1-1-1.dll"),
-        corrected_library: "KernelBase.dll",
-    },
-    LibraryOverride {
-        symbol: "EncodeRemotePointer",
-        sdk_library: Some("api-ms-win-core-util-l1-1-1.dll"),
-        corrected_library: "KernelBase.dll",
-    },
-    LibraryOverride {
-        symbol: "OpenTraceFromBufferStream",
-        sdk_library: Some("ADVAPI32.dll"),
-        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
-    },
-    LibraryOverride {
-        symbol: "OpenTraceFromFile",
-        sdk_library: Some("ADVAPI32.dll"),
-        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
-    },
-    LibraryOverride {
-        symbol: "OpenTraceFromRealTimeLogger",
-        sdk_library: Some("ADVAPI32.dll"),
-        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
-    },
-    LibraryOverride {
-        symbol: "OpenTraceFromRealTimeLoggerWithAllocationOptions",
-        sdk_library: Some("ADVAPI32.dll"),
-        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
-    },
-    LibraryOverride {
-        symbol: "ProcessTraceAddBufferToBufferStream",
-        sdk_library: Some("ADVAPI32.dll"),
-        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
-    },
-    LibraryOverride {
-        symbol: "ProcessTraceBufferDecrementReference",
-        sdk_library: Some("ADVAPI32.dll"),
-        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
-    },
-    LibraryOverride {
-        symbol: "ProcessTraceBufferIncrementReference",
-        sdk_library: Some("ADVAPI32.dll"),
-        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
-    },
-    LibraryOverride {
-        symbol: "TraceConfigureLastBranchRecord",
-        sdk_library: Some("ADVAPI32.dll"),
-        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
-    },
-    LibraryOverride {
-        symbol: "GetRuntimeAttestationReport",
-        sdk_library: Some("KERNEL32.dll"),
-        corrected_library: "KernelBase.dll",
-    },
-    LibraryOverride {
-        symbol: "GetSystemLeapSecondInformation",
-        sdk_library: Some("KERNEL32.dll"),
-        corrected_library: "KernelBase.dll",
-    },
-    LibraryOverride {
-        symbol: "RestoreThreadPreferredUILanguages",
-        sdk_library: Some("KERNEL32.dll"),
-        corrected_library: "KernelBase.dll",
-    },
-    LibraryOverride {
-        symbol: "SetThreadPreferredUILanguages2",
-        sdk_library: Some("KERNEL32.dll"),
-        corrected_library: "KernelBase.dll",
-    },
-    LibraryOverride {
-        symbol: "InitializeXamlDiagnosticsEx",
-        sdk_library: None,
-        corrected_library: "Windows.UI.Xaml.dll",
-    },
-];
-
 fn main() {
     let time = std::time::Instant::now();
     let args: Vec<_> = std::env::args().skip(1).collect();
@@ -876,19 +783,23 @@ fn main() {
     }
 
     if let Some(headers) = std::env::var_os("WINDOWS_CLANG") {
-        if headers == "km" {
-            km::scrape(std::path::Path::new(
-                "target/win32-clang/Windows.Win32.winmd",
-            ));
-            return;
+        let rejected = if headers == "km" {
+            km::scrape(&std::path::Path::new(OUTPUT_DIR).join("Windows.Win32.winmd"))
+        } else {
+            scrape_um(&headers.to_string_lossy())
+        };
+        if rejected != 0 {
+            eprintln!(
+                "clang2 coverage is incomplete: {rejected} rejected architecture-root entries; see production inventories"
+            );
+            std::process::exit(1);
         }
-        scrape_um(&headers.to_string_lossy());
         return;
     }
 
-    scrape_um("all");
-    let output = std::path::Path::new("target/win32-clang");
-    km::scrape(&output.join("Windows.Win32.winmd"));
+    let um_rejected = scrape_um("all");
+    let output = std::path::Path::new(OUTPUT_DIR);
+    let km_rejected = km::scrape(&output.join("Windows.Win32.winmd"));
     replace_rdl(&output.join("rdl"), std::path::Path::new(RDL_DIR));
     replace_rdl(&output.join("km/rdl"), std::path::Path::new(km::RDL_DIR));
     std::fs::copy(output.join("Windows.Win32.merged.winmd"), MERGED_WINMD).unwrap();
@@ -896,6 +807,12 @@ fn main() {
         "Wrote `{MERGED_WINMD}` in {:.2}s",
         time.elapsed().as_secs_f32()
     );
+    if um_rejected + km_rejected != 0 {
+        eprintln!(
+            "Published incomplete clang2 candidate metadata: {um_rejected} SDK and {km_rejected} WDK rejected architecture-root entries; see production inventories"
+        );
+        std::process::exit(1);
+    }
 }
 
 fn replace_rdl(source: &std::path::Path, destination: &std::path::Path) {
@@ -988,7 +905,7 @@ fn replace_rdl(source: &std::path::Path, destination: &std::path::Path) {
     }
 }
 
-fn scrape_um(headers: &str) {
+fn scrape_um(headers: &str) -> usize {
     assert_no_duplicate_headers();
     let full = headers.trim() == "all";
     let headers: Vec<_> = if full {
@@ -1015,47 +932,27 @@ fn scrape_um(headers: &str) {
         .cloned()
         .flat_map(|dir| ["-isystem".to_string(), dir])
         .collect();
-    let lib_dirs = sdk_lib_dirs();
-    let import_libs: Vec<String> = IMPORT_LIBS
-        .iter()
-        .map(|lib| resolve(lib, &lib_dirs, "import library", "pinned SDK lib"))
-        .collect();
     let archs = canonical_archs();
     let resource_dir = (archs.len() > 1).then(clang_resource_dir);
-    let output_dir = std::path::Path::new("target/win32-clang");
-    std::fs::create_dir_all(output_dir).unwrap();
-    let references = windows_clang::MetadataReferences::new([windows_metadata::reader::File::new(
-        windows_default::WINRT.to_vec(),
-    )
-    .unwrap()]);
+    let output_dir = std::path::Path::new(OUTPUT_DIR);
+    clang2::clear_outputs(output_dir).unwrap();
+    let references = windows_metadata::reader::Index::new(vec![
+        windows_metadata::reader::File::new(windows_default::WINRT.to_vec()).unwrap(),
+    ]);
 
-    let outputs = std::thread::scope(|scope| {
-        let handles: Vec<_> = archs
-            .iter()
-            .map(|arch| {
-                let inputs = inputs.clone();
-                let include_args = &include_args;
-                let import_libs = &import_libs;
-                let references = &references;
-                let resource_dir = resource_dir.as_deref();
-                scope.spawn(move || {
-                    scrape_um_arch(
-                        arch,
-                        inputs,
-                        include_args,
-                        import_libs,
-                        references,
-                        resource_dir,
-                        output_dir,
-                    )
-                })
-            })
-            .collect();
-        handles
-            .into_iter()
-            .map(|handle| handle.join().unwrap())
-            .collect::<Vec<_>>()
-    });
+    let outputs: Vec<_> = archs
+        .iter()
+        .map(|arch| {
+            scrape_um_arch(
+                arch,
+                inputs.clone(),
+                &include_args,
+                &references,
+                resource_dir.as_deref(),
+                output_dir,
+            )
+        })
+        .collect();
 
     let final_rdl = output_dir.join("rdl");
     let arch_inputs: Vec<windows_rdl::ArchInput> = outputs
@@ -1087,6 +984,7 @@ fn scrape_um(headers: &str) {
     let metadata_time = std::time::Instant::now();
     windows_rdl::reader()
         .input(METADATA_SEED)
+        .input("crates/libs/clang2/metadata.rdl")
         .input(&final_rdl)
         .reference_bytes(windows_default::WINRT)
         .output(&final_winmd)
@@ -1106,13 +1004,10 @@ fn scrape_um(headers: &str) {
         canonical.functions,
         canonical.unsupported.len()
     );
+    outputs.iter().map(|output| output.unsupported.len()).sum()
 }
 
-fn clang_inputs(
-    headers: &[&str],
-    include_dirs: &[String],
-    full: bool,
-) -> Vec<windows_clang::Input> {
+fn clang_inputs(headers: &[&str], include_dirs: &[String], full: bool) -> Vec<HeaderInput> {
     clang_inputs_with_prerequisites(headers, include_dirs, full, |_| &[], false)
 }
 
@@ -1122,7 +1017,7 @@ fn clang_inputs_with_prerequisites(
     full: bool,
     prerequisites: impl Fn(&str) -> &'static [&'static str],
     define_guids: bool,
-) -> Vec<windows_clang::Input> {
+) -> Vec<HeaderInput> {
     let (satellite_headers, main_headers): (Vec<_>, Vec<_>) = headers
         .iter()
         .copied()
@@ -1150,15 +1045,19 @@ fn clang_inputs_with_prerequisites(
             }
             source.push_str(&format!("\n#include <{header}>"));
         }
-        let mut input = windows_clang::Input::new("clang-win32-main.hpp", source).with_roots(roots);
+        let mut input = HeaderInput {
+            name: "clang-win32-main.hpp".into(),
+            source,
+            roots: roots.collect(),
+            root_dirs: vec![],
+            excluded_roots: vec![],
+        };
         if full {
-            input = input
-                .with_root_dirs(scope_dirs(include_dirs, SCOPE))
-                .with_excluded_roots(
-                    EXCLUDE_HEADERS
-                        .iter()
-                        .filter_map(|header| find_in_dirs(header, include_dirs)),
-                );
+            input.root_dirs = scope_dirs(include_dirs, SCOPE);
+            input.excluded_roots = EXCLUDE_HEADERS
+                .iter()
+                .filter_map(|header| find_in_dirs(header, include_dirs))
+                .collect();
         }
         inputs.push(input);
     }
@@ -1184,10 +1083,24 @@ fn clang_inputs_with_prerequisites(
                 source.push_str(GUID_RESET);
             }
         }
-        inputs
-            .push(windows_clang::Input::new("clang-win32-satellite.hpp", source).with_roots(roots));
+        inputs.push(HeaderInput {
+            name: "clang-win32-satellite.hpp".into(),
+            source,
+            roots: roots.collect(),
+            root_dirs: vec![],
+            excluded_roots: vec![],
+        });
     }
     inputs
+}
+
+#[derive(Clone)]
+struct HeaderInput {
+    name: String,
+    source: String,
+    roots: Vec<String>,
+    root_dirs: Vec<String>,
+    excluded_roots: Vec<String>,
 }
 
 fn scope_dirs(include_dirs: &[String], scopes: &[&str]) -> Vec<String> {
@@ -1237,121 +1150,31 @@ fn clang_arguments(
 
 fn scrape_um_arch(
     arch: &Arch,
-    inputs: Vec<windows_clang::Input>,
+    inputs: Vec<HeaderInput>,
     include_args: &[String],
-    import_libs: &[String],
-    references: &windows_clang::MetadataReferences,
+    references: &windows_metadata::reader::Index,
     resource_dir: Option<&str>,
     output_dir: &std::path::Path,
 ) -> ArchOutput {
     let owned_args = clang_arguments(arch, include_args, resource_dir, SAL_SHIM);
     let args: Vec<&str> = owned_args.iter().map(String::as_str).collect();
-    let time = std::time::Instant::now();
-    println!(
-        "Extracting {} from {} translation unit(s)...",
-        arch.name,
-        inputs.len(),
-    );
-    let snapshot = windows_clang::extract(inputs, &args).unwrap();
-    println!(
-        "Extracted {} facts in {:.2}s",
-        arch.name,
-        time.elapsed().as_secs_f32()
-    );
-    let unsupported = snapshot
-        .unsupported()
-        .filter(|(fact, _)| fact.root)
-        .map(|(fact, reason)| format!("{}: {reason}", fact.name))
-        .collect::<Vec<_>>();
-
-    let mut clang = LibraryMap::default();
-    for lib in import_libs {
-        clang
-            .import_library(lib)
-            .unwrap_or_else(|e| panic!("failed to read import library `{lib}`: {e}"));
-    }
-    apply_library_overrides(&mut clang);
-
-    let mut links_by_name: std::collections::BTreeMap<&str, std::collections::BTreeSet<&str>> =
-        std::collections::BTreeMap::new();
-    for fact in snapshot.facts().iter().filter(|fact| fact.root) {
-        if let windows_clang::FactData::Function { link_name, .. } = &fact.data {
-            links_by_name
-                .entry(&fact.name)
-                .or_default()
-                .insert(link_name);
-        }
-    }
-    let resolve_library = |name: &str, link_name: &str| {
-        clang.resolved_library(link_name).or_else(|| {
-            (links_by_name
-                .get(name)
-                .is_some_and(|links| links.len() == 1))
-            .then(|| clang.resolved_library(name))
-            .flatten()
-        })
-    };
-
-    if arch.name == "x64" && std::env::var_os("WINDOWS_CLANG_DIAGNOSTICS").is_some() {
-        for diagnostic in &unsupported {
-            eprintln!("unsupported: {diagnostic}");
-        }
-        for fact in snapshot.facts().iter().filter(|fact| fact.root) {
-            if let windows_clang::FactData::Function { link_name, .. } = &fact.data
-                && resolve_library(&fact.name, link_name).is_none()
-            {
-                eprintln!("unrouted: {} -> {link_name}", fact.name);
-            }
-        }
-    }
-
-    let libraries: std::collections::BTreeMap<_, _> = snapshot
-        .facts()
-        .iter()
-        .filter(|fact| fact.root)
-        .filter_map(|fact| {
-            if let windows_clang::FactData::Function { link_name, .. } = &fact.data {
-                Some((fact.name.as_str(), link_name))
-            } else {
-                None
-            }
-        })
-        .filter_map(|(name, link_name)| {
-            resolve_library(name, link_name).map(|library| (link_name.clone(), library.to_string()))
-        })
-        .collect();
-    let functions = libraries.keys().cloned().collect();
-    let mut options = windows_clang::EmitOptions::new(ROOT, references.types());
-    options.libraries = Some(&libraries);
-    options.functions = Some(&functions);
-    let emit_time = std::time::Instant::now();
-    let partitions = snapshot.emit_by_header_with_options(&options).unwrap();
-    println!(
-        "Planned {} RDL in {:.2}s",
-        arch.name,
-        emit_time.elapsed().as_secs_f32()
-    );
-
     let arch_dir = output_dir.join(&arch.name);
+    let lib_dirs = sdk_lib_dirs_for_arch(&arch.name);
+    let libraries: Vec<_> = IMPORT_LIBS
+        .iter()
+        .copied()
+        .chain(["windows.ui.lib"])
+        .collect();
+    let import_libs = clang2::production_libraries(&libraries, &lib_dirs, &arch_dir).unwrap();
+    let (options, excluded) =
+        clang2::production_options(&import_libs, references, &arch_dir).unwrap();
+    let result = clang2::scrape(inputs, &args, &options, &excluded, &arch_dir).unwrap();
     let rdl_dir = arch_dir.join("rdl");
-    if rdl_dir.exists() {
-        std::fs::remove_dir_all(&rdl_dir).unwrap();
-    }
-    std::fs::create_dir_all(&rdl_dir).unwrap();
-    let mut partition_names = std::collections::BTreeSet::new();
-    for (header, rdl) in &partitions {
-        let stem = rdl_partition_stem(header);
-        assert!(
-            partition_names.insert(stem.clone()),
-            "duplicate clang RDL partition stem `{stem}`"
-        );
-        std::fs::write(rdl_dir.join(format!("{stem}.rdl")), rdl).unwrap();
-    }
-    std::fs::create_dir_all(&arch_dir).unwrap();
     let winmd = arch_dir.join("Windows.Win32.winmd");
     let metadata_time = std::time::Instant::now();
     windows_rdl::reader()
         .input(METADATA_SEED)
+        .input("crates/libs/clang2/metadata.rdl")
         .input(&rdl_dir)
         .reference_bytes(windows_default::WINRT)
         .output(&winmd)
@@ -1367,58 +1190,9 @@ fn scrape_um_arch(
         bits: arch.bits,
         rdl_dir,
         winmd,
-        functions: libraries.len(),
-        unsupported,
+        functions: result.functions,
+        unsupported: result.unsupported,
     }
-}
-
-#[derive(Default)]
-struct LibraryMap(std::collections::HashMap<String, String>);
-
-impl LibraryMap {
-    fn import_library(&mut self, path: impl AsRef<std::path::Path>) -> Result<&mut Self, String> {
-        let path = path.as_ref();
-        let bytes = std::fs::read(path)
-            .map_err(|error| format!("failed to read `{}`: {error}", path.display()))?;
-        for import in windows_rdl::implib::read(&bytes).map_err(|error| error.to_string())? {
-            self.0.entry(import.symbol).or_insert(import.dll);
-        }
-        Ok(self)
-    }
-
-    fn libraries<I, K, V>(&mut self, libraries: I)
-    where
-        I: IntoIterator<Item = (K, V)>,
-        K: Into<String>,
-        V: Into<String>,
-    {
-        self.0.extend(
-            libraries
-                .into_iter()
-                .map(|(key, value)| (key.into(), value.into())),
-        );
-    }
-
-    fn resolved_library(&self, symbol: &str) -> Option<&str> {
-        self.0.get(symbol).map(String::as_str)
-    }
-}
-
-fn apply_library_overrides(clang: &mut LibraryMap) {
-    for entry in LIBRARY_OVERRIDES {
-        assert_eq!(
-            clang.resolved_library(entry.symbol),
-            entry.sdk_library,
-            "SDK library mapping for `{}` changed; remove or update the override",
-            entry.symbol
-        );
-    }
-
-    clang.libraries(
-        LIBRARY_OVERRIDES
-            .iter()
-            .map(|entry| (entry.symbol, entry.corrected_library)),
-    );
 }
 
 /// x64 is always canonical (its scrape writes the committed metadata); any other arch listed in
@@ -1464,16 +1238,18 @@ fn sdk_include_dirs() -> Vec<String> {
         .collect()
 }
 
-/// The pinned SDK x64 import-library directories. The function -> DLL mapping recorded by
-/// an import lib is arch-invariant (the DLL that exports a symbol is the same on every
-/// arch), so the x64 libs serve the canonical metadata and every additional arch scrape.
+/// The pinned SDK x64 import-library directories for the bounded x64 header route.
 fn sdk_lib_dirs() -> Vec<String> {
-    let base = nuget_package("microsoft.windows.sdk.cpp.x64", SDK_VERSION).join("c");
+    sdk_lib_dirs_for_arch("x64")
+}
+
+fn sdk_lib_dirs_for_arch(arch: &str) -> Vec<String> {
+    let base = nuget_package(&format!("microsoft.windows.sdk.cpp.{arch}"), SDK_VERSION).join("c");
     ["um", "ucrt"]
         .iter()
         .map(|seg| {
             base.join(seg)
-                .join("x64")
+                .join(arch)
                 .to_string_lossy()
                 .replace('\\', "/")
         })
@@ -1488,6 +1264,33 @@ fn resolve(name: &str, dirs: &[String], kind: &str, var: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn compile_time_assertions_are_inventory_rows_not_native_roots() {
+        ensure_libclang();
+        let file = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .join("..\\..\\tests\\libs\\clang2\\input\\discovery\\compile_time_checks.h");
+        let inventory = windows_clang2::discover(
+            [windows_clang2::Input::new(
+                file.to_str().unwrap(),
+                include_str!("../../../tests/libs/clang2/input/discovery/compile_time_checks.h"),
+            )],
+            &["-x", "c++", "--target=x86_64-pc-windows-msvc"],
+            &[file.to_str().unwrap()],
+        )
+        .unwrap();
+        assert!(
+            inventory
+                .iter()
+                .any(|item| item.kind == "StaticAssert" && clang2::exclusion(item).is_some())
+        );
+        let roots: Vec<_> = inventory
+            .iter()
+            .filter(|item| clang2::exclusion(item).is_none())
+            .map(|item| item.name.as_str())
+            .collect();
+        assert_eq!(roots, ["Checked"]);
+    }
 
     #[test]
     #[ignore = "manual full-production grouped SDK source gate"]
@@ -1782,32 +1585,6 @@ mod tests {
                     .unwrap();
                 std::fs::remove_file(output).unwrap();
             }
-        }
-    }
-
-    #[test]
-    fn library_overrides_are_checked_and_applied() {
-        let mut clang = LibraryMap::default();
-        let mut symbols = std::collections::HashSet::new();
-
-        clang.libraries(LIBRARY_OVERRIDES.iter().filter_map(|entry| {
-            assert!(
-                symbols.insert(entry.symbol),
-                "duplicate library override for `{}`",
-                entry.symbol
-            );
-            entry
-                .sdk_library
-                .map(|sdk_library| (entry.symbol, sdk_library))
-        }));
-
-        apply_library_overrides(&mut clang);
-
-        for entry in LIBRARY_OVERRIDES {
-            assert_eq!(
-                clang.resolved_library(entry.symbol),
-                Some(entry.corrected_library)
-            );
         }
     }
 
