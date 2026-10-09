@@ -1168,7 +1168,14 @@ impl std::hash::Hash for ImageKey {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         match &self.0 {
             ImageSourceValue::Uri(value) => value.hash(state),
-            ImageSourceValue::Encoded(value) => value.as_bytes().hash(state),
+            ImageSourceValue::Encoded(value) => {
+                // Hash a bounded sample; equality compares the full bytes.
+                let bytes = value.as_bytes();
+                bytes.len().hash(state);
+                for byte in bytes.iter().step_by(bytes.len() / 64 + 1) {
+                    byte.hash(state);
+                }
+            }
         }
     }
 }

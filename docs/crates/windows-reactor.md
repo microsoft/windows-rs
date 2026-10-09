@@ -264,8 +264,8 @@ Minimized state is not saved.
 
 ## Reuse images
 
-Controls with equal image sources share one native image while any of them is displayed, so
-replacing a page with the same images does not reload them. Run
+`Image` and `ImageIcon` controls with equal sources share one native image while any of them is
+displayed, so replacing a page with the same images does not reload them. Run
 `cargo run -p reactor-image-reuse` to replace a page of 48 in-memory icons.
 
 ## Add icon content

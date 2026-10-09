@@ -535,8 +535,15 @@ impl WinUiAdapter {
                     callback(result);
                 }
             });
-            native::DispatcherQueue::GetForCurrentThread()?
+            let accepted = native::DispatcherQueue::GetForCurrentThread()?
                 .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)?;
+            if !accepted {
+                return Err(windows_core::Error::new(
+                    native::E_FAIL,
+                    "dispatcher rejected image event replay",
+                )
+                .into());
+            }
         }
         Ok(())
     }

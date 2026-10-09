@@ -273,8 +273,10 @@ impl Adapter for WinUiAdapter {
 
     fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
         let result = self.apply_mutations(mutations);
-        self.released_images.clear();
-        self.images.retain(|_, image| image.strong_count() != 0);
+        if !self.released_images.is_empty() {
+            self.released_images.clear();
+            self.images.retain(|_, image| image.strong_count() != 0);
+        }
         result
     }
 
@@ -540,16 +542,17 @@ impl Adapter for WinUiAdapter {
                             control.source.set(managed);
                             return Err(error);
                         }
-                        self.image_subscriptions.remove(&object);
                         Ok(())
                     })(),
                     _ => Err(windows_core::Error::new(
                         HRESULT(0x8000000E_u32 as i32),
                         "image unavailable",
                     )),
+                };
+                if result.is_ok() {
+                    self.release_image(object);
                 }
-                .map_err(integration_error);
-                completion.call(result);
+                completion.call(result.map_err(integration_error));
             }
             ImperativeRequest::ObserveImageScale {
                 object,
