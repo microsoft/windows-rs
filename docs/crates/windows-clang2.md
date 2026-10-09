@@ -231,8 +231,24 @@ the graph when another member is unsupported.
 
 Fully specified struct and array initializer lists retain nested values evaluated by Clang,
 including scalar conversions. They are native aggregate observations, not GUID-specific capture
-records. Partial lists, dynamic expressions, and copied-record initializers are rejected instead
-of filling missing values. Nested value differences participate in ordinary cross-TU agreement.
+records. Immutable aggregate references with a source definition and trivial POD copies retain
+those values. Const sources must also have no mutable or volatile members, including nested arrays.
+Mutable/volatile storage, missing definitions, cycles, partial lists, and custom constructors
+reject. Nested value differences participate in ordinary cross-TU agreement.
+
+Libclang cannot evaluate record-valued expressions such as `__uuidof` through its scalar API.
+`capture/aggregate.rs` decomposes eligible macro values using native struct fields and array slots.
+The existing probe pass asks Clang to constant-evaluate each scalar leaf, then rebuilds the native
+aggregate observation. It neither reads SDK macro arguments nor decodes UUID strings into values.
+Calls, aggregate references without an evaluated source value, and initializer lists do not enter
+this path: forcing a constexpr context must not change runtime behavior or fill incomplete lists.
+Scalar-probe diagnostics retain the owning macro; there is no guessed-value fallback.
+
+`guid_expressions.h`/`.rdl` cover type/pointer UUIDs, aliases, parentheses, and immutable copies.
+The three-target agreement and metadata roundtrips also cover renamed owners and UUID conflicts.
+`guid_expressions.cpp` checks regular/sys values against MSVC, including three real KS/media/codec
+constants, on x64/x86 in debug and release. The negative fixture covers mutable/volatile/missing/
+cyclic references, partial lists, custom constructors, runtime calls, and evaluation-phase changes.
 
 The experimental header runner supplies the SDK's GUID definition configuration, not decoded macro
 arguments. It includes `initguid.h` after the base prelude and before requested headers. The SDK
@@ -1412,26 +1428,34 @@ a nonzero exit.
 | Measure | Current semantic refresh |
 | --- | ---: |
 | Headers attempted | 369 |
-| Complete selected-root coverage | 76 |
-| Incomplete coverage | 293 |
+| Complete selected-root coverage | 82 |
+| Incomplete coverage | 287 |
 | Headers with some emitted output | 364 |
 | Headers failing before discovery inventory | 0 |
 | Known selected names | 103,719 |
-| Emitted selected names | 92,886 |
-| Rejected selected names | 10,833 |
+| Emitted selected names | 93,903 |
+| Rejected selected names | 9,816 |
 | Selected names blocked before projection/output | 0 |
 
 Name totals sum independent per-header inventories and exclude unavailable discovery counts. They
 are not deduplicated APIs. Each header's supported roots must also pass combined projection and
 source ownership before being marked emitted. The refreshed run also checks combined WinMD
 compilation. Independent headers do not test agreement across the full manifest or across
-architectures. The current x64 debug refresh takes 423.1 seconds, including its Cargo
-invocation; no controlled performance comparison is implied. A separate resource run
+architectures. The final aggregate-expression x64 debug runner takes 410.2 seconds, excluding Cargo;
+no controlled performance comparison is implied. A separate resource run
 takes 784.0 seconds, peaks at 735.9 MiB working set, and has 636.9 MiB sampled peak private memory
 (100 ms sampling). A serial header run is not a
 large multi-TU memory bound: capture retains the participating ASTs until the owned graph is extracted.
 Streaming disposal and an agreed resource budget remain open.
 More rejections can mean that formerly blocked roots now reach assessment, not that support regressed.
+
+The aggregate-expression mixed profile (`ksmedia.h`, `codecapi.h`, `objidl.h`, `mfidl.h`, `propkey.h`)
+selects 7,183 names and emits 5,358 with no blocked roots. Capture uses four parses and takes 2.21s;
+the process takes 4.69s, with sampled peaks of 305.7 MiB working set and 312.0 MiB private memory.
+The manual `guid_expressions` repeated-SDK gate uses one/two/four full SDK TUs, preserving all
+five/ten/twenty native observations and identical RDL. It takes 1.32/2.03/3.79s with three/six/twelve
+parses; the process peaks at sampled 433.1 MiB working set and 419.3 MiB private memory. Both samples
+use 100 ms intervals. This bounds the measured cases, not SDK-wide agreement or AST disposal.
 
 Optional output counts add 137 emitted names across 16 profiles, with unchanged selection and no
 profile losing output. The subsequent definition-mode snapshot has 1,029 rejections at the
@@ -1444,6 +1468,12 @@ rule adds 1,025; import routing adds two. Gains include 112 in `mfidl.h`, 81 in 
 53 in `objidl.h`. `prntvpt.h`, `robuffer.h`, and `shcore.h` reach complete selected-root coverage.
 The rule checks record representation recursively, not SDK names, and keeps result validation
 separate.
+
+Compiler-backed aggregate expressions add 1,017 emitted names across 21 profiles, with unchanged
+selection, no output loss, and zero blocked roots. Gains include 472 in `ksmedia.h`, 324 in
+`codecapi.h`, and 82 in `ks.h`. `devpkey.h`, `ntddser.h`, `ntddkbd.h`, `ntddmou.h`, `usbiodef.h`, and
+`hidclass.h` reach complete selected-root coverage. Initializer-list macros such as `INIT_PKEY_*`
+still have no independently established type; the runner does not infer one from their names.
 
 Source classification of the 9,399-entry declaration-only baseline finds 4,137 definition-macro
 entries and 5,262 explicit declarations. The SDK definition configuration adds 4,317 emitted names

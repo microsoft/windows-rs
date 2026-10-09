@@ -1,0 +1,23 @@
+#[win32]
+mod Test {
+    #[guid(0xfedcba98abcd876580ff0001020304fe)]
+    const CHAIN_ID: _GUID;
+    #[guid(0xfedcba98abcd876580ff0001020304fe)]
+    const CopiedId: _GUID;
+    #[guid(0xfedcba98abcd876580ff0001020304fe)]
+    const LITERAL_ALIAS: _GUID;
+    #[guid(0xfedcba98abcd876580ff0001020304fe)]
+    const LiteralId: _GUID;
+    #[guid(0xfedcba98abcd876580ff0001020304fe)]
+    const PAREN_ID: _GUID;
+    #[guid(0xfedcba98abcd876580ff0001020304fe)]
+    const POINTER_ID: _GUID;
+    #[guid(0xfedcba98abcd876580ff0001020304fe)]
+    const TYPE_ID: _GUID;
+    struct _GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+}

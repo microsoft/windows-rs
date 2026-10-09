@@ -17,6 +17,7 @@ fn main() {
         build_crypto();
         build_constants();
         build_sdk_data();
+        build_guid_expressions();
         build_ordinal();
         build_animation();
         build_string_termination();
@@ -428,6 +429,67 @@ fn build_sdk_data() {
         .include(include.join("ucrt"))
         .file("input/sdk_data.cpp")
         .compile("clang2_sdk_data");
+}
+
+fn build_guid_expressions() {
+    for file in ["input/guid_expressions.h", "input/guid_expressions.cpp"] {
+        println!("cargo:rerun-if-changed={file}");
+    }
+    let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+    for (name, source, roots) in [
+        (
+            "guid_expressions",
+            include_str!("input/guid_expressions.h"),
+            sdk::EXPRESSION_ROOTS,
+        ),
+        (
+            "sdk_expressions",
+            sdk::SDK_EXPRESSION_SOURCE,
+            sdk::SDK_EXPRESSION_ROOTS,
+        ),
+    ] {
+        let snapshot = sdk::capture_sdk(&target, source, roots);
+        let plan = snapshot
+            .resolve()
+            .unwrap()
+            .project(&windows_clang2::ProjectionOptions::new("Test"))
+            .unwrap();
+        let winmd = out.join(format!("{name}.winmd"));
+        windows_rdl::reader()
+            .input_text(&plan.rdl())
+            .reference_default()
+            .output(&winmd)
+            .write()
+            .unwrap();
+        for sys in [false, true] {
+            let output = out.join(format!("{name}{}.rs", if sys { "_sys" } else { "" }));
+            let mut args = vec![
+                "--in",
+                "default",
+                winmd.to_str().unwrap(),
+                "--out",
+                output.to_str().unwrap(),
+                "--flat",
+                "--filter",
+                "Test",
+            ];
+            if sys {
+                args.push("--sys");
+            }
+            windows_bindgen::bindgen(args);
+        }
+    }
+    let include = sdk::include();
+    cc::Build::new()
+        .cpp(true)
+        .std("c++17")
+        .warnings_into_errors(true)
+        .include(include.join("shared"))
+        .include(include.join("um"))
+        .include(include.join("ucrt"))
+        .file("input/guid_expressions.cpp")
+        .compile("clang2_guid_expressions");
 }
 
 fn build_crypto() {

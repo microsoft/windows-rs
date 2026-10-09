@@ -7,6 +7,9 @@ use std::hash::{Hash, Hasher};
 use std::panic::{AssertUnwindSafe, catch_unwind, resume_unwind};
 use std::sync::Arc;
 
+mod aggregate;
+use aggregate::AggregateProbe;
+
 /// A header-owned declaration or macro, without projected types or selection policy.
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub struct DeclarationInfo {
@@ -345,6 +348,7 @@ pub fn capture_report(
         .map(|input| Unit::parse(input, arguments))
         .collect::<Result<Vec<_>, _>>()?;
     let mut macros = vec![];
+    let mut aggregate_values = vec![];
     let mut rejected = BTreeMap::new();
     let mut parses = units.len();
     for (input, unit) in inputs.iter().zip(&mut units) {
@@ -379,26 +383,20 @@ pub fn capture_report(
                 format!("function-like macro `{name}` cannot be a constant root"),
             );
         }
+        let mut aggregates = BTreeMap::new();
         if !selected.is_empty() {
             *unit = Unit::probe(
                 input,
                 arguments,
                 &selected,
                 &BTreeSet::new(),
+                &BTreeMap::new(),
                 &mut rejected,
                 &mut parses,
             )?;
             let mut pointers = BTreeSet::new();
             for cursor in children(unsafe { clang_getTranslationUnitCursor(unit.raw) }) {
-                if unsafe { clang_getCursorKind(cursor) } != CXCursor_VarDecl
-                    || unsafe {
-                        clang_getCanonicalType(clang_getCursorType(
-                            clang_Cursor_getVarDeclInitializer(cursor),
-                        ))
-                    }
-                    .kind
-                        != CXType_Pointer
-                {
+                if unsafe { clang_getCursorKind(cursor) } != CXCursor_VarDecl {
                     continue;
                 }
                 let name = string(unsafe { clang_getCursorSpelling(cursor) });
@@ -406,20 +404,51 @@ pub fn capture_report(
                     && selected.contains_key(name)
                     && matches!(evaluate(cursor), Value::Unavailable(_))
                 {
-                    pointers.insert(name.to_string());
+                    let ty = unsafe {
+                        clang_getCanonicalType(clang_getCursorType(
+                            clang_Cursor_getVarDeclInitializer(cursor),
+                        ))
+                    };
+                    if ty.kind == CXType_Pointer {
+                        pointers.insert(name.to_string());
+                    } else if matches!(ty.kind, CXType_Record | CXType_ConstantArray)
+                        && AggregateProbe::eligible(unsafe {
+                            clang_Cursor_getVarDeclInitializer(cursor)
+                        })
+                        && let Some(probe) = AggregateProbe::new(ty, format!("({name})"))
+                    {
+                        aggregates.insert(name.to_string(), probe);
+                    }
                 }
             }
-            if !pointers.is_empty() {
+            if !pointers.is_empty() || !aggregates.is_empty() {
                 *unit = Unit::probe(
                     input,
                     arguments,
                     &selected,
                     &pointers,
+                    &aggregates,
                     &mut rejected,
                     &mut parses,
                 )?;
             }
         }
+        let values = if aggregates.is_empty() {
+            BTreeMap::new()
+        } else {
+            let cursors: BTreeMap<_, _> =
+                children(unsafe { clang_getTranslationUnitCursor(unit.raw) })
+                    .into_iter()
+                    .filter(|cursor| unsafe { clang_getCursorKind(*cursor) } == CXCursor_VarDecl)
+                    .map(|cursor| (string(unsafe { clang_getCursorSpelling(cursor) }), cursor))
+                    .collect();
+            aggregates
+                .into_iter()
+                .filter(|(name, _)| !rejected.contains_key(name))
+                .map(|(name, probe)| Ok((name.clone(), probe.read(&cursors, &name)?)))
+                .collect::<Result<BTreeMap<_, _>, Error>>()?
+        };
+        aggregate_values.push(values);
         macros.push(selected);
     }
     let roots: BTreeSet<_> = roots
@@ -445,6 +474,7 @@ pub fn capture_report(
         contexts: (0..units.len()).map(|_| HashMap::new()).collect(),
         flag_enums: (0..units.len()).map(|_| BTreeSet::new()).collect(),
         macros,
+        aggregate_values,
         identities: BTreeMap::new(),
         interned: (0..units.len()).map(|_| HashMap::new()).collect(),
         pending: VecDeque::new(),
@@ -640,6 +670,7 @@ impl Unit {
         arguments: &[&str],
         macros: &BTreeMap<String, Location>,
         pointers: &BTreeSet<String>,
+        aggregates: &BTreeMap<String, AggregateProbe>,
         rejected: &mut BTreeMap<String, String>,
         parses: &mut usize,
     ) -> Result<Self, Error> {
@@ -663,6 +694,9 @@ impl Unit {
                         "const __INTPTR_TYPE__ __clang2_bits_{name} = (__INTPTR_TYPE__)({name});"
                     )
                     .unwrap();
+                }
+                if let Some(aggregate) = aggregates.get(name) {
+                    aggregate.write(&mut source, name);
                 }
                 ranges.insert(start, (source.len(), name));
             }
@@ -816,6 +850,7 @@ struct Capture<'a> {
     contexts: Vec<HashMap<AnnotationOrigin, AnnotationContext>>,
     flag_enums: Vec<BTreeSet<String>>,
     macros: Vec<BTreeMap<String, Location>>,
+    aggregate_values: Vec<BTreeMap<String, Value>>,
     identities: BTreeMap<String, Vec<(usize, CXCursor)>>,
     interned: Vec<HashMap<u32, Vec<(CXCursor, Id)>>>,
     pending: VecDeque<(usize, CXCursor, Id)>,
@@ -1278,7 +1313,11 @@ impl Capture<'_> {
                     value: {
                         let value = evaluate(cursor);
                         let name = self.name(unit, cursor);
-                        if matches!(value, Value::Unavailable(_))
+                        if self.macro_probe(unit, cursor).is_some()
+                            && let Some(value) = self.aggregate_values[unit].remove(&name)
+                        {
+                            value
+                        } else if matches!(value, Value::Unavailable(_))
                             && self.macro_probe(unit, cursor).is_some()
                             && unsafe {
                                 clang_getCanonicalType(clang_getCursorType(
@@ -1997,8 +2036,64 @@ fn evaluate(cursor: CXCursor) -> Value {
 }
 
 fn evaluate_initializer(cursor: CXCursor) -> Value {
+    evaluate_initializer_inner(cursor, &mut vec![])
+}
+
+fn evaluate_initializer_inner(cursor: CXCursor, visiting: &mut Vec<CXCursor>) -> Value {
     unsafe {
         let ty = clang_getCanonicalType(clang_getCursorType(cursor));
+        if matches!(ty.kind, CXType_Record | CXType_ConstantArray)
+            && clang_getCursorKind(cursor) == CXCursor_DeclRefExpr
+        {
+            let declaration = clang_getCursorReferenced(cursor);
+            let source = clang_getCanonicalType(clang_getCursorType(declaration));
+            if clang_getCursorKind(declaration) != CXCursor_VarDecl
+                || clang_isConstQualifiedType(source) == 0
+                || !aggregate::immutable(source)
+            {
+                return Value::Unavailable("aggregate reference requires immutable storage".into());
+            }
+            let definition = clang_getCursorDefinition(declaration);
+            if clang_Cursor_isNull(definition) != 0 {
+                return Value::Unavailable("aggregate reference has no source definition".into());
+            }
+            if visiting
+                .iter()
+                .any(|previous| clang_equalCursors(*previous, definition) != 0)
+            {
+                return Value::Unavailable("cyclic aggregate constant reference".into());
+            }
+            let initializer = clang_Cursor_getVarDeclInitializer(definition);
+            if clang_Cursor_isNull(initializer) != 0 {
+                return Value::Unavailable("aggregate reference has no initializer".into());
+            }
+            visiting.push(definition);
+            let value = evaluate_initializer_inner(initializer, visiting);
+            visiting.pop();
+            return value;
+        }
+        if ty.kind == CXType_Record && clang_getCursorKind(cursor) == CXCursor_CallExpr {
+            let constructor = clang_getCursorReferenced(cursor);
+            if clang_getCursorKind(constructor) == CXCursor_Constructor
+                && clang_CXXConstructor_isCopyConstructor(constructor) != 0
+                && clang_isPODType(ty) != 0
+            {
+                let expressions: Vec<_> = children(cursor)
+                    .into_iter()
+                    .filter(|child| clang_isExpression(clang_getCursorKind(*child)) != 0)
+                    .collect();
+                if let [child] = expressions.as_slice()
+                    && clang_equalCursors(
+                        clang_getTypeDeclaration(ty),
+                        clang_getTypeDeclaration(clang_getCanonicalType(clang_getCursorType(
+                            *child,
+                        ))),
+                    ) != 0
+                {
+                    return evaluate_initializer_inner(*child, visiting);
+                }
+            }
+        }
         if matches!(
             ty.kind,
             CXType_Record | CXType_ConstantArray | CXType_Pointer
@@ -2029,7 +2124,7 @@ fn evaluate_initializer(cursor: CXCursor) -> Value {
                             )),
                         ) != 0))
             {
-                return evaluate_initializer(*child);
+                return evaluate_initializer_inner(*child, visiting);
             }
         }
         if clang_getCursorKind(cursor) == CXCursor_StringLiteral {
@@ -2063,7 +2158,7 @@ fn evaluate_initializer(cursor: CXCursor) -> Value {
             }
             let mut values = vec![];
             for element in elements {
-                let value = evaluate_initializer(element);
+                let value = evaluate_initializer_inner(element, visiting);
                 if matches!(value, Value::Unavailable(_)) {
                     return value;
                 }

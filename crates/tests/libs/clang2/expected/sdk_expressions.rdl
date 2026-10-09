@@ -1,0 +1,15 @@
+#[win32]
+mod Test {
+    #[guid(0x57cbb9b8116f4951b40cc2a035ed8f17)]
+    const CODECAPI_AVEncCommonFormatConstraint: _GUID;
+    #[guid(0x05908040324611d0a5d628db04c10000)]
+    const KSMEDIUMSETID_MidiBus: _GUID;
+    #[guid(0x1464eda56a8f11d19aa700a0c9223196)]
+    const KSPROPSETID_General: _GUID;
+    struct _GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+}

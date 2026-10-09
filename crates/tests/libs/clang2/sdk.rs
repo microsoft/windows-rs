@@ -277,6 +277,24 @@ pub fn capture_sdk(target: &str, source: &str, roots: &[&str]) -> Snapshot {
     .unwrap()
 }
 
+pub const EXPRESSION_ROOTS: &[&str] = &[
+    "TYPE_ID",
+    "POINTER_ID",
+    "PAREN_ID",
+    "CHAIN_ID",
+    "LiteralId",
+    "CopiedId",
+    "LITERAL_ALIAS",
+];
+
+pub const SDK_EXPRESSION_SOURCE: &str =
+    "#include <windows.h>\n#include <ks.h>\n#include <ksmedia.h>\n#include <codecapi.h>";
+pub const SDK_EXPRESSION_ROOTS: &[&str] = &[
+    "KSPROPSETID_General",
+    "KSMEDIUMSETID_MidiBus",
+    "CODECAPI_AVEncCommonFormatConstraint",
+];
+
 pub const CRYPTO_ROOTS: &[&str] = &[
     "BCryptOpenAlgorithmProvider",
     "BCryptDeriveKeyPBKDF2",
