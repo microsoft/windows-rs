@@ -202,7 +202,7 @@ impl WinUiAdapter {
                         .handles
                         .remove(object)
                         .ok_or(WinUiError::MissingObject(*object))?;
-                    self.forget(*object, handle)?;
+                    self.release_object(*object, handle)?;
                 }
             }
         }

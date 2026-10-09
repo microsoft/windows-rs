@@ -492,7 +492,7 @@ impl WinUiAdapter {
 
     /// Drops all adapter state for an object whose handle was just removed. Destroy, retirement
     /// completion, and replacement all end an object's native lifetime through this path.
-    fn forget(&mut self, object: ObjectId, handle: Handle) -> Result<(), WinUiError> {
+    fn release_object(&mut self, object: ObjectId, handle: Handle) -> Result<(), WinUiError> {
         self.release_image(object);
         self.resource_override_keys.remove(&object);
         self.style_states.remove(&object);
@@ -647,7 +647,7 @@ impl WinUiAdapter {
             .handles
             .remove(&object)
             .ok_or(WinUiError::MissingObject(object))?;
-        self.forget(object, handle)?;
+        self.release_object(object, handle)?;
         self.create(object, kind)?;
         let replacement = self.ui_element(object)?;
         if let Some(index) = index {
