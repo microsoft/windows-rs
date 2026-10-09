@@ -3372,17 +3372,17 @@ fn generate_declarations(
             let name = property.method();
             if property.adapter == Some(PropertyAdapter::ImageUri) {
                 output.push_str(&format!(
-                    "pub fn {name}(mut self, value: impl IntoImageSource) -> \
+                    "pub fn {name}(mut self, value: impl Into<Rc<str>>) -> \
                      windows_core::Result<Self> {{\n\
                      self.0 = self.0.property(PropertyId::{}, \
-                     PropertyValue::ImageSource(value.into_image_source()?));\n\
+                     PropertyValue::ImageSource(ImageSource::uri(value)?));\n\
                      Ok(self)\n\
                      }}\n\
                      pub fn {name}_optional<T>(mut self, value: Option<T>) -> \
-                     windows_core::Result<Self> where T: IntoImageSource {{\n\
+                     windows_core::Result<Self> where T: Into<Rc<str>> {{\n\
                      if let Some(value) = value {{\n\
                      self.0 = self.0.property(PropertyId::{}, \
-                     PropertyValue::ImageSource(value.into_image_source()?));\n\
+                     PropertyValue::ImageSource(ImageSource::uri(value)?));\n\
                      }}\n\
                      Ok(self)\n\
                      }}\n\

@@ -702,7 +702,7 @@ impl WinUiAdapter {
             self.owners.remove(object);
             self.resource_override_keys.remove(object);
             self.style_states.remove(object);
-            self.image_subscriptions.remove(object);
+            self.release_image(*object);
             self.handles
                 .remove(object)
                 .ok_or(WinUiError::MissingObject(*object))?;

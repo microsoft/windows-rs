@@ -26,27 +26,28 @@ fn image_load_subscriptions_complete_once_and_do_not_retain_controls() {
     assert!(state.subscribers.borrow().is_empty());
 }
 
-fn page(
-    generation: u32,
-    sources: &[ImageSource],
-    events: &Rc<RefCell<Vec<(usize, bool)>>>,
-) -> View {
+fn image(index: usize, directory: &Path) -> Image {
+    let image = Image::new().width(48.0).height(48.0);
+    match index % 6 {
+        0 => image.source_data(EncodedImage::new(PNG.to_vec())),
+        1 => image.source_file(directory.join("image.png")).unwrap(),
+        2 => image.source_file(directory.join("image.svg")).unwrap(),
+        3 => image.source_data(EncodedImage::new(vec![0, 1, 2])),
+        4 => image.source_file(directory.join("invalid.png")).unwrap(),
+        _ => image.source_file(directory.join("invalid.svg")).unwrap(),
+    }
+}
+
+fn page(generation: u32, directory: &Path, events: &Rc<RefCell<Vec<(usize, bool)>>>) -> View {
     StackPanel::new()
         .keyed_children([keyed(
             generation,
             StackPanel::new().children(
-                sources
-                    .iter()
-                    .chain(sources.iter())
-                    .enumerate()
-                    .map(|(index, source)| {
+                (0..12)
+                    .map(|index| {
                         let opened = Rc::clone(events);
                         let failed = Rc::clone(events);
-                        Image::new()
-                            .width(48.0)
-                            .height(48.0)
-                            .source(source.clone())
-                            .unwrap()
+                        image(index, directory)
                             .on_opened(move || opened.borrow_mut().push((index, true)))
                             .on_failed(move || failed.borrow_mut().push((index, false)))
                             .into()
@@ -57,22 +58,24 @@ fn page(
         .into()
 }
 
-fn source_property(source: &ImageSource) -> Property {
-    Property {
-        id: PropertyId::Source,
-        value: PropertyValue::ImageSource(source.clone()),
-    }
+fn live_images(adapter: &WinUiAdapter) -> Vec<native::ImageSource> {
+    adapter
+        .images
+        .values()
+        .filter_map(Weak::upgrade)
+        .map(|image| image.value.clone())
+        .collect()
 }
 
 #[test]
 #[ignore = "requires an interactive WinUI desktop"]
-fn retained_images_survive_remounts_and_release_with_their_owner() {
+fn equal_image_sources_share_native_images_across_page_replacement() {
     // WinUI supports one Application lifetime per process.
     if std::env::var_os("REACTOR_IMAGE_TEST_CHILD").is_none() {
         let status = std::process::Command::new(std::env::current_exe().unwrap())
             .args([
                 "--exact",
-                "native::winui::tests::images::retained_images_survive_remounts_and_release_with_their_owner",
+                "native::winui::tests::images::equal_image_sources_share_native_images_across_page_replacement",
                 "--ignored",
                 "--nocapture",
             ])
@@ -94,36 +97,41 @@ fn retained_images_survive_remounts_and_release_with_their_owner() {
     std::fs::write(directory.join("invalid.svg"), b"invalid").unwrap();
     let completed = Rc::new(Cell::new(false));
     let finished = Rc::clone(&completed);
-    let png = directory.join("image.png");
-    let svg = directory.join("image.svg");
-    let invalid_png = directory.join("invalid.png");
-    let invalid_svg = directory.join("invalid.svg");
+    let path = directory.clone();
     let result = App::run_with(move |app| {
-        let sources = Rc::new(RefCell::new(vec![
-            ImageSource::encoded(EncodedImage::from_static(PNG)),
-            ImageSource::file(png)?,
-            ImageSource::file(svg)?,
-            ImageSource::encoded(EncodedImage::from_static(&[0, 1, 2])),
-            ImageSource::file(invalid_png)?,
-            ImageSource::file(invalid_svg)?,
-        ]));
+        let directory = path;
         let events = Rc::new(RefCell::new(Vec::new()));
+        let notifications = Rc::new(RefCell::new(Vec::new()));
         let mut runtime = Runtime::new(WinUiAdapter::default());
         runtime.update(StackPanel::new()).unwrap();
         let root = runtime.graph().root().unwrap();
         let window = runtime.adapter_mut().create_window(root).unwrap();
         window.activate().unwrap();
         let weak = RefCell::new(Vec::new());
-        let mounted = Cell::new(false);
         let timer = native::DispatcherQueue::GetForCurrentThread()?.CreateTimer()?;
         timer.SetInterval(TimeSpan::try_from(Duration::from_millis(100)).unwrap())?;
         let runtime = RefCell::new(runtime);
         let window = RefCell::new(Some(window));
+        let mounted = Cell::new(false);
         let phase = Cell::new(0);
         let ticks = Cell::new(0);
-        let notifications = Rc::new(RefCell::new(Vec::new()));
-        let image = Cell::new(None);
+        let object = Cell::new(None);
         let app = app.clone();
+        let single = {
+            let notifications = Rc::clone(&notifications);
+            move |data: Option<EncodedImage>| {
+                let opened = Rc::clone(&notifications);
+                let failed = Rc::clone(&notifications);
+                let image = Image::new()
+                    .on_opened(move || opened.borrow_mut().push(true))
+                    .on_failed(move || failed.borrow_mut().push(false));
+                let image = match data {
+                    Some(data) => image.source_data(data),
+                    None => image,
+                };
+                StackPanel::new().children((image,))
+            }
+        };
         let tick = timer.Tick(move |_, _| {
             ticks.set(ticks.get() + 1);
             assert!(
@@ -134,17 +142,18 @@ fn retained_images_survive_remounts_and_release_with_their_owner() {
             );
             let mut runtime = runtime.borrow_mut();
             if !mounted.replace(true) {
-                runtime.update(page(0, &sources.borrow(), &events)).unwrap();
-                *weak.borrow_mut() = sources
-                    .borrow()
+                runtime.update(page(0, &directory, &events)).unwrap();
+                let images = live_images(runtime.adapter());
+                assert_eq!(images.len(), 6);
+                *weak.borrow_mut() = images
                     .iter()
-                    .map(|source| image_source(source).unwrap().value.downgrade().unwrap())
+                    .map(|image| image.downgrade().unwrap())
                     .collect();
                 return;
             }
             runtime.dispatch_native_events().unwrap();
             if phase.get() < 3 {
-                if events.borrow().len() < sources.borrow().len() * 2 {
+                if events.borrow().len() < 12 {
                     return;
                 }
                 let mut actual = events.borrow().clone();
@@ -153,40 +162,27 @@ fn retained_images_survive_remounts_and_release_with_their_owner() {
                     .map(|index| (index, index % 6 < 3))
                     .collect::<Vec<_>>();
                 assert_eq!(actual, expected);
-                for (source, original) in sources.borrow().iter().zip(weak.borrow().iter()) {
-                    assert_eq!(
-                        image_source(source).unwrap().value,
-                        original.upgrade().unwrap()
-                    );
+                let images = live_images(runtime.adapter());
+                assert_eq!(images.len(), 6);
+                for original in weak.borrow().iter() {
+                    assert!(images.contains(&original.upgrade().unwrap()));
                 }
                 events.borrow_mut().clear();
                 phase.set(phase.get() + 1);
-                runtime.update(StackPanel::new()).unwrap();
                 if phase.get() < 3 {
                     runtime
-                        .update(page(phase.get(), &sources.borrow(), &events))
+                        .update(page(phase.get(), &directory, &events))
                         .unwrap();
                 } else {
-                    let opened = Rc::clone(&notifications);
-                    let failed = Rc::clone(&notifications);
                     runtime
-                        .update(
-                            StackPanel::new().children((Image::new()
-                                .source(sources.borrow()[0].clone())
-                                .unwrap()
-                                .on_opened(move || opened.borrow_mut().push(true))
-                                .on_failed(move || failed.borrow_mut().push(false)),)),
-                        )
+                        .update(single(Some(EncodedImage::new(vec![0, 1, 2]))))
                         .unwrap();
-                    let object = runtime
-                        .graph()
-                        .children(root, RelationId::Children)
-                        .unwrap()[0];
-                    image.set(Some(object));
-                    runtime
-                        .adapter_mut()
-                        .set_properties(object, &[source_property(&sources.borrow()[3])], &[])
-                        .unwrap();
+                    object.set(Some(
+                        runtime
+                            .graph()
+                            .children(root, RelationId::Children)
+                            .unwrap()[0],
+                    ));
                 }
             } else if phase.get() == 3 {
                 if notifications.borrow().is_empty() {
@@ -194,20 +190,11 @@ fn retained_images_survive_remounts_and_release_with_their_owner() {
                 }
                 assert_eq!(*notifications.borrow(), [false]);
                 notifications.borrow_mut().clear();
-                let object = image.get().unwrap();
-                let property = |index: usize| source_property(&sources.borrow()[index]);
-                runtime
-                    .adapter_mut()
-                    .set_properties(object, &[property(0)], &[])
-                    .unwrap();
-                runtime
-                    .adapter_mut()
-                    .set_properties(object, &[], &[PropertyId::Source])
-                    .unwrap();
-                runtime
-                    .adapter_mut()
-                    .set_properties(object, &[property(0)], &[])
-                    .unwrap();
+                let object = object.get().unwrap();
+                let png = || Some(EncodedImage::new(PNG.to_vec()));
+                runtime.update(single(png())).unwrap();
+                runtime.update(single(None)).unwrap();
+                runtime.update(single(png())).unwrap();
                 runtime
                     .adapter_mut()
                     .imperative(ImperativeRequest::SetNativeImageSource {
@@ -219,39 +206,29 @@ fn retained_images_survive_remounts_and_release_with_their_owner() {
                     })
                     .unwrap();
                 assert!(!runtime.adapter().image_subscriptions.contains_key(&object));
-                let temporary = ImageSource::encoded(EncodedImage::from_static(PNG));
-                let retained = Rc::downgrade(&temporary.native);
                 runtime
-                    .adapter_mut()
-                    .set_properties(object, &[source_property(&temporary)], &[])
+                    .update(single(Some(EncodedImage::new([PNG, &[0]].concat()))))
                     .unwrap();
-                drop(temporary);
-                assert!(retained.upgrade().is_some());
-                runtime
-                    .adapter_mut()
-                    .set_properties(object, &[], &[PropertyId::Source])
-                    .unwrap();
-                assert!(retained.upgrade().is_none());
+                let temporary =
+                    Rc::downgrade(&runtime.adapter().image_subscriptions[&object].image);
+                runtime.update(single(None)).unwrap();
+                assert!(temporary.upgrade().is_none());
                 runtime
                     .update(
                         StackPanel::new().children((
-                            ImageIcon::new()
-                                .source(sources.borrow()[0].clone())
-                                .unwrap(),
-                            AppBarButton::new().icon(Icon::image(sources.borrow()[1].clone())),
-                            TitleBar::new().icon(Icon::image(sources.borrow()[2].clone())),
+                            ImageIcon::new().source_data(EncodedImage::new(PNG.to_vec())),
+                            AppBarButton::new()
+                                .icon(Icon::image_data(EncodedImage::new(PNG.to_vec()))),
+                            TitleBar::new()
+                                .icon(Icon::image_file(directory.join("image.svg")).unwrap()),
                         )),
                     )
                     .unwrap();
                 runtime.update(StackPanel::new()).unwrap();
+                assert!(runtime.adapter().images.is_empty());
                 window.borrow_mut().take().unwrap().close().unwrap();
-                sources.borrow_mut().clear();
                 phase.set(4);
-            } else if weak
-                .borrow()
-                .iter()
-                .all(|source| source.upgrade().is_none())
-            {
+            } else if weak.borrow().iter().all(|image| image.upgrade().is_none()) {
                 assert!(events.borrow().is_empty());
                 assert!(notifications.borrow().is_empty());
                 finished.set(true);
@@ -261,11 +238,7 @@ fn retained_images_survive_remounts_and_release_with_their_owner() {
         timer.Start()?;
         Ok((timer, tick))
     });
-    std::fs::remove_file(directory.join("image.png")).unwrap();
-    std::fs::remove_file(directory.join("image.svg")).unwrap();
-    std::fs::remove_file(directory.join("invalid.png")).unwrap();
-    std::fs::remove_file(directory.join("invalid.svg")).unwrap();
-    std::fs::remove_dir(directory).unwrap();
+    std::fs::remove_dir_all(directory).unwrap();
     result.unwrap();
     assert!(completed.get());
 }

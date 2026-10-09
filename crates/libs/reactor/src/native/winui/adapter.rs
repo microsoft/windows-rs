@@ -20,37 +20,8 @@ impl ComponentHost<WinUiAdapter> {
     }
 }
 
-impl Adapter for WinUiAdapter {
-    type Error = WinUiError;
-
-    fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
-        events.extend(
-            self.event_queue
-                .events
-                .borrow()
-                .iter()
-                .filter_map(|event| self.native_event(event)),
-        );
-    }
-
-    fn pop_native_event(&mut self) -> Option<NativeEvent> {
-        loop {
-            let queued = self.event_queue.events.borrow_mut().pop_front()?;
-            if let Some(event) = self.native_event(&queued) {
-                return Some(event);
-            }
-        }
-    }
-
-    fn take_error(&mut self) -> Option<Self::Error> {
-        self.event_queue.errors.borrow_mut().pop_front()
-    }
-
-    fn validate(&self, _mutations: &[Mutation]) -> Result<(), Self::Error> {
-        Ok(())
-    }
-
-    fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
+impl WinUiAdapter {
+    fn apply_mutations(&mut self, mutations: &[Mutation]) -> Result<(), WinUiError> {
         for mutation in mutations {
             match mutation {
                 Mutation::Create { object, kind } => self.create(*object, *kind)?,
@@ -231,7 +202,7 @@ impl Adapter for WinUiAdapter {
                         .handles
                         .remove(object)
                         .ok_or(WinUiError::MissingObject(*object))?;
-                    self.image_subscriptions.remove(object);
+                    self.release_image(*object);
                     if let Handle::TreeNode(node) = &handle {
                         self.tree_node_texts
                             .borrow_mut()
@@ -267,6 +238,44 @@ impl Adapter for WinUiAdapter {
             }
         }
         self.sync_window_title_bars()
+    }
+}
+
+impl Adapter for WinUiAdapter {
+    type Error = WinUiError;
+
+    fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
+        events.extend(
+            self.event_queue
+                .events
+                .borrow()
+                .iter()
+                .filter_map(|event| self.native_event(event)),
+        );
+    }
+
+    fn pop_native_event(&mut self) -> Option<NativeEvent> {
+        loop {
+            let queued = self.event_queue.events.borrow_mut().pop_front()?;
+            if let Some(event) = self.native_event(&queued) {
+                return Some(event);
+            }
+        }
+    }
+
+    fn take_error(&mut self) -> Option<Self::Error> {
+        self.event_queue.errors.borrow_mut().pop_front()
+    }
+
+    fn validate(&self, _mutations: &[Mutation]) -> Result<(), Self::Error> {
+        Ok(())
+    }
+
+    fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
+        let result = self.apply_mutations(mutations);
+        self.released_images.clear();
+        self.images.retain(|_, image| image.strong_count() != 0);
+        result
     }
 
     fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {

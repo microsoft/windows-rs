@@ -1139,10 +1139,10 @@ pub(crate) fn validate_native_uri(value: &str) -> windows_core::Result<()> {
 }
 
 fn icon_image_source(value: &ImageSource) -> Result<native::ImageSource, WinUiError> {
-    Ok(image_source(value)?.value.clone())
+    Ok(NativeImageSource::new(value.value())?.value)
 }
 
-pub(crate) struct NativeImageSource {
+struct NativeImageSource {
     value: native::ImageSource,
     state: Rc<ImageLoadState>,
     _opened: windows_core::EventRevoker,
@@ -1150,8 +1150,27 @@ pub(crate) struct NativeImageSource {
 }
 
 struct ImageSubscription {
-    _source: ImageSource,
-    _callback: Rc<dyn Fn(bool)>,
+    image: Rc<NativeImageSource>,
+    _callback: Option<Rc<dyn Fn(bool)>>,
+}
+
+struct ImageKey(ImageSourceValue);
+
+impl PartialEq for ImageKey {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+
+impl Eq for ImageKey {}
+
+impl std::hash::Hash for ImageKey {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        match &self.0 {
+            ImageSourceValue::Uri(value) => value.hash(state),
+            ImageSourceValue::Encoded(value) => value.as_bytes().hash(state),
+        }
+    }
 }
 
 impl GeneratedImage {
@@ -1192,18 +1211,18 @@ impl ImageLoadState {
     }
 }
 
-fn image_source(source: &ImageSource) -> Result<&NativeImageSource, WinUiError> {
-    if source.native.get().is_none() {
+impl NativeImageSource {
+    fn new(source: &ImageSourceValue) -> Result<Self, WinUiError> {
         let state = Rc::new(ImageLoadState::default());
         let opened = Rc::clone(&state);
         let failed = Rc::clone(&state);
-        let svg = matches!(source.value(), ImageSourceValue::Uri(uri)
+        let svg = matches!(source, ImageSourceValue::Uri(uri)
             if uri.split(['?', '#']).next().unwrap().to_ascii_lowercase().ends_with(".svg"));
         let (value, opened, failed) = if svg {
             let image = native::SvgImageSource::new()?;
             let opened = image.Opened(move |_, _| opened.complete(true))?;
             let failed = image.OpenFailed(move |_, _| failed.complete(false))?;
-            let ImageSourceValue::Uri(uri) = source.value() else {
+            let ImageSourceValue::Uri(uri) = source else {
                 unreachable!()
             };
             image.SetUriSource(&native::Uri::CreateUri(uri)?)?;
@@ -1212,25 +1231,19 @@ fn image_source(source: &ImageSource) -> Result<&NativeImageSource, WinUiError> 
             let image = native::BitmapImage::new()?;
             let opened = image.ImageOpened(move |_, _| opened.complete(true))?;
             let failed = image.ImageFailed(move |_, _| failed.complete(false))?;
-            match source.value() {
+            match source {
                 ImageSourceValue::Uri(uri) => image.SetUriSource(&native::Uri::CreateUri(uri)?)?,
                 ImageSourceValue::Encoded(value) => load_encoded_bitmap(value, &image)?,
             }
             (image.cast()?, opened, failed)
         };
-        assert!(
-            source
-                .native
-                .set(NativeImageSource {
-                    value,
-                    state,
-                    _opened: opened,
-                    _failed: failed,
-                })
-                .is_ok()
-        );
+        Ok(Self {
+            value,
+            state,
+            _opened: opened,
+            _failed: failed,
+        })
     }
-    Ok(source.native.get().unwrap())
 }
 
 fn icon_element(value: &Icon) -> Result<native::IconElement, WinUiError> {
@@ -1609,6 +1622,8 @@ fn observe_xaml_scale(
 pub struct WinUiAdapter {
     handles: HashMap<ObjectId, Handle>,
     image_subscriptions: HashMap<ObjectId, ImageSubscription>,
+    images: HashMap<ImageKey, Weak<NativeImageSource>>,
+    released_images: Vec<Rc<NativeImageSource>>,
     owners: HashMap<ObjectId, (ObjectId, RelationId)>,
     tree_template: Option<native::DataTemplate>,
     list_template: Option<native::DataTemplate>,
@@ -1649,6 +1664,8 @@ impl Default for WinUiAdapter {
         Self {
             handles: HashMap::new(),
             image_subscriptions: HashMap::new(),
+            images: HashMap::new(),
+            released_images: Vec::new(),
             owners: HashMap::new(),
             tree_template: None,
             list_template: None,

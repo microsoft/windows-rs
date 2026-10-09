@@ -210,7 +210,7 @@ impl WinUiAdapter {
         let set = sorted_set.as_deref().unwrap_or(set);
         for property in clear.iter().copied() {
             if property == PropertyId::Source {
-                self.image_subscriptions.remove(&object);
+                self.release_image(object);
                 if let Some(Handle::Generated(GeneratedHandle::Image(control))) =
                     self.handles.get(&object)
                 {
@@ -470,9 +470,29 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    fn shared_image(
+        &mut self,
+        source: &ImageSource,
+    ) -> Result<Rc<NativeImageSource>, WinUiError> {
+        let key = ImageKey(source.value().clone());
+        if let Some(image) = self.images.get(&key).and_then(Weak::upgrade) {
+            return Ok(image);
+        }
+        let image = Rc::new(NativeImageSource::new(source.value())?);
+        self.images.insert(key, Rc::downgrade(&image));
+        Ok(image)
+    }
+
+    fn release_image(&mut self, object: ObjectId) {
+        // Keep released images until the batch completes so replacement controls can share them.
+        if let Some(subscription) = self.image_subscriptions.remove(&object) {
+            self.released_images.push(subscription.image);
+        }
+    }
+
     fn set_image_source(&mut self, object: ObjectId, source: &ImageSource) -> Result<(), WinUiError> {
-        let image = image_source(source)?;
-        match self.handles.get(&object) {
+        let image = self.shared_image(source)?;
+        let callback = match self.handles.get(&object) {
             Some(Handle::Generated(GeneratedHandle::Image(control))) => {
                 control.value.SetSource(&image.value)?;
                 control.invalidate_source_events();
@@ -488,32 +508,37 @@ impl WinUiAdapter {
                     };
                     Self::dispatch_unit(event, &event_queue, object, id, None);
                 });
-                let result = image.state.subscribe(&callback);
-                let replay = Rc::downgrade(&callback);
-                self.image_subscriptions.insert(
-                    object,
-                    ImageSubscription {
-                        _source: source.clone(),
-                        _callback: callback,
-                    },
-                );
-                if let Some(result) = result {
-                    // Replay a completed load after the current update applies event handlers.
-                    let handler = native::DispatcherQueueHandler::new(move || {
-                        if let Some(callback) = replay.upgrade() {
-                            callback(result);
-                        }
-                    });
-                    native::DispatcherQueue::GetForCurrentThread()?
-                        .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)?;
-                }
-                Ok(())
+                Some(callback)
             }
             Some(Handle::Generated(GeneratedHandle::ImageIcon(control))) => {
-                control.SetSource(&image.value).map_err(Into::into)
+                control.SetSource(&image.value)?;
+                None
             }
-            _ => Err(WinUiError::InvalidObject(object)),
+            _ => return Err(WinUiError::InvalidObject(object)),
+        };
+        self.release_image(object);
+        let result = callback
+            .as_ref()
+            .and_then(|callback| image.state.subscribe(callback));
+        let replay = callback.as_ref().map(Rc::downgrade);
+        self.image_subscriptions.insert(
+            object,
+            ImageSubscription {
+                image,
+                _callback: callback,
+            },
+        );
+        if let (Some(result), Some(replay)) = (result, replay) {
+            // Replay a completed load after the current batch applies event handlers.
+            let handler = native::DispatcherQueueHandler::new(move || {
+                if let Some(callback) = replay.upgrade() {
+                    callback(result);
+                }
+            });
+            native::DispatcherQueue::GetForCurrentThread()?
+                .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)?;
         }
+        Ok(())
     }
 
     fn replace(&mut self, object: ObjectId, kind: ObjectType) -> Result<(), WinUiError> {
@@ -575,7 +600,7 @@ impl WinUiAdapter {
         self.handles
             .remove(&object)
             .ok_or(WinUiError::MissingObject(object))?;
-        self.image_subscriptions.remove(&object);
+        self.release_image(object);
         self.resource_override_keys.remove(&object);
         self.style_states.remove(&object);
         self.create(object, kind)?;

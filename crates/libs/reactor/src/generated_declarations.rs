@@ -4505,21 +4505,21 @@ impl Image {
         let declaration = Declaration::new(ObjectType::Image);
         Self(declaration)
     }
-    pub fn source(mut self, value: impl IntoImageSource) -> windows_core::Result<Self> {
+    pub fn source(mut self, value: impl Into<Rc<str>>) -> windows_core::Result<Self> {
         self.0 = self.0.property(
             PropertyId::Source,
-            PropertyValue::ImageSource(value.into_image_source()?),
+            PropertyValue::ImageSource(ImageSource::uri(value)?),
         );
         Ok(self)
     }
     pub fn source_optional<T>(mut self, value: Option<T>) -> windows_core::Result<Self>
     where
-        T: IntoImageSource,
+        T: Into<Rc<str>>,
     {
         if let Some(value) = value {
             self.0 = self.0.property(
                 PropertyId::Source,
-                PropertyValue::ImageSource(value.into_image_source()?),
+                PropertyValue::ImageSource(ImageSource::uri(value)?),
             );
         }
         Ok(self)
@@ -4881,21 +4881,21 @@ impl ImageIcon {
         let declaration = Declaration::new(ObjectType::ImageIcon);
         Self(declaration)
     }
-    pub fn source(mut self, value: impl IntoImageSource) -> windows_core::Result<Self> {
+    pub fn source(mut self, value: impl Into<Rc<str>>) -> windows_core::Result<Self> {
         self.0 = self.0.property(
             PropertyId::Source,
-            PropertyValue::ImageSource(value.into_image_source()?),
+            PropertyValue::ImageSource(ImageSource::uri(value)?),
         );
         Ok(self)
     }
     pub fn source_optional<T>(mut self, value: Option<T>) -> windows_core::Result<Self>
     where
-        T: IntoImageSource,
+        T: Into<Rc<str>>,
     {
         if let Some(value) = value {
             self.0 = self.0.property(
                 PropertyId::Source,
-                PropertyValue::ImageSource(value.into_image_source()?),
+                PropertyValue::ImageSource(ImageSource::uri(value)?),
             );
         }
         Ok(self)
