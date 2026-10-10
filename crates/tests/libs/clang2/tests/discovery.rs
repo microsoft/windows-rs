@@ -343,6 +343,39 @@ fn exact_header_identity_and_macro_ownership() {
 }
 
 #[test]
+fn cached_macro_and_record_owners_share_the_same_physical_header() {
+    let mut input = inputs().remove(0);
+    input.source.push_str("\n#define PartitionBad {\n");
+    let report = windows_clang2::capture_report(
+        [input.clone()],
+        ARGS,
+        &["Owned", "HEADER_VALUE", "PartitionBad"],
+    )
+    .unwrap();
+    assert_eq!(report.rejected.len(), 1);
+    let snapshot = report.snapshot.unwrap();
+    let resolved = snapshot.resolve().unwrap();
+    let options = ProjectionOptions::new("Test");
+    let plan = resolved.project(&options).unwrap();
+    let partitions = plan.rdl_by_header().unwrap();
+    let header = std::fs::canonicalize(&input.name).unwrap();
+    let text = &partitions[header.to_str().unwrap()];
+    assert!(text.contains("struct Owned"), "{text}");
+    assert!(text.contains("const HEADER_VALUE"), "{text}");
+    let fresh = capture([input], ARGS, &["Owned", "HEADER_VALUE"]).unwrap();
+    assert_eq!(
+        partitions,
+        fresh
+            .resolve()
+            .unwrap()
+            .project(&options)
+            .unwrap()
+            .rdl_by_header()
+            .unwrap()
+    );
+}
+
+#[test]
 fn selected_projection_is_closed_and_source_partitioned() {
     let inputs = inputs();
     let headers: Vec<_> = inputs.iter().map(|input| input.name.as_str()).collect();

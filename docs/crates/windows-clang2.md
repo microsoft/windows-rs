@@ -1350,12 +1350,28 @@ Source completeness alone does not establish replacement correctness.
 
 The directory-scoped x64 inventory selects 155,381 roots after recognizing wrappers around
 function-like declaration attributes. Its full capture completes in 544.711 s across 274 parses,
-with 1,864 rejected macro roots. Assessment stops on `_umul128`: one declaration supplies `_Out_`
-and `_Deref_out_range_(==,$0 * $1)` for parameter 2, while the `winnt.h` redeclaration supplies
-only `_Out_`. Profile precedence does not override disagreements inside a profile. The portable
-`annotation_partial_redeclaration.h` fixture and a grouped-SDK rejection gate preserve this
-additional contract rather than silently dropping it. Partial redeclaration contract agreement
-remains a production blocker.
+with 1,864 rejected macro roots. `_umul128` supplies `_Out_` and
+`_Deref_out_range_(==,$0 * $1)` for parameter 2 in one declaration, while its `winnt.h`
+redeclaration supplies only `_Out_`. Annotation agreement retains the longest observed sequence
+when all other sequences are exact prefixes, separately for SAL and MIDL. It does not construct
+a union, reorder clauses, or replace different arguments. Other nonempty disagreements reject.
+The portable `annotation_partial_redeclaration.h` fixture checks the retained postcondition in
+WinMD on three targets; a grouped-SDK gate checks the real intrinsic. Profile dependency
+substitution still requires identical resolved contracts.
+The subsequent full run completes capture in 507.235 s and canonical assessment in 5.056 s,
+reporting 11,106 unavailable roots and 51,257 profile selections. RDL partitioning exposes different
+slash and case spellings for the same physical `BdaTypes.h` after preamble reuse. Capture canonicalizes
+physical source ownership through the filesystem, with a per-spelling cache; virtual owners and
+compiler diagnostic locations retain their names. The ordinary discovery fixture and a real grouped
+SDK recovery gate compare macro and record ownership after reparsing. Distinct physical header
+partitions still reject if their output stems collide.
+With canonical owners, the full x64 run stages 129,002 distinct projected roots in 626 RDL
+partitions, with 26,379 distinct rejected roots. WinMD compilation reaches `_NT_TIB.Self` and
+rejects `r#Self`, which Rust token streams prohibit. Identifier projection uses trailing underscores
+for `Self`, `self`, `super`, and `crate`; other keywords retain raw identifiers. Record projection
+rejects field-name collisions after escaping. `reserved_fields.h` checks metadata names on three
+targets, and the grouped SDK partition gate compiles the real `_NT_TIB` alongside BDA declarations.
+Full metadata compilation, architecture merging, and publication remain open.
 
 This broader scope exposes non-value macros and untyped initialization fragments absent from
 the requested-header-only preflight.

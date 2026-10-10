@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    struct ReservedFields {
+        Self_: i32,
+        self_: i32,
+        super_: i32,
+        crate_: i32,
+        r#type: i32,
+    }
+}

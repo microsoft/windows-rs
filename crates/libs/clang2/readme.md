@@ -106,6 +106,11 @@ and string literals remain separate candidates.
 Macro identity and source ownership apply only to generated value probes, not same-named native
 records or variables. A selected macro supplies its root through the probe while native declarations
 remain distinct dependencies. Declaration-only values reject without aborting unrelated roots.
+Physical source owners use filesystem-canonical paths, cached once per path spelling during capture.
+This keeps cached compiler declarations and macro locations in the same header partition. Virtual
+source owners retain their input names; source diagnostic locations retain compiler spelling.
+RDL names use raw identifiers for keywords, except `Self`, `self`, `super`, and `crate`, which
+require trailing underscores. Record fields must remain distinct after escaping.
 
 Captured SAL and MIDL contracts survive as `#[annotation("sal", "...")]` and
 `#[annotation("midl", "...")]`, independently of typed lowering. Ordered payloads retain conditions,
@@ -210,6 +215,8 @@ not disappear behind the mapping.
 
 Declaration-local MIDL prefix comments supply input/output direction when SAL has none. SAL controls
 local-call direction; evidence from each source family must independently agree across declarations.
+Partial redeclarations can omit trailing clauses: agreement retains a complete observed sequence
+only when every other sequence is an exact prefix. It does not synthesize a union or reorder clauses.
 Parameterized MIDL relationships, optionality, and retval markers are retained without typed lowering.
 Output/inout mutation through a single interface object pointer projects as a borrowed input, not
 a writable interface slot. An additional native pointer level retains its output/inout direction.

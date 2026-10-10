@@ -439,12 +439,25 @@ pub(super) fn scrape(
     let partitions = plan.rdl_by_header().inspect_err(|error| {
         blocked(output, &inventory, &mut outcomes, "source ownership", error);
     })?;
-    let mut names = BTreeSet::new();
+    let mut names = BTreeMap::new();
+    for header in partitions.keys() {
+        let stem = rdl_partition_stem(header);
+        if let Some(previous) = names.insert(stem.clone(), header) {
+            let error = format!(
+                "production source headers collide on partition `{stem}`: {previous}, {header}"
+            );
+            blocked(
+                output,
+                &inventory,
+                &mut outcomes,
+                "source ownership",
+                &error,
+            );
+            return Err(error.into());
+        }
+    }
     for (header, text) in partitions {
         let stem = rdl_partition_stem(&header);
-        if !names.insert(stem.clone()) {
-            return Err(format!("production source headers collide on partition `{stem}`").into());
-        }
         std::fs::write(output.join("rdl").join(format!("{stem}.rdl")), text)?;
     }
     for root in &supported {

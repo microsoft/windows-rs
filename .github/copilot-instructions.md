@@ -315,10 +315,11 @@ unavailability over every observation's written/canonical dependencies and check
 available graph; unavailable roots are explicit rejections, including whole overloaded names.
 Available native conflicts still fail globally. Strict `resolve` remains unchanged.
 Annotation ambiguity fails when selected evidence consumes the context, not during broad indexing.
-Full directory-scoped x64 capture completes in about nine minutes; assessment stops on partial
-SAL redeclarations of `_umul128` (`_Out_` with and without `_Deref_out_range_`). Preserve that
-evidence in `annotation_partial_redeclaration.h`; profile ranking does not resolve conflicts
-inside a profile.
+Full directory-scoped x64 capture completes in about nine minutes. Partial SAL/MIDL declarations
+retain the longest observed clause sequence only when other observations are exact prefixes.
+No clause union or reordering is permitted; profile dependency contracts still compare exactly.
+`annotation_partial_redeclaration.h` and the grouped SDK intrinsic gate preserve `_umul128`'s
+additional output-range postcondition.
 
 Capture dominates measured costs; no global projection cache or alternate IR is justified.
 Prioritize verified header prerequisites and record layouts using `docs/crates/windows-clang2.md`,

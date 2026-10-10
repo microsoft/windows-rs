@@ -248,6 +248,39 @@ fn available_dependencies_survive_when_their_profiles_roots_are_unavailable() {
 }
 
 #[test]
+fn partial_annotation_sequences_do_not_authorize_profile_substitution() {
+    let source = include_str!("../input/profile_contracts.h");
+    let extended = source.replace(
+        "__attribute__((annotate(DIRECTION)))",
+        "__attribute__((annotate(DIRECTION))) __attribute__((annotate(\"_Deref_out_range_(0,100)\")))",
+    );
+    let snapshot = capture(
+        [
+            Input::new("primary.hpp", source),
+            Input::new(
+                "secondary.hpp",
+                format!("{extended}\nextern \"C\" void Secondary(Contract* value);"),
+            ),
+        ],
+        ARGS,
+        &["Callback", "Secondary"],
+    )
+    .unwrap();
+    assert!(snapshot.resolve().is_ok());
+    for priority in [
+        ["primary.hpp", "secondary.hpp"],
+        ["secondary.hpp", "primary.hpp"],
+    ] {
+        let assessment = snapshot.assess_profiles(&priority).unwrap();
+        if priority[0] == "primary.hpp" {
+            assert!(assessment.rejected["Secondary"].contains("annotation contracts differ"));
+        } else {
+            assert!(!assessment.rejected.contains_key("Secondary"));
+        }
+    }
+}
+
+#[test]
 fn missing_canonical_annotations_do_not_erase_a_dependents_contract() {
     let source = include_str!("../input/profile_contracts.h");
     let snapshot = capture(

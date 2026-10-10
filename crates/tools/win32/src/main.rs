@@ -1294,8 +1294,78 @@ mod tests {
     }
 
     #[test]
-    #[ignore = "manual grouped-SDK partial annotation rejection gate"]
-    fn production_intrinsic_partial_contracts_are_not_erased() {
+    #[ignore = "manual grouped-SDK source partition identity gate"]
+    fn production_header_partition_identity() {
+        ensure_libclang();
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
+        let sal = root.join("crates\\libs\\clang2\\src\\sal.h");
+        let dirs = sdk_include_dirs();
+        let headers: Vec<_> = HEADERS.iter().chain(SATELLITE_HEADERS).copied().collect();
+        let include_args: Vec<_> = dirs
+            .iter()
+            .flat_map(|dir| ["-isystem".into(), dir.clone()])
+            .collect();
+        let arguments = clang_arguments(
+            &Arch::known("x64").unwrap(),
+            &include_args,
+            None,
+            sal.to_str().unwrap(),
+        );
+        let mut inputs = clang_inputs(&headers, &dirs, true);
+        let output = root.join("target\\win32-clang2\\partition-identity");
+        std::fs::create_dir_all(&output).unwrap();
+        for input in &mut inputs {
+            input.source.push_str("\n#define Clang2PartitionBad {\n");
+            input.name = output.join(&input.name).to_str().unwrap().into();
+            std::fs::write(&input.name, &input.source).unwrap();
+        }
+        let report = windows_clang2::capture_report(
+            inputs
+                .iter()
+                .map(|input| windows_clang2::Input::new(&input.name, &input.source)),
+            &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
+            &[
+                "MIN_DIMENSION",
+                "BDA_TEMPLATE_CONNECTION",
+                "Clang2PartitionBad",
+                "_NT_TIB",
+            ],
+        )
+        .unwrap();
+        assert_eq!(report.rejected.len(), 1);
+        let snapshot = report.snapshot.unwrap();
+        let assessment = snapshot
+            .assess_profiles(
+                &inputs
+                    .iter()
+                    .map(|input| input.name.as_str())
+                    .collect::<Vec<_>>(),
+            )
+            .unwrap();
+        let resolved = assessment.resolved.unwrap();
+        let options = windows_clang2::ProjectionOptions::new("Test");
+        let partitions = resolved.project(&options).unwrap().rdl_by_header().unwrap();
+        let bda_headers: Vec<_> = partitions
+            .keys()
+            .filter(|header| rdl_partition_stem(header) == "bdatypes")
+            .collect();
+        assert_eq!(bda_headers.len(), 1, "{bda_headers:?}");
+        let winnt = partitions
+            .iter()
+            .find(|(header, _)| rdl_partition_stem(header) == "winnt")
+            .unwrap()
+            .1;
+        assert!(winnt.contains("Self_: *mut _NT_TIB"), "{winnt}");
+        windows_rdl::reader()
+            .input_texts(partitions.values())
+            .output(output.join("partition-identity.winmd"))
+            .write()
+            .unwrap();
+    }
+
+    #[test]
+    #[ignore = "manual grouped-SDK partial annotation agreement gate"]
+    fn production_intrinsic_partial_contracts_are_preserved() {
         ensure_libclang();
         let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
         let sal = root.join("crates\\libs\\clang2\\src\\sal.h");
@@ -1318,12 +1388,11 @@ mod tests {
             &["_umul128"],
         )
         .unwrap();
-        let error = snapshot.resolve().err().unwrap().to_string();
-        assert!(
-            error.contains("conflicting annotations for parameter 2 (Sal)"),
-            "{error}"
-        );
-        assert!(error.contains("_Deref_out_range_(==,$0 * $1)"), "{error}");
+        let resolved = snapshot.resolve().unwrap();
+        let mut options = windows_clang2::ProjectionOptions::new("Test");
+        options.library = Some("test.dll".into());
+        let rdl = resolved.project(&options).unwrap().rdl();
+        assert!(rdl.contains("_Out_ _Deref_out_range_(==,$0 * $1)"), "{rdl}");
     }
 
     #[test]

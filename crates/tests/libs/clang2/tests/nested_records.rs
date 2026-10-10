@@ -96,6 +96,60 @@ fn nested_types_keep_nominal_identity_and_shared_references() {
 }
 
 #[test]
+fn reserved_field_names_compile_to_metadata_without_collisions() {
+    let source = include_str!("../input/reserved_fields.h");
+    for arch in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={arch}-pc-windows-msvc");
+        let args = &["-x", "c++", &target];
+        let snapshot = capture(
+            [Input::new("reserved.h", source)],
+            args,
+            &["ReservedFields"],
+        )
+        .unwrap();
+        let rdl = snapshot
+            .resolve()
+            .unwrap()
+            .project(&ProjectionOptions::new("Test"))
+            .unwrap()
+            .rdl();
+        assert_eq!(
+            rdl,
+            include_str!("../expected/reserved_fields.rdl").replace("\r\n", "\n")
+        );
+        let output =
+            std::path::Path::new(env!("OUT_DIR")).join(format!("reserved-fields-{arch}.winmd"));
+        windows_rdl::reader()
+            .input_text(&rdl)
+            .output(&output)
+            .write()
+            .unwrap();
+        let index = Index::read(output).unwrap();
+        let names: Vec<_> = index
+            .expect("Test", "ReservedFields")
+            .fields()
+            .map(|field| field.name())
+            .collect();
+        assert_eq!(names, ["Self_", "self_", "super_", "crate_", "type"]);
+        let snapshot = capture(
+            [Input::new("reserved.h", source)],
+            args,
+            &["ReservedCollision"],
+        )
+        .unwrap();
+        let error = snapshot
+            .resolve()
+            .unwrap()
+            .project(&ProjectionOptions::new("Test"))
+            .unwrap_err();
+        assert!(
+            error.to_string().contains("multiple native fields map"),
+            "{error}"
+        );
+    }
+}
+
+#[test]
 fn scoped_publication_does_not_hide_native_or_name_conflicts() {
     for arch in ["i686", "x86_64", "aarch64"] {
         let target = format!("--target={arch}-pc-windows-msvc");

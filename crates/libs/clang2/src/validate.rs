@@ -584,16 +584,15 @@ fn merge_annotations(
             .filter(|annotation| annotation.source == source)
             .map(Annotation::bound_text)
             .collect();
-        if !previous.is_empty() && !current.is_empty() && *previous != current {
+        if current.starts_with(previous) {
+            *previous = current;
+        } else if !previous.starts_with(&current) {
             return Err(unsupported(
                 declaration,
                 &format!(
                     "conflicting annotations for {scope} ({source:?}): {previous:?} vs {current:?}"
                 ),
             ));
-        }
-        if previous.is_empty() {
-            *previous = current;
         }
     }
     Ok(())

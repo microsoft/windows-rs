@@ -637,6 +637,7 @@ pub fn capture_report_with_progress(
         flag_enums: (0..units.len()).map(|_| BTreeSet::new()).collect(),
         macros,
         aggregate_values,
+        owners: BTreeMap::new(),
         identities: BTreeMap::new(),
         interned: (0..units.len()).map(|_| HashMap::new()).collect(),
         pending: VecDeque::new(),
@@ -1107,6 +1108,7 @@ struct Capture<'a> {
     flag_enums: Vec<BTreeSet<String>>,
     macros: Vec<BTreeMap<String, Location>>,
     aggregate_values: Vec<BTreeMap<String, Value>>,
+    owners: BTreeMap<String, String>,
     identities: BTreeMap<String, Vec<(usize, CXCursor)>>,
     interned: Vec<HashMap<u32, Vec<(CXCursor, Id)>>>,
     pending: VecDeque<(usize, CXCursor, Id)>,
@@ -1355,6 +1357,25 @@ impl Capture<'_> {
             || expansion_location(unsafe { clang_getCursorLocation(cursor) }).file,
             |location| location.file.clone(),
         );
+        let owner = if let Some(canonical) = self.owners.get(&owner) {
+            canonical.clone()
+        } else {
+            let path = std::path::Path::new(&owner);
+            let canonical = if path
+                .try_exists()
+                .map_err(|error| Error(format!("source ownership file `{owner}`: {error}")))?
+            {
+                std::fs::canonicalize(path)
+                    .map_err(|error| Error(format!("source ownership file `{owner}`: {error}")))?
+                    .to_str()
+                    .ok_or_else(|| Error(format!("source ownership file `{owner}` is not UTF-8")))?
+                    .to_string()
+            } else {
+                owner.clone()
+            };
+            self.owners.insert(owner, canonical.clone());
+            canonical
+        };
         let location = origin.cloned().unwrap_or_else(|| location(cursor));
         self.declarations.push(Declaration {
             entity,

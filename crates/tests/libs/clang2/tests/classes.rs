@@ -60,7 +60,7 @@ fn opaque_uuid_class_preserves_source_identity() {
         let partitions = plan.rdl_by_header().unwrap();
         assert_eq!(partitions.len(), 1);
         let (owner, text) = partitions.first_key_value().unwrap();
-        assert_eq!(Path::new(owner), header);
+        assert_eq!(Path::new(owner), std::fs::canonicalize(&header).unwrap());
         assert_eq!(*text, expected);
     }
 }
@@ -160,7 +160,7 @@ fn class_guid_publication_preserves_compiler_identity_and_source_ownership() {
     let partitions = plan.rdl_by_header().unwrap();
     assert_eq!(partitions.len(), 1);
     let (owner, text) = partitions.first_key_value().unwrap();
-    assert_eq!(Path::new(owner), header);
+    assert_eq!(Path::new(owner), std::fs::canonicalize(&header).unwrap());
     assert_eq!(text, &expected);
     options.class_guids.as_mut().unwrap().kind = ReferenceKind::Interface;
     let error = snapshot.resolve().unwrap().project(&options).unwrap_err();

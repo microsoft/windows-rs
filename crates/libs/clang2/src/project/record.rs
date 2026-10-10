@@ -135,7 +135,18 @@ impl Builder<'_, '_> {
         let mut size = 0;
         let mut align = 1;
         let mut anonymous_fields = false;
-        let mut names: BTreeSet<_> = fields.iter().map(|field| field.name.clone()).collect();
+        let mut names = BTreeSet::new();
+        for field in fields
+            .iter()
+            .filter(|field| !field.name.is_empty() && field.name != "_")
+        {
+            let field_name = ident(&field.name)?;
+            if !names.insert(field_name.clone()) {
+                return Err(Error(format!(
+                    "multiple native fields map to `{name}::{field_name}`"
+                )));
+            }
+        }
         if layout.align > 32768
             || !layout.align.is_positive()
             || !(layout.align as u64).is_power_of_two()

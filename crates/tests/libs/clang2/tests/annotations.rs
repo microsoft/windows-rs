@@ -92,6 +92,11 @@ fn return_annotations_before_declaration_macros_keep_callable_context() {
 
 #[test]
 fn partial_redeclarations_do_not_discard_additional_contracts() {
+    use windows_metadata::{
+        Value,
+        reader::{HasAttributes, Index, Item},
+    };
+
     let source = include_str!("../input/annotation_partial_redeclaration.h");
     for target in [
         "--target=x86_64-pc-windows-msvc",
@@ -105,13 +110,86 @@ fn partial_redeclarations_do_not_discard_additional_contracts() {
             &["Product"],
         )
         .unwrap();
-        let error = snapshot.resolve().err().unwrap().to_string();
-        assert!(
-            error.contains("conflicting annotations for parameter 2 (Sal)"),
-            "{error}"
+        let resolved = snapshot.resolve().unwrap();
+        let mut options = windows_clang2::ProjectionOptions::new("Test");
+        options.library = Some("test.dll".into());
+        let rdl = resolved.project(&options).unwrap().rdl();
+        assert_eq!(
+            snapshot
+                .assess_profiles(&["partial.hpp"])
+                .unwrap()
+                .resolved
+                .unwrap()
+                .project(&options)
+                .unwrap()
+                .rdl(),
+            rdl
         );
-        assert!(error.contains("_Deref_out_range_(==,$0 * $1)"), "{error}");
-        assert!(snapshot.assess_profiles(&["partial.hpp"]).is_err());
+        let output = std::path::Path::new(env!("OUT_DIR")).join(format!("partial-{target}.winmd"));
+        windows_rdl::reader()
+            .input_text(&rdl)
+            .output(&output)
+            .write()
+            .unwrap();
+        let index = Index::read(output).unwrap();
+        let Item::Fn(function) = index.expect_item("Test", "Product") else {
+            panic!()
+        };
+        let parameter = function
+            .params()
+            .find(|parameter| parameter.sequence() == 3)
+            .unwrap();
+        let attribute = parameter
+            .attributes()
+            .find(|attribute| attribute.name() == "NativeAnnotationAttribute")
+            .unwrap();
+        assert_eq!(
+            attribute.value(),
+            [
+                (String::new(), Value::Utf8("sal".into())),
+                (
+                    String::new(),
+                    Value::Utf8("_Out_ _Deref_out_range_(==,$0 * $1)".into())
+                ),
+            ]
+        );
+    }
+}
+
+#[test]
+fn annotation_extensions_select_observed_sequences_without_union_or_reordering() {
+    let declaration =
+        |annotations: &str| format!("extern \"C\" void Use(int* {annotations} value);");
+    let attr = |text: &str| format!("__attribute__((annotate(\"{text}\")))");
+    let base = attr("_Out_");
+    let range = attr("_Deref_out_range_(0,100)");
+    let other = attr("_Deref_out_range_(0,200)");
+    let arguments = sdk::arguments("--target=x86_64-pc-windows-msvc");
+    let arguments: Vec<_> = arguments.iter().map(String::as_str).collect();
+    for reversed in [false, true] {
+        for (left, right, compatible) in [
+            (base.clone(), format!("{base} {range}"), true),
+            (format!("{base} {range}"), format!("{base} {other}"), false),
+            (format!("{base} {range}"), format!("{range} {base}"), false),
+            (base.clone(), attr("_Out_opt_"), false),
+        ] {
+            let mut inputs = [
+                windows_clang2::Input::new("a.hpp", declaration(&left)),
+                windows_clang2::Input::new("b.hpp", declaration(&right)),
+            ];
+            if reversed {
+                let [left, right] = &mut inputs;
+                std::mem::swap(&mut left.source, &mut right.source);
+            }
+            let snapshot = windows_clang2::capture(inputs, &arguments, &["Use"]).unwrap();
+            assert_eq!(snapshot.resolve().is_ok(), compatible);
+            if compatible {
+                let mut options = windows_clang2::ProjectionOptions::new("Test");
+                options.library = Some("test.dll".into());
+                let rdl = snapshot.resolve().unwrap().project(&options).unwrap().rdl();
+                assert!(rdl.contains("_Out_ _Deref_out_range_(0,100)"), "{rdl}");
+            }
+        }
     }
 }
 

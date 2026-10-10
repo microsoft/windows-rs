@@ -2315,6 +2315,9 @@ fn ident(value: &str) -> Result<String, Error> {
     {
         return Err(Error(format!("unsupported output identifier `{value}`")));
     }
+    if matches!(value, "Self" | "self" | "super" | "crate") {
+        return Ok(format!("{value}_"));
+    }
     Ok(
         if matches!(
             value,
@@ -2326,10 +2329,6 @@ fn ident(value: &str) -> Result<String, Error> {
                 | "const"
                 | "mut"
                 | "ref"
-                | "self"
-                | "Self"
-                | "super"
-                | "crate"
                 | "use"
                 | "pub"
                 | "extern"
