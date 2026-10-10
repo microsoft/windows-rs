@@ -19,6 +19,7 @@ cargo run -p test-reactor-integration --bin menu_position -- thread-unaware
 cargo run -p test-reactor-integration --bin canvas_integration
 cargo run -p test-reactor-integration --bin webview_integration
 cargo run -p test-reactor-integration --bin window_state
+cargo run -p test-reactor-integration --bin title_bar
 ```
 
 Each executable owns its application lifetime and watchdog. The lifecycle fixture covers
@@ -33,7 +34,9 @@ monitor, extends outside that monitor's work area, and closes during application
 It measures menu-item bounds through UI Automation rather than the popup window's shadow bounds,
 and requires a running Windows shell with a notification area. Companion-crate fixtures exercise
 Canvas drawing and WebView initialization. The window-state fixture observes size and icon changes
-through the public window callback and Win32 APIs.
+through the public window callback and Win32 APIs. The title-bar fixture opens a second window from
+a running application and checks through UI Automation that its `TitleBar` right header keeps the
+same caption-button inset as the first window.
 
 The menu-position fixture covers `pmv2`, `unaware`, `system`, and `thread-unaware` DPI modes. It
 checks exact physical host bounds and restoration of the caller's thread context, including when
