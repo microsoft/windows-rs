@@ -248,6 +248,39 @@ fn available_dependencies_survive_when_their_profiles_roots_are_unavailable() {
 }
 
 #[test]
+fn canonical_selection_does_not_recheck_same_profile_typedef_spelling() {
+    let source = include_str!("../input/profile_redeclarations.h");
+    for target in [
+        "--target=x86_64-pc-windows-msvc",
+        "--target=i686-pc-windows-msvc",
+        "--target=aarch64-pc-windows-msvc",
+    ] {
+        let arguments = ["-x", "c++", target];
+        let snapshot = capture(
+            [Input::new("primary.hpp", source)],
+            &arguments,
+            &["ProfileRecord", "ProfileUse"],
+        )
+        .unwrap();
+        let strict = snapshot.resolve().unwrap();
+        let mut options = ProjectionOptions::new("Test");
+        options.library = Some("test.dll".into());
+        let expected = strict.project(&options).unwrap().rdl();
+        let assessment = snapshot.assess_profiles(&["primary.hpp"]).unwrap();
+        assert!(assessment.rejected.is_empty(), "{:?}", assessment.rejected);
+        assert_eq!(
+            assessment
+                .resolved
+                .unwrap()
+                .project(&options)
+                .unwrap()
+                .rdl(),
+            expected
+        );
+    }
+}
+
+#[test]
 fn partial_annotation_sequences_do_not_authorize_profile_substitution() {
     let source = include_str!("../input/profile_contracts.h");
     let extended = source.replace(

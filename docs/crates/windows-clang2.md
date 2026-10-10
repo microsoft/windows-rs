@@ -1372,6 +1372,17 @@ for `Self`, `self`, `super`, and `crate`; other keywords retain raw identifiers.
 rejects field-name collisions after escaping. `reserved_fields.h` checks metadata names on three
 targets, and the grouped SDK partition gate compiles the real `_NT_TIB` alongside BDA declarations.
 Full metadata compilation, architecture merging, and publication remain open.
+Broad `ULONG` rejections exposed profile-substitution checks applied to same-input redeclarations:
+`typedef unsigned long ULONG` and `typedef DWORD ULONG` share the checked native type but have
+different written chains. Substitution checks now run only when the dependency comes from another
+input. Internal native agreement still checks all selected-profile observations; cross-profile
+written types and annotation contracts remain checked. `profile_redeclarations.h` covers three
+targets, and the real grouped-SDK gate compiles `wireVARIANT` without rejecting its local aliases.
+The corrected full x64 run compiles its staged WinMD (13,626,880 bytes). Capture takes 509.073 s;
+profile assessment takes 5.018 s. Native availability rejects 972 roots rather than 11,106, and
+the staged projection contains 136,219 distinct supported roots with 19,162 rejected roots.
+These are coverage outcomes, not publication parity: remaining projection rejections, ARM64/x86,
+WDK, and merged metadata still require separate gates.
 
 This broader scope exposes non-value macros and untyped initialization fragments absent from
 the requested-header-only preflight.

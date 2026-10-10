@@ -176,6 +176,10 @@ fn assess_groups<'a>(
                     dependents.entry(dependency).or_default().insert(group);
                     if profiles.is_some() {
                         let chosen = representative(snapshot, &groups[dependency]);
+                        if snapshot.declarations[id.0].unit == snapshot.declarations[chosen.0].unit
+                        {
+                            continue;
+                        }
                         if let Err(error) = comparison.compare(
                             comparison.completions[id.0],
                             comparison.completions[chosen.0],

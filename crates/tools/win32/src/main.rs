@@ -1329,6 +1329,7 @@ mod tests {
                 "BDA_TEMPLATE_CONNECTION",
                 "Clang2PartitionBad",
                 "_NT_TIB",
+                "wireVARIANT",
             ],
         )
         .unwrap();
@@ -1343,6 +1344,7 @@ mod tests {
             )
             .unwrap();
         let resolved = assessment.resolved.unwrap();
+        assert!(assessment.rejected.is_empty(), "{:?}", assessment.rejected);
         let options = windows_clang2::ProjectionOptions::new("Test");
         let partitions = resolved.project(&options).unwrap().rdl_by_header().unwrap();
         let bda_headers: Vec<_> = partitions

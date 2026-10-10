@@ -217,6 +217,8 @@ Declaration-local MIDL prefix comments supply input/output direction when SAL ha
 local-call direction; evidence from each source family must independently agree across declarations.
 Partial redeclarations can omit trailing clauses: agreement retains a complete observed sequence
 only when every other sequence is an exact prefix. It does not synthesize a union or reorder clauses.
+Profile substitution checks apply across inputs, not between native redeclarations already checked
+inside the selected input. Equivalent local typedef chains retain their checked native agreement.
 Parameterized MIDL relationships, optionality, and retval markers are retained without typed lowering.
 Output/inout mutation through a single interface object pointer projects as a borrowed input, not
 a writable interface slot. An additional native pointer level retains its output/inout direction.
