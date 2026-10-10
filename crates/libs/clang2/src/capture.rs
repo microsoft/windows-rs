@@ -622,12 +622,14 @@ pub fn capture_report_with_progress(
             snapshot: None,
             rejected,
             parses: progress.parses,
+            native_timings: NativeCaptureTimings::default(),
         });
     }
     let target = units[0].target.clone();
     if units.iter().any(|unit| unit.target != target) {
         return Err(Error("capture inputs have different targets".into()));
     }
+    let indexing_started = std::time::Instant::now();
     let mut capture = Capture {
         units: &units,
         declarations: vec![],
@@ -637,6 +639,7 @@ pub fn capture_report_with_progress(
         flag_enums: (0..units.len()).map(|_| BTreeSet::new()).collect(),
         macros,
         aggregate_values,
+        pointer_values: (0..units.len()).map(|_| BTreeMap::new()).collect(),
         owners: BTreeMap::new(),
         identities: BTreeMap::new(),
         interned: (0..units.len()).map(|_| HashMap::new()).collect(),
@@ -646,7 +649,16 @@ pub fn capture_report_with_progress(
     let mut found = BTreeSet::new();
     for (unit, parsed) in units.iter().enumerate() {
         let root = unsafe { clang_getTranslationUnitCursor(parsed.raw) };
-        let flag_macros: BTreeSet<_> = children(root)
+        let root_children = children(root);
+        for cursor in &root_children {
+            if unsafe { clang_getCursorKind(*cursor) } == CXCursor_VarDecl {
+                let name = string(unsafe { clang_getCursorSpelling(*cursor) });
+                if let Some(name) = name.strip_prefix("__clang2_bits_") {
+                    capture.pointer_values[unit].insert(name.to_string(), *cursor);
+                }
+            }
+        }
+        let flag_macros: BTreeSet<_> = root_children
             .into_iter()
             .filter(|cursor| {
                 (unsafe { clang_getCursorKind(*cursor) }) == CXCursor_MacroExpansion
@@ -734,10 +746,14 @@ pub fn capture_report_with_progress(
             return Err(Error(format!("native root `{root}` was not found")));
         }
     }
+    let indexing = indexing_started.elapsed();
+    let roots_started = std::time::Instant::now();
     let mut root_ids = BTreeSet::new();
     for (unit, cursor) in selected {
         root_ids.insert(capture.intern(unit, cursor)?);
     }
+    let roots_elapsed = roots_started.elapsed();
+    let closure_started = std::time::Instant::now();
     let mut expanded = BTreeSet::new();
     while let Some((unit, cursor, id)) = capture.pending.pop_front() {
         let data = capture.declaration(unit, cursor)?;
@@ -770,6 +786,11 @@ pub fn capture_report_with_progress(
         }),
         rejected,
         parses: progress.parses,
+        native_timings: NativeCaptureTimings {
+            indexing,
+            roots: roots_elapsed,
+            closure: closure_started.elapsed(),
+        },
     })
 }
 
@@ -1108,6 +1129,7 @@ struct Capture<'a> {
     flag_enums: Vec<BTreeSet<String>>,
     macros: Vec<BTreeMap<String, Location>>,
     aggregate_values: Vec<BTreeMap<String, Value>>,
+    pointer_values: Vec<BTreeMap<String, CXCursor>>,
     owners: BTreeMap<String, String>,
     identities: BTreeMap<String, Vec<(usize, CXCursor)>>,
     interned: Vec<HashMap<u32, Vec<(CXCursor, Id)>>>,
@@ -1604,17 +1626,15 @@ impl Capture<'_> {
                             .kind
                                 == CXType_Pointer
                         {
-                            let bits = format!("__clang2_bits_{name}");
-                            let bits = children(unsafe {
-                                clang_getTranslationUnitCursor(self.units[unit].raw)
-                            })
-                            .into_iter()
-                            .find(|cursor| {
-                                string(unsafe { clang_getCursorSpelling(*cursor) }) == bits
-                            })
-                            .ok_or_else(|| {
-                                Error(format!("missing pointer constant probe for `{name}`"))
-                            })?;
+                            let bits =
+                                self.pointer_values[unit]
+                                    .get(&name)
+                                    .copied()
+                                    .ok_or_else(|| {
+                                        Error(format!(
+                                            "missing pointer constant probe for `{name}`"
+                                        ))
+                                    })?;
                             evaluate(bits)
                         } else {
                             value

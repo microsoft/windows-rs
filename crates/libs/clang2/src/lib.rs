@@ -71,6 +71,15 @@ pub struct CaptureReport {
     pub rejected: BTreeMap<String, String>,
     /// Translation-unit parses, including probes and clean reparses after rejected probes.
     pub parses: usize,
+    pub native_timings: NativeCaptureTimings,
+}
+
+/// Native extraction work after the final clean compiler parse.
+#[derive(Debug, Default)]
+pub struct NativeCaptureTimings {
+    pub indexing: std::time::Duration,
+    pub roots: std::time::Duration,
+    pub closure: std::time::Duration,
 }
 
 /// One completed compiler parse, before assigning its diagnostics to rejected probes.

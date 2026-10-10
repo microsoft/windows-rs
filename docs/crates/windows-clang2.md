@@ -1384,6 +1384,95 @@ the staged projection contains 136,219 distinct supported roots with 19,162 reje
 These are coverage outcomes, not publication parity: remaining projection rejections, ARM64/x86,
 WDK, and merged metadata still require separate gates.
 
+### Full replacement baseline (2026-10-10)
+
+The unchanged debug producer compiles SDK WinMD for all three targets. The one-hour diagnostic
+budget expires after x86 compilation. Continuing from those completed artifacts through the same
+SDK architecture-merge and compilation calls succeeds in 42.718 s, without reparsing or changing
+capture policy. The WDK continuation uses that merged SDK as its reference, but fails during x64
+assessment. WDK ARM64/x86, the SDK/WDK union, and publication are not completed.
+
+| SDK target | Capture | Parses | Probe/source parse time | Assessment | WinMD compile |
+| --- | --- | --- | --- | --- | --- |
+| x64 | 1,094.110 s | 274 | 646.073 s | 9.453 s | 8.37 s |
+| ARM64 | 1,085.505 s | 276 | 647.743 s | 9.351 s | 8.45 s |
+| x86 | 1,094.988 s | 271 | 641.051 s | 9.410 s | 8.57 s |
+
+The process accumulates 3,398.7 CPU seconds over the sampled hour. Two-second OS sampling observes
+2,786.4 MiB peak working set and 2,697.7 MiB peak private memory. These are debug, machine-local
+measurements, not a release benchmark. Earlier x64 capture on the same source took about 509 s;
+this run does not establish the cause of that timing variation.
+
+Repeated parsing consumes about 59% of capture time; roughly 40% remains after the last clean
+parse for native closure capture and related work. Assessment and WinMD serialization are small
+by comparison. Performance investigation should measure both recovery and native extraction,
+not assume repeated parsing explains the whole cost. Hundreds of full remaining-probe reparses
+remain a scaling concern despite working preamble reuse.
+
+The WDK x64 capture completes in 4.252 s with 14 parses and 63 rejected macros. Its assessment
+finds two declarations of `MmGetSystemRoutineAddress` in `wdm.h`: the declaration near line 14677
+requires `PASSIVE_LEVEL`, while the declaration near line 30778 requires `APC_LEVEL`. Captured SAL
+payloads are `_IRQL_requires_max_(0)` and `_IRQL_requires_max_(1)`. This is source evidence inside
+one profile, not a missing prerequisite or a cross-profile precedence decision. It is not erased
+to force the baseline through.
+
+The pinned comparison is master `2672e615d9cc0771448a781f3b2fe34e7fd08c6a`. Master UM and WDK
+RDL are compiled separately with the current RDL reader; SDK candidate metadata is compared
+per target and after architecture merging. Items are keyed by namespace, name, and kind.
+
+| SDK target | Added items | Removed items | Changed item shapes |
+| --- | --- | --- | --- |
+| x64 | 15,108 | 7,675 | 50,326 |
+| ARM64 | 15,103 | 7,677 | 50,299 |
+| x86 | 15,112 | 7,815 | 49,748 |
+
+Changed shapes include imports, names, constant types, record alias representation, annotations,
+and parameter metadata; they are not a count of ABI defects. For example, `RECT` becomes a typedef
+wrapper over `tagRECT`, `S_OK` names a local `HRESULT`, `CreateFileW` loses the public `HANDLE`
+boundary, and `GetCurrentThreadId` changes the P/Invoke convention flags. Each family needs
+source/compiler and consumer evidence, not blanket acceptance or rejection.
+
+The x64 missing-item breakdown is 5,386 constants, 1,839 types, and 450 functions. Of the 7,675
+missing items, 5,860 have an exact-name rejection in the capture inventory, 681 have a projected
+name with another kind or representation, 111 are excluded as external metadata, and 1,023 have
+no exact-name discovery evidence. None of these categories certifies a safe removal. Examples
+include unsupported anonymous enums, C++ interface dependencies, import-less
+`InitializeXamlDiagnosticsEx`, and unsupported source contracts. Complete per-item shape and
+inventory evidence, run logs, binary/commit identities, and resource samples are session artifacts;
+generated candidate RDL/WinMD remains under `target/win32-clang2/production`.
+
+### Capture performance review
+
+The ignored `production_x64_performance_preserves_baseline` test runs the complete x64 production
+scope under `target/win32-clang2/performance`, without replacing baseline outputs. It requires
+byte-identical RDL files and WinMD, plus matching inventories and profile choices after normalizing
+the staging directory. The current full baseline has 668 per-target RDL partitions. Run with:
+
+```sh
+cargo test --release -p tool-win32 production_x64_performance_preserves_baseline -- --ignored --nocapture --test-threads=1
+```
+
+`CaptureReport::native_timings` separates broad indexing, selected-root interning, and native
+closure extraction after clean parsing. Two optimized runs preserve all 668 RDL partitions,
+the WinMD, 19,162 rejected roots, inventory reasons, and canonical-profile choices.
+
+| Optimized run | Total | Capture | Parse time | Indexing | Root interning | Closure |
+| --- | --- | --- | --- | --- | --- | --- |
+| Before pointer-probe indexing | 1,077.630 s | 961.857 s | 364.860 s | 4.395 s | 70.563 s | 497.873 s |
+| With pointer-probe indexing | 1,003.246 s | 944.042 s | 646.323 s | 3.734 s | 69.143 s | 197.137 s |
+
+Pointer constant extraction searched all translation-unit children for each generated bits probe,
+giving repeated whole-TU traversal. Indexing those cursors once changes that lookup to a keyed
+lookup in the final clean TU. Cursors remain capture-local and are never retained across reparses
+or in the owned snapshot. `pointer_probe_index.h` checks several distinct pointer values after
+syntax recovery and compares them with fresh capture on three targets.
+
+Closure time falls by about 301 s, while parsing increases by about 281 s between these runs.
+Total wall time improves by only about 7%; it is not evidence of a stable overall speedup.
+Optimized compilation alone does not make full production fast. Further work should isolate
+root interning and the remaining closure cost, then benchmark bounded recovery designs against
+the exact-output gate. Broad indexing and agreement are not the dominant costs in these runs.
+
 This broader scope exposes non-value macros and untyped initialization fragments absent from
 the requested-header-only preflight.
 Static assertions are compiler checks, not named roots; statement-fragment macros such as

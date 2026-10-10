@@ -70,6 +70,9 @@ an existing main source file to reuse that preamble; callers staging sources sho
 path as `Input.name`. Virtual inputs remain supported but cannot use filesystem-backed preamble
 reuse. `capture_report_with_progress` reports each completed parse, its elapsed time, and probe/error
 counts without changing capture policy.
+`CaptureReport::native_timings` separates native indexing, root interning, and closure extraction
+after clean parsing. Generated pointer-value probes are indexed once per final translation unit;
+evaluating each pointer constant does not search the complete translation unit again.
 `capture` retains its strict all-roots contract.
 `Snapshot::assess` reports unavailable roots and checks the remaining closed native graph.
 Unavailability follows every observation's written and canonical dependencies, including cycles.

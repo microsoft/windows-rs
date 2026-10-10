@@ -6,6 +6,67 @@ use windows_metadata::{Type, Value, reader::*};
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn pointer_probe_index_retains_each_value_after_clean_recovery() {
+    let source = include_str!("../input/pointer_probe_index.h");
+    for target in [
+        "--target=x86_64-pc-windows-msvc",
+        "--target=i686-pc-windows-msvc",
+        "--target=aarch64-pc-windows-msvc",
+    ] {
+        let arguments = ["-x", "c++", target];
+        let roots = [
+            "PointerFirst",
+            "PointerSecond",
+            "PointerThird",
+            "PointerFourth",
+        ];
+        let report = capture_report(
+            [Input::new("pointer-index.hpp", source)],
+            &arguments,
+            &[
+                "PointerFirst",
+                "PointerSecond",
+                "PointerThird",
+                "PointerFourth",
+                "PointerSyntaxFailure",
+            ],
+        )
+        .unwrap();
+        assert_eq!(report.rejected.len(), 1);
+        let snapshot = report.snapshot.unwrap();
+        let options = ProjectionOptions::new("Test");
+        let rdl = snapshot.resolve().unwrap().project(&options).unwrap().rdl();
+        let fresh = capture(
+            [Input::new("pointer-index.hpp", source)],
+            &arguments,
+            &roots,
+        )
+        .unwrap();
+        assert_eq!(
+            rdl,
+            fresh.resolve().unwrap().project(&options).unwrap().rdl()
+        );
+        let output =
+            std::path::Path::new(env!("OUT_DIR")).join(format!("pointer-index-{target}.winmd"));
+        windows_rdl::reader()
+            .input_text(&rdl)
+            .output(&output)
+            .write()
+            .unwrap();
+        let index = Index::read(output).unwrap();
+        for (position, name) in roots.iter().enumerate() {
+            let Item::Const(field) = index.expect_item("Test", name) else {
+                panic!()
+            };
+            assert_eq!(
+                field.constant().unwrap().value(),
+                Value::I32(-1 - position as i32)
+            );
+        }
+    }
+}
+
+#[test]
 fn macros_do_not_replace_same_named_native_declarations() {
     let source = include_str!("../input/macro_identity.h");
     for reverse in [false, true] {

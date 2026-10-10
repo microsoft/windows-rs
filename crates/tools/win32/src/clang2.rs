@@ -348,6 +348,13 @@ pub(super) fn scrape(
     for (root, reason) in &captured.rejected {
         outcomes.insert(root.as_str(), ("rejected", format!("capture: {reason}")));
     }
+    println!(
+        "clang2 {}: native indexing={:.3}s roots={:.3}s closure={:.3}s",
+        output.display(),
+        captured.native_timings.indexing.as_secs_f64(),
+        captured.native_timings.roots.as_secs_f64(),
+        captured.native_timings.closure.as_secs_f64(),
+    );
     report(output, &inventory, &outcomes);
     let snapshot = captured
         .snapshot

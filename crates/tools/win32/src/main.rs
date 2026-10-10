@@ -1294,6 +1294,70 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "manual full x64 performance and production-output agreement gate"]
+    fn production_x64_performance_preserves_baseline() {
+        ensure_libclang();
+        let headers: Vec<_> = HEADERS.iter().chain(SATELLITE_HEADERS).copied().collect();
+        let dirs = sdk_include_dirs();
+        let include_args: Vec<_> = dirs
+            .iter()
+            .flat_map(|dir| ["-isystem".into(), dir.clone()])
+            .collect();
+        let references = windows_metadata::reader::Index::new(vec![
+            windows_metadata::reader::File::new(windows_default::WINRT.to_vec()).unwrap(),
+        ]);
+        let output = std::path::Path::new("target\\win32-clang2\\performance");
+        let baseline = std::path::Path::new(OUTPUT_DIR).join("x64");
+        assert!(baseline.join("Windows.Win32.winmd").is_file());
+        let started = std::time::Instant::now();
+        let result = scrape_um_arch(
+            &Arch::known("x64").unwrap(),
+            clang_inputs(&headers, &dirs, true),
+            &include_args,
+            &references,
+            None,
+            output,
+        );
+        let baseline_files: std::collections::BTreeSet<_> = std::fs::read_dir(baseline.join("rdl"))
+            .unwrap()
+            .map(|entry| entry.unwrap().file_name())
+            .collect();
+        let candidate_files: std::collections::BTreeSet<_> = std::fs::read_dir(&result.rdl_dir)
+            .unwrap()
+            .map(|entry| entry.unwrap().file_name())
+            .collect();
+        assert_eq!(candidate_files, baseline_files);
+        for file in baseline_files {
+            assert_eq!(
+                std::fs::read(result.rdl_dir.join(&file)).unwrap(),
+                std::fs::read(baseline.join("rdl").join(&file)).unwrap(),
+                "RDL output changed: {file:?}"
+            );
+        }
+        assert_eq!(
+            std::fs::read(&result.winmd).unwrap(),
+            std::fs::read(baseline.join("Windows.Win32.winmd")).unwrap(),
+            "WinMD output changed"
+        );
+        for file in ["inventory.tsv", "profile-precedence.tsv", "profiles.tsv"] {
+            let candidate = std::fs::read_to_string(output.join("x64").join(file))
+                .unwrap()
+                .replace("target\\win32-clang2\\performance", OUTPUT_DIR);
+            assert_eq!(
+                candidate,
+                std::fs::read_to_string(baseline.join(file)).unwrap(),
+                "{file}"
+            );
+        }
+        println!(
+            "full x64 baseline agreement: {} RDL partitions, {} rejected roots, elapsed={:.3}s",
+            candidate_files.len(),
+            result.unsupported.len(),
+            started.elapsed().as_secs_f64()
+        );
+    }
+
+    #[test]
     #[ignore = "manual grouped-SDK source partition identity gate"]
     fn production_header_partition_identity() {
         ensure_libclang();
