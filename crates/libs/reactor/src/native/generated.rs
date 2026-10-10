@@ -635,12 +635,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -682,12 +683,13 @@ impl GeneratedHandle {
                         event_queue_click.observe(object, EventId::Click, observation.clone());
                     let observation = dispatch.then_some(observation);
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -727,7 +729,7 @@ impl GeneratedHandle {
                         );
                         let observation = dispatch.then_some(observation);
                         if dispatch {
-                            WinUiAdapter::dispatch_optional_bool(
+                            WinUiAdapter::dispatch(
                                 &event_for_callback,
                                 &event_queue_is_checked_changed,
                                 object,
@@ -788,7 +790,7 @@ impl GeneratedHandle {
                                 }
                             };
                             if dispatch {
-                                WinUiAdapter::dispatch_pointer_event_info(
+                                WinUiAdapter::dispatch(
                                     &event_for_callback,
                                     &event_queue_pointer_pressed,
                                     object,
@@ -826,7 +828,7 @@ impl GeneratedHandle {
                                 }
                             };
                             if dispatch {
-                                WinUiAdapter::dispatch_pointer_event_info(
+                                WinUiAdapter::dispatch(
                                     &event_for_callback,
                                     &event_queue_pointer_moved,
                                     object,
@@ -864,7 +866,7 @@ impl GeneratedHandle {
                                 }
                             };
                             if dispatch {
-                                WinUiAdapter::dispatch_pointer_event_info(
+                                WinUiAdapter::dispatch(
                                     &event_for_callback,
                                     &event_queue_pointer_entered,
                                     object,
@@ -902,7 +904,7 @@ impl GeneratedHandle {
                                 }
                             };
                             if dispatch {
-                                WinUiAdapter::dispatch_pointer_event_info(
+                                WinUiAdapter::dispatch(
                                     &event_for_callback,
                                     &event_queue_pointer_exited,
                                     object,
@@ -945,7 +947,7 @@ impl GeneratedHandle {
                                 }
                             };
                             if dispatch {
-                                WinUiAdapter::dispatch_pointer_event_info(
+                                WinUiAdapter::dispatch(
                                     &event_for_callback,
                                     &event_queue_pointer_released,
                                     object,
@@ -966,12 +968,13 @@ impl GeneratedHandle {
                             let dispatch = true;
                             let observation = None;
                             if dispatch {
-                                WinUiAdapter::dispatch_unit(
+                                WinUiAdapter::dispatch(
                                     &event_for_callback,
                                     &event_queue_pointer_capture_lost,
                                     object,
                                     EventId::PointerCaptureLost,
                                     observation,
+                                    (),
                                 );
                             }
                         })?;
@@ -986,12 +989,13 @@ impl GeneratedHandle {
                             let dispatch = true;
                             let observation = None;
                             if dispatch {
-                                WinUiAdapter::dispatch_unit(
+                                WinUiAdapter::dispatch(
                                     &event_for_callback,
                                     &event_queue_pointer_canceled,
                                     object,
                                     EventId::PointerCanceled,
                                     observation,
+                                    (),
                                 );
                             }
                         })?;
@@ -1090,7 +1094,7 @@ impl GeneratedHandle {
                             }
                         };
                         if dispatch {
-                            WinUiAdapter::dispatch_focus_event_info(
+                            WinUiAdapter::dispatch(
                                 &event_for_callback,
                                 &event_queue_got_focus,
                                 object,
@@ -1125,7 +1129,7 @@ impl GeneratedHandle {
                             }
                         };
                         if dispatch {
-                            WinUiAdapter::dispatch_focus_event_info(
+                            WinUiAdapter::dispatch(
                                 &event_for_callback,
                                 &event_queue_lost_focus,
                                 object,
@@ -1153,7 +1157,7 @@ impl GeneratedHandle {
                             }
                         };
                         if dispatch {
-                            WinUiAdapter::dispatch_drag_kind(
+                            WinUiAdapter::dispatch(
                                 &event_for_callback,
                                 &event_queue_drag_enter,
                                 object,
@@ -1181,7 +1185,7 @@ impl GeneratedHandle {
                             }
                         };
                         if dispatch {
-                            WinUiAdapter::dispatch_drag_kind(
+                            WinUiAdapter::dispatch(
                                 &event_for_callback,
                                 &event_queue_drag_over,
                                 object,
@@ -1199,12 +1203,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_drag_leave,
                             object,
                             EventId::DragLeave,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -1283,12 +1288,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_back_requested,
                             object,
                             EventId::BackRequested,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -1300,12 +1306,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_pane_toggle_requested,
                             object,
                             EventId::PaneToggleRequested,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -1359,7 +1366,7 @@ impl GeneratedHandle {
                                 }
                             };
                             if dispatch {
-                                WinUiAdapter::dispatch_f64(
+                                WinUiAdapter::dispatch(
                                     &event_for_callback,
                                     &event_queue_value_changed,
                                     object,
@@ -1385,12 +1392,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -1410,12 +1418,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -1448,7 +1457,7 @@ impl GeneratedHandle {
                         }
                     };
                     if dispatch {
-                        WinUiAdapter::dispatch_string(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_item_clicked,
                             object,
@@ -1497,7 +1506,7 @@ impl GeneratedHandle {
                     );
                     let observation = dispatch.then_some(observation);
                     if dispatch {
-                        WinUiAdapter::dispatch_string(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_text_changed,
                             object,
@@ -1528,7 +1537,7 @@ impl GeneratedHandle {
                         }
                     };
                     if dispatch {
-                        WinUiAdapter::dispatch_string(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_suggestion_chosen,
                             object,
@@ -1577,7 +1586,7 @@ impl GeneratedHandle {
                     );
                     let observation = dispatch.then_some(observation);
                     if dispatch {
-                        WinUiAdapter::dispatch_string(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_password_changed,
                             object,
@@ -1631,7 +1640,7 @@ impl GeneratedHandle {
                         }
                     };
                     if dispatch {
-                        WinUiAdapter::dispatch_optional_f64(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_value_changed,
                             object,
@@ -1680,7 +1689,7 @@ impl GeneratedHandle {
                         );
                         let observation = dispatch.then_some(observation);
                         if dispatch {
-                            WinUiAdapter::dispatch_bool(
+                            WinUiAdapter::dispatch(
                                 &event_for_callback,
                                 &event_queue_is_pane_open_changed,
                                 object,
@@ -1731,7 +1740,7 @@ impl GeneratedHandle {
                         }
                     };
                     if dispatch {
-                        WinUiAdapter::dispatch_navigation_view_display_mode(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_display_mode_changed,
                             object,
@@ -1784,7 +1793,7 @@ impl GeneratedHandle {
                     );
                     let observation = dispatch.then_some(observation);
                     if dispatch {
-                        WinUiAdapter::dispatch_bool(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_pane_closed,
                             object,
@@ -1828,7 +1837,7 @@ impl GeneratedHandle {
                         event_queue_toggled.observe(object, EventId::Toggled, observation.clone());
                     let observation = dispatch.then_some(observation);
                     if dispatch {
-                        WinUiAdapter::dispatch_bool(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_toggled,
                             object,
@@ -1878,7 +1887,7 @@ impl GeneratedHandle {
                         );
                         let observation = dispatch.then_some(observation);
                         if dispatch {
-                            WinUiAdapter::dispatch_optional_bool(
+                            WinUiAdapter::dispatch(
                                 &event_for_callback,
                                 &event_queue_is_checked_changed,
                                 object,
@@ -1940,7 +1949,7 @@ impl GeneratedHandle {
                         );
                         let observation = dispatch.then_some(observation);
                         if dispatch {
-                            WinUiAdapter::dispatch_optional_bool(
+                            WinUiAdapter::dispatch(
                                 &event_for_callback,
                                 &event_queue_checked,
                                 object,
@@ -1990,7 +1999,7 @@ impl GeneratedHandle {
                     );
                     let observation = dispatch.then_some(observation);
                     if dispatch {
-                        WinUiAdapter::dispatch_selection_index(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_selection_changed,
                             object,
@@ -2018,12 +2027,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_closed,
                             object,
                             EventId::Closed,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -2047,12 +2057,13 @@ impl GeneratedHandle {
                     let dispatch = !managed_source.get();
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_image_opened,
                             object,
                             EventId::ImageOpened,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -2065,12 +2076,13 @@ impl GeneratedHandle {
                     let dispatch = !managed_source.get();
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_image_failed,
                             object,
                             EventId::ImageFailed,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -2149,7 +2161,7 @@ impl GeneratedHandle {
                     );
                     let observation = dispatch.then_some(observation);
                     if dispatch {
-                        WinUiAdapter::dispatch_optional_f64(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_value_changed,
                             object,
@@ -2198,7 +2210,7 @@ impl GeneratedHandle {
                         );
                         let observation = dispatch.then_some(observation);
                         if dispatch {
-                            WinUiAdapter::dispatch_bool(
+                            WinUiAdapter::dispatch(
                                 &event_for_callback,
                                 &event_queue_is_expanded_changed,
                                 object,
@@ -2261,7 +2273,7 @@ impl GeneratedHandle {
                             );
                             let observation = dispatch.then_some(observation);
                             if dispatch {
-                                WinUiAdapter::dispatch_selection_index(
+                                WinUiAdapter::dispatch(
                                     &event_for_callback,
                                     &event_queue_selection_changed,
                                     object,
@@ -2311,7 +2323,7 @@ impl GeneratedHandle {
                     );
                     let observation = dispatch.then_some(observation);
                     if dispatch {
-                        WinUiAdapter::dispatch_selection_index(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_selection_changed,
                             object,
@@ -2366,7 +2378,7 @@ impl GeneratedHandle {
                             );
                             let observation = dispatch.then_some(observation);
                             if dispatch {
-                                WinUiAdapter::dispatch_selection_index(
+                                WinUiAdapter::dispatch(
                                     &event_for_callback,
                                     &event_queue_selection_changed,
                                     object,
@@ -2418,12 +2430,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_add_tab_button_click,
                             object,
                             EventId::AddTabButtonClick,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -2459,7 +2472,7 @@ impl GeneratedHandle {
                     );
                     let observation = dispatch.then_some(observation);
                     if dispatch {
-                        WinUiAdapter::dispatch_selection_index(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_selection_changed,
                             object,
@@ -2499,7 +2512,7 @@ impl GeneratedHandle {
                         }
                     };
                     if dispatch {
-                        WinUiAdapter::dispatch_string(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_tab_close_requested,
                             object,
@@ -2525,7 +2538,7 @@ impl GeneratedHandle {
                         }
                     };
                     if dispatch {
-                        WinUiAdapter::dispatch_string_list(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_tab_items_changed,
                             object,
@@ -2558,12 +2571,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_closed,
                             object,
                             EventId::Closed,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -2575,12 +2589,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_action_button_click,
                             object,
                             EventId::ActionButtonClick,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -2602,12 +2617,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -2628,12 +2644,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -2656,12 +2673,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -2710,7 +2728,7 @@ impl GeneratedHandle {
                         }
                     };
                     if dispatch {
-                        WinUiAdapter::dispatch_color(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_color_changed,
                             object,
@@ -2746,7 +2764,7 @@ impl GeneratedHandle {
                         }
                     };
                     if dispatch {
-                        WinUiAdapter::dispatch_optional_date_time(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_selected_date_changed,
                             object,
@@ -2782,7 +2800,7 @@ impl GeneratedHandle {
                         }
                     };
                     if dispatch {
-                        WinUiAdapter::dispatch_optional_time_span(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_selected_time_changed,
                             object,
@@ -2817,7 +2835,7 @@ impl GeneratedHandle {
                         }
                     };
                     if dispatch {
-                        WinUiAdapter::dispatch_optional_date_time(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_date_changed,
                             object,
@@ -2852,7 +2870,7 @@ impl GeneratedHandle {
                         }
                     };
                     match WinUiAdapter::content_dialog_closed(&event_queue_closed, object) {
-                        Ok(true) if dispatch => WinUiAdapter::dispatch_content_dialog_result(
+                        Ok(true) if dispatch => WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_closed,
                             object,
@@ -2880,12 +2898,13 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     if dispatch {
-                        WinUiAdapter::dispatch_unit(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_selected_dates_changed,
                             object,
                             EventId::SelectedDatesChanged,
                             observation,
+                            (),
                         );
                     }
                 })?;
@@ -2934,7 +2953,7 @@ impl GeneratedHandle {
                             );
                             let observation = dispatch.then_some(observation);
                             if dispatch {
-                                WinUiAdapter::dispatch_selection_index(
+                                WinUiAdapter::dispatch(
                                     &event_for_callback,
                                     &event_queue_selection_changed,
                                     object,
@@ -2964,7 +2983,7 @@ impl GeneratedHandle {
                                 }
                             };
                             if dispatch {
-                                WinUiAdapter::dispatch_string_list(
+                                WinUiAdapter::dispatch(
                                     &event_for_callback,
                                     &event_queue_drag_items_completed,
                                     object,
@@ -3014,7 +3033,7 @@ impl GeneratedHandle {
                     );
                     let observation = dispatch.then_some(observation);
                     if dispatch {
-                        WinUiAdapter::dispatch_string(
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_text_changed,
                             object,

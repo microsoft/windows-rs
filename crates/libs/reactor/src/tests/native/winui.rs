@@ -409,7 +409,7 @@ fn pointer_event_queue_preserves_payload_and_revision() {
         ..Default::default()
     };
 
-    assert!(WinUiAdapter::queue_pointer_event_info(
+    assert!(WinUiAdapter::queue_event(
         &event,
         &event_queue,
         object,
