@@ -1473,6 +1473,23 @@ Optimized compilation alone does not make full production fast. Further work sho
 root interning and the remaining closure cost, then benchmark bounded recovery designs against
 the exact-output gate. Broad indexing and agreement are not the dominant costs in these runs.
 
+Detailed native timings attribute 126.872 s to struct extraction and 64.781 s to free-function
+extraction in another output-identical optimized run. Typedefs take 5.040 s and variables 0.544 s.
+There are 502,033 annotation queries with 131.950 s inclusive time; nested queries overlap and
+must not be added to declaration-kind times.
+
+Generated macro value probes are capture-owned declarations without declaration annotations.
+Skipping their annotation queries removes 110,976 queries without changing real-variable or
+API annotation handling. `probe_annotations.h` verifies that a native constant keeps its source
+attribute while a generated value probe does not acquire that declaration's attribute. The full
+output gate still matches every baseline artifact.
+
+The subsequent run completes in 454.160 s, including 422.290 s capture, 31.125 s root interning,
+90.852 s closure, and 60.992 s inclusive annotation-query time across 391,057 queries.
+Compiler parse timings also fall across this run, so its wall-time reduction cannot be attributed
+to the annotation change alone. The removed compiler queries are a measured work reduction;
+remaining annotation/type extraction and syntax-recovery scaling still need investigation.
+
 This broader scope exposes non-value macros and untyped initialization fragments absent from
 the requested-header-only preflight.
 Static assertions are compiler checks, not named roots; statement-fragment macros such as

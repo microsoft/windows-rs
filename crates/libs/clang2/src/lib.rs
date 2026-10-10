@@ -80,6 +80,10 @@ pub struct NativeCaptureTimings {
     pub indexing: std::time::Duration,
     pub roots: std::time::Duration,
     pub closure: std::time::Duration,
+    /// Inclusive time across annotation queries, including nested queries.
+    pub annotations: std::time::Duration,
+    pub annotation_queries: usize,
+    pub declarations_by_kind: BTreeMap<String, (usize, std::time::Duration)>,
 }
 
 /// One completed compiler parse, before assigning its diagnostics to rejected probes.

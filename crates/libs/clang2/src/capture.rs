@@ -644,6 +644,8 @@ pub fn capture_report_with_progress(
         identities: BTreeMap::new(),
         interned: (0..units.len()).map(|_| HashMap::new()).collect(),
         pending: VecDeque::new(),
+        annotation_time: std::cell::Cell::new(std::time::Duration::ZERO),
+        annotation_queries: std::cell::Cell::new(0),
     };
     let mut selected = vec![];
     let mut found = BTreeSet::new();
@@ -754,9 +756,17 @@ pub fn capture_report_with_progress(
     }
     let roots_elapsed = roots_started.elapsed();
     let closure_started = std::time::Instant::now();
+    let mut declarations_by_kind = BTreeMap::new();
     let mut expanded = BTreeSet::new();
     while let Some((unit, cursor, id)) = capture.pending.pop_front() {
+        let kind = string(unsafe { clang_getCursorKindSpelling(clang_getCursorKind(cursor)) });
+        let started = std::time::Instant::now();
         let data = capture.declaration(unit, cursor)?;
+        let entry = declarations_by_kind
+            .entry(kind)
+            .or_insert((0, std::time::Duration::ZERO));
+        entry.0 += 1;
+        entry.1 += started.elapsed();
         capture.declarations[id.0].data = data;
         let identity = &capture.declarations[id.0].candidate;
         if expanded.insert(identity.clone()) {
@@ -790,6 +800,9 @@ pub fn capture_report_with_progress(
             indexing,
             roots: roots_elapsed,
             closure: closure_started.elapsed(),
+            annotations: capture.annotation_time.get(),
+            annotation_queries: capture.annotation_queries.get(),
+            declarations_by_kind,
         },
     })
 }
@@ -1134,6 +1147,8 @@ struct Capture<'a> {
     identities: BTreeMap<String, Vec<(usize, CXCursor)>>,
     interned: Vec<HashMap<u32, Vec<(CXCursor, Id)>>>,
     pending: VecDeque<(usize, CXCursor, Id)>,
+    annotation_time: std::cell::Cell<std::time::Duration>,
+    annotation_queries: std::cell::Cell<usize>,
 }
 
 struct AnnotationContext {
@@ -1372,6 +1387,7 @@ impl Capture<'_> {
         bucket.push((cursor, id));
         self.entities[entity.0].observations.push(id);
         let name = self.name(unit, cursor);
+        let macro_probe = self.macro_probe(unit, cursor).is_some();
         let origin = self
             .macro_probe(unit, cursor)
             .map(|name| &self.macros[unit][name]);
@@ -1407,7 +1423,9 @@ impl Capture<'_> {
             name,
             identity,
             unit: self.units[unit].name.clone(),
-            annotations: if unsafe { clang_getCursorKind(cursor) } == CXCursor_FieldDecl {
+            annotations: if macro_probe
+                || unsafe { clang_getCursorKind(cursor) } == CXCursor_FieldDecl
+            {
                 vec![]
             } else {
                 self.annotations(
@@ -1751,6 +1769,9 @@ impl Capture<'_> {
         cursor: CXCursor,
         callable: bool,
     ) -> Result<Vec<Annotation>, Error> {
+        let started = std::time::Instant::now();
+        self.annotation_queries
+            .set(self.annotation_queries.get() + 1);
         let attrs: Vec<_> = children(cursor)
             .into_iter()
             .filter(|attr| unsafe { clang_getCursorKind(*attr) } == CXCursor_AnnotateAttr)
@@ -1820,6 +1841,8 @@ impl Capture<'_> {
                 }
             }
         }
+        self.annotation_time
+            .set(self.annotation_time.get() + started.elapsed());
         Ok(result)
     }
 

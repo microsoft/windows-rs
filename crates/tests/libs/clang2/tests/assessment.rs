@@ -6,6 +6,46 @@ use windows_metadata::{Type, Value, reader::*};
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn generated_value_probes_do_not_replace_native_declaration_annotations() {
+    let report = capture_report(
+        [Input::new(
+            "probe-annotations.hpp",
+            include_str!("../input/probe_annotations.h"),
+        )],
+        ARGS,
+        &["NativeValue", "ProbeValue"],
+    )
+    .unwrap();
+    assert!(report.rejected.is_empty());
+    let snapshot = report.snapshot.unwrap();
+    let rdl = snapshot
+        .resolve()
+        .unwrap()
+        .project(&ProjectionOptions::new("Test"))
+        .unwrap()
+        .rdl();
+    let output = std::path::Path::new(env!("OUT_DIR")).join("probe-annotations.winmd");
+    windows_rdl::reader()
+        .input_text(&rdl)
+        .output(&output)
+        .write()
+        .unwrap();
+    let index = Index::read(output).unwrap();
+    for (name, annotated) in [("NativeValue", true), ("ProbeValue", false)] {
+        let Item::Const(field) = index.expect_item("Test", name) else {
+            panic!()
+        };
+        assert_eq!(field.constant().unwrap().value(), Value::I32(7));
+        assert_eq!(
+            field
+                .attributes()
+                .any(|attribute| attribute.name() == "NativeAnnotationAttribute"),
+            annotated
+        );
+    }
+}
+
+#[test]
 fn pointer_probe_index_retains_each_value_after_clean_recovery() {
     let source = include_str!("../input/pointer_probe_index.h");
     for target in [

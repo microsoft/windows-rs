@@ -73,6 +73,9 @@ counts without changing capture policy.
 `CaptureReport::native_timings` separates native indexing, root interning, and closure extraction
 after clean parsing. Generated pointer-value probes are indexed once per final translation unit;
 evaluating each pointer constant does not search the complete translation unit again.
+Native timings also report declaration extraction by cursor kind and inclusive annotation-query
+time. Generated macro probes do not carry declaration annotations; real API and variable
+declarations retain their source annotations.
 `capture` retains its strict all-roots contract.
 `Snapshot::assess` reports unavailable roots and checks the remaining closed native graph.
 Unavailability follows every observation's written and canonical dependencies, including cycles.

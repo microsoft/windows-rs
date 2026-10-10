@@ -360,6 +360,13 @@ pub(super) fn scrape(
         .snapshot
         .as_ref()
         .ok_or("no production native roots captured")?;
+    println!(
+        "clang2 {}: annotation queries={} inclusive={:.3}s declaration kinds={:?}",
+        output.display(),
+        captured.native_timings.annotation_queries,
+        captured.native_timings.annotations.as_secs_f64(),
+        captured.native_timings.declarations_by_kind,
+    );
     let assessment_started = std::time::Instant::now();
     let assessment = snapshot
         .assess_profiles(
