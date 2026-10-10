@@ -700,20 +700,11 @@ impl WinUiAdapter {
         self.retirements.remove(&root);
         for object in nodes {
             self.owners.remove(object);
-            self.resource_override_keys.remove(object);
-            self.style_states.remove(object);
-            self.release_image(*object);
-            self.handles
+            let handle = self
+                .handles
                 .remove(object)
                 .ok_or(WinUiError::MissingObject(*object))?;
-            self.event_queue
-                .feedback
-                .borrow_mut()
-                .remove_object(*object);
-            self.event_queue
-                .selection_items
-                .borrow_mut()
-                .retain(|item| item.object != *object && item.owner != *object);
+            self.release_object(*object, handle)?;
         }
         Ok(())
     }

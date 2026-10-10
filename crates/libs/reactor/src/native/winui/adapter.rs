@@ -202,38 +202,7 @@ impl WinUiAdapter {
                         .handles
                         .remove(object)
                         .ok_or(WinUiError::MissingObject(*object))?;
-                    self.release_image(*object);
-                    if let Handle::TreeNode(node) = &handle {
-                        self.tree_node_texts
-                            .borrow_mut()
-                            .remove(&com_identity(&node.value)?);
-                    }
-                    self.resource_override_keys.remove(object);
-                    self.style_states.remove(object);
-                    if let Handle::Generated(GeneratedHandle::ContentDialog(dialog)) = handle {
-                        self.event_queue
-                            .content_dialogs
-                            .borrow_mut()
-                            .retire(*object, *dialog)?;
-                    }
-                    self.virtual_items.remove(object);
-                    self.observations
-                        .retain(|(observed, _), _| *observed != *object);
-                    if let Some(initialization) =
-                        self.webview_initializations.borrow_mut().remove(object)
-                    {
-                        for completion in initialization.completions {
-                            completion.call(Err(IntegrationError::Unavailable));
-                        }
-                    }
-                    self.event_queue
-                        .feedback
-                        .borrow_mut()
-                        .remove_object(*object);
-                    self.event_queue
-                        .selection_items
-                        .borrow_mut()
-                        .retain(|item| item.object != *object && item.owner != *object);
+                    self.release_object(*object, handle)?;
                 }
             }
         }

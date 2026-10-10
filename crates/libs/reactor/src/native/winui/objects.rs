@@ -490,6 +490,45 @@ impl WinUiAdapter {
         }
     }
 
+    /// Drops all adapter state for an object whose handle was just removed. Destroy, retirement
+    /// completion, and replacement all end an object's native lifetime through this path.
+    fn release_object(&mut self, object: ObjectId, handle: Handle) -> Result<(), WinUiError> {
+        self.release_image(object);
+        self.resource_override_keys.remove(&object);
+        self.style_states.remove(&object);
+        self.virtual_items.remove(&object);
+        self.observations
+            .retain(|(observed, _), _| *observed != object);
+        if let Some(initialization) = self.webview_initializations.borrow_mut().remove(&object) {
+            for completion in initialization.completions {
+                completion.call(Err(IntegrationError::Unavailable));
+            }
+        }
+        self.event_queue
+            .feedback
+            .borrow_mut()
+            .remove_object(object);
+        self.event_queue
+            .selection_items
+            .borrow_mut()
+            .retain(|item| item.object != object && item.owner != object);
+        match handle {
+            Handle::TreeNode(node) => {
+                self.tree_node_texts
+                    .borrow_mut()
+                    .remove(&com_identity(&node.value)?);
+            }
+            Handle::Generated(GeneratedHandle::ContentDialog(dialog)) => {
+                self.event_queue
+                    .content_dialogs
+                    .borrow_mut()
+                    .retire(object, *dialog)?;
+            }
+            _ => {}
+        }
+        Ok(())
+    }
+
     fn set_image_source(&mut self, object: ObjectId, source: &ImageSource) -> Result<(), WinUiError> {
         let image = self.shared_image(source)?;
         let callback = match self.handles.get(&object) {
@@ -604,12 +643,11 @@ impl WinUiAdapter {
                 Some(index)
             }
         };
-        self.handles
+        let handle = self
+            .handles
             .remove(&object)
             .ok_or(WinUiError::MissingObject(object))?;
-        self.release_image(object);
-        self.resource_override_keys.remove(&object);
-        self.style_states.remove(&object);
+        self.release_object(object, handle)?;
         self.create(object, kind)?;
         let replacement = self.ui_element(object)?;
         if let Some(index) = index {
