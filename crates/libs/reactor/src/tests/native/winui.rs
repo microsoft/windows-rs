@@ -428,6 +428,81 @@ fn pointer_event_queue_preserves_payload_and_revision() {
 }
 
 #[test]
+#[ignore = "requires an interactive WinUI desktop"]
+fn event_dispatch_wakes_only_when_queued() {
+    // WinUI supports one Application lifetime per process.
+    if std::env::var_os("REACTOR_EVENT_WAKE_TEST_CHILD").is_none() {
+        let status = std::process::Command::new(std::env::current_exe().unwrap())
+            .args([
+                "--exact",
+                "native::winui::tests::event_dispatch_wakes_only_when_queued",
+                "--ignored",
+                "--nocapture",
+            ])
+            .env("REACTOR_EVENT_WAKE_TEST_CHILD", "1")
+            .status()
+            .unwrap();
+        assert!(status.success());
+        return;
+    }
+    let completed = Rc::new(Cell::new(false));
+    let finished = Rc::clone(&completed);
+    let result = App::run_with(move |app| {
+        let mut runtime = Runtime::new(RecordingAdapter::default());
+        runtime.update(Border::new()).unwrap();
+        let object = runtime.graph().root().unwrap();
+        let wakes = Rc::new(Cell::new(0));
+        let event_queue = Rc::new(NativeEventQueue::default());
+        *event_queue.waker.borrow_mut() = Some(Rc::new({
+            let wakes = Rc::clone(&wakes);
+            move || wakes.set(wakes.get() + 1)
+        }));
+
+        // An unsupported drop with no subscriber or observation must not wake.
+        let unsubscribed = Rc::new(RefCell::new(NativeDroppedDataEvent::default()));
+        WinUiAdapter::dispatch(
+            &unsubscribed,
+            &event_queue,
+            object,
+            EventId::Drop,
+            None,
+            DroppedData::Unsupported,
+        );
+        assert!(event_queue.events.borrow().is_empty());
+        assert!(!event_queue.wake_pending.get());
+
+        let subscribed = Rc::new(RefCell::new(NativeDroppedDataEvent {
+            revision: 1,
+            callback: Some(Callback::new(|_| {})),
+        }));
+        WinUiAdapter::dispatch(
+            &subscribed,
+            &event_queue,
+            object,
+            EventId::Drop,
+            None,
+            DroppedData::Unsupported,
+        );
+        assert_eq!(event_queue.events.borrow().len(), 1);
+        assert!(event_queue.wake_pending.get());
+
+        let timer = native::DispatcherQueue::GetForCurrentThread()?.CreateTimer()?;
+        timer.SetInterval(TimeSpan::try_from(Duration::from_millis(100)).unwrap())?;
+        let app = app.clone();
+        let tick = timer.Tick(move |_, _| {
+            assert_eq!(wakes.get(), 1);
+            assert!(!event_queue.wake_pending.get());
+            finished.set(true);
+            app.exit().unwrap();
+        })?;
+        timer.Start()?;
+        Ok((timer, tick))
+    });
+    result.unwrap();
+    assert!(completed.get());
+}
+
+#[test]
 fn pointer_event_modifiers_map_native_flags() {
     let mut expected = InputModifiers::SHIFT;
     expected |= InputModifiers::CONTROL;
