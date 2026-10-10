@@ -68,7 +68,7 @@ impl WinUiAdapter {
                                     .ok_or(WinUiError::UnknownTreeNode(identity))
                             });
                         match value {
-                            Ok(value) => Self::dispatch_string(
+                            Ok(value) => Self::dispatch(
                                 &item_event,
                                 &item_queue,
                                 object,
@@ -131,7 +131,7 @@ impl WinUiAdapter {
                             observation.clone(),
                         );
                         if dispatch {
-                            Self::dispatch_selection_index(
+                            Self::dispatch(
                                 &selection_event,
                                 &selection_queue,
                                 object,
@@ -149,7 +149,7 @@ impl WinUiAdapter {
                     let _drag_items_completed = value
                         .cast::<native::IListViewBase>()?
                         .DragItemsCompleted(move |_, _| match Self::item_tags(&drag_source) {
-                            Ok(value) => Self::dispatch_string_list(
+                            Ok(value) => Self::dispatch(
                                 &drag_event,
                                 &drag_queue,
                                 object,
@@ -545,7 +545,7 @@ impl WinUiAdapter {
                     } else {
                         (&failed, EventId::ImageFailed)
                     };
-                    Self::dispatch_unit(event, &event_queue, object, id, None);
+                    Self::dispatch(event, &event_queue, object, id, None, ());
                 });
                 Some(callback)
             }
