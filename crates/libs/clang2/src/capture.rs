@@ -30,6 +30,8 @@ pub struct DeclarationInfo {
     pub macro_attribute: bool,
     /// Non-value declaration or statement fragments and object-like wrappers beginning with them.
     pub macro_declaration: bool,
+    /// Untyped braced-initialization fragments, including single-identifier aliases.
+    pub macro_initializer: bool,
 }
 
 /// Inventories declarations whose expansion locations belong to the specified header files.
@@ -219,6 +221,7 @@ pub fn discover_in_scope(
                     .is_some_and(|definition| definition.empty),
                 macro_attribute: matches!(target, Some(MacroTarget::Attribute)),
                 macro_declaration: matches!(target, Some(MacroTarget::DeclarationFragment)),
+                macro_initializer: matches!(target, Some(MacroTarget::Initializer)),
                 record_member: matches!(
                     unsafe { clang_getCursorKind(clang_getCursorSemanticParent(cursor)) },
                     CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_ClassDecl
@@ -246,6 +249,7 @@ enum MacroTarget {
     Declaration(String),
     Attribute,
     DeclarationFragment,
+    Initializer,
 }
 
 struct MacroDefinition {
@@ -255,6 +259,7 @@ struct MacroDefinition {
     prefix: Option<String>,
     attribute: bool,
     declaration: bool,
+    initializer: bool,
 }
 
 fn macro_target(
@@ -283,6 +288,10 @@ fn macro_target(
         if definition.attribute {
             cache.insert(target, Some(MacroTarget::Attribute));
             break Some(MacroTarget::Attribute);
+        }
+        if definition.initializer {
+            cache.insert(target, Some(MacroTarget::Initializer));
+            break Some(MacroTarget::Initializer);
         }
         if definition.declaration {
             cache.insert(target, Some(MacroTarget::DeclarationFragment));
@@ -348,13 +357,18 @@ fn macro_definition(unit: CXTranslationUnit, cursor: CXCursor) -> MacroDefinitio
         (!function && unsafe { clang_getTokenKind(*token) } == CXToken_Identifier)
             .then(|| spellings[1].clone())
     });
-    let attribute = !function
-        && (matches!(
-            spellings.get(1).map(String::as_str),
-            Some("__declspec" | "__attribute__")
-        ) || spellings
-            .get(1..3)
-            .is_some_and(|tokens| tokens == ["[", "["]));
+    let body = if function {
+        // A valid preprocessing parameter list contains no nested parentheses.
+        spellings.iter().position(|token| token == ")").unwrap() + 1
+    } else {
+        1
+    };
+    let attribute = matches!(
+        spellings.get(body).map(String::as_str),
+        Some("__declspec" | "__attribute__")
+    ) || spellings
+        .get(body..body + 2)
+        .is_some_and(|tokens| tokens == ["[", "["]);
     let declaration = !function
         && (spellings.get(1).is_some_and(|token| {
             matches!(
@@ -385,6 +399,9 @@ fn macro_definition(unit: CXTranslationUnit, cursor: CXCursor) -> MacroDefinitio
                     "noexcept" | "__cdecl" | "__stdcall" | "__fastcall" |
                     "__thiscall" | "__vectorcall" | "{" | "}")
         ));
+    let initializer = !function
+        && spellings.get(1).is_some_and(|token| token == "{")
+        && spellings.last().is_some_and(|token| token == "}");
     unsafe { clang_disposeTokens(unit, tokens, count) };
     MacroDefinition {
         function,
@@ -393,6 +410,7 @@ fn macro_definition(unit: CXTranslationUnit, cursor: CXCursor) -> MacroDefinitio
         prefix,
         attribute,
         declaration,
+        initializer,
     }
 }
 
@@ -423,6 +441,18 @@ pub fn capture_report(
     arguments: &[&str],
     roots: &[&str],
 ) -> Result<CaptureReport, Error> {
+    capture_report_with_progress(inputs, arguments, roots, |_| {})
+}
+
+/// Captures roots with a notification after each source or probe parse.
+///
+/// The observer does not change diagnostic ownership, rejection, or native evidence.
+pub fn capture_report_with_progress(
+    inputs: impl IntoIterator<Item = Input>,
+    arguments: &[&str],
+    roots: &[&str],
+    mut notify: impl FnMut(CaptureProgress<'_>),
+) -> Result<CaptureReport, Error> {
     let mut inputs: Vec<_> = inputs.into_iter().collect();
     inputs.sort_by(|left, right| left.name.cmp(&right.name));
     if inputs.is_empty() || roots.is_empty() {
@@ -438,24 +468,42 @@ pub fn capture_report(
         }
     }
     let _library = Library::new()?;
-    let mut units = inputs
-        .iter()
-        .map(|input| Unit::parse(input, arguments))
-        .collect::<Result<Vec<_>, _>>()?;
+    let mut progress = ProbeProgress {
+        parses: 0,
+        notify: &mut notify,
+    };
+    let mut units = Vec::new();
+    for input in &inputs {
+        let started = std::time::Instant::now();
+        let unit = Unit::parse(input, arguments)?;
+        progress.parses += 1;
+        (progress.notify)(CaptureProgress {
+            input: &input.name,
+            parses: progress.parses,
+            probes: 0,
+            rejected: 0,
+            errors: 0,
+            failed_probe: None,
+            reparsed: false,
+            elapsed: started.elapsed(),
+        });
+        units.push(unit);
+    }
     let mut macros = vec![];
     let mut aggregate_values = vec![];
     let mut rejected = BTreeMap::new();
-    let mut parses = units.len();
     for (input, unit) in inputs.iter().zip(&mut units) {
         let mut selected = BTreeMap::new();
         let mut function_macros = BTreeSet::new();
         let mut sdk_sal = false;
         let mut sal_capture = false;
+        let mut definitions = BTreeMap::new();
         for cursor in children(unsafe { clang_getTranslationUnitCursor(unit.raw) }) {
             if unsafe { clang_getCursorKind(cursor) } != CXCursor_MacroDefinition {
                 continue;
             }
             let name = string(unsafe { clang_getCursorSpelling(cursor) });
+            definitions.insert(name.clone(), cursor);
             sdk_sal |= name == "_SAL_VERSION";
             sal_capture |= name == "__CLANG2_SAL_CAPTURE";
             if roots.contains(&name.as_str()) {
@@ -478,6 +526,25 @@ pub fn capture_report(
                 format!("function-like macro `{name}` cannot be a constant root"),
             );
         }
+        let mut classifications = BTreeMap::new();
+        let declarations = BTreeSet::new();
+        for name in selected.keys() {
+            if matches!(
+                macro_target(
+                    unit.raw,
+                    name,
+                    &definitions,
+                    &declarations,
+                    &mut classifications
+                ),
+                Some(MacroTarget::Initializer)
+            ) {
+                rejected.insert(
+                    name.clone(),
+                    format!("macro `{name}` is an untyped braced initializer; a native initialization target is required"),
+                );
+            }
+        }
         let mut aggregates = BTreeMap::new();
         if !selected.is_empty() {
             *unit = Unit::probe(
@@ -487,7 +554,7 @@ pub fn capture_report(
                 &BTreeSet::new(),
                 &BTreeMap::new(),
                 &mut rejected,
-                &mut parses,
+                &mut progress,
             )?;
             let mut pointers = BTreeSet::new();
             for cursor in children(unsafe { clang_getTranslationUnitCursor(unit.raw) }) {
@@ -524,7 +591,7 @@ pub fn capture_report(
                     &pointers,
                     &aggregates,
                     &mut rejected,
-                    &mut parses,
+                    &mut progress,
                 )?;
             }
         }
@@ -554,7 +621,7 @@ pub fn capture_report(
         return Ok(CaptureReport {
             snapshot: None,
             rejected,
-            parses,
+            parses: progress.parses,
         });
     }
     let target = units[0].target.clone();
@@ -691,6 +758,7 @@ pub fn capture_report(
             entities: capture.entities,
             declarations: capture.declarations,
             roots: root_ids.into_iter().collect(),
+            inputs: inputs.iter().map(|input| input.name.clone()).collect(),
             target,
             pointer_size: units[0].pointer_size,
             arguments: arguments.iter().map(|arg| (*arg).to_string()).collect(),
@@ -700,7 +768,7 @@ pub fn capture_report(
                 .collect(),
         }),
         rejected,
-        parses,
+        parses: progress.parses,
     })
 }
 
@@ -748,12 +816,18 @@ struct CompilerError {
     location: Location,
     input: bool,
     fatal: bool,
+    parse: bool,
     text: String,
+}
+
+struct ProbeProgress<'a> {
+    parses: usize,
+    notify: &'a mut dyn FnMut(CaptureProgress<'_>),
 }
 
 impl Unit {
     fn parse(input: &Input, arguments: &[&str]) -> Result<Self, Error> {
-        let unit = Self::parse_raw(input, arguments)?;
+        let unit = Self::parse_raw(input, arguments, 0)?;
         if !unit.errors.is_empty() {
             return Err(Error(unit.diagnostics.join("\n")));
         }
@@ -767,7 +841,7 @@ impl Unit {
         pointers: &BTreeSet<String>,
         aggregates: &BTreeMap<String, AggregateProbe>,
         rejected: &mut BTreeMap<String, String>,
-        parses: &mut usize,
+        progress: &mut ProbeProgress<'_>,
     ) -> Result<Self, Error> {
         let mut arguments = arguments.to_vec();
         arguments.push("-ferror-limit=0");
@@ -797,43 +871,118 @@ impl Unit {
             }
             (Input::new(&input.name, source), ranges)
         };
-        let (probes, ranges) = source(rejected);
-        *parses += 1;
-        let unit = Self::parse_raw(&probes, arguments)?;
-        if unit.errors.is_empty() {
-            return Ok(unit);
+        let mut unit: Option<Self> = None;
+        loop {
+            let (probes, ranges) = source(rejected);
+            progress.parses += 1;
+            let started = std::time::Instant::now();
+            let reparsed = unit.is_some();
+            if let Some(unit) = &mut unit {
+                unit.reparse(&probes)?;
+            } else {
+                unit = Some(Self::parse_raw(
+                    &probes,
+                    arguments,
+                    CXTranslationUnit_PrecompiledPreamble
+                        | CXTranslationUnit_CreatePreambleOnFirstParse,
+                )?);
+            }
+            let current = unit.as_ref().unwrap();
+            (progress.notify)(CaptureProgress {
+                input: &input.name,
+                parses: progress.parses,
+                probes: ranges.len(),
+                rejected: rejected.len(),
+                errors: current.errors.len(),
+                failed_probe: current.errors.first().and_then(|error| {
+                    ranges
+                        .range(..=error.location.offset as usize)
+                        .next_back()
+                        .filter(|(_, (end, _))| {
+                            error.input && (error.location.offset as usize) < *end
+                        })
+                        .map(|(_, (_, name))| name.as_str())
+                }),
+                reparsed,
+                elapsed: started.elapsed(),
+            });
+            if current.errors.is_empty() {
+                return Ok(unit.unwrap());
+            }
+            let previous = rejected.len();
+            for error in &current.errors {
+                let offset = error.location.offset as usize;
+                let owner = ranges
+                    .range(..=offset)
+                    .next_back()
+                    .map(|(_, (end, name))| (end, name));
+                let Some((_, name)) =
+                    owner.filter(|(end, _)| offset < **end && error.input && !error.fatal)
+                else {
+                    return Err(Error(format!(
+                        "unowned or fatal macro-probe diagnostic: {}\n{}",
+                        error.text,
+                        current.diagnostics.join("\n")
+                    )));
+                };
+                let origin = &macros[*name];
+                let reason = format!(
+                    "macro `{name}` at {}:{}: {}",
+                    origin.file, origin.line, error.text
+                );
+                rejected
+                    .entry((*name).clone())
+                    .and_modify(|previous| {
+                        previous.push('\n');
+                        previous.push_str(&reason);
+                    })
+                    .or_insert(reason);
+                if error.parse {
+                    // Syntax recovery can report errors on later valid probes. Reparse before
+                    // attributing diagnostics after the compiler's first parse error.
+                    break;
+                }
+            }
+            if rejected.len() == previous {
+                return Err(Error("macro-probe rejection made no progress".into()));
+            }
         }
-        for error in &unit.errors {
-            let offset = error.location.offset as usize;
-            let owner = ranges
-                .range(..=offset)
-                .next_back()
-                .map(|(_, (end, name))| (end, name));
-            let Some((_, name)) =
-                owner.filter(|(end, _)| offset < **end && error.input && !error.fatal)
-            else {
-                return Err(Error(unit.diagnostics.join("\n")));
-            };
-            let origin = &macros[*name];
-            let reason = format!(
-                "macro `{name}` at {}:{}: {}",
-                origin.file, origin.line, error.text
-            );
-            rejected
-                .entry((*name).clone())
-                .and_modify(|previous| {
-                    previous.push('\n');
-                    previous.push_str(&reason);
-                })
-                .or_insert(reason);
-        }
-        drop(unit);
-        let (clean, _) = source(rejected);
-        *parses += 1;
-        Self::parse(&clean, arguments)
     }
 
-    fn parse_raw(input: &Input, arguments: &[&str]) -> Result<Self, Error> {
+    fn reparse(&mut self, input: &Input) -> Result<(), Error> {
+        let name = c_string(&input.name)?;
+        let source = c_string(&input.source)?;
+        let mut unsaved = CXUnsavedFile {
+            Filename: name.as_ptr(),
+            Contents: source.as_ptr(),
+            Length: input
+                .source
+                .len()
+                .try_into()
+                .map_err(|_| Error("input is too large".into()))?,
+        };
+        let code = unsafe {
+            clang_reparseTranslationUnit(
+                self.raw,
+                1,
+                &mut unsaved,
+                clang_defaultReparseOptions(self.raw),
+            )
+        };
+        if code != 0 {
+            return Err(Error(format!(
+                "failed to reparse `{}`: libclang error {code}",
+                input.name
+            )));
+        }
+        self.refresh()
+    }
+
+    fn parse_raw(
+        input: &Input,
+        arguments: &[&str],
+        options: CXTranslationUnit_Flags,
+    ) -> Result<Self, Error> {
         let name = c_string(&input.name)?;
         let source = c_string(&input.source)?;
         let args = arguments
@@ -868,7 +1017,8 @@ impl Unit {
                 &mut unsaved,
                 1,
                 CXTranslationUnit_SkipFunctionBodies
-                    | CXTranslationUnit_DetailedPreprocessingRecord,
+                    | CXTranslationUnit_DetailedPreprocessingRecord
+                    | options,
                 &mut raw,
             );
             if code != CXError_Success || raw.is_null() {
@@ -890,8 +1040,18 @@ impl Unit {
                 diagnostics: vec![],
                 errors: vec![],
             };
-            for i in 0..clang_getNumDiagnostics(raw) {
-                let diagnostic = clang_getDiagnostic(raw, i);
+            unit.refresh()?;
+            Ok(unit)
+        }
+    }
+
+    fn refresh(&mut self) -> Result<(), Error> {
+        let name = c_string(&self.name)?;
+        self.diagnostics.clear();
+        self.errors.clear();
+        unsafe {
+            for i in 0..clang_getNumDiagnostics(self.raw) {
+                let diagnostic = clang_getDiagnostic(self.raw, i);
                 let severity = clang_getDiagnosticSeverity(diagnostic);
                 let text = string(clang_formatDiagnostic(
                     diagnostic,
@@ -900,30 +1060,31 @@ impl Unit {
                 if severity >= CXDiagnostic_Error {
                     let origin = clang_getDiagnosticLocation(diagnostic);
                     let (file, _) = position(origin);
-                    let input_file = clang_getFile(raw, name.as_ptr());
-                    unit.errors.push(CompilerError {
+                    let input_file = clang_getFile(self.raw, name.as_ptr());
+                    self.errors.push(CompilerError {
                         location: expansion_location(origin),
                         input: !file.is_null()
                             && !input_file.is_null()
                             && clang_File_isEqual(file, input_file) != 0,
                         fatal: severity >= CXDiagnostic_Fatal,
+                        parse: string(clang_getDiagnosticCategoryText(diagnostic)) == "Parse Issue",
                         text: text.clone(),
                     });
                 }
-                unit.diagnostics.push(text);
+                self.diagnostics.push(text);
                 clang_disposeDiagnostic(diagnostic);
             }
-            let target = clang_getTranslationUnitTargetInfo(raw);
+            let target = clang_getTranslationUnitTargetInfo(self.raw);
             if target.is_null() {
                 return Err(Error(format!(
                     "target information unavailable for `{}`",
-                    input.name
+                    self.name
                 )));
             }
-            unit.target = string(clang_TargetInfo_getTriple(target));
-            unit.pointer_size = i64::from(clang_TargetInfo_getPointerWidth(target)) / 8;
+            self.target = string(clang_TargetInfo_getTriple(target));
+            self.pointer_size = i64::from(clang_TargetInfo_getPointerWidth(target)) / 8;
             clang_TargetInfo_dispose(target);
-            Ok(unit)
+            Ok(())
         }
     }
 }

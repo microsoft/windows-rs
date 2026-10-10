@@ -2,7 +2,7 @@
 
 An experimental replacement for `windows-clang`, built directly on
 libclang. It drives `tool-webview` and the default SDK/WDK paths in `tool-win32`. Full Win32
-replacement coverage and canonical header-profile policy remain incomplete on the rewrite branch.
+replacement coverage remains incomplete on the rewrite branch.
 
 The viability decision is to proceed with this architecture. Remaining work is source-to-RDL
 coverage and incremental scraper cutover, not another downstream runtime-validation campaign.
@@ -16,9 +16,17 @@ and annotation origins. Projection cannot bypass native resolution.
 
 Capture accepts multiple uniquely named TUs with independent preprocessing state and shared compiler
 arguments. Common-header declarations retain every captured observation but emit once after
-agreement. Include order and input priority cannot override conflicting native types or contracts.
-Forward declarations can use a checked completion from another TU. Mutually exclusive configurations
-need separate assessments; independently captured snapshots do not have a merge API.
+agreement. Strict resolution does not use input order to override conflicting native contracts.
+Forward declarations can use a checked completion from another TU. Independently captured snapshots
+do not have a merge API.
+
+`Snapshot::assess_profiles` accepts an explicit ranking of every captured input, highest priority
+first. Each native group uses observations from its highest-ranked input. Every input is checked
+for internal agreement before selection. Dependencies from another input must match the canonical
+group's native shape, written types, and SAL/MIDL contracts, including nested callable contracts.
+Incompatible dependent roots are reported as rejections; unavailable preferred evidence never falls
+back to a lower-ranked input. The snapshot retains all observations, and strict resolution remains
+available on the same evidence.
 
 ```rust,no_run
 use windows_clang2::{Input, ProjectionOptions, capture};
@@ -49,9 +57,20 @@ Use `Resolved::projection(&options)` for repeated per-root assessments; lookup i
 validation are shared while names and dependency plans remain local.
 
 Inventory callers can use `capture_report` to report failed macro probes by compiler location.
-All probes are batched; rejected probes are removed before a clean reparse supplies native evidence.
-Source errors and fatal or unowned probe diagnostics still fail capture. `capture` retains its
-strict all-roots contract.
+Probes are batched; rejected probes are removed before a clean reparse supplies native evidence.
+Each recovery round must reject a remaining probe. Clang parse errors end diagnostic attribution
+for that round, since syntax recovery can blame later valid probes. Semantic errors before that
+barrier are rejected together. Further errors exposed by the next parse receive the same ownership
+checks; source, fatal, and unowned errors still fail capture.
+Recovery retains the complete remaining probe sequence and its preprocessing state. An
+error-bearing parse never supplies native evidence.
+
+Recovery uses `clang_reparseTranslationUnit` with precompiled-preamble support. Libclang requires
+an existing main source file to reuse that preamble; callers staging sources should use the staged
+path as `Input.name`. Virtual inputs remain supported but cannot use filesystem-backed preamble
+reuse. `capture_report_with_progress` reports each completed parse, its elapsed time, and probe/error
+counts without changing capture policy.
+`capture` retains its strict all-roots contract.
 `Snapshot::assess` reports unavailable roots and checks the remaining closed native graph.
 Unavailability follows every observation's written and canonical dependencies, including cycles.
 Rejected names cannot be projected, including names with an unavailable overload. Native conflicts
@@ -63,7 +82,8 @@ through `DeclarationInfo::macro_alias`. The header runner reports these aliases 
 instead of probing them as constants. Constants, enumerator aliases, unknown expressions, and cyclic
 macros are not excluded by this rule. Public alias naming remains a separate publication decision.
 Discovery also identifies declaration-attribute macros and their identifier chains through
-`DeclarationInfo::macro_attribute`. Function-like classification uses the source definition,
+`DeclarationInfo::macro_attribute`, including wrappers calling a function-like attribute macro.
+Function-like classification uses the source definition,
 including line splices, so an undefined helper keeps its original kind. Attribute helpers are
 reported separately from values rather than entering expression probes.
 `DeclarationInfo::macro_declaration` identifies linkage fragments, standalone calling conventions,
@@ -78,6 +98,10 @@ declaration in the same file. Inherited annotations keep that owner's parameter 
 prefix annotations survive alongside annotations inside the declaration range.
 `DeclarationInfo::record_member` identifies declarations scoped to a record. Header inventories
 select their owners as roots; capture still follows the member types and checks their evidence.
+`DeclarationInfo::macro_initializer` identifies untyped braced-initialization fragments and their
+single-identifier aliases. Capture reports these as requiring a native initialization target,
+instead of repeatedly parsing them as expressions or guessing a record type. Typed expressions
+and string literals remain separate candidates.
 
 Macro identity and source ownership apply only to generated value probes, not same-named native
 records or variables. A selected macro supplies its root through the probe while native declarations

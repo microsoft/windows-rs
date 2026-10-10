@@ -1011,6 +1011,7 @@ fn clang_inputs(headers: &[&str], include_dirs: &[String], full: bool) -> Vec<He
     clang_inputs_with_prerequisites(headers, include_dirs, full, |_| &[], false)
 }
 
+// Inputs are in canonical precedence order: grouped main declarations before satellite variants.
 fn clang_inputs_with_prerequisites(
     headers: &[&str],
     include_dirs: &[String],
@@ -1290,6 +1291,136 @@ mod tests {
             .map(|item| item.name.as_str())
             .collect();
         assert_eq!(roots, ["Checked"]);
+    }
+
+    #[test]
+    #[ignore = "manual grouped-SDK partial annotation rejection gate"]
+    fn production_intrinsic_partial_contracts_are_not_erased() {
+        ensure_libclang();
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
+        let sal = root.join("crates\\libs\\clang2\\src\\sal.h");
+        let dirs = sdk_include_dirs();
+        let headers: Vec<_> = HEADERS.iter().chain(SATELLITE_HEADERS).copied().collect();
+        let include_args: Vec<_> = dirs
+            .iter()
+            .flat_map(|dir| ["-isystem".into(), dir.clone()])
+            .collect();
+        let arguments = clang_arguments(
+            &Arch::known("x64").unwrap(),
+            &include_args,
+            None,
+            sal.to_str().unwrap(),
+        );
+        let input = clang_inputs(&headers, &dirs, true).remove(0);
+        let snapshot = windows_clang2::capture(
+            [windows_clang2::Input::new(&input.name, &input.source)],
+            &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
+            &["_umul128"],
+        )
+        .unwrap();
+        let error = snapshot.resolve().err().unwrap().to_string();
+        assert!(
+            error.contains("conflicting annotations for parameter 2 (Sal)"),
+            "{error}"
+        );
+        assert!(error.contains("_Deref_out_range_(==,$0 * $1)"), "{error}");
+    }
+
+    #[test]
+    #[ignore = "manual grouped-SDK probe recovery timing gate"]
+    fn production_probe_recovery_reuses_the_grouped_sdk_input() {
+        ensure_libclang();
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
+        let sal = root.join("crates\\libs\\clang2\\src\\sal.h");
+        let dirs = sdk_include_dirs();
+        let headers: Vec<_> = HEADERS.iter().chain(SATELLITE_HEADERS).copied().collect();
+        let include_args: Vec<_> = dirs
+            .iter()
+            .flat_map(|dir| ["-isystem".into(), dir.clone()])
+            .collect();
+        let arguments = clang_arguments(
+            &Arch::known("x64").unwrap(),
+            &include_args,
+            None,
+            sal.to_str().unwrap(),
+        );
+        let mut source = clang_inputs(&headers, &dirs, true).remove(0).source;
+        source.push_str("\n#define Clang2RecoveryA 19\n");
+        let mut roots: Vec<_> = ["Clang2RecoveryA", "RECT", "GetCurrentThreadId"]
+            .into_iter()
+            .map(str::to_string)
+            .collect();
+        for index in 0..8 {
+            let name = format!("Clang2RecoveryBad{index}");
+            source.push_str(&format!("#define {name} {{\n"));
+            roots.push(name);
+        }
+        let started = std::time::Instant::now();
+        let output = root.join("target\\win32-clang2\\probe-recovery");
+        std::fs::create_dir_all(&output).unwrap();
+        let input = output.join("clang-win32-recovery.hpp");
+        std::fs::write(&input, &source).unwrap();
+        let mut source_elapsed = std::time::Duration::ZERO;
+        let mut recovery_elapsed = std::time::Duration::ZERO;
+        let report = windows_clang2::capture_report_with_progress(
+            [windows_clang2::Input::new(input.to_str().unwrap(), &source)],
+            &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
+            &roots.iter().map(String::as_str).collect::<Vec<_>>(),
+            |event| {
+                if event.parses == 1 {
+                    source_elapsed = event.elapsed;
+                }
+                if event.reparsed {
+                    recovery_elapsed += event.elapsed;
+                }
+                println!(
+                    "parse={} probes={} rejected={} reparse={} elapsed={:.3}s",
+                    event.parses,
+                    event.probes,
+                    event.rejected,
+                    event.reparsed,
+                    event.elapsed.as_secs_f64()
+                );
+            },
+        )
+        .unwrap();
+        assert_eq!(report.rejected.len(), 8);
+        assert_eq!(report.parses, 10);
+        assert!(
+            recovery_elapsed < source_elapsed,
+            "eight recovery parses {recovery_elapsed:?} exceed one source parse {source_elapsed:?}"
+        );
+        let snapshot = report.snapshot.unwrap();
+        let resolved = snapshot.resolve().unwrap();
+        let mut options = windows_clang2::ProjectionOptions::new("Test");
+        options.library = Some("kernel32.dll".into());
+        let rdl = resolved
+            .project_roots(&options, &["Clang2RecoveryA"])
+            .unwrap()
+            .rdl();
+        assert_eq!(
+            rdl,
+            "#[win32]\nmod Test {\n    const Clang2RecoveryA: i32 = 19;\n}\n"
+        );
+        let native_roots = ["RECT", "GetCurrentThreadId"];
+        let native = resolved
+            .project_roots(&options, &native_roots)
+            .unwrap()
+            .rdl();
+        let fresh = windows_clang2::capture(
+            [windows_clang2::Input::new("uncached-sdk.hpp", source)],
+            &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
+            &native_roots,
+        )
+        .unwrap();
+        assert_eq!(
+            native,
+            fresh.resolve().unwrap().project(&options).unwrap().rdl()
+        );
+        println!(
+            "grouped SDK recovery complete in {:.3}s",
+            started.elapsed().as_secs_f64()
+        );
     }
 
     #[test]

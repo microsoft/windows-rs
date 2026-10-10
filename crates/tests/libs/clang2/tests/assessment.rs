@@ -1,4 +1,6 @@
-use windows_clang2::{Input, ProjectionOptions, capture, capture_report};
+use windows_clang2::{
+    Input, ProjectionOptions, capture, capture_report, capture_report_with_progress,
+};
 use windows_metadata::{Type, Value, reader::*};
 
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
@@ -89,7 +91,7 @@ fn failed_probes_do_not_supply_error_bearing_native_evidence() {
             .collect::<Vec<_>>(),
         ["Broken", "Function", "Missing", "Removed", "Type"]
     );
-    assert_eq!(report.parses, 3);
+    assert_eq!(report.parses, 4);
     assert!(report.rejected["Missing"].contains("absent_identifier"));
     assert!(report.rejected["Removed"].contains("undefined"));
     let snapshot = report.snapshot.unwrap();
@@ -123,6 +125,189 @@ fn probe_batches_do_not_reparse_once_per_bad_macro() {
         assert_eq!(report.parses, 3);
         report.snapshot.unwrap().resolve().unwrap();
     }
+}
+
+#[test]
+fn syntax_recovery_reuses_the_tu_and_keeps_later_valid_probes() {
+    for count in [32, 64, 128] {
+        let mut source = String::new();
+        let mut roots = Vec::new();
+        for index in 0..count {
+            let name = format!("Bad{index:03}");
+            source.push_str(&format!("#define {name} {{\n"));
+            roots.push(name);
+        }
+        source.push_str("#define ZGood 19\n");
+        roots.push("ZGood".into());
+        let mut progress = Vec::new();
+        let report = capture_report_with_progress(
+            [Input::new("syntax-recovery.hpp", source)],
+            ARGS,
+            &roots.iter().map(String::as_str).collect::<Vec<_>>(),
+            |event| progress.push((event.parses, event.reparsed, event.errors)),
+        )
+        .unwrap();
+        assert_eq!(report.rejected.len(), count);
+        assert_eq!(report.parses, count + 2);
+        assert_eq!(progress.len(), report.parses);
+        assert!(progress[2..].iter().all(|(_, reparsed, _)| *reparsed));
+        assert_eq!(progress.last().unwrap().2, 0);
+        let rdl = report
+            .snapshot
+            .unwrap()
+            .resolve()
+            .unwrap()
+            .project(&ProjectionOptions::new("Test"))
+            .unwrap()
+            .rdl();
+        assert_eq!(rdl, "#[win32]\nmod Test {\n    const ZGood: i32 = 19;\n}\n");
+    }
+}
+
+#[test]
+fn recovery_reparses_preserve_preprocessing_state_and_finish_with_a_complete_ast() {
+    let mut source = include_str!("../input/probe_counter.h").to_string();
+    let mut roots = vec!["ACounter".to_string(), "ZGood".to_string()];
+    for index in 0..512 {
+        let name = format!("Bad{index:04}");
+        source.push_str(&format!("\n#define {name} {{\n"));
+        roots.push(name);
+    }
+    let mut sizes = Vec::new();
+    let report = capture_report_with_progress(
+        [Input::new("counter-recovery.hpp", &source)],
+        ARGS,
+        &roots.iter().map(String::as_str).collect::<Vec<_>>(),
+        |event| sizes.push(event.probes),
+    )
+    .unwrap();
+    assert_eq!(report.rejected.len(), 512);
+    assert_eq!(sizes[1], 514);
+    assert!(sizes[1..].windows(2).all(|pair| pair[1] < pair[0]));
+    assert_eq!(*sizes.last().unwrap(), 2);
+    let rdl = report
+        .snapshot
+        .unwrap()
+        .resolve()
+        .unwrap()
+        .project(&ProjectionOptions::new("Test"))
+        .unwrap()
+        .rdl();
+    let clean = capture(
+        [Input::new("counter-recovery.hpp", source)],
+        ARGS,
+        &["ACounter", "ZGood"],
+    )
+    .unwrap();
+    assert_eq!(
+        rdl,
+        clean
+            .resolve()
+            .unwrap()
+            .project(&ProjectionOptions::new("Test"))
+            .unwrap()
+            .rdl()
+    );
+}
+
+#[test]
+fn included_macro_failures_keep_their_probe_ownership() {
+    let header =
+        std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("input\\probe_macro_locations.h");
+    let report = capture_report(
+        [Input::new(
+            "macro-locations.hpp",
+            format!("#include \"{}\"\n", header.display()),
+        )],
+        ARGS,
+        &["Good", "MissingAlias", "MemberAlias", "StorageSpecifier"],
+    )
+    .unwrap();
+    assert_eq!(
+        report
+            .rejected
+            .keys()
+            .map(String::as_str)
+            .collect::<Vec<_>>(),
+        ["MemberAlias", "MissingAlias", "StorageSpecifier"],
+    );
+    report.snapshot.unwrap().resolve().unwrap();
+}
+
+#[test]
+fn untyped_braced_initializers_are_explicit_rejections_not_expression_syntax_errors() {
+    let report = capture_report(
+        [Input::new(
+            "initializers.hpp",
+            include_str!("../input/macro_initializers.h"),
+        )],
+        ARGS,
+        &[
+            "Initializer",
+            "Alias",
+            "EmptyInitializer",
+            "Good",
+            "String",
+            "Typed",
+            "ScalarCall",
+        ],
+    )
+    .unwrap();
+    assert_eq!(report.parses, 2);
+    assert_eq!(
+        report
+            .rejected
+            .keys()
+            .map(String::as_str)
+            .collect::<Vec<_>>(),
+        ["Alias", "EmptyInitializer", "Initializer"]
+    );
+    assert!(
+        report
+            .rejected
+            .values()
+            .all(|reason| reason.contains("native initialization target"))
+    );
+    let assessment = report.snapshot.as_ref().unwrap().assess().unwrap();
+    let resolved = assessment.resolved.unwrap();
+    let options = ProjectionOptions::new("Test");
+    let rdl = resolved
+        .project_roots(&options, &["Good", "String", "ScalarCall"])
+        .unwrap()
+        .rdl();
+    assert!(rdl.contains("const Good: i32 = 40"), "{rdl}");
+    assert!(rdl.contains("const ScalarCall: i32 = 18"), "{rdl}");
+    assert!(resolved.project_roots(&options, &["Typed"]).is_err());
+}
+
+#[test]
+fn parser_recovery_rechecks_remaining_probes_until_the_ast_is_clean() {
+    let report = capture_report(
+        [Input::new(
+            "recovery.hpp",
+            include_str!("../input/probe_recovery.h"),
+        )],
+        ARGS,
+        &["AGood", "BMalformed", "CMissing", "DMember", "ZGood"],
+    )
+    .unwrap();
+    assert_eq!(
+        report
+            .rejected
+            .keys()
+            .map(String::as_str)
+            .collect::<Vec<_>>(),
+        ["BMalformed", "CMissing", "DMember"],
+    );
+    let snapshot = report.snapshot.unwrap();
+    let rdl = snapshot
+        .resolve()
+        .unwrap()
+        .project(&ProjectionOptions::new("Test"))
+        .unwrap()
+        .rdl();
+    assert!(rdl.contains("const AGood: i32 = 17"), "{rdl}");
+    assert!(rdl.contains("const ZGood: i32 = 23"), "{rdl}");
 }
 
 #[test]

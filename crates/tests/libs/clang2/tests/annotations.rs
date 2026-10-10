@@ -91,6 +91,31 @@ fn return_annotations_before_declaration_macros_keep_callable_context() {
 }
 
 #[test]
+fn partial_redeclarations_do_not_discard_additional_contracts() {
+    let source = include_str!("../input/annotation_partial_redeclaration.h");
+    for target in [
+        "--target=x86_64-pc-windows-msvc",
+        "--target=i686-pc-windows-msvc",
+        "--target=aarch64-pc-windows-msvc",
+    ] {
+        let arguments = sdk::arguments(target);
+        let snapshot = windows_clang2::capture(
+            [windows_clang2::Input::new("partial.hpp", source)],
+            &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
+            &["Product"],
+        )
+        .unwrap();
+        let error = snapshot.resolve().err().unwrap().to_string();
+        assert!(
+            error.contains("conflicting annotations for parameter 2 (Sal)"),
+            "{error}"
+        );
+        assert!(error.contains("_Deref_out_range_(==,$0 * $1)"), "{error}");
+        assert!(snapshot.assess_profiles(&["partial.hpp"]).is_err());
+    }
+}
+
+#[test]
 fn conflicting_macro_prefix_annotations_are_not_hidden() {
     let source = include_str!("../input/annotation_macro_return.h");
     let arguments = sdk::arguments("--target=x86_64-pc-windows-msvc");

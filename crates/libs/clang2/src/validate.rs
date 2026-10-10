@@ -14,25 +14,183 @@ pub(super) fn validate(snapshot: &Snapshot) -> Result<Resolved<'_>, Error> {
 
 pub(super) fn assess(snapshot: &Snapshot) -> Result<Assessment<'_>, Error> {
     let mut groups: BTreeMap<&str, Vec<Id>> = BTreeMap::new();
+    for (index, declaration) in snapshot.declarations.iter().enumerate() {
+        groups
+            .entry(&declaration.candidate)
+            .or_default()
+            .push(Id(index));
+    }
+    let mut assessment = assess_groups(snapshot, groups, vec![], None)?;
+    assessment.resolved = assessment
+        .resolved
+        .filter(|resolved| !resolved.roots.is_empty());
+    Ok(assessment)
+}
+
+pub(super) fn assess_profiles<'a>(
+    snapshot: &'a Snapshot,
+    inputs: &[&str],
+) -> Result<Assessment<'a>, Error> {
+    let ranks: BTreeMap<_, _> = inputs
+        .iter()
+        .enumerate()
+        .map(|(rank, name)| (*name, rank))
+        .collect();
+    if inputs.is_empty() || ranks.len() != inputs.len() {
+        return Err(Error(
+            "profile precedence requires unique input names".into(),
+        ));
+    }
+    if ranks
+        .keys()
+        .any(|name| !snapshot.inputs.iter().any(|input| input == name))
+    {
+        return Err(Error("profile precedence contains an unknown input".into()));
+    }
+    for input in &snapshot.inputs {
+        if !ranks.contains_key(input.as_str()) {
+            return Err(Error(format!("unranked native input `{input}`")));
+        }
+    }
+    let mut evidence = ProfileEvidence {
+        completions: (0..snapshot.declarations.len()).map(Id).collect(),
+        annotations: BTreeMap::new(),
+    };
+    for input in &snapshot.inputs {
+        let mut local = BTreeMap::<&str, Vec<Id>>::new();
+        for (index, declaration) in snapshot.declarations.iter().enumerate() {
+            if declaration.unit == *input {
+                local
+                    .entry(&declaration.candidate)
+                    .or_default()
+                    .push(Id(index));
+            }
+        }
+        let assessment = assess_groups(snapshot, local, vec![], None)?;
+        if let Some(resolved) = assessment.resolved {
+            for candidates in resolved.groups.values() {
+                let chosen = representative(snapshot, candidates);
+                for id in candidates {
+                    if !snapshot.declarations[id.0].data.complete() {
+                        evidence.completions[id.0] = chosen;
+                    }
+                }
+            }
+            for (id, annotations) in resolved.annotations {
+                let declaration = &snapshot.declarations[id.0];
+                evidence.annotations.insert(
+                    (declaration.unit.as_str(), declaration.candidate.as_str()),
+                    annotations,
+                );
+            }
+        }
+    }
+    let mut groups: BTreeMap<&str, Vec<Id>> = BTreeMap::new();
+    for (index, declaration) in snapshot.declarations.iter().enumerate() {
+        groups
+            .entry(&declaration.candidate)
+            .or_default()
+            .push(Id(index));
+    }
+    let mut selections = Vec::new();
+    for candidates in groups.values_mut() {
+        let rank = candidates
+            .iter()
+            .map(|id| ranks[snapshot.declarations[id.0].unit.as_str()])
+            .min()
+            .unwrap();
+        let selected = candidates
+            .iter()
+            .find(|id| ranks[snapshot.declarations[id.0].unit.as_str()] == rank)
+            .unwrap();
+        let declaration = &snapshot.declarations[selected.0];
+        let shadowed: BTreeSet<_> = candidates
+            .iter()
+            .filter(|id| ranks[snapshot.declarations[id.0].unit.as_str()] != rank)
+            .map(|id| snapshot.declarations[id.0].unit.clone())
+            .collect();
+        if !shadowed.is_empty() {
+            selections.push(ProfileSelection {
+                identity: declaration.candidate.clone(),
+                name: declaration.name.clone(),
+                selected: declaration.unit.clone(),
+                shadowed: shadowed.into_iter().collect(),
+            });
+        }
+        candidates.retain(|id| ranks[snapshot.declarations[id.0].unit.as_str()] == rank);
+    }
+    let mut assessment = assess_groups(snapshot, groups, selections, Some(evidence))?;
+    assessment.resolved = assessment
+        .resolved
+        .filter(|resolved| !resolved.roots.is_empty());
+    Ok(assessment)
+}
+
+struct ProfileEvidence<'a> {
+    completions: Vec<Id>,
+    annotations: BTreeMap<(&'a str, &'a str), ResolvedAnnotations>,
+}
+
+fn assess_groups<'a>(
+    snapshot: &'a Snapshot,
+    groups: BTreeMap<&str, Vec<Id>>,
+    selections: Vec<ProfileSelection>,
+    profiles: Option<ProfileEvidence<'a>>,
+) -> Result<Assessment<'a>, Error> {
     let mut unavailable = BTreeMap::new();
     let mut dependents: BTreeMap<&str, BTreeSet<&str>> = BTreeMap::new();
-    for (index, declaration) in snapshot.declarations.iter().enumerate() {
-        let group = declaration.candidate.as_str();
-        groups.entry(group).or_default().push(Id(index));
-        if let Err(error) = available(declaration) {
-            unavailable
-                .entry(group)
-                .or_insert_with(|| error.to_string());
-        }
-        let mut pending = declaration.data.types();
-        while let Some(ty) = pending.pop() {
-            if let TypeKind::Named(id) = ty.kind {
-                dependents
-                    .entry(&snapshot.declarations[id.0].candidate)
-                    .or_default()
-                    .insert(group);
+    let mut comparison = Comparison {
+        snapshot,
+        completions: (0..snapshot.declarations.len()).map(Id).collect(),
+        completed: BTreeSet::new(),
+        declaration_pairs: 0,
+        type_pairs: 0,
+        annotations: profiles.as_ref().map(|evidence| &evidence.annotations),
+    };
+    if let Some(evidence) = &profiles {
+        comparison.completions.clone_from(&evidence.completions);
+    }
+    for candidates in groups.values() {
+        let chosen = representative(snapshot, candidates);
+        if snapshot.declarations[chosen.0].data.complete() {
+            for id in candidates {
+                if !snapshot.declarations[id.0].data.complete() {
+                    comparison.completions[id.0] = chosen;
+                }
             }
-            pending.extend(ty.children());
+        }
+    }
+    for candidates in groups.values() {
+        for id in candidates {
+            let declaration = &snapshot.declarations[id.0];
+            let group = declaration.candidate.as_str();
+            if let Err(error) = available(declaration) {
+                unavailable
+                    .entry(group)
+                    .or_insert_with(|| error.to_string());
+            }
+            let mut pending = declaration.data.types();
+            while let Some(ty) = pending.pop() {
+                if let TypeKind::Named(id) = ty.kind {
+                    let dependency = snapshot.declarations[id.0].candidate.as_str();
+                    dependents.entry(dependency).or_default().insert(group);
+                    if profiles.is_some() {
+                        let chosen = representative(snapshot, &groups[dependency]);
+                        if let Err(error) = comparison.compare(
+                            comparison.completions[id.0],
+                            comparison.completions[chosen.0],
+                        ) {
+                            unavailable.entry(group).or_insert_with(|| {
+                                format!(
+                                    "canonical profile dependency `{}` is incompatible: {error}",
+                                    snapshot.declarations[id.0].name
+                                )
+                            });
+                        }
+                    }
+                }
+                pending.extend(ty.children());
+            }
         }
     }
     let mut pending: VecDeque<_> = unavailable.keys().copied().collect();
@@ -61,15 +219,43 @@ pub(super) fn assess(snapshot: &Snapshot) -> Result<Assessment<'_>, Error> {
         .filter(|(group, _)| !unavailable.contains_key(group))
         .collect();
     let mut resolved = validate_groups(snapshot, groups)?;
+    if profiles.is_some() {
+        let chosen: BTreeMap<_, _> = resolved
+            .groups
+            .keys()
+            .map(|id| (snapshot.declarations[id.0].candidate.as_str(), *id))
+            .collect();
+        for (index, declaration) in snapshot.declarations.iter().enumerate() {
+            if let Some(id) = chosen.get(declaration.candidate.as_str()) {
+                resolved.representatives[index] = *id;
+            }
+        }
+        resolved.roots.clear();
+        for id in &snapshot.roots {
+            let chosen = resolved.representatives[id.0];
+            if resolved.groups.contains_key(&chosen) {
+                resolved
+                    .roots
+                    .entry(snapshot.declarations[id.0].name.as_str())
+                    .or_default()
+                    .push(chosen);
+            }
+        }
+        for ids in resolved.roots.values_mut() {
+            ids.sort();
+            ids.dedup();
+        }
+    }
     resolved
         .roots
         .retain(|name, _| !rejected.contains_key(*name));
-    let resolved = (!resolved.roots.is_empty()).then_some(resolved);
+    let resolved = (!resolved.groups.is_empty()).then_some(resolved);
     Ok(Assessment {
         resolved,
         rejected,
         dependency_edges,
         unavailable_groups,
+        selections,
     })
 }
 
@@ -98,6 +284,7 @@ fn validate_groups<'a>(
         completed: BTreeSet::new(),
         declaration_pairs: 0,
         type_pairs: 0,
+        annotations: None,
     };
     for candidates in groups.values() {
         let mut uuid = None;
@@ -400,7 +587,9 @@ fn merge_annotations(
         if !previous.is_empty() && !current.is_empty() && *previous != current {
             return Err(unsupported(
                 declaration,
-                &format!("conflicting annotations for {scope} ({source:?})"),
+                &format!(
+                    "conflicting annotations for {scope} ({source:?}): {previous:?} vs {current:?}"
+                ),
             ));
         }
         if previous.is_empty() {
@@ -428,6 +617,7 @@ struct Comparison<'a> {
     completed: BTreeSet<(Id, Id)>,
     declaration_pairs: usize,
     type_pairs: usize,
+    annotations: Option<&'a BTreeMap<(&'a str, &'a str), ResolvedAnnotations>>,
 }
 
 enum Obligation<'a> {
@@ -455,6 +645,26 @@ impl<'a> Comparison<'a> {
                     let b = &self.snapshot.declarations[right.0];
                     if a.candidate != b.candidate {
                         return Err(self.conflict(left, right, "native identities differ"));
+                    }
+                    if let Some(annotations) = self.annotations {
+                        let a = annotations.get(&(a.unit.as_str(), a.candidate.as_str()));
+                        let b = annotations.get(&(b.unit.as_str(), b.candidate.as_str()));
+                        let compatible = match (a, b) {
+                            (Some(a), Some(b)) => {
+                                a.own == b.own
+                                    && a.fields == b.fields
+                                    && a.methods == b.methods
+                                    && a.parameters == b.parameters
+                            }
+                            _ => false,
+                        };
+                        if !compatible {
+                            return Err(self.conflict(
+                                left,
+                                right,
+                                "profile annotation contracts differ or are unavailable",
+                            ));
+                        }
                     }
                     let mut types = vec![];
                     let matches = match (&a.data, &b.data) {
@@ -613,6 +823,25 @@ impl<'a> Comparison<'a> {
                             right,
                             "declaration shape or value differs",
                         ));
+                    }
+                    if self.annotations.is_some() {
+                        if a.data.complete() != b.data.complete() {
+                            return Err(self.conflict(
+                                left,
+                                right,
+                                "profile definition completeness differs",
+                            ));
+                        }
+                        let a = a.data.types();
+                        let b = b.data.types();
+                        if a.len() != b.len() {
+                            return Err(self.conflict(
+                                left,
+                                right,
+                                "profile written dependencies differ",
+                            ));
+                        }
+                        types = a.into_iter().zip(b).collect();
                     }
                     pending.extend(
                         types

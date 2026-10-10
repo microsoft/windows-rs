@@ -161,6 +161,7 @@ pub fn scrape(um_winmd: &std::path::Path) -> usize {
         .iter()
         .map(|header| format!("#include <{header}>\n"))
         .collect();
+    // Canonical kernel contracts take precedence over declarations in the SDK/offreg prelude.
     let inputs = vec![
         crate::HeaderInput {
             name: "clang-wdk.hpp".into(),

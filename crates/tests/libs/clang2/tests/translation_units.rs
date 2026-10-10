@@ -57,12 +57,24 @@ fn sdk_string_profiles_do_not_unify_distinct_native_record_tags() {
             if reversed {
                 inputs.reverse();
             }
-            let error = capture(inputs, &args, &["STRING"])
-                .unwrap()
-                .resolve()
-                .err()
-                .unwrap()
-                .to_string();
+            let snapshot = capture(inputs, &args, &["STRING"]).unwrap();
+            for priorities in [["lsa.hpp", "nt.hpp"], ["nt.hpp", "lsa.hpp"]] {
+                let assessment = snapshot.assess_profiles(&priorities).unwrap();
+                assert!(assessment.rejected.is_empty(), "{:?}", assessment.rejected);
+                let plan = assessment.resolved.unwrap().project(&options()).unwrap();
+                let expected = if priorities[0] == "lsa.hpp" {
+                    source
+                } else {
+                    nt.as_str()
+                };
+                let single =
+                    capture([Input::new("single.hpp", expected)], &args, &["STRING"]).unwrap();
+                assert_eq!(
+                    plan.rdl(),
+                    single.resolve().unwrap().project(&options()).unwrap().rdl()
+                );
+            }
+            let error = snapshot.resolve().err().unwrap().to_string();
             assert!(error.contains("native identities differ"), "{error}");
             assert!(
                 error.contains("`_LSA_STRING`") && error.contains("`_STRING`"),

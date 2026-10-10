@@ -299,19 +299,52 @@ pub(super) fn scrape(
     }
     report(output, &inventory, &outcomes);
     let roots: Vec<_> = roots.into_iter().collect();
+    let priorities: Vec<_> = inputs.iter().map(|input| input.name.clone()).collect();
+    let mut precedence = String::from("rank\tinput\n");
+    for (rank, input) in priorities.iter().enumerate() {
+        precedence.push_str(&format!("{rank}\t{input}\n"));
+    }
+    std::fs::write(output.join("profile-precedence.tsv"), precedence)?;
+    let mut native_inputs = Vec::new();
+    for input in inputs {
+        let path = output.join(&input.name);
+        native_inputs.push(Input::new(
+            path.to_str().ok_or("production input path is not UTF-8")?,
+            input.source,
+        ));
+    }
+    let native_priorities: Vec<_> = native_inputs
+        .iter()
+        .map(|input| input.name.clone())
+        .collect();
+    let labels: BTreeMap<_, _> = native_priorities.iter().zip(&priorities).collect();
     println!(
         "clang2 {}: {} selected production roots",
         output.display(),
         roots.len()
     );
-    let captured = windows_clang2::capture_report(
-        inputs
-            .into_iter()
-            .map(|input| Input::new(input.name, input.source)),
+    let capture_started = std::time::Instant::now();
+    let captured = windows_clang2::capture_report_with_progress(
+        native_inputs,
         arguments,
         &roots,
+        |progress| {
+            println!(
+                "clang2 {}: input={} parse={} probes={} rejected={} errors={} failed={:?} reparse={} elapsed={:.3}s",
+                output.display(), progress.input, progress.parses, progress.probes,
+                progress.rejected, progress.errors, progress.failed_probe, progress.reparsed,
+                progress.elapsed.as_secs_f64(),
+            );
+        },
     )
     .inspect_err(|error| blocked(output, &inventory, &mut outcomes, "capture", error))?;
+    println!(
+        "clang2 {}: capture complete, parses={} rejected={} elapsed={:.3}s",
+        output.display(),
+        captured.parses,
+        captured.rejected.len(),
+        capture_started.elapsed().as_secs_f64(),
+    );
     for (root, reason) in &captured.rejected {
         outcomes.insert(root.as_str(), ("rejected", format!("capture: {reason}")));
     }
@@ -320,9 +353,38 @@ pub(super) fn scrape(
         .snapshot
         .as_ref()
         .ok_or("no production native roots captured")?;
+    let assessment_started = std::time::Instant::now();
     let assessment = snapshot
-        .assess()
+        .assess_profiles(
+            &native_priorities
+                .iter()
+                .map(String::as_str)
+                .collect::<Vec<_>>(),
+        )
         .inspect_err(|error| blocked(output, &inventory, &mut outcomes, "resolution", error))?;
+    println!(
+        "clang2 {}: assessment complete, unavailable={} selections={} elapsed={:.3}s",
+        output.display(),
+        assessment.rejected.len(),
+        assessment.selections.len(),
+        assessment_started.elapsed().as_secs_f64(),
+    );
+    let mut selections = String::from("native_group\tname\tselected\tshadowed\n");
+    for selection in &assessment.selections {
+        selections.push_str(&format!(
+            "{}\t{}\t{}\t{}\n",
+            selection.identity,
+            selection.name,
+            labels[&selection.selected],
+            selection
+                .shadowed
+                .iter()
+                .map(|input| labels[input].as_str())
+                .collect::<Vec<_>>()
+                .join(",")
+        ));
+    }
+    std::fs::write(output.join("profiles.tsv"), selections)?;
     for (root, reason) in &assessment.rejected {
         outcomes.insert(
             root.as_str(),
@@ -796,6 +858,8 @@ pub(super) fn clear_outputs(output: &std::path::Path) -> std::io::Result<()> {
         "Windows.Win32.merged.winmd",
         "src/bindings.rs",
         "inventory.tsv",
+        "profiles.tsv",
+        "profile-precedence.tsv",
         "headers.tsv",
     ] {
         let file = output.join(file);
@@ -887,6 +951,62 @@ fn blocked(
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn production_profiles_use_configured_order_and_persist_choices() {
+        ensure_libclang();
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
+        let output =
+            std::env::temp_dir().join(format!("clang2-production-profiles-{}", std::process::id()));
+        let inputs = [
+            ("z-primary.hpp", "primary"),
+            ("a-secondary.hpp", "secondary"),
+        ]
+        .into_iter()
+        .map(|(name, fixture)| {
+            let file = root.join(format!(
+                "crates\\tests\\libs\\clang2\\input\\profile_{fixture}.h"
+            ));
+            HeaderInput {
+                name: name.into(),
+                source: format!("#include \"{}\"\n", file.display()),
+                roots: vec![file.to_str().unwrap().into()],
+                root_dirs: vec![],
+                excluded_roots: vec![],
+            }
+        })
+        .collect();
+        let mut options = header_options();
+        options.library = Some("test.dll".into());
+        options.preserve_typedefs = true;
+        let result = scrape(
+            inputs,
+            &["-x", "c++", "--target=x86_64-pc-windows-msvc"],
+            &options,
+            &BTreeSet::new(),
+            &output,
+        )
+        .unwrap();
+        assert_eq!(result.functions, 2);
+        assert_eq!(result.unsupported.len(), 1);
+        assert!(result.unsupported[0].starts_with("UseSecondary:"));
+        assert_eq!(
+            std::fs::read_to_string(output.join("profile-precedence.tsv")).unwrap(),
+            "rank\tinput\n0\tz-primary.hpp\n1\ta-secondary.hpp\n"
+        );
+        let choices = std::fs::read_to_string(output.join("profiles.tsv")).unwrap();
+        assert!(
+            choices.contains("\tShared\tz-primary.hpp\ta-secondary.hpp\n"),
+            "{choices}"
+        );
+        let winmd = output.join("test.winmd");
+        windows_rdl::reader()
+            .input(output.join("rdl"))
+            .output(&winmd)
+            .write()
+            .unwrap();
+        std::fs::remove_dir_all(output).unwrap();
+    }
 
     #[test]
     fn production_scrape_stages_supported_rdl_without_hiding_unrouted_functions() {
@@ -1178,6 +1298,7 @@ mod tests {
             macro_alias: None,
             macro_attribute: false,
             macro_declaration: false,
+            macro_initializer: false,
         };
         assert!(exclusion(&declaration).is_none());
         let mut inventory = vec![declaration.clone()];

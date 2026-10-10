@@ -1321,6 +1321,17 @@ import candidates, RDL, and WinMD under `target/win32-clang2/production`. The gr
 profile includes declarations from actually included `um`/`shared` files, with the manifest's
 excluded headers removed; satellite roots retain their explicit file scope. Architectures run
 serially, using each target's import archives and preserving archive precedence.
+Production inputs also define canonical native-profile precedence: SDK main before satellite,
+and WDK kernel before the SDK/offreg profile. `profile-precedence.tsv` persists that order;
+`profiles.tsv` records native identities and selected/shadowed inputs for shared groups.
+Input enumeration and lexical TU names do not determine precedence inside clang2.
+
+`Snapshot::assess_profiles` checks each input for internal agreement before choosing canonical
+groups. A dependent API from another profile survives only when its native and written dependency
+types and positional SAL/MIDL contracts agree with the selected groups. The checks follow nested
+records and callbacks. Incompatible closures reject explicitly; they do not acquire a different
+contract through representative remapping. Unavailable canonical evidence has no lower-profile
+fallback. Strict cross-input assessment remains available on the unchanged snapshot.
 
 The ordinary `WINDOWS_CLANG=shellscalingapi.h,tlhelp32.h` route emits all 72 selected roots on
 x64, ARM64, and x86, compiles each WinMD, and merges six RDL partitions and the final WinMD.
@@ -1337,12 +1348,42 @@ with `git diff master -- metadata/win32 metadata/wdk`; do not hand-repair genera
 Bounded `WINDOWS_CLANG` runs stage output without replacing the full committed snapshots.
 Source completeness alone does not establish replacement correctness.
 
-The full directory-scoped x64 run selects 155,564 roots. It stops during macro probing on
-unowned compiler diagnostics, before producing a resolved snapshot or publishing metadata.
-This broader scope exposes non-value macros and diagnostic-ownership cases absent from the
-requested-header-only preflight. Static assertions are compiler checks, not named roots;
-statement-fragment macros such as `__try {` are reported as preprocessing helpers. Remaining
-probe failures stay explicit rather than certifying an error-bearing AST.
+The directory-scoped x64 inventory selects 155,381 roots after recognizing wrappers around
+function-like declaration attributes. Its full capture completes in 544.711 s across 274 parses,
+with 1,864 rejected macro roots. Assessment stops on `_umul128`: one declaration supplies `_Out_`
+and `_Deref_out_range_(==,$0 * $1)` for parameter 2, while the `winnt.h` redeclaration supplies
+only `_Out_`. Profile precedence does not override disagreements inside a profile. The portable
+`annotation_partial_redeclaration.h` fixture and a grouped-SDK rejection gate preserve this
+additional contract rather than silently dropping it. Partial redeclaration contract agreement
+remains a production blocker.
+
+This broader scope exposes non-value macros and untyped initialization fragments absent from
+the requested-header-only preflight.
+Static assertions are compiler checks, not named roots; statement-fragment macros such as
+`__try {` are reported as preprocessing helpers. Recovery repeats with progress and unchanged
+compiler file/range ownership checks. A Clang parse error ends attribution for that round:
+later diagnostics can blame valid probes affected by syntax recovery. Semantic errors before
+that barrier remain batched. A clean AST is required before native capture; source, fatal,
+and unowned diagnostics remain errors.
+
+Production recovery preserves the complete remaining probe sequence. The complete input must be
+clean before native capture. A fixture uses a counter-dependent template to check that compiler
+reparsing does not retain stale preprocessing state.
+
+The producer passes its existing staged source paths to libclang. A virtual filename prevented
+LLVM's main-file status lookup from building a preamble, even with preamble flags enabled.
+With staged file identity, the grouped SDK eight-error recovery gate takes 12.9 s rather than
+40.0 s; individual recovery parses take about 0.11 s rather than 3.8 s. It also compares cached
+SDK record/function RDL against a fresh uncached capture. The manual timing gate requires all
+eight recovery parses together to take less time than one full source parse:
+`cargo test -p tool-win32 production_probe_recovery_reuses_the_grouped_sdk_input -- --ignored --nocapture`.
+Production logs per-parse timings, probe counts, first failed probe, and capture/assessment
+completion separately.
+
+Untyped braced-initializer macros require a native initialization target; they are explicit
+unsupported roots, not preprocessing-helper exclusions or guessed GUID/record values. The
+compiler-token classifier preserves that distinction through single-identifier aliases and
+does not classify strings or typed construction expressions as untyped initializers.
 
 The manual `tool-win32` tests with the `production_` prefix reuse its grouped main/satellite
 inputs and compiler arguments. Strict source parsing passes
@@ -1351,9 +1392,9 @@ roots, takes 108.43 seconds across nine parses, and records 1,515 rejected macro
 agreement then fails: `STRING` aliases `_LSA_STRING` through `ntsecapi.h` in the main profile and
 `_STRING` through `winternl.h` in the satellite profile. A small real-header regression preserves
 that rejection on all three targets and in both TU orders; matching layouts do not establish
-matching native identities. This is a profile-dependent definition, not a source parsing failure.
-Canonical publication needs explicit TU/profile precedence with consistent dependency closures;
-agreement within an authoritative profile must still reject conflicting declarations.
+matching native identities. The same regression now checks both explicit precedence orders against
+the corresponding single-profile RDL on all three targets. This is a profile-dependent definition,
+not a source parsing failure; selecting it does not conflate the two native record tags.
 
 Run these readiness gates with
 `cargo test -p tool-win32 production_ -- --ignored --nocapture --test-threads=1`.

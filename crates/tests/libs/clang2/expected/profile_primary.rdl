@@ -1,0 +1,14 @@
+#[win32]
+mod Test {
+    const ProfileValue: i32 = 17;
+    struct Shared {
+        value: i32,
+    }
+    struct Stable {
+        value: i32,
+    }
+    #[library("test.dll", import = "UsePrimary")]
+    extern "C" fn UsePrimary(value: *mut Shared);
+    #[library("test.dll", import = "UseStable")]
+    extern "C" fn UseStable(value: *mut Stable);
+}

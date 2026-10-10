@@ -7,7 +7,10 @@ mod native;
 use native::*;
 
 mod capture;
-pub use capture::{DeclarationInfo, capture, capture_report, discover, discover_in_scope};
+pub use capture::{
+    DeclarationInfo, capture, capture_report, capture_report_with_progress, discover,
+    discover_in_scope,
+};
 
 mod project;
 mod validate;
@@ -51,6 +54,7 @@ pub struct Snapshot {
     entities: Vec<Entity>,
     declarations: Vec<Declaration>,
     roots: Vec<Id>,
+    inputs: Vec<String>,
     target: String,
     pointer_size: i64,
     arguments: Vec<String>,
@@ -59,13 +63,26 @@ pub struct Snapshot {
 
 /// Inventory capture with explicit failures for compiler-owned macro probes.
 ///
-/// The snapshot contains the remaining roots. Source errors and unowned probe diagnostics still
-/// fail capture; an error-bearing compiler AST is never used as native evidence.
+/// The snapshot contains the remaining roots. Syntax recovery is reparsed before attributing
+/// later diagnostics. Source errors and unowned probe diagnostics still fail capture; an
+/// error-bearing compiler AST is never used as native evidence.
 pub struct CaptureReport {
     pub snapshot: Option<Snapshot>,
     pub rejected: BTreeMap<String, String>,
     /// Translation-unit parses, including probes and clean reparses after rejected probes.
     pub parses: usize,
+}
+
+/// One completed compiler parse, before assigning its diagnostics to rejected probes.
+pub struct CaptureProgress<'a> {
+    pub input: &'a str,
+    pub parses: usize,
+    pub probes: usize,
+    pub rejected: usize,
+    pub errors: usize,
+    pub failed_probe: Option<&'a str>,
+    pub reparsed: bool,
+    pub elapsed: std::time::Duration,
 }
 
 /// Work performed while checking the captured evidence.
@@ -93,14 +110,26 @@ pub struct Resolved<'a> {
 
 /// Available native closure checked for agreement, with unsupported roots reported separately.
 ///
-/// Rejected roots are not certified. Every observation and dependency of the available graph
-/// participates in the same strict agreement checks as `Snapshot::resolve`.
+/// Rejected roots are not certified. Strict assessment checks every available observation;
+/// profile assessment checks authoritative observations and compatibility of substituted
+/// dependencies.
 pub struct Assessment<'a> {
     pub resolved: Option<Resolved<'a>>,
     pub rejected: BTreeMap<String, String>,
     /// Unique group-to-group dependencies used to propagate unavailability.
     pub dependency_edges: usize,
     pub unavailable_groups: usize,
+    /// Explicit profile choices. Empty for strict cross-input assessment.
+    pub selections: Vec<ProfileSelection>,
+}
+
+/// One canonical declaration group selected by explicit input precedence.
+#[derive(Debug)]
+pub struct ProfileSelection {
+    pub identity: String,
+    pub name: String,
+    pub selected: String,
+    pub shadowed: Vec<String>,
 }
 
 impl Resolved<'_> {
@@ -136,6 +165,16 @@ impl Snapshot {
     /// Native conflicts in the available graph remain errors, not per-root exclusions.
     pub fn assess(&self) -> Result<Assessment<'_>, Error> {
         validate::assess(self)
+    }
+
+    /// Selects canonical declaration groups using the listed input names, highest priority first.
+    ///
+    /// Every captured input must be ranked. Same-input redeclarations still require agreement.
+    /// Dependencies must agree with their canonical group before substitution; incompatible
+    /// dependent closures are rejected, not rewritten to a different native contract.
+    /// The original snapshot and strict cross-input assessment remain unchanged.
+    pub fn assess_profiles(&self, inputs: &[&str]) -> Result<Assessment<'_>, Error> {
+        validate::assess_profiles(self, inputs)
     }
 
     pub fn target(&self) -> &str {

@@ -9,6 +9,43 @@ use windows_metadata::{
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn initializer_classification_distinguishes_fragments_from_typed_values_and_strings() {
+    let file = Path::new(env!("CARGO_MANIFEST_DIR")).join("input\\macro_initializers.h");
+    let inventory = discover(
+        [Input::new(
+            "initializers.hpp",
+            format!("#include \"{}\"", file.display()),
+        )],
+        ARGS,
+        &[file.to_str().unwrap()],
+    )
+    .unwrap();
+    assert_eq!(
+        inventory
+            .iter()
+            .filter(|item| item.macro_initializer)
+            .map(|item| item.name.as_str())
+            .collect::<BTreeSet<_>>(),
+        BTreeSet::from(["Alias", "EmptyInitializer", "Initializer"])
+    );
+    assert_eq!(
+        inventory
+            .iter()
+            .filter(|item| item.macro_attribute)
+            .map(|item| item.name.as_str())
+            .collect::<BTreeSet<_>>(),
+        BTreeSet::from(["Attribute", "MacroAttribute"]),
+    );
+    assert!(
+        !inventory
+            .iter()
+            .find(|item| item.name == "ScalarCall")
+            .unwrap()
+            .macro_attribute
+    );
+}
+
+#[test]
 fn directory_scope_uses_included_files_and_honors_explicit_exclusions() {
     let directory = Path::new(env!("CARGO_MANIFEST_DIR")).join("input\\discovery");
     let excluded = directory.join("macro_aliases.h");

@@ -298,8 +298,11 @@ standalone prerequisites; do not bypass include contracts with synthesized typed
 
 The rewrite branch's default SDK and WDK paths use windows-clang2, without a clang1 dependency or
 fallback. Generated candidate RDL is validated against master, not kept stable by legacy repairs.
-Full replacement coverage and canonical TU/profile precedence remain open. Source and native-graph
-errors still fail explicitly; incomplete published candidates return a nonzero exit.
+Full replacement coverage remains open. Default inputs rank SDK main before satellite and WDK
+kernel before SDK/offreg. Profile assessment checks each input internally and rejects incompatible
+canonical dependency substitutions, including written types and nested annotation contracts.
+Source and native-graph errors still fail explicitly; incomplete published candidates return a
+nonzero exit.
 
 Named callbacks retain compiler TypeRef-backed typedef edges, calling conventions, annotations,
 and pointer depth. Incomplete C records preserve nominal pointer identity but reject by-value
@@ -312,6 +315,10 @@ unavailability over every observation's written/canonical dependencies and check
 available graph; unavailable roots are explicit rejections, including whole overloaded names.
 Available native conflicts still fail globally. Strict `resolve` remains unchanged.
 Annotation ambiguity fails when selected evidence consumes the context, not during broad indexing.
+Full directory-scoped x64 capture completes in about nine minutes; assessment stops on partial
+SAL redeclarations of `_umul128` (`_Out_` with and without `_Deref_out_range_`). Preserve that
+evidence in `annotation_partial_redeclaration.h`; profile ranking does not resolve conflicts
+inside a profile.
 
 Capture dominates measured costs; no global projection cache or alternate IR is justified.
 Prioritize verified header prerequisites and record layouts using `docs/crates/windows-clang2.md`,
