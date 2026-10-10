@@ -48,13 +48,14 @@ fn integer(value: i32) -> VARIANT {
     }
 }
 
-fn named(window: &IUIAutomationElement, name: &str) -> Option<IUIAutomationElement> {
+fn named(
+    client: &IUIAutomation,
+    window: &IUIAutomationElement,
+    name: &str,
+) -> Option<IUIAutomationElement> {
     unsafe {
         let all = window
-            .FindAll(
-                TreeScope_Descendants,
-                &automation().CreateTrueCondition().ok()?,
-            )
+            .FindAll(TreeScope_Descendants, &client.CreateTrueCondition().ok()?)
             .ok()?;
         for index in 0..all.Length().ok()? {
             let element = all.GetElement(index).ok()?;
@@ -64,10 +65,6 @@ fn named(window: &IUIAutomationElement, name: &str) -> Option<IUIAutomationEleme
         }
         None
     }
-}
-
-fn automation() -> IUIAutomation {
-    unsafe { CoCreateInstance(&CUIAutomation, None, CLSCTX_INPROC_SERVER).unwrap() }
 }
 
 fn windows(client: &IUIAutomation) -> windows_core::Result<Vec<IUIAutomationElement>> {
@@ -87,7 +84,7 @@ fn windows(client: &IUIAutomation) -> windows_core::Result<Vec<IUIAutomationElem
 fn right_header_gaps(client: &IUIAutomation) -> windows_core::Result<Vec<i32>> {
     let mut gaps = Vec::new();
     for window in windows(client)? {
-        if let Some(header) = named(&window, "Right header") {
+        if let Some(header) = named(client, &window, "Right header") {
             unsafe {
                 gaps.push(
                     window.CurrentBoundingRectangle()?.right
@@ -100,16 +97,15 @@ fn right_header_gaps(client: &IUIAutomation) -> windows_core::Result<Vec<i32>> {
 }
 
 fn drive() {
-    let client = automation();
+    let client: IUIAutomation =
+        unsafe { CoCreateInstance(&CUIAutomation, None, CLSCTX_INPROC_SERVER).unwrap() };
     let deadline = Instant::now() + Duration::from_secs(10);
-    let (main, open) = loop {
-        if let Ok(gaps) = right_header_gaps(&client)
-            && let [gap] = gaps[..]
-            && let Some(open) = windows(&client)
-                .ok()
-                .and_then(|windows| named(windows.first()?, "Open"))
+    let open = loop {
+        if let Some(open) = windows(&client)
+            .ok()
+            .and_then(|windows| named(&client, windows.first()?, "Open"))
         {
-            break (gap, open);
+            break open;
         }
         assert!(Instant::now() < deadline, "main window did not appear");
         std::thread::sleep(Duration::from_millis(50));
@@ -124,17 +120,18 @@ fn drive() {
     let deadline = Instant::now() + Duration::from_secs(10);
     loop {
         let gaps = right_header_gaps(&client).unwrap_or_default();
-        if gaps.len() == 2 && gaps.iter().all(|gap| *gap == main) {
+        if let [main, secondary] = gaps[..]
+            && main == secondary
+        {
             return;
         }
         assert!(
             Instant::now() < deadline,
-            "secondary window right header is misplaced: expected gap {main}, found {gaps:?}"
+            "right headers are misplaced: found gaps {gaps:?}"
         );
         std::thread::sleep(Duration::from_millis(50));
     }
 }
-
 fn main() -> windows_core::Result<()> {
     std::thread::spawn(|| {
         unsafe {
