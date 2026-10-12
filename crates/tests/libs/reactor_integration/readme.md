@@ -20,6 +20,7 @@ cargo run -p test-reactor-integration --bin canvas_integration
 cargo run -p test-reactor-integration --bin webview_integration
 cargo run -p test-reactor-integration --bin window_state
 cargo run -p test-reactor-integration --bin window_observers
+cargo run -p test-reactor-integration --bin window_theme
 cargo run -p test-reactor-integration --bin title_bar
 ```
 
@@ -42,6 +43,9 @@ handoff from a parent to a child, and replacement of the subscribing child. The 
 opens a second window from a running application and checks through UI Automation that its
 `TitleBar` right header keeps the same
 caption-button inset as the first window.
+
+Run `window_theme` on an interactive desktop. It temporarily makes its windows topmost without
+activation to sample their rendered backgrounds.
 
 The menu-position fixture covers `pmv2`, `unaware`, `system`, and `thread-unaware` DPI modes. It
 checks exact physical host bounds and restoration of the caller's thread context, including when

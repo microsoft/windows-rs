@@ -44,6 +44,10 @@ name = "window_observers"
 path = "src/window_observers.rs"
 
 [[bin]]
+name = "window_theme"
+path = "src/window_theme.rs"
+
+[[bin]]
 name = "window_placement"
 path = "src/window_placement.rs"
 
@@ -64,7 +68,7 @@ windows-canvas = { workspace = true, features = ["composition", "reactor"] }
 windows-core = { workspace = true }
 windows-reactor = { workspace = true }
 windows-webview = { workspace = true, features = ["reactor"] }
-windows = { workspace = true, features = ["combaseapi", "objbase", "processthreadsapi", "shellapi", "uiautomationclient", "uiautomationcore", "winuser"] }
+windows = { workspace = true, features = ["combaseapi", "dwmapi", "objbase", "processthreadsapi", "shellapi", "uiautomationclient", "uiautomationcore", "wingdi", "winuser"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

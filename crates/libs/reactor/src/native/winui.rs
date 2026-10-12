@@ -1760,6 +1760,8 @@ struct NativeWindowState {
     window: native::Window,
     root: ObjectId,
     root_element: native::FrameworkElement,
+    surface: native::Border,
+    background_style: native::Style,
     title_bar: Cell<Option<(ObjectId, WindowTitleBarHeight)>>,
     shown: Cell<bool>,
     closed: Cell<bool>,
@@ -1974,6 +1976,13 @@ impl NativeWindow {
                     window_2.SetSystemBackdrop(&backdrop)?;
                 }
             }
+            self.state
+                .surface
+                .cast::<native::FrameworkElement>()?
+                .SetStyle(
+                    (visuals.backdrop == WindowBackdrop::None)
+                        .then_some(&self.state.background_style),
+                )?;
         }
 
         if changes.theme {
@@ -1986,7 +1995,8 @@ impl NativeWindow {
                     WindowTheme::Dark => native::TitleBarTheme::Dark,
                 })?;
             self.state
-                .root_element
+                .surface
+                .cast::<native::FrameworkElement>()?
                 .SetRequestedTheme(match visuals.theme {
                     WindowTheme::System => native::ElementTheme::Default,
                     WindowTheme::Light => native::ElementTheme::Light,
