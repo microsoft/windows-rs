@@ -235,10 +235,16 @@ context.on_window_placement(context.callback(Message::Placement));
 
 `on_window_placement` reports the initial placement and native changes while subscribed.
 Notifications contain the restored outer bounds even when maximized, are coalesced, and exclude
-minimized state. An unchanged subscription does not replay unchanged placement on each render;
-a replacement or new subscription receives the current non-minimized placement. Each window
-allows one placement subscriber. Removing its declaration or closing the component/window ends
-the subscription.
+minimized state. Replacing the callback does not replay unchanged placement. Removing and re-adding
+the observer starts a new subscription and reports the current non-minimized placement. Each window
+allows one placement subscriber. Removing its declaration or closing the component/window ends the
+subscription.
+
+Window observers keep their native subscriptions across renders and dispatch to the latest callback.
+Each observer has its own subscription generation, so changing one does not discard another's queued
+notifications. Notifications from a removed subscription cannot reach a later subscription.
+`on_color_scheme` reports the current scheme when subscribed, then only scheme changes.
+`on_window_size` reports native size changes without replaying the size on callback replacement.
 
 Applications own persistence: store each observation in the message handler, rather than wait for
 a final shutdown notification. This is observed native state, not a continuously controlled

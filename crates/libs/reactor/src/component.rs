@@ -943,6 +943,7 @@ impl<C: Component> ViewContext<'_, C> {
         });
     }
 
+    /// Observes native size changes without replaying them when the callback is replaced.
     pub fn on_window_size(&mut self, callback: impl IntoPayloadCallback<WindowSize>) {
         self.window_size_duplicate |= self
             .window
@@ -955,8 +956,8 @@ impl<C: Component> ViewContext<'_, C> {
     ///
     /// Notifications are coalesced, exclude minimized state, and stop when the window or
     /// subscribing component closes. Persist values in this callback's message handler rather
-    /// than relying on a shutdown notification. Repeated unchanged declarations do not replay
-    /// the current placement.
+    /// than relying on a shutdown notification. Replacing the callback does not replay the current
+    /// placement; removing and re-adding the observer starts a new subscription.
     pub fn on_window_placement(&mut self, callback: impl IntoPayloadCallback<WindowPlacement>) {
         self.window_placement_duplicate |= self
             .window
@@ -965,6 +966,10 @@ impl<C: Component> ViewContext<'_, C> {
             .is_some();
     }
 
+    /// Reports the current scheme when subscribed, then only changes to that scheme.
+    ///
+    /// Replacing the callback does not replay the current scheme. Removing and re-adding the
+    /// observer starts a new subscription and reports the current scheme again.
     pub fn on_color_scheme(&mut self, callback: impl IntoPayloadCallback<ColorScheme>) {
         self.window_color_scheme_duplicate |= self
             .window

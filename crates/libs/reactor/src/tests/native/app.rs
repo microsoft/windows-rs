@@ -1,6 +1,48 @@
 use super::*;
 
 #[test]
+fn window_observer_updates_callback_without_restarting_subscription() {
+    let value = Rc::new(Cell::new(0));
+    let first = Rc::clone(&value);
+    let second = Rc::clone(&value);
+    let mut observer = WindowObserver::default();
+    assert!(!observer.update(None));
+    assert!(observer.update(Some(Callback::new(move |()| first.set(1)))));
+    let generation = observer.generation;
+    observer.callback(generation).unwrap().call(());
+    assert_eq!(value.get(), 1);
+    assert!(!observer.update(Some(Callback::new(move |()| second.set(2)))));
+    assert_eq!(observer.generation, generation);
+    observer.callback(generation).unwrap().call(());
+    assert_eq!(value.get(), 2);
+}
+
+#[test]
+fn window_observer_removal_rejects_queued_work_across_resubscription() {
+    let mut observer = WindowObserver::default();
+    assert!(observer.update(Some(Callback::new(|()| {}))));
+    let generation = observer.generation;
+    assert!(observer.update(None));
+    assert!(observer.callback(generation).is_none());
+    assert!(!observer.update(None));
+    assert!(observer.update(Some(Callback::new(|()| {}))));
+    assert!(observer.callback(generation).is_none());
+    assert!(observer.callback(observer.generation).is_some());
+}
+
+#[test]
+fn window_observer_generations_are_independent() {
+    let mut scheme = WindowObserver::default();
+    let mut placement = WindowObserver::default();
+    assert!(scheme.update(Some(Callback::new(|_: ColorScheme| {}))));
+    assert!(placement.update(Some(Callback::new(|_: WindowPlacement| {}))));
+    let generation = placement.generation;
+    assert!(scheme.update(None));
+    assert!(scheme.update(Some(Callback::new(|_| {}))));
+    assert!(placement.callback(generation).is_some());
+}
+
+#[test]
 fn initial_publication_is_taken_without_dispatching_other_window_work() {
     let services = LiveWindowServices::default();
     services.active.set(true);
