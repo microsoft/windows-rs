@@ -346,42 +346,9 @@ struct ComponentWindowState {
     host: ComponentHost<WinUiAdapter>,
     window: NativeWindow,
     lifecycle: Rc<Cell<ComponentWindowLifecycle>>,
-    window_color_scheme: WindowObserver<ColorScheme>,
-    window_size: WindowObserver<WindowSize>,
-    window_placement: WindowObserver<WindowPlacement>,
-}
-
-struct WindowObserver<T> {
-    generation: u64,
-    callback: Option<Callback<T>>,
-}
-
-impl<T> Default for WindowObserver<T> {
-    fn default() -> Self {
-        Self {
-            generation: 0,
-            callback: None,
-        }
-    }
-}
-
-impl<T> WindowObserver<T> {
-    fn update(&mut self, observer: Option<WindowObserverDeclaration<T>>) -> bool {
-        let generation = observer
-            .as_ref()
-            .map_or(self.generation, |observer| observer.generation);
-        let changed =
-            self.callback.is_some() != observer.is_some() || self.generation != generation;
-        self.generation = generation;
-        self.callback = observer.map(|observer| observer.callback);
-        changed
-    }
-
-    fn callback(&self, generation: u64) -> Option<Callback<T>> {
-        (self.generation == generation)
-            .then(|| self.callback.clone())
-            .flatten()
-    }
+    color_scheme_generation: Option<u64>,
+    size_generation: Option<u64>,
+    placement_generation: Option<u64>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -954,9 +921,9 @@ fn open_component_window(
         host,
         window,
         lifecycle,
-        window_color_scheme: WindowObserver::default(),
-        window_size: WindowObserver::default(),
-        window_placement: WindowObserver::default(),
+        color_scheme_generation: None,
+        size_generation: None,
+        placement_generation: None,
     });
     let publication = services.take_publication(id).unwrap();
     let initialized = apply_component_window_publication(
@@ -999,14 +966,14 @@ fn apply_component_window_publication(
     publication: WindowPublication,
     initial: bool,
 ) -> windows_core::Result<()> {
-    let size_changed = state.window_size.update(publication.on_size);
-    let color_scheme_changed = state
-        .window_color_scheme
-        .update(publication.on_color_scheme);
-    let placement_changed = state.window_placement.update(publication.on_placement);
-    if size_changed {
-        let generation = state.window_size.generation;
-        let observer = state.window_size.callback.as_ref().map(|_| {
+    let size_generation = publication.on_size.map(|observer| observer.generation);
+    let color_scheme_generation = publication
+        .on_color_scheme
+        .map(|observer| observer.generation);
+    let placement_generation = publication.on_placement.map(|observer| observer.generation);
+    if state.size_generation != size_generation {
+        state.size_generation = size_generation;
+        let observer = size_generation.map(|generation| {
             let services = Rc::clone(services);
             Rc::new(move |size| {
                 _ = services.size(generation, size, window);
@@ -1019,9 +986,9 @@ fn apply_component_window_publication(
         publication.visuals.as_ref(),
         initial,
     )?;
-    if color_scheme_changed {
-        let generation = state.window_color_scheme.generation;
-        let observer = state.window_color_scheme.callback.as_ref().map(|_| {
+    if state.color_scheme_generation != color_scheme_generation {
+        state.color_scheme_generation = color_scheme_generation;
+        let observer = color_scheme_generation.map(|generation| {
             let services = Rc::clone(services);
             Rc::new(move |scheme| {
                 _ = services.color_scheme(generation, scheme, window);
@@ -1029,9 +996,9 @@ fn apply_component_window_publication(
         });
         state.window.set_color_scheme_observer(observer)?;
     }
-    if placement_changed {
-        let generation = state.window_placement.generation;
-        let observer = state.window_placement.callback.as_ref().map(|_| {
+    if state.placement_generation != placement_generation {
+        state.placement_generation = placement_generation;
+        let observer = placement_generation.map(|generation| {
             let services = Rc::clone(services);
             Rc::new(move |placement| {
                 _ = services.placement(generation, placement, window);
@@ -1158,7 +1125,7 @@ fn drain_window_requests(
                         let state = window.state.borrow();
                         let state = state.as_ref()?;
                         (state.lifecycle.get() == ComponentWindowLifecycle::Open)
-                            .then(|| state.window_color_scheme.callback(generation))
+                            .then(|| state.host.window_color_scheme_callback(generation))
                             .flatten()
                     })
                 };
@@ -1177,7 +1144,7 @@ fn drain_window_requests(
                         let state = window.state.borrow();
                         let state = state.as_ref()?;
                         (state.lifecycle.get() == ComponentWindowLifecycle::Open)
-                            .then(|| state.window_size.callback(generation))
+                            .then(|| state.host.window_size_callback(generation))
                             .flatten()
                     })
                 };
@@ -1196,7 +1163,7 @@ fn drain_window_requests(
                         let state = window.state.borrow();
                         let state = state.as_ref()?;
                         (state.lifecycle.get() == ComponentWindowLifecycle::Open)
-                            .then(|| state.window_placement.callback(generation))
+                            .then(|| state.host.window_placement_callback(generation))
                             .flatten()
                     })
                 };

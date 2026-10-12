@@ -586,14 +586,24 @@ pub(crate) struct WindowObserverDeclaration<T> {
     pub(crate) callback: Callback<T>,
 }
 
-#[derive(Default)]
-struct WindowObserverLifetime {
+struct WindowObserverLifetime<T> {
     owner: Option<ComponentId>,
     generation: u64,
+    callback: Option<Callback<T>>,
 }
 
-impl WindowObserverLifetime {
-    fn commit<T>(&mut self, observer: &mut Option<WindowObserverDeclaration<T>>) {
+impl<T> Default for WindowObserverLifetime<T> {
+    fn default() -> Self {
+        Self {
+            owner: None,
+            generation: 0,
+            callback: None,
+        }
+    }
+}
+
+impl<T> WindowObserverLifetime<T> {
+    fn commit(&mut self, observer: &mut Option<WindowObserverDeclaration<T>>) {
         let owner = observer.as_ref().map(|observer| observer.owner);
         if self.owner != owner {
             self.generation = self.generation.checked_add(1).unwrap();
@@ -602,6 +612,13 @@ impl WindowObserverLifetime {
         if let Some(observer) = observer {
             observer.generation = self.generation;
         }
+        self.callback = observer.as_ref().map(|observer| observer.callback.clone());
+    }
+
+    fn callback(&self, generation: u64) -> Option<Callback<T>> {
+        (self.generation == generation)
+            .then(|| self.callback.clone())
+            .flatten()
     }
 }
 
@@ -1584,9 +1601,9 @@ pub struct ComponentHost<A: Adapter> {
     runtime: Runtime<A>,
     services: Arc<dyn ComponentServices>,
     ui_services: Rc<dyn ComponentUiServices>,
-    window_color_scheme: WindowObserverLifetime,
-    window_size: WindowObserverLifetime,
-    window_placement: WindowObserverLifetime,
+    window_color_scheme: WindowObserverLifetime<ColorScheme>,
+    window_size: WindowObserverLifetime<WindowSize>,
+    window_placement: WindowObserverLifetime<WindowPlacement>,
     free_scopes: Vec<u32>,
     scopes: Vec<ScopeSlot>,
     virtual_rows: HashMap<(ObjectId, Key), ComponentId>,
@@ -1599,6 +1616,24 @@ impl<A: Adapter> Drop for ComponentHost<A> {
 }
 
 impl<A: Adapter> ComponentHost<A> {
+    pub(crate) fn window_color_scheme_callback(
+        &self,
+        generation: u64,
+    ) -> Option<Callback<ColorScheme>> {
+        self.window_color_scheme.callback(generation)
+    }
+
+    pub(crate) fn window_size_callback(&self, generation: u64) -> Option<Callback<WindowSize>> {
+        self.window_size.callback(generation)
+    }
+
+    pub(crate) fn window_placement_callback(
+        &self,
+        generation: u64,
+    ) -> Option<Callback<WindowPlacement>> {
+        self.window_placement.callback(generation)
+    }
+
     pub(crate) fn update_root(
         &mut self,
         node: ComponentNode,
@@ -2987,6 +3022,9 @@ impl<A: Adapter> ComponentHost<A> {
 
     fn invalidate_host(&mut self) {
         self.poisoned = true;
+        self.window_color_scheme = WindowObserverLifetime::default();
+        self.window_size = WindowObserverLifetime::default();
+        self.window_placement = WindowObserverLifetime::default();
         self.runtime.poison_and_discard_all();
         self.context_consumers.clear();
         self.contexts.clear();

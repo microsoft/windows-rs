@@ -245,6 +245,8 @@ Each observer has its own subscription generation, recorded when a component ren
 Removing and re-adding an observer or changing its subscribing component starts a new lifetime, even
 when the native queue coalesces those publications. Changing one observer does not discard another's
 queued notifications. Notifications from an earlier lifetime cannot reach a later subscription.
+Delivery checks the committed lifetime and uses its latest callback, even before the native queue
+applies the corresponding publication. Native registration state does not own application callbacks.
 `on_color_scheme` reports the current scheme when subscribed, then only scheme changes.
 `on_window_size` reports native size changes without replaying the size on callback replacement.
 
