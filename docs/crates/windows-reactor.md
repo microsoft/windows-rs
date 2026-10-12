@@ -241,8 +241,10 @@ allows one placement subscriber. Removing its declaration or closing the compone
 subscription.
 
 Window observers keep their native subscriptions across renders and dispatch to the latest callback.
-Each observer has its own subscription generation, so changing one does not discard another's queued
-notifications. Notifications from a removed subscription cannot reach a later subscription.
+Each observer has its own subscription generation, recorded when a component render commits.
+Removing and re-adding an observer or changing its subscribing component starts a new lifetime, even
+when the native queue coalesces those publications. Changing one observer does not discard another's
+queued notifications. Notifications from an earlier lifetime cannot reach a later subscription.
 `on_color_scheme` reports the current scheme when subscribed, then only scheme changes.
 `on_window_size` reports native size changes without replaying the size on callback replacement.
 

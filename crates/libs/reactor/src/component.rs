@@ -572,11 +572,37 @@ pub(crate) trait ComponentUiServices {
 
 #[derive(Clone, Debug, Default, PartialEq)]
 pub(crate) struct WindowPublication {
-    pub(crate) on_color_scheme: Option<Callback<ColorScheme>>,
-    pub(crate) on_size: Option<Callback<WindowSize>>,
-    pub(crate) on_placement: Option<Callback<WindowPlacement>>,
+    pub(crate) on_color_scheme: Option<WindowObserverDeclaration<ColorScheme>>,
+    pub(crate) on_size: Option<WindowObserverDeclaration<WindowSize>>,
+    pub(crate) on_placement: Option<WindowObserverDeclaration<WindowPlacement>>,
     pub(crate) title: Option<String>,
     pub(crate) visuals: Option<WindowVisuals>,
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) struct WindowObserverDeclaration<T> {
+    pub(crate) owner: ComponentId,
+    pub(crate) generation: u64,
+    pub(crate) callback: Callback<T>,
+}
+
+#[derive(Default)]
+struct WindowObserverLifetime {
+    owner: Option<ComponentId>,
+    generation: u64,
+}
+
+impl WindowObserverLifetime {
+    fn commit<T>(&mut self, observer: &mut Option<WindowObserverDeclaration<T>>) {
+        let owner = observer.as_ref().map(|observer| observer.owner);
+        if self.owner != owner {
+            self.generation = self.generation.checked_add(1).unwrap();
+            self.owner = owner;
+        }
+        if let Some(observer) = observer {
+            observer.generation = self.generation;
+        }
+    }
 }
 
 struct ComponentRender {
@@ -948,7 +974,11 @@ impl<C: Component> ViewContext<'_, C> {
         self.window_size_duplicate |= self
             .window
             .on_size
-            .replace(callback.into_payload_callback())
+            .replace(WindowObserverDeclaration {
+                owner: self.context.local_sender.component,
+                generation: 0,
+                callback: callback.into_payload_callback(),
+            })
             .is_some();
     }
 
@@ -957,24 +987,34 @@ impl<C: Component> ViewContext<'_, C> {
     /// Notifications are coalesced, exclude minimized state, and stop when the window or
     /// subscribing component closes. Persist values in this callback's message handler rather
     /// than relying on a shutdown notification. Replacing the callback does not replay the current
-    /// placement; removing and re-adding the observer starts a new subscription.
+    /// placement; removing and re-adding the observer or changing its subscribing component starts
+    /// a new subscription.
     pub fn on_window_placement(&mut self, callback: impl IntoPayloadCallback<WindowPlacement>) {
         self.window_placement_duplicate |= self
             .window
             .on_placement
-            .replace(callback.into_payload_callback())
+            .replace(WindowObserverDeclaration {
+                owner: self.context.local_sender.component,
+                generation: 0,
+                callback: callback.into_payload_callback(),
+            })
             .is_some();
     }
 
     /// Reports the current scheme when subscribed, then only changes to that scheme.
     ///
     /// Replacing the callback does not replay the current scheme. Removing and re-adding the
-    /// observer starts a new subscription and reports the current scheme again.
+    /// observer or changing its subscribing component starts a new subscription and reports the
+    /// current scheme again.
     pub fn on_color_scheme(&mut self, callback: impl IntoPayloadCallback<ColorScheme>) {
         self.window_color_scheme_duplicate |= self
             .window
             .on_color_scheme
-            .replace(callback.into_payload_callback())
+            .replace(WindowObserverDeclaration {
+                owner: self.context.local_sender.component,
+                generation: 0,
+                callback: callback.into_payload_callback(),
+            })
             .is_some();
     }
 
@@ -1544,6 +1584,9 @@ pub struct ComponentHost<A: Adapter> {
     runtime: Runtime<A>,
     services: Arc<dyn ComponentServices>,
     ui_services: Rc<dyn ComponentUiServices>,
+    window_color_scheme: WindowObserverLifetime,
+    window_size: WindowObserverLifetime,
+    window_placement: WindowObserverLifetime,
     free_scopes: Vec<u32>,
     scopes: Vec<ScopeSlot>,
     virtual_rows: HashMap<(ObjectId, Key), ComponentId>,
@@ -1655,11 +1698,20 @@ impl<A: Adapter> ComponentHost<A> {
         Ok(publication)
     }
 
-    fn publish_window(&self) {
+    fn publish_committed_window(&mut self, mut publication: WindowPublication) {
+        // Record lifetime transitions before the native queue can coalesce publications.
+        self.window_color_scheme
+            .commit(&mut publication.on_color_scheme);
+        self.window_size.commit(&mut publication.on_size);
+        self.window_placement.commit(&mut publication.on_placement);
+        self.ui_services.publish_window(publication);
+    }
+
+    fn publish_window(&mut self) {
         let Ok(publication) = self.resolve_window_publication(&[], &[]) else {
             unreachable!()
         };
-        self.ui_services.publish_window(publication);
+        self.publish_committed_window(publication);
     }
 
     fn owns_scope(&self, owner: ComponentId, mut child: ComponentId) -> bool {
@@ -1694,6 +1746,9 @@ impl<A: Adapter> ComponentHost<A> {
             runtime: Runtime::new(adapter),
             services,
             ui_services,
+            window_color_scheme: WindowObserverLifetime::default(),
+            window_size: WindowObserverLifetime::default(),
+            window_placement: WindowObserverLifetime::default(),
             free_scopes: Vec::new(),
             scopes: Vec::new(),
             virtual_rows: HashMap::new(),
@@ -1748,7 +1803,7 @@ impl<A: Adapter> ComponentHost<A> {
                 .commit(&mut host.scope_mut(pending.id).unwrap().effects);
             host.replace_dependencies(pending.id, pending.dependencies);
         }
-        host.ui_services.publish_window(publication);
+        host.publish_committed_window(publication);
         Ok(host)
     }
 
@@ -2043,7 +2098,7 @@ impl<A: Adapter> ComponentHost<A> {
                 }
                 self.retire_unseen(&expansion.seen);
                 self.sweep_virtual_rows();
-                self.ui_services.publish_window(publication);
+                self.publish_committed_window(publication);
                 Ok(mutations)
             }
             VirtualWork::Recycle { lease } => {
@@ -2832,7 +2887,7 @@ impl<A: Adapter> ComponentHost<A> {
             self.scope_mut(id).unwrap().window = window;
         }
         self.sweep_virtual_rows();
-        self.ui_services.publish_window(publication);
+        self.publish_committed_window(publication);
         Ok(mutations)
     }
 

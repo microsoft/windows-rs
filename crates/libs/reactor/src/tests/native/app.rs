@@ -1,4 +1,14 @@
 use super::*;
+use crate::{StackPanel, TextBlock};
+
+fn observer_declaration<T>(generation: u64, callback: Callback<T>) -> WindowObserverDeclaration<T> {
+    let (_host, services) = observer_host::<ObserverComponent>(true);
+    WindowObserverDeclaration {
+        owner: services.take_publication(1).unwrap().on_size.unwrap().owner,
+        generation,
+        callback,
+    }
+}
 
 #[test]
 fn window_observer_updates_callback_without_restarting_subscription() {
@@ -7,11 +17,17 @@ fn window_observer_updates_callback_without_restarting_subscription() {
     let second = Rc::clone(&value);
     let mut observer = WindowObserver::default();
     assert!(!observer.update(None));
-    assert!(observer.update(Some(Callback::new(move |()| first.set(1)))));
+    assert!(observer.update(Some(observer_declaration(
+        1,
+        Callback::new(move |()| first.set(1)),
+    ))));
     let generation = observer.generation;
     observer.callback(generation).unwrap().call(());
     assert_eq!(value.get(), 1);
-    assert!(!observer.update(Some(Callback::new(move |()| second.set(2)))));
+    assert!(!observer.update(Some(observer_declaration(
+        1,
+        Callback::new(move |()| second.set(2)),
+    ))));
     assert_eq!(observer.generation, generation);
     observer.callback(generation).unwrap().call(());
     assert_eq!(value.get(), 2);
@@ -20,12 +36,12 @@ fn window_observer_updates_callback_without_restarting_subscription() {
 #[test]
 fn window_observer_removal_rejects_queued_work_across_resubscription() {
     let mut observer = WindowObserver::default();
-    assert!(observer.update(Some(Callback::new(|()| {}))));
+    assert!(observer.update(Some(observer_declaration(1, Callback::new(|()| {})))));
     let generation = observer.generation;
     assert!(observer.update(None));
     assert!(observer.callback(generation).is_none());
     assert!(!observer.update(None));
-    assert!(observer.update(Some(Callback::new(|()| {}))));
+    assert!(observer.update(Some(observer_declaration(3, Callback::new(|()| {})))));
     assert!(observer.callback(generation).is_none());
     assert!(observer.callback(observer.generation).is_some());
 }
@@ -34,12 +50,204 @@ fn window_observer_removal_rejects_queued_work_across_resubscription() {
 fn window_observer_generations_are_independent() {
     let mut scheme = WindowObserver::default();
     let mut placement = WindowObserver::default();
-    assert!(scheme.update(Some(Callback::new(|_: ColorScheme| {}))));
-    assert!(placement.update(Some(Callback::new(|_: WindowPlacement| {}))));
+    assert!(scheme.update(Some(observer_declaration(
+        1,
+        Callback::new(|_: ColorScheme| {}),
+    ))));
+    assert!(placement.update(Some(observer_declaration(
+        1,
+        Callback::new(|_: WindowPlacement| {}),
+    ))));
     let generation = placement.generation;
     assert!(scheme.update(None));
-    assert!(scheme.update(Some(Callback::new(|_| {}))));
+    assert!(scheme.update(Some(observer_declaration(3, Callback::new(|_| {})))));
     assert!(placement.callback(generation).is_some());
+}
+
+struct ObserverUiServices(Rc<LiveWindowServices>);
+
+impl ComponentUiServices for ObserverUiServices {
+    fn open_window(&self, _: ComponentNode, _: WindowPolicy) -> bool {
+        false
+    }
+
+    fn publish_window(&self, publication: WindowPublication) {
+        assert!(self.0.publish(publication, 1));
+    }
+}
+
+struct ObserverComponent(bool);
+
+impl Component for ObserverComponent {
+    type Input = bool;
+    type Message = bool;
+
+    fn create(input: &bool, _: &ComponentContext<Self>) -> Self {
+        Self(*input)
+    }
+
+    fn update(&mut self, subscribed: bool, _: &ComponentContext<Self>) {
+        self.0 = subscribed;
+    }
+
+    fn view(&self, _: &bool, context: &mut ViewContext<Self>) -> View {
+        if self.0 {
+            context.on_color_scheme(Callback::new(|_| {}));
+            context.on_window_size(Callback::new(|_| {}));
+            context.on_window_placement(Callback::new(|_| {}));
+        }
+        TextBlock::new().into()
+    }
+}
+
+struct ObserverParent(bool);
+
+impl Component for ObserverParent {
+    type Input = ();
+    type Message = bool;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self(false)
+    }
+
+    fn update(&mut self, second: bool, _: &ComponentContext<Self>) {
+        self.0 = second;
+    }
+
+    fn view(&self, _: &(), _: &mut ViewContext<Self>) -> View {
+        StackPanel::new()
+            .keyed_children([keyed(
+                if self.0 { "second" } else { "first" },
+                View::component::<ObserverComponent>(true),
+            )])
+            .into()
+    }
+}
+
+fn observer_host<C: Component>(
+    input: C::Input,
+) -> (ComponentHost<RecordingAdapter>, Rc<LiveWindowServices>) {
+    let services = Rc::new(LiveWindowServices::default());
+    services.active.set(true);
+    let host = ComponentHost::mount_with_all_services(
+        RecordingAdapter::default(),
+        Arc::new(DefaultComponentServices),
+        Rc::new(ObserverUiServices(Rc::clone(&services))),
+        [component::<C>("root", input)],
+    )
+    .unwrap();
+    (host, services)
+}
+
+fn assert_observer_restarted<T>(
+    first: Option<WindowObserverDeclaration<T>>,
+    current: Option<WindowObserverDeclaration<T>>,
+) -> WindowObserver<T> {
+    let mut observer = WindowObserver::default();
+    assert!(observer.update(first));
+    let generation = observer.generation;
+    assert!(observer.update(current));
+    assert!(observer.callback(generation).is_none());
+    assert!(observer.callback(observer.generation).is_some());
+    observer
+}
+
+#[test]
+fn observer_lifetimes_survive_coalesced_removal_and_resubscription() {
+    let (mut host, services) = observer_host::<ObserverComponent>(true);
+    let first = services.take_publication(1).unwrap();
+    let scheme_generation = first.on_color_scheme.as_ref().unwrap().generation;
+    let size_generation = first.on_size.as_ref().unwrap().generation;
+    let placement_generation = first.on_placement.as_ref().unwrap().generation;
+    let sender = host
+        .sender::<ObserverComponent>(&Key::from("root"))
+        .unwrap();
+    assert!(sender.send(false));
+    assert!(sender.send(true));
+    assert_eq!(host.drain(2).unwrap().dispatched, 2);
+    assert_eq!(services.pending.borrow().len(), 1);
+    let current = services.take_publication(1).unwrap();
+    let scheme = assert_observer_restarted(first.on_color_scheme, current.on_color_scheme);
+    let size = assert_observer_restarted(first.on_size, current.on_size);
+    let placement = assert_observer_restarted(first.on_placement, current.on_placement);
+    assert!(services.color_scheme(scheme_generation, ColorScheme::Dark, 1));
+    assert!(services.size(
+        size_generation,
+        WindowSize {
+            width: 100.0,
+            height: 100.0,
+        },
+        1,
+    ));
+    assert!(services.placement(
+        placement_generation,
+        WindowPlacement {
+            x: 0,
+            y: 0,
+            width: 100,
+            height: 100,
+            maximized: false,
+        },
+        1,
+    ));
+    assert!(matches!(
+        services.pop(),
+        Some(WindowWork::ColorScheme { generation, .. }) if scheme.callback(generation).is_none()
+    ));
+    assert!(matches!(
+        services.pop(),
+        Some(WindowWork::Size { generation, .. }) if size.callback(generation).is_none()
+    ));
+    assert!(matches!(
+        services.pop(),
+        Some(WindowWork::Placement { generation, .. }) if placement.callback(generation).is_none()
+    ));
+}
+
+#[test]
+fn observer_lifetimes_change_when_the_subscribing_component_is_replaced() {
+    let (mut host, services) = observer_host::<ObserverParent>(());
+    let first = services.take_publication(1).unwrap();
+    let sender = host.sender::<ObserverParent>(&Key::from("root")).unwrap();
+    assert!(sender.send(true));
+    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    let current = services.take_publication(1).unwrap();
+    assert_ne!(
+        first.on_color_scheme.as_ref().unwrap().owner,
+        current.on_color_scheme.as_ref().unwrap().owner,
+    );
+    assert_observer_restarted(first.on_color_scheme, current.on_color_scheme);
+    assert_observer_restarted(first.on_size, current.on_size);
+    assert_observer_restarted(first.on_placement, current.on_placement);
+}
+
+fn assert_observer_unchanged<T>(
+    first: Option<WindowObserverDeclaration<T>>,
+    current: Option<WindowObserverDeclaration<T>>,
+) {
+    let first = first.unwrap();
+    let current = current.unwrap();
+    assert_eq!(first.owner, current.owner);
+    assert_eq!(first.generation, current.generation);
+    assert_ne!(first.callback, current.callback);
+    let mut observer = WindowObserver::default();
+    assert!(observer.update(Some(first)));
+    assert!(!observer.update(Some(current)));
+}
+
+#[test]
+fn committed_callback_replacements_preserve_observer_lifetimes() {
+    let (mut host, services) = observer_host::<ObserverComponent>(true);
+    let first = services.take_publication(1).unwrap();
+    let sender = host
+        .sender::<ObserverComponent>(&Key::from("root"))
+        .unwrap();
+    assert!(sender.send(true));
+    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    let current = services.take_publication(1).unwrap();
+    assert_observer_unchanged(first.on_color_scheme, current.on_color_scheme);
+    assert_observer_unchanged(first.on_size, current.on_size);
+    assert_observer_unchanged(first.on_placement, current.on_placement);
 }
 
 #[test]

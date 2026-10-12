@@ -37,8 +37,10 @@ and requires a running Windows shell with a notification area. Companion-crate f
 Canvas drawing and WebView initialization. The window-state fixture observes size and icon changes
 through the public window callback and Win32 APIs. The window-observer fixture covers callback
 replacement without replay, real changes, removal, re-subscription, and independent subscriptions
-for color scheme, size, and placement. The title-bar fixture opens a second window from a running
-application and checks through UI Automation that its `TitleBar` right header keeps the same
+for color scheme, size, and placement. It also covers removal and re-subscription within one drain,
+handoff from a parent to a child, and replacement of the subscribing child. The title-bar fixture
+opens a second window from a running application and checks through UI Automation that its
+`TitleBar` right header keeps the same
 caption-button inset as the first window.
 
 The menu-position fixture covers `pmv2`, `unaware`, `system`, and `thread-unaware` DPI modes. It

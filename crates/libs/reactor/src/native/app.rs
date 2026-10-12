@@ -366,13 +366,14 @@ impl<T> Default for WindowObserver<T> {
 }
 
 impl<T> WindowObserver<T> {
-    /// Only starting or ending a subscription changes its native registration and generation.
-    fn update(&mut self, callback: Option<Callback<T>>) -> bool {
-        let changed = self.callback.is_some() != callback.is_some();
-        if changed {
-            self.generation = self.generation.wrapping_add(1);
-        }
-        self.callback = callback;
+    fn update(&mut self, observer: Option<WindowObserverDeclaration<T>>) -> bool {
+        let generation = observer
+            .as_ref()
+            .map_or(self.generation, |observer| observer.generation);
+        let changed =
+            self.callback.is_some() != observer.is_some() || self.generation != generation;
+        self.generation = generation;
+        self.callback = observer.map(|observer| observer.callback);
         changed
     }
 
