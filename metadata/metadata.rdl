@@ -22,6 +22,16 @@ mod Windows {
             attribute NativeTypedefAttribute {
                 fn();
             }
+            // Required signature modifier starting a mutable pointer run after an IsConst run.
+            // Its meaning applies to that run only, not to parameter direction or optionality.
+            attribute NativeMutableAttribute {
+                fn();
+            }
+            // Resolves a native record's nominal identity without exposing its storage.
+            // RDL: `#[opaque] struct TAG {}` or `#[opaque] union TAG {}`.
+            attribute NativeOpaqueAttribute {
+                fn();
+            }
             // Marks the return-value parameter of a COM method. RDL: `#[retval]`.
             attribute RetValAttribute {
                 fn();

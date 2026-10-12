@@ -8,11 +8,30 @@
 //! `LIBCLANG_VERSION` const (the NuGet DLL by version, the headers by the derived `llvmorg-<ver>`
 //! git tag), so this tool confirms that pin loads and self-provisions rather than checking a
 //! version literal for drift - there is only one to bump.
+//!
+//! `inventory` stages the parsed RDL census; `sources` stages compiler-backed source discovery
+//! and unresolved-group reports without invoking the extractor or changing canonical metadata.
 
 use helpers::LIBCLANG_VERSION;
 use std::path::Path;
 
+mod inventory;
+mod sources;
+
 fn main() {
+    if std::env::args().nth(1).as_deref() == Some("sources") {
+        if let Err(error) = sources::run() {
+            eprintln!("{error}");
+            std::process::exit(1);
+        }
+        return;
+    }
+    if std::env::args().nth(1).as_deref() == Some("inventory") {
+        assert_eq!(std::env::args().len(), 2, "usage: tool-clang inventory");
+        inventory::run().unwrap();
+        return;
+    }
+
     // `tool-clang path` prints the directory holding the pinned `libclang.dll` (respecting an
     // existing `LIBCLANG_PATH`). CI's `test.yml` captures it into `LIBCLANG_PATH` for the
     // `windows-clang` tests, so the multithreaded test runner never calls the unsafe `set_var`.

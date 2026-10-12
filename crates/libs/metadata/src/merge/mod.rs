@@ -113,6 +113,9 @@ impl Merger {
 
         let files = read_inputs(&self.input)?;
         let index = reader::Index::new(files);
+        index
+            .validate_opaque_types(None)
+            .map_err(|error| Error::new(error.to_string()))?;
 
         let mut file = writer::File::new(name);
 
@@ -178,7 +181,11 @@ impl Merger {
                 Vec::with_capacity(self.arch_inputs.len());
             for (path, arch_bits) in &self.arch_inputs {
                 let files = read_inputs(std::slice::from_ref(path))?;
-                arch_groups.push((reader::Index::new(files), *arch_bits));
+                let index = reader::Index::new(files);
+                index
+                    .validate_opaque_types(None)
+                    .map_err(|error| Error::new(error.to_string()))?;
+                arch_groups.push((index, *arch_bits));
             }
 
             let mut groups: BTreeMap<
@@ -229,7 +236,9 @@ impl Merger {
             }
         }
 
-        let bytes = file.into_stream();
+        let bytes = file
+            .try_into_stream()
+            .map_err(|error| Error::new(error.to_string()))?;
         std::fs::write(&self.output, bytes)
             .map_err(|e| Error::new(format!("failed to write `{}`: {e}", self.output.display())))
     }
@@ -939,8 +948,9 @@ fn type_sig(index: &reader::Index, def: reader::TypeDef) -> String {
         .map(|inner| format!("{}={}", inner.name(), type_sig(index, inner)))
         .collect();
     format!(
-        "{fields:?}|{methods:?}|{layout:?}|{align:?}|{:?}|{nested:?}",
-        def.flags()
+        "{fields:?}|{methods:?}|{layout:?}|{align:?}|{:?}|{nested:?}|{}",
+        def.flags(),
+        def.is_opaque()
     )
 }
 

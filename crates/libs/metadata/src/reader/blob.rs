@@ -8,7 +8,9 @@ pub struct Blob<'a> {
 
 impl Drop for Blob<'_> {
     fn drop(&mut self) {
-        debug_assert_eq!(self.len(), 0);
+        if !std::thread::panicking() {
+            debug_assert_eq!(self.len(), 0);
+        }
     }
 }
 
@@ -63,7 +65,7 @@ impl<'a> Blob<'a> {
 
     pub fn read_modifiers(&mut self) -> Vec<TypeDefOrRef<'a>> {
         let mut mods = vec![];
-        loop {
+        while !self.is_empty() {
             let (value, offset) = self.peek();
             if value != ELEMENT_TYPE_CMOD_OPT as usize && value != ELEMENT_TYPE_CMOD_REQD as usize {
                 break;
@@ -99,49 +101,68 @@ impl<'a> Blob<'a> {
 
     /// Reads a field or method type signature.
     pub fn read_type_signature(&mut self, generics: &[Type]) -> Type {
-        let is_const = self.read_modifiers().iter().any(|def| {
+        let modifiers = self.read_modifiers();
+        let is_const = modifiers.iter().any(|def| {
             def.namespace() == "System.Runtime.CompilerServices" && def.name() == "IsConst"
         });
+        let is_mutable = modifiers.iter().any(|def| {
+            def.namespace() == "Windows.Win32.Metadata" && def.name() == "NativeMutableAttribute"
+        });
+        assert!(
+            !(is_const && is_mutable),
+            "conflicting const and mutable pointer modifiers"
+        );
+        assert!(!self.is_empty(), "type signature is missing its type code");
 
-        let is_ref = self.try_read(ELEMENT_TYPE_BYREF as usize);
-
-        if self.try_read(ELEMENT_TYPE_VOID as usize) {
-            return Type::Void;
+        if self.try_read(ELEMENT_TYPE_BYREF as usize) {
+            assert!(
+                !is_mutable,
+                "mutable pointer modifier requires a pointer run"
+            );
+            let ty = self.read_type_signature(generics);
+            return if is_const {
+                Type::RefConst(Box::new(ty))
+            } else {
+                Type::RefMut(Box::new(ty))
+            };
         }
 
-        let is_array = self.try_read(ELEMENT_TYPE_SZARRAY as usize);
-
+        if self.try_read(ELEMENT_TYPE_SZARRAY as usize) {
+            assert!(
+                !is_mutable,
+                "mutable pointer modifier requires a pointer run"
+            );
+            let ty = Type::Array(Box::new(self.read_type_signature(generics)));
+            return if is_const {
+                Type::RefConst(Box::new(ty))
+            } else {
+                ty
+            };
+        }
         let mut pointers = 0;
-
-        while self.try_read(ELEMENT_TYPE_PTR as usize) {
+        while !self.is_empty() && self.try_read(ELEMENT_TYPE_PTR as usize) {
             pointers += 1;
         }
-
-        let ty = self.read_type_code(generics);
-
         if pointers > 0 {
-            let ptr = if is_const {
+            assert!(
+                !self.is_empty(),
+                "pointer signature is missing its pointee type"
+            );
+            let ty = self.read_type_signature(generics);
+            return if is_const {
                 Type::PtrConst(Box::new(ty), pointers)
             } else {
                 Type::PtrMut(Box::new(ty), pointers)
             };
-            if is_array {
-                Type::Array(Box::new(ptr))
-            } else {
-                ptr
-            }
-        } else if is_const {
-            Type::RefConst(Box::new(ty))
-        } else if is_array {
-            let ty = Type::Array(Box::new(ty));
+        }
 
-            if is_ref {
-                Type::RefMut(Box::new(ty))
-            } else {
-                ty
-            }
-        } else if is_ref {
-            Type::RefMut(Box::new(ty))
+        assert!(
+            !is_mutable,
+            "mutable pointer modifier requires a pointer run"
+        );
+        let ty = self.read_type_code(generics);
+        if is_const && ty != Type::Void {
+            Type::RefConst(Box::new(ty))
         } else {
             ty
         }

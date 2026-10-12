@@ -148,6 +148,87 @@ The merger and namespace remapper accept strings, `Path`, or `PathBuf` for input
 and retain them as `PathBuf`. The remapper provides singular/plural `input`/`inputs`,
 `source`/`sources`, and `route`/`routes` methods.
 
+### Pointer signatures
+
+`Type::PtrConst` and `Type::PtrMut` store a uniform pointer run and its depth. Their pointee can
+be another pointer node, preserving mixed qualifier chains without a separate type model.
+
+`System.Runtime.CompilerServices.IsConst` applies to an entire contiguous run of `PTR` bytes.
+A mutable run immediately inside a const run starts with the required signature modifier
+`Windows.Win32.Metadata.NativeMutableAttribute`. Without that boundary, the two runs would have
+the same bytes as one uniform const run.
+
+| Type spelling | Signature after any field/method prefix |
+| --- | --- |
+| `*mut *mut i32` | `PTR PTR I4` |
+| `*const *const i32` | `CMOD_REQD(IsConst) PTR PTR I4` |
+| `*mut *const i32` | `PTR CMOD_REQD(IsConst) PTR I4` |
+| `*const *mut i32` | `CMOD_REQD(IsConst) PTR CMOD_REQD(NativeMutableAttribute) PTR I4` |
+
+Uniform signatures are byte-compatible with the existing format and do not acquire the new
+modifier. Mixed signatures require a reader that understands recursive run boundaries. The
+vocabulary definition lives in hand-authored `metadata/metadata.rdl`; it is not a custom attribute
+instance on a field or parameter.
+
+The reader preserves pointer nesting through arrays and references. It asserts against
+conflicting const/mutable modifiers, a mutable-run modifier applied to a non-pointer, and a
+missing pointee. The marker carries no direction, optionality, buffer size, or native volatile
+contract. Merge and namespace remapping preserve the runs and remap their named pointees.
+
+### Native typedef targets
+
+A native typedef is a value TypeDef marked `Windows.Win32.Metadata.NativeTypedefAttribute`.
+Its single field carries the target type. RDL authors that field as `Value`; it is an alias
+payload rather than a copied native record member.
+
+Several aliases can target the same record while retaining distinct `TypeName` identities.
+An alias chain retains each edge, and signatures retain the selected alias name. Neither
+matching record fields nor a one-field shape implies a typedef without the metadata marker.
+Namespace remapping routes an alias and its target independently, including targets behind
+pointer/reference qualifiers and arrays.
+
+Architecture merge can keep an alias neutral when its named target varies by architecture.
+The target TypeDef selected by `Index::new_for_architecture` supplies that architecture's record
+definition; the neutral alias does not copy one architecture's fields or packing.
+
+The RDL writer requires exactly one target field and validates that requirement before it
+clears split or partitioned output. It does not select the first field of a malformed typedef.
+This does not reconcile native tag/typedef observations or calculate native ABI layout.
+
+### Opaque records
+
+`Windows.Win32.Metadata.NativeOpaqueAttribute` marks a native struct or union with resolved
+nominal identity and no exposed storage definition. Its constructor has no arguments. It is
+different from an empty complete record and from an unresolved source forward declaration.
+`TypeDef::is_opaque()` checks the metadata namespace and attribute name.
+
+An opaque TypeDef has no fields, methods, generic parameters, nested definitions, ClassLayout,
+or AlignmentAttribute. It cannot be WinRT or also be a native typedef. Struct/union identity
+retains the existing sequential/explicit layout flag; neither flag supplies storage for an
+opaque record.
+
+| API | Contract |
+| --- | --- |
+| `Index::validate_opaque_types(reference)` | Checks declarations and value/array uses through aliases, with optional external type references |
+| `Index::validate_opaque_storage(ty)` | Rejects storage use of an opaque value or array element, including typedef chains |
+| `writer::File::try_into_stream()` | Checks opaque contracts against the writer's references before returning bytes |
+| `writer::File::into_stream()` | Low-level unchecked table emission, also used to author negative fixtures |
+
+Pointers and references retain opaque nominal identity without claiming pointee storage. An
+array requires element storage even when reached through a pointer or reference. A
+`NativeTypedefAttribute` TypeDef's one target field records an alias, not a native value member;
+the checker follows it with the caller's storage requirement.
+
+The checker rejects overlapping opaque/complete definitions. Member architecture attributes
+and inherited nested-type architecture select the applicable variants. Architecture merge
+includes opacity in its structural key, so an opaque record and a complete empty record do not
+collapse into one neutral TypeDef. RDL compilation, rendering, merge, and remapping fail before
+writing output when an opaque contract is invalid.
+
+These checks do not calculate native size/alignment or establish external-reference closure.
+Missing external definitions are not inferred to be opaque or complete. Consumers that calculate
+layout must check opacity and still resolve and validate their native layout evidence.
+
 ### Nested type identity
 
 Decoded signature `TypeName` values retain the outermost namespace and a slash-separated name,

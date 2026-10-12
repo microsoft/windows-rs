@@ -496,6 +496,13 @@ impl File {
                     buffer.write_compressed(ELEMENT_TYPE_PTR as usize);
                 }
 
+                // A mutable run must end the legacy IsConst run instead of extending it.
+                if matches!(ty.as_ref(), Type::PtrMut(..)) {
+                    buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
+                    let pos = self.TypeRef("Windows.Win32.Metadata", "NativeMutableAttribute");
+                    buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+                }
+
                 self.Type(ty, buffer);
             }
 

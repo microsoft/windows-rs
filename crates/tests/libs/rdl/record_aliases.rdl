@@ -1,0 +1,46 @@
+#[win32]
+mod Test {
+    type AliasA = Record;
+    type AliasB = Record;
+    type AliasChain = AliasA;
+    extern "C" fn Callback(input: AliasA, output: *mut AliasB) -> AliasChain;
+    type ConstPointer = *const AliasB;
+    #[library("test.dll")]
+    extern "C" fn Export(input: AliasA, output: &mut AliasChain) -> AliasB;
+    struct Holder {
+        first: AliasA,
+        second: AliasB,
+        chain: AliasChain,
+        array: [AliasA; 2],
+        mixed: *const *mut AliasB,
+        pointer: Pointer,
+        immutable: &AliasA,
+        mutable: &mut AliasB,
+        other: LookAlias,
+        union: UnionAlias,
+    }
+    #[no_guid]
+    interface IPairs {
+        fn Exchange(&self, input: AliasChain, output: *mut LookAlias) -> UnionAlias;
+    }
+    type LookAlias = Lookalike;
+    #[packed(1)]
+    struct Lookalike {
+        key: u16,
+        value: u32,
+    }
+    struct Ordinary {
+        Value: Record,
+    }
+    type Pointer = *mut AliasA;
+    #[packed(1)]
+    struct Record {
+        key: u16,
+        value: u32,
+    }
+    type UnionAlias = VALUE;
+    union VALUE {
+        integer: u32,
+        float: f32,
+    }
+}

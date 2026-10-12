@@ -615,6 +615,15 @@ impl Encoder<'_> {
         for attr in attrs {
             let path = attr.path();
 
+            if is_opaque_attribute(attr) {
+                if !matches!(has_attribute, metadata::writer::HasAttribute::TypeDef(_)) {
+                    return self.err(attr, "`opaque` is only valid on native records");
+                }
+                if !matches!(attr.meta, syn::Meta::Path(_)) {
+                    return self.err(attr, "`opaque` does not accept arguments");
+                }
+            }
+
             if path.is_ident("win32") || path.is_ident("winrt") || path.is_ident("arch") {
                 continue;
             }

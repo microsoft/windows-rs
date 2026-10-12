@@ -30,3 +30,16 @@ windows_rdl::writer()
     .write()
     .unwrap();
 ```
+
+Use `windows_rdl::inventory("example.rdl")` to inspect declarations and members without reference
+metadata. The parsed inventory preserves duplicates and source order; it does not validate the
+original native API.
+
+Pointer types preserve mixed qualifiers such as `*const *mut i32` through RDL/WinMD round-trips,
+including fields, parameters, results, and typedef targets. Parameter direction remains separate.
+
+`#[opaque] struct Tag {}` or `#[opaque] union Tag {}` declares a resolved nominal type without
+exposed storage. Pointers and aliases retain its identity; value and array-element uses are rejected.
+
+`type First = Record;` and `type Second = Record;` preserve separate alias names targeting one
+nominal record. Aliases retain their targets through RDL/WinMD round-trips without copying fields.

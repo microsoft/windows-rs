@@ -1,0 +1,21 @@
+#[win32]
+mod Test {
+    extern "C" fn Callback(#[in] input: *mut *const i32, #[out] output: *const *mut i32) -> *const *mut i32;
+    type ConstMut = *const *mut i32;
+    #[library("test.dll")]
+    extern "C" fn Export(#[in] input: *mut *const i32, #[out] output: *const *mut i32) -> *mut *const i32;
+    #[no_guid]
+    interface IPointers {
+        fn Method(&self, #[in] input: *mut *const i32, #[out] output: *const *mut i32) -> *const *mut i32;
+    }
+    type MutConst = *mut *const i32;
+    struct Pointers {
+        const_mut: *const *mut i32,
+        mut_const: *mut *const i32,
+        alternating: *const *mut *const *mut void,
+        runs: *mut *mut *const *const *mut *mut i32,
+        fixed: [*const *mut i32; 3],
+        immutable: &*const *mut i32,
+        mutable: &mut *mut *const i32,
+    }
+}

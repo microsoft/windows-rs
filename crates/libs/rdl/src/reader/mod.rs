@@ -11,6 +11,7 @@ mod r#fn;
 pub(crate) mod guid;
 mod index;
 mod interface;
+pub(crate) mod inventory;
 mod item;
 mod method;
 mod module;
@@ -286,7 +287,10 @@ impl Reader {
             }
         }
 
-        std::fs::write(&self.output, output.into_stream())
+        let bytes = output.try_into_stream().map_err(|error| {
+            Error::new(&error.to_string(), &self.output.to_string_lossy(), 0, 0)
+        })?;
+        std::fs::write(&self.output, bytes)
             .map_err(|error| Error::new(&error.to_string(), &self.output.to_string_lossy(), 0, 0))
     }
 }
@@ -312,19 +316,61 @@ pub(crate) fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<
 
 /// Rewrites RDL tokens that would otherwise confuse `syn`.
 fn preprocess_rdl(contents: &str) -> std::borrow::Cow<'_, str> {
-    let needs_in = contents.contains("#[in]");
-    let needs_doc = contents.contains("//!");
-    if !needs_in && !needs_doc {
+    if !contents.contains('#') && !contents.contains("//!") {
         return std::borrow::Cow::Borrowed(contents);
     }
-    let mut result = contents.to_string();
-    if needs_in {
-        result = result.replace("#[in]", "#[r#in]");
+    let Ok(stream) = contents.parse::<TokenStream>() else {
+        // The RDL parser reports invalid tokens with the input file's diagnostic context.
+        return std::borrow::Cow::Borrowed(contents);
+    };
+    let mut edits = vec![];
+    preprocessing_edits(stream, contents, &mut edits);
+    if edits.is_empty() {
+        return std::borrow::Cow::Borrowed(contents);
     }
-    if needs_doc {
-        result = result.replace("//!", "//");
+    edits.sort_by_key(|(range, _)| (range.start, range.end));
+    edits.dedup_by(|left, right| left.0 == right.0);
+    let mut result = String::new();
+    let mut offset = 0;
+    for (range, replacement) in edits {
+        result.push_str(&contents[offset..range.start]);
+        result.push_str(replacement);
+        offset = range.end;
     }
+    result.push_str(&contents[offset..]);
     std::borrow::Cow::Owned(result)
+}
+
+fn preprocessing_edits(
+    stream: TokenStream,
+    contents: &str,
+    edits: &mut Vec<(std::ops::Range<usize>, &'static str)>,
+) {
+    use proc_macro2::{Delimiter, TokenTree};
+
+    let tokens = stream.into_iter().collect::<Vec<_>>();
+    for pair in tokens.windows(2) {
+        if let [TokenTree::Punct(marker), TokenTree::Group(group)] = pair
+            && marker.as_char() == '#'
+            && group.delimiter() == Delimiter::Bracket
+        {
+            let inner = group.stream().into_iter().collect::<Vec<_>>();
+            if let [TokenTree::Ident(name)] = inner.as_slice()
+                && name == "in"
+            {
+                edits.push((name.span().byte_range(), "r#in"));
+            }
+        }
+    }
+    for token in tokens {
+        let start = token.span().byte_range().start;
+        if contents.get(start..start + 3) == Some("//!") {
+            edits.push((start..start + 3, "//"));
+        }
+        if let TokenTree::Group(group) = token {
+            preprocessing_edits(group.stream(), contents, edits);
+        }
+    }
 }
 
 fn expand_rdl_files(paths: &[PathBuf], input_text: &[String]) -> Result<Vec<File>, Error> {
@@ -1015,12 +1061,6 @@ impl Encoder<'_> {
             }
             metadata::Type::PtrConst(inner, pointers) if !is_mut => {
                 metadata::Type::PtrConst(inner, pointers + 1)
-            }
-            metadata::Type::PtrMut(..) | metadata::Type::PtrConst(..) => {
-                return self.err(
-                    ty.elem.as_ref(),
-                    "mixed `*mut` and `*const` pointer chains are not representable",
-                );
             }
             _ => {
                 if is_mut {

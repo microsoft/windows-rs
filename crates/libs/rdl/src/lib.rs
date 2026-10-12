@@ -21,6 +21,7 @@ pub use error::Error;
 use proc_macro2::{Literal, Span, TokenStream};
 use quote::quote;
 pub use reader::Reader;
+pub use reader::inventory::{InventoryEntry, inventory};
 pub use writer::Writer;
 
 /// The metadata namespace that owns the Win32 attribute vocabulary.
@@ -81,7 +82,22 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
         metadata: "NativeEncodingAttribute",
         prop: None,
     },
+    PseudoAttr {
+        short: "opaque",
+        metadata: "NativeOpaqueAttribute",
+        prop: None,
+    },
 ];
+
+fn is_opaque_attribute(attr: &syn::Attribute) -> bool {
+    attr.path().is_ident("opaque")
+        || attr
+            .path()
+            .segments
+            .iter()
+            .map(|part| part.ident.to_string())
+            .eq(["Windows", "Win32", "Metadata", "NativeOpaque"])
+}
 
 pub(crate) fn pseudo_by_short(short: &str) -> Option<&'static PseudoAttr> {
     PSEUDO_ATTRS.iter().find(|p| p.short == short)

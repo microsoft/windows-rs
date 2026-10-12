@@ -1,0 +1,10 @@
+//! Documentation is not part of a string constant.
+#[win32]
+mod Literal {
+    //! Nested documentation.
+    const Unicode: String = "λ";
+    const Text: String = "#[in]\t//!";
+    const Raw: String = r#"#[in] //!"#;
+    #[library("sample.dll")]
+    extern fn Read(#[ in ] value: *mut u32);
+}

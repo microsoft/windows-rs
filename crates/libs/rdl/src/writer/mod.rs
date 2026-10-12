@@ -150,6 +150,16 @@ impl Writer {
         }
 
         let index = metadata::reader::Index::new(files);
+        index
+            .validate_opaque_types(None)
+            .map_err(|error| writer_err!("{error}"))?;
+        for root in index.types() {
+            for item in std::iter::once(root).chain(index.nested_recursive(root)) {
+                if is_native_typedef(&item) {
+                    native_typedef_field(&item)?;
+                }
+            }
+        }
         let rules = resolve_filter(&self.filter, &index);
 
         if let Some(map) = &self.partition {
@@ -377,14 +387,9 @@ fn write_type_def_items(
 ) -> Result<Vec<(String, TokenStream)>, Error> {
     if item.category() == metadata::reader::TypeCategory::Struct {
         // Native typedefs round-trip as `type NAME = TYPE;`.
-        if item.attributes().any(|attr| {
-            attr.namespace() == METADATA_NAMESPACE && attr.name() == "NativeTypedefAttribute"
-        }) {
+        if is_native_typedef(item) {
             let name = write_ident(item.name());
-            let field = item
-                .fields()
-                .next()
-                .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
+            let field = native_typedef_field(item)?;
             let ty = write_type(namespace, &field.ty());
             let arch_attr = write_arch_attr(item.arches());
             let tokens = quote! { #arch_attr type #name = #ty; };
@@ -399,6 +404,29 @@ fn write_type_def_items(
             Ok(vec![(item.name().to_string(), tokens)])
         }
     }
+}
+
+fn is_native_typedef(item: &metadata::reader::TypeDef<'_>) -> bool {
+    item.category() == metadata::reader::TypeCategory::Struct
+        && item.attributes().any(|attr| {
+            attr.namespace() == METADATA_NAMESPACE && attr.name() == "NativeTypedefAttribute"
+        })
+}
+
+fn native_typedef_field<'a>(
+    item: &metadata::reader::TypeDef<'a>,
+) -> Result<metadata::reader::Field<'a>, Error> {
+    let mut fields = item.fields();
+    let field = fields
+        .next()
+        .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
+    if fields.next().is_some() {
+        return Err(writer_err!(
+            "typedef `{}` must have one target field",
+            item.name()
+        ));
+    }
+    Ok(field)
 }
 
 fn write_const(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {

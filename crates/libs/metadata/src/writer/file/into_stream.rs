@@ -38,6 +38,15 @@ impl<const LEN: usize> STREAM_HEADER<LEN> {
 }
 
 impl File {
+    /// Emits metadata after checking opaque records and their storage-requiring uses.
+    pub fn try_into_stream(mut self) -> Result<Vec<u8>, reader::OpaqueTypeError> {
+        let reference = self.reference.take();
+        let bytes = self.into_stream();
+        let index = reader::Index::new(vec![reader::File::new(bytes.clone()).unwrap()]);
+        index.validate_opaque_types(reference.as_ref())?;
+        Ok(bytes)
+    }
+
     pub fn into_stream(mut self) -> Vec<u8> {
         self.records.Constant.extend(self.Constant.values());
 

@@ -6,7 +6,10 @@ rust-version = "1.95"
 publish = false
 
 [dependencies]
+clang-sys = { version = "1.8.1", features = ["runtime", "clang_18_0"] }
 helpers = { workspace = true }
+syn = { workspace = true, features = ["full", "parsing"] }
+windows-rdl = { workspace = true }
 
 [lints]
 workspace = true

@@ -91,6 +91,9 @@ impl Remapper {
 
         let files = read_inputs(&self.input)?;
         let index = reader::Index::new(files);
+        index
+            .validate_opaque_types(None)
+            .map_err(|error| Error::new(error.to_string()))?;
         let mut file = writer::File::new(name);
 
         // Split source `Apis` containers after all regular types have been written.
@@ -108,7 +111,9 @@ impl Remapper {
 
         self.split_apis(&mut file, &apis);
 
-        let bytes = file.into_stream();
+        let bytes = file
+            .try_into_stream()
+            .map_err(|error| Error::new(error.to_string()))?;
         std::fs::write(&self.output, bytes)
             .map_err(|e| Error::new(format!("failed to write `{}`: {e}", self.output.display())))
     }

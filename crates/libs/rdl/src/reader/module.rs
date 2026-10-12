@@ -11,6 +11,12 @@ pub struct Module {
 impl syn::parse::Parse for Module {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
+        if let Some(attr) = attrs.iter().find(|attr| is_opaque_attribute(attr)) {
+            return Err(syn::Error::new_spanned(
+                attr,
+                "`opaque` is only valid on native records",
+            ));
+        }
         let token = input.parse()?;
         let name = input.parse()?;
 

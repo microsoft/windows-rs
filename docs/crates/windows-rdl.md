@@ -48,6 +48,13 @@ Writer filters accept namespace prefixes, qualified or unqualified names, and `!
 one file per defining header. `item_names` reads the names declared under one namespace without
 compiling the file.
 
+`inventory(path)` parses one RDL file without resolving references or writing metadata. It returns
+declarations and members in source order, including duplicates, normalized type/signature tokens,
+attributes, architecture masks, and source lines. File-local IDs and parent IDs preserve nested
+records and callable parameter order. This is an inventory of the RDL as written, not evidence
+that it correctly describes the native API. See the
+[header replacement inventory](windows-clang.md#baseline-inventory-command) for the repository tool.
+
 ## RDL syntax
 
 RDL uses Rust tokens and module syntax, but it describes metadata rather than executable Rust.
@@ -85,6 +92,94 @@ mod Example {
 Most attributes name a metadata attribute type directly. Some attributes use short pseudo-attribute
 names. The reader expands those names to full metadata attributes. See `PSEUDO_ATTRS` in
 `windows-rdl`.
+
+### Named record aliases
+
+`type NAME = TYPE;` preserves a declared alias and its written target. Several names can refer
+to one complete record without copying its fields:
+
+```text
+#[win32]
+mod Example {
+    struct Record {
+        value: u32,
+    }
+    type First = Record;
+    type Second = Record;
+    type Chain = First;
+    type Pointer = *mut First;
+}
+```
+
+Each alias emits one value TypeDef marked `Windows.Win32.Metadata.NativeTypedefAttribute`, with
+a single `Value` field carrying its target type. `First` and `Second` retain separate names
+targeting `Record`; `Chain` targets `First`, not a flattened copy of `Record`. Field and callable
+signatures retain those alias names, including pointer qualifiers, references, and arrays.
+
+A one-field ordinary record is not inferred to be a typedef. The metadata marker is required.
+Records with identical fields also remain distinct nominal definitions. External references
+resolve alias targets without copying the referenced record into the output.
+
+The writer rejects typedefs with zero or multiple target fields before writing or clearing
+file, split, or partitioned output. `test_rdl::record_aliases` checks reviewed text and exact
+WinMD round-trips, by-value and qualified uses, external assembly references, independently
+routed alias/record namespaces, and architecture-specific record targets.
+
+This is the representation contract, not native declaration reconciliation. If a compiler links
+a same-spelled tag and typedef to one record, the extractor must select one canonical published
+definition using that evidence. Do not emit an additional self-alias or infer that relationship
+from spelling or matching fields.
+
+### Opaque nominal records
+
+Canonical RDL has resolved type identities, not pending C/C++ forward declarations. A native
+record whose definition is available must be emitted with that definition. A record intentionally
+opaque in the selected public source contract uses `#[opaque]`:
+
+```text
+#[win32]
+mod Example {
+    #[opaque]
+    struct _CONTEXT {}
+
+    type CONTEXT = _CONTEXT;
+    type PCONTEXT = *mut CONTEXT;
+
+    #[library("example.dll")]
+    extern "C" fn Close(context: PCONTEXT);
+}
+```
+
+`#[opaque] struct Tag {}` and `#[opaque] union Tag {}` define nominal identities without exposing
+storage. They emit `Windows.Win32.Metadata.NativeOpaqueAttribute`. An unmarked `struct Tag {}`
+is a complete empty record, not an opaque type or a claim about its native byte size. `struct Tag;`
+is not canonical RDL syntax.
+
+| Use | Opaque record |
+| --- | --- |
+| Named typedef, including a chain of aliases | Allowed; retains the target identity |
+| Pointer or reference | Allowed; retains the pointee identity |
+| Array of pointers | Allowed |
+| By-value field, parameter, or result | Rejected, including through aliases |
+| Array element, including an array behind a pointer/reference | Rejected |
+| Fields, methods, packing, alignment, or other layout on the opaque declaration | Rejected |
+| WinRT record or a non-record marked `opaque` | Rejected |
+
+The reader checks emitted metadata against its supplied references before replacing the output.
+The writer checks input metadata before rendering or clearing partitioned outputs. Merge and
+namespace remapping use the same check. Distinct opaque and complete definitions of one identity
+cannot overlap architectures; architecture merging preserves the distinction.
+
+These are opaque-storage checks, not native layout calculations or proof that every external
+metadata reference resolves. The extractor must reconcile source forward declarations against
+the available definitions before choosing an opaque declaration. See
+[metadata opaque records](windows-metadata.md#opaque-records) for the validation APIs.
+
+`test_rdl::opaque` has a reviewed, non-updating fixture with nominal aliases, pointers, references,
+callbacks, imported functions, and interface methods. It checks semantic readback, exact text and
+WinMD round-trips, external references, merge/remap, architecture variants, and negative storage
+controls. `test_metadata::opaque` authors invalid metadata directly and checks rejection before
+conversion can erase its meaning.
 
 Struct bit fields use their own syntax. A run of bit fields packed into one backing integer is
 written as a C-like block on that field. Each member uses `Name: width`. Anonymous padding uses
@@ -153,10 +248,12 @@ C/C++ headers -- clang() --> .rdl -- reader() --> .winmd -- bindgen() --> bindin
 ## Pitfalls
 
 - RDL references must be supplied separately; naming an external type does not locate its winmd.
+- Empty record bodies are complete unless marked `#[opaque]`; never use an empty body to stand
+  in for an unavailable native definition.
 - The reader rejects unsupported types, constants, callback ABIs, variadic callback parameters,
   and function ABIs instead of dropping them.
-- Pointer chains have one constness bit plus depth. Uniform `*mut *mut T` and
-  `*const *const T` chains work; mixed chains do not.
+- Pointer chains preserve each `*mut`/`*const` level, including mixed chains. Pointer mutability
+  does not replace explicit parameter direction or source qualifiers.
 - `len_param` and `size_param` store raw zero-based signature positions. Update the attribute when
   parameters move.
 - RDL cannot spell a metadata parameter with neither In nor Out. Omitting direction invokes the
@@ -320,6 +417,24 @@ WDK metadata has at least one representable direction flag.
   to carry them, so attributes on its sequence 0 row are not represented.
 - **Count relationships:** `#[len_param(N)]` and `#[size_param(N)]` store raw zero-based signature
   positions. Reordering parameters without updating `N` changes the relationship.
-- **Pointer constness:** `metadata::Type` stores one constness bit with a pointer depth. Uniform
-  chains such as `*mut *mut T` and `*const *const T` round-trip. Mixed chains are rejected before
-  metadata is written, including chains nested inside a reference.
+- **Native qualifiers:** Mixed `*mut`/`*const` pointer chains round-trip, including chains inside
+  references and arrays. This spelling does not represent arbitrary native volatile or top-level
+  const qualifiers independently of the pointer type.
+
+### Mixed pointer chains
+
+RDL preserves `*const *mut T` and `*mut *const T` as distinct types. Adjacent equal qualifiers
+form one `metadata::Type` pointer run; a change in qualifier starts a nested pointer node. Fields,
+parameters, results, callbacks, interface methods, and typedef targets use the same encoding.
+
+Uniform pointer signatures keep their existing bytes. A required
+`Windows.Win32.Metadata.NativeMutableAttribute` signature modifier separates a mutable run from
+an enclosing const run; it is not a parameter attribute and does not imply input/output direction.
+The metadata reader decodes run boundaries recursively. See
+[pointer signatures](windows-metadata.md#pointer-signatures) for the wire format.
+
+`test_metadata::pointers` checks exact bytes, every qualifier order through depth five, nested
+signature contexts, malformed modifiers, and namespace remapping of named pointees.
+`test_rdl::mixed_pointers` uses a reviewed fixture outside the auto-updating round-trip directory.
+It checks semantic readback, exact RDL text, deterministic WinMD bytes, merge/remap preservation,
+and compilation of the modifier vocabulary.

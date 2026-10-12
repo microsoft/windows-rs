@@ -139,6 +139,29 @@ impl Index {
         &self.files[pos]
     }
 
+    pub(super) fn all_types(&self) -> impl Iterator<Item = TypeDef<'_>> {
+        self.files
+            .iter()
+            .enumerate()
+            .flat_map(move |(file, metadata)| {
+                metadata
+                    .TypeDef()
+                    .map(move |pos| TypeDef(Row::new(self, file, pos)))
+            })
+            .filter(move |def| self.supports_architecture(*def))
+    }
+
+    pub(super) fn all_attributes(&self) -> impl Iterator<Item = Attribute<'_>> {
+        self.files
+            .iter()
+            .enumerate()
+            .flat_map(move |(file, metadata)| {
+                metadata
+                    .Attribute()
+                    .map(move |pos| Attribute(Row::new(self, file, pos)))
+            })
+    }
+
     /// Iterates `(namespace, name, TypeDef)` triples over every type in the index.
     pub fn iter(&self) -> impl Iterator<Item = (&str, &str, TypeDef<'_>)> + '_ {
         self.types

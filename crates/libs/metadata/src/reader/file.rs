@@ -641,6 +641,10 @@ impl File {
     pub(crate) fn NestedClass(&self) -> std::ops::Range<usize> {
         0..self.tables[NestedClass::TABLE].len
     }
+
+    pub(crate) fn Attribute(&self) -> std::ops::Range<usize> {
+        0..self.tables[Attribute::TABLE].len
+    }
 }
 
 fn section_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32) -> Option<&IMAGE_SECTION_HEADER> {

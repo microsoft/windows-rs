@@ -93,6 +93,14 @@ impl syn::parse::Parse for Item {
             Err(lookahead.error())
         }?;
 
+        if !matches!(item, Self::Struct(_) | Self::Union(_))
+            && let Some(attr) = attrs.iter().find(|attr| is_opaque_attribute(attr))
+        {
+            return Err(syn::Error::new_spanned(
+                attr,
+                "`opaque` is only valid on native records",
+            ));
+        }
         item.replace_attrs(attrs);
         Ok(item)
     }

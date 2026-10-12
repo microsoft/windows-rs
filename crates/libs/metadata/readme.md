@@ -3,6 +3,13 @@
 The [windows-metadata](https://crates.io/crates/windows-metadata) crate reads and writes the
 ECMA-335 metadata format used by .NET, WinRT, and Win32 metadata.
 
+Pointer signatures preserve mixed const/mutable runs through recursive `Type` nodes. Uniform
+signatures retain their existing bytes; mixed signatures use explicit modifier boundaries.
+
+`TypeDef::is_opaque()` distinguishes opaque native records from complete empty records. Use
+`Index::validate_opaque_types` or checked `writer::File::try_into_stream` to reject invalid opaque
+storage uses before publishing metadata.
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-metadata.md)
 

@@ -1,0 +1,60 @@
+use Other::Alias;
+
+#[win32]
+mod Example {
+    #[arch(X86)]
+    type Word = u32;
+    #[arch(X64 | Arm64)]
+    type Word = u64;
+    const Word: u32 = 7;
+    const Text: String = "#[in]\t//!";
+    #[repr(u32)]
+    #[flags]
+    enum Flags {
+        None = 0,
+        #[Custom("variant")]
+        One = 1,
+    }
+    #[arch(X86 | X64)]
+    #[packed(1)]
+    struct Packet {
+        #[Custom("field")]
+        payload: #[align(8)] union {
+            number: Word,
+            bytes: [u8; 8],
+        },
+        bits: u32 {
+            First: 1,
+            _: 3,
+            Last: 4,
+        },
+    }
+    union Value {
+        integer: u32,
+        pointer: *mut Missing,
+    }
+    #[library("sample.dll", import = "NativeCall")]
+    extern "C" fn Call(#[in] #[opt] buffer: *mut Missing, count: u32, ...) -> #[Custom("return")] Word;
+    extern "fastcall" fn Callback(#[out] value: *mut Word);
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IExample<T>: MissingBase {
+        fn Read(&self, #[out] value: *mut Word) -> #[Custom("result")] i32;
+        #[get]
+        Name: Word;
+        #[Custom("event")]
+        event Changed: MissingHandler;
+    }
+    attribute Custom {
+        fn(value: String);
+        Count: u32,
+    }
+}
+
+#[winrt]
+mod Runtime {
+    delegate fn Handler<T>(value: T);
+    class Object: MissingClass {
+        #[default]
+        MissingInterface,
+    }
+}

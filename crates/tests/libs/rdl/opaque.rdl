@@ -1,0 +1,28 @@
+#[win32]
+mod Test {
+    type Alias = _OPAQUE;
+    extern "C" fn Callback(input: *const Alias) -> *mut _OPAQUE;
+    struct Empty {}
+    #[library("test.dll")]
+    extern "C" fn Export(input: PointerAlias, output: *mut *const RecordAlias) -> PointerAlias2;
+    #[no_guid]
+    interface IPointers {
+        fn Acquire(&self, output: *mut PointerAlias) -> *mut _OPAQUE;
+    }
+    type PointerAlias = *mut RecordAlias;
+    type PointerAlias2 = PointerAlias;
+    struct Pointers {
+        direct: *mut _OPAQUE,
+        mixed: *const *mut _OPAQUE,
+        array: [*mut RecordAlias; 3],
+        immutable: &Alias,
+        mutable: &mut _OPAQUE,
+        union: *const _UNION,
+        empty: Empty,
+    }
+    type RecordAlias = Alias;
+    #[opaque]
+    struct _OPAQUE {}
+    #[opaque]
+    union _UNION {}
+}
