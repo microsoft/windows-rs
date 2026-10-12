@@ -346,10 +346,9 @@ struct ComponentWindowState {
     host: ComponentHost<WinUiAdapter>,
     window: NativeWindow,
     lifecycle: Rc<Cell<ComponentWindowLifecycle>>,
-    window_color_scheme: Option<(u64, Callback<ColorScheme>)>,
-    window_size: Option<(u64, Callback<WindowSize>)>,
-    window_placement: Option<(u64, Callback<WindowPlacement>)>,
-    window_observation_generation: u64,
+    color_scheme_generation: Option<u64>,
+    size_generation: Option<u64>,
+    placement_generation: Option<u64>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -922,10 +921,9 @@ fn open_component_window(
         host,
         window,
         lifecycle,
-        window_color_scheme: None,
-        window_size: None,
-        window_placement: None,
-        window_observation_generation: 0,
+        color_scheme_generation: None,
+        size_generation: None,
+        placement_generation: None,
     });
     let publication = services.take_publication(id).unwrap();
     let initialized = apply_component_window_publication(
@@ -968,47 +966,45 @@ fn apply_component_window_publication(
     publication: WindowPublication,
     initial: bool,
 ) -> windows_core::Result<()> {
-    state.window_observation_generation = state.window_observation_generation.wrapping_add(1);
-    let generation = state.window_observation_generation;
-    let size_observer = publication.on_size.as_ref().map(|_| {
-        let services = Rc::clone(services);
-        Rc::new(move |size| {
-            _ = services.size(generation, size, window);
-        }) as Rc<dyn Fn(WindowSize)>
-    });
-    let color_scheme_observer = publication.on_color_scheme.as_ref().map(|_| {
-        let services = Rc::clone(services);
-        Rc::new(move |scheme| {
-            _ = services.color_scheme(generation, scheme, window);
-        }) as Rc<dyn Fn(ColorScheme)>
-    });
+    let size_generation = publication.on_size.map(|observer| observer.generation);
+    let color_scheme_generation = publication
+        .on_color_scheme
+        .map(|observer| observer.generation);
+    let placement_generation = publication.on_placement.map(|observer| observer.generation);
+    if state.size_generation != size_generation {
+        state.size_generation = size_generation;
+        let observer = size_generation.map(|generation| {
+            let services = Rc::clone(services);
+            Rc::new(move |size| {
+                _ = services.size(generation, size, window);
+            }) as Rc<dyn Fn(WindowSize)>
+        });
+        state.window.set_size_observer(observer)?;
+    }
     state.window.apply_publication(
         publication.title.as_deref(),
         publication.visuals.as_ref(),
-        color_scheme_observer,
-        size_observer,
         initial,
     )?;
-    state.window_color_scheme = publication
-        .on_color_scheme
-        .map(|callback| (generation, callback));
-    state.window_size = publication.on_size.map(|callback| (generation, callback));
-    if state
-        .window_placement
-        .as_ref()
-        .map(|(_, callback)| callback)
-        != publication.on_placement.as_ref()
-    {
-        let observer = publication.on_placement.as_ref().map(|_| {
+    if state.color_scheme_generation != color_scheme_generation {
+        state.color_scheme_generation = color_scheme_generation;
+        let observer = color_scheme_generation.map(|generation| {
+            let services = Rc::clone(services);
+            Rc::new(move |scheme| {
+                _ = services.color_scheme(generation, scheme, window);
+            }) as Rc<dyn Fn(ColorScheme)>
+        });
+        state.window.set_color_scheme_observer(observer)?;
+    }
+    if state.placement_generation != placement_generation {
+        state.placement_generation = placement_generation;
+        let observer = placement_generation.map(|generation| {
             let services = Rc::clone(services);
             Rc::new(move |placement| {
                 _ = services.placement(generation, placement, window);
             }) as Rc<dyn Fn(WindowPlacement)>
         });
         state.window.set_placement_observer(observer)?;
-        state.window_placement = publication
-            .on_placement
-            .map(|callback| (generation, callback));
     }
     Ok(())
 }
@@ -1129,10 +1125,8 @@ fn drain_window_requests(
                         let state = window.state.borrow();
                         let state = state.as_ref()?;
                         (state.lifecycle.get() == ComponentWindowLifecycle::Open)
-                            .then_some(state.window_color_scheme.as_ref())
+                            .then(|| state.host.window_color_scheme_callback(generation))
                             .flatten()
-                            .filter(|(current, _)| *current == generation)
-                            .map(|(_, callback)| callback.clone())
                     })
                 };
                 if let Some(callback) = callback {
@@ -1150,10 +1144,8 @@ fn drain_window_requests(
                         let state = window.state.borrow();
                         let state = state.as_ref()?;
                         (state.lifecycle.get() == ComponentWindowLifecycle::Open)
-                            .then_some(state.window_size.as_ref())
+                            .then(|| state.host.window_size_callback(generation))
                             .flatten()
-                            .filter(|(current, _)| *current == generation)
-                            .map(|(_, callback)| callback.clone())
                     })
                 };
                 if let Some(callback) = callback {
@@ -1171,10 +1163,8 @@ fn drain_window_requests(
                         let state = window.state.borrow();
                         let state = state.as_ref()?;
                         (state.lifecycle.get() == ComponentWindowLifecycle::Open)
-                            .then_some(state.window_placement.as_ref())
+                            .then(|| state.host.window_placement_callback(generation))
                             .flatten()
-                            .filter(|(current, _)| *current == generation)
-                            .map(|(_, callback)| callback.clone())
                     })
                 };
                 if let Some(callback) = callback {

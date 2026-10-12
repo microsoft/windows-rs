@@ -12,7 +12,9 @@ methods rather than generic property/event records or imperative requests.
 Components can declare `WindowVisuals::initial_position` or restore `initial_placement` before a
 window first appears. `ViewContext::on_window_placement` reports restored outer bounds in physical
 screen pixels and maximized state; applications own persistence. Initial placement is not replayed
-on later renders.
+on later renders. Window observers keep their subscriptions when callbacks are replaced.
+`on_color_scheme` and `on_window_placement` report the current value when subscribed, then changes;
+replacing a callback does not replay the current value.
 
 `App::run_application` hosts application state independently of windows. Its `ApplicationView`
 declares reopenable component windows and notification icons with Reactor menus. Closing a window

@@ -257,6 +257,41 @@ fn component_window_declarations_follow_scope_updates() {
     );
 }
 
+#[test]
+fn invalidating_host_clears_committed_window_callbacks() {
+    let ui_services = Rc::new(TestUiServices::default());
+    let mut host = ComponentHost::mount_with_all_services(
+        RecordingAdapter::default(),
+        Arc::new(DefaultComponentServices),
+        ui_services.clone(),
+        [component::<WindowPublisher>("publisher", true)],
+    )
+    .unwrap();
+    let publication = ui_services.publications.borrow_mut().pop().unwrap();
+    let scheme_generation = publication.on_color_scheme.unwrap().generation;
+    let size_generation = publication.on_size.unwrap().generation;
+    let placement_generation = publication.on_placement.unwrap().generation;
+    assert!(
+        host.window_color_scheme_callback(scheme_generation)
+            .is_some()
+    );
+    assert!(host.window_size_callback(size_generation).is_some());
+    assert!(
+        host.window_placement_callback(placement_generation)
+            .is_some()
+    );
+    host.invalidate_host();
+    assert!(
+        host.window_color_scheme_callback(scheme_generation)
+            .is_none()
+    );
+    assert!(host.window_size_callback(size_generation).is_none());
+    assert!(
+        host.window_placement_callback(placement_generation)
+            .is_none()
+    );
+}
+
 struct PlacementPublisher;
 
 impl Component for PlacementPublisher {

@@ -40,6 +40,10 @@ name = "window_state"
 path = "src/window_state.rs"
 
 [[bin]]
+name = "window_observers"
+path = "src/window_observers.rs"
+
+[[bin]]
 name = "window_placement"
 path = "src/window_placement.rs"
 
