@@ -235,10 +235,26 @@ context.on_window_placement(context.callback(Message::Placement));
 
 `on_window_placement` reports the initial placement and native changes while subscribed.
 Notifications contain the restored outer bounds even when maximized, are coalesced, and exclude
-minimized state. An unchanged subscription does not replay unchanged placement on each render;
-a replacement or new subscription receives the current non-minimized placement. Each window
-allows one placement subscriber. Removing its declaration or closing the component/window ends
-the subscription.
+minimized state. Replacing the callback does not replay unchanged placement. Removing and re-adding
+the observer starts a new subscription and reports the current non-minimized placement. Each window
+allows one placement subscriber. Removing its declaration or closing the component/window ends the
+subscription.
+
+Window observers keep their native subscriptions across renders and dispatch to the latest callback.
+Each observer has its own subscription generation, recorded when a component render commits.
+Removing and re-adding an observer or changing its subscribing component starts a new lifetime, even
+when the native queue coalesces those publications. Changing one observer does not discard another's
+queued notifications. Notifications from an earlier lifetime cannot reach a later subscription.
+Delivery checks the committed lifetime and uses its latest callback, even before the native queue
+applies the corresponding publication. Native registration state does not own application callbacks.
+`on_color_scheme` reports the current scheme when subscribed, then only scheme changes.
+`on_window_size` reports native size changes without replaying the size on callback replacement.
+
+Run `cargo run -p reactor-window-observers` for an interactive view of notification counts and
+callback revisions. Replace callbacks without changing counts, toggle the theme, move or resize the
+window, and subscribe or unsubscribe each observer independently. Re-subscribing reports the current
+scheme and placement; size waits for a native change. Each notification also causes a render, which
+must not replay the observers.
 
 Applications own persistence: store each observation in the message handler, rather than wait for
 a final shutdown notification. This is observed native state, not a continuously controlled

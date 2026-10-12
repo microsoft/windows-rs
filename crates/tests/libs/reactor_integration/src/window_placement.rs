@@ -103,6 +103,7 @@ enum Message {
     Minimized,
     Restored,
     Replaced(WindowPlacement),
+    ReplacementUnchanged,
     MoveUnobserved,
     Resubscribe,
     PreparedBounds(WindowPlacement),
@@ -272,14 +273,19 @@ impl Component for Fixture {
             Message::Restored => {
                 assert_eq!(self.phase, 4);
                 self.phase = 5;
+                self.delay = Some(
+                    context.set_timeout(Duration::from_millis(150), Message::ReplacementUnchanged),
+                );
                 assert!(context.run_window(|window| {
                     assert!(unsafe { IsZoomed(window.as_raw().cast()) }.as_bool());
                     Message::NativeOperation
                 }));
             }
             Message::Replaced(placement) => {
+                panic!("callback replacement replayed placement: {placement:?}");
+            }
+            Message::ReplacementUnchanged => {
                 assert_eq!(self.phase, 5);
-                assert_eq!(Some(placement), self.expected);
                 self.phase = 6;
                 self.delay =
                     Some(context.set_timeout(Duration::from_millis(150), Message::MoveUnobserved));

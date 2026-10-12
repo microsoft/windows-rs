@@ -1843,26 +1843,8 @@ impl NativeWindow {
         &mut self,
         title: Option<&str>,
         visuals: Option<&WindowVisuals>,
-        color_scheme_observer: Option<Rc<dyn Fn(ColorScheme)>>,
-        size_observer: Option<Rc<dyn Fn(WindowSize)>>,
         initial: bool,
     ) -> Result<(), WinUiError> {
-        self.actual_theme_changed = None;
-        self.size_changed = size_observer
-            .map(|observer| {
-                self.state.root_element.SizeChanged(move |_, args| {
-                    if let Some(args) = args.as_ref()
-                        && let Ok(size) = args.NewSize()
-                    {
-                        observer(WindowSize {
-                            width: f64::from(size.width),
-                            height: f64::from(size.height),
-                        });
-                    }
-                })
-            })
-            .transpose()?;
-
         if let Some(title) = title {
             self.set_title(title)?;
             self.published_title = true;
@@ -1892,23 +1874,63 @@ impl NativeWindow {
             self.published_visuals = false;
         }
 
-        self.actual_theme_changed = color_scheme_observer
+        Ok(())
+    }
+
+    pub(crate) fn set_size_observer(
+        &mut self,
+        observer: Option<Rc<dyn Fn(WindowSize)>>,
+    ) -> Result<(), WinUiError> {
+        self.size_changed = None;
+        self.size_changed = observer
+            .map(|observer| {
+                self.state.root_element.SizeChanged(move |_, args| {
+                    let Some(args) = args.as_ref() else {
+                        return;
+                    };
+                    match args.NewSize() {
+                        Ok(size) => observer(WindowSize {
+                            width: f64::from(size.width),
+                            height: f64::from(size.height),
+                        }),
+                        Err(error) => report_error(error),
+                    }
+                })
+            })
+            .transpose()?;
+        Ok(())
+    }
+
+    pub(crate) fn set_color_scheme_observer(
+        &mut self,
+        observer: Option<Rc<dyn Fn(ColorScheme)>>,
+    ) -> Result<(), WinUiError> {
+        self.actual_theme_changed = None;
+        self.actual_theme_changed = observer
             .map(|observer| {
                 let initial = match self.state.root_element.ActualTheme()? {
                     native::ElementTheme::Dark => ColorScheme::Dark,
                     _ => ColorScheme::Light,
                 };
+                let last = Cell::new(initial);
                 observer(initial);
                 self.state
                     .root_element
                     .ActualThemeChanged(move |sender, _| {
-                        if let Some(sender) = sender.as_ref()
-                            && let Ok(theme) = sender.ActualTheme()
-                        {
-                            observer(match theme {
-                                native::ElementTheme::Dark => ColorScheme::Dark,
-                                _ => ColorScheme::Light,
-                            });
+                        let Some(sender) = sender.as_ref() else {
+                            return;
+                        };
+                        match sender.ActualTheme() {
+                            Ok(theme) => {
+                                let scheme = match theme {
+                                    native::ElementTheme::Dark => ColorScheme::Dark,
+                                    _ => ColorScheme::Light,
+                                };
+                                if last.replace(scheme) != scheme {
+                                    observer(scheme);
+                                }
+                            }
+                            Err(error) => report_error(error),
                         }
                     })
             })
