@@ -530,9 +530,11 @@ named code imports route functions; other members remain visible without supplyi
 
 Enum and free-function producers emit closed shellscalingapi RDL and compile WinMD in all six
 standalone target/encoding profiles. This is partial pilot output, not partition acceptance.
-Toolhelp still rejects required value macros; the selected COM closure still rejects uncaptured
-interface attributes. Combined/reversed inputs, source contracts, semantic differences, and
-agreement remain open.
+Toolhelp ANSI profiles also emit and compile on all targets, including 13 compiler-evaluated
+constants and 16 functions. Macro reports preserve all ten Unicode alias targets separately;
+Unicode publication still rejects without a profile-specific contract. The selected COM closure
+still rejects uncaptured interface attributes. Combined/reversed inputs, source contracts,
+semantic differences, and agreement remain open.
 
 This runner establishes a diagnostic baseline, not acceptance. It returns nonzero while the pilot
 is incomplete; `capture.tsv` records current producer failures and `gates.tsv` lists unimplemented

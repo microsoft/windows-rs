@@ -141,6 +141,38 @@ pub struct Root {
 }
 
 #[derive(Debug, Clone)]
+pub struct MacroEvidence {
+    pub name: String,
+    pub tokens: Vec<String>,
+    pub expansion: Location,
+    pub spelling: Location,
+    pub kind: MacroKind,
+}
+
+#[derive(Debug, Clone)]
+pub enum MacroKind {
+    Integer {
+        written_type: String,
+        canonical_type: String,
+        value: metadata::Value,
+    },
+    Alias {
+        qualified_name: String,
+        kind: String,
+        usr: String,
+        expansion: Location,
+        spelling: Location,
+    },
+}
+
+#[derive(Debug, Clone)]
+pub struct MacroProbe {
+    pub source: String,
+    pub arguments: Vec<String>,
+    pub diagnostics: Vec<String>,
+}
+
+#[derive(Debug, Clone)]
 pub struct FieldEvidence {
     pub name: String,
     pub ordinal: usize,
@@ -209,10 +241,16 @@ pub struct Snapshot {
     pub arguments: Vec<String>,
     pub diagnostics: Vec<String>,
     pub roots: Vec<Root>,
+    macros: Vec<MacroEvidence>,
+    pub macro_probe: Option<MacroProbe>,
     declarations: Vec<Declaration>,
 }
 
 impl Snapshot {
+    pub fn macros(&self) -> impl Iterator<Item = &MacroEvidence> {
+        self.macros.iter()
+    }
+
     pub fn target(&self) -> Target {
         self.target
     }

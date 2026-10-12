@@ -442,6 +442,54 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
         input.required = required;
         let emitted = (|| -> Result<()> {
             let snapshot = compiler.capture(&input)?;
+            if let Some(probe) = &snapshot.macro_probe {
+                std::fs::write(
+                    output.join(format!("{}.macros.hpp", profile.name)),
+                    &probe.source,
+                )?;
+                std::fs::write(
+                    output.join(format!("{}.macros.args.tsv", profile.name)),
+                    format!(
+                        "position\targument\n{}",
+                        probe
+                            .arguments
+                            .iter()
+                            .enumerate()
+                            .map(|(position, argument)| format!(
+                                "{position}\t{}\n",
+                                escape(argument)
+                            ))
+                            .collect::<String>()
+                    ),
+                )?;
+            }
+            let mut macro_report = String::from("name\tkind\tdetail\theader\tline\n");
+            for evidence in snapshot.macros() {
+                let (kind, detail) = match &evidence.kind {
+                    windows_clang2::MacroKind::Integer {
+                        written_type,
+                        value,
+                        ..
+                    } => ("integer", format!("{written_type}: {value:?}")),
+                    windows_clang2::MacroKind::Alias {
+                        qualified_name,
+                        kind,
+                        ..
+                    } => ("alias", format!("{kind}: {qualified_name}")),
+                };
+                writeln!(
+                    macro_report,
+                    "{}\t{kind}\t{}\t{}\t{}",
+                    escape(&evidence.name),
+                    escape(&detail),
+                    escape(&evidence.expansion.file),
+                    evidence.expansion.line
+                )?;
+            }
+            std::fs::write(
+                output.join(format!("{}.macros.tsv", profile.name)),
+                macro_report,
+            )?;
             let rdl = snapshot.rdl_with_imports("Windows.Win32", &imports)?;
             windows_rdl::reader()
                 .reference(&vocabulary)

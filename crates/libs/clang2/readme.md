@@ -16,7 +16,10 @@ The pilot adds complete integer enums and external free-function prototypes. Com
 members, enum aliases, written signature types, parameter positions, effective calling conventions,
 and native linker symbols survive capture. `Snapshot::rdl_with_imports` requires explicit named
 export contracts keyed by those symbols; it does not guess DLLs.
-Value macros, callbacks, COM methods, and source annotations remain outside this producer.
+Selected object-like integer macros use compiler evaluation in a recorded derived TU with the same
+profile. Active definitions must match the selected source roots. Compiler-resolved type/function
+aliases remain separate evidence; publication rejects until profile-specific naming is defined.
+Callbacks, COM methods, and source annotations remain outside this producer.
 The active delivery gate combines these families in a frozen SDK/COM pilot.
 
 Index creation excludes active native sessions to honor LLVM's target-registration contract.
@@ -47,6 +50,7 @@ Run `cargo run -p tool-clang --quiet -- pilot` to stage the matched-compiler, th
 baseline. It reports unsupported required APIs and pending acceptance checks and returns nonzero
 while the pilot is incomplete. Further isolated storage work is paused; production is unchanged.
 The shellscalingapi profiles emit and compile with pinned SDK import evidence on x86/x64/ARM64.
+Toolhelp's ANSI profiles also emit and compile, including all 13 value macros and 16 functions.
 Compilation does not establish source-contract preservation, agreement, or partition acceptance.
 
 See [the replacement plan](../../../docs/crates/windows-clang.md#fixed-implementation-matrix)

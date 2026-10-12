@@ -6,6 +6,8 @@ use std::ffi::{CStr, CString};
 use std::panic::{AssertUnwindSafe, catch_unwind, resume_unwind};
 use std::sync::{RwLock, RwLockReadGuard};
 
+mod macros;
+
 // clang_createIndex registers LLVM targets, which must not overlap registry readers.
 static TARGET_REGISTRY: RwLock<()> = RwLock::new(());
 
@@ -46,6 +48,16 @@ impl Compiler {
     }
 
     fn capture_input(&self, input: &Input) -> Result<Snapshot> {
+        let (mut snapshot, definitions) = self.capture_declarations(input)?;
+        if !definitions.is_empty() {
+            let (macros, probe) = macros::capture(self, input, definitions)?;
+            snapshot.macros = macros;
+            snapshot.macro_probe = Some(probe);
+        }
+        Ok(snapshot)
+    }
+
+    fn capture_declarations(&self, input: &Input) -> Result<(Snapshot, Vec<macros::Definition>)> {
         if input.required.is_empty() {
             return Err(Error::new(
                 Stage::Scope,
@@ -127,6 +139,22 @@ impl Compiler {
                 }
             }
         }
+        let type_names = roots
+            .iter()
+            .filter(|root| {
+                matches!(
+                    root.kind.as_str(),
+                    "TypedefDecl"
+                        | "TypeAliasDecl"
+                        | "StructDecl"
+                        | "ClassDecl"
+                        | "UnionDecl"
+                        | "EnumDecl"
+                )
+            })
+            .map(|root| root.qualified_name.clone())
+            .collect::<BTreeSet<_>>();
+        let mut definitions = Vec::new();
         for name in &input.required {
             let Some(values) = selected.get(name) else {
                 return Err(Error::new(
@@ -137,8 +165,20 @@ impl Compiler {
                     ),
                 ));
             };
+            let mut macro_seen = false;
             for cursor in values {
-                capture.declaration(*cursor)?;
+                if unsafe { clang_getCursorKind(*cursor) } == CXCursor_MacroDefinition {
+                    if macro_seen {
+                        return Err(error(
+                            *cursor,
+                            "multiple scoped macro definitions require an active-definition policy",
+                        ));
+                    }
+                    macro_seen = true;
+                    definitions.push(macros::definition(session.unit, *cursor, &type_names)?);
+                } else {
+                    capture.declaration(*cursor)?;
+                }
             }
         }
         roots.sort_by(|a, b| {
@@ -161,10 +201,12 @@ impl Compiler {
             arguments: session.arguments.clone(),
             diagnostics: session.diagnostics.clone(),
             roots,
+            macros: Vec::new(),
+            macro_probe: None,
             declarations: capture.declarations,
         };
         snapshot.check()?;
-        Ok(snapshot)
+        Ok((snapshot, definitions))
     }
 }
 
@@ -864,7 +906,16 @@ fn enum_value(cursor: CXCursor, underlying: &NativeType) -> Result<metadata::Val
     };
     let signed = unsafe { clang_getEnumConstantDeclValue(cursor) };
     let unsigned = unsafe { clang_getEnumConstantDeclUnsignedValue(cursor) };
-    let failure = |_| error(cursor, "enum value exceeds its declared underlying type");
+    integer_value(cursor, kind, signed, unsigned)
+}
+
+fn integer_value(
+    cursor: CXCursor,
+    kind: i32,
+    signed: i64,
+    unsigned: u64,
+) -> Result<metadata::Value> {
+    let failure = |_| error(cursor, "integer value exceeds its native type");
     Ok(match kind {
         CXType_Char_S | CXType_SChar => metadata::Value::I8(i8::try_from(signed).map_err(failure)?),
         CXType_Char_U | CXType_UChar => {
@@ -878,7 +929,7 @@ fn enum_value(cursor: CXCursor, underlying: &NativeType) -> Result<metadata::Val
         }
         CXType_LongLong => metadata::Value::I64(signed),
         CXType_ULongLong => metadata::Value::U64(unsigned),
-        _ => return Err(error(cursor, "enum underlying type is not representable")),
+        _ => return Err(error(cursor, "integer type is not representable")),
     })
 }
 

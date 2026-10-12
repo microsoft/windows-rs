@@ -67,8 +67,32 @@ The reviewed `pilot_api.h`/`.rdl` fixture covers enum values and aliases, enum-c
 import renaming, variadic signatures, and colliding/unnamed parameters. Semantic WinMD checks run on
 all three targets. The real shellscalingapi ANSI/Unicode profiles emit and compile on all three
 targets. These are producer checks, not accepted partitions: source contracts, combined inputs,
-architecture agreement, difference classification, value macros, and the selected COM closure
+architecture agreement, difference classification, Unicode alias publication, and the COM closure
 remain pilot obligations.
+
+## Object-like macro capture
+
+Selected macros retain compiler-tokenized replacements and original expansion/spelling locations.
+After disposing the original TU, capture appends constant/type probes to the exact source and
+reparses with the same compiler, target, and arguments. The derived source, arguments, and
+diagnostics remain owned evidence. Probe expansion references must point to the selected
+definitions; an active definition outside the root scope cannot supply a value.
+
+Scalar integer expressions retain compiler-derived width, signedness, and value, including unsigned
+wraps and signed limits. Compiler-owned unexposed integer types without a nominal declaration, such
+as the result of `sizeof`, use their canonical integer type. Typedef/enum-valued expressions reject
+rather than lose those contracts. Function-like, empty, undefined, multiply defined, nonconstant,
+floating-point, string, and object-pointer macros remain outside this producer.
+
+Direct named type and function aliases retain compiler-resolved target kind, qualified name, USR,
+and locations separately from native declarations. They do not rename or replace declarations.
+RDL publication rejects these aliases until a profile-specific naming contract is defined.
+The pilot records all ten Toolhelp Unicode aliases without choosing winners for colliding names.
+
+The reviewed `macro_values.h`/`.rdl` fixture and semantic WinMD checks cover all three targets.
+Active-definition scope, rejected contracts, concurrent reuse, and compiler destruction have
+regression controls. Toolhelp ANSI profiles emit all 13 required constants and 16 functions on all
+targets. Unicode publication and COM/source contracts still prevent pilot acceptance.
 
 ## Ownership and checked output
 

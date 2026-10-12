@@ -1,0 +1,13 @@
+#[win32]
+mod Test {
+    const BASE: u32 = 16;
+    const COMBINED: u32 = 28;
+    const FLAG: u32 = 2147483648;
+    const MAXIMUM: u64 = 18446744073709551615;
+    const MINIMUM: i64 = -9223372036854775808;
+    const NEGATIVE: i32 = -3;
+    const SHORT: u16 = 65535;
+    const SIGNED_CHAR: i8 = -128;
+    const TRUTH: bool = true;
+    const WRAPPED: u32 = 4294967295;
+}

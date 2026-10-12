@@ -15,6 +15,7 @@ struct Entry {
 }
 
 enum Kind {
+    Constant(metadata::Value),
     Alias(metadata::Type),
     Opaque {
         union: bool,
@@ -270,6 +271,44 @@ impl Closed {
                 ));
             }
         }
+        for evidence in &snapshot.macros {
+            if !identifier(&evidence.name) {
+                return Err(Error::new(
+                    Stage::Representation,
+                    "unsupported macro publication name",
+                ));
+            }
+            let MacroKind::Integer { value, .. } = &evidence.kind else {
+                return Err(Error::new(
+                    Stage::Representation,
+                    format!(
+                        "{}: macro alias publication requires a profile-specific contract",
+                        evidence.name
+                    ),
+                ));
+            };
+            let key = (namespace.to_string(), evidence.name.clone(), true);
+            if declarations
+                .insert(
+                    key,
+                    Entry {
+                        namespace: namespace.to_string(),
+                        name: evidence.name.clone(),
+                        kind: Kind::Constant(value.clone()),
+                        owner: None,
+                    },
+                )
+                .is_some()
+            {
+                return Err(Error::new(
+                    Stage::Representation,
+                    format!(
+                        "macro publication collision for {namespace}.{}",
+                        evidence.name
+                    ),
+                ));
+            }
+        }
         Ok(Self {
             declarations: declarations.into_values().collect(),
         })
@@ -405,6 +444,11 @@ impl Closed {
 
     fn render(kind: &Kind, name: &str) -> String {
         match kind {
+            Kind::Constant(value) => format!(
+                "const {name}: {} = {};",
+                windows_rdl::emit::write_type("", &value.ty()),
+                windows_rdl::emit::write_value("", value)
+            ),
             Kind::Alias(ty) => {
                 let ty = windows_rdl::emit::write_type("", ty);
                 format!("type {name} = {ty};")
