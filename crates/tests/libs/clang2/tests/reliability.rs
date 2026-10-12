@@ -96,7 +96,7 @@ fn short_sources(compiler: Option<&Compiler>) {
             ),
             (
                 "struct Value { struct Nested { int member; } nested; };",
-                Some(Stage::Capture),
+                None,
             ),
             (
                 "struct Base { int member; }; struct Value : Base { int other; };",

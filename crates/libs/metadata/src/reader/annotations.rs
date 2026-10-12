@@ -21,6 +21,7 @@ pub enum NativeContractError {
     DataImport(NativeDataImportError),
     Slot(NativeSlotError),
     Value(NativeValueError),
+    Record(NativeRecordError),
 }
 
 impl std::fmt::Display for NativeContractError {
@@ -32,6 +33,7 @@ impl std::fmt::Display for NativeContractError {
             Self::DataImport(error) => error.fmt(f),
             Self::Slot(error) => error.fmt(f),
             Self::Value(error) => error.fmt(f),
+            Self::Record(error) => error.fmt(f),
         }
     }
 }
@@ -45,6 +47,7 @@ impl std::error::Error for NativeContractError {
             Self::DataImport(error) => error,
             Self::Slot(error) => error,
             Self::Value(error) => error,
+            Self::Record(error) => error,
         })
     }
 }
@@ -81,6 +84,9 @@ impl Index {
             reference
                 .validate_native_values(None)
                 .map_err(NativeContractError::Value)?;
+            reference
+                .validate_native_records(None)
+                .map_err(NativeContractError::Record)?;
         }
         self.validate_native_annotations()
             .map_err(NativeContractError::Annotation)?;
@@ -91,7 +97,9 @@ impl Index {
         self.validate_native_slots(reference)
             .map_err(NativeContractError::Slot)?;
         self.validate_native_values(reference)
-            .map_err(NativeContractError::Value)
+            .map_err(NativeContractError::Value)?;
+        self.validate_native_records(reference)
+            .map_err(NativeContractError::Record)
     }
 
     /// Checks annotation identities, owners, and original positional bindings without lowering SAL.

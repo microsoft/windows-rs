@@ -120,6 +120,8 @@ pub struct LayoutBridgeEvidence {
 
 #[derive(Debug, Clone)]
 pub struct Evidence {
+    /// Identity within this snapshot, assigned from canonical compiler cursor equality.
+    pub id: usize,
     pub qualified_name: String,
     pub kind: String,
     pub usr: String,
@@ -141,6 +143,9 @@ pub struct Root {
 #[derive(Debug, Clone)]
 pub struct FieldEvidence {
     pub name: String,
+    pub ordinal: usize,
+    pub anonymous: bool,
+    pub record_id: Option<usize>,
     pub expansion: Location,
     pub spelling: Location,
     pub written_type: String,
@@ -171,6 +176,18 @@ impl Snapshot {
 
     pub fn evidence(&self) -> impl Iterator<Item = &Evidence> {
         self.declarations.iter().map(|decl| &decl.evidence)
+    }
+
+    pub fn ownerships(&self) -> impl Iterator<Item = (&Evidence, &Evidence, bool)> {
+        self.declarations.iter().filter_map(|decl| {
+            decl.owner.map(|owner| {
+                (
+                    &decl.evidence,
+                    &self.declarations[owner].evidence,
+                    decl.anonymous,
+                )
+            })
+        })
     }
 
     pub fn fields(&self) -> impl Iterator<Item = (&Evidence, &FieldEvidence)> {
@@ -218,6 +235,8 @@ type Id = usize;
 struct Declaration {
     evidence: Evidence,
     names: Vec<String>,
+    owner: Option<Id>,
+    anonymous: bool,
     kind: DeclarationKind,
 }
 

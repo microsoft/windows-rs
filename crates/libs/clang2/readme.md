@@ -23,14 +23,20 @@ C3-B adds record-level packing and MSVC `__declspec(align(...))` through
 `Compiler::with_layout_bridge`.
 The matched native bridge reads requests from the same TU, including requests with identical
 storage. Required alignment propagates through named records, aliases, and arrays; reviewed RDL,
-WinMD readback, and independent MSVC assertions cover x86/x64/ARM64. Field adjustments, anonymous
-definitions, and bit-fields remain unsupported.
+WinMD readback, and independent MSVC assertions cover x86/x64/ARM64. Field adjustments and
+bit-fields remain unsupported.
 
 Build the pinned parser/bridge pair with `cargo run -p tool-clang --quiet -- native-layout`
 on an x64 Windows host with MSVC/CMake. Set `LIBCLANG_PATH` to the printed directory for bridge
 captures. The loader checks parser identity, SHA256, and bridge ABI before reading ASTs.
 `Compiler::new` keeps the ordinary C2/C3-A path; natural-storage agreement alone does not prove
 the absence of explicit packing requests.
+
+C3-C adds public named nested records/typedefs and direct unnamed struct/union storage. Native
+owner and unnamed-field descriptors preserve source meaning independently of publication names.
+The bridge supplies implicit-field identity; canonical cursor equality keeps records distinct even
+when their USRs match. Compiling this RDL requires a reference built from `metadata/metadata.rdl`.
+Arrays/pointers/shared unnamed identities and private/behavioral owners remain outside this slice.
 
 See [the replacement plan](../../../docs/crates/windows-clang.md#fixed-implementation-matrix)
 and [crate internals](../../../docs/crates/windows-clang2.md).

@@ -963,7 +963,12 @@ fn type_sig(index: &reader::Index, def: reader::TypeDef) -> String {
                 .constant()
                 .map(|c| format!("{:?}", c.value()))
                 .unwrap_or_default();
-            format!("{}:{:?}={val}", f.name(), f.ty())
+            let anonymous = if f.is_native_anonymous().unwrap() {
+                "|anonymous"
+            } else {
+                ""
+            };
+            format!("{}:{:?}={val}{anonymous}", f.name(), f.ty())
         })
         .collect();
     let methods: Vec<String> = def
@@ -986,6 +991,9 @@ fn type_sig(index: &reader::Index, def: reader::TypeDef) -> String {
         def.flags(),
         def.is_opaque()
     );
+    if let Some(owner) = def.native_owner().unwrap() {
+        signature.push_str(&format!("|owner:{owner:?}"));
+    }
     if def.attributes().any(|attr| {
         attr.namespace() == "Windows.Win32.Metadata" && attr.name() == "NativeVtableAttribute"
     }) {

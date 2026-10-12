@@ -1,0 +1,15 @@
+#[win32]
+mod Test {
+    mod Shapes {
+        struct Peer {
+            item: Test::Shapes::Peer::Node,
+        }
+        mod Peer {
+            #[Windows::Win32::Metadata::NativeTypeOwner(Test::Shapes::Peer)]
+            struct Node {
+                value: i32,
+                next: *mut Test::Shapes::Peer::Node,
+            }
+        }
+    }
+}

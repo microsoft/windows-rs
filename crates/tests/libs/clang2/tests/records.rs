@@ -19,6 +19,47 @@ fn sdk() -> PathBuf {
             .join(".nuget\\packages\\microsoft.windows.sdk.cpp\\10.0.28000.2270\\c\\Include\\10.0.28000.0"), PathBuf::from)
 }
 
+fn vocabulary(name: &str) -> PathBuf {
+    let path = Path::new(env!("OUT_DIR")).join(format!("{name}_vocabulary.winmd"));
+    windows_rdl::reader()
+        .input_text(include_str!("..\\..\\..\\..\\..\\metadata\\metadata.rdl"))
+        .output(&path)
+        .write()
+        .unwrap();
+    path
+}
+
+fn sdk_input(source: &str, target: Target, names: &[&str], root: &str) -> Input {
+    let repository = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(4)
+        .unwrap();
+    let resource = std::env::var_os("CLANG_RESOURCE_DIR").map_or_else(
+        || repository.join("target\\tool-clang\\clang-resource\\22.1.8"),
+        PathBuf::from,
+    );
+    let mut profile = input(source, target, names);
+    profile
+        .arguments
+        .extend(["-resource-dir".into(), resource.to_str().unwrap().into()]);
+    for directory in ["ucrt", "um", "shared"] {
+        profile
+            .arguments
+            .push(format!("-I{}", sdk().join(directory).display()));
+    }
+    profile.roots.push(sdk().join(root));
+    profile
+}
+
+fn definition<'a>(index: &'a Index, namespace: &str, name: &str) -> TypeDef<'a> {
+    let mut names = name.split('/');
+    let mut def = index.get(namespace, names.next().unwrap()).next().unwrap();
+    for name in names {
+        def = index.nested(def).find(|def| def.name() == name).unwrap();
+    }
+    def
+}
+
 fn type_layout(index: &Index, ty: &Type, pointer: u64, visiting: &mut BTreeSet<String>) -> Layout {
     let scalar = |size| Layout {
         size,
@@ -54,7 +95,7 @@ fn definition_layout(
 ) -> (Layout, Vec<(String, u64)>) {
     let key = format!("{namespace}.{name}");
     assert!(visiting.insert(key.clone()), "cyclic by-value metadata");
-    let def = index.get(namespace, name).next().unwrap();
+    let def = definition(index, namespace, name);
     let packing = def
         .class_layout()
         .map(|layout| u64::from(layout.packing_size()));
@@ -119,7 +160,7 @@ fn required_alignment(index: &Index, ty: &Type, visiting: &mut BTreeSet<String>)
         Type::ValueName(name) => {
             let key = format!("{}.{}", name.namespace, name.name);
             assert!(visiting.insert(key.clone()));
-            let def = index.get(&name.namespace, &name.name).next().unwrap();
+            let def = definition(index, &name.namespace, &name.name);
             let required = def
                 .fields()
                 .map(|field| required_alignment(index, &field.ty(), visiting))
@@ -136,6 +177,7 @@ fn required_alignment(index: &Index, ty: &Type, visiting: &mut BTreeSet<String>)
 fn check(snapshot: &Snapshot, rdl: &str, name: &str) {
     let path = Path::new(env!("OUT_DIR")).join(format!("{name}_{:?}.winmd", snapshot.target()));
     windows_rdl::reader()
+        .reference(vocabulary(name))
         .input_text(rdl)
         .output(&path)
         .write()
@@ -144,26 +186,217 @@ fn check(snapshot: &Snapshot, rdl: &str, name: &str) {
     index.validate_native_contracts(None).unwrap();
     let pointer = u64::from(snapshot.target().pointer_bits() / 8);
     for evidence in snapshot.evidence() {
-        if !snapshot
-            .fields()
-            .any(|(owner, _)| owner.usr == evidence.usr)
+        if !snapshot.fields().any(|(owner, _)| owner.id == evidence.id) {
+            continue;
+        }
+        if snapshot
+            .ownerships()
+            .any(|(child, _, anonymous)| child.id == evidence.id && anonymous)
         {
             continue;
         }
-        let (layout, offsets) = definition_layout(
+        let name = publication(evidence);
+        check_record(
             &index,
-            "Test",
-            &evidence.qualified_name,
+            snapshot,
+            evidence,
+            definition(&index, &name.namespace, &name.name),
             pointer,
-            &mut BTreeSet::new(),
         );
-        assert_eq!(Some(layout), evidence.layout, "{}", evidence.qualified_name);
-        let expected = snapshot
-            .fields()
-            .filter(|(owner, _)| owner.usr == evidence.usr)
-            .map(|(_, field)| (field.name.clone(), field.offset))
-            .collect::<Vec<_>>();
-        assert_eq!(offsets, expected, "{}", evidence.qualified_name);
+    }
+    for (child, owner, anonymous) in snapshot.ownerships().filter(|(_, _, anonymous)| !anonymous) {
+        assert!(!anonymous);
+        let name = publication(child);
+        let def = definition(&index, &name.namespace, &name.name);
+        assert_eq!(def.native_owner().unwrap(), Some(publication(owner)));
+    }
+}
+
+fn publication(evidence: &Evidence) -> windows_metadata::TypeName {
+    let mut names = evidence.qualified_name.split("::").collect::<Vec<_>>();
+    let name = names.pop().unwrap();
+    let namespace = std::iter::once("Test")
+        .chain(names)
+        .collect::<Vec<_>>()
+        .join(".");
+    windows_metadata::TypeName::named(&namespace, name)
+}
+
+fn check_record(
+    index: &Index,
+    snapshot: &Snapshot,
+    evidence: &Evidence,
+    def: TypeDef<'_>,
+    pointer: u64,
+) {
+    let name = def.full_name();
+    let (layout, offsets) = definition_layout(
+        index,
+        &name.namespace,
+        &name.name,
+        pointer,
+        &mut BTreeSet::new(),
+    );
+    assert_eq!(Some(layout), evidence.layout, "{}", evidence.qualified_name);
+    let fields = snapshot
+        .fields()
+        .filter(|(owner, _)| owner.id == evidence.id)
+        .map(|(_, field)| field)
+        .collect::<Vec<_>>();
+    assert_eq!(def.fields().len(), fields.len());
+    for (slot, ((field, native), (_, offset))) in def.fields().zip(fields).zip(offsets).enumerate()
+    {
+        assert_eq!(native.ordinal, slot);
+        assert_eq!(native.offset, offset);
+        assert_eq!(field.is_native_anonymous().unwrap(), native.anonymous);
+        if native.anonymous {
+            assert!(native.name.is_empty());
+        } else {
+            assert_eq!(field.name(), native.name);
+        }
+        if let Some((child, owner, true)) = snapshot
+            .ownerships()
+            .find(|(child, _, anonymous)| *anonymous && Some(child.id) == native.record_id)
+        {
+            assert_eq!(owner.id, evidence.id);
+            let Type::ValueName(name) = field.ty() else {
+                panic!("direct nested record expected")
+            };
+            let child_def = index
+                .nested(def)
+                .find(|child| child.full_name() == name)
+                .unwrap();
+            check_record(index, snapshot, child, child_def, pointer);
+        }
+    }
+}
+
+#[cfg(target_arch = "x86_64")]
+fn check_nested(compiler: &Compiler, target: Target) {
+    let decimal = compiler
+        .capture(&sdk_input(
+            include_str!("../input/sdk_nested.h"),
+            target,
+            &["DECIMAL"],
+            "shared\\wtypes.h",
+        ))
+        .unwrap();
+    let rdl = decimal.rdl("Test").unwrap();
+    assert_eq!(
+        rdl,
+        include_str!("../input/sdk_nested.rdl").replace("\r\n", "\n")
+    );
+    check(&decimal, &rdl, "sdk_nested");
+    assert!(
+        decimal
+            .record_layouts()
+            .all(|(_, contract)| contract.packing.is_none() && contract.alignment.is_none())
+    );
+    for (roots, name, expected) in [
+        (
+            &["Shapes::Owner", "Shapes::Peer"][..],
+            "nested_records",
+            include_str!("../input/nested_records.rdl"),
+        ),
+        (
+            &["PackedNested"][..],
+            "nested_packed",
+            include_str!("../input/nested_packed.rdl"),
+        ),
+    ] {
+        let snapshot = compiler
+            .capture(&input(
+                include_str!("../input/nested_records.h"),
+                target,
+                roots,
+            ))
+            .unwrap();
+        let rdl = snapshot.rdl("Test").unwrap();
+        assert_eq!(rdl, expected.replace("\r\n", "\n"));
+        check(&snapshot, &rdl, name);
+        let original = Path::new(env!("OUT_DIR")).join(format!("{name}_{target:?}.winmd"));
+        let text = original.with_extension("rdl");
+        windows_rdl::writer()
+            .input(&original)
+            .output(&text)
+            .write()
+            .unwrap();
+        check(
+            &snapshot,
+            &std::fs::read_to_string(text).unwrap(),
+            &format!("{name}_roundtrip"),
+        );
+        if name == "nested_records" {
+            let reordered = compiler
+                .capture(&input(
+                    include_str!("../input/nested_records.h"),
+                    target,
+                    &["Shapes::Peer", "Shapes::Owner::Node"],
+                ))
+                .unwrap();
+            assert_eq!(reordered.rdl("Test").unwrap(), rdl);
+            let mut moved = input(include_str!("../input/nested_records.h"), target, roots);
+            moved.name = "moved.cpp".to_string();
+            assert_eq!(compiler.capture(&moved).unwrap().rdl("Test").unwrap(), rdl);
+            let index = Index::read(&original).unwrap();
+            let owner = index.expect("Test.Shapes", "Owner");
+            let fields = owner.fields().collect::<Vec<_>>();
+            assert_eq!(fields[3].ty(), fields[4].ty());
+            assert_ne!(
+                index.expect("Test.Shapes.Owner", "Node").full_name(),
+                index.expect("Test.Shapes.Peer", "Node").full_name()
+            );
+            assert!(fields[7].is_native_anonymous().unwrap());
+            assert!(!fields[8].is_native_anonymous().unwrap());
+            assert_ne!(fields[7].name(), fields[8].name());
+            let native = snapshot
+                .fields()
+                .filter(|(owner, _)| owner.qualified_name == "Shapes::Owner")
+                .map(|(_, field)| field)
+                .collect::<Vec<_>>();
+            assert_ne!(native[6].record_id, native[7].record_id);
+            let first = snapshot
+                .evidence()
+                .find(|item| Some(item.id) == native[6].record_id)
+                .unwrap();
+            let second = snapshot
+                .evidence()
+                .find(|item| Some(item.id) == native[7].record_id)
+                .unwrap();
+            assert_eq!(first.usr, second.usr);
+            let copied = snapshot.clone();
+            assert_eq!(copied.rdl("Test").unwrap(), rdl);
+        }
+    }
+    for name in [
+        "AnonymousArray",
+        "AnonymousPointer",
+        "SharedAnonymous",
+        "NamedInUnnamed",
+    ] {
+        let snapshot = compiler
+            .capture(&input(
+                include_str!("../input/nested_rejected.h"),
+                target,
+                &[name],
+            ))
+            .unwrap();
+        let error = snapshot.rdl("Test").unwrap_err();
+        assert_eq!(error.stage, Stage::Representation, "{name}: {error}");
+    }
+    for name in [
+        "PrivateOwner::Inner",
+        "BehavioralOwner::Inner",
+        "QualifiedAnonymous",
+    ] {
+        let error = compiler
+            .capture(&input(
+                include_str!("../input/nested_rejected.h"),
+                target,
+                &[name],
+            ))
+            .unwrap_err();
+        assert_eq!(error.stage, Stage::Capture, "{name}: {error}");
     }
 }
 
@@ -268,6 +501,7 @@ fn reviewed_explicit_layouts_preserve_contracts_on_three_targets() {
     }
     let mut retained = None;
     for target in [Target::X86, Target::X64, Target::Arm64] {
+        check_nested(&compiler, target);
         let snapshot = compiler
             .capture(&input(
                 include_str!("../input/layout_contracts.h"),
@@ -290,7 +524,7 @@ fn reviewed_explicit_layouts_preserve_contracts_on_three_targets() {
             include_str!("../input/layout_contracts.rdl").replace("\r\n", "\n")
         );
         let evidence = snapshot.layout_bridge.as_ref().unwrap();
-        assert_eq!(evidence.abi, 1);
+        assert_eq!(evidence.abi, 2);
         assert_eq!(
             evidence.library.file_name().unwrap(),
             "windows_clang_layout.dll"
@@ -374,7 +608,18 @@ fn reviewed_explicit_layouts_preserve_contracts_on_three_targets() {
             task.join().unwrap();
         }
     });
+    let nested_retained = compiler
+        .capture(&input(
+            include_str!("../input/nested_records.h"),
+            Target::Arm64,
+            &["Shapes::Owner", "Shapes::Peer"],
+        ))
+        .unwrap();
     drop(compiler);
+    assert_eq!(
+        nested_retained.rdl("Test").unwrap(),
+        include_str!("../input/nested_records.rdl").replace("\r\n", "\n")
+    );
     assert_eq!(
         retained.unwrap().rdl("Test").unwrap(),
         include_str!("../input/layout_contracts.rdl").replace("\r\n", "\n")
@@ -408,6 +653,7 @@ fn existing_plain_class_anchor_is_storage_not_interface() {
         );
         check(&snapshot, &rdl, "bitmap");
     }
+
     for name in ["CProperty", "IPropertyList"] {
         assert_eq!(
             compiler
@@ -420,13 +666,32 @@ fn existing_plain_class_anchor_is_storage_not_interface() {
 }
 
 #[test]
+fn named_nested_records_use_the_ordinary_compiler_path() {
+    let compiler = Compiler::new().unwrap();
+    for target in [Target::X86, Target::X64, Target::Arm64] {
+        let snapshot = compiler
+            .capture(&input(
+                include_str!("../input/nested_records.h"),
+                target,
+                &["Shapes::Peer::Node"],
+            ))
+            .unwrap();
+        let rdl = snapshot.rdl("Test").unwrap();
+        assert_eq!(
+            rdl,
+            include_str!("../input/nested_named.rdl").replace("\r\n", "\n")
+        );
+        check(&snapshot, &rdl, "nested_named");
+    }
+}
+
+#[test]
 fn unsupported_record_storage_never_becomes_opaque_or_natural() {
     let compiler = Compiler::new().unwrap();
     for source in [
         "struct Record {};",
         "struct Record { unsigned value : 3; };",
         "struct Record { union { int a; float b; }; };",
-        "struct Record { struct Nested { int value; } nested; };",
         "struct Base { int value; }; struct Record : Base { int other; };",
         "struct Record { int value; void Method(); };",
         "class Record { int value; };",
@@ -485,7 +750,13 @@ fn native_msvc_compiles_the_independent_storage_assertions() {
     let setup = visual_studio.join("VC\\Auxiliary\\Build\\vcvarsall.bat");
     assert!(setup.is_file(), "missing MSVC environment setup");
     for arch in ["x86", "amd64", "amd64_arm64"] {
-        for fixture in ["records", "sdk_records", "layout_contracts"] {
+        for fixture in [
+            "records",
+            "sdk_records",
+            "layout_contracts",
+            "nested_records",
+            "sdk_nested",
+        ] {
             let source =
                 Path::new(env!("CARGO_MANIFEST_DIR")).join(format!("input\\{fixture}.cpp"));
             let object = Path::new(env!("OUT_DIR")).join(format!("{fixture}_{arch}.obj"));
@@ -516,25 +787,13 @@ fn native_msvc_compiles_the_independent_storage_assertions() {
 #[test]
 fn pinned_sdk_point_rect_keep_tags_aliases_and_member_types() {
     let compiler = Compiler::new().unwrap();
-    let repository = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .ancestors()
-        .nth(4)
-        .unwrap();
-    let resource = std::env::var_os("CLANG_RESOURCE_DIR").map_or_else(
-        || repository.join("target\\tool-clang\\clang-resource\\22.1.8"),
-        PathBuf::from,
-    );
     for target in [Target::X86, Target::X64, Target::Arm64] {
-        let mut profile = input(include_str!("../input/winnt.h"), target, &["POINT", "RECT"]);
-        profile
-            .arguments
-            .extend(["-resource-dir".into(), resource.to_str().unwrap().into()]);
-        for directory in ["ucrt", "um", "shared"] {
-            profile
-                .arguments
-                .push(format!("-I{}", sdk().join(directory).display()));
-        }
-        profile.roots.push(sdk().join("shared\\windef.h"));
+        let profile = sdk_input(
+            include_str!("../input/winnt.h"),
+            target,
+            &["POINT", "RECT"],
+            "shared\\windef.h",
+        );
         let snapshot = compiler.capture(&profile).unwrap();
         let rdl = snapshot.rdl("Test").unwrap();
         assert_eq!(

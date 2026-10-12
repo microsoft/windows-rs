@@ -18,7 +18,7 @@ struct LayoutContract {
 static_assert(sizeof(LayoutContract) == 12);
 
 extern "C" __declspec(dllexport) uint32_t windows_clang_layout_abi() {
-    return 1;
+    return 2;
 }
 
 extern "C" __declspec(dllexport) const void *windows_clang_layout_parser() {
@@ -36,6 +36,7 @@ windows_clang_layout_record(CXCursor cursor, LayoutContract *result) {
                     cursor.kind != CXCursor_UnionDecl)) {
         return 1;
     }
+
     const auto *record = llvm::dyn_cast_or_null<clang::RecordDecl>(
         clang::cxcursor::getCursorDecl(cursor));
     if (!record || !record->isCompleteDefinition()) {
@@ -57,5 +58,20 @@ windows_clang_layout_record(CXCursor cursor, LayoutContract *result) {
     contract.required_alignment = static_cast<uint32_t>(
         record->getASTContext().getASTRecordLayout(record).getRequiredAlignment().getQuantity());
     *result = contract;
+    return 0;
+}
+
+extern "C" __declspec(dllexport) uint32_t
+windows_clang_layout_field(CXCursor cursor, uint32_t *result) {
+    if (!result || cursor.kind != CXCursor_FieldDecl) {
+        return 1;
+    }
+    const auto *field = llvm::dyn_cast_or_null<clang::FieldDecl>(
+        clang::cxcursor::getCursorDecl(cursor));
+    if (!field) {
+        return 1;
+    }
+    *result = (field->getIdentifier() ? 1u : 0u)
+            | (field->isAnonymousStructOrUnion() ? 2u : 0u);
     return 0;
 }

@@ -71,6 +71,21 @@ impl Compiler {
                 pending.extend(children(cursor));
                 continue;
             }
+            if matches!(
+                kind,
+                CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
+            ) {
+                pending.extend(children(cursor).into_iter().filter(|child| {
+                    matches!(
+                        unsafe { clang_getCursorKind(*child) },
+                        CXCursor_StructDecl
+                            | CXCursor_ClassDecl
+                            | CXCursor_UnionDecl
+                            | CXCursor_TypedefDecl
+                            | CXCursor_TypeAliasDecl
+                    )
+                }));
+            }
             if unsafe { clang_isDeclaration(kind) } == 0 && kind != CXCursor_MacroDefinition {
                 continue;
             }
@@ -347,9 +362,23 @@ impl Capture<'_> {
         }
         if !matches!(
             unsafe { clang_getCursorKind(parent) },
-            CXCursor_TranslationUnit | CXCursor_Namespace
+            CXCursor_TranslationUnit
+                | CXCursor_Namespace
+                | CXCursor_StructDecl
+                | CXCursor_ClassDecl
+                | CXCursor_UnionDecl
         ) {
-            return Err(error(cursor, "nested declaration ownership requires C3"));
+            return Err(error(cursor, "unsupported native declaration owner"));
+        }
+        let nested = matches!(
+            unsafe { clang_getCursorKind(parent) },
+            CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
+        );
+        if nested && unsafe { clang_getCXXAccessSpecifier(cursor) } != CX_CXXPublic {
+            return Err(error(
+                cursor,
+                "nonpublic nested declarations are outside C3-C",
+            ));
         }
         self.check_attributes(cursor)?;
         let cursor = unsafe { clang_getCanonicalCursor(cursor) };
@@ -378,11 +407,15 @@ impl Capture<'_> {
             ));
         }
         self.check_attributes(cursor)?;
-        let names = names(cursor)?;
-        if names.iter().any(|name| name.is_empty()) {
+        let anonymous = unsafe { clang_Cursor_isAnonymous(cursor) } != 0;
+        let mut names = names(cursor)?;
+        if anonymous {
+            *names.last_mut().unwrap() = String::new();
+        }
+        if anonymous && !nested {
             return Err(error(
                 cursor,
-                "anonymous declaration ownership is outside C2",
+                "unnamed records require a direct enclosing record field (C3-C)",
             ));
         }
         let usr = text(unsafe { clang_getCursorUSR(cursor) });
@@ -398,6 +431,7 @@ impl Capture<'_> {
         self.pending.insert(id);
         self.declarations.push(Declaration {
             evidence: Evidence {
+                id,
                 qualified_name: names.join("::"),
                 kind: text(unsafe { clang_getCursorKindSpelling(kind) }),
                 usr,
@@ -408,8 +442,14 @@ impl Capture<'_> {
                 layout: None,
             },
             names,
+            owner: None,
+            anonymous,
             kind: DeclarationKind::Opaque { union: false },
         });
+        if nested {
+            let owner = self.declaration(parent)?;
+            self.declarations[id].owner = Some(owner);
+        }
         let declaration = if matches!(kind, CXCursor_TypedefDecl | CXCursor_TypeAliasDecl) {
             let ty = unsafe { clang_getTypedefDeclUnderlyingType(cursor) };
             let canonical = unsafe { clang_getCanonicalType(ty) };
@@ -483,8 +523,9 @@ impl Capture<'_> {
         if unsafe { clang_isPODType(clang_getCursorType(cursor)) } == 0 {
             return Err(error(cursor, "non-POD record behavior is outside C3-A"));
         }
-        let mut fields = Vec::new();
-        for child in children(cursor) {
+        let members = children(cursor);
+        for child in &members {
+            let child = *child;
             match unsafe { clang_getCursorKind(child) } {
                 CXCursor_AlignedAttr if self.layouts.is_some() => {}
                 CXCursor_CXXAccessSpecifier => {
@@ -492,51 +533,94 @@ impl Capture<'_> {
                         return Err(error(child, "nonpublic record members are outside C3-A"));
                     }
                 }
-                CXCursor_FieldDecl => {
-                    if unsafe { clang_Cursor_isBitField(child) } != 0 {
-                        return Err(error(child, "bit-field storage is outside C3-A"));
-                    }
-                    if unsafe { clang_getCXXAccessSpecifier(child) } != CX_CXXPublic {
-                        return Err(error(child, "nonpublic record members are outside C3-A"));
-                    }
-                    if children(child)
-                        .iter()
-                        .any(|attr| unsafe { clang_isAttribute(clang_getCursorKind(*attr)) } != 0)
-                    {
-                        return Err(error(child, "field attributes require C7 contracts"));
-                    }
-                    let name = text(unsafe { clang_getCursorSpelling(child) });
-                    if name.is_empty() {
-                        return Err(error(child, "anonymous record storage is outside C3-A"));
-                    }
-                    let bits = unsafe { clang_Cursor_getOffsetOfField(child) };
-                    if bits < 0 || bits % 8 != 0 {
-                        return Err(error(child, "native field has no byte-aligned offset"));
-                    }
-                    let ty = unsafe { clang_getCursorType(child) };
-                    let canonical = unsafe { clang_getCanonicalType(ty) };
-                    let (expansion, spelling) = locations(child);
-                    fields.push(NativeField {
-                        evidence: FieldEvidence {
-                            name,
-                            expansion,
-                            spelling,
-                            written_type: text(unsafe { clang_getTypeSpelling(ty) }),
-                            canonical_type: text(unsafe { clang_getTypeSpelling(canonical) }),
-                            layout: layout(ty)?,
-                            offset: bits as u64 / 8,
-                        },
-                        written: self.ty(ty, 0)?,
-                        canonical: self.ty(canonical, 0)?,
-                    });
-                }
+                CXCursor_FieldDecl
+                | CXCursor_StructDecl
+                | CXCursor_ClassDecl
+                | CXCursor_UnionDecl
+                | CXCursor_TypedefDecl
+                | CXCursor_TypeAliasDecl => {}
                 _ => {
                     return Err(error(
                         child,
-                        "record member behavior, attributes, or nested storage is outside C3-A",
+                        "record member behavior or attributes are outside C3 storage",
                     ));
                 }
             }
+        }
+        let mut fields = Vec::new();
+        for child in record_fields(cursor) {
+            if unsafe { clang_Cursor_isBitField(child) } != 0 {
+                return Err(error(child, "bit-field storage is outside C3-A"));
+            }
+            if unsafe { clang_getCXXAccessSpecifier(child) } != CX_CXXPublic {
+                return Err(error(child, "nonpublic record members are outside C3-A"));
+            }
+            if children(child)
+                .iter()
+                .any(|attr| unsafe { clang_isAttribute(clang_getCursorKind(*attr)) } != 0)
+            {
+                return Err(error(child, "field attributes require C7 contracts"));
+            }
+            let anonymous = if let Some(layouts) = self.layouts {
+                layouts.anonymous_field(child).map_err(|mut failure| {
+                    failure.message = error(child, &failure.message).message;
+                    failure
+                })?
+            } else if members
+                .iter()
+                .any(|member| unsafe { clang_equalCursors(*member, child) } != 0)
+            {
+                false
+            } else {
+                return Err(error(
+                    child,
+                    "implicit native fields require the matched identity bridge",
+                ));
+            };
+            let name = if anonymous {
+                String::new()
+            } else {
+                text(unsafe { clang_getCursorSpelling(child) })
+            };
+            let bits = unsafe { clang_Cursor_getOffsetOfField(child) };
+            if bits < 0 || bits % 8 != 0 {
+                return Err(error(child, "native field has no byte-aligned offset"));
+            }
+            let ty = unsafe { clang_getCursorType(child) };
+            let canonical = unsafe { clang_getCanonicalType(ty) };
+            if anonymous
+                && unsafe {
+                    clang_Cursor_isAnonymousRecordDecl(clang_getTypeDeclaration(canonical))
+                } == 0
+            {
+                return Err(error(
+                    child,
+                    "unnamed field is not an anonymous record member",
+                ));
+            }
+            let (expansion, spelling) = locations(child);
+            let written = self.ty(ty, 0)?;
+            let canonical_type = self.ty(canonical, 0)?;
+            let record_id = match canonical_type.kind {
+                NativeKind::Record(id) => Some(id),
+                _ => None,
+            };
+            fields.push(NativeField {
+                evidence: FieldEvidence {
+                    name,
+                    ordinal: fields.len(),
+                    anonymous,
+                    record_id,
+                    expansion,
+                    spelling,
+                    written_type: text(unsafe { clang_getTypeSpelling(ty) }),
+                    canonical_type: text(unsafe { clang_getTypeSpelling(canonical) }),
+                    layout: layout(ty)?,
+                    offset: bits as u64 / 8,
+                },
+                written,
+                canonical: canonical_type,
+            });
         }
         if fields.is_empty() {
             return Err(error(cursor, "empty record storage is outside C3-A"));
@@ -723,6 +807,7 @@ fn children(cursor: CXCursor) -> Vec<CXCursor> {
         cursors: Vec<CXCursor>,
         panic: Option<Box<dyn std::any::Any + Send>>,
     }
+
     extern "C" fn visit(cursor: CXCursor, _: CXCursor, data: CXClientData) -> CXChildVisitResult {
         let state = unsafe { &mut *data.cast::<State>() };
         match catch_unwind(AssertUnwindSafe(|| state.cursors.push(cursor))) {
@@ -744,9 +829,92 @@ fn children(cursor: CXCursor) -> Vec<CXCursor> {
     state.cursors
 }
 
+fn record_fields(cursor: CXCursor) -> Vec<CXCursor> {
+    struct State {
+        cursors: Vec<CXCursor>,
+        panic: Option<Box<dyn std::any::Any + Send>>,
+    }
+    extern "C" fn visit(cursor: CXCursor, data: CXClientData) -> CXVisitorResult {
+        let state = unsafe { &mut *data.cast::<State>() };
+        match catch_unwind(AssertUnwindSafe(|| state.cursors.push(cursor))) {
+            Ok(()) => CXVisit_Continue,
+            Err(panic) => {
+                state.panic = Some(panic);
+                CXVisit_Break
+            }
+        }
+    }
+    let mut state = State {
+        cursors: Vec::new(),
+        panic: None,
+    };
+    unsafe {
+        clang_Type_visitFields(clang_getCursorType(cursor), visit, (&raw mut state).cast());
+    }
+    if let Some(panic) = state.panic {
+        resume_unwind(panic);
+    }
+    state.cursors
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn compiler_field_list_exposes_implicit_storage_and_nominal_owners() {
+        let compiler = Compiler::new().unwrap();
+        for target in [Target::X86, Target::X64, Target::Arm64] {
+            let source = include_str!("..\\..\\..\\tests\\libs\\clang2\\input\\nested_records.h");
+            let session = Session::new(
+                Arc::clone(&compiler.library),
+                &Input::new("nested.cpp", source, target),
+            )
+            .unwrap();
+            let namespace = children(unsafe { clang_getTranslationUnitCursor(session.unit) })
+                .into_iter()
+                .find(|cursor| text(unsafe { clang_getCursorSpelling(*cursor) }) == "Shapes")
+                .unwrap();
+            let owner = children(namespace)
+                .into_iter()
+                .find(|cursor| text(unsafe { clang_getCursorSpelling(*cursor) }) == "Owner")
+                .unwrap();
+            let fields = record_fields(owner);
+            assert_eq!(fields.len(), 9);
+            assert_eq!(
+                text(unsafe { clang_getCursorSpelling(fields[5]) }),
+                "detail"
+            );
+            for slot in [6, 7] {
+                assert!(!text(unsafe { clang_getCursorSpelling(fields[slot]) }).is_empty());
+                assert!(
+                    !children(owner)
+                        .iter()
+                        .any(|child| unsafe { clang_equalCursors(*child, fields[slot]) } != 0)
+                );
+            }
+            for slot in [5, 6, 7] {
+                let field = fields[slot];
+                assert_eq!(unsafe { clang_getCursorKind(field) }, CXCursor_FieldDecl);
+                assert_ne!(
+                    unsafe { clang_equalCursors(clang_getCursorSemanticParent(field), owner) },
+                    0
+                );
+                let record = unsafe { clang_getTypeDeclaration(clang_getCursorType(field)) };
+                assert_ne!(unsafe { clang_Cursor_isAnonymous(record) }, 0);
+                assert_ne!(
+                    unsafe { clang_equalCursors(clang_getCursorSemanticParent(record), owner) },
+                    0
+                );
+                assert_eq!(
+                    unsafe { clang_Cursor_isAnonymousRecordDecl(record) } != 0,
+                    slot != 5
+                );
+                assert!(unsafe { clang_Cursor_getOffsetOfField(field) } >= 0);
+                assert!(!text(unsafe { clang_getCursorUSR(record) }).is_empty());
+            }
+        }
+    }
 
     #[test]
     fn layout_queries_do_not_supply_explicit_layout_contracts() {

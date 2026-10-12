@@ -55,6 +55,20 @@ The writer API is lower-level. `writer::File` builds ECMA-335 rows and `into_str
 finished bytes. Prefer [`windows-rdl`](windows-rdl.md) when a reviewable source format is useful;
 use the writer directly when a tool is copying or synthesizing table rows.
 
+### Native record ownership
+
+`TypeDef::native_owner` reads `NativeTypeOwnerAttribute`, identifying the native record that owns
+a named nested record or typedef. Publication namespaces do not supply that fact.
+`Field::is_native_anonymous` reads `NativeAnonymousFieldAttribute`, identifying an implicit unnamed
+member regardless of its metadata helper name. The field must directly reference a nonopaque
+nested record owned by its enclosing native record.
+
+`Index::validate_native_records` checks descriptor owners/arguments, duplicates, available owner
+records, and acyclic ownership within each architecture. `validate_native_contracts` includes
+these checks. The descriptors preserve source ownership, not C++ behavior or calling support.
+Merge copies them and includes owner references and unnamed-field status in architecture shape
+agreement, including nested shapes.
+
 ## Common tool tasks
 
 | Task | API |

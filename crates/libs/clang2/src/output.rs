@@ -11,6 +11,7 @@ struct Entry {
     namespace: String,
     name: String,
     kind: Kind,
+    owner: Option<metadata::TypeName>,
 }
 
 enum Kind {
@@ -20,9 +21,20 @@ enum Kind {
     },
     Record {
         union: bool,
-        fields: Vec<(String, metadata::Type)>,
+        fields: Vec<Field>,
         contract: RecordLayoutContract,
     },
+}
+
+struct Field {
+    name: String,
+    anonymous: bool,
+    kind: FieldKind,
+}
+
+enum FieldKind {
+    Type(metadata::Type),
+    Nested(Box<Kind>),
 }
 
 impl Closed {
@@ -38,6 +50,9 @@ impl Closed {
             .declarations
             .iter()
             .map(|decl| {
+                if decl.anonymous {
+                    return Ok(None);
+                }
                 if decl.names.iter().any(|name| !identifier(name)) {
                     return Err(Error::new(
                         Stage::Representation,
@@ -56,50 +71,62 @@ impl Closed {
                         "publication collides with a predefined metadata identity",
                     ));
                 }
-                Ok(name)
+                Ok(Some(name))
             })
             .collect::<Result<Vec<_>>>()?;
         let mut declarations = BTreeMap::new();
+        let mut inline = BTreeSet::new();
+        for (owner, decl) in snapshot.declarations.iter().enumerate() {
+            if let DeclarationKind::Record { fields, .. } = &decl.kind {
+                for field in fields {
+                    if let NativeKind::Record(child) = field.written.kind
+                        && snapshot.declarations[child].anonymous
+                        && (snapshot.declarations[child].owner != Some(owner)
+                            || field.written.qualifiers != Qualifiers::default()
+                            || !inline.insert(child))
+                    {
+                        return Err(Error::new(
+                            Stage::Representation,
+                            "unnamed record must have one unqualified direct owning field",
+                        ));
+                    }
+                }
+            }
+        }
         for (id, decl) in snapshot.declarations.iter().enumerate() {
-            let name = &names[id];
+            if decl.anonymous && !inline.contains(&id) {
+                return Err(Error::new(
+                    Stage::Representation,
+                    "unnamed record arrays, pointers, and aliases require a separate identity contract",
+                ));
+            }
+        }
+        for (id, decl) in snapshot.declarations.iter().enumerate() {
+            let Some(name) = &names[id] else { continue };
             let kind = match &decl.kind {
                 DeclarationKind::Alias { written, .. } => {
                     if let NativeKind::Record(target) = written.kind
                         && written.qualifiers == Qualifiers::default()
-                        && &names[target] == name
+                        && names[target].as_ref() == Some(name)
                     {
                         continue;
                     }
                     Kind::Alias(lower(written, &names, snapshot.target)?)
                 }
                 DeclarationKind::Opaque { union } => Kind::Opaque { union: *union },
-                DeclarationKind::Record {
-                    union,
-                    fields,
-                    contract,
-                } => {
-                    let fields = fields
-                        .iter()
-                        .map(|field| {
-                            if !identifier(&field.evidence.name) {
-                                return Err(Error::new(
-                                    Stage::Representation,
-                                    "unsupported native field publication name",
-                                ));
-                            }
-                            Ok((
-                                field.evidence.name.clone(),
-                                lower(&field.written, &names, snapshot.target)?,
-                            ))
-                        })
-                        .collect::<Result<Vec<_>>>()?;
-                    Kind::Record {
-                        union: *union,
-                        fields,
-                        contract: contract.unwrap_or_default(),
-                    }
-                }
+                DeclarationKind::Record { .. } => Self::record(snapshot, id, &names)?,
             };
+            let owner = decl
+                .owner
+                .map(|owner| {
+                    names[owner].clone().ok_or_else(|| {
+                        Error::new(
+                            Stage::Representation,
+                            "named types inside unnamed records require a separate publication contract",
+                        )
+                    })
+                })
+                .transpose()?;
             let key = (name.namespace.clone(), name.name.clone());
             if declarations
                 .insert(
@@ -108,6 +135,7 @@ impl Closed {
                         namespace: name.namespace.clone(),
                         name: name.name.clone(),
                         kind,
+                        owner,
                     },
                 )
                 .is_some()
@@ -150,44 +178,122 @@ impl Closed {
                 node = node.children.entry(part.to_string()).or_default();
             }
             let name = windows_rdl::emit::write_ident(&decl.name);
-            node.items.push(match &decl.kind {
-                Kind::Alias(ty) => {
-                    let ty = windows_rdl::emit::write_type("", ty);
-                    format!("type {name} = {ty};")
-                }
-                Kind::Opaque { union } => format!(
-                    "#[opaque] {} {name} {{}}",
-                    if *union { "union" } else { "struct" }
-                ),
-                Kind::Record {
-                    union,
-                    fields,
-                    contract,
-                } => {
-                    let fields = fields
-                        .iter()
-                        .map(|(name, ty)| {
-                            let name = windows_rdl::emit::write_ident(name);
-                            let ty = windows_rdl::emit::write_type("", ty);
-                            format!("{name}: {ty},")
-                        })
-                        .collect::<Vec<_>>()
-                        .join("\n");
-                    let mut attributes = String::new();
-                    if let Some(packing) = contract.packing {
-                        attributes.push_str(&format!("#[packed({packing})] "));
-                    }
-                    if let Some(alignment) = contract.alignment {
-                        attributes.push_str(&format!("#[align({alignment})] "));
-                    }
-                    format!(
-                        "{attributes}{} {name} {{ {fields} }}",
-                        if *union { "union" } else { "struct" }
-                    )
-                }
+            let owner = decl.owner.as_ref().map_or(String::new(), |owner| {
+                let owner =
+                    windows_rdl::emit::write_type("", &metadata::Type::ValueName(owner.clone()));
+                format!("#[Windows::Win32::Metadata::NativeTypeOwner({owner})] ")
             });
+            node.items.push(format!(
+                "{owner}{}",
+                Self::render(&decl.kind, &name.to_string())
+            ));
         }
         Ok(windows_rdl::formatter::format(&root.render(true)))
+    }
+
+    fn record(snapshot: &Snapshot, id: Id, names: &[Option<metadata::TypeName>]) -> Result<Kind> {
+        let DeclarationKind::Record {
+            union,
+            fields,
+            contract,
+        } = &snapshot.declarations[id].kind
+        else {
+            return Err(Error::new(
+                Stage::Representation,
+                "unnamed record has no storage definition",
+            ));
+        };
+        let mut used: BTreeSet<_> = fields
+            .iter()
+            .filter(|field| !field.evidence.anonymous)
+            .map(|field| field.evidence.name.clone())
+            .collect();
+        let fields = fields
+            .iter()
+            .map(|field| {
+                let name = if field.evidence.anonymous {
+                    let mut name = format!("Anonymous_{}", field.evidence.ordinal);
+                    while !used.insert(name.clone()) {
+                        name.push('_');
+                    }
+                    name
+                } else {
+                    if !identifier(&field.evidence.name) {
+                        return Err(Error::new(
+                            Stage::Representation,
+                            "unsupported native field publication name",
+                        ));
+                    }
+                    field.evidence.name.clone()
+                };
+                let kind = if let NativeKind::Record(child) = field.written.kind
+                    && snapshot.declarations[child].anonymous
+                {
+                    FieldKind::Nested(Box::new(Self::record(snapshot, child, names)?))
+                } else {
+                    FieldKind::Type(lower(&field.written, names, snapshot.target)?)
+                };
+                Ok(Field {
+                    name,
+                    anonymous: field.evidence.anonymous,
+                    kind,
+                })
+            })
+            .collect::<Result<_>>()?;
+        Ok(Kind::Record {
+            union: *union,
+            fields,
+            contract: contract.unwrap_or_default(),
+        })
+    }
+
+    fn render(kind: &Kind, name: &str) -> String {
+        match kind {
+            Kind::Alias(ty) => {
+                let ty = windows_rdl::emit::write_type("", ty);
+                format!("type {name} = {ty};")
+            }
+            Kind::Opaque { union } => format!(
+                "#[opaque] {} {name} {{}}",
+                if *union { "union" } else { "struct" }
+            ),
+            Kind::Record {
+                union,
+                fields,
+                contract,
+            } => {
+                let fields = fields
+                    .iter()
+                    .map(|field| {
+                        let name = windows_rdl::emit::write_ident(&field.name);
+                        let ty = match &field.kind {
+                            FieldKind::Type(ty) => {
+                                windows_rdl::emit::write_type("", ty).to_string()
+                            }
+                            FieldKind::Nested(kind) => Self::render(kind, ""),
+                        };
+                        let attribute = if field.anonymous {
+                            "#[Windows::Win32::Metadata::NativeAnonymousField] "
+                        } else {
+                            ""
+                        };
+                        format!("{attribute}{name}: {ty},")
+                    })
+                    .collect::<Vec<_>>()
+                    .join("\n");
+                let mut attributes = String::new();
+                if let Some(packing) = contract.packing {
+                    attributes.push_str(&format!("#[packed({packing})] "));
+                }
+                if let Some(alignment) = contract.alignment {
+                    attributes.push_str(&format!("#[align({alignment})] "));
+                }
+                format!(
+                    "{attributes}{} {name} {{ {fields} }}",
+                    if *union { "union" } else { "struct" }
+                )
+            }
+        }
     }
 }
 
@@ -200,7 +306,11 @@ fn identifier(name: &str) -> bool {
         && bytes.all(|byte| byte.is_ascii_alphanumeric() || byte == b'_')
 }
 
-fn lower(ty: &NativeType, names: &[metadata::TypeName], target: Target) -> Result<metadata::Type> {
+fn lower(
+    ty: &NativeType,
+    names: &[Option<metadata::TypeName>],
+    target: Target,
+) -> Result<metadata::Type> {
     use metadata::Type;
     if ty.qualifiers.restrict {
         return Err(Error::new(
@@ -241,7 +351,14 @@ fn lower(ty: &NativeType, names: &[metadata::TypeName], target: Target) -> Resul
             }
             result
         }
-        NativeKind::Alias(id) | NativeKind::Record(id) => Type::ValueName(names[*id].clone()),
+        NativeKind::Alias(id) | NativeKind::Record(id) => {
+            Type::ValueName(names[*id].clone().ok_or_else(|| {
+                Error::new(
+                    Stage::Representation,
+                    "unnamed type cannot supply a named reference",
+                )
+            })?)
+        }
         NativeKind::Pointer(element) | NativeKind::Reference(element) => {
             if matches!(ty.kind, NativeKind::Pointer(_))
                 && ty.layout.is_none_or(|layout| {

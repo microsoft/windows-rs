@@ -1,0 +1,55 @@
+#[win32]
+mod Test {
+    mod Shapes {
+        struct Owner {
+            tag: u32,
+            nodes: [Test::Shapes::Owner::Node; 2],
+            link: *mut Test::Shapes::Owner::Alias,
+            first: Test::Shapes::Owner::Payload,
+            second: Test::Shapes::Owner::Payload,
+            detail: struct {
+                left: i32,
+                right: i16,
+            },
+            #[Windows::Win32::Metadata::NativeAnonymousField]
+            Anonymous_6: union {
+                code: i32,
+                #[Windows::Win32::Metadata::NativeAnonymousField]
+                Anonymous_1: struct {
+                    low: i16,
+                    high: i16,
+                },
+            },
+            #[Windows::Win32::Metadata::NativeAnonymousField]
+            Anonymous_7_: union {
+                scalar: f32,
+                integer: i32,
+            },
+            Anonymous_7: i32,
+        }
+        struct Peer {
+            item: Test::Shapes::Peer::Node,
+        }
+        mod Owner {
+            #[Windows::Win32::Metadata::NativeTypeOwner(Test::Shapes::Owner)]
+            type Alias = Test::Shapes::Owner::Node;
+            #[Windows::Win32::Metadata::NativeTypeOwner(Test::Shapes::Owner)]
+            struct Node {
+                value: i32,
+                next: *mut Test::Shapes::Owner::Node,
+            }
+            #[Windows::Win32::Metadata::NativeTypeOwner(Test::Shapes::Owner)]
+            union Payload {
+                code: i32,
+                value: f64,
+            }
+        }
+        mod Peer {
+            #[Windows::Win32::Metadata::NativeTypeOwner(Test::Shapes::Peer)]
+            struct Node {
+                value: i32,
+                next: *mut Test::Shapes::Peer::Node,
+            }
+        }
+    }
+}

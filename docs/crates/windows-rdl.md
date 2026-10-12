@@ -93,6 +93,25 @@ Most attributes name a metadata attribute type directly. Some attributes use sho
 names. The reader expands those names to full metadata attributes. See `PSEUDO_ATTRS` in
 `windows-rdl`.
 
+### Native record ownership
+
+The authored metadata vocabulary defines two custom attributes for native storage:
+
+| Attribute | Owner and meaning |
+| --- | --- |
+| `Windows::Win32::Metadata::NativeTypeOwner(Record)` | Named native record/typedef: original owning record |
+| `Windows::Win32::Metadata::NativeAnonymousField` | Direct nested value field: implicit unnamed native member |
+
+These use existing custom-attribute syntax. Reference metadata compiled from
+`metadata/metadata.rdl`; namespace spelling or a field named `Anonymous` does not establish either
+contract. Inline `field: struct { ... }` and `field: union { ... }` preserve the nested storage tree.
+A named native member with an unnamed record type has no unnamed-field marker.
+
+The reader validates owners, duplicates, cycles, and direct nested storage before replacing output.
+The writer, ordinary merge, and architecture merge preserve the descriptors. Named nested types
+can use scoped publication namespaces while retaining their original record owner through a type
+reference. These representations do not establish Rust projection or native calling support.
+
 ### Native type qualifiers
 
 In `#[win32]` declarations, `Const<T>` and `Volatile<T>` qualify the enclosed type node.

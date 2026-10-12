@@ -48,6 +48,16 @@ mod Windows {
             attribute NativeOpaqueAttribute {
                 fn();
             }
+            // Identifies the native record owning a named nested type or typedef.
+            // Publication namespaces alone do not distinguish records from namespaces.
+            attribute NativeTypeOwnerAttribute {
+                fn(owner: Type);
+            }
+            // Marks an implicit unnamed native field, independent of its metadata helper name.
+            // Its direct nested record supplies storage and the enclosing native identity.
+            attribute NativeAnonymousFieldAttribute {
+                fn();
+            }
             // Marks the return-value parameter of a COM method. RDL: `#[retval]`.
             attribute RetValAttribute {
                 fn();

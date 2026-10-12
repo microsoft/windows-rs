@@ -15,10 +15,12 @@ struct NativeContract {
 }
 
 type Query = unsafe extern "C" fn(CXCursor, *mut NativeContract) -> u32;
+type FieldQuery = unsafe extern "C" fn(CXCursor, *mut u32) -> u32;
 
 pub(super) struct Bridge {
     pub evidence: LayoutBridgeEvidence,
     query: Query,
+    field_query: FieldQuery,
     _library: Library,
     _parser: Library,
 }
@@ -43,7 +45,7 @@ impl Bridge {
             let abi = library
                 .get::<unsafe extern "C" fn() -> u32>(b"windows_clang_layout_abi\0")
                 .map_err(|err| error(err.to_string()))?();
-            if abi != 1 {
+            if abi != 2 {
                 return Err(error("layout bridge ABI mismatch".to_string()));
             }
             let expected = library
@@ -86,6 +88,9 @@ impl Bridge {
             let query = *library
                 .get::<Query>(b"windows_clang_layout_record\0")
                 .map_err(|err| error(err.to_string()))?;
+            let field_query = *library
+                .get::<FieldQuery>(b"windows_clang_layout_field\0")
+                .map_err(|err| error(err.to_string()))?;
             Ok(Self {
                 evidence: LayoutBridgeEvidence {
                     abi,
@@ -93,6 +98,7 @@ impl Bridge {
                     parser_sha256,
                 },
                 query,
+                field_query,
                 _library: library,
                 _parser: parser_library,
             })
@@ -108,6 +114,7 @@ impl Bridge {
                 format!("native layout contract rejected with {status}"),
             ));
         }
+
         let value = |value: u32| {
             if value == 0 {
                 return Ok(None);
@@ -135,5 +142,24 @@ impl Bridge {
             alignment: value(native.alignment)?,
             required_alignment: native.required_alignment,
         })
+    }
+
+    pub fn anonymous_field(&self, cursor: CXCursor) -> Result<bool> {
+        let mut flags = 0;
+        let status = unsafe { (self.field_query)(cursor, &raw mut flags) };
+        if status != 0 {
+            return Err(Error::new(
+                Stage::Capture,
+                format!("native field identity rejected with {status}"),
+            ));
+        }
+        match flags {
+            1 => Ok(false),
+            2 => Ok(true),
+            _ => Err(Error::new(
+                Stage::Capture,
+                "unsupported native field identity",
+            )),
+        }
     }
 }

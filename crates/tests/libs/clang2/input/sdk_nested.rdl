@@ -1,0 +1,30 @@
+#[win32]
+mod Test {
+    type BYTE = u8;
+    type DECIMAL = Test::tagDEC;
+    type ULONG = u32;
+    type ULONGLONG = u64;
+    type USHORT = u16;
+    struct tagDEC {
+        wReserved: Test::USHORT,
+        #[Windows::Win32::Metadata::NativeAnonymousField]
+        Anonymous_1: union {
+            #[Windows::Win32::Metadata::NativeAnonymousField]
+            Anonymous_0: struct {
+                scale: Test::BYTE,
+                sign: Test::BYTE,
+            },
+            signscale: Test::USHORT,
+        },
+        Hi32: Test::ULONG,
+        #[Windows::Win32::Metadata::NativeAnonymousField]
+        Anonymous_3: union {
+            #[Windows::Win32::Metadata::NativeAnonymousField]
+            Anonymous_0: struct {
+                Lo32: Test::ULONG,
+                Mid32: Test::ULONG,
+            },
+            Lo64: Test::ULONGLONG,
+        },
+    }
+}

@@ -1027,7 +1027,16 @@ can have identical storage; a pinned native bridge obtains numeric contracts fro
 TU instead of fitting layouts or evaluating source tokens. Required alignment propagates through
 named records, aliases, and arrays. The bridge uses a matched official LLVM development SDK and
 checked parser identity, fingerprint, and ABI; its build currently requires an x64 Windows host.
-Field adjustments, anonymous/nested definitions, bit-fields, and behavioral records remain outside
-this slice. The next C3 work is anonymous/nested storage and bit-fields, not Rust projection or
-production migration.
+Field adjustments, bit-fields, and behavioral records remain outside this slice. Anonymous/nested
+storage has its own selected gate.
 See the [C3-B evidence contract](windows-clang2.md#c3-b-explicit-packingalignment-evidence-gate).
+
+C3-C adds public named nested records/typedefs and direct unnamed storage, including injected
+anonymous struct/union fields. Approved owner and unnamed-field descriptors preserve source meaning
+through existing RDL custom attributes and WinMD; publication helper names do not become source
+names. The bridge supplies field identifier/anonymous-member facts, and canonical cursor equality
+supplies identity even when separate anonymous records share a USR. Reviewed fixtures and the pinned
+SDK `DECIMAL` closure pass three-target storage and representation gates. Arrays/pointers/shared
+unnamed identities and private/behavioral owners still reject. Bit-fields are the next bounded C3
+slice, not a production cutover.
+See [C3-C's contract](windows-clang2.md#c3-c-nested-and-anonymous-storage).

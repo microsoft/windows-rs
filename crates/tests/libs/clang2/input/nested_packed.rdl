@@ -1,0 +1,20 @@
+#[win32]
+mod Test {
+    #[packed(2)]
+    struct PackedNested {
+        item: Test::PackedNested::Inner,
+        #[Windows::Win32::Metadata::NativeAnonymousField]
+        Anonymous_1: #[packed(2)] union {
+            number: i32,
+            code: i16,
+        },
+    }
+    mod PackedNested {
+        #[Windows::Win32::Metadata::NativeTypeOwner(Test::PackedNested)]
+        #[packed(2)]
+        struct Inner {
+            tag: i8,
+            value: i32,
+        }
+    }
+}

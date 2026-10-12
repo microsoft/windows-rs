@@ -163,8 +163,62 @@ and independent MSVC size/alignment/offset assertions. Packed pointers, unions, 
 records exercise required alignment overriding packing and propagating into enclosing records.
 Wrong-directory, ABI, and fingerprint failures reject before querying ASTs; concurrent captures and
 snapshot use after compiler disposal also pass. Field alignment, GNU packed/aligned attributes,
-C++ `alignas`, bit-fields, anonymous/nested definitions, inheritance, and behavioral records still
-reject. Other alignment spellings need their own required-alignment contract before publication.
+C++ `alignas`, bit-fields, inheritance, and behavioral records still reject. Anonymous/nested
+storage has the separate C3-C contract below. Other alignment spellings need their own
+required-alignment contract before publication.
+
+### C3-C nested and anonymous storage
+
+The selected slice covers public named POD record/union definitions and typedefs in record scopes,
+plus single direct unqualified fields of unnamed records. Unnamed records may contain further
+direct anonymous storage. Named nested types retain shared references, fixed arrays, pointers,
+recursive identity, and forward declarations; equal shapes in different owners remain distinct.
+Selecting a named nested type closes its enclosing record graph, not only the child's fields.
+
+| Fact | Compiler evidence | Output |
+| --- | --- | --- |
+| Named type owner | Canonical semantic-parent cursor | `NativeTypeOwnerAttribute` with a type reference |
+| Direct fields and order | `clang_Type_visitFields`, including implicit fields | Original field sequence |
+| Field source name | Matched bridge's `FieldDecl` identifier fact | Original name or unnamed marker |
+| Injected anonymous member | `FieldDecl::isAnonymousStructOrUnion` | `NativeAnonymousFieldAttribute` |
+| Unnamed type identity | Canonical cursor and owning field position | Inline record and `NestedClass` |
+| Storage | Compiler offsets, type layout, packing/alignment contract | Checked fields and existing RDL attributes |
+
+Libclang's ordinary child traversal omits implicit anonymous fields. Its field visitor includes
+them, but cursor spelling returns a diagnostic type name for an unnamed member. The bridge reads
+identifier presence and anonymous-member status directly; strings containing "anonymous" do not
+establish either fact. Without the bridge, implicit fields reject rather than being omitted.
+The bridge ABI is 2; parser identity/fingerprint and lifetime checks remain in force.
+
+`Evidence::id` identifies a declaration within one snapshot. `FieldEvidence::record_id` retains
+direct canonical record edges, and `ownerships` exposes semantic parent edges. USRs remain source
+evidence, not identity keys: the fixture's distinct anonymous unions have the same USR. No USR,
+source offset, filename, or structural shape merges their canonical cursor identities.
+
+Named nested declarations use source scope components as publication namespaces, with an explicit
+native owner descriptor distinguishing a record scope from a namespace. Direct unnamed records use
+existing inline RDL. An implicit field receives a collision-checked `Anonymous_<ordinal>` metadata
+helper name and the unnamed marker; its captured source name stays empty. A real source field named
+`Anonymous_7` stays named and unmarked. These two descriptors use the existing custom-attribute
+grammar and the authored `metadata/metadata.rdl` vocabulary, not default API metadata.
+
+Reviewed `nested_records.h`/RDL exercises forward nested tags, local typedefs, shared union types,
+same-named records in different owners, arrays, self-pointers, named fields of unnamed records,
+injected unions/structs, and helper-name collisions. `nested_packed.rdl` checks packing on both
+named and inline nested types. The real pinned SDK `DECIMAL` closure comes from `wtypes.h`; it
+retains `tagDEC`, its typedef and member aliases, and both anonymous union/struct trees.
+
+The selected gate passes on x86/x64/ARM64 with independent MSVC size/alignment/offset assertions,
+exact reviewed RDL, semantic WinMD readback, and RDL round-trip checks. Filename/selection changes,
+snapshot cloning, and use after compiler disposal preserve output. Metadata validation rejects
+malformed owners, cycles, duplicates, and unnamed fields without directly owned nested storage.
+Architecture merge includes both descriptors in shape agreement, preventing a same-layout
+ownership or named/unnamed distinction from collapsing.
+
+Arrays/pointers to unnamed records, shared unnamed types, qualified unnamed storage, named types
+inside unnamed owners, private/behavioral owners, bit-fields, and unsupported C3-B attributes remain
+explicit boundaries. No original field is promoted into its parent or flattened across a union.
+The next selected storage slice is bit-fields; C3 as a whole and production promotion remain open.
 
 ### Native layout provisioning
 
@@ -181,7 +235,7 @@ NuGet DLL is not combined with independently built private AST APIs.
 | Official LLVM archive | `clang+llvm-22.1.8-x86_64-pc-windows-msvc.tar.xz` |
 | Archive SHA256 | `d96c2cc1736f4eb7fa43cb9bbdf56d93551a9ae0a9aadb9c99c3c3b2b712a234` |
 | LLVM source revision | `ca7933e47d3a3451d81e72ac174dcb5aa28b59d1` |
-| Bridge ABI | `1` |
+| Bridge ABI | `2` |
 
 `native/llvm.json` pins the archive and source. The build verifies the archive checksum, extraction
 marker, source revision, and clean source checkout. It extracts the pinned upstream cursor accessor,

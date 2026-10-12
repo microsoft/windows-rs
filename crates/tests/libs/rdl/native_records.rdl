@@ -1,0 +1,23 @@
+#[win32]
+mod Test {
+    struct Outer {
+        #[Windows::Win32::Metadata::NativeAnonymousField]
+        Anonymous: union {
+            code: i32,
+            value: f32,
+        },
+        named: struct {
+            value: i32,
+        },
+        inner: Test::Outer::Inner,
+    }
+    mod Outer {
+        #[Windows::Win32::Metadata::NativeTypeOwner(Test::Outer)]
+        type Alias = Test::Outer::Inner;
+        #[Windows::Win32::Metadata::NativeTypeOwner(Test::Outer)]
+        struct Inner {
+            value: i32,
+            next: *mut Test::Outer::Inner,
+        }
+    }
+}
