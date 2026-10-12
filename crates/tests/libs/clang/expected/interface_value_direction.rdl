@@ -10,10 +10,15 @@ mod Test {
         fn MutateOptional(&self, #[opt] context: IContext) -> HRESULT;
         fn Fill(&self, context: IContext) -> HRESULT;
         fn MutateAlias(&self, context: IContext) -> HRESULT;
+        fn MutateUnknown(&self, object: IUnknown) -> HRESULT;
         fn MutateReference(&self, context: IContext) -> HRESULT;
         fn Read(&self, context: IContext) -> HRESULT;
         fn Create(&self, context: *mut IContext) -> HRESULT;
         fn Replace(&self, #[in] #[out] context: *mut IContext) -> HRESULT;
+    }
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn Unused(&self);
     }
     extern fn MUTATE_CALLBACK(context: IContext) -> HRESULT;
     #[library("test.dll")]

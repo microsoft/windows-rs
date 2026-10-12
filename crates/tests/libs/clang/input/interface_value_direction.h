@@ -13,11 +13,18 @@ struct __declspec(uuid("981a8ac7-36ca-4b94-a186-a201ed0ed051")) IContext {
 
 typedef IContext* LPCONTEXT;
 
+struct __declspec(uuid("00000000-0000-0000-c000-000000000046")) IUnknown {
+    virtual void __stdcall Unused() = 0;
+};
+
+typedef IUnknown* LPUNKNOWN;
+
 struct __declspec(uuid("981a8ac7-36ca-4b94-a186-a201ed0ed052")) ITranslator {
     virtual HRESULT __stdcall Mutate(_Inout_ IContext* context) = 0;
     virtual HRESULT __stdcall MutateOptional(_Inout_opt_ IContext* context) = 0;
     virtual HRESULT __stdcall Fill(_Out_ IContext* context) = 0;
     virtual HRESULT __stdcall MutateAlias(_Inout_ LPCONTEXT context) = 0;
+    virtual HRESULT __stdcall MutateUnknown(_Inout_ LPUNKNOWN object) = 0;
     virtual HRESULT __stdcall MutateReference(_Inout_ IContext& context) = 0;
     virtual HRESULT __stdcall Read(_In_ IContext* context) = 0;
     virtual HRESULT __stdcall Create(_Outptr_ IContext** context) = 0;
