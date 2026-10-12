@@ -103,7 +103,7 @@ impl Component for ObserverSample {
                 })
                 .collect::<Vec<View>>(),
         );
-        let frame = context.window_frame(
+        context.window_frame(
             "Window observers",
             StackPanel::new().margin(24.0).spacing(12.0).children((
                 TextBlock::new().text(format!("Current callback revision: {revision}")),
@@ -118,11 +118,7 @@ impl Component for ObserverSample {
                     .on_click(context.message(Message::ToggleTheme)),
                 observers,
             )),
-        );
-        Border::new()
-            .background(ThemeBrush::SolidBackground)
-            .content(frame)
-            .into()
+        )
     }
 }
 

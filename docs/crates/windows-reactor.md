@@ -256,6 +256,12 @@ window, and subscribe or unsubscribe each observer independently. Re-subscribing
 scheme and placement; size waits for a native change. Each notification also causes a render, which
 must not replay the observers.
 
+Use `WindowVisuals::theme` to choose System, Light, or Dark. With no backdrop, transparent content
+shows the window's themed background. Use `WindowVisuals::backdrop` to select Mica, MicaAlt, or
+Acrylic; an opaque application background covers the material.
+
+Run `cargo run -p reactor-window-theme` to try different themes, backdrops, and root backgrounds.
+
 Applications own persistence: store each observation in the message handler, rather than wait for
 a final shutdown notification. This is observed native state, not a continuously controlled
 position. Keeping a saved value in `initial_placement` does not cause snapback after a user move.

@@ -223,12 +223,26 @@ impl WinUiAdapter {
         }
         let window = native::Window::new()?;
         let root = self.ui_element(root_object)?;
-        window.SetContent(&root)?;
-        self.apply_window_policy(&window, &root, policy)?;
+        // The opaque XAML island follows the app theme, not the requested window theme.
+        let surface = native::Border::new()?;
+        let background_style = native::XamlReader::Load(
+            "<Style xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' \
+             TargetType='Border'><Setter Property='Background' \
+             Value='{ThemeResource SystemControlBackgroundAltHighBrush}'/></Style>",
+        )?
+        .cast::<native::Style>()?;
+        surface
+            .cast::<native::FrameworkElement>()?
+            .SetStyle(&background_style)?;
+        surface.SetChild(&root)?;
+        window.SetContent(&surface)?;
+        self.apply_window_policy(&window, &surface.cast()?, policy)?;
         let state = Rc::new(NativeWindowState {
             window,
             root: root_object,
             root_element: root.cast()?,
+            surface,
+            background_style,
             title_bar: Cell::new(None),
             shown: Cell::new(false),
             closed: Cell::new(false),
