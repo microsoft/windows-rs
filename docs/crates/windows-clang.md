@@ -991,11 +991,17 @@ expressions remain explicit format blockers. The tree does not supply native pad
 object lifetime, or calling support. C4/C8 must obtain values and literal-kind/charset evidence
 from the compiler; neither authored fixtures nor legacy output prove header agreement.
 
-The C1 representation packages are in place for the selected C2 path. The next bounded package
-is C2: owned compiler sessions, identity/scalars/aliases, and a small complete header -> RDL ->
-WinMD path using the fixed anchors above. It is not another broad header-support campaign.
+**C2's isolated path is implemented in unpublished `windows-clang2`.** Owned compiler sessions
+capture an explicit selected scalar/alias/forward-tag graph without legacy fallback. Written
+typedef edges, local qualifiers, compiler identities, and native layouts survive session disposal.
+Checked output uses the shared RDL emitter. Reviewed three-target fixtures compile to WinMD and
+check the native typedef and opaque representations.
 
-Continue the remaining C1 contracts with reviewed inputs, semantic WinMD readback, and negative
-controls using the fixed acceptance gates above. No fresh full-header capture is needed unless
-the capture/report code or profile inputs change. C2 starts only after the required C1 contracts
-for its selected end-to-end cases pass.
+The selected `alias_chains.h` closure and pinned `winnt.h` scalars pass; complete records and
+callables from `smoke.h` remain explicit family-boundary failures. Reuse, concurrent sessions,
+prior thread-binding restoration, clean diagnostics, exact root files, and deterministic
+publication have focused coverage. See [C2's contract and internals](windows-clang2.md).
+
+The next bounded package is C3: complete records and storage from the fixed anchors above.
+It requires a selected source/layout matrix and native size/alignment/offset evidence before
+porting code. No production generator or canonical metadata is replaced by C2.

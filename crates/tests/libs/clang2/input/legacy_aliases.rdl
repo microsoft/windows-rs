@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    type LPCWSTR = Test::PCWSTR;
+    type LPSTR = Test::PSTR;
+    type PCWSTR = *const u16;
+    type PSTR = *mut i8;
+    type TEXT = Test::LPSTR;
+    type WTEXT = Test::LPCWSTR;
+}

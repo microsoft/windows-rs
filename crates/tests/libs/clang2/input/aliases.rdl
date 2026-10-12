@@ -1,0 +1,46 @@
+#[win32]
+mod Test {
+    type Array = [i32; 3];
+    type Boolean = bool;
+    type Both = Const<Volatile<Test::Number>>;
+    type Byte = u8;
+    type Char16 = u16;
+    type Char32 = u32;
+    type ConstPointerToPointer = *const *mut i8;
+    type Constant = Const<Test::Number>;
+    type ConstantArray = Const<Test::Array>;
+    type ConstantPointer = Const<Test::LPSTR>;
+    type DirectConstantArray = [Const<i32>; 3];
+    type Double = f64;
+    type Float = f32;
+    #[opaque]
+    struct Forward {}
+    type Integer = i32;
+    type LPSTR = Test::PSTR;
+    type Long = i32;
+    type LongDouble = f64;
+    type LongLong = i64;
+    type Narrow = i8;
+    type Number = Test::Integer;
+    type Other = Test::Forward;
+    type PCSTR = *const i8;
+    type PForward = *mut Test::Forward;
+    type PSTR = *mut i8;
+    type PStorage = *mut Test::Storage;
+    type PointerToConstPointer = *mut Test::PCSTR;
+    type Reference = &Test::Integer;
+    type Short = i16;
+    #[opaque]
+    union Storage {}
+    type ULong = u32;
+    type ULongLong = u64;
+    type Void = void;
+    type Volatile = Volatile<Test::Number>;
+    type VolatilePointee = *mut Volatile<i8>;
+    type Wide = u16;
+    type Word = u16;
+    mod Native {
+        type Pointer = *mut Test::Native::Value;
+        type Value = Test::Long;
+    }
+}

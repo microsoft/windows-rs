@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    mod One {
+        type Value = i32;
+    }
+    mod Two {
+        type Value = i32;
+    }
+}

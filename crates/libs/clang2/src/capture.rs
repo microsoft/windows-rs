@@ -1,0 +1,633 @@
+#![allow(non_upper_case_globals)]
+
+use super::*;
+use clang_sys::*;
+use std::ffi::{CStr, CString};
+use std::panic::{AssertUnwindSafe, catch_unwind, resume_unwind};
+
+/// Reusable library ownership; each capture has a private index and translation unit.
+pub struct Compiler {
+    library: Arc<SharedLibrary>,
+}
+
+impl Compiler {
+    pub fn new() -> Result<Self> {
+        let library = load_manually().map_err(|error| Error::new(Stage::Capture, error))?;
+        Ok(Self {
+            library: Arc::new(library),
+        })
+    }
+
+    pub fn capture(&self, input: &Input) -> Result<Snapshot> {
+        self.capture_input(input).map_err(|mut error| {
+            error.message = format!(
+                "{} [{}]: {}",
+                input.name,
+                input.target.triple(),
+                error.message
+            );
+            error
+        })
+    }
+
+    fn capture_input(&self, input: &Input) -> Result<Snapshot> {
+        if input.required.is_empty() {
+            return Err(Error::new(
+                Stage::Scope,
+                "required declaration scope cannot be empty",
+            ));
+        }
+        let session = Session::new(Arc::clone(&self.library), input)?;
+        let mut capture = Capture {
+            declarations: Vec::new(),
+            cursors: Vec::new(),
+            pending: BTreeSet::new(),
+        };
+        let mut roots = Vec::new();
+        let mut selected: BTreeMap<String, Vec<CXCursor>> = BTreeMap::new();
+        let mut pending = children(unsafe { clang_getTranslationUnitCursor(session.unit) });
+        while let Some(cursor) = pending.pop() {
+            let kind = unsafe { clang_getCursorKind(cursor) };
+            if matches!(
+                kind,
+                CXCursor_Namespace | CXCursor_LinkageSpec | CXCursor_UnexposedDecl
+            ) {
+                pending.extend(children(cursor));
+                continue;
+            }
+            if unsafe { clang_isDeclaration(kind) } == 0 && kind != CXCursor_MacroDefinition {
+                continue;
+            }
+            let location = unsafe { clang_getCursorLocation(cursor) };
+            let mut file = std::ptr::null_mut();
+            unsafe {
+                clang_getExpansionLocation(
+                    location,
+                    &raw mut file,
+                    std::ptr::null_mut(),
+                    std::ptr::null_mut(),
+                    std::ptr::null_mut(),
+                );
+            };
+            if file.is_null()
+                || !session
+                    .roots
+                    .iter()
+                    .any(|root| unsafe { clang_File_isEqual(file, *root) } != 0)
+            {
+                continue;
+            }
+            let names = names(cursor)?;
+            let qualified_name = names.join("::");
+            let required = input.required.contains(&qualified_name);
+            roots.push(Root {
+                qualified_name: qualified_name.clone(),
+                kind: text(unsafe { clang_getCursorKindSpelling(kind) }),
+                required,
+                location: locations(cursor).0,
+            });
+            if required {
+                let values = selected.entry(qualified_name).or_default();
+                if !values
+                    .iter()
+                    .any(|value| unsafe { clang_equalCursors(*value, cursor) } != 0)
+                {
+                    values.push(cursor);
+                }
+            }
+        }
+        for name in &input.required {
+            let Some(values) = selected.get(name) else {
+                return Err(Error::new(
+                    Stage::Scope,
+                    format!(
+                        "{}: required declaration `{name}` is not in the compiler-identified root scope",
+                        input.name
+                    ),
+                ));
+            };
+            for cursor in values {
+                capture.declaration(*cursor)?;
+            }
+        }
+        roots.sort_by(|a, b| {
+            (&a.qualified_name, &a.kind, a.location.offset).cmp(&(
+                &b.qualified_name,
+                &b.kind,
+                b.location.offset,
+            ))
+        });
+        let snapshot = Snapshot {
+            target: input.target,
+            target_triple: session.target.clone(),
+            compiler: text(unsafe { clang_getClangVersion() }),
+            library: self.library.path().to_path_buf(),
+            input_name: input.name.clone(),
+            arguments: session.arguments.clone(),
+            diagnostics: session.diagnostics.clone(),
+            roots,
+            declarations: capture.declarations,
+        };
+        snapshot.check()?;
+        Ok(snapshot)
+    }
+}
+
+struct Bindings {
+    previous: Option<Arc<SharedLibrary>>,
+}
+
+impl Bindings {
+    fn new(library: Arc<SharedLibrary>) -> Self {
+        Self {
+            previous: set_library(Some(library)),
+        }
+    }
+}
+
+impl Drop for Bindings {
+    fn drop(&mut self) {
+        set_library(self.previous.take());
+    }
+}
+
+struct Session {
+    index: CXIndex,
+    unit: CXTranslationUnit,
+    roots: Vec<CXFile>,
+    arguments: Vec<String>,
+    diagnostics: Vec<String>,
+    target: String,
+    _bindings: Bindings,
+}
+
+impl Drop for Session {
+    fn drop(&mut self) {
+        unsafe {
+            if !self.unit.is_null() {
+                clang_disposeTranslationUnit(self.unit);
+            }
+            if !self.index.is_null() {
+                clang_disposeIndex(self.index);
+            }
+        }
+    }
+}
+
+impl Session {
+    fn new(library: Arc<SharedLibrary>, input: &Input) -> Result<Self> {
+        let mut result = Self {
+            index: std::ptr::null_mut(),
+            unit: std::ptr::null_mut(),
+            roots: Vec::new(),
+            arguments: vec![
+                "-x".into(),
+                "c++".into(),
+                "-std=c++20".into(),
+                format!("--target={}", input.target.triple()),
+                "-fms-extensions".into(),
+                "-fms-compatibility".into(),
+            ],
+            diagnostics: Vec::new(),
+            target: String::new(),
+            _bindings: Bindings::new(library),
+        };
+        result.arguments.extend(input.arguments.iter().cloned());
+        let string = |value: &str| {
+            CString::new(value)
+                .map_err(|_| Error::new(Stage::Source, "compiler input contains NUL"))
+        };
+        let name = string(&input.name)?;
+        let source = string(&input.source)?;
+        let arguments = result
+            .arguments
+            .iter()
+            .map(|arg| string(arg))
+            .collect::<Result<Vec<_>>>()?;
+        let pointers = arguments.iter().map(|arg| arg.as_ptr()).collect::<Vec<_>>();
+        let mut unsaved = CXUnsavedFile {
+            Filename: name.as_ptr(),
+            Contents: source.as_ptr(),
+            Length: input.source.len().try_into().map_err(|_| {
+                Error::new(Stage::Source, "source length exceeds compiler input range")
+            })?,
+        };
+        result.index = unsafe { clang_createIndex(0, 0) };
+        if result.index.is_null() {
+            return Err(Error::new(
+                Stage::Capture,
+                "compiler could not create an index",
+            ));
+        }
+        let status = unsafe {
+            clang_parseTranslationUnit2(
+                result.index,
+                name.as_ptr(),
+                pointers.as_ptr(),
+                pointers
+                    .len()
+                    .try_into()
+                    .map_err(|_| Error::new(Stage::Source, "too many compiler arguments"))?,
+                &raw mut unsaved,
+                1,
+                CXTranslationUnit_DetailedPreprocessingRecord,
+                &raw mut result.unit,
+            )
+        };
+        if status != CXError_Success || result.unit.is_null() {
+            return Err(Error::new(
+                Stage::Source,
+                format!("{}: parse failed with {status}", input.name),
+            ));
+        }
+        let mut failed = false;
+        for index in 0..unsafe { clang_getNumDiagnostics(result.unit) } {
+            let diagnostic = unsafe { clang_getDiagnostic(result.unit, index) };
+            failed |= unsafe { clang_getDiagnosticSeverity(diagnostic) } >= CXDiagnostic_Error;
+            result.diagnostics.push(text(unsafe {
+                clang_formatDiagnostic(diagnostic, clang_defaultDiagnosticDisplayOptions())
+            }));
+            unsafe { clang_disposeDiagnostic(diagnostic) };
+        }
+        if failed {
+            return Err(Error::new(Stage::Source, result.diagnostics.join("\n")));
+        }
+        let info = unsafe { clang_getTranslationUnitTargetInfo(result.unit) };
+        if info.is_null() {
+            return Err(Error::new(
+                Stage::Capture,
+                "compiler did not report target information",
+            ));
+        }
+        let triple = text(unsafe { clang_TargetInfo_getTriple(info) });
+        let width = unsafe { clang_TargetInfo_getPointerWidth(info) };
+        unsafe { clang_TargetInfo_dispose(info) };
+        let matches = triple
+            .strip_prefix(input.target.triple())
+            .is_some_and(|version| {
+                version.is_empty()
+                    || version.split('.').all(|part| {
+                        !part.is_empty() && part.bytes().all(|byte| byte.is_ascii_digit())
+                    })
+            });
+        if !matches || width != input.target.pointer_bits() as i32 {
+            return Err(Error::new(
+                Stage::Capture,
+                format!("unexpected compiler target {triple}/{width}"),
+            ));
+        }
+        result.target = triple;
+        if input.roots.is_empty() {
+            result
+                .roots
+                .push(unsafe { clang_getFile(result.unit, name.as_ptr()) });
+        } else {
+            for path in &input.roots {
+                let path = string(
+                    path.to_str()
+                        .ok_or_else(|| Error::new(Stage::Scope, "non-UTF-8 root path"))?,
+                )?;
+                result
+                    .roots
+                    .push(unsafe { clang_getFile(result.unit, path.as_ptr()) });
+            }
+        }
+        if result.roots.iter().any(|root| root.is_null()) {
+            return Err(Error::new(
+                Stage::Scope,
+                "requested root file was not observed by the compiler",
+            ));
+        }
+        Ok(result)
+    }
+}
+
+struct Capture {
+    declarations: Vec<Declaration>,
+    cursors: Vec<CXCursor>,
+    pending: BTreeSet<Id>,
+}
+
+impl Capture {
+    fn declaration(&mut self, cursor: CXCursor) -> Result<Id> {
+        let mut parent = unsafe { clang_getCursorSemanticParent(cursor) };
+        while unsafe { clang_getCursorKind(parent) } == CXCursor_LinkageSpec {
+            parent = unsafe { clang_getCursorSemanticParent(parent) };
+        }
+        if !matches!(
+            unsafe { clang_getCursorKind(parent) },
+            CXCursor_TranslationUnit | CXCursor_Namespace
+        ) {
+            return Err(error(cursor, "nested declaration ownership requires C3"));
+        }
+        if children(cursor)
+            .iter()
+            .any(|child| unsafe { clang_isAttribute(clang_getCursorKind(*child)) } != 0)
+        {
+            return Err(error(
+                cursor,
+                "declaration attributes require a captured contract (C7)",
+            ));
+        }
+        let cursor = unsafe { clang_getCanonicalCursor(cursor) };
+        if let Some(id) = self
+            .cursors
+            .iter()
+            .position(|value| unsafe { clang_equalCursors(*value, cursor) } != 0)
+        {
+            if self.pending.contains(&id) {
+                return Err(error(cursor, "cyclic declaration capture"));
+            }
+            return Ok(id);
+        }
+        if self.pending.len() >= 64 {
+            return Err(error(cursor, "native dependency nesting exceeds 64"));
+        }
+        let kind = unsafe { clang_getCursorKind(cursor) };
+        if !matches!(
+            kind,
+            CXCursor_TypedefDecl
+                | CXCursor_TypeAliasDecl
+                | CXCursor_StructDecl
+                | CXCursor_ClassDecl
+                | CXCursor_UnionDecl
+        ) {
+            return Err(error(
+                cursor,
+                "declaration family is outside C2 (C3-C9 required)",
+            ));
+        }
+        if !children(cursor)
+            .iter()
+            .all(|child| unsafe { clang_isAttribute(clang_getCursorKind(*child)) } == 0)
+        {
+            return Err(error(
+                cursor,
+                "declaration attributes require a captured contract (C7)",
+            ));
+        }
+        let names = names(cursor)?;
+        if names.iter().any(|name| name.is_empty()) {
+            return Err(error(
+                cursor,
+                "anonymous declaration ownership is outside C2",
+            ));
+        }
+        let usr = text(unsafe { clang_getCursorUSR(cursor) });
+        if usr.is_empty() {
+            return Err(error(
+                cursor,
+                "compiler did not supply declaration identity",
+            ));
+        }
+        let (expansion, spelling) = locations(cursor);
+        let id = self.declarations.len();
+        self.cursors.push(cursor);
+        self.pending.insert(id);
+        self.declarations.push(Declaration {
+            evidence: Evidence {
+                qualified_name: names.join("::"),
+                kind: text(unsafe { clang_getCursorKindSpelling(kind) }),
+                usr,
+                expansion,
+                spelling,
+                written_type: String::new(),
+                canonical_type: String::new(),
+                layout: None,
+            },
+            names,
+            kind: DeclarationKind::Opaque { union: false },
+        });
+        let declaration = if matches!(kind, CXCursor_TypedefDecl | CXCursor_TypeAliasDecl) {
+            let ty = unsafe { clang_getTypedefDeclUnderlyingType(cursor) };
+            let canonical = unsafe { clang_getCanonicalType(ty) };
+            self.declarations[id].evidence.written_type =
+                text(unsafe { clang_getTypeSpelling(ty) });
+            self.declarations[id].evidence.canonical_type =
+                text(unsafe { clang_getTypeSpelling(canonical) });
+            self.declarations[id].evidence.layout = layout(ty)?;
+            DeclarationKind::Alias {
+                written: self.ty(ty, 0)?,
+                canonical: self.ty(canonical, 0)?,
+            }
+        } else {
+            if unsafe { clang_Cursor_isNull(clang_getCursorDefinition(cursor)) } == 0 {
+                return Err(error(
+                    cursor,
+                    "complete records require C3; they cannot become opaque",
+                ));
+            }
+            let ty = unsafe { clang_getCursorType(cursor) };
+            self.declarations[id].evidence.written_type =
+                text(unsafe { clang_getTypeSpelling(ty) });
+            self.declarations[id].evidence.canonical_type =
+                text(unsafe { clang_getTypeSpelling(clang_getCanonicalType(ty)) });
+            self.declarations[id].evidence.layout = layout(ty)?;
+            DeclarationKind::Opaque {
+                union: kind == CXCursor_UnionDecl,
+            }
+        };
+        self.declarations[id].kind = declaration;
+        self.pending.remove(&id);
+        Ok(id)
+    }
+
+    fn ty(&mut self, ty: CXType, depth: usize) -> Result<NativeType> {
+        if depth > 64 {
+            return Err(Error::new(Stage::Capture, "native type nesting exceeds 64"));
+        }
+        let qualifiers = Qualifiers {
+            constant: unsafe { clang_isConstQualifiedType(ty) } != 0,
+            volatile: unsafe { clang_isVolatileQualifiedType(ty) } != 0,
+            restrict: unsafe { clang_isRestrictQualifiedType(ty) } != 0,
+        };
+        let kind = match ty.kind {
+            CXType_Void => NativeKind::Void,
+            CXType_Bool | CXType_Char_U | CXType_Char_S | CXType_UChar | CXType_SChar
+            | CXType_UShort | CXType_Short | CXType_UInt | CXType_Int | CXType_ULong
+            | CXType_Long | CXType_ULongLong | CXType_LongLong | CXType_Float | CXType_Double
+            | CXType_LongDouble | CXType_WChar | CXType_Char16 | CXType_Char32 => {
+                NativeKind::Scalar(ty.kind)
+            }
+            CXType_Typedef => {
+                NativeKind::Alias(self.declaration(unsafe { clang_getTypeDeclaration(ty) })?)
+            }
+            CXType_Elaborated => {
+                let mut named = self.ty(unsafe { clang_Type_getNamedType(ty) }, depth + 1)?;
+                named.qualify(&qualifiers);
+                return Ok(named);
+            }
+            CXType_Record => {
+                NativeKind::Record(self.declaration(unsafe { clang_getTypeDeclaration(ty) })?)
+            }
+            CXType_Pointer => NativeKind::Pointer(Box::new(
+                self.ty(unsafe { clang_getPointeeType(ty) }, depth + 1)?,
+            )),
+            CXType_LValueReference => NativeKind::Reference(Box::new(
+                self.ty(unsafe { clang_getPointeeType(ty) }, depth + 1)?,
+            )),
+            CXType_ConstantArray => {
+                let count = unsafe { clang_getArraySize(ty) };
+                let count = usize::try_from(count)
+                    .map_err(|_| Error::new(Stage::Capture, "invalid native array bound"))?;
+                NativeKind::Array(
+                    Box::new(self.ty(unsafe { clang_getArrayElementType(ty) }, depth + 1)?),
+                    count,
+                )
+            }
+            _ => {
+                return Err(Error::new(
+                    Stage::Capture,
+                    format!(
+                        "unsupported C2 native type {} ({})",
+                        text(unsafe { clang_getTypeSpelling(ty) }),
+                        ty.kind
+                    ),
+                ));
+            }
+        };
+        Ok(NativeType {
+            kind,
+            qualifiers,
+            layout: layout(ty)?,
+        })
+    }
+}
+
+fn layout(ty: CXType) -> Result<Option<Layout>> {
+    let size = unsafe { clang_Type_getSizeOf(ty) };
+    let alignment = unsafe { clang_Type_getAlignOf(ty) };
+    if size < 0 || alignment < 0 {
+        if ty.kind == CXType_Void
+            || size == i64::from(CXTypeLayoutError_Incomplete)
+            || alignment == i64::from(CXTypeLayoutError_Incomplete)
+        {
+            return Ok(None);
+        }
+        return Err(Error::new(
+            Stage::Capture,
+            format!("unavailable native layout {size}/{alignment}"),
+        ));
+    }
+    Ok(Some(Layout {
+        size: size as u64,
+        alignment: alignment as u64,
+    }))
+}
+
+fn names(cursor: CXCursor) -> Result<Vec<String>> {
+    let mut names = vec![text(unsafe { clang_getCursorSpelling(cursor) })];
+    if unsafe { clang_getCursorKind(cursor) } == CXCursor_MacroDefinition {
+        return Ok(names);
+    }
+    let mut parent = unsafe { clang_getCursorSemanticParent(cursor) };
+    for _ in 0..64 {
+        let kind = unsafe { clang_getCursorKind(parent) };
+        if kind == CXCursor_TranslationUnit
+            || unsafe { clang_isInvalid(kind) } != 0
+            || unsafe { clang_Cursor_isNull(parent) } != 0
+        {
+            names.reverse();
+            return Ok(names);
+        }
+        if kind != CXCursor_LinkageSpec {
+            names.push(text(unsafe { clang_getCursorSpelling(parent) }));
+        }
+        parent = unsafe { clang_getCursorSemanticParent(parent) };
+    }
+    Err(error(
+        cursor,
+        "compiler semantic ownership exceeds 64 levels",
+    ))
+}
+
+fn locations(cursor: CXCursor) -> (Location, Location) {
+    let location = unsafe { clang_getCursorLocation(cursor) };
+    let read = |expansion| {
+        let mut file = std::ptr::null_mut();
+        let (mut line, mut column, mut offset) = (0, 0, 0);
+        unsafe {
+            if expansion {
+                clang_getExpansionLocation(
+                    location,
+                    &raw mut file,
+                    &raw mut line,
+                    &raw mut column,
+                    &raw mut offset,
+                );
+            } else {
+                clang_getSpellingLocation(
+                    location,
+                    &raw mut file,
+                    &raw mut line,
+                    &raw mut column,
+                    &raw mut offset,
+                );
+            }
+        }
+        Location {
+            file: if file.is_null() {
+                String::new()
+            } else {
+                text(unsafe { clang_getFileName(file) })
+            },
+            line,
+            column,
+            offset,
+        }
+    };
+    (read(true), read(false))
+}
+
+fn error(cursor: CXCursor, message: &str) -> Error {
+    let location = locations(cursor).0;
+    Error::new(
+        Stage::Capture,
+        format!(
+            "{}:{}:{}: {}: {message}",
+            location.file,
+            location.line,
+            location.column,
+            text(unsafe { clang_getCursorSpelling(cursor) })
+        ),
+    )
+}
+
+fn text(value: CXString) -> String {
+    let pointer = unsafe { clang_getCString(value) };
+    let result = if pointer.is_null() {
+        String::new()
+    } else {
+        unsafe { CStr::from_ptr(pointer) }
+            .to_string_lossy()
+            .into_owned()
+    };
+    unsafe { clang_disposeString(value) };
+    result
+}
+
+fn children(cursor: CXCursor) -> Vec<CXCursor> {
+    struct State {
+        cursors: Vec<CXCursor>,
+        panic: Option<Box<dyn std::any::Any + Send>>,
+    }
+    extern "C" fn visit(cursor: CXCursor, _: CXCursor, data: CXClientData) -> CXChildVisitResult {
+        let state = unsafe { &mut *data.cast::<State>() };
+        match catch_unwind(AssertUnwindSafe(|| state.cursors.push(cursor))) {
+            Ok(()) => CXChildVisit_Continue,
+            Err(panic) => {
+                state.panic = Some(panic);
+                CXChildVisit_Break
+            }
+        }
+    }
+    let mut state = State {
+        cursors: Vec::new(),
+        panic: None,
+    };
+    unsafe { clang_visitChildren(cursor, visit, (&raw mut state).cast()) };
+    if let Some(panic) = state.panic {
+        resume_unwind(panic);
+    }
+    state.cursors
+}

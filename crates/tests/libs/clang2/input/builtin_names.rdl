@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    type Char16 = u16;
+    type Character = Test::Char16;
+    type Number = Test::i32;
+    type String = i32;
+    type Text = Test::String;
+    type i32 = i64;
+}

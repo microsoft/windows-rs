@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    type CHAR = i8;
+    type LONG = i32;
+    type LONGLONG = i64;
+    type PVOID = *mut void;
+    type SHORT = i16;
+    type ULONG = u32;
+    type ULONGLONG = u64;
+    type WCHAR = u16;
+}
