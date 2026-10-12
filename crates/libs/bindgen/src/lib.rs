@@ -245,10 +245,10 @@ impl Bindgen {
 
     /// Add a filter rule to include or exclude APIs.
     ///
-    /// Filter rules may be a function or type name, a namespace prefix, a fully-qualified name,
-    /// or a method-level entry of the form `Namespace.Type::Method` (with optional `Property` /
-    /// `Event` sugar). Prefix with `!` to exclude rather than include. See the crate-level
-    /// docs for the full grammar.
+    /// Use a function, constant, type, or namespace name, or select members with
+    /// `Namespace.Type::Member`. Property and event names select their accessor pairs.
+    /// Prefix a qualified name with `!` to exclude it from a namespace selection.
+    /// Signature dependencies are included automatically. See [`bindgen`] for filter examples.
     pub fn filter(&mut self, filter: &str) -> &mut Self {
         self.filters(std::iter::once(filter))
     }
@@ -274,10 +274,7 @@ impl Bindgen {
 
     /// Add multiple filter rules to include or exclude APIs.
     ///
-    /// Filter rules may be a function or type name, a namespace prefix, a fully-qualified name,
-    /// or a method-level entry of the form `Namespace.Type::Method` (with optional `Property` /
-    /// `Event` sugar). Prefix with `!` to exclude rather than include. See the crate-level
-    /// docs for the full grammar.
+    /// Uses the same syntax as [`Bindgen::filter`].
     pub fn filters<I, S>(&mut self, filters: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
