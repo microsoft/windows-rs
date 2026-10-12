@@ -118,9 +118,15 @@ the Win32 umbrella's re-exports.
 - In minimal mode, use `compose` for an explicitly filtered composable WinRT class. Filter the
   class and its factory method separately; `implement` does not select composition targets.
 - Use `derive` or `derives` to add traits to generated types.
-- Use `rustfmt` to select a formatter executable.
+- Use `rustfmt("max_width=120")` or `--rustfmt max_width=120` to pass formatting configuration,
+  not an executable path. Options are comma-separated and override matching defaults.
 - Use `dead_code` for internal bindings whose unused callable items should be detected as
   `pub(crate)`.
+
+Formatting uses `rustfmt` from `PATH` and defaults to `newline_style=Unix`. If the formatter is
+unavailable or fails, generation writes unformatted output without a warning. Build-script
+generation does not require the `rustfmt` component. For checked-in bindings, install it and
+keep the regeneration diff check in CI.
 
 WinRT event add/remove pairs project as one method returning `EventRevoker`. Dropping the revoker
 unsubscribes; `forget` or `into_token` transfers that responsibility. Interface implementations
