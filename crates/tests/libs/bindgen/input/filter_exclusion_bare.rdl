@@ -1,0 +1,11 @@
+//! --filter Kept Removed !Removed --sys --flat
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern fn Kept() -> u32;
+    #[library("test.dll")]
+    extern fn Removed() -> RemovedValue;
+    struct RemovedValue {
+        value: u32,
+    }
+}

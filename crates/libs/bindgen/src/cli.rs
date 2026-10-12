@@ -54,7 +54,8 @@ use super::*;
 /// ```
 ///
 /// Dots and `::` both separate path segments. Namespace filters include child namespaces;
-/// prefix a qualified name with `!` to exclude it from a namespace selection.
+/// prefix a type or namespace filter with `!` to exclude it. More specific rules take precedence;
+/// exclusions win ties regardless of argument order.
 ///
 /// Use a filter file for longer filter lists:
 ///

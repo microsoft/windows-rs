@@ -1,0 +1,13 @@
+//! --filter Test::{Kept,Removed,AlsoRemoved} !Test::{Removed,AlsoRemoved} --minimal --flat
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern fn Kept() -> u32;
+    #[library("test.dll")]
+    extern fn Removed() -> RemovedValue;
+    #[library("test.dll")]
+    extern fn AlsoRemoved() -> u32;
+    struct RemovedValue {
+        value: u32,
+    }
+}

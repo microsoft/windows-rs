@@ -26,6 +26,9 @@ impl TypeClosure {
         // Interface method seeds pull in only the requested signatures.
         for ((namespace, name), method_set) in &filter.requested_interfaces {
             for ty in reader.with_full_name(namespace, name) {
+                if filter.excludes_type_name(ty.type_name()) {
+                    continue;
+                }
                 types.insert(ty.clone());
 
                 if let Type::Interface(iface) = &ty {
@@ -61,6 +64,9 @@ impl TypeClosure {
 
         for (namespace, name) in &filter.direct_types {
             for ty in reader.with_full_name(namespace, name) {
+                if filter.excludes_type_name(ty.type_name()) {
+                    continue;
+                }
                 ty.combine_closure(&mut types, reader, references);
                 types.insert(ty.clone());
 
@@ -292,6 +298,99 @@ impl CombineClosure for Type {
                 Self::IUnknown.combine_closure(types, reader, references);
             }
             _ => {}
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn precise_type_exclusions() {
+        let reader = default_reader(false);
+        let cases: &[(&[&str], TypeName)] = &[
+            (
+                &["GetTickCount64", "!GetTickCount64"],
+                TypeName("Windows.Win32", "GetTickCount64"),
+            ),
+            (
+                &[
+                    "!Windows.Win32.GetTickCount64",
+                    "Windows.Win32.GetTickCount64",
+                ],
+                TypeName("Windows.Win32", "GetTickCount64"),
+            ),
+            (
+                &[
+                    "Windows.Win32::{GetTickCount,GetTickCount64}",
+                    "!Windows.Win32::{GetTickCount64}",
+                ],
+                TypeName("Windows.Win32", "GetTickCount64"),
+            ),
+            (
+                &["DateTime", "!Windows.Foundation.DateTime"],
+                TypeName("Windows.Foundation", "DateTime"),
+            ),
+            (
+                &["Uri", "!Windows.Foundation.Uri"],
+                TypeName("Windows.Foundation", "Uri"),
+            ),
+            (
+                &["IUriRuntimeClass", "!IUriRuntimeClass"],
+                TypeName("Windows.Foundation", "IUriRuntimeClass"),
+            ),
+            (
+                &[
+                    "Windows.Foundation.IUriRuntimeClass::AbsoluteUri",
+                    "!Windows.Foundation.IUriRuntimeClass",
+                ],
+                TypeName("Windows.Foundation", "IUriRuntimeClass"),
+            ),
+            (
+                &[
+                    "Windows.Foundation.IUriRuntimeClass::{}",
+                    "!Windows.Foundation.IUriRuntimeClass",
+                ],
+                TypeName("Windows.Foundation", "IUriRuntimeClass"),
+            ),
+        ];
+
+        for (entries, excluded) in cases {
+            let parsed: Vec<_> = ["GetTickCount"]
+                .into_iter()
+                .chain(entries.iter().copied())
+                .flat_map(filter_parser::parse_filter_entry)
+                .collect();
+            let resolved = filter_parser::resolve_entries(reader, &parsed);
+            let mut filter = Filter::from_resolved(reader, &resolved);
+            assert!(!filter.has_broad_filter);
+            filter.uses_closure = true;
+            let types = TypeClosure::build(reader, &mut filter, &References::default(), None);
+
+            assert!(!types.contains_key(excluded), "{entries:?}");
+            assert!(types.contains_key(&TypeName("Windows.Win32", "GetTickCount")));
+        }
+    }
+
+    #[test]
+    fn precise_type_selection_overrides_namespace_exclusion() {
+        let reader = default_reader(false);
+        for entries in [
+            ["Windows.Foundation.DateTime", "!Windows.Foundation"],
+            ["!Windows.Foundation", "Windows.Foundation.DateTime"],
+        ] {
+            let parsed: Vec<_> = entries
+                .into_iter()
+                .flat_map(filter_parser::parse_filter_entry)
+                .collect();
+            let resolved = filter_parser::resolve_entries(reader, &parsed);
+            let mut filter = Filter::from_resolved(reader, &resolved);
+            assert!(!filter.has_broad_filter);
+            filter.uses_closure = true;
+            let types = TypeClosure::build(reader, &mut filter, &References::default(), None);
+
+            assert!(types.contains_key(&TypeName("Windows.Foundation", "DateTime")));
         }
     }
 }
