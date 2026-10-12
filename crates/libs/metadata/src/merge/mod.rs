@@ -407,13 +407,25 @@ fn write_field(file: &mut writer::File, field: reader::Field, arch_override: Opt
     );
 }
 
+fn has_native_field_contract(field: reader::Field) -> bool {
+    field.is_imported_data()
+        || field.has_native_value()
+        || field.attributes().any(|attr| {
+            attr.name() == "GuidAttribute"
+                && matches!(
+                    attr.namespace(),
+                    "Windows.Win32.Metadata" | "Windows.Foundation.Metadata"
+                )
+        })
+}
+
 fn api_field_key(field: reader::Field) -> String {
     let value = field
         .constant()
         .map(|c| format!("{:?}", c.value()))
         .unwrap_or_default();
     let mut key = format!("{}|{:?}|{value}", field.name(), field.ty());
-    if field.is_imported_data() {
+    if has_native_field_contract(field) {
         let mut attributes: Vec<_> = field
             .attributes()
             .filter(|attr| {
@@ -423,7 +435,7 @@ fn api_field_key(field: reader::Field) -> String {
             .map(|attr| format!("{}|{}|{:?}", attr.namespace(), attr.name(), attr.value()))
             .collect();
         attributes.sort();
-        key.push_str(&format!("|data:{:?}:{attributes:?}", field.flags()));
+        key.push_str(&format!("|native:{:?}:{attributes:?}", field.flags()));
     }
     key
 }
@@ -482,7 +494,7 @@ fn write_class_union(file: &mut writer::File, index: &reader::Index, copies: &[r
     for copy in copies {
         for field in copy.fields() {
             let mut key = api_field_key(field);
-            if field.is_imported_data() {
+            if has_native_field_contract(field) {
                 key.push_str(&format!("|arch:{}", field.arches()));
             }
             if seen_fields.insert(key) {
@@ -894,7 +906,7 @@ fn write_type_arch_merged(
     let mut fields: BTreeMap<String, (reader::Field, i32)> = BTreeMap::new();
     for (_, ty, bits) in copies {
         for field in ty.fields() {
-            let member_bits = if field.is_imported_data() && field.arches() != 0 {
+            let member_bits = if has_native_field_contract(field) && field.arches() != 0 {
                 field.arches() & bits
             } else {
                 *bits

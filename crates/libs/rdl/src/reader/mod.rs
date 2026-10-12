@@ -17,6 +17,7 @@ mod item;
 mod method;
 mod module;
 mod native_slots;
+mod native_values;
 mod param;
 mod r#struct;
 mod typedef;
@@ -425,6 +426,9 @@ fn expand_rdl_files(paths: &[PathBuf], input_text: &[String]) -> Result<Vec<File
 
 fn resolve_winrt(item: &mut Item, source_file: &str, parent: Option<bool>) -> Result<(), Error> {
     match item {
+        Item::Const(item) => {
+            item.winrt = read_winrt(source_file, &item.name, &item.attrs, parent)? == Some(true);
+        }
         Item::Enum(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }

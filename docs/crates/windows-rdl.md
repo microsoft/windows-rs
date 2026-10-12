@@ -223,6 +223,67 @@ emission, rendering, split/partition cleanup, merge, or remap. See
 These checks do not prove native DLL/export availability or layout. Rust data projection is a
 separate task.
 
+### Native constant values
+
+Native arrays and records carry semantic initializers rather than object-memory bytes:
+
+```text
+#[win32]
+mod Example {
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+    const Origin: Point = record {
+        x: 0i32,
+        y: -1i32,
+    };
+    const Values: [u16; 2] = [1u16, 65535u16];
+    const Text: *const u16 = utf16([55296, 0, 56320, 0]);
+}
+```
+
+`record` supplies every instance member in declaration order, including nested records and
+arrays. The declared field type carries nominal and typedef identity; the initializer does not
+repeat or rename the record type. Integer/float leaves require type suffixes and checked ranges.
+Enum and typedef leaves must match the known underlying type, not a guessed one-field record.
+`f32bits(integer)` and `f64bits(integer)` preserve IEEE bits, including signed zero and NaN
+payloads. The writer uses bit constructors for floating leaves; no decimal conversion changes
+their bits.
+
+| Constructor | Literal kind | Code-unit range |
+| --- | --- | --- |
+| `narrow([...])` | Ordinary narrow literal; no execution-charset guess | u8 |
+| `utf8([...])` | UTF-8 literal, separate from ordinary narrow text | u8 |
+| `utf16([...])` | UTF-16 literal | u16 |
+| `utf32([...])` | UTF-32 literal | u32 |
+
+Units are numeric and retained exactly, including embedded NULs, unpaired surrogates, and
+non-Unicode values. Constructors neither decode text nor append/remove terminators. Narrow
+and UTF-8 literals accept signed/unsigned byte character types; UTF-16/32 require u16/u32,
+including qualified typedefs. Fixed arrays must match the unit count. A character pointer retains
+its declared type; the initializer describes its literal payload, not a numeric address or
+an executable relocation. Literal kind and execution-charset evidence come from native capture.
+
+`NativeConstantAttribute` stores a versioned checked tree on a `Public | Static` API field
+without `Literal` or an ECMA Constant row. Legacy scalars and `String` constants keep their wire
+format. GUID/property-key constants keep their existing descriptors and retain declared types,
+architecture attributes, and member annotations through rendering and merge.
+
+Shared checks reject WinRT owners, mismatched types/counts, missing or reordered members,
+opaque/union/bit-field aggregates, unavailable value definitions, malformed payloads, and
+conflicting scalar/GUID/import descriptors before writing or clearing output. Relocations,
+partial/default initializers, and unevaluated expressions are unsupported, not zero-filled.
+Record contents do not claim native padding, offsets, object lifetime, or calling support.
+
+`test_rdl::native_values` checks reviewed exact text/binary round-trips, aliases, external
+definitions, namespace routing, and architecture variants. `native_value_metadata` checks raw
+descriptors, codec bytes, and failure before emission/rendering/cleanup/merge/remap. All consumed
+value types need definitions: compile with references; render with those definition inputs and
+an output filter when they should not be published. See
+[metadata native constant values](windows-metadata.md#native-constant-values) for the wire format.
+Rust projection and legacy scalar-only consumers reject the descriptors.
+
 ### Native interface slots
 
 An explicit native model separates source declaration order from vtable order:

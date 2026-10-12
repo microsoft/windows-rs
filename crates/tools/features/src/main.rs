@@ -99,7 +99,13 @@ fn load() -> (Vec<String>, Vec<Entry>) {
                 let extras = signature_features(&method.signature(&[]), namespace, &index);
                 raw.push((namespace.to_string(), name.to_string(), extras));
             }
-            Item::Const(_) => raw.push((namespace.to_string(), name.to_string(), Vec::new())),
+            Item::Const(field) => {
+                assert!(
+                    !field.has_native_value(),
+                    "native value descriptors are not supported by feature generation"
+                );
+                raw.push((namespace.to_string(), name.to_string(), Vec::new()));
+            }
             Item::Data(_) => panic!("native data imports are not supported by feature generation"),
         }
     }

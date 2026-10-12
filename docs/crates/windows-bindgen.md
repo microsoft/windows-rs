@@ -254,6 +254,14 @@ Bindgen rejects inputs containing these items until a Rust data-import policy is
 it does not manufacture a value or project the field through constant emission. Header-to-RDL/WinMD
 representation does not depend on that later policy.
 
+### Native constant values
+
+`NativeConstantAttribute` carries typed aggregate contents, floating bits, and exact literal code
+units independently of ECMA scalar Constant rows. Bindgen rejects these descriptors until a Rust
+value policy exists; it does not emit zero/default values or assume a missing initializer.
+Legacy scalar/GUID/property-key projection keeps its existing behavior. Header-to-RDL/WinMD
+representation does not depend on that later policy.
+
 ### Native interface slots
 
 Explicit native vtables use `NativeVtableAttribute` and method slot/reuse descriptors rather than

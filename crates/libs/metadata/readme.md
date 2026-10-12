@@ -14,8 +14,8 @@ required signature modifiers, independently of parameter direction and pointer-r
 
 Raw native annotation identities and original positional bindings survive independently of
 parameter names and direction. `Index::validate_native_contracts` and checked
-`writer::File::try_into_stream` check opaque, annotation, bit-field, data-import, and slot
-invariants before publishing metadata.
+`writer::File::try_into_stream` check native storage, annotation, bit-field, import, slot, and
+value invariants before publishing metadata.
 
 `Field::bitfields` reads logical member types, qualifiers, and raw evidence independently of backing
 storage. Legacy interval-only members retain an unspecified logical type.
@@ -26,6 +26,10 @@ retains exact DLL/export-or-ordinal routing and COFF import kind without a fabri
 `TypeDef::native_vtable` and `MethodDef::native_slot` retain absolute native slots and inherited
 declaration owners independently of method row order. Shared checks validate the representation,
 not native override legality or ABI agreement.
+
+`Field::native_value` reads checked aggregate contents and exact literal code units without
+converting them to Unicode strings or native object bytes. IEEE floating bits and declared
+field/record types remain separate; unavailable definitions and unsupported initializers reject.
 
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-metadata.md)

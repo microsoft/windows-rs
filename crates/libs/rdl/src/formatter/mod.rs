@@ -125,7 +125,21 @@ fn format_seq(tokens: &[TokenTree], output: &mut String, indent: usize, inline: 
             TokenTree::Group(g) => match g.delimiter() {
                 Delimiter::Brace => {
                     let inner: Vec<TokenTree> = g.stream().into_iter().collect();
-                    if inner.is_empty() {
+                    let record_value = matches!(i.checked_sub(1).and_then(|i| tokens.get(i)),
+                        Some(TokenTree::Ident(name)) if name == "record")
+                        && (i == 1
+                            || matches!(i.checked_sub(2).and_then(|i| tokens.get(i)),
+                            Some(TokenTree::Punct(p)) if matches!(p.as_char(), '=' | ':' | ',')));
+                    if record_value && (inline || inner.is_empty()) {
+                        output.push('{');
+                        if !inner.is_empty() {
+                            output.push(' ');
+                            format_seq(&inner, output, indent, true);
+                            trim_space(output);
+                            output.push(' ');
+                        }
+                        output.push_str("} ");
+                    } else if inner.is_empty() {
                         output.push_str("{}\n");
                     } else {
                         if !output.ends_with(' ') {
@@ -139,6 +153,8 @@ fn format_seq(tokens: &[TokenTree], output: &mut String, indent: usize, inline: 
                         {
                             output.push_str(",\n");
                             i += 1; // skip the `,`
+                        } else if record_value {
+                            output.push(' ');
                         } else {
                             output.push('\n');
                         }
@@ -202,5 +218,17 @@ mod tests {
     #[test]
     fn input_direction_uses_rdl_spelling() {
         assert_eq!(format("#[r#in]"), "#[in]\n");
+    }
+
+    #[test]
+    fn record_initializers_keep_delimiters_with_their_values() {
+        assert_eq!(
+            format("const E: Empty = record {};"),
+            "const E: Empty = record {};\n"
+        );
+        assert_eq!(
+            format("const V: T = record { a: record { x: 1i32, }, b: 2u8, };"),
+            "const V: T = record {\n    a: record {\n        x: 1i32,\n    },\n    b: 2u8,\n};\n"
+        );
     }
 }

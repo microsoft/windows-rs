@@ -75,6 +75,24 @@ fn explicit_native_slots_do_not_use_method_row_order() {
 }
 
 #[test]
+#[should_panic(expected = "native value descriptors are not supported by Rust projection")]
+fn native_values_do_not_project_as_missing_scalar_constants() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("native_value_rejection");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("out.winmd");
+    windows_rdl::reader()
+        .input_text("#[win32] mod Test { const Value: [u16;1] = utf16([55296]); }")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_bindgen::builder()
+        .input(winmd)
+        .output(scratch.join("out.rs"))
+        .filter("Test.Value")
+        .write();
+}
+
+#[test]
 #[should_panic(expected = "explicit native vtables are not supported by Rust projection")]
 fn explicit_native_slots_in_a_base_do_not_use_method_row_order() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("native_slot_base_rejection");

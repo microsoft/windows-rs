@@ -188,6 +188,10 @@ impl Reader {
                     insert(types, name, Type::CppFn(CppFn { namespace, method }));
                 }
                 windows_metadata::reader::Item::Const(field) => {
+                    assert!(
+                        !field.has_native_value(),
+                        "native value descriptors are not supported by Rust projection"
+                    );
                     let types = reader.map.entry(namespace).or_default();
                     insert(
                         types,

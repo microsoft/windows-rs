@@ -7,6 +7,7 @@ mod r#enum;
 mod r#fn;
 mod interface;
 mod layout;
+mod native_values;
 mod r#struct;
 
 use super::*;
@@ -441,6 +442,22 @@ fn native_typedef_field<'a>(
 }
 
 fn write_const(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {
+    if let Some(value) = item
+        .native_value()
+        .map_err(|error| writer_err!("{error}"))?
+    {
+        let name = write_ident(item.name());
+        let ty = write_type(namespace, &item.ty());
+        let arch = write_arch_attr(item.arches());
+        let attrs = write_custom_attributes_except(
+            item.attributes(),
+            namespace,
+            item.index(),
+            &["SupportedArchitectureAttribute", "NativeConstantAttribute"],
+        )?;
+        let value = native_values::write_native_value(&value)?;
+        return Ok(quote! { #arch #(#attrs)* const #name: #ty = #value; });
+    }
     // GUID constants render as inline `0x...` literals, not raw attributes.
     let is_guid = match item.ty() {
         metadata::Type::ValueName(tn) => &tn == ("System", "Guid") || tn.name == "GUID",
@@ -487,14 +504,18 @@ fn write_const_value(
     })
 }
 
-fn write_const_guid(
-    _namespace: &str,
-    item: &metadata::reader::Field,
-) -> Result<TokenStream, Error> {
+fn write_const_guid(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
     let arch_attr = write_arch_attr(item.arches());
     let literal = guid_attribute_literal(item)?;
-    Ok(quote! { #arch_attr const #name: GUID = #literal; })
+    let ty = write_type(namespace, &item.ty());
+    let attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["SupportedArchitectureAttribute", "GuidAttribute"],
+    )?;
+    Ok(quote! { #arch_attr #(#attrs)* const #name: #ty = #literal; })
 }
 
 /// Recombines a property-key constant's `fmtid` and `pid` into RDL form.
@@ -510,7 +531,13 @@ fn write_const_property_key(
         .constant()
         .ok_or_else(|| writer_err!("property key constant `{}` has no `pid` value", item.name()))?;
     let pid = write_value(namespace, &constant.value());
-    Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty = #pid; })
+    let attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["SupportedArchitectureAttribute", "GuidAttribute"],
+    )?;
+    Ok(quote! { #arch_attr #(#attrs)* #[guid(#guid)] const #name: #ty = #pid; })
 }
 
 /// Folds the 11-argument `GuidAttribute` into RDL's u128 GUID literal.

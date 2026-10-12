@@ -227,7 +227,7 @@ Raw SAL/MIDL evidence and lowered direction/buffer attributes remain separate.
 | API | Contract |
 | --- | --- |
 | `Index::validate_native_annotations()` | Checks owners, positional argument shapes, evidence identities, and parameter bindings |
-| `Index::validate_native_contracts(reference)` | Checks opaque storage, annotations, bit-fields, data imports, and native slots against supplied references |
+| `Index::validate_native_contracts(reference)` | Checks opaque storage, annotations, bit-fields, data imports, native slots, and values against supplied references |
 | `writer::File::try_into_stream()` | Returns checked bytes or `NativeContractError`, retaining writer references during validation |
 
 The checker rejects duplicate annotation identities or identifier bindings, missing evidence,
@@ -301,6 +301,59 @@ constant keys retain their existing behavior.
 
 Rust projection, feature generation, and legacy clang references reject `Item::Data` rather than
 inventing a constant or an unsupported binding.
+
+### Native constant values
+
+`Windows.Win32.Metadata.NativeConstantAttribute(version: i32, payload: String)` carries a
+semantic initializer on a `Public | Static` field in a neutral nongeneric native `Apis` container.
+It has no `Literal`, ECMA Constant row, GUID value descriptor, or data-import descriptor. Legacy
+scalars, strings, GUIDs, and property keys keep their existing wire formats.
+
+`Field::has_native_value()` identifies the exact marker. `Field::native_value()` decodes a checked
+`NativeValue`: typed scalar, fixed-array contents, ordered named record members, or literal
+kind/code units. `NativeValue::to_payload` and `from_payload` share the version 1 codec.
+The payload is lowercase hexadecimal of a little-endian semantic tree, not native object bytes.
+A standard custom-attribute string carries the bytes without extending ECMA scalar Constant rows.
+
+| Tag (decimal) | Contents after tag |
+| --- | --- |
+| 1 | Boolean byte, exactly 0 or 1 |
+| 2 / 3 | u8 / i8 |
+| 4 / 5 | u16 / i16 |
+| 6 / 7 | u32 / i32 |
+| 8 / 9 | u64 / i64 |
+| 10 / 11 | usize / isize value in u64 / i64; not a target-layout claim |
+| 12 / 13 | f32 / f64 IEEE bits in u32 / u64 |
+| 20 | u32 count, then child trees |
+| 21 | u32 member count; each has u32 UTF-8 name length, name bytes, and a child tree |
+| 22 | Kind byte, u32 unit count, and units of that kind's width |
+
+Kind 0 is ordinary narrow text and kind 1 is UTF-8; both retain u8 units. Kinds 2 and 3 retain
+UTF-16 u16 and UTF-32 u32 units. Narrow does not infer an execution charset. Units are not decoded
+as Unicode or normalized, and no terminator is added/removed. Floating values retain their exact
+bits, including NaN payloads. Member names are nonempty, NUL-free, unique UTF-8 strings.
+Counts must fit the remaining input, nesting is bounded to 64, and trailing/truncated data,
+unknown tags/kinds/versions, invalid booleans, and noncanonical hex reject.
+
+`Index::validate_native_values(reference)` follows qualified typedef/enum targets and checks
+all architecture-compatible definitions. Records require every instance field in declaration
+order; arrays require exact lengths and element types. Literal kind checks the character width
+without rewriting a pointer to `String`. Value definitions must be available in the local or
+supplied reference index. Known x86 native-sized values must fit 32 bits.
+
+Opaque/union/bit-field aggregate values, generic/WinRT/nonvalue definitions, cyclic types,
+missing definitions, and conflicting value/storage descriptors reject. These are representation
+checks, not compiler evaluation, source closure, native layout, padding, lifetime, or ABI proof.
+The tree has no relocation or active-union-member form.
+
+Shared checks report `NativeContractError::Value` before checked emission, rendering/cleanup,
+merge, or remap. Payloads contain no nominal type references: field/record signatures retain
+the types and remap independently of value contents. API merge keys retain payloads and member
+evidence, including architecture presence. GUID/property-key merge keys also retain their
+existing value descriptors rather than collapsing different UUIDs by field name.
+
+Rust projection, feature generation, and legacy clang references reject native value descriptors
+rather than treating a missing scalar Constant row as a missing initializer.
 
 ### Native interface slots
 

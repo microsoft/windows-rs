@@ -972,8 +972,28 @@ Capture/reconciliation must still prove native ordering, override legality, rece
 covariance, and thunks. Rust projection rejects modeled interfaces and their derived consumers
 instead of treating row order as dispatch order. Unmarked legacy metadata is unchanged.
 
-The next bounded format contract is C1-H's required nonprimitive values. Its gate is declared
-types and exact compiler-backed values, not Rust projection or another full-header survey.
+**C1-H's approved value model is implemented.** Complete non-union records, fixed arrays, and
+exact literal code units use a checked `NativeConstantAttribute` semantic tree without an ECMA
+scalar Constant row or invented object-memory bytes. Declared types retain aliases, enums, and
+qualifiers. Ordinary narrow and UTF-8 literals remain distinct; UTF-16/32 units preserve embedded
+NULs, unpaired surrogates, and their original lengths. No Unicode conversion or implicit terminator
+changes the payload. Explicit floating bit constructors retain signed zero and NaN payloads.
+
+GUID/property-key wire formats remain in use. Rendering preserves their declared types,
+architecture attributes, and raw evidence; merge retains differing UUID/value contracts.
+Reviewed exact round-trips, independent routing, supplied references, architecture-specific
+character aliases, and raw malformed controls cover the new representation. Unsupported consumers
+reject descriptors instead of treating a missing Constant row as a missing initializer.
+
+All consumed value definitions must be available for type/member checks. Union active-member
+values, bit-field initializers, relocations, partial/default initializers, and unevaluated
+expressions remain explicit format blockers. The tree does not supply native padding, offsets,
+object lifetime, or calling support. C4/C8 must obtain values and literal-kind/charset evidence
+from the compiler; neither authored fixtures nor legacy output prove header agreement.
+
+The C1 representation packages are in place for the selected C2 path. The next bounded package
+is C2: owned compiler sessions, identity/scalars/aliases, and a small complete header -> RDL ->
+WinMD path using the fixed anchors above. It is not another broad header-support campaign.
 
 Continue the remaining C1 contracts with reviewed inputs, semantic WinMD readback, and negative
 controls using the fixed acceptance gates above. No fresh full-header capture is needed unless

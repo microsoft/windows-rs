@@ -46,7 +46,11 @@ impl MetadataReferences {
                 windows_metadata::reader::Item::Fn(_) => {
                     excluded_functions.insert(name.to_string());
                 }
-                windows_metadata::reader::Item::Const(_) => {
+                windows_metadata::reader::Item::Const(field) => {
+                    assert!(
+                        !field.has_native_value(),
+                        "native value descriptors are not supported by legacy clang references"
+                    );
                     excluded_constants.insert(name.to_string());
                 }
                 windows_metadata::reader::Item::Data(_) => {

@@ -1,0 +1,30 @@
+#[win32]
+mod Test {
+    const Array: [u16; 3] = [1u16, 0u16, 65535u16];
+    const Empty: EmptyRecord = record {};
+    struct EmptyRecord {}
+    const Float: f32 = f32bits(2143289345);
+    struct Inner {
+        signed: i32,
+        bits: f64,
+    }
+    const Narrow: *const i8 = narrow([233, 0, 65]);
+    const Nested: Outer = record {
+        inner: record {
+            signed: -7i32,
+            bits: f64bits(9223372036854775808),
+        },
+        values: [1u16, 2u16],
+        text: utf16([55296, 0, 56320]),
+    };
+    struct Outer {
+        inner: Inner,
+        values: [u16; 2],
+        text: *const Wide,
+    }
+    const Raw16: [u16; 4] = utf16([55296, 0, 56320, 0]);
+    const Raw32: *const u32 = utf32([1114112, 4294967295, 0]);
+    const Raw8: *const u8 = utf8([255, 192, 128, 0, 65]);
+    const ViaAlias: [Wide; 1] = [7u16];
+    type Wide = u16;
+}

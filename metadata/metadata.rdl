@@ -133,6 +133,10 @@ mod Windows {
             attribute NativeSlotReuseAttribute {
                 fn(owner: Type);
             }
+            // Versioned semantic initializer; payload is not an object-memory image.
+            attribute NativeConstantAttribute {
+                fn(version: i32, payload: String);
+            }
         }
     }
 }

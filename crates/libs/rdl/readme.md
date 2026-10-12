@@ -57,6 +57,11 @@ Native interfaces opt into `#[vtable(size = N, inherited = M)]` with absolute `#
 or `#[slot(index, reuse = Owner)]` declarations. Source order and inherited slot identity survive
 without fabricated method rows; Rust projection does not yet support the explicit model.
 
+Native constants accept `record { field: 1i32 }`, fixed-array values, and exact `narrow([...])`,
+`utf8([...])`, `utf16([...])`, or `utf32([...])` literal units. Checked descriptors preserve
+declared types and payloads without Unicode conversion, zero filling, or native layout claims.
+`f32bits(...)` and `f64bits(...)` retain floating bits; Rust projection remains separate.
+
 `#[opaque] struct Tag {}` or `#[opaque] union Tag {}` declares a resolved nominal type without
 exposed storage. Pointers, aliases, and declaration-only data retain its identity; storage uses
 and array elements are rejected.

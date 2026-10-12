@@ -7,6 +7,7 @@ pub struct Const {
     pub name: syn::Ident,
     pub ty: syn::Type,
     pub expr: Option<syn::Expr>,
+    pub winrt: bool,
 }
 
 impl syn::parse::Parse for Const {
@@ -29,6 +30,7 @@ impl syn::parse::Parse for Const {
             name,
             ty,
             expr,
+            winrt: false,
         })
     }
 }
@@ -37,6 +39,15 @@ impl Encoder<'_> {
     pub fn encode_const(&mut self, item: &Const) -> Result<(), Error> {
         let name = item.name.to_string();
         let ty = self.encode_type(&item.ty)?;
+
+        if item.expr.as_ref().is_some_and(|expr| {
+            matches!(
+                expr,
+                syn::Expr::Array(_) | syn::Expr::Struct(_) | syn::Expr::Call(_)
+            )
+        }) {
+            return self.encode_native_const(&ty, item);
+        }
 
         // A property-key constant is spelled `#[guid(0x...)] const NAME: PROPERTYKEY = pid;`:
         // the `fmtid` rides on the `#[guid]` attribute and the value is the `pid`. It is
@@ -158,6 +169,14 @@ impl Encoder<'_> {
             d3,
             d4,
         );
+        self.encode_attrs(
+            metadata::writer::HasAttribute::Field(field),
+            &item.attrs,
+            &["guid", "no_guid"],
+        )?;
+        if let Some(arches) = self.read_arch(&item.attrs)? {
+            self.emit_arch_attribute(metadata::writer::HasAttribute::Field(field), arches);
+        }
 
         Ok(())
     }
