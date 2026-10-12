@@ -16,6 +16,9 @@ on later renders. Window observers keep their subscriptions when callbacks are r
 `on_color_scheme` and `on_window_placement` report the current value when subscribed, then changes;
 replacing a callback does not replay the current value.
 
+Window themes also set the background behind transparent content when no system backdrop is
+selected. Mica and Acrylic remain visible, and application-owned backgrounds are unchanged.
+
 `App::run_application` hosts application state independently of windows. Its `ApplicationView`
 declares reopenable component windows and notification icons with Reactor menus. Closing a window
 does not remove its notification icon, and removing the icon does not close a window. The
