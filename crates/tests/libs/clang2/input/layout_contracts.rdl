@@ -1,0 +1,51 @@
+#[win32]
+mod Test {
+    #[align(4)]
+    struct AlignFour {
+        value: i32,
+    }
+    #[align(1)]
+    struct AlignOne {
+        value: i32,
+    }
+    #[align(16)]
+    struct Aligned {
+        value: i32,
+    }
+    #[packed(4)]
+    struct PackFour {
+        tag: i8,
+        value: i16,
+    }
+    #[packed(1)]
+    struct PackOne {
+        tag: i8,
+        value: i32,
+    }
+    #[packed(2)]
+    struct PackTwo {
+        tag: i8,
+        value: i16,
+    }
+    #[packed(2)]
+    struct PackedContainer {
+        tag: i8,
+        values: [Test::Aligned; 2],
+        bytes: Test::PackOne,
+    }
+    #[packed(2)]
+    struct PackedOuter {
+        tag: i8,
+        value: Test::PackedContainer,
+    }
+    #[packed(2)]
+    struct PackedPointer {
+        tag: i8,
+        value: *mut void,
+    }
+    #[packed(2)]
+    union PackedUnion {
+        code: i16,
+        value: f64,
+    }
+}

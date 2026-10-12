@@ -19,5 +19,18 @@ Deadline-controlled lifecycle regressions cover the SDK parse stall reproduced b
 controls. The selected C2/C3-A gates pass; broader capture and production performance remain open.
 This path is not ready for production promotion.
 
+C3-B adds record-level packing and MSVC `__declspec(align(...))` through
+`Compiler::with_layout_bridge`.
+The matched native bridge reads requests from the same TU, including requests with identical
+storage. Required alignment propagates through named records, aliases, and arrays; reviewed RDL,
+WinMD readback, and independent MSVC assertions cover x86/x64/ARM64. Field adjustments, anonymous
+definitions, and bit-fields remain unsupported.
+
+Build the pinned parser/bridge pair with `cargo run -p tool-clang --quiet -- native-layout`
+on an x64 Windows host with MSVC/CMake. Set `LIBCLANG_PATH` to the printed directory for bridge
+captures. The loader checks parser identity, SHA256, and bridge ABI before reading ASTs.
+`Compiler::new` keeps the ordinary C2/C3-A path; natural-storage agreement alone does not prove
+the absence of explicit packing requests.
+
 See [the replacement plan](../../../docs/crates/windows-clang.md#fixed-implementation-matrix)
 and [crate internals](../../../docs/crates/windows-clang2.md).

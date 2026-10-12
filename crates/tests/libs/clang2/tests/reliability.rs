@@ -6,6 +6,9 @@ use std::sync::{Arc, Barrier};
 use std::time::{Duration, Instant};
 use windows_clang2::{Compiler, Input, Stage, Target};
 
+#[path = "reliability/execution.rs"]
+mod execution;
+
 const ROUNDS: usize = 8;
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 const CAPTURE_CASES: &[&str] = &[

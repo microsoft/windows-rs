@@ -21,6 +21,7 @@ enum Kind {
     Record {
         union: bool,
         fields: Vec<(String, metadata::Type)>,
+        contract: RecordLayoutContract,
     },
 }
 
@@ -72,7 +73,11 @@ impl Closed {
                     Kind::Alias(lower(written, &names, snapshot.target)?)
                 }
                 DeclarationKind::Opaque { union } => Kind::Opaque { union: *union },
-                DeclarationKind::Record { union, fields } => {
+                DeclarationKind::Record {
+                    union,
+                    fields,
+                    contract,
+                } => {
                     let fields = fields
                         .iter()
                         .map(|field| {
@@ -91,6 +96,7 @@ impl Closed {
                     Kind::Record {
                         union: *union,
                         fields,
+                        contract: contract.unwrap_or_default(),
                     }
                 }
             };
@@ -153,7 +159,11 @@ impl Closed {
                     "#[opaque] {} {name} {{}}",
                     if *union { "union" } else { "struct" }
                 ),
-                Kind::Record { union, fields } => {
+                Kind::Record {
+                    union,
+                    fields,
+                    contract,
+                } => {
                     let fields = fields
                         .iter()
                         .map(|(name, ty)| {
@@ -163,8 +173,15 @@ impl Closed {
                         })
                         .collect::<Vec<_>>()
                         .join("\n");
+                    let mut attributes = String::new();
+                    if let Some(packing) = contract.packing {
+                        attributes.push_str(&format!("#[packed({packing})] "));
+                    }
+                    if let Some(alignment) = contract.alignment {
+                        attributes.push_str(&format!("#[align({alignment})] "));
+                    }
                     format!(
-                        "{} {name} {{ {fields} }}",
+                        "{attributes}{} {name} {{ {fields} }}",
                         if *union { "union" } else { "struct" }
                     )
                 }

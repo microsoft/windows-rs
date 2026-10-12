@@ -12,6 +12,7 @@ static TARGET_REGISTRY: RwLock<()> = RwLock::new(());
 /// Reusable library ownership; each capture has a private index and translation unit.
 pub struct Compiler {
     library: Arc<SharedLibrary>,
+    layouts: Option<layout::Bridge>,
 }
 
 impl Compiler {
@@ -19,7 +20,17 @@ impl Compiler {
         let library = load_manually().map_err(|error| Error::new(Stage::Capture, error))?;
         Ok(Self {
             library: Arc::new(library),
+            layouts: None,
         })
+    }
+
+    pub fn with_layout_bridge(path: impl AsRef<std::path::Path>) -> Result<Self> {
+        let mut compiler = Self::new()?;
+        compiler.layouts = Some(layout::Bridge::load(
+            compiler.library.path(),
+            path.as_ref(),
+        )?);
+        Ok(compiler)
     }
 
     pub fn capture(&self, input: &Input) -> Result<Snapshot> {
@@ -46,6 +57,7 @@ impl Compiler {
             declarations: Vec::new(),
             cursors: Vec::new(),
             pending: BTreeSet::new(),
+            layouts: self.layouts.as_ref(),
         };
         let mut roots = Vec::new();
         let mut selected: BTreeMap<String, Vec<CXCursor>> = BTreeMap::new();
@@ -126,6 +138,10 @@ impl Compiler {
             target_triple: session.target.clone(),
             compiler: text(unsafe { clang_getClangVersion() }),
             library: self.library.path().to_path_buf(),
+            layout_bridge: self
+                .layouts
+                .as_ref()
+                .map(|layouts| layouts.evidence.clone()),
             input_name: input.name.clone(),
             arguments: session.arguments.clone(),
             diagnostics: session.diagnostics.clone(),
@@ -316,13 +332,14 @@ impl Session {
     }
 }
 
-struct Capture {
+struct Capture<'a> {
     declarations: Vec<Declaration>,
     cursors: Vec<CXCursor>,
     pending: BTreeSet<Id>,
+    layouts: Option<&'a layout::Bridge>,
 }
 
-impl Capture {
+impl Capture<'_> {
     fn declaration(&mut self, cursor: CXCursor) -> Result<Id> {
         let mut parent = unsafe { clang_getCursorSemanticParent(cursor) };
         while unsafe { clang_getCursorKind(parent) } == CXCursor_LinkageSpec {
@@ -334,15 +351,7 @@ impl Capture {
         ) {
             return Err(error(cursor, "nested declaration ownership requires C3"));
         }
-        if children(cursor)
-            .iter()
-            .any(|child| unsafe { clang_isAttribute(clang_getCursorKind(*child)) } != 0)
-        {
-            return Err(error(
-                cursor,
-                "declaration attributes require a captured contract (C7)",
-            ));
-        }
+        self.check_attributes(cursor)?;
         let cursor = unsafe { clang_getCanonicalCursor(cursor) };
         if let Some(id) = self
             .cursors
@@ -368,15 +377,7 @@ impl Capture {
                 "declaration family is outside C2 (C3-C9 required)",
             ));
         }
-        if !children(cursor)
-            .iter()
-            .all(|child| unsafe { clang_isAttribute(clang_getCursorKind(*child)) } == 0)
-        {
-            return Err(error(
-                cursor,
-                "declaration attributes require a captured contract (C7)",
-            ));
-        }
+        self.check_attributes(cursor)?;
         let names = names(cursor)?;
         if names.iter().any(|name| name.is_empty()) {
             return Err(error(
@@ -434,6 +435,14 @@ impl Capture {
                     union: kind == CXCursor_UnionDecl,
                 }
             } else {
+                let contract = self
+                    .layouts
+                    .map(|layouts| layouts.record(definition))
+                    .transpose()
+                    .map_err(|mut failure| {
+                        failure.message = error(definition, &failure.message).message;
+                        failure
+                    })?;
                 let fields = self.record(definition)?;
                 let (expansion, spelling) = locations(definition);
                 self.declarations[id].evidence.expansion = expansion;
@@ -441,12 +450,33 @@ impl Capture {
                 DeclarationKind::Record {
                     union: kind == CXCursor_UnionDecl,
                     fields,
+                    contract,
                 }
             }
         };
         self.declarations[id].kind = declaration;
         self.pending.remove(&id);
         Ok(id)
+    }
+
+    fn check_attributes(&self, cursor: CXCursor) -> Result<()> {
+        let aligned_record = self.layouts.is_some()
+            && matches!(
+                unsafe { clang_getCursorKind(cursor) },
+                CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
+            );
+        for child in children(cursor) {
+            let kind = unsafe { clang_getCursorKind(child) };
+            if unsafe { clang_isAttribute(kind) } != 0
+                && !(aligned_record && kind == CXCursor_AlignedAttr)
+            {
+                return Err(error(
+                    cursor,
+                    "declaration attributes require a captured contract (C7)",
+                ));
+            }
+        }
+        Ok(())
     }
 
     fn record(&mut self, cursor: CXCursor) -> Result<Vec<NativeField>> {
@@ -456,6 +486,7 @@ impl Capture {
         let mut fields = Vec::new();
         for child in children(cursor) {
             match unsafe { clang_getCursorKind(child) } {
+                CXCursor_AlignedAttr if self.layouts.is_some() => {}
                 CXCursor_CXXAccessSpecifier => {
                     if unsafe { clang_getCXXAccessSpecifier(child) } != CX_CXXPublic {
                         return Err(error(child, "nonpublic record members are outside C3-A"));
@@ -711,4 +742,104 @@ fn children(cursor: CXCursor) -> Vec<CXCursor> {
         resume_unwind(panic);
     }
     state.cursors
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn layout_queries_do_not_supply_explicit_layout_contracts() {
+        let compiler = Compiler::new().unwrap();
+        let source = include_str!("..\\..\\..\\tests\\libs\\clang2\\input\\layout_contracts.h");
+        for target in [Target::X86, Target::X64, Target::Arm64] {
+            let input = Input::new("layouts.cpp", source, target);
+            let session = Session::new(Arc::clone(&compiler.library), &input).unwrap();
+            let records = children(unsafe { clang_getTranslationUnitCursor(session.unit) })
+                .into_iter()
+                .filter(|cursor| unsafe { clang_getCursorKind(*cursor) } == CXCursor_StructDecl)
+                .map(|cursor| (text(unsafe { clang_getCursorSpelling(cursor) }), cursor))
+                .collect::<BTreeMap<_, _>>();
+            let storage = |name: &str| {
+                layout(unsafe { clang_getCursorType(records[name]) })
+                    .unwrap()
+                    .unwrap()
+            };
+            assert_eq!(
+                storage("PackOne"),
+                Layout {
+                    size: 5,
+                    alignment: 1
+                }
+            );
+            assert_eq!(
+                storage("PackTwo"),
+                Layout {
+                    size: 4,
+                    alignment: 2
+                }
+            );
+            assert_eq!(storage("PackTwo"), storage("PackFour"));
+            for name in ["PackOne", "PackTwo", "PackFour"] {
+                assert!(
+                    children(records[name])
+                        .iter()
+                        .all(|child| unsafe { clang_getCursorKind(*child) == CXCursor_FieldDecl })
+                );
+            }
+            assert_eq!(
+                storage("Aligned"),
+                Layout {
+                    size: 16,
+                    alignment: 16
+                }
+            );
+            assert_eq!(
+                storage("AlignOne"),
+                Layout {
+                    size: 4,
+                    alignment: 4
+                }
+            );
+            assert_eq!(storage("AlignOne"), storage("AlignFour"));
+            for name in ["Aligned", "AlignOne", "AlignFour"] {
+                let attributes = children(records[name])
+                    .into_iter()
+                    .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_AlignedAttr)
+                    .collect::<Vec<_>>();
+                assert_eq!(attributes.len(), 1);
+                assert!(children(attributes[0]).is_empty());
+                let value = unsafe { clang_Cursor_Evaluate(attributes[0]) };
+                if !value.is_null() {
+                    unsafe { clang_EvalResult_dispose(value) };
+                }
+                assert!(value.is_null());
+            }
+            assert_eq!(storage("PackOne"), storage("PackedAttr"));
+            assert!(
+                children(records["PackedAttr"])
+                    .iter()
+                    .any(|child| unsafe { clang_getCursorKind(*child) == CXCursor_PackedAttr })
+            );
+            assert_eq!(
+                storage("FieldAligned"),
+                Layout {
+                    size: 32,
+                    alignment: 16
+                }
+            );
+            let field = children(records["FieldAligned"])
+                .into_iter()
+                .find(|child| text(unsafe { clang_getCursorSpelling(*child) }) == "value")
+                .unwrap();
+            assert_eq!(
+                layout(unsafe { clang_getCursorType(field) }).unwrap(),
+                Some(Layout {
+                    size: 4,
+                    alignment: 4
+                })
+            );
+            assert_eq!(unsafe { clang_Cursor_getOffsetOfField(field) }, 128);
+        }
+    }
 }

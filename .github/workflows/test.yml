@@ -83,6 +83,13 @@ jobs:
         if: runner.os == 'Windows'
         run: echo "LIBCLANG_PATH=$(cargo run -q -p tool-clang -- path)" >> "$GITHUB_ENV"
         shell: bash
+      - name: Provision native layout evidence
+        if: matrix.target == 'x86_64-pc-windows-msvc'
+        shell: pwsh
+        run: |
+          $native = cargo run -q -p tool-clang -- native-layout
+          if ($LASTEXITCODE -ne 0) { throw 'Native layout provisioning failed' }
+          "WINDOWS_CLANG2_LAYOUT_NATIVE=$native" >> $env:GITHUB_ENV
       - name: Test
         # The system Composition graph is excluded because Reactor consumers select the
         # incompatible lifted Composition stack.

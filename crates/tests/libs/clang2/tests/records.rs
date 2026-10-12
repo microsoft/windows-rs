@@ -55,7 +55,9 @@ fn definition_layout(
     let key = format!("{namespace}.{name}");
     assert!(visiting.insert(key.clone()), "cyclic by-value metadata");
     let def = index.get(namespace, name).next().unwrap();
-    assert!(def.class_layout().is_none());
+    let packing = def
+        .class_layout()
+        .map(|layout| u64::from(layout.packing_size()));
     let fields = def.fields().collect::<Vec<_>>();
     let result = if def
         .attributes()
@@ -73,15 +75,21 @@ fn definition_layout(
         let mut offsets = Vec::new();
         for field in fields {
             let layout = type_layout(index, &field.ty(), pointer, visiting);
-            alignment = alignment.max(layout.alignment);
+            let required = required_alignment(index, &field.ty(), &mut BTreeSet::new());
+            let field_alignment = layout
+                .alignment
+                .min(packing.unwrap_or(u64::MAX))
+                .max(required);
+            alignment = alignment.max(field_alignment);
             let offset = if union {
                 0
             } else {
-                size.div_ceil(layout.alignment) * layout.alignment
+                size.div_ceil(field_alignment) * field_alignment
             };
             offsets.push((field.name().to_string(), offset));
             size = size.max(offset + layout.size);
         }
+        alignment = alignment.max(forced_alignment(def));
         (
             Layout {
                 size: size.div_ceil(alignment) * alignment,
@@ -92,6 +100,37 @@ fn definition_layout(
     };
     visiting.remove(&key);
     result
+}
+
+fn forced_alignment(def: TypeDef<'_>) -> u64 {
+    def.attributes()
+        .find(|attr| attr.name() == "AlignmentAttribute")
+        .map_or(0, |attr| match attr.value().as_slice() {
+            [(_, windows_metadata::Value::I32(value))] => u64::try_from(*value).unwrap(),
+            _ => panic!("invalid alignment attribute"),
+        })
+}
+
+fn required_alignment(index: &Index, ty: &Type, visiting: &mut BTreeSet<String>) -> u64 {
+    match ty {
+        Type::Const(ty) | Type::Volatile(ty) | Type::ArrayFixed(ty, _) => {
+            required_alignment(index, ty, visiting)
+        }
+        Type::ValueName(name) => {
+            let key = format!("{}.{}", name.namespace, name.name);
+            assert!(visiting.insert(key.clone()));
+            let def = index.get(&name.namespace, &name.name).next().unwrap();
+            let required = def
+                .fields()
+                .map(|field| required_alignment(index, &field.ty(), visiting))
+                .max()
+                .unwrap_or(0)
+                .max(forced_alignment(def));
+            visiting.remove(&key);
+            required
+        }
+        _ => 0,
+    }
 }
 
 fn check(snapshot: &Snapshot, rdl: &str, name: &str) {
@@ -165,6 +204,193 @@ fn reviewed_records_preserve_graph_and_storage_on_three_targets() {
             );
         }
     }
+}
+
+#[test]
+#[cfg(target_arch = "x86_64")]
+fn reviewed_explicit_layouts_preserve_contracts_on_three_targets() {
+    let native = PathBuf::from(std::env::var_os("WINDOWS_CLANG2_LAYOUT_NATIVE").unwrap());
+    if std::env::var_os("WINDOWS_CLANG2_LAYOUT_WORKER").is_none() {
+        let log = Path::new(env!("OUT_DIR")).join("layout_worker.log");
+        let file = std::fs::File::create(&log).unwrap();
+        let mut child = Command::new(std::env::current_exe().unwrap())
+            .args([
+                "--exact",
+                "reviewed_explicit_layouts_preserve_contracts_on_three_targets",
+                "--nocapture",
+            ])
+            .env("LIBCLANG_PATH", &native)
+            .env("WINDOWS_CLANG2_LAYOUT_WORKER", "1")
+            .stdout(std::process::Stdio::from(file.try_clone().unwrap()))
+            .stderr(std::process::Stdio::from(file))
+            .spawn()
+            .unwrap();
+        let started = std::time::Instant::now();
+        loop {
+            if let Some(status) = child.try_wait().unwrap() {
+                assert!(
+                    status.success(),
+                    "{}",
+                    std::fs::read_to_string(&log).unwrap()
+                );
+                return;
+            }
+            if started.elapsed() >= std::time::Duration::from_secs(20) {
+                child.kill().unwrap();
+                child.wait().unwrap();
+                panic!("layout worker deadline; {}", log.display());
+            }
+            std::thread::sleep(std::time::Duration::from_millis(10));
+        }
+    }
+    let compiler = Compiler::with_layout_bridge(native.join("windows_clang_layout.dll")).unwrap();
+    let error =
+        Compiler::with_layout_bridge(Path::new(env!("OUT_DIR")).join("windows_clang_layout.dll"))
+            .err()
+            .unwrap();
+    assert_eq!(
+        error.message,
+        "layout bridge must accompany its matched parser"
+    );
+    for (name, message) in [
+        ("bad_abi", "layout bridge ABI mismatch"),
+        (
+            "bad_hash",
+            "layout bridge parser build fingerprint mismatch",
+        ),
+    ] {
+        let error =
+            Compiler::with_layout_bridge(native.join(format!("windows_clang_layout_{name}.dll")))
+                .err()
+                .unwrap();
+        assert_eq!(error.stage, Stage::Capture);
+        assert_eq!(error.message, message);
+    }
+    let mut retained = None;
+    for target in [Target::X86, Target::X64, Target::Arm64] {
+        let snapshot = compiler
+            .capture(&input(
+                include_str!("../input/layout_contracts.h"),
+                target,
+                &[
+                    "AlignOne",
+                    "AlignFour",
+                    "Aligned",
+                    "PackTwo",
+                    "PackFour",
+                    "PackedPointer",
+                    "PackedUnion",
+                    "PackedOuter",
+                ],
+            ))
+            .unwrap();
+        let rdl = snapshot.rdl("Test").unwrap();
+        assert_eq!(
+            rdl,
+            include_str!("../input/layout_contracts.rdl").replace("\r\n", "\n")
+        );
+        let evidence = snapshot.layout_bridge.as_ref().unwrap();
+        assert_eq!(evidence.abi, 1);
+        assert_eq!(
+            evidence.library.file_name().unwrap(),
+            "windows_clang_layout.dll"
+        );
+        assert_eq!(evidence.parser_sha256.len(), 64);
+        for (name, packing, alignment) in [
+            ("PackTwo", Some(2), None),
+            ("PackFour", Some(4), None),
+            ("AlignOne", None, Some(1)),
+            ("AlignFour", None, Some(4)),
+            ("Aligned", None, Some(16)),
+        ] {
+            let (_, contract) = snapshot
+                .record_layouts()
+                .find(|(owner, _)| owner.qualified_name == name)
+                .unwrap();
+            assert_eq!((contract.packing, contract.alignment), (packing, alignment));
+        }
+        check(&snapshot, &rdl, "layout_contracts");
+        let index = Index::read(
+            Path::new(env!("OUT_DIR")).join(format!("layout_contracts_{target:?}.winmd")),
+        )
+        .unwrap();
+        for (owner, contract) in snapshot.record_layouts() {
+            let def = index.get("Test", &owner.qualified_name).next().unwrap();
+            assert_eq!(
+                def.class_layout().map(|layout| layout.packing_size()),
+                contract.packing
+            );
+            assert_eq!(
+                forced_alignment(def),
+                contract.alignment.map_or(0, u64::from)
+            );
+        }
+        let (_, contract) = snapshot
+            .record_layouts()
+            .find(|(owner, _)| owner.qualified_name == "PackedOuter")
+            .unwrap();
+        assert_eq!(contract.required_alignment, 16);
+        retained = Some(snapshot);
+        for name in ["FieldAligned", "PackedAttr", "GnuAligned", "CxxAligned"] {
+            assert_eq!(
+                compiler
+                    .capture(&input(
+                        include_str!("../input/layout_contracts.h"),
+                        target,
+                        &[name]
+                    ))
+                    .unwrap_err()
+                    .stage,
+                Stage::Capture
+            );
+        }
+    }
+    std::thread::scope(|scope| {
+        let tasks = [Target::X86, Target::X64, Target::Arm64].map(|target| {
+            let compiler = &compiler;
+            scope.spawn(move || {
+                let snapshot = compiler
+                    .capture(&input(
+                        include_str!("../input/layout_contracts.h"),
+                        target,
+                        &[
+                            "AlignOne",
+                            "AlignFour",
+                            "PackTwo",
+                            "PackFour",
+                            "PackedPointer",
+                            "PackedUnion",
+                            "PackedOuter",
+                        ],
+                    ))
+                    .unwrap();
+                assert_eq!(
+                    snapshot.rdl("Test").unwrap(),
+                    include_str!("../input/layout_contracts.rdl").replace("\r\n", "\n")
+                );
+            })
+        });
+        for task in tasks {
+            task.join().unwrap();
+        }
+    });
+    drop(compiler);
+    assert_eq!(
+        retained.unwrap().rdl("Test").unwrap(),
+        include_str!("../input/layout_contracts.rdl").replace("\r\n", "\n")
+    );
+    let ordinary = Compiler::new().unwrap();
+    let snapshot = ordinary
+        .capture(&input(
+            include_str!("../input/layout_contracts.h"),
+            Target::X64,
+            &["PackOne"],
+        ))
+        .unwrap();
+    assert_eq!(
+        snapshot.rdl("Test").unwrap_err().stage,
+        Stage::Representation
+    );
 }
 
 #[test]
@@ -259,7 +485,7 @@ fn native_msvc_compiles_the_independent_storage_assertions() {
     let setup = visual_studio.join("VC\\Auxiliary\\Build\\vcvarsall.bat");
     assert!(setup.is_file(), "missing MSVC environment setup");
     for arch in ["x86", "amd64", "amd64_arm64"] {
-        for fixture in ["records", "sdk_records"] {
+        for fixture in ["records", "sdk_records", "layout_contracts"] {
             let source =
                 Path::new(env!("CARGO_MANIFEST_DIR")).join(format!("input\\{fixture}.cpp"));
             let object = Path::new(env!("OUT_DIR")).join(format!("{fixture}_{arch}.obj"));

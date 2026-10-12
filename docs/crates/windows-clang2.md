@@ -79,9 +79,11 @@ fail explicitly. `WINDOWS_CLANG2_SDK_INCLUDE` and `CLANG_RESOURCE_DIR` can selec
 
 ```powershell
 $env:LIBCLANG_PATH = (cargo run -p tool-clang --quiet -- path)
+$env:WINDOWS_CLANG2_LAYOUT_NATIVE = (cargo run -p tool-clang --quiet -- native-layout)
 $env:RUSTFLAGS = '-D warnings'
-cargo fmt -p windows-clang2 -p test_clang2
-cargo clippy -p windows-clang2 -p test_clang2 --all-targets
+cargo fmt -p windows-clang2 -p test_clang2 -p tool-clang
+cargo clippy -p windows-clang2 -p test_clang2 -p tool-clang --all-targets
+cargo test -p windows-clang2 --lib
 cargo test -p test_clang2
 ```
 
@@ -111,6 +113,83 @@ nominal identities close recursive pointer graphs; by-value cycles and alias cyc
 A complete definition supplies fields even when the canonical cursor is a forward declaration.
 Checked output compares each field offset and the aggregate size/alignment with natural storage
 before rendering a record. Packing/alignment changes are not guessed or converted into opaque tags.
+
+### C3-B explicit packing/alignment evidence gate
+
+The implemented slice is record-level pragma packing and MSVC `__declspec(align(...))`, with the
+C3-A field/type graph retained. Bit-fields, anonymous/nested definitions, inheritance, and explicit
+field alignment remain separate boundaries. Existing RDL `#[packed(N)]` and `#[align(N)]` syntax
+supplies the output vocabulary; native requests must be captured before choosing those attributes.
+
+| Required fact | Evidence source | Forbidden substitute |
+| --- | --- | --- |
+| Active record packing | Compiler-owned maximum-field-alignment attribute | A pack value fitted to offsets |
+| Requested record alignment | Compiler-evaluated alignment attribute in its declaration context | Aggregate `alignof` |
+| Storage agreement | Native member offsets, size, alignment, and required alignment | Successful RDL compilation |
+| Ownership | Same native declaration/TU as the captured record | Matching only a spelling or offset |
+
+`layout_contracts.h` isolates the missing facts without adding SDK headers. The private capture
+test checks the libclang C API on x86/x64/ARM64. `layout_contracts.cpp` independently checks MSVC
+size, alignment, and offsets on the same targets:
+
+| Source requests | Observed storage | Libclang attribute evidence |
+| --- | --- | --- |
+| Pack 2 vs pack 4 around `char`/`short` | Both size 4, alignment 2, second member at 2 | No packing cursor |
+| Record align 1 vs align 4 around `int` | Both size 4, alignment 4 | Aligned cursor, no expression/value |
+| Macro expression `(8 + 8)` for record alignment | Size/alignment 16 | Aligned cursor, no expression/value |
+| Pack 1 vs GNU packed attribute | Both size 5, alignment 1 | Only the GNU attribute has a cursor |
+| Explicit alignment on an `int` member | Member type alignment 4, member offset 16 | Field attribute is separate |
+
+The approved native bridge reads `MaxFieldAlignmentAttr`, compiler-evaluated record alignment, and
+`ASTRecordLayout` required alignment from the captured record's own clean TU. It returns owned
+numbers, not AST handles. No token arithmetic, pragma scanner, inferred packing, or separate AST
+merged by source name supplies those facts.
+
+`Compiler::with_layout_bridge` enables this provider. Its parser and bridge must be in the same
+canonical directory; bridge ABI, imported parser function identity, and the parser binary's SHA256
+must match. `Snapshot::layout_bridge` retains the bridge path, ABI, and parser fingerprint after
+compiler disposal. `record_layouts` exposes the owned requests, including requests with no storage
+effect. `Compiler::new` retains the C2/C3-A path; its natural-storage checks do not establish the
+absence of packing requests hidden by the C API.
+
+Storage checking limits each field's natural alignment by packing, then applies its required
+alignment. Explicit required alignment propagates through by-value named records, aliases, and
+arrays, but not through pointers. Every member offset and aggregate size/alignment must match
+compiler evidence before output. Reviewed `layout_contracts.rdl` retains distinct pack 2/4 and
+align 1/4 requests using existing RDL attributes, without changing the metadata format.
+
+The selected C3-B gate passes on x86/x64/ARM64: exact reviewed RDL, semantic WinMD packing/alignment,
+and independent MSVC size/alignment/offset assertions. Packed pointers, unions, and arrays of aligned
+records exercise required alignment overriding packing and propagating into enclosing records.
+Wrong-directory, ABI, and fingerprint failures reject before querying ASTs; concurrent captures and
+snapshot use after compiler disposal also pass. Field alignment, GNU packed/aligned attributes,
+C++ `alignas`, bit-fields, anonymous/nested definitions, inheritance, and behavioral records still
+reject. Other alignment spellings need their own required-alignment contract before publication.
+
+### Native layout provisioning
+
+`cargo run -p tool-clang --quiet -- native-layout` builds the bridge on an x64 Windows host with
+MSVC and CMake. It prints the matched parser/bridge directory. The build supports all three Windows
+capture targets, not x86 or ARM64 host DLLs. The x64 CI job provisions it; the layout test uses a child
+with the matched parser while other tests keep their DevDiv `LIBCLANG_PATH`.
+
+The development archive supplies both the parser and its headers/static libraries. DevDiv's runtime
+NuGet DLL is not combined with independently built private AST APIs.
+
+| Dependency | Pin |
+| --- | --- |
+| Official LLVM archive | `clang+llvm-22.1.8-x86_64-pc-windows-msvc.tar.xz` |
+| Archive SHA256 | `d96c2cc1736f4eb7fa43cb9bbdf56d93551a9ae0a9aadb9c99c3c3b2b712a234` |
+| LLVM source revision | `ca7933e47d3a3451d81e72ac174dcb5aa28b59d1` |
+| Bridge ABI | `1` |
+
+`native/llvm.json` pins the archive and source. The build verifies the archive checksum, extraction
+marker, source revision, and clean source checkout. It extracts the pinned upstream cursor accessor,
+uses the SDK's release static CRT and AST libraries, and checks LLVM version, ABI-breaking-check,
+and iterator-debug settings. The runtime loader verifies the parser fingerprint embedded at build.
+The cold archive download is 862,053,924 bytes; extraction, source checkout, and build add provisioning
+cost. The cache is under `target/tool-clang/native-layout`; full cold provisioning time is unmeasured.
+This bridge is the plan's narrow compiler-inspection boundary, not a production backend switch.
 
 ### Native parser registration and reliability
 
@@ -167,6 +246,84 @@ Logs live under `OUT_DIR\parser-reliability\<run>`. The failing native contrast 
 Registration exclusion has a measured cost: the three-target shared case takes about 3.2 seconds,
 versus 1.2 seconds without the protocol. Repeated index creation can limit overlap between
 captures. These small controls do not close production throughput or full-input performance gates.
+
+### Bounded execution-model comparison
+
+The 2026-10-12 gate in `test_clang2`'s `reliability/execution.rs` compares fresh synchronized
+in-process capture with three isolated workers, one architecture and one active capture per worker.
+Both models use the existing pinned `windows.h` source and resource/include defaults. Each target
+runs eight rounds of the selected `winnt.h` scalar closure and eight of the `POINT`/`RECT` closure,
+including checked RDL emission, WinMD compilation, and native-contract validation. No filter,
+reviewed golden, library capture policy, production tool, or canonical metadata changes.
+
+The shared child loads one `Compiler` and runs three target threads with the library's registration
+protocol. Each isolated child loads one `Compiler` and executes its target serially. All children
+wait at a parent-controlled start gate. Three fresh paired repetitions reverse model order in the
+middle pair, without retries. Every RDL matches its reviewed golden; all 144 per-target/round RDL
+pairs and all 144 WinMD pairs per campaign are byte-identical between models. Both models compile
+each WinMD with the same basename, since the output filename contributes to metadata identity.
+
+| Pair | Shared startup (s) | Isolated startup (s) | Shared wall (s) | Isolated wall (s) | Shared peak (MiB) | Isolated peak (MiB) |
+| --- | --- | --- | --- | --- | --- | --- |
+| 0 | 0.021 | 0.031 | 6.774 | 2.462 | 91.266 | 216.414 |
+| 1 | 0.021 | 0.031 | 6.742 | 2.433 | 91.402 | 221.711 |
+| 2 | 0.021 | 0.032 | 6.753 | 2.427 | 91.055 | 216.434 |
+
+Startup is measured from before the first process spawn to readiness of every required child,
+including test-process startup and `Compiler::new`, before any capture starts. Separate child
+timers measure actual library initialization: 0.008-0.011 seconds, not a startup proxy. Work
+intervals, from gate release until every child exits, are 6.746/6.714/6.725 seconds for shared and
+2.425/2.396/2.388 seconds for isolated. Wall time includes startup, work, complete-artifact checks,
+and publication of the test staging directory; it excludes Cargo compilation and cross-model byte
+comparison. These are debug builds on a shared Windows x64 host. A separate initial campaign also
+passed all three pairs, with shared wall times of 7.368/9.240/15.380 seconds and isolated times of
+2.945/2.751/5.698 seconds. Its startup ranges were 0.021-0.054/0.030-0.066 seconds and memory ranges
+91.113-141.293/215.641-216.383 MiB. Timing variation is visible; these bounded campaigns are not
+a production benchmark or a statistical confidence claim.
+
+Peak memory is Windows Job Object `PeakJobMemoryUsed`, expressed in MiB: the kernel-recorded maximum
+aggregate simultaneous private committed bytes of all processes in that model's job. It is not
+the sum of independent worker high-water marks. The shared job contains one process; the isolated
+job contains all three concurrent workers. Both include process/runtime/libclang overhead and
+startup allocations, exclude the supervising test process and shared DLL pages, and do not measure
+physical working set or system memory pressure. Shared-session scheduling can change overlap and
+therefore its peak. Isolated capture improves paired wall time by 2.5-3.4x here, with a higher
+aggregate private-commit peak.
+
+Each batch has a 20-second deadline and a dedicated non-breakaway, kill-on-close Windows job.
+Workers cannot capture or spawn descendants until the parent assigns their owned process handles
+to that job. Failure or deadline terminates the owned job, reaps direct workers, and checks that
+job accounting reports zero active processes. There is no process-name kill or retry.
+The injected failure exits with code 7 only after both peer targets have staged complete outputs.
+The injected hang reaches the same point, spawns a child that acknowledges its PID, and blocks.
+Both controls pass: failed/hung batches return errors, the hung descendant is terminated too,
+partial staging is removed, and a preexisting publication sentinel remains unchanged. Successful
+batches publish only after all targets exit successfully and all expected artifacts exist.
+This is test orchestration, not a production publication/recovery implementation.
+
+Reproduce without parallel test load:
+
+```powershell
+$env:LIBCLANG_PATH = (cargo run -p tool-clang --quiet -- path)
+$env:RUSTFLAGS = '-D warnings'
+cargo test -p test_clang2 --test reliability execution:: -- --nocapture --test-threads=1
+```
+
+Logs, initialization timings, measurements, and outputs remain below
+`OUT_DIR\execution-model\<run>`. Comparison run `1791823027882651600` and containment run
+`1791823002180250400` record the initial campaign. Final comparison run `1791823195789422300`
+and containment run `1791823173295689400` record the table and repeated controls. Strict clippy for
+`windows-clang2` and `test_clang2` passes. The final serial test invocation passes all 18 ordinary
+tests across `capture`, `records`, and `reliability`, including MSVC layout assertions on all three
+targets and the protected parser matrix. Three subprocess/native-diagnostic entry points are
+ignored by ordinary test discovery; the parent tests invoke the protected workers explicitly.
+
+Prefer three isolated architecture workers for future coarse tool batches when their extra
+aggregate memory is acceptable: this bounded evidence supports both better overlap and process-tree
+timeout containment. Keep the synchronized library usable in-process for direct consumers and
+smaller work. Subprocess policy belongs to tool/test orchestration; no configurable worker backend
+or production migration is introduced. Full-input throughput, additional profiles, release-build
+costs, and broader failure modes remain unmeasured. This execution gate stops before C3-B.
 
 The separate 2026-10-12 release check confirmed that NuGet's absolute latest
 `libclang.runtime.win-x64` and `libclang.runtime.win-arm64` versions are both 22.1.8, including

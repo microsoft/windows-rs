@@ -1014,4 +1014,20 @@ shared native-session guards. Four deadline-controlled matrices pass, closing th
 operational and C3-A natural-storage gates. Registration exclusion reduces capture overlap; full
 production performance remains unproven. See the
 [native parser reliability evidence](windows-clang2.md#native-parser-registration-and-reliability).
+The bounded SDK execution comparison supports isolated per-architecture tool workers when their
+extra aggregate memory is acceptable, while retaining safe synchronized in-process library use.
+Identical per-target RDL/WinMD and owned process-tree failure containment pass; this is not a
+production backend change. See the
+[execution measurements and limits](windows-clang2.md#bounded-execution-model-comparison).
 No production generator or canonical metadata is replaced by these slices.
+
+C3-B's approved record packing/MSVC alignment slice is implemented and passes on x86/x64/ARM64,
+with reviewed exact RDL, semantic WinMD readback, and independent MSVC storage assertions. Requests
+can have identical storage; a pinned native bridge obtains numeric contracts from the same compiler
+TU instead of fitting layouts or evaluating source tokens. Required alignment propagates through
+named records, aliases, and arrays. The bridge uses a matched official LLVM development SDK and
+checked parser identity, fingerprint, and ABI; its build currently requires an x64 Windows host.
+Field adjustments, anonymous/nested definitions, bit-fields, and behavioral records remain outside
+this slice. The next C3 work is anonymous/nested storage and bit-fields, not Rust projection or
+production migration.
+See the [C3-B evidence contract](windows-clang2.md#c3-b-explicit-packingalignment-evidence-gate).

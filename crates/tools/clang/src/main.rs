@@ -19,6 +19,23 @@ mod inventory;
 mod sources;
 
 fn main() {
+    if std::env::args().nth(1).as_deref() == Some("native-layout") {
+        assert_eq!(std::env::args().len(), 2, "usage: tool-clang native-layout");
+        let output = std::process::Command::new("powershell.exe")
+            .args(["-NoProfile", "-ExecutionPolicy", "Bypass", "-File"])
+            .arg("crates\\libs\\clang2\\native\\build.ps1")
+            .args(["-Version", LIBCLANG_VERSION])
+            .output()
+            .unwrap();
+        if !output.status.success() {
+            eprintln!("{}", String::from_utf8_lossy(&output.stdout));
+            eprintln!("{}", String::from_utf8_lossy(&output.stderr));
+            std::process::exit(1);
+        }
+        let stdout = String::from_utf8(output.stdout).unwrap();
+        println!("{}", stdout.lines().last().unwrap());
+        return;
+    }
     if std::env::args().nth(1).as_deref() == Some("sources") {
         if let Err(error) = sources::run() {
             eprintln!("{error}");

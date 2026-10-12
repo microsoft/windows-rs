@@ -13,5 +13,7 @@ workspace = true
 
 [dependencies]
 clang-sys = { version = "1.8.1", features = ["runtime", "clang_18_0"] }
+libloading = "0.8"
+sha2 = "0.10"
 windows-metadata = { workspace = true }
 windows-rdl = { workspace = true }

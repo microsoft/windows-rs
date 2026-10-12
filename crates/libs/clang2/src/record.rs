@@ -52,7 +52,12 @@ impl Snapshot {
 
     fn record_layout(&self, id: Id, visiting: &mut BTreeSet<Id>) -> Result<Layout> {
         let decl = &self.declarations[id];
-        let DeclarationKind::Record { union, fields } = &decl.kind else {
+        let DeclarationKind::Record {
+            union,
+            fields,
+            contract,
+        } = &decl.kind
+        else {
             return Err(Error::new(
                 Stage::Representation,
                 format!(
@@ -61,6 +66,7 @@ impl Snapshot {
                 ),
             ));
         };
+        let contract = contract.unwrap_or_default();
         if !visiting.insert(id) {
             return Err(Error::new(
                 Stage::Representation,
@@ -79,18 +85,23 @@ impl Snapshot {
                     ),
                 ));
             }
-            alignment = alignment.max(layout.alignment);
+            let required = self.required_alignment(&field.written, &mut BTreeSet::new())?;
+            let field_alignment = layout
+                .alignment
+                .min(contract.packing.map_or(u64::MAX, u64::from))
+                .max(required);
+            alignment = alignment.max(field_alignment);
             let offset = if *union {
                 0
             } else {
-                round(size, layout.alignment)?
+                round(size, field_alignment)?
             };
             if offset != field.evidence.offset {
                 return Err(Error::new(
                     Stage::Representation,
                     format!(
-                        "{}.{}: native offset {} differs from natural offset {offset}; \
-                        adjusted storage is outside C3-A",
+                        "{}.{}: native offset {} differs from checked offset {offset}; \
+                        explicit adjustments require matched native contracts",
                         decl.evidence.qualified_name, field.evidence.name, field.evidence.offset
                     ),
                 ));
@@ -101,6 +112,7 @@ impl Snapshot {
             size = size.max(end);
         }
         visiting.remove(&id);
+        alignment = alignment.max(contract.alignment.map_or(1, u64::from));
         let layout = Layout {
             size: round(size, alignment)?,
             alignment,
@@ -109,13 +121,41 @@ impl Snapshot {
             return Err(Error::new(
                 Stage::Representation,
                 format!(
-                    "{}: native size/alignment differs from natural storage; \
-                    adjusted storage is outside C3-A",
+                    "{}: native size/alignment differs from checked storage; \
+                    explicit adjustments require matched native contracts",
                     decl.evidence.qualified_name
                 ),
             ));
         }
         Ok(layout)
+    }
+
+    fn required_alignment(&self, ty: &NativeType, visiting: &mut BTreeSet<Id>) -> Result<u64> {
+        match &ty.kind {
+            NativeKind::Alias(id) => {
+                if !visiting.insert(*id) {
+                    return Err(Error::new(Stage::Representation, "cyclic alignment alias"));
+                }
+                let DeclarationKind::Alias { written, .. } = &self.declarations[*id].kind else {
+                    return Err(Error::new(
+                        Stage::Representation,
+                        "alignment alias targets a non-alias",
+                    ));
+                };
+                let result = self.required_alignment(written, visiting)?;
+                visiting.remove(id);
+                Ok(result)
+            }
+            NativeKind::Array(element, _) => self.required_alignment(element, visiting),
+            NativeKind::Record(id) => match &self.declarations[*id].kind {
+                DeclarationKind::Record {
+                    contract: Some(contract),
+                    ..
+                } => Ok(u64::from(contract.required_alignment)),
+                _ => Ok(0),
+            },
+            _ => Ok(0),
+        }
     }
 }
 

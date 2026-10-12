@@ -6,6 +6,7 @@ use std::sync::Arc;
 use windows_metadata as metadata;
 
 mod capture;
+mod layout;
 mod output;
 mod record;
 
@@ -103,6 +104,20 @@ pub struct Layout {
     pub alignment: u64,
 }
 
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct RecordLayoutContract {
+    pub packing: Option<u16>,
+    pub alignment: Option<u16>,
+    pub required_alignment: u32,
+}
+
+#[derive(Debug, Clone)]
+pub struct LayoutBridgeEvidence {
+    pub abi: u32,
+    pub library: PathBuf,
+    pub parser_sha256: String,
+}
+
 #[derive(Debug, Clone)]
 pub struct Evidence {
     pub qualified_name: String,
@@ -141,6 +156,7 @@ pub struct Snapshot {
     pub target_triple: String,
     pub compiler: String,
     pub library: PathBuf,
+    pub layout_bridge: Option<LayoutBridgeEvidence>,
     pub input_name: String,
     pub arguments: Vec<String>,
     pub diagnostics: Vec<String>,
@@ -167,6 +183,18 @@ impl Snapshot {
                 .iter()
                 .map(move |field| (&decl.evidence, &field.evidence))
         })
+    }
+
+    pub fn record_layouts(&self) -> impl Iterator<Item = (&Evidence, &RecordLayoutContract)> {
+        self.declarations
+            .iter()
+            .filter_map(|decl| match &decl.kind {
+                DeclarationKind::Record {
+                    contract: Some(contract),
+                    ..
+                } => Some((&decl.evidence, contract)),
+                _ => None,
+            })
     }
 
     pub fn rdl(&self, namespace: &str) -> Result<String> {
@@ -205,6 +233,7 @@ enum DeclarationKind {
     Record {
         union: bool,
         fields: Vec<NativeField>,
+        contract: Option<RecordLayoutContract>,
     },
 }
 
