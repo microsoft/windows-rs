@@ -16,6 +16,7 @@ pub(crate) mod inventory;
 mod item;
 mod method;
 mod module;
+mod native_slots;
 mod param;
 mod r#struct;
 mod typedef;

@@ -19,6 +19,7 @@ pub enum NativeContractError {
     Annotation(NativeAnnotationError),
     Bitfield(BitfieldError),
     DataImport(NativeDataImportError),
+    Slot(NativeSlotError),
 }
 
 impl std::fmt::Display for NativeContractError {
@@ -28,6 +29,7 @@ impl std::fmt::Display for NativeContractError {
             Self::Annotation(error) => error.fmt(f),
             Self::Bitfield(error) => error.fmt(f),
             Self::DataImport(error) => error.fmt(f),
+            Self::Slot(error) => error.fmt(f),
         }
     }
 }
@@ -39,6 +41,7 @@ impl std::error::Error for NativeContractError {
             Self::Annotation(error) => error,
             Self::Bitfield(error) => error,
             Self::DataImport(error) => error,
+            Self::Slot(error) => error,
         })
     }
 }
@@ -50,7 +53,7 @@ struct Annotations {
 }
 
 impl Index {
-    /// Checks native storage, annotations, bit-fields, and declaration-only data invariants.
+    /// Checks native storage, annotations, bit-fields, imported data, and interface slots.
     ///
     /// This does not calculate layout, interpret annotation expressions, or prove source closure.
     pub fn validate_native_contracts(
@@ -69,13 +72,18 @@ impl Index {
             reference
                 .validate_native_data_imports(None)
                 .map_err(NativeContractError::DataImport)?;
+            reference
+                .validate_native_slots(None)
+                .map_err(NativeContractError::Slot)?;
         }
         self.validate_native_annotations()
             .map_err(NativeContractError::Annotation)?;
         self.validate_native_bitfields(reference)
             .map_err(NativeContractError::Bitfield)?;
         self.validate_native_data_imports(reference)
-            .map_err(NativeContractError::DataImport)
+            .map_err(NativeContractError::DataImport)?;
+        self.validate_native_slots(reference)
+            .map_err(NativeContractError::Slot)
     }
 
     /// Checks annotation identities, owners, and original positional bindings without lowering SAL.

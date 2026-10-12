@@ -53,6 +53,10 @@ value member.
 data without a value. Export names or ordinals and import kind survive independently of native
 type qualifiers; ordinary constants are unchanged.
 
+Native interfaces opt into `#[vtable(size = N, inherited = M)]` with absolute `#[slot(index)]`
+or `#[slot(index, reuse = Owner)]` declarations. Source order and inherited slot identity survive
+without fabricated method rows; Rust projection does not yet support the explicit model.
+
 `#[opaque] struct Tag {}` or `#[opaque] union Tag {}` declares a resolved nominal type without
 exposed storage. Pointers, aliases, and declaration-only data retain its identity; storage uses
 and array elements are rejected.

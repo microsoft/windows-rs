@@ -254,6 +254,14 @@ Bindgen rejects inputs containing these items until a Rust data-import policy is
 it does not manufacture a value or project the field through constant emission. Header-to-RDL/WinMD
 representation does not depend on that later policy.
 
+### Native interface slots
+
+Explicit native vtables use `NativeVtableAttribute` and method slot/reuse descriptors rather than
+MethodDef order. Bindgen rejects modeled interfaces and unmodeled interfaces derived from them;
+it does not append reused slots or dispatch overloads by row order. Implementing native slot
+projection is separate from the header-to-RDL/WinMD representation gate. Unmarked legacy
+interfaces retain their existing behavior.
+
 ### Bit-field accessors
 
 Winmd has no bit-field syntax. The header pipeline stores each run in an integer field named

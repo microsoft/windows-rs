@@ -52,9 +52,22 @@ impl CppInterface {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
+        let base_interfaces = self.base_interfaces(config.reader);
+        let explicit = |def: TypeDef| {
+            def.attributes().any(|attr| {
+                attr.namespace() == "Windows.Win32.Metadata"
+                    && attr.name() == "NativeVtableAttribute"
+            })
+        };
+        assert!(
+            !explicit(self.def)
+                && !base_interfaces
+                    .iter()
+                    .any(|base| { matches!(base, Type::CppInterface(base) if explicit(base.def)) }),
+            "explicit native vtables are not supported by Rust projection"
+        );
         let methods = self.get_methods(config);
 
-        let base_interfaces = self.base_interfaces(config.reader);
         let has_unknown_base = matches!(base_interfaces.first(), Some(Type::IUnknown));
         let (class_cfg, cfg) = self.write_cfg(config);
         let vtbl_name = self.write_vtbl_name(config);

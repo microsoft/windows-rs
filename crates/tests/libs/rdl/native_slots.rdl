@@ -1,0 +1,40 @@
+#[win32]
+mod Test {
+    #[no_guid]
+    #[vtable(size = 2, inherited = 0)]
+    interface Cv {
+        #[Windows::Win32::Metadata::NativeAnnotation("CXX", 0, "unqualified receiver")]
+        #[slot(0)]
+        fn Echo(&self, value: i32);
+        #[Windows::Win32::Metadata::NativeAnnotation("CXX", 0, "const receiver")]
+        #[slot(1)]
+        fn Echo(&self, value: i32);
+    }
+    #[no_guid]
+    #[vtable(size = 3, inherited = 2)]
+    interface Derived: Root {
+        #[slot(2)]
+        fn Extra(&self);
+        #[slot(1, reuse = Root)]
+        fn Echo(&self, value: f32);
+    }
+    #[no_guid]
+    #[vtable(size = 0, inherited = 0)]
+    interface Empty {}
+    #[no_guid]
+    #[vtable(size = 3, inherited = 3)]
+    interface Leaf: Derived {
+        #[slot(1, reuse = Derived)]
+        fn Renamed(&self, value: f32);
+        #[slot(0, reuse = Root)]
+        fn Echo(&self, value: i32);
+    }
+    #[no_guid]
+    #[vtable(size = 2, inherited = 0)]
+    interface Root {
+        #[slot(1)]
+        fn Echo(&self, value: f32);
+        #[slot(0)]
+        fn Echo(&self, value: i32);
+    }
+}

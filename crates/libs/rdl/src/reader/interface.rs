@@ -145,6 +145,15 @@ impl Encoder<'_> {
             metadata::writer::TypeDefOrRef::default(),
             flags,
         );
+        let native_vtable = self.encode_native_vtable(
+            metadata::writer::HasAttribute::TypeDef(interface),
+            &item.attrs,
+        )?;
+        let native_vtable = native_vtable
+            || item
+                .attrs
+                .iter()
+                .any(|attr| self.is_native_slot_wire_attribute(attr));
 
         for (number, name) in self.generics.iter().enumerate() {
             self.output.GenericParam(
@@ -158,7 +167,7 @@ impl Encoder<'_> {
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(interface),
             &item.attrs,
-            &["guid", "no_guid"],
+            &["guid", "no_guid", "vtable"],
         )?;
 
         if let Some(arch_bits) = self.read_arch(&item.attrs)? {
@@ -201,6 +210,28 @@ impl Encoder<'_> {
         for member in &item.members {
             match member {
                 InterfaceMember::Method(method) => {
+                    let native_slot = self.read_native_slot(&method.attrs)?;
+                    let native_method = native_vtable
+                        || native_slot.is_some()
+                        || method
+                            .attrs
+                            .iter()
+                            .any(|attr| self.is_native_slot_wire_attribute(attr));
+                    if native_method && method.attrs.iter().any(|attr| attr.path().is_ident("arch"))
+                    {
+                        return self.err(
+                            &method.sig,
+                            "native slots require interface-level architecture variants",
+                        );
+                    }
+                    if native_method
+                        && (method.sig.variadic.is_some() || !method.sig.generics.params.is_empty())
+                    {
+                        return self.err(
+                            &method.sig,
+                            "native slots do not support variadic or generic methods",
+                        );
+                    }
                     let mut params = vec![];
 
                     if method.sig.inputs.is_empty() {
@@ -263,6 +294,12 @@ impl Encoder<'_> {
                     }
 
                     let mut flags = base_flags;
+                    if native_slot
+                        .as_ref()
+                        .is_some_and(|slot| slot.reuse.is_some())
+                    {
+                        flags &= !metadata::MethodAttributes::NewSlot;
+                    }
                     if is_special {
                         flags |= metadata::MethodAttributes::SpecialName;
                     }
@@ -273,11 +310,17 @@ impl Encoder<'_> {
                         flags,
                         Default::default(),
                     );
+                    if let Some(slot) = &native_slot {
+                        self.encode_native_slot(
+                            metadata::writer::HasAttribute::MethodDef(method_def),
+                            slot,
+                        )?;
+                    }
 
                     self.encode_attrs(
                         metadata::writer::HasAttribute::MethodDef(method_def),
                         &method.attrs,
-                        &["special"],
+                        &["special", "slot"],
                     )?;
 
                     self.encode_return_attrs(&method.return_attrs)?;

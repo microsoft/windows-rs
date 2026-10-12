@@ -227,7 +227,7 @@ Raw SAL/MIDL evidence and lowered direction/buffer attributes remain separate.
 | API | Contract |
 | --- | --- |
 | `Index::validate_native_annotations()` | Checks owners, positional argument shapes, evidence identities, and parameter bindings |
-| `Index::validate_native_contracts(reference)` | Checks opaque storage, annotations, bit-fields, and data imports against supplied references |
+| `Index::validate_native_contracts(reference)` | Checks opaque storage, annotations, bit-fields, data imports, and native slots against supplied references |
 | `writer::File::try_into_stream()` | Returns checked bytes or `NativeContractError`, retaining writer references during validation |
 
 The checker rejects duplicate annotation identities or identifier bindings, missing evidence,
@@ -301,6 +301,44 @@ constant keys retain their existing behavior.
 
 Rust projection, feature generation, and legacy clang references reject `Item::Data` rather than
 inventing a constant or an unsupported binding.
+
+### Native interface slots
+
+Three attributes in `Windows.Win32.Metadata` carry an opt-in single-native-vtable model:
+
+| Attribute | Positional arguments | Owner |
+| --- | --- | --- |
+| `NativeVtableAttribute` | size: i32, inherited: i32 | Nongeneric native interface |
+| `NativeSlotAttribute` | index: i32 | Local MethodDef |
+| `NativeSlotReuseAttribute` | owner: Type | Local MethodDef reusing an inherited declaration |
+
+`TypeDef::native_vtable()` and `MethodDef::native_slot()` decode checked descriptors. Sizes and
+indices are nonnegative absolute native counts/positions, independent of MethodDef order.
+The inherited prefix cannot exceed the table size. Local indices are unique and in range.
+Every local method requires a slot; new slots cover the complete suffix, while reuse occupies
+the inherited prefix. No fake inherited method rows are added.
+
+New methods carry `Public | HideBySig | Abstract | Virtual | NewSlot`; reuse omits `NewSlot`.
+`SpecialName` is permitted independently. Implementation flags are default and signature flags
+are exactly `HASTHIS`; generic/variadic methods are unsupported. Architecture attributes belong
+to interface variants rather than methods.
+
+`Index::validate_native_slots(reference)` checks single native inheritance, cycles, known base
+sizes, ancestor ownership, descriptor placement, arguments, and flags. A known modeled reuse
+owner must locally declare that index, not merely inherit it. Architecture-compatible ancestry
+paths are intersected for neutral owners. Known WinRT/generic/noninterface bases reject.
+An unavailable or unmodeled base does not provide native slot evidence from method row counts;
+the explicit prefix and direct base identity remain representable without proving external closure.
+
+Shared validation reports `NativeContractError::Slot` before checked emission, RDL rendering,
+merge, or remap. Type-valued reuse owners remap independently. Native-model architecture keys
+include bases, slots, flags, and method/parameter/return evidence so distinct contracts retain
+separate variants. Unmarked interface merge behavior stays unchanged.
+
+These descriptors do not prove native order, override legality, signature covariance, receiver
+qualifiers, or thunks. Capture/reconciliation must establish those contracts from native evidence.
+Rust projection rejects modeled interfaces and derived consumers instead of using method row
+order as an ABI oracle.
 
 ### Native typedef targets
 

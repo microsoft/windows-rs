@@ -14,14 +14,18 @@ required signature modifiers, independently of parameter direction and pointer-r
 
 Raw native annotation identities and original positional bindings survive independently of
 parameter names and direction. `Index::validate_native_contracts` and checked
-`writer::File::try_into_stream` check opaque, annotation, bit-field, and data-import invariants
-before publishing metadata.
+`writer::File::try_into_stream` check opaque, annotation, bit-field, data-import, and slot
+invariants before publishing metadata.
 
 `Field::bitfields` reads logical member types, qualifiers, and raw evidence independently of backing
 storage. Legacy interval-only members retain an unspecified logical type.
 
 `reader::Item::Data` distinguishes declaration-only imports from constants. `Field::data_import`
 retains exact DLL/export-or-ordinal routing and COFF import kind without a fabricated value.
+
+`TypeDef::native_vtable` and `MethodDef::native_slot` retain absolute native slots and inherited
+declaration owners independently of method row order. Shared checks validate the representation,
+not native override legality or ABI agreement.
 
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-metadata.md)

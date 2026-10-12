@@ -122,6 +122,17 @@ mod Windows {
             attribute NativeDataImportAttribute {
                 fn(dll: String, name: String, ordinal: i32, kind: i32);
             }
+            // Absolute native vtable extent and inherited prefix; not MethodDef row order.
+            attribute NativeVtableAttribute {
+                fn(size: i32, inherited: i32);
+            }
+            attribute NativeSlotAttribute {
+                fn(index: i32);
+            }
+            // The same absolute slot on this inherited declaration owner.
+            attribute NativeSlotReuseAttribute {
+                fn(owner: Type);
+            }
         }
     }
 }

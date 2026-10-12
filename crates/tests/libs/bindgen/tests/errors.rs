@@ -54,6 +54,49 @@ fn imported_data_is_not_projected_as_a_constant() {
 }
 
 #[test]
+#[should_panic(expected = "explicit native vtables are not supported by Rust projection")]
+fn explicit_native_slots_do_not_use_method_row_order() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("native_slot_rejection");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("out.winmd");
+    windows_rdl::reader()
+        .input_text(
+            "#[win32] mod Test { #[no_guid] #[vtable(size=1,inherited=0)] interface I {
+            #[slot(0)] fn A(&self); } }",
+        )
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_bindgen::builder()
+        .input(winmd)
+        .output(scratch.join("out.rs"))
+        .filter("Test.I")
+        .write();
+}
+
+#[test]
+#[should_panic(expected = "explicit native vtables are not supported by Rust projection")]
+fn explicit_native_slots_in_a_base_do_not_use_method_row_order() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("native_slot_base_rejection");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("out.winmd");
+    windows_rdl::reader()
+        .input_text(
+            "#[win32] mod Test {
+            #[no_guid] #[vtable(size=1,inherited=0)] interface Base { #[slot(0)] fn A(&self); }
+            #[no_guid] interface I : Base {} }",
+        )
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_bindgen::builder()
+        .input(winmd)
+        .output(scratch.join("out.rs"))
+        .filter("Test.I")
+        .write();
+}
+
+#[test]
 #[should_panic(expected = "failed to open file")]
 fn missing_filter_file_panics() {
     let missing = std::env::temp_dir().join("test_bindgen_missing_filter_file.txt");

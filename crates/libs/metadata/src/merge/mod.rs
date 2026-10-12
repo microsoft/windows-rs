@@ -969,11 +969,44 @@ fn type_sig(index: &reader::Index, def: reader::TypeDef) -> String {
         .nested(def)
         .map(|inner| format!("{}={}", inner.name(), type_sig(index, inner)))
         .collect();
-    format!(
+    let mut signature = format!(
         "{fields:?}|{methods:?}|{layout:?}|{align:?}|{:?}|{nested:?}|{}",
         def.flags(),
         def.is_opaque()
-    )
+    );
+    if def.attributes().any(|attr| {
+        attr.namespace() == "Windows.Win32.Metadata" && attr.name() == "NativeVtableAttribute"
+    }) {
+        let attributes = |attributes: reader::RowIterator<'_, reader::Attribute<'_>>| {
+            let mut attrs: Vec<_> = attributes
+                .filter(|attr| {
+                    !(attr.namespace() == "Windows.Win32.Metadata"
+                        && attr.name() == "SupportedArchitectureAttribute")
+                })
+                .map(|attr| format!("{}|{}|{:?}", attr.namespace(), attr.name(), attr.value()))
+                .collect();
+            attrs.sort();
+            attrs
+        };
+        let table = attributes(def.attributes());
+        let slots: Vec<_> = def
+            .methods()
+            .map(|method| {
+                (
+                    method.flags(),
+                    method.impl_flags(),
+                    attributes(method.attributes()),
+                    callback_params(method),
+                )
+            })
+            .collect();
+        let bases: Vec<_> = def
+            .interface_impls()
+            .map(|base| base.interface(&[]))
+            .collect();
+        signature.push_str(&format!("|native:{table:?}|{slots:?}|{bases:?}"));
+    }
+    signature
 }
 
 fn write_attributes<'a, R: HasAttributes<'a>>(

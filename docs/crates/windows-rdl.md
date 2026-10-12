@@ -223,6 +223,58 @@ emission, rendering, split/partition cleanup, merge, or remap. See
 These checks do not prove native DLL/export availability or layout. Rust data projection is a
 separate task.
 
+### Native interface slots
+
+An explicit native model separates source declaration order from vtable order:
+
+```text
+#[win32]
+mod Example {
+    #[no_guid]
+    #[vtable(size = 2, inherited = 0)]
+    interface Base {
+        #[slot(1)]
+        fn Echo(&self, value: f32);
+        #[slot(0)]
+        fn Echo(&self, value: i32);
+    }
+    #[no_guid]
+    #[vtable(size = 3, inherited = 2)]
+    interface Derived: Base {
+        #[slot(2)]
+        fn Extra(&self);
+        #[slot(1, reuse = Base)]
+        fn Echo(&self, value: f32);
+    }
+}
+```
+
+Indices are absolute. New declarations cover every slot from `inherited` through `size - 1`.
+A reuse declaration occupies the inherited prefix and names the ancestor declaring that slot;
+an ancestor's effective table alone is not a local declaration. New methods set ECMA-335
+`NewSlot`; reuse methods clear it. MethodDef order stays in source order, and inherited methods
+are not copied into the derived declaration.
+
+The checked model supports nongeneric native interfaces with one base chain. Every local method
+requires a slot descriptor. Duplicate/out-of-range slots, missing suffix slots, invalid owners,
+known cycles, generic/variadic methods, and conflicting method flags reject before output writes
+or cleanup. Architecture variation uses interface-level `#[arch(...)]`, not method-level tags.
+Known modeled base sizes must equal the explicit inherited count. A neutral declaration's
+transitive reuse owner must occur on every available architecture lineage.
+
+Unavailable or unmodeled external bases retain the explicit inherited prefix without guessing
+native order from method counts. A direct base identity remains representable; ancestry through
+unavailable definitions stays unknown. Slot checks do not prove override signature legality,
+receiver qualifiers, covariance, thunks, or native ABI agreement. Raw receiver annotations retain
+source evidence without claiming to lower C++ receiver semantics.
+
+`test_rdl::native_slots` checks reviewed text/binary round-trips, independent namespace routing,
+source order, reuse owners, and architecture-specific contracts. `native_slot_metadata` checks
+raw malformed descriptors and unchanged method signature bytes. Rust projection rejects this
+model, including unmodeled interfaces derived from modeled bases; it is a separate gate.
+Interfaces without descriptors retain their existing representation. See
+[metadata native interface slots](windows-metadata.md#native-interface-slots) for the wire contract.
+
 ### Named record aliases
 
 `type NAME = TYPE;` preserves a declared alias and its written target. Several names can refer

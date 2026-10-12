@@ -46,6 +46,16 @@ fn collect_bitor_variants_inner(expr: &syn::Expr, names: &mut Vec<String>) -> Op
 }
 
 impl Encoder<'_> {
+    pub fn is_native_slot_wire_attribute(&self, attr: &syn::Attribute) -> bool {
+        self.find_attribute_type(attr.path()).is_some_and(|info| {
+            info.type_name.namespace == METADATA_NAMESPACE
+                && matches!(
+                    info.type_name.name.as_str(),
+                    "NativeVtableAttribute" | "NativeSlotAttribute" | "NativeSlotReuseAttribute"
+                )
+        })
+    }
+
     fn find_attribute_type(&self, path: &syn::Path) -> Option<AttributeInfo> {
         let mut segments: Vec<String> = path.segments.iter().map(|s| s.ident.to_string()).collect();
 

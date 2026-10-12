@@ -31,17 +31,32 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> Result<TokenStream, 
         }
     };
     let arch_attr = write_arch_attr(item.arches());
+    let vtable_attr = if let Some(table) = item
+        .native_vtable()
+        .map_err(|error| writer_err!("{error}"))?
+    {
+        let size = Literal::u32_unsuffixed(table.size);
+        let inherited = Literal::u32_unsuffixed(table.inherited);
+        quote! { #[vtable(size = #size, inherited = #inherited)] }
+    } else {
+        quote! {}
+    };
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
         item.index(),
-        &["GuidAttribute", "SupportedArchitectureAttribute"],
+        &[
+            "GuidAttribute",
+            "SupportedArchitectureAttribute",
+            "NativeVtableAttribute",
+        ],
     )?;
 
     Ok(quote! {
         #guid_token
         #arch_attr
         #(#custom_attrs)*
+        #vtable_attr
         interface #name #generics_tokens #requires_tokens {
             #(#members)*
         }
@@ -176,7 +191,27 @@ fn write_method(
         )
         .collect::<Result<Vec<_>, Error>>()?;
 
-    let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    let method_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["NativeSlotAttribute", "NativeSlotReuseAttribute"],
+    )?;
+    let slot_attr =
+        if let Some(slot) = item.native_slot().map_err(|error| writer_err!("{error}"))? {
+            let index = Literal::u32_unsuffixed(slot.index);
+            if let Some(owner) = slot.reuse {
+                let owner = write_type(
+                    namespace,
+                    &metadata::Type::class_named(&owner.namespace, &owner.name),
+                );
+                quote! { #[slot(#index, reuse = #owner)] }
+            } else {
+                quote! { #[slot(#index)] }
+            }
+        } else {
+            quote! {}
+        };
 
     // Preserve property/event methods with the built-in `#[special]` pseudo.
     let special_attr = if item
@@ -191,6 +226,7 @@ fn write_method(
     Ok(quote! {
         #special_attr
         #(#method_attrs)*
+        #slot_attr
         fn #name(#(#params),*) #return_type;
     })
 }

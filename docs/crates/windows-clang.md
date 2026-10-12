@@ -951,9 +951,29 @@ constness. The current COFF inventory reader supplies only symbol/DLL pairs; it 
 this contract. Rust projection, feature generation, and legacy clang references reject new data
 items instead of treating them as constants. Existing metadata is not promoted or repaired.
 
-The next bounded format contract is C1-G's native interface slot relationships. Interface methods
-currently always set `NewSlot`; overload and inherited-slot evidence must have an explicit
-representation before the replacement extractor can publish those cases.
+**C1-G's representation gate is implemented.** Native interfaces opt into
+`#[vtable(size = N, inherited = M)]`. Each local declaration has an absolute `#[slot(index)]`,
+or `#[slot(index, reuse = Owner)]` naming the ancestor that declares the inherited slot.
+New declarations set `NewSlot`; reuse clears it. Source method order stays independent of
+native slot order. No inherited MethodDef rows are fabricated.
+
+Shared checks require a complete new-slot suffix, unique local slots, a single nongeneric native
+base chain, and an ancestor declaration for known modeled reuse owners. Known base table sizes
+must match the inherited prefix. Architecture variants belong to interfaces, not local methods;
+merge keys retain slot maps, bases, and parameter/return evidence. Namespace remapping routes
+reuse owners independently. Reviewed round-trips and raw negative controls cover overloads,
+source-order differences, inherited reuse, external bases, architecture lineages, and rejection
+before output replacement or cleanup.
+
+An unavailable or unmodeled base does not supply native order from its method rows. The explicit
+inherited count and direct owner identity remain representable; unavailable transitive ancestry
+is not guessed. Declared signatures and raw receiver evidence remain separate from slot identity.
+Capture/reconciliation must still prove native ordering, override legality, receiver qualifiers,
+covariance, and thunks. Rust projection rejects modeled interfaces and their derived consumers
+instead of treating row order as dispatch order. Unmarked legacy metadata is unchanged.
+
+The next bounded format contract is C1-H's required nonprimitive values. Its gate is declared
+types and exact compiler-backed values, not Rust projection or another full-header survey.
 
 Continue the remaining C1 contracts with reviewed inputs, semantic WinMD readback, and negative
 controls using the fixed acceptance gates above. No fresh full-header capture is needed unless

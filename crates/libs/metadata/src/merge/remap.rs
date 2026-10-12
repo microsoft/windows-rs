@@ -267,7 +267,7 @@ impl Remapper {
             let param = file.Param(param_def.name(), param_def.sequence(), param_def.flags());
             write_attributes(file, writer::HasAttribute::Param(param), param_def);
         }
-        write_attributes(file, writer::HasAttribute::MethodDef(method_def), method);
+        self.write_attributes(file, writer::HasAttribute::MethodDef(method_def), method);
         if let Some(impl_map) = method.impl_map() {
             file.ImplMap(
                 method_def,
@@ -286,7 +286,10 @@ impl Remapper {
     ) {
         for attribute in row.attributes() {
             let logical_type = attribute.namespace() == "Windows.Win32.Metadata"
-                && attribute.name() == "NativeBitfieldTypeAttribute";
+                && matches!(
+                    attribute.name(),
+                    "NativeBitfieldTypeAttribute" | "NativeSlotReuseAttribute"
+                );
             let values: Vec<_> = attribute
                 .value()
                 .into_iter()
