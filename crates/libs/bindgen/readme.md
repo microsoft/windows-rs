@@ -30,6 +30,9 @@ let args = [
 windows_bindgen::bindgen(args);
 ```
 
+Formatting is best effort. If `rustfmt` is unavailable or fails, generation writes unformatted
+bindings without a warning. Install `rustfmt` when generating checked-in source.
+
 And then use the bindings as follows:
 
 ```rust,ignore

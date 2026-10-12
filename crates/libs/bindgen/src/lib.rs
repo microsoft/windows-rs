@@ -306,7 +306,11 @@ impl Bindgen {
         self
     }
 
-    /// Override the default Rust formatter path.
+    /// Set comma-separated `rustfmt` configuration options, such as `max_width=120`.
+    ///
+    /// These are passed to `rustfmt --config`, not used as an executable path.
+    /// The default is `newline_style=Unix`; supplied options override matching defaults.
+    /// Formatting is best effort: failures leave the output unformatted without a warning.
     pub fn rustfmt(&mut self, rustfmt: &str) -> &mut Self {
         self.rustfmt = Some(rustfmt.to_string());
         self

@@ -3,9 +3,9 @@ use std::io::Write;
 
 impl Config<'_> {
     pub fn format(&self, tokens: &str) -> String {
-        let formatted = self
-            .rustfmt(tokens)
-            .unwrap_or_else(|| panic!("failed to format output with `rustfmt`"));
+        let Some(formatted) = self.rustfmt(tokens) else {
+            return tokens.to_string();
+        };
 
         // `rustfmt` does not normalize token spacing inside macro invocation bodies.
         tighten_macro_whitespace(&formatted)
@@ -20,11 +20,11 @@ impl Config<'_> {
 
         let mut child = cmd.spawn().ok()?;
         let mut stdin = child.stdin.take()?;
-        stdin.write_all(tokens.as_bytes()).ok()?;
+        let written = stdin.write_all(tokens.as_bytes());
         drop(stdin);
         let output = child.wait_with_output().ok()?;
 
-        if !output.status.success() {
+        if written.is_err() || !output.status.success() {
             return None;
         }
 

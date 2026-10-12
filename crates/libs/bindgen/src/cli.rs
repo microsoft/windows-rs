@@ -18,7 +18,7 @@ use super::*;
 /// - `--in`: Metadata files or directories.
 /// - `--out`: Generated Rust file.
 /// - `--filter`: Included or excluded APIs.
-/// - `--rustfmt`: Rust formatter override.
+/// - `--rustfmt`: Comma-separated `rustfmt --config` options, such as `max_width=120`.
 /// - `--derive`: Extra derived traits.
 /// - `--flat`: Omits namespace modules.
 /// - `--sys`: Generates raw bindings that depend only on `windows-link`.
