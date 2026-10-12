@@ -89,9 +89,9 @@ For runtime classes, select the instance, static, or factory methods you need. F
 its factory methods.
 
 Member filters select methods on a type, not free functions in a subsystem namespace.
-Property and event names select their accessor pairs. For namespace selections, prefix a qualified
-name with `!` to exclude it. Prefer narrow filters to generating a namespace and removing items
-from it.
+Property and event names select their accessor pairs. For type and namespace selections, prefix a
+filter with `!` to exclude it. More specific rules take precedence; exclusions win ties regardless
+of argument order. Prefer narrow filters to generating a namespace and removing items from it.
 
 ### Keep longer filter lists in a file
 

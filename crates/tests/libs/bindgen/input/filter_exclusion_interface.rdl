@@ -1,0 +1,17 @@
+//! --filter Test.IKept::Read Test.IRemoved Test.IMember::Read Test.IShell::{}
+//! --filter !Test::{IRemoved,IMember,IShell} --flat
+#[winrt]
+mod Test {
+    interface IKept {
+        fn Read(&self) -> u32;
+    }
+    interface IRemoved {
+        fn Read(&self) -> u32;
+    }
+    interface IMember {
+        fn Read(&self) -> u32;
+    }
+    interface IShell {
+        fn Read(&self) -> u32;
+    }
+}
