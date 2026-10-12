@@ -247,6 +247,13 @@ the generated flat helper names. Existing unscoped leaf references remain suppor
 `test_bindgen`'s `struct_nested_anon` fixture covers nested unions, structs, and architecture
 variants.
 
+### Native data imports
+
+Declaration-only native data is indexed as `metadata::reader::Item::Data`, separate from constants.
+Bindgen rejects inputs containing these items until a Rust data-import policy is implemented;
+it does not manufacture a value or project the field through constant emission. Header-to-RDL/WinMD
+representation does not depend on that later policy.
+
 ### Bit-field accessors
 
 Winmd has no bit-field syntax. The header pipeline stores each run in an integer field named

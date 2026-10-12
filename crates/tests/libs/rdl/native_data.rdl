@@ -1,0 +1,32 @@
+#[win32]
+mod Test {
+    type Alias = Record;
+    #[import("Fixture.DLL", name = "NativeArray", kind = data)]
+    static Array: [u16; 4];
+    #[library("fixture.dll", import = "NativeFunction")]
+    extern "C" fn Companion(value: i32);
+    #[import("fixture.dll", name = "ForwardObject", kind = data)]
+    static Forward: Tag;
+    const Initialized: u32 = 7;
+    const MissingInitializer: u32;
+    #[import("fixture.dll", name = "NativeMutable", kind = constant)]
+    static MutableConstant: u32;
+    #[import("fixture.dll", ordinal = 65535, kind = constant)]
+    static OrdinalMax: i64;
+    #[import("fixture.dll", ordinal = 0, kind = data)]
+    static OrdinalZero: u8;
+    #[Windows::Win32::Metadata::NativeAnnotation("CXX", 0, "__declspec(dllimport)")]
+    #[import("fixture.dll", name = "NativePointer", kind = data)]
+    static Pointer: *const *mut Record;
+    #[import("fixture.dll", name = "NativeReadonly", kind = data)]
+    static Readonly: Const<Volatile<i32>>;
+    struct Record {
+        value: i32,
+    }
+    #[import("fixture.dll", name = "DifferentExport", kind = data)]
+    static Renamed: Alias;
+    #[import("fixture.dll", name = "#17", kind = data)]
+    static SpelledOrdinal: u32;
+    #[opaque]
+    struct Tag {}
+}

@@ -49,8 +49,13 @@ Bit-field blocks accept `name: LogicalType: width` alongside legacy `name: width
 qualifiers, and raw member annotations survive without adding storage fields; padding is not a
 value member.
 
+`#[import("example.dll", name = "NativeValue", kind = data)] static Value: Type;` declares imported
+data without a value. Export names or ordinals and import kind survive independently of native
+type qualifiers; ordinary constants are unchanged.
+
 `#[opaque] struct Tag {}` or `#[opaque] union Tag {}` declares a resolved nominal type without
-exposed storage. Pointers and aliases retain its identity; value and array-element uses are rejected.
+exposed storage. Pointers, aliases, and declaration-only data retain its identity; storage uses
+and array elements are rejected.
 
 `type First = Record;` and `type Second = Record;` preserve separate alias names targeting one
 nominal record. Aliases retain their targets through RDL/WinMD round-trips without copying fields.

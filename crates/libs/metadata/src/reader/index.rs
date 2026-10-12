@@ -14,6 +14,7 @@ enum RawItem {
     Type(usize, usize),  // (file_pos, typedef_pos)
     Fn(usize, usize),    // (file_pos, methoddef_pos)
     Const(usize, usize), // (file_pos, field_pos)
+    Data(usize, usize),  // (file_pos, field_pos)
 }
 
 /// An individually-addressable item exposed by [`Index::iter_items`] and friends.
@@ -22,6 +23,7 @@ pub enum Item<'a> {
     Type(TypeDef<'a>),
     Fn(MethodDef<'a>),
     Const(Field<'a>),
+    Data(Field<'a>),
 }
 
 impl Index {
@@ -78,7 +80,7 @@ impl Index {
             architecture,
         };
 
-        // Expand Win32 `Apis` into function/constant items.
+        // Expand Win32 `Apis` into function, constant, and imported-data items.
         let mut items: HashMap<String, HashMap<String, Vec<RawItem>>> = HashMap::new();
 
         for (namespace, name, ty) in index.iter() {
@@ -107,7 +109,11 @@ impl Index {
                         .or_default()
                         .entry(field.name().to_string())
                         .or_default()
-                        .push(RawItem::Const(ty.0.file, field.0.pos));
+                        .push(if field.is_imported_data() {
+                            RawItem::Data(ty.0.file, field.0.pos)
+                        } else {
+                            RawItem::Const(ty.0.file, field.0.pos)
+                        });
                 }
             } else {
                 items
@@ -356,6 +362,7 @@ impl Index {
             RawItem::Type(file, pos) => Item::Type(TypeDef(Row::new(self, file, pos))),
             RawItem::Fn(file, pos) => Item::Fn(MethodDef(Row::new(self, file, pos))),
             RawItem::Const(file, pos) => Item::Const(Field(Row::new(self, file, pos))),
+            RawItem::Data(file, pos) => Item::Data(Field(Row::new(self, file, pos))),
         }
     }
 }

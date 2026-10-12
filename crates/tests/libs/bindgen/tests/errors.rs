@@ -32,6 +32,28 @@ fn logical_bitfield_descriptors_do_not_use_legacy_accessor_policy() {
 }
 
 #[test]
+#[should_panic(expected = "native data imports are not supported by Rust projection")]
+fn imported_data_is_not_projected_as_a_constant() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("native_data_rejection");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("out.winmd");
+    windows_rdl::reader()
+        .input_text(
+            "#[win32] mod Test {
+            #[import(\"data.dll\", name = \"NativeValue\", kind = data)] static Value: u32;
+        }",
+        )
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_bindgen::builder()
+        .input(winmd)
+        .output(scratch.join("out.rs"))
+        .filter("Test.Value")
+        .write();
+}
+
+#[test]
 #[should_panic(expected = "failed to open file")]
 fn missing_filter_file_panics() {
     let missing = std::env::temp_dir().join("test_bindgen_missing_filter_file.txt");

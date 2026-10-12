@@ -117,6 +117,11 @@ mod Windows {
             attribute NativeBitfieldAnnotationAttribute {
                 fn(name: String, source: String, ordinal: i32, payload: String);
             }
+            // Declaration-only data. Named exports use ordinal -1; ordinal imports use name "".
+            // COFF import kinds: 1 = data, 2 = constant, independent of Const<T>.
+            attribute NativeDataImportAttribute {
+                fn(dll: String, name: String, ordinal: i32, kind: i32);
+            }
         }
     }
 }

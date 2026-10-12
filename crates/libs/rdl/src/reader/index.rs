@@ -10,6 +10,7 @@ pub struct Namespace<'a> {
     pub types: BTreeMap<String, Vec<(&'a File, &'a Item)>>,
     pub functions: BTreeMap<String, Vec<(&'a File, &'a Item)>>,
     pub constants: BTreeMap<String, Vec<(&'a File, &'a Item)>>,
+    pub data: BTreeMap<String, Vec<(&'a File, &'a Item)>>,
 }
 
 impl<'a> Index<'a> {
@@ -42,6 +43,13 @@ impl<'a> Index<'a> {
                 Item::Const(..) => {
                     namespace
                         .constants
+                        .entry(item.to_string())
+                        .or_default()
+                        .push((file, item));
+                }
+                Item::Data(..) => {
+                    namespace
+                        .data
                         .entry(item.to_string())
                         .or_default()
                         .push((file, item));
@@ -100,7 +108,7 @@ impl<'a> Index<'a> {
                 Item::Delegate(_) | Item::Class(_) => true,
                 // Unions, callbacks, and typedefs are always non-WinRT.
                 Item::Union(_) | Item::Callback(_) | Item::Typedef(_) => false,
-                Item::Fn(_) | Item::Const(_) | Item::Module(_) => false,
+                Item::Fn(_) | Item::Const(_) | Item::Data(_) | Item::Module(_) => false,
             })
     }
 }

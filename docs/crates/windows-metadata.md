@@ -48,6 +48,9 @@ namespace, type, nested-type, and expanded Win32 `Apis` indexes. A zero architec
 all rows; `Index::new_for_architecture` selects neutral rows plus one of X86 (1), X64 (2), or Arm64
 (4).
 
+Expanded API items distinguish `Item::Data` from `Item::Const` using an explicit native data
+descriptor, not field flags or the absence of a value.
+
 The writer API is lower-level. `writer::File` builds ECMA-335 rows and `into_stream` returns the
 finished bytes. Prefer [`windows-rdl`](windows-rdl.md) when a reviewable source format is useful;
 use the writer directly when a tool is copying or synthesizing table rows.
@@ -224,7 +227,7 @@ Raw SAL/MIDL evidence and lowered direction/buffer attributes remain separate.
 | API | Contract |
 | --- | --- |
 | `Index::validate_native_annotations()` | Checks owners, positional argument shapes, evidence identities, and parameter bindings |
-| `Index::validate_native_contracts(reference)` | Checks opaque storage, annotations, and logical bit-fields, including supplied reference metadata |
+| `Index::validate_native_contracts(reference)` | Checks opaque storage, annotations, bit-fields, and data imports against supplied references |
 | `writer::File::try_into_stream()` | Returns checked bytes or `NativeContractError`, retaining writer references during validation |
 
 The checker rejects duplicate annotation identities or identifier bindings, missing evidence,
@@ -266,6 +269,39 @@ native layout. Checked emission, RDL rendering, merge, and remap compose it thro
 `validate_native_contracts`; failures use `NativeContractError::Bitfield` before replacing output.
 Rust projection rejects the new companions rather than selecting a logical accessor policy.
 
+### Native data imports
+
+`Windows.Win32.Metadata.NativeDataImportAttribute(dll: String, name: String, ordinal: i32,
+kind: i32)` marks a declaration-only `Public | Static` field in a non-generic, architecture-neutral
+native `Apis` container. The field has no `Literal`, Constant row, GUID value attribute, or
+storage/default flags. Architecture tags belong to the field.
+
+| Target | `name` argument | `ordinal` argument |
+| --- | --- | --- |
+| Named export | Nonempty exact export text | -1 |
+| Ordinal import | Empty string | 0 through 65535 |
+
+The DLL must be nonempty. DLL/export strings cannot contain NUL. Kind 1 means COFF data and kind 2
+means COFF constant; function/unknown kinds reject. Kind does not imply an initializer, type
+constness, or read-only storage. No Field `ImplMap` or ordinal-as-export-string convention is used.
+
+`Field::is_imported_data()` identifies the marker by namespace and name.
+`Field::data_import()` returns a checked `NativeDataImport` with a named or ordinal target and a
+`NativeDataImportKind`. Unmarked/foreign-marker fields return `None` without being reclassified.
+`Index::validate_native_data_imports(reference)` checks descriptor shapes, ownership, flags,
+absence of values, native type nodes, and known typedef/WinRT targets. Native interfaces and
+callbacks retain their existing reference-type representation. Unresolved external nominal
+definitions remain unknown; this is not source closure or native layout validation.
+
+Shared native checks report `NativeContractError::DataImport` before checked emission, RDL
+rendering/cleanup, merge, or remap. Namespace remapping changes declaration/type namespaces, not
+DLL/export names. API merge keys include data import contracts and non-architecture member
+attributes, so differing imports or raw evidence do not collapse across architectures. Legacy
+constant keys retain their existing behavior.
+
+Rust projection, feature generation, and legacy clang references reject `Item::Data` rather than
+inventing a constant or an unsupported binding.
+
 ### Native typedef targets
 
 A native typedef is a value TypeDef marked `Windows.Win32.Metadata.NativeTypedefAttribute`.
@@ -302,13 +338,17 @@ opaque record.
 | --- | --- |
 | `Index::validate_opaque_types(reference)` | Checks declarations and value/array uses through aliases, with optional external type references |
 | `Index::validate_opaque_storage(ty)` | Rejects storage use of an opaque value or array element, including typedef chains |
-| `writer::File::try_into_stream()` | Checks opaque and annotation contracts against the writer's references before returning bytes |
+| `writer::File::try_into_stream()` | Checks native representation contracts against the writer's references before returning bytes |
 | `writer::File::into_stream()` | Low-level unchecked table emission, also used to author negative fixtures |
 
 Pointers and references retain opaque nominal identity without claiming pointee storage. An
 array requires element storage even when reached through a pointer or reference. A
 `NativeTypedefAttribute` TypeDef's one target field records an alias, not a native value member;
 the checker follows it with the caller's storage requirement.
+
+An imported-data field declares an external object without claiming local storage. It may retain
+an opaque object's nominal type; arrays still require element storage. A consumer calculating
+the object's layout must use `validate_opaque_storage` and resolve its native definition.
 
 The checker rejects overlapping opaque/complete definitions. Member architecture attributes
 and inherited nested-type architecture select the applicable variants. Architecture merge

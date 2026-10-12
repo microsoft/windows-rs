@@ -6,6 +6,7 @@ pub enum Item {
     Callback(Callback),
     Class(Class),
     Const(Const),
+    Data(Data),
     Delegate(Delegate),
     Enum(Enum),
     Fn(Fn),
@@ -23,6 +24,7 @@ impl Item {
             | Self::Callback(Callback { attrs, .. })
             | Self::Class(Class { attrs, .. })
             | Self::Const(Const { attrs, .. })
+            | Self::Data(Data { attrs, .. })
             | Self::Delegate(Delegate { attrs, .. })
             | Self::Enum(Enum { attrs, .. })
             | Self::Fn(Fn { attrs, .. })
@@ -42,6 +44,7 @@ impl std::fmt::Display for Item {
             Self::Callback(item) => item.sig.ident.fmt(f),
             Self::Class(item) => item.name.fmt(f),
             Self::Const(item) => item.name.fmt(f),
+            Self::Data(item) => item.name.fmt(f),
             Self::Delegate(item) => item.sig.ident.fmt(f),
             Self::Enum(item) => item.name.fmt(f),
             Self::Fn(item) => item.sig.ident.fmt(f),
@@ -83,6 +86,8 @@ impl syn::parse::Parse for Item {
             }
         } else if lookahead.peek(syn::Token![const]) {
             input.parse().map(Item::Const)
+        } else if lookahead.peek(syn::Token![static]) {
+            input.parse().map(Item::Data)
         } else if lookahead.peek(delegate) {
             input.parse().map(Item::Delegate)
         } else if lookahead.peek(class) {

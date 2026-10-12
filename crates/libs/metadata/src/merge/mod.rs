@@ -407,6 +407,27 @@ fn write_field(file: &mut writer::File, field: reader::Field, arch_override: Opt
     );
 }
 
+fn api_field_key(field: reader::Field) -> String {
+    let value = field
+        .constant()
+        .map(|c| format!("{:?}", c.value()))
+        .unwrap_or_default();
+    let mut key = format!("{}|{:?}|{value}", field.name(), field.ty());
+    if field.is_imported_data() {
+        let mut attributes: Vec<_> = field
+            .attributes()
+            .filter(|attr| {
+                !(attr.namespace() == "Windows.Win32.Metadata"
+                    && attr.name() == "SupportedArchitectureAttribute")
+            })
+            .map(|attr| format!("{}|{}|{:?}", attr.namespace(), attr.name(), attr.value()))
+            .collect();
+        attributes.sort();
+        key.push_str(&format!("|data:{:?}:{attributes:?}", field.flags()));
+    }
+    key
+}
+
 /// Returns the `SupportedArchitectureAttribute` bits on a type, or 0 (arch-neutral) if absent.
 fn type_arch_bits(def: reader::TypeDef) -> i32 {
     for attribute in def.attributes() {
@@ -460,11 +481,10 @@ fn write_class_union(file: &mut writer::File, index: &reader::Index, copies: &[r
     let mut seen_fields: HashSet<String> = HashSet::new();
     for copy in copies {
         for field in copy.fields() {
-            let value = field
-                .constant()
-                .map(|c| format!("{:?}", c.value()))
-                .unwrap_or_default();
-            let key = format!("{}|{:?}|{value}", field.name(), field.ty());
+            let mut key = api_field_key(field);
+            if field.is_imported_data() {
+                key.push_str(&format!("|arch:{}", field.arches()));
+            }
             if seen_fields.insert(key) {
                 write_field(file, field, None);
             }
@@ -870,16 +890,18 @@ fn write_type_arch_merged(
         );
     }
 
-    // Include constant values in the key so divergent constants survive.
+    // Constants retain value identity; data declarations also retain import contracts and evidence.
     let mut fields: BTreeMap<String, (reader::Field, i32)> = BTreeMap::new();
     for (_, ty, bits) in copies {
         for field in ty.fields() {
-            let val = field
-                .constant()
-                .map(|c| format!("{:?}", c.value()))
-                .unwrap_or_default();
-            let key = format!("{}|{:?}|{val}", field.name(), field.ty());
-            fields.entry(key).or_insert((field, 0)).1 |= bits;
+            let member_bits = if field.is_imported_data() && field.arches() != 0 {
+                field.arches() & bits
+            } else {
+                *bits
+            };
+            if member_bits != 0 {
+                fields.entry(api_field_key(field)).or_insert((field, 0)).1 |= member_bits;
+            }
         }
     }
     for (field, bits) in fields.into_values() {

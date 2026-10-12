@@ -18,6 +18,7 @@ pub enum NativeContractError {
     Opaque(OpaqueTypeError),
     Annotation(NativeAnnotationError),
     Bitfield(BitfieldError),
+    DataImport(NativeDataImportError),
 }
 
 impl std::fmt::Display for NativeContractError {
@@ -26,6 +27,7 @@ impl std::fmt::Display for NativeContractError {
             Self::Opaque(error) => error.fmt(f),
             Self::Annotation(error) => error.fmt(f),
             Self::Bitfield(error) => error.fmt(f),
+            Self::DataImport(error) => error.fmt(f),
         }
     }
 }
@@ -36,6 +38,7 @@ impl std::error::Error for NativeContractError {
             Self::Opaque(error) => error,
             Self::Annotation(error) => error,
             Self::Bitfield(error) => error,
+            Self::DataImport(error) => error,
         })
     }
 }
@@ -47,7 +50,7 @@ struct Annotations {
 }
 
 impl Index {
-    /// Checks opaque storage and raw native annotation/binding invariants.
+    /// Checks native storage, annotations, bit-fields, and declaration-only data invariants.
     ///
     /// This does not calculate layout, interpret annotation expressions, or prove source closure.
     pub fn validate_native_contracts(
@@ -63,11 +66,16 @@ impl Index {
             reference
                 .validate_native_bitfields(None)
                 .map_err(NativeContractError::Bitfield)?;
+            reference
+                .validate_native_data_imports(None)
+                .map_err(NativeContractError::DataImport)?;
         }
         self.validate_native_annotations()
             .map_err(NativeContractError::Annotation)?;
         self.validate_native_bitfields(reference)
-            .map_err(NativeContractError::Bitfield)
+            .map_err(NativeContractError::Bitfield)?;
+        self.validate_native_data_imports(reference)
+            .map_err(NativeContractError::DataImport)
     }
 
     /// Checks annotation identities, owners, and original positional bindings without lowering SAL.

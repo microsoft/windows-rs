@@ -3,6 +3,7 @@ mod attribute_ref;
 mod callback;
 mod class;
 mod r#const;
+mod data;
 mod delegate;
 mod r#enum;
 mod field;
@@ -25,6 +26,7 @@ use attribute::*;
 use callback::*;
 use class::*;
 use r#const::*;
+use data::*;
 use delegate::*;
 use r#enum::*;
 use field::*;
@@ -226,6 +228,7 @@ impl Reader {
                         Item::Callback(ty) => encoder.encode_callback(ty),
                         Item::Class(ty) => encoder.encode_class(ty),
                         Item::Const(ty) => encoder.encode_const(ty),
+                        Item::Data(ty) => encoder.encode_data(ty),
                         Item::Delegate(ty) => encoder.encode_delegate(ty),
                         Item::Enum(ty) => encoder.encode_enum(ty),
                         Item::Fn(ty) => encoder.encode_fn(ty),
@@ -240,7 +243,10 @@ impl Reader {
                 }
             }
 
-            if !members.functions.is_empty() || !members.constants.is_empty() {
+            if !members.functions.is_empty()
+                || !members.constants.is_empty()
+                || !members.data.is_empty()
+            {
                 let class =
                     metadata::writer::TypeDefOrRef::TypeRef(output.TypeRef("System", "Object"));
 
@@ -268,20 +274,23 @@ impl Reader {
                     }
                 }
 
-                for (name, variants) in &members.constants {
+                for (name, variants) in members.constants.iter().chain(members.data.iter()) {
                     for (file, item) in variants {
-                        let Item::Const(ty) = item else {
-                            unreachable!("constants index only contains Item::Const")
-                        };
-                        Encoder {
+                        let encoder = &mut Encoder {
                             output: &mut output,
                             index: &index,
                             file,
                             namespace,
                             name,
                             generics: vec![],
+                        };
+                        match item {
+                            Item::Const(ty) => encoder.encode_const(ty)?,
+                            Item::Data(ty) => encoder.encode_data(ty)?,
+                            _ => unreachable!(
+                                "field indexes only contain constants and imported data"
+                            ),
                         }
-                        .encode_const(ty)?;
                     }
                 }
             }
@@ -310,6 +319,7 @@ pub(crate) fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<
         names.extend(ns.types.keys().cloned());
         names.extend(ns.functions.keys().cloned());
         names.extend(ns.constants.keys().cloned());
+        names.extend(ns.data.keys().cloned());
     }
     Ok(names)
 }
@@ -424,6 +434,9 @@ fn resolve_winrt(item: &mut Item, source_file: &str, parent: Option<bool>) -> Re
             item.winrt = read_winrt_expected(source_file, &item.span, &item.attrs, parent)?;
         }
         Item::Attribute(item) => {
+            item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
+        }
+        Item::Data(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
         Item::Module(item) => {

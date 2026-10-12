@@ -98,7 +98,7 @@ impl Index {
                 let context = format!("{name}.{}", field.name());
                 self.check_opaque_type(
                     &field.ty(),
-                    !alias,
+                    !alias && !field.is_imported_data(),
                     effective_arches(ty, field.arches()),
                     reference,
                     &context,

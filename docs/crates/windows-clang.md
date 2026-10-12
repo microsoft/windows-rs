@@ -928,11 +928,32 @@ Native capture still must supply declared types, allocation units, layout, and z
 Unresolved external types and native-sized backing capacity need closure/target evidence. Storage
 agreement does not establish native calling support. Rust projection rejects the new descriptors
 until a separate accessor policy exists; it is not an acceptance gate for this header replacement.
-The next bounded format contract is C1-F's declaration-only imported data.
+Native declaration-only data uses the separate C1-F contract below.
 
-Interface methods currently always set `NewSlot`. Ordinary constants set `Static | Literal`,
-including the uninitialized syntax; the item grammar has no data-import declaration. These are
-concrete output boundaries, not libclang defects.
+**C1-F's representation gate is implemented.** `#[import(...)] static Name: Type;` declares
+imported data without an initializer. One `NativeDataImportAttribute` preserves the exact DLL,
+export name or u16 ordinal, and COFF data/constant import kind on a `Public | Static` field in a
+neutral native `Apis` container. There is no `Literal` flag, Constant row, or fabricated value.
+Native `Const<T>` remains independent of import kind. `reader::Item::Data` keeps these declarations
+separate from constants, including legacy constants without an initializer.
+
+Reviewed text/binary round-trips retain mixed pointers, qualifiers, aliases, arrays, raw evidence,
+opaque external object identity, and named exports that resemble ordinal notation. Merge/remap
+routes the declaration and its type independently without rewriting DLL/export text. Architecture
+merge compares data routing and member evidence; differing contracts retain separate variants.
+Raw metadata controls reject invalid owners, value/storage flags, routing, kinds, and argument
+shapes before checked emission, rendering/cleanup, merge, or remap.
+
+These are import representation checks, not native variable capture, COFF name-type interpretation,
+DLL availability, symbol agreement, or storage/layout proof. The replacement extractor must obtain
+import kind and exact export/ordinal from native/linker evidence, not from the source name or
+constness. The current COFF inventory reader supplies only symbol/DLL pairs; it does not establish
+this contract. Rust projection, feature generation, and legacy clang references reject new data
+items instead of treating them as constants. Existing metadata is not promoted or repaired.
+
+The next bounded format contract is C1-G's native interface slot relationships. Interface methods
+currently always set `NewSlot`; overload and inherited-slot evidence must have an explicit
+representation before the replacement extractor can publish those cases.
 
 Continue the remaining C1 contracts with reviewed inputs, semantic WinMD readback, and negative
 controls using the fixed acceptance gates above. No fresh full-header capture is needed unless

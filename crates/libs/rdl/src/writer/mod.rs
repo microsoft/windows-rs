@@ -1,6 +1,7 @@
 mod attribute;
 mod callback;
 mod class;
+mod data;
 mod delegate;
 mod r#enum;
 mod r#fn;
@@ -12,6 +13,7 @@ use super::*;
 use attribute::*;
 use callback::*;
 use class::*;
+use data::*;
 use delegate::*;
 use r#enum::*;
 use r#fn::*;
@@ -377,6 +379,9 @@ fn write_items(
         }
         metadata::reader::Item::Const(ty) => {
             Ok(vec![(ty.name().to_string(), write_const(namespace, &ty)?)])
+        }
+        metadata::reader::Item::Data(ty) => {
+            Ok(vec![(ty.name().to_string(), write_data(namespace, &ty)?)])
         }
     }
 }

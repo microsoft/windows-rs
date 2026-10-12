@@ -60,7 +60,7 @@ that it correctly describes the native API. See the
 RDL uses Rust tokens and module syntax, but it describes metadata rather than executable Rust.
 A top-level `mod` is a metadata namespace. Tag it `#[winrt]` or `#[win32]` to select the type
 system. Items include classes, interfaces, delegates, callbacks, enums, structs, unions, typedefs,
-constants, and imported functions.
+constants, imported functions, and declaration-only imported data.
 
 ```text
 #[win32]
@@ -182,6 +182,47 @@ These attributes preserve evidence; they do not parse SAL, rewrite pointers, res
 ambiguities, or assert that every identifier in a payload has been bound. Native capture must
 prove those relationships from its original declaration context.
 
+### Declaration-only native data
+
+`static Name: Type;` declares an imported native object, not a constant or a local allocation.
+It requires one explicit `import` attribute:
+
+```text
+#[win32]
+mod Example {
+    #[import("example.dll", name = "NativeCount", kind = data)]
+    static Count: Volatile<i32>;
+
+    #[import("example.dll", ordinal = 17, kind = constant)]
+    static Limit: Const<u32>;
+}
+```
+
+The DLL and exactly one export `name` or u16 `ordinal` are required. `kind` must be `data` or
+`constant`, matching the COFF import-object kind rather than C/C++ constness. A constant-kind
+import still has no value; use `Const<T>` for an exact native const qualifier. Ordinals range
+from 0 through 65535. An export literally named `"#17"` remains a name, not an ordinal.
+DLL/export text is preserved exactly; no source-name default or DLL spelling repair is applied.
+
+These items emit `Public | Static` fields with `NativeDataImportAttribute`, no `Literal` flag,
+and no Constant row. Mixed pointers, native interface/callback identities, record aliases,
+fixed arrays, qualifiers, architecture attributes, and raw member evidence retain their existing
+type/attribute representation. A declaration of an opaque external object retains its nominal
+type without claiming local storage; opaque array elements still require storage.
+
+Initializers, `static mut`, missing/duplicate routing options, function import kinds, empty/NUL
+names, out-of-range ordinals, WinRT owners, and unsupported types reject before output replacement.
+The existing `const Name: Type;` grammar is unchanged: a missing initializer is not automatically
+reclassified as imported data.
+
+`test_rdl::native_data` has a reviewed fixture with exact text/binary round-trips, semantic
+readback, independent namespace routing, external types, and architecture-specific import
+contracts. `native_data_metadata` authors invalid descriptors directly and checks rejection before
+emission, rendering, split/partition cleanup, merge, or remap. See
+[metadata native data imports](windows-metadata.md#native-data-imports) for the wire contract.
+These checks do not prove native DLL/export availability or layout. Rust data projection is a
+separate task.
+
 ### Named record aliases
 
 `type NAME = TYPE;` preserves a declared alias and its written target. Several names can refer
@@ -248,8 +289,9 @@ is not canonical RDL syntax.
 | --- | --- |
 | Named typedef, including a chain of aliases | Allowed; retains the target identity |
 | Pointer or reference | Allowed; retains the pointee identity |
+| Declaration-only imported object | Allowed; does not claim local storage |
 | Array of pointers | Allowed |
-| By-value field, parameter, or result | Rejected, including through aliases |
+| Storage field, by-value parameter, or result | Rejected, including through aliases |
 | Array element, including an array behind a pointer/reference | Rejected |
 | Fields, methods, packing, alignment, or other layout on the opaque declaration | Rejected |
 | WinRT record or a non-record marked `opaque` | Rejected |

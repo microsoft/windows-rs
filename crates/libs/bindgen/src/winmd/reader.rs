@@ -200,6 +200,9 @@ impl Reader {
                         }),
                     );
                 }
+                windows_metadata::reader::Item::Data(_) => {
+                    panic!("native data imports are not supported by Rust projection");
+                }
             }
         }
 

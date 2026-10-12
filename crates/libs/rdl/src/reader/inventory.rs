@@ -204,6 +204,16 @@ impl Inventory {
                 )?;
                 self.signature(id, &item.sig, &item.return_attrs)?;
             }
+            Item::Data(item) => {
+                self.push(
+                    parent,
+                    "data",
+                    &item.name.to_string(),
+                    tokens(&item.ty),
+                    &item.attrs,
+                    item.name.span(),
+                )?;
+            }
             Item::Callback(item) => {
                 let id = self.push(
                     parent,

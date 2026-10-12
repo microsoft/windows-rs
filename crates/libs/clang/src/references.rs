@@ -49,6 +49,9 @@ impl MetadataReferences {
                 windows_metadata::reader::Item::Const(_) => {
                     excluded_constants.insert(name.to_string());
                 }
+                windows_metadata::reader::Item::Data(_) => {
+                    panic!("native data imports are not supported by legacy clang references");
+                }
             }
         }
 

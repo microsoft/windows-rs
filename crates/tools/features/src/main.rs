@@ -100,6 +100,7 @@ fn load() -> (Vec<String>, Vec<Entry>) {
                 raw.push((namespace.to_string(), name.to_string(), extras));
             }
             Item::Const(_) => raw.push((namespace.to_string(), name.to_string(), Vec::new())),
+            Item::Data(_) => panic!("native data imports are not supported by feature generation"),
         }
     }
 
