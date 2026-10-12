@@ -203,6 +203,12 @@ prove those relationships from its original declaration context.
 
 ### Declaration-only native data
 
+`implib::read_contracts` reads short COFF import objects with their machine, code/data/constant
+kind, and named export or ordinal. Export names follow the object's explicit NAME, NO_PREFIX,
+UNDECORATE, or EXPORTAS policy; symbol spelling alone does not choose a policy. Unsupported
+versions, kinds, name types, reserved bits, and truncated names/archive members reject.
+The existing `implib::read` symbol/DLL interface remains unchanged.
+
 `static Name: Type;` declares an imported native object, not a constant or a local allocation.
 It requires one explicit `import` attribute:
 

@@ -9,6 +9,29 @@ pub struct Import {
     pub dll: String,
 }
 
+/// A checked short-import contract, including COFF's explicit export-name policy.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ImportContract {
+    pub symbol: String,
+    pub dll: String,
+    pub machine: u16,
+    pub kind: ImportKind,
+    pub target: ImportTarget,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ImportKind {
+    Code,
+    Data,
+    Constant,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum ImportTarget {
+    Name(String),
+    Ordinal(u16),
+}
+
 const ARCHIVE_MAGIC: &[u8] = b"!<arch>\n";
 const MEMBER_HEADER_LEN: usize = 60;
 /// `IMPORT_OBJECT_HEADER` short-import signature.
@@ -18,6 +41,19 @@ const SIZE_OF_DATA_OFFSET: usize = 12;
 
 /// Parses every short-import member, preserving archive order and duplicates.
 pub fn read(bytes: &[u8]) -> Result<Vec<Import>, Error> {
+    read_with(bytes, parse_short_import, false)
+}
+
+/// Parses machine, import kind, and export name/ordinal without guessing from symbol spelling.
+pub fn read_contracts(bytes: &[u8]) -> Result<Vec<ImportContract>, Error> {
+    read_with(bytes, parse_contract, true)
+}
+
+fn read_with<T>(
+    bytes: &[u8],
+    parse: fn(&[u8]) -> Result<T, Error>,
+    strict: bool,
+) -> Result<Vec<T>, Error> {
     if bytes.len() < ARCHIVE_MAGIC.len() || &bytes[..ARCHIVE_MAGIC.len()] != ARCHIVE_MAGIC {
         return Err(err("not a COFF archive (missing `!<arch>` magic)"));
     }
@@ -44,13 +80,78 @@ pub fn read(bytes: &[u8]) -> Result<Vec<Import>, Error> {
 
         // Skip archive bookkeeping members.
         if name != b"/" && name != b"//" && data.starts_with(IMPORT_SIGNATURE) {
-            imports.push(parse_short_import(data)?);
+            imports.push(parse(data)?);
         }
 
         pos = data_end + (size & 1);
     }
 
+    if strict && pos != bytes.len() {
+        return Err(err("archive has truncated trailing member data or padding"));
+    }
     Ok(imports)
+}
+
+fn parse_contract(data: &[u8]) -> Result<ImportContract, Error> {
+    let import = parse_short_import(data)?;
+    let size = u32::from_le_bytes(data[12..16].try_into().unwrap()) as usize;
+    if data[20..20 + size].last() != Some(&0) {
+        return Err(err("short import names are not null-terminated"));
+    }
+    let word = |offset| -> Result<u16, Error> {
+        Ok(u16::from_le_bytes(
+            data.get(offset..offset + 2)
+                .ok_or_else(|| err("short import header is incomplete"))?
+                .try_into()
+                .unwrap(),
+        ))
+    };
+    if word(4)? > 1 {
+        return Err(err("short import version is unsupported"));
+    }
+    let info = word(18)?;
+    if info & !0x1f != 0 {
+        return Err(err("short import has nonzero reserved type bits"));
+    }
+    let kind = match info & 3 {
+        0 => ImportKind::Code,
+        1 => ImportKind::Data,
+        2 => ImportKind::Constant,
+        _ => return Err(err("short import kind is invalid")),
+    };
+    let target = match (info >> 2) & 7 {
+        0 => ImportTarget::Ordinal(word(16)?),
+        1 => ImportTarget::Name(import.symbol.clone()),
+        2 | 3 => {
+            let name = import
+                .symbol
+                .strip_prefix(['?', '@', '_'])
+                .unwrap_or(&import.symbol);
+            let name = if (info >> 2) & 7 == 3 {
+                name.split('@').next().unwrap()
+            } else {
+                name
+            };
+            if name.is_empty() {
+                return Err(err("short import has an empty transformed export name"));
+            }
+            ImportTarget::Name(name.to_string())
+        }
+        4 => {
+            let mut names = data[20..20 + size].split(|byte| *byte == 0);
+            next_string(&mut names, "symbol")?;
+            next_string(&mut names, "DLL")?;
+            ImportTarget::Name(next_string(&mut names, "export")?)
+        }
+        _ => return Err(err("short import name type is invalid")),
+    };
+    Ok(ImportContract {
+        symbol: import.symbol,
+        dll: import.dll,
+        machine: word(6)?,
+        kind,
+        target,
+    })
 }
 
 fn parse_short_import(data: &[u8]) -> Result<Import, Error> {

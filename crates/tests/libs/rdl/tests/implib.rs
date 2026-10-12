@@ -131,6 +131,77 @@ fn rejects_non_archive() {
     assert!(implib::read(&[]).is_err());
 }
 
+#[test]
+fn explicit_export_name_policies_and_import_kinds() {
+    use implib::{ImportKind, ImportTarget};
+    for (symbol, kind, name_type, target) in [
+        (
+            "_Function@8",
+            0u16,
+            1u16,
+            ImportTarget::Name("_Function@8".into()),
+        ),
+        ("_Function@8", 0, 2, ImportTarget::Name("Function@8".into())),
+        ("_Function@8", 0, 3, ImportTarget::Name("Function".into())),
+        ("@Function@8", 0, 3, ImportTarget::Name("Function".into())),
+        ("_Data", 1, 2, ImportTarget::Name("Data".into())),
+        ("Constant", 2, 0, ImportTarget::Ordinal(17)),
+        ("Alias", 0, 4, ImportTarget::Name("NativeExport".into())),
+    ] {
+        let mut data = short_import(symbol, "fixture.dll");
+        data[6..8].copy_from_slice(&0x14cu16.to_le_bytes());
+        data[16..18].copy_from_slice(&17u16.to_le_bytes());
+        data[18..20].copy_from_slice(&(kind | (name_type << 2)).to_le_bytes());
+        if name_type == 4 {
+            data.extend_from_slice(b"NativeExport\0");
+            let size = u32::try_from(data.len() - 20).unwrap();
+            data[12..16].copy_from_slice(&size.to_le_bytes());
+        }
+        let bytes = archive(&[member("fixture/", &data)]);
+        let contracts = implib::read_contracts(&bytes).unwrap();
+        assert_eq!(contracts.len(), 1);
+        assert_eq!(contracts[0].symbol, symbol);
+        assert_eq!(contracts[0].machine, 0x14c);
+        assert_eq!(contracts[0].dll, "fixture.dll");
+        assert_eq!(contracts[0].target, target);
+        assert_eq!(
+            contracts[0].kind,
+            match kind {
+                0 => ImportKind::Code,
+                1 => ImportKind::Data,
+                _ => ImportKind::Constant,
+            }
+        );
+        assert_eq!(implib::read(&bytes).unwrap()[0].symbol, symbol);
+    }
+}
+
+#[test]
+fn malformed_native_import_contracts_reject() {
+    for flags in [3u16, 5 << 2, 0x8004] {
+        let mut data = short_import("Function", "fixture.dll");
+        data[18..20].copy_from_slice(&flags.to_le_bytes());
+        assert!(implib::read_contracts(&archive(&[member("fixture/", &data)])).is_err());
+    }
+    let mut data = short_import("Function", "fixture.dll");
+    data[18..20].copy_from_slice(&16u16.to_le_bytes());
+    assert!(implib::read_contracts(&archive(&[member("fixture/", &data)])).is_err());
+    let mut data = short_import("Function", "fixture.dll");
+    data[4..6].copy_from_slice(&2u16.to_le_bytes());
+    assert!(implib::read_contracts(&archive(&[member("fixture/", &data)])).is_err());
+    let mut data = short_import("Function", "fixture.dll");
+    *data.last_mut().unwrap() = b'x';
+    assert!(implib::read_contracts(&archive(&[member("fixture/", &data)])).is_err());
+    let mut bytes = archive(&[member("fixture/", &data)]);
+    bytes.extend_from_slice(b"partial");
+    assert!(implib::read_contracts(&bytes).is_err());
+    let data = short_import("Function", "fixture.dll");
+    assert_eq!(data.len() % 2, 1);
+    let mut bytes = archive(&[member("fixture/", &data)]);
+    bytes.pop();
+    assert!(implib::read_contracts(&bytes).is_err());
+}
+
 /// Best-effort integration check against a real SDK import library. Skips
 /// cleanly when the Windows SDK is not installed so it never fails on CI hosts
 /// without it.

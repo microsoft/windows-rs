@@ -11,14 +11,24 @@
 //!
 //! `inventory` stages the parsed RDL census; `sources` stages compiler-backed source discovery
 //! and unresolved-group reports without invoking the extractor or changing canonical metadata.
+//! `pilot` checks the frozen SDK/COM scope and attempts strict replacement capture with the
+//! matched compiler. Incomplete output remains diagnostic staging and returns nonzero.
 
 use helpers::LIBCLANG_VERSION;
 use std::path::Path;
 
 mod inventory;
+mod pilot;
 mod sources;
 
 fn main() {
+    if std::env::args().nth(1).as_deref() == Some("pilot") {
+        if let Err(error) = pilot::run(std::env::args().skip(2)) {
+            eprintln!("{error}");
+            std::process::exit(1);
+        }
+        return;
+    }
     if std::env::args().nth(1).as_deref() == Some("native-layout") {
         assert_eq!(std::env::args().len(), 2, "usage: tool-clang native-layout");
         let output = std::process::Command::new("powershell.exe")

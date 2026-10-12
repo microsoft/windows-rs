@@ -6,8 +6,8 @@ use std::path::{Path, PathBuf};
 use windows_rdl::InventoryEntry;
 
 mod classify;
-mod native;
-mod profiles;
+pub(crate) mod native;
+pub(crate) mod profiles;
 use native::{Capture, Declaration};
 use profiles::{Profile, Selection};
 

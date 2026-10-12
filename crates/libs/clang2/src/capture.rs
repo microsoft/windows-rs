@@ -356,6 +356,7 @@ struct Capture<'a> {
 
 impl Capture<'_> {
     fn declaration(&mut self, cursor: CXCursor) -> Result<Id> {
+        let observed = cursor;
         let mut parent = unsafe { clang_getCursorSemanticParent(cursor) };
         while unsafe { clang_getCursorKind(parent) } == CXCursor_LinkageSpec {
             parent = unsafe { clang_getCursorSemanticParent(parent) };
@@ -387,6 +388,30 @@ impl Capture<'_> {
             .iter()
             .position(|value| unsafe { clang_equalCursors(*value, cursor) } != 0)
         {
+            if unsafe { clang_getCursorKind(observed) } == CXCursor_FunctionDecl {
+                let function = self.function(observed)?;
+                let DeclarationKind::Function(observations) = &mut self.declarations[id].kind
+                else {
+                    return Err(error(observed, "function identity targets a non-function"));
+                };
+                let first = &observations[0];
+                if first.evidence.linker_name != function.evidence.linker_name
+                    || first.evidence.convention != function.evidence.convention
+                    || first.evidence.variadic != function.evidence.variadic
+                    || first.evidence.dll_import != function.evidence.dll_import
+                    || first.result != function.result
+                    || first.canonical_result != function.canonical_result
+                    || first.params.len() != function.params.len()
+                    || first
+                        .params
+                        .iter()
+                        .zip(&function.params)
+                        .any(|(a, b)| a.written != b.written || a.canonical != b.canonical)
+                {
+                    return Err(error(observed, "native function redeclarations disagree"));
+                }
+                observations.push(function);
+            }
             return Ok(id);
         }
         if self.pending.len() >= 64 {
@@ -400,6 +425,8 @@ impl Capture<'_> {
                 | CXCursor_StructDecl
                 | CXCursor_ClassDecl
                 | CXCursor_UnionDecl
+                | CXCursor_EnumDecl
+                | CXCursor_FunctionDecl
         ) {
             return Err(error(
                 cursor,
@@ -412,7 +439,7 @@ impl Capture<'_> {
         if anonymous {
             *names.last_mut().unwrap() = String::new();
         }
-        if anonymous && !nested {
+        if anonymous && !nested && kind != CXCursor_EnumDecl {
             return Err(error(
                 cursor,
                 "unnamed records require a direct enclosing record field (C3-C)",
@@ -450,7 +477,54 @@ impl Capture<'_> {
             let owner = self.declaration(parent)?;
             self.declarations[id].owner = Some(owner);
         }
-        let declaration = if matches!(kind, CXCursor_TypedefDecl | CXCursor_TypeAliasDecl) {
+        let declaration = if kind == CXCursor_FunctionDecl {
+            self.declarations[id].evidence.written_type =
+                text(unsafe { clang_getTypeSpelling(clang_getCursorType(observed)) });
+            self.declarations[id].evidence.canonical_type = text(unsafe {
+                clang_getTypeSpelling(clang_getCanonicalType(clang_getCursorType(observed)))
+            });
+            DeclarationKind::Function(vec![self.function(observed)?])
+        } else if kind == CXCursor_EnumDecl {
+            let definition = unsafe { clang_getCursorDefinition(cursor) };
+            if unsafe { clang_Cursor_isNull(definition) } != 0 {
+                return Err(error(
+                    cursor,
+                    "forward enums require a separate completeness contract",
+                ));
+            }
+            let ty = unsafe { clang_getCursorType(definition) };
+            let underlying = self.ty(unsafe { clang_getEnumDeclIntegerType(definition) }, 0)?;
+            let mut members = Vec::new();
+            for member in children(definition) {
+                if unsafe { clang_getCursorKind(member) } != CXCursor_EnumConstantDecl {
+                    return Err(error(
+                        member,
+                        "enum attributes or members require a captured contract",
+                    ));
+                }
+                self.check_attributes(member)?;
+                let (expansion, spelling) = locations(member);
+                members.push(EnumMemberEvidence {
+                    name: text(unsafe { clang_getCursorSpelling(member) }),
+                    value: enum_value(member, &underlying)?,
+                    expansion,
+                    spelling,
+                });
+            }
+            self.declarations[id].evidence.written_type =
+                text(unsafe { clang_getTypeSpelling(ty) });
+            self.declarations[id].evidence.canonical_type =
+                text(unsafe { clang_getTypeSpelling(clang_getCanonicalType(ty)) });
+            self.declarations[id].evidence.layout = layout(ty)?;
+            let (expansion, spelling) = locations(definition);
+            self.declarations[id].evidence.expansion = expansion;
+            self.declarations[id].evidence.spelling = spelling;
+            DeclarationKind::Enum {
+                underlying,
+                scoped: unsafe { clang_EnumDecl_isScoped(definition) } != 0,
+                members,
+            }
+        } else if matches!(kind, CXCursor_TypedefDecl | CXCursor_TypeAliasDecl) {
             let ty = unsafe { clang_getTypedefDeclUnderlyingType(cursor) };
             let canonical = unsafe { clang_getCanonicalType(ty) };
             self.declarations[id].evidence.written_type =
@@ -509,6 +583,8 @@ impl Capture<'_> {
             let kind = unsafe { clang_getCursorKind(child) };
             if unsafe { clang_isAttribute(kind) } != 0
                 && !(aligned_record && kind == CXCursor_AlignedAttr)
+                && !(unsafe { clang_getCursorKind(cursor) } == CXCursor_FunctionDecl
+                    && kind == CXCursor_DLLImport)
             {
                 return Err(error(
                     cursor,
@@ -517,6 +593,95 @@ impl Capture<'_> {
             }
         }
         Ok(())
+    }
+
+    fn function(&mut self, cursor: CXCursor) -> Result<NativeFunction> {
+        if unsafe { clang_getCursorLinkage(cursor) } != CXLinkage_External
+            || unsafe { clang_Cursor_isFunctionInlined(cursor) } != 0
+        {
+            return Err(error(
+                cursor,
+                "inline or nonexternal functions are not native imports",
+            ));
+        }
+        let ty = unsafe { clang_getCursorType(cursor) };
+        if ty.kind != CXType_FunctionProto {
+            return Err(error(cursor, "function has no native prototype"));
+        }
+        if unsafe { clang_getExceptionSpecificationType(ty) }
+            != CXCursor_ExceptionSpecificationKind_None
+        {
+            return Err(error(
+                cursor,
+                "function exception specification requires a captured contract",
+            ));
+        }
+        let convention = match unsafe { clang_getFunctionTypeCallingConv(ty) } {
+            CXCallingConv_C => CallingConvention::C,
+            CXCallingConv_X86StdCall => CallingConvention::Stdcall,
+            CXCallingConv_X86FastCall => CallingConvention::Fastcall,
+            CXCallingConv_Win64 => CallingConvention::Win64,
+            _ => {
+                return Err(error(
+                    cursor,
+                    "function calling convention is not representable",
+                ));
+            }
+        };
+        let linker_name = text(unsafe { clang_Cursor_getMangling(cursor) });
+        if linker_name.is_empty() {
+            return Err(error(
+                cursor,
+                "compiler did not supply a native linker symbol",
+            ));
+        }
+        let result = unsafe { clang_getResultType(ty) };
+        let canonical_result = unsafe { clang_getCanonicalType(result) };
+        let count = unsafe { clang_Cursor_getNumArguments(cursor) };
+        if count < 0 {
+            return Err(error(cursor, "compiler did not supply function parameters"));
+        }
+        let mut params = Vec::new();
+        for ordinal in 0..count as u32 {
+            let param = unsafe { clang_Cursor_getArgument(cursor, ordinal) };
+            self.check_attributes(param)?;
+            if unsafe { clang_Cursor_isNull(clang_Cursor_getVarDeclInitializer(param)) } == 0 {
+                return Err(error(
+                    param,
+                    "default arguments require a captured contract",
+                ));
+            }
+            let ty = unsafe { clang_getCursorType(param) };
+            let canonical = unsafe { clang_getCanonicalType(ty) };
+            let (expansion, spelling) = locations(param);
+            params.push(NativeParameter {
+                evidence: ParameterEvidence {
+                    name: text(unsafe { clang_getCursorSpelling(param) }),
+                    ordinal: ordinal as usize,
+                    expansion,
+                    spelling,
+                    written_type: text(unsafe { clang_getTypeSpelling(ty) }),
+                    canonical_type: text(unsafe { clang_getTypeSpelling(canonical) }),
+                },
+                written: self.ty(ty, 0)?,
+                canonical: self.ty(canonical, 0)?,
+            });
+        }
+        Ok(NativeFunction {
+            evidence: FunctionEvidence {
+                linker_name,
+                convention,
+                variadic: unsafe { clang_Cursor_isVariadic(cursor) } != 0,
+                dll_import: children(cursor)
+                    .iter()
+                    .any(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_DLLImport),
+                written_result: text(unsafe { clang_getTypeSpelling(result) }),
+                canonical_result: text(unsafe { clang_getTypeSpelling(canonical_result) }),
+            },
+            result: self.ty(result, 0)?,
+            canonical_result: self.ty(canonical_result, 0)?,
+            params,
+        })
     }
 
     fn record(&mut self, cursor: CXCursor) -> Result<Vec<NativeField>> {
@@ -656,6 +821,9 @@ impl Capture<'_> {
             CXType_Record => {
                 NativeKind::Record(self.declaration(unsafe { clang_getTypeDeclaration(ty) })?)
             }
+            CXType_Enum => {
+                NativeKind::Enum(self.declaration(unsafe { clang_getTypeDeclaration(ty) })?)
+            }
             CXType_Pointer => NativeKind::Pointer(Box::new(
                 self.ty(unsafe { clang_getPointeeType(ty) }, depth + 1)?,
             )),
@@ -688,6 +856,30 @@ impl Capture<'_> {
             layout: layout(ty)?,
         })
     }
+}
+
+fn enum_value(cursor: CXCursor, underlying: &NativeType) -> Result<metadata::Value> {
+    let NativeKind::Scalar(kind) = underlying.kind else {
+        return Err(error(cursor, "enum has a nonscalar underlying type"));
+    };
+    let signed = unsafe { clang_getEnumConstantDeclValue(cursor) };
+    let unsigned = unsafe { clang_getEnumConstantDeclUnsignedValue(cursor) };
+    let failure = |_| error(cursor, "enum value exceeds its declared underlying type");
+    Ok(match kind {
+        CXType_Char_S | CXType_SChar => metadata::Value::I8(i8::try_from(signed).map_err(failure)?),
+        CXType_Char_U | CXType_UChar => {
+            metadata::Value::U8(u8::try_from(unsigned).map_err(failure)?)
+        }
+        CXType_Short => metadata::Value::I16(i16::try_from(signed).map_err(failure)?),
+        CXType_UShort => metadata::Value::U16(u16::try_from(unsigned).map_err(failure)?),
+        CXType_Int | CXType_Long => metadata::Value::I32(i32::try_from(signed).map_err(failure)?),
+        CXType_UInt | CXType_ULong => {
+            metadata::Value::U32(u32::try_from(unsigned).map_err(failure)?)
+        }
+        CXType_LongLong => metadata::Value::I64(signed),
+        CXType_ULongLong => metadata::Value::U64(unsigned),
+        _ => return Err(error(cursor, "enum underlying type is not representable")),
+    })
 }
 
 fn layout(ty: CXType) -> Result<Option<Layout>> {

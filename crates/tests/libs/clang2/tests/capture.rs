@@ -166,14 +166,18 @@ fn source_scope_and_family_boundaries_fail_explicitly() {
             &["Pointer"][..],
             Stage::Capture,
         ),
-        ("void Function();", &["Function"][..], Stage::Capture),
+        (
+            "inline void Function() {}",
+            &["Function"][..],
+            Stage::Capture,
+        ),
         (
             "typedef int (*Callback)();",
             &["Callback"][..],
             Stage::Capture,
         ),
         (
-            "enum Enumeration { One };",
+            "enum __attribute__((flag_enum)) Enumeration { One };",
             &["Enumeration"][..],
             Stage::Capture,
         ),
@@ -383,10 +387,19 @@ fn existing_anchors_have_explicit_selected_and_deferred_families() {
         snapshot.rdl("Test").unwrap(),
         include_str!("../input/point.rdl").replace("\r\n", "\n")
     );
-    let error = compiler
+    let callable = compiler
         .capture(&input(source, Target::X64, &["UsePoint"]))
-        .unwrap_err();
-    assert_eq!(error.stage, Stage::Capture);
+        .unwrap();
+    assert_eq!(callable.functions().count(), 1);
+    assert!(
+        callable
+            .evidence()
+            .any(|item| item.qualified_name == "Point")
+    );
+    assert_eq!(
+        callable.rdl("Test").unwrap_err().stage,
+        Stage::Representation
+    );
 }
 
 #[test]

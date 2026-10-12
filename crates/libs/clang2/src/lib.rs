@@ -154,6 +154,49 @@ pub struct FieldEvidence {
     pub offset: u64,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum CallingConvention {
+    C,
+    Stdcall,
+    Fastcall,
+    Win64,
+}
+
+#[derive(Debug, Clone)]
+pub struct FunctionEvidence {
+    pub linker_name: String,
+    pub convention: CallingConvention,
+    pub variadic: bool,
+    pub dll_import: bool,
+    pub written_result: String,
+    pub canonical_result: String,
+}
+
+#[derive(Debug, Clone)]
+pub struct ParameterEvidence {
+    pub name: String,
+    pub ordinal: usize,
+    pub expansion: Location,
+    pub spelling: Location,
+    pub written_type: String,
+    pub canonical_type: String,
+}
+
+#[derive(Debug, Clone)]
+pub struct EnumMemberEvidence {
+    pub name: String,
+    pub value: metadata::Value,
+    pub expansion: Location,
+    pub spelling: Location,
+}
+
+/// Explicit named-export contracts keyed by the compiler's native linker symbol.
+#[derive(Debug, Clone)]
+pub struct Import {
+    pub dll: String,
+    pub export: String,
+}
+
 /// Owned native evidence. No compiler cursor or translation-unit handle escapes capture.
 #[derive(Debug, Clone)]
 pub struct Snapshot {
@@ -214,8 +257,53 @@ impl Snapshot {
             })
     }
 
+    pub fn functions(&self) -> impl Iterator<Item = (&Evidence, &FunctionEvidence)> {
+        self.declarations.iter().flat_map(|decl| {
+            let observations = match &decl.kind {
+                DeclarationKind::Function(observations) => observations.as_slice(),
+                _ => &[],
+            };
+            observations
+                .iter()
+                .map(move |function| (&decl.evidence, &function.evidence))
+        })
+    }
+
+    pub fn parameters(&self) -> impl Iterator<Item = (&Evidence, &ParameterEvidence)> {
+        self.declarations.iter().flat_map(|decl| {
+            let observations = match &decl.kind {
+                DeclarationKind::Function(observations) => observations.as_slice(),
+                _ => &[],
+            };
+            observations.iter().flat_map(move |function| {
+                function
+                    .params
+                    .iter()
+                    .map(move |param| (&decl.evidence, &param.evidence))
+            })
+        })
+    }
+
+    pub fn enum_members(&self) -> impl Iterator<Item = (&Evidence, &EnumMemberEvidence)> {
+        self.declarations.iter().flat_map(|decl| {
+            let members = match &decl.kind {
+                DeclarationKind::Enum { members, .. } => members.as_slice(),
+                _ => &[],
+            };
+            members.iter().map(move |member| (&decl.evidence, member))
+        })
+    }
+
     pub fn rdl(&self, namespace: &str) -> Result<String> {
-        output::Closed::new(self, namespace)
+        self.rdl_with_imports(namespace, &BTreeMap::new())
+    }
+
+    pub fn rdl_with_imports(
+        &self,
+        namespace: &str,
+        imports: &BTreeMap<String, Import>,
+    ) -> Result<String> {
+        output::Closed::new(self, namespace, imports)
             .and_then(|output| output.rdl())
             .map_err(|mut error| {
                 error.message = format!(
@@ -254,6 +342,27 @@ enum DeclarationKind {
         fields: Vec<NativeField>,
         contract: Option<RecordLayoutContract>,
     },
+    Enum {
+        underlying: NativeType,
+        scoped: bool,
+        members: Vec<EnumMemberEvidence>,
+    },
+    Function(Vec<NativeFunction>),
+}
+
+#[derive(Debug, Clone)]
+struct NativeFunction {
+    evidence: FunctionEvidence,
+    result: NativeType,
+    canonical_result: NativeType,
+    params: Vec<NativeParameter>,
+}
+
+#[derive(Debug, Clone)]
+struct NativeParameter {
+    evidence: ParameterEvidence,
+    written: NativeType,
+    canonical: NativeType,
 }
 
 #[derive(Debug, Clone)]
@@ -283,6 +392,7 @@ enum NativeKind {
     Scalar(i32),
     Alias(Id),
     Record(Id),
+    Enum(Id),
     Pointer(Box<NativeType>),
     Reference(Box<NativeType>),
     Array(Box<NativeType>, usize),
@@ -332,6 +442,35 @@ impl Snapshot {
                             &field.written,
                             &field.canonical,
                         )?;
+                    }
+                }
+                DeclarationKind::Enum { underlying, .. } => {
+                    if !matches!(underlying.kind, NativeKind::Scalar(_))
+                        || decl.evidence.layout != underlying.layout
+                    {
+                        return Err(Error::new(
+                            Stage::Agreement,
+                            "enum storage disagrees with its native underlying type",
+                        ));
+                    }
+                }
+                DeclarationKind::Function(observations) => {
+                    for function in observations {
+                        self.check_type(
+                            &decl.evidence.qualified_name,
+                            &function.result,
+                            &function.canonical_result,
+                        )?;
+                        for param in &function.params {
+                            self.check_type(
+                                &format!(
+                                    "{}[{}]",
+                                    decl.evidence.qualified_name, param.evidence.ordinal
+                                ),
+                                &param.written,
+                                &param.canonical,
+                            )?;
+                        }
                     }
                 }
                 DeclarationKind::Opaque { .. } => {}

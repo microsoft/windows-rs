@@ -24,6 +24,18 @@ enum Kind {
         fields: Vec<Field>,
         contract: RecordLayoutContract,
     },
+    Enum {
+        underlying: metadata::Type,
+        scoped: bool,
+        members: Vec<(String, metadata::Value)>,
+    },
+    Function {
+        import: Import,
+        convention: CallingConvention,
+        variadic: bool,
+        result: metadata::Type,
+        params: Vec<(String, metadata::Type)>,
+    },
 }
 
 struct Field {
@@ -38,7 +50,11 @@ enum FieldKind {
 }
 
 impl Closed {
-    pub fn new(snapshot: &Snapshot, namespace: &str) -> Result<Self> {
+    pub fn new(
+        snapshot: &Snapshot,
+        namespace: &str,
+        imports: &BTreeMap<String, Import>,
+    ) -> Result<Self> {
         snapshot.check_records()?;
         if namespace.split('.').count() > 64 || namespace.split('.').any(|name| !identifier(name)) {
             return Err(Error::new(
@@ -46,7 +62,7 @@ impl Closed {
                 "invalid output namespace",
             ));
         }
-        let names = snapshot
+        let mut names = snapshot
             .declarations
             .iter()
             .map(|decl| {
@@ -74,6 +90,33 @@ impl Closed {
                 Ok(Some(name))
             })
             .collect::<Result<Vec<_>>>()?;
+        for (id, decl) in snapshot.declarations.iter().enumerate() {
+            if decl.anonymous && matches!(decl.kind, DeclarationKind::Enum { .. }) {
+                let aliases = snapshot
+                    .declarations
+                    .iter()
+                    .enumerate()
+                    .filter_map(|(alias, decl)| {
+                        if let DeclarationKind::Alias { written, .. } = &decl.kind
+                            && written.kind == NativeKind::Enum(id)
+                            && written.qualifiers == Qualifiers::default()
+                        {
+                            Some(alias)
+                        } else {
+                            None
+                        }
+                    })
+                    .collect::<Vec<_>>();
+                let [alias] = aliases.as_slice() else {
+                    return Err(Error::new(
+                        Stage::Representation,
+                        "unnamed enum requires one direct selected naming typedef",
+                    ));
+                };
+                let name = names[*alias].clone();
+                names[id] = name;
+            }
+        }
         let mut declarations = BTreeMap::new();
         let mut inline = BTreeSet::new();
         for (owner, decl) in snapshot.declarations.iter().enumerate() {
@@ -94,7 +137,10 @@ impl Closed {
             }
         }
         for (id, decl) in snapshot.declarations.iter().enumerate() {
-            if decl.anonymous && !inline.contains(&id) {
+            if decl.anonymous
+                && !matches!(decl.kind, DeclarationKind::Enum { .. })
+                && !inline.contains(&id)
+            {
                 return Err(Error::new(
                     Stage::Representation,
                     "unnamed record arrays, pointers, and aliases require a separate identity contract",
@@ -103,18 +149,92 @@ impl Closed {
         }
         for (id, decl) in snapshot.declarations.iter().enumerate() {
             let Some(name) = &names[id] else { continue };
+            if decl.anonymous && matches!(decl.kind, DeclarationKind::Enum { .. }) {
+                continue;
+            }
             let kind = match &decl.kind {
                 DeclarationKind::Alias { written, .. } => {
-                    if let NativeKind::Record(target) = written.kind
+                    if let NativeKind::Enum(target) = written.kind
                         && written.qualifiers == Qualifiers::default()
-                        && names[target].as_ref() == Some(name)
+                        && snapshot.declarations[target].anonymous
                     {
-                        continue;
+                        Self::enumeration(snapshot, target, &names)?
+                    } else {
+                        if let NativeKind::Record(target) | NativeKind::Enum(target) = written.kind
+                            && written.qualifiers == Qualifiers::default()
+                            && names[target].as_ref() == Some(name)
+                        {
+                            continue;
+                        }
+                        Kind::Alias(lower(written, &names, snapshot.target)?)
                     }
-                    Kind::Alias(lower(written, &names, snapshot.target)?)
                 }
                 DeclarationKind::Opaque { union } => Kind::Opaque { union: *union },
                 DeclarationKind::Record { .. } => Self::record(snapshot, id, &names)?,
+                DeclarationKind::Enum { .. } => Self::enumeration(snapshot, id, &names)?,
+                DeclarationKind::Function(observations) => {
+                    let first = &observations[0];
+                    let import = imports.get(&first.evidence.linker_name).ok_or_else(|| {
+                        Error::new(
+                            Stage::Representation,
+                            format!(
+                                "{}: missing import contract for native linker symbol `{}`",
+                                decl.evidence.qualified_name, first.evidence.linker_name
+                            ),
+                        )
+                    })?;
+                    if import.dll.is_empty()
+                        || import.export.is_empty()
+                        || import.dll.contains('\0')
+                        || import.export.contains('\0')
+                    {
+                        return Err(Error::new(
+                            Stage::Representation,
+                            "invalid named-export import contract",
+                        ));
+                    }
+                    let mut chosen = (0..first.params.len())
+                        .map(|ordinal| {
+                            observations
+                                .iter()
+                                .map(|function| function.params[ordinal].evidence.name.as_str())
+                                .filter(|name| identifier(name))
+                                .min()
+                                .map(str::to_string)
+                        })
+                        .collect::<Vec<_>>();
+                    let mut used = chosen.iter().flatten().cloned().collect::<BTreeSet<_>>();
+                    let mut assigned = BTreeSet::new();
+                    for (ordinal, name) in chosen.iter_mut().enumerate() {
+                        if name
+                            .as_ref()
+                            .is_none_or(|name| !assigned.insert(name.clone()))
+                        {
+                            let mut fallback = format!("param{ordinal}");
+                            while !used.insert(fallback.clone()) {
+                                fallback.push('_');
+                            }
+                            *name = Some(fallback);
+                        }
+                    }
+                    let params = chosen
+                        .into_iter()
+                        .zip(&first.params)
+                        .map(|(name, param)| {
+                            Ok((
+                                name.unwrap(),
+                                lower(&param.written, &names, snapshot.target)?,
+                            ))
+                        })
+                        .collect::<Result<_>>()?;
+                    Kind::Function {
+                        import: import.clone(),
+                        convention: first.evidence.convention,
+                        variadic: first.evidence.variadic,
+                        result: lower(&first.result, &names, snapshot.target)?,
+                        params,
+                    }
+                }
             };
             let owner = decl
                 .owner
@@ -127,7 +247,11 @@ impl Closed {
                     })
                 })
                 .transpose()?;
-            let key = (name.namespace.clone(), name.name.clone());
+            let key = (
+                name.namespace.clone(),
+                name.name.clone(),
+                matches!(kind, Kind::Function { .. }),
+            );
             if declarations
                 .insert(
                     key,
@@ -148,6 +272,38 @@ impl Closed {
         }
         Ok(Self {
             declarations: declarations.into_values().collect(),
+        })
+    }
+
+    fn enumeration(
+        snapshot: &Snapshot,
+        id: Id,
+        names: &[Option<metadata::TypeName>],
+    ) -> Result<Kind> {
+        let DeclarationKind::Enum {
+            underlying,
+            scoped,
+            members,
+        } = &snapshot.declarations[id].kind
+        else {
+            return Err(Error::new(
+                Stage::Representation,
+                "enum edge targets a non-enum",
+            ));
+        };
+        if members.iter().any(|member| !identifier(&member.name)) {
+            return Err(Error::new(
+                Stage::Representation,
+                "unsupported native enum member name",
+            ));
+        }
+        Ok(Kind::Enum {
+            underlying: lower(underlying, names, snapshot.target)?,
+            scoped: *scoped,
+            members: members
+                .iter()
+                .map(|member| (member.name.clone(), member.value.clone()))
+                .collect(),
         })
     }
 
@@ -257,6 +413,65 @@ impl Closed {
                 "#[opaque] {} {name} {{}}",
                 if *union { "union" } else { "struct" }
             ),
+            Kind::Enum {
+                underlying,
+                scoped,
+                members,
+            } => {
+                let underlying = windows_rdl::emit::write_type("", underlying);
+                let members = members
+                    .iter()
+                    .map(|(name, value)| {
+                        let name = windows_rdl::emit::write_ident(name);
+                        let value = windows_rdl::emit::write_value("", value);
+                        format!("{name} = {value},")
+                    })
+                    .collect::<Vec<_>>()
+                    .join("\n");
+                format!(
+                    "#[repr({underlying})] {}enum {name} {{ {members} }}",
+                    if *scoped { "#[scoped] " } else { "" }
+                )
+            }
+            Kind::Function {
+                import,
+                convention,
+                variadic,
+                result,
+                params,
+            } => {
+                let import_name = if import.export == name.trim_start_matches("r#") {
+                    String::new()
+                } else {
+                    format!(", import = {:?}", import.export)
+                };
+                let abi = match convention {
+                    CallingConvention::C => " \"C\"",
+                    CallingConvention::Stdcall | CallingConvention::Win64 => "",
+                    CallingConvention::Fastcall => " \"fastcall\"",
+                };
+                let mut params = params
+                    .iter()
+                    .map(|(name, ty)| {
+                        let name = windows_rdl::emit::write_ident(name);
+                        let ty = windows_rdl::emit::write_type("", ty);
+                        format!("{name}: {ty}")
+                    })
+                    .collect::<Vec<_>>();
+                if *variadic {
+                    params.push("...".into());
+                }
+                let result = if *result == metadata::Type::Void {
+                    String::new()
+                } else {
+                    format!(" -> {}", windows_rdl::emit::write_type("", result))
+                };
+                format!(
+                    "#[library({:?}{import_name})] extern{abi} fn {name}({}){result};",
+                    import.dll,
+                    params.join(", ")
+                )
+            }
             Kind::Record {
                 union,
                 fields,
@@ -351,7 +566,7 @@ fn lower(
             }
             result
         }
-        NativeKind::Alias(id) | NativeKind::Record(id) => {
+        NativeKind::Alias(id) | NativeKind::Record(id) | NativeKind::Enum(id) => {
             Type::ValueName(names[*id].clone().ok_or_else(|| {
                 Error::new(
                     Stage::Representation,

@@ -494,6 +494,64 @@ metadata attribute, define its meaning and verify that RDL -> WinMD -> RDL retai
 representation cannot preserve a required contract, report a representation blocker. Do not
 describe that case as a parser failure or a Rust limitation.
 
+### Integrated replacement pilot
+
+The delivery gate is one frozen SDK pilot, not completion of each representation family in turn.
+C0-C11 is the coverage checklist. Additional record families and unused vocabulary work are paused
+until the pilot establishes useful API output and cross-input agreement.
+
+| Scope | Required surface |
+| --- | --- |
+| `tlhelp32.h` | Public records, aliases, 16 functions, 13 value macros, and Unicode alias policy |
+| `shellscalingapi.h` | Five enums and their typedefs, ten functions, and required dependencies |
+| Selected COM closure | `IUnknown` and `ISequentialStream`, UUIDs, inheritance, and five methods |
+| Targets | x86, x64, ARM64 using the matched LLVM 22.1.8 parser/bridge pair |
+| Source profiles | ANSI/Unicode; separate header groups and combined forward/reverse include order |
+
+`crates/tools/clang/src/pilot.tsv` freezes 81 required declaration entries, five owned COM methods,
+ten Unicode alias entries, and the guard/inline-helper exclusions. Tag/typedef entries are separate
+observations, not a count of distinct APIs. Enums retain their members through their owning
+definitions. Other COM declarations are outside the selected root scope; consumed dependencies
+remain required. New or missing roots in either complete SDK header fail scope validation.
+
+```powershell
+cargo run -p tool-clang --quiet -- pilot
+```
+
+The runner provisions the matched compiler, uses one isolated worker per architecture, and stages
+30 source profiles under a fresh `target/clang-pilot/<run>` directory. Workers run serially with
+60-second deadlines. Each profile records the actual TU and arguments, compiler-backed root
+discovery, and a strict `windows-clang2` capture attempt. No legacy extraction or default API
+metadata supplies missing declarations. Ordinary `tool-clang` pin validation remains unchanged.
+MSVC compatibility is explicitly fixed at 19.44.35228 rather than chosen by the host installation.
+Import archives come from the same pinned SDK's architecture-specific packages. Reports preserve
+every short import's machine, kind, DLL, and explicit name/ordinal contract. Only matching-machine
+named code imports route functions; other members remain visible without supplying a fallback.
+
+Enum and free-function producers emit closed shellscalingapi RDL and compile WinMD in all six
+standalone target/encoding profiles. This is partial pilot output, not partition acceptance.
+Toolhelp still rejects required value macros; the selected COM closure still rejects uncaptured
+interface attributes. Combined/reversed inputs, source contracts, semantic differences, and
+agreement remain open.
+
+This runner establishes a diagnostic baseline, not acceptance. It returns nonzero while the pilot
+is incomplete; `capture.tsv` records current producer failures and `gates.tsv` lists unimplemented
+acceptance checks. Missing worker reports are baseline failures, not an incomplete-but-valid result.
+Nothing replaces canonical RDL, WinMD, or Rust bindings.
+
+Acceptance requires complete closed RDL and inspected WinMD on all targets, original source
+contracts, archive-backed imports, cross-TU/order agreement, incompatible-observation controls,
+and classified semantic differences. Legacy partitions are comparison inputs, not correctness
+oracles. Emitted text, successful parsing, and source-root counts alone cannot accept a partition.
+Both complete SDK partitions and the selected COM closure must pass before the pilot passes.
+
+The proof budget starts on 2026-10-12, with a decision by 2026-10-23: ten working days, not an
+estimated completion time. No automatic extension or new header family is authorized. Stop
+replacement development if the frozen pilot remains incomplete, needs header-specific repairs,
+or leaves ownership/agreement unresolved. Retain independently useful mechanisms and return to
+incremental legacy maintenance. A passing pilot still needs a remaining-surface assessment from
+the full inventory before approving a production replacement schedule.
+
 ### Fixed implementation matrix
 
 These are work packages, not claims that the listed anchors are already correct. Inspect each
@@ -515,19 +573,16 @@ inputs; their goldens must be checked against the new rules.
 | C10 | Profiles, ownership, architectures | SDK/WDK enums, `STRING`, main/satellite profiles |
 | C11 | Production and approved promotion | `tool-win32`, `tool-webview` metadata generation |
 
-Use this order and these dependencies:
+Keep these dependencies without treating the packages as a serial delivery sequence:
 
-1. C0 identifies the required declarations and their native representation families. C1 defines
-   how those families survive RDL and WinMD. Complete the inventory and output design before
-   importing a planner or running another broad parser-repair campaign.
-2. C2 establishes owned capture and a small complete header -> RDL -> WinMD path. It requires C1.
-   Port compiler lifetime and performance mechanisms only with their focused regression cases.
-3. C3-C9 extend that path by the fixed families above. They require C2 and the relevant C1 output
-   representation. Callables depend on their captured value types; interfaces depend on callable
-   capture; annotations attach to the original owners from those packages.
-4. C10 requires the covered families and compares their observations across production profiles
-   and all three targets. C11 requires C0-C10; it consumes their checked results rather than
-   repairing declarations in orchestration.
+1. C0 supplies original-header scope and comparison inputs. C1 adds vocabulary when a selected
+   producer requires it, with semantic readers and round-trip coverage.
+2. C2 supplies owned capture and identity. C3-C9 add the families consumed by the frozen pilot;
+   callables depend on value types, interfaces on callables, and annotations on their owners.
+3. C10 checks shared observations, profiles, and ownership as part of that same pilot, not after
+   every native family is implemented. Local snapshot IDs are not cross-TU identity keys.
+4. C11 promotes only complete approved partitions. Neither orchestration nor existing metadata
+   may repair missing evidence. Rust projection remains outside header-to-metadata acceptance.
 
 For each package, list selected native declarations, expected RDL meaning, required compiler facts,
 negative controls, format changes, and completion assertions before porting code. Every accepted
@@ -574,9 +629,9 @@ before approving production use. Compiler capture need not share the old impleme
 
 ### Restart and stop rules
 
-The next implementation task is C0: build the inventory and identify the required representation
-families. C1 then resolves those families' output contracts. No new extractor crate, backend switch,
-or canonical metadata regeneration is needed to begin those two packages.
+The active task is the integrated replacement pilot above. Its source manifest, acceptance checks,
+and proof budget govern scope. Do not resume family-by-family completion or create another extractor
+before the pilot delivery decision.
 
 The initial scope and C0-C11 package list are fixed. A newly encountered declaration is assigned
 to a package or recorded as an explicit scope/design decision, not silently added to the active
@@ -1037,6 +1092,6 @@ through existing RDL custom attributes and WinMD; publication helper names do no
 names. The bridge supplies field identifier/anonymous-member facts, and canonical cursor equality
 supplies identity even when separate anonymous records share a USR. Reviewed fixtures and the pinned
 SDK `DECIMAL` closure pass three-target storage and representation gates. Arrays/pointers/shared
-unnamed identities and private/behavioral owners still reject. Bit-fields are the next bounded C3
-slice, not a production cutover.
+unnamed identities and private/behavioral owners still reject. Further C3 families are paused for
+the integrated replacement pilot; this slice is not a production cutover.
 See [C3-C's contract](windows-clang2.md#c3-c-nested-and-anonymous-storage).

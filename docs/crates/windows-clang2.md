@@ -5,6 +5,17 @@ Production generators use `windows-clang`; this crate has no legacy extractor, d
 or Rust projection dependency. See the [user-facing introduction](../../crates/libs/clang2/readme.md)
 and the [fixed replacement matrix](windows-clang.md#fixed-implementation-matrix).
 
+## Integrated pilot
+
+The active delivery gate is the [frozen SDK/COM pilot](windows-clang.md#integrated-replacement-pilot).
+Run `cargo run -p tool-clang --quiet -- pilot` to establish the three-target source/capture baseline
+with the matched LLVM parser/bridge. Its staged reports expose unsupported required APIs and pending
+acceptance checks; the command returns nonzero until the pilot can be accepted.
+
+Enums, functions, constants, contracts, imports, and the selected COM closure must contribute to
+complete partition output and cross-input agreement. Further isolated record families are paused.
+No production generator or downstream Rust projection is changed by the pilot runner.
+
 ## C2 scope and completion contract
 
 | Area | Selected contract |
@@ -22,14 +33,42 @@ and the [fixed replacement matrix](windows-clang.md#fixed-implementation-matrix)
 The reviewed `test_clang2` headers/RDL cover scalar widths, alias chains, mixed pointers, array and
 reference qualifiers, forward tags, and namespace references. `alias_chains.h` supplies the selected
 `TEXT`/`WTEXT` closure; its callable/record roots are recorded but not emitted. `smoke.h` supplies
-the `Point` record anchor and callable rejection controls. The pinned SDK `winnt.h` profile selects
+the `Point` record anchor and a callable whose output requires import evidence. The pinned SDK
+`winnt.h` profile selects
 `CHAR`, `SHORT`, `LONG`, `ULONG`, `LONGLONG`, `ULONGLONG`, `WCHAR`, and `PVOID` on all three targets.
 Its exact roots include `minwindef.h`, which owns `ULONG` under the `windows.h` include contract.
 
 Negative controls cover source errors, missing/empty scopes, unavailable root files, behavioral
-records, functions/callbacks, enums, rvalue references, attributes, and target overrides. Required
+records, inline functions, callbacks, enum attributes, rvalue references, attributes, and target
+overrides. Required
 failures do not return partial snapshots. Nonselected roots are explicit inventory entries, not
 emitted coverage.
+
+## Enum and imported-function capture
+
+Complete integer enums retain their compiler-reported underlying type, scopedness, member order,
+signed/unsigned values, and aliases. Anonymous enums need one direct naming typedef; additional
+aliases can retain written typedef edges. Forward enums and enum attributes still reject.
+
+External noninline function prototypes retain written/canonical result and parameter types, original
+parameter positions, source name observations, DLL-import status, effective calling convention,
+variadic status, and compiler linker symbol. Parameter presentation is stable under redeclaration
+order: choose the smallest usable observed name per position and resolve collisions positionally.
+Default arguments, exception specifications, unsupported attributes, and callbacks reject.
+Effective conventions do not recover the original convention tokens after target normalization.
+
+`rdl_with_imports` requires explicit DLL/export contracts keyed by native linker symbol. Missing or
+invalid routes reject; `rdl` supplies no routes. The pilot reads the pinned architecture-specific
+`microsoft.windows.sdk.cpp.<architecture>` packages, preserving COFF import kinds and explicit
+export-name policies. Mixed-machine archives are inventoried in full; only exact-machine named
+code imports can supply routes. ARM64 SDK archives contain both ARM64 and ARM64EC members.
+
+The reviewed `pilot_api.h`/`.rdl` fixture covers enum values and aliases, enum-containing records,
+import renaming, variadic signatures, and colliding/unnamed parameters. Semantic WinMD checks run on
+all three targets. The real shellscalingapi ANSI/Unicode profiles emit and compile on all three
+targets. These are producer checks, not accepted partitions: source contracts, combined inputs,
+architecture agreement, difference classification, value macros, and the selected COM closure
+remain pilot obligations.
 
 ## Ownership and checked output
 
@@ -218,7 +257,7 @@ ownership or named/unnamed distinction from collapsing.
 Arrays/pointers to unnamed records, shared unnamed types, qualified unnamed storage, named types
 inside unnamed owners, private/behavioral owners, bit-fields, and unsupported C3-B attributes remain
 explicit boundaries. No original field is promoted into its parent or flattened across a union.
-The next selected storage slice is bit-fields; C3 as a whole and production promotion remain open.
+Further storage slices are paused for the integrated pilot. C3 and production promotion remain open.
 
 ### Native layout provisioning
 
@@ -390,9 +429,8 @@ Sources: [x64 runtime](https://www.nuget.org/packages/libclang.runtime.win-x64/)
 [ClangSharp pins](https://github.com/dotnet/ClangSharp/blob/main/Directory.Packages.props).
 
 The selected C2 operational gate and C3-A natural-storage gate are closed with this protocol and
-bounded evidence. This is not a claim that all libclang inputs are reliable. The next C3 work is
-adjusted layouts, anonymous/nested storage, and bit-fields under their own checked contracts.
-Production promotion remains blocked by the remaining C0-C11 obligations.
+bounded evidence. This is not a claim that all libclang inputs are reliable. Further capture work
+serves the integrated pilot; production promotion remains blocked by the required C0-C11 obligations.
 
 C2 establishes the bounded session/type/alias path, not full header correctness or production
 replacement. Further records/storage are C3; enums/values are C4; callables are C5; interfaces are

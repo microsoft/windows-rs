@@ -9,6 +9,7 @@ publish = false
 clang-sys = { version = "1.8.1", features = ["runtime", "clang_18_0"] }
 helpers = { workspace = true }
 syn = { workspace = true, features = ["full", "parsing"] }
+windows-clang2 = { workspace = true }
 windows-rdl = { workspace = true }
 
 [lints]

@@ -30,6 +30,15 @@ impl Snapshot {
                 Ok(layout)
             }
             NativeKind::Record(id) => self.record_layout(*id, visiting),
+            NativeKind::Enum(id) => {
+                let DeclarationKind::Enum { underlying, .. } = &self.declarations[*id].kind else {
+                    return Err(Error::new(
+                        Stage::Representation,
+                        "enum storage edge targets a non-enum",
+                    ));
+                };
+                self.storage(underlying, visiting)
+            }
             NativeKind::Scalar(_) | NativeKind::Pointer(_) => ty.layout.ok_or_else(|| {
                 Error::new(Stage::Representation, "unavailable field storage layout")
             }),
