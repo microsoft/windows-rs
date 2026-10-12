@@ -867,6 +867,14 @@ fn extract_child(child: CXCursor, parent: Option<&Origin>, traversal: &mut Trave
     let local = traversal.next;
     traversal.next += 1;
     let kind = unsafe { clang_getCursorKind(child) };
+    // Members of a class template can depend on its parameters and have no layout until the
+    // template is instantiated, so the template is not traversed.
+    if matches!(
+        kind,
+        CXCursor_ClassTemplate | CXCursor_ClassTemplatePartialSpecialization
+    ) {
+        return;
+    }
     let mut child_parent = None;
     let mut repeated = false;
 

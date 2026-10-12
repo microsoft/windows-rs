@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    struct GLOBAL_ITEM {
+        payload: i32,
+    }
+    type GLOBAL_PTR = *mut GLOBAL_ITEM;
+    #[library("test.dll")]
+    extern "C" fn Keep(value: *mut GLOBAL_ITEM, node: *mut NODE);
+    struct NODE {
+        next: *mut NODE,
+    }
+}
