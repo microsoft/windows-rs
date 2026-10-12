@@ -21,6 +21,7 @@ use super::*;
 /// - `--rustfmt`: Comma-separated `rustfmt --config` options, such as `max_width=120`.
 /// - `--derive`: Extra derived traits.
 /// - `--flat`: Omits namespace modules.
+/// - `--package`: Generates a package with one file per namespace.
 /// - `--sys`: Generates raw bindings that depend only on `windows-link`.
 /// - `--extern`: Uses extern declarations with `--sys`.
 /// - `--minimal`: Omits class wrappers, inherited forwarders, and handle wrappers.
@@ -36,19 +37,24 @@ use super::*;
 ///
 /// # `--filter`
 ///
-/// Filters select APIs to include. Prefix a filter with `!` to exclude it.
+/// Filters select functions, constants, types, namespaces, or type members.
+/// Signature dependencies are included automatically.
+///
+/// The bundled Win32 metadata uses `Windows.Win32`, not the subsystem namespaces used by the
+/// `windows` and `windows-sys` package features. Bare names and qualified names both work:
 ///
 /// ```text
-/// --filter Windows.Win32.Storage.FileSystem.GetFullPathNameW
+/// --filter GetTickCount HWND
 ///
-/// --filter Windows.Win32.Storage.FileSystem.GetFullPathNameW
-///          !Windows.Win32.Storage.FileSystem.WIN32_FIND_DATAW
+/// --filter Windows.Win32.GetTickCount
 ///
-/// --filter Windows.Win32.Storage.FileSystem
+/// --filter Windows::Win32::{GetTickCount, GetTickCount64}
 ///
-/// --filter Windows.Win32.Storage.FileSystem
-///          !Windows.Win32.Storage.FileSystem.WIN32_FIND_DATAW
+/// --filter Windows.Foundation
 /// ```
+///
+/// Dots and `::` both separate path segments. Namespace filters include child namespaces;
+/// prefix a qualified name with `!` to exclude it from a namespace selection.
 ///
 /// Use a filter file for longer filter lists:
 ///
@@ -62,16 +68,19 @@ use super::*;
 /// ## Method-level filtering
 ///
 /// Filters can target methods, properties, and events with `Namespace.Type::Member`.
-/// `Property.Name` and `Event.Name` select accessor pairs.
+/// Use the member's metadata name. A property or event name selects its accessor pair.
 ///
 /// A bare type projects the full type. `Type::{}` emits a name-only shell, while
 /// `Type::Member` and `Type::{a, b}` select members.
 ///
 /// ```text
-/// --filter Windows.UI.Xaml.Controls.Button
-///          Windows.UI.Xaml.Controls.TextBlock::put_Text
-///          Windows.UI.Xaml.Controls.TextBlock::Property.FontSize
-///          Windows.UI.Xaml.UIElement::Event.PointerPressed
+/// --filter Windows.Storage.Streams.IDataReader::ReadByte
+///
+/// --filter Windows.Storage.Streams.IDataReader::{ReadByte, ReadUInt32}
+///
+/// --filter Windows.Storage.Streams.IDataReader::ByteOrder
+///
+/// --filter Windows.Storage.Streams.IDataReader::{}
 /// ```
 ///
 #[track_caller]
