@@ -75,7 +75,7 @@ mod Windows {
         }
         #[guid(0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18)]
         interface IDXGIOutput3: IDXGIOutput2 {
-            fn CheckOverlaySupport(&self, EnumFormat: DXGI_FORMAT, #[in] #[out] pConcernedDevice: IUnknown, pFlags: *mut u32) -> HRESULT;
+            fn CheckOverlaySupport(&self, EnumFormat: DXGI_FORMAT, pConcernedDevice: IUnknown, pFlags: *mut u32) -> HRESULT;
         }
         #[guid(0xa8be2ac4_199f_4946_b331_79599fb98de7)]
         interface IDXGISwapChain2: IDXGISwapChain1 {
