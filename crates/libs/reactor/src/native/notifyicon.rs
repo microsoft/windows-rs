@@ -6,12 +6,9 @@
 )]
 mod bindings;
 use bindings::*;
-use std::cell::{Cell, RefCell};
-use std::collections::VecDeque;
 use std::mem::size_of;
 use std::os::windows::ffi::OsStrExt;
 use std::path::{Path, PathBuf};
-use std::rc::{Rc, Weak};
 use windows_core::{Error, PCWSTR, Result};
 use windows_window::{Window, WindowBuilder};
 
@@ -21,7 +18,6 @@ mod events;
 mod lifetime;
 
 const CALLBACK_MESSAGE: u32 = WM_USER as u32 + 1;
-const DISPATCH_MESSAGE: u32 = WM_USER as u32 + 2;
 const ICON_ID: u32 = 1;
 
 /// A point in screen coordinates.
@@ -31,19 +27,18 @@ pub type Point = POINT;
 #[cfg(test)]
 pub type Rect = RECT;
 
-/// A user interaction or availability change for a notification-area icon.
+/// Native work to enqueue for the application's guarded drain.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-#[non_exhaustive]
 pub enum NotifyIconEvent {
     /// The icon was selected with the mouse or keyboard.
     Activate { position: Point },
     /// The user requested the icon's context menu.
     ContextMenu { position: Point },
-    /// The Windows Shell could not restore the icon after restarting.
-    Unavailable,
+    /// The Windows Shell restarted and the registration needs restoring.
+    Recover,
 }
 
-type EventHandler = Box<dyn FnMut(NotifyIconEvent)>;
+type EventHandler = Box<dyn Fn(NotifyIconEvent)>;
 
 struct OwnedIcon {
     handle: *mut core::ffi::c_void,
@@ -221,83 +216,10 @@ impl Registration {
     }
 }
 
-struct Shared {
-    active: Cell<bool>,
-    callback_hwnd: Cell<*mut core::ffi::c_void>,
-    dispatching: Cell<bool>,
-    handler: RefCell<Option<EventHandler>>,
-    pending: RefCell<VecDeque<Pending>>,
-    registration: RefCell<Registration>,
-}
-
-enum Pending {
-    Event(NotifyIconEvent),
-    Recover,
-}
-
-struct DispatchGuard<'a>(&'a Cell<bool>);
-
-impl Drop for DispatchGuard<'_> {
-    fn drop(&mut self) {
-        self.0.set(false);
-    }
-}
-
-impl Shared {
-    fn dispatch(&self, event: NotifyIconEvent) {
-        if let Some(handler) = self.handler.borrow_mut().as_mut() {
-            handler(event);
-        }
-    }
-
-    fn post(&self, hwnd: *mut core::ffi::c_void, pending: Pending) {
-        self.pending.borrow_mut().push_back(pending);
-        if !unsafe { PostMessageW(hwnd.cast(), DISPATCH_MESSAGE, 0, 0) }.as_bool() {
-            self.pending.borrow_mut().pop_back();
-            super::app::report_error(Error::from_thread());
-        }
-    }
-
-    fn dispatch_pending(&self) {
-        if self.dispatching.replace(true) {
-            return;
-        }
-        let _guard = DispatchGuard(&self.dispatching);
-
-        // Nested loops can enqueue more work through the callback window, so keep draining until
-        // the queue is empty after the active handler returns.
-        while self.active.get() {
-            let Some(pending) = self.pending.borrow_mut().pop_front() else {
-                break;
-            };
-            match pending {
-                Pending::Event(event) => self.dispatch(event),
-                Pending::Recover => {
-                    if self.recover().is_err() {
-                        self.dispatch(NotifyIconEvent::Unavailable);
-                    }
-                }
-            }
-        }
-    }
-
-    fn recover(&self) -> Result<()> {
-        let Ok(registration) = self.registration.try_borrow() else {
-            return Err(shell_error(
-                "notification-area icon recovery was requested during an update",
-            ));
-        };
-        registration.recover(self.callback_hwnd.get())
-    }
-}
-
 /// A notification-area icon and its hidden callback window.
 pub struct NotifyIcon {
-    // Drop the Shell-facing window before the dispatch window so no callback can target a
-    // destroyed dispatch HWND.
     callback_window: Window,
-    _dispatch_window: Window,
-    shared: Rc<Shared>,
+    registration: Registration,
 }
 
 impl NotifyIcon {
@@ -314,8 +236,6 @@ impl NotifyIcon {
     /// Returns the hidden callback window's borrowed raw `HWND`.
     ///
     /// The handle remains owned by this value and must not be closed or destroyed.
-    /// Thread message loops must not filter exclusively to this handle because event dispatch uses
-    /// another private window.
     #[cfg(test)]
     pub fn hwnd(&self) -> *mut core::ffi::c_void {
         self.callback_window.hwnd()
@@ -338,32 +258,25 @@ impl NotifyIcon {
     /// Replaces the icon using an `.ico` file.
     pub fn set_icon(&mut self, path: impl AsRef<Path>) -> Result<()> {
         let icon = OwnedIcon::load(path.as_ref())?;
-        let mut registration = self
-            .shared
-            .registration
-            .try_borrow_mut()
-            .map_err(|_| shell_error("notification-area icon is handling another update"))?;
-        registration.replace_icon_with(icon, self.callback_window.hwnd(), &mut shell_notify)
+        self.registration
+            .replace_icon_with(icon, self.callback_window.hwnd(), &mut shell_notify)
     }
 
     /// Sets or clears the standard tooltip.
     pub fn set_tooltip(&mut self, tooltip: Option<&str>) -> Result<()> {
         let tooltip = tooltip.map(tooltip_text).transpose()?;
-        let mut registration = self
-            .shared
-            .registration
-            .try_borrow_mut()
-            .map_err(|_| shell_error("notification-area icon is handling another update"))?;
-        registration.set_tooltip_with(tooltip, self.callback_window.hwnd(), &mut shell_notify)
+        self.registration
+            .set_tooltip_with(tooltip, self.callback_window.hwnd(), &mut shell_notify)
+    }
+
+    pub fn recover(&self) -> Result<()> {
+        self.registration.recover(self.callback_window.hwnd())
     }
 }
 
 impl Drop for NotifyIcon {
     fn drop(&mut self) {
-        self.shared.active.set(false);
-        if let Ok(registration) = self.shared.registration.try_borrow() {
-            registration.delete(self.callback_window.hwnd());
-        }
+        self.registration.delete(self.callback_window.hwnd());
     }
 }
 
@@ -381,10 +294,10 @@ impl NotifyIconBuilder {
         self
     }
 
-    /// Sets the icon's interaction handler.
+    /// Sets the queue sink. It must not run application work or pump messages.
     pub fn on_event<F>(mut self, handler: F) -> Self
     where
-        F: FnMut(NotifyIconEvent) + 'static,
+        F: Fn(NotifyIconEvent) + 'static,
     {
         self.handler = Some(Box::new(handler));
         self
@@ -393,76 +306,40 @@ impl NotifyIconBuilder {
     /// Creates the hidden callback window and adds the icon to the notification area.
     pub fn build(self) -> Result<NotifyIcon> {
         let taskbar_created = register_taskbar_created()?;
-        let shared = Rc::new(Shared {
-            active: Cell::new(true),
-            callback_hwnd: Cell::new(core::ptr::null_mut()),
-            dispatching: Cell::new(false),
-            handler: RefCell::new(self.handler),
-            pending: RefCell::new(VecDeque::new()),
-            registration: RefCell::new(Registration {
-                icon: OwnedIcon::load(&self.icon)?,
-                tooltip: self.tooltip.as_deref().map(tooltip_text).transpose()?,
-            }),
-        });
-        let dispatch_window = dispatch_window(Rc::downgrade(&shared)).create()?;
-        let callback_window = callback_window(
-            Rc::downgrade(&shared),
-            dispatch_window.hwnd(),
-            taskbar_created,
-        )
-        .create()?;
-        shared.callback_hwnd.set(callback_window.hwnd());
+        let registration = Registration {
+            icon: OwnedIcon::load(&self.icon)?,
+            tooltip: self.tooltip.as_deref().map(tooltip_text).transpose()?,
+        };
+        let callback_window = callback_window(self.handler, taskbar_created).create()?;
         allow_message(callback_window.hwnd(), CALLBACK_MESSAGE)?;
         allow_message(callback_window.hwnd(), taskbar_created)?;
-        shared.registration.borrow().add(callback_window.hwnd())?;
+        registration.add(callback_window.hwnd())?;
         Ok(NotifyIcon {
             callback_window,
-            _dispatch_window: dispatch_window,
-            shared,
+            registration,
         })
     }
 }
 
-fn callback_window(
-    shared: Weak<Shared>,
-    dispatch_hwnd: *mut core::ffi::c_void,
-    taskbar_created: u32,
-) -> WindowBuilder {
+fn callback_window(handler: Option<EventHandler>, taskbar_created: u32) -> WindowBuilder {
     Window::new("windows-notifyicon")
         .style(0)
         .visible(false)
         .quit_on_close(false)
         .on_message(move |_, message, wparam, lparam| {
-            let shared = shared.upgrade()?;
-            if message == taskbar_created {
-                if shared.active.get() {
-                    shared.post(dispatch_hwnd, Pending::Recover);
-                }
-                return Some(0);
+            let event = if message == taskbar_created {
+                Some(NotifyIconEvent::Recover)
+            } else if message == CALLBACK_MESSAGE {
+                decode_event(wparam, lparam)
+            } else {
+                return None;
+            };
+            if let Some(event) = event
+                && let Some(handler) = &handler
+            {
+                handler(event);
             }
-            if message == CALLBACK_MESSAGE {
-                if let Some(event) = decode_event(wparam, lparam) {
-                    shared.post(dispatch_hwnd, Pending::Event(event));
-                }
-                return Some(0);
-            }
-            None
-        })
-}
-
-fn dispatch_window(shared: Weak<Shared>) -> WindowBuilder {
-    Window::new("windows-notifyicon-dispatch")
-        .style(0)
-        .visible(false)
-        .quit_on_close(false)
-        .on_message(move |_, message, _, _| {
-            if message == DISPATCH_MESSAGE {
-                if let Some(shared) = shared.upgrade() {
-                    shared.dispatch_pending();
-                }
-                return Some(0);
-            }
-            None
+            Some(0)
         })
 }
 

@@ -1,7 +1,7 @@
 use super::*;
 use app_shim::{create_application, install_xaml_controls_resources};
 use bindings::IElementFactory;
-use transient_menu::TransientMenuHost;
+use transient_menu::{MenuTheme, TransientMenuHost};
 use windows_collections::*;
 use windows_core::{
     ComObject, Event as WinEvent, HRESULT, HSTRING, IInspectable, IUnknownImpl, Interface, Ref,

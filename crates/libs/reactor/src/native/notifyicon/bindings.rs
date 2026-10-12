@@ -2,7 +2,6 @@ windows_core::link!("user32.dll" "system" fn ChangeWindowMessageFilterEx(hwnd : 
 windows_core::link!("user32.dll" "system" fn DestroyIcon(hicon : HICON) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn GetSystemMetrics(nindex : i32) -> i32);
 windows_core::link!("user32.dll" "system" fn LoadImageW(hinst : HINSTANCE, name : windows_core::PCWSTR, r#type : u32, cx : i32, cy : i32, fuload : u32) -> HANDLE);
-windows_core::link!("user32.dll" "system" fn PostMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn RegisterWindowMessageW(lpstring : windows_core::PCWSTR) -> u32);
 windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconGetRect(identifier : *const NOTIFYICONIDENTIFIER, iconlocation : *mut RECT) -> windows_core::HRESULT);
 windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : u32, lpdata : PNOTIFYICONDATAW) -> windows_core::BOOL);
@@ -34,7 +33,6 @@ pub struct HWND__ {
     pub unused: i32,
 }
 pub const IMAGE_ICON: i32 = 1;
-pub type LPARAM = isize;
 pub const LR_LOADFROMFILE: i32 = 16;
 pub const MSGFLT_ALLOW: i32 = 1;
 pub const NIF_ICON: i32 = 2;
@@ -184,4 +182,3 @@ pub const SM_CXSMICON: i32 = 49;
 pub const SM_CYSMICON: i32 = 50;
 pub const WM_CONTEXTMENU: i32 = 123;
 pub const WM_USER: i32 = 1024;
-pub type WPARAM = usize;

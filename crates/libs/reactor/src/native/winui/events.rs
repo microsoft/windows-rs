@@ -1,3 +1,42 @@
+trait IntoEventPayload {
+    fn into_payload(self) -> EventPayload;
+}
+
+impl IntoEventPayload for () {
+    fn into_payload(self) -> EventPayload {
+        EventPayload::Unit
+    }
+}
+
+macro_rules! into_event_payload {
+    ($($type:ty => $variant:ident,)*) => {
+        $(impl IntoEventPayload for $type {
+            fn into_payload(self) -> EventPayload {
+                EventPayload::$variant(self)
+            }
+        })*
+    };
+}
+
+into_event_payload! {
+    bool => Bool,
+    Color => Color,
+    ContentDialogResult => ContentDialogResult,
+    DragKind => DragKind,
+    DroppedData => DroppedData,
+    f64 => F64,
+    FocusEventInfo => FocusEventInfo,
+    NavigationViewDisplayMode => NavigationViewDisplayMode,
+    Option<bool> => OptionalBool,
+    Option<DateTime> => OptionalDateTime,
+    Option<f64> => OptionalF64,
+    Option<TimeSpan> => OptionalTimeSpan,
+    Option<usize> => SelectionIndex,
+    PointerEventInfo => PointerEventInfo,
+    Rc<str> => String,
+    Vec<String> => StringList,
+}
+
 impl WinUiAdapter {
     fn dispatch_text_changed(
         event: &Rc<RefCell<NativeTextEvent>>,
@@ -36,276 +75,39 @@ impl WinUiAdapter {
         Self::schedule_event_wake(event_queue);
     }
 
-    fn dispatch_unit(
-        event: &Rc<RefCell<NativeUnitEvent>>,
+    fn dispatch<T: IntoEventPayload>(
+        event: &Rc<RefCell<NativeValueEvent<T>>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
         observation: Option<Observation>,
+        value: T,
     ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::Unit,
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
+        if Self::queue_event(event, event_queue, object, event_id, observation, value) {
             Self::schedule_event_wake(event_queue);
         }
     }
 
-    fn dispatch_bool(
-        event: &Rc<RefCell<NativeBoolEvent>>,
+    fn queue_event<T: IntoEventPayload>(
+        event: &Rc<RefCell<NativeValueEvent<T>>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
         observation: Option<Observation>,
-        value: bool,
-    ) {
+        value: T,
+    ) -> bool {
         let event = event.borrow();
         let queued = event.callback.is_some().then(|| QueuedEvent {
             object,
             event: event_id,
             revision: event.revision,
-            payload: EventPayload::Bool(value),
+            payload: value.into_payload(),
         });
-        if observation.is_some() || queued.is_some() {
+        let queue = observation.is_some() || queued.is_some();
+        if queue {
             event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
         }
-    }
-
-    fn dispatch_content_dialog_result(
-        event: &Rc<RefCell<NativeContentDialogResultEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: ContentDialogResult,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::ContentDialogResult(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_f64(
-        event: &Rc<RefCell<NativeF64Event>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: f64,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::F64(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_color(
-        event: &Rc<RefCell<NativeColorEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: Color,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::Color(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_optional_bool(
-        event: &Rc<RefCell<NativeOptionalBoolEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: Option<bool>,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::OptionalBool(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_optional_f64(
-        event: &Rc<RefCell<NativeOptionalF64Event>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: Option<f64>,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::OptionalF64(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_optional_date_time(
-        event: &Rc<RefCell<NativeOptionalDateTimeEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: Option<DateTime>,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::OptionalDateTime(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_optional_time_span(
-        event: &Rc<RefCell<NativeOptionalTimeSpanEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: Option<TimeSpan>,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::OptionalTimeSpan(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_navigation_view_display_mode(
-        event: &Rc<RefCell<NativeNavigationViewDisplayModeEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: NavigationViewDisplayMode,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::NavigationViewDisplayMode(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_selection_index(
-        event: &Rc<RefCell<NativeSelectionIndexEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: Option<usize>,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::SelectionIndex(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_string(
-        event: &Rc<RefCell<NativeTextEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: Rc<str>,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::String(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_string_list(
-        event: &Rc<RefCell<NativeStringListEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: Vec<String>,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::StringList(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
+        queue
     }
 
     fn item_tags(source: &native::IItemsControl) -> Result<Vec<String>, WinUiError> {
@@ -336,61 +138,6 @@ impl WinUiAdapter {
             tags.push(tag.to_string_lossy());
         }
         Ok(tags)
-    }
-
-    fn dispatch_pointer_event_info(
-        event: &Rc<RefCell<NativePointerEventInfoEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: PointerEventInfo,
-    ) {
-        if Self::queue_pointer_event_info(event, event_queue, object, event_id, observation, value)
-        {
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_drag_kind(
-        event: &Rc<RefCell<NativeDragKindEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: DragKind,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::DragKind(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn queue_dropped_data(
-        event: &Rc<RefCell<NativeDroppedDataEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: DroppedData,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::DroppedData(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-        }
     }
 
     fn drag_kind(
@@ -448,7 +195,7 @@ impl WinUiAdapter {
         let Some(action) = action else {
             args.SetAcceptedOperation(native::DataPackageOperation::None)?;
             deferral.Complete()?;
-            Self::queue_dropped_data(
+            Self::dispatch(
                 event,
                 event_queue,
                 object,
@@ -456,7 +203,6 @@ impl WinUiAdapter {
                 observation,
                 DroppedData::Unsupported,
             );
-            Self::schedule_event_wake(event_queue);
             return Ok(());
         };
         args.SetAcceptedOperation(Self::native_drag_operation(action.operation))?;
@@ -543,28 +289,6 @@ impl WinUiAdapter {
             DragDropOperation::Move => native::DataPackageOperation::Move,
             DragDropOperation::Link => native::DataPackageOperation::Link,
         }
-    }
-
-    fn queue_pointer_event_info(
-        event: &Rc<RefCell<NativePointerEventInfoEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: PointerEventInfo,
-    ) -> bool {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::PointerEventInfo(value),
-        });
-        let dispatch = observation.is_some() || queued.is_some();
-        if dispatch {
-            event_queue.queue(observation, queued);
-        }
-        dispatch
     }
 
     fn handle_selection_changed(
@@ -822,27 +546,6 @@ impl WinUiAdapter {
             ElementFocusState::Unfocused
         };
         Ok(FocusEventInfo { state, is_direct })
-    }
-
-    fn dispatch_focus_event_info(
-        event: &Rc<RefCell<NativeFocusEventInfoEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        observation: Option<Observation>,
-        value: FocusEventInfo,
-    ) {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
-            object,
-            event: event_id,
-            revision: event.revision,
-            payload: EventPayload::FocusEventInfo(value),
-        });
-        if observation.is_some() || queued.is_some() {
-            event_queue.queue(observation, queued);
-            Self::schedule_event_wake(event_queue);
-        }
     }
 
     fn schedule_event_wake(event_queue: &Rc<NativeEventQueue>) {

@@ -224,7 +224,6 @@ impl WinUiAdapter {
         let window = native::Window::new()?;
         let root = self.ui_element(root_object)?;
         window.SetContent(&root)?;
-        root.UpdateLayout()?;
         self.apply_window_policy(&window, &root, policy)?;
         let state = Rc::new(NativeWindowState {
             window,

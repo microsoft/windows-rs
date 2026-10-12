@@ -20,37 +20,8 @@ impl ComponentHost<WinUiAdapter> {
     }
 }
 
-impl Adapter for WinUiAdapter {
-    type Error = WinUiError;
-
-    fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
-        events.extend(
-            self.event_queue
-                .events
-                .borrow()
-                .iter()
-                .filter_map(|event| self.native_event(event)),
-        );
-    }
-
-    fn pop_native_event(&mut self) -> Option<NativeEvent> {
-        loop {
-            let queued = self.event_queue.events.borrow_mut().pop_front()?;
-            if let Some(event) = self.native_event(&queued) {
-                return Some(event);
-            }
-        }
-    }
-
-    fn take_error(&mut self) -> Option<Self::Error> {
-        self.event_queue.errors.borrow_mut().pop_front()
-    }
-
-    fn validate(&self, _mutations: &[Mutation]) -> Result<(), Self::Error> {
-        Ok(())
-    }
-
-    fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
+impl WinUiAdapter {
+    fn apply_mutations(&mut self, mutations: &[Mutation]) -> Result<(), WinUiError> {
         for mutation in mutations {
             match mutation {
                 Mutation::Create { object, kind } => self.create(*object, *kind)?,
@@ -231,42 +202,51 @@ impl Adapter for WinUiAdapter {
                         .handles
                         .remove(object)
                         .ok_or(WinUiError::MissingObject(*object))?;
-                    self.encoded_image_failures.remove(object);
-                    if let Handle::TreeNode(node) = &handle {
-                        self.tree_node_texts
-                            .borrow_mut()
-                            .remove(&com_identity(&node.value)?);
-                    }
-                    self.resource_override_keys.remove(object);
-                    self.style_states.remove(object);
-                    if let Handle::Generated(GeneratedHandle::ContentDialog(dialog)) = handle {
-                        self.event_queue
-                            .content_dialogs
-                            .borrow_mut()
-                            .retire(*object, *dialog)?;
-                    }
-                    self.virtual_items.remove(object);
-                    self.observations
-                        .retain(|(observed, _), _| *observed != *object);
-                    if let Some(initialization) =
-                        self.webview_initializations.borrow_mut().remove(object)
-                    {
-                        for completion in initialization.completions {
-                            completion.call(Err(IntegrationError::Unavailable));
-                        }
-                    }
-                    self.event_queue
-                        .feedback
-                        .borrow_mut()
-                        .remove_object(*object);
-                    self.event_queue
-                        .selection_items
-                        .borrow_mut()
-                        .retain(|item| item.object != *object && item.owner != *object);
+                    self.release_object(*object, handle)?;
                 }
             }
         }
         self.sync_window_title_bars()
+    }
+}
+
+impl Adapter for WinUiAdapter {
+    type Error = WinUiError;
+
+    fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
+        events.extend(
+            self.event_queue
+                .events
+                .borrow()
+                .iter()
+                .filter_map(|event| self.native_event(event)),
+        );
+    }
+
+    fn pop_native_event(&mut self) -> Option<NativeEvent> {
+        loop {
+            let queued = self.event_queue.events.borrow_mut().pop_front()?;
+            if let Some(event) = self.native_event(&queued) {
+                return Some(event);
+            }
+        }
+    }
+
+    fn take_error(&mut self) -> Option<Self::Error> {
+        self.event_queue.errors.borrow_mut().pop_front()
+    }
+
+    fn validate(&self, _mutations: &[Mutation]) -> Result<(), Self::Error> {
+        Ok(())
+    }
+
+    fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
+        let result = self.apply_mutations(mutations);
+        if !self.released_images.is_empty() {
+            self.released_images.clear();
+            self.images.retain(|_, image| image.strong_count() != 0);
+        }
+        result
     }
 
     fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
@@ -520,18 +500,28 @@ impl Adapter for WinUiAdapter {
                 completion,
             } => {
                 let result = match self.handles.get(&object) {
-                    Some(Handle::Generated(GeneratedHandle::Image(control))) => source
-                        .as_ref()
-                        .map(|source| source.cast::<native::ImageSource>())
-                        .transpose()
-                        .and_then(|source| control.value.SetSource(source.as_ref())),
+                    Some(Handle::Generated(GeneratedHandle::Image(control))) => (|| {
+                        let source = source
+                            .as_ref()
+                            .map(|source| source.cast::<native::ImageSource>())
+                            .transpose()?;
+                        control.invalidate_source_events();
+                        let managed = control.source.replace(false);
+                        if let Err(error) = control.value.SetSource(source.as_ref()) {
+                            control.source.set(managed);
+                            return Err(error);
+                        }
+                        Ok(())
+                    })(),
                     _ => Err(windows_core::Error::new(
                         HRESULT(0x8000000E_u32 as i32),
                         "image unavailable",
                     )),
+                };
+                if result.is_ok() && self.image_subscriptions.remove(&object).is_some() {
+                    self.images.retain(|_, image| image.strong_count() != 0);
                 }
-                .map_err(integration_error);
-                completion.call(result);
+                completion.call(result.map_err(integration_error));
             }
             ImperativeRequest::ObserveImageScale {
                 object,

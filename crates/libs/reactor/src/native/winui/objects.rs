@@ -68,7 +68,7 @@ impl WinUiAdapter {
                                     .ok_or(WinUiError::UnknownTreeNode(identity))
                             });
                         match value {
-                            Ok(value) => Self::dispatch_string(
+                            Ok(value) => Self::dispatch(
                                 &item_event,
                                 &item_queue,
                                 object,
@@ -131,7 +131,7 @@ impl WinUiAdapter {
                             observation.clone(),
                         );
                         if dispatch {
-                            Self::dispatch_selection_index(
+                            Self::dispatch(
                                 &selection_event,
                                 &selection_queue,
                                 object,
@@ -149,7 +149,7 @@ impl WinUiAdapter {
                     let _drag_items_completed = value
                         .cast::<native::IListViewBase>()?
                         .DragItemsCompleted(move |_, _| match Self::item_tags(&drag_source) {
-                            Ok(value) => Self::dispatch_string_list(
+                            Ok(value) => Self::dispatch(
                                 &drag_event,
                                 &drag_queue,
                                 object,
@@ -210,7 +210,13 @@ impl WinUiAdapter {
         let set = sorted_set.as_deref().unwrap_or(set);
         for property in clear.iter().copied() {
             if property == PropertyId::Source {
-                self.encoded_image_failures.remove(&object);
+                self.release_image(object);
+                if let Some(Handle::Generated(GeneratedHandle::Image(control))) =
+                    self.handles.get(&object)
+                {
+                    control.invalidate_source_events();
+                    control.source.set(false);
+                }
             }
             let feedback = GeneratedHandle::feedback_expectation(kind, property, None);
             if let Some((event, expectation)) = feedback.clone() {
@@ -314,9 +320,6 @@ impl WinUiAdapter {
             }
         }
         for property in set {
-            if property.id == PropertyId::Source {
-                self.encoded_image_failures.remove(&object);
-            }
             let feedback =
                 GeneratedHandle::feedback_expectation(kind, property.id, Some(&property.value));
             if let Some((event, expectation)) = feedback.clone() {
@@ -404,39 +407,8 @@ impl WinUiAdapter {
                 }
                 if property.id == PropertyId::Source
                     && let PropertyValue::ImageSource(source) = &property.value
-                    && let ImageSourceValue::Encoded(value) = source.value()
                 {
-                    let failed = match self.handles.get(&object) {
-                        Some(Handle::Generated(GeneratedHandle::Image(control))) => {
-                            let event = Rc::clone(&control.image_failed);
-                            let event_queue = Rc::clone(&self.event_queue);
-                            Some(Rc::new(move || {
-                                Self::dispatch_unit(
-                                    &event,
-                                    &event_queue,
-                                    object,
-                                    EventId::ImageFailed,
-                                    None,
-                                );
-                            }) as Rc<dyn Fn()>)
-                        }
-                        _ => None,
-                    };
-                    let (image, failed) = encoded_bitmap_image(value, failed)?;
-                    let image = image.cast::<native::ImageSource>()?;
-                    match self.handles.get(&object) {
-                        Some(Handle::Generated(GeneratedHandle::Image(control))) => {
-                            control.value.SetSource(&image).map_err(Into::into)
-                        }
-                        Some(Handle::Generated(GeneratedHandle::ImageIcon(control))) => {
-                            control.SetSource(&image).map_err(Into::into)
-                        }
-                        _ => Err(WinUiError::InvalidObject(object)),
-                    }?;
-                    if let Some(failed) = failed {
-                        self.encoded_image_failures.insert(object, failed);
-                    }
-                    break 'apply Ok(());
+                    break 'apply self.set_image_source(object, source);
                 }
                 if let Some(Handle::Generated(handle)) = self.handles.get(&object)
                     && let Some(result) = handle.set_property(property.id, Some(&property.value))
@@ -498,6 +470,123 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    fn shared_image(
+        &mut self,
+        source: &ImageSource,
+    ) -> Result<Rc<NativeImageSource>, WinUiError> {
+        let key = ImageKey(source.value().clone());
+        if let Some(image) = self.images.get(&key).and_then(Weak::upgrade) {
+            return Ok(image);
+        }
+        let image = Rc::new(NativeImageSource::new(source.value())?);
+        self.images.insert(key, Rc::downgrade(&image));
+        Ok(image)
+    }
+
+    fn release_image(&mut self, object: ObjectId) {
+        // Keep released images until the batch completes so replacement controls can share them.
+        if let Some(subscription) = self.image_subscriptions.remove(&object) {
+            self.released_images.push(subscription.image);
+        }
+    }
+
+    /// Drops all adapter state for an object whose handle was just removed. Destroy, retirement
+    /// completion, and replacement all end an object's native lifetime through this path.
+    fn release_object(&mut self, object: ObjectId, handle: Handle) -> Result<(), WinUiError> {
+        self.release_image(object);
+        self.resource_override_keys.remove(&object);
+        self.style_states.remove(&object);
+        self.virtual_items.remove(&object);
+        self.observations
+            .retain(|(observed, _), _| *observed != object);
+        if let Some(initialization) = self.webview_initializations.borrow_mut().remove(&object) {
+            for completion in initialization.completions {
+                completion.call(Err(IntegrationError::Unavailable));
+            }
+        }
+        self.event_queue
+            .feedback
+            .borrow_mut()
+            .remove_object(object);
+        self.event_queue
+            .selection_items
+            .borrow_mut()
+            .retain(|item| item.object != object && item.owner != object);
+        match handle {
+            Handle::TreeNode(node) => {
+                self.tree_node_texts
+                    .borrow_mut()
+                    .remove(&com_identity(&node.value)?);
+            }
+            Handle::Generated(GeneratedHandle::ContentDialog(dialog)) => {
+                self.event_queue
+                    .content_dialogs
+                    .borrow_mut()
+                    .retire(object, *dialog)?;
+            }
+            _ => {}
+        }
+        Ok(())
+    }
+
+    fn set_image_source(&mut self, object: ObjectId, source: &ImageSource) -> Result<(), WinUiError> {
+        let image = self.shared_image(source)?;
+        let callback = match self.handles.get(&object) {
+            Some(Handle::Generated(GeneratedHandle::Image(control))) => {
+                control.value.SetSource(&image.value)?;
+                control.invalidate_source_events();
+                control.source.set(true);
+                let opened = Rc::clone(&control.image_opened);
+                let failed = Rc::clone(&control.image_failed);
+                let event_queue = Rc::clone(&self.event_queue);
+                let callback: Rc<dyn Fn(bool)> = Rc::new(move |success| {
+                    let (event, id) = if success {
+                        (&opened, EventId::ImageOpened)
+                    } else {
+                        (&failed, EventId::ImageFailed)
+                    };
+                    Self::dispatch(event, &event_queue, object, id, None, ());
+                });
+                Some(callback)
+            }
+            Some(Handle::Generated(GeneratedHandle::ImageIcon(control))) => {
+                control.SetSource(&image.value)?;
+                None
+            }
+            _ => return Err(WinUiError::InvalidObject(object)),
+        };
+        self.release_image(object);
+        let result = callback
+            .as_ref()
+            .and_then(|callback| image.state.subscribe(callback));
+        let replay = callback.as_ref().map(Rc::downgrade);
+        self.image_subscriptions.insert(
+            object,
+            ImageSubscription {
+                image,
+                _callback: callback,
+            },
+        );
+        if let (Some(result), Some(replay)) = (result, replay) {
+            // Replay a completed load after the current batch applies event handlers.
+            let handler = native::DispatcherQueueHandler::new(move || {
+                if let Some(callback) = replay.upgrade() {
+                    callback(result);
+                }
+            });
+            let accepted = native::DispatcherQueue::GetForCurrentThread()?
+                .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)?;
+            if !accepted {
+                return Err(windows_core::Error::new(
+                    native::E_FAIL,
+                    "dispatcher rejected image event replay",
+                )
+                .into());
+            }
+        }
+        Ok(())
+    }
+
     fn replace(&mut self, object: ObjectId, kind: ObjectType) -> Result<(), WinUiError> {
         if self.tooltips.contains_key(&object)
             || self.tooltip_owners.contains_key(&object)
@@ -554,12 +643,11 @@ impl WinUiAdapter {
                 Some(index)
             }
         };
-        self.handles
+        let handle = self
+            .handles
             .remove(&object)
             .ok_or(WinUiError::MissingObject(object))?;
-        self.encoded_image_failures.remove(&object);
-        self.resource_override_keys.remove(&object);
-        self.style_states.remove(&object);
+        self.release_object(object, handle)?;
         self.create(object, kind)?;
         let replacement = self.ui_element(object)?;
         if let Some(index) = index {

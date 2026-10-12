@@ -17,7 +17,8 @@ on later renders.
 `App::run_application` hosts application state independently of windows. Its `ApplicationView`
 declares reopenable component windows and notification icons with Reactor menus. Closing a window
 does not remove its notification icon, and removing the icon does not close a window. The
-application exits when both are gone, after pending lifecycle work finishes. See the
+application exits when both are gone, after pending lifecycle work finishes. Notification menus
+automatically follow the Windows taskbar's light or dark theme. See the
 [notification icon sample](../../samples/reactor/notifyicon).
 
 * [Getting

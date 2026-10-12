@@ -51,6 +51,10 @@ path = "src/tray_flyout.rs"
 name = "menu_position"
 path = "src/menu_position.rs"
 
+[[bin]]
+name = "title_bar"
+path = "src/title_bar.rs"
+
 [dependencies]
 windows-canvas = { workspace = true, features = ["composition", "reactor"] }
 windows-core = { workspace = true }
