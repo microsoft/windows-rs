@@ -81,6 +81,10 @@ Filters accept dots or `::` between path segments and `{...}` for grouped names:
 Bare names search all input namespaces; qualify a name when you need to distinguish matching
 definitions. For custom metadata, use the namespaces declared in that metadata.
 
+For runtime classes, select the instance, static, or factory methods you need. For example,
+`Windows.Foundation.Uri::CreateUri` selects a factory method; a class name alone does not select
+its factory methods.
+
 Member filters select methods on a type, not free functions in a subsystem namespace.
 Property and event names select their accessor pairs. For namespace selections, prefix a qualified
 name with `!` to exclude it. Prefer narrow filters to generating a namespace and removing items

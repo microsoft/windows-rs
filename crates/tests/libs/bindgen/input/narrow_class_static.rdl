@@ -1,0 +1,32 @@
+//! --filter Test.Widget::{Read,Create} --flat
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Metadata {
+            attribute ActivatableAttribute {
+                fn(r#type: Type, version: u32);
+            }
+            attribute StaticAttribute {
+                fn(r#type: Type, version: u32);
+            }
+        }
+    }
+}
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::Activatable(IWidgetFactory, 1)]
+    #[Windows::Foundation::Metadata::Static(IWidgetStatics, 1)]
+    class Widget {
+        IWidget,
+    }
+    interface IWidget {
+        fn Read(&self) -> i32;
+    }
+    interface IWidgetFactory {
+        fn Create(&self, value: i32) -> Widget;
+        fn Unused(&self) -> Widget;
+    }
+    interface IWidgetStatics {
+        fn GetDefault(&self) -> Widget;
+    }
+}

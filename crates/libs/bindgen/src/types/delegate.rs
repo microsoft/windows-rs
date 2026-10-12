@@ -41,16 +41,11 @@ impl Delegate {
             true,
         );
 
-        // Event-only delegates can suppress `new`/`Invoke` when direct caller use is impossible.
+        // Minimal event wrappers construct their delegates without calling `new`.
         let type_name = self.type_name();
-        let delegate_key = (
-            type_name.namespace().to_string(),
-            type_name.name().to_string(),
-        );
-        let is_event_only = !config.filter.has_broad_filter
-            && config.event_only_delegates.contains(&type_name)
-            && (config.bindgen.style.is_minimal()
-                || !config.filter.direct_types.contains(&delegate_key));
+        let is_event_only = config.bindgen.style.is_minimal()
+            && !config.filter.has_broad_filter
+            && config.event_only_delegates.contains(&type_name);
         let invoke_method = if config.bindgen.style.is_minimal() {
             // Minimal delegates are framework-invoked, so hide public `Invoke`.
             quote! {}
@@ -116,8 +111,6 @@ impl Delegate {
             }
         };
 
-        // Event-only delegates never need `new()` - the event-add wrapper
-        // inlines the DelegateBox construction directly.
         let new_method = if is_event_only {
             quote! {}
         } else {

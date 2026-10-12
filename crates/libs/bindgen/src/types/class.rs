@@ -133,15 +133,15 @@ impl Class {
 
         let factories: Vec<_> = required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
-                if interface.def.methods().next().is_none() {
-                    None
-                } else if config.bindgen.style == Style::Minimal
-                    && !interface
+                let has_methods = if config.bindgen.style.is_minimal() || config.filter.uses_closure {
+                    interface
                         .get_methods(config)
                         .iter()
                         .any(|m| matches!(m, MethodOrName::Method(_)))
-                {
-                    // In minimal mode, skip the factory cache if no methods survived filtering.
+                } else {
+                    interface.def.methods().next().is_some()
+                };
+                if !has_methods {
                     None
                 } else {
                         let method_name = to_ident(trim_tick(interface.def.name()));
@@ -241,7 +241,12 @@ impl Class {
             let into_iterator = if config.bindgen.style.emit_iterable_into_iterator() {
                 required_interfaces
                     .iter()
-                    .find(|interface| interface.def.type_name() == TypeName::IIterable)
+                    .find(|interface| {
+                        interface.def.type_name() == TypeName::IIterable
+                            && interface.get_methods(config).iter().any(|method| {
+                                matches!(method, MethodOrName::Method(method) if method.def.name() == "First")
+                            })
+                    })
                     .map(|interface| {
                         let ty = interface.generics[0].write_name(config);
 

@@ -9,6 +9,7 @@ doc = false
 doctest = false
 
 [dependencies]
+windows-collections = { workspace = true }
 windows-core = { workspace = true }
 windows-link = { workspace = true }
 windows-numerics = { workspace = true }
