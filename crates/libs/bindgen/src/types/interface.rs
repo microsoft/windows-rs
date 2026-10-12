@@ -413,10 +413,12 @@ impl Interface {
                 && matches!(config.filter.type_role(type_name), TypeRole::Shell);
             let suppress_methods = minimal
                 && ((is_exclusive && self.is_factory(config.reader)) || implementation_only);
-            if !suppress_methods && (!is_exclusive || minimal) {
+            let emit_methods = !suppress_methods && (!is_exclusive || minimal);
+            if emit_methods {
                 let method_names = &mut MethodNames::new();
                 let virtual_names = &mut MethodNames::new();
                 let mut method_tokens = TokenStream::new();
+                let mut iterable = None;
                 // References to this interface can be emitted as `Self` inside this impl.
                 let self_config = config.with_self_ty(self.type_name(), &self.generics);
 
@@ -457,6 +459,7 @@ impl Interface {
                             })
                     {
                         let cfg = method.write_cfg(config, &class_cfg, false);
+                        let def = method.def;
 
                         let method = method.write(
                             &self_config,
@@ -466,6 +469,10 @@ impl Interface {
                             virtual_names,
                             true,
                         );
+
+                        if interface.type_name() == TypeName::IIterable && def.name() == "First" {
+                            iterable = Some((interface, method_names.last_name(def)));
+                        }
 
                         method_tokens.combine(quote! {
                             #cfg
@@ -493,34 +500,31 @@ impl Interface {
                 }
 
                 let into_iterator = if config.bindgen.style.emit_iterable_into_iterator() {
-                    required_interfaces
-                        .iter()
-                        .find(|interface| interface.type_name() == TypeName::IIterable)
-                        .map(|interface| {
-                            let ty = interface.generics[0].write_name(config);
+                    iterable.map(|(interface, first)| {
+                        let ty = interface.generics[0].write_name(config);
 
-                            quote! {
-                                #cfg
-                                impl<#constraints> IntoIterator for #name {
-                                    type Item = #ty;
-                                    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
+                        quote! {
+                            #cfg
+                            impl<#constraints> IntoIterator for #name {
+                                type Item = #ty;
+                                type IntoIter = windows_collections::BufferedIterator<Self::Item>;
 
-                                    fn into_iter(self) -> Self::IntoIter {
-                                        IntoIterator::into_iter(&self)
-                                    }
+                                fn into_iter(self) -> Self::IntoIter {
+                                    IntoIterator::into_iter(&self)
                                 }
-                                #cfg
-                                impl<#constraints> IntoIterator for &#name {
-                                    type Item = #ty;
-                                    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
-
-                                    fn into_iter(self) -> Self::IntoIter {
-                                        windows_collections::BufferedIterator::new(self.First().unwrap())
-                                    }
-                                }
-
                             }
-                        })
+                            #cfg
+                            impl<#constraints> IntoIterator for &#name {
+                                type Item = #ty;
+                                type IntoIter = windows_collections::BufferedIterator<Self::Item>;
+
+                                fn into_iter(self) -> Self::IntoIter {
+                                    windows_collections::BufferedIterator::new(self.#first().unwrap())
+                                }
+                            }
+
+                        }
+                    })
                 } else {
                     None
                 };
@@ -653,14 +657,25 @@ impl Interface {
             }
 
             result.combine(vtbl);
-            result.combine(self.write_extensions());
+            if emit_methods {
+                result.combine(self.write_extensions(&methods));
+            }
             result
         }
     }
 
-    fn write_extensions(&self) -> TokenStream {
+    fn write_extensions(&self, methods: &[MethodOrName<Method>]) -> TokenStream {
+        let has_method = |name: &str| {
+            methods.iter().any(
+                |method| matches!(method, MethodOrName::Method(method) if method.def.name() == name),
+            )
+        };
         match self.type_name() {
-            TypeName::IIterator => {
+            TypeName::IIterator
+                if ["get_Current", "get_HasCurrent", "MoveNext"]
+                    .iter()
+                    .all(|name| has_method(name)) =>
+            {
                 quote! {
                     impl<T: windows_core::RuntimeType> Iterator for IIterator<T> {
                         type Item = T;
@@ -683,7 +698,7 @@ impl Interface {
                     }
                 }
             }
-            TypeName::IIterable => {
+            TypeName::IIterable if has_method("First") => {
                 quote! {
                     impl<T: windows_core::RuntimeType> IntoIterator for IIterable<T> {
                         type Item = T;

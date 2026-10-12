@@ -1,0 +1,17 @@
+//! --filter Windows.Foundation.Collections.IIterator::{Current,HasCurrent} --flat
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Collections {
+            #[guid(0x6a79e863_4300_459a_9966_cbb660963ee1)]
+            interface IIterator<T> {
+                #[get]
+                Current: T;
+                #[get]
+                HasCurrent: bool;
+                fn MoveNext(&self) -> bool;
+                fn GetMany(&self, #[out] items: [T]) -> u32;
+            }
+        }
+    }
+}

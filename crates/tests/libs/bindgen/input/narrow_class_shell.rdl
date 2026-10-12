@@ -1,0 +1,27 @@
+//! --filter Test.ISource::GetWidget --flat
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Metadata {
+            attribute StaticAttribute {
+                fn(r#type: Type, version: u32);
+            }
+        }
+    }
+}
+#[winrt]
+mod Test {
+    interface ISource {
+        fn GetWidget(&self) -> Widget;
+    }
+    #[Windows::Foundation::Metadata::Static(IWidgetStatics, 1)]
+    class Widget {
+        IWidget,
+    }
+    interface IWidget {
+        fn Read(&self) -> i32;
+    }
+    interface IWidgetStatics {
+        fn Create(&self) -> Widget;
+    }
+}
