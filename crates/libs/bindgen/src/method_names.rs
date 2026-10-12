@@ -41,10 +41,20 @@ impl MethodNames {
         let name = method_def_special_name(method);
         let overload = self.map.entry(name.clone()).or_insert(0);
         *overload += 1;
-        if *overload > 1 {
+        Self::write_name(&name, *overload)
+    }
+
+    /// Returns the most recently assigned name in this method's overload group.
+    pub fn last_name(&self, method: MethodDef) -> TokenStream {
+        let name = method_def_special_name(method);
+        Self::write_name(&name, self.map[&name])
+    }
+
+    fn write_name(name: &str, overload: u32) -> TokenStream {
+        if overload > 1 {
             format!("{name}{overload}").parse().unwrap()
         } else {
-            to_ident(&name)
+            to_ident(name)
         }
     }
 }

@@ -1,0 +1,24 @@
+//! --filter Windows.Foundation.Collections.IIterable::{}
+//! --filter Windows.Foundation.Collections.IIterator::{}
+//! --implement Windows.Foundation.Collections.IIterable
+//! --implement Windows.Foundation.Collections.IIterator --minimal --flat
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Collections {
+            #[guid(0x6a79e863_4300_459a_9966_cbb660963ee1)]
+            interface IIterator<T> {
+                #[get]
+                Current: T;
+                #[get]
+                HasCurrent: bool;
+                fn MoveNext(&self) -> bool;
+                fn GetMany(&self, #[out] items: [T]) -> u32;
+            }
+            #[guid(0xfaa585ea_6214_4217_afda_7f46de5869b3)]
+            interface IIterable<T> {
+                fn First(&self) -> IIterator<T>;
+            }
+        }
+    }
+}

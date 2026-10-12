@@ -32,6 +32,7 @@ impl Class {
         };
 
         let mut methods = quote! {};
+        let mut iterable = None;
 
         if config.bindgen.style.emit_class_methods() {
             let mut method_names = MethodNames::new();
@@ -49,6 +50,7 @@ impl Class {
                         })
                 {
                     let cfg = method.write_cfg(config, &class_cfg, false);
+                    let def = method.def;
 
                     let method = method.write(
                         &self_config,
@@ -58,6 +60,16 @@ impl Class {
                         &mut virtual_names,
                         true,
                     );
+
+                    if interface.type_name() == TypeName::IIterable
+                        && !matches!(
+                            interface.kind,
+                            InterfaceKind::Static | InterfaceKind::Composable
+                        )
+                        && def.name() == "First"
+                    {
+                        iterable = Some((interface, method_names.last_name(def)));
+                    }
 
                     methods.combine(quote! {
                         #cfg
@@ -239,39 +251,31 @@ impl Class {
             });
 
             let into_iterator = if config.bindgen.style.emit_iterable_into_iterator() {
-                required_interfaces
-                    .iter()
-                    .find(|interface| {
-                        interface.def.type_name() == TypeName::IIterable
-                            && interface.get_methods(config).iter().any(|method| {
-                                matches!(method, MethodOrName::Method(method) if method.def.name() == "First")
-                            })
-                    })
-                    .map(|interface| {
-                        let ty = interface.generics[0].write_name(config);
+                iterable.map(|(interface, first)| {
+                    let ty = interface.generics[0].write_name(config);
 
-                        quote! {
-                            #cfg
-                            impl IntoIterator for #name {
-                                type Item = #ty;
-                                type IntoIter = windows_collections::BufferedIterator<Self::Item>;
+                    quote! {
+                        #cfg
+                        impl IntoIterator for #name {
+                            type Item = #ty;
+                            type IntoIter = windows_collections::BufferedIterator<Self::Item>;
 
-                                fn into_iter(self) -> Self::IntoIter {
-                                    IntoIterator::into_iter(&self)
-                                }
+                            fn into_iter(self) -> Self::IntoIter {
+                                IntoIterator::into_iter(&self)
                             }
-                            #cfg
-                            impl IntoIterator for &#name {
-                                type Item = #ty;
-                                type IntoIter = windows_collections::BufferedIterator<Self::Item>;
-
-                                fn into_iter(self) -> Self::IntoIter {
-                                    windows_collections::BufferedIterator::new(self.First().unwrap())
-                                }
-                            }
-
                         }
-                    })
+                        #cfg
+                        impl IntoIterator for &#name {
+                            type Item = #ty;
+                            type IntoIter = windows_collections::BufferedIterator<Self::Item>;
+
+                            fn into_iter(self) -> Self::IntoIter {
+                                windows_collections::BufferedIterator::new(self.#first().unwrap())
+                            }
+                        }
+
+                    }
+                })
             } else {
                 None
             };

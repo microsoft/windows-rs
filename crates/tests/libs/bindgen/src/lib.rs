@@ -33,3 +33,19 @@ fn narrow_generic_event_delegate_invoke() {
         .unwrap_err();
     assert_eq!(error.code(), windows_core::HRESULT(-1));
 }
+
+#[test]
+fn narrow_collection_iteration_traits() {
+    fn assert_into_iterator<T: IntoIterator<Item = i32>>() {}
+    fn assert_iterator<T: Iterator<Item = i32>>() {}
+
+    assert_into_iterator::<narrow_iterable_interface_full::IItems<i32>>();
+    assert_into_iterator::<&narrow_iterable_interface_full::IItems<i32>>();
+    assert_into_iterator::<narrow_iterable_names::IItems<i32>>();
+    assert_into_iterator::<&narrow_iterable_names::IItems<i32>>();
+    assert_into_iterator::<narrow_iterable_names::Items>();
+    assert_into_iterator::<&narrow_iterable_names::Items>();
+    assert_into_iterator::<narrow_iterable_first::IIterable<i32>>();
+    assert_into_iterator::<&narrow_iterable_first::IIterable<i32>>();
+    assert_iterator::<narrow_iterator_full::IIterator<i32>>();
+}

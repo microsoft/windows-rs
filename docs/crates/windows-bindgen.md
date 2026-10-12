@@ -81,6 +81,9 @@ Filters accept dots or `::` between path segments and `{...}` for grouped names:
 Bare names search all input namespaces; qualify a name when you need to distinguish matching
 definitions. For custom metadata, use the namespaces declared in that metadata.
 
+Interface shells do not expose iteration. Iteration helpers require `First`, or `Current`,
+`HasCurrent`, and `MoveNext` for an iterator.
+
 For runtime classes, select the instance, static, or factory methods you need. For example,
 `Windows.Foundation.Uri::CreateUri` selects a factory method; a class name alone does not select
 its factory methods.
