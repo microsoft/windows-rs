@@ -910,14 +910,29 @@ merge, or remap.
 
 C1-D's representation gates are covered. Native annotation ownership, capture, agreement, and
 typed interpretation remain later gates: raw evidence does not prove all payload identifiers
-are bound, reconcile disagreeing families, or select a pointer/direction policy. The next bounded
-format contract is C1-E's logical bit-field meaning, separate from its backing storage.
+are bound, reconcile disagreeing families, or select a pointer/direction policy.
 
-Bit-field syntax currently stores logical name/width, with implicit cumulative offsets and the
-backing field supplying type. `NativeBitfieldAttribute` carries only name/offset/width. Interface
-methods currently always set `NewSlot`. Ordinary constants set `Static | Literal`, including the
-uninitialized syntax; the item grammar has no data-import declaration. These are concrete output
-boundaries, not libclang defects.
+**C1-E's representation gate is implemented.** Typed bit-field members use
+`name: LogicalType: width`; interval-only members retain the existing `name: width` syntax without
+inventing a declared type from backing storage. `NativeBitfieldTypeAttribute` preserves integral,
+enum, and typedef identity. Ordered qualifier companions and member-owned raw annotation companions
+retain evidence without adding physical fields. Anonymous padding has no logical value descriptor.
+
+Reviewed text/binary round-trips check signed/enum/alias types, both qualifier orders, raw evidence,
+and physical field identity. Merge/remap routes logical references independently of their backing
+record. Capacity checks follow known architecture-compatible aliases; malformed raw descriptors
+reject before checked emission, rendering/cleanup, merge, or remap. Existing interval blobs and
+backing signatures retain their bytes.
+
+Native capture still must supply declared types, allocation units, layout, and zero-width barriers.
+Unresolved external types and native-sized backing capacity need closure/target evidence. Storage
+agreement does not establish native calling support. Rust projection rejects the new descriptors
+until a separate accessor policy exists; it is not an acceptance gate for this header replacement.
+The next bounded format contract is C1-F's declaration-only imported data.
+
+Interface methods currently always set `NewSlot`. Ordinary constants set `Static | Literal`,
+including the uninitialized syntax; the item grammar has no data-import declaration. These are
+concrete output boundaries, not libclang defects.
 
 Continue the remaining C1 contracts with reviewed inputs, semantic WinMD readback, and negative
 controls using the fixed acceptance gates above. No fresh full-header capture is needed unless

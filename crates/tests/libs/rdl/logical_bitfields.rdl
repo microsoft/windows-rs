@@ -1,0 +1,26 @@
+#[win32]
+mod Test {
+    struct Packet {
+        prefix: u8,
+        bits: u32 {
+            signed: i8: 3,
+            _: 2,
+            state: Const<Volatile<Status>>: 3,
+            #[Windows::Win32::Metadata::NativeAnnotation("CXX", 0, "[[deprecated(\"flag\")]]")]
+            flag: bool: 1,
+            alias: Volatile<Const<SignedAlias>>: 7,
+        },
+        legacy: u16 {
+            first: 4,
+            _: 2,
+            last: 2,
+        },
+        suffix: u16,
+    }
+    type SignedAlias = i16;
+    #[repr(i16)]
+    enum Status {
+        Negative = -1,
+        Positive = 1,
+    }
+}

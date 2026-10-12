@@ -224,7 +224,7 @@ Raw SAL/MIDL evidence and lowered direction/buffer attributes remain separate.
 | API | Contract |
 | --- | --- |
 | `Index::validate_native_annotations()` | Checks owners, positional argument shapes, evidence identities, and parameter bindings |
-| `Index::validate_native_contracts(reference)` | Checks opaque storage and annotation contracts, including supplied reference metadata |
+| `Index::validate_native_contracts(reference)` | Checks opaque storage, annotations, and logical bit-fields, including supplied reference metadata |
 | `writer::File::try_into_stream()` | Returns checked bytes or `NativeContractError`, retaining writer references during validation |
 
 The checker rejects duplicate annotation identities or identifier bindings, missing evidence,
@@ -235,6 +235,36 @@ validate before replacing output. Raw unchecked emission remains available for n
 This is representation validation, not SAL interpretation, source ownership proof, or a complete
 expression-binding check. Consumers must not choose a direction or pointer shape from raw text
 without native capture/reconciliation evidence.
+
+### Logical bit-fields
+
+One backing record field holds storage. Logical members are descriptors on that field in
+`Windows.Win32.Metadata`; none adds an ECMA-335 Field row.
+
+| Attribute | Positional arguments | Meaning |
+| --- | --- | --- |
+| `NativeBitfieldAttribute` | name, offset: i64, length: i64 | Named member interval, with the existing wire shape |
+| `NativeBitfieldTypeAttribute` | name, logicalType: Type | Declared integral primitive, enum, or typedef identity |
+| `NativeBitfieldQualifierAttribute` | name, ordinal: i32, qualifier: i32 | Outermost-first qualifiers; 1 = const, 2 = volatile |
+| `NativeBitfieldAnnotationAttribute` | name, source, ordinal: i32, payload | Raw evidence owned by that logical member |
+
+Type-valued arguments use CLR scalar identities (`System.SByte`, `System.Int32`, `System.UIntPtr`,
+and so on) or the original nominal enum/typedef name. They do not copy the backing type.
+`Field::bitfields()` reconstructs ordered `Type::Const`/`Type::Volatile` nodes and member evidence.
+Legacy interval-only members return `logical_type: None`. Namespace remapping routes a logical
+type-valued reference independently of the record.
+
+`Index::validate_native_bitfields(reference)` checks instance-record ownership, companion
+identities, nonempty names, nonoverlapping nonzero ranges, contiguous qualifier ordinals, and known
+integral targets. Padding cannot acquire a descriptor. Known enum/typedef backing targets supply
+capacity within the owner's architecture; alias cycles and known nonintegral targets reject.
+A declared width may exceed the logical scalar's value bits, but must fit known backing storage.
+
+Unresolved external nominal targets and native-sized capacity remain unknown without supplied
+definition/target evidence. This validation neither closes the external graph nor calculates
+native layout. Checked emission, RDL rendering, merge, and remap compose it through
+`validate_native_contracts`; failures use `NativeContractError::Bitfield` before replacing output.
+Rust projection rejects the new companions rather than selecting a logical accessor policy.
 
 ### Native typedef targets
 

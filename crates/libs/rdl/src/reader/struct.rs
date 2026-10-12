@@ -139,14 +139,106 @@ impl Encoder<'_> {
             let mut bit_offset = 0u32;
             for member in &field.bitfields {
                 if let Some(name) = &member.name {
+                    if member.width == 0 {
+                        return self.err(name, "named bit-field width must be nonzero");
+                    }
                     self.emit_bitfield_attribute(
                         metadata::writer::HasAttribute::Field(field_id),
                         &name.unraw_to_string(),
                         bit_offset,
                         member.width,
                     );
+                    let target = metadata::writer::HasAttribute::Field(field_id);
+                    let member_name = name.unraw_to_string();
+                    if let Some(ty) = &member.ty {
+                        let mut logical = self.encode_type(ty)?;
+                        let mut qualifiers = Vec::new();
+                        loop {
+                            logical = match logical {
+                                metadata::Type::Const(inner) => {
+                                    qualifiers.push(1);
+                                    *inner
+                                }
+                                metadata::Type::Volatile(inner) => {
+                                    qualifiers.push(2);
+                                    *inner
+                                }
+                                other => {
+                                    logical = other;
+                                    break;
+                                }
+                            };
+                        }
+                        let Some(logical_name) = metadata::reader::bitfield_type_name(&logical)
+                        else {
+                            return self.err(ty, "bit-field logical type must be integral or enum");
+                        };
+                        self.encode_named_attribute(
+                            target,
+                            &attribute_ref::AttributeRef {
+                                type_name: metadata::TypeName::named(
+                                    METADATA_NAMESPACE,
+                                    "NativeBitfieldTypeAttribute",
+                                ),
+                                args: vec![
+                                    (String::new(), metadata::Value::Utf8(member_name.clone())),
+                                    (String::new(), metadata::Value::TypeName(logical_name)),
+                                ],
+                            },
+                        );
+                        for (ordinal, qualifier) in qualifiers.into_iter().enumerate() {
+                            self.encode_named_attribute(
+                                target,
+                                &attribute_ref::AttributeRef {
+                                    type_name: metadata::TypeName::named(
+                                        METADATA_NAMESPACE,
+                                        "NativeBitfieldQualifierAttribute",
+                                    ),
+                                    args: vec![
+                                        (String::new(), metadata::Value::Utf8(member_name.clone())),
+                                        (
+                                            String::new(),
+                                            metadata::Value::I32(ordinal.try_into().unwrap()),
+                                        ),
+                                        (String::new(), metadata::Value::I32(qualifier)),
+                                    ],
+                                },
+                            );
+                        }
+                    }
+                    for attr in &member.attrs {
+                        let evidence = self.resolve_attribute_ref(attr)?;
+                        if evidence.type_name.namespace != METADATA_NAMESPACE
+                            || evidence.type_name.name != "NativeAnnotationAttribute"
+                        {
+                            return self.err(
+                                attr,
+                                "logical bit-fields accept raw NativeAnnotation evidence only",
+                            );
+                        }
+                        let mut args =
+                            vec![(String::new(), metadata::Value::Utf8(member_name.clone()))];
+                        args.extend(evidence.args);
+                        self.encode_named_attribute(
+                            target,
+                            &attribute_ref::AttributeRef {
+                                type_name: metadata::TypeName::named(
+                                    METADATA_NAMESPACE,
+                                    "NativeBitfieldAnnotationAttribute",
+                                ),
+                                args,
+                            },
+                        );
+                    }
+                } else if member.ty.is_some() || !member.attrs.is_empty() {
+                    return self.err(
+                        &field.name,
+                        "bit-field padding cannot carry a logical type or annotations",
+                    );
                 }
-                bit_offset += member.width;
+                bit_offset = bit_offset
+                    .checked_add(member.width)
+                    .ok_or_else(|| self.error(&field.name, "bit-field range overflows u32"))?;
             }
         }
 

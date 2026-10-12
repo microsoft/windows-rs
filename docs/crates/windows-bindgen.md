@@ -261,6 +261,11 @@ range and OR in the masked value. Identity shifts are omitted to keep generated 
 RDL spells the same shape as a block on the backing field. Coverage lives in
 `windows-clang` checkpoint tests and `test_bindgen/input/struct_bitfield.rdl`.
 
+These accessors consume interval-only descriptors. The header-replacement representation also
+supports logical type, qualifier, and raw annotation companions on the backing field. Bindgen
+rejects those companions rather than deriving a declared logical type from the storage integer.
+Choosing their Rust accessor policy is separate from the `.h -> .rdl -> .winmd` representation gate.
+
 ### Counted buffers
 
 `NativeArrayInfoAttribute` and `MemorySizeAttribute` describe element counts, byte counts, and

@@ -8,7 +8,9 @@ pub struct Field {
 
 #[derive(Debug, Clone)]
 pub struct BitfieldMember {
+    pub attrs: Vec<syn::Attribute>,
     pub name: Option<syn::Ident>,
+    pub ty: Option<Box<syn::Type>>,
     pub width: u32,
 }
 
@@ -75,6 +77,7 @@ fn parse_bitfield_block(input: syn::parse::ParseStream) -> syn::Result<Vec<Bitfi
 
 impl syn::parse::Parse for BitfieldMember {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        let attrs = input.call(syn::Attribute::parse_outer)?;
         let name = if input.peek(syn::Token![_]) {
             input.parse::<syn::Token![_]>()?;
             None
@@ -82,9 +85,18 @@ impl syn::parse::Parse for BitfieldMember {
             Some(input.parse::<syn::Ident>()?)
         };
         input.parse::<syn::Token![:]>()?;
+        let ty = if input.peek(syn::LitInt) {
+            None
+        } else {
+            let ty = input.parse()?;
+            input.parse::<syn::Token![:]>()?;
+            Some(Box::new(ty))
+        };
         let width: syn::LitInt = input.parse()?;
         Ok(Self {
+            attrs,
             name,
+            ty,
             width: width.base10_parse()?,
         })
     }

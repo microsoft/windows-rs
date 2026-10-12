@@ -1,6 +1,7 @@
 use super::*;
 
 mod annotations;
+mod bitfields;
 mod blob;
 mod codes;
 mod file;
@@ -11,6 +12,7 @@ mod tables;
 mod type_category;
 
 pub use annotations::*;
+pub use bitfields::*;
 pub use blob::*;
 pub use codes::*;
 pub use file::*;

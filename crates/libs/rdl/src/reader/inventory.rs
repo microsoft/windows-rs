@@ -380,8 +380,15 @@ impl Inventory {
                         .name
                         .as_ref()
                         .map_or_else(|| "_".into(), ToString::to_string),
-                    format!("offset={offset}, width={}", bitfield.width),
-                    &[],
+                    match &bitfield.ty {
+                        Some(ty) => format!(
+                            "type={}, offset={offset}, width={}",
+                            tokens(ty),
+                            bitfield.width
+                        ),
+                        None => format!("offset={offset}, width={}", bitfield.width),
+                    },
+                    &bitfield.attrs,
                     bitfield
                         .name
                         .as_ref()

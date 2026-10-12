@@ -14,7 +14,11 @@ required signature modifiers, independently of parameter direction and pointer-r
 
 Raw native annotation identities and original positional bindings survive independently of
 parameter names and direction. `Index::validate_native_contracts` and checked
-`writer::File::try_into_stream` check opaque and annotation invariants before publishing metadata.
+`writer::File::try_into_stream` check opaque, annotation, and bit-field invariants before publishing
+metadata.
+
+`Field::bitfields` reads logical member types, qualifiers, and raw evidence independently of backing
+storage. Legacy interval-only members retain an unspecified logical type.
 
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-metadata.md)

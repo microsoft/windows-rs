@@ -17,6 +17,7 @@ impl std::error::Error for NativeAnnotationError {}
 pub enum NativeContractError {
     Opaque(OpaqueTypeError),
     Annotation(NativeAnnotationError),
+    Bitfield(BitfieldError),
 }
 
 impl std::fmt::Display for NativeContractError {
@@ -24,6 +25,7 @@ impl std::fmt::Display for NativeContractError {
         match self {
             Self::Opaque(error) => error.fmt(f),
             Self::Annotation(error) => error.fmt(f),
+            Self::Bitfield(error) => error.fmt(f),
         }
     }
 }
@@ -33,6 +35,7 @@ impl std::error::Error for NativeContractError {
         Some(match self {
             Self::Opaque(error) => error,
             Self::Annotation(error) => error,
+            Self::Bitfield(error) => error,
         })
     }
 }
@@ -57,9 +60,14 @@ impl Index {
             reference
                 .validate_native_annotations()
                 .map_err(NativeContractError::Annotation)?;
+            reference
+                .validate_native_bitfields(None)
+                .map_err(NativeContractError::Bitfield)?;
         }
         self.validate_native_annotations()
-            .map_err(NativeContractError::Annotation)
+            .map_err(NativeContractError::Annotation)?;
+        self.validate_native_bitfields(reference)
+            .map_err(NativeContractError::Bitfield)
     }
 
     /// Checks annotation identities, owners, and original positional bindings without lowering SAL.

@@ -119,6 +119,22 @@ impl CppStruct {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
+        assert!(
+            !self
+                .def
+                .fields()
+                .any(
+                    |field| field.attributes().any(|attribute| attribute.namespace()
+                        == "Windows.Win32.Metadata"
+                        && matches!(
+                            attribute.name(),
+                            "NativeBitfieldTypeAttribute"
+                                | "NativeBitfieldQualifierAttribute"
+                                | "NativeBitfieldAnnotationAttribute"
+                        ))
+                ),
+            "logical bit-field descriptors are not supported by Rust projection"
+        );
         if self.is_handle(config.reader) {
             let cfg = self.write_cfg(config);
             return config.write_cpp_handle(self.def, &cfg);

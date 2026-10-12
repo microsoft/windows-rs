@@ -980,16 +980,7 @@ fn write_attributes_with_arch<'a, R: HasAttributes<'a>>(
             continue;
         }
 
-        let attribute_ref =
-            writer::MemberRefParent::TypeRef(file.TypeRef(ty.namespace(), ty.name()));
-
-        let ctor_ref = file.MemberRef(".ctor", &ctor.signature(&[]), attribute_ref);
-
-        file.Attribute(
-            parent,
-            writer::AttributeType::MemberRef(ctor_ref),
-            &attribute.value(),
-        );
+        write_attribute(file, parent, attribute, &attribute.value());
     }
 
     if let Some(arch_bits) = arch_override
@@ -997,6 +988,19 @@ fn write_attributes_with_arch<'a, R: HasAttributes<'a>>(
     {
         write_supported_architecture_attr(file, parent, arch_bits);
     }
+}
+
+fn write_attribute(
+    file: &mut writer::File,
+    parent: writer::HasAttribute,
+    attribute: reader::Attribute<'_>,
+    values: &[(String, Value)],
+) {
+    let ctor = attribute.ctor();
+    let ty = ctor.parent();
+    let attribute_ref = writer::MemberRefParent::TypeRef(file.TypeRef(ty.namespace(), ty.name()));
+    let ctor_ref = file.MemberRef(".ctor", &ctor.signature(&[]), attribute_ref);
+    file.Attribute(parent, writer::AttributeType::MemberRef(ctor_ref), values);
 }
 
 fn write_supported_architecture_attr(

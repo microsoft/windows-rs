@@ -14,6 +14,24 @@ fn missing_command_file_panics() {
 }
 
 #[test]
+#[should_panic(expected = "logical bit-field descriptors are not supported by Rust projection")]
+fn logical_bitfield_descriptors_do_not_use_legacy_accessor_policy() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("logical_bitfield_rejection");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("out.winmd");
+    windows_rdl::reader()
+        .input_text("#[win32] mod Test { struct Packet { bits: u32 { value: i8: 3, }, } }")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_bindgen::builder()
+        .input(winmd)
+        .output(scratch.join("out.rs"))
+        .filter("Test.Packet")
+        .write();
+}
+
+#[test]
 #[should_panic(expected = "failed to open file")]
 fn missing_filter_file_panics() {
     let missing = std::env::temp_dir().join("test_bindgen_missing_filter_file.txt");

@@ -271,8 +271,8 @@ controls. `test_metadata::opaque` authors invalid metadata directly and checks r
 conversion can erase its meaning.
 
 Struct bit fields use their own syntax. A run of bit fields packed into one backing integer is
-written as a C-like block on that field. Each member uses `Name: width`. Anonymous padding uses
-`_: width`.
+written as a C-like block on that field. Each member uses `Name: width` or
+`Name: LogicalType: width`. Anonymous padding uses `_: width`.
 
 ```text
 struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
@@ -290,6 +290,36 @@ struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
 Member offsets are implicit. Each offset is the total width of earlier members, including padding.
 The reader writes one `Windows.Win32.Metadata.NativeBitfieldAttribute(name, offset, width)` custom
 attribute per named member. The writer renders it back to block form.
+
+Typed members retain an integral primitive, enum, or integral typedef identity independently of
+the backing field. `Const<T>` and `Volatile<T>` retain their ordered placement on that logical type.
+Raw member annotations use the same `NativeAnnotation(source, ordinal, payload)` spelling as
+declaration evidence; other member attributes are rejected.
+
+```text
+struct Packet {
+    bits: u32 {
+        signed: i8: 3,
+        _: 2,
+        state: Const<Volatile<Status>>: 3,
+        #[Windows::Win32::Metadata::NativeAnnotation("CXX", 0, "[[deprecated]]")]
+        flag: bool: 1,
+    },
+}
+```
+
+The type, qualifier, and annotation companions are attributes on the existing backing field,
+not extra storage fields. Legacy `Name: width` leaves the logical type unspecified rather than
+inferring a source declaration from storage. Named zero-width members and typed/annotated padding
+are rejected. Member intervals cannot overlap or exceed known backing capacity, including
+architecture-compatible scalar aliases. Width is not limited to the logical type's value bits.
+Native allocation units, zero-width barriers, and ABI layout still require compiler evidence.
+Trailing padding is represented only by backing storage, not a logical member.
+
+The reviewed `test_rdl::logical_bitfields` fixture checks exact text/binary round-trips, physical
+field identity, independent namespace routing, qualifier order, and raw member evidence.
+`logical_bitfield_metadata` checks malformed descriptors before checked emission or output cleanup.
+See [metadata logical bit-fields](windows-metadata.md#logical-bit-fields) for the wire model.
 
 See [`windows-clang`](windows-clang.md#bit-field-member-scraping) for how the scraper emits bit
 fields. See [`windows-bindgen`](windows-bindgen.md#bit-field-accessors) for the accessors they

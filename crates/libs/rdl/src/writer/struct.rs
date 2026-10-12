@@ -200,14 +200,19 @@ fn write_field_flat(
     let ty = write_type(namespace, &resolved_ty);
 
     // Bit-field backing units render as C-like blocks instead of raw attributes.
-    let members = collect_bitfield_members(item);
+    let members = item.bitfields().map_err(|error| writer_err!("{error}"))?;
     if !members.is_empty() {
-        let block = write_bitfield_block(&members);
+        let block = write_bitfield_block(namespace, &members);
         let field_attrs = write_custom_attributes_except(
             item.attributes(),
             namespace,
             item.index(),
-            &["NativeBitfieldAttribute"],
+            &[
+                "NativeBitfieldAttribute",
+                "NativeBitfieldTypeAttribute",
+                "NativeBitfieldQualifierAttribute",
+                "NativeBitfieldAnnotationAttribute",
+            ],
         )?;
         return Ok(quote! { #(#field_attrs)* #name: #ty { #(#block)* }, });
     }
@@ -216,41 +221,32 @@ fn write_field_flat(
     Ok(quote! { #(#field_attrs)* #name: #ty, })
 }
 
-fn collect_bitfield_members(item: &metadata::reader::Field) -> Vec<(String, u32, u32)> {
-    let mut members: Vec<(String, u32, u32)> = item
-        .attributes()
-        .filter(|attr| {
-            attr.namespace() == METADATA_NAMESPACE && attr.name() == "NativeBitfieldAttribute"
-        })
-        .filter_map(|attr| {
-            let values = attr.value();
-            let name = match values.first().map(|(_, v)| v) {
-                Some(metadata::Value::Utf8(s)) => s.clone(),
-                _ => return None,
-            };
-            let as_u32 = |v: Option<&(String, metadata::Value)>| match v.map(|(_, v)| v) {
-                Some(metadata::Value::I64(n)) => Some(*n as u32),
-                _ => None,
-            };
-            Some((name, as_u32(values.get(1))?, as_u32(values.get(2))?))
-        })
-        .collect();
-    members.sort_by_key(|(_, offset, _)| *offset);
-    members
-}
-
-fn write_bitfield_block(members: &[(String, u32, u32)]) -> Vec<TokenStream> {
+fn write_bitfield_block(
+    namespace: &str,
+    members: &[metadata::reader::Bitfield],
+) -> Vec<TokenStream> {
     let mut out = vec![];
     let mut cursor = 0u32;
-    for (name, offset, width) in members {
-        if *offset > cursor {
-            let pad = Literal::u32_unsuffixed(offset - cursor);
+    for member in members {
+        if member.offset > cursor {
+            let pad = Literal::u32_unsuffixed(member.offset - cursor);
             out.push(quote! { _: #pad, });
         }
-        let member = write_ident(name);
-        let width_lit = Literal::u32_unsuffixed(*width);
-        out.push(quote! { #member: #width_lit, });
-        cursor = offset + width;
+        let name = write_ident(&member.name);
+        let width_lit = Literal::u32_unsuffixed(member.width);
+        let attrs = member.annotations.iter().map(|annotation| {
+            let source = &annotation.source;
+            let ordinal = Literal::i32_unsuffixed(annotation.ordinal);
+            let payload = &annotation.payload;
+            quote! { #[Windows::Win32::Metadata::NativeAnnotation(#source, #ordinal, #payload)] }
+        });
+        if let Some(ty) = &member.logical_type {
+            let ty = write_type(namespace, ty);
+            out.push(quote! { #(#attrs)* #name: #ty: #width_lit, });
+        } else {
+            out.push(quote! { #(#attrs)* #name: #width_lit, });
+        }
+        cursor = member.offset + member.width;
     }
     out
 }

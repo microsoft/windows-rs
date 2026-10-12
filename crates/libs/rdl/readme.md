@@ -45,6 +45,10 @@ Native annotation attributes retain source-family ordering and original position
 without interpreting payloads. `#[unspecified]` preserves missing direction independently of
 pointer qualifiers and the legacy default.
 
+Bit-field blocks accept `name: LogicalType: width` alongside legacy `name: width`. Logical types,
+qualifiers, and raw member annotations survive without adding storage fields; padding is not a
+value member.
+
 `#[opaque] struct Tag {}` or `#[opaque] union Tag {}` declares a resolved nominal type without
 exposed storage. Pointers and aliases retain its identity; value and array-element uses are rejected.
 

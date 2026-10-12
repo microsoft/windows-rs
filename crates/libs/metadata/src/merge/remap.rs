@@ -204,7 +204,7 @@ impl Remapper {
             if let Some(constant) = field.constant() {
                 file.Constant(writer::HasConstant::Field(field_def), &constant.value());
             }
-            write_attributes(file, writer::HasAttribute::Field(field_def), field);
+            self.write_attributes(file, writer::HasAttribute::Field(field_def), field);
         }
 
         let generics: Vec<_> = def
@@ -275,6 +275,32 @@ impl Remapper {
                 impl_map.import_name(),
                 impl_map.import_scope().name(),
             );
+        }
+    }
+
+    fn write_attributes<'a>(
+        &self,
+        file: &mut writer::File,
+        parent: writer::HasAttribute,
+        row: impl HasAttributes<'a>,
+    ) {
+        for attribute in row.attributes() {
+            let logical_type = attribute.namespace() == "Windows.Win32.Metadata"
+                && attribute.name() == "NativeBitfieldTypeAttribute";
+            let values: Vec<_> = attribute
+                .value()
+                .into_iter()
+                .map(|(name, value)| {
+                    let value = match value {
+                        Value::TypeName(ty) if logical_type => {
+                            Value::TypeName(self.remap_type_name(&ty))
+                        }
+                        other => other,
+                    };
+                    (name, value)
+                })
+                .collect();
+            write_attribute(file, parent, attribute, &values);
         }
     }
 
