@@ -18,10 +18,12 @@ version = "0.100"
 Generate a flat file in `OUT_DIR` from `build.rs`:
 
 ```rust,no_run
+use std::path::Path;
+
 fn main() {
     let out_dir = std::env::var("OUT_DIR").unwrap();
     windows_bindgen::builder()
-        .output(std::path::Path::new(&out_dir).join("bindings.rs"))
+        .output(Path::new(&out_dir).join("bindings.rs"))
         .filter("GetTickCount")
         .flat()
         .sys()

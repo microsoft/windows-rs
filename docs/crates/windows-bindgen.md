@@ -20,7 +20,7 @@ options.
 
 Configure the builder, then call `write()`:
 
-```rust
+```rust,no_run
 windows_bindgen::builder()
     .output("src/bindings.rs")
     .filters(["GetTickCount", "GetTickCount64"])
@@ -31,7 +31,7 @@ windows_bindgen::builder()
 
 The command-line-style adapter does the same thing:
 
-```rust
+```rust,no_run
 windows_bindgen::bindgen([
     "--out", "src/bindings.rs",
     "--flat",
