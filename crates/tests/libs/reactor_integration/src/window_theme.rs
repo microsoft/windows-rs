@@ -70,7 +70,7 @@ fn background(theme: WindowTheme) -> u32 {
             .as_bool()
         );
         if contrast.dwFlags & HCF_HIGHCONTRASTON as u32 != 0 {
-            return GetSysColor(COLOR_WINDOW);
+            return GetSysColor(COLOR_BTNFACE);
         }
     }
     match theme {
