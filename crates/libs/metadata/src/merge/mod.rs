@@ -114,7 +114,7 @@ impl Merger {
         let files = read_inputs(&self.input)?;
         let index = reader::Index::new(files);
         index
-            .validate_opaque_types(None)
+            .validate_native_contracts(None)
             .map_err(|error| Error::new(error.to_string()))?;
 
         let mut file = writer::File::new(name);
@@ -183,7 +183,7 @@ impl Merger {
                 let files = read_inputs(std::slice::from_ref(path))?;
                 let index = reader::Index::new(files);
                 index
-                    .validate_opaque_types(None)
+                    .validate_native_contracts(None)
                     .map_err(|error| Error::new(error.to_string()))?;
                 arch_groups.push((index, *arch_bits));
             }

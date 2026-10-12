@@ -1,0 +1,21 @@
+#[win32]
+mod Test {
+    #[Windows::Win32::Metadata::NativeAnnotation("CXX", 0, "__declspec(annotate(\"alias\"))")]
+    type Alias = Const<*mut Record>;
+    extern "C" fn Callback(#[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_In_reads_(count)")] #[Windows::Win32::Metadata::NativeAnnotationBinding("SAL", 0, "count", 1)] #[unspecified] buffer: *mut Record, length: usize) -> #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_Ret_maybenull_")] *mut Record;
+    #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_Success_(return != 0)")]
+    #[library("annotations.dll")]
+    extern "C" fn Export(#[Windows::Win32::Metadata::NativeAnnotation("MIDL", 0, "[out, size_is(count)]")] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 10, "_When_(count > 0, _In_)")] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 2, "_In_reads_(count)")] #[Windows::Win32::Metadata::NativeAnnotationBinding("MIDL", 0, "count", 1)] #[Windows::Win32::Metadata::NativeAnnotationBinding("SAL", 10, "count", 1)] #[Windows::Win32::Metadata::NativeAnnotationBinding("SAL", 2, "count", 1)] #[unspecified] #[opt] buffer: *mut Volatile<Record>, length: usize, #[out] result: *const Record) -> #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_Ret_maybenull_")] *mut Record;
+    #[no_guid]
+    interface IContracts {
+        fn Exchange(&self, #[Windows::Win32::Metadata::NativeAnnotation("MIDL", 0, "[in, size_is(count)]")] #[Windows::Win32::Metadata::NativeAnnotationBinding("MIDL", 0, "count", 1)] #[in] #[out] buffer: *mut Record, length: usize);
+    }
+    struct Record {
+        #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_Field_size_(count)")]
+        data: *mut u8,
+        count: usize,
+    }
+    #[library("annotations.dll")]
+    extern "C" fn VoidResult(length: usize) -> #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_Post_satisfies_(count == 0)")] #[Windows::Win32::Metadata::NativeAnnotationBinding("SAL", 0, "count", 0)]
+    void;
+}

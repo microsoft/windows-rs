@@ -1,5 +1,6 @@
 use super::*;
 
+mod annotations;
 mod blob;
 mod codes;
 mod file;
@@ -9,6 +10,7 @@ mod row;
 mod tables;
 mod type_category;
 
+pub use annotations::*;
 pub use blob::*;
 pub use codes::*;
 pub use file::*;

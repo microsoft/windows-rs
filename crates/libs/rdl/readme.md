@@ -38,6 +38,13 @@ original native API.
 Pointer types preserve mixed qualifiers such as `*const *mut i32` through RDL/WinMD round-trips,
 including fields, parameters, results, and typedef targets. Parameter direction remains separate.
 
+Native `Const<T>` and `Volatile<T>` qualify an exact type node, such as a pointer value rather
+than its pointee. RDL/WinMD preserves their placement; Rust projection does not yet support them.
+
+Native annotation attributes retain source-family ordering and original positional bindings
+without interpreting payloads. `#[unspecified]` preserves missing direction independently of
+pointer qualifiers and the legacy default.
+
 `#[opaque] struct Tag {}` or `#[opaque] union Tag {}` declares a resolved nominal type without
 exposed storage. Pointers and aliases retain its identity; value and array-element uses are rejected.
 

@@ -64,6 +64,13 @@ impl<'a> Blob<'a> {
     }
 
     pub fn read_modifiers(&mut self) -> Vec<TypeDefOrRef<'a>> {
+        self.read_modifier_kinds()
+            .into_iter()
+            .map(|(modifier, _)| modifier)
+            .collect()
+    }
+
+    fn read_modifier_kinds(&mut self) -> Vec<(TypeDefOrRef<'a>, bool)> {
         let mut mods = vec![];
         while !self.is_empty() {
             let (value, offset) = self.peek();
@@ -71,10 +78,9 @@ impl<'a> Blob<'a> {
                 break;
             } else {
                 self.offset(offset);
-                mods.push(TypeDefOrRef::decode(
-                    self.index,
-                    self.file,
-                    self.read_compressed(),
+                mods.push((
+                    TypeDefOrRef::decode(self.index, self.file, self.read_compressed()),
+                    value == ELEMENT_TYPE_CMOD_REQD as usize,
                 ));
             }
         }
@@ -101,7 +107,37 @@ impl<'a> Blob<'a> {
 
     /// Reads a field or method type signature.
     pub fn read_type_signature(&mut self, generics: &[Type]) -> Type {
-        let modifiers = self.read_modifiers();
+        let modifiers = self.read_modifier_kinds();
+        let mut qualifiers = Vec::new();
+        let mut other = Vec::new();
+        for (modifier, required) in modifiers {
+            if modifier.namespace() == "Windows.Win32.Metadata"
+                && matches!(
+                    modifier.name(),
+                    "NativeConstAttribute" | "NativeVolatileAttribute"
+                )
+            {
+                assert!(required, "native qualifier modifier must be required");
+                qualifiers.push(modifier.name());
+            } else {
+                other.push(modifier);
+            }
+        }
+        let ty = self.read_unqualified_signature(generics, &other);
+        qualifiers.into_iter().rev().fold(ty, |ty, qualifier| {
+            if qualifier == "NativeConstAttribute" {
+                Type::Const(Box::new(ty))
+            } else {
+                Type::Volatile(Box::new(ty))
+            }
+        })
+    }
+
+    fn read_unqualified_signature(
+        &mut self,
+        generics: &[Type],
+        modifiers: &[TypeDefOrRef<'a>],
+    ) -> Type {
         let is_const = modifiers.iter().any(|def| {
             def.namespace() == "System.Runtime.CompilerServices" && def.name() == "IsConst"
         });

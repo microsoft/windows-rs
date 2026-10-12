@@ -25,7 +25,12 @@ impl std::fmt::Debug for MethodParam<'_> {
     }
 }
 
-impl MethodParam<'_> {
+impl<'a> MethodParam<'a> {
+    /// Returns the method owning this parameter or return row.
+    pub fn parent(&self) -> MethodDef<'a> {
+        self.parent_row(5)
+    }
+
     pub fn flags(&self) -> ParamAttributes {
         ParamAttributes(self.usize(0).try_into().unwrap())
     }

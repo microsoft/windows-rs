@@ -644,6 +644,18 @@ impl Encoder<'_> {
             }
 
             let attr_ref = self.resolve_attribute_ref(attr)?;
+            if attr_ref.type_name.namespace == METADATA_NAMESPACE
+                && matches!(
+                    attr_ref.type_name.name.as_str(),
+                    "NativeAnnotationAttribute" | "NativeAnnotationBindingAttribute"
+                )
+                && self.index.is_winrt(self.namespace, self.name) == Some(true)
+            {
+                return self.err(
+                    attr,
+                    "native annotations are not valid in WinRT declarations",
+                );
+            }
             self.encode_named_attribute(has_attribute, &attr_ref);
         }
 

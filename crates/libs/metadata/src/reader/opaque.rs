@@ -172,6 +172,9 @@ impl Index {
         visiting: &mut Vec<TypeName>,
     ) -> Result<(), OpaqueTypeError> {
         match ty {
+            Type::Const(inner) | Type::Volatile(inner) => {
+                self.check_opaque_type(inner, storage, arches, reference, context, visiting)
+            }
             Type::PtrMut(inner, _)
             | Type::PtrConst(inner, _)
             | Type::RefMut(inner)

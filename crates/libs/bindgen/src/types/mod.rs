@@ -335,6 +335,9 @@ impl Type {
         reader: &Reader,
     ) -> Self {
         match ty {
+            windows_metadata::Type::Const(_) | windows_metadata::Type::Volatile(_) => {
+                panic!("native type qualifiers are not supported by Rust projection: {ty:?}");
+            }
             windows_metadata::Type::Void => Self::Void,
             windows_metadata::Type::Bool => Self::Bool,
             windows_metadata::Type::Char => Self::Char,
@@ -1340,4 +1343,33 @@ pub(crate) fn write_newtype_wrap_for_arches(
         return quote! { #name(#value) };
     }
     value.clone()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn native_qualifiers_reject_instead_of_being_erased_by_projection() {
+        use windows_metadata::Type as MetadataType;
+        let reader = Reader::new(Vec::new());
+        for ty in [
+            MetadataType::Const(Box::new(MetadataType::I32)),
+            MetadataType::Volatile(Box::new(MetadataType::I32)),
+            MetadataType::PtrMut(
+                Box::new(MetadataType::Volatile(Box::new(MetadataType::I32))),
+                1,
+            ),
+        ] {
+            let error = std::panic::catch_unwind(|| {
+                Type::from_metadata_type(&ty, None, &[], &reader);
+            })
+            .unwrap_err();
+            let message = error.downcast_ref::<String>().unwrap();
+            assert!(
+                message.contains("native type qualifiers are not supported by Rust projection"),
+                "{message}"
+            );
+        }
+    }
 }

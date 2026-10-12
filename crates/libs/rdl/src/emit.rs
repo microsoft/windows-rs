@@ -31,6 +31,14 @@ pub fn write_ident(name: &str) -> TokenStream {
 pub fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
     use metadata::Type::*;
     match item {
+        Const(inner) => {
+            let inner = write_type(namespace, inner);
+            quote! { Const<#inner> }
+        }
+        Volatile(inner) => {
+            let inner = write_type(namespace, inner);
+            quote! { Volatile<#inner> }
+        }
         Bool => quote! { bool },
         Char => quote! { Char16 },
         I8 => quote! { i8 },
@@ -207,6 +215,9 @@ pub fn write_typed_value(
     ty: &metadata::Type,
     value: &metadata::Value,
 ) -> TokenStream {
+    if matches!(ty, metadata::Type::Const(_) | metadata::Type::Volatile(_)) {
+        return write_typed_value(namespace, ty.unqualified(), value);
+    }
     match (ty, value) {
         (metadata::Type::ISize, metadata::Value::I64(value)) if i32::try_from(*value).is_ok() => {
             let literal = Literal::i64_suffixed(*value);

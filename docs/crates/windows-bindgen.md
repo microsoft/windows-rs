@@ -29,6 +29,10 @@ smallest invocation. This page covers how to choose and maintain a real generati
 
 `windows-bindgen` reads ECMA-335 Windows metadata, not headers or IDL.
 
+Experimental native `Const<T>` and `Volatile<T>` nodes from RDL are not yet projected to Rust.
+The generator rejects them explicitly instead of discarding their qualifiers. Existing metadata
+and bindings are unchanged; the header replacement's acceptance gates end at RDL/WinMD.
+
 | Starting point | Path to bindings |
 | --- | --- |
 | Standard Windows API | Use the implicit default metadata and add filters. |

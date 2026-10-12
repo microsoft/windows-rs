@@ -38,12 +38,12 @@ impl<const LEN: usize> STREAM_HEADER<LEN> {
 }
 
 impl File {
-    /// Emits metadata after checking opaque records and their storage-requiring uses.
-    pub fn try_into_stream(mut self) -> Result<Vec<u8>, reader::OpaqueTypeError> {
+    /// Emits metadata after checking supported native representation invariants.
+    pub fn try_into_stream(mut self) -> Result<Vec<u8>, reader::NativeContractError> {
         let reference = self.reference.take();
         let bytes = self.into_stream();
         let index = reader::Index::new(vec![reader::File::new(bytes.clone()).unwrap()]);
-        index.validate_opaque_types(reference.as_ref())?;
+        index.validate_native_contracts(reference.as_ref())?;
         Ok(bytes)
     }
 

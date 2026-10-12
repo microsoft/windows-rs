@@ -93,6 +93,95 @@ Most attributes name a metadata attribute type directly. Some attributes use sho
 names. The reader expands those names to full metadata attributes. See `PSEUDO_ATTRS` in
 `windows-rdl`.
 
+### Native type qualifiers
+
+In `#[win32]` declarations, `Const<T>` and `Volatile<T>` qualify the enclosed type node.
+They are type constructors, not named record wrappers or parameter-direction attributes.
+Each accepts exactly one type argument. WinRT declarations reject them.
+
+| RDL | Distinction |
+| --- | --- |
+| `*const i32` | Existing pointer to const `i32` |
+| `Const<*mut i32>` | Const pointer value, not const pointee |
+| `*mut Volatile<i32>` | Pointer to volatile `i32` |
+| `Volatile<*mut i32>` | Volatile pointer value |
+| `*const Const<*mut Volatile<i32>>` | Separate qualifiers at the pointer and scalar nodes |
+| `[Volatile<Record>; 2]` | Volatile record elements |
+| `Const<[Record; 2]>` | Qualified array node, not a replacement element type |
+
+Nested qualifiers preserve their written order, including `Const<Volatile<T>>` and
+`Volatile<Const<T>>`. The two orders do not claim different native const/volatile semantics.
+Qualifiers do not add storage, erase aliases, or turn an opaque value into a complete record.
+Opaque storage checks follow them without changing whether the surrounding use needs storage.
+
+RDL/WinMD round-trips preserve qualifier placement in fields, aliases, arrays, references,
+parameters, and results. Existing pointer signatures remain unchanged. The legacy default
+parameter-direction rule examines the type below top-level qualifiers; explicit `#[in]` and
+`#[out]` remain independent. Source annotation direction is not inferred from these qualifiers.
+
+These experimental native qualifiers are not yet supported by Rust projection. Bindgen rejects
+them explicitly rather than erasing them. Native source capture is a separate replacement gate.
+
+### Native source evidence and direction
+
+Raw native annotations use vocabulary attributes, independently of structural qualifiers and
+lowered buffer/direction attributes:
+
+| Attribute | Positional arguments |
+| --- | --- |
+| `Windows::Win32::Metadata::NativeAnnotation` | Source family, nonnegative ordinal, exact payload |
+| `Windows::Win32::Metadata::NativeAnnotationBinding` | Source family, annotation ordinal, source identifier, zero-based parameter position |
+
+An annotation's identity is its owner, source family, and ordinal. Ordinals record order within
+one family's evidence on that owner; they need not be contiguous. Attribute table order and the
+writer's sorted attribute text are not source order. SAL and MIDL retain separate evidence even
+when their payloads disagree. Family names are open, nonempty strings, not a fixed macro list.
+
+A binding refers to evidence on the same owner. Its parameter position excludes `&self` and the
+return row; zero refers to the first declared parameter. Method, parameter, and return owners
+can bind identifiers from their evidence to parameters of that method. Source identifiers need
+not equal the published parameter names. Renaming `length` below does not change what `count`
+means in the annotation:
+
+```text
+#[win32]
+mod Example {
+    extern "C" fn Callback(
+        #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_In_reads_(count)")]
+        #[Windows::Win32::Metadata::NativeAnnotationBinding("SAL", 0, "count", 1)]
+        #[unspecified]
+        buffer: *mut u8,
+        length: usize
+    );
+}
+```
+
+Compile this example with `metadata/metadata.rdl` as input or its compiled vocabulary as a
+reference. Annotations also survive on fields and typedef declarations. Return evidence on a
+void callable uses `-> #[Attribute(...)] void`; an absent result value does not erase evidence.
+
+| Parameter spelling | Stored `In`/`Out` flags |
+| --- | --- |
+| `#[in]` | `In` |
+| `#[out]` | `Out` |
+| `#[in] #[out]` | `In | Out` |
+| `#[unspecified]` | Neither |
+| No direction spelling | Legacy default: mutable pointer/reference is `Out`, otherwise `In` |
+
+`#[unspecified]` accepts no arguments and conflicts with `#[in]` or `#[out]`. Optionality stays
+independent. A replacement extractor must emit it when native evidence supplies no direction,
+rather than apply the legacy default. The writer preserves direction-less existing `Param`
+rows with this spelling; missing raw rows still use legacy defaults.
+
+Shared checks reject invalid argument shapes, empty families/payloads/identifiers, negative or
+duplicate ordinals, duplicate identifier bindings, missing same-owner evidence, out-of-range
+positions, and bindings without a callable owner. WinRT declarations reject these native
+annotations. Checks run before output writes and split/partition cleanup.
+
+These attributes preserve evidence; they do not parse SAL, rewrite pointers, resolve source
+ambiguities, or assert that every identifier in a payload has been bound. Native capture must
+prove those relationships from its original declaration context.
+
 ### Named record aliases
 
 `type NAME = TYPE;` preserves a declared alias and its written target. Several names can refer

@@ -27,6 +27,22 @@ mod Windows {
             attribute NativeMutableAttribute {
                 fn();
             }
+            // Required signature modifiers qualifying the following native type node.
+            // RDL: `Const<T>` and `Volatile<T>`, independent of pointer runs and direction.
+            attribute NativeConstAttribute {
+                fn();
+            }
+            attribute NativeVolatileAttribute {
+                fn();
+            }
+            // Raw evidence ordered within its source family on the owning declaration.
+            attribute NativeAnnotationAttribute {
+                fn(source: String, ordinal: i32, payload: String);
+            }
+            // Binds a source identifier in that annotation to an original parameter position.
+            attribute NativeAnnotationBindingAttribute {
+                fn(source: String, ordinal: i32, identifier: String, parameter: i32);
+            }
             // Resolves a native record's nominal identity without exposing its storage.
             // RDL: `#[opaque] struct TAG {}` or `#[opaque] union TAG {}`.
             attribute NativeOpaqueAttribute {

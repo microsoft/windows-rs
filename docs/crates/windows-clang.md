@@ -879,9 +879,39 @@ Native same-spelled tag/typedef reconciliation remains a C2 gate. The representa
 canonical record definition per published identity, not a duplicate self-alias. Prove that
 publication choice from compiler-linked observations, not spelling or structural equality.
 
-The next format contract is C1-D: native qualifiers and source/positional contracts independent
-of pointer mutability and parameter direction. Define the required vocabulary and its readback
-gates before adding extraction logic.
+**C1-D's structural qualifier slice is implemented.** `Const<T>` and `Volatile<T>` qualify
+individual native type nodes in RDL. Corresponding `metadata::Type` variants and required
+`NativeConstAttribute`/`NativeVolatileAttribute` signature modifiers retain their exact placement,
+without changing existing `IsConst` pointer-run/reference semantics or uniform signature bytes.
+The reviewed fixture covers fields, aliases, arrays, references, parameters, and results through
+exact RDL/WinMD round-trips and merge/remap. Raw signature controls reject optional modifiers
+and missing type codes. Qualified values cannot bypass opaque-storage validation.
+
+The legacy direction default examines the type beneath top-level qualifiers; explicit direction
+is independent. Neither qualifier changes pointers based on SAL. Rust projection explicitly
+rejects the new type nodes rather than erasing qualifiers; Rust output is not this gate.
+
+**C1-D's source-contract slice is implemented.** `NativeAnnotationAttribute` preserves exact
+payloads with a source-family/ordinal identity on each owner. `NativeAnnotationBindingAttribute`
+links a source identifier in that evidence to an original zero-based parameter position on
+the same callable, parameter, or return owner. Attribute table order does not choose source
+order, and published parameter names do not resolve the relationship.
+
+`#[unspecified]` preserves neither-`In`-nor-`Out` flags without triggering the legacy default.
+Explicit input/output/inout and optionality survive independently of pointer qualifiers and
+raw annotation families. A replacement extractor must emit unspecified direction when native
+evidence supplies none. Typedef annotations and evidence on void results also survive rendering.
+
+Reviewed text and exact WinMD round-trips cover SAL/MIDL families, source ordering, callbacks,
+functions, interfaces, typedefs, fields, return evidence, and renamed presentation parameters.
+Merge/remap retains those contracts. Raw metadata controls use out-of-order `Param` rows and
+reject malformed identities, owners, and positions before checked emission, rendering/cleanup,
+merge, or remap.
+
+C1-D's representation gates are covered. Native annotation ownership, capture, agreement, and
+typed interpretation remain later gates: raw evidence does not prove all payload identifiers
+are bound, reconcile disagreeing families, or select a pointer/direction policy. The next bounded
+format contract is C1-E's logical bit-field meaning, separate from its backing storage.
 
 Bit-field syntax currently stores logical name/width, with implicit cumulative offsets and the
 backing field supplying type. `NativeBitfieldAttribute` carries only name/offset/width. Interface

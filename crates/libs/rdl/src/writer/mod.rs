@@ -151,7 +151,7 @@ impl Writer {
 
         let index = metadata::reader::Index::new(files);
         index
-            .validate_opaque_types(None)
+            .validate_native_contracts(None)
             .map_err(|error| writer_err!("{error}"))?;
         for root in index.types() {
             for item in std::iter::once(root).chain(index.nested_recursive(root)) {
@@ -392,7 +392,13 @@ fn write_type_def_items(
             let field = native_typedef_field(item)?;
             let ty = write_type(namespace, &field.ty());
             let arch_attr = write_arch_attr(item.arches());
-            let tokens = quote! { #arch_attr type #name = #ty; };
+            let attrs = write_custom_attributes_except(
+                item.attributes(),
+                namespace,
+                item.index(),
+                &["SupportedArchitectureAttribute"],
+            )?;
+            let tokens = quote! { #arch_attr #(#attrs)* type #name = #ty; };
             return Ok(vec![(item.name().to_string(), tokens)]);
         }
         write_struct_items(item)
@@ -553,7 +559,10 @@ fn write_params(
         .enumerate()
         .map(|(position, ty)| {
             let param = params.params()[position];
-            let is_mutable = matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..));
+            let is_mutable = matches!(
+                ty.unqualified(),
+                metadata::Type::RefMut(_) | metadata::Type::PtrMut(..)
+            );
             let direction = param.map_or_else(
                 || {
                     if is_mutable {
@@ -565,10 +574,15 @@ fn write_params(
                 |param| param.direction(),
             );
             let (effective_in, has_out) = match direction {
-                metadata::reader::ParamDirection::Unspecified
-                | metadata::reader::ParamDirection::Input => (true, false),
+                metadata::reader::ParamDirection::Unspecified => (false, false),
+                metadata::reader::ParamDirection::Input => (true, false),
                 metadata::reader::ParamDirection::Output => (false, true),
                 metadata::reader::ParamDirection::InputOutput => (true, true),
+            };
+            let unspecified_attr = if direction == metadata::reader::ParamDirection::Unspecified {
+                quote! { #[unspecified] }
+            } else {
+                quote! {}
             };
             let in_attr = if effective_in && (has_out || is_mutable) {
                 quote! { #[r#in] }
@@ -599,7 +613,7 @@ fn write_params(
                 None => Vec::new(),
             };
             let ty = write_type(namespace, &ty);
-            Ok(quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty })
+            Ok(quote! { #(#param_attrs)* #unspecified_attr #in_attr #out_attr #opt_attr #name: #ty })
         })
         .collect()
 }
@@ -624,7 +638,7 @@ fn write_return_type(
         .unwrap_or_default();
 
     Ok(match &signature.return_type {
-        metadata::Type::Void => quote! {},
+        metadata::Type::Void if return_attrs.is_empty() => quote! {},
         ty => {
             let ty = write_type(namespace, ty);
             quote! { -> #(#return_attrs)* #ty }

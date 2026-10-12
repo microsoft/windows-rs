@@ -6,9 +6,15 @@ ECMA-335 metadata format used by .NET, WinRT, and Win32 metadata.
 Pointer signatures preserve mixed const/mutable runs through recursive `Type` nodes. Uniform
 signatures retain their existing bytes; mixed signatures use explicit modifier boundaries.
 
+`Type::Const` and `Type::Volatile` preserve native qualifiers on individual type nodes using
+required signature modifiers, independently of parameter direction and pointer-run constness.
+
 `TypeDef::is_opaque()` distinguishes opaque native records from complete empty records. Use
-`Index::validate_opaque_types` or checked `writer::File::try_into_stream` to reject invalid opaque
-storage uses before publishing metadata.
+`Index::validate_opaque_types` to reject invalid opaque storage uses.
+
+Raw native annotation identities and original positional bindings survive independently of
+parameter names and direction. `Index::validate_native_contracts` and checked
+`writer::File::try_into_stream` check opaque and annotation invariants before publishing metadata.
 
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-metadata.md)

@@ -726,6 +726,9 @@ impl Encoder<'_> {
         ty: &metadata::Type,
         value: &syn::Expr,
     ) -> Result<metadata::Value, Error> {
+        if matches!(ty, metadata::Type::Const(_) | metadata::Type::Volatile(_)) {
+            return self.encode_value(ty.unqualified(), value);
+        }
         if matches!(ty, metadata::Type::ISize | metadata::Type::USize)
             && let Some(value) = self.encode_fixed_width_value(value)?
         {
@@ -1075,6 +1078,29 @@ impl Encoder<'_> {
     }
 
     fn encode_type_path(&self, ty: &syn::TypePath) -> Result<metadata::Type, Error> {
+        if ty.qself.is_none() && ty.path.leading_colon.is_none() && ty.path.segments.len() == 1 {
+            let segment = &ty.path.segments[0];
+            if matches!(segment.ident.to_string().as_str(), "Const" | "Volatile")
+                && let syn::PathArguments::AngleBracketed(arguments) = &segment.arguments
+            {
+                let mut args = arguments.args.iter();
+                let Some(syn::GenericArgument::Type(inner)) = args.next() else {
+                    return self.err(ty, "native qualifier requires one type argument");
+                };
+                if args.next().is_some() {
+                    return self.err(ty, "native qualifier requires one type argument");
+                }
+                if self.index.is_winrt(self.namespace, self.name) == Some(true) {
+                    return self.err(ty, "native qualifiers are not valid in WinRT types");
+                }
+                let inner = Box::new(self.encode_type(inner)?);
+                return Ok(if segment.ident == "Const" {
+                    metadata::Type::Const(inner)
+                } else {
+                    metadata::Type::Volatile(inner)
+                });
+            }
+        }
         self.encode_path(&ty.path)
     }
 
@@ -1218,6 +1244,9 @@ impl Encoder<'_> {
         ty: &metadata::Type,
     ) -> Result<(), Error> {
         match ty {
+            metadata::Type::Const(_) | metadata::Type::Volatile(_) => {
+                return self.err(span, "native qualifiers are not valid in WinRT types");
+            }
             metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
                 for generic_ty in &tn.generics {
                     self.validate_type_is_winrt(span, generic_ty)?;

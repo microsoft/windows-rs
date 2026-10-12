@@ -461,6 +461,18 @@ impl File {
             Type::String => buffer.push(ELEMENT_TYPE_STRING),
             Type::Object => buffer.push(ELEMENT_TYPE_OBJECT),
 
+            Type::Const(inner) | Type::Volatile(inner) => {
+                let name = if matches!(ty, Type::Const(_)) {
+                    "NativeConstAttribute"
+                } else {
+                    "NativeVolatileAttribute"
+                };
+                buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
+                let pos = self.TypeRef("Windows.Win32.Metadata", name);
+                buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+                self.Type(inner, buffer);
+            }
+
             Type::Array(ty) => {
                 buffer.push(ELEMENT_TYPE_SZARRAY);
                 self.Type(ty, buffer);

@@ -1,0 +1,26 @@
+#[win32]
+mod Test {
+    extern "C" fn Callback(#[in] input: Const<*mut Volatile<Record>>) -> Volatile<*const Record>;
+    #[library("qualifiers.dll")]
+    extern "C" fn Export(#[in] input: Const<*mut Volatile<Record>>, output: *mut Const<Record>) -> Volatile<*const Record>;
+    #[no_guid]
+    interface IQualified {
+        fn Exchange(&self, #[in] input: Const<*mut Volatile<Record>>, output: *mut Const<Record>) -> Volatile<*const Record>;
+    }
+    struct Pointers {
+        constant_pointer: Const<*mut i32>,
+        volatile_value: Volatile<i32>,
+        nested: *const Const<*mut Volatile<*const Record>>,
+        array: [Volatile<Record>; 2],
+        constant_array: Const<[Record; 2]>,
+        reference: &mut Volatile<Record>,
+        alias: TopConst,
+        both: Const<Volatile<Record>>,
+        reversed: Volatile<Const<Record>>,
+    }
+    struct Record {
+        value: u32,
+    }
+    type TopConst = Const<Record>;
+    type TopVolatile = Volatile<*mut Record>;
+}

@@ -175,6 +175,67 @@ conflicting const/mutable modifiers, a mutable-run modifier applied to a non-poi
 missing pointee. The marker carries no direction, optionality, buffer size, or native volatile
 contract. Merge and namespace remapping preserve the runs and remap their named pointees.
 
+### Native node qualifiers
+
+`Type::Const` and `Type::Volatile` wrap the exact native type node being qualified.
+`Windows.Win32.Metadata.NativeConstAttribute` and `NativeVolatileAttribute` are required
+signature modifiers, not custom attribute instances on declarations. The vocabulary seed
+defines their no-argument constructors.
+
+| Type spelling | Signature after any field/method prefix |
+| --- | --- |
+| `Const<i32>` | `CMOD_REQD(NativeConstAttribute) I4` |
+| `Const<*mut i32>` | `CMOD_REQD(NativeConstAttribute) PTR I4` |
+| `*mut Volatile<i32>` | `PTR CMOD_REQD(NativeVolatileAttribute) I4` |
+| `Volatile<*mut i32>` | `CMOD_REQD(NativeVolatileAttribute) PTR I4` |
+| `Const<Volatile<i32>>` | `CMOD_REQD(NativeConstAttribute) CMOD_REQD(NativeVolatileAttribute) I4` |
+
+The distinct const marker avoids changing `IsConst`'s existing pointer-run/reference meaning.
+The volatile marker carries a native type qualifier, not a CLR field-access or synchronization
+instruction. Readers reject optional forms of either marker and modifiers without a type code.
+Existing signatures without these markers retain their bytes and decoded types.
+
+Qualifiers remain at their own nodes during readback, merge, and namespace remapping, including
+named targets inside arrays and references. `Type::unqualified` removes only qualifiers on the
+current node; it does not dereference a pointer or follow an alias. Opaque validation follows a
+qualified type with the same storage requirement as the surrounding use.
+
+The format preserves both const/volatile nesting orders without claiming they differ in native
+meaning. It does not perform source qualifier normalization, capture annotations, or establish
+native ABI layout. Rust projection rejects the new variants until its qualifier policy is defined.
+
+### Native annotation evidence
+
+`NativeAnnotationAttribute(source: String, ordinal: i32, payload: String)` retains raw native
+evidence on its owning TypeDef, field, method, or parameter/return row. Its namespace is
+`Windows.Win32.Metadata`. A source family and nonnegative ordinal identify one annotation on
+one owner. Family strings are open; ordering comes from ordinals, not attribute table order.
+
+`NativeAnnotationBindingAttribute(source: String, ordinal: i32, identifier: String,
+parameter: i32)` associates an identifier in that annotation with an original zero-based
+parameter position. Positions exclude the receiver and return. Bindings have the same owner
+as their evidence and require a method or method parameter/return context. They do not depend
+on the current `Param.Name`. Physical parameter table order is not positional order.
+
+`MethodParam::parent()` supplies that method context, including return rows. Its
+`params_by_sequence` map checks the ECMA-335 associations before positional bindings are used.
+Raw SAL/MIDL evidence and lowered direction/buffer attributes remain separate.
+
+| API | Contract |
+| --- | --- |
+| `Index::validate_native_annotations()` | Checks owners, positional argument shapes, evidence identities, and parameter bindings |
+| `Index::validate_native_contracts(reference)` | Checks opaque storage and annotation contracts, including supplied reference metadata |
+| `writer::File::try_into_stream()` | Returns checked bytes or `NativeContractError`, retaining writer references during validation |
+
+The checker rejects duplicate annotation identities or identifier bindings, missing evidence,
+invalid positions, empty family/payload/identifier strings, and WinRT owners. It checks the
+metadata namespace rather than matching attribute names alone. Rendering, merge, and remap
+validate before replacing output. Raw unchecked emission remains available for negative fixtures.
+
+This is representation validation, not SAL interpretation, source ownership proof, or a complete
+expression-binding check. Consumers must not choose a direction or pointer shape from raw text
+without native capture/reconciliation evidence.
+
 ### Native typedef targets
 
 A native typedef is a value TypeDef marked `Windows.Win32.Metadata.NativeTypedefAttribute`.
@@ -211,7 +272,7 @@ opaque record.
 | --- | --- |
 | `Index::validate_opaque_types(reference)` | Checks declarations and value/array uses through aliases, with optional external type references |
 | `Index::validate_opaque_storage(ty)` | Rejects storage use of an opaque value or array element, including typedef chains |
-| `writer::File::try_into_stream()` | Checks opaque contracts against the writer's references before returning bytes |
+| `writer::File::try_into_stream()` | Checks opaque and annotation contracts against the writer's references before returning bytes |
 | `writer::File::into_stream()` | Low-level unchecked table emission, also used to author negative fixtures |
 
 Pointers and references retain opaque nominal identity without claiming pointee storage. An

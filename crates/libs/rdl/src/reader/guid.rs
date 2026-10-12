@@ -130,6 +130,8 @@ pub fn build_interface_string(
 
 pub fn type_to_string(ty: &Type) -> String {
     match ty {
+        Type::Const(inner) => format!("Const({})", type_to_string(inner)),
+        Type::Volatile(inner) => format!("Volatile({})", type_to_string(inner)),
         Type::Void => "Void".to_string(),
         Type::Bool => "Bool".to_string(),
         Type::Char => "Char".to_string(),

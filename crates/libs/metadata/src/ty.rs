@@ -28,9 +28,19 @@ pub enum Type {
     PtrMut(Box<Self>, usize),     // ELEMENT_TYPE_PTR
     PtrConst(Box<Self>, usize),   // ELEMENT_TYPE_CMOD_REQD (IsConst), ELEMENT_TYPE_PTR
     ArrayFixed(Box<Self>, usize), // ELEMENT_TYPE_ARRAY
+    Const(Box<Self>),             // ELEMENT_TYPE_CMOD_REQD (NativeConstAttribute)
+    Volatile(Box<Self>),          // ELEMENT_TYPE_CMOD_REQD (NativeVolatileAttribute)
 }
 
 impl Type {
+    /// Returns the type beneath qualifiers on this node, without following pointers or aliases.
+    pub fn unqualified(&self) -> &Self {
+        match self {
+            Self::Const(inner) | Self::Volatile(inner) => inner.unqualified(),
+            ty => ty,
+        }
+    }
+
     pub fn class_named(namespace: &str, name: &str) -> Self {
         Self::ClassName(TypeName::named(namespace, name))
     }

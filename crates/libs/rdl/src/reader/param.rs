@@ -14,9 +14,15 @@ impl Encoder<'_> {
         ty: &metadata::Type,
     ) -> Result<metadata::ParamAttributes, Error> {
         let mut attributes = metadata::ParamAttributes::default();
+        let mut unspecified = false;
 
         for attr in attrs {
-            if attr.path().is_ident("out") {
+            if attr.path().is_ident("unspecified") {
+                if !matches!(attr.meta, syn::Meta::Path(_)) {
+                    return self.err(attr, "`unspecified` attribute does not accept arguments");
+                }
+                unspecified = true;
+            } else if attr.path().is_ident("out") {
                 if !matches!(attr.meta, syn::Meta::Path(_)) {
                     return self.err(attr, "`out` attribute does not accept arguments");
                 }
@@ -34,10 +40,20 @@ impl Encoder<'_> {
             }
         }
 
-        if !attributes.contains(metadata::ParamAttributes::Out)
+        if unspecified
+            && (attributes.contains(metadata::ParamAttributes::In)
+                || attributes.contains(metadata::ParamAttributes::Out))
+        {
+            return self.err(&attrs[0], "`unspecified` conflicts with `in` or `out`");
+        }
+        if !unspecified
+            && !attributes.contains(metadata::ParamAttributes::Out)
             && !attributes.contains(metadata::ParamAttributes::In)
         {
-            if matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..)) {
+            if matches!(
+                ty.unqualified(),
+                metadata::Type::RefMut(_) | metadata::Type::PtrMut(..)
+            ) {
                 attributes |= metadata::ParamAttributes::Out;
             } else {
                 attributes |= metadata::ParamAttributes::In;
@@ -116,7 +132,7 @@ impl Encoder<'_> {
                 }
             }
 
-            let mut skip: Vec<&str> = vec!["r#in", "out", "opt"];
+            let mut skip: Vec<&str> = vec!["r#in", "out", "opt", "unspecified"];
             skip.extend(PSEUDO_ATTRS.iter().map(|p| p.short));
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
@@ -132,8 +148,10 @@ impl Encoder<'_> {
         params: &[(&str, &metadata::Type)],
     ) -> Result<(), Error> {
         for (sequence, (name, ty)) in params.iter().enumerate() {
-            let attributes = if matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
-            {
+            let attributes = if matches!(
+                ty.unqualified(),
+                metadata::Type::RefMut(_) | metadata::Type::PtrMut(..)
+            ) {
                 metadata::ParamAttributes::Out
             } else {
                 metadata::ParamAttributes::In

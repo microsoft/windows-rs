@@ -92,7 +92,7 @@ impl Remapper {
         let files = read_inputs(&self.input)?;
         let index = reader::Index::new(files);
         index
-            .validate_opaque_types(None)
+            .validate_native_contracts(None)
             .map_err(|error| Error::new(error.to_string()))?;
         let mut file = writer::File::new(name);
 
@@ -138,6 +138,8 @@ impl Remapper {
 
     fn remap_type(&self, ty: &Type) -> Type {
         match ty {
+            Type::Const(inner) => Type::Const(Box::new(self.remap_type(inner))),
+            Type::Volatile(inner) => Type::Volatile(Box::new(self.remap_type(inner))),
             Type::ClassName(tn) => Type::ClassName(self.remap_type_name(tn)),
             Type::ValueName(tn) => Type::ValueName(self.remap_type_name(tn)),
             Type::Array(inner) => Type::Array(Box::new(self.remap_type(inner))),
