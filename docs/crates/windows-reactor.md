@@ -248,6 +248,12 @@ queued notifications. Notifications from an earlier lifetime cannot reach a late
 `on_color_scheme` reports the current scheme when subscribed, then only scheme changes.
 `on_window_size` reports native size changes without replaying the size on callback replacement.
 
+Run `cargo run -p reactor-window-observers` for an interactive view of notification counts and
+callback revisions. Replace callbacks without changing counts, toggle the theme, move or resize the
+window, and subscribe or unsubscribe each observer independently. Re-subscribing reports the current
+scheme and placement; size waits for a native change. Each notification also causes a render, which
+must not replay the observers.
+
 Applications own persistence: store each observation in the message handler, rather than wait for
 a final shutdown notification. This is observed native state, not a continuously controlled
 position. Keeping a saved value in `initial_placement` does not cause snapback after a user move.
