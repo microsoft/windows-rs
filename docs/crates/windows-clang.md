@@ -997,11 +997,21 @@ typedef edges, local qualifiers, compiler identities, and native layouts survive
 Checked output uses the shared RDL emitter. Reviewed three-target fixtures compile to WinMD and
 check the native typedef and opaque representations.
 
-The selected `alias_chains.h` closure and pinned `winnt.h` scalars pass; complete records and
-callables from `smoke.h` remain explicit family-boundary failures. Reuse, concurrent sessions,
+The selected `alias_chains.h` closure and pinned `winnt.h` scalars pass; callables from `smoke.h`
+remain explicit family-boundary failures. Reuse, concurrent sessions,
 prior thread-binding restoration, clean diagnostics, exact root files, and deterministic
 publication have focused coverage. See [C2's contract and internals](windows-clang2.md).
 
-The next bounded package is C3: complete records and storage from the fixed anchors above.
-It requires a selected source/layout matrix and native size/alignment/offset evidence before
-porting code. No production generator or canonical metadata is replaced by C2.
+C3-A adds selected named plain-data records/unions with natural size/alignment/member-offset
+checks, including `Point`, `BitmapData`, and the pinned SDK `POINT`/`RECT` closure. Native MSVC
+assertions and semantic WinMD readback cover all three targets. Adjusted layouts, anonymous
+storage, bit-fields, and behavioral classes remain explicit boundaries.
+
+The SDK record stall is reproduced by cold concurrent direct-native controls without owned capture.
+Pinned libclang registers LLVM targets on every index creation; LLVM requires registration to
+exclude registry readers. The wrapper now enforces that contract with exclusive registration and
+shared native-session guards. Four deadline-controlled matrices pass, closing the selected C2
+operational and C3-A natural-storage gates. Registration exclusion reduces capture overlap; full
+production performance remains unproven. See the
+[native parser reliability evidence](windows-clang2.md#native-parser-registration-and-reliability).
+No production generator or canonical metadata is replaced by these slices.

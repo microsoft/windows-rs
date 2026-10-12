@@ -1,0 +1,16 @@
+#[win32]
+mod Test {
+    type LONG = i32;
+    type POINT = Test::tagPOINT;
+    type RECT = Test::tagRECT;
+    struct tagPOINT {
+        x: Test::LONG,
+        y: Test::LONG,
+    }
+    struct tagRECT {
+        left: Test::LONG,
+        top: Test::LONG,
+        right: Test::LONG,
+        bottom: Test::LONG,
+    }
+}

@@ -15,11 +15,18 @@ struct Entry {
 
 enum Kind {
     Alias(metadata::Type),
-    Opaque { union: bool },
+    Opaque {
+        union: bool,
+    },
+    Record {
+        union: bool,
+        fields: Vec<(String, metadata::Type)>,
+    },
 }
 
 impl Closed {
     pub fn new(snapshot: &Snapshot, namespace: &str) -> Result<Self> {
+        snapshot.check_records()?;
         if namespace.split('.').count() > 64 || namespace.split('.').any(|name| !identifier(name)) {
             return Err(Error::new(
                 Stage::Representation,
@@ -65,6 +72,27 @@ impl Closed {
                     Kind::Alias(lower(written, &names, snapshot.target)?)
                 }
                 DeclarationKind::Opaque { union } => Kind::Opaque { union: *union },
+                DeclarationKind::Record { union, fields } => {
+                    let fields = fields
+                        .iter()
+                        .map(|field| {
+                            if !identifier(&field.evidence.name) {
+                                return Err(Error::new(
+                                    Stage::Representation,
+                                    "unsupported native field publication name",
+                                ));
+                            }
+                            Ok((
+                                field.evidence.name.clone(),
+                                lower(&field.written, &names, snapshot.target)?,
+                            ))
+                        })
+                        .collect::<Result<Vec<_>>>()?;
+                    Kind::Record {
+                        union: *union,
+                        fields,
+                    }
+                }
             };
             let key = (name.namespace.clone(), name.name.clone());
             if declarations
@@ -125,6 +153,21 @@ impl Closed {
                     "#[opaque] {} {name} {{}}",
                     if *union { "union" } else { "struct" }
                 ),
+                Kind::Record { union, fields } => {
+                    let fields = fields
+                        .iter()
+                        .map(|(name, ty)| {
+                            let name = windows_rdl::emit::write_ident(name);
+                            let ty = windows_rdl::emit::write_type("", ty);
+                            format!("{name}: {ty},")
+                        })
+                        .collect::<Vec<_>>()
+                        .join("\n");
+                    format!(
+                        "{} {name} {{ {fields} }}",
+                        if *union { "union" } else { "struct" }
+                    )
+                }
             });
         }
         Ok(windows_rdl::formatter::format(&root.render(true)))

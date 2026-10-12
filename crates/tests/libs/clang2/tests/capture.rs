@@ -162,7 +162,7 @@ fn source_scope_and_family_boundaries_fail_explicitly() {
             Stage::Source,
         ),
         (
-            "struct Record { int field; }; typedef Record *Pointer;",
+            "struct Record { virtual void Method(); }; typedef Record *Pointer;",
             &["Pointer"][..],
             Stage::Capture,
         ),
@@ -376,12 +376,17 @@ fn existing_anchors_have_explicit_selected_and_deferred_families() {
         );
     }
     let source = include_str!("..\\..\\clang\\input\\smoke.h");
-    for name in ["Point", "UsePoint"] {
-        let error = compiler
-            .capture(&input(source, Target::X64, &[name]))
-            .unwrap_err();
-        assert_eq!(error.stage, Stage::Capture);
-    }
+    let snapshot = compiler
+        .capture(&input(source, Target::X64, &["Point"]))
+        .unwrap();
+    assert_eq!(
+        snapshot.rdl("Test").unwrap(),
+        include_str!("../input/point.rdl").replace("\r\n", "\n")
+    );
+    let error = compiler
+        .capture(&input(source, Target::X64, &["UsePoint"]))
+        .unwrap_err();
+    assert_eq!(error.stage, Stage::Capture);
 }
 
 #[test]

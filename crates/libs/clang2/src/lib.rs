@@ -7,6 +7,7 @@ use windows_metadata as metadata;
 
 mod capture;
 mod output;
+mod record;
 
 pub use capture::Compiler;
 
@@ -122,6 +123,17 @@ pub struct Root {
     pub location: Location,
 }
 
+#[derive(Debug, Clone)]
+pub struct FieldEvidence {
+    pub name: String,
+    pub expansion: Location,
+    pub spelling: Location,
+    pub written_type: String,
+    pub canonical_type: String,
+    pub layout: Option<Layout>,
+    pub offset: u64,
+}
+
 /// Owned native evidence. No compiler cursor or translation-unit handle escapes capture.
 #[derive(Debug, Clone)]
 pub struct Snapshot {
@@ -143,6 +155,18 @@ impl Snapshot {
 
     pub fn evidence(&self) -> impl Iterator<Item = &Evidence> {
         self.declarations.iter().map(|decl| &decl.evidence)
+    }
+
+    pub fn fields(&self) -> impl Iterator<Item = (&Evidence, &FieldEvidence)> {
+        self.declarations.iter().flat_map(|decl| {
+            let fields = match &decl.kind {
+                DeclarationKind::Record { fields, .. } => fields.as_slice(),
+                _ => &[],
+            };
+            fields
+                .iter()
+                .map(move |field| (&decl.evidence, &field.evidence))
+        })
     }
 
     pub fn rdl(&self, namespace: &str) -> Result<String> {
@@ -178,6 +202,17 @@ enum DeclarationKind {
     Opaque {
         union: bool,
     },
+    Record {
+        union: bool,
+        fields: Vec<NativeField>,
+    },
+}
+
+#[derive(Debug, Clone)]
+struct NativeField {
+    evidence: FieldEvidence,
+    written: NativeType,
+    canonical: NativeType,
 }
 
 #[derive(Debug, Clone, Default, PartialEq, Eq)]
@@ -238,22 +273,38 @@ impl Snapshot {
 
     fn check(&self) -> Result<()> {
         for decl in &self.declarations {
-            if let DeclarationKind::Alias { written, canonical } = &decl.kind {
-                let mut expanded = self.expand(written, &mut BTreeSet::new())?;
-                let mut canonical = canonical.clone();
-                expanded.normalize_arrays();
-                canonical.normalize_arrays();
-                if expanded != canonical {
-                    return Err(Error::new(
-                        Stage::Agreement,
-                        format!(
-                            "{}: written typedef graph disagrees with compiler canonical type: \
-                             expanded {expanded:?}, canonical {canonical:?}",
-                            decl.evidence.qualified_name
-                        ),
-                    ));
+            match &decl.kind {
+                DeclarationKind::Alias { written, canonical } => {
+                    self.check_type(&decl.evidence.qualified_name, written, canonical)?;
                 }
+                DeclarationKind::Record { fields, .. } => {
+                    for field in fields {
+                        self.check_type(
+                            &format!("{}.{}", decl.evidence.qualified_name, field.evidence.name),
+                            &field.written,
+                            &field.canonical,
+                        )?;
+                    }
+                }
+                DeclarationKind::Opaque { .. } => {}
             }
+        }
+        Ok(())
+    }
+
+    fn check_type(&self, name: &str, written: &NativeType, canonical: &NativeType) -> Result<()> {
+        let mut expanded = self.expand(written, &mut BTreeSet::new())?;
+        let mut canonical = canonical.clone();
+        expanded.normalize_arrays();
+        canonical.normalize_arrays();
+        if expanded != canonical {
+            return Err(Error::new(
+                Stage::Agreement,
+                format!(
+                    "{name}: written type graph disagrees with compiler canonical type: \
+                 expanded {expanded:?}, canonical {canonical:?}"
+                ),
+            ));
         }
         Ok(())
     }

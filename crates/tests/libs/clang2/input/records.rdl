@@ -1,0 +1,35 @@
+#[win32]
+mod Test {
+    struct Arrays {
+        points: [Test::Point; 2],
+        state: Volatile<i32>,
+    }
+    struct Container {
+        tag: u8,
+        point: Test::Point,
+        storage: Test::Storage,
+        node: *mut Test::Node,
+        value: Const<i32>,
+    }
+    struct Left {
+        right: Test::PRight,
+    }
+    struct Node {
+        next: Test::PNode,
+        value: i32,
+    }
+    type PLeft = *mut Test::Left;
+    type PNode = *mut Test::Node;
+    type PRight = *mut Test::Right;
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+    struct Right {
+        left: Test::PLeft,
+    }
+    union Storage {
+        wide: i64,
+        bytes: [u8; 8],
+    }
+}

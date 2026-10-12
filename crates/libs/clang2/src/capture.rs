@@ -4,6 +4,10 @@ use super::*;
 use clang_sys::*;
 use std::ffi::{CStr, CString};
 use std::panic::{AssertUnwindSafe, catch_unwind, resume_unwind};
+use std::sync::{RwLock, RwLockReadGuard};
+
+// clang_createIndex registers LLVM targets, which must not overlap registry readers.
+static TARGET_REGISTRY: RwLock<()> = RwLock::new(());
 
 /// Reusable library ownership; each capture has a private index and translation unit.
 pub struct Compiler {
@@ -158,6 +162,7 @@ struct Session {
     arguments: Vec<String>,
     diagnostics: Vec<String>,
     target: String,
+    _registry: Option<RwLockReadGuard<'static, ()>>,
     _bindings: Bindings,
 }
 
@@ -190,6 +195,7 @@ impl Session {
             ],
             diagnostics: Vec::new(),
             target: String::new(),
+            _registry: None,
             _bindings: Bindings::new(library),
         };
         result.arguments.extend(input.arguments.iter().cloned());
@@ -212,13 +218,21 @@ impl Session {
                 Error::new(Stage::Source, "source length exceeds compiler input range")
             })?,
         };
-        result.index = unsafe { clang_createIndex(0, 0) };
+        {
+            let _registry = TARGET_REGISTRY.write().map_err(|_| {
+                Error::new(Stage::Capture, "compiler target registry lock is poisoned")
+            })?;
+            result.index = unsafe { clang_createIndex(0, 0) };
+        }
         if result.index.is_null() {
             return Err(Error::new(
                 Stage::Capture,
                 "compiler could not create an index",
             ));
         }
+        result._registry = Some(TARGET_REGISTRY.read().map_err(|_| {
+            Error::new(Stage::Capture, "compiler target registry lock is poisoned")
+        })?);
         let status = unsafe {
             clang_parseTranslationUnit2(
                 result.index,
@@ -335,9 +349,6 @@ impl Capture {
             .iter()
             .position(|value| unsafe { clang_equalCursors(*value, cursor) } != 0)
         {
-            if self.pending.contains(&id) {
-                return Err(error(cursor, "cyclic declaration capture"));
-            }
             return Ok(id);
         }
         if self.pending.len() >= 64 {
@@ -411,25 +422,95 @@ impl Capture {
                 canonical: self.ty(canonical, 0)?,
             }
         } else {
-            if unsafe { clang_Cursor_isNull(clang_getCursorDefinition(cursor)) } == 0 {
-                return Err(error(
-                    cursor,
-                    "complete records require C3; they cannot become opaque",
-                ));
-            }
             let ty = unsafe { clang_getCursorType(cursor) };
             self.declarations[id].evidence.written_type =
                 text(unsafe { clang_getTypeSpelling(ty) });
             self.declarations[id].evidence.canonical_type =
                 text(unsafe { clang_getTypeSpelling(clang_getCanonicalType(ty)) });
             self.declarations[id].evidence.layout = layout(ty)?;
-            DeclarationKind::Opaque {
-                union: kind == CXCursor_UnionDecl,
+            let definition = unsafe { clang_getCursorDefinition(cursor) };
+            if unsafe { clang_Cursor_isNull(definition) } != 0 {
+                DeclarationKind::Opaque {
+                    union: kind == CXCursor_UnionDecl,
+                }
+            } else {
+                let fields = self.record(definition)?;
+                let (expansion, spelling) = locations(definition);
+                self.declarations[id].evidence.expansion = expansion;
+                self.declarations[id].evidence.spelling = spelling;
+                DeclarationKind::Record {
+                    union: kind == CXCursor_UnionDecl,
+                    fields,
+                }
             }
         };
         self.declarations[id].kind = declaration;
         self.pending.remove(&id);
         Ok(id)
+    }
+
+    fn record(&mut self, cursor: CXCursor) -> Result<Vec<NativeField>> {
+        if unsafe { clang_isPODType(clang_getCursorType(cursor)) } == 0 {
+            return Err(error(cursor, "non-POD record behavior is outside C3-A"));
+        }
+        let mut fields = Vec::new();
+        for child in children(cursor) {
+            match unsafe { clang_getCursorKind(child) } {
+                CXCursor_CXXAccessSpecifier => {
+                    if unsafe { clang_getCXXAccessSpecifier(child) } != CX_CXXPublic {
+                        return Err(error(child, "nonpublic record members are outside C3-A"));
+                    }
+                }
+                CXCursor_FieldDecl => {
+                    if unsafe { clang_Cursor_isBitField(child) } != 0 {
+                        return Err(error(child, "bit-field storage is outside C3-A"));
+                    }
+                    if unsafe { clang_getCXXAccessSpecifier(child) } != CX_CXXPublic {
+                        return Err(error(child, "nonpublic record members are outside C3-A"));
+                    }
+                    if children(child)
+                        .iter()
+                        .any(|attr| unsafe { clang_isAttribute(clang_getCursorKind(*attr)) } != 0)
+                    {
+                        return Err(error(child, "field attributes require C7 contracts"));
+                    }
+                    let name = text(unsafe { clang_getCursorSpelling(child) });
+                    if name.is_empty() {
+                        return Err(error(child, "anonymous record storage is outside C3-A"));
+                    }
+                    let bits = unsafe { clang_Cursor_getOffsetOfField(child) };
+                    if bits < 0 || bits % 8 != 0 {
+                        return Err(error(child, "native field has no byte-aligned offset"));
+                    }
+                    let ty = unsafe { clang_getCursorType(child) };
+                    let canonical = unsafe { clang_getCanonicalType(ty) };
+                    let (expansion, spelling) = locations(child);
+                    fields.push(NativeField {
+                        evidence: FieldEvidence {
+                            name,
+                            expansion,
+                            spelling,
+                            written_type: text(unsafe { clang_getTypeSpelling(ty) }),
+                            canonical_type: text(unsafe { clang_getTypeSpelling(canonical) }),
+                            layout: layout(ty)?,
+                            offset: bits as u64 / 8,
+                        },
+                        written: self.ty(ty, 0)?,
+                        canonical: self.ty(canonical, 0)?,
+                    });
+                }
+                _ => {
+                    return Err(error(
+                        child,
+                        "record member behavior, attributes, or nested storage is outside C3-A",
+                    ));
+                }
+            }
+        }
+        if fields.is_empty() {
+            return Err(error(cursor, "empty record storage is outside C3-A"));
+        }
+        Ok(fields)
     }
 
     fn ty(&mut self, ty: CXType, depth: usize) -> Result<NativeType> {

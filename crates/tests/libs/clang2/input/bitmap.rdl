@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    struct BitmapData {
+        width: u32,
+        stride: i32,
+        scan: *mut void,
+    }
+}
