@@ -59,7 +59,10 @@ pub fn capture(inputs: &[Input], targets: &[Target]) -> Result<Vec<Snapshot>, Er
                     let owned_index = index;
                     let results: Vec<_> = sources
                         .iter()
-                        .map(|(name, source)| parse(&owned_index, name, source, target, compiler))
+                        .zip(inputs)
+                        .map(|((name, source), input)| {
+                            parse(&owned_index, name, source, input, target, compiler)
+                        })
                         .collect();
                     (owned_index, results)
                 })
@@ -122,15 +125,13 @@ fn parse(
     index: &Index,
     name: &CString,
     source: &CString,
+    input: &Input,
     target: Target,
     compiler: &str,
 ) -> Result<Snapshot, Error> {
-    let arguments = vec![
-        "-x".into(),
-        "c++".into(),
-        "-std=c++20".into(),
-        format!("--target={}", target.triple()),
-    ];
+    let mut arguments = vec!["-x".into(), "c++".into(), "-std=c++20".into()];
+    arguments.extend(input.arguments.iter().cloned());
+    arguments.push(format!("--target={}", target.triple()));
     let context = format!(
         "{} [{}] {}",
         name.to_string_lossy(),
@@ -140,8 +141,8 @@ fn parse(
     let parse = || {
         let args: Vec<_> = arguments
             .iter()
-            .map(|arg| CString::new(arg.as_str()).unwrap())
-            .collect();
+            .map(|arg| CString::new(arg.as_str()).map_err(|error| Error(error.to_string())))
+            .collect::<Result<_, _>>()?;
         let pointers: Vec<_> = args.iter().map(|arg| arg.as_ptr()).collect();
         let mut unsaved = CXUnsavedFile {
             Filename: name.as_ptr(),
@@ -193,12 +194,13 @@ fn parse(
             compiler: compiler.to_string(),
             arguments: arguments.clone(),
             diagnostics,
+            roots: Vec::new(),
             files: Vec::new(),
             records: Vec::new(),
             observations: Vec::new(),
             types: Vec::new(),
         };
-        capture::read(unit.0, &mut snapshot)?;
+        capture::read(unit.0, &input.roots, &mut snapshot)?;
         Ok(snapshot)
     };
     parse().map_err(|error| Error(format!("{context}\n{error}")))

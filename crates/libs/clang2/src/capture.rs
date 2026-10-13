@@ -4,37 +4,118 @@ use super::*;
 use clang_sys::*;
 use native::*;
 
-pub(super) fn read(unit: CXTranslationUnit, snapshot: &mut Snapshot) -> Result<(), Error> {
-    let declarations = children(unsafe { clang_getTranslationUnitCursor(unit) });
+pub(super) fn read(
+    unit: CXTranslationUnit,
+    roots: &[String],
+    snapshot: &mut Snapshot,
+) -> Result<(), Error> {
+    let declarations = declarations(unsafe { clang_getTranslationUnitCursor(unit) });
     let mut capture = Capture {
+        declarations: HashMap::new(),
+        pending: Vec::new(),
         records: HashMap::new(),
         types: HashMap::new(),
         files: HashMap::new(),
         snapshot,
     };
+    let mut names: HashMap<String, Vec<Cursor>> = HashMap::new();
+    let mut all = Vec::new();
     for &cursor in &declarations {
-        if unsafe { clang_getCursorKind(cursor) } != CXCursor_StructDecl
-            || text(unsafe { clang_getCursorSpelling(cursor) }).is_empty()
-        {
-            return Err(unsupported(cursor, "expected a named struct declaration"));
+        let name = text(unsafe { clang_getCursorSpelling(cursor) });
+        if unsafe { clang_getCursorKind(cursor) } != CXCursor_StructDecl || name.is_empty() {
+            if roots.is_empty() {
+                return Err(unsupported(cursor, "expected a named struct declaration"));
+            }
+            continue;
         }
         let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
-        if !capture.records.contains_key(&key) {
-            let id = RecordId(capture.snapshot.records.len());
-            let usr = text(unsafe { clang_getCursorUSR(cursor) });
-            if usr.is_empty() {
-                return Err(unsupported(cursor, "record identity unavailable"));
+        let observations = capture.declarations.entry(key).or_insert_with(|| {
+            names.entry(name).or_default().push(key);
+            all.push(key);
+            Vec::new()
+        });
+        observations.push(cursor);
+    }
+    let mut selected = HashSet::new();
+    let selected = if roots.is_empty() {
+        all
+    } else {
+        let mut result = Vec::new();
+        for name in roots {
+            let Some(candidates) = names.get(name) else {
+                return Err(Error(format!("requested struct `{name}` not found")));
+            };
+            if candidates.len() != 1 {
+                return Err(Error(format!("requested struct `{name}` is ambiguous")));
             }
-            capture.snapshot.records.push(Record {
-                name: text(unsafe { clang_getCursorSpelling(cursor) }),
-                usr,
-                observations: Vec::new(),
-            });
-            capture.records.insert(key, id);
+            if selected.insert(candidates[0]) {
+                result.push(candidates[0]);
+            }
+        }
+        result
+    };
+    for cursor in selected {
+        let record = capture.record(cursor.0)?;
+        capture.snapshot.roots.push(record);
+    }
+    while let Some(key) = capture.pending.pop() {
+        let record = capture.records[&key];
+        for cursor in capture.declarations.remove(&key).unwrap() {
+            capture.observation(record, cursor)?;
         }
     }
-    for cursor in declarations {
-        let record = capture.records[&Cursor(unsafe { clang_getCanonicalCursor(cursor) })];
+    Ok(())
+}
+
+fn declarations(cursor: CXCursor) -> Vec<CXCursor> {
+    let mut result = Vec::new();
+    for child in children(cursor) {
+        if unsafe { clang_getCursorKind(child) } == CXCursor_LinkageSpec {
+            result.extend(declarations(child));
+        } else {
+            result.push(child);
+        }
+    }
+    result
+}
+
+struct Capture<'a> {
+    declarations: HashMap<Cursor, Vec<CXCursor>>,
+    pending: Vec<Cursor>,
+    records: HashMap<Cursor, RecordId>,
+    types: HashMap<Type, TypeId>,
+    files: HashMap<String, FileId>,
+    snapshot: &'a mut Snapshot,
+}
+
+impl Capture<'_> {
+    fn record(&mut self, cursor: CXCursor) -> Result<RecordId, Error> {
+        let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
+        if let Some(&id) = self.records.get(&key) {
+            return Ok(id);
+        }
+        if !self.declarations.contains_key(&key) {
+            return Err(unsupported(
+                cursor,
+                "dependency is not a global named struct",
+            ));
+        }
+        let usr = text(unsafe { clang_getCursorUSR(cursor) });
+        if usr.is_empty() {
+            return Err(unsupported(cursor, "record identity unavailable"));
+        }
+        let id = RecordId(self.snapshot.records.len());
+        self.snapshot.records.push(Record {
+            name: text(unsafe { clang_getCursorSpelling(cursor) }),
+            usr,
+            observations: Vec::new(),
+        });
+        self.records.insert(key, id);
+        self.pending.push(key);
+        Ok(id)
+    }
+
+    fn observation(&mut self, record: RecordId, cursor: CXCursor) -> Result<(), Error> {
         let definition = if unsafe { clang_isCursorDefinition(cursor) } != 0 {
             let mut fields = Vec::new();
             for field in children(cursor) {
@@ -47,7 +128,17 @@ pub(super) fn read(unit: CXTranslationUnit, snapshot: &mut Snapshot) -> Result<(
                         )
                     })
                 {
-                    return Err(unsupported(field, "only plain named fields are supported"));
+                    return Err(unsupported(
+                        cursor,
+                        &format!(
+                            "only plain named fields are supported in `{}`: {} `{}`",
+                            text(unsafe { clang_getCursorSpelling(cursor) }),
+                            text(unsafe {
+                                clang_getCursorKindSpelling(clang_getCursorKind(field))
+                            }),
+                            text(unsafe { clang_getCursorSpelling(field) }),
+                        ),
+                    ));
                 }
                 let name = text(unsafe { clang_getCursorSpelling(field) });
                 if name.is_empty() {
@@ -56,9 +147,9 @@ pub(super) fn read(unit: CXTranslationUnit, snapshot: &mut Snapshot) -> Result<(
                 let ty = unsafe { clang_getCursorType(field) };
                 fields.push(Field {
                     name,
-                    location: capture.location(field),
-                    written: capture.ty(ty, field)?,
-                    canonical: capture.ty(unsafe { clang_getCanonicalType(ty) }, field)?,
+                    location: self.location(field),
+                    written: self.ty(ty, field)?,
+                    canonical: self.ty(unsafe { clang_getCanonicalType(ty) }, field)?,
                     offset_bits: unsafe { clang_Cursor_getOffsetOfField(field) }
                         .try_into()
                         .map_err(|_| unsupported(field, "field offset unavailable"))?,
@@ -77,24 +168,15 @@ pub(super) fn read(unit: CXTranslationUnit, snapshot: &mut Snapshot) -> Result<(
         };
         let observation = RecordObservation {
             record,
-            location: capture.location(cursor),
+            location: self.location(cursor),
             definition,
         };
-        let id = ObservationId(capture.snapshot.observations.len());
-        capture.snapshot.observations.push(observation);
-        capture.snapshot.records[record.0].observations.push(id);
+        let id = ObservationId(self.snapshot.observations.len());
+        self.snapshot.observations.push(observation);
+        self.snapshot.records[record.0].observations.push(id);
+        Ok(())
     }
-    Ok(())
-}
 
-struct Capture<'a> {
-    records: HashMap<Cursor, RecordId>,
-    types: HashMap<Type, TypeId>,
-    files: HashMap<String, FileId>,
-    snapshot: &'a mut Snapshot,
-}
-
-impl Capture<'_> {
     fn location(&mut self, cursor: CXCursor) -> Location {
         let (name, line, column, offset) = source(cursor);
         let file = if let Some(&file) = self.files.get(&name) {
@@ -144,13 +226,7 @@ impl Capture<'_> {
                         .try_into()
                         .map_err(|_| unsupported(cursor, "array extent unavailable"))?,
                 },
-                CXType_Record => {
-                    let declaration =
-                        Cursor(clang_getCanonicalCursor(clang_getTypeDeclaration(ty)));
-                    TypeKind::Record(*self.records.get(&declaration).ok_or_else(|| {
-                        unsupported(cursor, "record is outside captured declarations")
-                    })?)
-                }
+                CXType_Record => TypeKind::Record(self.record(clang_getTypeDeclaration(ty))?),
                 _ => {
                     return Err(unsupported(
                         cursor,

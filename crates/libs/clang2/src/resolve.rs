@@ -25,7 +25,7 @@ pub struct Work {
 }
 
 pub struct Resolution<'a> {
-    pub snapshots: &'a [Snapshot],
+    pub snapshots: Vec<&'a Snapshot>,
     pub groups: Vec<Group>,
     pub work: Work,
     record_groups: Vec<Vec<usize>>,
@@ -62,6 +62,10 @@ struct TypeRef {
 /// Correspondence is restricted to global named structs under matching compiler arguments.
 /// Names and USRs select candidates; all candidate definitions must then agree.
 pub fn resolve(snapshots: &[Snapshot]) -> Result<Resolution<'_>, Error> {
+    resolve_snapshots(snapshots.iter().collect())
+}
+
+pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<'_>, Error> {
     let Some(first) = snapshots.first() else {
         return Err(Error("resolve requires snapshots".into()));
     };
@@ -137,7 +141,7 @@ pub fn resolve(snapshots: &[Snapshot]) -> Result<Resolution<'_>, Error> {
             .definition
             .as_ref()
             .unwrap();
-        let conflict = |reason| conflict(snapshots, left, right, reason);
+        let conflict = |reason| conflict(&snapshots, left, right, reason);
         if a.layout != b.layout || a.fields.len() != b.fields.len() {
             return Err(conflict("record layout or field count differs"));
         }
@@ -178,7 +182,7 @@ pub fn resolve(snapshots: &[Snapshot]) -> Result<Resolution<'_>, Error> {
         let b = &snapshots[right.snapshot].types[right.ty.0];
         let conflict = || {
             conflict(
-                snapshots,
+                &snapshots,
                 owner_left,
                 owner_right,
                 "native field types differ",
@@ -230,7 +234,7 @@ pub fn resolve(snapshots: &[Snapshot]) -> Result<Resolution<'_>, Error> {
 }
 
 fn conflict(
-    snapshots: &[Snapshot],
+    snapshots: &[&Snapshot],
     left: ObservationRef,
     right: ObservationRef,
     reason: &str,

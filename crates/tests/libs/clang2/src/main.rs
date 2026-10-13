@@ -1,6 +1,6 @@
 use std::time::Instant;
 use test_clang2::{fixture, shared_graph};
-use windows_clang2::{Snapshot, Target, capture, resolve};
+use windows_clang2::{Snapshot, Target, capture, merge};
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
@@ -25,17 +25,19 @@ fn inspect(args: &[String]) {
     };
     let inputs: Vec<_> = names.into_iter().map(fixture).collect();
     let snapshots = capture(&inputs, &TARGETS).unwrap();
-    for snapshots in snapshots.chunks(inputs.len()) {
-        let resolved = resolve(snapshots).unwrap();
+    let merged = merge(&snapshots).unwrap();
+    for (target, resolved) in &merged.targets {
         println!(
             "{:?}: {} TUs, {} entities, {} observations -> {} groups",
-            snapshots[0].target,
-            snapshots.len(),
-            snapshots
+            target,
+            resolved.snapshots.len(),
+            resolved
+                .snapshots
                 .iter()
                 .map(|snapshot| snapshot.records.len())
                 .sum::<usize>(),
-            snapshots
+            resolved
+                .snapshots
                 .iter()
                 .map(|snapshot| snapshot.observations.len())
                 .sum::<usize>(),
@@ -63,7 +65,7 @@ fn inspect(args: &[String]) {
 
 fn scale() {
     println!(
-        "records_per_TU,TUs,targets,source_bytes,capture_ms,resolve_ms,owned_bytes,entities,observations,types,fields,definition_pairs,type_pairs"
+        "records_per_TU,TUs,targets,source_bytes,capture_ms,merge_ms,owned_bytes,entities,observations,types,fields,definition_pairs,type_pairs"
     );
     for count in [128, 512, 2048, 8192] {
         let inputs = shared_graph(count);
@@ -72,10 +74,7 @@ fn scale() {
         let snapshots = capture(&inputs, &TARGETS).unwrap();
         let capture_time = started.elapsed();
         let started = Instant::now();
-        let resolutions: Vec<_> = snapshots
-            .chunks(inputs.len())
-            .map(|snapshots| resolve(snapshots).unwrap())
-            .collect();
+        let merged = merge(&snapshots).unwrap();
         let resolve_time = started.elapsed();
         let stats: Vec<_> = snapshots.iter().map(Snapshot::statistics).collect();
         println!(
@@ -87,11 +86,16 @@ fn scale() {
             stats.iter().map(|s| s.observations).sum::<usize>(),
             stats.iter().map(|s| s.types).sum::<usize>(),
             stats.iter().map(|s| s.fields).sum::<usize>(),
-            resolutions
-                .iter()
+            merged
+                .targets
+                .values()
                 .map(|r| r.work.definition_pairs)
                 .sum::<usize>(),
-            resolutions.iter().map(|r| r.work.type_pairs).sum::<usize>()
+            merged
+                .targets
+                .values()
+                .map(|r| r.work.type_pairs)
+                .sum::<usize>()
         );
     }
 }

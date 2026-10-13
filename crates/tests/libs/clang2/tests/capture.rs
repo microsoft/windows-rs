@@ -8,6 +8,7 @@ fn input(name: &str, source: &str) -> Input {
     Input {
         name: name.into(),
         source: source.into(),
+        ..Default::default()
     }
 }
 

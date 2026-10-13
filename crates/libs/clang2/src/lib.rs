@@ -1,15 +1,17 @@
 #![doc = include_str!("../readme.md")]
 
 mod capture;
+mod merge;
 mod native;
 mod resolve;
 mod runtime;
+pub use merge::{Merged, RecordVariants, merge};
 pub use resolve::{Group, ObservationRef, RecordRef, Resolution, Work, resolve};
 pub use runtime::capture;
 
 use std::collections::{BTreeMap, HashMap, HashSet};
 
-#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum Target {
     X86,
     X64,
@@ -26,9 +28,14 @@ impl Target {
     }
 }
 
+#[derive(Default)]
 pub struct Input {
     pub name: String,
     pub source: String,
+    /// Additional compiler arguments, such as include paths and macro definitions.
+    pub arguments: Vec<String>,
+    /// Global struct names and their dependencies within this TU. Empty selects all declarations.
+    pub roots: Vec<String>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -136,6 +143,8 @@ pub struct Snapshot {
     pub compiler: String,
     pub arguments: Vec<String>,
     pub diagnostics: Vec<String>,
+    /// Selected records; other records were reached through dependencies.
+    pub roots: Vec<RecordId>,
     pub files: Vec<String>,
     pub records: Vec<Record>,
     pub observations: Vec<RecordObservation>,
@@ -166,6 +175,7 @@ impl Snapshot {
             + self.compiler.capacity()
             + strings_bytes(&self.arguments)
             + strings_bytes(&self.diagnostics)
+            + vector_bytes(&self.roots)
             + strings_bytes(&self.files)
             + vector_bytes(&self.records)
             + vector_bytes(&self.observations)
