@@ -100,6 +100,22 @@ fn system_theme_preference_preserves_query_errors() {
 #[test]
 #[ignore = "requires an interactive WinUI desktop"]
 fn system_menu_theme_updates_live_and_propagates_errors() {
+    // WinUI supports one Application lifetime per process.
+    if std::env::var_os("REACTOR_MENU_THEME_TEST_CHILD").is_none() {
+        let status = std::process::Command::new(std::env::current_exe().unwrap())
+            .args([
+                "--exact",
+                "native::transient_menu::tests::system_menu_theme_updates_live_and_propagates_errors",
+                "--ignored",
+                "--nocapture",
+            ])
+            .env("REACTOR_MENU_THEME_TEST_CHILD", "1")
+            .status()
+            .unwrap();
+        assert!(status.success());
+        return;
+    }
+
     fn assert_theme(state: &TransientMenuState, expected: ElementTheme) {
         assert_eq!(state.theme.anchor.ActualTheme().unwrap(), expected);
         let flyout = state

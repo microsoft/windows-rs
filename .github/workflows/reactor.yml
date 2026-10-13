@@ -194,7 +194,7 @@ jobs:
                 --quiet -- $_
             }
           cargo test -p windows-reactor --lib native:: `
-            --quiet -- --ignored --test-threads=1
+            -- --ignored --test-threads=1 --nocapture
           cargo run -p test-reactor-integration --bin canvas_integration --quiet
           cargo run -p test-reactor-integration --bin window_state --quiet
           cargo run -p test-reactor-integration --bin window_observers --quiet
