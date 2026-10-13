@@ -12,6 +12,7 @@ struct Entry {
     name: String,
     kind: Kind,
     owner: Option<metadata::TypeName>,
+    attributes: Vec<String>,
 }
 
 enum Kind {
@@ -35,7 +36,8 @@ enum Kind {
         convention: CallingConvention,
         variadic: bool,
         result: metadata::Type,
-        params: Vec<(String, metadata::Type)>,
+        params: Vec<Parameter>,
+        annotations: Vec<AnnotationEvidence>,
     },
     Interface {
         evidence: InterfaceEvidence,
@@ -48,7 +50,14 @@ struct Method {
     name: String,
     slot: u32,
     result: metadata::Type,
-    params: Vec<(String, metadata::Type)>,
+    params: Vec<Parameter>,
+    annotations: Vec<AnnotationEvidence>,
+}
+
+struct Parameter {
+    name: String,
+    ty: metadata::Type,
+    contract: ParameterContract,
 }
 
 struct Field {
@@ -221,6 +230,7 @@ impl Closed {
                             Ok(Method {
                                 name: method.evidence.name.clone(),
                                 slot: method.evidence.slot,
+                                annotations: method.function.evidence.annotations.clone(),
                                 result: lower(&method.function.result, &names, snapshot.target)?,
                                 params: function_parameters(
                                     std::slice::from_ref(&method.function),
@@ -259,6 +269,7 @@ impl Closed {
                         variadic: first.evidence.variadic,
                         result: lower(&first.result, &names, snapshot.target)?,
                         params,
+                        annotations: observations.iter().flat_map(|function| function.evidence.annotations.clone()).collect(),
                     }
                 }
             };
@@ -286,6 +297,7 @@ impl Closed {
                         name: name.name.clone(),
                         kind,
                         owner,
+                        attributes: Vec::new(),
                     },
                 )
                 .is_some()
@@ -303,14 +315,65 @@ impl Closed {
                     "unsupported macro publication name",
                 ));
             }
-            let MacroKind::Integer { value, .. } = &evidence.kind else {
-                return Err(Error::new(
-                    Stage::Representation,
-                    format!(
-                        "{}: macro alias publication requires a profile-specific contract",
-                        evidence.name
-                    ),
-                ));
+            let value = match &evidence.kind {
+                MacroKind::Integer { value, .. } => value,
+                MacroKind::Alias {
+                    qualified_name,
+                    kind,
+                    usr,
+                    expansion,
+                    spelling,
+                } => {
+                    let targets = snapshot
+                        .declarations
+                        .iter()
+                        .enumerate()
+                        .filter(|(_, decl)| {
+                            decl.evidence.qualified_name == *qualified_name
+                                && decl.evidence.kind == *kind
+                                && decl.evidence.usr == *usr
+                                && decl.evidence.expansion == *expansion
+                                && decl.evidence.spelling == *spelling
+                        })
+                        .collect::<Vec<_>>();
+                    let [(id, target)] = targets.as_slice() else {
+                        return Err(Error::new(
+                            Stage::Representation,
+                            format!(
+                                "{}: alias target must have one original closed native declaration",
+                                evidence.name
+                            ),
+                        ));
+                    };
+                    let name = names[*id].as_ref().ok_or_else(|| {
+                        Error::new(
+                            Stage::Representation,
+                            "macro alias target has no publication identity",
+                        )
+                    })?;
+                    let key = (
+                        name.namespace.clone(),
+                        name.name.clone(),
+                        matches!(target.kind, DeclarationKind::Function(_)),
+                    );
+                    let entry = declarations.get_mut(&key).ok_or_else(|| {
+                        Error::new(
+                            Stage::Representation,
+                            "macro alias target was omitted from closed output",
+                        )
+                    })?;
+                    entry.attributes.push(format!(
+                        "#[Windows::Win32::Metadata::NativeMacroAlias({:?}, {:?}, {:?})]",
+                        evidence.name,
+                        kind,
+                        format!(
+                            "source-sha256={}\n{}",
+                            snapshot.source_sha256,
+                            snapshot.arguments.join("\n")
+                        )
+                    ));
+                    continue;
+                }
             };
             let key = (namespace.to_string(), evidence.name.clone(), true);
             if declarations
@@ -321,6 +384,7 @@ impl Closed {
                         name: evidence.name.clone(),
                         kind: Kind::Constant(value.clone()),
                         owner: None,
+                        attributes: Vec::new(),
                     },
                 )
                 .is_some()
@@ -404,7 +468,8 @@ impl Closed {
                 format!("#[Windows::Win32::Metadata::NativeTypeOwner({owner})] ")
             });
             node.items.push(format!(
-                "{owner}{}",
+                "{}{owner}{}",
+                decl.attributes.join(" "),
                 Self::render(&decl.kind, &name.to_string())
             ));
         }
@@ -502,11 +567,12 @@ impl Closed {
                         let params = method
                             .params
                             .iter()
-                            .map(|(name, ty)| {
+                            .map(|parameter| {
                                 format!(
-                                    "#[unspecified] {}: {}",
-                                    windows_rdl::emit::write_ident(name),
-                                    windows_rdl::emit::write_type("", ty)
+                                    "{} {}: {}",
+                                    parameter_attributes(&parameter.contract),
+                                    windows_rdl::emit::write_ident(&parameter.name),
+                                    windows_rdl::emit::write_type("", &parameter.ty)
                                 )
                             })
                             .collect::<Vec<_>>();
@@ -516,7 +582,8 @@ impl Closed {
                             format!(" -> {}", windows_rdl::emit::write_type("", &method.result))
                         };
                         format!(
-                            "#[slot({})] fn {name}(&self{}){result};",
+                            "{} #[slot({})] fn {name}(&self{}){result};",
+                            annotation_attributes(&method.annotations),
                             method.slot,
                             if params.is_empty() {
                                 String::new()
@@ -572,6 +639,7 @@ impl Closed {
                 variadic,
                 result,
                 params,
+                annotations,
             } => {
                 let import_name = if import.export == name.trim_start_matches("r#") {
                     String::new()
@@ -585,10 +653,10 @@ impl Closed {
                 };
                 let mut params = params
                     .iter()
-                    .map(|(name, ty)| {
-                        let name = windows_rdl::emit::write_ident(name);
-                        let ty = windows_rdl::emit::write_type("", ty);
-                        format!("{name}: {ty}")
+                    .map(|parameter| {
+                        let name = windows_rdl::emit::write_ident(&parameter.name);
+                        let ty = windows_rdl::emit::write_type("", &parameter.ty);
+                        format!("{} {name}: {ty}", parameter_attributes(&parameter.contract))
                     })
                     .collect::<Vec<_>>();
                 if *variadic {
@@ -600,7 +668,8 @@ impl Closed {
                     format!(" -> {}", windows_rdl::emit::write_type("", result))
                 };
                 format!(
-                    "#[library({:?}{import_name})] extern{abi} fn {name}({}){result};",
+                    "{} #[library({:?}{import_name})] extern{abi} fn {name}({}){result};",
+                    annotation_attributes(annotations),
                     import.dll,
                     params.join(", ")
                 )
@@ -659,7 +728,7 @@ fn function_parameters(
     observations: &[NativeFunction],
     names: &[Option<metadata::TypeName>],
     target: Target,
-) -> Result<Vec<(String, metadata::Type)>> {
+) -> Result<Vec<Parameter>> {
     let first = &observations[0];
     let mut chosen = (0..first.params.len())
         .map(|ordinal| {
@@ -688,10 +757,71 @@ fn function_parameters(
     chosen
         .into_iter()
         .zip(&first.params)
-        .map(|(name, param)| Ok((name.unwrap(), lower(&param.written, names, target)?)))
+        .enumerate()
+        .map(|(ordinal, (name, param))| {
+            let mut contract = param.evidence.contract.clone();
+            contract.annotations = observations
+                .iter()
+                .flat_map(|function| {
+                    function.params[ordinal]
+                        .evidence
+                        .contract
+                        .annotations
+                        .clone()
+                })
+                .collect();
+            Ok(Parameter {
+                name: name.unwrap(),
+                ty: lower(&param.written, names, target)?,
+                contract,
+            })
+        })
         .collect()
 }
 
+fn annotation_attributes(annotations: &[AnnotationEvidence]) -> String {
+    let mut ordinals = BTreeMap::new();
+    let mut result = String::new();
+    for annotation in annotations {
+        let ordinal = ordinals.entry(annotation.source.as_str()).or_insert(0);
+        result.push_str(&format!(
+            "#[Windows::Win32::Metadata::NativeAnnotation({:?}, {}, {:?})] ",
+            annotation.source, ordinal, annotation.payload
+        ));
+        for (identifier, parameter) in &annotation.bindings {
+            result.push_str(&format!(
+                "#[Windows::Win32::Metadata::NativeAnnotationBinding({:?}, {}, {:?}, {})] ",
+                annotation.source, ordinal, identifier, parameter
+            ));
+        }
+        *ordinal += 1;
+    }
+    result
+}
+
+fn parameter_attributes(contract: &ParameterContract) -> String {
+    let mut result: String = match contract.direction {
+        None => "#[unspecified]".into(),
+        Some(Direction::In) => "#[r#in]".into(),
+        Some(Direction::Out) => "#[out]".into(),
+        Some(Direction::InOut) => "#[r#in] #[out]".into(),
+    };
+    if contract.optional {
+        result.push_str(" #[opt]");
+    }
+    if contract.com_outptr {
+        result.push_str(" #[iid_is]");
+    }
+    result.push(' ');
+    result.push_str(&annotation_attributes(&contract.annotations));
+    for extent in &contract.extents {
+        result.push_str(&format!(
+            "#[Windows::Win32::Metadata::NativeBufferExtent({:?}, {:?}, {}, {})] ",
+            extent.phase, extent.units, extent.parameter, extent.dereference
+        ));
+    }
+    result
+}
 fn identifier(name: &str) -> bool {
     if matches!(name, "self" | "Self" | "_") {
         return false;

@@ -88,7 +88,7 @@ impl Index {
                 .validate_native_records(None)
                 .map_err(NativeContractError::Record)?;
         }
-        self.validate_native_annotations()
+        self.validate_native_annotations_with_reference(reference)
             .map_err(NativeContractError::Annotation)?;
         self.validate_native_bitfields(reference)
             .map_err(NativeContractError::Bitfield)?;
@@ -104,12 +104,24 @@ impl Index {
 
     /// Checks annotation identities, owners, and original positional bindings without lowering SAL.
     pub fn validate_native_annotations(&self) -> Result<(), NativeAnnotationError> {
+        self.validate_native_annotations_with_reference(None)
+    }
+
+    fn validate_native_annotations_with_reference(
+        &self,
+        reference: Option<&Self>,
+    ) -> Result<(), NativeAnnotationError> {
         let mut owners: BTreeMap<HasAttribute<'_>, Annotations> = BTreeMap::new();
+        let mut aliases = BTreeSet::new();
+        let mut extents = BTreeSet::new();
         for attr in self.all_attributes().filter(|attr| {
             attr.namespace() == "Windows.Win32.Metadata"
                 && matches!(
                     attr.name(),
-                    "NativeAnnotationAttribute" | "NativeAnnotationBindingAttribute"
+                    "NativeAnnotationAttribute"
+                        | "NativeAnnotationBindingAttribute"
+                        | "NativeMacroAliasAttribute"
+                        | "NativeBufferExtentAttribute"
                 )
         }) {
             let owner = attr.parent();
@@ -128,6 +140,98 @@ impl Index {
                 return invalid("native annotation arguments must be positional");
             }
             let values: Vec<_> = values.into_iter().map(|(_, value)| value).collect();
+            if attr.name() == "NativeMacroAliasAttribute" {
+                let [Value::Utf8(name), Value::Utf8(kind), Value::Utf8(profile)] =
+                    values.as_slice()
+                else {
+                    return invalid("invalid native macro alias arguments");
+                };
+                let valid_owner = match owner {
+                    HasAttribute::MethodDef(method) => {
+                        kind == "FunctionDecl" && method.impl_map().is_some()
+                    }
+                    HasAttribute::TypeDef(_) => matches!(
+                        kind.as_str(),
+                        "TypedefDecl"
+                            | "TypeAliasDecl"
+                            | "StructDecl"
+                            | "ClassDecl"
+                            | "UnionDecl"
+                            | "EnumDecl"
+                    ),
+                    _ => false,
+                };
+                let mut bytes = name.bytes();
+                if !valid_owner
+                    || !matches!(bytes.next(), Some(b'a'..=b'z' | b'A'..=b'Z' | b'_'))
+                    || !bytes.all(|byte| byte.is_ascii_alphanumeric() || byte == b'_')
+                    || !native_alias_profile(profile)
+                {
+                    return invalid("invalid native macro alias owner, name, kind, or profile");
+                }
+                if !aliases.insert((name.clone(), profile.clone())) {
+                    return invalid("duplicate active native macro alias in one compiler profile");
+                }
+                continue;
+            }
+            if attr.name() == "NativeBufferExtentAttribute" {
+                let HasAttribute::MethodParam(parameter) = owner else {
+                    return invalid("native buffer extent requires a parameter owner");
+                };
+                let [
+                    Value::Utf8(phase),
+                    Value::Utf8(units),
+                    Value::I32(position),
+                    Value::Bool(dereference),
+                ] = values.as_slice()
+                else {
+                    return invalid("invalid native buffer extent arguments");
+                };
+                let method = parameter.parent();
+                let generics: Vec<_> = declaration
+                    .generic_params()
+                    .map(|param| Type::Generic(param.name().to_string(), param.sequence()))
+                    .collect();
+                let signature = method.signature(&generics);
+                method
+                    .params_by_sequence(signature.types.len())
+                    .map_err(|error| NativeAnnotationError(error.to_string()))?;
+                if parameter.sequence() == 0
+                    || !matches!(phase.as_str(), "capacity" | "valid")
+                    || !matches!(units.as_str(), "bytes" | "elements")
+                    || *position < 0
+                    || *position as usize >= signature.types.len()
+                    || !extents.insert((owner, phase.clone(), units.clone()))
+                {
+                    return invalid("invalid or duplicate native buffer extent");
+                }
+                let owned = &signature.types[usize::from(parameter.sequence() - 1)];
+                if !matches!(owned.unqualified(), Type::PtrMut(..) | Type::PtrConst(..)) {
+                    return invalid("native buffer extent owner is not a pointer parameter");
+                }
+                let value = &signature.types[*position as usize];
+                let value = if *dereference {
+                    match value.unqualified() {
+                        Type::PtrMut(value, 1) | Type::PtrConst(value, 1) => value.as_ref(),
+                        _ => {
+                            return invalid(
+                                "dereferenced native extent is not a one-level pointer",
+                            );
+                        }
+                    }
+                } else {
+                    value
+                };
+                if !self.native_extent_integer(
+                    value,
+                    reference,
+                    method.arches(),
+                    &mut BTreeSet::new(),
+                ) {
+                    return invalid("native buffer extent is not an integer value");
+                }
+                continue;
+            }
             let group = owners.entry(owner).or_default();
             match (attr.name(), values.as_slice()) {
                 (
@@ -190,6 +294,73 @@ impl Index {
         }
         Ok(())
     }
+
+    fn native_extent_integer(
+        &self,
+        ty: &Type,
+        reference: Option<&Self>,
+        arches: i32,
+        visiting: &mut BTreeSet<(String, String)>,
+    ) -> bool {
+        match ty.unqualified() {
+            Type::I8
+            | Type::U8
+            | Type::I16
+            | Type::U16
+            | Type::I32
+            | Type::U32
+            | Type::I64
+            | Type::U64
+            | Type::ISize
+            | Type::USize => true,
+            Type::ValueName(name)
+                if name.generics.is_empty()
+                    && visiting.len() < 64
+                    && visiting.insert((name.namespace.clone(), name.name.clone())) =>
+            {
+                let definitions: Vec<_> = self
+                    .get(&name.namespace, &name.name)
+                    .chain(
+                        reference
+                            .into_iter()
+                            .flat_map(|index| index.get(&name.namespace, &name.name)),
+                    )
+                    .filter(|definition| {
+                        arches == 0 || definition.arches() == 0 || definition.arches() & arches != 0
+                    })
+                    .collect();
+                if definitions.is_empty() {
+                    return false;
+                }
+                definitions.into_iter().all(|definition| {
+                    if !definition.attributes().any(|attribute| {
+                        attribute.namespace() == "Windows.Win32.Metadata"
+                            && attribute.name() == "NativeTypedefAttribute"
+                    }) {
+                        return false;
+                    }
+                    definition.underlying_type().is_some_and(|ty| {
+                        self.native_extent_integer(&ty, reference, arches, &mut visiting.clone())
+                    })
+                })
+            }
+            _ => false,
+        }
+    }
+}
+
+fn native_alias_profile(profile: &str) -> bool {
+    let mut lines = profile.lines();
+    let Some(hash) = lines
+        .next()
+        .and_then(|line| line.strip_prefix("source-sha256="))
+    else {
+        return false;
+    };
+    hash.len() == 64
+        && hash.bytes().all(|byte| byte.is_ascii_hexdigit())
+        && lines.clone().next().is_some()
+        && lines.all(|line| !line.is_empty())
 }
 
 fn method_type(method: MethodDef<'_>) -> Result<TypeDef<'_>, NativeAnnotationError> {

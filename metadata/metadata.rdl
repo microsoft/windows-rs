@@ -43,6 +43,14 @@ mod Windows {
             attribute NativeAnnotationBindingAttribute {
                 fn(source: String, ordinal: i32, identifier: String, parameter: i32);
             }
+            // Active source macro aliases the annotated native declaration in this compiler profile.
+            attribute NativeMacroAliasAttribute {
+                fn(name: String, kind: String, profile: String);
+            }
+            // Capacity or valid extent in bytes/elements, bound to an original parameter position.
+            attribute NativeBufferExtentAttribute {
+                fn(phase: String, units: String, parameter: i32, dereference: bool);
+            }
             // Resolves a native record's nominal identity without exposing its storage.
             // RDL: `#[opaque] struct TAG {}` or `#[opaque] union TAG {}`.
             attribute NativeOpaqueAttribute {

@@ -18,10 +18,13 @@ and native linker symbols survive capture. `Snapshot::rdl_with_imports` requires
 export contracts keyed by those symbols; it does not guess DLLs.
 Selected object-like integer macros use compiler evaluation in a recorded derived TU with the same
 profile. Active definitions must match the selected source roots. Compiler-resolved type/function
-aliases remain separate evidence; publication rejects until profile-specific naming is defined.
+aliases remain separate evidence. Active profile-scoped descriptors attach to their actual closed
+native targets without renaming or erasing ANSI declarations.
 The matched bridge also captures UUID-bearing COM interfaces with a single public nonvirtual base,
 native inherited prefixes and slots, pure-method signatures, and separate inline-helper inventory.
-Parameter direction remains unspecified; source annotations and callbacks remain outside capture.
+Direct pilot SAL/MIDL parameter contracts preserve direction, optionality, COM output markers, raw
+evidence, and positional byte extents. Unannotated parameters stay unspecified. Source-contract
+completeness and callbacks remain outside accepted capture.
 `Snapshot::agree` compares complete original native observations across same-target input scopes
 and orders, after reconciling nominal ownership rather than comparing snapshot IDs or RDL.
 The active delivery gate combines these families in a frozen SDK/COM pilot.
@@ -55,9 +58,11 @@ baseline. It reports unsupported required APIs and pending acceptance checks and
 while the pilot is incomplete. Further isolated storage work is paused; production is unchanged.
 The shellscalingapi profiles emit and compile with pinned SDK import evidence on x86/x64/ARM64.
 Toolhelp's ANSI profiles also emit and compile, including all 13 value macros and 16 functions.
-The selected COM closure and combined/reversed ANSI profiles also emit and compile: 21/30 profiles.
-All 24 same-target native agreement checks pass, including Unicode evidence before publication.
-Compilation does not establish source-contract preservation, agreement, or partition acceptance.
+All 30 profiles emit and compile; all 24 same-target native agreement checks pass. Candidate WinMD
+readback checks DLL/export/convention routes, captured parameter contracts, and active aliases.
+The completeness controls expose silent loss of return-prefix SAL, wrapper SAL, and interface-level
+MIDL evidence on every target. These are ownership blockers, not accepted source coverage.
+The pilot remains 0/2 accepted partitions; no production promotion is authorized.
 
 See [the replacement plan](../../../docs/crates/windows-clang.md#fixed-implementation-matrix)
 and [crate internals](../../../docs/crates/windows-clang2.md).

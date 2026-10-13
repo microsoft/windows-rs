@@ -1,0 +1,13 @@
+#[win32]
+mod Test {
+    #[library("fixture.dll")]
+    extern "C" fn Query(#[in] #[Windows::Win32::Metadata::NativeAnnotation("MIDL", 0, "/* [in] */")] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_In_")] identity: *const i32, #[out] #[iid_is] #[Windows::Win32::Metadata::NativeAnnotation("MIDL", 0, "/* [iid_is][out] */")] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_COM_Outptr_")] object: *mut *mut void) -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn Read(#[out] #[Windows::Win32::Metadata::NativeAnnotation("MIDL", 0, "/* [annotation] */")] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_Out_writes_bytes_to_ ( capacity , * written )")] #[Windows::Win32::Metadata::NativeAnnotationBinding("SAL", 0, "capacity", 1)] #[Windows::Win32::Metadata::NativeAnnotationBinding("SAL", 0, "written", 2)] #[Windows::Win32::Metadata::NativeBufferExtent("capacity", "bytes", 1, false)] #[Windows::Win32::Metadata::NativeBufferExtent("valid", "bytes", 2, true)] buffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeAnnotation("MIDL", 0, "/* [annotation][in] */")] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_In_")] capacity: u32, #[out] #[opt] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_Out_opt_")] written: *mut u32) -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn Unknown(#[unspecified] buffer: *mut void) -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn Unnamed(#[in] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_In_")] param0: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_In_opt_")] value: *const i32) -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn Write(#[in] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_In_reads_bytes_ ( capacity )")] #[Windows::Win32::Metadata::NativeAnnotationBinding("SAL", 0, "capacity", 1)] #[Windows::Win32::Metadata::NativeBufferExtent("capacity", "bytes", 1, false)] buffer: *const void, #[in] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_In_")] capacity: u32, #[out] #[opt] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_Out_opt_")] written: *mut u32) -> i32;
+}

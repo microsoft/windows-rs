@@ -67,7 +67,7 @@ The reviewed `pilot_api.h`/`.rdl` fixture covers enum values and aliases, enum-c
 import renaming, variadic signatures, and colliding/unnamed parameters. Semantic WinMD checks run on
 all three targets. The real shellscalingapi ANSI/Unicode profiles emit and compile on all three
 targets. These are producer checks, not accepted partitions: source contracts, architecture
-agreement, difference classification, and Unicode alias publication remain pilot obligations.
+agreement and difference classification remain pilot obligations.
 
 ## Object-like macro capture
 
@@ -85,13 +85,51 @@ floating-point, string, and object-pointer macros remain outside this producer.
 
 Direct named type and function aliases retain compiler-resolved target kind, qualified name, USR,
 and locations separately from native declarations. They do not rename or replace declarations.
-RDL publication rejects these aliases until a profile-specific naming contract is defined.
-The pilot records all ten Toolhelp Unicode aliases without choosing winners for colliding names.
+`NativeMacroAlias` descriptors attach to the actual closed native targets, recording the source
+SHA256 and complete compiler arguments. This is replay provenance, not a general preprocessor
+condition. ANSI declarations keep their native identity even when their names are active Unicode
+macros. Alias-only captures without those original closed targets still reject. The reviewed
+three-target test round-trips both declarations and descriptors through WinMD/RDL.
 
 The reviewed `macro_values.h`/`.rdl` fixture and semantic WinMD checks cover all three targets.
 Active-definition scope, rejected contracts, concurrent reuse, and compiler destruction have
 regression controls. Toolhelp ANSI profiles emit all 13 required constants and 16 functions on all
-targets. Unicode publication and source contracts still prevent pilot acceptance.
+targets. Source-contract completeness still prevents pilot acceptance.
+
+## Captured source contracts and completeness boundary
+
+The original TU's compiler preprocessing records identify direct SAL expansions from the SDK
+annotation headers. Compiler tokens establish physical callable names and original argument
+contexts, including macro-written result types and unnamed parameters. No legacy SAL shim is
+force-included. Bracket-only MIDL comments inside those contexts retain separate raw evidence.
+
+The pilot lowerer supports direct input/output/inout, optional input/output, COM output pointers,
+input byte buffers, and output capacity/valid-byte pairs. Expression bindings refer to original
+parameter positions, not output names. `_Out_writes_bytes_to_(cb, *pcbRead)` retains both capacity
+and valid-byte descriptors. An optional count pointer does not become permission to dereference
+null or an unconditional postcondition. Unannotated parameters explicitly emit `#[unspecified]`.
+Unknown consumed contracts, conflicting directions, unbound/complex expressions, noninteger count
+targets, and incompatible pointer depth reject.
+
+`source_contracts.h`/`.rdl` use the pinned SDK's actual SAL definitions. Three-target WinMD and RDL
+round-trips check raw families, positional bindings, direction, optionality, COM output markers,
+and both byte extents. Redeclaration checks compare lowered positional contracts while retaining
+each observation's original annotation identifiers.
+
+These checks do not establish complete annotation capture. The pilot's independent
+`annotation-completeness.tsv` controls reproduce three losses on x86, x64, and ARM64:
+
+| Control | Missing source contract |
+| --- | --- |
+| Return prefix | `_Check_return_` before the AST declaration range |
+| Wrapper macro | A user macro expanding to `_In_` instead of a directly SDK-owned expansion |
+| Interface context | `/* [object][local] */` outside the class's AST range |
+
+Each control retains its original header and successful but incomplete RDL. The real `IUnknown`
+header also places its interface-level MIDL comment outside the class range, across intervening
+declarations. Extending a declaration range or matching a nearby comment does not prove ownership.
+The source-contract gate is blocked. The frozen pilot's ownership stop rule applies before another
+implementation push: review the source-context model, not another header-specific repair.
 
 ## Native COM capture and input agreement
 
@@ -105,8 +143,8 @@ non-COM effective calling conventions.
 
 Inline nonvirtual methods and function templates are helper inventory, not vtable slots or emitted
 methods. The bridge follows a function template's compiler-owned method declaration. Parameter
-types retain written/canonical graphs and original positions; output uses `#[unspecified]` until
-source direction contracts are captured. No input/output role is inferred from pointer depth.
+types retain written/canonical graphs and original positions. Captured source contracts determine
+direction; missing contracts stay unspecified. No role is inferred from pointer depth.
 Compiler type visibility on consumed records is retained as `NativeAnnotation("Clang", ...)`
 evidence. The bridge validates all record attributes before capture accepts attribute cursors.
 
@@ -130,10 +168,16 @@ Native bridge tests run in deadline-controlled children with the matched parser;
 tests keep the configured libclang provider.
 
 The real pilot captures the selected `IUnknown`/`ISequentialStream` closure and inventories the
-templated `QueryInterface` helper. All 24 same-target input comparisons pass. 21/30 profiles emit,
-compile, and pass structural WinMD contract/slot checks. The nine remaining profiles capture their
-native graphs but reject Unicode alias publication. These results do not accept either partition:
-source annotations, Unicode naming, architecture variation, and classified differences remain open.
+templated `QueryInterface` helper. All 24 same-target input comparisons pass. All 30 profiles emit,
+compile, and pass structural WinMD contract/slot checks. `readback.tsv` verifies archive-backed
+DLL/export/convention routes, captured parameter evidence and lowered contracts, and alias
+descriptors. Combined profiles check 26 imported functions, 63 parameter observations, and ten
+Unicode aliases (zero ANSI aliases).
+
+The retained 2026-10-12 run is `target/clang-pilot/1791854604034598400`. Accepted partitions remain
+0/2. Full signature/value readback, cross-target variation, and classified differences remain open
+alongside the reproduced source-ownership blockers. Compilation and preservation of captured
+evidence do not prove that capture found every required contract.
 
 ## Ownership and checked output
 

@@ -179,6 +179,14 @@ Compile this example with `metadata/metadata.rdl` as input or its compiled vocab
 reference. Annotations also survive on fields and typedef declarations. Return evidence on a
 void callable uses `-> #[Attribute(...)] void`; an absent result value does not erase evidence.
 
+The experimental header pilot uses `NativeMacroAlias(name, kind, profile)` on the actual closed
+type/imported-function target, preserving native declarations independently of active macro names.
+`NativeBufferExtent(phase, units, parameter, dereference)` retains both capacity and valid extents
+in bytes/elements. Positions are original parameter ordinals; a dereferenced count is a one-level
+integer pointer. Raw SAL/MIDL evidence remains separate. The metadata contract checker validates
+these descriptors before emission, rendering, merge, or remap; it does not prove complete source
+capture or supply runtime guarantees for optional count pointers.
+
 | Parameter spelling | Stored `In`/`Out` flags |
 | --- | --- |
 | `#[in]` | `In` |

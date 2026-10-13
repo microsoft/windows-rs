@@ -211,6 +211,7 @@ pub struct FunctionEvidence {
     pub dll_import: bool,
     pub written_result: String,
     pub canonical_result: String,
+    pub annotations: Vec<AnnotationEvidence>,
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -221,6 +222,40 @@ pub struct ParameterEvidence {
     pub spelling: Location,
     pub written_type: String,
     pub canonical_type: String,
+    pub contract: ParameterContract,
+}
+
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
+pub struct ParameterContract {
+    pub direction: Option<Direction>,
+    pub optional: bool,
+    pub com_outptr: bool,
+    pub annotations: Vec<AnnotationEvidence>,
+    pub extents: Vec<BufferExtent>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Direction {
+    In,
+    Out,
+    InOut,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct AnnotationEvidence {
+    pub source: String,
+    pub ordinal: usize,
+    pub payload: String,
+    pub location: Location,
+    pub bindings: Vec<(String, usize)>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct BufferExtent {
+    pub phase: String,
+    pub units: String,
+    pub parameter: usize,
+    pub dereference: bool,
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -275,6 +310,7 @@ pub struct Snapshot {
     pub library: PathBuf,
     pub layout_bridge: Option<LayoutBridgeEvidence>,
     pub input_name: String,
+    pub source_sha256: String,
     pub arguments: Vec<String>,
     pub diagnostics: Vec<String>,
     pub roots: Vec<Root>,
@@ -397,6 +433,24 @@ impl Snapshot {
                 _ => &[],
             };
             members.iter().map(move |member| (&decl.evidence, member))
+        })
+    }
+
+    pub fn method_parameters(
+        &self,
+    ) -> impl Iterator<Item = (&Evidence, &MethodEvidence, &ParameterEvidence)> {
+        self.declarations.iter().flat_map(|decl| {
+            let methods = match &decl.kind {
+                DeclarationKind::Interface { methods, .. } => methods.as_slice(),
+                _ => &[],
+            };
+            methods.iter().flat_map(move |method| {
+                method
+                    .function
+                    .params
+                    .iter()
+                    .map(move |parameter| (&decl.evidence, &method.evidence, &parameter.evidence))
+            })
         })
     }
 

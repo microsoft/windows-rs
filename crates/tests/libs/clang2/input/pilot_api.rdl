@@ -1,18 +1,18 @@
 #[win32]
 mod Test {
     #[library("fixture.dll")]
-    extern "C" fn Choose(alpha: i32, param1: i32);
+    extern "C" fn Choose(#[unspecified] alpha: i32, #[unspecified] param1: i32);
     type Count = u32;
     #[library("fixture.dll")]
-    extern "C" fn Echo(status: Test::Status, item: *const Test::Item) -> Test::Status;
+    extern "C" fn Echo(#[unspecified] status: Test::Status, #[unspecified] item: *const Test::Item) -> Test::Status;
     #[library("fixture.dll", import = "OriginalImportCall")]
-    extern "C" fn ImportCall(count: Test::Count) -> i32;
+    extern "C" fn ImportCall(#[unspecified] count: Test::Count) -> i32;
     struct Item {
         mode: Test::Mode,
         count: Test::Count,
     }
     #[library("fixture.dll")]
-    extern "C" fn Missing(param0_: i32, param0: i32);
+    extern "C" fn Missing(#[unspecified] param0_: i32, #[unspecified] param0: i32);
     #[repr(u16)]
     #[scoped]
     enum Mode {
@@ -27,7 +27,7 @@ mod Test {
     }
     type StatusAlias = Test::Status;
     #[library("fixture.dll")]
-    extern "C" fn Variadic(count: Test::Count, ...) -> i32;
+    extern "C" fn Variadic(#[unspecified] count: Test::Count, ...) -> i32;
     #[repr(u64)]
     enum Wide {
         Maximum = 18446744073709551615,

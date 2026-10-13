@@ -2,10 +2,12 @@
 
 use super::*;
 use clang_sys::*;
+use sha2::{Digest, Sha256};
 use std::ffi::{CStr, CString};
 use std::panic::{AssertUnwindSafe, catch_unwind, resume_unwind};
 use std::sync::{RwLock, RwLockReadGuard};
 
+mod contracts;
 mod macros;
 
 // clang_createIndex registers LLVM targets, which must not overlap registry readers.
@@ -70,6 +72,7 @@ impl Compiler {
             cursors: Vec::new(),
             pending: BTreeSet::new(),
             layouts: self.layouts.as_ref(),
+            contracts: contracts::Index::new(session.unit)?,
         };
         let mut roots = Vec::new();
         let mut selected: BTreeMap<String, Vec<CXCursor>> = BTreeMap::new();
@@ -198,6 +201,7 @@ impl Compiler {
                 .as_ref()
                 .map(|layouts| layouts.evidence.clone()),
             input_name: input.name.clone(),
+            source_sha256: format!("{:x}", Sha256::digest(input.source.as_bytes())),
             arguments: session.arguments.clone(),
             diagnostics: session.diagnostics.clone(),
             roots,
@@ -394,6 +398,7 @@ struct Capture<'a> {
     cursors: Vec<CXCursor>,
     pending: BTreeSet<Id>,
     layouts: Option<&'a layout::Bridge>,
+    contracts: contracts::Index,
 }
 
 impl Capture<'_> {
@@ -453,11 +458,14 @@ impl Capture<'_> {
                     || first.result != function.result
                     || first.canonical_result != function.canonical_result
                     || first.params.len() != function.params.len()
-                    || first
-                        .params
-                        .iter()
-                        .zip(&function.params)
-                        .any(|(a, b)| a.written != b.written || a.canonical != b.canonical)
+                    || first.params.iter().zip(&function.params).any(|(a, b)| {
+                        a.written != b.written
+                            || a.canonical != b.canonical
+                            || a.evidence.contract.direction != b.evidence.contract.direction
+                            || a.evidence.contract.optional != b.evidence.contract.optional
+                            || a.evidence.contract.com_outptr != b.evidence.contract.com_outptr
+                            || a.evidence.contract.extents != b.evidence.contract.extents
+                    })
                 {
                     return Err(error(observed, "native function redeclarations disagree"));
                 }
@@ -872,11 +880,13 @@ impl Capture<'_> {
                     spelling,
                     written_type: text(unsafe { clang_getTypeSpelling(ty) }),
                     canonical_type: text(unsafe { clang_getTypeSpelling(canonical) }),
+                    contract: ParameterContract::default(),
                 },
                 written: self.ty(ty, 0)?,
                 canonical: self.ty(canonical, 0)?,
             });
         }
+        let annotations = self.contracts.function(cursor, &mut params)?;
         Ok(NativeFunction {
             evidence: FunctionEvidence {
                 linker_name,
@@ -887,6 +897,7 @@ impl Capture<'_> {
                     .any(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_DLLImport),
                 written_result: text(unsafe { clang_getTypeSpelling(result) }),
                 canonical_result: text(unsafe { clang_getTypeSpelling(canonical_result) }),
+                annotations,
             },
             result: self.ty(result, 0)?,
             canonical_result: self.ty(canonical_result, 0)?,

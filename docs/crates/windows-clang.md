@@ -531,20 +531,27 @@ named code imports route functions; other members remain visible without supplyi
 Enum and free-function producers emit closed shellscalingapi RDL and compile WinMD in all six
 standalone target/encoding profiles. This is partial pilot output, not partition acceptance.
 Toolhelp ANSI profiles also emit and compile on all targets, including 13 compiler-evaluated
-constants and 16 functions. Macro reports preserve all ten Unicode alias targets separately;
-Unicode publication still rejects without a profile-specific contract. The selected COM closure
+constants and 16 functions. Profile-scoped macro descriptors preserve all ten Unicode aliases on
+their actual closed targets without renaming or erasing ANSI declarations. The selected COM closure
 captures native UUIDs, inheritance, five absolute slots, signatures, and the inline helper exclusion.
-All 15 ANSI profiles and six standalone Unicode shellscalingapi/COM profiles emit and compile:
-21/30 profiles. The remaining nine Unicode profiles reject alias publication, not native capture.
+All 30 profiles emit and compile on x86/x64/ARM64.
 
 All 24 same-target separate/combined/reversed comparisons pass on original native observations,
 including the Unicode aliases before publication. Combined captures contain 95 native declarations
 and 13 ANSI or 23 Unicode macro observations. Snapshot-local IDs and emitted RDL are not agreement
 keys. Fixtures reject conflicting scalar kinds even when both candidates emit identical RDL, plus
 packing, enum values, conventions, signatures, constants, UUIDs, and slots.
-Compiled candidates pass WinMD native-contract and slot validation. Source annotations,
-Unicode publication, cross-target variation policy, and semantic difference classification remain
-acceptance obligations.
+Compiled candidates pass WinMD native-contract and slot validation. Readback verifies native
+DLL/export/convention routes, captured parameter contracts/raw evidence, and active aliases.
+Direct SAL/MIDL lowering retains direction, optionality, COM output markers, original positional
+bindings, and both capacity and valid-byte extents. Unannotated parameters remain unspecified.
+
+Completeness controls expose silent loss of return-prefix SAL, wrapper SAL, and interface-level
+MIDL comments on every target. Their original headers and incomplete RDL are retained with
+`annotation-completeness.tsv`. The source-ownership stop rule is triggered: the next decision needs
+a review of that ownership model, not another header-specific patch or broader extraction campaign.
+Full signature/value readback, cross-target variation, and semantic difference classification are
+also still pending. Accepted partitions remain 0/2.
 
 This runner establishes a diagnostic baseline, not acceptance. It returns nonzero while the pilot
 is incomplete; `capture.tsv` records current producer failures and `gates.tsv` lists unimplemented

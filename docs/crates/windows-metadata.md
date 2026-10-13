@@ -249,6 +249,19 @@ invalid positions, empty family/payload/identifier strings, and WinRT owners. It
 metadata namespace rather than matching attribute names alone. Rendering, merge, and remap
 validate before replacing output. Raw unchecked emission remains available for negative fixtures.
 
+The experimental pilot also uses two positional descriptors in the same metadata namespace:
+
+| Attribute | Contract |
+| --- | --- |
+| `NativeMacroAlias(name, kind, profile)` | Active source alias attached to its native type/imported-function target, without erasing the original declaration |
+| `NativeBufferExtent(phase, units, parameter, dereference)` | Capacity or valid extent in bytes/elements, bound to an original parameter position |
+
+Alias validation checks owner/kind, identifier spelling, SHA256/profile shape, and duplicate active
+aliases within one profile. Extent validation checks owner sequence, pointer storage, phase/units,
+position, duplicates, and an integer count value, including native typedefs and supplied references.
+Dereference requires one pointer level. These descriptors do not prove source annotation completeness
+or define runtime permission to dereference optional count pointers.
+
 This is representation validation, not SAL interpretation, source ownership proof, or a complete
 expression-binding check. Consumers must not choose a direction or pointer shape from raw text
 without native capture/reconciliation evidence.

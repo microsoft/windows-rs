@@ -1,6 +1,6 @@
 use std::path::Path;
 use windows_clang2::*;
-use windows_metadata::{Value, reader::*};
+use windows_metadata::{HasAttributes, Value, reader::*};
 
 fn input(source: &str, target: Target, names: &[&str]) -> Input {
     let mut input = Input::new("macros.cpp", source, target);
@@ -123,6 +123,116 @@ fn aliases_preserve_native_targets_without_replacing_declarations() {
         snapshot.rdl("Test").unwrap_err().stage,
         Stage::Representation
     );
+}
+
+#[test]
+fn active_alias_descriptors_roundtrip_without_erasing_ansi_declarations() {
+    let compiler = Compiler::new().unwrap();
+    for target in [Target::X86, Target::X64, Target::Arm64] {
+        let source = "typedef int Entry;
+            typedef unsigned int EntryW;
+            extern \"C\" void Function(int);
+            extern \"C\" void FunctionW(unsigned int);
+            #ifdef UNICODE
+            #define Entry EntryW
+            #define Function FunctionW
+            #endif";
+        let mut input = input(
+            source,
+            target,
+            &["Entry", "EntryW", "Function", "FunctionW"],
+        );
+        input.arguments.push("-DUNICODE".into());
+        let snapshot = compiler.capture(&input).unwrap();
+        let imports = snapshot
+            .functions()
+            .map(|(decl, function)| {
+                (
+                    function.linker_name.clone(),
+                    Import {
+                        dll: "fixture.dll".into(),
+                        export: decl.qualified_name.clone(),
+                    },
+                )
+            })
+            .collect();
+        let rdl = snapshot.rdl_with_imports("Test", &imports).unwrap();
+        let directory = Path::new(env!("OUT_DIR")).join(format!("macro_alias_{target:?}"));
+        std::fs::create_dir_all(&directory).unwrap();
+        let vocabulary = directory.join("vocabulary.winmd");
+        windows_rdl::reader()
+            .input_text(include_str!("..\\..\\..\\..\\..\\metadata\\metadata.rdl"))
+            .output(&vocabulary)
+            .write()
+            .unwrap();
+        let binary = directory.join("aliases.winmd");
+        windows_rdl::reader()
+            .reference(&vocabulary)
+            .input_text(&rdl)
+            .output(&binary)
+            .write()
+            .unwrap();
+        let text = directory.join("roundtrip.rdl");
+        windows_rdl::writer()
+            .input(&binary)
+            .output(&text)
+            .write()
+            .unwrap();
+        let roundtrip = directory.join("roundtrip.winmd");
+        windows_rdl::reader()
+            .reference(&vocabulary)
+            .input(&text)
+            .output(&roundtrip)
+            .write()
+            .unwrap();
+        for path in [&binary, &roundtrip] {
+            let index = Index::read(path).unwrap();
+            index.validate_native_contracts(None).unwrap();
+            for (name, original, kind) in [
+                ("EntryW", "Entry", "TypedefDecl"),
+                ("FunctionW", "Function", "FunctionDecl"),
+            ] {
+                let attribute = match index.expect_item("Test", name) {
+                    Item::Type(ty) => ty
+                        .attributes()
+                        .find(|attribute| attribute.name() == "NativeMacroAliasAttribute")
+                        .unwrap(),
+                    Item::Fn(method) => method
+                        .attributes()
+                        .find(|attribute| attribute.name() == "NativeMacroAliasAttribute")
+                        .unwrap(),
+                    _ => panic!("expected native alias target"),
+                };
+                assert_eq!(
+                    attribute
+                        .value()
+                        .into_iter()
+                        .map(|(_, value)| value)
+                        .collect::<Vec<_>>(),
+                    [
+                        Value::Utf8(original.into()),
+                        Value::Utf8(kind.into()),
+                        Value::Utf8(format!(
+                            "source-sha256={}\n{}",
+                            snapshot.source_sha256,
+                            snapshot.arguments.join("\n")
+                        )),
+                    ]
+                );
+                let original = index.expect_item("Test", original);
+                let attributes = match original {
+                    Item::Type(ty) => ty.attributes().collect::<Vec<_>>(),
+                    Item::Fn(method) => method.attributes().collect::<Vec<_>>(),
+                    _ => panic!("expected original ANSI declaration"),
+                };
+                assert!(
+                    !attributes
+                        .iter()
+                        .any(|attribute| attribute.name() == "NativeMacroAliasAttribute")
+                );
+            }
+        }
+    }
 }
 
 #[test]

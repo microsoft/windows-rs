@@ -291,3 +291,219 @@ fn raw_invalid_contracts_fail_before_render_merge_remap_or_cleanup() {
         assert_eq!(std::fs::read(&remapped).unwrap(), b"last good output");
     }
 }
+
+fn descriptor_fixture(case: &str, alias: bool) -> writer::File {
+    let mut file = writer::File::new("native_descriptors");
+    let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "ValueType"));
+    let record = file.TypeDef(
+        "Test",
+        "Record",
+        base,
+        TypeAttributes::Public | TypeAttributes::SequentialLayout,
+    );
+    let field = file.Field("value", &Type::I32, FieldAttributes::Public);
+    file.TypeDef(
+        "Test",
+        "IContracts",
+        Default::default(),
+        TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract,
+    );
+    let buffer = if case == "scalar_owner" {
+        Type::I32
+    } else {
+        Type::PtrMut(Box::new(Type::Void), 1)
+    };
+    let count = match case {
+        "alias" => Type::value_named("Counts", "Count"),
+        "float" => Type::F64,
+        "two_pointers" => Type::PtrMut(Box::new(Type::U32), 2),
+        "pointer" | "dereference" => Type::PtrMut(Box::new(Type::U32), 1),
+        _ => Type::U32,
+    };
+    let signature = Signature {
+        flags: MethodCallAttributes::HASTHIS,
+        return_type: Type::Void,
+        types: vec![buffer, count],
+    };
+    let method = file.MethodDef(
+        "Read",
+        &signature,
+        MethodAttributes::Public
+            | MethodAttributes::Virtual
+            | MethodAttributes::Abstract
+            | MethodAttributes::NewSlot
+            | MethodAttributes::HideBySig,
+        Default::default(),
+    );
+    let sequence = match case {
+        "return" => 0,
+        "sequence" => 3,
+        _ => 1,
+    };
+    let param = file.Param("buffer", sequence, ParamAttributes::default());
+    file.Param("count", 2, ParamAttributes::In);
+    let owner = if alias {
+        match case {
+            "field_owner" => writer::HasAttribute::Field(field),
+            "method_owner" => writer::HasAttribute::MethodDef(method),
+            _ => writer::HasAttribute::TypeDef(record),
+        }
+    } else {
+        match case {
+            "field_owner" => writer::HasAttribute::Field(field),
+            "method_owner" => writer::HasAttribute::MethodDef(method),
+            _ => writer::HasAttribute::Param(param),
+        }
+    };
+    let args = if alias {
+        vec![
+            (
+                String::new(),
+                Value::Utf8(
+                    if case == "name" {
+                        "not-an-identifier"
+                    } else {
+                        "ALIAS"
+                    }
+                    .into(),
+                ),
+            ),
+            (
+                String::new(),
+                Value::Utf8(
+                    if case == "kind" {
+                        "FunctionDecl"
+                    } else {
+                        "StructDecl"
+                    }
+                    .into(),
+                ),
+            ),
+            (
+                String::new(),
+                Value::Utf8(match case {
+                    "profile" => "source-sha256=invalid\n-target".into(),
+                    "no_arguments" => format!("source-sha256={}", "a".repeat(64)),
+                    _ => format!(
+                        "source-sha256={}\n-target\nx86_64-pc-windows-msvc",
+                        "a".repeat(64)
+                    ),
+                }),
+            ),
+        ]
+    } else {
+        vec![
+            (
+                String::new(),
+                Value::Utf8(if case == "phase" { "other" } else { "capacity" }.into()),
+            ),
+            (
+                String::new(),
+                Value::Utf8(if case == "units" { "other" } else { "bytes" }.into()),
+            ),
+            (
+                String::new(),
+                Value::I32(match case {
+                    "negative" => -1,
+                    "position" => 2,
+                    _ => 1,
+                }),
+            ),
+            (
+                String::new(),
+                Value::Bool(matches!(
+                    case,
+                    "dereference" | "two_pointers" | "not_pointer"
+                )),
+            ),
+        ]
+    };
+    let name = if alias {
+        "NativeMacroAliasAttribute"
+    } else {
+        "NativeBufferExtentAttribute"
+    };
+    attribute(&mut file, owner, "Windows.Win32.Metadata", name, &args);
+    if case == "duplicate" {
+        attribute(&mut file, owner, "Windows.Win32.Metadata", name, &args);
+    }
+    file
+}
+
+#[test]
+fn buffer_and_alias_descriptors_validate_owners_types_positions_and_profiles() {
+    for (alias, valid, cases) in [
+        (
+            false,
+            &["valid", "dereference"][..],
+            &[
+                "scalar_owner",
+                "float",
+                "two_pointers",
+                "pointer",
+                "not_pointer",
+                "return",
+                "sequence",
+                "field_owner",
+                "method_owner",
+                "phase",
+                "units",
+                "negative",
+                "position",
+                "duplicate",
+            ][..],
+        ),
+        (
+            true,
+            &["valid"][..],
+            &[
+                "field_owner",
+                "method_owner",
+                "name",
+                "kind",
+                "profile",
+                "no_arguments",
+                "duplicate",
+            ][..],
+        ),
+    ] {
+        for case in valid {
+            descriptor_fixture(case, alias).try_into_stream().unwrap();
+        }
+
+        for case in cases {
+            let error = descriptor_fixture(case, alias)
+                .try_into_stream()
+                .unwrap_err();
+            assert!(!error.to_string().is_empty(), "{alias}/{case}");
+            let index = reader::Index::new(vec![
+                reader::File::new(descriptor_fixture(case, alias).into_stream()).unwrap(),
+            ]);
+            assert!(
+                index.validate_native_annotations().is_err(),
+                "{alias}/{case}"
+            );
+        }
+    }
+}
+
+#[test]
+fn buffer_extent_integer_aliases_use_supplied_references() {
+    let index = reader::Index::new(vec![
+        reader::File::new(descriptor_fixture("alias", false).into_stream()).unwrap(),
+    ]);
+    assert!(index.validate_native_contracts(None).is_err());
+    for (name, scalar, valid) in [("integer", "u32", true), ("float", "f64", false)] {
+        let path = output(&format!("extent_reference_{name}.winmd"));
+        windows_rdl::reader()
+            .input_text(&format!("#[win32] mod Counts {{ type Count = {scalar}; }}"))
+            .output(&path)
+            .write()
+            .unwrap();
+        let reference = reader::Index::read(&path).unwrap();
+        assert_eq!(
+            index.validate_native_contracts(Some(&reference)).is_ok(),
+            valid
+        );
+    }
+}

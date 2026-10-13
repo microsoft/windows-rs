@@ -6,6 +6,7 @@ use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 use windows_clang2::{Compiler, Import, Input, Target};
+use windows_metadata::{HasAttributes, ParamAttributes, Value, reader::Item};
 
 const MANIFEST: &str = include_str!("pilot.tsv");
 const SDK: &str = "crates\\tools\\win32\\src\\main.rs";
@@ -341,6 +342,8 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
     let mut inputs = String::from("profile\trole\tpath\n");
     let mut compiler_facts = String::from("profile\tcompiler\ttarget\tpointer_bits\n");
     let mut snapshots = BTreeMap::new();
+    let mut readback = String::from("profile\timports\tparameter_contracts\taliases\tstatus\n");
+    let mut readback_passed = true;
     let mut counts = BTreeMap::<_, usize>::new();
     for entry in &scope {
         if entry.disposition == "required" {
@@ -548,6 +551,12 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
                 .ok_or_else(|| format!("cannot read candidate WinMD: {}", binary.display()))?;
             index.validate_native_contracts(None)?;
             index.validate_native_slots(None)?;
+            let (functions, parameters, aliases) = verify_readback(&snapshot, &index, &imports)?;
+            writeln!(
+                readback,
+                "{}\t{functions}\t{parameters}\t{aliases}\tpassed",
+                profile.name
+            )?;
             std::fs::write(output.join(format!("{}.rdl", profile.name)), rdl)?;
             Ok(())
         })();
@@ -556,6 +565,7 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
                 writeln!(captures, "{}\tcompiled\t", profile.name)?;
             }
             Err(error) => {
+                readback_passed = false;
                 writeln!(
                     captures,
                     "{}\trejected\t{}",
@@ -565,6 +575,7 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
             }
         }
         std::fs::write(output.join("capture.tsv"), &captures)?;
+        std::fs::write(output.join("readback.tsv"), &readback)?;
     }
     let mut agreement = String::from("left\tright\tdeclarations\tmacros\tstatus\tdiagnostic\n");
     let mut agreement_passed = true;
@@ -609,14 +620,32 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
         }
     }
     std::fs::write(output.join("agreement.tsv"), agreement)?;
+    let source_contracts_passed =
+        check_annotation_completeness(&compiler, &profiles[0], target, output)?;
     std::fs::write(
         output.join("gates.tsv"),
         format!(
             "gate\tstatus\nsource-scope\tpassed\ncapture\tsee-capture.tsv\n\
-         semantic-winmd\tstructural-checks-for-compiled-profiles\nsource-contracts\tnot-implemented\n\
-         native-imports\tnot-implemented\ncross-input-agreement\t{}\n\
+         semantic-winmd\tfull-signature-and-value-readback-pending\n\
+         captured-contract-readback\t{}\nsource-contracts\t{}\n\
+         native-imports\t{}\ncross-input-agreement\t{}\n\
          architecture-agreement\tnot-implemented\nsemantic-differences\tnot-classified\n\
          accepted-partitions\t0/2\npromotion\tdisabled\n",
+            if readback_passed {
+                "passed"
+            } else {
+                "see-capture.tsv"
+            },
+            if source_contracts_passed {
+                "negative-controls-passed-not-full-acceptance"
+            } else {
+                "blocked-see-annotation-completeness.tsv"
+            },
+            if readback_passed {
+                "passed"
+            } else {
+                "see-capture.tsv"
+            },
             if agreement_passed {
                 "passed"
             } else {
@@ -628,6 +657,292 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
         "pilot worker is incomplete; reports are diagnostic artifacts, not accepted metadata"
             .into(),
     )
+}
+
+fn verify_readback(
+    snapshot: &windows_clang2::Snapshot,
+    index: &windows_metadata::reader::Index,
+    imports: &BTreeMap<String, Import>,
+) -> Result<(usize, usize, usize)> {
+    let function = |name: &str| -> Result<_> {
+        match index.get_item("Windows.Win32", name).next() {
+            Some(Item::Fn(method)) => Ok(method),
+            _ => Err(format!("missing native function `{name}` in candidate WinMD").into()),
+        }
+    };
+    let mut functions = 0;
+    for (declaration, evidence) in snapshot.functions() {
+        let expected = imports
+            .get(&evidence.linker_name)
+            .ok_or("missing source import route")?;
+        let method = function(&declaration.qualified_name)?;
+        let route = method
+            .impl_map()
+            .ok_or("candidate function has no import route")?;
+        use windows_clang2::CallingConvention;
+        use windows_metadata::PInvokeAttributes;
+        let convention = match evidence.convention {
+            CallingConvention::C | CallingConvention::Win64 => PInvokeAttributes::CallConvCdecl,
+            CallingConvention::Stdcall => PInvokeAttributes::CallConvPlatformapi,
+            CallingConvention::Fastcall => PInvokeAttributes::CallConvFastcall,
+        };
+        let mask = PInvokeAttributes::CallConvCdecl | PInvokeAttributes::CallConvFastcall;
+        if route.import_name() != expected.export
+            || route.import_scope().name() != expected.dll
+            || route.flags() & mask != convention
+        {
+            return Err(
+                format!("WinMD import differs for `{}`", declaration.qualified_name).into(),
+            );
+        }
+        functions += 1;
+    }
+    let mut parameters = 0;
+    for (declaration, parameter) in snapshot.parameters() {
+        verify_parameter(function(&declaration.qualified_name)?, parameter)?;
+        parameters += 1;
+    }
+    for (declaration, method, parameter) in snapshot.method_parameters() {
+        let owner = index
+            .get("Windows.Win32", &declaration.qualified_name)
+            .next()
+            .ok_or("candidate interface missing")?;
+        let candidate = owner
+            .methods()
+            .find(|candidate| candidate.name() == method.name)
+            .ok_or("candidate interface method missing")?;
+        verify_parameter(candidate, parameter)?;
+        parameters += 1;
+    }
+    let mut aliases = 0;
+    for evidence in snapshot.macros() {
+        let windows_clang2::MacroKind::Alias {
+            qualified_name,
+            kind,
+            ..
+        } = &evidence.kind
+        else {
+            continue;
+        };
+        let target = index
+            .get_item("Windows.Win32", qualified_name)
+            .next()
+            .ok_or("candidate native macro target missing")?;
+        let attributes = match target {
+            Item::Type(ty) => ty.attributes().collect::<Vec<_>>(),
+            Item::Fn(method) => method.attributes().collect::<Vec<_>>(),
+            _ => return Err("candidate macro target has wrong kind".into()),
+        };
+        let expected = vec![
+            Value::Utf8(evidence.name.clone()),
+            Value::Utf8(kind.clone()),
+            Value::Utf8(format!(
+                "source-sha256={}\n{}",
+                snapshot.source_sha256,
+                snapshot.arguments.join("\n")
+            )),
+        ];
+        if !attributes.iter().any(|attribute| {
+            attribute.name() == "NativeMacroAliasAttribute"
+                && attribute
+                    .value()
+                    .into_iter()
+                    .map(|(_, value)| value)
+                    .collect::<Vec<_>>()
+                    == expected
+        }) {
+            return Err(format!("WinMD lost alias `{}`", evidence.name).into());
+        }
+        aliases += 1;
+    }
+    Ok((functions, parameters, aliases))
+}
+
+fn verify_parameter(
+    method: windows_metadata::reader::MethodDef<'_>,
+    evidence: &windows_clang2::ParameterEvidence,
+) -> Result<()> {
+    use windows_clang2::Direction;
+    use windows_metadata::reader::ParamDirection;
+    let signature = method.signature(&[]);
+    let parameters = method.params_by_sequence(signature.types.len())?;
+    let parameter = parameters
+        .params()
+        .get(evidence.ordinal)
+        .copied()
+        .flatten()
+        .ok_or("candidate parameter has no original positional row")?;
+    let contract = &evidence.contract;
+    let direction = match contract.direction {
+        None => ParamDirection::Unspecified,
+        Some(Direction::In) => ParamDirection::Input,
+        Some(Direction::Out) => ParamDirection::Output,
+        Some(Direction::InOut) => ParamDirection::InputOutput,
+    };
+    if parameter.direction() != direction
+        || parameter.flags().contains(ParamAttributes::Optional) != contract.optional
+        || parameter
+            .attributes()
+            .any(|attribute| attribute.name() == "ComOutPtrAttribute")
+            != contract.com_outptr
+    {
+        return Err(format!(
+            "WinMD changed positional direction/optionality for {}[{}]",
+            method.name(),
+            evidence.ordinal
+        )
+        .into());
+    }
+    let values = |name| {
+        parameter
+            .attributes()
+            .filter(move |attribute| attribute.name() == name)
+            .map(|attribute| {
+                attribute
+                    .value()
+                    .into_iter()
+                    .map(|(_, value)| value)
+                    .collect::<Vec<_>>()
+            })
+            .collect::<Vec<_>>()
+    };
+    let extents = contract
+        .extents
+        .iter()
+        .map(|extent| {
+            vec![
+                Value::Utf8(extent.phase.clone()),
+                Value::Utf8(extent.units.clone()),
+                Value::I32(extent.parameter.try_into().unwrap()),
+                Value::Bool(extent.dereference),
+            ]
+        })
+        .collect::<Vec<_>>();
+    if values("NativeBufferExtentAttribute") != extents {
+        return Err(format!(
+            "WinMD changed byte extents for {}[{}]",
+            method.name(),
+            evidence.ordinal
+        )
+        .into());
+    }
+    let annotations = contract
+        .annotations
+        .iter()
+        .map(|annotation| {
+            vec![
+                Value::Utf8(annotation.source.clone()),
+                Value::I32(annotation.ordinal.try_into().unwrap()),
+                Value::Utf8(annotation.payload.clone()),
+            ]
+        })
+        .collect::<Vec<_>>();
+    let bindings = contract
+        .annotations
+        .iter()
+        .flat_map(|annotation| {
+            annotation.bindings.iter().map(move |(name, position)| {
+                vec![
+                    Value::Utf8(annotation.source.clone()),
+                    Value::I32(annotation.ordinal.try_into().unwrap()),
+                    Value::Utf8(name.clone()),
+                    Value::I32((*position).try_into().unwrap()),
+                ]
+            })
+        })
+        .collect::<Vec<_>>();
+    if values("NativeAnnotationAttribute") != annotations
+        || values("NativeAnnotationBindingAttribute") != bindings
+    {
+        return Err(format!(
+            "WinMD changed source annotation bindings for {}[{}]",
+            method.name(),
+            evidence.ordinal
+        )
+        .into());
+    }
+    Ok(())
+}
+
+fn check_annotation_completeness(
+    compiler: &Compiler,
+    profile: &profiles::Profile,
+    target: Target,
+    output: &Path,
+) -> Result<bool> {
+    let mut report = String::from("control\tstatus\tdiagnostic\n");
+    let mut passed = true;
+    for (name, source, family) in [
+        (
+            "return-prefix",
+            "#include <sal.h>\n_Check_return_ int Proof();\n",
+            "SAL",
+        ),
+        (
+            "wrapper-macro",
+            "#include <sal.h>\n#define INPUT _In_\nvoid Proof(INPUT int* value);\n",
+            "SAL",
+        ),
+        (
+            "interface-context",
+            "/* [object][local] */\nstruct __declspec(uuid(\"00112233-4455-6677-8899-aabbccddeeff\")) Proof { virtual void __stdcall Method() = 0; };\n",
+            "MIDL",
+        ),
+    ] {
+        let path = output.join(format!("annotation-{name}.hpp"));
+        std::fs::write(&path, source)?;
+        let mut input = Input::new(path.to_string_lossy(), source, target);
+        input.arguments.clone_from(&profile.arguments);
+        input.required.insert("Proof".into());
+        let result = match compiler.capture(&input) {
+            Err(error)
+                if matches!(
+                    error.stage,
+                    windows_clang2::Stage::Capture | windows_clang2::Stage::Representation
+                ) =>
+            {
+                Ok(format!("explicit rejection: {error}"))
+            }
+            Err(error) => {
+                return Err(format!("annotation control `{name}` unavailable: {error}").into());
+            }
+            Ok(snapshot) => {
+                let imports = snapshot
+                    .functions()
+                    .map(|(_, function)| {
+                        (
+                            function.linker_name.clone(),
+                            Import {
+                                dll: "control.dll".into(),
+                                export: "Proof".into(),
+                            },
+                        )
+                    })
+                    .collect();
+                match snapshot.rdl_with_imports("Control", &imports) {
+                    Err(error) => Ok(format!("explicit rejection: {error}")),
+                    Ok(rdl) => {
+                        std::fs::write(output.join(format!("annotation-{name}.rdl")), &rdl)?;
+                        if rdl.contains(&format!("NativeAnnotation(\"{family}\"")) {
+                            Ok("source evidence retained; ownership/semantics still require review".into())
+                        } else {
+                            Err("source contract absent from successful candidate".to_string())
+                        }
+                    }
+                }
+            }
+        };
+        let (status, diagnostic) = match result {
+            Ok(diagnostic) => ("passed", diagnostic),
+            Err(diagnostic) => {
+                passed = false;
+                ("blocked", diagnostic)
+            }
+        };
+        writeln!(report, "{name}\t{status}\t{}", escape(&diagnostic))?;
+    }
+    std::fs::write(output.join("annotation-completeness.tsv"), report)?;
+    Ok(passed)
 }
 
 fn imports(architecture: &str, output: &Path) -> Result<BTreeMap<String, Import>> {
@@ -699,6 +1014,78 @@ fn imports(architecture: &str, output: &Path) -> Result<BTreeMap<String, Import>
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn candidate_readback_rejects_lost_routes_contracts_and_aliases() {
+        let compiler = Compiler::new().unwrap();
+        let mut input = Input::new(
+            "readback.cpp",
+            "extern \"C\" void Proof(/* [in] */ const int* value);\n#define CALL Proof",
+            Target::X64,
+        );
+        input.required.extend(["Proof".into(), "CALL".into()]);
+        let snapshot = compiler.capture(&input).unwrap();
+        let imports = snapshot
+            .functions()
+            .map(|(_, function)| {
+                (
+                    function.linker_name.clone(),
+                    Import {
+                        dll: "fixture.dll".into(),
+                        export: "Proof".into(),
+                    },
+                )
+            })
+            .collect();
+        let rdl = snapshot
+            .rdl_with_imports("Windows.Win32", &imports)
+            .unwrap();
+        let directory = Path::new(env!("CARGO_MANIFEST_DIR"))
+            .join("..\\..\\..\\target\\tool-clang\\pilot-readback-test");
+        std::fs::create_dir_all(&directory).unwrap();
+        let vocabulary = directory.join("vocabulary.winmd");
+        windows_rdl::reader()
+            .input_text(include_str!("..\\..\\..\\..\\metadata\\metadata.rdl"))
+            .output(&vocabulary)
+            .write()
+            .unwrap();
+        for (name, candidate, valid) in [
+            ("valid", rdl.clone(), true),
+            ("route", rdl.replace("fixture.dll", "other.dll"), false),
+            ("direction", rdl.replace("#[in]", "#[unspecified]"), false),
+            (
+                "evidence",
+                rdl.replace(
+                    "#[Windows::Win32::Metadata::NativeAnnotation(\"MIDL\", 0, \"/* [in] */\")] ",
+                    "",
+                ),
+                false,
+            ),
+            (
+                "alias",
+                rdl.lines()
+                    .filter(|line| !line.contains("NativeMacroAlias"))
+                    .collect::<Vec<_>>()
+                    .join("\n"),
+                false,
+            ),
+        ] {
+            let binary = directory.join(format!("{name}.winmd"));
+            windows_rdl::reader()
+                .reference(&vocabulary)
+                .input_text(&candidate)
+                .output(&binary)
+                .write()
+                .unwrap();
+            let index = windows_metadata::reader::Index::read(&binary).unwrap();
+            index.validate_native_contracts(None).unwrap();
+            assert_eq!(
+                verify_readback(&snapshot, &index, &imports).is_ok(),
+                valid,
+                "{name}"
+            );
+        }
+    }
 
     #[test]
     fn frozen_source_manifest() {
