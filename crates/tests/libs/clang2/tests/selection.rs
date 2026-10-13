@@ -12,7 +12,10 @@ fn selection_and_variants() {
     let mut snapshots = capture(&[a, b], &TARGETS).unwrap();
     for snapshot in &snapshots {
         assert_eq!(snapshot.roots.len(), 1);
-        assert_eq!(snapshot.records[snapshot.roots[0].0].name, "Root");
+        let DeclarationId::Record(root) = snapshot.roots[0] else {
+            panic!("expected record root")
+        };
+        assert_eq!(snapshot.records[root.0].name, "Root");
         let mut names: Vec<_> = snapshot
             .records
             .iter()
@@ -126,13 +129,8 @@ fn summary(merged: &Merged<'_>) -> Vec<String> {
 
 fn errors() {
     for (fixture, root, message) in [
-        (
-            "selection",
-            "Missing",
-            "requested struct `Missing` not found",
-        ),
+        ("selection", "Missing", "requested type `Missing` not found"),
         ("reachable_bitfield", "Broken", "plain named fields"),
-        ("reachable_alias", "Broken", "unsupported type"),
     ] {
         let error = capture(&[selected_fixture(fixture, &[root])], &TARGETS)
             .unwrap_err()

@@ -162,7 +162,8 @@ fn parse(
                 pointers.len().try_into().unwrap(),
                 &raw mut unsaved,
                 1,
-                0,
+                CXTranslationUnit_IncludeAttributedTypes
+                    | CXTranslationUnit_VisitImplicitAttributes,
                 &raw mut unit.0,
             )
         };
@@ -197,6 +198,7 @@ fn parse(
             roots: Vec::new(),
             files: Vec::new(),
             records: Vec::new(),
+            aliases: Vec::new(),
             observations: Vec::new(),
             types: Vec::new(),
         };

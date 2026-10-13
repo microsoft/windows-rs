@@ -1,15 +1,15 @@
 use super::*;
 
-pub struct RecordVariants {
+pub struct Variants {
     pub name: String,
-    pub usr: String,
     /// Target-local group indices. An absent target was not observed, not proven unavailable.
     pub groups: BTreeMap<Target, usize>,
 }
 
 pub struct Merged<'a> {
     pub targets: BTreeMap<Target, Resolution<'a>>,
-    pub records: Vec<RecordVariants>,
+    pub records: Vec<Variants>,
+    pub aliases: Vec<Variants>,
 }
 
 /// Reconciles each target, then associates native identities without equating their layouts.
@@ -29,6 +29,7 @@ pub fn merge(snapshots: &[Snapshot]) -> Result<Merged<'_>, Error> {
         .map(|(target, snapshots)| Ok((target, resolve::resolve_snapshots(snapshots)?)))
         .collect::<Result<BTreeMap<_, _>, Error>>()?;
     let mut records: BTreeMap<(&str, &str), BTreeMap<Target, usize>> = BTreeMap::new();
+    let mut aliases: BTreeMap<&str, BTreeMap<Target, usize>> = BTreeMap::new();
     for (&target, resolution) in &targets {
         for (id, group) in resolution.groups.iter().enumerate() {
             let reference = group.records[0];
@@ -38,14 +39,28 @@ pub fn merge(snapshots: &[Snapshot]) -> Result<Merged<'_>, Error> {
                 .or_default()
                 .insert(target, id);
         }
+        for (id, alias) in resolution.aliases.iter().enumerate() {
+            aliases.entry(&alias.name).or_default().insert(target, id);
+        }
     }
-    let records = records
-        .into_iter()
-        .map(|((name, usr), groups)| RecordVariants {
+    let records = variants(
+        records
+            .into_iter()
+            .map(|((name, _), groups)| (name, groups)),
+    );
+    let aliases = variants(aliases.into_iter());
+    Ok(Merged {
+        targets,
+        records,
+        aliases,
+    })
+}
+
+fn variants<'a>(values: impl Iterator<Item = (&'a str, BTreeMap<Target, usize>)>) -> Vec<Variants> {
+    values
+        .map(|(name, groups)| Variants {
             name: name.to_string(),
-            usr: usr.to_string(),
             groups,
         })
-        .collect();
-    Ok(Merged { targets, records })
+        .collect()
 }

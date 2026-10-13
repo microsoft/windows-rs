@@ -14,6 +14,7 @@ pub(super) fn read(
         declarations: HashMap::new(),
         pending: Vec::new(),
         records: HashMap::new(),
+        aliases: HashMap::new(),
         types: HashMap::new(),
         files: HashMap::new(),
         snapshot,
@@ -22,9 +23,16 @@ pub(super) fn read(
     let mut all = Vec::new();
     for &cursor in &declarations {
         let name = text(unsafe { clang_getCursorSpelling(cursor) });
-        if unsafe { clang_getCursorKind(cursor) } != CXCursor_StructDecl || name.is_empty() {
+        if !matches!(
+            unsafe { clang_getCursorKind(cursor) },
+            CXCursor_StructDecl | CXCursor_TypedefDecl
+        ) || name.is_empty()
+        {
             if roots.is_empty() {
-                return Err(unsupported(cursor, "expected a named struct declaration"));
+                return Err(unsupported(
+                    cursor,
+                    "expected a named struct or typedef declaration",
+                ));
             }
             continue;
         }
@@ -43,25 +51,32 @@ pub(super) fn read(
         let mut result = Vec::new();
         for name in roots {
             let Some(candidates) = names.get(name) else {
-                return Err(Error(format!("requested struct `{name}` not found")));
+                return Err(Error(format!("requested type `{name}` not found")));
             };
-            if candidates.len() != 1 {
-                return Err(Error(format!("requested struct `{name}` is ambiguous")));
-            }
-            if selected.insert(candidates[0]) {
-                result.push(candidates[0]);
+            for &candidate in candidates {
+                if selected.insert(candidate) {
+                    result.push(candidate);
+                }
             }
         }
         result
     };
     for cursor in selected {
-        let record = capture.record(cursor.0)?;
-        capture.snapshot.roots.push(record);
+        let declaration = if unsafe { clang_getCursorKind(cursor.0) } == CXCursor_TypedefDecl {
+            DeclarationId::Alias(capture.alias(cursor.0)?)
+        } else {
+            DeclarationId::Record(capture.record(cursor.0)?)
+        };
+        capture.snapshot.roots.push(declaration);
     }
     while let Some(key) = capture.pending.pop() {
-        let record = capture.records[&key];
         for cursor in capture.declarations.remove(&key).unwrap() {
-            capture.observation(record, cursor)?;
+            if let Some(&record) = capture.records.get(&key) {
+                capture.observation(record, cursor)?;
+            } else {
+                let alias = capture.aliases[&key];
+                capture.alias_observation(alias, cursor)?;
+            }
         }
     }
     Ok(())
@@ -83,12 +98,51 @@ struct Capture<'a> {
     declarations: HashMap<Cursor, Vec<CXCursor>>,
     pending: Vec<Cursor>,
     records: HashMap<Cursor, RecordId>,
+    aliases: HashMap<Cursor, AliasId>,
     types: HashMap<Type, TypeId>,
     files: HashMap<String, FileId>,
     snapshot: &'a mut Snapshot,
 }
 
 impl Capture<'_> {
+    fn alias(&mut self, cursor: CXCursor) -> Result<AliasId, Error> {
+        let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
+        if let Some(&id) = self.aliases.get(&key) {
+            return Ok(id);
+        }
+        if !self.declarations.contains_key(&key) {
+            return Err(unsupported(cursor, "dependency is not a global typedef"));
+        }
+        let usr = text(unsafe { clang_getCursorUSR(cursor) });
+        if usr.is_empty() {
+            return Err(unsupported(cursor, "typedef identity unavailable"));
+        }
+        let id = AliasId(self.snapshot.aliases.len());
+        self.snapshot.aliases.push(Alias {
+            name: text(unsafe { clang_getCursorSpelling(cursor) }),
+            usr,
+            observations: Vec::new(),
+        });
+        self.aliases.insert(key, id);
+        self.pending.push(key);
+        Ok(id)
+    }
+
+    fn alias_observation(&mut self, alias: AliasId, cursor: CXCursor) -> Result<(), Error> {
+        let attributes = self.attributes(cursor)?;
+        let underlying = unsafe { clang_getTypedefDeclUnderlyingType(cursor) };
+        let observation = AliasObservation {
+            location: self.location(cursor),
+            underlying: self.ty(underlying, cursor)?,
+            canonical: self.ty(unsafe { clang_getCanonicalType(underlying) }, cursor)?,
+            attributes,
+        };
+        self.snapshot.aliases[alias.0]
+            .observations
+            .push(observation);
+        Ok(())
+    }
+
     fn record(&mut self, cursor: CXCursor) -> Result<RecordId, Error> {
         let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
         if let Some(&id) = self.records.get(&key) {
@@ -116,17 +170,16 @@ impl Capture<'_> {
     }
 
     fn observation(&mut self, record: RecordId, cursor: CXCursor) -> Result<(), Error> {
+        let mut attributes = Vec::new();
         let definition = if unsafe { clang_isCursorDefinition(cursor) } != 0 {
             let mut fields = Vec::new();
             for field in children(cursor) {
+                if unsafe { clang_isAttribute(clang_getCursorKind(field)) } != 0 {
+                    attributes.push(self.attribute(field));
+                    continue;
+                }
                 if unsafe { clang_getCursorKind(field) } != CXCursor_FieldDecl
                     || unsafe { clang_Cursor_isBitField(field) } != 0
-                    || !children(field).iter().all(|child| {
-                        matches!(
-                            unsafe { clang_getCursorKind(*child) },
-                            CXCursor_TypeRef | CXCursor_IntegerLiteral
-                        )
-                    })
                 {
                     return Err(unsupported(
                         cursor,
@@ -153,6 +206,7 @@ impl Capture<'_> {
                     offset_bits: unsafe { clang_Cursor_getOffsetOfField(field) }
                         .try_into()
                         .map_err(|_| unsupported(field, "field offset unavailable"))?,
+                    attributes: self.attributes(field)?,
                 });
             }
             Some(RecordDefinition {
@@ -161,20 +215,57 @@ impl Capture<'_> {
                 fields,
             })
         } else {
-            if !children(cursor).is_empty() {
-                return Err(unsupported(cursor, "annotated forward declaration"));
-            }
+            attributes = self.attributes(cursor)?;
             None
         };
         let observation = RecordObservation {
             record,
             location: self.location(cursor),
             definition,
+            attributes,
         };
         let id = ObservationId(self.snapshot.observations.len());
         self.snapshot.observations.push(observation);
         self.snapshot.records[record.0].observations.push(id);
         Ok(())
+    }
+
+    fn attribute(&mut self, cursor: CXCursor) -> Attribute {
+        let (file, _, _, _) = source(cursor);
+        let kind = unsafe { clang_getCursorKind(cursor) };
+        Attribute {
+            kind: if kind == CXCursor_PackedAttr {
+                AttributeKind::Packed
+            } else {
+                AttributeKind::Unresolved(text(unsafe { clang_getCursorKindSpelling(kind) }))
+            },
+            spelling: text(unsafe { clang_getCursorSpelling(cursor) }),
+            tokens: tokens(cursor),
+            location: (!file.is_empty()).then(|| self.location(cursor)),
+        }
+    }
+
+    fn attributes(&mut self, cursor: CXCursor) -> Result<Vec<Attribute>, Error> {
+        let mut result = Vec::new();
+        for child in children(cursor) {
+            let kind = unsafe { clang_getCursorKind(child) };
+            if unsafe { clang_isAttribute(kind) } != 0 {
+                result.push(self.attribute(child));
+            } else if !matches!(kind, CXCursor_TypeRef | CXCursor_IntegerLiteral) {
+                let is_underlying_record = unsafe {
+                    clang_getCursorKind(cursor) == CXCursor_TypedefDecl
+                        && kind == CXCursor_StructDecl
+                        && Cursor(clang_getCanonicalCursor(child))
+                            == Cursor(clang_getCanonicalCursor(clang_getTypeDeclaration(
+                                clang_getCanonicalType(clang_getTypedefDeclUnderlyingType(cursor)),
+                            )))
+                };
+                if !is_underlying_record {
+                    return Err(unsupported(child, "unsupported declaration child"));
+                }
+            }
+        }
+        Ok(result)
     }
 
     fn location(&mut self, cursor: CXCursor) -> Location {
@@ -208,6 +299,7 @@ impl Capture<'_> {
                 }),
                 CXType_SChar => TypeKind::Scalar(Scalar::SignedChar),
                 CXType_UChar => TypeKind::Scalar(Scalar::UnsignedChar),
+                CXType_WChar => TypeKind::Scalar(Scalar::WChar),
                 CXType_Short => TypeKind::Scalar(Scalar::Short),
                 CXType_UShort => TypeKind::Scalar(Scalar::UnsignedShort),
                 CXType_Int => TypeKind::Scalar(Scalar::Int),
@@ -227,6 +319,7 @@ impl Capture<'_> {
                         .map_err(|_| unsupported(cursor, "array extent unavailable"))?,
                 },
                 CXType_Record => TypeKind::Record(self.record(clang_getTypeDeclaration(ty))?),
+                CXType_Typedef => TypeKind::Alias(self.alias(clang_getTypeDeclaration(ty))?),
                 _ => {
                     return Err(unsupported(
                         cursor,
@@ -235,7 +328,8 @@ impl Capture<'_> {
                 }
             }
         };
-        let incomplete = ty.kind == CXType_Record
+        let canonical = unsafe { clang_getCanonicalType(ty) };
+        let incomplete = canonical.kind == CXType_Record
             && unsafe { clang_Type_getSizeOf(ty) } == i64::from(CXTypeLayoutError_Incomplete);
         let value = Type {
             kind,
@@ -244,7 +338,7 @@ impl Capture<'_> {
                 volatile: unsafe { clang_isVolatileQualifiedType(ty) } != 0,
                 restrict: unsafe { clang_isRestrictQualifiedType(ty) } != 0,
             },
-            layout: if ty.kind == CXType_Void || incomplete {
+            layout: if canonical.kind == CXType_Void || incomplete {
                 None
             } else {
                 Some(layout(ty).map_err(|reason| unsupported(cursor, reason))?)

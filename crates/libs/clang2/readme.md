@@ -17,10 +17,10 @@ println!("{} records with target variants", merged.records.len());
 ```
 
 Supply libclang through `LIBCLANG_PATH` or its loader search paths. `capture` returns one owned
-snapshot per target/TU, in target-major order. `resolve` checks global structs from the same target
+snapshot per target/TU, in target-major order. `resolve` checks global types from the same target
 and compiler configuration, retaining original observations and completion decisions.
 
-`Input.arguments` supplies include paths and compiler flags. `Input.roots` selects global struct
+`Input.arguments` supplies include paths and compiler flags. `Input.roots` selects global type
 names and their transitive dependencies within each TU; empty selects all declarations. Missing
 roots and unsupported reachable declarations fail. `merge` reconciles each target, then groups native
 identities with separate target layouts and type graphs. An unobserved target is not proof of
@@ -29,9 +29,11 @@ absence.
 Indices are created before parallel capture and reused across TUs. Batches are serialized; other
 libclang callers must not create indices during a batch. Native hangs affect the whole process.
 
-Supported: named structs, forwards, scalars, qualified pointers, arrays, and observed layouts.
-Typedefs, functions, annotations (including opaque compiler attributes), and metadata output are
-not implemented. No common cross-target layout or full C++ compatibility is inferred.
+Supported: named structs, typedefs, forwards, scalars, qualified pointers, arrays, and observed
+layouts. Written alias edges and all captured declaration observations are retained. Compatibility
+uses canonical types; typedef names are not nominal types. Attribute evidence is retained, but
+unresolved attributes block `resolve` and `merge`. No packing request is guessed from layout.
+Unions, functions, and metadata output are not implemented.
 
 Fixtures, inspection, and scaling live in `test_clang2`. See
 [crate notes](../../../docs/crates/windows-clang2.md) for commands.

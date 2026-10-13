@@ -165,6 +165,7 @@ fn summary(resolution: &Resolution<'_>) -> Vec<String> {
             TypeKind::Pointer(target) => format!("*{}", ty(snapshot, *target)),
             TypeKind::Array { element, length } => format!("[{};{length}]", ty(snapshot, *element)),
             TypeKind::Record(record) => snapshot.records[record.0].name.clone(),
+            TypeKind::Alias(alias) => snapshot.aliases[alias.0].name.clone(),
         };
         format!("{kind}{:?}", value.qualifiers)
     }

@@ -18,15 +18,35 @@ pub struct Group {
     pub definition: Option<ObservationRef>,
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct AliasObservationRef {
+    pub snapshot: usize,
+    pub alias: AliasId,
+    pub observation: usize,
+}
+
+pub struct AliasGroup {
+    pub name: String,
+    pub observations: Vec<AliasObservationRef>,
+}
+
+#[derive(Clone, Copy)]
+enum Owner {
+    Record(ObservationRef),
+    Alias(AliasObservationRef),
+}
+
 #[derive(Debug, Default)]
 pub struct Work {
     pub definition_pairs: usize,
     pub type_pairs: usize,
+    pub alias_pairs: usize,
 }
 
 pub struct Resolution<'a> {
     pub snapshots: Vec<&'a Snapshot>,
     pub groups: Vec<Group>,
+    pub aliases: Vec<AliasGroup>,
     pub work: Work,
     record_groups: Vec<Vec<usize>>,
 }
@@ -77,6 +97,33 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
         return Err(Error(
             "resolve requires the same target, compiler, and arguments".into(),
         ));
+    }
+    for (id, snapshot) in snapshots.iter().enumerate() {
+        for (observation, value) in snapshot.observations.iter().enumerate() {
+            let owner = Owner::Record(ObservationRef {
+                snapshot: id,
+                observation: ObservationId(observation),
+            });
+            attributes(&snapshots, owner, &value.attributes)?;
+            if let Some(definition) = &value.definition {
+                for field in &definition.fields {
+                    attributes(&snapshots, owner, &field.attributes)?;
+                }
+            }
+        }
+        for (alias, value) in snapshot.aliases.iter().enumerate() {
+            for (observation, value) in value.observations.iter().enumerate() {
+                attributes(
+                    &snapshots,
+                    Owner::Alias(AliasObservationRef {
+                        snapshot: id,
+                        alias: AliasId(alias),
+                        observation,
+                    }),
+                    &value.attributes,
+                )?;
+            }
+        }
     }
     let mut candidates = BTreeMap::new();
     for (snapshot, value) in snapshots.iter().enumerate() {
@@ -141,29 +188,101 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             .definition
             .as_ref()
             .unwrap();
-        let conflict = |reason| conflict(&snapshots, left, right, reason);
-        if a.layout != b.layout || a.fields.len() != b.fields.len() {
+        let conflict = |reason| {
+            conflict(
+                &snapshots,
+                Owner::Record(left),
+                Owner::Record(right),
+                reason,
+            )
+        };
+        if a.layout != b.layout
+            || a.fields.len() != b.fields.len()
+            || packed(&snapshots[left.snapshot].observations[left.observation.0].attributes)
+                != packed(&snapshots[right.snapshot].observations[right.observation.0].attributes)
+        {
             return Err(conflict("record layout or field count differs"));
         }
         for (a, b) in a.fields.iter().zip(&b.fields) {
-            if a.name != b.name || a.offset_bits != b.offset_bits {
+            if a.name != b.name
+                || a.offset_bits != b.offset_bits
+                || packed(&a.attributes) != packed(&b.attributes)
+            {
                 return Err(conflict("field name, order, or offset differs"));
             }
-            for (a, b) in [(a.written, b.written), (a.canonical, b.canonical)] {
-                types.push((
-                    TypeRef {
-                        snapshot: left.snapshot,
-                        ty: a,
-                    },
-                    TypeRef {
-                        snapshot: right.snapshot,
-                        ty: b,
-                    },
-                    left,
-                    right,
-                ));
+            // Typedef names are retained as evidence, but do not create nominal native types.
+            let (a, b) = (a.canonical, b.canonical);
+            types.push((
+                TypeRef {
+                    snapshot: left.snapshot,
+                    ty: a,
+                },
+                TypeRef {
+                    snapshot: right.snapshot,
+                    ty: b,
+                },
+                Owner::Record(left),
+                Owner::Record(right),
+            ));
+        }
+    }
+    let mut aliases: BTreeMap<&str, Vec<AliasObservationRef>> = BTreeMap::new();
+    for (snapshot, value) in snapshots.iter().enumerate() {
+        for (id, alias) in value.aliases.iter().enumerate() {
+            // Clang's typedef USRs contain filenames; global typedef correspondence uses the name.
+            let group = aliases.entry(&alias.name).or_default();
+            for observation in 0..alias.observations.len() {
+                group.push(AliasObservationRef {
+                    snapshot,
+                    alias: AliasId(id),
+                    observation,
+                });
             }
         }
+    }
+    let mut alias_groups = Vec::new();
+    for (name, mut observations) in aliases {
+        observations.sort_by_key(|reference| {
+            let snapshot = snapshots[reference.snapshot];
+            let location =
+                &snapshot.aliases[reference.alias.0].observations[reference.observation].location;
+            (
+                snapshot.input.as_str(),
+                snapshot.files[location.file.0].as_str(),
+                location.offset,
+            )
+        });
+        let left = observations[0];
+        for &right in &observations[1..] {
+            work.alias_pairs += 1;
+            let a = &snapshots[left.snapshot].aliases[left.alias.0].observations[left.observation];
+            let b =
+                &snapshots[right.snapshot].aliases[right.alias.0].observations[right.observation];
+            if packed(&a.attributes) != packed(&b.attributes) {
+                return Err(conflict(
+                    &snapshots,
+                    Owner::Alias(left),
+                    Owner::Alias(right),
+                    "typedef attributes differ",
+                ));
+            }
+            types.push((
+                TypeRef {
+                    snapshot: left.snapshot,
+                    ty: a.canonical,
+                },
+                TypeRef {
+                    snapshot: right.snapshot,
+                    ty: b.canonical,
+                },
+                Owner::Alias(left),
+                Owner::Alias(right),
+            ));
+        }
+        alias_groups.push(AliasGroup {
+            name: name.to_string(),
+            observations,
+        });
     }
     // Record edges refer to groups whose definitions all have independent obligations above.
     // No recursive assumption is published unless the entire worklist succeeds.
@@ -228,34 +347,71 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
     Ok(Resolution {
         snapshots,
         groups,
+        aliases: alias_groups,
         work,
         record_groups: membership,
     })
 }
 
-fn conflict(
-    snapshots: &[&Snapshot],
-    left: ObservationRef,
-    right: ObservationRef,
-    reason: &str,
-) -> Error {
-    let describe = |reference: ObservationRef| {
-        let snapshot = &snapshots[reference.snapshot];
-        let observation = &snapshot.observations[reference.observation.0];
-        let location = &observation.location;
-        format!(
-            "{} [{}] {}:{}:{}",
-            snapshot.records[observation.record.0].name,
-            snapshot.input,
-            snapshot.files[location.file.0],
-            location.line,
-            location.column
-        )
-    };
+fn conflict(snapshots: &[&Snapshot], left: Owner, right: Owner, reason: &str) -> Error {
     Error(format!(
-        "{}: {reason}: {} vs {}",
-        snapshots[left.snapshot].target.triple(),
-        describe(left),
-        describe(right)
+        "{reason}: {} vs {}",
+        describe(snapshots, left),
+        describe(snapshots, right)
     ))
+}
+
+fn describe(snapshots: &[&Snapshot], owner: Owner) -> String {
+    let (snapshot, name, location) = match owner {
+        Owner::Record(reference) => {
+            let snapshot = snapshots[reference.snapshot];
+            let observation = &snapshot.observations[reference.observation.0];
+            (
+                snapshot,
+                &snapshot.records[observation.record.0].name,
+                &observation.location,
+            )
+        }
+        Owner::Alias(reference) => {
+            let snapshot = snapshots[reference.snapshot];
+            let alias = &snapshot.aliases[reference.alias.0];
+            (
+                snapshot,
+                &alias.name,
+                &alias.observations[reference.observation].location,
+            )
+        }
+    };
+    format!(
+        "{}: {name} [{}] {}:{}:{}",
+        snapshot.target.triple(),
+        snapshot.input,
+        snapshot.files[location.file.0],
+        location.line,
+        location.column
+    )
+}
+
+fn packed(attributes: &[Attribute]) -> bool {
+    attributes
+        .iter()
+        .any(|attribute| attribute.kind == AttributeKind::Packed)
+}
+
+fn attributes(
+    snapshots: &[&Snapshot],
+    owner: Owner,
+    attributes: &[Attribute],
+) -> Result<(), Error> {
+    for attribute in attributes {
+        if let AttributeKind::Unresolved(kind) = &attribute.kind {
+            return Err(Error(format!(
+                "{}: cannot verify {kind} attribute (spelling {:?}, tokens {:?})",
+                describe(snapshots, owner),
+                attribute.spelling,
+                attribute.tokens
+            )));
+        }
+    }
+    Ok(())
 }

@@ -2,6 +2,8 @@ use std::time::Instant;
 use test_clang2::{fixture, shared_graph};
 use windows_clang2::{Snapshot, Target, capture, merge};
 
+mod gate;
+
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 fn main() {
@@ -9,9 +11,17 @@ fn main() {
     helpers::ensure_libclang();
     match args.first().map(String::as_str) {
         Some("scale") if args.len() == 1 => scale(),
+        Some("sdk-gate") if args.len() == 1 => {
+            if !gate::inventory() {
+                std::process::exit(1);
+            }
+        }
+        Some("sdk-scale") if args.len() == 2 => gate::scale(args[1].parse().unwrap()),
         Some("inspect") | None => inspect(&args),
         _ => {
-            eprintln!("usage: test_clang2 [inspect [fixture ...] | scale]");
+            eprintln!(
+                "usage: test_clang2 [inspect [fixture ...] | scale | sdk-gate | sdk-scale 2|8|32]"
+            );
             std::process::exit(2);
         }
     }

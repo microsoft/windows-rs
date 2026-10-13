@@ -13,7 +13,10 @@ fn sdk_header() {
     for snapshot in &snapshots {
         assert_eq!(snapshot.records.len(), 2);
         assert_eq!(snapshot.roots.len(), 1);
-        assert_eq!(snapshot.records[snapshot.roots[0].0].name, "ListHolder");
+        let DeclarationId::Record(root) = snapshot.roots[0] else {
+            panic!("expected record root")
+        };
+        assert_eq!(snapshot.records[root.0].name, "ListHolder");
         assert!(snapshot.files.iter().any(|file| file.ends_with("winnt.h")));
     }
     for record in &merged.records {
@@ -57,16 +60,15 @@ fn sdk_header() {
                 );
             }
         }
-        let mut attributed = test_clang2::sdk_fixture();
-        attributed.source = test_clang2::fixture("sdk_attribute").source;
-        attributed.name = "sdk_attribute.h".into();
-        attributed.roots = vec!["GuidHolder".into()];
-        let error = capture(&[attributed], &[Target::X86, Target::X64, Target::Arm64])
-            .unwrap_err()
-            .to_string();
-        assert!(
-            error.contains("_GUID") && error.contains("UnexposedAttr"),
-            "{error}"
-        );
     }
+    let mut attributed = test_clang2::sdk_fixture();
+    attributed.source = test_clang2::fixture("sdk_attribute").source;
+    attributed.name = "sdk_attribute.h".into();
+    attributed.roots = vec!["GuidHolder".into()];
+    let captured = capture(&[attributed], &[Target::X86, Target::X64, Target::Arm64]).unwrap();
+    let error = merge(&captured).err().unwrap().to_string();
+    assert!(
+        error.contains("_GUID") && error.contains("UnexposedAttr"),
+        "{error}"
+    );
 }
