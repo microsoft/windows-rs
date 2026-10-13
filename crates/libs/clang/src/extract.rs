@@ -2077,6 +2077,9 @@ fn fact_data(cursor: CXCursor, kind: FactKind, macros: &MacroDefinitions) -> Fac
                 variants,
                 fixed,
                 scoped: unsafe { clang_EnumDecl_isScoped(cursor) } != 0,
+                flags: cursor_children(cursor)
+                    .iter()
+                    .any(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_FlagEnum),
             }
         }
         FactKind::Function => {
