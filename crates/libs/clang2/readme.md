@@ -1,6 +1,6 @@
 # windows-clang2
 
-Unpublished native header capture using libclang, independent of RDL and WinMD.
+Unpublished native header capture using libclang. The native IR is independent of RDL and WinMD.
 
 ```rust,no_run
 use windows_clang2::{Input, Target, capture, merge};
@@ -33,7 +33,12 @@ Supported: named structs, typedefs, forwards, scalars, qualified pointers, array
 layouts. Written alias edges and all captured declaration observations are retained. Compatibility
 uses canonical types; typedef names are not nominal types. Attribute evidence is retained, but
 unresolved attributes block `resolve` and `merge`. No packing request is guessed from layout.
-Unions, functions, and metadata output are not implemented.
+Unions and functions are not implemented.
+
+The optional `projection` feature provides `projection::generate(inputs, namespace)` for
+three-target capture, merge, and per-header RDL output. It projects structs and value typedefs,
+checks sequential ABI layout, and rejects unsupported declarations or ambiguous publication names.
+`tool-win32-2` supplies the SDK configuration and writes canonical files.
 
 Fixtures, inspection, and scaling live in `test_clang2`. See
 [crate notes](../../../docs/crates/windows-clang2.md) for commands.

@@ -3,6 +3,8 @@
 mod capture;
 mod merge;
 mod native;
+#[cfg(feature = "projection")]
+pub mod projection;
 mod resolve;
 mod runtime;
 pub use merge::{Merged, Variants, merge};

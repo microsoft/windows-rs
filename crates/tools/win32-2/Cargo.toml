@@ -1,0 +1,13 @@
+[package]
+name = "tool-win32-2"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+helpers = { workspace = true }
+windows-clang2 = { workspace = true, features = ["projection"] }
+windows-rdl = { workspace = true }
+
+[lints]
+workspace = true

@@ -1,0 +1,37 @@
+#[win32]
+mod Fixture {
+    type Count = u32;
+    struct Node {
+        count: u32,
+        next: *const Node,
+        points: [Point; 2],
+    }
+    #[packed(1)]
+    #[arch(X64 | Arm64)]
+    struct Packed {
+        tag: i8,
+        value: i64,
+    }
+    #[packed(1)]
+    #[arch(X86)]
+    struct Packed {
+        tag: i8,
+        value: i32,
+    }
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+    #[arch(Arm64)]
+    struct Variant {
+        value: *mut void,
+    }
+    #[arch(X64)]
+    struct Variant {
+        value: i64,
+    }
+    #[arch(X86)]
+    struct Variant {
+        value: i32,
+    }
+}

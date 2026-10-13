@@ -59,7 +59,9 @@ pub(super) fn source(cursor: CXCursor) -> (String, u32, u32, u32) {
 
 pub(super) fn unsupported(cursor: CXCursor, reason: &str) -> Error {
     let (file, line, column, _) = source(cursor);
-    Error(format!("{file}:{line}:{column}: {reason}"))
+    let kind = text(unsafe { clang_getCursorKindSpelling(clang_getCursorKind(cursor)) });
+    let name = text(unsafe { clang_getCursorSpelling(cursor) });
+    Error(format!("{file}:{line}:{column}: {kind} `{name}`: {reason}"))
 }
 
 pub(super) fn text(value: CXString) -> String {

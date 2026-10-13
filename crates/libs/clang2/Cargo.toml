@@ -13,3 +13,10 @@ workspace = true
 
 [dependencies]
 clang-sys = { version = "1.8.1", features = ["runtime", "clang_18_0"] }
+windows-rdl = { workspace = true, optional = true }
+windows-metadata = { workspace = true, optional = true }
+proc-macro2 = { workspace = true, optional = true }
+quote = { workspace = true, optional = true }
+
+[features]
+projection = ["dep:windows-rdl", "dep:windows-metadata", "dep:proc-macro2", "dep:quote"]
