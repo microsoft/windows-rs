@@ -533,8 +533,18 @@ standalone target/encoding profiles. This is partial pilot output, not partition
 Toolhelp ANSI profiles also emit and compile on all targets, including 13 compiler-evaluated
 constants and 16 functions. Macro reports preserve all ten Unicode alias targets separately;
 Unicode publication still rejects without a profile-specific contract. The selected COM closure
-still rejects uncaptured interface attributes. Combined/reversed inputs, source contracts,
-semantic differences, and agreement remain open.
+captures native UUIDs, inheritance, five absolute slots, signatures, and the inline helper exclusion.
+All 15 ANSI profiles and six standalone Unicode shellscalingapi/COM profiles emit and compile:
+21/30 profiles. The remaining nine Unicode profiles reject alias publication, not native capture.
+
+All 24 same-target separate/combined/reversed comparisons pass on original native observations,
+including the Unicode aliases before publication. Combined captures contain 95 native declarations
+and 13 ANSI or 23 Unicode macro observations. Snapshot-local IDs and emitted RDL are not agreement
+keys. Fixtures reject conflicting scalar kinds even when both candidates emit identical RDL, plus
+packing, enum values, conventions, signatures, constants, UUIDs, and slots.
+Compiled candidates pass WinMD native-contract and slot validation. Source annotations,
+Unicode publication, cross-target variation policy, and semantic difference classification remain
+acceptance obligations.
 
 This runner establishes a diagnostic baseline, not acceptance. It returns nonzero while the pilot
 is incomplete; `capture.tsv` records current producer failures and `gates.tsv` lists unimplemented

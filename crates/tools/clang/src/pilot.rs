@@ -340,6 +340,7 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
     let mut captures = String::from("profile\tstatus\tdiagnostic\n");
     let mut inputs = String::from("profile\trole\tpath\n");
     let mut compiler_facts = String::from("profile\tcompiler\ttarget\tpointer_bits\n");
+    let mut snapshots = BTreeMap::new();
     let mut counts = BTreeMap::<_, usize>::new();
     for entry in &scope {
         if entry.disposition == "required" {
@@ -490,12 +491,63 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
                 output.join(format!("{}.macros.tsv", profile.name)),
                 macro_report,
             )?;
+            let mut interface_report = String::from("interface\tguid\tsize\tinherited\tpacking\n");
+            for (declaration, interface) in snapshot.interfaces() {
+                writeln!(
+                    interface_report,
+                    "{}\t{}\t{}\t{}\t{:?}",
+                    escape(&declaration.qualified_name),
+                    interface.guid,
+                    interface.vtable_size,
+                    interface.inherited,
+                    interface.packing
+                )?;
+            }
+            std::fs::write(
+                output.join(format!("{}.interfaces.tsv", profile.name)),
+                interface_report,
+            )?;
+            let mut method_report = String::from("interface\tmethod\tslot\tconvention\n");
+            for (declaration, method, function) in snapshot.methods() {
+                writeln!(
+                    method_report,
+                    "{}\t{}\t{}\t{:?}",
+                    escape(&declaration.qualified_name),
+                    escape(&method.name),
+                    method.slot,
+                    function.convention
+                )?;
+            }
+            std::fs::write(
+                output.join(format!("{}.methods.tsv", profile.name)),
+                method_report,
+            )?;
+            let mut helper_report = String::from("interface\tname\tkind\n");
+            for (declaration, helper) in snapshot.interface_helpers() {
+                writeln!(
+                    helper_report,
+                    "{}\t{}\t{}",
+                    escape(&declaration.qualified_name),
+                    escape(&helper.qualified_name),
+                    escape(&helper.kind)
+                )?;
+            }
+            std::fs::write(
+                output.join(format!("{}.helpers.tsv", profile.name)),
+                helper_report,
+            )?;
+            snapshots.insert(profile.name.clone(), snapshot.clone());
             let rdl = snapshot.rdl_with_imports("Windows.Win32", &imports)?;
+            let binary = output.join(format!("{}.winmd", profile.name));
             windows_rdl::reader()
                 .reference(&vocabulary)
                 .input_text(&rdl)
-                .output(output.join(format!("{}.winmd", profile.name)))
+                .output(&binary)
                 .write()?;
+            let index = windows_metadata::reader::Index::read(&binary)
+                .ok_or_else(|| format!("cannot read candidate WinMD: {}", binary.display()))?;
+            index.validate_native_contracts(None)?;
+            index.validate_native_slots(None)?;
             std::fs::write(output.join(format!("{}.rdl", profile.name)), rdl)?;
             Ok(())
         })();
@@ -514,13 +566,63 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
         }
         std::fs::write(output.join("capture.tsv"), &captures)?;
     }
+    let mut agreement = String::from("left\tright\tdeclarations\tmacros\tstatus\tdiagnostic\n");
+    let mut agreement_passed = true;
+    for encoding in ["ansi", "unicode"] {
+        for (left, right) in [
+            ("tlhelp32", "combined"),
+            ("shellscalingapi", "combined"),
+            ("com", "combined"),
+            ("combined", "reversed"),
+        ] {
+            let left = format!("{left}-{encoding}");
+            let right = format!("{right}-{encoding}");
+            if let (Some(a), Some(b)) = (snapshots.get(&left), snapshots.get(&right)) {
+                let result = a.agree(b).and_then(|()| {
+                    if left.starts_with("combined-") {
+                        b.agree(a)
+                    } else {
+                        Ok(())
+                    }
+                });
+                let (status, diagnostic) = match result {
+                    Ok(()) => ("passed", String::new()),
+                    Err(error) => {
+                        agreement_passed = false;
+                        ("rejected", error.to_string())
+                    }
+                };
+                writeln!(
+                    agreement,
+                    "{left}\t{right}\t{}\t{}\t{status}\t{}",
+                    a.evidence().count(),
+                    a.macros().count(),
+                    escape(&diagnostic)
+                )?;
+            } else {
+                agreement_passed = false;
+                writeln!(
+                    agreement,
+                    "{left}\t{right}\tunknown\tunknown\tunavailable\tcapture unavailable"
+                )?;
+            }
+        }
+    }
+    std::fs::write(output.join("agreement.tsv"), agreement)?;
     std::fs::write(
         output.join("gates.tsv"),
-        "gate\tstatus\nsource-scope\tpassed\ncapture\tsee-capture.tsv\n\
-         semantic-winmd\tnot-implemented\nsource-contracts\tnot-implemented\n\
-         native-imports\tnot-implemented\ncross-input-agreement\tnot-implemented\n\
+        format!(
+            "gate\tstatus\nsource-scope\tpassed\ncapture\tsee-capture.tsv\n\
+         semantic-winmd\tstructural-checks-for-compiled-profiles\nsource-contracts\tnot-implemented\n\
+         native-imports\tnot-implemented\ncross-input-agreement\t{}\n\
          architecture-agreement\tnot-implemented\nsemantic-differences\tnot-classified\n\
          accepted-partitions\t0/2\npromotion\tdisabled\n",
+            if agreement_passed {
+                "passed"
+            } else {
+                "see-agreement.tsv"
+            }
+        ),
     )?;
     Err(
         "pilot worker is incomplete; reports are diagnostic artifacts, not accepted metadata"

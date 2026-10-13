@@ -12,15 +12,30 @@ struct NativeContract {
     packing: u32,
     alignment: u32,
     required_alignment: u32,
+    type_visibility: u32,
 }
 
 type Query = unsafe extern "C" fn(CXCursor, *mut NativeContract) -> u32;
 type FieldQuery = unsafe extern "C" fn(CXCursor, *mut u32) -> u32;
 
+#[repr(C)]
+struct NativeInterface {
+    size: u32,
+    inherited: u32,
+    no_vtable: u32,
+    packing: u32,
+    guid: [u8; 36],
+}
+
+type InterfaceQuery = unsafe extern "C" fn(CXCursor, *mut NativeInterface) -> u32;
+
 pub(super) struct Bridge {
     pub evidence: LayoutBridgeEvidence,
     query: Query,
     field_query: FieldQuery,
+    interface_query: InterfaceQuery,
+    method_query: FieldQuery,
+    helper_query: FieldQuery,
     _library: Library,
     _parser: Library,
 }
@@ -45,7 +60,7 @@ impl Bridge {
             let abi = library
                 .get::<unsafe extern "C" fn() -> u32>(b"windows_clang_layout_abi\0")
                 .map_err(|err| error(err.to_string()))?();
-            if abi != 2 {
+            if abi != 3 {
                 return Err(error("layout bridge ABI mismatch".to_string()));
             }
             let expected = library
@@ -91,6 +106,15 @@ impl Bridge {
             let field_query = *library
                 .get::<FieldQuery>(b"windows_clang_layout_field\0")
                 .map_err(|err| error(err.to_string()))?;
+            let interface_query = *library
+                .get::<InterfaceQuery>(b"windows_clang_layout_interface\0")
+                .map_err(|err| error(err.to_string()))?;
+            let method_query = *library
+                .get::<FieldQuery>(b"windows_clang_layout_method\0")
+                .map_err(|err| error(err.to_string()))?;
+            let helper_query = *library
+                .get::<FieldQuery>(b"windows_clang_layout_helper\0")
+                .map_err(|err| error(err.to_string()))?;
             Ok(Self {
                 evidence: LayoutBridgeEvidence {
                     abi,
@@ -99,6 +123,9 @@ impl Bridge {
                 },
                 query,
                 field_query,
+                interface_query,
+                method_query,
+                helper_query,
                 _library: library,
                 _parser: parser_library,
             })
@@ -141,6 +168,13 @@ impl Bridge {
             packing,
             alignment: value(native.alignment)?,
             required_alignment: native.required_alignment,
+            type_visibility: match native.type_visibility {
+                0 => None,
+                1 => Some(TypeVisibility::Default),
+                2 => Some(TypeVisibility::Hidden),
+                3 => Some(TypeVisibility::Protected),
+                _ => return Err(Error::new(Stage::Capture, "invalid native type visibility")),
+            },
         })
     }
 
@@ -161,5 +195,82 @@ impl Bridge {
                 "unsupported native field identity",
             )),
         }
+    }
+
+    pub fn interface(&self, cursor: CXCursor) -> Result<Option<InterfaceEvidence>> {
+        let mut native = NativeInterface {
+            size: 0,
+            inherited: 0,
+            no_vtable: 0,
+            packing: 0,
+            guid: [0; 36],
+        };
+        let status = unsafe { (self.interface_query)(cursor, &raw mut native) };
+        if status == 1 {
+            return Ok(None);
+        }
+        if status != 0 {
+            return Err(Error::new(
+                Stage::Capture,
+                match status {
+                    2 => "interface has unsupported storage or inheritance",
+                    3 => "interface has an unsupported native attribute",
+                    4 => "interface has unsupported method behavior",
+                    _ => "interface lacks a supported native vtable or UUID",
+                },
+            ));
+        }
+        let guid = std::str::from_utf8(&native.guid)
+            .map_err(|_| Error::new(Stage::Capture, "native UUID is not ASCII"))?;
+        if !guid.bytes().enumerate().all(|(position, byte)| {
+            if [8, 13, 18, 23].contains(&position) {
+                byte == b'-'
+            } else {
+                byte.is_ascii_hexdigit()
+            }
+        }) || native.inherited > native.size
+            || native.no_vtable > 1
+            || (native.packing != 0 && (!native.packing.is_power_of_two() || native.packing > 16))
+        {
+            return Err(Error::new(
+                Stage::Capture,
+                "invalid native interface descriptor",
+            ));
+        }
+        Ok(Some(InterfaceEvidence {
+            guid: guid.to_ascii_lowercase(),
+            vtable_size: native.size,
+            inherited: native.inherited,
+            no_vtable: native.no_vtable != 0,
+            packing: if native.packing == 0 {
+                None
+            } else {
+                Some(native.packing as u16)
+            },
+        }))
+    }
+
+    pub fn method_slot(&self, cursor: CXCursor) -> Result<u32> {
+        let mut slot = 0;
+        let status = unsafe { (self.method_query)(cursor, &raw mut slot) };
+        if status != 0 {
+            return Err(Error::new(
+                Stage::Capture,
+                format!("native method slot rejected with {status}"),
+            ));
+        }
+        Ok(slot)
+    }
+
+    pub fn check_helper(&self, cursor: CXCursor) -> Result<()> {
+        let mut flags = 0;
+        let status = unsafe { (self.helper_query)(cursor, &raw mut flags) };
+        if status != 0 || flags != 1 {
+            return Err(Error::new(
+                Stage::Capture,
+                "interface helper must be a compiler-confirmed nonvirtual inline method",
+            ));
+        }
+        Ok(())
     }
 }

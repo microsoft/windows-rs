@@ -19,7 +19,11 @@ export contracts keyed by those symbols; it does not guess DLLs.
 Selected object-like integer macros use compiler evaluation in a recorded derived TU with the same
 profile. Active definitions must match the selected source roots. Compiler-resolved type/function
 aliases remain separate evidence; publication rejects until profile-specific naming is defined.
-Callbacks, COM methods, and source annotations remain outside this producer.
+The matched bridge also captures UUID-bearing COM interfaces with a single public nonvirtual base,
+native inherited prefixes and slots, pure-method signatures, and separate inline-helper inventory.
+Parameter direction remains unspecified; source annotations and callbacks remain outside capture.
+`Snapshot::agree` compares complete original native observations across same-target input scopes
+and orders, after reconciling nominal ownership rather than comparing snapshot IDs or RDL.
 The active delivery gate combines these families in a frozen SDK/COM pilot.
 
 Index creation excludes active native sessions to honor LLVM's target-registration contract.
@@ -51,6 +55,8 @@ baseline. It reports unsupported required APIs and pending acceptance checks and
 while the pilot is incomplete. Further isolated storage work is paused; production is unchanged.
 The shellscalingapi profiles emit and compile with pinned SDK import evidence on x86/x64/ARM64.
 Toolhelp's ANSI profiles also emit and compile, including all 13 value macros and 16 functions.
+The selected COM closure and combined/reversed ANSI profiles also emit and compile: 21/30 profiles.
+All 24 same-target native agreement checks pass, including Unicode evidence before publication.
 Compilation does not establish source-contract preservation, agreement, or partition acceptance.
 
 See [the replacement plan](../../../docs/crates/windows-clang.md#fixed-implementation-matrix)

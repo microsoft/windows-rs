@@ -37,6 +37,18 @@ enum Kind {
         result: metadata::Type,
         params: Vec<(String, metadata::Type)>,
     },
+    Interface {
+        evidence: InterfaceEvidence,
+        base: Option<metadata::TypeName>,
+        methods: Vec<Method>,
+    },
+}
+
+struct Method {
+    name: String,
+    slot: u32,
+    result: metadata::Type,
+    params: Vec<(String, metadata::Type)>,
 }
 
 struct Field {
@@ -173,6 +185,52 @@ impl Closed {
                 DeclarationKind::Opaque { union } => Kind::Opaque { union: *union },
                 DeclarationKind::Record { .. } => Self::record(snapshot, id, &names)?,
                 DeclarationKind::Enum { .. } => Self::enumeration(snapshot, id, &names)?,
+                DeclarationKind::Interface {
+                    evidence,
+                    base,
+                    methods,
+                    ..
+                } => Kind::Interface {
+                    evidence: evidence.clone(),
+                    base: base
+                        .map(|id| {
+                            names[id].clone().ok_or_else(|| {
+                                Error::new(
+                                    Stage::Representation,
+                                    "interface base has no publication identity",
+                                )
+                            })
+                        })
+                        .transpose()?,
+                    methods: methods
+                        .iter()
+                        .map(|method| {
+                            if (snapshot.target == Target::X86
+                                && method.function.evidence.convention != CallingConvention::Stdcall)
+                                || (snapshot.target != Target::X86
+                                    && !matches!(
+                                        method.function.evidence.convention,
+                                        CallingConvention::C | CallingConvention::Win64
+                                    ))
+                            {
+                                return Err(Error::new(
+                                    Stage::Representation,
+                                    "interface method does not use the target COM calling convention",
+                                ));
+                            }
+                            Ok(Method {
+                                name: method.evidence.name.clone(),
+                                slot: method.evidence.slot,
+                                result: lower(&method.function.result, &names, snapshot.target)?,
+                                params: function_parameters(
+                                    std::slice::from_ref(&method.function),
+                                    &names,
+                                    snapshot.target,
+                                )?,
+                            })
+                        })
+                        .collect::<Result<_>>()?,
+                },
                 DeclarationKind::Function(observations) => {
                     let first = &observations[0];
                     let import = imports.get(&first.evidence.linker_name).ok_or_else(|| {
@@ -194,40 +252,7 @@ impl Closed {
                             "invalid named-export import contract",
                         ));
                     }
-                    let mut chosen = (0..first.params.len())
-                        .map(|ordinal| {
-                            observations
-                                .iter()
-                                .map(|function| function.params[ordinal].evidence.name.as_str())
-                                .filter(|name| identifier(name))
-                                .min()
-                                .map(str::to_string)
-                        })
-                        .collect::<Vec<_>>();
-                    let mut used = chosen.iter().flatten().cloned().collect::<BTreeSet<_>>();
-                    let mut assigned = BTreeSet::new();
-                    for (ordinal, name) in chosen.iter_mut().enumerate() {
-                        if name
-                            .as_ref()
-                            .is_none_or(|name| !assigned.insert(name.clone()))
-                        {
-                            let mut fallback = format!("param{ordinal}");
-                            while !used.insert(fallback.clone()) {
-                                fallback.push('_');
-                            }
-                            *name = Some(fallback);
-                        }
-                    }
-                    let params = chosen
-                        .into_iter()
-                        .zip(&first.params)
-                        .map(|(name, param)| {
-                            Ok((
-                                name.unwrap(),
-                                lower(&param.written, &names, snapshot.target)?,
-                            ))
-                        })
-                        .collect::<Result<_>>()?;
+                    let params = function_parameters(observations, &names, snapshot.target)?;
                     Kind::Function {
                         import: import.clone(),
                         convention: first.evidence.convention,
@@ -453,6 +478,70 @@ impl Closed {
                 let ty = windows_rdl::emit::write_type("", ty);
                 format!("type {name} = {ty};")
             }
+            Kind::Interface {
+                evidence,
+                base,
+                methods,
+            } => {
+                let base = base
+                    .as_ref()
+                    .map(|base| {
+                        format!(
+                            ": {}",
+                            windows_rdl::emit::write_type(
+                                "",
+                                &metadata::Type::ClassName(base.clone())
+                            )
+                        )
+                    })
+                    .unwrap_or_default();
+                let methods = methods
+                    .iter()
+                    .map(|method| {
+                        let name = windows_rdl::emit::write_ident(&method.name);
+                        let params = method
+                            .params
+                            .iter()
+                            .map(|(name, ty)| {
+                                format!(
+                                    "#[unspecified] {}: {}",
+                                    windows_rdl::emit::write_ident(name),
+                                    windows_rdl::emit::write_type("", ty)
+                                )
+                            })
+                            .collect::<Vec<_>>();
+                        let result = if method.result == metadata::Type::Void {
+                            String::new()
+                        } else {
+                            format!(" -> {}", windows_rdl::emit::write_type("", &method.result))
+                        };
+                        format!(
+                            "#[slot({})] fn {name}(&self{}){result};",
+                            method.slot,
+                            if params.is_empty() {
+                                String::new()
+                            } else {
+                                format!(", {}", params.join(", "))
+                            }
+                        )
+                    })
+                    .collect::<Vec<_>>()
+                    .join("\n");
+                format!(
+                    "#[guid(0x{})] #[vtable(size = {}, inherited = {})] {}{}interface {name}{base} {{ {methods} }}",
+                    evidence.guid.replace('-', ""),
+                    evidence.vtable_size,
+                    evidence.inherited,
+                    if evidence.no_vtable {
+                        "#[Windows::Win32::Metadata::NativeAnnotation(\"CXX\", 0, \"__declspec(novtable)\")] "
+                    } else {
+                        ""
+                    },
+                    evidence.packing.map(|packing| format!(
+                        "#[Windows::Win32::Metadata::NativeAnnotation(\"Clang\", 0, \"max_field_alignment = {packing}\")] "
+                    )).unwrap_or_default(),
+                )
+            }
             Kind::Opaque { union } => format!(
                 "#[opaque] {} {name} {{}}",
                 if *union { "union" } else { "struct" }
@@ -547,6 +636,16 @@ impl Closed {
                 if let Some(alignment) = contract.alignment {
                     attributes.push_str(&format!("#[align({alignment})] "));
                 }
+                if let Some(visibility) = contract.type_visibility {
+                    let value = match visibility {
+                        TypeVisibility::Default => "default",
+                        TypeVisibility::Hidden => "hidden",
+                        TypeVisibility::Protected => "protected",
+                    };
+                    attributes.push_str(&format!(
+                        "#[Windows::Win32::Metadata::NativeAnnotation(\"Clang\", 0, \"type_visibility = {value}\")] "
+                    ));
+                }
                 format!(
                     "{attributes}{} {name} {{ {fields} }}",
                     if *union { "union" } else { "struct" }
@@ -554,6 +653,43 @@ impl Closed {
             }
         }
     }
+}
+
+fn function_parameters(
+    observations: &[NativeFunction],
+    names: &[Option<metadata::TypeName>],
+    target: Target,
+) -> Result<Vec<(String, metadata::Type)>> {
+    let first = &observations[0];
+    let mut chosen = (0..first.params.len())
+        .map(|ordinal| {
+            observations
+                .iter()
+                .map(|function| function.params[ordinal].evidence.name.as_str())
+                .filter(|name| identifier(name))
+                .min()
+                .map(str::to_string)
+        })
+        .collect::<Vec<_>>();
+    let mut used = chosen.iter().flatten().cloned().collect::<BTreeSet<_>>();
+    let mut assigned = BTreeSet::new();
+    for (ordinal, name) in chosen.iter_mut().enumerate() {
+        if name
+            .as_ref()
+            .is_none_or(|name| !assigned.insert(name.clone()))
+        {
+            let mut fallback = format!("param{ordinal}");
+            while !used.insert(fallback.clone()) {
+                fallback.push('_');
+            }
+            *name = Some(fallback);
+        }
+    }
+    chosen
+        .into_iter()
+        .zip(&first.params)
+        .map(|(name, param)| Ok((name.unwrap(), lower(&param.written, names, target)?)))
+        .collect()
 }
 
 fn identifier(name: &str) -> bool {

@@ -5,6 +5,7 @@ use std::path::PathBuf;
 use std::sync::Arc;
 use windows_metadata as metadata;
 
+mod agreement;
 mod capture;
 mod layout;
 mod output;
@@ -109,6 +110,14 @@ pub struct RecordLayoutContract {
     pub packing: Option<u16>,
     pub alignment: Option<u16>,
     pub required_alignment: u32,
+    pub type_visibility: Option<TypeVisibility>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum TypeVisibility {
+    Default,
+    Hidden,
+    Protected,
 }
 
 #[derive(Debug, Clone)]
@@ -118,7 +127,7 @@ pub struct LayoutBridgeEvidence {
     pub parser_sha256: String,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Evidence {
     /// Identity within this snapshot, assigned from canonical compiler cursor equality.
     pub id: usize,
@@ -140,7 +149,7 @@ pub struct Root {
     pub location: Location,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct MacroEvidence {
     pub name: String,
     pub tokens: Vec<String>,
@@ -149,7 +158,7 @@ pub struct MacroEvidence {
     pub kind: MacroKind,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum MacroKind {
     Integer {
         written_type: String,
@@ -172,7 +181,7 @@ pub struct MacroProbe {
     pub diagnostics: Vec<String>,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct FieldEvidence {
     pub name: String,
     pub ordinal: usize,
@@ -194,7 +203,7 @@ pub enum CallingConvention {
     Win64,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct FunctionEvidence {
     pub linker_name: String,
     pub convention: CallingConvention,
@@ -204,7 +213,7 @@ pub struct FunctionEvidence {
     pub canonical_result: String,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct ParameterEvidence {
     pub name: String,
     pub ordinal: usize,
@@ -214,12 +223,40 @@ pub struct ParameterEvidence {
     pub canonical_type: String,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct EnumMemberEvidence {
     pub name: String,
     pub value: metadata::Value,
     pub expansion: Location,
     pub spelling: Location,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct InterfaceEvidence {
+    pub guid: String,
+    pub vtable_size: u32,
+    pub inherited: u32,
+    pub no_vtable: bool,
+    pub packing: Option<u16>,
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct MethodEvidence {
+    pub name: String,
+    pub slot: u32,
+    pub expansion: Location,
+    pub spelling: Location,
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct HelperEvidence {
+    pub qualified_name: String,
+    pub kind: String,
+    pub usr: String,
+    pub expansion: Location,
+    pub spelling: Location,
+    pub written_type: String,
+    pub canonical_type: String,
 }
 
 /// Explicit named-export contracts keyed by the compiler's native linker symbol.
@@ -307,6 +344,37 @@ impl Snapshot {
         })
     }
 
+    pub fn interfaces(&self) -> impl Iterator<Item = (&Evidence, &InterfaceEvidence)> {
+        self.declarations
+            .iter()
+            .filter_map(|decl| match &decl.kind {
+                DeclarationKind::Interface { evidence, .. } => Some((&decl.evidence, evidence)),
+                _ => None,
+            })
+    }
+
+    pub fn methods(&self) -> impl Iterator<Item = (&Evidence, &MethodEvidence, &FunctionEvidence)> {
+        self.declarations.iter().flat_map(|decl| {
+            let methods = match &decl.kind {
+                DeclarationKind::Interface { methods, .. } => methods.as_slice(),
+                _ => &[],
+            };
+            methods
+                .iter()
+                .map(move |method| (&decl.evidence, &method.evidence, &method.function.evidence))
+        })
+    }
+
+    pub fn interface_helpers(&self) -> impl Iterator<Item = (&Evidence, &HelperEvidence)> {
+        self.declarations.iter().flat_map(|decl| {
+            let helpers = match &decl.kind {
+                DeclarationKind::Interface { helpers, .. } => helpers.as_slice(),
+                _ => &[],
+            };
+            helpers.iter().map(move |helper| (&decl.evidence, helper))
+        })
+    }
+
     pub fn parameters(&self) -> impl Iterator<Item = (&Evidence, &ParameterEvidence)> {
         self.declarations.iter().flat_map(|decl| {
             let observations = match &decl.kind {
@@ -366,7 +434,7 @@ struct Declaration {
     kind: DeclarationKind,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 enum DeclarationKind {
     Alias {
         written: NativeType,
@@ -386,9 +454,21 @@ enum DeclarationKind {
         members: Vec<EnumMemberEvidence>,
     },
     Function(Vec<NativeFunction>),
+    Interface {
+        evidence: InterfaceEvidence,
+        base: Option<Id>,
+        methods: Vec<NativeMethod>,
+        helpers: Vec<HelperEvidence>,
+    },
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
+struct NativeMethod {
+    evidence: MethodEvidence,
+    function: NativeFunction,
+}
+
+#[derive(Debug, Clone, PartialEq)]
 struct NativeFunction {
     evidence: FunctionEvidence,
     result: NativeType,
@@ -396,14 +476,14 @@ struct NativeFunction {
     params: Vec<NativeParameter>,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 struct NativeParameter {
     evidence: ParameterEvidence,
     written: NativeType,
     canonical: NativeType,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 struct NativeField {
     evidence: FieldEvidence,
     written: NativeType,
@@ -494,21 +574,15 @@ impl Snapshot {
                 }
                 DeclarationKind::Function(observations) => {
                     for function in observations {
-                        self.check_type(
-                            &decl.evidence.qualified_name,
-                            &function.result,
-                            &function.canonical_result,
+                        self.check_function(&decl.evidence.qualified_name, function)?;
+                    }
+                }
+                DeclarationKind::Interface { methods, .. } => {
+                    for method in methods {
+                        self.check_function(
+                            &format!("{}::{}", decl.evidence.qualified_name, method.evidence.name),
+                            &method.function,
                         )?;
-                        for param in &function.params {
-                            self.check_type(
-                                &format!(
-                                    "{}[{}]",
-                                    decl.evidence.qualified_name, param.evidence.ordinal
-                                ),
-                                &param.written,
-                                &param.canonical,
-                            )?;
-                        }
                     }
                 }
                 DeclarationKind::Opaque { .. } => {}
@@ -530,6 +604,18 @@ impl Snapshot {
                  expanded {expanded:?}, canonical {canonical:?}"
                 ),
             ));
+        }
+        Ok(())
+    }
+
+    fn check_function(&self, name: &str, function: &NativeFunction) -> Result<()> {
+        self.check_type(name, &function.result, &function.canonical_result)?;
+        for param in &function.params {
+            self.check_type(
+                &format!("{name}[{}]", param.evidence.ordinal),
+                &param.written,
+                &param.canonical,
+            )?;
         }
         Ok(())
     }

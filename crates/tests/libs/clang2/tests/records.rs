@@ -5,6 +5,9 @@ use std::process::Command;
 use windows_clang2::*;
 use windows_metadata::{HasAttributes, Type, TypeAttributes, reader::*};
 
+#[cfg(target_arch = "x86_64")]
+mod support;
+
 fn input(source: &str, target: Target, names: &[&str]) -> Input {
     let mut input = Input::new("records.cpp", source, target);
     input
@@ -442,40 +445,10 @@ fn reviewed_records_preserve_graph_and_storage_on_three_targets() {
 #[test]
 #[cfg(target_arch = "x86_64")]
 fn reviewed_explicit_layouts_preserve_contracts_on_three_targets() {
-    let native = PathBuf::from(std::env::var_os("WINDOWS_CLANG2_LAYOUT_NATIVE").unwrap());
-    if std::env::var_os("WINDOWS_CLANG2_LAYOUT_WORKER").is_none() {
-        let log = Path::new(env!("OUT_DIR")).join("layout_worker.log");
-        let file = std::fs::File::create(&log).unwrap();
-        let mut child = Command::new(std::env::current_exe().unwrap())
-            .args([
-                "--exact",
-                "reviewed_explicit_layouts_preserve_contracts_on_three_targets",
-                "--nocapture",
-            ])
-            .env("LIBCLANG_PATH", &native)
-            .env("WINDOWS_CLANG2_LAYOUT_WORKER", "1")
-            .stdout(std::process::Stdio::from(file.try_clone().unwrap()))
-            .stderr(std::process::Stdio::from(file))
-            .spawn()
-            .unwrap();
-        let started = std::time::Instant::now();
-        loop {
-            if let Some(status) = child.try_wait().unwrap() {
-                assert!(
-                    status.success(),
-                    "{}",
-                    std::fs::read_to_string(&log).unwrap()
-                );
-                return;
-            }
-            if started.elapsed() >= std::time::Duration::from_secs(20) {
-                child.kill().unwrap();
-                child.wait().unwrap();
-                panic!("layout worker deadline; {}", log.display());
-            }
-            std::thread::sleep(std::time::Duration::from_millis(10));
-        }
+    if support::worker("reviewed_explicit_layouts_preserve_contracts_on_three_targets") {
+        return;
     }
+    let native = PathBuf::from(std::env::var_os("WINDOWS_CLANG2_LAYOUT_NATIVE").unwrap());
     let compiler = Compiler::with_layout_bridge(native.join("windows_clang_layout.dll")).unwrap();
     let error =
         Compiler::with_layout_bridge(Path::new(env!("OUT_DIR")).join("windows_clang_layout.dll"))
@@ -524,7 +497,7 @@ fn reviewed_explicit_layouts_preserve_contracts_on_three_targets() {
             include_str!("../input/layout_contracts.rdl").replace("\r\n", "\n")
         );
         let evidence = snapshot.layout_bridge.as_ref().unwrap();
-        assert_eq!(evidence.abi, 2);
+        assert_eq!(evidence.abi, 3);
         assert_eq!(
             evidence.library.file_name().unwrap(),
             "windows_clang_layout.dll"
@@ -756,6 +729,7 @@ fn native_msvc_compiles_the_independent_storage_assertions() {
             "layout_contracts",
             "nested_records",
             "sdk_nested",
+            "interfaces",
         ] {
             let source =
                 Path::new(env!("CARGO_MANIFEST_DIR")).join(format!("input\\{fixture}.cpp"));
@@ -780,6 +754,27 @@ fn native_msvc_compiles_the_independent_storage_assertions() {
                 String::from_utf8_lossy(&output.stderr)
             );
             assert!(object.is_file());
+            if fixture == "interfaces" && arch != "amd64_arm64" {
+                let executable = object.with_extension("exe");
+                let command = format!(
+                    "call \"{}\" {arch} >nul && cl /nologo \"{}\" /Fe\"{}\"",
+                    setup.display(),
+                    object.display(),
+                    executable.display()
+                );
+                let output = Command::new(std::env::var_os("ComSpec").unwrap())
+                    .raw_arg(format!("/d /s /c \"{command}\""))
+                    .output()
+                    .unwrap();
+                assert!(
+                    output.status.success(),
+                    "{fixture}/{arch}: {}\n{}",
+                    String::from_utf8_lossy(&output.stdout),
+                    String::from_utf8_lossy(&output.stderr)
+                );
+                let status = Command::new(&executable).status().unwrap();
+                assert!(status.success(), "{fixture}/{arch}: {status}");
+            }
         }
     }
 }

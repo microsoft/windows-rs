@@ -423,7 +423,16 @@ impl Capture<'_> {
                 "nonpublic nested declarations are outside C3-C",
             ));
         }
-        self.check_attributes(cursor)?;
+        let interface = self.interface_contract(cursor)?;
+        let checked_record = self.layouts.is_some()
+            && matches!(
+                unsafe { clang_getCursorKind(cursor) },
+                CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
+            )
+            && unsafe { clang_Cursor_isNull(clang_getCursorDefinition(cursor)) } == 0;
+        if interface.is_none() && !checked_record {
+            self.check_attributes(cursor)?;
+        }
         let cursor = unsafe { clang_getCanonicalCursor(cursor) };
         if let Some(id) = self
             .cursors
@@ -475,7 +484,9 @@ impl Capture<'_> {
                 "declaration family is outside C2 (C3-C9 required)",
             ));
         }
-        self.check_attributes(cursor)?;
+        if interface.is_none() && !checked_record {
+            self.check_attributes(cursor)?;
+        }
         let anonymous = unsafe { clang_Cursor_isAnonymous(cursor) } != 0;
         let mut names = names(cursor)?;
         if anonymous {
@@ -578,6 +589,24 @@ impl Capture<'_> {
                 written: self.ty(ty, 0)?,
                 canonical: self.ty(canonical, 0)?,
             }
+        } else if let Some(interface) = interface {
+            let definition = unsafe { clang_getCursorDefinition(cursor) };
+            let ty = unsafe { clang_getCursorType(definition) };
+            self.declarations[id].evidence.written_type =
+                text(unsafe { clang_getTypeSpelling(ty) });
+            self.declarations[id].evidence.canonical_type =
+                text(unsafe { clang_getTypeSpelling(clang_getCanonicalType(ty)) });
+            self.declarations[id].evidence.layout = layout(ty)?;
+            let (expansion, spelling) = locations(definition);
+            self.declarations[id].evidence.expansion = expansion;
+            self.declarations[id].evidence.spelling = spelling;
+            self.declarations[id].kind = DeclarationKind::Interface {
+                evidence: interface.clone(),
+                base: None,
+                methods: Vec::new(),
+                helpers: Vec::new(),
+            };
+            self.interface(definition, interface)?
         } else {
             let ty = unsafe { clang_getCursorType(cursor) };
             self.declarations[id].evidence.written_type =
@@ -637,6 +666,145 @@ impl Capture<'_> {
         Ok(())
     }
 
+    fn interface_contract(&self, cursor: CXCursor) -> Result<Option<InterfaceEvidence>> {
+        if matches!(
+            unsafe { clang_getCursorKind(cursor) },
+            CXCursor_StructDecl | CXCursor_ClassDecl
+        ) && let Some(layouts) = self.layouts
+        {
+            layouts.interface(cursor).map_err(|mut failure| {
+                failure.message = error(cursor, &failure.message).message;
+                failure
+            })
+        } else {
+            Ok(None)
+        }
+    }
+
+    fn interface(
+        &mut self,
+        cursor: CXCursor,
+        evidence: InterfaceEvidence,
+    ) -> Result<DeclarationKind> {
+        let mut base = None;
+        let mut methods = Vec::new();
+        let mut helpers = Vec::new();
+        let mut method_names = BTreeSet::new();
+        let layouts = self
+            .layouts
+            .ok_or_else(|| error(cursor, "interfaces require the matched native bridge"))?;
+        for child in children(cursor) {
+            let kind = unsafe { clang_getCursorKind(child) };
+            match kind {
+                CXCursor_CXXBaseSpecifier => {
+                    if base.is_some()
+                        || unsafe { clang_isVirtualBase(child) } != 0
+                        || unsafe { clang_getCXXAccessSpecifier(child) } != CX_CXXPublic
+                    {
+                        return Err(error(
+                            child,
+                            "interface requires one public nonvirtual base",
+                        ));
+                    }
+                    let ty = unsafe { clang_getCanonicalType(clang_getCursorType(child)) };
+                    let id = self.declaration(unsafe { clang_getTypeDeclaration(ty) })?;
+                    let DeclarationKind::Interface {
+                        evidence: parent, ..
+                    } = &self.declarations[id].kind
+                    else {
+                        return Err(error(
+                            child,
+                            "interface base lacks a captured native interface contract",
+                        ));
+                    };
+                    if parent.vtable_size != evidence.inherited {
+                        return Err(error(
+                            child,
+                            "interface inherited prefix disagrees with native base extent",
+                        ));
+                    }
+                    base = Some(id);
+                }
+                CXCursor_CXXMethod if unsafe { clang_CXXMethod_isVirtual(child) } != 0 => {
+                    if unsafe { clang_CXXMethod_isPureVirtual(child) } == 0
+                        || unsafe { clang_getCXXAccessSpecifier(child) } != CX_CXXPublic
+                    {
+                        return Err(error(
+                            child,
+                            "interface method is not public and pure virtual",
+                        ));
+                    }
+                    self.check_attributes(child)?;
+                    let name = text(unsafe { clang_getCursorSpelling(child) });
+                    if !method_names.insert(name.clone()) {
+                        return Err(error(
+                            child,
+                            "overloaded virtual methods require an independent ABI gate",
+                        ));
+                    }
+                    let slot = layouts.method_slot(child)?;
+                    let function = self.function(child)?;
+                    if function.evidence.variadic {
+                        return Err(error(child, "variadic interface method is not supported"));
+                    }
+                    let (expansion, spelling) = locations(child);
+                    methods.push(NativeMethod {
+                        evidence: MethodEvidence {
+                            name,
+                            slot,
+                            expansion,
+                            spelling,
+                        },
+                        function,
+                    });
+                }
+                CXCursor_CXXMethod | CXCursor_FunctionTemplate => {
+                    layouts.check_helper(child).map_err(|mut failure| {
+                        failure.message = error(child, &failure.message).message;
+                        failure
+                    })?;
+                    let (expansion, spelling) = locations(child);
+                    helpers.push(HelperEvidence {
+                        qualified_name: names(child)?.join("::"),
+                        kind: text(unsafe { clang_getCursorKindSpelling(kind) }),
+                        usr: text(unsafe { clang_getCursorUSR(child) }),
+                        expansion,
+                        spelling,
+                        written_type: text(unsafe {
+                            clang_getTypeSpelling(clang_getCursorType(child))
+                        }),
+                        canonical_type: text(unsafe {
+                            clang_getTypeSpelling(clang_getCanonicalType(clang_getCursorType(
+                                child,
+                            )))
+                        }),
+                    });
+                }
+                CXCursor_CXXAccessSpecifier => {}
+                _ if unsafe { clang_isAttribute(kind) } != 0 => {}
+                _ => return Err(error(child, "unsupported member of native interface")),
+            }
+        }
+        let slots = methods
+            .iter()
+            .map(|method| method.evidence.slot)
+            .collect::<BTreeSet<_>>();
+        if slots != (evidence.inherited..evidence.vtable_size).collect()
+            || slots.len() != methods.len()
+            || (base.is_none() && evidence.inherited != 0)
+        {
+            return Err(error(
+                cursor,
+                "interface methods do not cover the native new-slot extent",
+            ));
+        }
+        Ok(DeclarationKind::Interface {
+            evidence,
+            base,
+            methods,
+            helpers,
+        })
+    }
     fn function(&mut self, cursor: CXCursor) -> Result<NativeFunction> {
         if unsafe { clang_getCursorLinkage(cursor) } != CXLinkage_External
             || unsafe { clang_Cursor_isFunctionInlined(cursor) } != 0
@@ -735,6 +903,7 @@ impl Capture<'_> {
             let child = *child;
             match unsafe { clang_getCursorKind(child) } {
                 CXCursor_AlignedAttr if self.layouts.is_some() => {}
+                kind if self.layouts.is_some() && unsafe { clang_isAttribute(kind) } != 0 => {}
                 CXCursor_CXXAccessSpecifier => {
                     if unsafe { clang_getCXXAccessSpecifier(child) } != CX_CXXPublic {
                         return Err(error(child, "nonpublic record members are outside C3-A"));

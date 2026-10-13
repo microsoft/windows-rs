@@ -66,9 +66,8 @@ code imports can supply routes. ARM64 SDK archives contain both ARM64 and ARM64E
 The reviewed `pilot_api.h`/`.rdl` fixture covers enum values and aliases, enum-containing records,
 import renaming, variadic signatures, and colliding/unnamed parameters. Semantic WinMD checks run on
 all three targets. The real shellscalingapi ANSI/Unicode profiles emit and compile on all three
-targets. These are producer checks, not accepted partitions: source contracts, combined inputs,
-architecture agreement, difference classification, Unicode alias publication, and the COM closure
-remain pilot obligations.
+targets. These are producer checks, not accepted partitions: source contracts, architecture
+agreement, difference classification, and Unicode alias publication remain pilot obligations.
 
 ## Object-like macro capture
 
@@ -92,7 +91,49 @@ The pilot records all ten Toolhelp Unicode aliases without choosing winners for 
 The reviewed `macro_values.h`/`.rdl` fixture and semantic WinMD checks cover all three targets.
 Active-definition scope, rejected contracts, concurrent reuse, and compiler destruction have
 regression controls. Toolhelp ANSI profiles emit all 13 required constants and 16 functions on all
-targets. Unicode publication and COM/source contracts still prevent pilot acceptance.
+targets. Unicode publication and source contracts still prevent pilot acceptance.
+
+## Native COM capture and input agreement
+
+The matched bridge reads compiler UUID attributes, maximum-field alignment, `novtable`, native
+vtable extent, inherited prefix, and absolute method locations from the original TU. One public
+nonvirtual zero-offset base and public pure methods are supported. The compiler's Microsoft
+vtable model supplies slots; source order or spelling does not supply them. The native descriptor
+rejects constructors, destructors, storage, overrides, and nonpure virtual behavior. Capture/output
+also reject overloads, const/volatile/ref-qualified methods, unsupported exception contracts, and
+non-COM effective calling conventions.
+
+Inline nonvirtual methods and function templates are helper inventory, not vtable slots or emitted
+methods. The bridge follows a function template's compiler-owned method declaration. Parameter
+types retain written/canonical graphs and original positions; output uses `#[unspecified]` until
+source direction contracts are captured. No input/output role is inferred from pointer depth.
+Compiler type visibility on consumed records is retained as `NativeAnnotation("Clang", ...)`
+evidence. The bridge validates all record attributes before capture accepts attribute cursors.
+
+Reviewed `interfaces.h`/`.rdl` tests inspect UUIDs, inheritance, slots, typedef returns, references,
+pointer depth, helper exclusions, cloning, disposal, and WinMD round-trips on all three targets.
+`interfaces.cpp` independently checks MSVC object layout on x86/x64/ARM64 and calls every slot
+through raw native function pointers on x86/x64. ARM64 is compile-only native evidence.
+
+`Snapshot::agree` checks every consumed observation against another same-compiler/target snapshot.
+The containing source file, nominal evidence, owner chain, and anonymous owning-field position
+establish correspondence; duplicate keys reject. Snapshot IDs are remapped into that correspondence
+before comparing complete native graphs, source locations, layouts, qualifiers, field order,
+enum values, function observations, interface descriptors, and selected macro definitions/results.
+The second snapshot may contain more required roots. Both directions are checked for combined vs
+reversed profiles. Cross-target captures reject; architecture variation needs a separate policy.
+
+`agreement_a.h`/`agreement_b.h` cover reordered inputs and nested/anonymous ownership. Negative
+controls reject conflicting native scalar kinds despite identical RDL, packing requests with
+matching storage, enum values, conventions, signatures, constants, UUIDs, and method extents.
+Native bridge tests run in deadline-controlled children with the matched parser; ordinary capture
+tests keep the configured libclang provider.
+
+The real pilot captures the selected `IUnknown`/`ISequentialStream` closure and inventories the
+templated `QueryInterface` helper. All 24 same-target input comparisons pass. 21/30 profiles emit,
+compile, and pass structural WinMD contract/slot checks. The nine remaining profiles capture their
+native graphs but reject Unicode alias publication. These results do not accept either partition:
+source annotations, Unicode naming, architecture variation, and classified differences remain open.
 
 ## Ownership and checked output
 
@@ -251,7 +292,7 @@ Libclang's ordinary child traversal omits implicit anonymous fields. Its field v
 them, but cursor spelling returns a diagnostic type name for an unnamed member. The bridge reads
 identifier presence and anonymous-member status directly; strings containing "anonymous" do not
 establish either fact. Without the bridge, implicit fields reject rather than being omitted.
-The bridge ABI is 2; parser identity/fingerprint and lifetime checks remain in force.
+The bridge ABI is 3; parser identity/fingerprint and lifetime checks remain in force.
 
 `Evidence::id` identifies a declaration within one snapshot. `FieldEvidence::record_id` retains
 direct canonical record edges, and `ownerships` exposes semantic parent edges. USRs remain source
@@ -298,7 +339,7 @@ NuGet DLL is not combined with independently built private AST APIs.
 | Official LLVM archive | `clang+llvm-22.1.8-x86_64-pc-windows-msvc.tar.xz` |
 | Archive SHA256 | `d96c2cc1736f4eb7fa43cb9bbdf56d93551a9ae0a9aadb9c99c3c3b2b712a234` |
 | LLVM source revision | `ca7933e47d3a3451d81e72ac174dcb5aa28b59d1` |
-| Bridge ABI | `2` |
+| Bridge ABI | `3` |
 
 `native/llvm.json` pins the archive and source. The build verifies the archive checksum, extraction
 marker, source revision, and clean source checkout. It extracts the pinned upstream cursor accessor,

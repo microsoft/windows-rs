@@ -1,0 +1,34 @@
+#[win32]
+mod Test {
+    type Count = u32;
+    #[Windows::Win32::Metadata::NativeAnnotation("Clang", 0, "type_visibility = default")]
+    struct Identifier {
+        first: u32,
+        second: u16,
+        third: u16,
+        fourth: [u8; 8],
+    }
+    type Result = i32;
+    #[guid(0x00112233445566778899aabbccddeeff)]
+    #[vtable(size = 3, inherited = 0)]
+    #[Windows::Win32::Metadata::NativeAnnotation("CXX", 0, "__declspec(novtable)")]
+    #[Windows::Win32::Metadata::NativeAnnotation("Clang", 0, "max_field_alignment = 8")]
+    interface Root {
+        #[slot(0)]
+        fn Query(&self, #[unspecified] id: &Test::Identifier, #[unspecified] object: *mut *mut void) -> Test::Result;
+        #[slot(1)]
+        fn Retain(&self) -> Test::Count;
+        #[slot(2)]
+        fn Drop(&self) -> Test::Count;
+    }
+    #[guid(0x112233445566778899aabbccddeeff00)]
+    #[vtable(size = 5, inherited = 3)]
+    #[Windows::Win32::Metadata::NativeAnnotation("CXX", 0, "__declspec(novtable)")]
+    #[Windows::Win32::Metadata::NativeAnnotation("Clang", 0, "max_field_alignment = 8")]
+    interface Stream: Test::Root {
+        #[slot(3)]
+        fn Read(&self, #[unspecified] data: *mut void, #[unspecified] capacity: Test::Count, #[unspecified] actual: *mut Test::Count) -> Test::Result;
+        #[slot(4)]
+        fn Write(&self, #[unspecified] data: *const void, #[unspecified] count: Test::Count, #[unspecified] actual: *mut Test::Count) -> Test::Result;
+    }
+}
