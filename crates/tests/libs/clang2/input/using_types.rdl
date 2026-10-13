@@ -1,0 +1,8 @@
+#[win32]
+mod Fixture {
+    type Number = u32;
+    type NumberPointer = *mut u32;
+    struct UsingRecord {
+        value: u32,
+    }
+}

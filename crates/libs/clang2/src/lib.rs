@@ -39,7 +39,7 @@ pub struct Input {
     pub source: String,
     /// Additional compiler arguments, such as include paths and macro definitions.
     pub arguments: Vec<String>,
-    /// Global struct or typedef names and dependencies within this TU. Empty selects all declarations.
+    /// Global struct or alias names and dependencies within this TU. Empty selects all declarations.
     pub roots: Vec<String>,
 }
 
@@ -64,6 +64,7 @@ pub struct ObservationId(pub usize);
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct FileId(pub usize);
 
+/// A source occurrence, using the outer expansion site for macro-generated declarations.
 #[derive(Debug, Eq, PartialEq)]
 pub struct Location {
     pub file: FileId,

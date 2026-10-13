@@ -27,9 +27,14 @@ pub(super) fn read(
     for &cursor in &declarations {
         let name = text(unsafe { clang_getCursorSpelling(cursor) });
         let kind = unsafe { clang_getCursorKind(cursor) };
-        if !matches!(kind, CXCursor_StructDecl | CXCursor_TypedefDecl) || name.is_empty() {
+        if !matches!(
+            kind,
+            CXCursor_StructDecl | CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
+        ) || name.is_empty()
+        {
             if roots.is_empty() {
-                let error = unsupported(cursor, "expected a named struct or typedef declaration");
+                let error =
+                    unsupported(cursor, "expected a named struct or type alias declaration");
                 if !partial {
                     return Err(error);
                 }
@@ -45,9 +50,7 @@ pub(super) fn read(
                         | CXCursor_ClassTemplatePartialSpecialization => {
                             Some(partial::Key::Record(name))
                         }
-                        CXCursor_TypeAliasDecl | CXCursor_TypeAliasTemplateDecl => {
-                            Some(partial::Key::Alias(name))
-                        }
+                        CXCursor_TypeAliasTemplateDecl => Some(partial::Key::Alias(name)),
                         _ => None,
                     }
                 };
@@ -85,10 +88,10 @@ pub(super) fn read(
         result
     };
     for cursor in selected {
-        let declaration = if unsafe { clang_getCursorKind(cursor.0) } == CXCursor_TypedefDecl {
-            DeclarationId::Alias(capture.alias(cursor.0)?)
-        } else {
+        let declaration = if unsafe { clang_getCursorKind(cursor.0) } == CXCursor_StructDecl {
             DeclarationId::Record(capture.record(cursor.0)?)
+        } else {
+            DeclarationId::Alias(capture.alias(cursor.0)?)
         };
         capture.snapshot.roots.push(declaration);
     }
@@ -150,7 +153,7 @@ impl Capture<'_> {
             return Ok(id);
         }
         if !self.declarations.contains_key(&key) {
-            return Err(unsupported(cursor, "dependency is not a global typedef"));
+            return Err(unsupported(cursor, "dependency is not a global type alias"));
         }
         let usr = text(unsafe { clang_getCursorUSR(cursor) });
         if usr.is_empty() {
@@ -298,12 +301,25 @@ impl Capture<'_> {
                 result.push(self.attribute(child)?);
             } else if !matches!(kind, CXCursor_TypeRef | CXCursor_IntegerLiteral) {
                 let is_underlying_record = unsafe {
-                    clang_getCursorKind(cursor) == CXCursor_TypedefDecl
-                        && kind == CXCursor_StructDecl
-                        && Cursor(clang_getCanonicalCursor(child))
-                            == Cursor(clang_getCanonicalCursor(clang_getTypeDeclaration(
-                                clang_getCanonicalType(clang_getTypedefDeclUnderlyingType(cursor)),
-                            )))
+                    if matches!(
+                        clang_getCursorKind(cursor),
+                        CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
+                    ) && kind == CXCursor_StructDecl
+                    {
+                        let mut ty =
+                            clang_getCanonicalType(clang_getTypedefDeclUnderlyingType(cursor));
+                        loop {
+                            ty = match ty.kind {
+                                CXType_Pointer => clang_getPointeeType(ty),
+                                CXType_ConstantArray => clang_getArrayElementType(ty),
+                                _ => break,
+                            };
+                        }
+                        Cursor(clang_getCanonicalCursor(child))
+                            == Cursor(clang_getCanonicalCursor(clang_getTypeDeclaration(ty)))
+                    } else {
+                        false
+                    }
                 };
                 if !is_underlying_record {
                     return Err(unsupported(child, "unsupported declaration child"));

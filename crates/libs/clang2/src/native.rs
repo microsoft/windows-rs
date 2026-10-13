@@ -37,7 +37,7 @@ pub(super) fn source(cursor: CXCursor) -> (String, u32, u32, u32) {
     let mut file = std::ptr::null_mut();
     let (mut line, mut column, mut offset) = (0, 0, 0);
     unsafe {
-        clang_getSpellingLocation(
+        clang_getExpansionLocation(
             clang_getCursorLocation(cursor),
             &raw mut file,
             &raw mut line,

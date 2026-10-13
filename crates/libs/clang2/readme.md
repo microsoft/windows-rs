@@ -29,10 +29,10 @@ absence.
 Indices are created before parallel capture and reused across TUs. Batches are serialized; other
 libclang callers must not create indices during a batch. Native hangs affect the whole process.
 
-Supported: named structs, typedefs, forwards, scalars, qualified pointers, arrays, and observed
-layouts. Written alias edges and all captured declaration observations are retained. Compatibility
-uses canonical types; typedef names are not nominal types. Attribute evidence is retained, but
-unresolved attributes block `resolve` and `merge`. No packing request is guessed from layout.
+Supported: named structs, typedefs, non-template `using` aliases, forwards, scalars, qualified pointers,
+arrays, and observed layouts. Written alias edges and declaration observations are retained.
+Compatibility uses canonical types; alias names are not nominal types. Attribute evidence is retained,
+but unresolved attributes block `resolve` and `merge`. No packing request is guessed from layout.
 Unions and functions are not implemented.
 
 The optional `projection` feature provides `projection::generate(inputs, namespace)` for

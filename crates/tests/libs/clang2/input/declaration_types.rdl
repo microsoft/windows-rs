@@ -1,0 +1,18 @@
+#[win32]
+mod Fixture {
+    type Handle = *mut Handle__;
+    struct Handle__ {
+        value: i32,
+    }
+    type OtherHandle = *mut OtherHandle__;
+    struct OtherHandle__ {
+        value: i32,
+    }
+    type PPRecord = *mut *mut Record;
+    type PRecord = *mut Record;
+    type PointerArray = [*mut Record; 3];
+    struct Record {
+        value: i32,
+    }
+    type RecordArray = [Record; 2];
+}
