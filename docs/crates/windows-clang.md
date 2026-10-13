@@ -246,6 +246,10 @@ Incomplete records are valid when used through pointers and rejected when a comp
 layout is required. Fixed-underlying forward enums can be represented by their declared integer
 type. Unfixed forward enums are rejected rather than assigned a guessed representation.
 
+An enum is emitted as `#[flags]` with an unsigned representation when the header either applies
+`DEFINE_ENUM_FLAG_OPERATORS` to it or declares it with Clang's `flag_enum` attribute, spelled
+`[[clang::flag_enum]]`, `[[gnu::flag_enum]]`, or `__attribute__((flag_enum))`.
+
 An incomplete declaration may resolve to a complete declaration from another translation unit when
 their public names and C/C++ declaration kinds match. The completed projection may differ from the
 placeholder representation: for example, an incomplete `struct` is initially a record but may

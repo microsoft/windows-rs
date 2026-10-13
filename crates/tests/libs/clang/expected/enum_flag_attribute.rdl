@@ -1,0 +1,37 @@
+#[win32]
+mod Flags {
+    #[repr(u32)]
+    #[flags]
+    enum GnuFlags {
+        GnuNone = 0,
+        GnuRead = 1,
+    }
+    #[repr(u32)]
+    #[flags]
+    enum NativeFlags {
+        NativeNone = 0,
+        NativeRead = 1,
+        NativeWrite = 2,
+        NativeAll = 3,
+    }
+    #[repr(u32)]
+    enum PlainEnum {
+        PlainNone = 0,
+        PlainRead = 1,
+        PlainWrite = 2,
+        PlainAll = 3,
+    }
+    #[repr(u32)]
+    #[flags]
+    enum SIGNED_FLAGS {
+        SignedNone = 0,
+        SignedAll = 4294967295,
+    }
+    #[repr(u32)]
+    #[flags]
+    #[scoped]
+    enum ScopedFlags {
+        ScopedNone = 0,
+        ScopedRead = 1,
+    }
+}

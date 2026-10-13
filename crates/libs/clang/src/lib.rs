@@ -296,6 +296,7 @@ pub enum FactData {
         variants: Vec<Variant>,
         fixed: bool,
         scoped: bool,
+        flags: bool,
     },
     EnumFlag {
         target: String,
@@ -598,11 +599,13 @@ impl Snapshot {
                     repr,
                     variants,
                     scoped,
+                    flags,
                     ..
                 } => {
-                    let flags = plan
-                        .flag_enums
-                        .contains(&(fact.origin.tu.clone(), planned.name.clone()));
+                    let flags = *flags
+                        || plan
+                            .flag_enums
+                            .contains(&(fact.origin.tu.clone(), planned.name.clone()));
                     let repr = if flags { unsigned_scalar(*repr) } else { *repr };
                     let mut item = format!(
                         "    #[repr({})]\n{}{}    enum {} {{\n",
@@ -2496,8 +2499,9 @@ fn choose_type_root_cached<'a>(
                                 variants,
                                 fixed,
                                 scoped,
+                                flags,
                             } => Some(type_shape(&format!(
-                                "enum:{repr:?}:{variants:?}:{fixed}:{scoped}"
+                                "enum:{repr:?}:{variants:?}:{fixed}:{scoped}:{flags}"
                             ))),
                             FactData::Callback {
                                 convention,
