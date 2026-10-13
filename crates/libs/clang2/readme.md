@@ -22,9 +22,12 @@ aliases remain separate evidence. Active profile-scoped descriptors attach to th
 native targets without renaming or erasing ANSI declarations.
 The matched bridge also captures UUID-bearing COM interfaces with a single public nonvirtual base,
 native inherited prefixes and slots, pure-method signatures, and separate inline-helper inventory.
-Direct pilot SAL/MIDL parameter contracts preserve direction, optionality, COM output markers, raw
+Pilot SAL/MIDL parameter contracts preserve direction, optionality, COM output markers, raw
 evidence, and positional byte extents. Unannotated parameters stay unspecified. Source-contract
 completeness and callbacks remain outside accepted capture.
+Compiler-owned macro history supports object-like annotation wrapper chains without guessing
+redefinition order. Physical source contexts preserve return-prefix SAL and explicit named MIDL
+interface sections. Unsupported transformations and ambiguous consumed ownership reject.
 `Snapshot::agree` compares complete original native observations across same-target input scopes
 and orders, after reconciling nominal ownership rather than comparing snapshot IDs or RDL.
 The active delivery gate combines these families in a frozen SDK/COM pilot.
@@ -59,9 +62,10 @@ while the pilot is incomplete. Further isolated storage work is paused; producti
 The shellscalingapi profiles emit and compile with pinned SDK import evidence on x86/x64/ARM64.
 Toolhelp's ANSI profiles also emit and compile, including all 13 value macros and 16 functions.
 All 30 profiles emit and compile; all 24 same-target native agreement checks pass. Candidate WinMD
-readback checks DLL/export/convention routes, captured parameter contracts, and active aliases.
-The completeness controls expose silent loss of return-prefix SAL, wrapper SAL, and interface-level
-MIDL evidence on every target. These are ownership blockers, not accepted source coverage.
+readback checks DLL/export/convention routes, captured parameter contracts, active aliases, and
+function/method/interface source evidence. Exact return-prefix, wrapper-provenance, and
+interface-context controls pass on all three targets, including the real selected COM sections.
+Full signature/value readback, cross-target variation, and difference classification remain open.
 The pilot remains 0/2 accepted partitions; no production promotion is authorized.
 
 See [the replacement plan](../../../docs/crates/windows-clang.md#fixed-implementation-matrix)

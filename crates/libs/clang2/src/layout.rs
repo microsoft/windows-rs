@@ -1,5 +1,5 @@
 use super::*;
-use clang_sys::{CXCursor, CXIndex};
+use clang_sys::{CXCursor, CXIndex, CXSourceLocation, CXTranslationUnit};
 use libloading::Library;
 use sha2::{Digest, Sha256};
 use std::ffi::{CStr, c_void};
@@ -29,6 +29,23 @@ struct NativeInterface {
 
 type InterfaceQuery = unsafe extern "C" fn(CXCursor, *mut NativeInterface) -> u32;
 
+#[repr(C)]
+struct NativeMacro {
+    definition: CXSourceLocation,
+    function_like: u32,
+    variadic: u32,
+}
+
+type MacroToken = unsafe extern "C" fn(*mut c_void, u32, *const u8, u32) -> u32;
+type MacroQuery = unsafe extern "C" fn(
+    CXTranslationUnit,
+    CXSourceLocation,
+    *const std::ffi::c_char,
+    *mut NativeMacro,
+    *mut c_void,
+    MacroToken,
+) -> u32;
+
 pub(super) struct Bridge {
     pub evidence: LayoutBridgeEvidence,
     query: Query,
@@ -36,6 +53,7 @@ pub(super) struct Bridge {
     interface_query: InterfaceQuery,
     method_query: FieldQuery,
     helper_query: FieldQuery,
+    macro_query: MacroQuery,
     _library: Library,
     _parser: Library,
 }
@@ -60,7 +78,7 @@ impl Bridge {
             let abi = library
                 .get::<unsafe extern "C" fn() -> u32>(b"windows_clang_layout_abi\0")
                 .map_err(|err| error(err.to_string()))?();
-            if abi != 3 {
+            if abi != 4 {
                 return Err(error("layout bridge ABI mismatch".to_string()));
             }
             let expected = library
@@ -115,6 +133,9 @@ impl Bridge {
             let helper_query = *library
                 .get::<FieldQuery>(b"windows_clang_layout_helper\0")
                 .map_err(|err| error(err.to_string()))?;
+            let macro_query = *library
+                .get::<MacroQuery>(b"windows_clang_layout_macro\0")
+                .map_err(|err| error(err.to_string()))?;
             Ok(Self {
                 evidence: LayoutBridgeEvidence {
                     abi,
@@ -126,10 +147,130 @@ impl Bridge {
                 interface_query,
                 method_query,
                 helper_query,
+                macro_query,
                 _library: library,
                 _parser: parser_library,
             })
         }
+    }
+
+    pub fn macro_definition(
+        &self,
+        unit: CXTranslationUnit,
+        location: CXSourceLocation,
+        name: &str,
+    ) -> Result<Option<MacroDefinitionEvidence>> {
+        struct Tokens {
+            parameters: Vec<String>,
+            replacement: Vec<String>,
+            failed: bool,
+        }
+        unsafe extern "C" fn emit(
+            context: *mut c_void,
+            kind: u32,
+            data: *const u8,
+            size: u32,
+        ) -> u32 {
+            let tokens = unsafe { &mut *context.cast::<Tokens>() };
+            let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                if data.is_null() || kind > 1 {
+                    return false;
+                }
+                let bytes = unsafe { std::slice::from_raw_parts(data, size as usize) };
+                let Ok(text) = std::str::from_utf8(bytes) else {
+                    return false;
+                };
+                if kind == 0 {
+                    tokens.parameters.push(text.into());
+                } else {
+                    tokens.replacement.push(text.into());
+                }
+                true
+            }));
+            if !matches!(result, Ok(true)) {
+                tokens.failed = true;
+                return 1;
+            }
+            0
+        }
+        let name_c = std::ffi::CString::new(name)
+            .map_err(|_| Error::new(Stage::Capture, "macro name contains NUL"))?;
+        let mut native = NativeMacro {
+            definition: unsafe { clang_sys::clang_getNullLocation() },
+            function_like: 0,
+            variadic: 0,
+        };
+        let mut tokens = Tokens {
+            parameters: Vec::new(),
+            replacement: Vec::new(),
+            failed: false,
+        };
+        let status = unsafe {
+            (self.macro_query)(
+                unit,
+                location,
+                name_c.as_ptr(),
+                &raw mut native,
+                (&raw mut tokens).cast(),
+                emit,
+            )
+        };
+        if status == 1 {
+            return Ok(None);
+        }
+        if status != 0 || tokens.failed || native.function_like > 1 || native.variadic > 1 {
+            return Err(Error::new(
+                Stage::Capture,
+                format!("compiler macro definition rejected with {status}"),
+            ));
+        }
+        let mut file = std::ptr::null_mut();
+        let mut line = 0;
+        let mut column = 0;
+        let mut offset = 0;
+        unsafe {
+            clang_sys::clang_getSpellingLocation(
+                native.definition,
+                &raw mut file,
+                &raw mut line,
+                &raw mut column,
+                &raw mut offset,
+            );
+        }
+        let filename = unsafe { clang_sys::clang_getFileName(file) };
+        let filename_text = unsafe { clang_sys::clang_getCString(filename) };
+        if !file.is_null() && filename_text.is_null() {
+            unsafe {
+                clang_sys::clang_disposeString(filename);
+            }
+            return Err(Error::new(
+                Stage::Capture,
+                "macro definition has no compiler source file",
+            ));
+        }
+        let filename_value = if file.is_null() {
+            String::new()
+        } else {
+            unsafe { CStr::from_ptr(filename_text) }
+                .to_string_lossy()
+                .into_owned()
+        };
+        unsafe {
+            clang_sys::clang_disposeString(filename);
+        }
+        Ok(Some(MacroDefinitionEvidence {
+            name: name.into(),
+            location: Location {
+                file: filename_value,
+                line,
+                column,
+                offset,
+            },
+            function_like: native.function_like != 0,
+            variadic: native.variadic != 0,
+            parameters: tokens.parameters,
+            tokens: tokens.replacement,
+        }))
     }
 
     pub fn record(&self, cursor: CXCursor) -> Result<RecordLayoutContract> {

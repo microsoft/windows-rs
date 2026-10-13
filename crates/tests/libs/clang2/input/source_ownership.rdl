@@ -1,0 +1,22 @@
+#[win32]
+mod Test {
+    #[Windows::Win32::Metadata::NativeAnnotation("MIDL-section", 0, "/* interface Other */\n/* [object] */")]
+    #[guid(0x112233445566778899aabbccddeeff00)]
+    #[vtable(size = 1, inherited = 0)]
+    interface Other {
+        #[slot(0)]
+        fn Method(&self);
+    }
+    #[library("fixture.dll")]
+    extern "C" fn Plain();
+    #[Windows::Win32::Metadata::NativeAnnotation("MIDL-section", 0, "/* interface Root */\n/* [object][local] */")]
+    #[guid(0x00112233445566778899aabbccddeeff)]
+    #[vtable(size = 1, inherited = 0)]
+    interface Root {
+        #[slot(0)]
+        fn Method(&self, #[in] #[Windows::Win32::Metadata::NativeAnnotation("SAL", 0, "_In_")] value: *mut i32);
+    }
+    #[Windows::Win32::Metadata::NativeAnnotation("SAL-return", 0, "_Check_return_")]
+    #[library("fixture.dll")]
+    extern "C" fn Status() -> i32;
+}

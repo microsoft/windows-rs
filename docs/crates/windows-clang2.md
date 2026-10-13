@@ -96,14 +96,41 @@ Active-definition scope, rejected contracts, concurrent reuse, and compiler dest
 regression controls. Toolhelp ANSI profiles emit all 13 required constants and 16 functions on all
 targets. Source-contract completeness still prevents pilot acceptance.
 
-## Captured source contracts and completeness boundary
+## Captured source contracts and ownership
 
-The original TU's compiler preprocessing records identify direct SAL expansions from the SDK
-annotation headers. Compiler tokens establish physical callable names and original argument
-contexts, including macro-written result types and unnamed parameters. No legacy SAL shim is
-force-included. Bracket-only MIDL comments inside those contexts retain separate raw evidence.
+The original TU's preprocessing records and annotation-family definitions identify SAL expansions.
+The matched ABI-4 bridge queries the definition active at each original invocation, including
+`#undef` and redefinition history. Policy stays in Rust; the native query returns compiler-owned
+definition locations, parameter names, replacement tokens, and function-like/variadic flags.
+No legacy SAL shim is force-included.
 
-The pilot lowerer supports direct input/output/inout, optional input/output, COM output pointers,
+Compiler tokens establish physical callable names and original argument contexts, including
+macro-written result types and unnamed parameters. Whole-file contexts exclude compiler-reported
+inactive ranges. Ownership follows these checked source forms:
+
+| Owner | Source context |
+| --- | --- |
+| Parameter | Original argument span anchored to the compiler's positional parameter |
+| Function | Physical declaration plus preceding annotation spans/comments and compiler-owned linkage prefixes |
+| Interface | Adjacent comment prefix, or explicit `/* interface NAME */` section with one matching canonical record |
+
+Prefix extension stops at declarations and preprocessing directives, including spliced directives.
+It does not use a token-distance limit. Interface sections end at the next active marker in the
+same file. Intervening typedefs, extern declarations, and linkage blocks are allowed because the
+marker names the compiler identity; duplicate markers, mismatched names, and multiple same-name
+canonical records reject. Section comments stay raw `MIDL-section` evidence, not inferred typed
+uniqueness, object, local, or UUID policies.
+
+Object-like single-identifier wrapper chains retain the original payload, resolved SAL payload,
+and ordered definition evidence using existing `NativeAnnotation` attributes. Resolution follows
+the definitions at invocation time, not wrapper-definition time. Source-less compiler definitions
+keep an empty physical filename, consistent with other capture locations; the snapshot retains
+the complete arguments. Function-like transformations, composite wrappers, cycles, and excessive
+dependency depth reject. Without the matched bridge, potentially indirect SAL contracts reject
+rather than disappear. Repeated physical invocations with different compiler source identities
+reject when consumed; unrelated repeated preprocessing observations do not block capture.
+
+The pilot lowerer supports input/output/inout, optional input/output, COM output pointers,
 input byte buffers, and output capacity/valid-byte pairs. Expression bindings refer to original
 parameter positions, not output names. `_Out_writes_bytes_to_(cb, *pcbRead)` retains both capacity
 and valid-byte descriptors. An optional count pointer does not become permission to dereference
@@ -116,20 +143,33 @@ round-trips check raw families, positional bindings, direction, optionality, COM
 and both byte extents. Redeclaration checks compare lowered positional contracts while retaining
 each observation's original annotation identifiers.
 
-These checks do not establish complete annotation capture. The pilot's independent
-`annotation-completeness.tsv` controls reproduce three losses on x86, x64, and ARM64:
+`_Check_return_` prefixes retain function-owned `SAL-return` evidence without guessing downstream
+behavior. Other consumed return SAL rejects. `source_ownership.h`/`.rdl` check return prefixes,
+inactive sections, explicit named sections across intervening declarations, and distinct owners
+through WinMD on all three targets. `macro_ownership.h` checks invocation-time redefinitions,
+wrapper chains, positional capacity/valid-byte bindings, and unrelated macros. Negative controls
+cover ambiguous ownership, malformed comments, unsupported transformations, cross-file prefixes,
+preprocessing boundaries, and repeated-header contexts.
 
-| Control | Missing source contract |
+The pilot's `annotation-completeness.tsv` controls require exact source ownership and compiled
+WinMD readback, not substring presence or a capture rejection:
+
+| Control | Required source contract |
 | --- | --- |
-| Return prefix | `_Check_return_` before the AST declaration range |
-| Wrapper macro | A user macro expanding to `_In_` instead of a directly SDK-owned expansion |
-| Interface context | `/* [object][local] */` outside the class's AST range |
+| Return prefix | Function-owned `_Check_return_` before the AST declaration range |
+| Wrapper macro | Parameter-owned `INPUT`, resolved `_In_`, and ordered compiler definitions |
+| Interface context | Interface-owned `/* [object][local] */` outside the class's AST range |
 
-Each control retains its original header and successful but incomplete RDL. The real `IUnknown`
-header also places its interface-level MIDL comment outside the class range, across intervening
-declarations. Extending a declaration range or matching a nearby comment does not prove ownership.
-The source-contract gate is blocked. The frozen pilot's ownership stop rule applies before another
-implementation push: review the source-context model, not another header-specific repair.
+All nine control/target pairs pass. The real `IUnknown` and `ISequentialStream` sections also retain
+their exact SDK marker/comment pairs and pass owner-level WinMD readback across the frozen profiles.
+Controls retain headers, arguments, RDL, and WinMD. Candidate readback includes function, method,
+and interface annotations, wrapper provenance, original parameter bindings, and separate raw
+redeclaration observations with contiguous output ordinals.
+
+This bounded ownership gate is not complete annotation semantics or pilot acceptance. All 30
+profiles compile/read back and all 24 same-target comparisons pass. Full signature/value readback,
+cross-target variation, and legacy-difference classification remain open; accepted partitions stay
+0/2 and production promotion stays disabled.
 
 ## Native COM capture and input agreement
 

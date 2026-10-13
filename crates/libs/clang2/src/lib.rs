@@ -139,6 +139,7 @@ pub struct Evidence {
     pub written_type: String,
     pub canonical_type: String,
     pub layout: Option<Layout>,
+    pub annotations: Vec<AnnotationEvidence>,
 }
 
 #[derive(Debug, Clone)]
@@ -248,6 +249,23 @@ pub struct AnnotationEvidence {
     pub payload: String,
     pub location: Location,
     pub bindings: Vec<(String, usize)>,
+    pub resolution: Option<AnnotationResolution>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct AnnotationResolution {
+    pub payload: String,
+    pub definitions: Vec<MacroDefinitionEvidence>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct MacroDefinitionEvidence {
+    pub name: String,
+    pub location: Location,
+    pub function_like: bool,
+    pub variadic: bool,
+    pub parameters: Vec<String>,
+    pub tokens: Vec<String>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

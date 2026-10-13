@@ -540,6 +540,7 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
                 helper_report,
             )?;
             snapshots.insert(profile.name.clone(), snapshot.clone());
+            verify_pilot_sections(&snapshot)?;
             let rdl = snapshot.rdl_with_imports("Windows.Win32", &imports)?;
             let binary = output.join(format!("{}.winmd", profile.name));
             windows_rdl::reader()
@@ -637,7 +638,7 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
                 "see-capture.tsv"
             },
             if source_contracts_passed {
-                "negative-controls-passed-not-full-acceptance"
+                "bounded-owners-and-readback-passed-not-full-acceptance"
             } else {
                 "blocked-see-annotation-completeness.tsv"
             },
@@ -659,6 +660,32 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
     )
 }
 
+fn verify_pilot_sections(snapshot: &windows_clang2::Snapshot) -> Result<()> {
+    for (owner, _) in snapshot.interfaces() {
+        let payload = match owner.qualified_name.as_str() {
+            "IUnknown" => "/* interface IUnknown */\n/* [unique][uuid][object][local] */",
+            "ISequentialStream" => {
+                "/* interface ISequentialStream */\n/* [unique][uuid][object] */"
+            }
+            _ => continue,
+        };
+        if owner.annotations.len() != 1
+            || owner.annotations[0].source != "MIDL-section"
+            || owner.annotations[0].ordinal != 0
+            || owner.annotations[0].payload != payload
+            || !owner.annotations[0].bindings.is_empty()
+            || owner.annotations[0].resolution.is_some()
+        {
+            return Err(format!(
+                "{}: required SDK interface context was not retained exactly",
+                owner.qualified_name
+            )
+            .into());
+        }
+    }
+    Ok(())
+}
+
 fn verify_readback(
     snapshot: &windows_clang2::Snapshot,
     index: &windows_metadata::reader::Index,
@@ -671,7 +698,12 @@ fn verify_readback(
         }
     };
     let mut functions = 0;
+    let mut function_annotations = BTreeMap::<_, Vec<_>>::new();
     for (declaration, evidence) in snapshot.functions() {
+        function_annotations
+            .entry(declaration.qualified_name.as_str())
+            .or_default()
+            .extend(&evidence.annotations);
         let expected = imports
             .get(&evidence.linker_name)
             .ok_or("missing source import route")?;
@@ -697,10 +729,61 @@ fn verify_readback(
         }
         functions += 1;
     }
+    for (name, annotations) in function_annotations {
+        verify_annotations(function(name)?.attributes(), &annotations, &[])?;
+    }
+    for (declaration, evidence) in snapshot.interfaces() {
+        let owner = index
+            .get("Windows.Win32", &declaration.qualified_name)
+            .next()
+            .ok_or("candidate interface missing")?;
+        let mut native = Vec::new();
+        if evidence.no_vtable {
+            native.push(vec![
+                Value::Utf8("CXX".into()),
+                Value::I32(0),
+                Value::Utf8("__declspec(novtable)".into()),
+            ]);
+        }
+        if let Some(packing) = evidence.packing {
+            native.push(vec![
+                Value::Utf8("Clang".into()),
+                Value::I32(0),
+                Value::Utf8(format!("max_field_alignment = {packing}")),
+            ]);
+        }
+        verify_annotations(
+            owner.attributes(),
+            &declaration.annotations.iter().collect::<Vec<_>>(),
+            &native,
+        )?;
+    }
+    for (declaration, method, evidence) in snapshot.methods() {
+        let owner = index
+            .get("Windows.Win32", &declaration.qualified_name)
+            .next()
+            .ok_or("candidate interface missing")?;
+        let candidate = owner
+            .methods()
+            .find(|candidate| candidate.name() == method.name)
+            .ok_or("candidate interface method missing")?;
+        verify_annotations(
+            candidate.attributes(),
+            &evidence.annotations.iter().collect::<Vec<_>>(),
+            &[],
+        )?;
+    }
     let mut parameters = 0;
+    let mut parameter_observations = BTreeMap::<_, Vec<_>>::new();
     for (declaration, parameter) in snapshot.parameters() {
-        verify_parameter(function(&declaration.qualified_name)?, parameter)?;
-        parameters += 1;
+        parameter_observations
+            .entry((declaration.qualified_name.as_str(), parameter.ordinal))
+            .or_default()
+            .push(parameter);
+    }
+    for ((name, _), observations) in parameter_observations {
+        verify_parameter(function(name)?, &observations)?;
+        parameters += observations.len();
     }
     for (declaration, method, parameter) in snapshot.method_parameters() {
         let owner = index
@@ -711,7 +794,7 @@ fn verify_readback(
             .methods()
             .find(|candidate| candidate.name() == method.name)
             .ok_or("candidate interface method missing")?;
-        verify_parameter(candidate, parameter)?;
+        verify_parameter(candidate, &[parameter])?;
         parameters += 1;
     }
     let mut aliases = 0;
@@ -760,10 +843,11 @@ fn verify_readback(
 
 fn verify_parameter(
     method: windows_metadata::reader::MethodDef<'_>,
-    evidence: &windows_clang2::ParameterEvidence,
+    observations: &[&windows_clang2::ParameterEvidence],
 ) -> Result<()> {
     use windows_clang2::Direction;
     use windows_metadata::reader::ParamDirection;
+    let evidence = observations[0];
     let signature = method.signature(&[]);
     let parameters = method.params_by_sequence(signature.types.len())?;
     let parameter = parameters
@@ -826,40 +910,80 @@ fn verify_parameter(
         )
         .into());
     }
-    let annotations = contract
-        .annotations
-        .iter()
-        .map(|annotation| {
-            vec![
+    verify_annotations(
+        parameter.attributes(),
+        &observations
+            .iter()
+            .flat_map(|observation| &observation.contract.annotations)
+            .collect::<Vec<_>>(),
+        &[],
+    )?;
+    Ok(())
+}
+
+fn verify_annotations<'a>(
+    attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
+    evidence: &[&windows_clang2::AnnotationEvidence],
+    native: &[Vec<Value>],
+) -> Result<()> {
+    let mut annotations = Vec::new();
+    let mut bindings = Vec::new();
+    let mut ordinals = BTreeMap::<_, i32>::new();
+    for annotation in evidence {
+        let ordinal = ordinals.entry(annotation.source.as_str()).or_default();
+        annotations.push(vec![
+            Value::Utf8(annotation.source.clone()),
+            Value::I32(*ordinal),
+            Value::Utf8(annotation.payload.clone()),
+        ]);
+        for (name, position) in &annotation.bindings {
+            bindings.push(vec![
                 Value::Utf8(annotation.source.clone()),
-                Value::I32(annotation.ordinal.try_into().unwrap()),
-                Value::Utf8(annotation.payload.clone()),
-            ]
-        })
-        .collect::<Vec<_>>();
-    let bindings = contract
-        .annotations
-        .iter()
-        .flat_map(|annotation| {
-            annotation.bindings.iter().map(move |(name, position)| {
-                vec![
-                    Value::Utf8(annotation.source.clone()),
-                    Value::I32(annotation.ordinal.try_into().unwrap()),
-                    Value::Utf8(name.clone()),
-                    Value::I32((*position).try_into().unwrap()),
-                ]
+                Value::I32(*ordinal),
+                Value::Utf8(name.clone()),
+                Value::I32((*position).try_into()?),
+            ]);
+        }
+        if let Some(resolution) = &annotation.resolution {
+            annotations.push(vec![
+                Value::Utf8(format!("{}-expansion", annotation.source)),
+                Value::I32(*ordinal),
+                Value::Utf8(resolution.payload.clone()),
+            ]);
+            for (position, definition) in resolution.definitions.iter().enumerate() {
+                annotations.push(vec![Value::Utf8(format!("{}-definition-{ordinal}", annotation.source)),
+                    Value::I32(position.try_into()?),
+                    Value::Utf8(format!("{}\n{}:{}:{}@{}\nfunction-like={} variadic={}\nparameters={:?}\nreplacement={:?}",
+                        definition.name, definition.location.file, definition.location.line,
+                        definition.location.column, definition.location.offset,
+                        definition.function_like, definition.variadic,
+                        definition.parameters, definition.tokens))]);
+            }
+        }
+        *ordinal += 1;
+    }
+    annotations.extend_from_slice(native);
+    let attributes = attributes.collect::<Vec<_>>();
+    let values = |name| {
+        attributes
+            .iter()
+            .filter(|attribute| attribute.name() == name)
+            .map(|attribute| {
+                attribute
+                    .value()
+                    .into_iter()
+                    .map(|(_, value)| value)
+                    .collect::<Vec<_>>()
             })
-        })
-        .collect::<Vec<_>>();
+            .collect::<Vec<_>>()
+    };
     if values("NativeAnnotationAttribute") != annotations
         || values("NativeAnnotationBindingAttribute") != bindings
     {
-        return Err(format!(
-            "WinMD changed source annotation bindings for {}[{}]",
-            method.name(),
-            evidence.ordinal
-        )
-        .into());
+        return Err(
+            "WinMD changed source annotation owner, payload, provenance or positional binding"
+                .into(),
+        );
     }
     Ok(())
 }
@@ -872,21 +996,18 @@ fn check_annotation_completeness(
 ) -> Result<bool> {
     let mut report = String::from("control\tstatus\tdiagnostic\n");
     let mut passed = true;
-    for (name, source, family) in [
+    for (name, source) in [
         (
             "return-prefix",
             "#include <sal.h>\n_Check_return_ int Proof();\n",
-            "SAL",
         ),
         (
             "wrapper-macro",
             "#include <sal.h>\n#define INPUT _In_\nvoid Proof(INPUT int* value);\n",
-            "SAL",
         ),
         (
             "interface-context",
             "/* [object][local] */\nstruct __declspec(uuid(\"00112233-4455-6677-8899-aabbccddeeff\")) Proof { virtual void __stdcall Method() = 0; };\n",
-            "MIDL",
         ),
     ] {
         let path = output.join(format!("annotation-{name}.hpp"));
@@ -894,49 +1015,120 @@ fn check_annotation_completeness(
         let mut input = Input::new(path.to_string_lossy(), source, target);
         input.arguments.clone_from(&profile.arguments);
         input.required.insert("Proof".into());
-        let result = match compiler.capture(&input) {
-            Err(error)
-                if matches!(
-                    error.stage,
-                    windows_clang2::Stage::Capture | windows_clang2::Stage::Representation
-                ) =>
-            {
-                Ok(format!("explicit rejection: {error}"))
-            }
-            Err(error) => {
-                return Err(format!("annotation control `{name}` unavailable: {error}").into());
-            }
-            Ok(snapshot) => {
-                let imports = snapshot
-                    .functions()
-                    .map(|(_, function)| {
-                        (
-                            function.linker_name.clone(),
-                            Import {
-                                dll: "control.dll".into(),
-                                export: "Proof".into(),
-                            },
-                        )
-                    })
-                    .collect();
-                match snapshot.rdl_with_imports("Control", &imports) {
-                    Err(error) => Ok(format!("explicit rejection: {error}")),
-                    Ok(rdl) => {
-                        std::fs::write(output.join(format!("annotation-{name}.rdl")), &rdl)?;
-                        if rdl.contains(&format!("NativeAnnotation(\"{family}\"")) {
-                            Ok("source evidence retained; ownership/semantics still require review".into())
-                        } else {
-                            Err("source contract absent from successful candidate".to_string())
-                        }
+        std::fs::write(
+            output.join(format!("annotation-{name}-arguments.tsv")),
+            input.arguments.join("\n"),
+        )?;
+        let result = (|| -> Result<()> {
+            let snapshot = compiler.capture(&input)?;
+            let annotation = match name {
+                "return-prefix" => {
+                    let (owner, function) = snapshot
+                        .functions()
+                        .next()
+                        .ok_or("control function missing")?;
+                    if !owner.annotations.is_empty()
+                        || function.annotations.len() != 1
+                        || snapshot.parameters().next().is_some()
+                    {
+                        return Err("return annotation has wrong owner or count".into());
                     }
+                    &function.annotations[0]
                 }
+                "wrapper-macro" => {
+                    let (_, parameter) = snapshot
+                        .parameters()
+                        .next()
+                        .ok_or("control parameter missing")?;
+                    if parameter.ordinal != 0
+                        || parameter.contract.direction != Some(windows_clang2::Direction::In)
+                        || parameter.contract.annotations.len() != 1
+                        || snapshot
+                            .functions()
+                            .any(|(_, function)| !function.annotations.is_empty())
+                    {
+                        return Err("wrapper annotation has wrong owner or direction".into());
+                    }
+                    let annotation = &parameter.contract.annotations[0];
+                    let resolution = annotation
+                        .resolution
+                        .as_ref()
+                        .ok_or("missing macro-history provenance")?;
+                    if resolution.payload != "_In_"
+                        || resolution
+                            .definitions
+                            .iter()
+                            .map(|definition| definition.name.as_str())
+                            .collect::<Vec<_>>()
+                            != ["INPUT", "_In_"]
+                    {
+                        return Err("wrong wrapper leaf or definition chain".into());
+                    }
+                    annotation
+                }
+                "interface-context" => {
+                    let (owner, _) = snapshot
+                        .interfaces()
+                        .next()
+                        .ok_or("control interface missing")?;
+                    if owner.annotations.len() != 1
+                        || snapshot
+                            .methods()
+                            .any(|(_, _, function)| !function.annotations.is_empty())
+                    {
+                        return Err("interface annotation has wrong owner".into());
+                    }
+                    &owner.annotations[0]
+                }
+                _ => unreachable!(),
+            };
+            let (family, payload) = match name {
+                "return-prefix" => ("SAL-return", "_Check_return_"),
+                "wrapper-macro" => ("SAL", "INPUT"),
+                "interface-context" => ("MIDL", "/* [object][local] */"),
+                _ => unreachable!(),
+            };
+            if annotation.source != family
+                || annotation.ordinal != 0
+                || annotation.payload != payload
+                || !annotation.bindings.is_empty()
+            {
+                return Err("source contract differs from exact control".into());
             }
-        };
+            let imports = snapshot
+                .functions()
+                .map(|(_, function)| {
+                    (
+                        function.linker_name.clone(),
+                        Import {
+                            dll: "control.dll".into(),
+                            export: "Proof".into(),
+                        },
+                    )
+                })
+                .collect();
+            let rdl = snapshot.rdl_with_imports("Windows.Win32", &imports)?;
+            std::fs::write(output.join(format!("annotation-{name}.rdl")), &rdl)?;
+            let binary = output.join(format!("annotation-{name}.winmd"));
+            windows_rdl::reader()
+                .reference(output.join("vocabulary.winmd"))
+                .input_text(&rdl)
+                .output(&binary)
+                .write()?;
+            let index = windows_metadata::reader::Index::read(&binary)
+                .ok_or("annotation candidate WinMD unavailable")?;
+            index.validate_native_contracts(None)?;
+            verify_readback(&snapshot, &index, &imports)?;
+            Ok(())
+        })();
         let (status, diagnostic) = match result {
-            Ok(diagnostic) => ("passed", diagnostic),
+            Ok(()) => (
+                "passed",
+                "exact source owner/payload/provenance and WinMD readback".to_string(),
+            ),
             Err(diagnostic) => {
                 passed = false;
-                ("blocked", diagnostic)
+                ("blocked", diagnostic.to_string())
             }
         };
         writeln!(report, "{name}\t{status}\t{}", escape(&diagnostic))?;
@@ -1020,10 +1212,14 @@ mod tests {
         let compiler = Compiler::new().unwrap();
         let mut input = Input::new(
             "readback.cpp",
-            "extern \"C\" void Proof(/* [in] */ const int* value);\n#define CALL Proof",
+            "/* [local] */ extern \"C\" void Proof(/* [in] */ const int* value);\n\
+             extern \"C\" void Repeated(/* [in] */ const int* value);\n\
+             extern \"C\" void Repeated(/* [in] */ const int* data);\n#define CALL Proof",
             Target::X64,
         );
-        input.required.extend(["Proof".into(), "CALL".into()]);
+        input
+            .required
+            .extend(["Proof".into(), "Repeated".into(), "CALL".into()]);
         let snapshot = compiler.capture(&input).unwrap();
         let imports = snapshot
             .functions()
@@ -1053,6 +1249,11 @@ mod tests {
             ("valid", rdl.clone(), true),
             ("route", rdl.replace("fixture.dll", "other.dll"), false),
             ("direction", rdl.replace("#[in]", "#[unspecified]"), false),
+            (
+                "function-evidence",
+                rdl.replace("/* [local] */", "/* [object] */"),
+                false,
+            ),
             (
                 "evidence",
                 rdl.replace(

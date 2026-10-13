@@ -72,7 +72,7 @@ impl Compiler {
             cursors: Vec::new(),
             pending: BTreeSet::new(),
             layouts: self.layouts.as_ref(),
-            contracts: contracts::Index::new(session.unit)?,
+            contracts: contracts::Index::new(session.unit, self.layouts.as_ref())?,
         };
         let mut roots = Vec::new();
         let mut selected: BTreeMap<String, Vec<CXCursor>> = BTreeMap::new();
@@ -398,7 +398,7 @@ struct Capture<'a> {
     cursors: Vec<CXCursor>,
     pending: BTreeSet<Id>,
     layouts: Option<&'a layout::Bridge>,
-    contracts: contracts::Index,
+    contracts: contracts::Index<'a>,
 }
 
 impl Capture<'_> {
@@ -528,6 +528,7 @@ impl Capture<'_> {
                 written_type: String::new(),
                 canonical_type: String::new(),
                 layout: None,
+                annotations: Vec::new(),
             },
             names,
             owner: None,
@@ -608,6 +609,7 @@ impl Capture<'_> {
             let (expansion, spelling) = locations(definition);
             self.declarations[id].evidence.expansion = expansion;
             self.declarations[id].evidence.spelling = spelling;
+            self.declarations[id].evidence.annotations = self.contracts.interface(definition)?;
             self.declarations[id].kind = DeclarationKind::Interface {
                 evidence: interface.clone(),
                 base: None,

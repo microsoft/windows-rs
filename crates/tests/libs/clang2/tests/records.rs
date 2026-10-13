@@ -497,7 +497,7 @@ fn reviewed_explicit_layouts_preserve_contracts_on_three_targets() {
             include_str!("../input/layout_contracts.rdl").replace("\r\n", "\n")
         );
         let evidence = snapshot.layout_bridge.as_ref().unwrap();
-        assert_eq!(evidence.abi, 3);
+        assert_eq!(evidence.abi, 4);
         assert_eq!(
             evidence.library.file_name().unwrap(),
             "windows_clang_layout.dll"

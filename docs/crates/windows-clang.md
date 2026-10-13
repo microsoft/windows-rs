@@ -542,16 +542,20 @@ and 13 ANSI or 23 Unicode macro observations. Snapshot-local IDs and emitted RDL
 keys. Fixtures reject conflicting scalar kinds even when both candidates emit identical RDL, plus
 packing, enum values, conventions, signatures, constants, UUIDs, and slots.
 Compiled candidates pass WinMD native-contract and slot validation. Readback verifies native
-DLL/export/convention routes, captured parameter contracts/raw evidence, and active aliases.
+DLL/export/convention routes, captured parameter contracts/raw evidence, active aliases, and
+function/method/interface annotations with wrapper-definition provenance.
 Direct SAL/MIDL lowering retains direction, optionality, COM output markers, original positional
 bindings, and both capacity and valid-byte extents. Unannotated parameters remain unspecified.
 
-Completeness controls expose silent loss of return-prefix SAL, wrapper SAL, and interface-level
-MIDL comments on every target. Their original headers and incomplete RDL are retained with
-`annotation-completeness.tsv`. The source-ownership stop rule is triggered: the next decision needs
-a review of that ownership model, not another header-specific patch or broader extraction campaign.
-Full signature/value readback, cross-target variation, and semantic difference classification are
-also still pending. Accepted partitions remain 0/2.
+The bounded source-context gate passes on every target. Compiler-owned active macro definitions
+resolve object-like wrapper chains. Physical declaration prefixes and explicit named MIDL sections
+retain return/interface evidence without token-distance guesses. All nine completeness controls
+require exact owner/payload/provenance and WinMD readback; capture rejection cannot pass a required
+control. The real selected COM interfaces retain their exact SDK section comments across all
+profiles. Headers, arguments, RDL, WinMD, and `annotation-completeness.tsv` are retained.
+See [the ownership grammar](windows-clang2.md#captured-source-contracts-and-ownership) for supported
+forms and explicit rejection boundaries. Full signature/value readback, cross-target variation,
+and semantic difference classification still block acceptance. Accepted partitions remain 0/2.
 
 This runner establishes a diagnostic baseline, not acceptance. It returns nonzero while the pilot
 is incomplete; `capture.tsv` records current producer failures and `gates.tsv` lists unimplemented

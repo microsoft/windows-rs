@@ -2,10 +2,14 @@
 #pragma warning(push)
 #pragma warning(disable: 4702)
 #include "CXCursor.h"
+#include "CXSourceLocation.h"
+#include "CXTranslationUnit.h"
 #include <clang/AST/ASTContext.h>
 #include <clang/AST/Attr.h>
 #include <clang/AST/RecordLayout.h>
 #include <clang/AST/VTableBuilder.h>
+#include <clang/Frontend/ASTUnit.h>
+#include <clang/Lex/Preprocessor.h>
 #include <llvm/Config/llvm-config.h>
 #pragma warning(pop)
 #include <cstring>
@@ -34,7 +38,7 @@ struct InterfaceContract {
 static_assert(sizeof(InterfaceContract) == 52);
 
 extern "C" __declspec(dllexport) uint32_t windows_clang_layout_abi() {
-    return 3;
+    return 4;
 }
 
 extern "C" __declspec(dllexport) const void *windows_clang_layout_parser() {
@@ -43,6 +47,55 @@ extern "C" __declspec(dllexport) const void *windows_clang_layout_parser() {
 
 extern "C" __declspec(dllexport) const char *windows_clang_layout_fingerprint() {
     return WINDOWS_CLANG_PARSER_SHA256;
+}
+
+struct MacroContract {
+    CXSourceLocation definition;
+    uint32_t function_like;
+    uint32_t variadic;
+};
+using MacroToken = uint32_t (*)(void *, uint32_t, const char *, uint32_t);
+
+extern "C" __declspec(dllexport) uint32_t
+windows_clang_layout_macro(CXTranslationUnit unit, CXSourceLocation location,
+                          const char *name, MacroContract *result,
+                          void *context, MacroToken emit) {
+    auto *ast = clang::cxtu::getASTUnit(unit);
+    if (!ast || !name || !result || !emit ||
+        location.ptr_data[0] != &ast->getSourceManager()) {
+        return 2;
+    }
+    auto &preprocessor = ast->getPreprocessor();
+    const auto definition = preprocessor.getMacroDefinitionAtLoc(
+        preprocessor.getIdentifierInfo(name), clang::cxloc::translateSourceLocation(location));
+    if (definition.isAmbiguous()) {
+        return 2;
+    }
+    const auto *macro = definition.getMacroInfo();
+    if (!macro) {
+        return 1;
+    }
+    *result = {
+        clang::cxloc::translateSourceLocation(ast->getSourceManager(),
+                                             ast->getLangOpts(), macro->getDefinitionLoc()),
+        macro->isFunctionLike() ? 1u : 0u,
+        macro->isVariadic() ? 1u : 0u
+    };
+    if (macro->isFunctionLike()) {
+        for (const auto *parameter : macro->params()) {
+            const auto spelling = parameter->getName();
+            if (emit(context, 0, spelling.data(), static_cast<uint32_t>(spelling.size()))) {
+                return 3;
+            }
+        }
+    }
+    for (const auto &token : macro->tokens()) {
+        const auto spelling = preprocessor.getSpelling(token);
+        if (emit(context, 1, spelling.data(), static_cast<uint32_t>(spelling.size()))) {
+            return 3;
+        }
+    }
+    return 0;
 }
 
 extern "C" __declspec(dllexport) uint32_t

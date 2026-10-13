@@ -297,7 +297,7 @@ impl Closed {
                         name: name.name.clone(),
                         kind,
                         owner,
-                        attributes: Vec::new(),
+                        attributes: vec![annotation_attributes(&decl.evidence.annotations)],
                     },
                 )
                 .is_some()
@@ -793,6 +793,25 @@ fn annotation_attributes(annotations: &[AnnotationEvidence]) -> String {
                 "#[Windows::Win32::Metadata::NativeAnnotationBinding({:?}, {}, {:?}, {})] ",
                 annotation.source, ordinal, identifier, parameter
             ));
+        }
+        if let Some(resolution) = &annotation.resolution {
+            result.push_str(&format!(
+                "#[Windows::Win32::Metadata::NativeAnnotation({:?}, {}, {:?})] ",
+                format!("{}-expansion", annotation.source),
+                ordinal,
+                resolution.payload
+            ));
+            for (definition_ordinal, definition) in resolution.definitions.iter().enumerate() {
+                result.push_str(&format!(
+                    "#[Windows::Win32::Metadata::NativeAnnotation({:?}, {}, {:?})] ",
+                    format!("{}-definition-{ordinal}", annotation.source), definition_ordinal,
+                    format!("{}\n{}:{}:{}@{}\nfunction-like={} variadic={}\nparameters={:?}\nreplacement={:?}",
+                        definition.name, definition.location.file, definition.location.line,
+                        definition.location.column, definition.location.offset,
+                        definition.function_like, definition.variadic,
+                        definition.parameters, definition.tokens)
+                ));
+            }
         }
         *ordinal += 1;
     }

@@ -1,20 +1,57 @@
 use super::*;
 
-pub(super) struct Index {
+mod source;
+
+pub(super) struct Index<'a> {
     unit: CXTranslationUnit,
-    macros: BTreeMap<(String, u32), String>,
+    bridge: Option<&'a layout::Bridge>,
+    macros: BTreeMap<(String, u32), Vec<Expansion>>,
+    family_files: BTreeSet<String>,
+    family_names: BTreeSet<String>,
+    files: std::cell::RefCell<BTreeMap<String, Vec<Token>>>,
+    records: Vec<CXCursor>,
 }
 
+struct Expansion {
+    name: String,
+    definition: CXCursor,
+    location: CXSourceLocation,
+    end: u32,
+}
+
+#[derive(Clone)]
 struct Token {
     text: String,
     kind: i32,
     location: Location,
+    end: u32,
 }
 
-impl Index {
-    pub fn new(unit: CXTranslationUnit) -> Result<Self> {
-        let mut macros = BTreeMap::new();
-        for cursor in children(unsafe { clang_getTranslationUnitCursor(unit) }) {
+impl<'a> Index<'a> {
+    pub fn new(unit: CXTranslationUnit, bridge: Option<&'a layout::Bridge>) -> Result<Self> {
+        let mut macros = BTreeMap::<_, Vec<Expansion>>::new();
+        let children = children(unsafe { clang_getTranslationUnitCursor(unit) });
+        let definitions = children
+            .iter()
+            .copied()
+            .filter(|cursor| unsafe { clang_getCursorKind(*cursor) } == CXCursor_MacroDefinition)
+            .collect::<Vec<_>>();
+        let family_files = definitions
+            .iter()
+            .filter(|cursor| {
+                matches!(
+                    text(unsafe { clang_getCursorSpelling(**cursor) }).as_str(),
+                    "_SAL_VERSION" | "_SAL1_Source_" | "_SAL2_Source_" | "__allowed"
+                )
+            })
+            .map(|cursor| locations(*cursor).1.file)
+            .collect::<BTreeSet<_>>();
+        let family_names = definitions
+            .iter()
+            .filter(|cursor| family_files.contains(&locations(**cursor).1.file))
+            .map(|cursor| text(unsafe { clang_getCursorSpelling(*cursor) }))
+            .collect();
+        for cursor in children {
             if unsafe { clang_getCursorKind(cursor) } != CXCursor_MacroExpansion {
                 continue;
             }
@@ -22,31 +59,80 @@ impl Index {
             if unsafe { clang_Cursor_isNull(definition) } != 0 {
                 continue;
             }
-            let location = locations(definition).1;
-            let filename = std::path::Path::new(&location.file)
-                .file_name()
-                .and_then(|name| name.to_str())
-                .unwrap_or("");
+            let location = locations(cursor).0;
+            let mut end = 0;
+            unsafe {
+                clang_getExpansionLocation(
+                    clang_getRangeEnd(clang_getCursorExtent(cursor)),
+                    std::ptr::null_mut(),
+                    std::ptr::null_mut(),
+                    std::ptr::null_mut(),
+                    &raw mut end,
+                );
+            }
+            let expansion = Expansion {
+                name: text(unsafe { clang_getCursorSpelling(cursor) }),
+                definition,
+                location: unsafe { clang_getCursorLocation(cursor) },
+                end,
+            };
+            macros
+                .entry((location.file, location.offset))
+                .or_default()
+                .push(expansion);
+        }
+        let mut pending = vec![unsafe { clang_getTranslationUnitCursor(unit) }];
+        let mut records = Vec::new();
+        while let Some(cursor) = pending.pop() {
+            let kind = unsafe { clang_getCursorKind(cursor) };
+            if matches!(kind, CXCursor_StructDecl | CXCursor_ClassDecl)
+                && unsafe { clang_isCursorDefinition(cursor) } != 0
+            {
+                records.push(cursor);
+            }
             if matches!(
-                filename,
-                "sal.h"
-                    | "rpcsal.h"
-                    | "specstrings.h"
-                    | "specstrings_strict.h"
-                    | "specstrings_supp.h"
-                    | "concurrencysal.h"
+                kind,
+                CXCursor_TranslationUnit
+                    | CXCursor_Namespace
+                    | CXCursor_LinkageSpec
+                    | CXCursor_UnexposedDecl
+                    | CXCursor_StructDecl
+                    | CXCursor_ClassDecl
             ) {
-                let location = locations(cursor).0;
-                let name = text(unsafe { clang_getCursorSpelling(cursor) });
-                if macros
-                    .insert((location.file, location.offset), name)
-                    .is_some()
-                {
-                    return Err(error(cursor, "ambiguous annotation macro expansion"));
-                }
+                pending.extend(super::children(cursor));
             }
         }
-        Ok(Self { unit, macros })
+        let mut index = Self {
+            unit,
+            bridge,
+            macros,
+            family_files,
+            family_names,
+            files: Default::default(),
+            records,
+        };
+        if bridge.is_none() {
+            loop {
+                let mut indirect = BTreeSet::new();
+                for definition in &definitions {
+                    let name = text(unsafe { clang_getCursorSpelling(*definition) });
+                    if !index.family_names.contains(&name)
+                        && index
+                            .tokenize(unsafe { clang_getCursorExtent(*definition) })
+                            .iter()
+                            .skip(1)
+                            .any(|token| index.family_names.contains(&token.text))
+                    {
+                        indirect.insert(name);
+                    }
+                }
+                if indirect.is_empty() {
+                    break;
+                }
+                index.family_names.extend(indirect);
+            }
+        }
+        Ok(index)
     }
 
     pub fn function(
@@ -54,67 +140,7 @@ impl Index {
         cursor: CXCursor,
         params: &mut [NativeParameter],
     ) -> Result<Vec<AnnotationEvidence>> {
-        let mut native = std::ptr::null_mut();
-        let mut count = 0;
-        unsafe {
-            let range = clang_getCursorExtent(cursor);
-            let physical = |location| {
-                let mut file = std::ptr::null_mut();
-                let mut offset = 0;
-                clang_getExpansionLocation(
-                    location,
-                    &raw mut file,
-                    std::ptr::null_mut(),
-                    std::ptr::null_mut(),
-                    &raw mut offset,
-                );
-                clang_getLocationForOffset(self.unit, file, offset)
-            };
-            clang_tokenize(
-                self.unit,
-                clang_getRange(
-                    physical(clang_getRangeStart(range)),
-                    physical(clang_getRangeEnd(range)),
-                ),
-                &raw mut native,
-                &raw mut count,
-            );
-        };
-        let tokens = if count == 0 {
-            Vec::new()
-        } else {
-            unsafe { std::slice::from_raw_parts(native, count as usize) }
-                .iter()
-                .map(|token| {
-                    let mut file = std::ptr::null_mut();
-                    let mut line = 0;
-                    let mut column = 0;
-                    let mut offset = 0;
-                    unsafe {
-                        clang_getSpellingLocation(
-                            clang_getTokenLocation(self.unit, *token),
-                            &raw mut file,
-                            &raw mut line,
-                            &raw mut column,
-                            &raw mut offset,
-                        );
-                    };
-                    Token {
-                        text: text(unsafe { clang_getTokenSpelling(self.unit, *token) }),
-                        kind: unsafe { clang_getTokenKind(*token) },
-                        location: Location {
-                            file: text(unsafe { clang_getFileName(file) }),
-                            line,
-                            column,
-                            offset,
-                        },
-                    }
-                })
-                .collect::<Vec<_>>()
-        };
-        if !native.is_null() {
-            unsafe { clang_disposeTokens(self.unit, native, count) };
-        }
+        let tokens = self.declaration_tokens(cursor)?;
         let location = locations(cursor).0;
         let symbol = text(unsafe { clang_getCursorSpelling(cursor) });
         let name = tokens
@@ -269,15 +295,18 @@ impl Index {
                 }
             }
         }
-        let annotations = self.annotations(&tokens[..name], &names, cursor)?;
-        if annotations
-            .iter()
-            .any(|annotation| annotation.source == "SAL")
-        {
-            return Err(error(
-                cursor,
-                "return SAL contracts require a supported return model",
-            ));
+        let mut annotations = self.annotations(&tokens[..name], &names, cursor)?;
+        for annotation in &mut annotations {
+            if annotation.source == "SAL" {
+                let payload = annotation
+                    .resolution
+                    .as_ref()
+                    .map_or(annotation.payload.as_str(), |value| value.payload.as_str());
+                if payload != "_Check_return_" {
+                    return Err(error(cursor, "unsupported return SAL contract"));
+                }
+                annotation.source = "SAL-return".into();
+            }
         }
         Ok(annotations)
     }
@@ -293,8 +322,14 @@ impl Index {
         while position < tokens.len() {
             let token = &tokens[position];
             let key = (token.location.file.clone(), token.location.offset);
-            let (source, payload, arguments, end) = if let Some(name) = self.macros.get(&key) {
-                if name != &token.text {
+            let expansion = self.expansion(&key, cursor)?;
+            let resolution = expansion
+                .map(|expansion| self.resolve(expansion, cursor))
+                .transpose()?
+                .flatten();
+            let (source, payload, arguments, end) = if resolution.is_some() {
+                let expansion = expansion.unwrap();
+                if expansion.name != token.text {
                     return Err(error(
                         cursor,
                         "annotation expansion/token identity disagrees",
@@ -318,20 +353,25 @@ impl Index {
                         }
                     }
                 }
-                (
-                    "SAL",
-                    tokens[position..end]
-                        .iter()
-                        .map(|token| token.text.as_str())
-                        .collect::<Vec<_>>()
-                        .join(" "),
-                    tokens[position + 1..end]
-                        .iter()
-                        .map(|token| token.text.clone())
-                        .collect::<Vec<_>>(),
-                    end,
-                )
-            } else if token.kind == CXToken_Comment && midl(&token.text).is_some() {
+                let original = tokens[position..end]
+                    .iter()
+                    .map(|token| token.text.as_str())
+                    .collect::<Vec<_>>()
+                    .join(" ");
+                let arguments = tokens[position + 1..end]
+                    .iter()
+                    .map(|token| token.text.clone())
+                    .collect::<Vec<_>>();
+                ("SAL", original, arguments, end)
+            } else if token.kind == CXToken_Comment
+                && token
+                    .text
+                    .strip_prefix("/*")
+                    .is_some_and(|body| body.trim_start().starts_with('['))
+            {
+                if midl(&token.text).is_none() {
+                    return Err(error(cursor, "malformed consumed MIDL contract"));
+                }
                 ("MIDL", token.text.clone(), Vec::new(), position + 1)
             } else {
                 position += 1;
@@ -362,6 +402,22 @@ impl Index {
                 payload,
                 location: token.location.clone(),
                 bindings: bindings.into_iter().collect(),
+                resolution: resolution.and_then(|mut value| {
+                    let expansion = expansion.unwrap();
+                    if value.payload == expansion.name {
+                        return None;
+                    }
+                    let suffix = tokens[position + 1..end]
+                        .iter()
+                        .map(|token| token.text.as_str())
+                        .collect::<Vec<_>>()
+                        .join(" ");
+                    if !suffix.is_empty() {
+                        value.payload.push(' ');
+                        value.payload.push_str(&suffix);
+                    }
+                    Some(value)
+                }),
             });
             position = end;
         }
@@ -426,7 +482,11 @@ fn lower(
             }
             continue;
         } else {
-            let name = annotation.payload.split_whitespace().next().unwrap();
+            let payload = annotation
+                .resolution
+                .as_ref()
+                .map_or(annotation.payload.as_str(), |value| value.payload.as_str());
+            let name = payload.split_whitespace().next().unwrap();
             match name {
                 "_In_" => Direction::In,
                 "_In_opt_" => {
@@ -444,8 +504,7 @@ fn lower(
                     Direction::Out
                 }
                 "_In_reads_bytes_" | "_Out_writes_bytes_to_" => {
-                    let content = annotation
-                        .payload
+                    let content = payload
                         .split_once('(')
                         .unwrap()
                         .1
