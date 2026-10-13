@@ -1,0 +1,12 @@
+[package]
+name = "test_clang2"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+helpers = { workspace = true }
+windows-clang2 = { workspace = true }
+
+[lints]
+workspace = true

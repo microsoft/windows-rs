@@ -1,0 +1,97 @@
+use std::time::Instant;
+use test_clang2::{fixture, shared_graph};
+use windows_clang2::{Snapshot, Target, capture, resolve};
+
+const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
+
+fn main() {
+    let args: Vec<_> = std::env::args().skip(1).collect();
+    helpers::ensure_libclang();
+    match args.first().map(String::as_str) {
+        Some("scale") if args.len() == 1 => scale(),
+        Some("inspect") | None => inspect(&args),
+        _ => {
+            eprintln!("usage: test_clang2 [inspect [fixture ...] | scale]");
+            std::process::exit(2);
+        }
+    }
+}
+
+fn inspect(args: &[String]) {
+    let names: Vec<_> = if args.len() <= 1 {
+        vec!["shared_a", "shared_b"]
+    } else {
+        args[1..].iter().map(String::as_str).collect()
+    };
+    let inputs: Vec<_> = names.into_iter().map(fixture).collect();
+    let snapshots = capture(&inputs, &TARGETS).unwrap();
+    for snapshots in snapshots.chunks(inputs.len()) {
+        let resolved = resolve(snapshots).unwrap();
+        println!(
+            "{:?}: {} TUs, {} entities, {} observations -> {} groups",
+            snapshots[0].target,
+            snapshots.len(),
+            snapshots
+                .iter()
+                .map(|snapshot| snapshot.records.len())
+                .sum::<usize>(),
+            snapshots
+                .iter()
+                .map(|snapshot| snapshot.observations.len())
+                .sum::<usize>(),
+            resolved.groups.len()
+        );
+        for group in &resolved.groups {
+            print!("  {}", resolved.name(group));
+            if let Some(definition) = resolved.definition(group) {
+                println!(
+                    " size={} align={} field_offsets_bits={:?}",
+                    definition.layout.size,
+                    definition.layout.alignment,
+                    definition
+                        .fields
+                        .iter()
+                        .map(|field| (&field.name, field.offset_bits))
+                        .collect::<Vec<_>>()
+                );
+            } else {
+                println!(" incomplete");
+            }
+        }
+    }
+}
+
+fn scale() {
+    println!(
+        "records_per_TU,TUs,targets,source_bytes,capture_ms,resolve_ms,owned_bytes,entities,observations,types,fields,definition_pairs,type_pairs"
+    );
+    for count in [128, 512, 2048, 8192] {
+        let inputs = shared_graph(count);
+        let source_bytes: usize = inputs.iter().map(|input| input.source.len()).sum();
+        let started = Instant::now();
+        let snapshots = capture(&inputs, &TARGETS).unwrap();
+        let capture_time = started.elapsed();
+        let started = Instant::now();
+        let resolutions: Vec<_> = snapshots
+            .chunks(inputs.len())
+            .map(|snapshots| resolve(snapshots).unwrap())
+            .collect();
+        let resolve_time = started.elapsed();
+        let stats: Vec<_> = snapshots.iter().map(Snapshot::statistics).collect();
+        println!(
+            "{count},2,3,{source_bytes},{:.3},{:.3},{},{},{},{},{},{},{}",
+            capture_time.as_secs_f64() * 1000.0,
+            resolve_time.as_secs_f64() * 1000.0,
+            stats.iter().map(|s| s.owned_bytes).sum::<usize>(),
+            stats.iter().map(|s| s.records).sum::<usize>(),
+            stats.iter().map(|s| s.observations).sum::<usize>(),
+            stats.iter().map(|s| s.types).sum::<usize>(),
+            stats.iter().map(|s| s.fields).sum::<usize>(),
+            resolutions
+                .iter()
+                .map(|r| r.work.definition_pairs)
+                .sum::<usize>(),
+            resolutions.iter().map(|r| r.work.type_pairs).sum::<usize>()
+        );
+    }
+}
