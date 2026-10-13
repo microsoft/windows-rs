@@ -1604,8 +1604,12 @@ impl Snapshot {
                     .into_iter()
                     .flatten()
                 {
+                    // An input may resolve the interface's typedefs from different headers, so match
+                    // the declaration rather than its data.
                     if matches!(fact.data, FactData::Interface { .. })
-                        && same_source_declaration(planned.fact, fact)
+                        && fact.kind == planned.fact.kind
+                        && fact.spelling == planned.fact.spelling
+                        && fact.definition == planned.fact.definition
                     {
                         interface_names.insert((fact.origin.tu.clone(), fact.name.clone()));
                     }
@@ -2848,6 +2852,62 @@ fn choose_type_root_cached<'a>(
                 })
     }
 
+    fn equivalent_interface(
+        left: &Fact,
+        right: &Fact,
+        facts_index: &HashMap<&str, Vec<&Fact>>,
+        shape_cache: &mut ShapeCache,
+    ) -> bool {
+        let (
+            FactData::Interface {
+                base: left_base,
+                guid: left_guid,
+                methods: left_methods,
+            },
+            FactData::Interface {
+                base: right_base,
+                guid: right_guid,
+                methods: right_methods,
+            },
+        ) = (&left.data, &right.data)
+        else {
+            return false;
+        };
+        let mut equivalent = |left_ty: &TypeRef, right_ty: &TypeRef| {
+            equivalent_type(
+                left_ty,
+                &left.origin.tu,
+                right_ty,
+                &right.origin.tu,
+                facts_index,
+                shape_cache,
+            )
+        };
+        left_guid == right_guid
+            && match (left_base, right_base) {
+                (None, None) => true,
+                (Some(left_base), Some(right_base)) => equivalent(left_base, right_base),
+                _ => false,
+            }
+            && left_methods.len() == right_methods.len()
+            && left_methods
+                .iter()
+                .zip(right_methods)
+                .all(|(left_method, right_method)| {
+                    left_method.name == right_method.name
+                        && left_method.special == right_method.special
+                        && left_method.params.len() == right_method.params.len()
+                        && equivalent(&left_method.result, &right_method.result)
+                        && left_method.params.iter().zip(&right_method.params).all(
+                            |(left_param, right_param)| {
+                                left_param.name == right_param.name
+                                    && left_param.annotation == right_param.annotation
+                                    && equivalent(&left_param.ty, &right_param.ty)
+                            },
+                        )
+                })
+    }
+
     let declarations: Vec<_> = distinct
         .iter()
         .copied()
@@ -2896,7 +2956,8 @@ fn choose_type_root_cached<'a>(
         let equivalent_definitions = definitions.iter().all(|fact| {
             fact.kind == root.kind
                 && ((fact.origin.tu == root.origin.tu && fact.data == root.data)
-                    || equivalent_record(root, fact, facts_index, shape_cache))
+                    || equivalent_record(root, fact, facts_index, shape_cache)
+                    || equivalent_interface(root, fact, facts_index, shape_cache))
         });
         let definitions_and_aliases = distinct.iter().all(|fact| {
             definitions.contains(fact)

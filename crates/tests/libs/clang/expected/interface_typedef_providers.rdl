@@ -1,0 +1,16 @@
+#[win32]
+mod Test {
+    #[guid(0x6b44d453_343e_4246_826d_208c460655c4)]
+    interface IBase {
+        fn Ping(&self) -> Status;
+    }
+    #[guid(0x6b44d453_343e_4246_826d_208c460655c5)]
+    interface IContract: IBase {
+        fn Reset(&self, value: Status, next: *mut IContract) -> Status;
+    }
+    type Status = i32;
+    #[library("test.dll")]
+    extern fn UseFirst(value: IContract);
+    #[library("test.dll")]
+    extern fn UseSecond(value: IContract);
+}

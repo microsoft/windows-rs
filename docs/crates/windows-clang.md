@@ -256,6 +256,12 @@ placeholder representation: for example, an incomplete `struct` is initially a r
 resolve to a COM interface once another translation unit supplies its virtual definition.
 Incompatible declaration kinds remain ambiguous.
 
+When several translation units define the same record or interface, their copies are compared
+structurally, resolving each referenced typedef within its own translation unit. A shared header
+therefore stays one definition even when each input gets a typedef it uses, such as
+`typedef long Status;`, from a different header. Copies that resolve to different types remain
+ambiguous.
+
 Defined POD C++ classes with public instance fields and no inheritance, methods, constructors,
 destructors, conversions, or function templates use the checked record-layout path. Other
 non-interface C++ classes remain opaque.
