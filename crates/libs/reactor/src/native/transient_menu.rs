@@ -42,6 +42,7 @@ struct MenuThemeState {
 struct ActiveMenu {
     flyout: IFlyoutBase,
     _revokers: Vec<windows_core::EventRevoker>,
+    callback: Rc<RefCell<Callback<Key>>>,
     live: Rc<Cell<bool>>,
 }
 
@@ -221,6 +222,18 @@ impl MenuThemeState {
 }
 
 impl TransientMenuHandle {
+    pub(super) fn update_callback(&self, callback: &Callback<Key>) {
+        if let Some(state) = self.state.upgrade() {
+            let mut state = state.borrow_mut();
+            if let Some(pending) = &mut state.pending {
+                pending.on_click.clone_from(callback);
+            }
+            if let Some(active) = &state.menu {
+                active.callback.borrow_mut().clone_from(callback);
+            }
+        }
+    }
+
     pub(super) fn is_open(&self) -> bool {
         self.state.upgrade().is_some_and(|state| {
             let state = state.borrow();
@@ -353,9 +366,10 @@ fn build_menu_items(
     Ok(())
 }
 
-fn menu_callback(callback: Callback<Key>, live: Rc<Cell<bool>>) -> Callback<Key> {
+fn menu_callback(callback: Rc<RefCell<Callback<Key>>>, live: Rc<Cell<bool>>) -> Callback<Key> {
     Callback::new(move |key| {
         if live.get() {
+            let callback = callback.borrow().clone();
             callback.call(key);
         }
     })
@@ -393,9 +407,10 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
         flyout_base.SetXamlRoot(&anchor.cast::<IUIElement>()?.XamlRoot()?)?;
 
         let live = Rc::new(Cell::new(true));
-        let callback = menu_callback(menu.on_click, Rc::clone(&live));
+        let callback = Rc::new(RefCell::new(menu.on_click));
+        let guarded = menu_callback(Rc::clone(&callback), Rc::clone(&live));
         let mut revokers = Vec::new();
-        build_menu_items(&menu.items, &flyout.Items()?, &mut revokers, &callback)?;
+        build_menu_items(&menu.items, &flyout.Items()?, &mut revokers, &guarded)?;
 
         let closed_state = Rc::downgrade(state);
         let closed_live = Rc::clone(&live);
@@ -428,6 +443,7 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
         state.borrow_mut().menu = Some(ActiveMenu {
             flyout: flyout_base.clone(),
             _revokers: revokers,
+            callback,
             live,
         });
         flyout_base.ShowAt(anchor)

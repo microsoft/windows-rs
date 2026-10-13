@@ -637,6 +637,34 @@ impl windows_core::RuntimeType for AutomationHeadingLevel {
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AutomationPeer(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    AutomationPeer,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(AutomationPeer, DependencyObject);
+impl windows_core::RuntimeType for AutomationPeer {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IAutomationPeer>();
+}
+unsafe impl windows_core::Interface for AutomationPeer {
+    type Vtable = <IAutomationPeer as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IAutomationPeer as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for AutomationPeer {
+    type Target = IAutomationPeer;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for AutomationPeer {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Automation.Peers.AutomationPeer";
+}
+unsafe impl Send for AutomationPeer {}
+unsafe impl Sync for AutomationPeer {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AutomationProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     AutomationProperties,
@@ -3999,6 +4027,20 @@ impl<
     }
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ExpandCollapseState(pub i32);
+impl ExpandCollapseState {
+    pub const Expanded: Self = Self(1);
+}
+impl windows_core::imp::TypeKind for ExpandCollapseState {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for ExpandCollapseState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Automation.ExpandCollapseState;i4)",
+    );
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Expander(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
@@ -4540,6 +4582,67 @@ impl windows_core::RuntimeName for FrameworkElement {
 }
 unsafe impl Send for FrameworkElement {}
 unsafe impl Sync for FrameworkElement {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct FrameworkElementAutomationPeer(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    FrameworkElementAutomationPeer,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    FrameworkElementAutomationPeer,
+    AutomationPeer,
+    DependencyObject
+);
+impl FrameworkElementAutomationPeer {
+    pub(crate) fn CreatePeerForElement<P0>(element: P0) -> windows_core::Result<AutomationPeer>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::IFrameworkElementAutomationPeerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreatePeerForElement)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    fn IFrameworkElementAutomationPeerStatics<
+        R,
+        F: FnOnce(&IFrameworkElementAutomationPeerStatics) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            FrameworkElementAutomationPeer,
+            IFrameworkElementAutomationPeerStatics,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for FrameworkElementAutomationPeer {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IFrameworkElementAutomationPeer>();
+}
+unsafe impl windows_core::Interface for FrameworkElementAutomationPeer {
+    type Vtable = <IFrameworkElementAutomationPeer as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <IFrameworkElementAutomationPeer as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for FrameworkElementAutomationPeer {
+    type Target = IFrameworkElementAutomationPeer;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for FrameworkElementAutomationPeer {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer";
+}
+unsafe impl Send for FrameworkElementAutomationPeer {}
+unsafe impl Sync for FrameworkElementAutomationPeer {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FrameworkTemplate(windows_core::IUnknown);
@@ -5919,6 +6022,42 @@ impl windows_core::RuntimeType for IAutoSuggestBoxTextChangedEventArgs {
 #[repr(C)]
 pub struct IAutoSuggestBoxTextChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IAutomationPeer,
+    IAutomationPeer_Vtbl,
+    0xe51d3e4e_34f0_568c_999f_6277e2afe6d7
+);
+impl windows_core::RuntimeType for IAutomationPeer {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IAutomationPeer {
+    pub(crate) fn GetPattern(
+        &self,
+        patterninterface: PatternInterface,
+    ) -> windows_core::Result<windows_core::IInspectable> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPattern)(
+                windows_core::Interface::as_raw(self),
+                patterninterface,
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IAutomationPeer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    EventsSource: usize,
+    SetEventsSource: usize,
+    pub GetPattern: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        PatternInterface,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IAutomationProperties,
@@ -9867,6 +10006,47 @@ pub struct IExceptionRoutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
+    IExpandCollapseProvider,
+    IExpandCollapseProvider_Vtbl,
+    0x6cef349c_b181_5d0b_b297_c3b0166120c3
+);
+impl windows_core::RuntimeType for IExpandCollapseProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(
+    IExpandCollapseProvider,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl IExpandCollapseProvider {
+    pub(crate) fn ExpandCollapseState(&self) -> windows_core::Result<ExpandCollapseState> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ExpandCollapseState)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn Collapse(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Collapse)(windows_core::Interface::as_raw(self))
+                .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IExpandCollapseProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ExpandCollapseState: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut ExpandCollapseState,
+    ) -> windows_core::HRESULT,
+    pub Collapse: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IExpander,
     IExpander_Vtbl,
     0xca633942_e584_55c2_b7ee_cffc73c8127a
@@ -10745,6 +10925,38 @@ pub struct IFrameworkElement_Vtbl {
     ) -> windows_core::HRESULT,
     pub RemoveActualThemeChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IFrameworkElementAutomationPeer,
+    IFrameworkElementAutomationPeer_Vtbl,
+    0x7dab4f24_605c_51cb_87db_3eed1b9fb37b
+);
+impl windows_core::RuntimeType for IFrameworkElementAutomationPeer {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IFrameworkElementAutomationPeer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IFrameworkElementAutomationPeerStatics,
+    IFrameworkElementAutomationPeerStatics_Vtbl,
+    0x081f6fbe_6500_528a_a506_f5a4d41ddf6c
+);
+impl windows_core::RuntimeType for IFrameworkElementAutomationPeerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IFrameworkElementAutomationPeerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    FromElement: usize,
+    pub CreatePeerForElement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IFrameworkElementStatics,
@@ -25925,6 +26137,20 @@ impl windows_core::RuntimeName for PathIconSource {
 }
 unsafe impl Send for PathIconSource {}
 unsafe impl Sync for PathIconSource {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PatternInterface(pub i32);
+impl PatternInterface {
+    pub const ExpandCollapse: Self = Self(6);
+}
+impl windows_core::imp::TypeKind for PatternInterface {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for PatternInterface {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Automation.Peers.PatternInterface;i4)",
+    );
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PersonPicture(windows_core::IUnknown);

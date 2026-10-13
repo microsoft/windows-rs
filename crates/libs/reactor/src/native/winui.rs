@@ -156,14 +156,14 @@ struct NativeContentDialogState {
 struct NativeMenu {
     menu: Menu,
     revision: u64,
-    _flyout: Option<native::MenuFlyout>,
+    flyout: Option<native::MenuFlyout>,
     _revokers: Vec<windows_core::EventRevoker>,
 }
 
 struct NativeCommandBarFlyout {
     flyout: CommandBarFlyout,
     revision: u64,
-    _native: native::CommandBarFlyout,
+    native: native::CommandBarFlyout,
     _revokers: Vec<windows_core::EventRevoker>,
 }
 

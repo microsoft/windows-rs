@@ -28,6 +28,10 @@ name = "application_menus"
 path = "src/application_menus.rs"
 
 [[bin]]
+name = "menu_lifetimes"
+path = "src/menu_lifetimes.rs"
+
+[[bin]]
 name = "canvas_integration"
 path = "src/canvas_integration.rs"
 
