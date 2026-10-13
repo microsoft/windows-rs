@@ -2757,7 +2757,11 @@ impl Planner<'_, '_> {
                 self.retained_attachments(target).menu = Some(previous);
             }
             (Some(previous), Some(desired)) => {
-                let revision = previous.revision.wrapping_add(1);
+                let revision = if !target_replaced && previous.menu.same_content(&desired.menu) {
+                    previous.revision
+                } else {
+                    previous.revision.wrapping_add(1)
+                };
                 self.retained_attachments(target).menu = Some(RetainedMenu {
                     menu: desired.menu.clone(),
                     revision,
@@ -2825,7 +2829,12 @@ impl Planner<'_, '_> {
                 self.retained_attachments(target).command_bar_flyout = Some(previous);
             }
             (Some(previous), Some(desired)) => {
-                let revision = previous.revision.wrapping_add(1);
+                let revision = if !target_replaced && previous.flyout.same_content(&desired.flyout)
+                {
+                    previous.revision
+                } else {
+                    previous.revision.wrapping_add(1)
+                };
                 self.retained_attachments(target).command_bar_flyout =
                     Some(RetainedCommandBarFlyout {
                         flyout: desired.flyout.clone(),

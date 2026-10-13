@@ -999,7 +999,7 @@ impl WinUiAdapter {
             .get(&target)
             .ok_or(WinUiError::InvalidObject(target))?;
         let flyout = menu
-            ._flyout
+            .flyout
             .as_ref()
             .ok_or(WinUiError::InvalidObject(target))?
             .cast::<native::IFlyoutBase>()?;
@@ -1016,7 +1016,7 @@ impl WinUiAdapter {
             .get(&target)
             .ok_or(WinUiError::InvalidObject(target))?;
         Ok(menu
-            ._flyout
+            .flyout
             .as_ref()
             .ok_or(WinUiError::InvalidObject(target))?
             .cast::<native::IFlyoutBase>()?
@@ -1028,7 +1028,7 @@ impl WinUiAdapter {
             .menus
             .get(&target)
             .ok_or(WinUiError::InvalidObject(target))?;
-        menu._flyout
+        menu.flyout
             .as_ref()
             .ok_or(WinUiError::InvalidObject(target))?
             .cast::<native::IFlyoutBase>()?
@@ -1041,7 +1041,7 @@ impl WinUiAdapter {
             .command_bar_flyouts
             .get(&target)
             .ok_or(WinUiError::InvalidObject(target))?
-            ._native
+            .native
             .cast::<native::IFlyoutBase>()?;
         let target = self
             .ui_element(target)?
@@ -1055,7 +1055,7 @@ impl WinUiAdapter {
             .command_bar_flyouts
             .get(&target)
             .ok_or(WinUiError::InvalidObject(target))?
-            ._native
+            .native
             .cast::<native::IFlyoutBase>()?
             .IsOpen()?)
     }
@@ -1064,7 +1064,7 @@ impl WinUiAdapter {
         self.command_bar_flyouts
             .get(&target)
             .ok_or(WinUiError::InvalidObject(target))?
-            ._native
+            .native
             .cast::<native::IFlyoutBase>()?
             .Hide()?;
         Ok(())

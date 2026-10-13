@@ -188,12 +188,19 @@ impl<A: Application> ApplicationState<A> {
             self.icons.remove(&key);
         }
         for (key, declaration) in view.icons {
-            if self
-                .icons
-                .get(&key)
-                .is_some_and(|icon| icon.declaration.menu != declaration.menu)
+            if let Some(icon) = self.icons.get(&key)
+                && icon.declaration.menu != declaration.menu
             {
-                self.dismiss_menu(&key)?;
+                match (icon.declaration.menu.as_ref(), declaration.menu.as_ref()) {
+                    (Some(previous), Some(current)) if previous.same_content(current) => {
+                        if self.menu_owner.as_ref() == Some(&key)
+                            && let Some(host) = &self.menu_host
+                        {
+                            host.handle().update_callback(&current.on_click);
+                        }
+                    }
+                    _ => self.dismiss_menu(&key)?,
+                }
             }
             if let Some(icon) = self.icons.get_mut(&key) {
                 if icon.declaration.path != declaration.path {

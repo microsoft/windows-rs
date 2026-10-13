@@ -137,12 +137,12 @@ nested dispatcher wakes until the active driver returns, including during synchr
 Construct a notification declaration with `NotifyIcon::new(path)`, then attach `tooltip`,
 `on_activate`, and `menu`. The icon path names an `.ico` file. Activation callbacks receive a
 `ScreenPoint`; attaching a `Menu` handles both mouse and keyboard context-menu positioning without
-application-side coordinate conversion. Use captureless `context.callback` mappings when possible
-so callback identity remains stable across renders.
+application-side coordinate conversion.
 
-A menu uses the latest committed declaration. Changing or removing that menu dismisses its popup;
-callbacks from retired registrations and dismissed menu generations are discarded. Repeated
-requests for the same open menu do not create additional popups.
+A menu uses the latest committed callback without closing its popup when only the callback changes.
+Changing its items or removing the menu dismisses its popup; callbacks from retired registrations
+and dismissed menu generations are discarded. Repeated requests for the same open menu do not create
+additional popups.
 
 The application keeps running while any user window or declared notification icon remains. It
 exits after both are gone and pending lifecycle work and messages have settled. Registered but

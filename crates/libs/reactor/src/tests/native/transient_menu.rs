@@ -19,11 +19,14 @@ fn retired_popup_callbacks_cannot_deliver_to_a_new_popup() {
     let record = Rc::clone(&delivered);
     let callback = Callback::new(move |key| record.borrow_mut().push(key));
     let first_live = Rc::new(Cell::new(true));
-    let first = menu_callback(callback.clone(), Rc::clone(&first_live));
+    let first = menu_callback(
+        Rc::new(RefCell::new(callback.clone())),
+        Rc::clone(&first_live),
+    );
     first.call("first".into());
     first_live.set(false);
     let second_live = Rc::new(Cell::new(true));
-    let second = menu_callback(callback, Rc::clone(&second_live));
+    let second = menu_callback(Rc::new(RefCell::new(callback)), Rc::clone(&second_live));
     first.call("stale".into());
     second.call("second".into());
     second_live.set(false);
@@ -32,6 +35,53 @@ fn retired_popup_callbacks_cannot_deliver_to_a_new_popup() {
         *delivered.borrow(),
         [Key::from("first"), Key::from("second")]
     );
+}
+
+#[test]
+fn popup_callback_replacement_uses_latest_handler_without_holding_a_borrow() {
+    let delivered = Rc::new(RefCell::new(Vec::new()));
+    let record = Rc::clone(&delivered);
+    let callback = Rc::new(RefCell::new(Callback::new(move |key| {
+        record.borrow_mut().push((0, key));
+    })));
+    let live = Rc::new(Cell::new(true));
+    let guarded = menu_callback(Rc::clone(&callback), Rc::clone(&live));
+    guarded.call("first".into());
+    let record = Rc::clone(&delivered);
+    let slot = Rc::downgrade(&callback);
+    *callback.borrow_mut() = Callback::new(move |key| {
+        record.borrow_mut().push((1, key));
+        *slot.upgrade().unwrap().borrow_mut() = Callback::new(|_| {});
+    });
+    guarded.call("second".into());
+    live.set(false);
+    guarded.call("closed".into());
+    assert_eq!(
+        *delivered.borrow(),
+        [(0, Key::from("first")), (1, Key::from("second"))]
+    );
+}
+
+fn assert_pending_callback_update(host: &TransientMenuHost) {
+    let delivered = Rc::new(RefCell::new(Vec::new()));
+    let record = Rc::clone(&delivered);
+    let handle = host.handle();
+    host.state.borrow_mut().pending =
+        Some(Menu::new([MenuItem::item("command", "Command")], |_| {
+            panic!("pending menu retained its old callback");
+        }));
+    let generation = host.state.borrow().generation;
+    handle.update_callback(&Callback::new(move |key| record.borrow_mut().push(key)));
+    let callback = {
+        let state = host.state.borrow();
+        assert_eq!(state.generation, generation);
+        assert!(state.menu.is_none());
+        state.pending.as_ref().unwrap().on_click.clone()
+    };
+    callback.call("command".into());
+    handle.hide().unwrap();
+    assert!(!handle.is_open());
+    assert_eq!(*delivered.borrow(), [Key::from("command")]);
 }
 
 #[test]
@@ -50,6 +100,22 @@ fn system_theme_preference_preserves_query_errors() {
 #[test]
 #[ignore = "requires an interactive WinUI desktop"]
 fn system_menu_theme_updates_live_and_propagates_errors() {
+    // WinUI supports one Application lifetime per process.
+    if std::env::var_os("REACTOR_MENU_THEME_TEST_CHILD").is_none() {
+        let status = std::process::Command::new(std::env::current_exe().unwrap())
+            .args([
+                "--exact",
+                "native::transient_menu::tests::system_menu_theme_updates_live_and_propagates_errors",
+                "--ignored",
+                "--nocapture",
+            ])
+            .env("REACTOR_MENU_THEME_TEST_CHILD", "1")
+            .status()
+            .unwrap();
+        assert!(status.success());
+        return;
+    }
+
     fn assert_theme(state: &TransientMenuState, expected: ElementTheme) {
         assert_eq!(state.theme.anchor.ActualTheme().unwrap(), expected);
         let flyout = state
@@ -80,6 +146,7 @@ fn system_menu_theme_updates_live_and_propagates_errors() {
     let error = App::run_with(move |_| {
         let dispatcher = DispatcherQueue::GetForCurrentThread()?;
         let host = TransientMenuHost::new(dispatcher.clone(), MenuTheme::System)?;
+        assert_pending_callback_update(&host);
         let default = TransientMenuHost::new(dispatcher.clone(), MenuTheme::Application)?;
         let default_theme = default.state.borrow().theme.anchor.ActualTheme()?;
         default

@@ -799,6 +799,10 @@ pub struct Menu {
 }
 
 impl Menu {
+    pub(crate) fn same_content(&self, other: &Self) -> bool {
+        self.items == other.items
+    }
+
     pub fn new(
         items: impl IntoIterator<Item = MenuItem>,
         on_click: impl IntoPayloadCallback<Key>,
@@ -913,6 +917,10 @@ pub struct CommandBarFlyout {
 }
 
 impl CommandBarFlyout {
+    pub(crate) fn same_content(&self, other: &Self) -> bool {
+        self.primary == other.primary && self.secondary == other.secondary
+    }
+
     pub fn new(
         primary: impl IntoIterator<Item = CommandBarCommand>,
         secondary: impl IntoIterator<Item = CommandBarCommand>,

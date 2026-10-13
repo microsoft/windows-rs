@@ -377,6 +377,139 @@ fn menu_attachment_supports_drop_down_and_menu_bar_targets() {
 }
 
 #[test]
+fn menu_attachment_callback_updates_preserve_revision_and_click_order() {
+    for kind in [
+        ObjectType::Button,
+        ObjectType::DropDownButton,
+        ObjectType::MenuBarItem,
+    ] {
+        let clicked = Rc::new(RefCell::new(Vec::new()));
+        let build = |revision, enabled| -> View {
+            let capture = Rc::clone(&clicked);
+            let item = if enabled {
+                MenuItem::item("child", "Child")
+            } else {
+                MenuItem::disabled("child", "Child")
+            };
+            let menu = Menu::new(
+                [MenuItem::submenu("parent", "Parent", [item])],
+                move |key| capture.borrow_mut().push((revision, key)),
+            );
+            match kind {
+                ObjectType::Button => Button::new().menu(menu),
+                ObjectType::DropDownButton => DropDownButton::new().menu(menu),
+                ObjectType::MenuBarItem => MenuBarItem::new().menu(menu),
+                _ => unreachable!(),
+            }
+        };
+        let mut runtime = Runtime::new(RecordingAdapter::default());
+        runtime.update(build(0, true)).unwrap();
+        let target = runtime.graph().root().unwrap();
+        runtime.adapter_mut().queue_menu_click(target, "child");
+        assert_eq!(
+            runtime.update(build(1, true)),
+            Err(UpdateError::PendingNativeEvent)
+        );
+        assert_eq!(runtime.dispatch_native_events(), Ok(1));
+        let updates = runtime.update(build(1, true)).unwrap();
+        assert_eq!(updates.len(), 1);
+        assert!(matches!(&updates[0], Mutation::SetMenu { revision: 1, .. }));
+        runtime.adapter_mut().queue_menu_click(target, "child");
+        assert_eq!(runtime.dispatch_native_events(), Ok(1));
+        assert_eq!(
+            *clicked.borrow(),
+            [(0, Key::from("child")), (1, Key::from("child"))]
+        );
+
+        let updates = runtime.update(build(1, true)).unwrap();
+        assert!(matches!(&updates[0], Mutation::SetMenu { revision: 1, .. }));
+        let retained = runtime.adapter().menu(target).unwrap().clone();
+        let unchanged: View = match kind {
+            ObjectType::Button => Button::new().menu(retained),
+            ObjectType::DropDownButton => DropDownButton::new().menu(retained),
+            ObjectType::MenuBarItem => MenuBarItem::new().menu(retained),
+            _ => unreachable!(),
+        };
+        assert!(runtime.update(unchanged).unwrap().is_empty());
+        let updates = runtime.update(build(1, false)).unwrap();
+        assert!(matches!(&updates[0], Mutation::SetMenu { revision: 2, .. }));
+    }
+}
+
+#[test]
+fn menu_attachment_target_replacement_advances_lifetime() {
+    let menu = Menu::new([MenuItem::item("command", "Command")], |_| {});
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Border::new().content(Button::new().menu(menu.clone())))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let target = runtime.graph().child(root, RelationId::Content).unwrap();
+    let updates = runtime
+        .update_subtree(target, DropDownButton::new().menu(menu))
+        .unwrap();
+    let clear = updates
+        .iter()
+        .position(|mutation| matches!(mutation, Mutation::SetMenu { menu: None, .. }))
+        .unwrap();
+    let replace = updates
+        .iter()
+        .position(|mutation| matches!(mutation, Mutation::Replace { .. }))
+        .unwrap();
+    let attach = updates
+        .iter()
+        .position(|mutation| {
+            matches!(
+                mutation,
+                Mutation::SetMenu {
+                    menu: Some(_),
+                    revision: 2,
+                    ..
+                }
+            )
+        })
+        .unwrap();
+    assert!(clear < replace && replace < attach);
+}
+
+#[test]
+fn command_bar_flyout_callback_updates_preserve_revision() {
+    let clicked = Rc::new(RefCell::new(Vec::new()));
+    let build = |revision, icon| {
+        let capture = Rc::clone(&clicked);
+        Button::new().command_bar_flyout(CommandBarFlyout::new(
+            [CommandBarCommand::button_with_icon(
+                "primary", "Primary", icon,
+            )],
+            [CommandBarCommand::button("secondary", "Secondary")],
+            move |key| capture.borrow_mut().push((revision, key)),
+        ))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(build(0, Symbol::Copy)).unwrap();
+    let target = runtime.graph().root().unwrap();
+    let updates = runtime.update(build(1, Symbol::Copy)).unwrap();
+    assert_eq!(updates.len(), 1);
+    assert!(matches!(
+        &updates[0],
+        Mutation::SetCommandBarFlyout { revision: 1, .. }
+    ));
+    for key in ["primary", "secondary"] {
+        runtime.adapter_mut().queue_command_bar_click(target, key);
+    }
+    assert_eq!(runtime.dispatch_native_events(), Ok(2));
+    assert_eq!(
+        *clicked.borrow(),
+        [(1, Key::from("primary")), (1, Key::from("secondary"))]
+    );
+    let updates = runtime.update(build(1, Symbol::Paste)).unwrap();
+    assert!(matches!(
+        &updates[0],
+        Mutation::SetCommandBarFlyout { revision: 2, .. }
+    ));
+}
+
+#[test]
 fn menu_attachment_rejects_unsupported_targets_and_flyout_conflicts() {
     let mut unsupported = Runtime::new(RecordingAdapter::default());
     assert_eq!(
