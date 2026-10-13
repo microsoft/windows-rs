@@ -1653,7 +1653,7 @@ impl Snapshot {
         let mut pointer_interface_aliases = BTreeMap::new();
         for fact in &self.facts {
             let FactData::Typedef {
-                target: TypeRef::Pointer { target, .. },
+                target: TypeRef::Pointer { target, .. } | TypeRef::Reference { target, .. },
             } = &fact.data
             else {
                 continue;

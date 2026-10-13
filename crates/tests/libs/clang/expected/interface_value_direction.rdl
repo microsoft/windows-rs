@@ -11,6 +11,7 @@ mod Test {
         fn Fill(&self, context: IContext) -> HRESULT;
         fn MutateAlias(&self, context: IContext) -> HRESULT;
         fn MutateUnknown(&self, object: IUnknown) -> HRESULT;
+        fn FillReferenceAlias(&self, context: IContext) -> HRESULT;
         fn MutateReference(&self, context: IContext) -> HRESULT;
         fn Read(&self, context: IContext) -> HRESULT;
         fn Create(&self, context: *mut IContext) -> HRESULT;
