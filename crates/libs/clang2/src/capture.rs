@@ -26,19 +26,36 @@ pub(super) fn read(
     let mut all = Vec::new();
     for &cursor in &declarations {
         let name = text(unsafe { clang_getCursorSpelling(cursor) });
-        if !matches!(
-            unsafe { clang_getCursorKind(cursor) },
-            CXCursor_StructDecl | CXCursor_TypedefDecl
-        ) || name.is_empty()
-        {
+        let kind = unsafe { clang_getCursorKind(cursor) };
+        if !matches!(kind, CXCursor_StructDecl | CXCursor_TypedefDecl) || name.is_empty() {
             if roots.is_empty() {
                 let error = unsupported(cursor, "expected a named struct or typedef declaration");
                 if !partial {
                     return Err(error);
                 }
-                issues
-                    .messages
-                    .push(format!("{:?}: {error}", capture.snapshot.target));
+                let reason = format!("{:?}: {error}", capture.snapshot.target);
+                let key = if name.is_empty() {
+                    None
+                } else {
+                    match kind {
+                        CXCursor_UnionDecl
+                        | CXCursor_EnumDecl
+                        | CXCursor_ClassDecl
+                        | CXCursor_ClassTemplate
+                        | CXCursor_ClassTemplatePartialSpecialization => {
+                            Some(partial::Key::Record(name))
+                        }
+                        CXCursor_TypeAliasDecl | CXCursor_TypeAliasTemplateDecl => {
+                            Some(partial::Key::Alias(name))
+                        }
+                        _ => None,
+                    }
+                };
+                if let Some(key) = key {
+                    issues.reject(key, reason);
+                } else {
+                    issues.messages.insert(reason);
+                }
             }
             continue;
         }

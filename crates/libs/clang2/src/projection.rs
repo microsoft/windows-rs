@@ -33,9 +33,14 @@ pub struct PartialOutput {
 pub fn generate_partial(inputs: &[Input], namespace: &str) -> Result<PartialOutput, Error> {
     let captured =
         capture_partial(inputs, &TARGETS).map_err(|error| Error(format!("capture: {error}")))?;
+    project_partial(captured, namespace)
+}
+
+/// Projects an existing partial capture without reparsing its headers.
+pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<PartialOutput, Error> {
     let mut snapshots = captured.snapshots;
     let mut issues = partial::Issues {
-        messages: captured.omissions,
+        messages: captured.omissions.into_iter().collect(),
         ..Default::default()
     };
     loop {
@@ -62,7 +67,7 @@ pub fn generate_partial(inputs: &[Input], namespace: &str) -> Result<PartialOutp
                     }
                     issues
                         .messages
-                        .push(format!("projection {key:?}: {reason}"));
+                        .insert(format!("projection {key:?}: {reason}"));
                 }
             }
         }

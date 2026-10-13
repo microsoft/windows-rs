@@ -10,6 +10,39 @@ fn projection_gate() {
     round_trip();
     rejections();
     partial_results();
+    partial_review();
+}
+
+fn partial_review() {
+    let captured = capture_partial(&[selected_fixture("partial_kinds", &[])], &TARGETS).unwrap();
+    for snapshot in &captured.snapshots {
+        assert_eq!(
+            snapshot
+                .records
+                .iter()
+                .map(|record| record.name.as_str())
+                .collect::<Vec<_>>(),
+            ["Safe"]
+        );
+        assert!(snapshot.aliases.is_empty());
+    }
+    let mut inputs = [
+        selected_fixture("partial_order_a", &[]),
+        selected_fixture("partial_order_b", &[]),
+    ];
+    let first = capture_partial(&inputs, &TARGETS).unwrap();
+    inputs.reverse();
+    let second = capture_partial(&inputs, &[Target::Arm64, Target::X64, Target::X86]).unwrap();
+    assert_eq!(first.omissions, second.omissions);
+    inputs[1]
+        .source
+        .push_str("\n#error fatal after other TUs succeed\n");
+    assert!(
+        capture_partial(&inputs, &TARGETS)
+            .unwrap_err()
+            .to_string()
+            .contains("fatal after other TUs succeed")
+    );
 }
 
 fn partial_results() {
@@ -38,7 +71,9 @@ fn partial_results() {
         }
         assert!(snapshot.records.iter().any(|record| record.name == "Good"));
     }
+    let projected = projection::project_partial(captured, "Fixture").unwrap();
     let result = projection::generate_partial(&inputs, "Fixture").unwrap();
+    assert_eq!(projected, result);
     assert_eq!(
         (
             result.output.records,

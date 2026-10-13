@@ -3,6 +3,7 @@ use test_clang2::{fixture, shared_graph};
 use windows_clang2::{Snapshot, Target, capture, merge};
 
 mod gate;
+mod sweep;
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
@@ -17,10 +18,11 @@ fn main() {
             }
         }
         Some("sdk-scale") if args.len() == 2 => gate::scale(args[1].parse().unwrap()),
+        Some("sdk-sweep") if args.len() == 3 => sweep::run(&args[1], args[2].parse().unwrap()),
         Some("inspect") | None => inspect(&args),
         _ => {
             eprintln!(
-                "usage: test_clang2 [inspect [fixture ...] | scale | sdk-gate | sdk-scale 2|8|32]"
+                "usage: test_clang2 [inspect [fixture ...] | scale | sdk-gate | sdk-scale 2|8|32 | sdk-sweep breadth 1|2|4|8 | sdk-sweep tus 2|8|32]"
             );
             std::process::exit(2);
         }

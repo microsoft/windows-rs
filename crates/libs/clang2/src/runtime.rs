@@ -82,13 +82,18 @@ fn capture_impl(
                     let _binding = Binding::new(library);
                     // Dispose before restoring bindings if this worker unwinds.
                     let owned_index = index;
-                    let results: Vec<_> = sources
-                        .iter()
-                        .zip(inputs)
-                        .map(|((name, source), input)| {
-                            parse(&owned_index, name, source, input, target, compiler, partial)
-                        })
-                        .collect();
+                    let mut results = Batch::default();
+                    for ((name, source), input) in sources.iter().zip(inputs) {
+                        results.push(parse(
+                            &owned_index,
+                            name,
+                            source,
+                            input,
+                            target,
+                            compiler,
+                            partial,
+                        ));
+                    }
                     (owned_index, results)
                 })
             })
@@ -96,25 +101,35 @@ fn capture_impl(
         tasks.into_iter().map(|task| task.join().unwrap()).unzip()
     });
     drop(indices);
-    let mut snapshots = Vec::new();
-    let mut errors = Vec::new();
-    let mut issues = partial::Issues::default();
-    for result in results.into_iter().flatten() {
+    let mut batch = Batch::default();
+    for result in results {
+        batch.snapshots.extend(result.snapshots);
+        batch.errors.extend(result.errors);
+        batch.issues.extend(result.issues);
+    }
+    if batch.errors.is_empty() {
+        Ok((batch.snapshots, batch.issues))
+    } else {
+        Err(Error(batch.errors.join("\n")))
+    }
+}
+
+#[derive(Default)]
+struct Batch {
+    snapshots: Vec<Snapshot>,
+    errors: Vec<String>,
+    issues: partial::Issues,
+}
+
+impl Batch {
+    fn push(&mut self, result: Result<(Snapshot, partial::Issues), Error>) {
         match result {
             Ok((snapshot, captured)) => {
-                snapshots.push(snapshot);
-                issues.messages.extend(captured.messages);
-                for (key, reason) in captured.excluded {
-                    issues.reject(key, reason);
-                }
+                self.snapshots.push(snapshot);
+                self.issues.extend(captured);
             }
-            Err(error) => errors.push(error.to_string()),
+            Err(error) => self.errors.push(error.to_string()),
         }
-    }
-    if errors.is_empty() {
-        Ok((snapshots, issues))
-    } else {
-        Err(Error(errors.join("\n")))
     }
 }
 

@@ -1,4 +1,5 @@
 use super::*;
+use std::collections::BTreeSet;
 
 #[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub(crate) enum Key {
@@ -18,12 +19,19 @@ impl Key {
 #[derive(Default)]
 pub(crate) struct Issues {
     pub excluded: BTreeMap<Key, String>,
-    pub messages: Vec<String>,
+    pub messages: BTreeSet<String>,
 }
 
 impl Issues {
     pub fn reject(&mut self, key: Key, reason: String) {
-        self.excluded.entry(key).or_insert(reason);
+        self.excluded
+            .entry(key)
+            .and_modify(|current| {
+                if reason < *current {
+                    current.clone_from(&reason);
+                }
+            })
+            .or_insert(reason);
     }
 
     pub fn finish(mut self) -> Vec<String> {
@@ -32,15 +40,20 @@ impl Issues {
                 .into_iter()
                 .map(|(key, reason)| format!("{key:?}: {reason}")),
         );
-        self.messages.sort();
-        self.messages.dedup();
-        self.messages
+        self.messages.into_iter().collect()
+    }
+
+    pub fn extend(&mut self, other: Self) {
+        self.messages.extend(other.messages);
+        for (key, reason) in other.excluded {
+            self.reject(key, reason);
+        }
     }
 }
 
 /// Removes failed entities and their dependents on every target, not just the failing target.
 pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
-    let mut dependents: HashMap<Key, Vec<Key>> = HashMap::new();
+    let mut dependents: HashMap<Key, BTreeSet<Key>> = HashMap::new();
     for snapshot in snapshots.iter() {
         let types = type_dependencies(snapshot);
         let mut edge = |owner: Key, ty: TypeId| {
@@ -48,7 +61,7 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
                 dependents
                     .entry(Key::of(snapshot, dependency))
                     .or_default()
-                    .push(owner);
+                    .insert(owner);
             }
         };
         for observation in &snapshot.observations {
