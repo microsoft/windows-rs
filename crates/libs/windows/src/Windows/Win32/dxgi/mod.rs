@@ -3699,8 +3699,14 @@ impl core::ops::Deref for IDXGIOutput3 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput3, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2);
 impl IDXGIOutput3 {
-    pub unsafe fn CheckOverlaySupport(&self, enumformat: DXGI_FORMAT, pconcerneddevice: &Option<windows_core::IUnknown>, pflags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CheckOverlaySupport)(windows_core::Interface::as_raw(self), enumformat, core::mem::transmute_copy(pconcerneddevice), pflags as _) }
+    pub unsafe fn CheckOverlaySupport<P1>(&self, enumformat: DXGI_FORMAT, pconcerneddevice: P1) -> windows_core::Result<u32>
+    where
+        P1: windows_core::Param<windows_core::IUnknown>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CheckOverlaySupport)(windows_core::Interface::as_raw(self), enumformat, pconcerneddevice.param().abi(), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -3711,7 +3717,7 @@ pub struct IDXGIOutput3_Vtbl {
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 pub trait IDXGIOutput3_Impl: IDXGIOutput2_Impl {
-    fn CheckOverlaySupport(&self, enumformat: DXGI_FORMAT, pconcerneddevice: windows_core::OutRef<windows_core::IUnknown>, pflags: *mut u32) -> windows_core::Result<()>;
+    fn CheckOverlaySupport(&self, enumformat: DXGI_FORMAT, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 impl IDXGIOutput3_Vtbl {
@@ -3719,7 +3725,13 @@ impl IDXGIOutput3_Vtbl {
         unsafe extern "system" fn CheckOverlaySupport<Identity: IDXGIOutput3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumformat: DXGI_FORMAT, pconcerneddevice: *mut core::ffi::c_void, pflags: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIOutput3_Impl::CheckOverlaySupport(this, core::mem::transmute_copy(&enumformat), core::mem::transmute(&pconcerneddevice), core::mem::transmute_copy(&pflags)).into()
+                match IDXGIOutput3_Impl::CheckOverlaySupport(this, core::mem::transmute_copy(&enumformat), core::mem::transmute_copy(&pconcerneddevice)) {
+                    Ok(ok__) => {
+                        pflags.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: IDXGIOutput2_Vtbl::new::<Identity, OFFSET>(), CheckOverlaySupport: CheckOverlaySupport::<Identity, OFFSET> }

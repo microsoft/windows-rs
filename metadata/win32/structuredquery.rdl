@@ -45,7 +45,7 @@ mod Windows {
         #[guid(0x92d2cc58_4386_45a3_b98c_7e0ce64a4117)]
         interface IConditionGenerator: IUnknown {
             fn Initialize(&self, pSchemaProvider: ISchemaProvider) -> HRESULT;
-            fn RecognizeNamedEntities(&self, pszInputString: PCWSTR, lcidUserLocale: LCID, pTokenCollection: ITokenCollection, #[in] #[out] pNamedEntities: INamedEntityCollector) -> HRESULT;
+            fn RecognizeNamedEntities(&self, pszInputString: PCWSTR, lcidUserLocale: LCID, pTokenCollection: ITokenCollection, pNamedEntities: INamedEntityCollector) -> HRESULT;
             fn GenerateForLeaf(&self, pConditionFactory: IConditionFactory, pszPropertyName: PCWSTR, cop: CONDITION_OPERATION, pszValueType: PCWSTR, pszValue: PCWSTR, pszValue2: PCWSTR, pPropertyNameTerm: IRichChunk, pOperationTerm: IRichChunk, pValueTerm: IRichChunk, automaticWildcard: BOOL, pNoStringQuery: *mut BOOL, #[retval] ppQueryExpression: *mut ICondition) -> HRESULT;
             fn DefaultPhrase(&self, pszValueType: PCWSTR, ppropvar: *const PROPVARIANT, fUseEnglish: BOOL, #[retval] ppszPhrase: *mut PWSTR) -> HRESULT;
         }

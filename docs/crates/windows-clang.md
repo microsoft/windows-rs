@@ -206,6 +206,11 @@ SAL direction is independent of this normalization. For example, `_Out_ PVOID co
 determines the default: this const pointer chain defaults to input, even though the original outer
 pointer was mutable. The projection does not synthesize typedefs to preserve mixed raw pointer runs.
 
+An interface pointer such as `IFoo*`, `IFoo&`, or a typedef of either emits as the bare interface
+type `IFoo`, which the callee cannot replace. An `_Inout_` or `_Out_` annotation on such a parameter
+describes the object, so the parameter stays an input: `_Inout_ IFoo* value` emits `value: IFoo`.
+Only `IFoo**` and deeper pointers can be output parameters.
+
 The alias fixtures cover local and referenced canonical types, missing definitions, alias chains,
 translation-unit isolation, and function, callback, interface, and record uses. Metadata assertions
 in `test_clang`'s `projection` tests check typedef targets, pointer depth, and parameter directions
