@@ -7,10 +7,10 @@ and the [fixed replacement matrix](windows-clang.md#fixed-implementation-matrix)
 
 ## Integrated pilot
 
-The active delivery gate is the [frozen SDK/COM pilot](windows-clang.md#integrated-replacement-pilot).
-Run `cargo run -p tool-clang --quiet -- pilot` to establish the three-target source/capture baseline
-with the matched LLVM parser/bridge. Its staged reports expose unsupported required APIs and pending
-acceptance checks; the command returns nonzero until the pilot can be accepted.
+The [frozen SDK/COM pilot](windows-clang.md#integrated-replacement-pilot) passes its required gates.
+Run `cargo run -p tool-clang --quiet -- pilot` with the matched LLVM parser/bridge to reproduce the
+decision. The command succeeds only when every worker, semantic readback, architecture comparison,
+and legacy-difference classification passes. Production promotion remains disabled.
 
 Enums, functions, constants, contracts, imports, and the selected COM closure must contribute to
 complete partition output and cross-input agreement. Further isolated record families are paused.
@@ -166,10 +166,9 @@ Controls retain headers, arguments, RDL, and WinMD. Candidate readback includes 
 and interface annotations, wrapper provenance, original parameter bindings, and separate raw
 redeclaration observations with contiguous output ordinals.
 
-This bounded ownership gate is not complete annotation semantics or pilot acceptance. All 30
-profiles compile/read back and all 24 same-target comparisons pass. Full signature/value readback,
-cross-target variation, and legacy-difference classification remain open; accepted partitions stay
-0/2 and production promotion stays disabled.
+This bounded ownership gate does not establish annotation coverage outside the frozen scope.
+All 30 profiles compile/read back and all 24 same-target comparisons pass. The final acceptance
+gates below cover full pilot signatures/values, architecture variation, and classified differences.
 
 ## Native COM capture and input agreement
 
@@ -214,10 +213,63 @@ DLL/export/convention routes, captured parameter evidence and lowered contracts,
 descriptors. Combined profiles check 26 imported functions, 63 parameter observations, and ten
 Unicode aliases (zero ANSI aliases).
 
-The retained 2026-10-12 run is `target/clang-pilot/1791854604034598400`. Accepted partitions remain
-0/2. Full signature/value readback, cross-target variation, and classified differences remain open
-alongside the reproduced source-ownership blockers. Compilation and preservation of captured
-evidence do not prove that capture found every required contract.
+## Final pilot acceptance and decision
+
+The 2026-10-13 decision is to retain the compiler-native capture and owned graph architecture.
+The two complete SDK partitions and selected COM closure pass the frozen pilot. This is not
+approval to replace production generators, expand the header scope, or begin Rust projection work.
+The retained accepted run is `target\clang-pilot\1791897361689444600`.
+
+| Gate | Passing result |
+| --- | --- |
+| Source scope, compiled output and native-contract readback | 30 profiles |
+| Same-target separate/combined/reversed native agreement | 24 comparisons |
+| Exact return/wrapper/interface ownership controls | 9 control/target pairs |
+| Cross-target written-contract agreement | 30 profile/architecture pairs |
+| Legacy comparison | All candidate facets classified; no unexplained differences |
+| Acceptance | 2/2 SDK partitions plus the selected COM closure |
+
+`Snapshot::verify_winmd` walks the original native graph, not the renderer's output model. It checks
+typedef identity and edges, scalar kinds, qualifiers, pointer/reference depth, fixed arrays, complete
+function/method signatures, enum members/backing types, macro values, interface UUIDs/bases/slots,
+and exact output presence. Record fields, order, packing requests, offsets, size and alignment are
+checked through independently decoded WinMD storage. The gate covers the pilot's named natural
+storage and explicit packing; anonymous/nested storage and adjusted alignment are outside it.
+Compilable mutations exercise signedness, typedef width, arrays, constness, pointer depth, values,
+UUIDs, slots, extra declarations, and packing/alignment requests on all targets.
+
+Architecture agreement compares written native graphs and original source contracts, not RDL text.
+Only the pinned `ULONG_PTR` unsigned pointer-width definition and Windows stdcall normalization
+vary. Both pointer width and the compiled record layout must match the compiler separately on
+each target. All profile/encoding combinations compare across all three target pairs. Type, array,
+value, width, and presence mutations reject.
+
+The legacy comparison compiles the committed four RDL inputs and resolves their dependencies
+against committed default metadata. Both inputs have recorded Git blob hashes. The six combined
+target/encoding candidates enumerate every item and semantic facet, including unchanged facets;
+the two SDK partitions also require every legacy root to remain accounted for. The legacy data is
+a comparison inventory, not a correctness oracle.
+
+| Difference | Evidence and disposition |
+| --- | --- |
+| Source typedefs and record tags | Preserve distinct source edges/identities instead of flattening them |
+| Scalar, reference, signature and enum value differences | Original compiler graph plus independent WinMD readback |
+| Import and convention differences | Architecture-matched COFF routes and effective compiler ABI |
+| SAL/MIDL, optionality, direction and byte extents | Checked original owner, raw payload and positional binding |
+| Vtable and UUID descriptors | Native compiler UUID and Microsoft vtable model |
+| `SCALE_CHANGE_FLAGS` publication flags | Legacy helper-derived flag policy; inline operators are excluded from this pilot |
+
+`MemorySize(BytesParamIndex = 1)` on `ISequentialStream` must match the source-derived byte-capacity
+extent at original parameter 1 before it can be classified. The read contract also retains the
+separate valid-byte output. Dropped, shifted, or wrong-phase capacities reject. Unknown descriptor
+names and unexplained facets block acceptance rather than receiving a generic compatibility label.
+
+The parent `gates.tsv` owns the acceptance decision; worker tables contain only target-local gates.
+`*.semantic.tsv`, `*.architecture.tsv`, `architecture-agreement.tsv`, `differences.tsv`, and
+`difference-inputs.tsv` retain the native evidence and decision inputs. Broader callback, record,
+annotation, profile, and publication families still need their own bounded gates. The next planning
+step is a remaining-surface replacement schedule from the existing full inventory, not another
+unbounded header-parsing campaign.
 
 ## Ownership and checked output
 

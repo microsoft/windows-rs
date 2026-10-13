@@ -554,13 +554,19 @@ require exact owner/payload/provenance and WinMD readback; capture rejection can
 control. The real selected COM interfaces retain their exact SDK section comments across all
 profiles. Headers, arguments, RDL, WinMD, and `annotation-completeness.tsv` are retained.
 See [the ownership grammar](windows-clang2.md#captured-source-contracts-and-ownership) for supported
-forms and explicit rejection boundaries. Full signature/value readback, cross-target variation,
-and semantic difference classification still block acceptance. Accepted partitions remain 0/2.
+forms and explicit rejection boundaries.
 
-This runner establishes a diagnostic baseline, not acceptance. It returns nonzero while the pilot
-is incomplete; `capture.tsv` records current producer failures and `gates.tsv` lists unimplemented
-acceptance checks. Missing worker reports are baseline failures, not an incomplete-but-valid result.
-Nothing replaces canonical RDL, WinMD, or Rust bindings.
+Full native-to-WinMD type/signature/value/storage inspection passes without reusing the renderer.
+All 30 cross-target profile comparisons pass under checked `ULONG_PTR` width and Windows stdcall
+normalization. The compiled committed RDL comparison accounts for every SDK root and classifies
+all candidate facets, including source typedef/tag identity, native scalar/reference contracts,
+source evidence, native UUID/slot descriptors, and legacy publication policy. Legacy stream byte
+capacities must retain their exact original positional bindings; unexplained facets block the run.
+
+The 2026-10-13 decision is **keep the new architecture**: 2/2 complete SDK partitions and the selected
+COM closure pass the frozen pilot. The parent `gates.tsv` records acceptance; missing or failed
+workers cannot pass. Production promotion is disabled, and no canonical RDL, WinMD, or Rust bindings
+are replaced. See [the final gates and boundaries](windows-clang2.md#final-pilot-acceptance-and-decision).
 
 Acceptance requires complete closed RDL and inspected WinMD on all targets, original source
 contracts, archive-backed imports, cross-TU/order agreement, incompatible-observation controls,
@@ -568,12 +574,12 @@ and classified semantic differences. Legacy partitions are comparison inputs, no
 oracles. Emitted text, successful parsing, and source-root counts alone cannot accept a partition.
 Both complete SDK partitions and the selected COM closure must pass before the pilot passes.
 
-The proof budget starts on 2026-10-12, with a decision by 2026-10-23: ten working days, not an
-estimated completion time. No automatic extension or new header family is authorized. Stop
-replacement development if the frozen pilot remains incomplete, needs header-specific repairs,
-or leaves ownership/agreement unresolved. Retain independently useful mechanisms and return to
-incremental legacy maintenance. A passing pilot still needs a remaining-surface assessment from
-the full inventory before approving a production replacement schedule.
+The proof started on 2026-10-12, with the maintainer requiring a decision on 2026-10-13. No extension
+or new header family is authorized. The ownership, semantic, architecture and classification gates
+pass without header-specific parser repairs. A passing pilot still needs a remaining-surface
+assessment from the full inventory before approving a production replacement schedule. Keep
+callback, record, annotation and publication families as finite work packages with explicit
+acceptance criteria; the pilot is not evidence that the whole SDK/WDK surface is supported.
 
 ### Fixed implementation matrix
 

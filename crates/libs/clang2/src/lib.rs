@@ -10,6 +10,7 @@ mod capture;
 mod layout;
 mod output;
 mod record;
+mod semantic;
 
 pub use capture::Compiler;
 

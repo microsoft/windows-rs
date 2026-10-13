@@ -18,6 +18,8 @@ const HEADERS: &[&str] = &[
     "objidlbase.h",
 ];
 
+mod differences;
+
 #[derive(Debug)]
 struct Required<'a> {
     header: &'a str,
@@ -114,7 +116,7 @@ pub fn run(mut arguments: impl Iterator<Item = String>) -> Result<()> {
     for (key, value) in [
         ("status", "diagnostic-baseline".into()),
         ("proof_start", "2026-10-12".into()),
-        ("decision_due", "2026-10-23".into()),
+        ("decision_due", "2026-10-13".into()),
         ("revision", git(&["rev-parse", "--verify", "HEAD"])?),
         ("working_tree", git(&["status", "--short"])?),
         ("sdk", pin(SDK, "SDK_VERSION")?),
@@ -144,20 +146,23 @@ pub fn run(mut arguments: impl Iterator<Item = String>) -> Result<()> {
             .stderr(Stdio::from(stderr))
             .spawn()?;
         let start = Instant::now();
-        let status = loop {
+        let (status, success) = loop {
             if let Some(status) = child.try_wait()? {
-                break status.to_string();
+                break (status.to_string(), status.success());
             }
             if start.elapsed() > Duration::from_secs(60) {
                 child.kill()?;
                 child.wait()?;
-                break "deadline exceeded".into();
+                break ("deadline exceeded".into(), false);
             }
             std::thread::sleep(Duration::from_millis(50));
         };
         writeln!(statuses, "{architecture}\t{}", escape(&status))?;
         std::fs::write(output.join("workers.tsv"), &statuses)?;
-        if !directory.join("gates.tsv").is_file() || !directory.join("capture.tsv").is_file() {
+        if !success
+            || !directory.join("gates.tsv").is_file()
+            || !directory.join("capture.tsv").is_file()
+        {
             failed.push(architecture);
         }
     }
@@ -169,7 +174,59 @@ pub fn run(mut arguments: impl Iterator<Item = String>) -> Result<()> {
         )
         .into());
     }
-    Err("pilot is incomplete: 0/2 accepted partitions; see gates.tsv and capture.tsv".into())
+    verify_architectures(&output)?;
+    let baseline = output.join("legacy.winmd");
+    windows_rdl::reader()
+        .reference_default()
+        .input("metadata\\win32\\tlhelp32.rdl")
+        .input("metadata\\win32\\shellscalingapi.rdl")
+        .input("metadata\\win32\\unknwnbase.rdl")
+        .input("metadata\\win32\\objidlbase.rdl")
+        .output(&baseline)
+        .write()?;
+    differences::run(&output, &baseline)?;
+    let provenance = std::fs::read_to_string(output.join("run.tsv"))?.replace(
+        "status\tdiagnostic-baseline",
+        "status\tfrozen-pilot-accepted",
+    );
+    std::fs::write(output.join("run.tsv"), provenance)?;
+    std::fs::write(
+        output.join("gates.tsv"),
+        "gate\tstatus\nsemantic-winmd\tpassed\nsource-contracts\tpassed\nnative-imports\tpassed\ncross-input-agreement\tpassed\narchitecture-agreement\tpassed\nsemantic-differences\tclassified\naccepted-partitions\t2/2\npromotion\tdisabled\n",
+    )?;
+    println!(
+        "Frozen pilot accepted: 2/2 partitions and selected COM closure; production promotion disabled"
+    );
+    Ok(())
+}
+
+fn verify_architectures(output: &Path) -> Result<()> {
+    let mut report = String::from("profile\tleft\tright\tcontracts\tstatus\n");
+    for encoding in ["ansi", "unicode"] {
+        for family in ["tlhelp32", "shellscalingapi", "com", "combined", "reversed"] {
+            let profile = format!("{family}-{encoding}");
+            for (left, right) in [("x86", "x64"), ("x86", "arm64"), ("x64", "arm64")] {
+                let file = format!("{profile}.architecture.tsv");
+                let a = std::fs::read_to_string(output.join(left).join(&file))?;
+                let b = std::fs::read_to_string(output.join(right).join(&file))?;
+                if a != b {
+                    writeln!(report, "{profile}\t{left}\t{right}\tunknown\tblocked")?;
+                    std::fs::write(output.join("architecture-agreement.tsv"), report)?;
+                    return Err(format!(
+                        "{profile}: native architecture contracts differ between {left}/{right}"
+                    )
+                    .into());
+                }
+                writeln!(
+                    report,
+                    "{profile}\t{left}\t{right}\t{}\tpassed",
+                    a.lines().count() - 1
+                )?;
+            }
+        }
+    }
+    std::fs::write(output.join("architecture-agreement.tsv"), report)?;
+    Ok(())
 }
 
 fn build_profiles(architecture: &str) -> Result<Vec<profiles::Profile>> {
@@ -552,6 +609,54 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
                 .ok_or_else(|| format!("cannot read candidate WinMD: {}", binary.display()))?;
             index.validate_native_contracts(None)?;
             index.validate_native_slots(None)?;
+            snapshot.verify_winmd("Windows.Win32", &index)?;
+            let mut semantics =
+                String::from("identity\tkind\tcompiler-source\twritten\tcanonical\tlayout\n");
+            for evidence in snapshot.evidence() {
+                writeln!(
+                    semantics,
+                    "{}\t{}\t{}\t{}\t{}\t{}",
+                    escape(&evidence.qualified_name),
+                    escape(&evidence.kind),
+                    escape(&format!(
+                        "{}:{}:{}",
+                        evidence.expansion.file, evidence.expansion.line, evidence.expansion.column
+                    )),
+                    escape(&evidence.written_type),
+                    escape(&evidence.canonical_type),
+                    escape(&format!("{:?}", evidence.layout))
+                )?;
+            }
+            for (owner, field) in snapshot.fields() {
+                writeln!(
+                    semantics,
+                    "{}::{}\tfield\t{}\t{}\t{}\t{}",
+                    escape(&owner.qualified_name),
+                    escape(&field.name),
+                    escape(&format!(
+                        "{}:{}",
+                        field.expansion.file, field.expansion.line
+                    )),
+                    escape(&field.written_type),
+                    escape(&field.canonical_type),
+                    escape(&format!(
+                        "offset={}; layout={:?}",
+                        field.offset, field.layout
+                    ))
+                )?;
+            }
+            std::fs::write(
+                output.join(format!("{}.semantic.tsv", profile.name)),
+                semantics,
+            )?;
+            let mut architecture = String::from("identity\tcontract\n");
+            for (name, shape) in snapshot.architecture_contracts()? {
+                writeln!(architecture, "{}\t{}", escape(&name), escape(&shape))?;
+            }
+            std::fs::write(
+                output.join(format!("{}.architecture.tsv", profile.name)),
+                architecture,
+            )?;
             let (functions, parameters, aliases) = verify_readback(&snapshot, &index, &imports)?;
             writeln!(
                 readback,
@@ -627,11 +732,16 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
         output.join("gates.tsv"),
         format!(
             "gate\tstatus\nsource-scope\tpassed\ncapture\tsee-capture.tsv\n\
-         semantic-winmd\tfull-signature-and-value-readback-pending\n\
+         semantic-winmd\t{}\n\
          captured-contract-readback\t{}\nsource-contracts\t{}\n\
          native-imports\t{}\ncross-input-agreement\t{}\n\
-         architecture-agreement\tnot-implemented\nsemantic-differences\tnot-classified\n\
-         accepted-partitions\t0/2\npromotion\tdisabled\n",
+         architecture-agreement\tparent-gate\nsemantic-differences\tparent-gate\n\
+         accepted-partitions\tparent-gate\npromotion\tdisabled\n",
+            if readback_passed {
+                "passed"
+            } else {
+                "see-capture.tsv"
+            },
             if readback_passed {
                 "passed"
             } else {
@@ -654,10 +764,10 @@ fn worker(architecture: &str, output: &Path) -> Result<()> {
             }
         ),
     )?;
-    Err(
-        "pilot worker is incomplete; reports are diagnostic artifacts, not accepted metadata"
-            .into(),
-    )
+    if !readback_passed || !source_contracts_passed || !agreement_passed {
+        return Err("pilot worker gates failed".into());
+    }
+    Ok(())
 }
 
 fn verify_pilot_sections(snapshot: &windows_clang2::Snapshot) -> Result<()> {

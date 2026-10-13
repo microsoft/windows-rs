@@ -56,17 +56,20 @@ The bridge supplies implicit-field identity; canonical cursor equality keeps rec
 when their USRs match. Compiling this RDL requires a reference built from `metadata/metadata.rdl`.
 Arrays/pointers/shared unnamed identities and private/behavioral owners remain outside this slice.
 
-Run `cargo run -p tool-clang --quiet -- pilot` to stage the matched-compiler, three-target pilot
-baseline. It reports unsupported required APIs and pending acceptance checks and returns nonzero
-while the pilot is incomplete. Further isolated storage work is paused; production is unchanged.
+Run `cargo run -p tool-clang --quiet -- pilot` to reproduce the matched-compiler, three-target pilot
+acceptance gates. It returns nonzero for a failed worker, lost native semantics, unapproved
+architecture variation, or an unexplained legacy difference. Production is unchanged.
 The shellscalingapi profiles emit and compile with pinned SDK import evidence on x86/x64/ARM64.
 Toolhelp's ANSI profiles also emit and compile, including all 13 value macros and 16 functions.
 All 30 profiles emit and compile; all 24 same-target native agreement checks pass. Candidate WinMD
 readback checks DLL/export/convention routes, captured parameter contracts, active aliases, and
 function/method/interface source evidence. Exact return-prefix, wrapper-provenance, and
 interface-context controls pass on all three targets, including the real selected COM sections.
-Full signature/value readback, cross-target variation, and difference classification remain open.
-The pilot remains 0/2 accepted partitions; no production promotion is authorized.
+Full pilot signature/value/layout readback passes independently of rendering. All 30 cross-target
+profile comparisons pass with checked pointer-width and Windows ABI variation. Legacy facets are
+classified against the compiler/source evidence, with exact preservation of byte-capacity bindings.
+The frozen pilot accepts 2/2 SDK partitions and the selected COM closure. The 2026-10-13 decision is
+to retain this architecture; no production promotion or broader replacement schedule is authorized.
 
 See [the replacement plan](../../../docs/crates/windows-clang.md#fixed-implementation-matrix)
 and [crate internals](../../../docs/crates/windows-clang2.md).
