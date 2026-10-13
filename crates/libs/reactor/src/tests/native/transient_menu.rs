@@ -62,16 +62,14 @@ fn popup_callback_replacement_uses_latest_handler_without_holding_a_borrow() {
     );
 }
 
-fn assert_pending_callback_update(host: &TransientMenuHost) -> windows_core::Result<()> {
+fn assert_pending_callback_update(host: &TransientMenuHost) {
     let delivered = Rc::new(RefCell::new(Vec::new()));
     let record = Rc::clone(&delivered);
     let handle = host.handle();
-    handle.show(
-        ScreenPoint::new(600, 400),
-        Menu::new([MenuItem::item("command", "Command")], |_| {
+    host.state.borrow_mut().pending =
+        Some(Menu::new([MenuItem::item("command", "Command")], |_| {
             panic!("pending menu retained its old callback");
-        }),
-    )?;
+        }));
     let generation = host.state.borrow().generation;
     handle.update_callback(&Callback::new(move |key| record.borrow_mut().push(key)));
     let callback = {
@@ -81,10 +79,9 @@ fn assert_pending_callback_update(host: &TransientMenuHost) -> windows_core::Res
         state.pending.as_ref().unwrap().on_click.clone()
     };
     callback.call("command".into());
-    handle.hide()?;
+    handle.hide().unwrap();
     assert!(!handle.is_open());
     assert_eq!(*delivered.borrow(), [Key::from("command")]);
-    Ok(())
 }
 
 #[test]
@@ -133,7 +130,7 @@ fn system_menu_theme_updates_live_and_propagates_errors() {
     let error = App::run_with(move |_| {
         let dispatcher = DispatcherQueue::GetForCurrentThread()?;
         let host = TransientMenuHost::new(dispatcher.clone(), MenuTheme::System)?;
-        assert_pending_callback_update(&host)?;
+        assert_pending_callback_update(&host);
         let default = TransientMenuHost::new(dispatcher.clone(), MenuTheme::Application)?;
         let default_theme = default.state.borrow().theme.anchor.ActualTheme()?;
         default
