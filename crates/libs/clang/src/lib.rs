@@ -2883,7 +2883,9 @@ fn choose_type_root_cached<'a>(
                 shape_cache,
             )
         };
-        left_guid == right_guid
+        // Only copies of one declaration merge, matching the interface names used for projection.
+        left.spelling == right.spelling
+            && left_guid == right_guid
             && match (left_base, right_base) {
                 (None, None) => true,
                 (Some(left_base), Some(right_base)) => equivalent(left_base, right_base),
