@@ -15,7 +15,19 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if !Path::new("metadata\\metadata.rdl").is_file() {
         return Err("run tool-win32-2 from the repository root".into());
     }
-    let mut headers: Vec<_> = std::env::args().skip(1).collect();
+    let mut headers = Vec::new();
+    let mut partial = false;
+    for argument in std::env::args().skip(1) {
+        if argument == "--partial" {
+            partial = true;
+        } else if argument.starts_with('-') {
+            return Err(
+                format!("unknown option `{argument}`; use --partial or header names").into(),
+            );
+        } else {
+            headers.push(argument);
+        }
+    }
     if headers.is_empty() {
         headers.push("windows.h".into());
     }
@@ -49,10 +61,32 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     };
     println!("Capturing {} for x86, x64, and ARM64", headers.join(", "));
     let started = Instant::now();
-    let output = projection::generate(&[input], "Windows.Win32")?;
-    let generated = started.elapsed();
     let scratch = Path::new("target\\win32-2");
     std::fs::create_dir_all(scratch)?;
+    let output = if partial {
+        let result = projection::generate_partial(&[input], "Windows.Win32")?;
+        std::fs::write(
+            scratch.join("omissions.txt"),
+            result.omissions.join("\n") + "\n",
+        )?;
+        println!(
+            "PARTIAL: {} omission diagnostics; see target\\win32-2\\omissions.txt",
+            result.omissions.len()
+        );
+        result.output
+    } else {
+        projection::generate(&[input], "Windows.Win32")?
+    };
+    let generated = started.elapsed();
+    if output.partitions.is_empty() {
+        return Err("no declarations could be projected; canonical metadata is unchanged".into());
+    }
+    println!(
+        "Compiling {} records and {} aliases from {} headers",
+        output.records,
+        output.aliases,
+        output.partitions.len()
+    );
     let started = Instant::now();
     windows_rdl::reader()
         .input("metadata\\metadata.rdl")
@@ -65,9 +99,12 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     std::fs::create_dir_all(destination)?;
     let previous = std::fs::read_dir(destination)?
         .map(|entry| entry.map(|entry| entry.path()))
-        .collect::<Result<Vec<_>, _>>()?;
+        .collect::<Result<Vec<_>, _>>()?
+        .into_iter()
+        .filter(|path| path.extension().is_some_and(|extension| extension == "rdl"))
+        .collect::<Vec<_>>();
     for path in &previous {
-        if !path.is_file() || path.extension().is_none_or(|extension| extension != "rdl") {
+        if !path.is_file() {
             return Err(format!(
                 "unexpected entry in generated directory: {}",
                 path.display()

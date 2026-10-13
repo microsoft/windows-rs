@@ -14,6 +14,31 @@ static BATCH: Mutex<()> = Mutex::new(());
 /// Batches from this crate are serialized. Other libclang users must not create indices
 /// during capture. No compiler handles escape.
 pub fn capture(inputs: &[Input], targets: &[Target]) -> Result<Vec<Snapshot>, Error> {
+    Ok(capture_impl(inputs, targets, false)?.0)
+}
+
+#[derive(Debug)]
+pub struct PartialCapture {
+    pub snapshots: Vec<Snapshot>,
+    pub omissions: Vec<String>,
+}
+
+/// Captures supported declarations and reports omissions, including affected dependents.
+/// Compiler errors remain fatal. Failed declarations are removed across all targets and inputs.
+pub fn capture_partial(inputs: &[Input], targets: &[Target]) -> Result<PartialCapture, Error> {
+    let (mut snapshots, mut issues) = capture_impl(inputs, targets, true)?;
+    partial::prune(&mut snapshots, &mut issues);
+    Ok(PartialCapture {
+        snapshots,
+        omissions: issues.finish(),
+    })
+}
+
+fn capture_impl(
+    inputs: &[Input],
+    targets: &[Target],
+    partial: bool,
+) -> Result<(Vec<Snapshot>, partial::Issues), Error> {
     if inputs.is_empty() || targets.is_empty() {
         return Err(Error("capture requires inputs and targets".into()));
     }
@@ -61,7 +86,7 @@ pub fn capture(inputs: &[Input], targets: &[Target]) -> Result<Vec<Snapshot>, Er
                         .iter()
                         .zip(inputs)
                         .map(|((name, source), input)| {
-                            parse(&owned_index, name, source, input, target, compiler)
+                            parse(&owned_index, name, source, input, target, compiler, partial)
                         })
                         .collect();
                     (owned_index, results)
@@ -73,14 +98,21 @@ pub fn capture(inputs: &[Input], targets: &[Target]) -> Result<Vec<Snapshot>, Er
     drop(indices);
     let mut snapshots = Vec::new();
     let mut errors = Vec::new();
+    let mut issues = partial::Issues::default();
     for result in results.into_iter().flatten() {
         match result {
-            Ok(snapshot) => snapshots.push(snapshot),
+            Ok((snapshot, captured)) => {
+                snapshots.push(snapshot);
+                issues.messages.extend(captured.messages);
+                for (key, reason) in captured.excluded {
+                    issues.reject(key, reason);
+                }
+            }
             Err(error) => errors.push(error.to_string()),
         }
     }
     if errors.is_empty() {
-        Ok(snapshots)
+        Ok((snapshots, issues))
     } else {
         Err(Error(errors.join("\n")))
     }
@@ -128,7 +160,8 @@ fn parse(
     input: &Input,
     target: Target,
     compiler: &str,
-) -> Result<Snapshot, Error> {
+    partial: bool,
+) -> Result<(Snapshot, partial::Issues), Error> {
     let mut arguments = vec!["-x".into(), "c++".into(), "-std=c++20".into()];
     arguments.extend(input.arguments.iter().cloned());
     arguments.push(format!("--target={}", target.triple()));
@@ -202,8 +235,8 @@ fn parse(
             observations: Vec::new(),
             types: Vec::new(),
         };
-        capture::read(unit.0, &input.roots, &mut snapshot)?;
-        Ok(snapshot)
+        let issues = capture::read(unit.0, &input.roots, &mut snapshot, partial)?;
+        Ok((snapshot, issues))
     };
     parse().map_err(|error| Error(format!("{context}\n{error}")))
 }

@@ -9,6 +9,125 @@ fn projection_gate() {
     helpers::ensure_libclang();
     round_trip();
     rejections();
+    partial_results();
+}
+
+fn partial_results() {
+    let first = selected_fixture("partial", &[]);
+    let mut second = selected_fixture("partial", &[]);
+    second.name = "second.h".into();
+    let mut inputs = [first, second];
+    assert!(projection::generate(&inputs, "Fixture").is_err());
+    let captured = capture_partial(&inputs, &TARGETS).unwrap();
+    merge(&captured.snapshots).unwrap();
+    for snapshot in &captured.snapshots {
+        for name in [
+            "Broken",
+            "Dependent",
+            "Transitive",
+            "PlatformBad",
+            "PlatformConsumer",
+            "UnknownPacking",
+            "PackingConsumer",
+        ] {
+            assert!(
+                !snapshot.records.iter().any(|record| record.name == name),
+                "{:?}: {name}",
+                snapshot.target
+            );
+        }
+        assert!(snapshot.records.iter().any(|record| record.name == "Good"));
+    }
+    let result = projection::generate_partial(&inputs, "Fixture").unwrap();
+    assert_eq!(
+        (
+            result.output.records,
+            result.output.aliases,
+            result.output.partitions.len()
+        ),
+        (6, 2, 2)
+    );
+    for stem in ["partial_types", "projection_types"] {
+        assert_eq!(
+            result.output.partitions[stem].rdl,
+            std::fs::read_to_string(input_dir().join(format!("{stem}.rdl")))
+                .unwrap()
+                .replace("\r\n", "\n")
+        );
+    }
+    for omitted in [
+        "Broken",
+        "Dependent",
+        "Transitive",
+        "PlatformConsumer",
+        "ProjectionBad",
+        "ProjectionConsumer",
+        "Incomplete",
+        "OpaqueDependent",
+        "Ambiguous",
+        "AmbiguousConsumer",
+        "Nothing",
+        "unsupported_function",
+        "UnsupportedUnion",
+    ] {
+        assert!(
+            result
+                .omissions
+                .iter()
+                .any(|message| message.contains(omitted)),
+            "{omitted}: {:?}",
+            result.omissions
+        );
+    }
+    inputs.reverse();
+    assert_eq!(
+        result,
+        projection::generate_partial(&inputs, "Fixture").unwrap()
+    );
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+    let winmd = root.join("target\\test-clang2-partial.winmd");
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input_texts(
+            result
+                .output
+                .partitions
+                .values()
+                .map(|partition| &partition.rdl),
+        )
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let index = reader::Index::read(&winmd).unwrap();
+    assert_eq!(
+        index
+            .expect("Fixture", "VoidUser")
+            .fields()
+            .next()
+            .unwrap()
+            .ty(),
+        Type::PtrMut(Box::new(Type::Void), 1)
+    );
+    std::fs::remove_file(winmd).unwrap();
+
+    let mut broken = selected_fixture("partial", &[]);
+    broken
+        .source
+        .push_str("\n#error intentional compiler failure\n");
+    assert!(
+        projection::generate_partial(&[broken], "Fixture")
+            .unwrap_err()
+            .to_string()
+            .contains("intentional compiler failure")
+    );
+    let first = selected_fixture("projection_types", &[]);
+    let mut second = selected_fixture("projection_types", &[]);
+    second.name = "conflict.h".into();
+    second.source = second.source.replace("long x;", "int x;");
+    let error = projection::generate_partial(&[first, second], "Fixture")
+        .unwrap_err()
+        .to_string();
+    assert!(error.starts_with("merge:"), "{error}");
 }
 
 fn round_trip() {

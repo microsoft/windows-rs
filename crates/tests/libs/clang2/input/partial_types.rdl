@@ -1,0 +1,10 @@
+#[win32]
+mod Fixture {
+    struct Good {
+        value: i32,
+    }
+    type ScalarGood = i32;
+    struct VoidUser {
+        value: *mut void,
+    }
+}

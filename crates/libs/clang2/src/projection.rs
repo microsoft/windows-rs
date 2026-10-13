@@ -22,6 +22,54 @@ pub struct Output {
     pub aliases: usize,
 }
 
+#[derive(Debug, Eq, PartialEq)]
+pub struct PartialOutput {
+    pub output: Output,
+    pub omissions: Vec<String>,
+}
+
+/// Projects the supported subset with explicit omissions. Compiler and merge errors remain fatal.
+/// A failed entity is omitted on all targets, so failure cannot masquerade as target availability.
+pub fn generate_partial(inputs: &[Input], namespace: &str) -> Result<PartialOutput, Error> {
+    let captured =
+        capture_partial(inputs, &TARGETS).map_err(|error| Error(format!("capture: {error}")))?;
+    let mut snapshots = captured.snapshots;
+    let mut issues = partial::Issues {
+        messages: captured.omissions,
+        ..Default::default()
+    };
+    loop {
+        let merged = merge(&snapshots).map_err(|error| Error(format!("merge: {error}")))?;
+        let mut rejected = partial::Issues::default();
+        let output = project_impl(&merged, namespace, Some(&mut rejected))
+            .map_err(|error| Error(format!("projection: {error}")))?;
+        if rejected.excluded.is_empty() {
+            return Ok(PartialOutput {
+                output,
+                omissions: issues.finish(),
+            });
+        }
+        for (key, reason) in rejected.excluded {
+            match &key {
+                partial::Key::Record(_) => issues.reject(key, format!("projection: {reason}")),
+                partial::Key::Alias(name) => {
+                    // Fields use canonical types; a non-publishable alias need not invalidate them.
+                    for snapshot in &mut snapshots {
+                        snapshot.roots.retain(|id| match id {
+                            DeclarationId::Alias(id) => &snapshot.aliases[id.0].name != name,
+                            DeclarationId::Record(_) => true,
+                        });
+                    }
+                    issues
+                        .messages
+                        .push(format!("projection {key:?}: {reason}"));
+                }
+            }
+        }
+        partial::prune(&mut snapshots, &mut issues);
+    }
+}
+
 /// Captures, reconciles, and projects a configured three-target job.
 pub fn generate(inputs: &[Input], namespace: &str) -> Result<Output, Error> {
     let snapshots =
@@ -35,6 +83,14 @@ pub fn generate(inputs: &[Input], namespace: &str) -> Result<Output, Error> {
 /// A unique direct record typedef supplies its public name. Other typedefs are emitted only when
 /// selected as roots; fields use canonical types. Ambiguous names or header ownership are errors.
 pub fn project(merged: &Merged<'_>, namespace: &str) -> Result<Output, Error> {
+    project_impl(merged, namespace, None)
+}
+
+fn project_impl(
+    merged: &Merged<'_>,
+    namespace: &str,
+    mut rejected: Option<&mut partial::Issues>,
+) -> Result<Output, Error> {
     if merged.targets.keys().copied().collect::<Vec<_>>() != TARGETS {
         return Err(Error(
             "projection requires x86, x64, and ARM64 observations".into(),
@@ -85,10 +141,18 @@ pub fn project(merged: &Merged<'_>, namespace: &str) -> Result<Output, Error> {
         if direct && record_ids.len() == 1 {
             let id = *record_ids.first().unwrap();
             if let Some(previous) = nominated.insert(id, alias_id) {
-                return Err(Error(format!(
+                let error = Error(format!(
                     "record `{}` has competing public typedefs `{}` and `{}`",
                     names[id], merged.aliases[previous].name, alias.name
-                )));
+                ));
+                if let Some(rejected) = rejected.as_deref_mut() {
+                    rejected.reject(
+                        partial::Key::Record(merged.records[id].name.clone()),
+                        error.to_string(),
+                    );
+                } else {
+                    return Err(error);
+                }
             }
             names[id].clone_from(&alias.name);
         }
@@ -105,45 +169,56 @@ pub fn project(merged: &Merged<'_>, namespace: &str) -> Result<Output, Error> {
         if !published.insert(name.to_string()) {
             return Err(Error(format!("duplicate projected name `{name}`")));
         }
-        let mut headers = BTreeSet::new();
-        let mut bodies = BTreeMap::new();
-        for (&target, &group) in &record.groups {
-            let resolution = &merged.targets[&target];
-            let group = &resolution.groups[group];
-            let reference = group
-                .definition
-                .ok_or_else(|| Error(format!("record `{name}` is incomplete")))?;
-            let snapshot = resolution.snapshots[reference.snapshot];
-            let observation = &snapshot.observations[reference.observation.0];
-            let definition = observation.definition.as_ref().unwrap();
-            let body = projector.record(snapshot, definition, &observation.attributes, &name)?;
-            bodies
-                .entry(body.key())
-                .or_insert_with(|| (body, Vec::new()))
-                .1
-                .push(target);
-            if let Some(&alias_id) = nominated.get(&id) {
-                let alias = &merged.aliases[alias_id];
-                let group = alias.groups.get(&target).ok_or_else(|| {
-                    Error(format!(
-                        "public typedef `{}` is absent on {target:?}",
-                        alias.name
-                    ))
-                })?;
-                alias_headers(resolution, &resolution.aliases[*group], &mut headers);
-            } else {
-                for reference in &group.records {
-                    let snapshot = resolution.snapshots[reference.snapshot];
-                    for id in &snapshot.records[reference.record.0].observations {
-                        let observation = &snapshot.observations[id.0];
-                        if observation.definition.is_some() {
-                            headers.insert(snapshot.files[observation.location.file.0].clone());
+        let result: Result<(), Error> = (|| {
+            let mut headers = BTreeSet::new();
+            let mut bodies = BTreeMap::new();
+            for (&target, &group) in &record.groups {
+                let resolution = &merged.targets[&target];
+                let group = &resolution.groups[group];
+                let reference = group
+                    .definition
+                    .ok_or_else(|| Error(format!("record `{name}` is incomplete")))?;
+                let snapshot = resolution.snapshots[reference.snapshot];
+                let observation = &snapshot.observations[reference.observation.0];
+                let definition = observation.definition.as_ref().unwrap();
+                let body =
+                    projector.record(snapshot, definition, &observation.attributes, &name)?;
+                bodies
+                    .entry(body.key())
+                    .or_insert_with(|| (body, Vec::new()))
+                    .1
+                    .push(target);
+                if let Some(&alias_id) = nominated.get(&id) {
+                    let alias = &merged.aliases[alias_id];
+                    let group = alias.groups.get(&target).ok_or_else(|| {
+                        Error(format!(
+                            "public typedef `{}` is absent on {target:?}",
+                            alias.name
+                        ))
+                    })?;
+                    alias_headers(resolution, &resolution.aliases[*group], &mut headers);
+                } else {
+                    for reference in &group.records {
+                        let snapshot = resolution.snapshots[reference.snapshot];
+                        for id in &snapshot.records[reference.record.0].observations {
+                            let observation = &snapshot.observations[id.0];
+                            if observation.definition.is_some() {
+                                headers.insert(snapshot.files[observation.location.file.0].clone());
+                            }
                         }
                     }
                 }
             }
+            insert(&mut items, &headers, &projector.names[id], variants(bodies))?;
+            Ok(())
+        })();
+        if let Err(error) = result {
+            if let Some(rejected) = rejected.as_deref_mut() {
+                rejected.reject(partial::Key::Record(record.name.clone()), error.to_string());
+            } else {
+                return Err(error);
+            }
         }
-        insert(&mut items, &headers, &projector.names[id], variants(bodies))?;
     }
     let root_aliases: HashSet<_> = merged
         .targets
@@ -166,34 +241,44 @@ pub fn project(merged: &Merged<'_>, namespace: &str) -> Result<Output, Error> {
         if !published.insert(name.to_string()) {
             return Err(Error(format!("duplicate projected name `{name}`")));
         }
-        let mut bodies = BTreeMap::new();
-        let mut headers = BTreeSet::new();
-        for (&target, &group) in &alias.groups {
-            let resolution = &merged.targets[&target];
-            let group = &resolution.aliases[group];
-            alias_headers(resolution, group, &mut headers);
-            let reference = group.observations[0];
-            let snapshot = resolution.snapshots[reference.snapshot];
-            let observation =
-                &snapshot.aliases[reference.alias.0].observations[reference.observation];
-            let ty = &snapshot.types[observation.canonical.0];
-            if ty.qualifiers.constant || ty.layout.is_none() {
-                return Err(Error(format!(
-                    "typedef `{name}` is not an unqualified value type"
-                )));
+        let result: Result<(), Error> = (|| {
+            let mut bodies = BTreeMap::new();
+            let mut headers = BTreeSet::new();
+            for (&target, &group) in &alias.groups {
+                let resolution = &merged.targets[&target];
+                let group = &resolution.aliases[group];
+                alias_headers(resolution, group, &mut headers);
+                let reference = group.observations[0];
+                let snapshot = resolution.snapshots[reference.snapshot];
+                let observation =
+                    &snapshot.aliases[reference.alias.0].observations[reference.observation];
+                let ty = &snapshot.types[observation.canonical.0];
+                if ty.qualifiers.constant || ty.layout.is_none() {
+                    return Err(Error(format!(
+                        "typedef `{name}` is not an unqualified value type"
+                    )));
+                }
+                let ty = write_type(namespace, &projector.ty(snapshot, observation.canonical)?);
+                let body = Body {
+                    attributes: TokenStream::new(),
+                    declaration: quote! { type #name = #ty; },
+                };
+                bodies
+                    .entry(body.key())
+                    .or_insert_with(|| (body, Vec::new()))
+                    .1
+                    .push(target);
             }
-            let ty = write_type(namespace, &projector.ty(snapshot, observation.canonical)?);
-            let body = Body {
-                attributes: TokenStream::new(),
-                declaration: quote! { type #name = #ty; },
-            };
-            bodies
-                .entry(body.key())
-                .or_insert_with(|| (body, Vec::new()))
-                .1
-                .push(target);
+            insert(&mut items, &headers, &alias.name, variants(bodies))?;
+            Ok(())
+        })();
+        if let Err(error) = result {
+            if let Some(rejected) = rejected.as_deref_mut() {
+                rejected.reject(partial::Key::Alias(alias.name.clone()), error.to_string());
+                continue;
+            }
+            return Err(error);
         }
-        insert(&mut items, &headers, &alias.name, variants(bodies))?;
         aliases += 1;
     }
     let mut partitions = BTreeMap::new();
@@ -271,8 +356,18 @@ impl Projector<'_> {
                 {
                     return Err(Error("unsupported pointer layout".into()));
                 }
-                let inner = Box::new(self.ty(snapshot, *pointee)?);
-                if snapshot.types[pointee.0].qualifiers.constant {
+                let inner = self.ty(snapshot, *pointee)?;
+                let constant = snapshot.types[pointee.0].qualifiers.constant;
+                if matches!(
+                    (&inner, constant),
+                    (MetadataType::PtrMut(..), true) | (MetadataType::PtrConst(..), false)
+                ) {
+                    return Err(Error(
+                        "mixed const/mutable pointer chains are not representable in RDL".into(),
+                    ));
+                }
+                let inner = Box::new(inner);
+                if constant {
                     MetadataType::PtrConst(inner, 1)
                 } else {
                     MetadataType::PtrMut(inner, 1)

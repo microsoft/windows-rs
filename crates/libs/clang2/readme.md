@@ -40,5 +40,10 @@ three-target capture, merge, and per-header RDL output. It projects structs and 
 checks sequential ABI layout, and rejects unsupported declarations or ambiguous publication names.
 `tool-win32-2` supplies the SDK configuration and writes canonical files.
 
+`capture_partial` and `projection::generate_partial` return supported output plus omission reports.
+Failed entities and dependent declarations are removed across all targets; compiler errors and
+conflicts in retained definitions still fail. A typedef that cannot be published can remain as
+native evidence when its canonical type is representable. Macro constants are not captured.
+
 Fixtures, inspection, and scaling live in `test_clang2`. See
 [crate notes](../../../docs/crates/windows-clang2.md) for commands.

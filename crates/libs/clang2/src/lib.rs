@@ -3,6 +3,7 @@
 mod capture;
 mod merge;
 mod native;
+mod partial;
 #[cfg(feature = "projection")]
 pub mod projection;
 mod resolve;
@@ -11,7 +12,7 @@ pub use merge::{Merged, Variants, merge};
 pub use resolve::{
     AliasGroup, AliasObservationRef, Group, ObservationRef, RecordRef, Resolution, Work, resolve,
 };
-pub use runtime::capture;
+pub use runtime::{PartialCapture, capture, capture_partial};
 
 use std::collections::{BTreeMap, HashMap, HashSet};
 

@@ -8,7 +8,9 @@ pub(super) fn read(
     unit: CXTranslationUnit,
     roots: &[String],
     snapshot: &mut Snapshot,
-) -> Result<(), Error> {
+    partial: bool,
+) -> Result<partial::Issues, Error> {
+    let mut issues = partial::Issues::default();
     let declarations = declarations(unsafe { clang_getTranslationUnitCursor(unit) });
     let mut capture = Capture {
         declarations: HashMap::new(),
@@ -17,6 +19,7 @@ pub(super) fn read(
         aliases: HashMap::new(),
         types: HashMap::new(),
         files: HashMap::new(),
+        partial,
         snapshot,
     };
     let mut names: HashMap<String, Vec<Cursor>> = HashMap::new();
@@ -29,10 +32,13 @@ pub(super) fn read(
         ) || name.is_empty()
         {
             if roots.is_empty() {
-                return Err(unsupported(
-                    cursor,
-                    "expected a named struct or typedef declaration",
-                ));
+                let error = unsupported(cursor, "expected a named struct or typedef declaration");
+                if !partial {
+                    return Err(error);
+                }
+                issues
+                    .messages
+                    .push(format!("{:?}: {error}", capture.snapshot.target));
             }
             continue;
         }
@@ -71,15 +77,30 @@ pub(super) fn read(
     }
     while let Some(key) = capture.pending.pop() {
         for cursor in capture.declarations.remove(&key).unwrap() {
-            if let Some(&record) = capture.records.get(&key) {
-                capture.observation(record, cursor)?;
+            let (id, result) = if let Some(&record) = capture.records.get(&key) {
+                (
+                    DeclarationId::Record(record),
+                    capture.observation(record, cursor),
+                )
             } else {
                 let alias = capture.aliases[&key];
-                capture.alias_observation(alias, cursor)?;
+                (
+                    DeclarationId::Alias(alias),
+                    capture.alias_observation(alias, cursor),
+                )
+            };
+            if let Err(error) = result {
+                if !partial {
+                    return Err(error);
+                }
+                issues.reject(
+                    partial::Key::of(capture.snapshot, id),
+                    format!("{:?}: {error}", capture.snapshot.target),
+                );
             }
         }
     }
-    Ok(())
+    Ok(issues)
 }
 
 fn declarations(cursor: CXCursor) -> Vec<CXCursor> {
@@ -101,6 +122,7 @@ struct Capture<'a> {
     aliases: HashMap<Cursor, AliasId>,
     types: HashMap<Type, TypeId>,
     files: HashMap<String, FileId>,
+    partial: bool,
     snapshot: &'a mut Snapshot,
 }
 
@@ -175,7 +197,7 @@ impl Capture<'_> {
             let mut fields = Vec::new();
             for field in children(cursor) {
                 if unsafe { clang_isAttribute(clang_getCursorKind(field)) } != 0 {
-                    attributes.push(self.attribute(field));
+                    attributes.push(self.attribute(field)?);
                     continue;
                 }
                 if unsafe { clang_getCursorKind(field) } != CXCursor_FieldDecl
@@ -230,10 +252,16 @@ impl Capture<'_> {
         Ok(())
     }
 
-    fn attribute(&mut self, cursor: CXCursor) -> Attribute {
+    fn attribute(&mut self, cursor: CXCursor) -> Result<Attribute, Error> {
         let (file, _, _, _) = source(cursor);
         let kind = unsafe { clang_getCursorKind(cursor) };
-        Attribute {
+        if self.partial && kind != CXCursor_PackedAttr {
+            return Err(unsupported(
+                cursor,
+                &format!("unresolved attribute {:?}", tokens(cursor)),
+            ));
+        }
+        Ok(Attribute {
             kind: if kind == CXCursor_PackedAttr {
                 AttributeKind::Packed
             } else {
@@ -242,7 +270,7 @@ impl Capture<'_> {
             spelling: text(unsafe { clang_getCursorSpelling(cursor) }),
             tokens: tokens(cursor),
             location: (!file.is_empty()).then(|| self.location(cursor)),
-        }
+        })
     }
 
     fn attributes(&mut self, cursor: CXCursor) -> Result<Vec<Attribute>, Error> {
@@ -250,7 +278,7 @@ impl Capture<'_> {
         for child in children(cursor) {
             let kind = unsafe { clang_getCursorKind(child) };
             if unsafe { clang_isAttribute(kind) } != 0 {
-                result.push(self.attribute(child));
+                result.push(self.attribute(child)?);
             } else if !matches!(kind, CXCursor_TypeRef | CXCursor_IntegerLiteral) {
                 let is_underlying_record = unsafe {
                     clang_getCursorKind(cursor) == CXCursor_TypedefDecl
