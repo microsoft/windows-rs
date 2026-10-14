@@ -1,8 +1,19 @@
+#[path = "../../win32/src/headers.rs"]
+mod headers;
+
 use std::path::Path;
 use std::time::Instant;
 use windows_clang2::{Input, projection};
 
 const SDK_VERSION: &str = "10.0.28000.2270";
+const PRELUDE: &str = "#define SECURITY_WIN32
+#define WIN32_NO_STATUS
+#include <winsock2.h>
+#include <windows.h>
+#undef WIN32_NO_STATUS
+#include <ntstatus.h>
+";
+const GUID_RESET: &str = "#undef INITGUID\n#include <guiddef.h>\n";
 
 fn main() {
     if let Err(error) = run() {
@@ -17,19 +28,39 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     let mut headers = Vec::new();
     let mut partial = false;
+    let mut first = None;
     for argument in std::env::args().skip(1) {
         if argument == "--partial" {
             partial = true;
+        } else if let Some(count) = argument.strip_prefix("--first=") {
+            if first.replace(count.parse::<usize>()?).is_some() {
+                return Err("--first may only be specified once".into());
+            }
         } else if argument.starts_with('-') {
-            return Err(
-                format!("unknown option `{argument}`; use --partial or header names").into(),
-            );
+            return Err(format!(
+                "unknown option `{argument}`; use --partial, --first=N, or header names"
+            )
+            .into());
         } else {
             headers.push(argument);
         }
     }
+    if first.is_some() && !headers.is_empty() {
+        return Err("--first cannot be combined with explicit header names".into());
+    }
     if headers.is_empty() {
-        headers.push("windows.h".into());
+        headers.extend(
+            headers::HEADERS
+                .iter()
+                .chain(headers::SATELLITE_HEADERS)
+                .map(|header| (*header).to_string()),
+        );
+    }
+    if let Some(count) = first {
+        if count == 0 || count > headers.len() {
+            return Err(format!("--first must be between 1 and {}", headers.len()).into());
+        }
+        headers.truncate(count);
     }
     helpers::ensure_libclang();
     helpers::assert_libclang_version();
@@ -38,33 +69,29 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         .join("Include")
         .join(helpers::marketing_dir(SDK_VERSION));
     let mut arguments = vec![
-        "-DWIN32_LEAN_AND_MEAN".into(),
+        "-fms-extensions".into(),
         "-resource-dir".into(),
         std::fs::canonicalize(helpers::clang_resource_dir())?
             .display()
             .to_string(),
     ];
-    for directory in ["ucrt", "um", "shared"] {
+    for directory in ["ucrt", "um", "shared", "winrt", "cppwinrt"] {
         arguments.extend([
             "-isystem".into(),
             include.join(directory).display().to_string(),
         ]);
     }
-    let input = Input {
-        name: "win32-2.h".into(),
-        source: headers
-            .iter()
-            .map(|header| format!("#include <{header}>\n"))
-            .collect(),
-        arguments,
-        ..Default::default()
-    };
-    println!("Capturing {} for x86, x64, and ARM64", headers.join(", "));
+    let inputs = inputs(&headers, &arguments);
+    println!(
+        "Capturing {} headers in {} translation units for x86, x64, and ARM64",
+        headers.len(),
+        inputs.len()
+    );
     let started = Instant::now();
     let scratch = Path::new("target\\win32-2");
     std::fs::create_dir_all(scratch)?;
     let output = if partial {
-        let result = projection::generate_partial(&[input], "Windows.Win32")?;
+        let result = projection::generate_partial(&inputs, "Windows.Win32")?;
         std::fs::write(
             scratch.join("omissions.txt"),
             result.omissions.join("\n") + "\n",
@@ -75,7 +102,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         );
         result.output
     } else {
-        projection::generate(&[input], "Windows.Win32")?
+        projection::generate(&inputs, "Windows.Win32")?
     };
     let generated = started.elapsed();
     if output.partitions.is_empty() {
@@ -128,4 +155,44 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     );
     println!("Rebuilt metadata\\win32. Validation WinMD: target\\win32-2\\Windows.Win32.winmd");
     Ok(())
+}
+
+fn inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
+    let (satellite, main): (Vec<_>, Vec<_>) = headers
+        .iter()
+        .map(String::as_str)
+        .partition(|header| headers::SATELLITE_HEADERS.contains(header));
+    let topology = satellite.contains(&"devicetopology.h");
+    let mut inputs = Vec::new();
+    for (name, group, reset) in [
+        ("win32-2-main.h", main, false),
+        ("win32-2-satellite.h", satellite, true),
+    ] {
+        if group.is_empty() {
+            continue;
+        }
+        let mut source = PRELUDE.to_string();
+        if reset {
+            source.push_str(GUID_RESET);
+        } else if topology {
+            // Load KS before any main header can select devicetopology's fallback types.
+            source.push_str("#include <ks.h>\n");
+        }
+        for header in group {
+            if reset && header == "devicetopology.h" {
+                source.push_str("#include <ks.h>\n#define _KS_\n");
+            }
+            source.push_str(&format!("#include <{header}>\n"));
+            if reset {
+                source.push_str(GUID_RESET);
+            }
+        }
+        inputs.push(Input {
+            name: name.into(),
+            source,
+            arguments: arguments.to_vec(),
+            ..Default::default()
+        });
+    }
+    inputs
 }

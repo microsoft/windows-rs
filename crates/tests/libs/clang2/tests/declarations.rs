@@ -123,6 +123,7 @@ fn declaration_fidelity() {
     .to_string();
     assert!(error.contains("plain named fields"), "{error}");
     using_aliases();
+    record_alias_identity();
 }
 
 fn using_aliases() {
@@ -161,4 +162,41 @@ fn using_aliases() {
     )
     .unwrap();
     assert!(merge(&snapshots).is_err());
+}
+
+fn record_alias_identity() {
+    let inputs = [
+        selected_fixture("record_alias_a", &[]),
+        selected_fixture("record_alias_b", &[]),
+    ];
+    let snapshots = capture(&inputs, &TARGETS).unwrap();
+    assert_eq!(snapshots.len(), TARGETS.len() * 2);
+    for pair in snapshots.as_chunks::<2>().0 {
+        assert!(merge(&pair[..1]).is_ok());
+        assert!(merge(&pair[1..]).is_ok());
+        assert_ne!(pair[0].records[0].usr, pair[1].records[0].usr);
+        let definition = |snapshot: &Snapshot| {
+            let definition = snapshot.observations[0].definition.as_ref().unwrap();
+            (
+                definition.layout,
+                definition
+                    .fields
+                    .iter()
+                    .map(|field| (field.name.clone(), field.offset_bits))
+                    .collect::<Vec<_>>(),
+            )
+        };
+        assert_eq!(definition(&pair[0]), definition(&pair[1]));
+    }
+    let Err(error) = merge(&snapshots) else {
+        panic!("different record identities must not be merged by layout alone")
+    };
+    let error = error.to_string();
+    assert!(error.contains("Text"), "{error}");
+    assert!(error.contains("record_alias_a.h"), "{error}");
+    assert!(error.contains("record_alias_b.h"), "{error}");
+    assert!(
+        projection::project_partial(capture_partial(&inputs, &TARGETS).unwrap(), "Fixture")
+            .is_err()
+    );
 }
