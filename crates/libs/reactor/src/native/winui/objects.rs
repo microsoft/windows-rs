@@ -208,14 +208,13 @@ impl WinUiAdapter {
         });
         let clear = sorted_clear.as_deref().unwrap_or(clear);
         let set = sorted_set.as_deref().unwrap_or(set);
+        if !clear.is_empty()
+            && let Some(subscription) = self.image_subscriptions.get(&object)
+            && clear.contains(&subscription.property)
+        {
+            self.release_image(object);
+        }
         for property in clear.iter().copied() {
-            if self
-                .image_subscriptions
-                .get(&object)
-                .is_some_and(|subscription| subscription.property == property)
-            {
-                self.release_image(object);
-            }
             if property == PropertyId::Source
                 && let Some(Handle::Generated(GeneratedHandle::Image(control))) =
                     self.handles.get(&object)

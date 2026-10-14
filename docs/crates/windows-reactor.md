@@ -313,6 +313,24 @@ enter this immutable asset cache.
 
 Run `cargo run -p reactor-image-reuse` to replace a page of 48 in-memory bitmap and SVG images.
 
+Run `cargo run -p reactor-image-sources` for a side-by-side comparison of matching PNG and SVG
+artwork. It loads local file URIs, absolute paths, embedded static bytes, and shared owned bytes
+into `Image`, `ImageIcon`, `AppBarButton` (`IconElement`), and `TitleBar` (`IconSource`). Each row
+has a "Use in title bar" button to select its source for the window's single title bar, and a command
+flyout with primary and secondary image icons. No network access is needed.
+
+The artwork has red/blue squares above green/gold squares with transparent gaps. Compare the rows,
+switch between small and large images and light/dark themes, then clear/restore the sources or
+replace the page. `Image` and `ImageIcon` change size; control slots retain their native icon size.
+Move the window between monitors to inspect DPI changes. Bitmap-mask icons and mutable Canvas
+surfaces have different rendering semantics and are not part of this immutable image comparison.
+Compare resizing a loaded image with clearing/restoring it at the new size to distinguish retained
+rasterization from a fresh load.
+
+At 150% display scaling, the comparison sample can show softer edges when enlarging in-memory SVGs
+from 32 to 96 DIPs; clearing/restoring the sources at 96 DIPs restores sharp edges. The cause has not
+been isolated to Reactor or WinUI.
+
 ## Add icon content
 
 `Icon` describes icon content for control slots. Reactor realizes the same value as WinUI's visual
