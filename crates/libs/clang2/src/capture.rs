@@ -376,6 +376,24 @@ impl Capture<'_> {
         let name = unsafe { std::ffi::CStr::from_ptr(name) }.to_string_lossy();
         let kind = match name.as_ref() {
             "Packed" => AttributeKind::Packed,
+            "TypeVisibility" => {
+                let mut visibility = CXVisibility_Invalid;
+                let status =
+                    unsafe { windows_clang_getTypeVisibility(cursor, &raw mut visibility) };
+                if status != WindowsClangSuccess {
+                    return Err(unsupported(
+                        cursor,
+                        &format!("type visibility query failed: {status}"),
+                    ));
+                }
+                if visibility != CXVisibility_Default {
+                    return Err(unsupported(
+                        cursor,
+                        &format!("unsupported type visibility {visibility}"),
+                    ));
+                }
+                AttributeKind::DefaultTypeVisibility
+            }
             "Aligned" => {
                 let mut info = WindowsClangAlignmentInfo::default();
                 let status = unsafe { windows_clang_getAlignment(cursor, &raw mut info) };

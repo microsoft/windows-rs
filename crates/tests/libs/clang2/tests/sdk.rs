@@ -66,9 +66,29 @@ fn sdk_header() {
     attributed.name = "sdk_attribute.h".into();
     attributed.roots = vec!["GuidHolder".into()];
     let captured = capture(&[attributed], &[Target::X86, Target::X64, Target::Arm64]).unwrap();
-    let error = merge(&captured).err().unwrap().to_string();
-    assert!(
-        error.contains("_GUID") && error.contains("TypeVisibility"),
-        "{error}"
-    );
+    let merged = merge(&captured).unwrap();
+    assert_eq!(merged.records.len(), 2);
+    for snapshot in &captured {
+        let guid = snapshot
+            .records
+            .iter()
+            .find(|record| record.name == "_GUID")
+            .unwrap();
+        let observation = &snapshot.observations[guid.observations[0].0];
+        assert!(
+            observation
+                .attributes
+                .iter()
+                .any(|attribute| { attribute.kind == AttributeKind::DefaultTypeVisibility })
+        );
+        assert_eq!(
+            observation.definition.as_ref().unwrap().layout,
+            Layout {
+                size: 16,
+                alignment: 4
+            }
+        );
+    }
+    let output = projection::project(&merged, "Fixture").unwrap();
+    assert_eq!(output.records, 2);
 }

@@ -73,6 +73,9 @@ WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getMaxFieldAlignment(
 // Evaluated request, including zero, rather than the resulting declaration layout.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getAlignment(
     CXCursor cursor, struct WindowsClangAlignmentInfo* info);
+// Reads TypeVisibilityAttr, not the declaration's effective symbol visibility.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypeVisibility(
+    CXCursor cursor, enum CXVisibilityKind* visibility);
 // additional_properties flags prototype information that this structure does not decode.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getFunctionInfo(
     CXType type, struct WindowsClangFunctionInfo* info);

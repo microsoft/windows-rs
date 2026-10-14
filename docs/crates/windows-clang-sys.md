@@ -16,6 +16,7 @@ does not inspect private cursor fields or depend on Clang C++ class layouts.
 | `windows_clang_getTypeQualifiers` | CVR, `__unaligned`, and a flag for all other qualifiers. |
 | `windows_clang_getMaxFieldAlignment` | Requested maximum field alignment in bits. |
 | `windows_clang_getAlignment` | Evaluated alignment bits and GNU, standard, or declspec form. |
+| `windows_clang_getTypeVisibility` | Default, hidden, or protected `TypeVisibilityAttr` payload. |
 | `windows_clang_getFunctionInfo` | Function `ExtInfo` properties and extra-property flags. |
 
 Packing comes from `MaxFieldAlignmentAttr`, not observed record layout or explicit `AlignedAttr`.
@@ -31,7 +32,12 @@ These flags signal more information to handle or reject; they are not decoded pa
 The qualifier query includes qualifiers inherited through typedefs. After identifying const,
 volatile, restrict, and unaligned, it checks the remaining native qualifier set, rather than
 assuming those four exhaust Clang's type qualifiers. Address spaces and other undecoded qualifiers
-set `WindowsClangOtherQualifiers`. The extension ABI version is 3.
+set `WindowsClangOtherQualifiers`. The extension ABI version is 4.
+
+The type-visibility query reads the attribute itself, including implicit attributes with no tokens.
+It is distinct from ordinary symbol `VisibilityAttr` and from `clang_getCursorVisibility`, which
+reports effective declaration visibility. The native fixture checks all three payloads and a type
+whose symbol visibility and type visibility differ.
 
 These queries supplement calling convention, argument, result, exception, variadic, and other
 stock type queries. A zero extra-property mask is not permission to discard attributed types or
@@ -84,6 +90,7 @@ produced by the native build, not independently sourced DLLs.
 `pack(2)` records despite identical size/alignment, plain versus explicit-zero and nonzero
 `regparm`, `noreturn`, attributed calling conventions, and unsupported prototype properties.
 Qualifier cases include CVR, typedef inheritance, `__unaligned`, and address-space detection.
+Type-visibility cases include Clang's implicit default attribute on `_GUID`.
 It also covers query errors, shared library thread binding, and missing-library errors.
 
 Native x86 processes are unsupported. Cross-target parsing from a supported host does not require

@@ -183,6 +183,7 @@ pub struct Field {
 #[derive(Debug, Eq, PartialEq)]
 pub enum AttributeKind {
     Packed,
+    DefaultTypeVisibility,
     MaxFieldAlignment { bits: u32 },
     Aligned { bits: u32, kind: AlignmentKind },
     Unresolved(String),
@@ -323,6 +324,7 @@ impl Snapshot {
                     .map(|value| {
                         (match &value.kind {
                             AttributeKind::Packed
+                            | AttributeKind::DefaultTypeVisibility
                             | AttributeKind::MaxFieldAlignment { .. }
                             | AttributeKind::Aligned { .. } => 0,
                             AttributeKind::Unresolved(kind) => kind.capacity(),

@@ -24,8 +24,10 @@ handle before releasing its library owner. Raw pointers and opaque handle declar
 confer ownership or make native objects safe to construct in Rust.
 
 The supplementary API exposes attribute identities, requested pragma packing, explicit alignment,
-type qualifiers, and function-type properties that stock libclang does not decode. Alignment
-queries retain evaluated bits and distinguish GNU, standard, and declspec forms; dependent
+type visibility, type qualifiers, and function-type properties that stock libclang does not decode.
+The type-visibility query distinguishes default, hidden, and protected requests without inferring
+them from effective symbol visibility. Alignment queries retain evaluated bits and distinguish
+GNU, standard, and declspec forms; dependent
 requests return a status without evaluating them. The qualifier query identifies
 CVR and `__unaligned`, and flags any remaining qualifiers for further decoding or rejection.
 It does not supply a complete normalized type model: callers must also inspect ordinary libclang

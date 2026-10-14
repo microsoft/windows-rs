@@ -187,27 +187,36 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             )
         });
         if let Some(&first) = definitions.first() {
-            let required =
-                alignments(&snapshots[first.snapshot].observations[first.observation.0].attributes);
+            let attributes =
+                &snapshots[first.snapshot].observations[first.observation.0].attributes;
+            let required = alignments(attributes);
+            let visible = default_type_visibility(attributes);
             for reference in &records {
                 let snapshot = &snapshots[reference.snapshot];
                 for &id in &snapshot.records[reference.record.0].observations {
                     let observation = &snapshot.observations[id.0];
-                    if observation.definition.is_none()
-                        && alignments(&observation.attributes)
-                            .iter()
-                            .any(|request| !required.contains(request))
-                    {
-                        return Err(conflict(
-                            &snapshots,
-                            Owner::Record(ObservationRef {
-                                snapshot: reference.snapshot,
-                                observation: id,
-                            }),
-                            Owner::Record(first),
-                            "forward alignment request differs",
-                        ));
+                    if observation.definition.is_some() {
+                        continue;
                     }
+                    let reason = if alignments(&observation.attributes)
+                        .iter()
+                        .any(|request| !required.contains(request))
+                    {
+                        "forward alignment request differs"
+                    } else if default_type_visibility(&observation.attributes) && !visible {
+                        "forward type visibility request differs"
+                    } else {
+                        continue;
+                    };
+                    return Err(conflict(
+                        &snapshots,
+                        Owner::Record(ObservationRef {
+                            snapshot: reference.snapshot,
+                            observation: id,
+                        }),
+                        Owner::Record(first),
+                        reason,
+                    ));
                 }
             }
             for &other in &definitions[1..] {
@@ -477,7 +486,15 @@ pub(crate) fn alignments(attributes: &[Attribute]) -> Vec<(u32, AlignmentKind)> 
 }
 
 pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
-    packing(a) == packing(b) && alignments(a) == alignments(b)
+    packing(a) == packing(b)
+        && alignments(a) == alignments(b)
+        && default_type_visibility(a) == default_type_visibility(b)
+}
+
+fn default_type_visibility(attributes: &[Attribute]) -> bool {
+    attributes
+        .iter()
+        .any(|attribute| attribute.kind == AttributeKind::DefaultTypeVisibility)
 }
 
 fn attributes(

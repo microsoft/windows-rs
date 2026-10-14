@@ -55,6 +55,48 @@ fn native_semantics() {
             assert_eq!(bits, expected);
         }
         assert_eq!(layouts, [(1, 1), (1, 1)]);
+        for (name, expected) in [
+            ("Visible", CXVisibility_Default),
+            ("Hidden", CXVisibility_Hidden),
+            ("Protected", CXVisibility_Protected),
+            ("TypeVisible", CXVisibility_Default),
+            ("_GUID", CXVisibility_Default),
+        ] {
+            let record = find(name);
+            let attribute = children(record)
+                .into_iter()
+                .find(|cursor| {
+                    (unsafe { clang_isAttribute(cursor.kind) }) != 0
+                        && native_name(unsafe { windows_clang_getAttributeKindName(*cursor) })
+                            == "TypeVisibility"
+                })
+                .unwrap();
+            let mut value = CXVisibility_Invalid;
+            assert_eq!(
+                unsafe { windows_clang_getTypeVisibility(attribute, &raw mut value) },
+                WindowsClangSuccess
+            );
+            assert_eq!(value, expected, "{target}: {name}");
+            assert_eq!(
+                unsafe { windows_clang_getTypeVisibility(record, &raw mut value) },
+                WindowsClangWrongKind
+            );
+            assert_eq!(value, expected);
+            assert_eq!(
+                unsafe { windows_clang_getTypeVisibility(attribute, std::ptr::null_mut()) },
+                WindowsClangInvalidArgument
+            );
+        }
+        let symbol = children(find("SymbolHidden"))
+            .into_iter()
+            .find(|cursor| unsafe { clang_isAttribute(cursor.kind) } != 0)
+            .unwrap();
+        let mut visibility = CXVisibility_Invalid;
+        assert_eq!(
+            unsafe { windows_clang_getTypeVisibility(symbol, &raw mut visibility) },
+            WindowsClangWrongKind
+        );
+        assert_eq!(visibility, CXVisibility_Invalid);
         for (name, bits, kind) in [
             ("AlignFour", 32, WindowsClangAlignmentDeclspec),
             ("AlignEight", 64, WindowsClangAlignmentDeclspec),
@@ -194,7 +236,7 @@ fn native_semantics() {
             let library = Arc::clone(&library);
             scope.spawn(move || {
                 let previous = set_library(Some(library));
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 3);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 4);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION

@@ -2297,6 +2297,10 @@ pub(crate) struct Functions {
     pub windows_clang_getTypeAttributeKindName: unsafe extern "C" fn(r#type: CXType) -> *const i8,
     pub windows_clang_getTypeQualifiers:
         unsafe extern "C" fn(r#type: CXType, qualifiers: *mut u32) -> WindowsClangStatus,
+    pub windows_clang_getTypeVisibility: unsafe extern "C" fn(
+        cursor: CXCursor,
+        visibility: *mut CXVisibilityKind,
+    ) -> WindowsClangStatus,
 }
 impl Functions {
     pub(crate) unsafe fn load(
@@ -4784,6 +4788,13 @@ impl Functions {
                         format!("{}: {error}", stringify!(windows_clang_getTypeQualifiers))
                     })?
             },
+            windows_clang_getTypeVisibility: unsafe {
+                *extension
+                    .get(b"windows_clang_getTypeVisibility\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getTypeVisibility))
+                    })?
+            },
         })
     }
 }
@@ -6858,5 +6869,13 @@ pub unsafe fn windows_clang_getTypeQualifiers(
 ) -> WindowsClangStatus {
     crate::with_library(|library| unsafe {
         (library.functions.windows_clang_getTypeQualifiers)(r#type, qualifiers)
+    })
+}
+pub unsafe fn windows_clang_getTypeVisibility(
+    cursor: CXCursor,
+    visibility: *mut CXVisibilityKind,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getTypeVisibility)(cursor, visibility)
     })
 }

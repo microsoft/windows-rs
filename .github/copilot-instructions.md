@@ -242,6 +242,24 @@ changes (the `gen` workflow enforces this).
 | `metadata` `Remapper` (`merge/remap.rs`) | No tests anywhere; routing/`split_apis` logic is exercised only in the live build, so a regression yields a malformed namespaced winmd with no failing test. |
 | webview | `process-failed`, download, and deferral paths untested. |
 
+### clang2 rapid iteration
+
+Drive the rewrite toward complete, correct canonical metadata with a short feedback loop:
+
+1. Pick a concrete metadata difference or root omission and add a focused header/RDL fixture
+   establishing the intended result.
+2. Fix the responsible capture, reconciliation, or projection layer. If a feature requires
+   scattered exceptions or conflicting interpretations, correct that boundary before continuing.
+3. Regenerate `metadata/win32` and leave the generated changes in the worktree for review. Check
+   intended gains, unexpected losses, and representative generated Rust behavior across targets.
+   Do not restore generated output merely because the run was partial.
+4. Compare root omissions, dependent losses, time, and memory with the preceding iteration.
+   Diagnostic counts include dependency cascades; uncaptured macros are not counted.
+
+Partial runs and passing fixtures are progress evidence, not replacement readiness. Large deletion
+diffs remain outstanding work. Review architectural pressure points as coverage grows; do not
+substitute repeated redesigns, arbitrary naming/routing rules, or weaker rejection for coverage.
+
 ### clang2 remaining attribute coverage
 
 `clang2` `capture.rs` `attribute` uses native kind names, requested `MaxFieldAlignment` bits, and
@@ -250,9 +268,13 @@ evaluated `AlignedAttr` requests with their semantic form.
 char-only layouts. Reconciliation checks requested packing, and projection preserves it.
 Complete-record alignment projects through `#[align(N)]`; request sets are checked even when
 layouts match. Field, typedef, and enum alignment, combined packing/alignment, and packed
-containment of aligned records remain unsupported. Other attributes, including `_GUID`'s
-`TypeVisibility`, still need payload handling. Do not identify unknown attributes from empty
-tokens or infer requests from layout.
+containment of aligned records remain unsupported.
+The native `TypeVisibilityAttr` query decodes default/hidden/protected requests, including the
+implicit tokenless attribute on `_GUID`. `clang2` retains and compares default requests; hidden
+and protected requests remain unsupported. Supported plain records/enums do not project C++ RTTI
+or vtables, so default type visibility needs no emitted attribute. Ordinary `Visibility` and
+other undecoded attributes remain rejected. Do not identify unknown attributes from empty tokens
+or infer requests from layout.
 
 The runtime pin is `windows-clang-sys::LIBCLANG_VERSION`. LLVM 23.1.3's stock C API also lacks
 the packing payload accessor.
@@ -306,3 +328,9 @@ typedefs such as `DWORD` can occur in multiple headers; preserving their names e
 ownership ambiguity in dependent declarations. Revisit a shared foundation module or RDL file
 after the rewrite is proven. Do not add arbitrary per-name/header preferences or ownership routing
 seeded from canonical metadata in the meantime.
+
+`projection/plan.rs` `Plan::new` also selects the alphabetically first by-value alias as each
+record's public name. The SDK visibility slice exposes `_GUID` becoming `BATTERY_CHARGER_ID` in
+`poclass.rdl`, with `GUID`, `IID`, and `CLSID` referring to it. Native layout equality does not
+establish canonical naming or ownership parity. Resolve primary naming from declaration evidence
+and an explicit output contract; do not add per-name exceptions.

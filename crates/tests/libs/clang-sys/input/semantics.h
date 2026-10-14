@@ -22,6 +22,19 @@ struct __declspec(align(4)) AlignFour { long long value; };
 struct __declspec(align(8)) AlignEight { long long value; };
 struct alignas(0) AlignZero { char value; };
 struct alignas(16) AlignStandard { char value; };
+struct __attribute__((type_visibility("default"))) Visible { int value; };
+struct __attribute__((type_visibility("hidden"))) Hidden { int value; };
+struct __attribute__((type_visibility("protected"))) Protected { int value; };
+struct __attribute__((visibility("hidden"), type_visibility("default"))) TypeVisible {
+    int value;
+};
+struct __attribute__((visibility("hidden"))) SymbolHidden { int value; };
+struct _GUID {
+    unsigned long Data1;
+    unsigned short Data2;
+    unsigned short Data3;
+    unsigned char Data4[8];
+};
 struct alignas(AlignStandard) AlignType { char value; };
 struct __attribute__((aligned(32))) AlignGNU { char value; };
 struct __attribute__((aligned)) AlignDefault { char value; };

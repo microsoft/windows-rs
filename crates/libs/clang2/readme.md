@@ -42,6 +42,9 @@ Callback capture checks native function properties before accepting a prototype.
 unknown attributes remain unsupported rather than being normalized to ordinary C.
 The native qualifier query rejects `__unaligned` and other non-CVR qualifiers before interning,
 including qualifiers inherited through typedefs.
+Default type visibility is retained and compared as native evidence. It needs no metadata
+attribute for the supported records and enums, which do not project C++ RTTI or vtables.
+Hidden/protected type visibility and ordinary symbol visibility remain unsupported.
 
 The optional `projection` feature provides `projection::generate(inputs, namespace)` for
 three-target capture, merge, and per-header RDL output. It emits structs, unions, enums, and value

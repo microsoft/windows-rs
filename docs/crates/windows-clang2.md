@@ -102,7 +102,20 @@ in one TU; tus distributes them over 2/8/32 TUs. Artifacts go under `target/clan
 canonical metadata. Its merge timing is a separate probe; projection includes its own merge and
 pruning passes. Public-family and alias checks are included in projection timing, not native merge
 comparison counts. Native counts and owned-byte estimates are measured after capture pruning.
-Unresolved attributes such as `_GUID`'s `TypeVisibility` remain evidence, not verified semantics.
+Unresolved attributes such as `Uuid` remain evidence, not verified semantics.
+
+`TypeVisibility` is decoded by the native companion, including Clang's implicit default attribute
+on `_GUID`. Only the default request enters the IR as `DefaultTypeVisibility`; hidden/protected
+requests are explicit capture failures. Native definitions and public families compare its
+presence, and an explicitly attributed record forward requires the same request on its definition.
+The attribute controls visibility of a type and its associated C++ linkage objects, not field layout.
+Supported plain records and integer enums do not project RTTI or vtables, so default type visibility
+needs no RDL attribute. Ordinary symbol `Visibility` remains separate and unsupported; accepting
+default type visibility does not authorize discarding other attributes.
+
+The `visibility*` fixtures cover tokenless implicit attributes, records, unions, enums, forwards,
+same-layout native/public conflicts, dependency omissions, RDL/WinMD round trips, and generated Rust.
+The SDK fixture also captures and projects `_GUID` with its native size, alignment, and fields.
 
 The native query boundary is visible in `opaque_packing.h`: the same named record under `pack(1)`
 and `pack(2)` has identical fields and layout, and libclang reports the same tokenless
@@ -219,6 +232,13 @@ Public ownership across headers remains unresolved. Equivalent scalar typedefs c
 declaration headers, so preserving their names exposes ownership omissions in their dependents.
 Revisit a shared foundation module or RDL partition after the rewrite is proven. No per-name header
 preferences or canonical-metadata ownership routing are implemented.
+
+Canonical record naming also remains unresolved. Selecting the alphabetically first by-value alias
+can give an application-specific alias authority over a shared type: `_GUID` becomes
+`BATTERY_CHARGER_ID` from `poclass.h`, with `GUID`, `IID`, and `CLSID` referring to that definition.
+This is not canonical metadata parity even though the native layouts agree. Resolve this through
+declaration evidence and an explicit public naming contract, not GUID-specific exceptions or
+another ordering heuristic.
 
 [max-field-alignment]:
   https://github.com/llvm/llvm-project/blob/llvmorg-22.1.8/clang/include/clang/Basic/Attr.td

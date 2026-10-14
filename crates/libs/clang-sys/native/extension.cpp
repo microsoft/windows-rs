@@ -14,7 +14,7 @@ static const char* attributeName(clang::attr::Kind kind) {
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 3;
+    return 4;
 }
 
 const char* windows_clang_getLLVMVersion(void) {
@@ -103,6 +103,36 @@ WindowsClangStatus windows_clang_getAlignment(CXCursor cursor, WindowsClangAlign
         return WindowsClangWrongKind;
     }
     *info = {attribute->getAlignment(clang::cxcursor::getCursorContext(cursor)), kind};
+    return WindowsClangSuccess;
+}
+
+WindowsClangStatus windows_clang_getTypeVisibility(CXCursor cursor, CXVisibilityKind* visibility) {
+    if (!visibility) {
+        return WindowsClangInvalidArgument;
+    }
+    if (!clang_isAttribute(cursor.kind)) {
+        return WindowsClangWrongKind;
+    }
+    auto attribute = llvm::dyn_cast<clang::TypeVisibilityAttr>(
+        clang::cxcursor::getCursorAttr(cursor));
+    if (!attribute) {
+        return WindowsClangWrongKind;
+    }
+    CXVisibilityKind value;
+    switch (attribute->getVisibility()) {
+    case clang::TypeVisibilityAttr::Default:
+        value = CXVisibility_Default;
+        break;
+    case clang::TypeVisibilityAttr::Hidden:
+        value = CXVisibility_Hidden;
+        break;
+    case clang::TypeVisibilityAttr::Protected:
+        value = CXVisibility_Protected;
+        break;
+    default:
+        return WindowsClangWrongKind;
+    }
+    *visibility = value;
     return WindowsClangSuccess;
 }
 
