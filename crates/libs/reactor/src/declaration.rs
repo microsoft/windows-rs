@@ -72,6 +72,7 @@ pub struct ImageSource(ImageSourceValue);
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum ImageSourceValue {
     Encoded(EncodedImage),
+    Svg(EncodedImage),
     Uri(Rc<str>),
 }
 
@@ -88,6 +89,10 @@ impl ImageSource {
 
     pub fn encoded(value: EncodedImage) -> Self {
         Self(ImageSourceValue::Encoded(value))
+    }
+
+    pub fn svg(value: EncodedImage) -> Self {
+        Self(ImageSourceValue::Svg(value))
     }
 
     pub(crate) fn value(&self) -> &ImageSourceValue {
@@ -143,6 +148,10 @@ impl Icon {
 
     pub fn image_data(data: EncodedImage) -> Self {
         Self::image(ImageSource::encoded(data))
+    }
+
+    pub fn image_svg(data: EncodedImage) -> Self {
+        Self::image(ImageSource::svg(data))
     }
 
     pub fn path(data: impl Into<Rc<str>>) -> Self {

@@ -92,3 +92,8 @@ Control icon slots accept the shared `Icon` content value. Reactor realizes it a
 `IconElement` or `IconSource` required by each control, so the same value works with APIs such as
 `AutoSuggestBox::query_icon`, `AppBarButton::icon`, and `TitleBar::icon`. Standalone visual icons
 continue to use `SymbolIcon`, `FontIcon`, `BitmapIcon`, `ImageIcon`, and `PathIcon`.
+
+`Image` and `ImageIcon` accept encoded bitmap bytes through `source_data` and SVG bytes through
+`source_svg`, using `EncodedImage::new` for owned bytes or `EncodedImage::from_static` for embedded
+assets. Control icon slots use `Icon::image_data` or `Icon::image_svg`. Equal sources share native
+images within a runtime, including across page replacements and command flyout icons.

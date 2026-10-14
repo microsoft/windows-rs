@@ -685,6 +685,31 @@ fn button_content_and_click_use_generated_contracts() {
 }
 
 #[test]
+fn svg_sources_preserve_format_and_byte_value_identity() {
+    let bytes = EncodedImage::from_static(b"<svg/>");
+    let svg = ImageSource::svg(bytes.clone());
+    assert_ne!(svg, ImageSource::encoded(bytes.clone()));
+    assert_eq!(svg, ImageSource::svg(EncodedImage::new(b"<svg/>".to_vec())));
+    assert_eq!(Icon::image_svg(bytes.clone()), Icon::image(svg.clone()));
+    let views: [View; 2] = [
+        Image::new().source_svg(bytes.clone()).into(),
+        ImageIcon::new().source_svg(bytes).into(),
+    ];
+    for view in views {
+        let mut runtime = Runtime::new(RecordingAdapter::default());
+        runtime.update(view).unwrap();
+        assert_eq!(
+            runtime
+                .graph()
+                .properties(runtime.graph().root().unwrap())
+                .unwrap()[0]
+                .value,
+            PropertyValue::ImageSource(svg.clone())
+        );
+    }
+}
+
+#[test]
 fn final_value_parity_contracts_are_typed() {
     let mut image = Runtime::new(RecordingAdapter::default());
     image

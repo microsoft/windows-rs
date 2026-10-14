@@ -12,6 +12,7 @@ fn page(mounted: bool, grid: &ElementRef<Grid>, web: &ElementRef<WebView2>) -> V
             TreeView::new().nodes([TreeNode::new("a", "a"), TreeNode::new("b", "b")]),
             Grid::new().width(10.0).height(10.0).element_ref(grid),
             WebView2::new().width(10.0).height(10.0).element_ref(web),
+            Image::new().source_svg(EncodedImage::from_static(images::SVG)),
         ))
         .exit_fade(Duration::from_millis(50));
     StackPanel::new()
@@ -26,6 +27,9 @@ fn assert_released(adapter: &WinUiAdapter) {
     assert!(adapter.tree_node_texts.borrow().is_empty());
     assert!(adapter.observations.is_empty());
     assert!(adapter.webview_initializations.borrow().is_empty());
+    assert!(adapter.image_subscriptions.is_empty());
+    assert!(adapter.images.is_empty());
+    assert!(adapter.released_images.is_empty());
 }
 
 #[test]

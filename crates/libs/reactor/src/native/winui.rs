@@ -165,6 +165,7 @@ struct NativeCommandBarFlyout {
     revision: u64,
     native: native::CommandBarFlyout,
     _revokers: Vec<windows_core::EventRevoker>,
+    images: Vec<Rc<NativeImageSource>>,
 }
 
 struct NativeContentDialogRoot {
@@ -1138,10 +1139,6 @@ pub(crate) fn validate_native_uri(value: &str) -> windows_core::Result<()> {
     native::Uri::CreateUri(value).map(drop)
 }
 
-fn icon_image_source(value: &ImageSource) -> Result<native::ImageSource, WinUiError> {
-    Ok(NativeImageSource::new(value.value())?.value)
-}
-
 struct NativeImageSource {
     value: native::ImageSource,
     state: Rc<ImageLoadState>,
@@ -1150,6 +1147,7 @@ struct NativeImageSource {
 }
 
 struct ImageSubscription {
+    property: PropertyId,
     image: Rc<NativeImageSource>,
     _callback: Option<Rc<dyn Fn(bool)>>,
 }
@@ -1166,9 +1164,10 @@ impl Eq for ImageKey {}
 
 impl std::hash::Hash for ImageKey {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        std::mem::discriminant(&self.0).hash(state);
         match &self.0 {
             ImageSourceValue::Uri(value) => value.hash(state),
-            ImageSourceValue::Encoded(value) => {
+            ImageSourceValue::Encoded(value) | ImageSourceValue::Svg(value) => {
                 // Hash a bounded sample; equality compares the full bytes.
                 let bytes = value.as_bytes();
                 bytes.len().hash(state);
@@ -1223,16 +1222,23 @@ impl NativeImageSource {
         let state = Rc::new(ImageLoadState::default());
         let opened = Rc::clone(&state);
         let failed = Rc::clone(&state);
-        let svg = matches!(source, ImageSourceValue::Uri(uri)
-            if uri.split(['?', '#']).next().unwrap().to_ascii_lowercase().ends_with(".svg"));
+        let svg = matches!(source, ImageSourceValue::Svg(_))
+            || matches!(source, ImageSourceValue::Uri(uri)
+                if uri.split(['?', '#']).next().unwrap().to_ascii_lowercase().ends_with(".svg"));
         let (value, opened, failed) = if svg {
             let image = native::SvgImageSource::new()?;
             let opened = image.Opened(move |_, _| opened.complete(true))?;
             let failed = image.OpenFailed(move |_, _| failed.complete(false))?;
-            let ImageSourceValue::Uri(uri) = source else {
-                unreachable!()
-            };
-            image.SetUriSource(&native::Uri::CreateUri(uri)?)?;
+            match source {
+                ImageSourceValue::Uri(uri) => image.SetUriSource(&native::Uri::CreateUri(uri)?)?,
+                ImageSourceValue::Svg(value) => {
+                    let decode_image = image.clone();
+                    load_encoded_image(value, move |stream| {
+                        decode_image.SetSourceAsync(stream).map(drop)
+                    })?;
+                }
+                ImageSourceValue::Encoded(_) => unreachable!(),
+            }
             (image.cast()?, opened, failed)
         } else {
             let image = native::BitmapImage::new()?;
@@ -1240,7 +1246,16 @@ impl NativeImageSource {
             let failed = image.ImageFailed(move |_, _| failed.complete(false))?;
             match source {
                 ImageSourceValue::Uri(uri) => image.SetUriSource(&native::Uri::CreateUri(uri)?)?,
-                ImageSourceValue::Encoded(value) => load_encoded_bitmap(value, &image)?,
+                ImageSourceValue::Encoded(value) => {
+                    let decode_image = image.clone();
+                    load_encoded_image(value, move |stream| {
+                        decode_image
+                            .cast::<native::IBitmapSource>()?
+                            .SetSourceAsync(stream)
+                            .map(drop)
+                    })?;
+                }
+                ImageSourceValue::Svg(_) => unreachable!(),
             }
             (image.cast()?, opened, failed)
         };
@@ -1253,7 +1268,10 @@ impl NativeImageSource {
     }
 }
 
-fn icon_element(value: &Icon) -> Result<native::IconElement, WinUiError> {
+fn icon_element(
+    value: &Icon,
+    image_source: Option<&native::ImageSource>,
+) -> Result<native::IconElement, WinUiError> {
     match value.value() {
         IconValue::Symbol(value) => {
             let icon = native::SymbolIcon::new()?;
@@ -1274,9 +1292,9 @@ fn icon_element(value: &Icon) -> Result<native::IconElement, WinUiError> {
             icon.SetShowAsMonochrome(*show_as_monochrome)?;
             icon.cast().map_err(Into::into)
         }
-        IconValue::Image(value) => {
+        IconValue::Image(_) => {
             let icon = native::ImageIcon::new()?;
-            icon.SetSource(&icon_image_source(value)?)?;
+            icon.SetSource(image_source.unwrap())?;
             icon.cast().map_err(Into::into)
         }
         IconValue::Path(value) => {
@@ -1287,7 +1305,10 @@ fn icon_element(value: &Icon) -> Result<native::IconElement, WinUiError> {
     }
 }
 
-fn icon_source(value: &Icon) -> Result<native::IconSource, WinUiError> {
+fn icon_source(
+    value: &Icon,
+    image_source: Option<&native::ImageSource>,
+) -> Result<native::IconSource, WinUiError> {
     match value.value() {
         IconValue::Symbol(value) => {
             let icon = native::SymbolIconSource::new()?;
@@ -1308,9 +1329,9 @@ fn icon_source(value: &Icon) -> Result<native::IconSource, WinUiError> {
             icon.SetShowAsMonochrome(*show_as_monochrome)?;
             icon.cast().map_err(Into::into)
         }
-        IconValue::Image(value) => {
+        IconValue::Image(_) => {
             let icon = native::ImageIconSource::new()?;
-            icon.SetImageSource(&icon_image_source(value)?)?;
+            icon.SetImageSource(image_source.unwrap())?;
             icon.cast().map_err(Into::into)
         }
         IconValue::Path(value) => {
@@ -1321,25 +1342,21 @@ fn icon_source(value: &Icon) -> Result<native::IconSource, WinUiError> {
     }
 }
 
-fn load_encoded_bitmap(
+fn load_encoded_image(
     value: &EncodedImage,
-    image: &native::BitmapImage,
+    load: impl FnOnce(&native::InMemoryRandomAccessStream) -> windows_core::Result<()> + Send + 'static,
 ) -> Result<(), WinUiError> {
     let stream = native::InMemoryRandomAccessStream::new()?;
     let output = stream.GetOutputStreamAt(0)?;
     let writer = native::DataWriter::CreateDataWriter(&output)?;
     writer.WriteBytes(value.as_bytes())?;
     let store = writer.StoreAsync()?;
-    let decode_image = image.clone();
     if let Err(error) = store.when(move |result| {
         let result = (|| {
             result?;
             writer.DetachStream()?;
             stream.Seek(0)?;
-            decode_image
-                .cast::<native::IBitmapSource>()?
-                .SetSourceAsync(&stream)?;
-            windows_core::Result::Ok(())
+            load(&stream)
         })();
         if let Err(error) = result {
             report_error(error);
@@ -1402,47 +1419,6 @@ fn build_menu_items(
         output.Append(&item)?;
     }
     Ok(())
-}
-
-fn build_command_bar_element(
-    command: &CommandBarCommand,
-    revokers: &mut Vec<windows_core::EventRevoker>,
-    event_queue: &Rc<NativeEventQueue>,
-    target: ObjectId,
-    revision: u64,
-) -> Result<native::ICommandBarElement, WinUiError> {
-    match command {
-        CommandBarCommand::Button {
-            key,
-            label,
-            icon,
-            enabled,
-        } => {
-            let button = native::AppBarButton::new()?;
-            button.SetLabel(label)?;
-            button.cast::<native::IControl>()?.SetIsEnabled(*enabled)?;
-            if let Some(icon) = icon {
-                let icon = icon_element(icon)?;
-                button.SetIcon(&icon)?;
-            }
-            let clicked_key = key.clone();
-            let clicked_queue = Rc::clone(event_queue);
-            revokers.push(button.cast::<native::IButtonBase>()?.Click(move |_, _| {
-                clicked_queue.queue(
-                    None,
-                    Some(QueuedEvent {
-                        object: target,
-                        event: EventId::CommandInvoked,
-                        revision,
-                        payload: EventPayload::Key(clicked_key.clone()),
-                    }),
-                );
-                WinUiAdapter::schedule_event_wake(&clicked_queue);
-            })?);
-            Ok(button.cast()?)
-        }
-        CommandBarCommand::Separator { .. } => Ok(native::AppBarSeparator::new()?.cast()?),
-    }
 }
 
 fn set_rich_text_blocks(

@@ -286,9 +286,32 @@ Minimized state is not saved.
 
 ## Reuse images
 
-`Image` and `ImageIcon` controls with equal sources share one native image while any of them is
-displayed, so replacing a page with the same images does not reload them. Run
-`cargo run -p reactor-image-reuse` to replace a page of 48 in-memory icons.
+`Image`, `ImageIcon`, and image-valued `Icon` slots share native images by source value within a
+runtime, including command flyout icons. Replacing a page with equal sources does not reload them.
+The cache holds weak references; removing the last owner releases the shared source after the
+current update. Each `Image` assignment receives its own opened or failed notification, including
+when the shared source has already loaded.
+
+Use `source_data` for encoded bitmap bytes and `source_svg` for SVG bytes. `EncodedImage` owns or
+borrows the bytes; the builder chooses the decoder. The same bytes passed to different decoders are
+different sources. URI and file sources select SVG by the `.svg` extension.
+
+```rust,ignore
+let svg = EncodedImage::from_static(
+    br#"<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+    <circle cx="12" cy="12" r="10" fill="red"/></svg>"#,
+);
+StackPanel::new().children((
+    Image::new().source_svg(svg.clone()),
+    AppBarButton::new().icon(Icon::image_svg(svg)),
+))
+```
+
+`ImageSource::svg` constructs the same source value for `Icon::image`. Native sources assigned
+through an element reference, including mutable Canvas images, remain application-owned and do not
+enter this immutable asset cache.
+
+Run `cargo run -p reactor-image-reuse` to replace a page of 48 in-memory bitmap and SVG images.
 
 ## Add icon content
 

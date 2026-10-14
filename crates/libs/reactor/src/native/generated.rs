@@ -4630,6 +4630,7 @@ impl GeneratedHandle {
         &self,
         property: PropertyId,
         value: Option<&PropertyValue>,
+        image_source: Option<&native::ImageSource>,
     ) -> Option<Result<(), WinUiError>> {
         match (self, property, value) {
             (Self::TextBlock(object), PropertyId::Text, None) => {
@@ -5438,7 +5439,7 @@ impl GeneratedHandle {
             ),
             (Self::TitleBar(object), PropertyId::IconSource, Some(PropertyValue::Icon(value))) => {
                 Some(
-                    icon_source(value)
+                    icon_source(value, image_source)
                         .and_then(|icon| object.value.SetIconSource(&icon).map_err(Into::into)),
                 )
             }
@@ -5818,7 +5819,7 @@ impl GeneratedHandle {
                 PropertyId::QueryIcon,
                 Some(PropertyValue::Icon(value)),
             ) => Some(
-                icon_element(value)
+                icon_element(value, image_source)
                     .and_then(|icon| object.value.SetQueryIcon(&icon).map_err(Into::into)),
             ),
             (Self::PasswordBox(object), PropertyId::PlaceholderText, None) => Some(
@@ -6319,9 +6320,10 @@ impl GeneratedHandle {
                 Self::NavigationViewItem(object),
                 PropertyId::Icon,
                 Some(PropertyValue::Icon(value)),
-            ) => {
-                Some(icon_element(value).and_then(|icon| object.SetIcon(&icon).map_err(Into::into)))
-            }
+            ) => Some(
+                icon_element(value, image_source)
+                    .and_then(|icon| object.SetIcon(&icon).map_err(Into::into)),
+            ),
             (Self::SplitView(object), PropertyId::OpenPaneLength, None) => Some(
                 object
                     .value
@@ -7968,7 +7970,10 @@ impl GeneratedHandle {
                     .map_err(Into::into),
             ),
             (Self::SelectorBarItem(object), PropertyId::Icon, Some(PropertyValue::Icon(value))) => {
-                Some(icon_element(value).and_then(|icon| object.SetIcon(&icon).map_err(Into::into)))
+                Some(
+                    icon_element(value, image_source)
+                        .and_then(|icon| object.SetIcon(&icon).map_err(Into::into)),
+                )
             }
             (Self::TabView(object), PropertyId::CanReorderTabs, None) => Some(
                 object
@@ -8297,7 +8302,7 @@ impl GeneratedHandle {
             ),
             (Self::AppBarButton(object), PropertyId::Icon, Some(PropertyValue::Icon(value))) => {
                 Some(
-                    icon_element(value)
+                    icon_element(value, image_source)
                         .and_then(|icon| object.value.SetIcon(&icon).map_err(Into::into)),
                 )
             }

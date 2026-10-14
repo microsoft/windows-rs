@@ -4538,6 +4538,13 @@ impl Image {
         );
         self
     }
+    pub fn source_svg(mut self, value: EncodedImage) -> Self {
+        self.0 = self.0.property(
+            PropertyId::Source,
+            PropertyValue::ImageSource(ImageSource::svg(value)),
+        );
+        self
+    }
     pub fn stretch(mut self, stretch: Stretch) -> Self {
         self.0 = self
             .0
@@ -4911,6 +4918,13 @@ impl ImageIcon {
         self.0 = self.0.property(
             PropertyId::Source,
             PropertyValue::ImageSource(ImageSource::encoded(value)),
+        );
+        self
+    }
+    pub fn source_svg(mut self, value: EncodedImage) -> Self {
+        self.0 = self.0.property(
+            PropertyId::Source,
+            PropertyValue::ImageSource(ImageSource::svg(value)),
         );
         self
     }

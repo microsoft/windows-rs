@@ -651,6 +651,7 @@ impl WinUiAdapter {
             self.ui_element(target)?
                 .cast::<native::IButton>()?
                 .SetFlyout(None::<&native::FlyoutBase>)?;
+            self.released_images.extend(previous.images);
         }
         let Some(flyout) = flyout else {
             return Ok(());
@@ -659,20 +660,21 @@ impl WinUiAdapter {
         let primary = native.PrimaryCommands()?;
         let secondary = native.SecondaryCommands()?;
         let mut revokers = Vec::new();
+        let mut images = Vec::new();
         for command in flyout.primary.iter() {
-            primary.Append(&build_command_bar_element(
+            primary.Append(&self.build_command_bar_element(
                 command,
                 &mut revokers,
-                &self.event_queue,
+                &mut images,
                 target,
                 revision,
             )?)?;
         }
         for command in flyout.secondary.iter() {
-            secondary.Append(&build_command_bar_element(
+            secondary.Append(&self.build_command_bar_element(
                 command,
                 &mut revokers,
-                &self.event_queue,
+                &mut images,
                 target,
                 revision,
             )?)?;
@@ -687,9 +689,53 @@ impl WinUiAdapter {
                 revision,
                 native,
                 _revokers: revokers,
+                images,
             },
         );
         Ok(())
+    }
+
+    fn build_command_bar_element(
+        &mut self,
+        command: &CommandBarCommand,
+        revokers: &mut Vec<windows_core::EventRevoker>,
+        images: &mut Vec<Rc<NativeImageSource>>,
+        target: ObjectId,
+        revision: u64,
+    ) -> Result<native::ICommandBarElement, WinUiError> {
+        match command {
+            CommandBarCommand::Button {
+                key,
+                label,
+                icon,
+                enabled,
+            } => {
+                let button = native::AppBarButton::new()?;
+                button.SetLabel(label)?;
+                button.cast::<native::IControl>()?.SetIsEnabled(*enabled)?;
+                if let Some(icon) = icon {
+                    let image = self.shared_icon_image(icon)?;
+                    button.SetIcon(&icon_element(icon, image.as_ref().map(|image| &image.value))?)?;
+                    images.extend(image);
+                }
+                let clicked_key = key.clone();
+                let clicked_queue = Rc::clone(&self.event_queue);
+                revokers.push(button.cast::<native::IButtonBase>()?.Click(move |_, _| {
+                    clicked_queue.queue(
+                        None,
+                        Some(QueuedEvent {
+                            object: target,
+                            event: EventId::CommandInvoked,
+                            revision,
+                            payload: EventPayload::Key(clicked_key.clone()),
+                        }),
+                    );
+                    Self::schedule_event_wake(&clicked_queue);
+                })?);
+                Ok(button.cast()?)
+            }
+            CommandBarCommand::Separator { .. } => Ok(native::AppBarSeparator::new()?.cast()?),
+        }
     }
 
     fn set_content_dialog(
