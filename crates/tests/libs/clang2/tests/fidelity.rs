@@ -9,6 +9,58 @@ fn fidelity_gate() {
     aliases();
     attributes();
     opaque_packing();
+    opaque_callbacks();
+}
+
+fn opaque_callbacks() {
+    let roots = [
+        "PlainCallback",
+        "CdeclCallback",
+        "StdcallCallback",
+        "RegisterCallback",
+        "PlainVoidCallback",
+        "NoReturnCallback",
+        "CallbackUser",
+        "Safe",
+    ];
+    for root in ["RegisterCallback", "NoReturnCallback", "CallbackUser"] {
+        let error = capture(&[selected_fixture("opaque_callbacks", &[root])], &TARGETS)
+            .unwrap_err()
+            .to_string();
+        assert!(error.contains("unsupported"), "{error}");
+        assert!(!error.contains("libclang parse failed"), "{error}");
+    }
+    let captured =
+        capture_partial(&[selected_fixture("opaque_callbacks", &roots)], &TARGETS).unwrap();
+    for snapshot in &captured.snapshots {
+        assert_eq!(snapshot.aliases.len(), 4);
+        assert_eq!(
+            snapshot
+                .records
+                .iter()
+                .map(|record| record.name.as_str())
+                .collect::<Vec<_>>(),
+            ["Safe"]
+        );
+    }
+    let result = projection::project_partial(captured, "Fixture").unwrap();
+    assert_eq!(
+        (
+            result.output.records,
+            result.output.enums,
+            result.output.aliases
+        ),
+        (1, 0, 4)
+    );
+    for root in ["RegisterCallback", "NoReturnCallback", "CallbackUser"] {
+        assert!(
+            result
+                .omissions
+                .iter()
+                .any(|message| message.contains(root)),
+            "{root}"
+        );
+    }
 }
 
 fn opaque_packing() {
@@ -23,12 +75,13 @@ fn opaque_packing() {
         let a = &pair[0].observations[0];
         let b = &pair[1].observations[0];
         assert_eq!(pair[0].records[0].usr, pair[1].records[0].usr);
-        assert_eq!(a.attributes, b.attributes);
+        assert_ne!(a.attributes, b.attributes);
         assert_eq!(a.attributes.len(), 1);
         let attribute = &a.attributes[0];
+        assert_eq!(attribute.kind, AttributeKind::MaxFieldAlignment { bits: 8 });
         assert_eq!(
-            attribute.kind,
-            AttributeKind::Unresolved("UnexposedAttr".into())
+            b.attributes[0].kind,
+            AttributeKind::MaxFieldAlignment { bits: 16 }
         );
         assert!(attribute.spelling.is_empty());
         assert!(attribute.tokens.is_empty());
@@ -54,7 +107,7 @@ fn opaque_packing() {
             .err()
             .unwrap()
             .to_string()
-            .contains("cannot verify")
+            .contains("differs")
     );
 }
 
@@ -179,13 +232,15 @@ fn attributes() {
                     }
                 ),
             }
-            assert!(
-                observation
-                    .attributes
-                    .iter()
-                    .chain(definition.fields.iter().flat_map(|field| &field.attributes))
-                    .any(|attribute| matches!(attribute.kind, AttributeKind::Unresolved(_)))
-            );
+            if !root.starts_with("Pragma") {
+                assert!(
+                    observation
+                        .attributes
+                        .iter()
+                        .chain(definition.fields.iter().flat_map(|field| &field.attributes))
+                        .any(|attribute| matches!(attribute.kind, AttributeKind::Unresolved(_)))
+                );
+            }
             if root.starts_with("Pragma") {
                 assert!(observation.attributes.iter().all(
                     |attribute| attribute.spelling.is_empty()
@@ -194,7 +249,12 @@ fn attributes() {
                 ));
             }
         }
-        let error = merge(&snapshots).err().unwrap().to_string();
-        assert!(error.contains("cannot verify"), "{error}");
+        if root.starts_with("Pragma") {
+            let merged = merge(&snapshots).unwrap();
+            assert_eq!(projection::project(&merged, "Fixture").unwrap().records, 1);
+        } else {
+            let error = merge(&snapshots).err().unwrap().to_string();
+            assert!(error.contains("cannot verify"), "{error}");
+        }
     }
 }

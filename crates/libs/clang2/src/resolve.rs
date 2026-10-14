@@ -217,15 +217,15 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
         };
         if a.layout != b.layout
             || a.fields.len() != b.fields.len()
-            || packed(&snapshots[left.snapshot].observations[left.observation.0].attributes)
-                != packed(&snapshots[right.snapshot].observations[right.observation.0].attributes)
+            || packing(&snapshots[left.snapshot].observations[left.observation.0].attributes)
+                != packing(&snapshots[right.snapshot].observations[right.observation.0].attributes)
         {
             return Err(conflict("record layout or field count differs"));
         }
         for (a, b) in a.fields.iter().zip(&b.fields) {
             if a.name != b.name
                 || a.offset_bits != b.offset_bits
-                || packed(&a.attributes) != packed(&b.attributes)
+                || packing(&a.attributes) != packing(&b.attributes)
             {
                 return Err(conflict("field name, order, or offset differs"));
             }
@@ -275,7 +275,7 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
     let (enums, enum_groups) = enums::resolve(&snapshots, &mut work)?;
     let mut seen = HashSet::new();
     while let Some((left, right, owner_left, owner_right)) = types.pop() {
-        if !types_equal(&snapshots, left, right, &mut seen, &enum_groups, |a, b| {
+        if !types_equal(&snapshots, left, right, &mut seen, &enum_groups, &|a, b| {
             membership[a.snapshot][a.record.0] == membership[b.snapshot][b.record.0]
         }) {
             return Err(conflict(
@@ -305,7 +305,7 @@ pub(crate) fn types_equal(
     mut b: TypeRef,
     seen: &mut HashSet<TypePair>,
     enums: &[Vec<usize>],
-    records: impl Fn(RecordRef, RecordRef) -> bool,
+    records: &impl Fn(RecordRef, RecordRef) -> bool,
 ) -> bool {
     loop {
         if !seen.insert(if a <= b { (a, b) } else { (b, a) }) {
@@ -335,6 +335,21 @@ pub(crate) fn types_equal(
             return false;
         }
         match (&x.kind, &y.kind) {
+            (TypeKind::Function(x), TypeKind::Function(y)) => {
+                return x.convention == y.convention
+                    && x.parameters.len() == y.parameters.len()
+                    && types_equal(
+                        snapshots,
+                        (a.0, x.result),
+                        (b.0, y.result),
+                        seen,
+                        enums,
+                        records,
+                    )
+                    && x.parameters.iter().zip(&y.parameters).all(|(x, y)| {
+                        types_equal(snapshots, (a.0, *x), (b.0, *y), seen, enums, records)
+                    });
+            }
             (TypeKind::Void, TypeKind::Void) => return true,
             (TypeKind::Scalar(x), TypeKind::Scalar(y)) => return x == y,
             (TypeKind::Pointer(x), TypeKind::Pointer(y)) => {
@@ -407,10 +422,17 @@ fn describe(snapshots: &[&Snapshot], owner: Owner) -> String {
     )
 }
 
-pub(crate) fn packed(attributes: &[Attribute]) -> bool {
-    attributes
+pub(crate) fn packing(attributes: &[Attribute]) -> (bool, Option<u32>) {
+    let packed = attributes
         .iter()
-        .any(|attribute| attribute.kind == AttributeKind::Packed)
+        .any(|attribute| attribute.kind == AttributeKind::Packed);
+    let maximum = attributes
+        .iter()
+        .find_map(|attribute| match attribute.kind {
+            AttributeKind::MaxFieldAlignment { bits } => Some(bits),
+            _ => None,
+        });
+    (packed, maximum)
 }
 
 fn attributes(
@@ -419,6 +441,14 @@ fn attributes(
     attributes: &[Attribute],
 ) -> Result<(), Error> {
     for attribute in attributes {
+        if let AttributeKind::MaxFieldAlignment { bits } = attribute.kind
+            && (!matches!(bits, 8 | 16 | 32 | 64 | 128) || packing(attributes).1 != Some(bits))
+        {
+            return Err(Error(format!(
+                "{}: unsupported packing {bits} bits",
+                describe(snapshots, owner)
+            )));
+        }
         if let AttributeKind::Unresolved(kind) = &attribute.kind {
             return Err(Error(format!(
                 "{}: cannot verify {kind} attribute (spelling {:?}, tokens {:?})",

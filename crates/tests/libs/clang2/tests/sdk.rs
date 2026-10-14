@@ -68,7 +68,7 @@ fn sdk_header() {
     let captured = capture(&[attributed], &[Target::X86, Target::X64, Target::Arm64]).unwrap();
     let error = merge(&captured).err().unwrap().to_string();
     assert!(
-        error.contains("_GUID") && error.contains("UnexposedAttr"),
+        error.contains("_GUID") && error.contains("TypeVisibility"),
         "{error}"
     );
 }

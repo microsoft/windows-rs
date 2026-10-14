@@ -13,6 +13,7 @@ fn projection_gate() {
     partial_review();
     unions();
     union_families();
+    packing();
 }
 
 fn partial_review() {
@@ -62,8 +63,6 @@ fn partial_results() {
             "Transitive",
             "PlatformBad",
             "PlatformConsumer",
-            "UnknownPacking",
-            "PackingConsumer",
         ] {
             assert!(
                 !snapshot.records.iter().any(|record| record.name == name),
@@ -82,7 +81,7 @@ fn partial_results() {
             result.output.aliases,
             result.output.partitions.len()
         ),
-        (9, 3, 2)
+        (11, 3, 2)
     );
     for stem in ["partial_types", "projection_types"] {
         assert_eq!(
@@ -162,6 +161,81 @@ fn partial_results() {
         .unwrap_err()
         .to_string();
     assert!(error.starts_with("merge:"), "{error}");
+}
+
+fn packing() {
+    let mut inputs = [
+        selected_fixture("packing_families", &["PublicPacking"]),
+        selected_fixture("packing_families", &["PublicPacking"]),
+    ];
+    inputs[1].name = "second.h".into();
+    inputs[1].source.insert_str(0, "#define PACK_TWO\n");
+    let error = projection::generate(&inputs, "Fixture")
+        .unwrap_err()
+        .to_string();
+    assert!(error.contains("incompatible native definitions"), "{error}");
+    let snapshots = capture(&[selected_fixture("packing", &[])], &TARGETS).unwrap();
+    let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
+    let rdl = &output.partitions["packing"].rdl;
+    assert_eq!(output.records, 7);
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+    let winmd = root.join("target\\test-clang2-packing.winmd");
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input_text(rdl)
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let index = reader::Index::read(&winmd).unwrap();
+    for (name, packing) in [
+        ("One", 1),
+        ("Two", 2),
+        ("Four", 4),
+        ("Eight", 8),
+        ("Sixteen", 16),
+        ("PackedUnion", 2),
+        ("Nested", 2),
+    ] {
+        assert_eq!(
+            index
+                .expect("Fixture", name)
+                .class_layout()
+                .unwrap()
+                .packing_size(),
+            packing
+        );
+        for snapshot in &snapshots {
+            let record = snapshot
+                .records
+                .iter()
+                .find(|record| record.name == name)
+                .unwrap();
+            let native = snapshot.observations[record.observations[0].0]
+                .definition
+                .as_ref()
+                .unwrap();
+            let (layout, offsets) = record_layout(&index, name, 8);
+            assert_eq!(layout, native.layout, "{name}");
+            assert_eq!(
+                offsets,
+                native
+                    .fields
+                    .iter()
+                    .map(|field| field.offset_bits)
+                    .collect::<Vec<_>>()
+            );
+        }
+    }
+    let roundtrip = root.join("target\\test-clang2-packing.rdl");
+    windows_rdl::writer()
+        .input(&winmd)
+        .filter("Fixture")
+        .output(&roundtrip)
+        .write()
+        .unwrap();
+    assert_eq!(std::fs::read_to_string(&roundtrip).unwrap(), *rdl);
+    std::fs::remove_file(winmd).unwrap();
+    std::fs::remove_file(roundtrip).unwrap();
 }
 
 fn round_trip() {

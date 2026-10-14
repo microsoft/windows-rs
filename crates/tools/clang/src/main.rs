@@ -1,11 +1,11 @@
-//! Validator for the libclang pin owned by the generator helpers. Like the other
+//! Validator for the libclang pin owned by windows-clang-sys. Like the other
 //! `gen`-matrix tools it is run by CI and "validates by running": it writes nothing, so the
 //! tree stays clean, and any inconsistency in how libclang is pinned fails the run loudly.
 //!
 //! The metadata scrapers (`tool-win32`/`tool-winrt`/`tool-webview`) all parse with
 //! the pinned libclang, so a drift between the loaded `libclang.dll` and the clang builtin
 //! resource headers would silently change the generated metadata. Both are keyed off the single
-//! `LIBCLANG_VERSION` const (the NuGet DLL by version, the headers by the derived `llvmorg-<ver>`
+//! `LIBCLANG_VERSION` const (the native SDK by version, the headers by the derived `llvmorg-<ver>`
 //! git tag), so this tool confirms that pin loads and self-provisions rather than checking a
 //! version literal for drift - there is only one to bump.
 

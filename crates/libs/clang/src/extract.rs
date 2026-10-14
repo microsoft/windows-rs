@@ -1,8 +1,8 @@
 use super::*;
-use clang_sys::*;
 use std::cell::OnceCell;
 use std::ffi::{CStr, CString};
 use std::marker::PhantomData;
+use windows_clang_sys::*;
 
 mod annotations;
 use annotations::ParameterAnnotations;
@@ -653,8 +653,10 @@ impl TranslationUnit {
                 arg_pointers.len().try_into().unwrap(),
                 &mut unsaved,
                 1,
-                CXTranslationUnit_DetailedPreprocessingRecord
-                    | CXTranslationUnit_SkipFunctionBodies,
+                (CXTranslationUnit_DetailedPreprocessingRecord
+                    | CXTranslationUnit_SkipFunctionBodies)
+                    .try_into()
+                    .unwrap(),
             )
         };
         if value.is_null() {
@@ -696,7 +698,9 @@ impl TranslationUnit {
                 arg_pointers.len().try_into().unwrap(),
                 &mut unsaved,
                 1,
-                CXTranslationUnit_KeepGoing | CXTranslationUnit_SkipFunctionBodies,
+                (CXTranslationUnit_KeepGoing | CXTranslationUnit_SkipFunctionBodies)
+                    .try_into()
+                    .unwrap(),
             )
         };
         if value.is_null() {
@@ -856,7 +860,7 @@ fn extract_children(cursor: CXCursor, parent: Option<&Origin>, traversal: &mut T
         panic: None,
     };
     unsafe {
-        clang_visitChildren(cursor, visit, &mut state as *mut _ as CXClientData);
+        clang_visitChildren(cursor, Some(visit), &mut state as *mut _ as CXClientData);
     }
     if let Some(panic) = state.panic {
         std::panic::resume_unwind(panic);
@@ -1224,7 +1228,7 @@ fn cursor_children(cursor: CXCursor) -> Vec<CXCursor> {
         panic: None,
     };
     unsafe {
-        clang_visitChildren(cursor, visit, &mut state as *mut _ as CXClientData);
+        clang_visitChildren(cursor, Some(visit), &mut state as *mut _ as CXClientData);
     }
     if let Some(panic) = state.panic {
         std::panic::resume_unwind(panic);

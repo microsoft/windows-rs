@@ -167,6 +167,25 @@ fn summary(resolution: &Resolution<'_>) -> Vec<String> {
             TypeKind::Record(record) => snapshot.records[record.0].name.clone(),
             TypeKind::Alias(alias) => snapshot.aliases[alias.0].name.clone(),
             TypeKind::Enum(id) => snapshot.enums[id.0].name.clone(),
+            TypeKind::Function(function) => format!(
+                "{:?}({:?})->{}",
+                function.convention,
+                function
+                    .parameters
+                    .iter()
+                    .map(|id| ty(snapshot, *id))
+                    .collect::<Vec<_>>(),
+                ty(snapshot, function.result)
+            ),
+            TypeKind::Attributed {
+                convention,
+                modified,
+                equivalent,
+            } => format!(
+                "{convention:?} {} => {}",
+                ty(snapshot, *modified),
+                ty(snapshot, *equivalent)
+            ),
         };
         format!("{kind}{:?}", value.qualifiers)
     }

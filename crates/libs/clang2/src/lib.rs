@@ -56,7 +56,7 @@ pub struct AliasId(pub usize);
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct EnumId(pub usize);
 
-#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum DeclarationId {
     Record(RecordId),
     Alias(AliasId),
@@ -132,17 +132,40 @@ pub enum TypeKind {
     Void,
     Scalar(Scalar),
     Pointer(TypeId),
-    Array { element: TypeId, length: u64 },
+    Array {
+        element: TypeId,
+        length: u64,
+    },
     Record(RecordId),
     Alias(AliasId),
     Enum(EnumId),
+    Function(Box<Function>),
+    Attributed {
+        convention: CallingConvention,
+        modified: TypeId,
+        equivalent: TypeId,
+    },
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub enum CallingConvention {
+    C,
+    Stdcall,
+}
+
+/// Accepted prototypes have no variadic, exception, or supplementary function properties.
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+pub struct Function {
+    pub convention: CallingConvention,
+    pub result: TypeId,
+    pub parameters: Vec<TypeId>,
 }
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub struct Type {
     pub kind: TypeKind,
     pub qualifiers: Qualifiers,
-    /// Observed byte size and alignment; void and incomplete records have no layout.
+    /// Observed byte size and alignment; void, functions, and incomplete records have no layout.
     pub layout: Option<Layout>,
 }
 
@@ -156,10 +179,11 @@ pub struct Field {
     pub attributes: Vec<Attribute>,
 }
 
-/// Attribute evidence reported by libclang, not an interpretation of opaque attribute semantics.
+/// Native attribute evidence; unresolved kinds remain unsuitable for reconciliation.
 #[derive(Debug, Eq, PartialEq)]
 pub enum AttributeKind {
     Packed,
+    MaxFieldAlignment { bits: u32 },
     Unresolved(String),
 }
 
@@ -290,7 +314,7 @@ impl Snapshot {
                     .iter()
                     .map(|value| {
                         (match &value.kind {
-                            AttributeKind::Packed => 0,
+                            AttributeKind::Packed | AttributeKind::MaxFieldAlignment { .. } => 0,
                             AttributeKind::Unresolved(kind) => kind.capacity(),
                         }) + value.spelling.capacity()
                             + strings_bytes(&value.tokens)
@@ -310,6 +334,11 @@ impl Snapshot {
             + vector_bytes(&self.enums)
             + vector_bytes(&self.observations)
             + vector_bytes(&self.types);
+        for ty in &self.types {
+            if let TypeKind::Function(function) = &ty.kind {
+                owned_bytes += size_of::<Function>() + vector_bytes(&function.parameters);
+            }
+        }
         for record in &self.records {
             owned_bytes +=
                 record.name.capacity() + record.usr.capacity() + vector_bytes(&record.observations);

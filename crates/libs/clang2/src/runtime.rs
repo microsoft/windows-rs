@@ -1,10 +1,10 @@
 #![allow(non_upper_case_globals)]
 
 use super::*;
-use clang_sys::*;
 use native::text;
 use std::ffi::CString;
 use std::sync::{Arc, Mutex};
+use windows_clang_sys::*;
 
 static BATCH: Mutex<()> = Mutex::new(());
 
@@ -210,8 +210,10 @@ fn parse(
                 pointers.len().try_into().unwrap(),
                 &raw mut unsaved,
                 1,
-                CXTranslationUnit_IncludeAttributedTypes
-                    | CXTranslationUnit_VisitImplicitAttributes,
+                (CXTranslationUnit_IncludeAttributedTypes
+                    | CXTranslationUnit_VisitImplicitAttributes)
+                    .try_into()
+                    .unwrap(),
                 &raw mut unit.0,
             )
         };

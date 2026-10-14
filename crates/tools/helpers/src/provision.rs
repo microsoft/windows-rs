@@ -1,17 +1,13 @@
 //! On-demand provisioning for pinned generator dependencies.
 
-use clang_sys::{clang_getCString, clang_getClangVersion, load};
 use std::path::{Path, PathBuf};
+use windows_clang_sys::{clang_getCString, clang_getClangVersion, load};
 
 /// Pinned libclang version; macro capture changes across major versions.
-pub const LIBCLANG_VERSION: &str = "22.1.8";
+pub use windows_clang_sys::LIBCLANG_VERSION;
 
 /// LLVM repo used to fetch version-matched clang resource headers for non-x64 passes.
 const CLANG_RESOURCE_REPO: &str = "https://github.com/llvm/llvm-project";
-
-/// Host-arch `libclang.dll` NuGet packages from dotnet/clangsharp.
-const LIBCLANG_PKG_X64: &str = "libclang.runtime.win-x64";
-const LIBCLANG_PKG_ARM64: &str = "libclang.runtime.win-arm64";
 
 /// Shared cache for clang resource-header checkouts, keyed by [`LIBCLANG_VERSION`].
 const CACHE_ROOT: &str = "target/tool-clang";
@@ -30,21 +26,39 @@ pub fn ensure_libclang() {
 
 /// Resolve or fetch the pinned host-arch `libclang.dll` directory without setting env vars.
 pub fn libclang_dir() -> PathBuf {
-    let (id, rid) = if cfg!(target_arch = "x86_64") {
-        (LIBCLANG_PKG_X64, "win-x64")
+    let triple = if cfg!(target_arch = "x86_64") {
+        "x86_64-pc-windows-msvc"
     } else if cfg!(target_arch = "aarch64") {
-        (LIBCLANG_PKG_ARM64, "win-arm64")
+        "aarch64-pc-windows-msvc"
     } else {
-        // Only x64/arm64 packages are pinned; `LIBCLANG_PATH` can override other hosts.
         panic!(
-            "windows-clang provisions the pinned libclang only for x86_64 and aarch64 Windows \
-             hosts; set `LIBCLANG_PATH` to a libclang {LIBCLANG_VERSION} build to run elsewhere."
+            "windows-clang provisions native libraries only for x86_64 and aarch64 Windows hosts"
         );
     };
-    let native = nuget_package(id, LIBCLANG_VERSION)
-        .join("runtimes")
-        .join(rid)
-        .join("native");
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
+    let native = root
+        .join("target\\tool-clang\\native")
+        .join(LIBCLANG_VERSION)
+        .join(triple)
+        .join("bin");
+    if !native.join("libClangSharp.dll").is_file() || !native.join("libclang.dll").is_file() {
+        let output = std::process::Command::new("powershell.exe")
+            .args(["-NoProfile", "-File"])
+            .arg(root.join("crates\\libs\\clang-sys\\native\\build.ps1"))
+            .args([
+                "-Architecture",
+                if cfg!(target_arch = "aarch64") {
+                    "Arm64"
+                } else {
+                    "X64"
+                },
+            ])
+            .output()
+            .unwrap();
+        eprint!("{}", String::from_utf8_lossy(&output.stdout));
+        eprint!("{}", String::from_utf8_lossy(&output.stderr));
+        assert!(output.status.success(), "windows-clang native build failed");
+    }
     assert!(
         native.join("libclang.dll").is_file(),
         "`{}` is missing `libclang.dll`",
@@ -59,14 +73,14 @@ pub fn assert_libclang_version() {
         panic!(
             "failed to load libclang: {e}\n\
              Point `LIBCLANG_PATH` at a libclang {LIBCLANG_VERSION} build, or let the tool fetch \
-             the pinned `libclang.runtime.win-<arch>` NuGet package automatically."
+             the pinned windows-clang native libraries automatically."
         )
     });
     assert!(
         version_is_pinned(&version, LIBCLANG_VERSION),
         "libclang version mismatch: the tooling is pinned to {LIBCLANG_VERSION} but the loaded \
          libclang reports `{version}`.\nUnset `LIBCLANG_PATH` to use the pinned \
-         `libclang.runtime.win-<arch>` NuGet build, or point it at a matching libclang."
+         windows-clang native build, or point it at a matching native library pair."
     );
 }
 
@@ -77,7 +91,7 @@ fn clang_version() -> Result<String, String> {
         .to_string_lossy()
         .into_owned();
     unsafe {
-        clang_sys::clang_disposeString(version);
+        windows_clang_sys::clang_disposeString(version);
     }
     Ok(value)
 }

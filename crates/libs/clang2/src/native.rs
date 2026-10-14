@@ -1,9 +1,9 @@
 #![allow(non_upper_case_globals)]
 
 use super::*;
-use clang_sys::*;
 use std::ffi::CStr;
 use std::hash::{Hash, Hasher};
+use windows_clang_sys::*;
 
 #[derive(Clone, Copy)]
 pub(super) struct Cursor(pub CXCursor);
@@ -115,7 +115,7 @@ pub(super) fn children(cursor: CXCursor) -> Vec<CXCursor> {
         }
     }
     let mut result = Children::default();
-    unsafe { clang_visitChildren(cursor, visit, (&raw mut result).cast()) };
+    unsafe { clang_visitChildren(cursor, Some(visit), (&raw mut result).cast()) };
     if let Some(panic) = result.panic {
         std::panic::resume_unwind(panic);
     }

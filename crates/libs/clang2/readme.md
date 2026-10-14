@@ -16,9 +16,10 @@ let merged = merge(&snapshots).unwrap();
 println!("{} records with target variants", merged.records.len());
 ```
 
-Supply libclang through `LIBCLANG_PATH` or its loader search paths. `capture` returns one owned
-snapshot per target/TU, in target-major order. `resolve` checks native record definitions from the
-same target and compiler configuration, retaining original observations and completion decisions.
+Supply the matched `windows-clang-sys` DLL pair through `LIBCLANG_PATH` or its loader search paths.
+`capture` returns one owned snapshot per target/TU, in target-major order. `resolve` checks native
+record definitions from the same target and compiler configuration, retaining original observations
+and completion decisions.
 
 `Input.arguments` supplies include paths and compiler flags. `Input.roots` selects global type
 names and their transitive dependencies within each TU; empty selects all declarations. Missing
@@ -30,15 +31,22 @@ Indices are created before parallel capture and reused across TUs. Batches are s
 libclang callers must not create indices during a batch. Native hangs affect the whole process.
 
 Supported: named structs, unions, and integer-backed enums; typedefs, non-template `using` aliases,
-forwards, scalars, qualified pointers, arrays, and observed layouts. Written aliases are retained.
+forwards, scalars, qualified pointers, arrays, pragma packing, and plain C/stdcall callback
+prototypes. Written aliases and attributed calling conventions are retained.
 Native record compatibility uses canonical types. Alias groups retain all name-corresponding
 bindings; their public compatibility is checked during projection, not assumed by native merge.
 Unresolved attributes block `resolve` and `merge`. No packing request is guessed from layout.
-Nested records, bitfields, and functions are not implemented.
+Nested records, bitfields, and exported function declarations are not implemented.
+Callback capture checks native function properties before accepting a prototype. Explicit
+`regparm`, `noreturn`, variadic or exception-qualified functions, other calling conventions, and
+unknown attributes remain unsupported rather than being normalized to ordinary C.
 
 The optional `projection` feature provides `projection::generate(inputs, namespace)` for
 three-target capture, merge, and per-header RDL output. It emits structs, unions, enums, and value
-typedefs, checks metadata ABI layout, and rejects unsupported declarations or ambiguous names.
+typedefs and named callbacks, checks metadata ABI layout, and rejects unsupported declarations or
+ambiguous names. Callback signatures retain calling convention, result and parameter types;
+parameter names are positional. Nested function pointers require a named callback declaration.
+Requested packing is emitted as `#[packed(N)]`, including requests with no visible layout effect.
 Unions retain their record kind, publish explicit-layout fields at offset zero, and must match
 captured size and alignment. Structs and unions never share a public family, even with identical
 fields and layouts.
@@ -56,8 +64,9 @@ requires a unique declaration header. Native identities and source observations 
 `projection::project_partial` accepts an existing partial capture without reparsing.
 Failed entities and dependent declarations are removed across all targets; compiler errors and
 conflicts in retained definitions or alias bindings still fail. A typedef that cannot be published
-can remain as native evidence when its canonical type is representable. Macro constants are not
-captured.
+can remain as native evidence when its canonical type is representable. A callback that cannot be
+published is removed with its dependents because their metadata signatures require a callback name.
+Macro constants are not captured.
 
 Fixtures, inspection, and scaling live in `test_clang2`. See
 [crate notes](../../../docs/crates/windows-clang2.md) for commands.

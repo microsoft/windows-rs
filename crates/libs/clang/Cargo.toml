@@ -13,7 +13,7 @@ readme = "readme.md"
 workspace = true
 
 [dependencies]
-clang-sys = { version = "1.8.1", features = ["runtime", "clang_18_0"] }
+windows-clang-sys = { workspace = true }
 windows-default = { workspace = true }
 windows-metadata = { workspace = true }
 

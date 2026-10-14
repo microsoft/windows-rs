@@ -23,6 +23,7 @@ pub struct Output {
     pub partitions: BTreeMap<String, Partition>,
     pub records: usize,
     pub enums: usize,
+    /// Published aliases, including named callback declarations.
     pub aliases: usize,
 }
 
@@ -43,11 +44,33 @@ pub fn generate_partial(inputs: &[Input], namespace: &str) -> Result<PartialOutp
 /// Projects an existing partial capture without reparsing its headers.
 pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<PartialOutput, Error> {
     let mut snapshots = captured.snapshots;
+    let callbacks: HashSet<_> = snapshots
+        .iter()
+        .flat_map(|snapshot| {
+            snapshot
+                .aliases
+                .iter()
+                .filter(|alias| {
+                    alias
+                        .observations
+                        .iter()
+                        .any(|observation| callback(snapshot, observation.canonical).is_some())
+                })
+                .map(|alias| alias.name.clone())
+        })
+        .collect();
     let mut issues = partial::Issues {
         messages: captured.omissions.into_iter().collect(),
         ..Default::default()
     };
+    let count = |snapshot: &Snapshot| {
+        snapshot.records.len()
+            + snapshot.aliases.len()
+            + snapshot.enums.len()
+            + snapshot.roots.len()
+    };
     loop {
+        let remaining: usize = snapshots.iter().map(count).sum();
         let merged = merge(&snapshots).map_err(|error| Error(format!("merge: {error}")))?;
         let mut rejected = partial::Issues::default();
         let output = project_impl(&merged, namespace, Some(&mut rejected))
@@ -62,6 +85,10 @@ pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<Part
             match &key {
                 partial::Key::Tag(_) => issues.reject(key, format!("projection: {reason}")),
                 partial::Key::Alias(name) => {
+                    if callbacks.contains(name) {
+                        issues.reject(key, format!("projection: {reason}"));
+                        continue;
+                    }
                     // Fields use canonical types; a non-publishable alias need not invalidate them.
                     for snapshot in &mut snapshots {
                         snapshot.roots.retain(|id| match id {
@@ -76,6 +103,10 @@ pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<Part
             }
         }
         partial::prune(&mut snapshots, &mut issues);
+        assert!(
+            snapshots.iter().map(count).sum::<usize>() < remaining,
+            "partial projection must remove rejected declarations or roots"
+        );
     }
 }
 
@@ -202,7 +233,12 @@ fn project_impl(
             }
         }
         for (id, alias) in resolution.aliases.iter().enumerate() {
-            if !root_aliases.contains(alias.name.as_str())
+            let first = alias.observations[0];
+            let snapshot = resolution.snapshots[first.snapshot];
+            let canonical =
+                snapshot.aliases[first.alias.0].observations[first.observation].canonical;
+            if (!root_aliases.contains(alias.name.as_str())
+                && callback(snapshot, canonical).is_none())
                 || plan.aliases[id].is_some_and(|family| plan.names[family] == alias.name)
                 || plan.enum_aliases[id].is_some_and(|group| plan.enum_names[group] == alias.name)
             {
@@ -227,6 +263,11 @@ fn project_impl(
                     )));
                 }
                 let name = ident(&alias.name)?;
+                if let Some(function) = callback(snapshot, observation.canonical) {
+                    projector.ty(reference.snapshot, observation.canonical)?;
+                    let body = projector.callback(reference.snapshot, function, &name)?;
+                    return Ok((body, plan.alias_header(resolution, alias)?));
+                }
                 let ty = write_type(
                     namespace,
                     &projector.ty(reference.snapshot, observation.canonical)?,
@@ -351,7 +392,50 @@ struct Projector<'a, 'b> {
     plan: &'a Plan,
 }
 
+fn callback(snapshot: &Snapshot, id: TypeId) -> Option<&Function> {
+    if let TypeKind::Pointer(pointee) = snapshot.types[id.0].kind
+        && let TypeKind::Function(function) = &snapshot.types[pointee.0].kind
+    {
+        Some(function)
+    } else {
+        None
+    }
+}
+
 impl Projector<'_, '_> {
+    fn callback(
+        &self,
+        snapshot: usize,
+        function: &Function,
+        name: &TokenStream,
+    ) -> Result<Body, Error> {
+        let abi = match function.convention {
+            CallingConvention::C => quote! { "C" },
+            CallingConvention::Stdcall => TokenStream::new(),
+        };
+        let parameters = function
+            .parameters
+            .iter()
+            .enumerate()
+            .map(|(index, id)| {
+                let name = ident(&format!("param{index}"))?;
+                let ty = write_type(self.namespace, &self.ty(snapshot, *id)?);
+                Ok(quote! { #name: #ty })
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
+        let result = self.ty(snapshot, function.result)?;
+        let result = if result == MetadataType::Void {
+            TokenStream::new()
+        } else {
+            let result = write_type(self.namespace, &result);
+            quote! { -> #result }
+        };
+        Ok(Body {
+            attributes: TokenStream::new(),
+            declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
+        })
+    }
+
     fn ty(&self, snapshot_id: usize, id: TypeId) -> Result<MetadataType, Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
         let ty = &snapshot.types[id.0];
@@ -399,6 +483,17 @@ impl Projector<'_, '_> {
                 {
                     return Err(Error("unsupported pointer layout".into()));
                 }
+                if matches!(snapshot.types[pointee.0].kind, TypeKind::Function(_)) {
+                    if snapshot.types[pointee.0].qualifiers != Qualifiers::default() {
+                        return Err(Error(
+                            "qualified function type projection is unsupported".into(),
+                        ));
+                    }
+                    let name = self.plan.callbacks[snapshot_id].get(&id).ok_or_else(|| {
+                        Error("function pointer has no named callback declaration".into())
+                    })?;
+                    return Ok(MetadataType::class_named(self.namespace, name));
+                }
                 let inner = self.ty(snapshot_id, *pointee)?;
                 let constant = snapshot.types[pointee.0].qualifiers.constant;
                 if matches!(
@@ -430,7 +525,12 @@ impl Projector<'_, '_> {
                 let name = &self.plan.enum_names[self.resolution.enum_groups[snapshot_id][id.0]];
                 MetadataType::value_named(self.namespace, name)
             }
-            TypeKind::Alias(_) => return Err(Error("expected a canonical projection type".into())),
+            TypeKind::Alias(_) | TypeKind::Attributed { .. } => {
+                return Err(Error("expected a canonical projection type".into()));
+            }
+            TypeKind::Function(_) => {
+                return Err(Error("bare function type projection is unsupported".into()));
+            }
         })
     }
 
@@ -493,9 +593,12 @@ impl Projector<'_, '_> {
                 "empty record `{name}` projection is not implemented"
             )));
         }
-        let packed = attributes
-            .iter()
-            .any(|attribute| attribute.kind == AttributeKind::Packed);
+        let (packed, maximum) = resolve::packing(attributes);
+        let packing = if packed {
+            Some(1)
+        } else {
+            maximum.map(|bits| u64::from(bits / 8))
+        };
         if attributes
             .iter()
             .any(|attribute| matches!(attribute.kind, AttributeKind::Unresolved(_)))
@@ -522,7 +625,7 @@ impl Projector<'_, '_> {
             let layout = native
                 .layout
                 .ok_or_else(|| Error(format!("field `{name}.{field_name}` has no layout")))?;
-            let field_alignment = layout.alignment.min(if packed { 1 } else { 8 });
+            let field_alignment = layout.alignment.min(packing.unwrap_or(8));
             let offset = if kind == RecordKind::Union {
                 0
             } else {
@@ -551,8 +654,9 @@ impl Projector<'_, '_> {
             RecordKind::Union => quote! { union },
         };
         Ok(Body {
-            attributes: if packed {
-                quote! { #[packed(1)] }
+            attributes: if let Some(packing) = packing {
+                let packing = proc_macro2::Literal::u64_unsuffixed(packing);
+                quote! { #[packed(#packing)] }
             } else {
                 TokenStream::new()
             },

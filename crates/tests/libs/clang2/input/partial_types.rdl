@@ -10,11 +10,19 @@ mod Fixture {
     struct Good {
         value: i32,
     }
+    struct PackingConsumer {
+        value: *mut UnknownPacking,
+    }
     union PlainUnion {
         a: i32,
         b: f32,
     }
     type ScalarGood = i32;
+    #[packed(2)]
+    struct UnknownPacking {
+        tag: i8,
+        value: i32,
+    }
     struct VoidUser {
         value: *mut void,
     }

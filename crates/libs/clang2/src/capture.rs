@@ -1,8 +1,8 @@
 #![allow(non_upper_case_globals)]
 
 use super::*;
-use clang_sys::*;
 use native::*;
+use windows_clang_sys::*;
 
 pub(super) fn read(
     unit: CXTranslationUnit,
@@ -369,19 +369,34 @@ impl Capture<'_> {
 
     fn attribute(&mut self, cursor: CXCursor) -> Result<Attribute, Error> {
         let (file, _, _, _) = source(cursor);
-        let kind = unsafe { clang_getCursorKind(cursor) };
-        if self.partial && kind != CXCursor_PackedAttr {
+        let name = unsafe { windows_clang_getAttributeKindName(cursor) };
+        if name.is_null() {
+            return Err(unsupported(cursor, "native attribute identity unavailable"));
+        }
+        let name = unsafe { std::ffi::CStr::from_ptr(name) }.to_string_lossy();
+        let kind = match name.as_ref() {
+            "Packed" => AttributeKind::Packed,
+            "MaxFieldAlignment" => {
+                let mut bits = 0;
+                let status = unsafe { windows_clang_getMaxFieldAlignment(cursor, &raw mut bits) };
+                if status != WindowsClangSuccess {
+                    return Err(unsupported(
+                        cursor,
+                        &format!("packing query failed: {status}"),
+                    ));
+                }
+                AttributeKind::MaxFieldAlignment { bits }
+            }
+            _ => AttributeKind::Unresolved(name.into_owned()),
+        };
+        if self.partial && matches!(kind, AttributeKind::Unresolved(_)) {
             return Err(unsupported(
                 cursor,
-                &format!("unresolved attribute {:?}", tokens(cursor)),
+                &format!("unresolved attribute {kind:?}: {:?}", tokens(cursor)),
             ));
         }
         Ok(Attribute {
-            kind: if kind == CXCursor_PackedAttr {
-                AttributeKind::Packed
-            } else {
-                AttributeKind::Unresolved(text(unsafe { clang_getCursorKindSpelling(kind) }))
-            },
+            kind,
             spelling: text(unsafe { clang_getCursorSpelling(cursor) }),
             tokens: tokens(cursor),
             location: (!file.is_empty()).then(|| self.location(cursor)),
@@ -394,6 +409,13 @@ impl Capture<'_> {
             let kind = unsafe { clang_getCursorKind(child) };
             if unsafe { clang_isAttribute(kind) } != 0 {
                 result.push(self.attribute(child)?);
+            } else if kind == CXCursor_ParmDecl {
+                if !self.attributes(child)?.is_empty() {
+                    return Err(unsupported(
+                        child,
+                        "attributed callback parameter is unsupported",
+                    ));
+                }
             } else if !matches!(kind, CXCursor_TypeRef | CXCursor_IntegerLiteral) {
                 let is_underlying_record = unsafe {
                     if matches!(
@@ -479,6 +501,90 @@ impl Capture<'_> {
                 CXType_Record => TypeKind::Record(self.record(clang_getTypeDeclaration(ty))?),
                 CXType_Enum => TypeKind::Enum(self.enumeration(clang_getTypeDeclaration(ty))?),
                 CXType_Typedef => TypeKind::Alias(self.alias(clang_getTypeDeclaration(ty))?),
+                CXType_Attributed => {
+                    let name = windows_clang_getTypeAttributeKindName(ty);
+                    if name.is_null() {
+                        return Err(unsupported(cursor, "type attribute identity unavailable"));
+                    }
+                    let name = std::ffi::CStr::from_ptr(name).to_string_lossy();
+                    let convention = match name.as_ref() {
+                        "CDecl" => CallingConvention::C,
+                        "StdCall" => CallingConvention::Stdcall,
+                        _ => {
+                            return Err(unsupported(
+                                cursor,
+                                &format!("unsupported type attribute {name}"),
+                            ));
+                        }
+                    };
+                    TypeKind::Attributed {
+                        convention,
+                        modified: self.ty(clang_Type_getModifiedType(ty), cursor)?,
+                        equivalent: self.ty(clang_getCanonicalType(ty), cursor)?,
+                    }
+                }
+                CXType_FunctionProto => {
+                    let mut info = WindowsClangFunctionInfo::default();
+                    let status = windows_clang_getFunctionInfo(ty, &raw mut info);
+                    if status != WindowsClangSuccess {
+                        return Err(unsupported(
+                            cursor,
+                            &format!("function property query failed: {status}"),
+                        ));
+                    }
+                    if info.has_regparm != 0
+                        || info.no_return != 0
+                        || info.produces_result != 0
+                        || info.no_caller_saved_registers != 0
+                        || info.no_cf_check != 0
+                        || info.cmse_nonsecure_call != 0
+                        || info.additional_properties != 0
+                    {
+                        return Err(unsupported(
+                            cursor,
+                            &format!(
+                                "unsupported function properties: regparm={:?}, noreturn={}, produces_result={}, no_caller_saved_registers={}, no_cf_check={}, cmse_nonsecure_call={}, additional={:#x}",
+                                (info.has_regparm != 0).then_some(info.regparm),
+                                info.no_return,
+                                info.produces_result,
+                                info.no_caller_saved_registers,
+                                info.no_cf_check,
+                                info.cmse_nonsecure_call,
+                                info.additional_properties,
+                            ),
+                        ));
+                    }
+                    if clang_isFunctionTypeVariadic(ty) != 0
+                        || clang_getExceptionSpecificationType(ty)
+                            != CXCursor_ExceptionSpecificationKind_None
+                    {
+                        return Err(unsupported(
+                            cursor,
+                            "variadic or exception-qualified callback is unsupported",
+                        ));
+                    }
+                    let convention = match clang_getFunctionTypeCallingConv(ty) {
+                        CXCallingConv_C => CallingConvention::C,
+                        CXCallingConv_X86StdCall => CallingConvention::Stdcall,
+                        value => {
+                            return Err(unsupported(
+                                cursor,
+                                &format!("unsupported calling convention {value}"),
+                            ));
+                        }
+                    };
+                    let count: u32 = clang_getNumArgTypes(ty)
+                        .try_into()
+                        .map_err(|_| unsupported(cursor, "callback parameter types unavailable"))?;
+                    let parameters = (0..count)
+                        .map(|index| self.ty(clang_getArgType(ty, index), cursor))
+                        .collect::<Result<_, _>>()?;
+                    TypeKind::Function(Box::new(Function {
+                        convention,
+                        result: self.ty(clang_getResultType(ty), cursor)?,
+                        parameters,
+                    }))
+                }
                 _ => {
                     return Err(unsupported(
                         cursor,
@@ -497,7 +603,7 @@ impl Capture<'_> {
                 volatile: unsafe { clang_isVolatileQualifiedType(ty) } != 0,
                 restrict: unsafe { clang_isRestrictQualifiedType(ty) } != 0,
             },
-            layout: if canonical.kind == CXType_Void || incomplete {
+            layout: if matches!(canonical.kind, CXType_Void | CXType_FunctionProto) || incomplete {
                 None
             } else {
                 Some(layout(ty).map_err(|reason| unsupported(cursor, reason))?)

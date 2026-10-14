@@ -57,33 +57,33 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
     let mut dependents: HashMap<Key, BTreeSet<Key>> = HashMap::new();
     for snapshot in snapshots.iter() {
         let types = type_dependencies(snapshot);
-        let mut edge = |owner: Key, ty: TypeId| {
-            if let Some(dependency) = types[ty.0] {
+        let mut edge = |owner: &Key, ty: TypeId| {
+            for &dependency in &types[ty.0] {
                 dependents
                     .entry(Key::of(snapshot, dependency))
                     .or_default()
-                    .insert(owner);
+                    .insert(owner.clone());
             }
         };
         for observation in &snapshot.observations {
             if let Some(definition) = &observation.definition {
                 for field in &definition.fields {
                     let key = Key::of(snapshot, DeclarationId::Record(observation.record));
-                    edge(key.clone(), field.written);
-                    edge(key, field.canonical);
+                    edge(&key, field.written);
+                    edge(&key, field.canonical);
                 }
             }
         }
         for alias in &snapshot.aliases {
             for observation in &alias.observations {
-                edge(Key::Alias(alias.name.clone()), observation.underlying);
-                edge(Key::Alias(alias.name.clone()), observation.canonical);
+                edge(&Key::Alias(alias.name.clone()), observation.underlying);
+                edge(&Key::Alias(alias.name.clone()), observation.canonical);
             }
         }
         for enumeration in &snapshot.enums {
             for observation in &enumeration.observations {
-                edge(Key::Tag(enumeration.name.clone()), observation.underlying);
-                edge(Key::Tag(enumeration.name.clone()), observation.canonical);
+                edge(&Key::Tag(enumeration.name.clone()), observation.underlying);
+                edge(&Key::Tag(enumeration.name.clone()), observation.canonical);
             }
         }
     }
@@ -101,16 +101,32 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
     }
 }
 
-fn type_dependencies(snapshot: &Snapshot) -> Vec<Option<DeclarationId>> {
-    let mut result = Vec::with_capacity(snapshot.types.len());
+fn type_dependencies(snapshot: &Snapshot) -> Vec<Vec<DeclarationId>> {
+    let mut result: Vec<Vec<DeclarationId>> = Vec::with_capacity(snapshot.types.len());
     for ty in &snapshot.types {
-        result.push(match ty.kind {
-            TypeKind::Record(id) => Some(DeclarationId::Record(id)),
-            TypeKind::Alias(id) => Some(DeclarationId::Alias(id)),
-            TypeKind::Enum(id) => Some(DeclarationId::Enum(id)),
-            TypeKind::Pointer(id) | TypeKind::Array { element: id, .. } => result[id.0],
-            TypeKind::Void | TypeKind::Scalar(_) => None,
-        });
+        let mut dependencies = match &ty.kind {
+            TypeKind::Record(id) => vec![DeclarationId::Record(*id)],
+            TypeKind::Alias(id) => vec![DeclarationId::Alias(*id)],
+            TypeKind::Enum(id) => vec![DeclarationId::Enum(*id)],
+            TypeKind::Pointer(id) | TypeKind::Array { element: id, .. } => result[id.0].clone(),
+            TypeKind::Function(function) => std::iter::once(&function.result)
+                .chain(&function.parameters)
+                .flat_map(|id| result[id.0].iter().copied())
+                .collect(),
+            TypeKind::Attributed {
+                modified,
+                equivalent,
+                ..
+            } => result[modified.0]
+                .iter()
+                .chain(&result[equivalent.0])
+                .copied()
+                .collect(),
+            TypeKind::Void | TypeKind::Scalar(_) => Vec::new(),
+        };
+        dependencies.sort_unstable();
+        dependencies.dedup();
+        result.push(dependencies);
     }
     result
 }
@@ -163,7 +179,7 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
     let types = remap(
         type_dependencies(snapshot)
             .into_iter()
-            .map(|dependency| dependency.is_none_or(|id| declaration(id).is_some())),
+            .map(|dependencies| dependencies.into_iter().all(|id| declaration(id).is_some())),
     );
     let observations = remap(
         snapshot
@@ -214,6 +230,20 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
             TypeKind::Enum(id) => id.0 = enums[id.0].unwrap(),
             TypeKind::Pointer(id) | TypeKind::Array { element: id, .. } => {
                 id.0 = types[id.0].unwrap();
+            }
+            TypeKind::Function(function) => {
+                function.result.0 = types[function.result.0].unwrap();
+                for id in &mut function.parameters {
+                    id.0 = types[id.0].unwrap();
+                }
+            }
+            TypeKind::Attributed {
+                modified,
+                equivalent,
+                ..
+            } => {
+                modified.0 = types[modified.0].unwrap();
+                equivalent.0 = types[equivalent.0].unwrap();
             }
             TypeKind::Void | TypeKind::Scalar(_) => {}
         }

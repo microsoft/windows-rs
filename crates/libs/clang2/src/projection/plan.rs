@@ -1,5 +1,5 @@
 use super::*;
-use crate::resolve::{TypePair, packed, types_equal};
+use crate::resolve::{TypePair, packing, types_equal};
 
 pub(super) struct Plan {
     pub families: Vec<Vec<usize>>,
@@ -7,6 +7,7 @@ pub(super) struct Plan {
     pub aliases: Vec<Option<usize>>,
     pub enum_names: Vec<String>,
     pub enum_aliases: Vec<Option<usize>>,
+    pub callbacks: Vec<HashMap<TypeId, String>>,
     enum_primary: Vec<Option<usize>>,
     enum_headers: Vec<BTreeSet<String>>,
     primary: Vec<Option<usize>>,
@@ -139,6 +140,24 @@ impl Plan {
                 }
             }
         }
+        let mut callbacks = vec![HashMap::<TypeId, String>::new(); resolution.snapshots.len()];
+        for alias in &resolution.aliases {
+            for reference in &alias.observations {
+                let snapshot = resolution.snapshots[reference.snapshot];
+                let id = snapshot.aliases[reference.alias.0].observations[reference.observation]
+                    .canonical;
+                if callback(snapshot, id).is_some() {
+                    callbacks[reference.snapshot]
+                        .entry(id)
+                        .and_modify(|name| {
+                            if alias.name < *name {
+                                name.clone_from(&alias.name);
+                            }
+                        })
+                        .or_insert_with(|| alias.name.clone());
+                }
+            }
+        }
         let plan = Self {
             families,
             names,
@@ -151,6 +170,7 @@ impl Plan {
             enum_aliases,
             enum_primary,
             enum_headers,
+            callbacks,
         };
         plan.validate(resolution)?;
         Ok(plan)
@@ -251,11 +271,11 @@ impl Plan {
                     != resolution.snapshots[b.snapshot].records[right.record.0].kind
                     || x.layout != y.layout
                     || x.fields.len() != y.fields.len()
-                    || packed(&left.attributes) != packed(&right.attributes)
+                    || packing(&left.attributes) != packing(&right.attributes)
                     || !x.fields.iter().zip(&y.fields).all(|(x, y)| {
                         x.name == y.name
                             && x.offset_bits == y.offset_bits
-                            && packed(&x.attributes) == packed(&y.attributes)
+                            && packing(&x.attributes) == packing(&y.attributes)
                             && self.same_type(
                                 resolution,
                                 (a.snapshot, x.canonical),
@@ -283,7 +303,7 @@ impl Plan {
             for other in &alias.observations[1..] {
                 let b = &resolution.snapshots[other.snapshot].aliases[other.alias.0].observations
                     [other.observation];
-                if packed(&a.attributes) != packed(&b.attributes)
+                if packing(&a.attributes) != packing(&b.attributes)
                     || !self.same_type(
                         resolution,
                         (first.snapshot, a.canonical),
@@ -319,7 +339,7 @@ impl Plan {
             b,
             seen,
             &resolution.enum_groups,
-            |a, b| self.family(a.snapshot, a.record) == self.family(b.snapshot, b.record),
+            &|a, b| self.family(a.snapshot, a.record) == self.family(b.snapshot, b.record),
         )
     }
 }
