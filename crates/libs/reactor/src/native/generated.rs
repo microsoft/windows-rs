@@ -4170,7 +4170,7 @@ impl GeneratedHandle {
                     .cast::<native::IDependencyObject>()
                     .map_err(Into::into)
                     .and_then(|object| {
-                        native::TextBox::HorizontalTextAlignmentProperty()
+                        native::TextBox::TextAlignmentProperty()
                             .map_err(Into::into)
                             .and_then(|property| object.ClearValue(&property).map_err(Into::into))
                     }),
@@ -4188,7 +4188,7 @@ impl GeneratedHandle {
                     .map_err(Into::into)
                     .and_then(|object| {
                         object
-                            .SetHorizontalTextAlignment(match *variant {
+                            .SetTextAlignment(match *variant {
                                 "Center" => native::TextAlignment::Center,
                                 "Left" => native::TextAlignment::Left,
                                 "Start" => native::TextAlignment::Start,

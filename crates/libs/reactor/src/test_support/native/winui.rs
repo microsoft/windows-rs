@@ -1405,6 +1405,19 @@ impl WinUiAdapter {
         ))
     }
 
+    pub fn text_box_character_rect(
+        &self,
+        object: ObjectId,
+        index: i32,
+        trailing: bool,
+    ) -> Result<[f32; 4], WinUiError> {
+        let Some(Handle::TextBox(value)) = self.handles.get(&object) else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let rect = value.value.GetRectFromCharacterIndex(index, trailing)?;
+        Ok([rect.x, rect.y, rect.width, rect.height])
+    }
+
     pub fn text_box_editing_state(
         &self,
         object: ObjectId,
@@ -1412,7 +1425,7 @@ impl WinUiAdapter {
         let Some(Handle::TextBox(value)) = self.handles.get(&object) else {
             return Err(WinUiError::InvalidObject(object));
         };
-        let alignment = match value.value.HorizontalTextAlignment()? {
+        let alignment = match value.value.TextAlignment()? {
             native::TextAlignment::Center => TextAlignment::Center,
             native::TextAlignment::Left => TextAlignment::Left,
             native::TextAlignment::Right => TextAlignment::Right,

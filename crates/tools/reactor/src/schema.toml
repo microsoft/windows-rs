@@ -191,7 +191,6 @@ name = "IsReadOnly"
 
 [[objects.properties]]
 name = "TextAlignment"
-native = "HorizontalTextAlignment"
 
 [[objects.properties]]
 name = "TextWrapping"

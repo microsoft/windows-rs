@@ -7,9 +7,9 @@ fn main() {
     App::run(
         Border::new().padding(Thickness::uniform(16.0)).content(
             StackPanel::new().spacing(8.0).children((
-                "Select and copy the text. Typing cannot change it.",
+                "Read-only: select and copy, but not edit.",
                 TextBox::new(hash).is_read_only(true),
-                "Resize the window: this field stretches and its text stays centered.",
+                "Centered text: resize the window.",
                 TextBox::new(hash)
                     .is_read_only(true)
                     .text_alignment(TextAlignment::Center),

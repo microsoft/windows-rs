@@ -1,5 +1,18 @@
 use super::*;
 
+fn text_edges(runtime: &Runtime<WinUiAdapter>, object: ObjectId) -> (f32, f32) {
+    let first = runtime
+        .adapter()
+        .text_box_character_rect(object, 0, false)
+        .unwrap();
+    let last = runtime
+        .adapter()
+        .text_box_character_rect(object, 9, true)
+        .unwrap();
+    assert!(first[3] > 0.0 && last[0] > first[0], "{first:?}, {last:?}");
+    (first[0], last[0])
+}
+
 #[test]
 #[ignore = "requires an interactive WinUI desktop"]
 fn read_only_text_box_preserves_selection_and_resets_properties() {
@@ -37,7 +50,10 @@ fn read_only_text_box_preserves_selection_and_resets_properties() {
             .unwrap();
         let root = runtime.graph().root().unwrap();
         let object = runtime.graph().child(root, RelationId::Content).unwrap();
-        let window = runtime.adapter_mut().create_window(root).unwrap();
+        let window = runtime
+            .adapter_mut()
+            .create_window_with_policy(root, &WindowPolicy::new().client_size(800.0, 400.0))
+            .unwrap();
         window.activate().unwrap();
         let window = RefCell::new(Some(window));
         let runtime = RefCell::new(Some(runtime));
@@ -60,7 +76,7 @@ fn read_only_text_box_preserves_selection_and_resets_properties() {
                 runtime.dispatch_native_events().unwrap();
                 assert!(value.IsReadOnly().unwrap());
                 assert_eq!(
-                    value.HorizontalTextAlignment().unwrap(),
+                    value.TextAlignment().unwrap(),
                     native::TextAlignment::Center
                 );
                 let control = value.cast::<native::IControl>().unwrap();
@@ -76,6 +92,31 @@ fn read_only_text_box_preserves_selection_and_resets_properties() {
                 element.UpdateLayout().unwrap();
                 let framework = value.cast::<native::IFrameworkElement>().unwrap();
                 assert_eq!(framework.ActualWidth().unwrap(), 400.0);
+                let initial = text_edges(&runtime, object);
+
+                runtime
+                    .update(view(
+                        text_box("0123456789")
+                            .is_read_only(true)
+                            .text_alignment(TextAlignment::Center),
+                        600.0,
+                    ))
+                    .unwrap();
+                element.UpdateLayout().unwrap();
+                assert_eq!(framework.ActualWidth().unwrap(), 600.0);
+                assert_eq!(
+                    value.TextAlignment().unwrap(),
+                    native::TextAlignment::Center
+                );
+                let resized = text_edges(&runtime, object);
+                // Character rectangles exclude control padding. Centered text moves by half
+                // the width increase, independently of that padding.
+                for movement in [resized.0 - initial.0, resized.1 - initial.1] {
+                    assert!(
+                        (movement - 100.0).abs() <= 2.0,
+                        "{initial:?} -> {resized:?}"
+                    );
+                }
 
                 runtime
                     .update(view(
@@ -85,12 +126,6 @@ fn read_only_text_box_preserves_selection_and_resets_properties() {
                         600.0,
                     ))
                     .unwrap();
-                element.UpdateLayout().unwrap();
-                assert_eq!(framework.ActualWidth().unwrap(), 600.0);
-                assert_eq!(
-                    value.HorizontalTextAlignment().unwrap(),
-                    native::TextAlignment::Right
-                );
                 assert!(!value.IsReadOnly().unwrap());
                 assert_eq!(value.SelectedText().unwrap(), "2345");
 
@@ -104,8 +139,45 @@ fn read_only_text_box_preserves_selection_and_resets_properties() {
                     .unwrap();
                 assert!(value.IsReadOnly().unwrap());
                 assert_eq!(value.Text().unwrap(), "Updated from state");
+                element.UpdateLayout().unwrap();
+                let first = runtime
+                    .adapter()
+                    .text_box_character_rect(object, 0, false)
+                    .unwrap();
+                assert!(first[0] > resized.1, "{first:?}");
                 runtime.dispatch_native_events().unwrap();
                 assert_eq!(calls.get(), 0);
+
+                for (alignment, expected) in [
+                    (TextAlignment::Left, native::TextAlignment::Left),
+                    (TextAlignment::Start, native::TextAlignment::Start),
+                    (TextAlignment::Center, native::TextAlignment::Center),
+                    (TextAlignment::Right, native::TextAlignment::Right),
+                    (TextAlignment::End, native::TextAlignment::End),
+                    (TextAlignment::Justify, native::TextAlignment::Justify),
+                    (
+                        TextAlignment::DetectFromContent,
+                        native::TextAlignment::DetectFromContent,
+                    ),
+                ] {
+                    runtime
+                        .update(view(
+                            text_box("Updated from state")
+                                .is_read_only(true)
+                                .text_alignment(alignment),
+                            600.0,
+                        ))
+                        .unwrap();
+                    assert_eq!(value.TextAlignment().unwrap(), expected);
+                }
+                runtime
+                    .update(view(
+                        text_box("Updated from state").text_alignment(TextAlignment::Right),
+                        600.0,
+                    ))
+                    .unwrap();
+                assert!(!value.IsReadOnly().unwrap());
+                assert_eq!(value.TextAlignment().unwrap(), native::TextAlignment::Right);
 
                 // Native clearing can differ from a freshly constructed control's values.
                 let dependency = value.cast::<native::IDependencyObject>().unwrap();
@@ -113,20 +185,28 @@ fn read_only_text_box_preserves_selection_and_resets_properties() {
                     .ClearValue(&native::TextBox::IsReadOnlyProperty().unwrap())
                     .unwrap();
                 dependency
-                    .ClearValue(&native::TextBox::HorizontalTextAlignmentProperty().unwrap())
+                    .ClearValue(&native::TextBox::TextAlignmentProperty().unwrap())
                     .unwrap();
                 let cleared_read_only = value.IsReadOnly().unwrap();
-                let cleared_alignment = value.HorizontalTextAlignment().unwrap();
+                let cleared_alignment = value.TextAlignment().unwrap();
                 assert!(!cleared_read_only);
                 assert_ne!(cleared_alignment, native::TextAlignment::Right);
                 value.SetIsReadOnly(true).unwrap();
                 value
-                    .SetHorizontalTextAlignment(native::TextAlignment::Right)
+                    .SetTextAlignment(native::TextAlignment::Right)
                     .unwrap();
+                runtime
+                    .update(view(
+                        text_box("Updated from state").is_read_only(true),
+                        600.0,
+                    ))
+                    .unwrap();
+                assert!(value.IsReadOnly().unwrap());
+                assert_eq!(value.TextAlignment().unwrap(), cleared_alignment);
                 let omitted = view(text_box("Updated from state"), 600.0);
                 runtime.update(omitted.clone()).unwrap();
                 assert_eq!(value.IsReadOnly().unwrap(), cleared_read_only);
-                assert_eq!(value.HorizontalTextAlignment().unwrap(), cleared_alignment);
+                assert_eq!(value.TextAlignment().unwrap(), cleared_alignment);
                 assert_eq!(
                     runtime.graph().child(root, RelationId::Content),
                     Some(object)
