@@ -70,7 +70,6 @@ impl Component for GridPage {
                                 cell("2,2", 1, 1),
                                 cell("2,3", 1, 2),
                             )),
-                        "Grid::new().rows(rows).columns(columns).children(items)",
                     ),
                 ),
                 KeyedView::new(
@@ -90,7 +89,6 @@ impl Component for GridPage {
                                 cell("1* (120-200px)", 0, 1),
                                 cell("2*", 0, 2),
                             )),
-                        "GridLength::STAR.min(120.0).max(200.0)",
                     ),
                 ),
                 KeyedView::new(
@@ -104,7 +102,6 @@ impl Component for GridPage {
                                 .header("Wide layout"),
                             dynamic,
                         )),
-                        "if wide { three columns } else { two by two }",
                     ),
                 ),
             ],

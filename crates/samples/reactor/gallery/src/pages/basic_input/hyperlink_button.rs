@@ -30,7 +30,6 @@ impl Component for HyperlinkButtonPage {
                             .navigate_uri("https://www.microsoft.com")
                             .unwrap()
                             .content("Visit Microsoft"),
-                        "HyperlinkButton::new().navigate_uri(uri)?.content(label)",
                     ),
                 ),
                 KeyedView::new(
@@ -45,7 +44,6 @@ impl Component for HyperlinkButtonPage {
                                 .text(format!("Clicked: {} times", self.clicks))
                                 .opacity(0.6),
                         )),
-                        "HyperlinkButton::new().on_click(handler).content(label)",
                     ),
                 ),
             ],

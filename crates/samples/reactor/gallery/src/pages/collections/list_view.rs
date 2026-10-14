@@ -78,7 +78,6 @@ impl Component for ListViewPage {
                                 )
                             }),
                         ),
-                        r#"ListView::new().items(items)"#,
                     ),
                 ),
                 KeyedView::new(
@@ -95,9 +94,6 @@ impl Component for ListViewPage {
                                 .text(format!("Selected contact: {contact_label}"))
                                 .opacity(0.6),
                         )),
-                        r#"ListView::new().selected_index(selected_contact)
-    .on_selection_changed(...)
-    .items(contacts)"#,
                     ),
                 ),
                 KeyedView::new(
@@ -128,9 +124,6 @@ impl Component for ListViewPage {
                                 .text(format!("Now browsing: {playlist_label}"))
                                 .opacity(0.6),
                         )),
-                        r#"ListView::new().selected_index(selected_playlist)
-    .on_selection_changed(...)
-    .items(playlists)"#,
                     ),
                 ),
             ],

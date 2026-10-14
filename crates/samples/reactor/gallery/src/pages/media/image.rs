@@ -86,7 +86,6 @@ impl Component for ImagePage {
                                 .text(format!("Current: {stretch_name}"))
                                 .opacity(0.6),
                         )),
-                        r#"Image::new().source_file(path).unwrap().stretch(Stretch::Uniform).width(300.0).height(150.0)"#,
                     ),
                 ),
                 KeyedView::new(
@@ -98,7 +97,6 @@ impl Component for ImagePage {
                             .unwrap()
                             .width(64.0)
                             .height(64.0),
-                        r#"Image::new().source_file(path).unwrap().width(64.0).height(64.0)"#,
                     ),
                 ),
             ],

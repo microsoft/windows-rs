@@ -41,10 +41,6 @@ impl Component for SplitButtonPage {
                                 .text(format!("Primary clicked: {} times", self.clicks))
                                 .opacity(0.6),
                         )),
-                        r#"SplitButton::new()
-    .on_click(handler)
-    .content(label)
-    .flyout_with(Flyout::rich(options))"#,
                     ),
                 ),
                 KeyedView::new(
@@ -54,7 +50,6 @@ impl Component for SplitButtonPage {
                         SplitButton::new()
                             .is_enabled(false)
                             .content("Disabled Action"),
-                        "SplitButton::new().is_enabled(false)",
                     ),
                 ),
             ],

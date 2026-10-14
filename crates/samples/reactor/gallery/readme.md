@@ -32,6 +32,10 @@ changes. Page-owned state is recreated when a destination is retired and later r
 state, including the selected theme and backdrop material, belongs to the shell and persists across
 page replacement.
 
+For implementation examples, read the compiled page components in [`src/pages/`](src/pages/).
+The gallery does not duplicate them as display-only source snippets, which can drift from the
+working examples.
+
 The gallery is organized as follows:
 
 | File | Purpose |

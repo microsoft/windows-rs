@@ -57,11 +57,6 @@ impl Component for TeachingTipPage {
                                 .is_open(self.show_basic)
                                 .on_closed(context.message(Message::ClosedBasic)),
                         )),
-                        r#"TeachingTip::new()
-    .title("Did you know?")
-    .subtitle("You can customize this teaching tip with a subtitle.")
-    .is_open(show_basic)
-    .on_closed(context.message(Message::ClosedBasic))"#,
                     ),
                 ),
                 KeyedView::new(
@@ -84,12 +79,6 @@ impl Component for TeachingTipPage {
                                 .text(format!("Action clicked: {} times", self.action_count))
                                 .opacity(0.6),
                         )),
-                        r#"TeachingTip::new()
-    .title("Take Action")
-    .action_button_content("Got it!")
-    .close_button_content("Dismiss")
-    .on_action_button_click(context.message(Message::Action))
-    .on_closed(context.message(Message::ClosedAction))"#,
                     ),
                 ),
             ],

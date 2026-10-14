@@ -54,7 +54,6 @@ impl Component for ScrollViewPage {
                             .height(200.0)
                             .content(StackPanel::new().spacing(4.0).keyed_children(items)),
                     )),
-                    "ScrollView::new().height(200.0).content(items)",
                 ),
             )],
         )

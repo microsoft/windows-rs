@@ -45,7 +45,6 @@ impl Component for InfoBarPage {
                                 .is_open(self.visible)
                                 .on_closed(context.message(false)),
                         )),
-                        "InfoBar::new().title(title).message(message).is_open(visible)",
                     ),
                 ),
                 KeyedView::new(
@@ -57,7 +56,6 @@ impl Component for InfoBarPage {
                             bar("Warning", "Check your input.", InfoBarSeverity::Warning),
                             bar("Error", "Something went wrong.", InfoBarSeverity::Error),
                         )),
-                        "InfoBar::new().severity(InfoBarSeverity::Warning)",
                     ),
                 ),
             ],

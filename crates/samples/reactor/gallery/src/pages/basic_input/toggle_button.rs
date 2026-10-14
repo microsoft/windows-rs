@@ -65,7 +65,6 @@ impl Component for ToggleButtonPage {
                                 .text(format!("Bold: {}, Italic: {}", self.bold, self.italic))
                                 .opacity(0.6),
                         )),
-                        "ToggleButton::new().is_checked(value).on_is_checked_changed(handler)",
                     ),
                 ),
                 KeyedView::new(
@@ -76,7 +75,6 @@ impl Component for ToggleButtonPage {
                             .is_checked(true)
                             .is_enabled(false)
                             .content("Locked"),
-                        "ToggleButton::new().is_checked(true).is_enabled(false)",
                     ),
                 ),
             ],

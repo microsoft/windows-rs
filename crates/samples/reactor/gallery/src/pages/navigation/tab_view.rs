@@ -106,8 +106,6 @@ impl Component for TabViewPage {
                                 Message::CloseBasic(tag.to_string())
                             }))
                             .keyed_tab_items(tabs(&self.basic_tabs, true)),
-                        "TabView::new().selected_index(index)\n    \
-                         .tab_items(tab_items)",
                     ),
                 ),
                 KeyedView::new(
@@ -136,7 +134,6 @@ impl Component for TabViewPage {
                                         .content("Remove tab"),
                                 )),
                         )),
-                        "Build keyed TabViewItem values from component state.",
                     ),
                 ),
                 KeyedView::new(
@@ -146,7 +143,6 @@ impl Component for TabViewPage {
                         TabView::new()
                             .height(150.0)
                             .keyed_tab_items(tabs(&[1, 2], false)),
-                        "TabViewItem::new().is_closable(false)",
                     ),
                 ),
             ],

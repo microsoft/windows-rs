@@ -56,19 +56,6 @@ impl Component for CommandBarFlyoutPage {
                                 .text(format!("Last action: {}", self.last_action))
                                 .opacity(0.6),
                         )),
-                        r#"Button::new()
-    .content("Show Commands")
-    .command_bar_flyout(CommandBarFlyout::new(
-        [
-            CommandBarCommand::button_with_icon("cut", "Cut", Symbol::Cut),
-            CommandBarCommand::button_with_icon("copy", "Copy", Symbol::Copy),
-            CommandBarCommand::button_with_icon("paste", "Paste", Symbol::Paste),
-        ],
-        [],
-        context.callback(|key: Key| {
-            key_label(&key)
-        }),
-    ))"#,
                     ),
                 ),
                 KeyedView::new(
@@ -90,17 +77,6 @@ impl Component for CommandBarFlyoutPage {
                                 context.callback(|key: Key| key_label(&key)),
                             ),
                         ),
-                        r#"Button::new()
-    .content("More Options")
-    .command_bar_flyout(CommandBarFlyout::new(
-        [CommandBarCommand::button_with_icon("share", "Share", Symbol::Send)],
-        [
-            CommandBarCommand::button("select-all", "Select All"),
-            CommandBarCommand::separator("separator"),
-            CommandBarCommand::button("print", "Print"),
-        ],
-        context.forward(),
-    ))"#,
                     ),
                 ),
             ],

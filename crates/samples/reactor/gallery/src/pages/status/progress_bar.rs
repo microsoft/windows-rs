@@ -55,7 +55,6 @@ impl Component for ProgressBarPage {
                                 .text(format!("Progress: {:.0}%", self.value))
                                 .opacity(0.6),
                         )),
-                        "ProgressBar::new().value(value)",
                     ),
                 ),
                 KeyedView::new(
@@ -73,7 +72,6 @@ impl Component for ProgressBarPage {
                                 .on_content("Loading")
                                 .off_content("Complete"),
                         )),
-                        "ProgressBar::new().is_indeterminate(loading)",
                     ),
                 ),
                 KeyedView::new(
@@ -84,7 +82,6 @@ impl Component for ProgressBarPage {
                             ProgressBar::new().value(45.0).show_paused(true),
                             ProgressBar::new().value(70.0).show_error(true),
                         )),
-                        "ProgressBar::new().show_paused(true)",
                     ),
                 ),
             ],

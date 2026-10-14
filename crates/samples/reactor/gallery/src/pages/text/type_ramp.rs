@@ -39,7 +39,6 @@ impl Component for TypeRampPage {
                             TextBlock::new().text("Body - 14px").font_size(14.0),
                             TextBlock::new().text("Caption - 12px").font_size(12.0),
                         )),
-                        "TextBlock::new().font_size(size).font_weight(weight)",
                     ),
                 ),
                 KeyedView::new(
@@ -59,7 +58,6 @@ impl Component for TypeRampPage {
                                 "This release includes performance improvements and fixes.",
                             )),
                         ),
-                        "Compose title, subtitle, and body styles in a card.",
                     ),
                 ),
             ],

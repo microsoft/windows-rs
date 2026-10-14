@@ -66,7 +66,6 @@ impl Component for CheckBoxPage {
                                 })
                                 .opacity(0.6),
                         )),
-                        "CheckBox::new().is_checked(accepted).on_is_checked_changed(handler)",
                     ),
                 ),
                 KeyedView::new(
@@ -96,7 +95,6 @@ impl Component for CheckBoxPage {
                                 .text(format!("{active} channel(s) active"))
                                 .opacity(0.6),
                         )),
-                        "CheckBox::new().is_checked(value).on_is_checked_changed(handler)",
                     ),
                 ),
                 KeyedView::new(
@@ -113,7 +111,6 @@ impl Component for CheckBoxPage {
                                 .is_enabled(false)
                                 .content("Locked off"),
                         )),
-                        "CheckBox::new().is_checked(true).is_enabled(false)",
                     ),
                 ),
             ],

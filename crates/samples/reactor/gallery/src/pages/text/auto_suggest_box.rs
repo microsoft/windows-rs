@@ -60,7 +60,6 @@ impl Component for AutoSuggestBoxPage {
                             .text(format!("Chosen: {}", self.chosen))
                             .opacity(0.6),
                     )),
-                    "AutoSuggestBox::new().items_source(suggestions).on_text_changed(handler)",
                 ),
             )],
         )

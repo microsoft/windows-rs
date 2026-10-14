@@ -73,13 +73,6 @@ impl Component for ContentDialogPage {
                                 .text(format!("Last result: {result_text}"))
                                 .opacity(0.6),
                         )),
-                        r#"ContentDialog::new()
-    .title("Confirm Action")
-    .content("Are you sure you want to proceed?")
-    .primary_button_text("Yes")
-    .close_button_text("No")
-    .is_open(open)
-    .on_closed(context.callback(Message::Closed))"#,
                     ),
                 ),
                 KeyedView::new(
@@ -101,13 +94,6 @@ impl Component for ContentDialogPage {
                                         "You have unsaved changes. What would you like to do?",
                                     ),
                             ),)),
-                        r#"ContentDialog::new()
-    .title("Save Changes?")
-    .primary_button_text("Save")
-    .secondary_button_text("Don't Save")
-    .close_button_text("Cancel")
-    .is_open(open)
-    .on_closed(context.callback(Message::ClosedThree))"#,
                     ),
                 ),
             ],

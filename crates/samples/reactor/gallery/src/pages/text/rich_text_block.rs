@@ -56,7 +56,6 @@ impl Component for RichTextBlockPage {
                                 .value(self.font_size)
                                 .on_value_changed(context.forward()),
                         )),
-                        "RichTextBlock::new().paragraphs(rich_text).font_size(size)",
                     ),
                 ),
                 KeyedView::new(
@@ -66,7 +65,6 @@ impl Component for RichTextBlockPage {
                         RichTextBlock::new()
                             .paragraphs(structured)
                             .text_wrapping(TextWrapping::Wrap),
-                        "RichText::new([RichTextParagraph::new(inlines), ...])",
                     ),
                 ),
                 KeyedView::new(
@@ -78,7 +76,6 @@ impl Component for RichTextBlockPage {
                                 RichTextRun::plain("This text is selectable. Try highlighting it."),
                             )]))
                             .is_text_selection_enabled(true),
-                        "RichTextBlock::new().is_text_selection_enabled(true)",
                     ),
                 ),
             ],

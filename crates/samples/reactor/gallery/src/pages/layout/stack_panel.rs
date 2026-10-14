@@ -51,7 +51,6 @@ impl Component for StackPanelPage {
                                 )),
                             StackPanel::new().spacing(4.0).keyed_children(items),
                         )),
-                        "StackPanel::new().spacing(4.0).keyed_children(items)",
                     ),
                 ),
                 KeyedView::new(
@@ -66,7 +65,6 @@ impl Component for StackPanelPage {
                                 Button::new().content("B"),
                                 Button::new().content("C"),
                             )),
-                        "StackPanel::new().orientation(Orientation::Horizontal)",
                     ),
                 ),
             ],

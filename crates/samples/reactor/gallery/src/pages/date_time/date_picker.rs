@@ -37,7 +37,6 @@ impl Component for DatePickerPage {
                                 .header("Select date"),
                             TextBlock::new().text(&self.label).opacity(0.6),
                         )),
-                        "DatePicker::new()\n    .on_date_changed(|date| ...)",
                     ),
                 ),
                 KeyedView::new(
@@ -45,7 +44,6 @@ impl Component for DatePickerPage {
                     sample_card(
                         "Month and Year Only",
                         DatePicker::new().day_visible(false).header("Month/Year"),
-                        "DatePicker::new().day_visible(false)",
                     ),
                 ),
             ],
