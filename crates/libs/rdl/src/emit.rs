@@ -88,8 +88,24 @@ pub fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
 
             ty
         }
+        FnPtr(signature) => {
+            let abi = match signature.flags {
+                metadata::MethodCallAttributes::C => quote! { "C" },
+                metadata::MethodCallAttributes::STDCALL => TokenStream::new(),
+                _ => unreachable!("function pointer signature must be validated before emission"),
+            };
+            let parameters = signature.types.iter().map(|ty| write_type(namespace, ty));
+            let result = if signature.return_type == Void {
+                TokenStream::new()
+            } else {
+                let ty = write_type(namespace, &signature.return_type);
+                quote! { -> #ty }
+            };
+            quote! { extern #abi fn(#(#parameters),*) #result }
+        }
         ClassName(type_name) | ValueName(type_name) => {
-            let name = write_ident(&type_name.name);
+            let parts = type_name.name.split('/').map(write_ident);
+            let name = quote! { #(#parts)::* };
 
             let name = if type_name.generics.is_empty() {
                 name

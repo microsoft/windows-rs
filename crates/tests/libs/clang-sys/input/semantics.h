@@ -1,6 +1,13 @@
 #pragma pack(push, 1)
 struct PackOne { char value; };
 #pragma pack(pop)
+
+struct __declspec(uuid("01234567-89AB-CDEF-0123-456789ABCDEF")) NativeUuid {};
+extern "C" int NativeC(int);
+int NativeCpp(int);
+extern "C" const int NativeCValue = 3;
+const int NativeCppValue = 4;
+const int NativeSideEffect = (NativeCpp(0), 3);
 #pragma pack(push, 2)
 struct PackTwo { char value; };
 #pragma pack(pop)
@@ -65,6 +72,15 @@ typedef __unaligned int UnalignedInt;
 typedef UnalignedInt InheritedUnalignedInt;
 typedef __attribute__((address_space(1))) int AddressSpaceInt;
 typedef void (*PlainPointer)(int*);
+enum { NativeExtent = 3 };
+typedef int NativeComputed[NativeExtent + 1];
+struct NativeExpressions {
+    int bound[NativeExtent + 1];
+    int initialized = NativeExtent + 1;
+    unsigned bits : (NativeExtent + 1);
+    unsigned initialized_bits : (NativeExtent + 1) = 1;
+    int initialized_array[NativeExtent + 1] = {};
+};
 typedef void (*UnalignedPointer)(__unaligned int*);
 #if defined(_M_X64) || defined(_M_ARM64)
 static_assert(!__is_same(PlainPointer, UnalignedPointer));

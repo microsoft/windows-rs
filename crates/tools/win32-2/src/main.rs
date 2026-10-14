@@ -29,16 +29,38 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut headers = Vec::new();
     let mut partial = false;
     let mut first = None;
+    let mut imports = std::collections::BTreeMap::new();
+    let mut macros = Vec::new();
     for argument in std::env::args().skip(1) {
         if argument == "--partial" {
             partial = true;
+        } else if let Some(value) = argument.strip_prefix("--import=") {
+            let (name, library) = value
+                .split_once('=')
+                .ok_or("use --import=Function=library.dll")?;
+            if name.is_empty()
+                || library.is_empty()
+                || imports
+                    .insert(
+                        name.to_string(),
+                        projection::Import {
+                            library: library.into(),
+                            name: None,
+                        },
+                    )
+                    .is_some()
+            {
+                return Err(format!("invalid or duplicate import `{value}`").into());
+            }
+        } else if let Some(name) = argument.strip_prefix("--macro=") {
+            macros.push(name.to_string());
         } else if let Some(count) = argument.strip_prefix("--first=") {
             if first.replace(count.parse::<usize>()?).is_some() {
                 return Err("--first may only be specified once".into());
             }
         } else if argument.starts_with('-') {
             return Err(format!(
-                "unknown option `{argument}`; use --partial, --first=N, or header names"
+                "unknown option `{argument}`; use --partial, --first=N, --import=Function=library.dll, --macro=NAME, or header names"
             )
             .into());
         } else {
@@ -81,7 +103,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             include.join(directory).display().to_string(),
         ]);
     }
-    let inputs = inputs(&headers, &arguments);
+    let mut inputs = inputs(&headers, &arguments);
+    for input in &mut inputs {
+        input.macros.clone_from(&macros);
+    }
     println!(
         "Capturing {} headers in {} translation units for x86, x64, and ARM64",
         headers.len(),
@@ -91,7 +116,18 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let scratch = Path::new("target\\win32-2");
     std::fs::create_dir_all(scratch)?;
     let output = if partial {
-        let result = projection::generate_partial(&inputs, "Windows.Win32")?;
+        let result = projection::project_partial_with_imports(
+            windows_clang2::capture_partial(
+                &inputs,
+                &[
+                    windows_clang2::Target::X86,
+                    windows_clang2::Target::X64,
+                    windows_clang2::Target::Arm64,
+                ],
+            )?,
+            "Windows.Win32",
+            &imports,
+        )?;
         std::fs::write(
             scratch.join("omissions.txt"),
             result.omissions.join("\n") + "\n",
@@ -102,18 +138,32 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         );
         result.output
     } else {
-        projection::generate(&inputs, "Windows.Win32")?
+        let snapshots = windows_clang2::capture(
+            &inputs,
+            &[
+                windows_clang2::Target::X86,
+                windows_clang2::Target::X64,
+                windows_clang2::Target::Arm64,
+            ],
+        )?;
+        projection::project_with_imports(
+            &windows_clang2::merge(&snapshots)?,
+            "Windows.Win32",
+            &imports,
+        )?
     };
     let generated = started.elapsed();
     if output.partitions.is_empty() {
         return Err("no declarations could be projected; canonical metadata is unchanged".into());
     }
     println!(
-        "Compiling {} records, {} enums, {} aliases, and {} constants from {} partitions",
+        "Compiling {} records, {} enums, {} aliases, {} constants, {} functions, and {} interfaces from {} partitions",
         output.records,
         output.enums,
         output.aliases,
         output.constants,
+        output.functions,
+        output.interfaces,
         output.partitions.len()
     );
     let started = Instant::now();
@@ -148,11 +198,13 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         std::fs::write(destination.join(format!("{stem}.rdl")), &partition.rdl)?;
     }
     println!(
-        "SDK projection: {} records, {} enums, {} aliases, {} constants, {} partitions; capture/merge/project {:.3}s, compile {:.3}s",
+        "SDK projection: {} records, {} enums, {} aliases, {} constants, {} functions, {} interfaces, {} partitions; capture/merge/project {:.3}s, compile {:.3}s",
         output.records,
         output.enums,
         output.aliases,
         output.constants,
+        output.functions,
+        output.interfaces,
         output.partitions.len(),
         generated.as_secs_f64(),
         compiled.as_secs_f64()

@@ -4,6 +4,12 @@ The [windows-rdl](https://crates.io/crates/windows-rdl) crate compiles **RDL** (
 Language) - a Rust-like text format for describing Windows APIs - into ECMA-335 `.winmd` metadata,
 and back again.
 
+Shared and named nested records retain owner-scoped declarations and references such as
+`Outer::Inner`; anonymous value fields can use inline structs and unions.
+
+Win32 type expressions include qualified pointer chains and inline C/system function pointers,
+such as `extern "C" fn(*const u8, u32) -> i32`, without requiring named callback declarations.
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-rdl.md)
 

@@ -51,7 +51,7 @@ fn capture_impl(
             }
             Ok((
                 CString::new(input.name.as_str()).map_err(|error| Error(error.to_string()))?,
-                CString::new(input.source.as_str()).map_err(|error| Error(error.to_string()))?,
+                CString::new(macro_source(input)?).map_err(|error| Error(error.to_string()))?,
             ))
         })
         .collect::<Result<Vec<_>, Error>>()?;
@@ -112,6 +112,25 @@ fn capture_impl(
     } else {
         Err(Error(batch.errors.join("\n")))
     }
+}
+
+fn macro_source(input: &Input) -> Result<String, Error> {
+    let mut source = input.source.clone();
+    let mut names = HashSet::new();
+    for (index, name) in input.macros.iter().enumerate() {
+        if name.is_empty()
+            || !name.bytes().enumerate().all(|(index, value)| {
+                value == b'_' || value.is_ascii_alphabetic() || index != 0 && value.is_ascii_digit()
+            })
+            || !names.insert(name)
+        {
+            return Err(Error(format!("invalid or duplicate macro name `{name}`")));
+        }
+        source.push_str(&format!(
+            "\nstatic const __typeof__(({name})) __windows_clang_macro_{index} = ({name});\n"
+        ));
+    }
+    Ok(source)
 }
 
 #[derive(Default)]
@@ -211,9 +230,14 @@ fn parse(
                 &raw mut unsaved,
                 1,
                 (CXTranslationUnit_IncludeAttributedTypes
-                    | CXTranslationUnit_VisitImplicitAttributes)
-                    .try_into()
-                    .unwrap(),
+                    | CXTranslationUnit_VisitImplicitAttributes
+                    | if input.macros.is_empty() {
+                        0
+                    } else {
+                        CXTranslationUnit_DetailedPreprocessingRecord
+                    })
+                .try_into()
+                .unwrap(),
                 &raw mut unit.0,
             )
         };
@@ -250,10 +274,11 @@ fn parse(
             records: Vec::new(),
             aliases: Vec::new(),
             enums: Vec::new(),
+            values: Vec::new(),
             observations: Vec::new(),
             types: Vec::new(),
         };
-        let issues = capture::read(unit.0, &input.roots, &mut snapshot, partial)?;
+        let issues = capture::read(unit.0, &input.roots, &input.macros, &mut snapshot, partial)?;
         Ok((snapshot, issues))
     };
     parse().map_err(|error| Error(format!("{context}\n{error}")))

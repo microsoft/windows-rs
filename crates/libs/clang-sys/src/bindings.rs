@@ -1315,6 +1315,8 @@ pub type WindowsClangAlignmentKind = i32;
 pub const WindowsClangAlignmentStandard: WindowsClangAlignmentKind = 1;
 pub const WindowsClangArmSMEAttributes: WindowsClangFunctionProperties = 4;
 pub const WindowsClangCFIUncheckedCallee: WindowsClangFunctionProperties = 64;
+pub const WindowsClangCLanguageLinkage: WindowsClangLanguageLinkage = 1;
+pub const WindowsClangCXXLanguageLinkage: WindowsClangLanguageLinkage = 2;
 pub const WindowsClangConst: WindowsClangTypeQualifiers = 1;
 pub const WindowsClangDependent: WindowsClangStatus = 3;
 pub const WindowsClangExtendedParameters: WindowsClangFunctionProperties = 1;
@@ -1334,7 +1336,9 @@ pub struct WindowsClangFunctionInfo {
 }
 pub type WindowsClangFunctionProperties = i32;
 pub const WindowsClangInvalidArgument: WindowsClangStatus = 1;
+pub type WindowsClangLanguageLinkage = i32;
 pub const WindowsClangMethodQualifiers: WindowsClangFunctionProperties = 16;
+pub const WindowsClangNoLanguageLinkage: WindowsClangLanguageLinkage = 0;
 pub const WindowsClangOtherQualifiers: WindowsClangTypeQualifiers = 16;
 pub const WindowsClangRefQualifier: WindowsClangFunctionProperties = 32;
 pub const WindowsClangRestrict: WindowsClangTypeQualifiers = 4;
@@ -2286,11 +2290,24 @@ pub(crate) struct Functions {
         info: *mut WindowsClangAlignmentInfo,
     ) -> WindowsClangStatus,
     pub windows_clang_getAttributeKindName: unsafe extern "C" fn(cursor: CXCursor) -> *const i8,
+    pub windows_clang_getFieldInitializer:
+        unsafe extern "C" fn(cursor: CXCursor, has_initializer: *mut u32) -> WindowsClangStatus,
     pub windows_clang_getFunctionInfo: unsafe extern "C" fn(
         r#type: CXType,
         info: *mut WindowsClangFunctionInfo,
     ) -> WindowsClangStatus,
+    pub windows_clang_getIntegerConstantInitializer:
+        unsafe extern "C" fn(cursor: CXCursor, is_constant: *mut u32) -> WindowsClangStatus,
     pub windows_clang_getLLVMVersion: unsafe extern "C" fn() -> *const i8,
+    pub windows_clang_getLanguageLinkage: unsafe extern "C" fn(
+        cursor: CXCursor,
+        linkage: *mut WindowsClangLanguageLinkage,
+    ) -> WindowsClangStatus,
+    pub windows_clang_getLayoutExpression: unsafe extern "C" fn(
+        declaration: CXCursor,
+        expression: CXCursor,
+        is_layout_expression: *mut u32,
+    ) -> WindowsClangStatus,
     pub windows_clang_getMaxFieldAlignment:
         unsafe extern "C" fn(cursor: CXCursor, alignment_bits: *mut u32) -> WindowsClangStatus,
     pub windows_clang_getRuntimeIdentity: unsafe extern "C" fn() -> *const core::ffi::c_void,
@@ -2303,6 +2320,8 @@ pub(crate) struct Functions {
     ) -> WindowsClangStatus,
     pub windows_clang_getTypedefDefinition:
         unsafe extern "C" fn(cursor: CXCursor, defines_tag: *mut u32) -> WindowsClangStatus,
+    pub windows_clang_getUuid:
+        unsafe extern "C" fn(cursor: CXCursor, uuid: *mut CXString) -> WindowsClangStatus,
 }
 impl Functions {
     pub(crate) unsafe fn load(
@@ -4742,6 +4761,13 @@ impl Functions {
                         )
                     })?
             },
+            windows_clang_getFieldInitializer: unsafe {
+                *extension
+                    .get(b"windows_clang_getFieldInitializer\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getFieldInitializer))
+                    })?
+            },
             windows_clang_getFunctionInfo: unsafe {
                 *extension
                     .get(b"windows_clang_getFunctionInfo\0")
@@ -4749,11 +4775,35 @@ impl Functions {
                         format!("{}: {error}", stringify!(windows_clang_getFunctionInfo))
                     })?
             },
+            windows_clang_getIntegerConstantInitializer: unsafe {
+                *extension
+                    .get(b"windows_clang_getIntegerConstantInitializer\0")
+                    .map_err(|error| {
+                        format!(
+                            "{}: {error}",
+                            stringify!(windows_clang_getIntegerConstantInitializer)
+                        )
+                    })?
+            },
             windows_clang_getLLVMVersion: unsafe {
                 *extension
                     .get(b"windows_clang_getLLVMVersion\0")
                     .map_err(|error| {
                         format!("{}: {error}", stringify!(windows_clang_getLLVMVersion))
+                    })?
+            },
+            windows_clang_getLanguageLinkage: unsafe {
+                *extension
+                    .get(b"windows_clang_getLanguageLinkage\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getLanguageLinkage))
+                    })?
+            },
+            windows_clang_getLayoutExpression: unsafe {
+                *extension
+                    .get(b"windows_clang_getLayoutExpression\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getLayoutExpression))
                     })?
             },
             windows_clang_getMaxFieldAlignment: unsafe {
@@ -4806,6 +4856,11 @@ impl Functions {
                             stringify!(windows_clang_getTypedefDefinition)
                         )
                     })?
+            },
+            windows_clang_getUuid: unsafe {
+                *extension
+                    .get(b"windows_clang_getUuid\0")
+                    .map_err(|error| format!("{}: {error}", stringify!(windows_clang_getUuid)))?
             },
         })
     }
@@ -6848,6 +6903,14 @@ pub unsafe fn windows_clang_getAttributeKindName(cursor: CXCursor) -> *const i8 
         (library.functions.windows_clang_getAttributeKindName)(cursor)
     })
 }
+pub unsafe fn windows_clang_getFieldInitializer(
+    cursor: CXCursor,
+    has_initializer: *mut u32,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getFieldInitializer)(cursor, has_initializer)
+    })
+}
 pub unsafe fn windows_clang_getFunctionInfo(
     r#type: CXType,
     info: *mut WindowsClangFunctionInfo,
@@ -6856,8 +6919,39 @@ pub unsafe fn windows_clang_getFunctionInfo(
         (library.functions.windows_clang_getFunctionInfo)(r#type, info)
     })
 }
+pub unsafe fn windows_clang_getIntegerConstantInitializer(
+    cursor: CXCursor,
+    is_constant: *mut u32,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library
+            .functions
+            .windows_clang_getIntegerConstantInitializer)(cursor, is_constant)
+    })
+}
 pub unsafe fn windows_clang_getLLVMVersion() -> *const i8 {
     crate::with_library(|library| unsafe { (library.functions.windows_clang_getLLVMVersion)() })
+}
+pub unsafe fn windows_clang_getLanguageLinkage(
+    cursor: CXCursor,
+    linkage: *mut WindowsClangLanguageLinkage,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getLanguageLinkage)(cursor, linkage)
+    })
+}
+pub unsafe fn windows_clang_getLayoutExpression(
+    declaration: CXCursor,
+    expression: CXCursor,
+    is_layout_expression: *mut u32,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getLayoutExpression)(
+            declaration,
+            expression,
+            is_layout_expression,
+        )
+    })
 }
 pub unsafe fn windows_clang_getMaxFieldAlignment(
     cursor: CXCursor,
@@ -6897,5 +6991,10 @@ pub unsafe fn windows_clang_getTypedefDefinition(
 ) -> WindowsClangStatus {
     crate::with_library(|library| unsafe {
         (library.functions.windows_clang_getTypedefDefinition)(cursor, defines_tag)
+    })
+}
+pub unsafe fn windows_clang_getUuid(cursor: CXCursor, uuid: *mut CXString) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getUuid)(cursor, uuid)
     })
 }

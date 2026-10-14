@@ -34,11 +34,24 @@ pub struct AliasGroup {
     pub observations: Vec<AliasObservationRef>,
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ValueObservationRef {
+    pub snapshot: usize,
+    pub value: ValueId,
+    pub observation: usize,
+}
+
+pub struct ValueGroup {
+    pub name: String,
+    pub observations: Vec<ValueObservationRef>,
+}
+
 #[derive(Clone, Copy)]
 enum Owner {
     Record(ObservationRef),
     Alias(AliasObservationRef),
     Enum(EnumObservationRef),
+    Value(ValueObservationRef),
 }
 
 #[derive(Debug, Default)]
@@ -53,6 +66,7 @@ pub struct Resolution<'a> {
     pub groups: Vec<Group>,
     pub aliases: Vec<AliasGroup>,
     pub enums: Vec<EnumGroup>,
+    pub values: Vec<ValueGroup>,
     pub work: Work,
     record_groups: Vec<Vec<usize>>,
     pub(crate) enum_groups: Vec<Vec<usize>>,
@@ -87,7 +101,7 @@ pub(crate) type TypePair = (TypeRef, TypeRef);
 
 /// Checks all observed definitions for one target without discarding original observations.
 ///
-/// Correspondence is restricted to global named records and enums under matching compiler arguments.
+/// Correspondence uses global identities and owner-relative nested records under matching arguments.
 /// Names and USRs select candidates; all candidate definitions must then agree.
 /// Alias groups preserve name-corresponding bindings for later public compatibility checks.
 pub fn resolve(snapshots: &[Snapshot]) -> Result<Resolution<'_>, Error> {
@@ -118,6 +132,9 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
                 for field in &definition.fields {
                     attributes(&snapshots, owner, &field.attributes)?;
                 }
+                for method in &definition.methods {
+                    value_attributes(&snapshots, owner, &method.observation)?;
+                }
             }
         }
         for (alias, value) in snapshot.aliases.iter().enumerate() {
@@ -136,9 +153,9 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
     }
     let mut candidates = BTreeMap::new();
     for (snapshot, value) in snapshots.iter().enumerate() {
-        for (id, record) in value.records.iter().enumerate() {
+        for id in 0..value.records.len() {
             candidates
-                .entry((record.name.as_str(), record.usr.as_str()))
+                .entry(value.record_identity(RecordId(id)))
                 .or_insert_with(Vec::new)
                 .push(RecordRef {
                     snapshot,
@@ -205,6 +222,10 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
                         "forward alignment request differs"
                     } else if default_type_visibility(&observation.attributes) && !visible {
                         "forward type visibility request differs"
+                    } else if uuid(&observation.attributes)
+                        .is_some_and(|value| Some(value) != uuid(attributes))
+                    {
+                        "forward UUID differs"
                     } else {
                         continue;
                     };
@@ -249,12 +270,30 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
         };
         if a.layout != b.layout
             || a.fields.len() != b.fields.len()
+            || a.bases.len() != b.bases.len()
+            || a.methods.len() != b.methods.len()
             || !abi_attributes_equal(
                 &snapshots[left.snapshot].observations[left.observation.0].attributes,
                 &snapshots[right.snapshot].observations[right.observation.0].attributes,
             )
         {
             return Err(conflict("record layout or field count differs"));
+        }
+        for (&a, &b) in a.bases.iter().zip(&b.bases) {
+            if membership[left.snapshot][a.0] != membership[right.snapshot][b.0] {
+                return Err(conflict("native base identities or order differ"));
+            }
+        }
+        for (a, b) in a.methods.iter().zip(&b.methods) {
+            if a.name != b.name || !value_shape_equal(&a.observation, &b.observation, false) {
+                return Err(conflict("native method names, order, or attributes differ"));
+            }
+            types.push((
+                (left.snapshot, a.observation.canonical),
+                (right.snapshot, b.observation.canonical),
+                Owner::Record(left),
+                Owner::Record(right),
+            ));
         }
         for (a, b) in a.fields.iter().zip(&b.fields) {
             if a.name != b.name
@@ -308,6 +347,58 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
     // Record edges refer to groups whose definitions all have independent obligations above.
     // No recursive assumption is published unless the entire worklist succeeds.
     let (enums, enum_groups) = enums::resolve(&snapshots, &mut work)?;
+    let mut values: BTreeMap<String, Vec<ValueObservationRef>> = BTreeMap::new();
+    for (snapshot, source) in snapshots.iter().enumerate() {
+        for (value, declaration) in source.values.iter().enumerate() {
+            for observation in 0..declaration.observations.len() {
+                values
+                    .entry(declaration.name.clone())
+                    .or_default()
+                    .push(ValueObservationRef {
+                        snapshot,
+                        value: ValueId(value),
+                        observation,
+                    });
+            }
+        }
+    }
+    for observations in values.values_mut() {
+        observations.sort_by_key(|reference| {
+            let snapshot = snapshots[reference.snapshot];
+            let location =
+                &snapshot.values[reference.value.0].observations[reference.observation].location;
+            (
+                snapshot.input.as_str(),
+                snapshot.files[location.file.0].as_str(),
+                location.offset,
+            )
+        });
+        let first = observations[0];
+        let a = &snapshots[first.snapshot].values[first.value.0].observations[first.observation];
+        for &reference in observations.iter() {
+            let b = &snapshots[reference.snapshot].values[reference.value.0].observations
+                [reference.observation];
+            value_attributes(&snapshots, Owner::Value(reference), b)?;
+            if !value_shape_equal(a, b, true) {
+                return Err(conflict(
+                    &snapshots,
+                    Owner::Value(first),
+                    Owner::Value(reference),
+                    "native value declarations differ",
+                ));
+            }
+            types.push((
+                (first.snapshot, a.canonical),
+                (reference.snapshot, b.canonical),
+                Owner::Value(first),
+                Owner::Value(reference),
+            ));
+        }
+    }
+    let values = values
+        .into_iter()
+        .map(|(name, observations)| ValueGroup { name, observations })
+        .collect();
     let mut seen = HashSet::new();
     while let Some((left, right, owner_left, owner_right)) = types.pop() {
         if !types_equal(&snapshots, left, right, &mut seen, &enum_groups, &|a, b| {
@@ -327,6 +418,7 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
         groups,
         aliases: alias_groups,
         enums,
+        values,
         enum_groups,
         work,
         record_groups: membership,
@@ -387,7 +479,8 @@ pub(crate) fn types_equal(
             }
             (TypeKind::Void, TypeKind::Void) => return true,
             (TypeKind::Scalar(x), TypeKind::Scalar(y)) => return x == y,
-            (TypeKind::Pointer(x), TypeKind::Pointer(y)) => {
+            (TypeKind::Pointer(x), TypeKind::Pointer(y))
+            | (TypeKind::LValueReference(x), TypeKind::LValueReference(y)) => {
                 a.1 = *x;
                 b.1 = *y;
             }
@@ -419,12 +512,21 @@ fn conflict(snapshots: &[&Snapshot], left: Owner, right: Owner, reason: &str) ->
 
 fn describe(snapshots: &[&Snapshot], owner: Owner) -> String {
     let (snapshot, name, location) = match owner {
+        Owner::Value(reference) => {
+            let snapshot = snapshots[reference.snapshot];
+            let value = &snapshot.values[reference.value.0];
+            (
+                snapshot,
+                value.name.clone(),
+                &value.observations[reference.observation].location,
+            )
+        }
         Owner::Enum(reference) => {
             let snapshot = snapshots[reference.snapshot];
             let enumeration = &snapshot.enums[reference.enumeration.0];
             (
                 snapshot,
-                &enumeration.name,
+                enumeration.name.clone(),
                 &enumeration.observations[reference.observation].location,
             )
         }
@@ -433,7 +535,7 @@ fn describe(snapshots: &[&Snapshot], owner: Owner) -> String {
             let observation = &snapshot.observations[reference.observation.0];
             (
                 snapshot,
-                &snapshot.records[observation.record.0].name,
+                snapshot.record_label(observation.record),
                 &observation.location,
             )
         }
@@ -442,7 +544,7 @@ fn describe(snapshots: &[&Snapshot], owner: Owner) -> String {
             let alias = &snapshot.aliases[reference.alias.0];
             (
                 snapshot,
-                &alias.name,
+                alias.name.clone(),
                 &alias.observations[reference.observation].location,
             )
         }
@@ -490,6 +592,61 @@ pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
     packing(a) == packing(b)
         && alignments(a) == alignments(b)
         && default_type_visibility(a) == default_type_visibility(b)
+        && uuid(a) == uuid(b)
+        && a.iter().any(|value| value.kind == AttributeKind::NoVTable)
+            == b.iter().any(|value| value.kind == AttributeKind::NoVTable)
+        && a.iter().any(|value| value.kind == AttributeKind::DllImport)
+            == b.iter().any(|value| value.kind == AttributeKind::DllImport)
+}
+
+pub(crate) fn uuid(attributes: &[Attribute]) -> Option<u128> {
+    attributes
+        .iter()
+        .find_map(|attribute| match attribute.kind {
+            AttributeKind::Uuid(value) => Some(value),
+            _ => None,
+        })
+}
+
+pub(crate) fn value_shape_equal(a: &ValueObservation, b: &ValueObservation, symbol: bool) -> bool {
+    abi_attributes_equal(&a.attributes, &b.attributes)
+        && match (&a.kind, &b.kind) {
+            (
+                ValueKind::Function {
+                    parameters: a,
+                    language: x,
+                    mangling: xm,
+                },
+                ValueKind::Function {
+                    parameters: b,
+                    language: y,
+                    mangling: ym,
+                },
+            ) => {
+                x == y
+                    && (!symbol || xm == ym)
+                    && a.len() == b.len()
+                    && a.iter()
+                        .zip(b)
+                        .all(|(a, b)| abi_attributes_equal(&a.attributes, &b.attributes))
+            }
+            (ValueKind::Constant { value: a, .. }, ValueKind::Constant { value: b, .. }) => a == b,
+            _ => false,
+        }
+}
+
+fn value_attributes(
+    snapshots: &[&Snapshot],
+    owner: Owner,
+    value: &ValueObservation,
+) -> Result<(), Error> {
+    attributes(snapshots, owner, &value.attributes)?;
+    if let ValueKind::Function { parameters, .. } = &value.kind {
+        for parameter in parameters {
+            attributes(snapshots, owner, &parameter.attributes)?;
+        }
+    }
+    Ok(())
 }
 
 fn default_type_visibility(attributes: &[Attribute]) -> bool {

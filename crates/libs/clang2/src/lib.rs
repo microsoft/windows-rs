@@ -11,7 +11,7 @@ mod runtime;
 pub use merge::{Merged, Variants, merge};
 pub use resolve::{
     AliasGroup, AliasObservationRef, EnumGroup, EnumObservationRef, EnumRef, Group, ObservationRef,
-    RecordRef, Resolution, Work, resolve,
+    RecordRef, Resolution, ValueGroup, ValueObservationRef, Work, resolve,
 };
 pub use runtime::{PartialCapture, capture, capture_partial};
 
@@ -40,8 +40,10 @@ pub struct Input {
     pub source: String,
     /// Additional compiler arguments, such as include paths and macro definitions.
     pub arguments: Vec<String>,
-    /// Global record, enum, or alias roots and their dependencies. Empty selects all declarations.
+    /// Global declaration roots and their dependencies. Empty selects all declarations.
     pub roots: Vec<String>,
+    /// Object-like macros to evaluate as constant expressions after this input's declarations.
+    pub macros: Vec<String>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -57,10 +59,14 @@ pub struct AliasId(pub usize);
 pub struct EnumId(pub usize);
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct ValueId(pub usize);
+
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum DeclarationId {
     Record(RecordId),
     Alias(AliasId),
     Enum(EnumId),
+    Value(ValueId),
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -98,6 +104,8 @@ pub enum Scalar {
     SignedChar,
     UnsignedChar,
     WChar,
+    Char16,
+    Char32,
     Short,
     UnsignedShort,
     Int,
@@ -117,6 +125,8 @@ impl Scalar {
             Self::Char { signed } => Some(*signed),
             Self::SignedChar | Self::Short | Self::Int | Self::Long | Self::LongLong => Some(true),
             Self::UnsignedChar
+            | Self::Char16
+            | Self::Char32
             | Self::WChar
             | Self::UnsignedShort
             | Self::UnsignedInt
@@ -132,6 +142,7 @@ pub enum TypeKind {
     Void,
     Scalar(Scalar),
     Pointer(TypeId),
+    LValueReference(TypeId),
     Array {
         element: TypeId,
         length: u64,
@@ -165,7 +176,7 @@ pub struct Function {
 pub struct Type {
     pub kind: TypeKind,
     pub qualifiers: Qualifiers,
-    /// Observed byte size and alignment; void, functions, and incomplete records have no layout.
+    /// Object layout; void, functions, references, and incomplete records have no layout.
     pub layout: Option<Layout>,
 }
 
@@ -186,6 +197,9 @@ pub struct Field {
 pub enum AttributeKind {
     Packed,
     DefaultTypeVisibility,
+    Uuid(u128),
+    NoVTable,
+    DllImport,
     MaxFieldAlignment { bits: u32 },
     Aligned { bits: u32, kind: AlignmentKind },
     Unresolved(String),
@@ -227,8 +241,22 @@ pub struct AliasObservation {
 pub struct Record {
     pub name: String,
     pub usr: String,
+    pub owner: Option<RecordOwner>,
     pub kind: RecordKind,
     pub observations: Vec<ObservationId>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct RecordOwner {
+    pub record: RecordId,
+    /// First field whose type contains this unnamed record; None for named declarations.
+    pub field: Option<usize>,
+}
+
+#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub(crate) enum RecordMember {
+    Named(String),
+    Anonymous(usize),
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -249,6 +277,75 @@ pub struct RecordObservation {
 pub struct RecordDefinition {
     pub layout: Layout,
     pub fields: Vec<Field>,
+    /// Direct public, non-virtual bases, in declaration order.
+    pub bases: Vec<RecordId>,
+    /// Direct public, pure virtual methods, in vtable order.
+    pub methods: Vec<Method>,
+    /// C++ member templates have no vtable slots. Retained as provenance, not ABI comparisons.
+    pub member_templates: Vec<MemberTemplate>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct MemberTemplate {
+    pub name: String,
+    pub usr: String,
+    pub location: Location,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct Method {
+    pub name: String,
+    pub observation: ValueObservation,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct Parameter {
+    pub name: String,
+    pub written: TypeId,
+    pub location: Location,
+    pub attributes: Vec<Attribute>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct ValueDeclaration {
+    pub name: String,
+    pub usr: String,
+    pub observations: Vec<ValueObservation>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct ValueObservation {
+    pub location: Location,
+    pub written: TypeId,
+    pub canonical: TypeId,
+    pub attributes: Vec<Attribute>,
+    pub kind: ValueKind,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub enum ValueKind {
+    Function {
+        parameters: Vec<Parameter>,
+        mangling: String,
+        language: LanguageLinkage,
+    },
+    Constant {
+        value: EnumValue,
+        origin: ConstantOrigin,
+    },
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum LanguageLinkage {
+    C,
+    Cxx,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub enum ConstantOrigin {
+    Declaration,
+    /// The observation location is the actual macro definition referenced by the probe expansion.
+    Macro,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -298,6 +395,7 @@ pub struct Snapshot {
     pub records: Vec<Record>,
     pub aliases: Vec<Alias>,
     pub enums: Vec<Enum>,
+    pub values: Vec<ValueDeclaration>,
     pub observations: Vec<RecordObservation>,
     pub types: Vec<Type>,
 }
@@ -307,6 +405,7 @@ pub struct Statistics {
     pub records: usize,
     pub aliases: usize,
     pub enums: usize,
+    pub values: usize,
     pub observations: usize,
     pub types: usize,
     pub fields: usize,
@@ -315,6 +414,38 @@ pub struct Statistics {
 }
 
 impl Snapshot {
+    pub(crate) fn record_identity(&self, id: RecordId) -> (&str, &str, Vec<RecordMember>) {
+        let (root, path) = self.record_path(id);
+        let root = &self.records[root.0];
+        (&root.name, &root.usr, path)
+    }
+
+    pub(crate) fn record_label(&self, id: RecordId) -> String {
+        let (root, _, path) = self.record_identity(id);
+        let mut name = root.to_string();
+        for member in path {
+            name.push_str("::");
+            match member {
+                RecordMember::Named(member) => name.push_str(&member),
+                RecordMember::Anonymous(field) => name.push_str(&format!("<field {field}>")),
+            }
+        }
+        name
+    }
+
+    pub(crate) fn record_path(&self, mut id: RecordId) -> (RecordId, Vec<RecordMember>) {
+        let mut path = Vec::new();
+        while let Some(owner) = self.records[id.0].owner {
+            path.push(match owner.field {
+                Some(field) => RecordMember::Anonymous(field),
+                None => RecordMember::Named(self.records[id.0].name.clone()),
+            });
+            id = owner.record;
+        }
+        path.reverse();
+        (id, path)
+    }
+
     pub fn statistics(&self) -> Statistics {
         fn vector_bytes<T>(values: &Vec<T>) -> usize {
             values.capacity() * size_of::<T>()
@@ -330,6 +461,9 @@ impl Snapshot {
                         (match &value.kind {
                             AttributeKind::Packed
                             | AttributeKind::DefaultTypeVisibility
+                            | AttributeKind::Uuid(_)
+                            | AttributeKind::NoVTable
+                            | AttributeKind::DllImport
                             | AttributeKind::MaxFieldAlignment { .. }
                             | AttributeKind::Aligned { .. } => 0,
                             AttributeKind::Unresolved(kind) => kind.capacity(),
@@ -337,6 +471,27 @@ impl Snapshot {
                             + strings_bytes(&value.tokens)
                     })
                     .sum::<usize>()
+        }
+        fn value_bytes(value: &ValueObservation) -> usize {
+            attributes_bytes(&value.attributes)
+                + match &value.kind {
+                    ValueKind::Function {
+                        parameters,
+                        mangling,
+                        ..
+                    } => {
+                        mangling.capacity()
+                            + vector_bytes(parameters)
+                            + parameters
+                                .iter()
+                                .map(|parameter| {
+                                    parameter.name.capacity()
+                                        + attributes_bytes(&parameter.attributes)
+                                })
+                                .sum::<usize>()
+                    }
+                    ValueKind::Constant { .. } => 0,
+                }
         }
         let mut fields = 0;
         let mut owned_bytes = size_of::<Self>()
@@ -349,6 +504,7 @@ impl Snapshot {
             + vector_bytes(&self.records)
             + vector_bytes(&self.aliases)
             + vector_bytes(&self.enums)
+            + vector_bytes(&self.values)
             + vector_bytes(&self.observations)
             + vector_bytes(&self.types);
         for ty in &self.types {
@@ -387,11 +543,30 @@ impl Snapshot {
                 }
             }
         }
+        for value in &self.values {
+            owned_bytes += value.name.capacity()
+                + value.usr.capacity()
+                + vector_bytes(&value.observations)
+                + value.observations.iter().map(value_bytes).sum::<usize>();
+        }
         for observation in &self.observations {
             owned_bytes += attributes_bytes(&observation.attributes);
             if let Some(definition) = &observation.definition {
                 fields += definition.fields.len();
                 owned_bytes += vector_bytes(&definition.fields)
+                    + vector_bytes(&definition.bases)
+                    + vector_bytes(&definition.methods)
+                    + vector_bytes(&definition.member_templates)
+                    + definition
+                        .member_templates
+                        .iter()
+                        .map(|member| member.name.capacity() + member.usr.capacity())
+                        .sum::<usize>()
+                    + definition
+                        .methods
+                        .iter()
+                        .map(|method| method.name.capacity() + value_bytes(&method.observation))
+                        .sum::<usize>()
                     + definition
                         .fields
                         .iter()
@@ -403,7 +578,13 @@ impl Snapshot {
             records: self.records.len(),
             aliases: self.aliases.len(),
             enums: self.enums.len(),
+            values: self.values.len(),
             observations: self.observations.len()
+                + self
+                    .values
+                    .iter()
+                    .map(|value| value.observations.len())
+                    .sum::<usize>()
                 + self
                     .aliases
                     .iter()

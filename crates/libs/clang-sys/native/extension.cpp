@@ -1,7 +1,9 @@
 #include "extension.h"
 #include "CXCursor.h"
+#include "CXString.h"
 #include "CXType.h"
 #include <clang/AST/Attr.h>
+#include <clang/AST/Expr.h>
 #include <clang/AST/Type.h>
 #include <clang/AST/TypeLoc.h>
 #include <llvm/Config/llvm-config.h>
@@ -15,11 +17,69 @@ static const char* attributeName(clang::attr::Kind kind) {
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 5;
+    return 7;
+}
+
+WindowsClangStatus windows_clang_getUuid(CXCursor cursor, CXString* uuid) {
+    if (!uuid) {
+        return WindowsClangInvalidArgument;
+    }
+    if (!clang_isAttribute(cursor.kind)) {
+        return WindowsClangWrongKind;
+    }
+    auto attribute = llvm::dyn_cast<clang::UuidAttr>(clang::cxcursor::getCursorAttr(cursor));
+    if (!attribute) {
+        return WindowsClangWrongKind;
+    }
+    *uuid = clang::cxstring::createDup(attribute->getGuid());
+    return WindowsClangSuccess;
+}
+
+WindowsClangStatus windows_clang_getLanguageLinkage(
+    CXCursor cursor, WindowsClangLanguageLinkage* linkage) {
+    if (!linkage) {
+        return WindowsClangInvalidArgument;
+    }
+    if (!clang_isDeclaration(cursor.kind)) {
+        return WindowsClangWrongKind;
+    }
+    auto declaration = clang::cxcursor::getCursorDecl(cursor);
+    clang::LanguageLinkage value;
+    if (auto function = llvm::dyn_cast<clang::FunctionDecl>(declaration)) {
+        value = function->getLanguageLinkage();
+    } else if (auto variable = llvm::dyn_cast<clang::VarDecl>(declaration)) {
+        value = variable->getLanguageLinkage();
+    } else {
+        return WindowsClangWrongKind;
+    }
+    switch (value) {
+    case clang::NoLanguageLinkage: *linkage = WindowsClangNoLanguageLinkage; break;
+    case clang::CLanguageLinkage: *linkage = WindowsClangCLanguageLinkage; break;
+    case clang::CXXLanguageLinkage: *linkage = WindowsClangCXXLanguageLinkage; break;
+    }
+    return WindowsClangSuccess;
 }
 
 const char* windows_clang_getLLVMVersion(void) {
     return LLVM_VERSION_STRING;
+}
+
+WindowsClangStatus windows_clang_getIntegerConstantInitializer(
+    CXCursor cursor, unsigned* is_constant) {
+    if (!is_constant) {
+        return WindowsClangInvalidArgument;
+    }
+    if (!clang_isDeclaration(cursor.kind)) {
+        return WindowsClangWrongKind;
+    }
+    auto declaration = llvm::dyn_cast<clang::VarDecl>(clang::cxcursor::getCursorDecl(cursor));
+    if (!declaration) {
+        return WindowsClangWrongKind;
+    }
+    auto initializer = declaration->getInit();
+    *is_constant = initializer &&
+        initializer->isIntegerConstantExpr(clang::cxcursor::getCursorContext(cursor));
+    return WindowsClangSuccess;
 }
 
 const void* windows_clang_getRuntimeIdentity(void) {
@@ -152,6 +212,67 @@ WindowsClangStatus windows_clang_getTypedefDefinition(CXCursor cursor, unsigned*
     auto tag = declaration->getTypeSourceInfo()->getTypeLoc()
         .getUnqualifiedLoc().getAs<clang::TagTypeLoc>();
     *defines_tag = !tag.isNull() && tag.isDefinition();
+    return WindowsClangSuccess;
+}
+
+WindowsClangStatus windows_clang_getLayoutExpression(
+    CXCursor cursor, CXCursor expression, unsigned* is_layout_expression) {
+    if (!is_layout_expression) {
+        return WindowsClangInvalidArgument;
+    }
+    if (!clang_isExpression(expression.kind) ||
+        (cursor.kind != CXCursor_FieldDecl && cursor.kind != CXCursor_ParmDecl &&
+         cursor.kind != CXCursor_TypedefDecl && cursor.kind != CXCursor_TypeAliasDecl)) {
+        return WindowsClangWrongKind;
+    }
+    const auto* declaration = clang::cxcursor::getCursorDecl(cursor);
+    const auto* expr = clang::cxcursor::getCursorExpr(expression);
+    const clang::TypeSourceInfo* source = nullptr;
+    if (const auto* value = llvm::dyn_cast<clang::DeclaratorDecl>(declaration)) {
+        source = value->getTypeSourceInfo();
+    } else if (const auto* alias = llvm::dyn_cast<clang::TypedefNameDecl>(declaration)) {
+        source = alias->getTypeSourceInfo();
+    }
+    if (!source || !expr) {
+        return WindowsClangWrongKind;
+    }
+    auto matches = [expr](const clang::Expr* value) {
+        return value && value->IgnoreImplicit() == expr->IgnoreImplicit();
+    };
+    if (const auto* field = llvm::dyn_cast<clang::FieldDecl>(declaration)) {
+        if (field->isBitField() && matches(field->getBitWidth())) {
+            *is_layout_expression = 1;
+            return WindowsClangSuccess;
+        }
+    }
+    for (auto location = source->getTypeLoc(); !location.isNull();
+         location = location.getNextTypeLoc()) {
+        auto array = location.getAs<clang::ArrayTypeLoc>();
+        if (!array.isNull() && matches(array.getSizeExpr()) &&
+            llvm::isa<clang::ConstantArrayType>(array.getTypePtr()) &&
+            array.getTypePtr()->getSizeModifier() == clang::ArraySizeModifier::Normal &&
+            array.getTypePtr()->getIndexTypeQualifiers().empty()) {
+            *is_layout_expression = 1;
+            return WindowsClangSuccess;
+        }
+    }
+    *is_layout_expression = 0;
+    return WindowsClangSuccess;
+}
+
+WindowsClangStatus windows_clang_getFieldInitializer(CXCursor cursor, unsigned* has_initializer) {
+    if (!has_initializer) {
+        return WindowsClangInvalidArgument;
+    }
+    if (cursor.kind != CXCursor_FieldDecl) {
+        return WindowsClangWrongKind;
+    }
+    const auto* field = llvm::dyn_cast<clang::FieldDecl>(
+        clang::cxcursor::getCursorDecl(cursor));
+    if (!field) {
+        return WindowsClangWrongKind;
+    }
+    *has_initializer = field->hasInClassInitializer();
     return WindowsClangSuccess;
 }
 

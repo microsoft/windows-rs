@@ -58,6 +58,12 @@ struct WindowsClangAlignmentInfo {
     enum WindowsClangAlignmentKind kind;
 };
 
+enum WindowsClangLanguageLinkage {
+    WindowsClangNoLanguageLinkage = 0,
+    WindowsClangCLanguageLinkage = 1,
+    WindowsClangCXXLanguageLinkage = 2
+};
+
 WINDOWS_CLANG_API unsigned windows_clang_getABIVersion(void);
 WINDOWS_CLANG_API const char* windows_clang_getLLVMVersion(void);
 WINDOWS_CLANG_API const void* windows_clang_getRuntimeIdentity(void);
@@ -79,9 +85,23 @@ WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypeVisibility(
 // Whether a typedef's direct type specifier defines its underlying record or enum.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypedefDefinition(
     CXCursor cursor, unsigned* defines_tag);
+// Whether a child expression is a fixed array bound or bitfield width, not an initializer.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getLayoutExpression(
+    CXCursor declaration, CXCursor expression, unsigned* is_layout_expression);
+// Includes initializers that the stock cursor visitor omits, such as bitfield initializers.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getFieldInitializer(
+    CXCursor cursor, unsigned* has_initializer);
 // additional_properties flags prototype information that this structure does not decode.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getFunctionInfo(
     CXType type, struct WindowsClangFunctionInfo* info);
+// The caller owns the returned string and releases it with clang_disposeString.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getUuid(
+    CXCursor cursor, CXString* uuid);
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getLanguageLinkage(
+    CXCursor cursor, enum WindowsClangLanguageLinkage* linkage);
+// Unlike clang_Cursor_Evaluate, this rejects folding that ignores runtime side effects.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getIntegerConstantInitializer(
+    CXCursor cursor, unsigned* is_constant);
 
 #ifdef __cplusplus
 }

@@ -4,20 +4,55 @@ use super::*;
 use native::*;
 use windows_clang_sys::*;
 
+mod values;
+
 pub(super) fn read(
     unit: CXTranslationUnit,
     roots: &[String],
+    macros: &[String],
     snapshot: &mut Snapshot,
     partial: bool,
 ) -> Result<partial::Issues, Error> {
     let mut issues = partial::Issues::default();
     let declarations = declarations(unsafe { clang_getTranslationUnitCursor(unit) });
+    let mut expanded = HashMap::new();
+    for &cursor in &declarations {
+        if unsafe { clang_getCursorKind(cursor) } == CXCursor_MacroExpansion {
+            let name = text(unsafe { clang_getCursorSpelling(cursor) });
+            if macros.contains(&name) {
+                expanded.insert(name, unsafe { clang_getCursorReferenced(cursor) });
+            }
+        }
+    }
+    let probes = macros
+        .iter()
+        .enumerate()
+        .map(|(index, name)| {
+            let definition = expanded
+                .get(name)
+                .copied()
+                .ok_or_else(|| Error(format!("macro `{name}` has no native expansion evidence")))?;
+            if unsafe { clang_getCursorKind(definition) } != CXCursor_MacroDefinition
+                || unsafe { clang_Cursor_isMacroFunctionLike(definition) } != 0
+            {
+                return Err(Error(format!(
+                    "macro `{name}` is not an object-like definition"
+                )));
+            }
+            Ok((
+                format!("__windows_clang_macro_{index}"),
+                (name.clone(), definition),
+            ))
+        })
+        .collect::<Result<HashMap<_, _>, Error>>()?;
     let mut capture = Capture {
         declarations: HashMap::new(),
         pending: Vec::new(),
         records: HashMap::new(),
         aliases: HashMap::new(),
         enums: HashMap::new(),
+        values: HashMap::new(),
+        probes,
         types: HashMap::new(),
         files: HashMap::new(),
         partial,
@@ -27,7 +62,24 @@ pub(super) fn read(
     let mut all = Vec::new();
     for &cursor in &declarations {
         let name = text(unsafe { clang_getCursorSpelling(cursor) });
+        let name = capture
+            .probes
+            .get(&name)
+            .map_or(name.clone(), |(name, _)| name.clone());
         let kind = unsafe { clang_getCursorKind(cursor) };
+        if unsafe { clang_isPreprocessing(kind) } != 0 {
+            continue;
+        }
+        if matches!(kind, CXCursor_StructDecl | CXCursor_UnionDecl)
+            && matches!(
+                unsafe { clang_getCursorKind(clang_getCursorSemanticParent(cursor)) },
+                CXCursor_StructDecl | CXCursor_UnionDecl
+            )
+        {
+            let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
+            capture.declarations.entry(key).or_default().push(cursor);
+            continue;
+        }
         if !matches!(
             kind,
             CXCursor_StructDecl
@@ -35,13 +87,12 @@ pub(super) fn read(
                 | CXCursor_EnumDecl
                 | CXCursor_TypedefDecl
                 | CXCursor_TypeAliasDecl
+                | CXCursor_FunctionDecl
+                | CXCursor_VarDecl
         ) || name.is_empty()
         {
             if roots.is_empty() {
-                let error = unsupported(
-                    cursor,
-                    "expected a named record, enum, or type alias declaration",
-                );
+                let error = unsupported(cursor, "expected a supported global declaration");
                 if !partial {
                     return Err(error);
                 }
@@ -80,9 +131,9 @@ pub(super) fn read(
         all
     } else {
         let mut result = Vec::new();
-        for name in roots {
+        for name in roots.iter().chain(macros) {
             let Some(candidates) = names.get(name) else {
-                return Err(Error(format!("requested type `{name}` not found")));
+                return Err(Error(format!("requested declaration `{name}` not found")));
             };
             for &candidate in candidates {
                 if selected.insert(candidate) {
@@ -100,13 +151,27 @@ pub(super) fn read(
             DeclarationId::Record(capture.record(cursor.0)?)
         } else if unsafe { clang_getCursorKind(cursor.0) } == CXCursor_EnumDecl {
             DeclarationId::Enum(capture.enumeration(cursor.0)?)
+        } else if matches!(
+            unsafe { clang_getCursorKind(cursor.0) },
+            CXCursor_FunctionDecl | CXCursor_VarDecl
+        ) {
+            DeclarationId::Value(capture.value(cursor.0)?)
         } else {
             DeclarationId::Alias(capture.alias(cursor.0)?)
         };
         capture.snapshot.roots.push(declaration);
     }
     while let Some(key) = capture.pending.pop() {
-        for cursor in capture.declarations.remove(&key).unwrap() {
+        let observations = capture.declarations.remove(&key).unwrap_or_else(|| {
+            panic!(
+                "{}",
+                unsupported(
+                    key.0,
+                    "queued declaration has no observation catalogue entry"
+                )
+            )
+        });
+        for cursor in observations {
             let (id, result) = if let Some(&record) = capture.records.get(&key) {
                 (
                     DeclarationId::Record(record),
@@ -116,6 +181,11 @@ pub(super) fn read(
                 (
                     DeclarationId::Enum(enumeration),
                     capture.enum_observation(enumeration, cursor),
+                )
+            } else if let Some(&value) = capture.values.get(&key) {
+                (
+                    DeclarationId::Value(value),
+                    capture.value_observation(value, cursor),
                 )
             } else {
                 let alias = capture.aliases[&key];
@@ -153,6 +223,8 @@ fn declarations(cursor: CXCursor) -> Vec<CXCursor> {
 struct Capture<'a> {
     declarations: HashMap<Cursor, Vec<CXCursor>>,
     pending: Vec<Cursor>,
+    values: HashMap<Cursor, ValueId>,
+    probes: HashMap<String, (String, CXCursor)>,
     records: HashMap<Cursor, RecordId>,
     aliases: HashMap<Cursor, AliasId>,
     enums: HashMap<Cursor, EnumId>,
@@ -286,10 +358,54 @@ impl Capture<'_> {
     }
 
     fn record(&mut self, cursor: CXCursor) -> Result<RecordId, Error> {
+        if !matches!(
+            unsafe { clang_getCursorKind(cursor) },
+            CXCursor_StructDecl | CXCursor_UnionDecl
+        ) {
+            return Err(unsupported(
+                cursor,
+                "expected a struct or union declaration",
+            ));
+        }
         let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
         if let Some(&id) = self.records.get(&key) {
             return Ok(id);
         }
+        let parent = unsafe { clang_getCursorSemanticParent(cursor) };
+        let owner = if matches!(
+            unsafe { clang_getCursorKind(parent) },
+            CXCursor_StructDecl | CXCursor_UnionDecl
+        ) {
+            let record = self.record(parent)?;
+            let field = if unsafe { clang_Cursor_isAnonymous(cursor) } != 0 {
+                let definition = unsafe { clang_getCursorDefinition(parent) };
+                Some(
+                    record_fields(definition)
+                        .iter()
+                        .position(|field| {
+                            contains_record(unsafe { clang_getCursorType(*field) }, key)
+                        })
+                        .ok_or_else(|| {
+                            unsupported(cursor, "unnamed nested record has no owning field")
+                        })?,
+                )
+            } else {
+                None
+            };
+            let declarations = self.declarations.entry(key).or_default();
+            for cursor in [cursor, unsafe { clang_getCursorDefinition(cursor) }] {
+                if unsafe { clang_Cursor_isNull(cursor) } == 0
+                    && !declarations
+                        .iter()
+                        .any(|existing| Cursor(*existing) == Cursor(cursor))
+                {
+                    declarations.push(cursor);
+                }
+            }
+            Some(RecordOwner { record, field })
+        } else {
+            None
+        };
         if !self.declarations.contains_key(&key) {
             return Err(unsupported(
                 cursor,
@@ -302,8 +418,13 @@ impl Capture<'_> {
         }
         let id = RecordId(self.snapshot.records.len());
         self.snapshot.records.push(Record {
-            name: text(unsafe { clang_getCursorSpelling(cursor) }),
+            name: if owner.is_some_and(|owner| owner.field.is_some()) {
+                String::new()
+            } else {
+                text(unsafe { clang_getCursorSpelling(cursor) })
+            },
             usr,
+            owner,
             kind: if unsafe { clang_getCursorKind(cursor) } == CXCursor_UnionDecl {
                 RecordKind::Union
             } else {
@@ -319,26 +440,118 @@ impl Capture<'_> {
     fn observation(&mut self, record: RecordId, cursor: CXCursor) -> Result<(), Error> {
         let mut attributes = Vec::new();
         let definition = if unsafe { clang_isCursorDefinition(cursor) } != 0 {
+            let native_fields = record_fields(cursor);
             let mut fields = Vec::new();
-            for field in children(cursor) {
-                if unsafe { clang_isAttribute(clang_getCursorKind(field)) } != 0 {
-                    attributes.push(self.attribute(field)?);
+            let mut bases = Vec::new();
+            let mut methods = Vec::new();
+            let mut member_templates = Vec::new();
+            for child in children(cursor) {
+                let kind = unsafe { clang_getCursorKind(child) };
+                if unsafe { clang_isAttribute(kind) } != 0 {
+                    attributes.push(self.attribute(child)?);
                     continue;
                 }
-                if unsafe { clang_getCursorKind(field) } != CXCursor_FieldDecl {
+                if matches!(kind, CXCursor_StructDecl | CXCursor_UnionDecl) {
+                    self.record(child)?;
+                    continue;
+                }
+                if kind == CXCursor_TypeRef && owner_reference(cursor, child) {
+                    continue;
+                }
+                if kind == CXCursor_CXXAccessSpecifier {
+                    continue;
+                }
+                if kind == CXCursor_CXXBaseSpecifier {
+                    if unsafe { clang_isVirtualBase(child) } != 0
+                        || unsafe { clang_getCXXAccessSpecifier(child) } != CX_CXXPublic
+                    {
+                        return Err(unsupported(
+                            child,
+                            "only public non-virtual bases are supported",
+                        ));
+                    }
+                    bases.push(self.record(unsafe {
+                        clang_getTypeDeclaration(clang_getCanonicalType(clang_getCursorType(child)))
+                    })?);
+                    continue;
+                }
+                if kind == CXCursor_FunctionTemplate
+                    && unsafe { clang_getTemplateCursorKind(child) } == CXCursor_CXXMethod
+                {
+                    member_templates.push(MemberTemplate {
+                        name: text(unsafe { clang_getCursorSpelling(child) }),
+                        usr: text(unsafe { clang_getCursorUSR(child) }),
+                        location: self.location(child),
+                    });
+                    continue;
+                }
+                if kind == CXCursor_CXXMethod {
+                    if unsafe { clang_CXXMethod_isPureVirtual(child) } == 0
+                        || unsafe { clang_getCXXAccessSpecifier(child) } != CX_CXXPublic
+                    {
+                        return Err(unsupported(
+                            child,
+                            "only public pure virtual methods are supported",
+                        ));
+                    }
+                    let mut overridden = std::ptr::null_mut();
+                    let mut count = 0;
+                    unsafe {
+                        clang_getOverriddenCursors(child, &raw mut overridden, &raw mut count);
+                        clang_disposeOverriddenCursors(overridden);
+                    }
+                    if count != 0 {
+                        return Err(unsupported(
+                            child,
+                            "overridden virtual methods are unsupported",
+                        ));
+                    }
+                    methods.push(Method {
+                        name: text(unsafe { clang_getCursorSpelling(child) }),
+                        observation: self.function_observation(child)?,
+                    });
+                    continue;
+                }
+                if kind != CXCursor_FieldDecl {
                     return Err(unsupported(
                         cursor,
                         &format!(
                             "only fields are supported in `{}`: {} `{}`",
                             text(unsafe { clang_getCursorSpelling(cursor) }),
-                            text(unsafe {
-                                clang_getCursorKindSpelling(clang_getCursorKind(field))
-                            }),
-                            text(unsafe { clang_getCursorSpelling(field) }),
+                            text(unsafe { clang_getCursorKindSpelling(kind) }),
+                            text(unsafe { clang_getCursorSpelling(child) }),
                         ),
                     ));
                 }
-                let name = text(unsafe { clang_getCursorSpelling(field) });
+            }
+            for field in native_fields {
+                if matches!(
+                    unsafe { clang_getCXXAccessSpecifier(field) },
+                    CX_CXXPrivate | CX_CXXProtected
+                ) {
+                    return Err(unsupported(field, "non-public fields are unsupported"));
+                }
+                let ty = unsafe { clang_getCursorType(field) };
+                if unsafe { clang_getCanonicalType(ty) }.kind == CXType_LValueReference {
+                    return Err(unsupported(
+                        field,
+                        &format!(
+                            "unsupported type `{}` in a record field",
+                            text(unsafe { clang_getTypeSpelling(ty) })
+                        ),
+                    ));
+                }
+                let anonymous = unsafe {
+                    clang_Cursor_isAnonymousRecordDecl(clang_getTypeDeclaration(ty)) != 0
+                };
+                let name = if anonymous {
+                    String::new()
+                } else {
+                    text(unsafe { clang_getCursorSpelling(field) })
+                };
+                if field_initializer(field)? {
+                    return Err(unsupported(field, "field initializers are unsupported"));
+                }
                 let bit_width = if unsafe { clang_Cursor_isBitField(field) } != 0 {
                     Some(
                         unsafe { clang_getFieldDeclBitWidth(field) }
@@ -348,10 +561,9 @@ impl Capture<'_> {
                 } else {
                     None
                 };
-                if name.is_empty() && bit_width.is_none() {
+                if name.is_empty() && bit_width.is_none() && !anonymous {
                     return Err(unsupported(field, "unnamed field"));
                 }
-                let ty = unsafe { clang_getCursorType(field) };
                 fields.push(Field {
                     name,
                     location: self.location(field),
@@ -368,6 +580,9 @@ impl Capture<'_> {
                 layout: layout(unsafe { clang_getCursorType(cursor) })
                     .map_err(|reason| unsupported(cursor, reason))?,
                 fields,
+                bases,
+                methods,
+                member_templates,
             })
         } else {
             attributes = self.attributes(cursor)?;
@@ -394,6 +609,23 @@ impl Capture<'_> {
         let name = unsafe { std::ffi::CStr::from_ptr(name) }.to_string_lossy();
         let kind = match name.as_ref() {
             "Packed" => AttributeKind::Packed,
+            "MSNoVTable" => AttributeKind::NoVTable,
+            "DLLImport" => AttributeKind::DllImport,
+            "Uuid" => {
+                let mut uuid = CXString::default();
+                let status = unsafe { windows_clang_getUuid(cursor, &raw mut uuid) };
+                if status != WindowsClangSuccess {
+                    return Err(unsupported(cursor, &format!("UUID query failed: {status}")));
+                }
+                let uuid = text(uuid);
+                let digits = uuid.trim_matches(['{', '}']).replace('-', "");
+                let value = u128::from_str_radix(&digits, 16)
+                    .map_err(|_| unsupported(cursor, "invalid native UUID payload"))?;
+                if digits.len() != 32 {
+                    return Err(unsupported(cursor, "invalid native UUID width"));
+                }
+                AttributeKind::Uuid(value)
+            }
             "TypeVisibility" => {
                 let mut visibility = CXVisibility_Invalid;
                 let status =
@@ -477,29 +709,23 @@ impl Capture<'_> {
                         "attributed callback parameter is unsupported",
                     ));
                 }
-            } else if !matches!(kind, CXCursor_TypeRef | CXCursor_IntegerLiteral)
-                && !(unsafe { clang_Cursor_isBitField(cursor) } != 0
-                    && unsafe { clang_isExpression(kind) } != 0)
+            } else if kind != CXCursor_TypeRef
+                && !(unsafe { clang_isExpression(kind) } != 0 && layout_expression(cursor, child)?)
             {
                 let is_underlying_record = unsafe {
                     if matches!(
                         clang_getCursorKind(cursor),
-                        CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
+                        CXCursor_TypedefDecl | CXCursor_TypeAliasDecl | CXCursor_FieldDecl
                     ) && matches!(
                         kind,
                         CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_EnumDecl
                     ) {
-                        let mut ty =
-                            clang_getCanonicalType(clang_getTypedefDeclUnderlyingType(cursor));
-                        loop {
-                            ty = match ty.kind {
-                                CXType_Pointer => clang_getPointeeType(ty),
-                                CXType_ConstantArray => clang_getArrayElementType(ty),
-                                _ => break,
-                            };
-                        }
-                        Cursor(clang_getCanonicalCursor(child))
-                            == Cursor(clang_getCanonicalCursor(clang_getTypeDeclaration(ty)))
+                        let ty = if clang_getCursorKind(cursor) == CXCursor_FieldDecl {
+                            clang_getCursorType(cursor)
+                        } else {
+                            clang_getTypedefDeclUnderlyingType(cursor)
+                        };
+                        contains_record(ty, Cursor(clang_getCanonicalCursor(child)))
                     } else {
                         false
                     }
@@ -559,6 +785,8 @@ impl Capture<'_> {
                 CXType_SChar => TypeKind::Scalar(Scalar::SignedChar),
                 CXType_UChar => TypeKind::Scalar(Scalar::UnsignedChar),
                 CXType_WChar => TypeKind::Scalar(Scalar::WChar),
+                CXType_Char16 => TypeKind::Scalar(Scalar::Char16),
+                CXType_Char32 => TypeKind::Scalar(Scalar::Char32),
                 CXType_Short => TypeKind::Scalar(Scalar::Short),
                 CXType_UShort => TypeKind::Scalar(Scalar::UnsignedShort),
                 CXType_Int => TypeKind::Scalar(Scalar::Int),
@@ -601,6 +829,9 @@ impl Capture<'_> {
                         modified: self.ty(clang_Type_getModifiedType(ty), cursor)?,
                         equivalent: self.ty(clang_getCanonicalType(ty), cursor)?,
                     }
+                }
+                CXType_LValueReference => {
+                    TypeKind::LValueReference(self.ty(clang_getPointeeType(ty), cursor)?)
                 }
                 CXType_FunctionProto => {
                     let mut info = WindowsClangFunctionInfo::default();
@@ -682,7 +913,11 @@ impl Capture<'_> {
                 volatile: qualifiers & WindowsClangVolatile as u32 != 0,
                 restrict: qualifiers & WindowsClangRestrict as u32 != 0,
             },
-            layout: if matches!(canonical.kind, CXType_Void | CXType_FunctionProto) || incomplete {
+            layout: if matches!(
+                canonical.kind,
+                CXType_Void | CXType_FunctionProto | CXType_LValueReference
+            ) || incomplete
+            {
                 None
             } else {
                 Some(layout(ty).map_err(|reason| unsupported(cursor, reason))?)

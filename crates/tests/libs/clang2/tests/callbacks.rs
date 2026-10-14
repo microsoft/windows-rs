@@ -81,10 +81,14 @@ fn cross_tu_names() {
     let partial = projection::generate_partial(&inputs, "Fixture").unwrap();
     assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
     assert_eq!(first, partial.output);
-    let error = projection::generate(&inputs[1..], "Fixture")
-        .unwrap_err()
-        .to_string();
-    assert!(error.contains("no named callback declaration"), "{error}");
+    let inline = projection::generate(&inputs[1..], "Fixture").unwrap();
+    assert_eq!((inline.records, inline.aliases), (3, 0));
+    assert_eq!(
+        inline.partitions["callback_lookup"].rdl,
+        std::fs::read_to_string(test_clang2::input_dir().join("callback_lookup_inline.rdl"))
+            .unwrap()
+            .replace("\r\n", "\n")
+    );
 }
 
 fn roundtrip() {
@@ -252,7 +256,7 @@ fn conflicts() {
 fn rejections() {
     let input = selected_fixture("callback_rejections", &[]);
     let result = projection::generate_partial(&[input], "Fixture").unwrap();
-    assert_eq!((result.output.records, result.output.aliases), (2, 1));
+    assert_eq!((result.output.records, result.output.aliases), (3, 2));
     for name in [
         "Broken",
         "BadResult",
@@ -272,8 +276,6 @@ fn rejections() {
         "RegisterUser",
         "Volatile",
         "VolatileUser",
-        "UnnamedNested",
-        "UnnamedUser",
     ] {
         assert!(
             result

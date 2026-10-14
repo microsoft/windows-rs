@@ -12,6 +12,7 @@ pub const ELEMENT_TYPE_CHAR: CorElementType = 3;
 pub const ELEMENT_TYPE_CLASS: CorElementType = 18;
 pub const ELEMENT_TYPE_CMOD_OPT: CorElementType = 32;
 pub const ELEMENT_TYPE_CMOD_REQD: CorElementType = 31;
+pub const ELEMENT_TYPE_FNPTR: CorElementType = 27;
 pub const ELEMENT_TYPE_GENERICINST: CorElementType = 21;
 pub const ELEMENT_TYPE_I: CorElementType = 24;
 pub const ELEMENT_TYPE_I1: CorElementType = 4;

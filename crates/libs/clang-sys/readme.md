@@ -34,5 +34,11 @@ It does not supply a complete normalized type model: callers must also inspect o
 type queries, attributed types, and additional property flags before accepting a signature.
 The typedef-definition query exposes whether a direct type specifier defines its record or enum,
 so consumers can distinguish defining typedefs from later aliases without parsing spelling.
+Layout-expression queries distinguish evaluated array bounds and bitfield widths from unrelated
+expressions. The field-initializer query also detects initializers hidden from cursor traversal.
+UUID and language-linkage queries expose semantic payloads without parsing declaration spelling.
+The integer constant-initializer query rejects runtime side effects that libclang's general
+expression folding can ignore. UUID results are owned `CXString` values; release them with
+`clang_disposeString`.
 
 See the [crate notes](../../../docs/crates/windows-clang-sys.md) for generation and maintenance.

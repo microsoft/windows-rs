@@ -8,6 +8,8 @@ pub(super) struct Plan {
     pub enum_names: Vec<String>,
     pub enum_aliases: Vec<Option<usize>>,
     pub callbacks: Vec<HashMap<TypeId, String>>,
+    pub owned: Vec<bool>,
+    pub children: Vec<Vec<Vec<RecordId>>>,
     enum_primary: Vec<Option<usize>>,
     enum_headers: Vec<BTreeSet<String>>,
     primary: Vec<Option<usize>>,
@@ -52,6 +54,7 @@ impl Plan {
                     let ty = &snapshot.types[observation.canonical.0];
                     if let TypeKind::Record(id) = ty.kind
                         && ty.qualifiers == Qualifiers::default()
+                        && snapshot.records[id.0].owner.is_none()
                     {
                         Some(groups[reference.snapshot][id.0])
                     } else {
@@ -62,20 +65,30 @@ impl Plan {
             if let Some(records) = records {
                 let first = records[0];
                 for &other in &records[1..] {
-                    let mut a = root(&mut parents, first);
-                    let mut b = root(&mut parents, other);
-                    if a != b {
-                        if sizes[a] < sizes[b] {
-                            std::mem::swap(&mut a, &mut b);
-                        }
-                        parents[b] = a;
-                        sizes[a] += sizes[b];
-                    }
+                    join(&mut parents, &mut sizes, first, other);
                 }
                 aliases.push(Some(first));
             } else {
                 aliases.push(None);
             }
+        }
+        let mut owned_groups = BTreeMap::new();
+        let mut owned = vec![false; count];
+        let mut children = Vec::new();
+        for (snapshot_id, snapshot) in resolution.snapshots.iter().enumerate() {
+            let mut nested = vec![Vec::new(); snapshot.records.len()];
+            for (id, record) in snapshot.records.iter().enumerate() {
+                let Some(owner) = record.owner else { continue };
+                nested[owner.record.0].push(RecordId(id));
+                let group = groups[snapshot_id][id];
+                owned[group] = true;
+                let (owner, path) = snapshot.record_path(RecordId(id));
+                let family = root(&mut parents, groups[snapshot_id][owner.0]);
+                if let Some(other) = owned_groups.insert((family, path), group) {
+                    join(&mut parents, &mut sizes, group, other);
+                }
+            }
+            children.push(nested);
         }
         for id in 0..count {
             parents[id] = root(&mut parents, id);
@@ -93,7 +106,8 @@ impl Plan {
             if let Some(&first) = family.first()
                 && names[id].is_empty()
             {
-                names[id] = resolution.name(&resolution.groups[first]).to_string();
+                let reference = resolution.groups[first].records[0];
+                names[id] = resolution.snapshots[reference.snapshot].record_label(reference.record);
             }
         }
         let mut enum_headers = vec![BTreeSet::new(); resolution.enums.len()];
@@ -143,9 +157,38 @@ impl Plan {
             enum_primary,
             enum_headers,
             callbacks: Vec::new(),
+            owned,
+            children,
         };
         plan.validate(resolution)?;
         plan.primary_names(resolution)?;
+        for (id, family) in plan.families.iter().enumerate() {
+            if !plan.owned[id] || family.is_empty() {
+                continue;
+            }
+            let reference = resolution.groups[family[0]].records[0];
+            let snapshot = resolution.snapshots[reference.snapshot];
+            let (owner, path) = snapshot.record_path(reference.record);
+            let mut name = plan.names[plan.family(reference.snapshot, owner)].clone();
+            for member in path {
+                let leaf = match member {
+                    RecordMember::Named(name) => name,
+                    RecordMember::Anonymous(field) => {
+                        format!("{}_{field}", name.rsplit('/').next().unwrap())
+                    }
+                };
+                name.push('/');
+                name.push_str(&leaf);
+            }
+            plan.names[id] = name;
+        }
+        for (snapshot, children) in plan.children.iter_mut().enumerate() {
+            for children in children {
+                children.sort_by_key(|record| {
+                    &plan.names[plan.parents[plan.groups[snapshot][record.0]]]
+                });
+            }
+        }
         plan.callbacks = plan.callback_names(resolution);
         Ok(plan)
     }
@@ -188,7 +231,7 @@ impl Plan {
             }
         }
         for (id, family) in self.families.iter().enumerate() {
-            if family.is_empty() {
+            if family.is_empty() || self.owned[id] {
                 continue;
             }
             let candidates = if defining[id].is_empty() && family.len() > 1 {
@@ -362,7 +405,24 @@ impl Plan {
                     != resolution.snapshots[b.snapshot].records[right.record.0].kind
                     || x.layout != y.layout
                     || x.fields.len() != y.fields.len()
+                    || x.bases.len() != y.bases.len()
+                    || x.methods.len() != y.methods.len()
                     || !abi_attributes_equal(&left.attributes, &right.attributes)
+                    || !x
+                        .bases
+                        .iter()
+                        .zip(&y.bases)
+                        .all(|(&x, &y)| self.family(a.snapshot, x) == self.family(b.snapshot, y))
+                    || !x.methods.iter().zip(&y.methods).all(|(x, y)| {
+                        x.name == y.name
+                            && resolve::value_shape_equal(&x.observation, &y.observation, false)
+                            && self.same_type(
+                                resolution,
+                                (a.snapshot, x.observation.canonical),
+                                (b.snapshot, y.observation.canonical),
+                                &mut seen,
+                            )
+                    })
                     || !x.fields.iter().zip(&y.fields).all(|(x, y)| {
                         x.name == y.name
                             && x.offset_bits == y.offset_bits
@@ -442,6 +502,18 @@ fn root(parents: &mut [usize], mut id: usize) -> usize {
         id = parents[id];
     }
     id
+}
+
+fn join(parents: &mut [usize], sizes: &mut [usize], a: usize, b: usize) {
+    let mut a = root(parents, a);
+    let mut b = root(parents, b);
+    if a != b {
+        if sizes[a] < sizes[b] {
+            std::mem::swap(&mut a, &mut b);
+        }
+        parents[b] = a;
+        sizes[a] += sizes[b];
+    }
 }
 
 fn owners(name: &str, headers: BTreeSet<String>) -> Result<BTreeSet<String>, Error> {

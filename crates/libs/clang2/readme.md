@@ -21,7 +21,7 @@ Supply the matched `windows-clang-sys` DLL pair through `LIBCLANG_PATH` or its l
 record definitions from the same target and compiler configuration, retaining original observations
 and completion decisions.
 
-`Input.arguments` supplies include paths and compiler flags. `Input.roots` selects global type
+`Input.arguments` supplies include paths and compiler flags. `Input.roots` selects global declaration
 names and their transitive dependencies within each TU; empty selects all declarations. Missing
 roots and unsupported reachable declarations fail. `merge` reconciles each target, then groups
 native identities with separate target layouts and type graphs. An unobserved target is not proof
@@ -33,27 +33,50 @@ libclang callers must not create indices during a batch. Native hangs affect the
 Supported: named structs, unions, and integer-backed enums; typedefs, non-template `using` aliases,
 forwards, scalars, qualified pointers, arrays, pragma packing, explicit record alignment, and
 plain C/stdcall callback prototypes. Written aliases and attributed calling conventions are retained.
+Fixed array extents are compiler-evaluated; array callback parameters use native pointer adjustment.
+Default field initializers remain unsupported, including initializers hidden from cursor traversal.
 Native record compatibility uses canonical types. Alias groups retain all name-corresponding
 bindings; their public compatibility is checked during projection, not assumed by native merge.
 Unresolved attributes block `resolve` and `merge`. No packing request is guessed from layout.
-Nested records and exported function declarations are not implemented.
+Named and anonymous nested records retain owner-relative identity, including shared types and
+out-of-line definitions. RDL preserves their scope through inline fields or nested declarations
+and references such as `Outer::Inner`. Nested enums and aliases declared inside records remain
+unsupported.
 Callback capture checks native function properties before accepting a prototype. Explicit
 `regparm`, `noreturn`, variadic or exception-qualified functions, other calling conventions, and
 unknown attributes remain unsupported rather than being normalized to ordinary C.
 The native qualifier query rejects `__unaligned` and other non-CVR qualifiers before interning,
 including qualifiers inherited through typedefs.
 Default type visibility is retained and compared as native evidence. It needs no metadata
-attribute for the supported records and enums, which do not project C++ RTTI or vtables.
+attribute for plain records and enums. Interface publication handles its own vtable contract;
+C++ RTTI is not projected.
 Hidden/protected type visibility and ordinary symbol visibility remain unsupported.
 
 The optional `projection` feature provides `projection::generate(inputs, namespace)` for
 three-target capture, merge, and partitioned RDL output. It emits structs, unions, enums, constants,
 value typedefs, and named callbacks, checks metadata ABI layout, and rejects unsupported declarations
 or ambiguous names. Callback signatures retain calling convention, result and parameter types;
-parameter names are positional. Nested function pointers require a named callback declaration.
+parameter names are positional on named callbacks. Unnamed signatures have structural function types.
 Written value-typedef and callback names are preserved in fields and callback signatures, including
 their dependencies. Alias declarations retain canonical storage types. Unnamed function pointers
 use compatible callback names resolved across the target, independent of the representative TU.
+Without a compatible name they use inline `extern "C" fn(...)` or `extern fn(...)` types, encoded
+as ECMA-335 `FNPTR` signatures. No public callback names are synthesized.
+
+External C-linkage functions retain native signatures, parameter names, and mangling.
+`project_with_imports` and `project_partial_with_imports` take explicit DLL/export ownership;
+it is not guessed from headers. UUID-bearing, single-vptr interfaces support a public non-virtual
+base and ordered public pure virtual methods with the platform COM convention. C++ lvalue
+reference parameters preserve constness through metadata byrefs. Non-vtable member templates
+remain provenance, not exported methods or a claim of full C++ compatibility.
+
+Const integer declarations and explicitly selected `Input::macros` use compiler evaluation.
+Macros are evaluated after the input and retain native definition ownership. A constant-expression
+check rejects runtime side effects that libclang's general folding API may ignore. This slice
+does not implement string macros, general initializers, automatic macro discovery, or broad SAL
+annotation decoding. The header/RDL fixtures and SDK breadth test cover all three categories
+through x86, x64, and ARM64 WinMD round trips.
+
 All same-target record and callback observations must agree on their public names after native
 compatibility is checked; conflicting names are errors, including in partial mode.
 Requested packing is emitted as `#[packed(N)]`, including requests with no visible layout effect.
@@ -78,6 +101,8 @@ constants must agree in native backing type and value; architectures can retain 
 Type and constant names occupy separate publication namespaces. Typedef-named enums remain enums;
 references to otherwise unnamed enum types are rejected rather than replaced with integers.
 Mixed const/mutable pointer chains retain per-level qualifiers through RDL and WinMD.
+`char16_t` and `char32_t` project to `u16` and `u32`, while native reconciliation keeps their
+identities distinct from other equal-sized integer types.
 By-value aliases can connect distinct native records only after their definitions are checked.
 A single native record or enum uses its unique defining value typedef as its public name; with
 zero or multiple defining typedefs it retains its native tag. A multi-record family requires a

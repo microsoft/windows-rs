@@ -9,6 +9,7 @@ use windows_rdl::emit::{write_ident, write_type, write_value};
 
 mod bitfields;
 mod plan;
+mod values;
 use plan::Plan;
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
@@ -27,6 +28,15 @@ pub struct Output {
     /// Published aliases, including named callback declarations.
     pub aliases: usize,
     pub constants: usize,
+    pub functions: usize,
+    pub interfaces: usize,
+}
+
+/// DLL/export ownership is publication input, not a property inferred from a header or C symbol.
+#[derive(Clone, Debug)]
+pub struct Import {
+    pub library: String,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -45,6 +55,14 @@ pub fn generate_partial(inputs: &[Input], namespace: &str) -> Result<PartialOutp
 
 /// Projects an existing partial capture without reparsing its headers.
 pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<PartialOutput, Error> {
+    project_partial_with_imports(captured, namespace, &BTreeMap::new())
+}
+
+pub fn project_partial_with_imports(
+    captured: PartialCapture,
+    namespace: &str,
+    imports: &BTreeMap<String, Import>,
+) -> Result<PartialOutput, Error> {
     let mut snapshots = captured.snapshots;
     let published_aliases: HashSet<_> = snapshots
         .iter()
@@ -69,13 +87,14 @@ pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<Part
         snapshot.records.len()
             + snapshot.aliases.len()
             + snapshot.enums.len()
+            + snapshot.values.len()
             + snapshot.roots.len()
     };
     loop {
         let remaining: usize = snapshots.iter().map(count).sum();
         let merged = merge(&snapshots).map_err(|error| Error(format!("merge: {error}")))?;
         let mut rejected = partial::Issues::default();
-        let output = project_impl(&merged, namespace, Some(&mut rejected))
+        let output = project_impl(&merged, namespace, imports, Some(&mut rejected))
             .map_err(|error| Error(format!("projection: {error}")))?;
         if rejected.excluded.is_empty() {
             return Ok(PartialOutput {
@@ -85,7 +104,9 @@ pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<Part
         }
         for (key, reason) in rejected.excluded {
             match &key {
-                partial::Key::Tag(_) => issues.reject(key, format!("projection: {reason}")),
+                partial::Key::Tag(_) | partial::Key::Nested(_, _) | partial::Key::Value(_) => {
+                    issues.reject(key, format!("projection: {reason}"));
+                }
                 partial::Key::Alias(name) => {
                     if published_aliases.contains(name) {
                         issues.reject(key, format!("projection: {reason}"));
@@ -95,7 +116,9 @@ pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<Part
                     for snapshot in &mut snapshots {
                         snapshot.roots.retain(|id| match id {
                             DeclarationId::Alias(id) => &snapshot.aliases[id.0].name != name,
-                            DeclarationId::Record(_) | DeclarationId::Enum(_) => true,
+                            DeclarationId::Record(_)
+                            | DeclarationId::Enum(_)
+                            | DeclarationId::Value(_) => true,
                         });
                     }
                     issues
@@ -125,12 +148,21 @@ pub fn generate(inputs: &[Input], namespace: &str) -> Result<Output, Error> {
 /// Checked by-value alias families share a public record, without merging native identities.
 /// Other reachable value names remain transparent aliases. Shared ownership uses foundation.rdl.
 pub fn project(merged: &Merged<'_>, namespace: &str) -> Result<Output, Error> {
-    project_impl(merged, namespace, None)
+    project_with_imports(merged, namespace, &BTreeMap::new())
+}
+
+pub fn project_with_imports(
+    merged: &Merged<'_>,
+    namespace: &str,
+    imports: &BTreeMap<String, Import>,
+) -> Result<Output, Error> {
+    project_impl(merged, namespace, imports, None)
 }
 
 fn project_impl(
     merged: &Merged<'_>,
     namespace: &str,
+    imports: &BTreeMap<String, Import>,
     mut rejected: Option<&mut partial::Issues>,
 ) -> Result<Output, Error> {
     if merged.targets.keys().copied().collect::<Vec<_>>() != TARGETS {
@@ -149,7 +181,7 @@ fn project_impl(
         .flat_map(|snapshot| {
             snapshot.roots.iter().filter_map(|root| match root {
                 DeclarationId::Alias(alias) => Some(snapshot.aliases[alias.0].name.as_str()),
-                DeclarationId::Record(_) | DeclarationId::Enum(_) => None,
+                DeclarationId::Record(_) | DeclarationId::Enum(_) | DeclarationId::Value(_) => None,
             })
         })
         .collect();
@@ -162,9 +194,57 @@ fn project_impl(
             plan: &plan,
         };
         let mut published = HashSet::new();
-        let mut constants: HashMap<&str, (&Type, &EnumValue)> = HashMap::new();
+        let mut constants = HashMap::new();
+        for value in &resolution.values {
+            let key = partial::Key::Value(value.name.clone());
+            let first = value.observations[0];
+            let snapshot = resolution.snapshots[first.snapshot];
+            let observation = &snapshot.values[first.value.0].observations[first.observation];
+            let kind = match &observation.kind {
+                ValueKind::Function { .. } => PublishedKind::Function,
+                ValueKind::Constant { value: number, .. } => {
+                    values::check_constant(
+                        &mut constants,
+                        target,
+                        &value.name,
+                        &snapshot.types[observation.canonical.0],
+                        number,
+                    )?;
+                    PublishedKind::Constant
+                }
+            };
+            let mut headers = BTreeSet::new();
+            let bodies = value
+                .observations
+                .iter()
+                .map(|reference| {
+                    let snapshot = resolution.snapshots[reference.snapshot];
+                    let observation =
+                        &snapshot.values[reference.value.0].observations[reference.observation];
+                    headers.insert(snapshot.files[observation.location.file.0].clone());
+                    projector.value(reference.snapshot, observation, &value.name, imports)
+                })
+                .collect::<Result<Vec<_>, _>>();
+            if let Ok(bodies) = &bodies {
+                agree(&value.name, target, bodies)?;
+            }
+            match bodies {
+                Ok(bodies) => {
+                    publish(
+                        &mut declarations,
+                        target,
+                        &value.name,
+                        bodies.into_iter().next().unwrap(),
+                        headers,
+                        vec![key],
+                        kind,
+                    )?;
+                }
+                Err(error) => reject(&mut rejected, [key], error)?,
+            }
+        }
         for (id, family) in plan.families.iter().enumerate() {
-            if family.is_empty() {
+            if family.is_empty() || plan.owned[id] {
                 continue;
             }
             let name = &plan.names[id];
@@ -174,7 +254,11 @@ fn project_impl(
             let keys: Vec<_> = family
                 .iter()
                 .map(|group| {
-                    partial::Key::Tag(resolution.name(&resolution.groups[*group]).to_string())
+                    let reference = resolution.groups[*group].records[0];
+                    partial::Key::of(
+                        resolution.snapshots[reference.snapshot],
+                        DeclarationId::Record(reference.record),
+                    )
                 })
                 .collect();
             let mut bodies = Vec::new();
@@ -188,6 +272,7 @@ fn project_impl(
                                 reference.snapshot,
                                 observation,
                                 &ident(name)?,
+                                false,
                             ));
                         }
                     }
@@ -213,7 +298,22 @@ fn project_impl(
                         body,
                         header,
                         keys,
-                        PublishedKind::Record,
+                        if family.iter().any(|group| {
+                            resolution.groups[*group]
+                                .definition
+                                .is_some_and(|reference| {
+                                    let definition = resolution.snapshots[reference.snapshot]
+                                        .observations[reference.observation.0]
+                                        .definition
+                                        .as_ref()
+                                        .unwrap();
+                                    !definition.methods.is_empty() || !definition.bases.is_empty()
+                                })
+                        }) {
+                            PublishedKind::Interface
+                        } else {
+                            PublishedKind::Record
+                        },
                     )?;
                 }
                 Err(error) => reject(&mut rejected, keys, error)?,
@@ -256,16 +356,13 @@ fn project_impl(
                 for (member, (member_name, value)) in
                     observation.members.as_ref().unwrap().iter().zip(fields)
                 {
-                    let native = (&snapshot.types[observation.canonical.0], &member.value);
-                    if constants
-                        .insert(&member.name, native)
-                        .is_some_and(|old| old != native)
-                    {
-                        return Err(Error(format!(
-                            "conflicting native definitions for constant `{}` on {target:?}",
-                            member.name
-                        )));
-                    }
+                    values::check_constant(
+                        &mut constants,
+                        target,
+                        &member.name,
+                        &snapshot.types[observation.canonical.0],
+                        &member.value,
+                    )?;
                     publish(
                         &mut declarations,
                         target,
@@ -392,7 +489,15 @@ fn project_impl(
         .values()
         .filter(|item| item.kind == PublishedKind::Constant)
         .count();
-    let aliases = declarations.len() - records - enums - constants;
+    let functions = declarations
+        .values()
+        .filter(|item| item.kind == PublishedKind::Function)
+        .count();
+    let interfaces = declarations
+        .values()
+        .filter(|item| item.kind == PublishedKind::Interface)
+        .count();
+    let aliases = declarations.len() - records - enums - constants - functions - interfaces;
     let mut items = BTreeMap::new();
     for (name, declaration) in declarations {
         if let Err(error) = insert(
@@ -425,6 +530,8 @@ fn project_impl(
         enums,
         aliases,
         constants,
+        functions,
+        interfaces,
     })
 }
 
@@ -443,6 +550,8 @@ enum PublishedKind {
     Enum,
     Record,
     Constant,
+    Function,
+    Interface,
 }
 
 #[derive(Clone, Copy, Eq, Ord, PartialEq, PartialOrd)]
@@ -462,7 +571,7 @@ fn publish(
     keys: Vec<partial::Key>,
     kind: PublishedKind,
 ) -> Result<(), Error> {
-    let space = if kind == PublishedKind::Constant {
+    let space = if matches!(kind, PublishedKind::Constant | PublishedKind::Function) {
         NameSpace::Value
     } else {
         NameSpace::Type
@@ -541,6 +650,18 @@ fn callback(snapshot: &Snapshot, id: TypeId) -> Option<&Function> {
     }
 }
 
+fn written_function(snapshot: &Snapshot, mut id: TypeId) -> Result<&Function, Error> {
+    loop {
+        match &snapshot.types[id.0].kind {
+            TypeKind::Alias(alias) => id = snapshot.aliases[alias.0].observations[0].underlying,
+            TypeKind::Pointer(pointee) => id = *pointee,
+            TypeKind::Attributed { modified, .. } => id = *modified,
+            TypeKind::Function(function) => return Ok(function),
+            _ => return Err(Error("callback has no written prototype".into())),
+        }
+    }
+}
+
 impl Projector<'_, '_> {
     fn alias(
         &self,
@@ -557,18 +678,7 @@ impl Projector<'_, '_> {
         let name = ident(name)?;
         if let Some(function) = callback(snapshot, observation.canonical) {
             self.ty(snapshot_id, observation.canonical)?;
-            let mut id = observation.underlying;
-            let written = loop {
-                match &snapshot.types[id.0].kind {
-                    TypeKind::Alias(alias) => {
-                        id = snapshot.aliases[alias.0].observations[0].underlying;
-                    }
-                    TypeKind::Pointer(pointee) => id = *pointee,
-                    TypeKind::Attributed { modified, .. } => id = *modified,
-                    TypeKind::Function(function) => break function,
-                    _ => return Err(Error("callback has no written prototype".into())),
-                }
-            };
+            let written = written_function(snapshot, observation.underlying)?;
             return self.callback(snapshot_id, function, written, &name);
         }
         let ty = write_type(
@@ -588,25 +698,22 @@ impl Projector<'_, '_> {
         written: &Function,
         name: &TokenStream,
     ) -> Result<Body, Error> {
-        if function.parameters.len() != written.parameters.len() {
-            return Err(Error("written and canonical callback arity differ".into()));
-        }
+        let signature = self.signature(snapshot, function, Some(written))?;
         let abi = match function.convention {
             CallingConvention::C => quote! { "C" },
             CallingConvention::Stdcall => TokenStream::new(),
         };
-        let parameters = function
-            .parameters
+        let parameters = signature
+            .types
             .iter()
-            .zip(&written.parameters)
             .enumerate()
-            .map(|(index, (id, written))| {
+            .map(|(index, ty)| {
                 let name = ident(&format!("param{index}"))?;
-                let ty = write_type(self.namespace, &self.written_ty(snapshot, *written, *id)?);
+                let ty = write_type(self.namespace, ty);
                 Ok(quote! { #name: #ty })
             })
             .collect::<Result<Vec<_>, Error>>()?;
-        let result = self.written_ty(snapshot, written.result, function.result)?;
+        let result = signature.return_type;
         let result = if result == MetadataType::Void {
             TokenStream::new()
         } else {
@@ -617,6 +724,101 @@ impl Projector<'_, '_> {
             attributes: TokenStream::new(),
             declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
         })
+    }
+
+    fn signature(
+        &self,
+        snapshot: usize,
+        function: &Function,
+        written: Option<&Function>,
+    ) -> Result<windows_metadata::Signature, Error> {
+        if written.is_some_and(|written| function.parameters.len() != written.parameters.len()) {
+            return Err(Error("written and canonical callback arity differ".into()));
+        }
+        let flags = match function.convention {
+            CallingConvention::C => windows_metadata::MethodCallAttributes::C,
+            CallingConvention::Stdcall => windows_metadata::MethodCallAttributes::STDCALL,
+        };
+        let types = function
+            .parameters
+            .iter()
+            .enumerate()
+            .map(|(index, id)| {
+                if let Some(written) = written {
+                    self.parameter_ty(snapshot, written.parameters[index], *id)
+                } else {
+                    self.ty(snapshot, *id)
+                }
+            })
+            .collect::<Result<_, _>>()?;
+        let return_type = if let Some(written) = written {
+            self.written_ty(snapshot, written.result, function.result)?
+        } else {
+            self.ty(snapshot, function.result)?
+        };
+        Ok(windows_metadata::Signature {
+            flags,
+            return_type,
+            types,
+        })
+    }
+
+    fn parameter_ty(
+        &self,
+        snapshot_id: usize,
+        written: TypeId,
+        canonical: TypeId,
+    ) -> Result<MetadataType, Error> {
+        let snapshot = self.resolution.snapshots[snapshot_id];
+        let mut source = written;
+        loop {
+            match snapshot.types[source.0].kind {
+                TypeKind::Alias(alias) => {
+                    source = snapshot.aliases[alias.0].observations[0].underlying;
+                }
+                TypeKind::Attributed { modified, .. } => source = modified,
+                _ => break,
+            }
+        }
+        if let TypeKind::Function(written) = &snapshot.types[source.0].kind
+            && let Some(function) = callback(snapshot, canonical)
+        {
+            let value = self.ty(snapshot_id, canonical)?;
+            return if matches!(value, MetadataType::FnPtr(_)) {
+                Ok(MetadataType::FnPtr(Box::new(self.signature(
+                    snapshot_id,
+                    function,
+                    Some(written),
+                )?)))
+            } else {
+                Ok(value)
+            };
+        }
+        if let TypeKind::Array { element, .. } = snapshot.types[source.0].kind
+            && let TypeKind::Pointer(pointee) = snapshot.types[canonical.0].kind
+        {
+            self.ty(snapshot_id, canonical)?;
+            let inner = Box::new(self.written_ty(snapshot_id, element, pointee)?);
+            return Ok(if snapshot.types[pointee.0].qualifiers.constant {
+                MetadataType::PtrConst(inner, 1)
+            } else {
+                MetadataType::PtrMut(inner, 1)
+            });
+        }
+        if let TypeKind::LValueReference(pointee) = snapshot.types[canonical.0].kind {
+            let TypeKind::LValueReference(written) = snapshot.types[source.0].kind else {
+                return Err(Error(
+                    "written reference has a non-reference canonical type".into(),
+                ));
+            };
+            let inner = Box::new(self.written_ty(snapshot_id, written, pointee)?);
+            return Ok(if snapshot.types[pointee.0].qualifiers.constant {
+                MetadataType::RefConst(inner)
+            } else {
+                MetadataType::RefMut(inner)
+            });
+        }
+        self.written_ty(snapshot_id, written, canonical)
     }
 
     fn written_ty(
@@ -647,8 +849,21 @@ impl Projector<'_, '_> {
                         "written pointer has a non-pointer canonical type".into(),
                     ));
                 };
-                if matches!(snapshot.types[canonical.0].kind, TypeKind::Function(_)) {
-                    value
+                if let TypeKind::Record(record) = snapshot.types[canonical.0].kind
+                    && self.interface_record(snapshot_id, record)
+                {
+                    return Ok(value);
+                }
+                if let TypeKind::Function(function) = &snapshot.types[canonical.0].kind {
+                    if matches!(value, MetadataType::FnPtr(_)) {
+                        MetadataType::FnPtr(Box::new(self.signature(
+                            snapshot_id,
+                            function,
+                            Some(written_function(snapshot, *written)?),
+                        )?))
+                    } else {
+                        value
+                    }
                 } else {
                     let inner = Box::new(self.written_ty(snapshot_id, *written, canonical)?);
                     if snapshot.types[canonical.0].qualifiers.constant {
@@ -698,9 +913,13 @@ impl Projector<'_, '_> {
                     Scalar::Char { signed: true } | Scalar::SignedChar => (MetadataType::I8, 1),
                     Scalar::Char { signed: false } | Scalar::UnsignedChar => (MetadataType::U8, 1),
                     Scalar::Short => (MetadataType::I16, 2),
-                    Scalar::UnsignedShort | Scalar::WChar => (MetadataType::U16, 2),
+                    Scalar::UnsignedShort | Scalar::WChar | Scalar::Char16 => {
+                        (MetadataType::U16, 2)
+                    }
                     Scalar::Int | Scalar::Long => (MetadataType::I32, 4),
-                    Scalar::UnsignedInt | Scalar::UnsignedLong => (MetadataType::U32, 4),
+                    Scalar::UnsignedInt | Scalar::UnsignedLong | Scalar::Char32 => {
+                        (MetadataType::U32, 4)
+                    }
                     Scalar::LongLong => (MetadataType::I64, 8),
                     Scalar::UnsignedLongLong => (MetadataType::U64, 8),
                     Scalar::Float => (MetadataType::F32, 4),
@@ -729,16 +948,32 @@ impl Projector<'_, '_> {
                 {
                     return Err(Error("unsupported pointer layout".into()));
                 }
-                if matches!(snapshot.types[pointee.0].kind, TypeKind::Function(_)) {
+                if let TypeKind::Function(function) = &snapshot.types[pointee.0].kind {
                     if snapshot.types[pointee.0].qualifiers != Qualifiers::default() {
                         return Err(Error(
                             "qualified function type projection is unsupported".into(),
                         ));
                     }
-                    let name = self.plan.callbacks[snapshot_id].get(&id).ok_or_else(|| {
-                        Error("function pointer has no named callback declaration".into())
-                    })?;
-                    return Ok(MetadataType::class_named(self.namespace, name));
+                    return if let Some(name) = self.plan.callbacks[snapshot_id].get(&id) {
+                        Ok(MetadataType::class_named(self.namespace, name))
+                    } else {
+                        Ok(MetadataType::FnPtr(Box::new(self.signature(
+                            snapshot_id,
+                            function,
+                            None,
+                        )?)))
+                    };
+                }
+                if let TypeKind::Record(record) = snapshot.types[pointee.0].kind
+                    && self.interface_record(snapshot_id, record)
+                {
+                    if snapshot.types[pointee.0].qualifiers != Qualifiers::default() {
+                        return Err(Error("qualified interface pointers are unsupported".into()));
+                    }
+                    return Ok(MetadataType::class_named(
+                        self.namespace,
+                        &self.plan.names[self.plan.family(snapshot_id, record)],
+                    ));
                 }
                 let inner = self.ty(snapshot_id, *pointee)?;
                 let constant = snapshot.types[pointee.0].qualifiers.constant;
@@ -756,6 +991,9 @@ impl Projector<'_, '_> {
                     .map_err(|_| Error("array extent exceeds host size".into()))?,
             ),
             TypeKind::Record(record) => {
+                if self.interface_record(snapshot_id, *record) {
+                    return Err(Error("interface values require a native pointer".into()));
+                }
                 let name = &self.plan.names[self.plan.family(snapshot_id, *record)];
                 MetadataType::value_named(self.namespace, name)
             }
@@ -772,6 +1010,11 @@ impl Projector<'_, '_> {
             }
             TypeKind::Function(_) => {
                 return Err(Error("bare function type projection is unsupported".into()));
+            }
+            TypeKind::LValueReference(_) => {
+                return Err(Error(
+                    "C++ references are supported only in parameter positions".into(),
+                ));
             }
         })
     }
@@ -860,11 +1103,25 @@ impl Projector<'_, '_> {
         snapshot_id: usize,
         observation: &RecordObservation,
         name: &TokenStream,
+        inline_record: bool,
     ) -> Result<Body, Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
         let definition = observation.definition.as_ref().unwrap();
         let attributes = &observation.attributes;
         let kind = snapshot.records[observation.record.0].kind;
+        if !definition.methods.is_empty() || !definition.bases.is_empty() {
+            return self.interface(snapshot_id, observation, name);
+        }
+        if attributes.iter().any(|attribute| {
+            matches!(
+                attribute.kind,
+                AttributeKind::Uuid(_) | AttributeKind::NoVTable | AttributeKind::DllImport
+            )
+        }) {
+            return Err(Error(format!(
+                "unsupported ordinary record attributes on `{name}`"
+            )));
+        }
         if definition.fields.is_empty() {
             return Err(Error(format!(
                 "empty record `{name}` projection is not implemented"
@@ -924,12 +1181,89 @@ impl Projector<'_, '_> {
             }
         }
         let groups = bitfields::groups(snapshot, &definition.fields, kind)?;
+        let mut nested = BTreeMap::new();
+        for &record in &self.plan.children[snapshot_id][observation.record.0] {
+            let full_name = &self.plan.names[self.plan.family(snapshot_id, record)];
+            let leaf = full_name.rsplit('/').next().unwrap();
+            if nested.contains_key(leaf) {
+                return Err(Error(format!(
+                    "nested type name collision in `{name}`: {leaf}"
+                )));
+            }
+            let child = snapshot.records[record.0]
+                .observations
+                .iter()
+                .find(|id| snapshot.observations[id.0].definition.is_some())
+                .map(|&observation| ObservationRef {
+                    snapshot: snapshot_id,
+                    observation,
+                })
+                .or_else(|| {
+                    self.resolution
+                        .group(RecordRef {
+                            snapshot: snapshot_id,
+                            record,
+                        })
+                        .definition
+                })
+                .ok_or_else(|| Error(format!("nested record `{full_name}` is incomplete")))?;
+            nested.insert(leaf, (record, child));
+        }
+        let mut direct_uses: HashMap<RecordId, Vec<usize>> = HashMap::new();
+        for (position, group) in groups.iter().enumerate() {
+            let field = &group[0];
+            if field.bit_width.is_none()
+                && let TypeKind::Record(record) = snapshot.types[field.canonical.0].kind
+                && snapshot.records[record.0]
+                    .owner
+                    .is_some_and(|owner| owner.record == observation.record)
+                && self.written_ty(snapshot_id, field.written, field.canonical)?
+                    == self.ty(snapshot_id, field.canonical)?
+            {
+                direct_uses.entry(record).or_default().push(position);
+            }
+        }
+        let inline: HashSet<_> = nested
+            .iter()
+            .filter_map(|(leaf, (record, _))| {
+                if let Some(positions) = direct_uses.get(record)
+                    && let [position] = positions.as_slice()
+                    && *leaf
+                        == format!(
+                            "{}_{position}",
+                            self.plan.names[self.plan.family(snapshot_id, observation.record)]
+                                .rsplit('/')
+                                .next()
+                                .unwrap()
+                        )
+                {
+                    Some(*record)
+                } else {
+                    None
+                }
+            })
+            .collect();
+        let declarations = nested
+            .iter()
+            .filter(|(_, (record, _))| !inline.contains(record))
+            .map(|(leaf, (_, reference))| {
+                let observation = &self.resolution.snapshots[reference.snapshot].observations
+                    [reference.observation.0];
+                let body = self.record(reference.snapshot, observation, &ident(leaf)?, false)?;
+                let Body {
+                    attributes,
+                    declaration,
+                } = body;
+                Ok(quote! { #attributes #declaration })
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
         let bitfield_count = groups
             .iter()
             .filter(|group| group[0].bit_width.is_some())
             .count();
         let mut bitfield_index = 0;
-        for group in groups {
+        let mut anonymous = 0;
+        for (position, group) in groups.into_iter().enumerate() {
             let field = &group[0];
             let (field_name, ty, members) = if field.bit_width.is_some() {
                 bitfield_index += 1;
@@ -961,22 +1295,58 @@ impl Projector<'_, '_> {
                     });
                 (
                     ident(&backing)?,
-                    self.ty(
-                        snapshot_id,
-                        group
-                            .iter()
-                            .find(|member| !member.name.is_empty())
-                            .unwrap_or(field)
-                            .canonical,
-                    )?,
+                    write_type(
+                        self.namespace,
+                        &self.ty(
+                            snapshot_id,
+                            group
+                                .iter()
+                                .find(|member| !member.name.is_empty())
+                                .unwrap_or(field)
+                                .canonical,
+                        )?,
+                    ),
                     quote! { #members },
                 )
             } else {
-                (
-                    ident(&field.name)?,
-                    self.written_ty(snapshot_id, field.written, field.canonical)?,
-                    TokenStream::new(),
-                )
+                let field_name = if field.name.is_empty() {
+                    anonymous += 1;
+                    let field_name = if anonymous == 1 {
+                        "Anonymous".to_string()
+                    } else {
+                        format!("Anonymous{anonymous}")
+                    };
+                    if !names.insert(field_name.clone()) {
+                        return Err(Error(format!(
+                            "anonymous field name collision in `{name}`: {field_name}"
+                        )));
+                    }
+                    ident(&field_name)?
+                } else {
+                    ident(&field.name)?
+                };
+                let ty = if let TypeKind::Record(record) = snapshot.types[field.canonical.0].kind
+                    && inline.contains(&record)
+                    && direct_uses[&record][0] == position
+                {
+                    let (_, reference) = nested.values().find(|(id, _)| *id == record).unwrap();
+                    let child = &self.resolution.snapshots[reference.snapshot].observations
+                        [reference.observation.0];
+                    let full_name = &self.plan.names[self.plan.family(snapshot_id, record)];
+                    let leaf = ident(full_name.rsplit('/').next().unwrap())?;
+                    let body = self.record(reference.snapshot, child, &leaf, true)?;
+                    let Body {
+                        attributes,
+                        declaration,
+                    } = body;
+                    quote! { #attributes #declaration }
+                } else {
+                    write_type(
+                        self.namespace,
+                        &self.written_ty(snapshot_id, field.written, field.canonical)?,
+                    )
+                };
+                (field_name, ty, TokenStream::new())
             };
             let layout = snapshot.types[field.canonical.0]
                 .layout
@@ -995,7 +1365,6 @@ impl Projector<'_, '_> {
             }
             size = size.max(offset + layout.size);
             alignment = alignment.max(field_alignment);
-            let ty = write_type(self.namespace, &ty);
             fields.push(quote! { #field_name: #ty #members, });
         }
         alignment = alignment.max(u64::from(forced.unwrap_or(1)));
@@ -1011,6 +1380,7 @@ impl Projector<'_, '_> {
             RecordKind::Struct => quote! { struct },
             RecordKind::Union => quote! { union },
         };
+        let declaration_name = (!inline_record).then_some(name);
         Ok(Body {
             attributes: if let Some(packing) = packing {
                 let packing = proc_macro2::Literal::u64_unsuffixed(packing);
@@ -1021,7 +1391,7 @@ impl Projector<'_, '_> {
             } else {
                 TokenStream::new()
             },
-            declaration: quote! { #keyword #name { #(#fields)* } },
+            declaration: quote! { #keyword #declaration_name { #(#declarations)* #(#fields)* } },
         })
     }
 

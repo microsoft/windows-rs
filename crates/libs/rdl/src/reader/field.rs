@@ -21,8 +21,10 @@ pub enum FieldType {
 #[derive(Debug, Clone)]
 pub struct NestedRecord {
     pub attrs: Vec<syn::Attribute>,
+    pub name: Option<syn::Ident>,
     pub is_union: bool,
     pub fields: Vec<Field>,
+    pub records: Vec<Self>,
 }
 
 impl syn::parse::Parse for Field {
@@ -36,7 +38,7 @@ impl syn::parse::Parse for Field {
         let inner_attrs = input.call(syn::Attribute::parse_outer)?;
         let (ty, bitfields) = if input.peek(syn::Token![struct]) || input.peek(syn::Token![union]) {
             (
-                FieldType::Nested(Box::new(NestedRecord::parse(input, inner_attrs)?)),
+                FieldType::Nested(Box::new(NestedRecord::parse(input, inner_attrs, false)?)),
                 vec![],
             )
         } else if inner_attrs.is_empty() {
@@ -91,25 +93,50 @@ impl syn::parse::Parse for BitfieldMember {
 }
 
 impl NestedRecord {
-    fn parse(input: syn::parse::ParseStream, attrs: Vec<syn::Attribute>) -> syn::Result<Self> {
+    fn parse(
+        input: syn::parse::ParseStream,
+        attrs: Vec<syn::Attribute>,
+        named: bool,
+    ) -> syn::Result<Self> {
         let is_union = input.peek(syn::Token![union]);
         if is_union {
             input.parse::<syn::Token![union]>()?;
         } else {
             input.parse::<syn::Token![struct]>()?;
         }
+        let name = if named { Some(input.parse()?) } else { None };
 
         let content;
         syn::braced!(content in input);
-        let fields = content
-            .parse_terminated(<Field as syn::parse::Parse>::parse, syn::Token![,])?
-            .into_iter()
-            .collect();
+        let (fields, records) = parse_record_body(&content)?;
 
         Ok(Self {
             attrs,
+            name,
             is_union,
             fields,
+            records,
         })
     }
+}
+
+pub fn parse_record_body(
+    input: syn::parse::ParseStream,
+) -> syn::Result<(Vec<Field>, Vec<NestedRecord>)> {
+    let mut fields = Vec::new();
+    let mut records = Vec::new();
+    while !input.is_empty() {
+        let fork = input.fork();
+        fork.call(syn::Attribute::parse_outer)?;
+        if fork.peek(syn::Token![struct]) || fork.peek(syn::Token![union]) {
+            let attrs = input.call(syn::Attribute::parse_outer)?;
+            records.push(NestedRecord::parse(input, attrs, true)?);
+        } else {
+            fields.push(input.parse()?);
+            if !input.is_empty() {
+                input.parse::<syn::Token![,]>()?;
+            }
+        }
+    }
+    Ok((fields, records))
 }

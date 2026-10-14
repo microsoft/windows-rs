@@ -128,8 +128,11 @@ fn summary(merged: &Merged<'_>) -> Vec<String> {
 }
 
 fn errors() {
-    for (fixture, root, message) in [("selection", "Missing", "requested type `Missing` not found")]
-    {
+    for (fixture, root, message) in [(
+        "selection",
+        "Missing",
+        "requested declaration `Missing` not found",
+    )] {
         let error = capture(&[selected_fixture(fixture, &[root])], &TARGETS)
             .unwrap_err()
             .to_string();

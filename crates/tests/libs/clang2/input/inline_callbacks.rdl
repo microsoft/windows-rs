@@ -1,0 +1,36 @@
+#[win32]
+mod Fixture {
+    type Count = u32;
+    #[arch(X64 | Arm64)]
+    struct InlineCallbacks {
+        named: Named,
+        count: extern "C" fn(*const Payload, Count) -> Count,
+        system: extern "C" fn(*mut Payload),
+        empty: extern "C" fn(),
+        pointer: *mut extern "C" fn(i16) -> i32,
+        array: [extern "C" fn(i8); 2],
+        factory: extern "C" fn(extern "C" fn(*mut Payload)) -> extern "C" fn(i16) -> i32,
+        arrays: extern "C" fn(*const Count, *mut [i32; 3]),
+        function: extern "C" fn(extern "C" fn(Count) -> Count),
+        mixed: extern "C" fn(*const *mut i32) -> *mut *const i32,
+        recursive: extern "C" fn(*mut InlineCallbacks) -> *mut InlineCallbacks,
+    }
+    #[arch(X86)]
+    struct InlineCallbacks {
+        named: Named,
+        count: extern "C" fn(*const Payload, Count) -> Count,
+        system: extern fn(*mut Payload),
+        empty: extern "C" fn(),
+        pointer: *mut extern "C" fn(i16) -> i32,
+        array: [extern "C" fn(i8); 2],
+        factory: extern "C" fn(extern fn(*mut Payload)) -> extern "C" fn(i16) -> i32,
+        arrays: extern "C" fn(*const Count, *mut [i32; 3]),
+        function: extern "C" fn(extern "C" fn(Count) -> Count),
+        mixed: extern "C" fn(*const *mut i32) -> *mut *const i32,
+        recursive: extern "C" fn(*mut InlineCallbacks) -> *mut InlineCallbacks,
+    }
+    extern "C" fn Named(param0: i32) -> i32;
+    struct Payload {
+        value: i32,
+    }
+}

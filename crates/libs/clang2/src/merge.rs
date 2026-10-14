@@ -11,6 +11,7 @@ pub struct Merged<'a> {
     pub records: Vec<Variants>,
     pub aliases: Vec<Variants>,
     pub enums: Vec<Variants>,
+    pub values: Vec<Variants>,
 }
 
 /// Reconciles each target, then associates native identities without equating their layouts.
@@ -30,20 +31,25 @@ pub fn merge(snapshots: &[Snapshot]) -> Result<Merged<'_>, Error> {
         .into_iter()
         .map(|(target, snapshots)| Ok((target, resolve::resolve_snapshots(snapshots)?)))
         .collect::<Result<BTreeMap<_, _>, Error>>()?;
-    let mut records: BTreeMap<(&str, &str), BTreeMap<Target, usize>> = BTreeMap::new();
+    let mut records = BTreeMap::new();
     let mut aliases: BTreeMap<&str, BTreeMap<Target, usize>> = BTreeMap::new();
     let mut enums: BTreeMap<(&str, &str), BTreeMap<Target, usize>> = BTreeMap::new();
+    let mut values: BTreeMap<&str, BTreeMap<Target, usize>> = BTreeMap::new();
     for (&target, resolution) in &targets {
         for (id, group) in resolution.groups.iter().enumerate() {
             let reference = group.records[0];
-            let record = &resolution.snapshots[reference.snapshot].records[reference.record.0];
+            let snapshot = resolution.snapshots[reference.snapshot];
             records
-                .entry((&record.name, &record.usr))
-                .or_default()
+                .entry(snapshot.record_identity(reference.record))
+                .or_insert_with(|| (snapshot.record_label(reference.record), BTreeMap::new()))
+                .1
                 .insert(target, id);
         }
         for (id, alias) in resolution.aliases.iter().enumerate() {
             aliases.entry(&alias.name).or_default().insert(target, id);
+        }
+        for (id, value) in resolution.values.iter().enumerate() {
+            values.entry(&value.name).or_default().insert(target, id);
         }
         for (id, group) in resolution.enums.iter().enumerate() {
             let reference = group.enums[0];
@@ -55,18 +61,19 @@ pub fn merge(snapshots: &[Snapshot]) -> Result<Merged<'_>, Error> {
                 .insert(target, id);
         }
     }
-    let records = variants(
-        records
-            .into_iter()
-            .map(|((name, _), groups)| (name, groups)),
-    );
+    let records = records
+        .into_values()
+        .map(|(name, groups)| Variants { name, groups })
+        .collect();
     let aliases = variants(aliases.into_iter());
     let enums = variants(enums.into_iter().map(|((name, _), groups)| (name, groups)));
+    let values = variants(values.into_iter());
     Ok(Merged {
         targets,
         records,
         aliases,
         enums,
+        values,
     })
 }
 

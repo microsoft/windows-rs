@@ -1,0 +1,51 @@
+#[win32]
+mod Fixture {
+    type ULONG = u32;
+}
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type IID = GUID;
+}
+#[win32]
+mod Fixture {
+    type BOOL = i32;
+    type DWORD = u32;
+    const MAX_PATH: i32 = 260;
+}
+#[win32]
+mod Fixture {
+    #[library("kernel32.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn GetCurrentProcessId() -> DWORD;
+    #[library("kernel32.dll")]
+    #[arch(X86)]
+    extern fn GetCurrentProcessId() -> DWORD;
+}
+#[win32]
+mod Fixture {
+    const UIA_InvokePatternId: i32 = 10000;
+}
+#[win32]
+mod Fixture {
+    #[guid(0x00000001_0000_0000_c000_000000000046)]
+    interface IClassFactory: IUnknown {
+        fn CreateInstance(&self, pUnkOuter: IUnknown, riid: &IID, ppvObject: *mut *mut void) -> HRESULT;
+        fn LockServer(&self, fLock: BOOL) -> HRESULT;
+    }
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, riid: &IID, ppvObject: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+}
+#[win32]
+mod Fixture {
+    type HRESULT = i32;
+}

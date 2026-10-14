@@ -1,0 +1,16 @@
+#[win32]
+mod Fixture {
+    const ANSWER: FLAGS = 42;
+    type FLAGS = u32;
+    #[arch(X64 | Arm64)]
+    const NATIVE_BYTES: u64 = 8;
+    #[arch(X86)]
+    const NATIVE_BYTES: u32 = 4;
+    const NEGATIVE: i32 = -9;
+    #[arch(X64 | Arm64)]
+    const POINTER_BYTES: u32 = 8;
+    #[arch(X86)]
+    const POINTER_BYTES: u32 = 4;
+    const SHIFTED: u64 = 1099511627779;
+    const WIDE: u64 = 18446744073709551615;
+}

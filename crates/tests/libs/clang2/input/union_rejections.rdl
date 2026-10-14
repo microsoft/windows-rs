@@ -1,5 +1,14 @@
 #[win32]
 mod Fixture {
+    struct Nested {
+        value: union {
+            integer: i32,
+            real: f32,
+        },
+    }
+    struct NestedConsumer {
+        value: *mut Nested,
+    }
     struct Safe {
         value: i32,
     }

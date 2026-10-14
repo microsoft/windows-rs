@@ -62,9 +62,9 @@ pub fn load_from(directory: &Path) -> Result<SharedLibrary, String> {
         .map_err(|error| format!("{}: {error}", directory.display()))?;
     let functions = unsafe { Functions::load(&base, &extension)? };
     let abi = unsafe { (functions.windows_clang_getABIVersion)() };
-    if abi != 5 {
+    if abi != 7 {
         return Err(format!(
-            "unsupported windows-clang native ABI {abi}; expected 5"
+            "unsupported windows-clang native ABI {abi}; expected 7"
         ));
     }
     if unsafe { (functions.windows_clang_getRuntimeIdentity)() }

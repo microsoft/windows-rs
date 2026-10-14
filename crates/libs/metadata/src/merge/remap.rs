@@ -141,6 +141,7 @@ impl Remapper {
             Type::PtrMut(inner, n) => Type::PtrMut(Box::new(self.remap_type(inner)), *n),
             Type::PtrConst(inner, n) => Type::PtrConst(Box::new(self.remap_type(inner)), *n),
             Type::ArrayFixed(inner, n) => Type::ArrayFixed(Box::new(self.remap_type(inner)), *n),
+            Type::FnPtr(signature) => Type::FnPtr(Box::new(self.remap_signature(signature))),
             other => other.clone(),
         }
     }

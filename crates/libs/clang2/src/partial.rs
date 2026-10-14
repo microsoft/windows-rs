@@ -5,14 +5,23 @@ use std::collections::BTreeSet;
 pub(crate) enum Key {
     Tag(String),
     Alias(String),
+    Value(String),
+    Nested(Box<Self>, RecordMember),
 }
 
 impl Key {
     pub fn of(snapshot: &Snapshot, id: DeclarationId) -> Self {
         match id {
-            DeclarationId::Record(id) => Self::Tag(snapshot.records[id.0].name.clone()),
+            DeclarationId::Record(id) => {
+                let (root, path) = snapshot.record_path(id);
+                path.into_iter().fold(
+                    Self::Tag(snapshot.records[root.0].name.clone()),
+                    |owner, member| Self::Nested(Box::new(owner), member),
+                )
+            }
             DeclarationId::Alias(id) => Self::Alias(snapshot.aliases[id.0].name.clone()),
             DeclarationId::Enum(id) => Self::Tag(snapshot.enums[id.0].name.clone()),
+            DeclarationId::Value(id) => Self::Value(snapshot.values[id.0].name.clone()),
         }
     }
 }
@@ -56,6 +65,24 @@ impl Issues {
 pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
     let mut dependents: HashMap<Key, BTreeSet<Key>> = HashMap::new();
     for snapshot in snapshots.iter() {
+        for (id, record) in snapshot.records.iter().enumerate() {
+            if let Some(owner) = record.owner {
+                dependents
+                    .entry(Key::of(snapshot, DeclarationId::Record(owner.record)))
+                    .or_default()
+                    .insert(Key::of(snapshot, DeclarationId::Record(RecordId(id))));
+            }
+        }
+        for observation in &snapshot.observations {
+            if let Some(definition) = &observation.definition {
+                for &base in &definition.bases {
+                    dependents
+                        .entry(Key::of(snapshot, DeclarationId::Record(base)))
+                        .or_default()
+                        .insert(Key::of(snapshot, DeclarationId::Record(observation.record)));
+                }
+            }
+        }
         let types = type_dependencies(snapshot);
         let mut edge = |owner: &Key, ty: TypeId| {
             for &dependency in &types[ty.0] {
@@ -86,6 +113,31 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
                 edge(&Key::Tag(enumeration.name.clone()), observation.canonical);
             }
         }
+        let values = snapshot.values.iter().flat_map(|value| {
+            value
+                .observations
+                .iter()
+                .map(|observation| (Key::Value(value.name.clone()), observation))
+        });
+        let methods = snapshot.observations.iter().flat_map(|observation| {
+            observation.definition.iter().flat_map(move |definition| {
+                definition.methods.iter().map(move |method| {
+                    (
+                        Key::of(snapshot, DeclarationId::Record(observation.record)),
+                        &method.observation,
+                    )
+                })
+            })
+        });
+        for (key, observation) in values.chain(methods) {
+            edge(&key, observation.written);
+            edge(&key, observation.canonical);
+            if let ValueKind::Function { parameters, .. } = &observation.kind {
+                for parameter in parameters {
+                    edge(&key, parameter.written);
+                }
+            }
+        }
     }
     let mut pending: Vec<_> = issues.excluded.keys().cloned().collect();
     while let Some(key) = pending.pop() {
@@ -108,7 +160,9 @@ fn type_dependencies(snapshot: &Snapshot) -> Vec<Vec<DeclarationId>> {
             TypeKind::Record(id) => vec![DeclarationId::Record(*id)],
             TypeKind::Alias(id) => vec![DeclarationId::Alias(*id)],
             TypeKind::Enum(id) => vec![DeclarationId::Enum(*id)],
-            TypeKind::Pointer(id) | TypeKind::Array { element: id, .. } => result[id.0].clone(),
+            TypeKind::Pointer(id)
+            | TypeKind::LValueReference(id)
+            | TypeKind::Array { element: id, .. } => result[id.0].clone(),
             TypeKind::Function(function) => std::iter::once(&function.result)
                 .chain(&function.parameters)
                 .flat_map(|id| result[id.0].iter().copied())
@@ -153,12 +207,9 @@ fn retain<T>(values: &mut Vec<T>, map: &[Option<usize>]) {
 }
 
 fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
-    let records = remap(
-        snapshot
-            .records
-            .iter()
-            .map(|value| !excluded.contains_key(&Key::Tag(value.name.clone()))),
-    );
+    let records = remap(snapshot.records.iter().enumerate().map(|(id, _)| {
+        !excluded.contains_key(&Key::of(snapshot, DeclarationId::Record(RecordId(id))))
+    }));
     let aliases = remap(
         snapshot
             .aliases
@@ -171,10 +222,17 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
             .iter()
             .map(|value| !excluded.contains_key(&Key::Tag(value.name.clone()))),
     );
+    let values = remap(
+        snapshot
+            .values
+            .iter()
+            .map(|value| !excluded.contains_key(&Key::Value(value.name.clone()))),
+    );
     let declaration = |id| match id {
         DeclarationId::Record(id) => records[id.0].map(|id| DeclarationId::Record(RecordId(id))),
         DeclarationId::Alias(id) => aliases[id.0].map(|id| DeclarationId::Alias(AliasId(id))),
         DeclarationId::Enum(id) => enums[id.0].map(|id| DeclarationId::Enum(EnumId(id))),
+        DeclarationId::Value(id) => values[id.0].map(|id| DeclarationId::Value(ValueId(id))),
     };
     let types = remap(
         type_dependencies(snapshot)
@@ -195,9 +253,13 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
     retain(&mut snapshot.records, &records);
     retain(&mut snapshot.aliases, &aliases);
     retain(&mut snapshot.enums, &enums);
+    retain(&mut snapshot.values, &values);
     retain(&mut snapshot.observations, &observations);
     retain(&mut snapshot.types, &types);
     for record in &mut snapshot.records {
+        if let Some(owner) = &mut record.owner {
+            owner.record.0 = records[owner.record.0].unwrap();
+        }
         for id in &mut record.observations {
             id.0 = observations[id.0].unwrap();
         }
@@ -211,10 +273,21 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
     for observation in &mut snapshot.observations {
         observation.record.0 = records[observation.record.0].unwrap();
         if let Some(definition) = &mut observation.definition {
+            for base in &mut definition.bases {
+                base.0 = records[base.0].unwrap();
+            }
+            for method in &mut definition.methods {
+                remap_value(&mut method.observation, &types);
+            }
             for field in &mut definition.fields {
                 field.written.0 = types[field.written.0].unwrap();
                 field.canonical.0 = types[field.canonical.0].unwrap();
             }
+        }
+    }
+    for value in &mut snapshot.values {
+        for observation in &mut value.observations {
+            remap_value(observation, &types);
         }
     }
     for enumeration in &mut snapshot.enums {
@@ -228,9 +301,12 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
             TypeKind::Record(id) => id.0 = records[id.0].unwrap(),
             TypeKind::Alias(id) => id.0 = aliases[id.0].unwrap(),
             TypeKind::Enum(id) => id.0 = enums[id.0].unwrap(),
-            TypeKind::Pointer(id) | TypeKind::Array { element: id, .. } => {
+            TypeKind::Pointer(id)
+            | TypeKind::LValueReference(id)
+            | TypeKind::Array { element: id, .. } => {
                 id.0 = types[id.0].unwrap();
             }
+
             TypeKind::Function(function) => {
                 function.result.0 = types[function.result.0].unwrap();
                 for id in &mut function.parameters {
@@ -246,6 +322,16 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
                 equivalent.0 = types[equivalent.0].unwrap();
             }
             TypeKind::Void | TypeKind::Scalar(_) => {}
+        }
+    }
+}
+
+fn remap_value(value: &mut ValueObservation, types: &[Option<usize>]) {
+    value.written.0 = types[value.written.0].unwrap();
+    value.canonical.0 = types[value.canonical.0].unwrap();
+    if let ValueKind::Function { parameters, .. } = &mut value.kind {
+        for parameter in parameters {
+            parameter.written.0 = types[parameter.written.0].unwrap();
         }
     }
 }
