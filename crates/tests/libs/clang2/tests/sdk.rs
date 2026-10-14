@@ -91,4 +91,41 @@ fn sdk_header() {
     }
     let output = projection::project(&merged, "Fixture").unwrap();
     assert_eq!(output.records, 2);
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+    let winmd = root.join("target\\test-clang2-sdk-guid.winmd");
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input_texts(output.partitions.values().map(|partition| &partition.rdl))
+        .output(&winmd)
+        .write()
+        .unwrap();
+    for bit in [1, 2, 4] {
+        use windows_metadata::{Type, reader};
+        let index =
+            reader::Index::new_for_architecture(vec![reader::File::read(&winmd).unwrap()], bit);
+        assert_eq!(
+            index
+                .expect("Fixture", "GUID")
+                .fields()
+                .map(|field| field.ty())
+                .collect::<Vec<_>>(),
+            [
+                Type::U32,
+                Type::U16,
+                Type::U16,
+                Type::ArrayFixed(Box::new(Type::U8), 8)
+            ]
+        );
+        assert_eq!(
+            index
+                .expect("Fixture", "GuidHolder")
+                .fields()
+                .next()
+                .unwrap()
+                .ty(),
+            Type::value_named("Fixture", "GUID")
+        );
+        assert!(index.get("Fixture", "_GUID").next().is_none());
+    }
+    std::fs::remove_file(winmd).unwrap();
 }

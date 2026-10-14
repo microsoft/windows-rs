@@ -23,6 +23,47 @@ fn native_semantics() {
                 .unwrap()
         };
         let mut layouts = Vec::new();
+        for (name, expected) in [
+            ("NativeOwned", 1),
+            ("NativeAlias", 0),
+            ("NativeTagAlias", 0),
+            ("NativePointer", 0),
+            ("NativeUsing", 0),
+            ("NativeForwardAlias", 0),
+            ("NativeOne", 1),
+            ("NativeTwo", 1),
+            ("NativeMultiPointer", 0),
+            ("NativeArray", 0),
+            ("NativeEnumAlias", 1),
+            ("NativeAnonymous", 1),
+            ("MacroOwned", 1),
+        ] {
+            let cursor = *declarations
+                .iter()
+                .find(|cursor| {
+                    matches!(cursor.kind, CXCursor_TypedefDecl | CXCursor_TypeAliasDecl)
+                        && text(unsafe { clang_getCursorSpelling(**cursor) }) == name
+                })
+                .unwrap();
+            let mut value = 99;
+            assert_eq!(
+                unsafe { windows_clang_getTypedefDefinition(cursor, &raw mut value) },
+                WindowsClangSuccess,
+                "{target}: {name}, kind {}",
+                cursor.kind
+            );
+            assert_eq!(value, expected, "{target}: {name}");
+            assert_eq!(
+                unsafe { windows_clang_getTypedefDefinition(cursor, std::ptr::null_mut()) },
+                WindowsClangInvalidArgument
+            );
+        }
+        let mut value = 99;
+        assert_eq!(
+            unsafe { windows_clang_getTypedefDefinition(find("NativeTag"), &raw mut value) },
+            WindowsClangWrongKind
+        );
+        assert_eq!(value, 99);
         for (name, expected) in [("PackOne", 8), ("PackTwo", 16)] {
             let record = find(name);
             let ty = unsafe { clang_getCursorType(record) };
@@ -236,7 +277,7 @@ fn native_semantics() {
             let library = Arc::clone(&library);
             scope.spawn(move || {
                 let previous = set_library(Some(library));
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 4);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 5);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION

@@ -32,5 +32,7 @@ requests return a status without evaluating them. The qualifier query identifies
 CVR and `__unaligned`, and flags any remaining qualifiers for further decoding or rejection.
 It does not supply a complete normalized type model: callers must also inspect ordinary libclang
 type queries, attributed types, and additional property flags before accepting a signature.
+The typedef-definition query exposes whether a direct type specifier defines its record or enum,
+so consumers can distinguish defining typedefs from later aliases without parsing spelling.
 
 See the [crate notes](../../../docs/crates/windows-clang-sys.md) for generation and maintenance.

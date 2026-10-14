@@ -3,6 +3,7 @@
 #include "CXType.h"
 #include <clang/AST/Attr.h>
 #include <clang/AST/Type.h>
+#include <clang/AST/TypeLoc.h>
 #include <llvm/Config/llvm-config.h>
 
 static const char* attributeName(clang::attr::Kind kind) {
@@ -14,7 +15,7 @@ static const char* attributeName(clang::attr::Kind kind) {
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 4;
+    return 5;
 }
 
 const char* windows_clang_getLLVMVersion(void) {
@@ -133,6 +134,24 @@ WindowsClangStatus windows_clang_getTypeVisibility(CXCursor cursor, CXVisibility
         return WindowsClangWrongKind;
     }
     *visibility = value;
+    return WindowsClangSuccess;
+}
+
+WindowsClangStatus windows_clang_getTypedefDefinition(CXCursor cursor, unsigned* defines_tag) {
+    if (!defines_tag) {
+        return WindowsClangInvalidArgument;
+    }
+    if (cursor.kind != CXCursor_TypedefDecl && cursor.kind != CXCursor_TypeAliasDecl) {
+        return WindowsClangWrongKind;
+    }
+    auto declaration = llvm::dyn_cast<clang::TypedefNameDecl>(
+        clang::cxcursor::getCursorDecl(cursor));
+    if (!declaration || !declaration->getTypeSourceInfo()) {
+        return WindowsClangWrongKind;
+    }
+    auto tag = declaration->getTypeSourceInfo()->getTypeLoc()
+        .getUnqualifiedLoc().getAs<clang::TagTypeLoc>();
+    *defines_tag = !tag.isNull() && tag.isDefinition();
     return WindowsClangSuccess;
 }
 

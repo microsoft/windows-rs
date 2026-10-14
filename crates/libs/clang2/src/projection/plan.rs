@@ -85,15 +85,9 @@ impl Plan {
             families[parent].push(id);
         }
         let mut names = vec![String::new(); count];
-        let mut primary = vec![None; count];
-        for (alias_id, (alias, family)) in resolution.aliases.iter().zip(&mut aliases).enumerate() {
-            if let Some(id) = family {
-                *id = parents[*id];
-                if names[*id].is_empty() || alias.name < names[*id] {
-                    names[*id].clone_from(&alias.name);
-                    primary[*id] = Some(alias_id);
-                }
-            }
+        let primary = vec![None; count];
+        for id in aliases.iter_mut().flatten() {
+            *id = parents[*id];
         }
         for (id, family) in families.iter().enumerate() {
             if let Some(&first) = family.first()
@@ -121,7 +115,7 @@ impl Plan {
                 }
             }
         }
-        let mut enum_primary: Vec<Option<usize>> = vec![None; resolution.enums.len()];
+        let enum_primary: Vec<Option<usize>> = vec![None; resolution.enums.len()];
         let mut enum_aliases = vec![None; resolution.aliases.len()];
         for (alias_id, alias) in resolution.aliases.iter().enumerate() {
             let reference = alias.observations[0];
@@ -134,10 +128,6 @@ impl Plan {
             {
                 let group = resolution.enum_groups[reference.snapshot][id.0];
                 enum_aliases[alias_id] = Some(group);
-                if enum_primary[group].is_none() || alias.name < enum_names[group] {
-                    enum_names[group].clone_from(&alias.name);
-                    enum_primary[group] = Some(alias_id);
-                }
             }
         }
         let mut plan = Self {
@@ -155,8 +145,71 @@ impl Plan {
             callbacks: Vec::new(),
         };
         plan.validate(resolution)?;
+        plan.primary_names(resolution)?;
         plan.callbacks = plan.callback_names(resolution);
         Ok(plan)
+    }
+
+    fn primary_names(&mut self, resolution: &Resolution<'_>) -> Result<(), Error> {
+        let mut common = vec![Vec::new(); self.families.len()];
+        let mut defining = vec![Vec::new(); self.families.len()];
+        let mut enum_defining = vec![Vec::new(); self.enum_names.len()];
+        for (id, alias) in resolution.aliases.iter().enumerate() {
+            let defines = alias.observations.iter().any(|reference| {
+                resolution.snapshots[reference.snapshot].aliases[reference.alias.0].observations
+                    [reference.observation]
+                    .defines_tag
+            });
+            if let Some(family) = self.aliases[id] {
+                let bindings: BTreeSet<_> = alias
+                    .observations
+                    .iter()
+                    .map(|reference| {
+                        let snapshot = resolution.snapshots[reference.snapshot];
+                        let observation = &snapshot.aliases[reference.alias.0].observations
+                            [reference.observation];
+                        let TypeKind::Record(record) = snapshot.types[observation.canonical.0].kind
+                        else {
+                            unreachable!()
+                        };
+                        self.groups[reference.snapshot][record.0]
+                    })
+                    .collect();
+                if bindings.len() == self.families[family].len() {
+                    common[family].push(id);
+                    if defines {
+                        defining[family].push(id);
+                    }
+                }
+            } else if let Some(group) = self.enum_aliases[id]
+                && defines
+            {
+                enum_defining[group].push(id);
+            }
+        }
+        for (id, family) in self.families.iter().enumerate() {
+            if family.is_empty() {
+                continue;
+            }
+            let candidates = if defining[id].is_empty() && family.len() > 1 {
+                &common[id]
+            } else {
+                &defining[id]
+            };
+            if candidates.len() != 1 && family.len() == 1 {
+                continue;
+            }
+            let alias = primary_name(resolution, &self.names[id], candidates)?;
+            self.primary[id] = Some(alias);
+            self.names[id].clone_from(&resolution.aliases[alias].name);
+        }
+        for (id, candidates) in enum_defining.iter().enumerate() {
+            if let [alias] = candidates.as_slice() {
+                self.enum_primary[id] = Some(*alias);
+                self.enum_names[id].clone_from(&resolution.aliases[*alias].name);
+            }
+        }
+        Ok(())
     }
 
     fn callback_names(&self, resolution: &Resolution<'_>) -> Vec<HashMap<TypeId, String>> {
@@ -385,6 +438,24 @@ fn owner(name: &str, headers: BTreeSet<String>) -> Result<String, Error> {
     } else {
         Err(Error(format!(
             "ambiguous header ownership for `{name}`: {headers:?}"
+        )))
+    }
+}
+
+fn primary_name(
+    resolution: &Resolution<'_>,
+    tag: &str,
+    candidates: &[usize],
+) -> Result<usize, Error> {
+    if let [alias] = candidates {
+        Ok(*alias)
+    } else {
+        let names: Vec<_> = candidates
+            .iter()
+            .map(|id| resolution.aliases[*id].name.as_str())
+            .collect();
+        Err(Error(format!(
+            "ambiguous primary name for `{tag}`: {names:?}"
         )))
     }
 }

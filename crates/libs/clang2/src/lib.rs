@@ -216,6 +216,8 @@ pub struct AliasObservation {
     pub location: Location,
     pub underlying: TypeId,
     pub canonical: TypeId,
+    /// The direct typedef type specifier defines the record or enum, rather than referencing it.
+    pub defines_tag: bool,
     pub attributes: Vec<Attribute>,
 }
 

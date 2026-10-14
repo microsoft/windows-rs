@@ -263,10 +263,19 @@ impl Capture<'_> {
     fn alias_observation(&mut self, alias: AliasId, cursor: CXCursor) -> Result<(), Error> {
         let attributes = self.attributes(cursor)?;
         let underlying = unsafe { clang_getTypedefDeclUnderlyingType(cursor) };
+        let mut defines_tag = 0;
+        let status = unsafe { windows_clang_getTypedefDefinition(cursor, &raw mut defines_tag) };
+        if status != WindowsClangSuccess {
+            return Err(unsupported(
+                cursor,
+                &format!("typedef definition query failed: {status}"),
+            ));
+        }
         let observation = AliasObservation {
             location: self.location(cursor),
             underlying: self.ty(underlying, cursor)?,
             canonical: self.ty(unsafe { clang_getCanonicalType(underlying) }, cursor)?,
+            defines_tag: defines_tag != 0,
             attributes,
         };
         self.snapshot.aliases[alias.0]

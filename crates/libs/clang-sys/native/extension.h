@@ -76,6 +76,9 @@ WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getAlignment(
 // Reads TypeVisibilityAttr, not the declaration's effective symbol visibility.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypeVisibility(
     CXCursor cursor, enum CXVisibilityKind* visibility);
+// Whether a typedef's direct type specifier defines its underlying record or enum.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypedefDefinition(
+    CXCursor cursor, unsigned* defines_tag);
 // additional_properties flags prototype information that this structure does not decode.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getFunctionInfo(
     CXType type, struct WindowsClangFunctionInfo* info);

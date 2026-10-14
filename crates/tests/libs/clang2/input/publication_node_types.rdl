@@ -1,7 +1,4 @@
 #[win32]
 mod Fixture {
-    struct LsaNode {
-        next: *mut LsaNode,
-        value: i32,
-    }
+    type LsaNode = Node;
 }

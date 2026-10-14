@@ -5,6 +5,20 @@ struct PackOne { char value; };
 struct PackTwo { char value; };
 #pragma pack(pop)
 
+typedef struct NativeTag { int value; } NativeOwned;
+typedef NativeOwned NativeAlias;
+typedef struct NativeTag NativeTagAlias;
+typedef NativeOwned* NativePointer;
+using NativeUsing = NativeOwned;
+typedef struct NativeForward NativeForwardAlias;
+struct NativeForward { int value; };
+typedef struct NativeMulti { int value; } NativeOne, NativeTwo, *NativeMultiPointer;
+typedef struct NativeArrayTag { int value; } NativeArray[2];
+typedef enum NativeEnum { NativeEnumValue = 1 } NativeEnumAlias;
+typedef struct { int value; } NativeAnonymous;
+#define DEFINE_NATIVE(NAME) typedef struct Native##NAME { int value; } NAME
+DEFINE_NATIVE(MacroOwned);
+
 typedef int (*Plain)(int first, int second);
 typedef int (__cdecl *Cdecl)(int first, int second);
 typedef int (__stdcall *Stdcall)(int first, int second);

@@ -1,6 +1,6 @@
 #include <windows.h>
 
 struct GuidHolder {
-    struct _GUID value;
+    GUID value;
     void* context;
 };

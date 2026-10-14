@@ -68,8 +68,10 @@ Enums retain nominal identity, scopedness, exact signed/unsigned values, and bac
 Forward declarations must agree with complete definitions. Projection preserves `#[scoped]` and
 the integer representation; it does not infer flags or combine distinct enums by matching values.
 By-value aliases can connect distinct native records only after their definitions are checked.
-Each target-local family uses its alphabetically first by-value alias as the public record name;
-other reachable value names remain transparent aliases. Pointer aliases cannot establish equivalence.
+A single native record or enum uses its unique defining value typedef as its public name; with
+zero or multiple defining typedefs it retains its native tag. A multi-record family requires a
+unique common defining typedef, or a unique common alias when none defines a tag. Ambiguity is an
+error. Other reachable value names remain aliases. Pointer aliases cannot establish equivalence.
 Header ownership prefers the unique alias header containing its native definition, otherwise it
 requires a unique declaration header. Native identities and source observations remain distinct.
 `tool-win32-2` supplies the SDK configuration and writes canonical files.

@@ -2301,6 +2301,8 @@ pub(crate) struct Functions {
         cursor: CXCursor,
         visibility: *mut CXVisibilityKind,
     ) -> WindowsClangStatus,
+    pub windows_clang_getTypedefDefinition:
+        unsafe extern "C" fn(cursor: CXCursor, defines_tag: *mut u32) -> WindowsClangStatus,
 }
 impl Functions {
     pub(crate) unsafe fn load(
@@ -4795,6 +4797,16 @@ impl Functions {
                         format!("{}: {error}", stringify!(windows_clang_getTypeVisibility))
                     })?
             },
+            windows_clang_getTypedefDefinition: unsafe {
+                *extension
+                    .get(b"windows_clang_getTypedefDefinition\0")
+                    .map_err(|error| {
+                        format!(
+                            "{}: {error}",
+                            stringify!(windows_clang_getTypedefDefinition)
+                        )
+                    })?
+            },
         })
     }
 }
@@ -6877,5 +6889,13 @@ pub unsafe fn windows_clang_getTypeVisibility(
 ) -> WindowsClangStatus {
     crate::with_library(|library| unsafe {
         (library.functions.windows_clang_getTypeVisibility)(cursor, visibility)
+    })
+}
+pub unsafe fn windows_clang_getTypedefDefinition(
+    cursor: CXCursor,
+    defines_tag: *mut u32,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getTypedefDefinition)(cursor, defines_tag)
     })
 }
