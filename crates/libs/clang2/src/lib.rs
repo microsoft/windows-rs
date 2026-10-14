@@ -200,6 +200,7 @@ pub enum AttributeKind {
     Uuid(u128),
     NoVTable,
     DllImport,
+    Sal(Box<SalAnnotation>),
     MaxFieldAlignment { bits: u32 },
     Aligned { bits: u32, kind: AlignmentKind },
     Unresolved(String),
@@ -215,9 +216,19 @@ pub enum AlignmentKind {
 #[derive(Debug, Eq, PartialEq)]
 pub struct Attribute {
     pub kind: AttributeKind,
-    pub spelling: String,
-    pub tokens: Vec<String>,
     pub location: Option<Location>,
+}
+
+/// SAL source-hook evidence, including macro substitutions at the declaration site.
+/// Expressions are retained, not evaluated or interpreted as native type syntax.
+#[derive(Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct SalAnnotation {
+    pub version: String,
+    pub name: String,
+    /// Arguments supplied to the hook, possibly already substituted by outer SAL macros.
+    pub arguments: String,
+    /// Arguments after further expansion, including nested annotation transport.
+    pub expanded: String,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -457,18 +468,22 @@ impl Snapshot {
             vector_bytes(values)
                 + values
                     .iter()
-                    .map(|value| {
-                        (match &value.kind {
-                            AttributeKind::Packed
-                            | AttributeKind::DefaultTypeVisibility
-                            | AttributeKind::Uuid(_)
-                            | AttributeKind::NoVTable
-                            | AttributeKind::DllImport
-                            | AttributeKind::MaxFieldAlignment { .. }
-                            | AttributeKind::Aligned { .. } => 0,
-                            AttributeKind::Unresolved(kind) => kind.capacity(),
-                        }) + value.spelling.capacity()
-                            + strings_bytes(&value.tokens)
+                    .map(|value| match &value.kind {
+                        AttributeKind::Packed
+                        | AttributeKind::DefaultTypeVisibility
+                        | AttributeKind::Uuid(_)
+                        | AttributeKind::NoVTable
+                        | AttributeKind::DllImport
+                        | AttributeKind::MaxFieldAlignment { .. }
+                        | AttributeKind::Aligned { .. } => 0,
+                        AttributeKind::Unresolved(kind) => kind.capacity(),
+                        AttributeKind::Sal(value) => {
+                            size_of::<SalAnnotation>()
+                                + value.version.capacity()
+                                + value.name.capacity()
+                                + value.arguments.capacity()
+                                + value.expanded.capacity()
+                        }
                     })
                     .sum::<usize>()
         }

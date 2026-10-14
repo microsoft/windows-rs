@@ -272,7 +272,7 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             || a.fields.len() != b.fields.len()
             || a.bases.len() != b.bases.len()
             || a.methods.len() != b.methods.len()
-            || !abi_attributes_equal(
+            || !attributes_equal(
                 &snapshots[left.snapshot].observations[left.observation.0].attributes,
                 &snapshots[right.snapshot].observations[right.observation.0].attributes,
             )
@@ -299,7 +299,7 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             if a.name != b.name
                 || a.offset_bits != b.offset_bits
                 || a.bit_width != b.bit_width
-                || !abi_attributes_equal(&a.attributes, &b.attributes)
+                || !attributes_equal(&a.attributes, &b.attributes)
             {
                 return Err(conflict("field name, order, offset, or bit width differs"));
             }
@@ -599,6 +599,26 @@ pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
             == b.iter().any(|value| value.kind == AttributeKind::DllImport)
 }
 
+pub(crate) fn attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
+    abi_attributes_equal(a, b) && sal(a) == sal(b)
+}
+
+pub(crate) fn sal(attributes: &[Attribute]) -> Vec<&SalAnnotation> {
+    let mut result: Vec<_> = attributes
+        .iter()
+        .filter_map(|attribute| {
+            if let AttributeKind::Sal(value) = &attribute.kind {
+                Some(value.as_ref())
+            } else {
+                None
+            }
+        })
+        .collect();
+    result.sort_unstable();
+    result.dedup();
+    result
+}
+
 pub(crate) fn uuid(attributes: &[Attribute]) -> Option<u128> {
     attributes
         .iter()
@@ -609,7 +629,7 @@ pub(crate) fn uuid(attributes: &[Attribute]) -> Option<u128> {
 }
 
 pub(crate) fn value_shape_equal(a: &ValueObservation, b: &ValueObservation, symbol: bool) -> bool {
-    abi_attributes_equal(&a.attributes, &b.attributes)
+    attributes_equal(&a.attributes, &b.attributes)
         && match (&a.kind, &b.kind) {
             (
                 ValueKind::Function {
@@ -628,7 +648,7 @@ pub(crate) fn value_shape_equal(a: &ValueObservation, b: &ValueObservation, symb
                     && a.len() == b.len()
                     && a.iter()
                         .zip(b)
-                        .all(|(a, b)| abi_attributes_equal(&a.attributes, &b.attributes))
+                        .all(|(a, b)| attributes_equal(&a.attributes, &b.attributes))
             }
             (ValueKind::Constant { value: a, .. }, ValueKind::Constant { value: b, .. }) => a == b,
             _ => false,
@@ -680,10 +700,8 @@ fn attributes(
         }
         if let AttributeKind::Unresolved(kind) = &attribute.kind {
             return Err(Error(format!(
-                "{}: cannot verify {kind} attribute (spelling {:?}, tokens {:?})",
-                describe(snapshots, owner),
-                attribute.spelling,
-                attribute.tokens
+                "{}: cannot verify {kind} attribute",
+                describe(snapshots, owner)
             )));
         }
     }

@@ -78,7 +78,7 @@ pub(super) fn resolve(
                 if a.scoped != b.scoped
                     || a.anonymous != b.anonymous
                     || a.layout != b.layout
-                    || !abi_attributes_equal(&a.attributes, &b.attributes)
+                    || !attributes_equal(&a.attributes, &b.attributes)
                     || snapshots[first.snapshot].types[a.canonical.0]
                         != snapshot.types[b.canonical.0]
                 {
@@ -103,7 +103,7 @@ pub(super) fn resolve(
                         || old.iter().zip(members).any(|(a, b)| {
                             a.name != b.name
                                 || a.value != b.value
-                                || !abi_attributes_equal(&a.attributes, &b.attributes)
+                                || !attributes_equal(&a.attributes, &b.attributes)
                         })
                     {
                         return Err(conflict(

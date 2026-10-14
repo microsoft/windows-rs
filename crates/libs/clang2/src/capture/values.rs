@@ -7,7 +7,7 @@ impl Capture<'_> {
             return Ok(id);
         }
         let name = text(unsafe { clang_getCursorSpelling(cursor) });
-        let (name, origin) = self.probes.get(&name).cloned().unwrap_or((name, cursor));
+        let (name, origin) = self.probes.get(&key).cloned().unwrap_or((name, cursor));
         let usr = text(unsafe { clang_getCursorUSR(origin) });
         if usr.is_empty() {
             return Err(unsupported(
@@ -113,8 +113,8 @@ impl Capture<'_> {
                 "initializer is not an integer constant expression",
             ));
         }
-        let name = text(unsafe { clang_getCursorSpelling(cursor) });
-        let definition = self.probes.get(&name).map(|(_, cursor)| *cursor);
+        let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
+        let definition = self.probes.get(&key).map(|(_, cursor)| *cursor);
         let ty = unsafe { clang_getCursorType(cursor) };
         let canonical = self.ty(unsafe { clang_getCanonicalType(ty) }, cursor)?;
         let native = &self.snapshot.types[canonical.0];

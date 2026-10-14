@@ -1,5 +1,5 @@
 use super::*;
-use crate::resolve::{TypePair, abi_attributes_equal, types_equal};
+use crate::resolve::{TypePair, abi_attributes_equal, attributes_equal, types_equal};
 
 pub(super) struct Plan {
     pub families: Vec<Vec<usize>>,
@@ -407,7 +407,7 @@ impl Plan {
                     || x.fields.len() != y.fields.len()
                     || x.bases.len() != y.bases.len()
                     || x.methods.len() != y.methods.len()
-                    || !abi_attributes_equal(&left.attributes, &right.attributes)
+                    || !attributes_equal(&left.attributes, &right.attributes)
                     || !x
                         .bases
                         .iter()
@@ -427,7 +427,7 @@ impl Plan {
                         x.name == y.name
                             && x.offset_bits == y.offset_bits
                             && x.bit_width == y.bit_width
-                            && abi_attributes_equal(&x.attributes, &y.attributes)
+                            && attributes_equal(&x.attributes, &y.attributes)
                             && self.same_type(
                                 resolution,
                                 (a.snapshot, x.canonical),

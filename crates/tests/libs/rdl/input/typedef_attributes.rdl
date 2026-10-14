@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    attribute ContractAttribute {
+        fn(expression: String);
+    }
+    #[arch(X86)]
+    #[Contract("return >= 0")]
+    type Status = i32;
+}

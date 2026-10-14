@@ -34,11 +34,12 @@ impl Projector<'_, '_> {
                         "function `{name}` requires C language linkage"
                     )));
                 }
-                if observation
-                    .attributes
-                    .iter()
-                    .any(|attribute| attribute.kind != AttributeKind::DllImport)
-                {
+                if observation.attributes.iter().any(|attribute| {
+                    !matches!(
+                        attribute.kind,
+                        AttributeKind::DllImport | AttributeKind::Sal(_)
+                    )
+                }) {
                     return Err(Error(format!(
                         "unsupported function attributes on `{name}`"
                     )));
@@ -61,13 +62,14 @@ impl Projector<'_, '_> {
                     CallingConvention::Stdcall => TokenStream::new(),
                 };
                 let name = ident(name)?;
+                let native = annotations::write(&observation.attributes);
                 Ok(Body {
-                    attributes: quote! { #[library(#library #import_name)] },
+                    attributes: quote! { #native #[library(#library #import_name)] },
                     declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
                 })
             }
             ValueKind::Constant { value, .. } => {
-                if !observation.attributes.is_empty() {
+                if !annotations::only_sal(&observation.attributes) {
                     return Err(Error(format!(
                         "attributed constant `{name}` is unsupported"
                     )));
@@ -81,7 +83,7 @@ impl Projector<'_, '_> {
                 let value = write_value(self.namespace, &value);
                 let name = ident(name)?;
                 Ok(Body {
-                    attributes: TokenStream::new(),
+                    attributes: annotations::write(&observation.attributes),
                     declaration: quote! { const #name: #ty = #value; },
                 })
             }
@@ -110,11 +112,6 @@ impl Projector<'_, '_> {
             .zip(&function.parameters)
             .enumerate()
             .map(|(index, (parameter, &canonical))| {
-                if !parameter.attributes.is_empty() {
-                    return Err(Error(
-                        "attributed function parameters are unsupported".into(),
-                    ));
-                }
                 let name = if parameter.name.is_empty() {
                     format!("param{index}")
                 } else {
@@ -125,8 +122,9 @@ impl Projector<'_, '_> {
                 }
                 let name = ident(&name)?;
                 let ty = self.parameter_ty(snapshot_id, parameter.written, canonical)?;
+                let attributes = annotations::parameter(&parameter.attributes, &ty)?;
                 let ty = write_type(self.namespace, &ty);
-                Ok(quote! { #name: #ty })
+                Ok(quote! { #attributes #name: #ty })
             })
             .collect::<Result<Vec<_>, Error>>()?;
         let result = self.written_ty(snapshot_id, written.result, function.result)?;
@@ -181,6 +179,7 @@ impl Projector<'_, '_> {
                     | AttributeKind::NoVTable
                     | AttributeKind::DefaultTypeVisibility
                     | AttributeKind::MaxFieldAlignment { .. }
+                    | AttributeKind::Sal(_)
             )
         }) {
             return Err(Error(format!(
@@ -201,7 +200,8 @@ impl Projector<'_, '_> {
         let mut methods = Vec::new();
         let mut names = HashSet::new();
         for method in &definition.methods {
-            if !names.insert(&method.name) || !method.observation.attributes.is_empty() {
+            if !names.insert(&method.name) || !annotations::only_sal(&method.observation.attributes)
+            {
                 return Err(Error(format!(
                     "overloaded or attributed interface method `{name}.{}`",
                     method.name
@@ -221,7 +221,8 @@ impl Projector<'_, '_> {
             }
             let (parameters, result) = self.callable(snapshot_id, &method.observation)?;
             let method_name = ident(&method.name)?;
-            methods.push(quote! { fn #method_name(&self #(, #parameters)*) #result; });
+            let attributes = annotations::write(&method.observation.attributes);
+            methods.push(quote! { #attributes fn #method_name(&self #(, #parameters)*) #result; });
         }
         let uuid: TokenStream = format!(
             "0x{:08x}_{:04x}_{:04x}_{:04x}_{:012x}",
@@ -233,8 +234,9 @@ impl Projector<'_, '_> {
         )
         .parse()
         .map_err(|_| Error("cannot encode UUID".into()))?;
+        let native = annotations::write(&observation.attributes);
         Ok(Body {
-            attributes: quote! { #[guid(#uuid)] },
+            attributes: quote! { #native #[guid(#uuid)] },
             declaration: quote! { interface #name #base { #(#methods)* } },
         })
     }

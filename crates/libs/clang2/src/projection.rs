@@ -7,6 +7,7 @@ use std::collections::BTreeSet;
 use windows_metadata::Type as MetadataType;
 use windows_rdl::emit::{write_ident, write_type, write_value};
 
+mod annotations;
 mod bitfields;
 mod plan;
 mod values;
@@ -74,6 +75,7 @@ pub fn project_partial_with_imports(
                     alias.observations.iter().any(|observation| {
                         publishable_alias(snapshot, observation.canonical)
                             || !resolve::alignments(&observation.attributes).is_empty()
+                            || !resolve::sal(&observation.attributes).is_empty()
                     })
                 })
                 .map(|alias| alias.name.clone())
@@ -339,6 +341,16 @@ fn project_impl(
                 let snapshot = resolution.snapshots[reference.snapshot];
                 let observation =
                     &snapshot.enums[reference.enumeration.0].observations[reference.observation];
+                if !resolve::sal(&observation.attributes).is_empty() {
+                    reject(
+                        &mut rejected,
+                        [key],
+                        Error(format!(
+                            "annotated anonymous enum `{name}` has no public annotation owner"
+                        )),
+                    )?;
+                    continue;
+                }
                 let result = (|| {
                     Ok((
                         projector.enum_backing(reference.snapshot, observation, name)?,
@@ -433,6 +445,27 @@ fn project_impl(
             let snapshot = resolution.snapshots[first.snapshot];
             let canonical =
                 snapshot.aliases[first.alias.0].observations[first.observation].canonical;
+            if alias.observations.iter().any(|reference| {
+                !resolve::sal(
+                    &resolution.snapshots[reference.snapshot].aliases[reference.alias.0]
+                        .observations[reference.observation]
+                        .attributes,
+                )
+                .is_empty()
+            }) && (!publishable_alias(snapshot, canonical)
+                || plan.aliases[id].is_some_and(|family| plan.names[family] == alias.name)
+                || plan.enum_aliases[id].is_some_and(|group| plan.enum_names[group] == alias.name))
+            {
+                reject(
+                    &mut rejected,
+                    [partial::Key::Alias(alias.name.clone())],
+                    Error(format!(
+                        "annotated expanded or defining typedef `{}` is unsupported",
+                        alias.name
+                    )),
+                )?;
+                continue;
+            }
             if (!root_aliases.contains(alias.name.as_str())
                 && !publishable_alias(snapshot, canonical))
                 || plan.aliases[id].is_some_and(|family| plan.names[family] == alias.name)
@@ -444,6 +477,15 @@ fn project_impl(
                 return Err(Error(format!("duplicate projected name `{}`", alias.name)));
             }
             let keys = vec![partial::Key::Alias(alias.name.clone())];
+            let attributes = annotations::covering(
+                &alias.name,
+                alias.observations.iter().map(|reference| {
+                    resolution.snapshots[reference.snapshot].aliases[reference.alias.0].observations
+                        [reference.observation]
+                        .attributes
+                        .as_slice()
+                }),
+            )?;
             let bodies = alias
                 .observations
                 .iter()
@@ -451,7 +493,7 @@ fn project_impl(
                     let snapshot = resolution.snapshots[reference.snapshot];
                     let observation =
                         &snapshot.aliases[reference.alias.0].observations[reference.observation];
-                    projector.alias(reference.snapshot, observation, &alias.name)
+                    projector.alias(reference.snapshot, observation, &alias.name, attributes)
                 })
                 .collect::<Result<Vec<_>, _>>();
             if let Ok(bodies) = &bodies {
@@ -668,6 +710,7 @@ impl Projector<'_, '_> {
         snapshot_id: usize,
         observation: &AliasObservation,
         name: &str,
+        attributes: &[Attribute],
     ) -> Result<Body, Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
         if !publishable_alias(snapshot, observation.canonical) {
@@ -679,14 +722,16 @@ impl Projector<'_, '_> {
         if let Some(function) = callback(snapshot, observation.canonical) {
             self.ty(snapshot_id, observation.canonical)?;
             let written = written_function(snapshot, observation.underlying)?;
-            return self.callback(snapshot_id, function, written, &name);
+            let mut body = self.callback(snapshot_id, function, written, &name)?;
+            body.attributes = annotations::write(attributes);
+            return Ok(body);
         }
         let ty = write_type(
             self.namespace,
             &self.ty(snapshot_id, observation.canonical)?,
         );
         Ok(Body {
-            attributes: TokenStream::new(),
+            attributes: annotations::write(attributes),
             declaration: quote! { type #name = #ty; },
         })
     }
@@ -1040,8 +1085,9 @@ impl Projector<'_, '_> {
             .into_iter()
             .map(|(name, value)| quote! { #name = #value, });
         let scoped = observation.scoped.then(|| quote! { #[scoped] });
+        let native = annotations::write(&observation.attributes);
         Ok(Body {
-            attributes: quote! { #[repr(#repr)] },
+            attributes: quote! { #native #[repr(#repr)] },
             declaration: quote! { #scoped enum #name { #(#fields)* } },
         })
     }
@@ -1166,7 +1212,10 @@ impl Projector<'_, '_> {
                 )));
             }
             let native = &snapshot.types[field.canonical.0];
-            if !field.attributes.is_empty() || native.qualifiers.constant {
+            if !annotations::only_sal(&field.attributes)
+                || native.qualifiers.constant
+                || field.bit_width.is_some() && !field.attributes.is_empty()
+            {
                 return Err(Error(format!(
                     "attributed or const field `{name}.{}` is unsupported",
                     field.name
@@ -1365,7 +1414,8 @@ impl Projector<'_, '_> {
             }
             size = size.max(offset + layout.size);
             alignment = alignment.max(field_alignment);
-            fields.push(quote! { #field_name: #ty #members, });
+            let attributes = annotations::write(&field.attributes);
+            fields.push(quote! { #attributes #field_name: #ty #members, });
         }
         alignment = alignment.max(u64::from(forced.unwrap_or(1)));
         if definition.layout
@@ -1381,16 +1431,18 @@ impl Projector<'_, '_> {
             RecordKind::Union => quote! { union },
         };
         let declaration_name = (!inline_record).then_some(name);
+        let native_attributes = annotations::write(attributes);
+        let layout_attributes = if let Some(packing) = packing {
+            let packing = proc_macro2::Literal::u64_unsuffixed(packing);
+            quote! { #[packed(#packing)] }
+        } else if let Some(forced) = forced {
+            let forced = proc_macro2::Literal::u32_unsuffixed(forced);
+            quote! { #[align(#forced)] }
+        } else {
+            TokenStream::new()
+        };
         Ok(Body {
-            attributes: if let Some(packing) = packing {
-                let packing = proc_macro2::Literal::u64_unsuffixed(packing);
-                quote! { #[packed(#packing)] }
-            } else if let Some(forced) = forced {
-                let forced = proc_macro2::Literal::u32_unsuffixed(forced);
-                quote! { #[align(#forced)] }
-            } else {
-                TokenStream::new()
-            },
+            attributes: quote! { #native_attributes #layout_attributes },
             declaration: quote! { #keyword #declaration_name { #(#declarations)* #(#fields)* } },
         })
     }

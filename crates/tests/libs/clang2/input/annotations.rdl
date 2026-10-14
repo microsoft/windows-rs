@@ -1,0 +1,27 @@
+#[win32]
+mod Fixture {
+    struct BufferView {
+        count: u32,
+        #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "count", "count")]
+        data: *mut u8,
+    }
+    #[library("example.dll")]
+    extern "C" fn Conditional(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_(capacity)", "capacity > 0, __attribute__((annotate(\"windows_clang:sal:2:\" \"_Out_writes_\" \"\\n\" \"(capacity)\" \"\\n\" \"(capacity)\")))")] buffer: *mut void, capacity: u32);
+    #[guid(0x11111111_1111_1111_1111_111111111111)]
+    interface IAnnotated {
+        fn Get(&self, #[Windows::Win32::Metadata::NativeSal("2", "_COM_Outptr_", "", "")] #[out] object: *mut *mut void) -> Status;
+    }
+    #[library("example.dll")]
+    extern "C" fn InspectResult(#[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_", "", "")] #[out] result: *mut *mut void);
+    #[library("example.dll")]
+    extern "C" fn OptionalResult(#[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_", "", "")] #[out] #[opt] result: *mut *mut void);
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("example.dll")]
+    extern "C" fn ReadBuffer(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "capacity,*written", "capacity,*written")] #[out] #[opt] buffer: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")] #[in] capacity: u32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_opt_", "", "")] #[out] #[opt] written: *mut u32) -> Status;
+    #[library("example.dll")]
+    extern "C" fn ReadFixed(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "16", "16")] #[in] values: *const i32);
+    #[library("example.dll")]
+    extern "C" fn ReadHook(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "REVIEW_LIMIT", "16")] #[in] values: *const i32);
+    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    type Status = i32;
+}

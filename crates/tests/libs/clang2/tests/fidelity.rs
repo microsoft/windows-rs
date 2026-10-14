@@ -83,8 +83,6 @@ fn opaque_packing() {
             b.attributes[0].kind,
             AttributeKind::MaxFieldAlignment { bits: 16 }
         );
-        assert!(attribute.spelling.is_empty());
-        assert!(attribute.tokens.is_empty());
         assert!(attribute.location.is_none());
         let a = a.definition.as_ref().unwrap();
         let b = b.definition.as_ref().unwrap();
@@ -242,11 +240,12 @@ fn attributes() {
                 );
             }
             if root.starts_with("Pragma") {
-                assert!(observation.attributes.iter().all(
-                    |attribute| attribute.spelling.is_empty()
-                        && attribute.tokens.is_empty()
-                        && attribute.location.is_none()
-                ));
+                assert!(
+                    observation
+                        .attributes
+                        .iter()
+                        .all(|attribute| attribute.location.is_none())
+                );
             }
         }
         let merged = merge(&snapshots).unwrap();

@@ -92,6 +92,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         .join(helpers::marketing_dir(SDK_VERSION));
     let mut arguments = vec![
         "-fms-extensions".into(),
+        "-include".into(),
+        std::fs::canonicalize("crates\\tools\\win32-2\\src\\sal.h")?
+            .display()
+            .to_string(),
         "-resource-dir".into(),
         std::fs::canonicalize(helpers::clang_resource_dir())?
             .display()

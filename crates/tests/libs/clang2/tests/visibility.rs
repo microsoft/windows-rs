@@ -43,8 +43,6 @@ fn roundtrip() {
                         alignment: 4
                     }
                 );
-                let attribute = &definition.attributes[0];
-                assert!(attribute.tokens.is_empty());
             }
         }
     }

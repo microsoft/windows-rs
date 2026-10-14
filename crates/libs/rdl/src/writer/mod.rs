@@ -461,7 +461,13 @@ fn write_type_def_items(
                 .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
             let ty = write_type(namespace, &field.ty());
             let arch_attr = write_arch_attr(item.arches());
-            let tokens = quote! { #arch_attr type #name = #ty; };
+            let attrs = write_custom_attributes_except(
+                item.attributes(),
+                namespace,
+                item.index(),
+                &["SupportedArchitectureAttribute"],
+            )?;
+            let tokens = quote! { #arch_attr #(#attrs)* type #name = #ty; };
             return Ok(vec![(item.name().to_string(), tokens)]);
         }
         write_struct_items(item)

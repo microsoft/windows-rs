@@ -98,25 +98,6 @@ pub(super) fn text(value: CXString) -> String {
     }
 }
 
-pub(super) fn tokens(cursor: CXCursor) -> Vec<String> {
-    unsafe {
-        let unit = clang_Cursor_getTranslationUnit(cursor);
-        let mut tokens = std::ptr::null_mut();
-        let mut count = 0;
-        clang_tokenize(
-            unit,
-            clang_getCursorExtent(cursor),
-            &raw mut tokens,
-            &raw mut count,
-        );
-        let result = (0..count)
-            .map(|index| text(clang_getTokenSpelling(unit, *tokens.add(index as usize))))
-            .collect();
-        clang_disposeTokens(unit, tokens, count);
-        result
-    }
-}
-
 pub(super) fn record_fields(cursor: CXCursor) -> Vec<CXCursor> {
     #[derive(Default)]
     struct Fields {

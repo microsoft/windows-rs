@@ -4,34 +4,62 @@ use super::*;
 use native::*;
 use windows_clang_sys::*;
 
+mod annotations;
 mod values;
+
+pub(super) struct MacroProbe {
+    pub name: String,
+    pub declaration: u32,
+    pub expansion: u32,
+}
 
 pub(super) fn read(
     unit: CXTranslationUnit,
     roots: &[String],
-    macros: &[String],
+    macros: &[MacroProbe],
     snapshot: &mut Snapshot,
     partial: bool,
 ) -> Result<partial::Issues, Error> {
     let mut issues = partial::Issues::default();
     let declarations = declarations(unsafe { clang_getTranslationUnitCursor(unit) });
-    let mut expanded = HashMap::new();
-    for &cursor in &declarations {
-        if unsafe { clang_getCursorKind(cursor) } == CXCursor_MacroExpansion {
-            let name = text(unsafe { clang_getCursorSpelling(cursor) });
-            if macros.contains(&name) {
-                expanded.insert(name, unsafe { clang_getCursorReferenced(cursor) });
+    let mut sites = HashMap::new();
+    if !macros.is_empty() {
+        let name = std::ffi::CString::new(snapshot.input.as_str()).unwrap();
+        let main_file = unsafe { clang_getFile(unit, name.as_ptr()) };
+        for &cursor in &declarations {
+            let kind = unsafe { clang_getCursorKind(cursor) };
+            if matches!(kind, CXCursor_MacroExpansion | CXCursor_VarDecl) {
+                let mut file = std::ptr::null_mut();
+                let mut offset = 0;
+                unsafe {
+                    clang_getExpansionLocation(
+                        clang_getCursorLocation(cursor),
+                        &raw mut file,
+                        std::ptr::null_mut(),
+                        std::ptr::null_mut(),
+                        &raw mut offset,
+                    );
+                }
+                if !file.is_null() && file == main_file {
+                    sites.insert((kind, offset), cursor);
+                }
             }
         }
     }
     let probes = macros
         .iter()
-        .enumerate()
-        .map(|(index, name)| {
-            let definition = expanded
-                .get(name)
+        .map(|probe| {
+            let name = &probe.name;
+            let expansion = sites
+                .get(&(CXCursor_MacroExpansion, probe.expansion))
                 .copied()
-                .ok_or_else(|| Error(format!("macro `{name}` has no native expansion evidence")))?;
+                .filter(|cursor| text(unsafe { clang_getCursorSpelling(*cursor) }) == *name)
+                .ok_or_else(|| {
+                    Error(format!(
+                        "macro `{name}` has no expansion at its evaluation probe"
+                    ))
+                })?;
+            let definition = unsafe { clang_getCursorReferenced(expansion) };
             if unsafe { clang_getCursorKind(definition) } != CXCursor_MacroDefinition
                 || unsafe { clang_Cursor_isMacroFunctionLike(definition) } != 0
             {
@@ -39,8 +67,11 @@ pub(super) fn read(
                     "macro `{name}` is not an object-like definition"
                 )));
             }
+            let declaration = sites
+                .get(&(CXCursor_VarDecl, probe.declaration))
+                .ok_or_else(|| Error(format!("macro `{name}` has no evaluation declaration")))?;
             Ok((
-                format!("__windows_clang_macro_{index}"),
+                Cursor(unsafe { clang_getCanonicalCursor(*declaration) }),
                 (name.clone(), definition),
             ))
         })
@@ -64,8 +95,8 @@ pub(super) fn read(
         let name = text(unsafe { clang_getCursorSpelling(cursor) });
         let name = capture
             .probes
-            .get(&name)
-            .map_or(name.clone(), |(name, _)| name.clone());
+            .get(&Cursor(unsafe { clang_getCanonicalCursor(cursor) }))
+            .map_or(name, |(name, _)| name.clone());
         let kind = unsafe { clang_getCursorKind(cursor) };
         if unsafe { clang_isPreprocessing(kind) } != 0 {
             continue;
@@ -131,7 +162,7 @@ pub(super) fn read(
         all
     } else {
         let mut result = Vec::new();
-        for name in roots.iter().chain(macros) {
+        for name in roots.iter().chain(macros.iter().map(|probe| &probe.name)) {
             let Some(candidates) = names.get(name) else {
                 return Err(Error(format!("requested declaration `{name}` not found")));
             };
@@ -224,7 +255,7 @@ struct Capture<'a> {
     declarations: HashMap<Cursor, Vec<CXCursor>>,
     pending: Vec<Cursor>,
     values: HashMap<Cursor, ValueId>,
-    probes: HashMap<String, (String, CXCursor)>,
+    probes: HashMap<Cursor, (String, CXCursor)>,
     records: HashMap<Cursor, RecordId>,
     aliases: HashMap<Cursor, AliasId>,
     enums: HashMap<Cursor, EnumId>,
@@ -611,6 +642,7 @@ impl Capture<'_> {
             "Packed" => AttributeKind::Packed,
             "MSNoVTable" => AttributeKind::NoVTable,
             "DLLImport" => AttributeKind::DllImport,
+            "Annotate" => annotations::read(cursor)?,
             "Uuid" => {
                 let mut uuid = CXString::default();
                 let status = unsafe { windows_clang_getUuid(cursor, &raw mut uuid) };
@@ -685,13 +717,11 @@ impl Capture<'_> {
         if self.partial && matches!(kind, AttributeKind::Unresolved(_)) {
             return Err(unsupported(
                 cursor,
-                &format!("unresolved attribute {kind:?}: {:?}", tokens(cursor)),
+                &format!("unresolved attribute {kind:?}"),
             ));
         }
         Ok(Attribute {
             kind,
-            spelling: text(unsafe { clang_getCursorSpelling(cursor) }),
-            tokens: tokens(cursor),
             location: (!file.is_empty()).then(|| self.location(cursor)),
         })
     }
@@ -703,7 +733,11 @@ impl Capture<'_> {
             if unsafe { clang_isAttribute(kind) } != 0 {
                 result.push(self.attribute(child)?);
             } else if kind == CXCursor_ParmDecl {
-                if !self.attributes(child)?.is_empty() {
+                if !matches!(
+                    unsafe { clang_getCursorKind(cursor) },
+                    CXCursor_FunctionDecl | CXCursor_CXXMethod
+                ) && !self.attributes(child)?.is_empty()
+                {
                     return Err(unsupported(
                         child,
                         "attributed callback parameter is unsupported",

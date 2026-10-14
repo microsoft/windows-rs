@@ -73,9 +73,15 @@ remain provenance, not exported methods or a claim of full C++ compatibility.
 Const integer declarations and explicitly selected `Input::macros` use compiler evaluation.
 Macros are evaluated after the input and retain native definition ownership. A constant-expression
 check rejects runtime side effects that libclang's general folding API may ignore. This slice
-does not implement string macros, general initializers, automatic macro discovery, or broad SAL
-annotation decoding. The header/RDL fixtures and SDK breadth test cover all three categories
+does not implement string macros, general initializers, or automatic macro discovery.
+The header/RDL fixtures and SDK breadth test cover all three categories
 through x86, x64, and ARM64 WinMD round trips.
+
+The SDK driver preserves SAL source-hook evidence through the provisional `NativeSalAttribute`,
+including capacity, initialized-length, and conditional contracts. Common parameter direction and
+argument-optionality flags are also projected. This is not a complete SAL interpreter; expressions
+and nested contracts remain explicit evidence. Typedef publication accepts an observed annotation
+set that contains all other observations, but never invents a union of incomparable sets.
 
 All same-target record and callback observations must agree on their public names after native
 compatibility is checked; conflicting names are errors, including in partial mode.

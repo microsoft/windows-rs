@@ -49,10 +49,7 @@ fn capture_impl(
             if !names.insert(&input.name) {
                 return Err(Error(format!("duplicate input name `{}`", input.name)));
             }
-            Ok((
-                CString::new(input.name.as_str()).map_err(|error| Error(error.to_string()))?,
-                CString::new(macro_source(input)?).map_err(|error| Error(error.to_string()))?,
-            ))
+            macro_source(input)
         })
         .collect::<Result<Vec<_>, Error>>()?;
     let _batch = BATCH.lock().map_err(|error| Error(error.to_string()))?;
@@ -83,10 +80,9 @@ fn capture_impl(
                     // Dispose before restoring bindings if this worker unwinds.
                     let owned_index = index;
                     let mut results = Batch::default();
-                    for ((name, source), input) in sources.iter().zip(inputs) {
+                    for (source, input) in sources.iter().zip(inputs) {
                         results.push(parse(
                             &owned_index,
-                            name,
                             source,
                             input,
                             target,
@@ -114,8 +110,15 @@ fn capture_impl(
     }
 }
 
-fn macro_source(input: &Input) -> Result<String, Error> {
+struct Source {
+    name: CString,
+    text: CString,
+    probes: Vec<capture::MacroProbe>,
+}
+
+fn macro_source(input: &Input) -> Result<Source, Error> {
     let mut source = input.source.clone();
+    let mut probes = Vec::new();
     let mut names = HashSet::new();
     for (index, name) in input.macros.iter().enumerate() {
         if name.is_empty()
@@ -126,11 +129,29 @@ fn macro_source(input: &Input) -> Result<String, Error> {
         {
             return Err(Error(format!("invalid or duplicate macro name `{name}`")));
         }
-        source.push_str(&format!(
-            "\nstatic const __typeof__(({name})) __windows_clang_macro_{index} = ({name});\n"
-        ));
+        source.push_str(&format!("\nstatic const __typeof__(({name})) "));
+        let declaration = source
+            .len()
+            .try_into()
+            .map_err(|_| Error("source too large".into()))?;
+        source.push_str(&format!("__windows_clang_macro_{index} = ("));
+        let expansion = source
+            .len()
+            .try_into()
+            .map_err(|_| Error("source too large".into()))?;
+        source.push_str(name);
+        source.push_str(");\n");
+        probes.push(capture::MacroProbe {
+            name: name.clone(),
+            declaration,
+            expansion,
+        });
     }
-    Ok(source)
+    Ok(Source {
+        name: CString::new(input.name.as_str()).map_err(|error| Error(error.to_string()))?,
+        text: CString::new(source).map_err(|error| Error(error.to_string()))?,
+        probes,
+    })
 }
 
 #[derive(Default)]
@@ -189,8 +210,7 @@ impl Drop for Unit {
 
 fn parse(
     index: &Index,
-    name: &CString,
-    source: &CString,
+    source: &Source,
     input: &Input,
     target: Target,
     compiler: &str,
@@ -201,7 +221,7 @@ fn parse(
     arguments.push(format!("--target={}", target.triple()));
     let context = format!(
         "{} [{}] {}",
-        name.to_string_lossy(),
+        source.name.to_string_lossy(),
         target.triple(),
         arguments.join(" ")
     );
@@ -212,9 +232,10 @@ fn parse(
             .collect::<Result<_, _>>()?;
         let pointers: Vec<_> = args.iter().map(|arg| arg.as_ptr()).collect();
         let mut unsaved = CXUnsavedFile {
-            Filename: name.as_ptr(),
-            Contents: source.as_ptr(),
+            Filename: source.name.as_ptr(),
+            Contents: source.text.as_ptr(),
             Length: source
+                .text
                 .as_bytes()
                 .len()
                 .try_into()
@@ -224,7 +245,7 @@ fn parse(
         let status = unsafe {
             clang_parseTranslationUnit2(
                 index.0,
-                name.as_ptr(),
+                source.name.as_ptr(),
                 pointers.as_ptr(),
                 pointers.len().try_into().unwrap(),
                 &raw mut unsaved,
@@ -264,7 +285,7 @@ fn parse(
             )));
         }
         let mut snapshot = Snapshot {
-            input: name.to_string_lossy().into_owned(),
+            input: source.name.to_string_lossy().into_owned(),
             target,
             compiler: compiler.to_string(),
             arguments: arguments.clone(),
@@ -278,7 +299,7 @@ fn parse(
             observations: Vec::new(),
             types: Vec::new(),
         };
-        let issues = capture::read(unit.0, &input.roots, &input.macros, &mut snapshot, partial)?;
+        let issues = capture::read(unit.0, &input.roots, &source.probes, &mut snapshot, partial)?;
         Ok((snapshot, issues))
     };
     parse().map_err(|error| Error(format!("{context}\n{error}")))
