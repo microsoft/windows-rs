@@ -176,6 +176,8 @@ pub struct Field {
     pub written: TypeId,
     pub canonical: TypeId,
     pub offset_bits: u64,
+    /// Evaluated bit width, including zero-width allocation barriers.
+    pub bit_width: Option<u32>,
     pub attributes: Vec<Attribute>,
 }
 

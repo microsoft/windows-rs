@@ -10,14 +10,14 @@ struct PointerUser { MixedPointer value; };
 
 int unsupported_function(int value);
 union PlainUnion { int a; float b; };
-struct Broken { Broken* next; unsigned bit : 1; };
+struct Broken { Broken* next; unsigned& value; };
 struct Dependent { Broken* value; };
 typedef Dependent BadAlias;
 struct Transitive { BadAlias* value; };
 
 struct PlatformBad {
 #if defined(_M_IX86)
-    unsigned bit : 1;
+    unsigned& value;
 #else
     int value;
 #endif

@@ -1,5 +1,5 @@
 struct Safe { int value; };
-struct Broken { unsigned bit : 1; };
+struct Broken { unsigned& value; };
 typedef Broken* (*BadResult)(Safe* first, Safe* second);
 typedef void (*BadParameter)(Safe* first, Broken* second);
 typedef void (*Transitive)(BadParameter callback);

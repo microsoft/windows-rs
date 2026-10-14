@@ -259,9 +259,10 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
         for (a, b) in a.fields.iter().zip(&b.fields) {
             if a.name != b.name
                 || a.offset_bits != b.offset_bits
+                || a.bit_width != b.bit_width
                 || !abi_attributes_equal(&a.attributes, &b.attributes)
             {
-                return Err(conflict("field name, order, or offset differs"));
+                return Err(conflict("field name, order, offset, or bit width differs"));
             }
             // Typedef names are retained as evidence, but do not create nominal native types.
             let (a, b) = (a.canonical, b.canonical);

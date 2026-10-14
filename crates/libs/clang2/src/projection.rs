@@ -7,6 +7,7 @@ use std::collections::BTreeSet;
 use windows_metadata::Type as MetadataType;
 use windows_rdl::emit::{write_ident, write_type, write_value};
 
+mod bitfields;
 mod plan;
 use plan::Plan;
 
@@ -14,7 +15,7 @@ const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[derive(Debug, Eq, PartialEq)]
 pub struct Partition {
-    pub header: String,
+    pub headers: BTreeSet<String>,
     pub rdl: String,
 }
 
@@ -121,7 +122,7 @@ pub fn generate(inputs: &[Input], namespace: &str) -> Result<Output, Error> {
 /// Projects supported definitions, preserving target variants and checking metadata ABI layout.
 ///
 /// Checked by-value alias families share a public record, without merging native identities.
-/// Other reachable value names remain transparent aliases. Ambiguous header ownership is an error.
+/// Other reachable value names remain transparent aliases. Shared ownership uses foundation.rdl.
 pub fn project(merged: &Merged<'_>, namespace: &str) -> Result<Output, Error> {
     project_impl(merged, namespace, None)
 }
@@ -199,7 +200,7 @@ fn project_impl(
                     .into_iter()
                     .next()
                     .ok_or_else(|| Error(format!("record `{name}` is incomplete")))?;
-                Ok((body, plan.record_header(resolution, id)?))
+                Ok((body, plan.record_headers(resolution, id)?))
             });
             match result {
                 Ok((body, header)) => {
@@ -235,7 +236,7 @@ fn project_impl(
                     [reference.enumeration.0]
                     .observations[reference.observation];
                 let body = projector.enumeration(reference.snapshot, observation, &ident(name)?)?;
-                Ok((body, plan.enum_header(resolution, id)?))
+                Ok((body, plan.enum_headers(resolution, id)?))
             })();
             match result {
                 Ok((body, header)) => publish(
@@ -300,7 +301,7 @@ fn project_impl(
             let result = bodies.and_then(|bodies| {
                 Ok((
                     bodies.into_iter().next().unwrap(),
-                    plan.alias_header(resolution, alias)?,
+                    plan.alias_headers(resolution, alias)?,
                 ))
             });
             match result {
@@ -338,7 +339,7 @@ fn project_impl(
         }
     }
     let mut partitions = BTreeMap::new();
-    for (stem, (header, declarations)) in items {
+    for (stem, (headers, declarations)) in items {
         let mut body: TokenStream = declarations.into_values().collect();
         for module in modules.iter().rev() {
             body = quote! { mod #module { #body } };
@@ -347,7 +348,7 @@ fn project_impl(
         partitions.insert(
             stem,
             Partition {
-                header,
+                headers,
                 rdl: windows_rdl::formatter::format(&text),
             },
         );
@@ -381,12 +382,12 @@ fn publish(
     target: Target,
     name: &str,
     body: Body,
-    header: String,
+    headers: BTreeSet<String>,
     keys: Vec<partial::Key>,
     kind: PublishedKind,
 ) {
     let item = items.entry(name.to_string()).or_default();
-    item.headers.insert(header);
+    item.headers.extend(headers);
     item.keys.extend(keys);
     item.kind = item.kind.max(kind);
     item.bodies
@@ -780,21 +781,19 @@ impl Projector<'_, '_> {
         let mut fields = Vec::new();
         let mut names = HashSet::new();
         for field in &definition.fields {
-            let field_name = ident(&field.name)?;
-            if !names.insert(field_name.to_string()) {
+            if !field.name.is_empty() && !names.insert(ident(&field.name)?.to_string()) {
                 return Err(Error(format!(
-                    "duplicate projected field `{field_name}` in `{name}`"
+                    "duplicate projected field `{}` in `{name}`",
+                    field.name
                 )));
             }
             let native = &snapshot.types[field.canonical.0];
             if !field.attributes.is_empty() || native.qualifiers.constant {
                 return Err(Error(format!(
-                    "attributed or const field `{name}.{field_name}` is unsupported"
+                    "attributed or const field `{name}.{}` is unsupported",
+                    field.name
                 )));
             }
-            let layout = native
-                .layout
-                .ok_or_else(|| Error(format!("field `{name}.{field_name}` has no layout")))?;
             if packing.is_some()
                 && self.contains_alignment(snapshot_id, field.canonical, &mut HashSet::new())
             {
@@ -802,6 +801,65 @@ impl Projector<'_, '_> {
                     "packed record `{name}` contains an aligned type"
                 )));
             }
+        }
+        let groups = bitfields::groups(snapshot, &definition.fields, kind)?;
+        let bitfield_count = groups
+            .iter()
+            .filter(|group| group[0].bit_width.is_some())
+            .count();
+        let mut bitfield_index = 0;
+        for group in groups {
+            let field = &group[0];
+            let (field_name, ty, members) = if field.bit_width.is_some() {
+                bitfield_index += 1;
+                let backing = if bitfield_count == 1 {
+                    "_bitfield".to_string()
+                } else {
+                    format!("_bitfield{bitfield_index}")
+                };
+                if !names.insert(backing.clone()) {
+                    return Err(Error(format!(
+                        "bitfield backing `{backing}` collides in `{name}`"
+                    )));
+                }
+                let members = group
+                    .iter()
+                    .rposition(|member| !member.name.is_empty())
+                    .map(|last| {
+                        let members = group[..=last].iter().map(|member| {
+                            let member_name = if member.name.is_empty() {
+                                quote! { _ }
+                            } else {
+                                ident(&member.name).unwrap()
+                            };
+                            let width =
+                                proc_macro2::Literal::u32_unsuffixed(member.bit_width.unwrap());
+                            quote! { #member_name: #width, }
+                        });
+                        quote! { { #(#members)* } }
+                    });
+                (
+                    ident(&backing)?,
+                    self.ty(
+                        snapshot_id,
+                        group
+                            .iter()
+                            .find(|member| !member.name.is_empty())
+                            .unwrap_or(field)
+                            .canonical,
+                    )?,
+                    quote! { #members },
+                )
+            } else {
+                (
+                    ident(&field.name)?,
+                    self.written_ty(snapshot_id, field.written, field.canonical)?,
+                    TokenStream::new(),
+                )
+            };
+            let layout = snapshot.types[field.canonical.0]
+                .layout
+                .ok_or_else(|| Error(format!("field `{name}.{field_name}` has no layout")))?;
             let field_alignment =
                 packing.map_or(layout.alignment, |packing| layout.alignment.min(packing));
             let offset = if kind == RecordKind::Union {
@@ -816,11 +874,8 @@ impl Projector<'_, '_> {
             }
             size = size.max(offset + layout.size);
             alignment = alignment.max(field_alignment);
-            let ty = write_type(
-                self.namespace,
-                &self.written_ty(snapshot_id, field.written, field.canonical)?,
-            );
-            fields.push(quote! { #field_name: #ty, });
+            let ty = write_type(self.namespace, &ty);
+            fields.push(quote! { #field_name: #ty #members, });
         }
         alignment = alignment.max(u64::from(forced.unwrap_or(1)));
         if definition.layout
@@ -891,7 +946,7 @@ fn ident(value: &str) -> Result<TokenStream, Error> {
     Ok(write_ident(value))
 }
 
-type Items = BTreeMap<String, (String, BTreeMap<String, TokenStream>)>;
+type Items = BTreeMap<String, (BTreeSet<String>, BTreeMap<String, TokenStream>)>;
 
 fn insert(
     items: &mut Items,
@@ -899,32 +954,42 @@ fn insert(
     name: &str,
     body: TokenStream,
 ) -> Result<(), Error> {
-    if headers.len() != 1 {
-        return Err(Error(format!(
-            "ambiguous header ownership for `{name}`: {headers:?}"
-        )));
+    if headers.is_empty() {
+        return Err(Error(format!("no header ownership for `{name}`")));
     }
-    let header = headers.first().unwrap();
-    let stem = std::path::Path::new(header)
-        .file_stem()
-        .and_then(|stem| stem.to_str())
-        .ok_or_else(|| Error(format!("invalid header path `{header}`")))?;
-    let stem: String = stem
-        .chars()
-        .filter(|ch| *ch != '.')
-        .flat_map(char::to_lowercase)
-        .collect();
-    if stem.is_empty() {
-        return Err(Error(format!("empty header partition for `{header}`")));
-    }
-    let (owner, declarations) = items
+    let shared = headers.len() > 1;
+    let stem = if shared {
+        "foundation".to_string()
+    } else {
+        let header = headers.first().unwrap();
+        let stem = std::path::Path::new(header)
+            .file_stem()
+            .and_then(|stem| stem.to_str())
+            .ok_or_else(|| Error(format!("invalid header path `{header}`")))?;
+        let stem: String = stem
+            .chars()
+            .filter(|ch| *ch != '.')
+            .flat_map(char::to_lowercase)
+            .collect();
+        if stem.is_empty() {
+            return Err(Error(format!("empty header partition for `{header}`")));
+        }
+        if stem == "foundation" {
+            return Err(Error(format!(
+                "header `{header}` collides with reserved foundation partition"
+            )));
+        }
+        stem
+    };
+    let (owners, declarations) = items
         .entry(stem.clone())
-        .or_insert_with(|| (header.clone(), BTreeMap::new()));
-    if owner != header {
+        .or_insert_with(|| (headers.clone(), BTreeMap::new()));
+    if !shared && owners != headers {
         return Err(Error(format!(
-            "headers `{owner}` and `{header}` collide in partition `{stem}`"
+            "headers {owners:?} and {headers:?} collide in partition `{stem}`"
         )));
     }
+    owners.extend(headers.iter().cloned());
     declarations.insert(name.to_string(), body);
     Ok(())
 }

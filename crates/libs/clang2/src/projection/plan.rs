@@ -260,11 +260,11 @@ impl Plan {
         self.parents[self.groups[snapshot][record.0]]
     }
 
-    pub fn alias_header(
+    pub fn alias_headers(
         &self,
         resolution: &Resolution<'_>,
         alias: &AliasGroup,
-    ) -> Result<String, Error> {
+    ) -> Result<BTreeSet<String>, Error> {
         let mut headers = BTreeSet::new();
         let mut definitions = BTreeSet::new();
         for reference in &alias.observations {
@@ -298,21 +298,21 @@ impl Plan {
             }
         }
         if definitions.len() == 1 {
-            Ok(definitions.into_iter().next().unwrap())
+            Ok(definitions)
         } else {
-            owner(&alias.name, headers)
+            owners(&alias.name, headers)
         }
     }
 
-    pub fn record_header(
+    pub fn record_headers(
         &self,
         resolution: &Resolution<'_>,
         family: usize,
-    ) -> Result<String, Error> {
+    ) -> Result<BTreeSet<String>, Error> {
         if let Some(alias) = self.primary[family] {
-            return self.alias_header(resolution, &resolution.aliases[alias]);
+            return self.alias_headers(resolution, &resolution.aliases[alias]);
         }
-        owner(
+        owners(
             &self.names[family],
             self.families[family]
                 .iter()
@@ -321,11 +321,15 @@ impl Plan {
         )
     }
 
-    pub fn enum_header(&self, resolution: &Resolution<'_>, id: usize) -> Result<String, Error> {
+    pub fn enum_headers(
+        &self,
+        resolution: &Resolution<'_>,
+        id: usize,
+    ) -> Result<BTreeSet<String>, Error> {
         if let Some(alias) = self.enum_primary[id] {
-            self.alias_header(resolution, &resolution.aliases[alias])
+            self.alias_headers(resolution, &resolution.aliases[alias])
         } else {
-            owner(&self.enum_names[id], self.enum_headers[id].clone())
+            owners(&self.enum_names[id], self.enum_headers[id].clone())
         }
     }
 
@@ -355,6 +359,7 @@ impl Plan {
                     || !x.fields.iter().zip(&y.fields).all(|(x, y)| {
                         x.name == y.name
                             && x.offset_bits == y.offset_bits
+                            && x.bit_width == y.bit_width
                             && abi_attributes_equal(&x.attributes, &y.attributes)
                             && self.same_type(
                                 resolution,
@@ -432,13 +437,11 @@ fn root(parents: &mut [usize], mut id: usize) -> usize {
     id
 }
 
-fn owner(name: &str, headers: BTreeSet<String>) -> Result<String, Error> {
-    if headers.len() == 1 {
-        Ok(headers.into_iter().next().unwrap())
+fn owners(name: &str, headers: BTreeSet<String>) -> Result<BTreeSet<String>, Error> {
+    if headers.is_empty() {
+        Err(Error(format!("no header ownership for `{name}`")))
     } else {
-        Err(Error(format!(
-            "ambiguous header ownership for `{name}`: {headers:?}"
-        )))
+        Ok(headers)
     }
 }
 

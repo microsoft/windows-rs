@@ -36,7 +36,7 @@ plain C/stdcall callback prototypes. Written aliases and attributed calling conv
 Native record compatibility uses canonical types. Alias groups retain all name-corresponding
 bindings; their public compatibility is checked during projection, not assumed by native merge.
 Unresolved attributes block `resolve` and `merge`. No packing request is guessed from layout.
-Nested records, bitfields, and exported function declarations are not implemented.
+Nested records and exported function declarations are not implemented.
 Callback capture checks native function properties before accepting a prototype. Explicit
 `regparm`, `noreturn`, variadic or exception-qualified functions, other calling conventions, and
 unknown attributes remain unsupported rather than being normalized to ordinary C.
@@ -47,7 +47,7 @@ attribute for the supported records and enums, which do not project C++ RTTI or 
 Hidden/protected type visibility and ordinary symbol visibility remain unsupported.
 
 The optional `projection` feature provides `projection::generate(inputs, namespace)` for
-three-target capture, merge, and per-header RDL output. It emits structs, unions, enums, and value
+three-target capture, merge, and partitioned RDL output. It emits structs, unions, enums, and value
 typedefs and named callbacks, checks metadata ABI layout, and rejects unsupported declarations or
 ambiguous names. Callback signatures retain calling convention, result and parameter types;
 parameter names are positional. Nested function pointers require a named callback declaration.
@@ -64,6 +64,12 @@ combined packing/alignment, and packed records containing aligned types remain u
 Unions retain their record kind, publish explicit-layout fields at offset zero, and must match
 captured size and alignment. Structs and unions never share a public family, even with identical
 fields and layouts.
+Integer bitfields retain evaluated widths and native offsets. Projection coalesces
+compatible members into checked storage fields, preserving unnamed padding and zero-width
+barriers in native evidence. Union members use separate offset-zero storage fields. Mixed
+signedness between named members in one storage unit and enum/bool bitfields remain unsupported.
+Storage layouts must match native size, alignment, and offsets; no packing request is inferred.
+Downstream union-accessor defects are tracked separately rather than blocking correct metadata.
 Enums retain nominal identity, scopedness, exact signed/unsigned values, and backing types.
 Forward declarations must agree with complete definitions. Projection preserves `#[scoped]` and
 the integer representation; it does not infer flags or combine distinct enums by matching values.
@@ -73,7 +79,10 @@ zero or multiple defining typedefs it retains its native tag. A multi-record fam
 unique common defining typedef, or a unique common alias when none defines a tag. Ambiguity is an
 error. Other reachable value names remain aliases. Pointer aliases cannot establish equivalence.
 Header ownership prefers the unique alias header containing its native definition, otherwise it
-requires a unique declaration header. Native identities and source observations remain distinct.
+retains all declaration headers as candidates. A single owner keeps its header partition; multiple
+owners use `foundation.rdl`. Ownership evidence is combined across architectures before routing,
+and `Partition::headers` retains the real source-header set. Native identities and source
+observations remain distinct; foundation routing never resolves a type conflict.
 `tool-win32-2` supplies the SDK configuration and writes canonical files.
 
 `capture_partial` and `projection::generate_partial` return supported output plus omission reports.

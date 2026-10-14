@@ -321,16 +321,54 @@ cutover, define intended names and annotations and check the header -> RDL -> Wi
 path for representative consumers and issue
 reproductions. Do not count explicit partial omissions or uncaptured macros as solved coverage.
 
-### clang2 public ownership TODO
+### clang2 public ownership
 
-`clang2` `projection/plan.rs` `owner` requires a unique header for public declarations. Equivalent
-typedefs such as `DWORD` can occur in multiple headers; preserving their names exposes this
-ownership ambiguity in dependent declarations. Revisit a shared foundation module or RDL file
-after the rewrite is proven. Do not add arbitrary per-name/header preferences or ownership routing
-seeded from canonical metadata in the meantime.
+After native and public compatibility checks, declarations with several candidate header owners
+go to `foundation.rdl`. Candidate owners are combined across targets before partitioning, so a
+declaration cannot land in different files on different architectures. A unique alias header
+containing its native definition remains preferred; otherwise all declaration headers participate.
+Uniquely owned declarations keep their header partitions. `Partition::headers` retains the real
+source-header set, including for foundation, rather than inventing a source filename.
 
-`projection/plan.rs` `Plan::new` also selects the alphabetically first by-value alias as each
-record's public name. The SDK visibility slice exposes `_GUID` becoming `BATTERY_CHARGER_ID` in
-`poclass.rdl`, with `GUID`, `IID`, and `CLSID` referring to it. Native layout equality does not
-establish canonical naming or ownership parity. Resolve primary naming from declaration evidence
-and an explicit output contract; do not add per-name exceptions.
+The foundation stem is reserved for shared declarations. Missing owners and unrelated headers
+colliding in one ordinary partition remain errors. No per-name/header preferences or routing
+seeded from canonical metadata are used. `test_clang2` `foundation.rs` covers shared aliases,
+records, enums, callbacks, cross-target ownership, dependent consumers, ordering, and conflicts.
+
+### clang2 primary naming
+
+`AliasObservation::defines_tag` retains the native `TagTypeLoc::isDefinition` relationship.
+`projection/plan.rs` `Plan::primary_names` runs after compatibility validation. A single native
+record or enum uses its unique defining value typedef; zero or multiple defining typedefs leave
+the native tag as the definition and preserve other names as aliases. This makes `GUID` the
+definition behind `BATTERY_CHARGER_ID`, without a GUID-specific rule, and retains `_ACTRL_ALISTA`
+when both `ACTRL_ACCESSA` and `ACTRL_AUDITA` define it.
+
+A checked multi-record family requires a unique defining typedef binding to every member, or a
+unique common alias if none defines a tag. An ambiguous family fails even in partial mode.
+Do not choose a primary name alphabetically, by source/header order, or by stripping underscores.
+Primary naming and output ownership are separate checks.
+
+### clang2 metadata and consumer boundaries
+
+`clang2` `Field::bit_width` retains evaluated widths, including unnamed zero-width barriers.
+Native and public-family comparisons check widths independently of layout. `projection/bitfields.rs`
+groups compatible integer storage; record projection checks offsets, size, and alignment against
+Clang. `test_clang2` `bitfields.rs` checks RDL/WinMD member attributes and generated Rust layouts on
+all three MSVC targets, plus host accessor behavior.
+
+Validate metadata semantics and ABI independently of downstream code generation. Consumer-only
+defects do not justify omitting correct metadata; keep separate reproductions and downstream TODOs.
+Raw `windows-sys` bindings can check layout while high-level accessor defects remain open.
+
+- `bindgen` `cpp_struct.rs` `BitfieldBacking::write_accessor` emits union field reads without
+  `unsafe`; generated union bitfield methods fail to compile. This is a downstream TODO, not a
+  clang2 metadata gate. Union bitfields emit as separate offset-zero storage fields.
+- `NativeBitfieldAttribute` carries name, offset, and width, not member type. Bindgen takes
+  signedness from the backing field, so mixed signed/unsigned named members cannot share one
+  backing without losing semantics. Define the member-type representation before accepting these
+  cases; enum and bool bitfields also remain unsupported. Unnamed padding has no member value;
+  its signedness does not constrain the backing, but its native type remains in reconciliation.
+- MSVC unions containing only bitfields can have alignment 1 despite wider integer storage.
+  Keep layout mismatches explicit until the storage alignment has a metadata encoding; do not
+  invent a native packing request from the final layout.

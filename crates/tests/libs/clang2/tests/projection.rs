@@ -609,10 +609,8 @@ fn rejections() {
     let first = selected_fixture("projection_types", &["Node"]);
     let mut second = selected_fixture("projection_types", &["Node"]);
     second.name = "other.h".into();
-    let error = projection::generate(&[first, second], "Fixture")
-        .unwrap_err()
-        .to_string();
-    assert!(error.contains("ambiguous header ownership"), "{error}");
+    let output = projection::generate(&[first, second], "Fixture").unwrap();
+    assert!(output.partitions["foundation"].rdl.contains("struct Node"));
     let input = selected_fixture("projection", &["Node"]);
     let snapshots = capture(&[input], &[Target::X86]).unwrap();
     assert!(projection::project(&merge(&snapshots).unwrap(), "Fixture").is_err());

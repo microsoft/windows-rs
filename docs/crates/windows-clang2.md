@@ -13,21 +13,33 @@ The optional `projection` module maps merged native types to public names, heade
 architecture variants, and RDL. It checks sequential struct and explicit union layouts against
 captured ABI evidence. Native records retain their struct/union kind, including forwards.
 Union fields must have offset zero; size is the largest field size rounded to the union alignment.
-Nested records and bitfields remain unsupported rather than flattened or assigned synthetic names.
+Nested records remain unsupported rather than flattened or assigned synthetic names.
 Its target-local plan separates native record identity from public alias correspondence:
 
 - Only unqualified by-value alias bindings connect candidate record families. Pointer and array
   aliases do not establish pointee/element equivalence.
 - Complete definitions must agree in record kind, field names/order, offsets, packing, alignment
-  requests, layout, and canonical types/qualifiers. Record edges must belong to independently
-  established families.
-- The alphabetically first by-value alias names each family; other reachable value names are transparent
-  aliases. A name can be a record on one architecture and an alias on another.
+  requests, bit widths, layout, and canonical types/qualifiers. Record edges must belong to
+  independently established families.
+- A single native record uses its unique defining value typedef, otherwise its native tag.
+  Multi-record families require a unique common defining typedef, or a unique common alias when
+  none defines a tag. Other reachable names remain aliases. A name can be a record on one
+  architecture and an alias on another.
 - Alias ownership prefers a unique declaration header containing the corresponding native
-  definition; otherwise its declaration header must be unique. Ambiguity is an error or omission.
+  definition; otherwise all declaration headers remain candidates. Multiple owners use the shared
+  `foundation.rdl` partition, without weakening compatibility checks.
 
 All alias bindings are checked before a representative is used. Native and public comparison share
 the same type checker with different record relations. The plan preserves native identities.
+
+`AliasObservation::defines_tag` comes from the native typedef-definition query, not spelling or
+header order. Primary naming runs after native compatibility checks. A common alias must bind to
+every native record group in its family; a typedef naming only one member cannot name the family.
+Several defining typedefs for one named tag leave that tag as the definition and all other names
+as aliases. A multi-record family without a unique common choice fails even in partial mode.
+The `primary*` fixtures cover these rules, alias chains, `using` aliases, metadata identity,
+generated Rust assignability, and input-order independence. The SDK GUID fixture confirms that
+`GUID` is a record, not an alias to an unrelated consumer name.
 
 Partial capture records failed entities, follows reverse dependency edges across snapshots, and
 compacts the surviving IR before reconciliation. It does not reparse individual declarations.
@@ -84,11 +96,37 @@ The `union_*` fixtures cover union aliases, recursive forwards, packing, arrays,
 architecture-specific record kinds, and RDL/WinMD layout round trips. Partial exclusions propagate
 from unsupported union fields across all targets.
 
+Bitfield capture retains evaluated widths, unnamed members, zero-width allocation barriers, and
+native bit offsets. Both native reconciliation and public-family checks compare widths even when
+record size and field offsets match. Projection groups contiguous members into integer storage
+fields and checks storage offsets, record size, and alignment against Clang. A storage group must
+have one size and alignment, and its named members must agree in signedness. Unnamed padding
+does not constrain signedness; the backing takes the first named member's canonical integer type,
+or the first storage type for an entirely unnamed group. Reconciliation retains all native types.
+The existing RDL convention names one backing `_bitfield`, or multiple backings `_bitfield1`, etc.
+Collisions with declared names fail rather than choosing another name. Unnamed members advance
+member offsets without becoming accessors; trailing padding needs no metadata attribute.
+Zero-width barriers split groups and emit no field. If their layout effects cannot be represented
+by the remaining storage fields, projection fails rather than inventing padding.
+
+The `bitfields` fixtures cover 8/16/32/64-bit storage, signed accessors, computed widths, padding,
+packing, barriers, unions, architecture variants, and same-layout conflicts. Union members use
+separate offset-zero storage fields, including members with different types. The ignored test
+compiles raw Rust bindings with size, alignment, and storage/member offset assertions for all three
+MSVC targets. Separate host execution checks supported struct accessors and neighboring bits.
+Enum and bool bitfields remain unsupported. Mixed signed/unsigned members in one allocation unit
+need a per-member type contract: `NativeBitfieldAttribute` currently carries only name, offset,
+and width, while bindgen derives signedness from the backing field. Bindgen's high-level union
+bitfield methods fail to compile because their union reads lack `unsafe`. That consumer defect
+does not block metadata; raw bindings provide an independent ABI check. Some MSVC bitfield-only
+unions have alignment 1 despite wider integer storage. Those layouts remain rejected until their
+storage alignment can be encoded without inventing a native packing request.
+
 Enums use separate typed IDs and observation tables, not integer aliases or synthetic records.
 Native reconciliation checks backing types, layouts, scopedness, attributes, and ordered members.
-It checks forward declarations as well as definitions. Public enum names use the first by-value
-alias alphabetically, but aliases cannot equate distinct native enums. Scoped enums retain
-`ScopedEnumAttribute`; no flags are inferred from numeric patterns. The `enum_*` fixtures cover
+It checks forward declarations as well as definitions. Public enum names use their unique defining
+value typedef, otherwise their native tag. Aliases cannot equate distinct native enums. Scoped enums
+retain `ScopedEnumAttribute`; no flags are inferred from numeric patterns. The `enum_*` fixtures cover
 all eight integer widths/signs, 64-bit limits, expressions, duplicate values, empty definitions,
 forwards, nominal conflicts, and architecture-specific backing types. Partial pruning uses shared
 tag names so a failed enum also excludes a same-named record on another architecture.
@@ -220,7 +258,7 @@ produce the same public declaration. This additional output check reports name d
 instead of selecting a representative's spelling; it does not establish native equivalence.
 `public_names.h` and its RDL golden check named scalar and pointer aliases, callback synonyms, and
 dependencies through WinMD and compiled Rust bindings. The conflict and ownership fixtures cover
-public-name disagreements and omitted named dependencies.
+public-name disagreements and publication of shared named dependencies.
 
 Native reconciliation is not a public API compatibility guarantee. Callback parameter names remain
 positional. Before replacing a production consumer, compare its header names, RDL, WinMD, and
@@ -228,17 +266,25 @@ generated Rust against an explicit output contract. A successful partial SDK run
 accepted subset; omissions and uncaptured macro constants remain outside that claim. New annotations
 need both capture and consuming projection support, not just a place to store them.
 
-Public ownership across headers remains unresolved. Equivalent scalar typedefs can have several
-declaration headers, so preserving their names exposes ownership omissions in their dependents.
-Revisit a shared foundation module or RDL partition after the rewrite is proven. No per-name header
-preferences or canonical-metadata ownership routing are implemented.
+Public ownership is resolved after compatibility checks. Declarations with one candidate header
+stay in its partition; declarations with multiple candidates go to `foundation.rdl`. Ownership
+sets are combined across architectures before partitioning. This includes a name defined in one
+header on x86 and another on x64/ARM64. `Partition::headers` retains actual candidate source headers,
+not a synthetic foundation header. Declarations depending on foundation types keep their own
+owners. Missing ownership and ordinary filename collisions remain errors; the foundation stem is
+reserved for shared declarations. No per-name header preferences or canonical-metadata routing
+are used.
 
-Canonical record naming also remains unresolved. Selecting the alphabetically first by-value alias
-can give an application-specific alias authority over a shared type: `_GUID` becomes
-`BATTERY_CHARGER_ID` from `poclass.h`, with `GUID`, `IID`, and `CLSID` referring to that definition.
-This is not canonical metadata parity even though the native layouts agree. Resolve this through
-declaration evidence and an explicit public naming contract, not GUID-specific exceptions or
-another ordering heuristic.
+The `foundation` fixtures cover shared scalar aliases, callbacks, records, enums, cross-target
+ownership, dependent consumers, input order, and conflicting native definitions. The flat WinMD
+namespace is unchanged. Downstream package generation derives a `foundation` namespace from the
+RDL filename through its existing remap; there is no new package-generator special case.
+
+The defining typedef for `_GUID` is `GUID`; `BATTERY_CHARGER_ID`, `IID`, and `CLSID` remain aliases.
+Declarations such as `_ACTRL_ALISTA`, which defines both `ACTRL_ACCESSA` and `ACTRL_AUDITA`, retain
+their native tag as the definition and both public typedefs as aliases. No per-name preferences
+are needed for either case. Native layout agreement alone does not establish canonical naming
+or ownership parity; inspect the generated diff as coverage expands.
 
 [max-field-alignment]:
   https://github.com/llvm/llvm-project/blob/llvmorg-22.1.8/clang/include/clang/Basic/Attr.td

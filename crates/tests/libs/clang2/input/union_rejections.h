@@ -1,6 +1,6 @@
 union Bad {
 #if defined(_M_IX86)
-    unsigned bits : 1;
+    bool bits : 1;
 #else
     unsigned bits;
 #endif

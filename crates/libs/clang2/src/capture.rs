@@ -324,13 +324,11 @@ impl Capture<'_> {
                     attributes.push(self.attribute(field)?);
                     continue;
                 }
-                if unsafe { clang_getCursorKind(field) } != CXCursor_FieldDecl
-                    || unsafe { clang_Cursor_isBitField(field) } != 0
-                {
+                if unsafe { clang_getCursorKind(field) } != CXCursor_FieldDecl {
                     return Err(unsupported(
                         cursor,
                         &format!(
-                            "only plain named fields are supported in `{}`: {} `{}`",
+                            "only fields are supported in `{}`: {} `{}`",
                             text(unsafe { clang_getCursorSpelling(cursor) }),
                             text(unsafe {
                                 clang_getCursorKindSpelling(clang_getCursorKind(field))
@@ -340,7 +338,16 @@ impl Capture<'_> {
                     ));
                 }
                 let name = text(unsafe { clang_getCursorSpelling(field) });
-                if name.is_empty() {
+                let bit_width = if unsafe { clang_Cursor_isBitField(field) } != 0 {
+                    Some(
+                        unsafe { clang_getFieldDeclBitWidth(field) }
+                            .try_into()
+                            .map_err(|_| unsupported(field, "bitfield width unavailable"))?,
+                    )
+                } else {
+                    None
+                };
+                if name.is_empty() && bit_width.is_none() {
                     return Err(unsupported(field, "unnamed field"));
                 }
                 let ty = unsafe { clang_getCursorType(field) };
@@ -352,6 +359,7 @@ impl Capture<'_> {
                     offset_bits: unsafe { clang_Cursor_getOffsetOfField(field) }
                         .try_into()
                         .map_err(|_| unsupported(field, "field offset unavailable"))?,
+                    bit_width,
                     attributes: self.attributes(field)?,
                 });
             }
@@ -468,7 +476,10 @@ impl Capture<'_> {
                         "attributed callback parameter is unsupported",
                     ));
                 }
-            } else if !matches!(kind, CXCursor_TypeRef | CXCursor_IntegerLiteral) {
+            } else if !matches!(kind, CXCursor_TypeRef | CXCursor_IntegerLiteral)
+                && !(unsafe { clang_Cursor_isBitField(cursor) } != 0
+                    && unsafe { clang_isExpression(kind) } != 0)
+            {
                 let is_underlying_record = unsafe {
                     if matches!(
                         clang_getCursorKind(cursor),

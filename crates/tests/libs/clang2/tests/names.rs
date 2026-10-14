@@ -153,25 +153,24 @@ fn ownership() {
         input.source = "typedef unsigned Count;\n#include \"public_names_ownership.h\"".into();
     }
     inputs[1].name = "other.h".into();
-    let error = projection::generate(&inputs, "Fixture")
-        .unwrap_err()
-        .to_string();
-    assert!(
-        error.contains("ambiguous header ownership for `Count`"),
-        "{error}"
-    );
+    let output = projection::generate(&inputs, "Fixture").unwrap();
     let result = projection::generate_partial(&inputs, "Fixture").unwrap();
-    assert_eq!((result.output.records, result.output.aliases), (1, 0));
+    assert_eq!(output, result.output);
+    assert_eq!((result.output.records, result.output.aliases), (2, 1));
+    assert!(result.omissions.is_empty());
+    assert!(
+        result.output.partitions["foundation"]
+            .rdl
+            .contains("type Count = u32;")
+    );
     assert!(
         result.output.partitions["public_names_ownership"]
             .rdl
             .contains("struct NamedSurvivor")
     );
     assert!(
-        result
-            .omissions
-            .iter()
-            .any(|message| message.contains("NamedDependent")
-                && message.contains("depends on omitted Alias(\"Count\")"))
+        result.output.partitions["public_names_ownership"]
+            .rdl
+            .contains("struct NamedDependent")
     );
 }

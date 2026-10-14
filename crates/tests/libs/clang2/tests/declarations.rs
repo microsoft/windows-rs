@@ -121,7 +121,10 @@ fn declaration_fidelity() {
     )
     .unwrap_err()
     .to_string();
-    assert!(error.contains("plain named fields"), "{error}");
+    assert!(
+        error.contains("unsupported type `unsigned int &`"),
+        "{error}"
+    );
     using_aliases();
     record_alias_identity();
 }

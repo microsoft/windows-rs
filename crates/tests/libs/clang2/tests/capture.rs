@@ -138,18 +138,22 @@ fn native_slice() {
     for target in TARGETS {
         assert!(error.contains(target.triple()), "{error}");
     }
-    let error = capture(
+    let bitfields = capture(
         &[input(
             "bitfield.h",
             "struct Record { unsigned flags : 3; };",
         )],
         &[Target::X64],
     )
-    .unwrap_err()
-    .to_string();
-    assert!(
-        error.contains("bitfield.h:1:") && error.contains("plain named fields"),
-        "{error}"
+    .unwrap();
+    assert_eq!(
+        bitfields[0].observations[0]
+            .definition
+            .as_ref()
+            .unwrap()
+            .fields[0]
+            .bit_width,
+        Some(3)
     );
     assert_eq!(snapshots, capture(&[fixture()], &TARGETS).unwrap());
     multi_tu();

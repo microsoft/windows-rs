@@ -17,6 +17,7 @@ does not inspect private cursor fields or depend on Clang C++ class layouts.
 | `windows_clang_getMaxFieldAlignment` | Requested maximum field alignment in bits. |
 | `windows_clang_getAlignment` | Evaluated alignment bits and GNU, standard, or declspec form. |
 | `windows_clang_getTypeVisibility` | Default, hidden, or protected `TypeVisibilityAttr` payload. |
+| `windows_clang_getTypedefDefinition` | Whether a direct typedef type specifier defines its tag. |
 | `windows_clang_getFunctionInfo` | Function `ExtInfo` properties and extra-property flags. |
 
 Packing comes from `MaxFieldAlignmentAttr`, not observed record layout or explicit `AlignedAttr`.
@@ -32,12 +33,18 @@ These flags signal more information to handle or reject; they are not decoded pa
 The qualifier query includes qualifiers inherited through typedefs. After identifying const,
 volatile, restrict, and unaligned, it checks the remaining native qualifier set, rather than
 assuming those four exhaust Clang's type qualifiers. Address spaces and other undecoded qualifiers
-set `WindowsClangOtherQualifiers`. The extension ABI version is 4.
+set `WindowsClangOtherQualifiers`. The extension ABI version is 5.
 
 The type-visibility query reads the attribute itself, including implicit attributes with no tokens.
 It is distinct from ordinary symbol `VisibilityAttr` and from `clang_getCursorVisibility`, which
 reports effective declaration visibility. The native fixture checks all three payloads and a type
 whose symbol visibility and type visibility differ.
+
+The typedef query uses `TypedefNameDecl` type-source information and `TagTypeLoc::isDefinition`.
+It distinguishes `typedef struct Tag { ... } Name` from references, forward declarations,
+alias chains, and pointer/array declarators. Multiple value typedefs in the same definition each
+retain this evidence. No declaration ordering, token matching, or source-range heuristic is used
+by the Rust capture or projection layers.
 
 These queries supplement calling convention, argument, result, exception, variadic, and other
 stock type queries. A zero extra-property mask is not permission to discard attributed types or
