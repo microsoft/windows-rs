@@ -13,6 +13,7 @@ does not inspect private cursor fields or depend on Clang C++ class layouts.
 | --- | --- |
 | `windows_clang_getAttributeKindName` | Native attribute kind, including tokenless attributes. |
 | `windows_clang_getTypeAttributeKindName` | Attribute kind on an attributed type. |
+| `windows_clang_getTypeQualifiers` | CVR, `__unaligned`, and a flag for all other qualifiers. |
 | `windows_clang_getMaxFieldAlignment` | Requested maximum field alignment in bits. |
 | `windows_clang_getFunctionInfo` | Function `ExtInfo` properties and extra-property flags. |
 
@@ -22,6 +23,11 @@ absence. It also reports `noreturn`, result ownership, caller-saved register, co
 and CMSE flags. Additional flags identify extended parameters, extra attributes, ARM SME
 attributes, function effects, method qualifiers, ref qualifiers, and unchecked CFI callees.
 These flags signal more information to handle or reject; they are not decoded payloads.
+
+The qualifier query includes qualifiers inherited through typedefs. After identifying const,
+volatile, restrict, and unaligned, it checks the remaining native qualifier set, rather than
+assuming those four exhaust Clang's type qualifiers. Address spaces and other undecoded qualifiers
+set `WindowsClangOtherQualifiers`. The extension ABI version is 2.
 
 These queries supplement calling convention, argument, result, exception, variadic, and other
 stock type queries. A zero extra-property mask is not permission to discard attributed types or
@@ -72,6 +78,7 @@ produced by the native build, not independently sourced DLLs.
 `test_clang_sys` exercises x86, x64, and ARM64 targets. It distinguishes char-only `pack(1)` and
 `pack(2)` records despite identical size/alignment, plain versus explicit-zero and nonzero
 `regparm`, `noreturn`, attributed calling conventions, and unsupported prototype properties.
+Qualifier cases include CVR, typedef inheritance, `__unaligned`, and address-space detection.
 It also covers query errors, shared library thread binding, and missing-library errors.
 
 Native x86 processes are unsupported. Cross-target parsing from a supported host does not require

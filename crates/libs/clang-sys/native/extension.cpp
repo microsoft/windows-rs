@@ -14,7 +14,7 @@ static const char* attributeName(clang::attr::Kind kind) {
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 1;
+    return 2;
 }
 
 const char* windows_clang_getLLVMVersion(void) {
@@ -39,6 +39,27 @@ const char* windows_clang_getTypeAttributeKindName(CXType type) {
     }
     auto attribute = llvm::dyn_cast<clang::AttributedType>(value.getTypePtr());
     return attribute ? attributeName(attribute->getAttrKind()) : nullptr;
+}
+
+WindowsClangStatus windows_clang_getTypeQualifiers(CXType type, unsigned* qualifiers) {
+    if (!qualifiers) {
+        return WindowsClangInvalidArgument;
+    }
+    auto value = GetQualType(type);
+    if (value.isNull()) {
+        return WindowsClangWrongKind;
+    }
+    auto native = value.getQualifiers();
+    unsigned flags = 0;
+    if (native.hasConst()) flags |= WindowsClangConst;
+    if (native.hasVolatile()) flags |= WindowsClangVolatile;
+    if (native.hasRestrict()) flags |= WindowsClangRestrict;
+    if (native.hasUnaligned()) flags |= WindowsClangUnaligned;
+    native.removeCVRQualifiers();
+    native.removeUnaligned();
+    if (!native.empty()) flags |= WindowsClangOtherQualifiers;
+    *qualifiers = flags;
+    return WindowsClangSuccess;
 }
 
 WindowsClangStatus windows_clang_getMaxFieldAlignment(CXCursor cursor, unsigned* alignment_bits) {

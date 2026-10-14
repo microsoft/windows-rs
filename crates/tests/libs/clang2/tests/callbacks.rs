@@ -10,6 +10,81 @@ fn callbacks() {
     roundtrip();
     conflicts();
     rejections();
+    qualifiers();
+    cross_tu_names();
+}
+
+fn qualifiers() {
+    let mut first = selected_fixture("callback_qualifiers", &["CallbackDependent"]);
+    first.source = "#include \"callback_qualifiers.h\"".into();
+    let output = projection::generate(std::slice::from_ref(&first), "Fixture").unwrap();
+    assert_eq!((output.records, output.aliases), (2, 2));
+    let mut second = selected_fixture("callback_qualifiers", &["CallbackDependent"]);
+    second.name = "qualified.h".into();
+    second.source = "#define QUALIFIED\n#include \"callback_qualifiers.h\"".into();
+    let mut inputs = [first, second];
+    let error = projection::generate(&inputs, "Fixture")
+        .unwrap_err()
+        .to_string();
+    assert!(
+        error.contains("unsupported type qualifiers: 0x8"),
+        "{error}"
+    );
+    inputs[1].roots.clear();
+    let partial = projection::generate_partial(&inputs, "Fixture").unwrap();
+    assert_eq!((partial.output.records, partial.output.aliases), (1, 1));
+    for name in [
+        "Unaligned",
+        "UnalignedInt",
+        "InheritedUnaligned",
+        "UnalignedRecord",
+        "Callback",
+        "CallbackUser",
+        "CallbackDependent",
+    ] {
+        assert!(
+            partial
+                .omissions
+                .iter()
+                .any(|message| message.contains(name)),
+            "{name}: {:?}",
+            partial.omissions
+        );
+    }
+}
+
+fn cross_tu_names() {
+    let mut provider = selected_fixture("callback_lookup", &[]);
+    provider.name = "m.h".into();
+    provider.source = "#define CALLBACK_NAMES\n#include \"callback_lookup.h\"".into();
+    let mut consumer = selected_fixture("callback_lookup", &["CallbackUses"]);
+    consumer.source = "#include \"callback_lookup.h\"".into();
+    consumer.name = "a.h".into();
+    let mut inputs = [consumer, provider];
+    let first = projection::generate(&inputs, "Fixture").unwrap();
+    assert_eq!((first.records, first.aliases), (3, 8));
+    let rdl = &first.partitions["callback_lookup"].rdl;
+    for field in [
+        "scalar: BInt",
+        "record: DRecord",
+        "other: COther",
+        "nested: ENested",
+        "pair: CIntPair",
+    ] {
+        assert!(rdl.contains(field), "{rdl}");
+    }
+    assert!(rdl.contains("fn ENested(param0: BInt)"), "{rdl}");
+    inputs.reverse();
+    assert_eq!(first, projection::generate(&inputs, "Fixture").unwrap());
+    inputs[1].name = "z.h".into();
+    assert_eq!(first, projection::generate(&inputs, "Fixture").unwrap());
+    let partial = projection::generate_partial(&inputs, "Fixture").unwrap();
+    assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
+    assert_eq!(first, partial.output);
+    let error = projection::generate(&inputs[1..], "Fixture")
+        .unwrap_err()
+        .to_string();
+    assert!(error.contains("no named callback declaration"), "{error}");
 }
 
 fn roundtrip() {
@@ -60,7 +135,7 @@ fn roundtrip() {
                 assert_eq!(
                     signature.types,
                     [
-                        Type::U32,
+                        Type::value_named("Fixture", "Count"),
                         Type::PtrMut(Box::new(Type::value_named("Fixture", "Item")), 1)
                     ]
                 );
@@ -150,7 +225,7 @@ fn roundtrip() {
 
     let output =
         projection::generate(&[selected_fixture("callbacks", &["Callbacks"])], "Fixture").unwrap();
-    assert_eq!((output.records, output.aliases), (2, 2));
+    assert_eq!((output.records, output.aliases), (2, 3));
 }
 
 fn conflicts() {

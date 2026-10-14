@@ -20,3 +20,16 @@ typedef int (*ZeroRegisters)(int first, int second);
 typedef void (*PlainVoid)(int value);
 typedef void (__attribute__((noreturn)) *NoReturn)(int value);
 typedef void QualifiedFunction() const;
+
+typedef int PlainInt;
+typedef const volatile int CVInt;
+typedef CVInt InheritedCVInt;
+typedef int* __restrict RestrictedPointer;
+typedef __unaligned int UnalignedInt;
+typedef UnalignedInt InheritedUnalignedInt;
+typedef __attribute__((address_space(1))) int AddressSpaceInt;
+typedef void (*PlainPointer)(int*);
+typedef void (*UnalignedPointer)(__unaligned int*);
+#if defined(_M_X64) || defined(_M_ARM64)
+static_assert(!__is_same(PlainPointer, UnalignedPointer));
+#endif

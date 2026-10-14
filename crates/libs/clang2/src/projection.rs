@@ -44,7 +44,7 @@ pub fn generate_partial(inputs: &[Input], namespace: &str) -> Result<PartialOutp
 /// Projects an existing partial capture without reparsing its headers.
 pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<PartialOutput, Error> {
     let mut snapshots = captured.snapshots;
-    let callbacks: HashSet<_> = snapshots
+    let published_aliases: HashSet<_> = snapshots
         .iter()
         .flat_map(|snapshot| {
             snapshot
@@ -54,7 +54,7 @@ pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<Part
                     alias
                         .observations
                         .iter()
-                        .any(|observation| callback(snapshot, observation.canonical).is_some())
+                        .any(|observation| publishable_alias(snapshot, observation.canonical))
                 })
                 .map(|alias| alias.name.clone())
         })
@@ -85,11 +85,11 @@ pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<Part
             match &key {
                 partial::Key::Tag(_) => issues.reject(key, format!("projection: {reason}")),
                 partial::Key::Alias(name) => {
-                    if callbacks.contains(name) {
+                    if published_aliases.contains(name) {
                         issues.reject(key, format!("projection: {reason}"));
                         continue;
                     }
-                    // Fields use canonical types; a non-publishable alias need not invalidate them.
+                    // Non-value aliases such as void are expanded at use sites.
                     for snapshot in &mut snapshots {
                         snapshot.roots.retain(|id| match id {
                             DeclarationId::Alias(id) => &snapshot.aliases[id.0].name != name,
@@ -121,7 +121,7 @@ pub fn generate(inputs: &[Input], namespace: &str) -> Result<Output, Error> {
 /// Projects supported definitions, preserving target variants and checking metadata ABI layout.
 ///
 /// Checked by-value alias families share a public record, without merging native identities.
-/// Other selected names remain transparent aliases. Ambiguous header ownership is an error.
+/// Other reachable value names remain transparent aliases. Ambiguous header ownership is an error.
 pub fn project(merged: &Merged<'_>, namespace: &str) -> Result<Output, Error> {
     project_impl(merged, namespace, None)
 }
@@ -161,9 +161,9 @@ fn project_impl(
         };
         let mut published = HashSet::new();
         for (id, family) in plan.families.iter().enumerate() {
-            let Some(&first) = family.first() else {
+            if family.is_empty() {
                 continue;
-            };
+            }
             let name = &plan.names[id];
             if !published.insert(name.as_str()) {
                 return Err(Error(format!("duplicate projected name `{name}`")));
@@ -174,15 +174,33 @@ fn project_impl(
                     partial::Key::Tag(resolution.name(&resolution.groups[*group]).to_string())
                 })
                 .collect();
-            let result = (|| {
-                let reference = resolution.groups[first]
-                    .definition
+            let mut bodies = Vec::new();
+            for &group in family {
+                for reference in &resolution.groups[group].records {
+                    let snapshot = resolution.snapshots[reference.snapshot];
+                    for &observation in &snapshot.records[reference.record.0].observations {
+                        let observation = &snapshot.observations[observation.0];
+                        if observation.definition.is_some() {
+                            bodies.push(projector.record(
+                                reference.snapshot,
+                                observation,
+                                &ident(name)?,
+                            ));
+                        }
+                    }
+                }
+            }
+            let bodies = bodies.into_iter().collect::<Result<Vec<_>, _>>();
+            if let Ok(bodies) = &bodies {
+                agree(name, target, bodies)?;
+            }
+            let result = bodies.and_then(|bodies| {
+                let body = bodies
+                    .into_iter()
+                    .next()
                     .ok_or_else(|| Error(format!("record `{name}` is incomplete")))?;
-                let observation =
-                    &resolution.snapshots[reference.snapshot].observations[reference.observation.0];
-                let body = projector.record(reference.snapshot, observation, &ident(name)?)?;
                 Ok((body, plan.record_header(resolution, id)?))
-            })();
+            });
             match result {
                 Ok((body, header)) => {
                     publish(
@@ -238,7 +256,7 @@ fn project_impl(
             let canonical =
                 snapshot.aliases[first.alias.0].observations[first.observation].canonical;
             if (!root_aliases.contains(alias.name.as_str())
-                && callback(snapshot, canonical).is_none())
+                && !publishable_alias(snapshot, canonical))
                 || plan.aliases[id].is_some_and(|family| plan.names[family] == alias.name)
                 || plan.enum_aliases[id].is_some_and(|group| plan.enum_names[group] == alias.name)
             {
@@ -248,36 +266,25 @@ fn project_impl(
                 return Err(Error(format!("duplicate projected name `{}`", alias.name)));
             }
             let keys = vec![partial::Key::Alias(alias.name.clone())];
-            let result = (|| {
-                let reference = alias.observations[0];
-                let snapshot = resolution.snapshots[reference.snapshot];
-                let observation =
-                    &snapshot.aliases[reference.alias.0].observations[reference.observation];
-                let ty = &snapshot.types[observation.canonical.0];
-                if ty.qualifiers.constant
-                    || (ty.layout.is_none() && !matches!(ty.kind, TypeKind::Record(_)))
-                {
-                    return Err(Error(format!(
-                        "typedef `{}` is not an unqualified value type",
-                        alias.name
-                    )));
-                }
-                let name = ident(&alias.name)?;
-                if let Some(function) = callback(snapshot, observation.canonical) {
-                    projector.ty(reference.snapshot, observation.canonical)?;
-                    let body = projector.callback(reference.snapshot, function, &name)?;
-                    return Ok((body, plan.alias_header(resolution, alias)?));
-                }
-                let ty = write_type(
-                    namespace,
-                    &projector.ty(reference.snapshot, observation.canonical)?,
-                );
-                let body = Body {
-                    attributes: TokenStream::new(),
-                    declaration: quote! { type #name = #ty; },
-                };
-                Ok((body, plan.alias_header(resolution, alias)?))
-            })();
+            let bodies = alias
+                .observations
+                .iter()
+                .map(|reference| {
+                    let snapshot = resolution.snapshots[reference.snapshot];
+                    let observation =
+                        &snapshot.aliases[reference.alias.0].observations[reference.observation];
+                    projector.alias(reference.snapshot, observation, &alias.name)
+                })
+                .collect::<Result<Vec<_>, _>>();
+            if let Ok(bodies) = &bodies {
+                agree(&alias.name, target, bodies)?;
+            }
+            let result = bodies.and_then(|bodies| {
+                Ok((
+                    bodies.into_iter().next().unwrap(),
+                    plan.alias_header(resolution, alias)?,
+                ))
+            });
             match result {
                 Ok((body, header)) => publish(
                     &mut declarations,
@@ -392,6 +399,24 @@ struct Projector<'a, 'b> {
     plan: &'a Plan,
 }
 
+fn publishable_alias(snapshot: &Snapshot, id: TypeId) -> bool {
+    let ty = &snapshot.types[id.0];
+    !ty.qualifiers.constant && (ty.layout.is_some() || matches!(ty.kind, TypeKind::Record(_)))
+}
+
+fn agree(name: &str, target: Target, bodies: &[Body]) -> Result<(), Error> {
+    // Native compatibility is already checked; this compares the emitted public declarations.
+    if let Some(first) = bodies.first() {
+        let key = first.key();
+        if bodies[1..].iter().any(|body| body.key() != key) {
+            return Err(Error(format!(
+                "conflicting public names for `{name}` on {target:?}"
+            )));
+        }
+    }
+    Ok(())
+}
+
 fn callback(snapshot: &Snapshot, id: TypeId) -> Option<&Function> {
     if let TypeKind::Pointer(pointee) = snapshot.types[id.0].kind
         && let TypeKind::Function(function) = &snapshot.types[pointee.0].kind
@@ -403,12 +428,55 @@ fn callback(snapshot: &Snapshot, id: TypeId) -> Option<&Function> {
 }
 
 impl Projector<'_, '_> {
+    fn alias(
+        &self,
+        snapshot_id: usize,
+        observation: &AliasObservation,
+        name: &str,
+    ) -> Result<Body, Error> {
+        let snapshot = self.resolution.snapshots[snapshot_id];
+        if !publishable_alias(snapshot, observation.canonical) {
+            return Err(Error(format!(
+                "typedef `{name}` is not an unqualified value type"
+            )));
+        }
+        let name = ident(name)?;
+        if let Some(function) = callback(snapshot, observation.canonical) {
+            self.ty(snapshot_id, observation.canonical)?;
+            let mut id = observation.underlying;
+            let written = loop {
+                match &snapshot.types[id.0].kind {
+                    TypeKind::Alias(alias) => {
+                        id = snapshot.aliases[alias.0].observations[0].underlying;
+                    }
+                    TypeKind::Pointer(pointee) => id = *pointee,
+                    TypeKind::Attributed { modified, .. } => id = *modified,
+                    TypeKind::Function(function) => break function,
+                    _ => return Err(Error("callback has no written prototype".into())),
+                }
+            };
+            return self.callback(snapshot_id, function, written, &name);
+        }
+        let ty = write_type(
+            self.namespace,
+            &self.ty(snapshot_id, observation.canonical)?,
+        );
+        Ok(Body {
+            attributes: TokenStream::new(),
+            declaration: quote! { type #name = #ty; },
+        })
+    }
+
     fn callback(
         &self,
         snapshot: usize,
         function: &Function,
+        written: &Function,
         name: &TokenStream,
     ) -> Result<Body, Error> {
+        if function.parameters.len() != written.parameters.len() {
+            return Err(Error("written and canonical callback arity differ".into()));
+        }
         let abi = match function.convention {
             CallingConvention::C => quote! { "C" },
             CallingConvention::Stdcall => TokenStream::new(),
@@ -416,14 +484,15 @@ impl Projector<'_, '_> {
         let parameters = function
             .parameters
             .iter()
+            .zip(&written.parameters)
             .enumerate()
-            .map(|(index, id)| {
+            .map(|(index, (id, written))| {
                 let name = ident(&format!("param{index}"))?;
-                let ty = write_type(self.namespace, &self.ty(snapshot, *id)?);
+                let ty = write_type(self.namespace, &self.written_ty(snapshot, *written, *id)?);
                 Ok(quote! { #name: #ty })
             })
             .collect::<Result<Vec<_>, Error>>()?;
-        let result = self.ty(snapshot, function.result)?;
+        let result = self.written_ty(snapshot, written.result, function.result)?;
         let result = if result == MetadataType::Void {
             TokenStream::new()
         } else {
@@ -433,6 +502,69 @@ impl Projector<'_, '_> {
         Ok(Body {
             attributes: TokenStream::new(),
             declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
+        })
+    }
+
+    fn written_ty(
+        &self,
+        snapshot_id: usize,
+        written: TypeId,
+        canonical: TypeId,
+    ) -> Result<MetadataType, Error> {
+        let value = self.ty(snapshot_id, canonical)?;
+        let snapshot = self.resolution.snapshots[snapshot_id];
+        Ok(match &snapshot.types[written.0].kind {
+            TypeKind::Alias(id)
+                if publishable_alias(
+                    snapshot,
+                    snapshot.aliases[id.0].observations[0].canonical,
+                ) =>
+            {
+                let name = &snapshot.aliases[id.0].name;
+                if callback(snapshot, canonical).is_some() {
+                    MetadataType::class_named(self.namespace, name)
+                } else {
+                    MetadataType::value_named(self.namespace, name)
+                }
+            }
+            TypeKind::Pointer(written) => {
+                let TypeKind::Pointer(canonical) = snapshot.types[canonical.0].kind else {
+                    return Err(Error(
+                        "written pointer has a non-pointer canonical type".into(),
+                    ));
+                };
+                if matches!(snapshot.types[canonical.0].kind, TypeKind::Function(_)) {
+                    value
+                } else {
+                    let inner = Box::new(self.written_ty(snapshot_id, *written, canonical)?);
+                    if snapshot.types[canonical.0].qualifiers.constant {
+                        MetadataType::PtrConst(inner, 1)
+                    } else {
+                        MetadataType::PtrMut(inner, 1)
+                    }
+                }
+            }
+            TypeKind::Array {
+                element: written, ..
+            } => {
+                let TypeKind::Array {
+                    element: canonical,
+                    length,
+                } = snapshot.types[canonical.0].kind
+                else {
+                    return Err(Error("written array has a non-array canonical type".into()));
+                };
+                MetadataType::ArrayFixed(
+                    Box::new(self.written_ty(snapshot_id, *written, canonical)?),
+                    length
+                        .try_into()
+                        .map_err(|_| Error("array extent exceeds host size".into()))?,
+                )
+            }
+            TypeKind::Attributed { modified, .. } => {
+                self.written_ty(snapshot_id, *modified, canonical)?
+            }
+            _ => value,
         })
     }
 
@@ -638,7 +770,10 @@ impl Projector<'_, '_> {
             }
             size = size.max(offset + layout.size);
             alignment = alignment.max(field_alignment);
-            let ty = write_type(self.namespace, &self.ty(snapshot_id, field.canonical)?);
+            let ty = write_type(
+                self.namespace,
+                &self.written_ty(snapshot_id, field.written, field.canonical)?,
+            );
             fields.push(quote! { #field_name: #ty, });
         }
         if definition.layout

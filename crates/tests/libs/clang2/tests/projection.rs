@@ -289,7 +289,7 @@ fn round_trip() {
         assert_eq!(
             node_fields,
             [
-                Type::U32,
+                Type::value_named("Fixture", "Count"),
                 Type::PtrConst(Box::new(Type::value_named("Fixture", "Node")), 1),
                 Type::ArrayFixed(Box::new(Type::value_named("Fixture", "Point")), 2),
             ]
@@ -382,7 +382,12 @@ fn type_layout(index: &reader::Index, ty: &Type, pointer_size: u64) -> Layout {
         Type::I32 | Type::U32 | Type::F32 => 4,
         Type::I64 | Type::U64 => 8,
         Type::PtrMut(..) | Type::PtrConst(..) => pointer_size,
-        Type::ValueName(name) => return record_layout(index, &name.name, pointer_size).0,
+        Type::ValueName(name) => {
+            if let Some(underlying) = index.expect(&name.namespace, &name.name).underlying_type() {
+                return type_layout(index, &underlying, pointer_size);
+            }
+            return record_layout(index, &name.name, pointer_size).0;
+        }
         Type::ArrayFixed(element, count) => {
             let mut layout = type_layout(index, element, pointer_size);
             layout.size *= *count as u64;

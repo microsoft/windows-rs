@@ -1305,6 +1305,7 @@ pub type IndexerCallbacks_ppIncludedFile = *mut u8;
 pub type IndexerCallbacks_startedTranslationUnit = *mut u8;
 pub const WindowsClangArmSMEAttributes: WindowsClangFunctionProperties = 4;
 pub const WindowsClangCFIUncheckedCallee: WindowsClangFunctionProperties = 64;
+pub const WindowsClangConst: WindowsClangTypeQualifiers = 1;
 pub const WindowsClangExtendedParameters: WindowsClangFunctionProperties = 1;
 pub const WindowsClangExtraAttributes: WindowsClangFunctionProperties = 2;
 pub const WindowsClangFunctionEffects: WindowsClangFunctionProperties = 8;
@@ -1323,9 +1324,14 @@ pub struct WindowsClangFunctionInfo {
 pub type WindowsClangFunctionProperties = i32;
 pub const WindowsClangInvalidArgument: WindowsClangStatus = 1;
 pub const WindowsClangMethodQualifiers: WindowsClangFunctionProperties = 16;
+pub const WindowsClangOtherQualifiers: WindowsClangTypeQualifiers = 16;
 pub const WindowsClangRefQualifier: WindowsClangFunctionProperties = 32;
+pub const WindowsClangRestrict: WindowsClangTypeQualifiers = 4;
 pub type WindowsClangStatus = i32;
 pub const WindowsClangSuccess: WindowsClangStatus = 0;
+pub type WindowsClangTypeQualifiers = i32;
+pub const WindowsClangUnaligned: WindowsClangTypeQualifiers = 8;
+pub const WindowsClangVolatile: WindowsClangTypeQualifiers = 2;
 pub const WindowsClangWrongKind: WindowsClangStatus = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2270,6 +2276,8 @@ pub(crate) struct Functions {
         unsafe extern "C" fn(cursor: CXCursor, alignment_bits: *mut u32) -> WindowsClangStatus,
     pub windows_clang_getRuntimeIdentity: unsafe extern "C" fn() -> *const core::ffi::c_void,
     pub windows_clang_getTypeAttributeKindName: unsafe extern "C" fn(r#type: CXType) -> *const i8,
+    pub windows_clang_getTypeQualifiers:
+        unsafe extern "C" fn(r#type: CXType, qualifiers: *mut u32) -> WindowsClangStatus,
 }
 impl Functions {
     pub(crate) unsafe fn load(
@@ -4743,6 +4751,13 @@ impl Functions {
                         )
                     })?
             },
+            windows_clang_getTypeQualifiers: unsafe {
+                *extension
+                    .get(b"windows_clang_getTypeQualifiers\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getTypeQualifiers))
+                    })?
+            },
         })
     }
 }
@@ -6801,5 +6816,13 @@ pub unsafe fn windows_clang_getRuntimeIdentity() -> *const core::ffi::c_void {
 pub unsafe fn windows_clang_getTypeAttributeKindName(r#type: CXType) -> *const i8 {
     crate::with_library(|library| unsafe {
         (library.functions.windows_clang_getTypeAttributeKindName)(r#type)
+    })
+}
+pub unsafe fn windows_clang_getTypeQualifiers(
+    r#type: CXType,
+    qualifiers: *mut u32,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getTypeQualifiers)(r#type, qualifiers)
     })
 }

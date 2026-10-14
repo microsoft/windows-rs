@@ -23,9 +23,10 @@ Call `load()` before using a raw function on a thread. For worker threads, share
 handle before releasing its library owner. Raw pointers and opaque handle declarations do not
 confer ownership or make native objects safe to construct in Rust.
 
-The supplementary API exposes attribute identities, requested pragma packing, and function-type
-properties that stock libclang does not decode. It does not supply a complete normalized type
-model: callers must also inspect ordinary libclang type queries, attributed types, and additional
-property flags before accepting a signature.
+The supplementary API exposes attribute identities, requested pragma packing, type qualifiers,
+and function-type properties that stock libclang does not decode. The qualifier query identifies
+CVR and `__unaligned`, and flags any remaining qualifiers for further decoding or rejection.
+It does not supply a complete normalized type model: callers must also inspect ordinary libclang
+type queries, attributed types, and additional property flags before accepting a signature.
 
 See the [crate notes](../../../docs/crates/windows-clang-sys.md) for generation and maintenance.

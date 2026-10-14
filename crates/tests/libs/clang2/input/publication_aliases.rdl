@@ -7,6 +7,6 @@ mod Fixture {
     type Second = First;
     struct User {
         first: First,
-        second: First,
+        second: Second,
     }
 }

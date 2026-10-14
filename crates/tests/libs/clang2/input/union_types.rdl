@@ -6,7 +6,7 @@ mod Fixture {
         tail: i8,
     }
     union Node {
-        next: *mut Node,
+        next: NodePointer,
         bits: u64,
     }
     type NodePointer = *mut Node;

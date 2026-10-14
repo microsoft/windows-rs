@@ -2,7 +2,7 @@
 mod Fixture {
     type Count = u32;
     struct Node {
-        count: u32,
+        count: Count,
         next: *const Node,
         points: [Point; 2],
     }

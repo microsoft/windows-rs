@@ -20,7 +20,7 @@ Its target-local plan separates native record identity from public alias corresp
   aliases do not establish pointee/element equivalence.
 - Complete definitions must agree in record kind, field names/order, offsets, packing, layout,
   and canonical types/qualifiers. Record edges must belong to independently established families.
-- The alphabetically first by-value alias names each family; other selected names are transparent
+- The alphabetically first by-value alias names each family; other reachable value names are transparent
   aliases. A name can be a record on one architecture and an alias on another.
 - Alias ownership prefers a unique declaration header containing the corresponding native
   definition; otherwise its declaration header must be unique. Ambiguity is an error or omission.
@@ -34,6 +34,9 @@ Unsupported tag and alias kinds are excluded across targets. Diagnostic causes a
 workers deduplicate diagnostics between TUs, and dependency edges are deduplicated on insertion.
 
 Records and typedef/using aliases retain written and canonical types, attributes, and layouts.
+Every type is checked through the native qualifier query before normalization or interning.
+Only const, volatile, and restrict enter the IR; `__unaligned` and all other native qualifiers
+are explicit capture failures, including qualifiers inherited through typedefs.
 Typedef USRs can contain filenames or match across different canonical record bindings. Native alias
 groups therefore preserve name-corresponding observations without claiming type equality; projection
 checks their compatibility using public families. Macro declarations belong to their outer expansion
@@ -156,17 +159,46 @@ comparison follows all signature edges, not just pointer size. Partial pruning l
 every result and parameter dependency, including nested callbacks. These edges can branch, unlike
 a pointer or array chain.
 
-Projection emits named callback typedefs as RDL `extern fn` declarations with positional parameter
-names. It publishes reachable callback aliases even when they are not explicit roots. Canonical
-function-pointer types use the alphabetically first compatible callback name within a snapshot;
-unnamed signatures without a corresponding declaration are omitted. Bare function aliases are not
-projected as values. The output's alias count includes callback declarations.
+Projection preserves written value-typedef and callback names in fields and callback signatures,
+including pointers, arrays, results, and nested named callbacks. Reachable value aliases are
+published even when they are not explicit roots. Alias declarations retain canonical storage types;
+non-value aliases such as `void` expand at use sites. Named callback typedefs become RDL `extern fn`
+declarations with positional parameter names. Unnamed function-pointer types use the alphabetically
+first compatible callback name across the target.
+The plan validates public families and alias bindings before comparing callback candidates with
+the shared type checker. Calling convention and arity narrow the search, but every candidate must
+match qualifiers, layouts, scalar kinds, nominal enum identities, public record families, and all
+signature edges. Failed candidate comparisons do not share assumed type pairs with later attempts.
+Renaming or reordering TUs cannot change name availability. Unnamed signatures without a
+corresponding declaration are omitted. Bare function aliases are not projected as values.
+The output's alias count includes callback declarations.
 
-A failed callback projection removes the declaration and its dependents. Removing only its root
-marker would not make progress, since dependency publication would select it again. Ordinary
-transparent aliases can still remain as native evidence without being public roots. The callback
+A failed value-alias or callback projection removes the declaration and its dependents. Removing
+only its root marker would not make progress, since dependency publication would select it again.
+Non-value aliases can remain as native evidence without being public roots. The callback
 fixtures cover this distinction, C/stdcall metadata ABI values, nested results/parameters, arrays,
 pointer indirection, same-layout native signature conflicts, and cross-target omission propagation.
+`callback_qualifiers.h` proves that plain and unaligned callback types differ on x64/ARM64.
+`callback_lookup.h` covers inline callback fields whose named counterparts exist only in another TU,
+including equal-layout but distinct scalar and record parameter types.
+
+After native compatibility is checked, every same-target record and callback observation must
+produce the same public declaration. This additional output check reports name disagreements
+instead of selecting a representative's spelling; it does not establish native equivalence.
+`public_names.h` and its RDL golden check named scalar and pointer aliases, callback synonyms, and
+dependencies through WinMD and compiled Rust bindings. The conflict and ownership fixtures cover
+public-name disagreements and omitted named dependencies.
+
+Native reconciliation is not a public API compatibility guarantee. Callback parameter names remain
+positional. Before replacing a production consumer, compare its header names, RDL, WinMD, and
+generated Rust against an explicit output contract. A successful partial SDK run proves only the
+accepted subset; omissions and uncaptured macro constants remain outside that claim. New annotations
+need both capture and consuming projection support, not just a place to store them.
+
+Public ownership across headers remains unresolved. Equivalent scalar typedefs can have several
+declaration headers, so preserving their names exposes ownership omissions in their dependents.
+Revisit a shared foundation module or RDL partition after the rewrite is proven. No per-name header
+preferences or canonical-metadata ownership routing are implemented.
 
 [max-field-alignment]:
   https://github.com/llvm/llvm-project/blob/llvmorg-22.1.8/clang/include/clang/Basic/Attr.td

@@ -140,25 +140,7 @@ impl Plan {
                 }
             }
         }
-        let mut callbacks = vec![HashMap::<TypeId, String>::new(); resolution.snapshots.len()];
-        for alias in &resolution.aliases {
-            for reference in &alias.observations {
-                let snapshot = resolution.snapshots[reference.snapshot];
-                let id = snapshot.aliases[reference.alias.0].observations[reference.observation]
-                    .canonical;
-                if callback(snapshot, id).is_some() {
-                    callbacks[reference.snapshot]
-                        .entry(id)
-                        .and_modify(|name| {
-                            if alias.name < *name {
-                                name.clone_from(&alias.name);
-                            }
-                        })
-                        .or_insert_with(|| alias.name.clone());
-                }
-            }
-        }
-        let plan = Self {
+        let mut plan = Self {
             families,
             names,
             aliases,
@@ -170,10 +152,55 @@ impl Plan {
             enum_aliases,
             enum_primary,
             enum_headers,
-            callbacks,
+            callbacks: Vec::new(),
         };
         plan.validate(resolution)?;
+        plan.callbacks = plan.callback_names(resolution);
         Ok(plan)
+    }
+
+    fn callback_names(&self, resolution: &Resolution<'_>) -> Vec<HashMap<TypeId, String>> {
+        let mut candidates = HashMap::<_, Vec<_>>::new();
+        for alias in &resolution.aliases {
+            let reference = alias.observations[0];
+            let snapshot = resolution.snapshots[reference.snapshot];
+            let id =
+                snapshot.aliases[reference.alias.0].observations[reference.observation].canonical;
+            if let Some(function) = callback(snapshot, id) {
+                candidates
+                    .entry((function.convention, function.parameters.len()))
+                    .or_default()
+                    .push(((reference.snapshot, id), &alias.name));
+            }
+        }
+        let mut seen = HashSet::new();
+        resolution
+            .snapshots
+            .iter()
+            .enumerate()
+            .map(|(snapshot_id, snapshot)| {
+                let mut names = HashMap::new();
+                for id in (0..snapshot.types.len()).map(TypeId) {
+                    let Some(function) = callback(snapshot, id) else {
+                        continue;
+                    };
+                    let Some(candidates) =
+                        candidates.get(&(function.convention, function.parameters.len()))
+                    else {
+                        continue;
+                    };
+                    for &(candidate, name) in candidates {
+                        // A failed comparison must not leave assumed pairs in the next attempt.
+                        seen.clear();
+                        if self.same_type(resolution, (snapshot_id, id), candidate, &mut seen) {
+                            names.insert(id, name.clone());
+                            break;
+                        }
+                    }
+                }
+                names
+            })
+            .collect()
     }
 
     pub fn family(&self, snapshot: usize, record: RecordId) -> usize {

@@ -27,6 +27,14 @@ enum WindowsClangFunctionProperties {
     WindowsClangCFIUncheckedCallee = 64
 };
 
+enum WindowsClangTypeQualifiers {
+    WindowsClangConst = 1,
+    WindowsClangVolatile = 2,
+    WindowsClangRestrict = 4,
+    WindowsClangUnaligned = 8,
+    WindowsClangOtherQualifiers = 16
+};
+
 struct WindowsClangFunctionInfo {
     unsigned has_regparm;
     unsigned regparm;
@@ -44,6 +52,9 @@ WINDOWS_CLANG_API const void* windows_clang_getRuntimeIdentity(void);
 // Names are static strings owned by the library; non-attribute inputs return null.
 WINDOWS_CLANG_API const char* windows_clang_getAttributeKindName(CXCursor cursor);
 WINDOWS_CLANG_API const char* windows_clang_getTypeAttributeKindName(CXType type);
+// Includes qualifiers inherited through typedefs; OtherQualifiers requires further decoding.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypeQualifiers(
+    CXType type, unsigned* qualifiers);
 // Writes the requested maximum field alignment in bits, not the observed record alignment.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getMaxFieldAlignment(
     CXCursor cursor, unsigned* alignment_bits);

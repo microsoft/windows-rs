@@ -467,6 +467,21 @@ impl Capture<'_> {
     }
 
     fn ty(&mut self, mut ty: CXType, cursor: CXCursor) -> Result<TypeId, Error> {
+        let mut qualifiers = 0;
+        let status = unsafe { windows_clang_getTypeQualifiers(ty, &raw mut qualifiers) };
+        if status != WindowsClangSuccess {
+            return Err(unsupported(
+                cursor,
+                &format!("type qualifier query failed: {status}"),
+            ));
+        }
+        let supported = (WindowsClangConst | WindowsClangVolatile | WindowsClangRestrict) as u32;
+        if qualifiers & !supported != 0 {
+            return Err(unsupported(
+                cursor,
+                &format!("unsupported type qualifiers: {qualifiers:#x}"),
+            ));
+        }
         if ty.kind == CXType_Elaborated {
             ty = unsafe { clang_Type_getNamedType(ty) };
         }
@@ -599,9 +614,9 @@ impl Capture<'_> {
         let value = Type {
             kind,
             qualifiers: Qualifiers {
-                constant: unsafe { clang_isConstQualifiedType(ty) } != 0,
-                volatile: unsafe { clang_isVolatileQualifiedType(ty) } != 0,
-                restrict: unsafe { clang_isRestrictQualifiedType(ty) } != 0,
+                constant: qualifiers & WindowsClangConst as u32 != 0,
+                volatile: qualifiers & WindowsClangVolatile as u32 != 0,
+                restrict: qualifiers & WindowsClangRestrict as u32 != 0,
             },
             layout: if matches!(canonical.kind, CXType_Void | CXType_FunctionProto) || incomplete {
                 None

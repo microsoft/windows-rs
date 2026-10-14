@@ -277,5 +277,28 @@ explicit `regparm(0)` versus absence, and flags additional prototype information
 or later decoding. `test_clang_sys` exercises these distinctions on all three parsing targets.
 Explicit regparm (including zero), noreturn, variadics, exception-qualified functions, and unknown
 properties remain rejected. Callback dependency pruning follows result and all parameter edges.
-Failed callback publication must remove the declaration, not just its root marker: reachable
-callbacks are published as dependencies, so root-only removal would retry the same failure.
+Failed value-alias or callback publication must remove the declaration, not just its root marker:
+reachable named values are published as dependencies, so root-only removal would retry the failure.
+
+`windows_clang_getTypeQualifiers` checks qualifiers before `clang2` type interning. CVR is
+represented; unaligned and all remaining qualifiers are rejected, including typedef inheritance.
+Callback naming uses target-wide candidates after public-family and alias validation. Candidate
+searches use the shared native/public type checker and discard assumed pairs after each failure.
+
+### clang2 replacement boundary
+
+`clang2` `projection.rs` `Projector::written_ty` preserves written value-typedef and callback names
+at use sites. Native agreement precedes public-name agreement across observations; conflicts are
+errors, not representative-selection choices. `Projector::callback` uses positional parameter
+names. Native agreement alone does not establish annotation correctness. Before a production
+cutover, define intended names and annotations and check the header -> RDL -> WinMD -> generated Rust
+path for representative consumers and issue
+reproductions. Do not count explicit partial omissions or uncaptured macros as solved coverage.
+
+### clang2 public ownership TODO
+
+`clang2` `projection/plan.rs` `owner` requires a unique header for public declarations. Equivalent
+typedefs such as `DWORD` can occur in multiple headers; preserving their names exposes this
+ownership ambiguity in dependent declarations. Revisit a shared foundation module or RDL file
+after the rewrite is proven. Do not add arbitrary per-name/header preferences or ownership routing
+seeded from canonical metadata in the meantime.

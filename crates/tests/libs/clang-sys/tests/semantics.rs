@@ -109,6 +109,33 @@ fn native_semantics() {
             WindowsClangWrongKind
         );
         assert_eq!(value.regparm, 99);
+        for (name, expected) in [
+            ("PlainInt", 0),
+            ("CVInt", WindowsClangConst | WindowsClangVolatile),
+            ("InheritedCVInt", WindowsClangConst | WindowsClangVolatile),
+            ("RestrictedPointer", WindowsClangRestrict),
+            ("UnalignedInt", WindowsClangUnaligned),
+            ("InheritedUnalignedInt", WindowsClangUnaligned),
+            ("AddressSpaceInt", WindowsClangOtherQualifiers),
+        ] {
+            let ty = unsafe { clang_getTypedefDeclUnderlyingType(find(name)) };
+            let mut qualifiers = 99;
+            assert_eq!(
+                unsafe { windows_clang_getTypeQualifiers(ty, &raw mut qualifiers) },
+                WindowsClangSuccess
+            );
+            assert_eq!(qualifiers, expected as u32, "{target}: {name}");
+        }
+        let mut qualifiers = 99;
+        assert_eq!(
+            unsafe { windows_clang_getTypeQualifiers(invalid, &raw mut qualifiers) },
+            WindowsClangWrongKind
+        );
+        assert_eq!(qualifiers, 99);
+        assert_eq!(
+            unsafe { windows_clang_getTypeQualifiers(plain, std::ptr::null_mut()) },
+            WindowsClangInvalidArgument
+        );
         assert_eq!(
             unsafe { windows_clang_getFunctionInfo(plain, std::ptr::null_mut()) },
             WindowsClangInvalidArgument
@@ -119,7 +146,7 @@ fn native_semantics() {
             let library = Arc::clone(&library);
             scope.spawn(move || {
                 let previous = set_library(Some(library));
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 1);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 2);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION
