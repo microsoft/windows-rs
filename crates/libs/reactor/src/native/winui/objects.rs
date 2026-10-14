@@ -208,15 +208,19 @@ impl WinUiAdapter {
         });
         let clear = sorted_clear.as_deref().unwrap_or(clear);
         let set = sorted_set.as_deref().unwrap_or(set);
+        if !clear.is_empty()
+            && let Some(subscription) = self.image_subscriptions.get(&object)
+            && clear.contains(&subscription.property)
+        {
+            self.release_image(object);
+        }
         for property in clear.iter().copied() {
-            if property == PropertyId::Source {
-                self.release_image(object);
-                if let Some(Handle::Generated(GeneratedHandle::Image(control))) =
+            if property == PropertyId::Source
+                && let Some(Handle::Generated(GeneratedHandle::Image(control))) =
                     self.handles.get(&object)
-                {
-                    control.invalidate_source_events();
-                    control.source.set(false);
-                }
+            {
+                control.invalidate_source_events();
+                control.source.set(false);
             }
             let feedback = GeneratedHandle::feedback_expectation(kind, property, None);
             if let Some((event, expectation)) = feedback.clone() {
@@ -274,7 +278,7 @@ impl WinUiAdapter {
                     break 'apply result;
                 }
                 if let Some(Handle::Generated(handle)) = self.handles.get(&object)
-                    && let Some(result) = handle.set_property(property, None)
+                    && let Some(result) = handle.set_property(property, None, None)
                 {
                     break 'apply result;
                 }
@@ -360,7 +364,7 @@ impl WinUiAdapter {
                         {
                             result?;
                         } else if let Some(Handle::Generated(handle)) = self.handles.get(&object)
-                            && let Some(result) = handle.set_property(id, None)
+                            && let Some(result) = handle.set_property(id, None, None)
                         {
                             result?;
                         } else {
@@ -410,10 +414,33 @@ impl WinUiAdapter {
                 {
                     break 'apply self.set_image_source(object, source);
                 }
+                let image = if let PropertyValue::Icon(icon) = &property.value {
+                    self.shared_icon_image(icon)?
+                } else {
+                    None
+                };
                 if let Some(Handle::Generated(handle)) = self.handles.get(&object)
-                    && let Some(result) = handle.set_property(property.id, Some(&property.value))
+                    && let Some(result) = handle.set_property(
+                        property.id,
+                        Some(&property.value),
+                        image.as_ref().map(|image| &image.value),
+                    )
                 {
-                    break 'apply result;
+                    result?;
+                    if matches!(&property.value, PropertyValue::Icon(_)) {
+                        self.release_image(object);
+                        if let Some(image) = image {
+                            self.image_subscriptions.insert(
+                                object,
+                                ImageSubscription {
+                                    property: property.id,
+                                    image,
+                                    _callback: None,
+                                },
+                            );
+                        }
+                    }
+                    break 'apply Ok(());
                 }
                 if property.id == PropertyId::Text
                     && matches!(self.handles.get(&object), Some(Handle::Data(_)))
@@ -481,6 +508,16 @@ impl WinUiAdapter {
         let image = Rc::new(NativeImageSource::new(source.value())?);
         self.images.insert(key, Rc::downgrade(&image));
         Ok(image)
+    }
+
+    fn shared_icon_image(
+        &mut self,
+        icon: &Icon,
+    ) -> Result<Option<Rc<NativeImageSource>>, WinUiError> {
+        match icon.value() {
+            IconValue::Image(source) => self.shared_image(source).map(Some),
+            _ => Ok(None),
+        }
     }
 
     fn release_image(&mut self, object: ObjectId) {
@@ -563,6 +600,7 @@ impl WinUiAdapter {
         self.image_subscriptions.insert(
             object,
             ImageSubscription {
+                property: PropertyId::Source,
                 image,
                 _callback: callback,
             },

@@ -1759,6 +1759,7 @@ pub fn windows_reactor::Icon::font(impl core::convert::Into<alloc::rcs::rc::Rc<s
 pub fn windows_reactor::Icon::image(windows_reactor::ImageSource) -> Self
 pub fn windows_reactor::Icon::image_data(windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::Icon::image_file(impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
+pub fn windows_reactor::Icon::image_svg(windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::Icon::image_uri(impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> windows_result::Result<Self>
 pub fn windows_reactor::Icon::path(impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> Self
 pub fn windows_reactor::Icon::symbol(windows_reactor::Symbol) -> Self
@@ -1799,6 +1800,7 @@ pub fn windows_reactor::Image::source(self, impl core::convert::Into<alloc::rcs:
 pub fn windows_reactor::Image::source_data(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::Image::source_file(self, impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
 pub fn windows_reactor::Image::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::rcs::rc::Rc<str>>
+pub fn windows_reactor::Image::source_svg(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::Image::stretch(self, windows_reactor::Stretch) -> Self
 pub fn windows_reactor::Image::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::Image::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
@@ -1841,6 +1843,7 @@ pub fn windows_reactor::ImageIcon::source(self, impl core::convert::Into<alloc::
 pub fn windows_reactor::ImageIcon::source_data(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::ImageIcon::source_file(self, impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
 pub fn windows_reactor::ImageIcon::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::rcs::rc::Rc<str>>
+pub fn windows_reactor::ImageIcon::source_svg(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::ImageIcon::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ImageIcon::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ImageIcon::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
@@ -1853,6 +1856,7 @@ pub struct windows_reactor::ImageSource(_)
 impl windows_reactor::ImageSource
 pub fn windows_reactor::ImageSource::encoded(windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::ImageSource::file(impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
+pub fn windows_reactor::ImageSource::svg(windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::ImageSource::uri(impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> windows_result::Result<Self>
 pub struct windows_reactor::InfoBadge(_)
 impl windows_reactor::InfoBadge

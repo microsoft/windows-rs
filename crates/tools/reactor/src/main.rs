@@ -2073,7 +2073,8 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     output.push_str("_ => None,\n} }\n");
 
     output.push_str(
-        "fn set_property(&self, property: PropertyId, value: Option<&PropertyValue>) -> \
+        "fn set_property(&self, property: PropertyId, value: Option<&PropertyValue>, \
+         image_source: Option<&native::ImageSource>) -> \
                      Option<Result<(), WinUiError>> { match (self, property, value) {\n",
     );
     for object in &objects {
@@ -2476,7 +2477,7 @@ fn emit_native_property_arms(
         });
         let set = native_interface_call(target, target_class, interface, metadata, |object| {
             format!(
-                "{helper}(value).and_then(|icon| \
+                "{helper}(value, image_source).and_then(|icon| \
                      {object}.Set{native}(&icon).map_err(Into::into))"
             )
         });
@@ -3353,8 +3354,13 @@ fn generate_declarations(
                      self.0 = self.0.property(PropertyId::{}, \
                      PropertyValue::ImageSource(ImageSource::encoded(value)));\n\
                      self\n\
+                     }}\n\
+                     pub fn {name}_svg(mut self, value: EncodedImage) -> Self {{\n\
+                     self.0 = self.0.property(PropertyId::{}, \
+                     PropertyValue::ImageSource(ImageSource::svg(value)));\n\
+                     self\n\
                      }}\n",
-                    property.name, property.name, property.name, property.name
+                    property.name, property.name, property.name, property.name, property.name
                 ));
                 continue;
             }

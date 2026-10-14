@@ -103,7 +103,6 @@ impl TransientMenuHost {
         source.SetContent(&root)?;
         source
             .SiteBridge()?
-            .cast::<IDesktopChildSiteBridge>()?
             .SetResizePolicy(ContentSizePolicy::ResizeContentToParentWindow)?;
 
         let state = Rc::new(RefCell::new(TransientMenuState {

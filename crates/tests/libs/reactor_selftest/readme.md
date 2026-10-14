@@ -15,6 +15,13 @@ Application lifecycle, menu, Canvas, WebView, and window-state fixtures live in
 [`test-reactor-integration`](../reactor_integration/readme.md). They use the public application
 API without enabling Reactor's diagnostic `test` feature.
 
+CI also runs the self-test and native library tests in debug mode with
+`RUSTFLAGS="-D warnings --cfg windows_cast_diagnostics"`. `check_casts.ps1` checks their captured
+output for unexpected same-pointer `QueryInterface` calls. Its allowlist covers agility checks,
+canonical COM identity, activation, and known conversions from `IInspectable`; these still require
+queries even when the returned pointer is unchanged. Review new diagnostics before adding an
+exception. A clean result covers only the paths exercised by those tests.
+
 Run every default Reactor, Composition, and WebView sample long enough to catch startup failures:
 
 ```text

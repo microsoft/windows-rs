@@ -160,6 +160,21 @@ jobs:
             throw "Windows App Runtime installer exited with code $($installer.ExitCode)"
           }
 
+      - name: Check Reactor cast diagnostics
+        shell: pwsh
+        env:
+          RUSTFLAGS: "-D warnings --cfg windows_cast_diagnostics"
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          $log = Join-Path $env:RUNNER_TEMP "reactor-cast-diagnostics.log"
+          & {
+            cargo run -p test-reactor-selftest --quiet -- --headless
+            cargo test -p windows-reactor --lib native:: --quiet `
+              -- --ignored --test-threads=1 --nocapture
+          } 2>&1 | Tee-Object -FilePath $log
+          & .\crates\tests\libs\reactor_selftest\check_casts.ps1 -Path $log
+
       - name: Run live Reactor reliability tests
         shell: pwsh
         env:
@@ -193,8 +208,6 @@ jobs:
               cargo run -p test-reactor-integration --bin application_resources `
                 --quiet -- $_
             }
-          cargo test -p windows-reactor --lib native:: `
-            -- --ignored --test-threads=1 --nocapture
           cargo run -p test-reactor-integration --bin canvas_integration --quiet
           cargo run -p test-reactor-integration --bin window_state --quiet
           cargo run -p test-reactor-integration --bin window_observers --quiet

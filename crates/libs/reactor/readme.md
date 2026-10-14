@@ -4,32 +4,7 @@ Windows Reactor is a typed declarative UI library for building native WinUI 3 ap
 Rust. Components own Rust state, describe the current view, and receive typed messages from
 controls.
 
-Applications use the default features. The `test` feature exposes headless hosts, runtime
-protocols, schema metadata, and diagnostics for framework tests and benchmarks; it is not needed
-to build a UI. Applications use typed control builders, callbacks, and reference integration
-methods rather than generic property/event records or imperative requests.
-
-Components can declare `WindowVisuals::initial_position` or restore `initial_placement` before a
-window first appears. `ViewContext::on_window_placement` reports restored outer bounds in physical
-screen pixels and maximized state; applications own persistence. Initial placement is not replayed
-on later renders. Window observers keep their subscriptions when callbacks are replaced.
-`on_color_scheme` and `on_window_placement` report the current value when subscribed, then changes;
-replacing a callback does not replay the current value.
-
-Window themes also set the background behind transparent content when no system backdrop is
-selected. Mica and Acrylic remain visible, and application-owned backgrounds are unchanged.
-
-`App::run_application` hosts application state independently of windows. Its `ApplicationView`
-declares reopenable component windows and notification icons with Reactor menus. Closing a window
-does not remove its notification icon, and removing the icon does not close a window. The
-application exits when both are gone, after pending lifecycle work finishes. Notification menus
-automatically follow the Windows taskbar's light or dark theme. See the
-[notification icon sample](../../samples/reactor/notifyicon).
-
-* [Getting
-  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md)
-
-Start by adding the following to your Cargo.toml file:
+Add Reactor to `Cargo.toml`:
 
 ```toml
 [dependencies.windows-reactor]
@@ -84,11 +59,12 @@ fn main() {
 }
 ```
 
-Ordinary unpackaged applications use an installed Windows App SDK framework package. For a
-self-contained application, add `windows-reactor-setup` as a build dependency and call
-`windows_reactor_setup::as_self_contained()` from `build.rs`.
+Run with `cargo run`. Applications use the default features and an installed Windows App SDK
+runtime. See the [setup guide][setup] for runtime prerequisites and self-contained deployment.
 
-Control icon slots accept the shared `Icon` content value. Reactor realizes it as the native
-`IconElement` or `IconSource` required by each control, so the same value works with APIs such as
-`AutoSuggestBox::query_icon`, `AppBarButton::icon`, and `TitleBar::icon`. Standalone visual icons
-continue to use `SymbolIcon`, `FontIcon`, `BitmapIcon`, `ImageIcon`, and `PathIcon`.
+The [getting-started guide][guide] covers editable state, child components, background work, images,
+and application windows. Browse the [samples] for complete applications and focused examples.
+
+[setup]: https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor-setup.md
+[guide]: https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md
+[samples]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor

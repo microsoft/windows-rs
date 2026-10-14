@@ -18393,6 +18393,23 @@ impl ISvgImageSource {
             ))
         }
     }
+    pub(crate) fn SetSourceAsync<P0>(
+        &self,
+        streamsource: P0,
+    ) -> windows_core::Result<windows_future::IAsyncOperation<SvgImageSourceLoadStatus>>
+    where
+        P0: windows_core::Param<IRandomAccessStream>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SetSourceAsync)(
+                windows_core::Interface::as_raw(self),
+                streamsource.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
 }
 #[repr(C)]
 pub struct ISvgImageSource_Vtbl {
@@ -18420,6 +18437,11 @@ pub struct ISvgImageSource_Vtbl {
     ) -> windows_core::HRESULT,
     pub RemoveOpenFailed:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub SetSourceAsync: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ISvgImageSourceFactory,
@@ -29369,6 +29391,17 @@ impl windows_core::RuntimeName for SvgImageSourceFailedEventArgs {
 }
 unsafe impl Send for SvgImageSourceFailedEventArgs {}
 unsafe impl Sync for SvgImageSourceFailedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SvgImageSourceLoadStatus(pub i32);
+impl windows_core::imp::TypeKind for SvgImageSourceLoadStatus {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for SvgImageSourceLoadStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Media.Imaging.SvgImageSourceLoadStatus;i4)",
+    );
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SvgImageSourceOpenedEventArgs(windows_core::IUnknown);
