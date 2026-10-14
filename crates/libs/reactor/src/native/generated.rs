@@ -655,12 +655,12 @@ impl GeneratedHandle {
             ObjectType::CheckBox => {
                 let value = native::CheckBox::new()?;
                 let source_click = value.clone();
-                let read_click = move || {
-                    source_click
-                        .cast::<native::IToggleButton>()?
-                        .IsChecked()
-                        .map(Some)
-                };
+                let read_click =
+                    move || match source_click.cast::<native::IToggleButton>()?.IsChecked() {
+                        Ok(value) => Ok(Some(value)),
+                        Err(error) if error.code().is_ok() => Ok(None),
+                        Err(error) => Err(error),
+                    };
                 let click = Rc::new(RefCell::new(NativeUnitEvent::default()));
                 let event_for_callback = Rc::clone(&click);
                 let event_queue_click = Rc::clone(event_queue);
@@ -695,11 +695,13 @@ impl GeneratedHandle {
                 })?;
                 let _click = GeneratedRevoker::Event(revoker);
                 let source_is_checked_changed = value.clone();
-                let read_is_checked_changed = move || {
-                    source_is_checked_changed
-                        .cast::<native::IToggleButton>()?
-                        .IsChecked()
-                        .map(Some)
+                let read_is_checked_changed = move || match source_is_checked_changed
+                    .cast::<native::IToggleButton>()?
+                    .IsChecked()
+                {
+                    Ok(value) => Ok(Some(value)),
+                    Err(error) if error.code().is_ok() => Ok(None),
+                    Err(error) => Err(error),
                 };
                 let is_checked_changed = Rc::new(RefCell::new(NativeOptionalBoolEvent::default()));
                 let event_for_callback = Rc::clone(&is_checked_changed);
@@ -1857,8 +1859,11 @@ impl GeneratedHandle {
             ObjectType::ToggleButton => {
                 let value = native::ToggleButton::new()?;
                 let source_is_checked_changed = value.clone();
-                let read_is_checked_changed =
-                    move || source_is_checked_changed.IsChecked().map(Some);
+                let read_is_checked_changed = move || match source_is_checked_changed.IsChecked() {
+                    Ok(value) => Ok(Some(value)),
+                    Err(error) if error.code().is_ok() => Ok(None),
+                    Err(error) => Err(error),
+                };
                 let is_checked_changed = Rc::new(RefCell::new(NativeOptionalBoolEvent::default()));
                 let event_for_callback = Rc::clone(&is_checked_changed);
                 let event_queue_is_checked_changed = Rc::clone(event_queue);
@@ -1916,12 +1921,12 @@ impl GeneratedHandle {
             ObjectType::RadioButton => {
                 let value = native::RadioButton::new()?;
                 let source_checked = value.clone();
-                let read_checked = move || {
-                    source_checked
-                        .cast::<native::IToggleButton>()?
-                        .IsChecked()
-                        .map(Some)
-                };
+                let read_checked =
+                    move || match source_checked.cast::<native::IToggleButton>()?.IsChecked() {
+                        Ok(value) => Ok(Some(value)),
+                        Err(error) if error.code().is_ok() => Ok(None),
+                        Err(error) => Err(error),
+                    };
                 let checked = Rc::new(RefCell::new(NativeOptionalBoolEvent::default()));
                 let event_for_callback = Rc::clone(&checked);
                 let event_queue_checked = Rc::clone(event_queue);
@@ -2819,12 +2824,36 @@ impl GeneratedHandle {
             }
             ObjectType::CalendarDatePicker => {
                 let value = native::CalendarDatePicker::new()?;
+                let source_date_changed = value.clone();
+                let read_date_changed = move || match source_date_changed.Date() {
+                    Ok(value) => Ok(Some(value)),
+                    Err(error) if error.code().is_ok() => Ok(None),
+                    Err(error) => Err(error),
+                };
                 let date_changed = Rc::new(RefCell::new(NativeOptionalDateTimeEvent::default()));
                 let event_for_callback = Rc::clone(&date_changed);
                 let event_queue_date_changed = Rc::clone(event_queue);
                 let revoker = value.DateChanged(move |_, args| {
-                    let dispatch = true;
-                    let observation = None;
+                    let observed = match read_date_changed() {
+                        Ok(value) => value,
+                        Err(error) => {
+                            report_error(error);
+                            return;
+                        }
+                    };
+                    let observation = Observation::SetProperty {
+                        object,
+                        property: Property {
+                            id: PropertyId::Date,
+                            value: PropertyValue::OptionalDateTime(observed),
+                        },
+                    };
+                    let dispatch = event_queue_date_changed.observe(
+                        object,
+                        EventId::DateChanged,
+                        observation.clone(),
+                    );
+                    let observation = dispatch.then_some(observation);
                     let args = args.unwrap();
                     let payload = match args.NewDate() {
                         Ok(value) => Some(value),
@@ -4597,6 +4626,10 @@ impl GeneratedHandle {
                     id: PropertyId::Color,
                     value: PropertyValue::Color(Color::rgb(255, 255, 255)),
                 }),
+            )),
+            (ObjectType::CalendarDatePicker, PropertyId::Date, _) => Some((
+                EventId::DateChanged,
+                FeedbackExpectation::Normalized { observation: None },
             )),
             (ObjectType::GridView, PropertyId::SelectedIndex, Some(value)) => Some((
                 EventId::SelectionChanged,
@@ -8586,6 +8619,54 @@ impl GeneratedHandle {
                     .SetClockIdentifier(value.as_ref())
                     .map_err(Into::into),
             ),
+            (Self::CalendarDatePicker(object), PropertyId::MinDate, None) => Some(
+                object
+                    .value
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::CalendarDatePicker::MinDateProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (
+                Self::CalendarDatePicker(object),
+                PropertyId::MinDate,
+                Some(PropertyValue::DateTime(value)),
+            ) => Some(object.value.SetMinDate(*value).map_err(Into::into)),
+            (Self::CalendarDatePicker(object), PropertyId::MaxDate, None) => Some(
+                object
+                    .value
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::CalendarDatePicker::MaxDateProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (
+                Self::CalendarDatePicker(object),
+                PropertyId::MaxDate,
+                Some(PropertyValue::DateTime(value)),
+            ) => Some(object.value.SetMaxDate(*value).map_err(Into::into)),
+            (Self::CalendarDatePicker(object), PropertyId::Date, None) => Some(
+                object
+                    .value
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::CalendarDatePicker::DateProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (
+                Self::CalendarDatePicker(object),
+                PropertyId::Date,
+                Some(PropertyValue::OptionalDateTime(value)),
+            ) => Some(object.value.SetDate(*value).map_err(Into::into)),
             (Self::CalendarDatePicker(object), PropertyId::PlaceholderText, None) => Some(
                 object
                     .value

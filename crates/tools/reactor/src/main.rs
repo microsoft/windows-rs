@@ -169,6 +169,8 @@ impl std::fmt::Display for Validation {
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
 #[serde(rename_all = "snake_case")]
 enum PropertyAdapter {
+    #[serde(rename = "datetime")]
+    DateTime,
     DropPolicy,
     GridColumns,
     GridRows,
@@ -183,6 +185,8 @@ enum PropertyAdapter {
     KeyAccelerators,
     NativeColor,
     NumberBoxValue,
+    #[serde(rename = "optional_datetime")]
+    OptionalDateTime,
     PathData,
     PointerCapture,
     PointerFocus,
@@ -200,6 +204,7 @@ enum PropertyAdapter {
 impl PropertyAdapter {
     fn value(self) -> &'static str {
         match self {
+            Self::DateTime => "DateTime",
             Self::DropPolicy => "DragDropPolicy",
             Self::GridColumns | Self::GridRows => "GridLengths",
             Self::IconElement | Self::IconSource => "Icon",
@@ -211,6 +216,7 @@ impl PropertyAdapter {
             Self::KeyAccelerators => "KeyAccelerators",
             Self::NativeColor => "Color",
             Self::NumberBoxValue | Self::RatingValue => "OptionalF64",
+            Self::OptionalDateTime => "OptionalDateTime",
             Self::PointerCapture | Self::PointerFocus => "Bool",
             Self::ResourceOverrides => "ResourceOverrides",
             Self::ResourceStyle => "ButtonStyle",
@@ -1087,7 +1093,11 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         match property.value.as_str() {
                             "String" => format!("{observed_read}.map(Rc::<str>::from)"),
                             "Bool" | "F64" => observed_read,
-                            "OptionalBool" => format!("{observed_read}.map(Some)"),
+                            "OptionalBool" | "OptionalDateTime" => format!(
+                                "match {observed_read} {{ Ok(value) => Ok(Some(value)), \
+                                 Err(error) if error.code().is_ok() => Ok(None), \
+                                 Err(error) => Err(error) }}"
+                            ),
                             "OptionalF64" => format!(
                                 "{observed_read}.map({})",
                                 if property.adapter == Some(PropertyAdapter::RatingValue) {
@@ -2626,10 +2636,12 @@ fn emit_native_property_arms(
     let (variant, expression) = match value {
         "String" => ("String", "value.as_ref()"),
         "Bool" => ("Bool", "*value"),
+        "DateTime" => ("DateTime", "*value"),
         "F64" => ("F64", "*value"),
         "FontWeight" => ("FontWeight", "native::FontWeight { weight: value.value() }"),
         "I32" => ("I32", "*value"),
         "OptionalBool" => ("OptionalBool", "*value"),
+        "OptionalDateTime" => ("OptionalDateTime", "*value"),
         "CornerRadius" => (
             "CornerRadius",
             "native::CornerRadius { top_left: value.top_left, top_right: value.top_right, \
@@ -2741,6 +2753,7 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
              CharacterEventInfo,\n\
              Color,\n\
              CornerRadius,\n\
+             DateTime,\n\
              Duration,\n\
              DragDropPolicy,\n\
              DragKind,\n\
@@ -3708,6 +3721,7 @@ fn property_argument_parts(name: &str, value: &str) -> String {
         "KeyAccelerators" => format!("{name}: KeyAccelerators"),
         "OptionalF64" => format!("{name}: impl Into<Option<f64>>"),
         "OptionalBool" => format!("{name}: impl Into<Option<bool>>"),
+        "OptionalDateTime" => format!("{name}: impl Into<Option<DateTime>>"),
         "ResourceOverrides" => format!("{name}: ResourceOverrides"),
         "SelectionIndex" => format!("{name}: impl Into<Option<usize>>"),
         "StringList" => format!("{name}: impl IntoIterator<Item = impl Into<Rc<str>>>"),
@@ -3728,6 +3742,7 @@ fn property_value_parts(value: &str, name: &str) -> String {
         "ButtonStyle" => format!("PropertyValue::ButtonStyle({name})"),
         "Color" => format!("PropertyValue::Color({name})"),
         "CornerRadius" => format!("PropertyValue::CornerRadius({name})"),
+        "DateTime" => format!("PropertyValue::DateTime({name})"),
         "Duration" => format!("PropertyValue::Duration({name})"),
         "DragDropPolicy" => format!("PropertyValue::DragDropPolicy(Rc::new({name}))"),
         "F64" => format!("PropertyValue::F64({name})"),
@@ -3741,6 +3756,7 @@ fn property_value_parts(value: &str, name: &str) -> String {
         "KeyAccelerators" => format!("PropertyValue::KeyAccelerators({name})"),
         "OptionalF64" => format!("PropertyValue::OptionalF64({name}.into())"),
         "OptionalBool" => format!("PropertyValue::OptionalBool({name}.into())"),
+        "OptionalDateTime" => format!("PropertyValue::OptionalDateTime({name}.into())"),
         "SelectionIndex" => format!("PropertyValue::SelectionIndex({name}.into())"),
         "ResourceOverrides" => format!("PropertyValue::ResourceOverrides({name})"),
         "RichText" => format!("PropertyValue::RichText({name})"),
@@ -3967,6 +3983,7 @@ fn live_property_sample(
         "ButtonStyle" => "ButtonStyle::Default".to_string(),
         "Color" => "Color::rgb(1, 2, 3)".to_string(),
         "CornerRadius" => "CornerRadius::uniform(1.0)".to_string(),
+        "DateTime" | "OptionalDateTime" => "DateTime::now()".to_string(),
         "Duration" => "std::time::Duration::from_millis(1)".to_string(),
         "DragDropPolicy" => "DragDropPolicy::new()".to_string(),
         "FontWeight" => "FontWeight::SEMI_BOLD".to_string(),
@@ -4047,6 +4064,7 @@ fn is_builtin_value(value: &str) -> bool {
             | "ButtonStyle"
             | "Color"
             | "CornerRadius"
+            | "DateTime"
             | "Duration"
             | "DragDropPolicy"
             | "DragKind"

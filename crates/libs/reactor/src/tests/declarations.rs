@@ -1,6 +1,76 @@
 use super::*;
 
 #[test]
+fn calendar_date_properties_order_update_and_clear() {
+    let min = DateTime::from_unix_secs(1_700_000_000);
+    let max = DateTime::from_unix_secs(1_800_000_000);
+    let date = DateTime::from_unix_secs(1_750_000_000);
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(
+            CalendarDatePicker::new()
+                .date(date)
+                .max_date(max)
+                .min_date(min),
+        )
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    assert_eq!(
+        runtime.graph().properties(root).unwrap(),
+        [
+            Property {
+                id: PropertyId::MinDate,
+                value: PropertyValue::DateTime(min),
+            },
+            Property {
+                id: PropertyId::MaxDate,
+                value: PropertyValue::DateTime(max),
+            },
+            Property {
+                id: PropertyId::Date,
+                value: PropertyValue::OptionalDateTime(Some(date)),
+            },
+        ]
+    );
+    assert!(
+        runtime
+            .update(
+                CalendarDatePicker::new()
+                    .min_date(min)
+                    .max_date(max)
+                    .date(Some(date))
+            )
+            .unwrap()
+            .is_empty()
+    );
+    let mutations = runtime
+        .update(CalendarDatePicker::new().date(None))
+        .unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object, set, clear }]
+            if *object == root
+                && set.as_ref() == [Property {
+                    id: PropertyId::Date,
+                    value: PropertyValue::OptionalDateTime(None),
+                }]
+                && clear.as_ref() == [PropertyId::MinDate, PropertyId::MaxDate]
+    ));
+    let mutations = runtime.update(CalendarDatePicker::new()).unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object, set, clear }]
+            if *object == root && set.is_empty() && clear.as_ref() == [PropertyId::Date]
+    ));
+    assert!(
+        runtime
+            .update(CalendarDatePicker::new())
+            .unwrap()
+            .is_empty()
+    );
+}
+
+#[test]
 fn navigation_view_flags_set_update_and_clear_independently() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     let view = NavigationView::new()

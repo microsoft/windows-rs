@@ -6,6 +6,12 @@ mod images;
 #[path = "lifecycle.rs"]
 mod lifecycle;
 
+#[path = "calendar.rs"]
+mod calendar;
+
+#[path = "ownership.rs"]
+mod ownership;
+
 #[test]
 fn placement_coordinates_round_trip_negative_monitors_and_taskbar_offsets() {
     let screen = native::RECT {
@@ -489,9 +495,10 @@ fn event_dispatch_wakes_only_when_queued() {
         let timer = native::DispatcherQueue::GetForCurrentThread()?.CreateTimer()?;
         timer.SetInterval(TimeSpan::try_from(Duration::from_millis(100)).unwrap())?;
         let app = app.clone();
-        let tick = timer.Tick(move |_, _| {
+        let tick = timer.Tick(move |sender, _| {
             assert_eq!(wakes.get(), 1);
             assert!(!event_queue.wake_pending.get());
+            sender.ok().unwrap().Stop().unwrap();
             finished.set(true);
             app.exit().unwrap();
         })?;

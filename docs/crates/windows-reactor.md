@@ -113,7 +113,7 @@ static view with no state or events, call `App::run(view)` instead.
 
 ## Add editable state
 
-Editable controls are controlled: pass the current value from component state and send changes
+To drive an editable control from component state, declare its current value and send changes
 back as messages.
 
 ```rust,ignore
@@ -124,6 +124,11 @@ TextBox::new(self.name.clone())
 
 Handle `Message::SetName(name)` in `update` by assigning `self.name = name`. Reactor suppresses
 feedback from its own writes while still delivering user edits.
+
+Only declared properties are controlled; subscribing to changes does not take ownership. Omitting
+a previously declared property clears its native assignment once. An explicit `None` is a declared
+value, not an omitted property. Store values in component state when they must survive control
+replacement.
 
 The [`controlled`](../../crates/samples/reactor/controlled) sample shows the complete pattern.
 

@@ -1725,6 +1725,20 @@ name = "CalendarDatePicker"
 enabled = true
 
 [[objects.properties]]
+name = "MinDate"
+adapter = "datetime"
+
+[[objects.properties]]
+name = "MaxDate"
+adapter = "datetime"
+
+[[objects.properties]]
+name = "Date"
+adapter = "optional_datetime"
+controlled = "DateChanged"
+feedback = "normalized"
+
+[[objects.properties]]
 name = "PlaceholderText"
 
 [[objects.properties]]
@@ -1741,6 +1755,7 @@ name = "Header"
 
 [[objects.events]]
 name = "DateChanged"
+observes = "Date"
 payload = "NewDate"
 payload_adapter = "optional_datetime"
 
