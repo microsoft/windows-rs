@@ -1405,6 +1405,28 @@ impl WinUiAdapter {
         ))
     }
 
+    pub fn text_box_editing_state(
+        &self,
+        object: ObjectId,
+    ) -> Result<(bool, TextAlignment, String), WinUiError> {
+        let Some(Handle::TextBox(value)) = self.handles.get(&object) else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let alignment = match value.value.HorizontalTextAlignment()? {
+            native::TextAlignment::Center => TextAlignment::Center,
+            native::TextAlignment::Left => TextAlignment::Left,
+            native::TextAlignment::Right => TextAlignment::Right,
+            native::TextAlignment::Justify => TextAlignment::Justify,
+            native::TextAlignment::DetectFromContent => TextAlignment::DetectFromContent,
+            _ => return Err(WinUiError::StateMismatch(object)),
+        };
+        Ok((
+            value.value.IsReadOnly()?,
+            alignment,
+            value.value.SelectedText()?,
+        ))
+    }
+
     pub fn text_box_appearance(
         &self,
         object: ObjectId,

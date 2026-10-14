@@ -4013,6 +4013,7 @@ fn live_property_sample(
         "Stretch" => "Stretch::Uniform".to_string(),
         "Symbol" => "Symbol::Previous".to_string(),
         "TeachingTipPlacementMode" => "TeachingTipPlacementMode::Top".to_string(),
+        "TextAlignment" => "TextAlignment::Center".to_string(),
         "TextTrimming" => "TextTrimming::CharacterEllipsis".to_string(),
         "TextWrapping" => "TextWrapping::Wrap".to_string(),
         "TreeViewSelectionMode" => "TreeViewSelectionMode::Single".to_string(),

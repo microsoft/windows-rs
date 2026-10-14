@@ -19804,6 +19804,19 @@ impl ITextBox {
             .ok()
         }
     }
+    pub(crate) fn SelectedText(&self) -> windows_core::Result<String> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SelectedText)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| {
+                let hstring: windows_core::HSTRING = core::mem::transmute(result__);
+                hstring.to_string_lossy()
+            })
+        }
+    }
     pub(crate) fn SelectionLength(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -19836,6 +19849,25 @@ impl ITextBox {
     pub(crate) fn SetSelectionStart(&self, value: i32) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetSelectionStart)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn IsReadOnly(&self) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsReadOnly)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetIsReadOnly(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsReadOnly)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -19914,6 +19946,28 @@ impl ITextBox {
             .ok()
         }
     }
+    pub(crate) fn HorizontalTextAlignment(&self) -> windows_core::Result<TextAlignment> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).HorizontalTextAlignment)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetHorizontalTextAlignment(
+        &self,
+        value: TextAlignment,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetHorizontalTextAlignment)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn TextChanged<F>(
         &self,
         handler: F,
@@ -19958,7 +20012,10 @@ pub struct ITextBox_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    SelectedText: usize,
+    pub SelectedText: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     SetSelectedText: usize,
     pub SelectionLength:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -19970,8 +20027,10 @@ pub struct ITextBox_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     MaxLength: usize,
     SetMaxLength: usize,
-    IsReadOnly: usize,
-    SetIsReadOnly: usize,
+    pub IsReadOnly:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsReadOnly:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub AcceptsReturn:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAcceptsReturn:
@@ -20013,8 +20072,12 @@ pub struct ITextBox_Vtbl {
     SetIsColorFontEnabled: usize,
     SelectionHighlightColorWhenNotFocused: usize,
     SetSelectionHighlightColorWhenNotFocused: usize,
-    HorizontalTextAlignment: usize,
-    SetHorizontalTextAlignment: usize,
+    pub HorizontalTextAlignment: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut TextAlignment,
+    ) -> windows_core::HRESULT,
+    pub SetHorizontalTextAlignment:
+        unsafe extern "system" fn(*mut core::ffi::c_void, TextAlignment) -> windows_core::HRESULT,
     CharacterCasing: usize,
     SetCharacterCasing: usize,
     PlaceholderForeground: usize,
@@ -20068,7 +20131,10 @@ pub struct ITextBoxStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     TextProperty: usize,
     MaxLengthProperty: usize,
-    IsReadOnlyProperty: usize,
+    pub IsReadOnlyProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub AcceptsReturnProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
@@ -20084,6 +20150,14 @@ pub struct ITextBoxStatics_Vtbl {
     HeaderProperty: usize,
     HeaderTemplateProperty: usize,
     pub PlaceholderTextProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    SelectionHighlightColorProperty: usize,
+    PreventKeyboardDisplayOnProgrammaticFocusProperty: usize,
+    IsColorFontEnabledProperty: usize,
+    SelectionHighlightColorWhenNotFocusedProperty: usize,
+    pub HorizontalTextAlignmentProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -30313,6 +30387,25 @@ impl windows_core::RuntimeType for TeachingTipPlacementMode {
     );
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TextAlignment(pub i32);
+impl TextAlignment {
+    pub const Center: Self = Self(0);
+    pub const Left: Self = Self(1);
+    pub const Start: Self = Self(1);
+    pub const Right: Self = Self(2);
+    pub const End: Self = Self(2);
+    pub const Justify: Self = Self(3);
+    pub const DetectFromContent: Self = Self(4);
+}
+impl windows_core::imp::TypeKind for TextAlignment {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for TextAlignment {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Microsoft.UI.Xaml.TextAlignment;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TextBlock(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
@@ -30452,6 +30545,16 @@ impl TextBox {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
+    pub(crate) fn IsReadOnlyProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ITextBoxStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsReadOnlyProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
     pub(crate) fn AcceptsReturnProperty() -> windows_core::Result<DependencyProperty> {
         Self::ITextBoxStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -30476,6 +30579,16 @@ impl TextBox {
         Self::ITextBoxStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PlaceholderTextProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn HorizontalTextAlignmentProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ITextBoxStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HorizontalTextAlignmentProperty)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
