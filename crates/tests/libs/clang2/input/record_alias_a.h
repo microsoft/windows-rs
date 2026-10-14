@@ -1,6 +1,2 @@
-typedef struct _LsaText {
-    unsigned short Length;
-    unsigned short MaximumLength;
-    wchar_t* Buffer;
-} LsaText;
+#include "record_alias_types.h"
 typedef LsaText Text;

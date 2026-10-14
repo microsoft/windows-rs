@@ -8,6 +8,54 @@ fn fidelity_gate() {
     helpers::ensure_libclang();
     aliases();
     attributes();
+    opaque_packing();
+}
+
+fn opaque_packing() {
+    let mut inputs = [
+        selected_fixture("opaque_packing", &["PackingProbe"]),
+        selected_fixture("opaque_packing", &["PackingProbe"]),
+    ];
+    inputs[1].name = "pack_two.h".into();
+    inputs[1].source.insert_str(0, "#define PACK_TWO\n");
+    let snapshots = capture(&inputs, &TARGETS).unwrap();
+    for pair in snapshots.as_chunks::<2>().0 {
+        let a = &pair[0].observations[0];
+        let b = &pair[1].observations[0];
+        assert_eq!(pair[0].records[0].usr, pair[1].records[0].usr);
+        assert_eq!(a.attributes, b.attributes);
+        assert_eq!(a.attributes.len(), 1);
+        let attribute = &a.attributes[0];
+        assert_eq!(
+            attribute.kind,
+            AttributeKind::Unresolved("UnexposedAttr".into())
+        );
+        assert!(attribute.spelling.is_empty());
+        assert!(attribute.tokens.is_empty());
+        assert!(attribute.location.is_none());
+        let a = a.definition.as_ref().unwrap();
+        let b = b.definition.as_ref().unwrap();
+        assert_eq!(a.layout, b.layout);
+        assert_eq!(
+            a.layout,
+            Layout {
+                size: 1,
+                alignment: 1
+            }
+        );
+        assert_eq!(a.fields[0].offset_bits, b.fields[0].offset_bits);
+        assert_eq!(
+            pair[0].types[a.fields[0].canonical.0],
+            pair[1].types[b.fields[0].canonical.0]
+        );
+    }
+    assert!(
+        merge(&snapshots)
+            .err()
+            .unwrap()
+            .to_string()
+            .contains("cannot verify")
+    );
 }
 
 fn aliases() {
@@ -62,7 +110,7 @@ fn aliases() {
         .replace("typedef int Count;", "typedef long Count;");
     let snapshots = capture(&[a, b], &TARGETS).unwrap();
     assert!(
-        merge(&snapshots).is_err(),
+        projection::project(&merge(&snapshots).unwrap(), "Fixture").is_err(),
         "{:?}",
         snapshots
             .iter()

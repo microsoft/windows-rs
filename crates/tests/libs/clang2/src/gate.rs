@@ -46,8 +46,9 @@ pub fn inventory() -> bool {
                 Ok(merged) => {
                     passed += 1;
                     println!(
-                        "{root}: VERIFIED ({} records, {} aliases)",
+                        "{root}: VERIFIED ({} records, {} enums, {} aliases)",
                         merged.records.len(),
+                        merged.enums.len(),
                         merged.aliases.len()
                     );
                 }
@@ -107,25 +108,16 @@ pub fn scale(tus: usize) {
             resolution.work.definition_pairs,
             resolution.groups.len() * (tus - 1)
         );
-        let observations: usize = resolution
-            .snapshots
-            .iter()
-            .flat_map(|snapshot| &snapshot.aliases)
-            .map(|alias| alias.observations.len())
-            .sum();
-        assert_eq!(
-            resolution.work.alias_pairs,
-            observations - resolution.aliases.len()
-        );
         assert!(resolution.work.type_pairs <= resolution.snapshots[0].types.len() * (tus - 1));
     }
     println!(
-        "TUs,targets,roots,records,aliases,observations,owned_bytes,capture_ms,merge_ms,definition_pairs,alias_pairs,type_pairs"
+        "TUs,targets,roots,records,enums,aliases,observations,owned_bytes,capture_ms,merge_ms,definition_pairs,type_pairs,enum_pairs"
     );
     println!(
-        "{tus},3,{},{},{},{},{},{capture_ms:.3},{merge_ms:.3},{},{},{}",
+        "{tus},3,{},{},{},{},{},{},{capture_ms:.3},{merge_ms:.3},{},{},{}",
         template.roots.len(),
         stats.iter().map(|s| s.records).sum::<usize>(),
+        stats.iter().map(|s| s.enums).sum::<usize>(),
         stats.iter().map(|s| s.aliases).sum::<usize>(),
         stats.iter().map(|s| s.observations).sum::<usize>(),
         stats.iter().map(|s| s.owned_bytes).sum::<usize>(),
@@ -137,12 +129,12 @@ pub fn scale(tus: usize) {
         merged
             .targets
             .values()
-            .map(|r| r.work.alias_pairs)
+            .map(|r| r.work.type_pairs)
             .sum::<usize>(),
         merged
             .targets
             .values()
-            .map(|r| r.work.type_pairs)
+            .map(|r| r.work.enum_pairs)
             .sum::<usize>()
     );
 }

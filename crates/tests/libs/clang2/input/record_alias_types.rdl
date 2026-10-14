@@ -1,0 +1,8 @@
+#[win32]
+mod Fixture {
+    struct LsaText {
+        Length: u16,
+        MaximumLength: u16,
+        Buffer: *mut u16,
+    }
+}

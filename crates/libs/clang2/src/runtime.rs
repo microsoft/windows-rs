@@ -247,6 +247,7 @@ fn parse(
             files: Vec::new(),
             records: Vec::new(),
             aliases: Vec::new(),
+            enums: Vec::new(),
             observations: Vec::new(),
             types: Vec::new(),
         };

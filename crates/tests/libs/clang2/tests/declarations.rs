@@ -161,7 +161,7 @@ fn using_aliases() {
         &TARGETS,
     )
     .unwrap();
-    assert!(merge(&snapshots).is_err());
+    assert!(projection::project(&merge(&snapshots).unwrap(), "Fixture").is_err());
 }
 
 fn record_alias_identity() {
@@ -188,15 +188,28 @@ fn record_alias_identity() {
         };
         assert_eq!(definition(&pair[0]), definition(&pair[1]));
     }
-    let Err(error) = merge(&snapshots) else {
-        panic!("different record identities must not be merged by layout alone")
-    };
-    let error = error.to_string();
-    assert!(error.contains("Text"), "{error}");
-    assert!(error.contains("record_alias_a.h"), "{error}");
-    assert!(error.contains("record_alias_b.h"), "{error}");
-    assert!(
+    let merged = merge(&snapshots).unwrap();
+    assert_eq!(merged.records.len(), 2);
+    let output = projection::project(&merged, "Fixture").unwrap();
+    assert_eq!((output.records, output.aliases), (1, 1));
+    for stem in ["record_alias_types", "record_alias_b"] {
+        assert_eq!(
+            output.partitions[stem].rdl,
+            std::fs::read_to_string(input_dir().join(format!("{stem}.rdl")))
+                .unwrap()
+                .replace("\r\n", "\n")
+        );
+    }
+    assert_eq!(
+        output,
         projection::project_partial(capture_partial(&inputs, &TARGETS).unwrap(), "Fixture")
-            .is_err()
+            .unwrap()
+            .output
+    );
+    let mut snapshots = snapshots;
+    snapshots.reverse();
+    assert_eq!(
+        output,
+        projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap()
     );
 }

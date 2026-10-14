@@ -10,7 +10,8 @@ mod resolve;
 mod runtime;
 pub use merge::{Merged, Variants, merge};
 pub use resolve::{
-    AliasGroup, AliasObservationRef, Group, ObservationRef, RecordRef, Resolution, Work, resolve,
+    AliasGroup, AliasObservationRef, EnumGroup, EnumObservationRef, EnumRef, Group, ObservationRef,
+    RecordRef, Resolution, Work, resolve,
 };
 pub use runtime::{PartialCapture, capture, capture_partial};
 
@@ -39,7 +40,7 @@ pub struct Input {
     pub source: String,
     /// Additional compiler arguments, such as include paths and macro definitions.
     pub arguments: Vec<String>,
-    /// Global struct or alias names and dependencies within this TU. Empty selects all declarations.
+    /// Global record, enum, or alias roots and their dependencies. Empty selects all declarations.
     pub roots: Vec<String>,
 }
 
@@ -52,10 +53,14 @@ pub struct RecordId(pub usize);
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct AliasId(pub usize);
 
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct EnumId(pub usize);
+
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub enum DeclarationId {
     Record(RecordId),
     Alias(AliasId),
+    Enum(EnumId),
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -106,6 +111,22 @@ pub enum Scalar {
     LongDouble,
 }
 
+impl Scalar {
+    pub(crate) fn signed_integer(&self) -> Option<bool> {
+        match self {
+            Self::Char { signed } => Some(*signed),
+            Self::SignedChar | Self::Short | Self::Int | Self::Long | Self::LongLong => Some(true),
+            Self::UnsignedChar
+            | Self::WChar
+            | Self::UnsignedShort
+            | Self::UnsignedInt
+            | Self::UnsignedLong
+            | Self::UnsignedLongLong => Some(false),
+            _ => None,
+        }
+    }
+}
+
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub enum TypeKind {
     Void,
@@ -114,6 +135,7 @@ pub enum TypeKind {
     Array { element: TypeId, length: u64 },
     Record(RecordId),
     Alias(AliasId),
+    Enum(EnumId),
 }
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
@@ -168,7 +190,14 @@ pub struct AliasObservation {
 pub struct Record {
     pub name: String,
     pub usr: String,
+    pub kind: RecordKind,
     pub observations: Vec<ObservationId>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum RecordKind {
+    Struct,
+    Union,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -186,17 +215,51 @@ pub struct RecordDefinition {
 }
 
 #[derive(Debug, Eq, PartialEq)]
+pub struct Enum {
+    pub name: String,
+    pub usr: String,
+    pub observations: Vec<EnumObservation>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct EnumObservation {
+    pub location: Location,
+    pub underlying: TypeId,
+    pub canonical: TypeId,
+    pub layout: Layout,
+    pub scoped: bool,
+    pub attributes: Vec<Attribute>,
+    /// None denotes a forward declaration, not an empty enum definition.
+    pub members: Option<Vec<EnumMember>>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct EnumMember {
+    pub name: String,
+    pub location: Location,
+    pub value: EnumValue,
+    pub attributes: Vec<Attribute>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub enum EnumValue {
+    Signed(i64),
+    Unsigned(u64),
+}
+
+#[derive(Debug, Eq, PartialEq)]
 pub struct Snapshot {
     pub input: String,
     pub target: Target,
     pub compiler: String,
     pub arguments: Vec<String>,
     pub diagnostics: Vec<String>,
-    /// Selected records; other records were reached through dependencies.
+    /// Selected declarations; other entities were reached through dependencies.
     pub roots: Vec<DeclarationId>,
     pub files: Vec<String>,
     pub records: Vec<Record>,
     pub aliases: Vec<Alias>,
+    pub enums: Vec<Enum>,
     pub observations: Vec<RecordObservation>,
     pub types: Vec<Type>,
 }
@@ -205,6 +268,7 @@ pub struct Snapshot {
 pub struct Statistics {
     pub records: usize,
     pub aliases: usize,
+    pub enums: usize,
     pub observations: usize,
     pub types: usize,
     pub fields: usize,
@@ -243,6 +307,7 @@ impl Snapshot {
             + strings_bytes(&self.files)
             + vector_bytes(&self.records)
             + vector_bytes(&self.aliases)
+            + vector_bytes(&self.enums)
             + vector_bytes(&self.observations)
             + vector_bytes(&self.types);
         for record in &self.records {
@@ -259,6 +324,23 @@ impl Snapshot {
                     .map(|value| attributes_bytes(&value.attributes))
                     .sum::<usize>();
         }
+        for enumeration in &self.enums {
+            owned_bytes += enumeration.name.capacity()
+                + enumeration.usr.capacity()
+                + vector_bytes(&enumeration.observations);
+            for observation in &enumeration.observations {
+                owned_bytes += attributes_bytes(&observation.attributes);
+                if let Some(members) = &observation.members {
+                    owned_bytes += vector_bytes(members)
+                        + members
+                            .iter()
+                            .map(|member| {
+                                member.name.capacity() + attributes_bytes(&member.attributes)
+                            })
+                            .sum::<usize>();
+                }
+            }
+        }
         for observation in &self.observations {
             owned_bytes += attributes_bytes(&observation.attributes);
             if let Some(definition) = &observation.definition {
@@ -274,11 +356,17 @@ impl Snapshot {
         Statistics {
             records: self.records.len(),
             aliases: self.aliases.len(),
+            enums: self.enums.len(),
             observations: self.observations.len()
                 + self
                     .aliases
                     .iter()
                     .map(|alias| alias.observations.len())
+                    .sum::<usize>()
+                + self
+                    .enums
+                    .iter()
+                    .map(|value| value.observations.len())
                     .sum::<usize>(),
             types: self.types.len(),
             fields,

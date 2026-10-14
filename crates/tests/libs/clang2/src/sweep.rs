@@ -65,15 +65,15 @@ pub fn run(mode: &str, count: usize) {
         .values()
         .map(|value| value.work.definition_pairs)
         .sum();
-    let alias_pairs: usize = merged
-        .targets
-        .values()
-        .map(|value| value.work.alias_pairs)
-        .sum();
     let type_pairs: usize = merged
         .targets
         .values()
         .map(|value| value.work.type_pairs)
+        .sum();
+    let enum_pairs: usize = merged
+        .targets
+        .values()
+        .map(|value| value.work.enum_pairs)
         .sum();
     drop(merged);
     let started = Instant::now();
@@ -113,18 +113,20 @@ pub fn run(mode: &str, count: usize) {
         .collect();
     std::fs::write(scratch.join(format!("{name}.rdl")), &rdl).unwrap();
     println!(
-        "mode,count,TUs,capture_prune_ms,merge_probe_ms,project_including_merge_prune_ms,compile_ms,native_records,native_aliases,native_observations,native_types,native_fields,native_owned_bytes,definition_pairs,alias_pairs,type_pairs,capture_omissions,output_records,output_aliases,partitions,omissions,rdl_bytes,winmd_bytes"
+        "mode,count,TUs,capture_prune_ms,merge_probe_ms,project_including_merge_prune_ms,compile_ms,native_records,native_enums,native_aliases,native_observations,native_types,native_fields,native_owned_bytes,definition_pairs,type_pairs,enum_pairs,capture_omissions,output_records,output_enums,output_aliases,partitions,omissions,rdl_bytes,winmd_bytes"
     );
     println!(
-        "{mode},{count},{},{capture_ms:.3},{merge_ms:.3},{project_ms:.3},{compile_ms:.3},{},{},{},{},{},{},{definition_pairs},{alias_pairs},{type_pairs},{capture_omissions},{},{},{},{},{},{}",
+        "{mode},{count},{},{capture_ms:.3},{merge_ms:.3},{project_ms:.3},{compile_ms:.3},{},{},{},{},{},{},{},{definition_pairs},{type_pairs},{enum_pairs},{capture_omissions},{},{},{},{},{},{},{}",
         inputs.len(),
         stats.iter().map(|value| value.records).sum::<usize>(),
+        stats.iter().map(|value| value.enums).sum::<usize>(),
         stats.iter().map(|value| value.aliases).sum::<usize>(),
         stats.iter().map(|value| value.observations).sum::<usize>(),
         stats.iter().map(|value| value.types).sum::<usize>(),
         stats.iter().map(|value| value.fields).sum::<usize>(),
         stats.iter().map(|value| value.owned_bytes).sum::<usize>(),
         result.output.records,
+        result.output.enums,
         result.output.aliases,
         result.output.partitions.len(),
         result.omissions.len(),

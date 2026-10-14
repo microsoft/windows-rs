@@ -1,0 +1,34 @@
+#[win32]
+mod Fixture {
+    struct Box {
+        lead: i8,
+        value: Value,
+        tail: i8,
+    }
+    union Node {
+        next: *mut Node,
+        bits: u64,
+    }
+    type NodePointer = *mut Node;
+    #[packed(1)]
+    union PackedValue {
+        integer: i32,
+        bytes: [u8; 5],
+    }
+    #[arch(X64 | Arm64)]
+    struct PlatformValue {
+        value: i32,
+    }
+    #[arch(X86)]
+    union PlatformValue {
+        value: i32,
+    }
+    union Value {
+        integer: i32,
+        real: f32,
+        pointer: *mut void,
+        bytes: [u8; 9],
+    }
+    type ValueArray = [Value; 2];
+    type ValuePointer = *mut Value;
+}

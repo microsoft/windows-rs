@@ -17,34 +17,47 @@ println!("{} records with target variants", merged.records.len());
 ```
 
 Supply libclang through `LIBCLANG_PATH` or its loader search paths. `capture` returns one owned
-snapshot per target/TU, in target-major order. `resolve` checks global types from the same target
-and compiler configuration, retaining original observations and completion decisions.
+snapshot per target/TU, in target-major order. `resolve` checks native record definitions from the
+same target and compiler configuration, retaining original observations and completion decisions.
 
 `Input.arguments` supplies include paths and compiler flags. `Input.roots` selects global type
 names and their transitive dependencies within each TU; empty selects all declarations. Missing
-roots and unsupported reachable declarations fail. `merge` reconciles each target, then groups native
-identities with separate target layouts and type graphs. An unobserved target is not proof of
-absence.
+roots and unsupported reachable declarations fail. `merge` reconciles each target, then groups
+native identities with separate target layouts and type graphs. An unobserved target is not proof
+of absence.
 
 Indices are created before parallel capture and reused across TUs. Batches are serialized; other
 libclang callers must not create indices during a batch. Native hangs affect the whole process.
 
-Supported: named structs, typedefs, non-template `using` aliases, forwards, scalars, qualified pointers,
-arrays, and observed layouts. Written alias edges and declaration observations are retained.
-Compatibility uses canonical types; alias names are not nominal types. Attribute evidence is retained,
-but unresolved attributes block `resolve` and `merge`. No packing request is guessed from layout.
-Unions and functions are not implemented.
+Supported: named structs, unions, and integer-backed enums; typedefs, non-template `using` aliases,
+forwards, scalars, qualified pointers, arrays, and observed layouts. Written aliases are retained.
+Native record compatibility uses canonical types. Alias groups retain all name-corresponding
+bindings; their public compatibility is checked during projection, not assumed by native merge.
+Unresolved attributes block `resolve` and `merge`. No packing request is guessed from layout.
+Nested records, bitfields, and functions are not implemented.
 
 The optional `projection` feature provides `projection::generate(inputs, namespace)` for
-three-target capture, merge, and per-header RDL output. It projects structs and value typedefs,
-checks sequential ABI layout, and rejects unsupported declarations or ambiguous publication names.
+three-target capture, merge, and per-header RDL output. It emits structs, unions, enums, and value
+typedefs, checks metadata ABI layout, and rejects unsupported declarations or ambiguous names.
+Unions retain their record kind, publish explicit-layout fields at offset zero, and must match
+captured size and alignment. Structs and unions never share a public family, even with identical
+fields and layouts.
+Enums retain nominal identity, scopedness, exact signed/unsigned values, and backing types.
+Forward declarations must agree with complete definitions. Projection preserves `#[scoped]` and
+the integer representation; it does not infer flags or combine distinct enums by matching values.
+By-value aliases can connect distinct native records only after their definitions are checked.
+Each target-local family uses its alphabetically first by-value alias as the public record name;
+other selected names remain transparent aliases. Pointer aliases cannot establish equivalence.
+Header ownership prefers the unique alias header containing its native definition, otherwise it
+requires a unique declaration header. Native identities and source observations remain distinct.
 `tool-win32-2` supplies the SDK configuration and writes canonical files.
 
 `capture_partial` and `projection::generate_partial` return supported output plus omission reports.
 `projection::project_partial` accepts an existing partial capture without reparsing.
 Failed entities and dependent declarations are removed across all targets; compiler errors and
-conflicts in retained definitions still fail. A typedef that cannot be published can remain as
-native evidence when its canonical type is representable. Macro constants are not captured.
+conflicts in retained definitions or alias bindings still fail. A typedef that cannot be published
+can remain as native evidence when its canonical type is representable. Macro constants are not
+captured.
 
 Fixtures, inspection, and scaling live in `test_clang2`. See
 [crate notes](../../../docs/crates/windows-clang2.md) for commands.

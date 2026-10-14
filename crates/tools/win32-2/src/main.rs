@@ -109,8 +109,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         return Err("no declarations could be projected; canonical metadata is unchanged".into());
     }
     println!(
-        "Compiling {} records and {} aliases from {} headers",
+        "Compiling {} records, {} enums, and {} aliases from {} headers",
         output.records,
+        output.enums,
         output.aliases,
         output.partitions.len()
     );
@@ -146,8 +147,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         std::fs::write(destination.join(format!("{stem}.rdl")), &partition.rdl)?;
     }
     println!(
-        "SDK projection: {} records, {} aliases, {} headers; capture/merge/project {:.3}s, compile {:.3}s",
+        "SDK projection: {} records, {} enums, {} aliases, {} headers; capture/merge/project {:.3}s, compile {:.3}s",
         output.records,
+        output.enums,
         output.aliases,
         output.partitions.len(),
         generated.as_secs_f64(),

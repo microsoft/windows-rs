@@ -9,7 +9,7 @@ typedef const int** MixedPointer;
 struct PointerUser { MixedPointer value; };
 
 int unsupported_function(int value);
-union UnsupportedUnion { int a; float b; };
+union PlainUnion { int a; float b; };
 struct Broken { Broken* next; unsigned bit : 1; };
 struct Dependent { Broken* value; };
 typedef Dependent BadAlias;

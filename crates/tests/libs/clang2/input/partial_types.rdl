@@ -1,7 +1,18 @@
 #[win32]
 mod Fixture {
+    struct AmbiguousConsumer {
+        value: *mut ChoiceA,
+    }
+    struct ChoiceA {
+        value: i32,
+    }
+    type ChoiceB = ChoiceA;
     struct Good {
         value: i32,
+    }
+    union PlainUnion {
+        a: i32,
+        b: f32,
     }
     type ScalarGood = i32;
     struct VoidUser {

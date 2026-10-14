@@ -11,6 +11,8 @@ fn projection_gate() {
     rejections();
     partial_results();
     partial_review();
+    unions();
+    union_families();
 }
 
 fn partial_review() {
@@ -80,7 +82,7 @@ fn partial_results() {
             result.output.aliases,
             result.output.partitions.len()
         ),
-        (6, 2, 2)
+        (9, 3, 2)
     );
     for stem in ["partial_types", "projection_types"] {
         assert_eq!(
@@ -99,11 +101,8 @@ fn partial_results() {
         "ProjectionConsumer",
         "Incomplete",
         "OpaqueDependent",
-        "Ambiguous",
-        "AmbiguousConsumer",
         "Nothing",
         "unsupported_function",
-        "UnsupportedUnion",
     ] {
         assert!(
             result
@@ -273,6 +272,9 @@ fn round_trip() {
 
 fn record_layout(index: &reader::Index, name: &str, pointer_size: u64) -> (Layout, Vec<u64>) {
     let definition = index.expect("Fixture", name);
+    let explicit = definition
+        .flags()
+        .contains(windows_metadata::TypeAttributes::ExplicitLayout);
     let packing = definition
         .class_layout()
         .map_or(8, |layout| u64::from(layout.packing_size()));
@@ -282,9 +284,13 @@ fn record_layout(index: &reader::Index, name: &str, pointer_size: u64) -> (Layou
     for field in definition.fields() {
         let layout = type_layout(index, &field.ty(), pointer_size);
         let field_alignment = layout.alignment.min(packing);
-        size = size.div_ceil(field_alignment) * field_alignment;
-        offsets.push(size * 8);
-        size += layout.size;
+        let offset = if explicit {
+            0
+        } else {
+            size.div_ceil(field_alignment) * field_alignment
+        };
+        offsets.push(offset * 8);
+        size = size.max(offset + layout.size);
         alignment = alignment.max(field_alignment);
     }
     (
@@ -299,8 +305,8 @@ fn record_layout(index: &reader::Index, name: &str, pointer_size: u64) -> (Layou
 fn type_layout(index: &reader::Index, ty: &Type, pointer_size: u64) -> Layout {
     let size = match ty {
         Type::I8 | Type::U8 => 1,
-        Type::I32 | Type::U32 => 4,
-        Type::I64 => 8,
+        Type::I32 | Type::U32 | Type::F32 => 4,
+        Type::I64 | Type::U64 => 8,
         Type::PtrMut(..) | Type::PtrConst(..) => pointer_size,
         Type::ValueName(name) => return record_layout(index, &name.name, pointer_size).0,
         Type::ArrayFixed(element, count) => {
@@ -314,6 +320,185 @@ fn type_layout(index: &reader::Index, ty: &Type, pointer_size: u64) -> Layout {
         size,
         alignment: size,
     }
+}
+
+fn unions() {
+    let mut inputs = [
+        selected_fixture("unions", &[]),
+        selected_fixture("unions", &[]),
+    ];
+    inputs[1].name = "second.h".into();
+    let snapshots = capture(&inputs, &TARGETS).unwrap();
+    let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
+    assert_eq!(
+        (output.records, output.aliases, output.partitions.len()),
+        (5, 3, 1)
+    );
+    let rdl = &output.partitions["union_types"].rdl;
+    assert_eq!(
+        *rdl,
+        std::fs::read_to_string(input_dir().join("union_types.rdl"))
+            .unwrap()
+            .replace("\r\n", "\n")
+    );
+    inputs.reverse();
+    assert_eq!(output, projection::generate(&inputs, "Fixture").unwrap());
+    assert_eq!(
+        output,
+        projection::generate_partial(&inputs, "Fixture")
+            .unwrap()
+            .output
+    );
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+    let winmd = root.join("target\\test-clang2-unions.winmd");
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input_text(rdl)
+        .output(&winmd)
+        .write()
+        .unwrap();
+    for snapshot in &snapshots {
+        let (bit, pointer_size) = match snapshot.target {
+            Target::X86 => (1, 4),
+            Target::X64 => (2, 8),
+            Target::Arm64 => (4, 8),
+        };
+        let index =
+            reader::Index::new_for_architecture(vec![reader::File::read(&winmd).unwrap()], bit);
+        for record in &snapshot.records {
+            let name = record.name.trim_start_matches('_');
+            let metadata = index.expect("Fixture", name);
+            assert_eq!(
+                metadata
+                    .flags()
+                    .contains(windows_metadata::TypeAttributes::ExplicitLayout),
+                record.kind == RecordKind::Union
+            );
+            for id in &record.observations {
+                let Some(native) = &snapshot.observations[id.0].definition else {
+                    continue;
+                };
+                let (layout, offsets) = record_layout(&index, name, pointer_size);
+                assert_eq!(layout, native.layout, "{:?} {name}", snapshot.target);
+                assert_eq!(
+                    offsets,
+                    native
+                        .fields
+                        .iter()
+                        .map(|field| field.offset_bits)
+                        .collect::<Vec<_>>()
+                );
+            }
+        }
+        assert_eq!(
+            record_layout(&index, "Value", pointer_size).0,
+            Layout {
+                size: if bit == 1 { 12 } else { 16 },
+                alignment: pointer_size,
+            }
+        );
+        assert_eq!(
+            record_layout(&index, "PackedValue", pointer_size).0,
+            Layout {
+                size: 5,
+                alignment: 1
+            }
+        );
+    }
+    let roundtrip = root.join("target\\test-clang2-unions.rdl");
+    windows_rdl::writer()
+        .input(&winmd)
+        .filter("Fixture")
+        .output(&roundtrip)
+        .write()
+        .unwrap();
+    assert_eq!(std::fs::read_to_string(&roundtrip).unwrap(), *rdl);
+    std::fs::remove_file(winmd).unwrap();
+    std::fs::remove_file(roundtrip).unwrap();
+
+    let result =
+        projection::generate_partial(&[selected_fixture("union_rejections", &[])], "Fixture")
+            .unwrap();
+    assert_eq!(result.output.records, 1);
+    assert_eq!(
+        result.output.partitions["union_rejections"].rdl,
+        std::fs::read_to_string(input_dir().join("union_rejections.rdl"))
+            .unwrap()
+            .replace("\r\n", "\n")
+    );
+    for name in ["Bad", "BadConsumer", "Nested", "NestedConsumer"] {
+        assert!(
+            result
+                .omissions
+                .iter()
+                .any(|message| message.contains(name)),
+            "{name}"
+        );
+    }
+
+    let mut snapshots = capture(&[selected_fixture("unions", &[])], &TARGETS).unwrap();
+    let snapshot = &mut snapshots[0];
+    let record = snapshot
+        .records
+        .iter()
+        .find(|record| record.name == "_Value")
+        .unwrap();
+    let definition = snapshot.observations[record.observations[0].0]
+        .definition
+        .as_mut()
+        .unwrap();
+    definition.fields[1].offset_bits = 32;
+    assert!(
+        projection::project(&merge(&snapshots).unwrap(), "Fixture")
+            .unwrap_err()
+            .to_string()
+            .contains("cannot use metadata layout")
+    );
+}
+
+fn union_families() {
+    let mut inputs = [
+        selected_fixture("union_family", &[]),
+        selected_fixture("union_family", &[]),
+    ];
+    inputs[1].name = "second.h".into();
+    inputs[1].source.insert_str(0, "#define TAG Second\n");
+    let snapshots = capture(&inputs, &TARGETS).unwrap();
+    let merged = merge(&snapshots).unwrap();
+    assert_eq!(merged.records.len(), 2);
+    let output = projection::project(&merged, "Fixture").unwrap();
+    assert_eq!(output.records, 1);
+    assert_eq!(
+        output.partitions["union_family_types"].rdl,
+        std::fs::read_to_string(input_dir().join("union_family_types.rdl"))
+            .unwrap()
+            .replace("\r\n", "\n")
+    );
+    inputs[1].source.insert_str(0, "#define KIND struct\n");
+    let snapshots = capture(&inputs, &TARGETS).unwrap();
+    for pair in snapshots.as_chunks::<2>().0 {
+        assert_eq!(
+            pair[0].observations[0].definition,
+            pair[1].observations[0].definition
+        );
+        assert_ne!(pair[0].records[0].kind, pair[1].records[0].kind);
+    }
+    let merged = merge(&snapshots).unwrap();
+    assert!(
+        projection::project(&merged, "Fixture")
+            .unwrap_err()
+            .to_string()
+            .contains("incompatible native definitions")
+    );
+    assert!(
+        projection::generate_partial(&inputs, "Fixture")
+            .unwrap_err()
+            .to_string()
+            .contains("incompatible native definitions")
+    );
+
+    inputs[1].source = "#define FIELD_TYPE long\n#include \"union_family_types.h\"\n".into();
+    assert!(merge(&capture(&inputs, &TARGETS).unwrap()).is_err());
 }
 
 fn rejections() {
@@ -335,7 +520,6 @@ fn rejections() {
         (vec!["ConstField"], "const field"),
         (vec!["VolatileField"], "volatile/restrict"),
         (vec!["FieldCollision"], "duplicate projected field"),
-        (vec!["First", "Second"], "competing public typedefs"),
     ] {
         let input = selected_fixture("projection_rejections", &roots);
         let error = projection::generate(&[input], "Fixture")

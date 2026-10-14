@@ -40,7 +40,7 @@ fn inspect(args: &[String]) {
     let merged = merge(&snapshots).unwrap();
     for (target, resolved) in &merged.targets {
         println!(
-            "{:?}: {} TUs, {} entities, {} observations -> {} groups",
+            "{:?}: {} TUs, {} records, {} enums -> {} record groups, {} enum groups",
             target,
             resolved.snapshots.len(),
             resolved
@@ -51,9 +51,10 @@ fn inspect(args: &[String]) {
             resolved
                 .snapshots
                 .iter()
-                .map(|snapshot| snapshot.observations.len())
+                .map(|snapshot| snapshot.enums.len())
                 .sum::<usize>(),
-            resolved.groups.len()
+            resolved.groups.len(),
+            resolved.enums.len()
         );
         for group in &resolved.groups {
             print!("  {}", resolved.name(group));
@@ -70,6 +71,31 @@ fn inspect(args: &[String]) {
                 );
             } else {
                 println!(" incomplete");
+            }
+            for group in &resolved.enums {
+                let reference = group.enums[0];
+                let enumeration =
+                    &resolved.snapshots[reference.snapshot].enums[reference.enumeration.0];
+                print!("  enum {}", enumeration.name);
+                if let Some(reference) = group.definition {
+                    let snapshot = resolved.snapshots[reference.snapshot];
+                    let observation = &snapshot.enums[reference.enumeration.0].observations
+                        [reference.observation];
+                    println!(
+                        " backing={:?} scoped={} members={:?}",
+                        snapshot.types[observation.canonical.0].kind,
+                        observation.scoped,
+                        observation
+                            .members
+                            .as_ref()
+                            .unwrap()
+                            .iter()
+                            .map(|member| (&member.name, &member.value))
+                            .collect::<Vec<_>>()
+                    );
+                } else {
+                    println!(" incomplete");
+                }
             }
         }
     }

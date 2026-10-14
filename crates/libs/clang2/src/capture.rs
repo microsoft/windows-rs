@@ -17,6 +17,7 @@ pub(super) fn read(
         pending: Vec::new(),
         records: HashMap::new(),
         aliases: HashMap::new(),
+        enums: HashMap::new(),
         types: HashMap::new(),
         files: HashMap::new(),
         partial,
@@ -29,12 +30,18 @@ pub(super) fn read(
         let kind = unsafe { clang_getCursorKind(cursor) };
         if !matches!(
             kind,
-            CXCursor_StructDecl | CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
+            CXCursor_StructDecl
+                | CXCursor_UnionDecl
+                | CXCursor_EnumDecl
+                | CXCursor_TypedefDecl
+                | CXCursor_TypeAliasDecl
         ) || name.is_empty()
         {
             if roots.is_empty() {
-                let error =
-                    unsupported(cursor, "expected a named struct or type alias declaration");
+                let error = unsupported(
+                    cursor,
+                    "expected a named record, enum, or type alias declaration",
+                );
                 if !partial {
                     return Err(error);
                 }
@@ -43,12 +50,10 @@ pub(super) fn read(
                     None
                 } else {
                     match kind {
-                        CXCursor_UnionDecl
-                        | CXCursor_EnumDecl
-                        | CXCursor_ClassDecl
+                        CXCursor_ClassDecl
                         | CXCursor_ClassTemplate
                         | CXCursor_ClassTemplatePartialSpecialization => {
-                            Some(partial::Key::Record(name))
+                            Some(partial::Key::Tag(name))
                         }
                         CXCursor_TypeAliasTemplateDecl => Some(partial::Key::Alias(name)),
                         _ => None,
@@ -88,8 +93,13 @@ pub(super) fn read(
         result
     };
     for cursor in selected {
-        let declaration = if unsafe { clang_getCursorKind(cursor.0) } == CXCursor_StructDecl {
+        let declaration = if matches!(
+            unsafe { clang_getCursorKind(cursor.0) },
+            CXCursor_StructDecl | CXCursor_UnionDecl
+        ) {
             DeclarationId::Record(capture.record(cursor.0)?)
+        } else if unsafe { clang_getCursorKind(cursor.0) } == CXCursor_EnumDecl {
+            DeclarationId::Enum(capture.enumeration(cursor.0)?)
         } else {
             DeclarationId::Alias(capture.alias(cursor.0)?)
         };
@@ -101,6 +111,11 @@ pub(super) fn read(
                 (
                     DeclarationId::Record(record),
                     capture.observation(record, cursor),
+                )
+            } else if let Some(&enumeration) = capture.enums.get(&key) {
+                (
+                    DeclarationId::Enum(enumeration),
+                    capture.enum_observation(enumeration, cursor),
                 )
             } else {
                 let alias = capture.aliases[&key];
@@ -140,6 +155,7 @@ struct Capture<'a> {
     pending: Vec<Cursor>,
     records: HashMap<Cursor, RecordId>,
     aliases: HashMap<Cursor, AliasId>,
+    enums: HashMap<Cursor, EnumId>,
     types: HashMap<Type, TypeId>,
     files: HashMap<String, FileId>,
     partial: bool,
@@ -147,6 +163,80 @@ struct Capture<'a> {
 }
 
 impl Capture<'_> {
+    fn enumeration(&mut self, cursor: CXCursor) -> Result<EnumId, Error> {
+        let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
+        if let Some(&id) = self.enums.get(&key) {
+            return Ok(id);
+        }
+        if !self.declarations.contains_key(&key) {
+            return Err(unsupported(cursor, "dependency is not a global named enum"));
+        }
+        let usr = text(unsafe { clang_getCursorUSR(cursor) });
+        if usr.is_empty() {
+            return Err(unsupported(cursor, "enum identity unavailable"));
+        }
+        let id = EnumId(self.snapshot.enums.len());
+        self.snapshot.enums.push(Enum {
+            name: text(unsafe { clang_getCursorSpelling(cursor) }),
+            usr,
+            observations: Vec::new(),
+        });
+        self.enums.insert(key, id);
+        self.pending.push(key);
+        Ok(id)
+    }
+
+    fn enum_observation(&mut self, id: EnumId, cursor: CXCursor) -> Result<(), Error> {
+        let underlying = unsafe { clang_getEnumDeclIntegerType(cursor) };
+        let canonical = self.ty(unsafe { clang_getCanonicalType(underlying) }, cursor)?;
+        let signed = match &self.snapshot.types[canonical.0].kind {
+            TypeKind::Scalar(scalar) => scalar.signed_integer(),
+            _ => None,
+        }
+        .ok_or_else(|| unsupported(cursor, "unsupported enum backing type"))?;
+        let mut attributes = Vec::new();
+        let mut members = Vec::new();
+        for child in children(cursor) {
+            let kind = unsafe { clang_getCursorKind(child) };
+            if unsafe { clang_isAttribute(kind) } != 0 {
+                attributes.push(self.attribute(child)?);
+            } else if kind == CXCursor_EnumConstantDecl {
+                let mut attributes = Vec::new();
+                for attribute in children(child) {
+                    if unsafe { clang_isAttribute(clang_getCursorKind(attribute)) } != 0 {
+                        attributes.push(self.attribute(attribute)?);
+                    }
+                }
+                members.push(EnumMember {
+                    name: text(unsafe { clang_getCursorSpelling(child) }),
+                    location: self.location(child),
+                    value: if signed {
+                        EnumValue::Signed(unsafe { clang_getEnumConstantDeclValue(child) })
+                    } else {
+                        EnumValue::Unsigned(unsafe {
+                            clang_getEnumConstantDeclUnsignedValue(child)
+                        })
+                    },
+                    attributes,
+                });
+            } else if kind != CXCursor_TypeRef {
+                return Err(unsupported(child, "unsupported enum declaration child"));
+            }
+        }
+        let observation = EnumObservation {
+            location: self.location(cursor),
+            underlying: self.ty(underlying, cursor)?,
+            canonical,
+            layout: layout(unsafe { clang_getCursorType(cursor) })
+                .map_err(|reason| unsupported(cursor, reason))?,
+            scoped: unsafe { clang_EnumDecl_isScoped(cursor) } != 0,
+            attributes,
+            members: (unsafe { clang_isCursorDefinition(cursor) } != 0).then_some(members),
+        };
+        self.snapshot.enums[id.0].observations.push(observation);
+        Ok(())
+    }
+
     fn alias(&mut self, cursor: CXCursor) -> Result<AliasId, Error> {
         let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
         if let Some(&id) = self.aliases.get(&key) {
@@ -193,7 +283,7 @@ impl Capture<'_> {
         if !self.declarations.contains_key(&key) {
             return Err(unsupported(
                 cursor,
-                "dependency is not a global named struct",
+                "dependency is not a global named record",
             ));
         }
         let usr = text(unsafe { clang_getCursorUSR(cursor) });
@@ -204,6 +294,11 @@ impl Capture<'_> {
         self.snapshot.records.push(Record {
             name: text(unsafe { clang_getCursorSpelling(cursor) }),
             usr,
+            kind: if unsafe { clang_getCursorKind(cursor) } == CXCursor_UnionDecl {
+                RecordKind::Union
+            } else {
+                RecordKind::Struct
+            },
             observations: Vec::new(),
         });
         self.records.insert(key, id);
@@ -304,8 +399,10 @@ impl Capture<'_> {
                     if matches!(
                         clang_getCursorKind(cursor),
                         CXCursor_TypedefDecl | CXCursor_TypeAliasDecl
-                    ) && kind == CXCursor_StructDecl
-                    {
+                    ) && matches!(
+                        kind,
+                        CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_EnumDecl
+                    ) {
                         let mut ty =
                             clang_getCanonicalType(clang_getTypedefDeclUnderlyingType(cursor));
                         loop {
@@ -380,6 +477,7 @@ impl Capture<'_> {
                         .map_err(|_| unsupported(cursor, "array extent unavailable"))?,
                 },
                 CXType_Record => TypeKind::Record(self.record(clang_getTypeDeclaration(ty))?),
+                CXType_Enum => TypeKind::Enum(self.enumeration(clang_getTypeDeclaration(ty))?),
                 CXType_Typedef => TypeKind::Alias(self.alias(clang_getTypeDeclaration(ty))?),
                 _ => {
                     return Err(unsupported(
@@ -390,7 +488,7 @@ impl Capture<'_> {
             }
         };
         let canonical = unsafe { clang_getCanonicalType(ty) };
-        let incomplete = canonical.kind == CXType_Record
+        let incomplete = matches!(canonical.kind, CXType_Record | CXType_Enum)
             && unsafe { clang_Type_getSizeOf(ty) } == i64::from(CXTypeLayoutError_Incomplete);
         let value = Type {
             kind,

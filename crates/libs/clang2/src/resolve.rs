@@ -1,5 +1,8 @@
 use super::*;
 
+mod enums;
+pub use enums::{EnumGroup, EnumObservationRef, EnumRef};
+
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct RecordRef {
     pub snapshot: usize,
@@ -27,6 +30,7 @@ pub struct AliasObservationRef {
 
 pub struct AliasGroup {
     pub name: String,
+    /// Name-corresponding bindings, not a claim that their canonical types are identical.
     pub observations: Vec<AliasObservationRef>,
 }
 
@@ -34,24 +38,31 @@ pub struct AliasGroup {
 enum Owner {
     Record(ObservationRef),
     Alias(AliasObservationRef),
+    Enum(EnumObservationRef),
 }
 
 #[derive(Debug, Default)]
 pub struct Work {
     pub definition_pairs: usize,
     pub type_pairs: usize,
-    pub alias_pairs: usize,
+    pub enum_pairs: usize,
 }
 
 pub struct Resolution<'a> {
     pub snapshots: Vec<&'a Snapshot>,
     pub groups: Vec<Group>,
     pub aliases: Vec<AliasGroup>,
+    pub enums: Vec<EnumGroup>,
     pub work: Work,
     record_groups: Vec<Vec<usize>>,
+    pub(crate) enum_groups: Vec<Vec<usize>>,
 }
 
 impl Resolution<'_> {
+    pub fn enum_group(&self, reference: EnumRef) -> &EnumGroup {
+        &self.enums[self.enum_groups[reference.snapshot][reference.enumeration.0]]
+    }
+
     pub fn group(&self, record: RecordRef) -> &Group {
         &self.groups[self.record_groups[record.snapshot][record.record.0]]
     }
@@ -71,16 +82,14 @@ impl Resolution<'_> {
     }
 }
 
-#[derive(Clone, Copy, Eq, Hash, Ord, PartialEq, PartialOrd)]
-struct TypeRef {
-    snapshot: usize,
-    ty: TypeId,
-}
+type TypeRef = (usize, TypeId);
+pub(crate) type TypePair = (TypeRef, TypeRef);
 
 /// Checks all observed definitions for one target without discarding original observations.
 ///
-/// Correspondence is restricted to global named structs under matching compiler arguments.
+/// Correspondence is restricted to global named records and enums under matching compiler arguments.
 /// Names and USRs select candidates; all candidate definitions must then agree.
+/// Alias groups preserve name-corresponding bindings for later public compatibility checks.
 pub fn resolve(snapshots: &[Snapshot]) -> Result<Resolution<'_>, Error> {
     resolve_snapshots(snapshots.iter().collect())
 }
@@ -145,6 +154,16 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
     let mut work = Work::default();
     let mut pending = Vec::new();
     for records in candidates.into_values() {
+        let first = records[0];
+        let first = &snapshots[first.snapshot].records[first.record.0];
+        if records.iter().any(|reference| {
+            snapshots[reference.snapshot].records[reference.record.0].kind != first.kind
+        }) {
+            return Err(Error(format!(
+                "native record kind differs for `{}`",
+                first.name
+            )));
+        }
         let mut definitions = Vec::new();
         for reference in &records {
             membership[reference.snapshot][reference.record.0] = groups.len();
@@ -213,14 +232,8 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             // Typedef names are retained as evidence, but do not create nominal native types.
             let (a, b) = (a.canonical, b.canonical);
             types.push((
-                TypeRef {
-                    snapshot: left.snapshot,
-                    ty: a,
-                },
-                TypeRef {
-                    snapshot: right.snapshot,
-                    ty: b,
-                },
+                (left.snapshot, a),
+                (right.snapshot, b),
                 Owner::Record(left),
                 Owner::Record(right),
             ));
@@ -252,33 +265,6 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
                 location.offset,
             )
         });
-        let left = observations[0];
-        for &right in &observations[1..] {
-            work.alias_pairs += 1;
-            let a = &snapshots[left.snapshot].aliases[left.alias.0].observations[left.observation];
-            let b =
-                &snapshots[right.snapshot].aliases[right.alias.0].observations[right.observation];
-            if packed(&a.attributes) != packed(&b.attributes) {
-                return Err(conflict(
-                    &snapshots,
-                    Owner::Alias(left),
-                    Owner::Alias(right),
-                    "typedef attributes differ",
-                ));
-            }
-            types.push((
-                TypeRef {
-                    snapshot: left.snapshot,
-                    ty: a.canonical,
-                },
-                TypeRef {
-                    snapshot: right.snapshot,
-                    ty: b.canonical,
-                },
-                Owner::Alias(left),
-                Owner::Alias(right),
-            ));
-        }
         alias_groups.push(AliasGroup {
             name: name.to_string(),
             observations,
@@ -286,71 +272,91 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
     }
     // Record edges refer to groups whose definitions all have independent obligations above.
     // No recursive assumption is published unless the entire worklist succeeds.
+    let (enums, enum_groups) = enums::resolve(&snapshots, &mut work)?;
     let mut seen = HashSet::new();
     while let Some((left, right, owner_left, owner_right)) = types.pop() {
-        let pair = if left <= right {
-            (left, right)
-        } else {
-            (right, left)
-        };
-        if !seen.insert(pair) {
-            continue;
-        }
-        work.type_pairs += 1;
-        let a = &snapshots[left.snapshot].types[left.ty.0];
-        let b = &snapshots[right.snapshot].types[right.ty.0];
-        let conflict = || {
-            conflict(
+        if !types_equal(&snapshots, left, right, &mut seen, &enum_groups, |a, b| {
+            membership[a.snapshot][a.record.0] == membership[b.snapshot][b.record.0]
+        }) {
+            return Err(conflict(
                 &snapshots,
                 owner_left,
                 owner_right,
                 "native field types differ",
-            )
-        };
-        if a.qualifiers != b.qualifiers {
-            return Err(conflict());
-        }
-        let child = match (&a.kind, &b.kind) {
-            (TypeKind::Record(a), TypeKind::Record(b)) => {
-                if membership[left.snapshot][a.0] != membership[right.snapshot][b.0] {
-                    return Err(conflict());
-                }
-                continue;
-            }
-            (TypeKind::Void, TypeKind::Void) => None,
-            (TypeKind::Scalar(a), TypeKind::Scalar(b)) if a == b => None,
-            (TypeKind::Pointer(a), TypeKind::Pointer(b)) => Some((*a, *b)),
-            (
-                TypeKind::Array {
-                    element: a,
-                    length: x,
-                },
-                TypeKind::Array {
-                    element: b,
-                    length: y,
-                },
-            ) if x == y => Some((*a, *b)),
-            _ => return Err(conflict()),
-        };
-        if a.layout != b.layout {
-            return Err(conflict());
-        }
-        if let Some((a, b)) = child {
-            types.push((
-                TypeRef { ty: a, ..left },
-                TypeRef { ty: b, ..right },
-                owner_left,
-                owner_right,
             ));
         }
     }
+    work.type_pairs = seen.len();
     Ok(Resolution {
         snapshots,
         groups,
         aliases: alias_groups,
+        enums,
+        enum_groups,
         work,
         record_groups: membership,
     })
+}
+
+/// Record relations supply independent definition checks; a failed comparison invalidates the pass.
+pub(crate) fn types_equal(
+    snapshots: &[&Snapshot],
+    mut a: TypeRef,
+    mut b: TypeRef,
+    seen: &mut HashSet<TypePair>,
+    enums: &[Vec<usize>],
+    records: impl Fn(RecordRef, RecordRef) -> bool,
+) -> bool {
+    loop {
+        if !seen.insert(if a <= b { (a, b) } else { (b, a) }) {
+            return true;
+        }
+        let x = &snapshots[a.0].types[a.1.0];
+        let y = &snapshots[b.0].types[b.1.0];
+        if x.qualifiers != y.qualifiers {
+            return false;
+        }
+        if let (TypeKind::Record(x), TypeKind::Record(y)) = (&x.kind, &y.kind) {
+            return records(
+                RecordRef {
+                    snapshot: a.0,
+                    record: *x,
+                },
+                RecordRef {
+                    snapshot: b.0,
+                    record: *y,
+                },
+            );
+        }
+        if let (TypeKind::Enum(x), TypeKind::Enum(y)) = (&x.kind, &y.kind) {
+            return enums[a.0][x.0] == enums[b.0][y.0];
+        }
+        if x.layout != y.layout {
+            return false;
+        }
+        match (&x.kind, &y.kind) {
+            (TypeKind::Void, TypeKind::Void) => return true,
+            (TypeKind::Scalar(x), TypeKind::Scalar(y)) => return x == y,
+            (TypeKind::Pointer(x), TypeKind::Pointer(y)) => {
+                a.1 = *x;
+                b.1 = *y;
+            }
+            (
+                TypeKind::Array {
+                    element: x,
+                    length: n,
+                },
+                TypeKind::Array {
+                    element: y,
+                    length: m,
+                },
+            ) if n == m => {
+                a.1 = *x;
+                b.1 = *y;
+            }
+            _ => return false,
+        }
+    }
 }
 
 fn conflict(snapshots: &[&Snapshot], left: Owner, right: Owner, reason: &str) -> Error {
@@ -363,6 +369,15 @@ fn conflict(snapshots: &[&Snapshot], left: Owner, right: Owner, reason: &str) ->
 
 fn describe(snapshots: &[&Snapshot], owner: Owner) -> String {
     let (snapshot, name, location) = match owner {
+        Owner::Enum(reference) => {
+            let snapshot = snapshots[reference.snapshot];
+            let enumeration = &snapshot.enums[reference.enumeration.0];
+            (
+                snapshot,
+                &enumeration.name,
+                &enumeration.observations[reference.observation].location,
+            )
+        }
         Owner::Record(reference) => {
             let snapshot = snapshots[reference.snapshot];
             let observation = &snapshot.observations[reference.observation.0];
@@ -392,7 +407,7 @@ fn describe(snapshots: &[&Snapshot], owner: Owner) -> String {
     )
 }
 
-fn packed(attributes: &[Attribute]) -> bool {
+pub(crate) fn packed(attributes: &[Attribute]) -> bool {
     attributes
         .iter()
         .any(|attribute| attribute.kind == AttributeKind::Packed)
