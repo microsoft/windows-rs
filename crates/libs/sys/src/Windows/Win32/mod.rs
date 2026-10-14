@@ -1295,6 +1295,10 @@ pub use pciprop::*;
 pub mod pdh;
 #[cfg(feature = "pdh")]
 pub use pdh::*;
+#[cfg(feature = "pdhmsg")]
+pub mod pdhmsg;
+#[cfg(feature = "pdhmsg")]
+pub use pdhmsg::*;
 #[cfg(feature = "peninputpanel")]
 pub mod peninputpanel;
 #[cfg(feature = "peninputpanel")]
