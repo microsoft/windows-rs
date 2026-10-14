@@ -26,6 +26,7 @@ pub struct Output {
     pub enums: usize,
     /// Published aliases, including named callback declarations.
     pub aliases: usize,
+    pub constants: usize,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -152,7 +153,7 @@ fn project_impl(
             })
         })
         .collect();
-    let mut declarations: BTreeMap<String, Declaration> = BTreeMap::new();
+    let mut declarations = BTreeMap::new();
     for (&target, resolution) in &merged.targets {
         let plan = Plan::new(resolution)?;
         let projector = Projector {
@@ -161,6 +162,7 @@ fn project_impl(
             plan: &plan,
         };
         let mut published = HashSet::new();
+        let mut constants: HashMap<&str, (&Type, &EnumValue)> = HashMap::new();
         for (id, family) in plan.families.iter().enumerate() {
             if family.is_empty() {
                 continue;
@@ -212,13 +214,73 @@ fn project_impl(
                         header,
                         keys,
                         PublishedKind::Record,
-                    );
+                    )?;
                 }
                 Err(error) => reject(&mut rejected, keys, error)?,
             }
         }
         for (id, group) in resolution.enums.iter().enumerate() {
             let name = &plan.enum_names[id];
+            if plan.enum_constants(resolution, id) {
+                let first = group.enums[0];
+                let key = partial::Key::Tag(
+                    resolution.snapshots[first.snapshot].enums[first.enumeration.0]
+                        .name
+                        .clone(),
+                );
+                let Some(reference) = group.definition else {
+                    reject(
+                        &mut rejected,
+                        [key],
+                        Error(format!("enum `{name}` is incomplete")),
+                    )?;
+                    continue;
+                };
+                let snapshot = resolution.snapshots[reference.snapshot];
+                let observation =
+                    &snapshot.enums[reference.enumeration.0].observations[reference.observation];
+                let result = (|| {
+                    Ok((
+                        projector.enum_backing(reference.snapshot, observation, name)?,
+                        projector.enum_fields(observation, name)?,
+                        plan.enum_headers(resolution, id)?,
+                    ))
+                })();
+                let (repr, fields, headers) = match result {
+                    Ok(value) => value,
+                    Err(error) => {
+                        reject(&mut rejected, [key], error)?;
+                        continue;
+                    }
+                };
+                for (member, (member_name, value)) in
+                    observation.members.as_ref().unwrap().iter().zip(fields)
+                {
+                    let native = (&snapshot.types[observation.canonical.0], &member.value);
+                    if constants
+                        .insert(&member.name, native)
+                        .is_some_and(|old| old != native)
+                    {
+                        return Err(Error(format!(
+                            "conflicting native definitions for constant `{}` on {target:?}",
+                            member.name
+                        )));
+                    }
+                    publish(
+                        &mut declarations,
+                        target,
+                        &member.name,
+                        Body {
+                            attributes: TokenStream::new(),
+                            declaration: quote! { const #member_name: #repr = #value; },
+                        },
+                        headers.clone(),
+                        vec![key.clone()],
+                        PublishedKind::Constant,
+                    )?;
+                }
+                continue;
+            }
             if !published.insert(name.as_str()) {
                 return Err(Error(format!("duplicate projected name `{name}`")));
             }
@@ -247,7 +309,7 @@ fn project_impl(
                     header,
                     keys,
                     PublishedKind::Enum,
-                ),
+                )?,
                 Err(error) => reject(&mut rejected, keys, error)?,
             }
         }
@@ -313,7 +375,7 @@ fn project_impl(
                     header,
                     keys,
                     PublishedKind::Alias,
-                ),
+                )?,
                 Err(error) => reject(&mut rejected, keys, error)?,
             }
         }
@@ -326,7 +388,11 @@ fn project_impl(
         .values()
         .filter(|item| item.kind == PublishedKind::Enum)
         .count();
-    let aliases = declarations.len() - records - enums;
+    let constants = declarations
+        .values()
+        .filter(|item| item.kind == PublishedKind::Constant)
+        .count();
+    let aliases = declarations.len() - records - enums - constants;
     let mut items = BTreeMap::new();
     for (name, declaration) in declarations {
         if let Err(error) = insert(
@@ -358,6 +424,7 @@ fn project_impl(
         records,
         enums,
         aliases,
+        constants,
     })
 }
 
@@ -375,26 +442,54 @@ enum PublishedKind {
     Alias,
     Enum,
     Record,
+    Constant,
 }
 
+#[derive(Clone, Copy, Eq, Ord, PartialEq, PartialOrd)]
+enum NameSpace {
+    Type,
+    Value,
+}
+
+type PublicName = (String, NameSpace);
+
 fn publish(
-    items: &mut BTreeMap<String, Declaration>,
+    items: &mut BTreeMap<PublicName, Declaration>,
     target: Target,
     name: &str,
     body: Body,
     headers: BTreeSet<String>,
     keys: Vec<partial::Key>,
     kind: PublishedKind,
-) {
-    let item = items.entry(name.to_string()).or_default();
+) -> Result<(), Error> {
+    let space = if kind == PublishedKind::Constant {
+        NameSpace::Value
+    } else {
+        NameSpace::Type
+    };
+    let item = items.entry((name.to_string(), space)).or_default();
+    let key = body.key();
+    if item
+        .bodies
+        .iter()
+        .any(|(old, (_, targets))| old != &key && targets.contains(&target))
+    {
+        return Err(Error(format!(
+            "conflicting public definitions for `{name}` on {target:?}"
+        )));
+    }
     item.headers.extend(headers);
     item.keys.extend(keys);
     item.kind = item.kind.max(kind);
-    item.bodies
-        .entry(body.key())
+    let targets = &mut item
+        .bodies
+        .entry(key)
         .or_insert_with(|| (body, Vec::new()))
-        .1
-        .push(target);
+        .1;
+    if !targets.contains(&target) {
+        targets.push(target);
+    }
+    Ok(())
 }
 
 fn reject(
@@ -647,14 +742,6 @@ impl Projector<'_, '_> {
                 }
                 let inner = self.ty(snapshot_id, *pointee)?;
                 let constant = snapshot.types[pointee.0].qualifiers.constant;
-                if matches!(
-                    (&inner, constant),
-                    (MetadataType::PtrMut(..), true) | (MetadataType::PtrConst(..), false)
-                ) {
-                    return Err(Error(
-                        "mixed const/mutable pointer chains are not representable in RDL".into(),
-                    ));
-                }
                 let inner = Box::new(inner);
                 if constant {
                     MetadataType::PtrConst(inner, 1)
@@ -673,7 +760,11 @@ impl Projector<'_, '_> {
                 MetadataType::value_named(self.namespace, name)
             }
             TypeKind::Enum(id) => {
-                let name = &self.plan.enum_names[self.resolution.enum_groups[snapshot_id][id.0]];
+                let group = self.resolution.enum_groups[snapshot_id][id.0];
+                if self.plan.enum_constants(self.resolution, group) {
+                    return Err(Error("anonymous enum has no public type name".into()));
+                }
+                let name = &self.plan.enum_names[group];
                 MetadataType::value_named(self.namespace, name)
             }
             TypeKind::Alias(_) | TypeKind::Attributed { .. } => {
@@ -691,6 +782,33 @@ impl Projector<'_, '_> {
         observation: &EnumObservation,
         name: &TokenStream,
     ) -> Result<Body, Error> {
+        if observation
+            .members
+            .as_ref()
+            .unwrap()
+            .iter()
+            .any(|member| member.name == "value__")
+        {
+            return Err(Error(format!("reserved enum member `{name}.value__`")));
+        }
+        let repr = self.enum_backing(snapshot_id, observation, &name.to_string())?;
+        let fields = self
+            .enum_fields(observation, &name.to_string())?
+            .into_iter()
+            .map(|(name, value)| quote! { #name = #value, });
+        let scoped = observation.scoped.then(|| quote! { #[scoped] });
+        Ok(Body {
+            attributes: quote! { #[repr(#repr)] },
+            declaration: quote! { #scoped enum #name { #(#fields)* } },
+        })
+    }
+
+    fn enum_backing(
+        &self,
+        snapshot_id: usize,
+        observation: &EnumObservation,
+        name: &str,
+    ) -> Result<TokenStream, Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
         if !resolve::alignments(&observation.attributes).is_empty() {
             return Err(Error(format!(
@@ -702,17 +820,24 @@ impl Projector<'_, '_> {
                 "enum `{name}` cannot use its backing type layout"
             )));
         }
-        let repr = write_type(
+        Ok(write_type(
             self.namespace,
             &self.ty(snapshot_id, observation.canonical)?,
-        );
+        ))
+    }
+
+    fn enum_fields(
+        &self,
+        observation: &EnumObservation,
+        name: &str,
+    ) -> Result<Vec<(TokenStream, TokenStream)>, Error> {
         let mut fields = Vec::new();
         let mut names = HashSet::new();
         for member in observation.members.as_ref().unwrap() {
             let member_name = ident(&member.name)?;
-            if !names.insert(member_name.to_string()) || member.name == "value__" {
+            if !names.insert(member_name.to_string()) {
                 return Err(Error(format!(
-                    "duplicate or reserved enum member `{name}.{member_name}`"
+                    "duplicate enum member `{name}.{member_name}`"
                 )));
             }
             if !member.attributes.is_empty() {
@@ -725,13 +850,9 @@ impl Projector<'_, '_> {
                 EnumValue::Unsigned(value) => windows_metadata::Value::U64(value),
             };
             let value = write_value(self.namespace, &value);
-            fields.push(quote! { #member_name = #value, });
+            fields.push((member_name, value));
         }
-        let scoped = observation.scoped.then(|| quote! { #[scoped] });
-        Ok(Body {
-            attributes: quote! { #[repr(#repr)] },
-            declaration: quote! { #scoped enum #name { #(#fields)* } },
-        })
+        Ok(fields)
     }
 
     fn record(
@@ -946,16 +1067,16 @@ fn ident(value: &str) -> Result<TokenStream, Error> {
     Ok(write_ident(value))
 }
 
-type Items = BTreeMap<String, (BTreeSet<String>, BTreeMap<String, TokenStream>)>;
+type Items = BTreeMap<String, (BTreeSet<String>, BTreeMap<PublicName, TokenStream>)>;
 
 fn insert(
     items: &mut Items,
     headers: &BTreeSet<String>,
-    name: &str,
+    name: &PublicName,
     body: TokenStream,
 ) -> Result<(), Error> {
     if headers.is_empty() {
-        return Err(Error(format!("no header ownership for `{name}`")));
+        return Err(Error(format!("no header ownership for `{}`", name.0)));
     }
     let shared = headers.len() > 1;
     let stem = if shared {
@@ -990,7 +1111,7 @@ fn insert(
         )));
     }
     owners.extend(headers.iter().cloned());
-    declarations.insert(name.to_string(), body);
+    declarations.insert(name.clone(), body);
     Ok(())
 }
 

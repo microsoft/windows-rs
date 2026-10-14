@@ -230,6 +230,7 @@ impl Capture<'_> {
             layout: layout(unsafe { clang_getCursorType(cursor) })
                 .map_err(|reason| unsupported(cursor, reason))?,
             scoped: unsafe { clang_EnumDecl_isScoped(cursor) } != 0,
+            anonymous: unsafe { clang_Cursor_isAnonymous(cursor) } != 0,
             attributes,
             members: (unsafe { clang_isCursorDefinition(cursor) } != 0).then_some(members),
         };

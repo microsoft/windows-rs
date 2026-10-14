@@ -440,6 +440,12 @@ impl File {
         }))
     }
 
+    fn IsConst(&mut self, buffer: &mut Vec<u8>) {
+        buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
+        let pos = self.TypeRef("System.Runtime.CompilerServices", "IsConst");
+        buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+    }
+
     /// Encodes the `Type` into the buffer, adding any required `TypeRef` rows to the file.
     fn Type(&mut self, ty: &Type, buffer: &mut Vec<u8>) {
         match ty {
@@ -472,31 +478,45 @@ impl File {
             }
 
             Type::RefConst(ty) => {
-                buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
-                let pos = self.TypeRef("System.Runtime.CompilerServices", "IsConst");
-                buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+                self.IsConst(buffer);
                 buffer.push(ELEMENT_TYPE_BYREF);
                 self.Type(ty, buffer);
             }
 
-            Type::PtrMut(ty, pointers) => {
-                for _ in 0..*pointers {
-                    buffer.write_compressed(ELEMENT_TYPE_PTR as usize);
+            Type::PtrMut(..) | Type::PtrConst(..) => {
+                let constant = matches!(ty, Type::PtrConst(..));
+                let mut inner = ty;
+                let mut pointers = 0;
+                let mut mixed = false;
+                while let Type::PtrMut(next, count) | Type::PtrConst(next, count) = inner {
+                    mixed |= matches!(inner, Type::PtrConst(..)) != constant;
+                    pointers += count;
+                    inner = next;
                 }
 
-                self.Type(ty, buffer);
-            }
-
-            Type::PtrConst(ty, pointers) => {
-                buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
-                let pos = self.TypeRef("System.Runtime.CompilerServices", "IsConst");
-                buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
-
-                for _ in 0..*pointers {
-                    buffer.write_compressed(ELEMENT_TYPE_PTR as usize);
+                if mixed {
+                    // ECMA-335 II.23.2.12 permits modifiers after each PTR.
+                    let mut current = ty;
+                    while let Type::PtrMut(next, count) | Type::PtrConst(next, count) = current {
+                        for _ in 0..*count {
+                            buffer.push(ELEMENT_TYPE_PTR);
+                            if matches!(current, Type::PtrConst(..)) {
+                                self.IsConst(buffer);
+                            }
+                        }
+                        current = next;
+                    }
+                } else {
+                    // Keep the existing leading-modifier encoding for homogeneous runs.
+                    if constant {
+                        self.IsConst(buffer);
+                    }
+                    for _ in 0..pointers {
+                        buffer.push(ELEMENT_TYPE_PTR);
+                    }
                 }
 
-                self.Type(ty, buffer);
+                self.Type(inner, buffer);
             }
 
             Type::ArrayFixed(ty, len) => {

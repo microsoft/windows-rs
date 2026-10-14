@@ -76,6 +76,7 @@ pub(super) fn resolve(
             if reference != first {
                 work.enum_pairs += 1;
                 if a.scoped != b.scoped
+                    || a.anonymous != b.anonymous
                     || a.layout != b.layout
                     || !abi_attributes_equal(&a.attributes, &b.attributes)
                     || snapshots[first.snapshot].types[a.canonical.0]

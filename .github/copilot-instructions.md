@@ -372,3 +372,23 @@ Raw `windows-sys` bindings can check layout while high-level accessor defects re
 - MSVC unions containing only bitfields can have alignment 1 despite wider integer storage.
   Keep layout mismatches explicit until the storage alignment has a metadata encoding; do not
   invent a native packing request from the final layout.
+
+Mixed pointer chains use ECMA-335 per-level modifiers: `File::Type` writes `IsConst` after each
+`PTR` whose pointee is const. Homogeneous chains keep the existing leading-modifier encoding.
+`Blob::read_type_signature` supports both without flattening mixed qualifiers. Older readers
+need updating before consuming mixed chains. Metadata's `pointer_constness` and the RDL/clang2
+`mixed_pointers` fixtures check this boundary. Downstream Rust checks remain focused, not a coverage
+gate.
+
+### clang2 anonymous enum constants
+
+`EnumObservation::anonymous` retains `clang_Cursor_isAnonymous`, not a spelling heuristic.
+Projection publishes members as typed constants only when the enum has no public type name.
+Compiler-provided typedef names and primary aliases retain named-enum behavior. An unnamed enum
+cannot be used as a type merely because its constants can be published.
+
+Constant agreement checks native backing type and value before combining ownership; equal-width
+native types such as `int` and `long` are not interchangeable. Type and value names use separate
+publication keys. Partial rejection removes the originating enum's constants on every target.
+The `anonymous_enum*` fixtures cover constants, typedefs, conflicts, ownership, architecture
+variants, rejection, and header -> RDL -> WinMD -> generated Rust behavior.

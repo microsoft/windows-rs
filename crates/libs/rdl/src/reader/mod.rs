@@ -1016,12 +1016,6 @@ impl Encoder<'_> {
             metadata::Type::PtrConst(inner, pointers) if !is_mut => {
                 metadata::Type::PtrConst(inner, pointers + 1)
             }
-            metadata::Type::PtrMut(..) | metadata::Type::PtrConst(..) => {
-                return self.err(
-                    ty.elem.as_ref(),
-                    "mixed `*mut` and `*const` pointer chains are not representable",
-                );
-            }
             _ => {
                 if is_mut {
                     metadata::Type::PtrMut(Box::new(encoded), 1)

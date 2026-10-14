@@ -518,10 +518,11 @@ the matching direction attributes in generated RDL. Supported SAL macros include
 `_Inout_`, `_In_opt_`, `_Out_opt_`, `_Inout_opt_`, `_Outptr_`, `_COM_Outptr_`, `_In_reads_`,
 `_Out_writes_`, and their opt, z, and bytes variants.
 
-Raw pointer chains must use one constness at every depth. `*mut *mut T` and
-`*const *const T` are supported. Mixed chains such as `*mut *const T` are rejected because the
-metadata type model stores one constness bit for the whole pointer depth. The same check applies
-when a pointer chain appears inside a reference.
+Raw pointer chains preserve constness at each depth. `*mut *const T` points to a mutable pointer
+whose pointee is const; `*const *mut T` points to a const pointer whose pointee is mutable.
+These distinctions survive RDL/WinMD round trips, including chains inside references and fixed
+arrays. Mixed chains require a metadata reader that understands per-level pointer modifiers;
+homogeneous chains retain their existing encoding.
 
 `#[len_param(N)]` and `#[size_param(N)]` record a raw zero-based parameter position. They do not
 refer to a parameter by name. If parameters are reordered, these values must be updated by hand.

@@ -50,6 +50,11 @@ compiling the file.
 
 ## RDL syntax
 
+Win32 pointer types preserve qualifiers at each depth: `*mut *const T` and `*const *mut T` have
+different metadata signatures and round-trip without flattening. Homogeneous chains retain their
+existing binary encoding. Mixed chains use per-level modifiers and require an updated metadata
+reader; see [pointer constness](windows-metadata.md#pointer-constness).
+
 RDL uses Rust tokens and module syntax, but it describes metadata rather than executable Rust.
 A top-level `mod` is a metadata namespace. Tag it `#[winrt]` or `#[win32]` to select the type
 system. Items include classes, interfaces, delegates, callbacks, enums, structs, unions, typedefs,

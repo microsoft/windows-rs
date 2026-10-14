@@ -81,7 +81,7 @@ fn partial_results() {
             result.output.aliases,
             result.output.partitions.len()
         ),
-        (11, 4, 2)
+        (12, 5, 2)
     );
     for stem in ["partial_types", "projection_types"] {
         assert_eq!(

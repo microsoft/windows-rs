@@ -333,6 +333,13 @@ impl Plan {
         }
     }
 
+    pub fn enum_constants(&self, resolution: &Resolution<'_>, id: usize) -> bool {
+        let reference = resolution.enums[id].enums[0];
+        resolution.snapshots[reference.snapshot].enums[reference.enumeration.0].observations[0]
+            .anonymous
+            && self.enum_primary[id].is_none()
+    }
+
     fn validate(&self, resolution: &Resolution<'_>) -> Result<(), Error> {
         let mut seen = HashSet::new();
         for (id, family) in self.families.iter().enumerate() {

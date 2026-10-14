@@ -1,0 +1,19 @@
+#[win32]
+mod Fixture {
+    extern "C" fn Callback(param0: *const *mut i32) -> *mut *const i32;
+    type Input = *const i32;
+    type Inputs = *mut *const i32;
+    type Output = *mut i32;
+    struct Pointers {
+        mutable_pointer: *mut *const i32,
+        constant_pointer: *const *mut i32,
+        deep_mutable: *mut *mut *const i32,
+        deep_constant: *const *const *mut i32,
+        alternating: *mut *const *const i32,
+        array: [*mut *const i32; 3],
+        array_pointer: *const [*mut i32; 3],
+        opaque: *const *mut void,
+        named_input: *mut Input,
+        named_output: *const Output,
+    }
+}

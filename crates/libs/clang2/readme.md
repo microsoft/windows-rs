@@ -47,9 +47,9 @@ attribute for the supported records and enums, which do not project C++ RTTI or 
 Hidden/protected type visibility and ordinary symbol visibility remain unsupported.
 
 The optional `projection` feature provides `projection::generate(inputs, namespace)` for
-three-target capture, merge, and partitioned RDL output. It emits structs, unions, enums, and value
-typedefs and named callbacks, checks metadata ABI layout, and rejects unsupported declarations or
-ambiguous names. Callback signatures retain calling convention, result and parameter types;
+three-target capture, merge, and partitioned RDL output. It emits structs, unions, enums, constants,
+value typedefs, and named callbacks, checks metadata ABI layout, and rejects unsupported declarations
+or ambiguous names. Callback signatures retain calling convention, result and parameter types;
 parameter names are positional. Nested function pointers require a named callback declaration.
 Written value-typedef and callback names are preserved in fields and callback signatures, including
 their dependencies. Alias declarations retain canonical storage types. Unnamed function pointers
@@ -73,6 +73,11 @@ Downstream union-accessor defects are tracked separately rather than blocking co
 Enums retain nominal identity, scopedness, exact signed/unsigned values, and backing types.
 Forward declarations must agree with complete definitions. Projection preserves `#[scoped]` and
 the integer representation; it does not infer flags or combine distinct enums by matching values.
+Anonymous enums without a public type name publish their members as typed constants. Same-target
+constants must agree in native backing type and value; architectures can retain different variants.
+Type and constant names occupy separate publication namespaces. Typedef-named enums remain enums;
+references to otherwise unnamed enum types are rejected rather than replaced with integers.
+Mixed const/mutable pointer chains retain per-level qualifiers through RDL and WinMD.
 By-value aliases can connect distinct native records only after their definitions are checked.
 A single native record or enum uses its unique defining value typedef as its public name; with
 zero or multiple defining typedefs it retains its native tag. A multi-record family requires a

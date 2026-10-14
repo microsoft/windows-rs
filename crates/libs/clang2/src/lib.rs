@@ -265,6 +265,7 @@ pub struct EnumObservation {
     pub canonical: TypeId,
     pub layout: Layout,
     pub scoped: bool,
+    pub anonymous: bool,
     pub attributes: Vec<Attribute>,
     /// None denotes a forward declaration, not an empty enum definition.
     pub members: Option<Vec<EnumMember>>,

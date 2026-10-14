@@ -11,12 +11,16 @@ mod Fixture {
     struct Good {
         value: i32,
     }
+    type MixedPointer = *mut *const i32;
     struct PackingConsumer {
         value: *mut UnknownPacking,
     }
     union PlainUnion {
         a: i32,
         b: f32,
+    }
+    struct PointerUser {
+        value: MixedPointer,
     }
     type ScalarGood = i32;
     #[packed(2)]

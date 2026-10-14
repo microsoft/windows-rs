@@ -131,6 +131,28 @@ all eight integer widths/signs, 64-bit limits, expressions, duplicate values, em
 forwards, nominal conflicts, and architecture-specific backing types. Partial pruning uses shared
 tag names so a failed enum also excludes a same-named record on another architecture.
 
+Enums reported anonymous by `clang_Cursor_isAnonymous` publish their members as typed constants
+when they have no public type name. Native enum identity and observations remain in the IR.
+Compiler-provided typedef names and primary aliases keep named-enum publication. A pointer alias
+does not supply an enum type name; references to an unnamed enum type remain explicit failures.
+The `anonymous_enum*` fixtures cover these distinctions, integer limits, expressions,
+target-specific types and values, RDL/WinMD round trips, and compiled constants on all three MSVC
+targets.
+
+Constant names have a separate publication namespace from type names. Same-target constants must
+agree in native backing type and value, including native integer distinctions such as `int` versus
+`long` that share a metadata representation. Matching constants combine header ownership, using
+foundation for shared owners; repeated observations do not duplicate architecture entries.
+Attributes remain checked, and partial failures remove the whole rejected enum's constants.
+`Output::constants` and the SDK/sweep reports count published constant names, not native enums.
+Individual enumerator names are not type roots; empty `Input::roots` includes anonymous enums.
+
+Mixed const/mutable pointer chains preserve every pointee qualifier through RDL and WinMD.
+The metadata writer uses per-level modifiers for mixed chains while retaining the leading-modifier
+encoding of homogeneous chains. `mixed_pointers` covers fields, arrays, void pointers, written
+aliases, and callback signatures, with a focused generated Rust compatibility check.
+See [metadata pointer constness](windows-metadata.md#pointer-constness) for the binary contract.
+
 The SDK case uses the `tool-win32` SDK pin and cached clang resource headers (or
 `CLANG_RESOURCE_DIR`).
 `sdk-gate` checks 26 SDK roots on all three targets and exits unsuccessfully if any are blocked.
