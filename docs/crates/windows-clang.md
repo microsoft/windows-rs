@@ -315,6 +315,7 @@ The consuming tool owns concerns outside header extraction:
 
 The repository's generator tools share these facilities through `crates/tools/helpers`.
 `tool-win32` supplies the Win32 and WDK policy, while `tool-webview` supplies the WebView2 policy.
+The Win32 input lists live in `crates/tools/win32/src/headers.rs`, shared with `tool-win32-2`.
 
 ## Known limits
 
@@ -361,5 +362,6 @@ cargo test -p windows-clang
 cargo test -p test_clang
 ```
 
-The tests need a loadable compatible libclang. Repository CI obtains the pinned runtime with
+The tests use [windows-clang-sys](windows-clang-sys.md) and its matched `libclang.dll` and
+`libClangSharp.dll` pair. Repository CI builds the pinned native runtime with
 `cargo run -q -p tool-clang -- path` and exports `LIBCLANG_PATH` before running the workspace.

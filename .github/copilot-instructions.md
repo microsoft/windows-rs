@@ -241,3 +241,41 @@ changes (the `gen` workflow enforces this).
 | --- | --- |
 | `metadata` `Remapper` (`merge/remap.rs`) | No tests anywhere; routing/`split_apis` logic is exercised only in the live build, so a regression yields a malformed namespaced winmd with no failing test. |
 | webview | `process-failed`, download, and deferral paths untested. |
+
+### clang2 remaining attribute coverage
+
+`clang2` `capture.rs` `attribute` uses native kind names and requested `MaxFieldAlignment` bits.
+`test_clang2` `fidelity.rs` `opaque_packing` distinguishes `pack(1)` and `pack(2)` despite identical
+char-only layouts. Reconciliation checks requested packing, and projection preserves it.
+Other attributes, including `_GUID`'s `TypeVisibility` and explicit alignment, still need payload
+handling. Do not identify unknown attributes from empty tokens or infer requests from layout.
+
+The runtime pin is `windows-clang-sys::LIBCLANG_VERSION`. LLVM 23.1.3's stock C API also lacks
+the packing payload accessor.
+Track runtime/resource-header upgrades and binding refreshes separately from declaration work.
+The companion builds against a matching LLVM SDK and pinned ClangSharp sources. Its extra packing
+query reads `MaxFieldAlignmentAttr`; ClangSharp's `getMaxAlignment` reads explicit alignment.
+
+Independent declaration coverage can proceed while opaque attributes and their dependents remain
+explicitly omitted. Resolve this boundary before claiming full coverage, or before a feature needs
+those semantics. Do not relax rejection to increase output counts.
+
+`windows-clang-sys` replaces `clang-sys` for both parser crates and helpers. Rebuild native changes
+with `cargo run -p tool-clang-sys -- --native`, then regenerate with `cargo run -p tool-clang-sys`.
+Helper provisioning builds missing DLLs but does not detect changed native source files.
+
+Callback capture accepts plain C/stdcall prototypes after checking native function properties.
+`test_clang2` `opaque_callbacks.h`
+distinguishes ordinary C and x86 `regparm(2)` function-pointer types with a compiler `static_assert`.
+Both expose `FunctionProto`, C calling convention, identical result/parameter types, and no
+attribute cursor children. `noreturn` also survives in a function type without an attribute cursor.
+Type spelling and `clang_equalTypes` distinguish extra semantics but do not decode their payloads.
+Explicit `__cdecl`/`__stdcall` instead expose `CXType_Attributed`. Do not assume that rejecting
+attributed types makes every remaining function prototype plain C.
+The sys crate's `windows_clang_getFunctionInfo` recovers these hidden properties, including
+explicit `regparm(0)` versus absence, and flags additional prototype information for rejection
+or later decoding. `test_clang_sys` exercises these distinctions on all three parsing targets.
+Explicit regparm (including zero), noreturn, variadics, exception-qualified functions, and unknown
+properties remain rejected. Callback dependency pruning follows result and all parameter edges.
+Failed callback publication must remove the declaration, not just its root marker: reachable
+callbacks are published as dependencies, so root-only removal would retry the same failure.
