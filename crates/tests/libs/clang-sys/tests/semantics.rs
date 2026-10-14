@@ -55,6 +55,54 @@ fn native_semantics() {
             assert_eq!(bits, expected);
         }
         assert_eq!(layouts, [(1, 1), (1, 1)]);
+        for (name, bits, kind) in [
+            ("AlignFour", 32, WindowsClangAlignmentDeclspec),
+            ("AlignEight", 64, WindowsClangAlignmentDeclspec),
+            ("AlignZero", 0, WindowsClangAlignmentStandard),
+            ("AlignStandard", 128, WindowsClangAlignmentStandard),
+            ("AlignType", 128, WindowsClangAlignmentStandard),
+            ("AlignGNU", 256, WindowsClangAlignmentGNU),
+            ("AlignDefault", 128, WindowsClangAlignmentGNU),
+        ] {
+            let record = find(name);
+            let attribute = children(record)
+                .into_iter()
+                .find(|cursor| unsafe { clang_isAttribute(cursor.kind) } != 0)
+                .unwrap();
+            let mut value = WindowsClangAlignmentInfo::default();
+            assert_eq!(
+                unsafe { windows_clang_getAlignment(attribute, &raw mut value) },
+                WindowsClangSuccess
+            );
+            assert_eq!((value.bits, value.kind), (bits, kind), "{target}: {name}");
+            assert_eq!(
+                unsafe { windows_clang_getAlignment(record, &raw mut value) },
+                WindowsClangWrongKind
+            );
+            assert_eq!((value.bits, value.kind), (bits, kind));
+            assert_eq!(
+                unsafe { windows_clang_getAlignment(attribute, std::ptr::null_mut()) },
+                WindowsClangInvalidArgument
+            );
+        }
+        let layout = |name| {
+            let ty = unsafe { clang_getCursorType(find(name)) };
+            unsafe { (clang_Type_getSizeOf(ty), clang_Type_getAlignOf(ty)) }
+        };
+        assert_eq!(layout("AlignFour"), layout("AlignEight"));
+        let dependent = children(find("AlignDependent"))
+            .into_iter()
+            .find(|cursor| unsafe { clang_isAttribute(cursor.kind) } != 0)
+            .unwrap();
+        let mut value = WindowsClangAlignmentInfo {
+            bits: 99,
+            ..Default::default()
+        };
+        assert_eq!(
+            unsafe { windows_clang_getAlignment(dependent, &raw mut value) },
+            WindowsClangDependent
+        );
+        assert_eq!(value.bits, 99);
         let function =
             |name| unsafe { clang_getPointeeType(clang_getTypedefDeclUnderlyingType(find(name))) };
         for (name, kind) in [("Cdecl", "CDecl"), ("Stdcall", "StdCall")] {
@@ -146,7 +194,7 @@ fn native_semantics() {
             let library = Arc::clone(&library);
             scope.spawn(move || {
                 let previous = set_library(Some(library));
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 2);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 3);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION

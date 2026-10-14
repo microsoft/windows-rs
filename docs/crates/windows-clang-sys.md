@@ -15,9 +15,13 @@ does not inspect private cursor fields or depend on Clang C++ class layouts.
 | `windows_clang_getTypeAttributeKindName` | Attribute kind on an attributed type. |
 | `windows_clang_getTypeQualifiers` | CVR, `__unaligned`, and a flag for all other qualifiers. |
 | `windows_clang_getMaxFieldAlignment` | Requested maximum field alignment in bits. |
+| `windows_clang_getAlignment` | Evaluated alignment bits and GNU, standard, or declspec form. |
 | `windows_clang_getFunctionInfo` | Function `ExtInfo` properties and extra-property flags. |
 
 Packing comes from `MaxFieldAlignmentAttr`, not observed record layout or explicit `AlignedAttr`.
+The alignment query reads each `AlignedAttr`, including zero, type operands, and GNU requests
+without an argument. Dependent requests return `WindowsClangDependent` without changing the
+output. Requests are not inferred from effective record alignment.
 The function query preserves both `has_regparm` and `regparm`, distinguishing explicit zero from
 absence. It also reports `noreturn`, result ownership, caller-saved register, control-flow check,
 and CMSE flags. Additional flags identify extended parameters, extra attributes, ARM SME
@@ -27,12 +31,13 @@ These flags signal more information to handle or reject; they are not decoded pa
 The qualifier query includes qualifiers inherited through typedefs. After identifying const,
 volatile, restrict, and unaligned, it checks the remaining native qualifier set, rather than
 assuming those four exhaust Clang's type qualifiers. Address spaces and other undecoded qualifiers
-set `WindowsClangOtherQualifiers`. The extension ABI version is 2.
+set `WindowsClangOtherQualifiers`. The extension ABI version is 3.
 
 These queries supplement calling convention, argument, result, exception, variadic, and other
 stock type queries. A zero extra-property mask is not permission to discard attributed types or
 declaration attributes. Consumers retain responsibility for defining their accepted type model.
-`windows-clang2` captures requested packing and gates C/stdcall callback prototypes on these queries.
+`windows-clang2` captures requested packing and alignment and gates C/stdcall callback prototypes
+on these queries.
 Unknown attributes and unsupported function properties remain explicit errors or omissions.
 
 Attribute-name strings are borrowed from the library. Query cursors and types must belong to a

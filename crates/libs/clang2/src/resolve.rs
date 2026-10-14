@@ -187,6 +187,29 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             )
         });
         if let Some(&first) = definitions.first() {
+            let required =
+                alignments(&snapshots[first.snapshot].observations[first.observation.0].attributes);
+            for reference in &records {
+                let snapshot = &snapshots[reference.snapshot];
+                for &id in &snapshot.records[reference.record.0].observations {
+                    let observation = &snapshot.observations[id.0];
+                    if observation.definition.is_none()
+                        && alignments(&observation.attributes)
+                            .iter()
+                            .any(|request| !required.contains(request))
+                    {
+                        return Err(conflict(
+                            &snapshots,
+                            Owner::Record(ObservationRef {
+                                snapshot: reference.snapshot,
+                                observation: id,
+                            }),
+                            Owner::Record(first),
+                            "forward alignment request differs",
+                        ));
+                    }
+                }
+            }
             for &other in &definitions[1..] {
                 pending.push((first, other));
             }
@@ -217,15 +240,17 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
         };
         if a.layout != b.layout
             || a.fields.len() != b.fields.len()
-            || packing(&snapshots[left.snapshot].observations[left.observation.0].attributes)
-                != packing(&snapshots[right.snapshot].observations[right.observation.0].attributes)
+            || !abi_attributes_equal(
+                &snapshots[left.snapshot].observations[left.observation.0].attributes,
+                &snapshots[right.snapshot].observations[right.observation.0].attributes,
+            )
         {
             return Err(conflict("record layout or field count differs"));
         }
         for (a, b) in a.fields.iter().zip(&b.fields) {
             if a.name != b.name
                 || a.offset_bits != b.offset_bits
-                || packing(&a.attributes) != packing(&b.attributes)
+                || !abi_attributes_equal(&a.attributes, &b.attributes)
             {
                 return Err(conflict("field name, order, or offset differs"));
             }
@@ -435,12 +460,41 @@ pub(crate) fn packing(attributes: &[Attribute]) -> (bool, Option<u32>) {
     (packed, maximum)
 }
 
+pub(crate) fn alignments(attributes: &[Attribute]) -> Vec<(u32, AlignmentKind)> {
+    let mut result: Vec<_> = attributes
+        .iter()
+        .filter_map(|attribute| {
+            if let AttributeKind::Aligned { bits, kind } = attribute.kind {
+                Some((bits, kind))
+            } else {
+                None
+            }
+        })
+        .collect();
+    result.sort_unstable();
+    result.dedup();
+    result
+}
+
+pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
+    packing(a) == packing(b) && alignments(a) == alignments(b)
+}
+
 fn attributes(
     snapshots: &[&Snapshot],
     owner: Owner,
     attributes: &[Attribute],
 ) -> Result<(), Error> {
     for attribute in attributes {
+        if let AttributeKind::Aligned { bits, .. } = attribute.kind
+            && bits != 0
+            && (bits < 8 || !bits.is_power_of_two())
+        {
+            return Err(Error(format!(
+                "{}: unsupported alignment {bits} bits",
+                describe(snapshots, owner)
+            )));
+        }
         if let AttributeKind::MaxFieldAlignment { bits } = attribute.kind
             && (!matches!(bits, 8 | 16 | 32 | 64 | 128) || packing(attributes).1 != Some(bits))
         {

@@ -18,8 +18,9 @@ Its target-local plan separates native record identity from public alias corresp
 
 - Only unqualified by-value alias bindings connect candidate record families. Pointer and array
   aliases do not establish pointee/element equivalence.
-- Complete definitions must agree in record kind, field names/order, offsets, packing, layout,
-  and canonical types/qualifiers. Record edges must belong to independently established families.
+- Complete definitions must agree in record kind, field names/order, offsets, packing, alignment
+  requests, layout, and canonical types/qualifiers. Record edges must belong to independently
+  established families.
 - The alphabetically first by-value alias names each family; other reachable value names are transparent
   aliases. A name can be a record on one architecture and an alias on another.
 - Alias ownership prefers a unique declaration header containing the corresponding native
@@ -53,6 +54,7 @@ cargo test -p test_clang2
 cargo run -p test_clang2 -- inspect shared_a shared_b
 cargo run --release -p test_clang2 -- scale
 cargo test -p test_clang2 --test sdk -- --ignored
+cargo test -p test_clang2 --test alignment -- --ignored
 cargo run --release -p test_clang2 -- sdk-gate
 cargo run --release -p test_clang2 -- sdk-scale 32
 cargo run --release -p test_clang2 -- sdk-sweep breadth 8
@@ -113,6 +115,23 @@ Clang's [MaxFieldAlignmentAttr declaration][max-field-alignment] has an alignmen
 no spelling; the [libclang C API][clang-c-api] exposes layout queries, not that argument.
 The [windows-clang-sys](windows-clang-sys.md) extension exposes this argument for owned capture.
 
+Explicit alignment uses the companion's `AlignedAttr` query. Capture retains evaluated bits and
+the GNU, standard, or declspec form, including zero and multiple requests. Native and public-family
+checks compare sorted, deduplicated request sets, not just their maximum or resulting layout.
+An aligned forward must have its requests present on the complete definition; an unadorned
+forward does not assert absence.
+
+Complete structs and unions emit the maximum nonzero request as `#[align(N)]`, within RDL's
+`u16` limit. Layout verification respects over-aligned fields and checks offsets, size, and final
+alignment against native evidence. The `alignment_*` fixtures cover all three parsing targets,
+RDL/WinMD round trips, same-layout request conflicts, and generated Rust layout assertions on
+the host. The ignored alignment test compiles those assertions for all three MSVC targets and
+requires their Rust standard libraries to be installed. Field, typedef, and enum alignment remain
+unsupported, including primary record aliases and non-value typedefs. Combined packing/alignment
+and packed containment of aligned records are rejected; Rust disallows that containment even
+through arrays and intermediate records.
+Partial projection removes these declarations and their dependents rather than losing alignment.
+
 The runtime is pinned through `windows-clang-sys::LIBCLANG_VERSION`. LLVM 23.1.3's stock C API
 also lacks the packing payload accessor, so newer Rust bindings alone cannot expose it.
 Runtime and matching resource-header upgrades are separate from declaration coverage changes.
@@ -120,8 +139,9 @@ Runtime and matching resource-header upgrades are separate from declaration cove
 [ClangSharp's native extension][clangsharp-extension] exposes precise attribute kinds through
 `clangsharp_Cursor_getAttrKind`. Its `clangsharp_Cursor_getMaxAlignment` calls
 `Decl::getMaxAlignment`, which reads explicit `AlignedAttr` requests, not `MaxFieldAlignmentAttr`.
-The sys crate adds a packing query to a version-matched native companion without replacing the
-owned IR, reconciliation, or projection. Both parser crates use its generated stock bindings.
+The sys crate adds packing and per-attribute alignment queries to a version-matched native companion
+without replacing the owned IR, reconciliation, or projection. Both parser crates use its generated
+stock bindings.
 
 Rapid iteration can continue on declarations whose semantics are available through the current
 API. Keep opaque attributes and their dependent declarations in the omission report. Revisit this

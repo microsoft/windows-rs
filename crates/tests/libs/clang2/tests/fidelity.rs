@@ -238,7 +238,7 @@ fn attributes() {
                         .attributes
                         .iter()
                         .chain(definition.fields.iter().flat_map(|field| &field.attributes))
-                        .any(|attribute| matches!(attribute.kind, AttributeKind::Unresolved(_)))
+                        .any(|attribute| matches!(attribute.kind, AttributeKind::Aligned { .. }))
                 );
             }
             if root.starts_with("Pragma") {
@@ -249,12 +249,16 @@ fn attributes() {
                 ));
             }
         }
-        if root.starts_with("Pragma") {
-            let merged = merge(&snapshots).unwrap();
-            assert_eq!(projection::project(&merged, "Fixture").unwrap().records, 1);
+        let merged = merge(&snapshots).unwrap();
+        if root == "FieldAligned" {
+            assert!(
+                projection::project(&merged, "Fixture")
+                    .unwrap_err()
+                    .to_string()
+                    .contains("attributed or const field")
+            );
         } else {
-            let error = merge(&snapshots).err().unwrap().to_string();
-            assert!(error.contains("cannot verify"), "{error}");
+            assert_eq!(projection::project(&merged, "Fixture").unwrap().records, 1);
         }
     }
 }

@@ -1,0 +1,55 @@
+#[win32]
+mod Fixture {
+    #[align(32)]
+    union AlignedUnion {
+        value: i32,
+        bytes: [i8; 3],
+    }
+    struct Container {
+        lead: i8,
+        nested: Standard,
+        array: [Standard; 2],
+        tail: i8,
+    }
+    #[align(32)]
+    struct Declspec {
+        value: i8,
+    }
+    #[align(64)]
+    struct Gnu {
+        value: i8,
+    }
+    #[align(16)]
+    struct Multiple {
+        value: i8,
+    }
+    #[align(16)]
+    #[arch(X86)]
+    struct Platform {
+        value: i8,
+    }
+    #[align(32)]
+    #[arch(X64 | Arm64)]
+    struct Platform {
+        value: i8,
+    }
+    #[align(16)]
+    struct Recursive {
+        next: *mut Recursive,
+    }
+    #[align(16)]
+    struct Standard {
+        value: i8,
+    }
+    #[align(16)]
+    struct TypeAligned {
+        value: i8,
+    }
+    #[align(4)]
+    struct Unchanged {
+        value: i64,
+    }
+    struct Zero {
+        value: i8,
+    }
+}

@@ -77,7 +77,7 @@ pub(super) fn resolve(
                 work.enum_pairs += 1;
                 if a.scoped != b.scoped
                     || a.layout != b.layout
-                    || packing(&a.attributes) != packing(&b.attributes)
+                    || !abi_attributes_equal(&a.attributes, &b.attributes)
                     || snapshots[first.snapshot].types[a.canonical.0]
                         != snapshot.types[b.canonical.0]
                 {
@@ -102,7 +102,7 @@ pub(super) fn resolve(
                         || old.iter().zip(members).any(|(a, b)| {
                             a.name != b.name
                                 || a.value != b.value
-                                || packing(&a.attributes) != packing(&b.attributes)
+                                || !abi_attributes_equal(&a.attributes, &b.attributes)
                         })
                     {
                         return Err(conflict(

@@ -14,7 +14,8 @@ extern "C" {
 enum WindowsClangStatus {
     WindowsClangSuccess = 0,
     WindowsClangInvalidArgument = 1,
-    WindowsClangWrongKind = 2
+    WindowsClangWrongKind = 2,
+    WindowsClangDependent = 3
 };
 
 enum WindowsClangFunctionProperties {
@@ -46,6 +47,17 @@ struct WindowsClangFunctionInfo {
     unsigned additional_properties;
 };
 
+enum WindowsClangAlignmentKind {
+    WindowsClangAlignmentGNU = 0,
+    WindowsClangAlignmentStandard = 1,
+    WindowsClangAlignmentDeclspec = 2
+};
+
+struct WindowsClangAlignmentInfo {
+    unsigned bits;
+    enum WindowsClangAlignmentKind kind;
+};
+
 WINDOWS_CLANG_API unsigned windows_clang_getABIVersion(void);
 WINDOWS_CLANG_API const char* windows_clang_getLLVMVersion(void);
 WINDOWS_CLANG_API const void* windows_clang_getRuntimeIdentity(void);
@@ -58,6 +70,9 @@ WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypeQualifiers(
 // Writes the requested maximum field alignment in bits, not the observed record alignment.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getMaxFieldAlignment(
     CXCursor cursor, unsigned* alignment_bits);
+// Evaluated request, including zero, rather than the resulting declaration layout.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getAlignment(
+    CXCursor cursor, struct WindowsClangAlignmentInfo* info);
 // additional_properties flags prototype information that this structure does not decode.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getFunctionInfo(
     CXType type, struct WindowsClangFunctionInfo* info);

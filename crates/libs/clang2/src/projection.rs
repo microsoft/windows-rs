@@ -51,10 +51,10 @@ pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<Part
                 .aliases
                 .iter()
                 .filter(|alias| {
-                    alias
-                        .observations
-                        .iter()
-                        .any(|observation| publishable_alias(snapshot, observation.canonical))
+                    alias.observations.iter().any(|observation| {
+                        publishable_alias(snapshot, observation.canonical)
+                            || !resolve::alignments(&observation.attributes).is_empty()
+                    })
                 })
                 .map(|alias| alias.name.clone())
         })
@@ -251,6 +251,24 @@ fn project_impl(
             }
         }
         for (id, alias) in resolution.aliases.iter().enumerate() {
+            if alias.observations.iter().any(|reference| {
+                !resolve::alignments(
+                    &resolution.snapshots[reference.snapshot].aliases[reference.alias.0]
+                        .observations[reference.observation]
+                        .attributes,
+                )
+                .is_empty()
+            }) {
+                reject(
+                    &mut rejected,
+                    [partial::Key::Alias(alias.name.clone())],
+                    Error(format!(
+                        "aligned typedef `{}` projection is unsupported",
+                        alias.name
+                    )),
+                )?;
+                continue;
+            }
             let first = alias.observations[0];
             let snapshot = resolution.snapshots[first.snapshot];
             let canonical =
@@ -673,6 +691,11 @@ impl Projector<'_, '_> {
         name: &TokenStream,
     ) -> Result<Body, Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
+        if !resolve::alignments(&observation.attributes).is_empty() {
+            return Err(Error(format!(
+                "aligned enum `{name}` projection is unsupported"
+            )));
+        }
         if snapshot.types[observation.canonical.0].layout != Some(observation.layout) {
             return Err(Error(format!(
                 "enum `{name}` cannot use its backing type layout"
@@ -731,6 +754,21 @@ impl Projector<'_, '_> {
         } else {
             maximum.map(|bits| u64::from(bits / 8))
         };
+        let requested = resolve::alignments(attributes)
+            .into_iter()
+            .map(|(bits, _)| bits / 8)
+            .max();
+        let forced = requested.filter(|bytes| *bytes != 0);
+        if forced.is_some_and(|bytes| bytes > u32::from(u16::MAX)) {
+            return Err(Error(format!(
+                "record `{name}` alignment exceeds metadata limits"
+            )));
+        }
+        if packing.is_some() && forced.is_some() {
+            return Err(Error(format!(
+                "record `{name}` combines packing and alignment"
+            )));
+        }
         if attributes
             .iter()
             .any(|attribute| matches!(attribute.kind, AttributeKind::Unresolved(_)))
@@ -757,7 +795,15 @@ impl Projector<'_, '_> {
             let layout = native
                 .layout
                 .ok_or_else(|| Error(format!("field `{name}.{field_name}` has no layout")))?;
-            let field_alignment = layout.alignment.min(packing.unwrap_or(8));
+            if packing.is_some()
+                && self.contains_alignment(snapshot_id, field.canonical, &mut HashSet::new())
+            {
+                return Err(Error(format!(
+                    "packed record `{name}` contains an aligned type"
+                )));
+            }
+            let field_alignment =
+                packing.map_or(layout.alignment, |packing| layout.alignment.min(packing));
             let offset = if kind == RecordKind::Union {
                 0
             } else {
@@ -776,6 +822,7 @@ impl Projector<'_, '_> {
             );
             fields.push(quote! { #field_name: #ty, });
         }
+        alignment = alignment.max(u64::from(forced.unwrap_or(1)));
         if definition.layout
             != (Layout {
                 size: round_up(size, alignment),
@@ -792,11 +839,40 @@ impl Projector<'_, '_> {
             attributes: if let Some(packing) = packing {
                 let packing = proc_macro2::Literal::u64_unsuffixed(packing);
                 quote! { #[packed(#packing)] }
+            } else if let Some(forced) = forced {
+                let forced = proc_macro2::Literal::u32_unsuffixed(forced);
+                quote! { #[align(#forced)] }
             } else {
                 TokenStream::new()
             },
             declaration: quote! { #keyword #name { #(#fields)* } },
         })
+    }
+
+    fn contains_alignment(
+        &self,
+        snapshot_id: usize,
+        id: TypeId,
+        seen: &mut HashSet<RecordId>,
+    ) -> bool {
+        let snapshot = self.resolution.snapshots[snapshot_id];
+        match snapshot.types[id.0].kind {
+            TypeKind::Array { element, .. } => self.contains_alignment(snapshot_id, element, seen),
+            TypeKind::Record(id) if seen.insert(id) => {
+                snapshot.records[id.0].observations.iter().any(|id| {
+                    let observation = &snapshot.observations[id.0];
+                    resolve::alignments(&observation.attributes)
+                        .iter()
+                        .any(|(bits, _)| *bits != 0)
+                        || observation.definition.as_ref().is_some_and(|definition| {
+                            definition.fields.iter().any(|field| {
+                                self.contains_alignment(snapshot_id, field.canonical, seen)
+                            })
+                        })
+                })
+            }
+            _ => false,
+        }
     }
 }
 

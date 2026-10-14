@@ -376,6 +376,31 @@ impl Capture<'_> {
         let name = unsafe { std::ffi::CStr::from_ptr(name) }.to_string_lossy();
         let kind = match name.as_ref() {
             "Packed" => AttributeKind::Packed,
+            "Aligned" => {
+                let mut info = WindowsClangAlignmentInfo::default();
+                let status = unsafe { windows_clang_getAlignment(cursor, &raw mut info) };
+                if status != WindowsClangSuccess {
+                    return Err(unsupported(
+                        cursor,
+                        &format!("alignment query failed: {status}"),
+                    ));
+                }
+                let kind = match info.kind {
+                    WindowsClangAlignmentGNU => AlignmentKind::Gnu,
+                    WindowsClangAlignmentStandard => AlignmentKind::Standard,
+                    WindowsClangAlignmentDeclspec => AlignmentKind::Declspec,
+                    value => {
+                        return Err(unsupported(
+                            cursor,
+                            &format!("unsupported alignment kind {value}"),
+                        ));
+                    }
+                };
+                AttributeKind::Aligned {
+                    bits: info.bits,
+                    kind,
+                }
+            }
             "MaxFieldAlignment" => {
                 let mut bits = 0;
                 let status = unsafe { windows_clang_getMaxFieldAlignment(cursor, &raw mut bits) };

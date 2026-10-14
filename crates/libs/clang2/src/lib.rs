@@ -184,7 +184,15 @@ pub struct Field {
 pub enum AttributeKind {
     Packed,
     MaxFieldAlignment { bits: u32 },
+    Aligned { bits: u32, kind: AlignmentKind },
     Unresolved(String),
+}
+
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum AlignmentKind {
+    Gnu,
+    Standard,
+    Declspec,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -314,7 +322,9 @@ impl Snapshot {
                     .iter()
                     .map(|value| {
                         (match &value.kind {
-                            AttributeKind::Packed | AttributeKind::MaxFieldAlignment { .. } => 0,
+                            AttributeKind::Packed
+                            | AttributeKind::MaxFieldAlignment { .. }
+                            | AttributeKind::Aligned { .. } => 0,
                             AttributeKind::Unresolved(kind) => kind.capacity(),
                         }) + value.spelling.capacity()
                             + strings_bytes(&value.tokens)

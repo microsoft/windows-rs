@@ -1303,9 +1303,20 @@ pub type IndexerCallbacks_indexDeclaration = *mut u8;
 pub type IndexerCallbacks_indexEntityReference = *mut u8;
 pub type IndexerCallbacks_ppIncludedFile = *mut u8;
 pub type IndexerCallbacks_startedTranslationUnit = *mut u8;
+pub const WindowsClangAlignmentDeclspec: WindowsClangAlignmentKind = 2;
+pub const WindowsClangAlignmentGNU: WindowsClangAlignmentKind = 0;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WindowsClangAlignmentInfo {
+    pub bits: u32,
+    pub kind: WindowsClangAlignmentKind,
+}
+pub type WindowsClangAlignmentKind = i32;
+pub const WindowsClangAlignmentStandard: WindowsClangAlignmentKind = 1;
 pub const WindowsClangArmSMEAttributes: WindowsClangFunctionProperties = 4;
 pub const WindowsClangCFIUncheckedCallee: WindowsClangFunctionProperties = 64;
 pub const WindowsClangConst: WindowsClangTypeQualifiers = 1;
+pub const WindowsClangDependent: WindowsClangStatus = 3;
 pub const WindowsClangExtendedParameters: WindowsClangFunctionProperties = 1;
 pub const WindowsClangExtraAttributes: WindowsClangFunctionProperties = 2;
 pub const WindowsClangFunctionEffects: WindowsClangFunctionProperties = 8;
@@ -1542,6 +1553,10 @@ const _: () = {
     assert!(core::mem::offset_of!(IndexerCallbacks, startedTranslationUnit) == 40usize);
     assert!(core::mem::offset_of!(IndexerCallbacks, indexDeclaration) == 48usize);
     assert!(core::mem::offset_of!(IndexerCallbacks, indexEntityReference) == 56usize);
+    assert!(size_of::<WindowsClangAlignmentInfo>() == 8usize);
+    assert!(align_of::<WindowsClangAlignmentInfo>() == 4usize);
+    assert!(core::mem::offset_of!(WindowsClangAlignmentInfo, bits) == 0usize);
+    assert!(core::mem::offset_of!(WindowsClangAlignmentInfo, kind) == 4usize);
     assert!(size_of::<WindowsClangFunctionInfo>() == 32usize);
     assert!(align_of::<WindowsClangFunctionInfo>() == 4usize);
     assert!(core::mem::offset_of!(WindowsClangFunctionInfo, has_regparm) == 0usize);
@@ -2266,6 +2281,10 @@ pub(crate) struct Functions {
     pub clang_visitChildrenWithBlock:
         unsafe extern "C" fn(parent: CXCursor, block: CXCursorVisitorBlock) -> u32,
     pub windows_clang_getABIVersion: unsafe extern "C" fn() -> u32,
+    pub windows_clang_getAlignment: unsafe extern "C" fn(
+        cursor: CXCursor,
+        info: *mut WindowsClangAlignmentInfo,
+    ) -> WindowsClangStatus,
     pub windows_clang_getAttributeKindName: unsafe extern "C" fn(cursor: CXCursor) -> *const i8,
     pub windows_clang_getFunctionInfo: unsafe extern "C" fn(
         r#type: CXType,
@@ -4700,6 +4719,13 @@ impl Functions {
                         format!("{}: {error}", stringify!(windows_clang_getABIVersion))
                     })?
             },
+            windows_clang_getAlignment: unsafe {
+                *extension
+                    .get(b"windows_clang_getAlignment\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getAlignment))
+                    })?
+            },
             windows_clang_getAttributeKindName: unsafe {
                 *extension
                     .get(b"windows_clang_getAttributeKindName\0")
@@ -6785,6 +6811,14 @@ pub unsafe fn clang_visitChildrenWithBlock(parent: CXCursor, block: CXCursorVisi
 }
 pub unsafe fn windows_clang_getABIVersion() -> u32 {
     crate::with_library(|library| unsafe { (library.functions.windows_clang_getABIVersion)() })
+}
+pub unsafe fn windows_clang_getAlignment(
+    cursor: CXCursor,
+    info: *mut WindowsClangAlignmentInfo,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getAlignment)(cursor, info)
+    })
 }
 pub unsafe fn windows_clang_getAttributeKindName(cursor: CXCursor) -> *const i8 {
     crate::with_library(|library| unsafe {

@@ -244,11 +244,15 @@ changes (the `gen` workflow enforces this).
 
 ### clang2 remaining attribute coverage
 
-`clang2` `capture.rs` `attribute` uses native kind names and requested `MaxFieldAlignment` bits.
+`clang2` `capture.rs` `attribute` uses native kind names, requested `MaxFieldAlignment` bits, and
+evaluated `AlignedAttr` requests with their semantic form.
 `test_clang2` `fidelity.rs` `opaque_packing` distinguishes `pack(1)` and `pack(2)` despite identical
 char-only layouts. Reconciliation checks requested packing, and projection preserves it.
-Other attributes, including `_GUID`'s `TypeVisibility` and explicit alignment, still need payload
-handling. Do not identify unknown attributes from empty tokens or infer requests from layout.
+Complete-record alignment projects through `#[align(N)]`; request sets are checked even when
+layouts match. Field, typedef, and enum alignment, combined packing/alignment, and packed
+containment of aligned records remain unsupported. Other attributes, including `_GUID`'s
+`TypeVisibility`, still need payload handling. Do not identify unknown attributes from empty
+tokens or infer requests from layout.
 
 The runtime pin is `windows-clang-sys::LIBCLANG_VERSION`. LLVM 23.1.3's stock C API also lacks
 the packing payload accessor.

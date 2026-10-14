@@ -17,6 +17,15 @@ static_assert(!__is_same(Plain, ZeroRegisters));
 typedef int (*Registers)(int first, int second);
 typedef int (*ZeroRegisters)(int first, int second);
 #endif
+
+struct __declspec(align(4)) AlignFour { long long value; };
+struct __declspec(align(8)) AlignEight { long long value; };
+struct alignas(0) AlignZero { char value; };
+struct alignas(16) AlignStandard { char value; };
+struct alignas(AlignStandard) AlignType { char value; };
+struct __attribute__((aligned(32))) AlignGNU { char value; };
+struct __attribute__((aligned)) AlignDefault { char value; };
+template<unsigned N> struct alignas(N) AlignDependent { char value; };
 typedef void (*PlainVoid)(int value);
 typedef void (__attribute__((noreturn)) *NoReturn)(int value);
 typedef void QualifiedFunction() const;

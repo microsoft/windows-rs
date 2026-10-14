@@ -14,7 +14,7 @@ static const char* attributeName(clang::attr::Kind kind) {
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 2;
+    return 3;
 }
 
 const char* windows_clang_getLLVMVersion(void) {
@@ -75,6 +75,34 @@ WindowsClangStatus windows_clang_getMaxFieldAlignment(CXCursor cursor, unsigned*
         return WindowsClangWrongKind;
     }
     *alignment_bits = attribute->getAlignment();
+    return WindowsClangSuccess;
+}
+
+WindowsClangStatus windows_clang_getAlignment(CXCursor cursor, WindowsClangAlignmentInfo* info) {
+    if (!info) {
+        return WindowsClangInvalidArgument;
+    }
+    if (!clang_isAttribute(cursor.kind)) {
+        return WindowsClangWrongKind;
+    }
+    auto attribute = llvm::dyn_cast<clang::AlignedAttr>(clang::cxcursor::getCursorAttr(cursor));
+    if (!attribute) {
+        return WindowsClangWrongKind;
+    }
+    if (attribute->isAlignmentDependent() || attribute->isAlignmentErrorDependent()) {
+        return WindowsClangDependent;
+    }
+    WindowsClangAlignmentKind kind;
+    if (attribute->isGNU()) {
+        kind = WindowsClangAlignmentGNU;
+    } else if (attribute->isAlignas()) {
+        kind = WindowsClangAlignmentStandard;
+    } else if (attribute->isDeclspec()) {
+        kind = WindowsClangAlignmentDeclspec;
+    } else {
+        return WindowsClangWrongKind;
+    }
+    *info = {attribute->getAlignment(clang::cxcursor::getCursorContext(cursor)), kind};
     return WindowsClangSuccess;
 }
 

@@ -31,8 +31,8 @@ Indices are created before parallel capture and reused across TUs. Batches are s
 libclang callers must not create indices during a batch. Native hangs affect the whole process.
 
 Supported: named structs, unions, and integer-backed enums; typedefs, non-template `using` aliases,
-forwards, scalars, qualified pointers, arrays, pragma packing, and plain C/stdcall callback
-prototypes. Written aliases and attributed calling conventions are retained.
+forwards, scalars, qualified pointers, arrays, pragma packing, explicit record alignment, and
+plain C/stdcall callback prototypes. Written aliases and attributed calling conventions are retained.
 Native record compatibility uses canonical types. Alias groups retain all name-corresponding
 bindings; their public compatibility is checked during projection, not assumed by native merge.
 Unresolved attributes block `resolve` and `merge`. No packing request is guessed from layout.
@@ -54,6 +54,10 @@ use compatible callback names resolved across the target, independent of the rep
 All same-target record and callback observations must agree on their public names after native
 compatibility is checked; conflicting names are errors, including in partial mode.
 Requested packing is emitted as `#[packed(N)]`, including requests with no visible layout effect.
+Complete-record alignment is emitted as `#[align(N)]`. Native checks retain every requested
+alignment and its GNU, standard, or declspec form, even when layout is unchanged. Projection uses
+the maximum request; zero adds no alignment attribute. Field, typedef, and enum alignment,
+combined packing/alignment, and packed records containing aligned types remain unsupported.
 Unions retain their record kind, publish explicit-layout fields at offset zero, and must match
 captured size and alignment. Structs and unions never share a public family, even with identical
 fields and layouts.

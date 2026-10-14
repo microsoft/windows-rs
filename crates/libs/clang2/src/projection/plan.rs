@@ -1,5 +1,5 @@
 use super::*;
-use crate::resolve::{TypePair, packing, types_equal};
+use crate::resolve::{TypePair, abi_attributes_equal, types_equal};
 
 pub(super) struct Plan {
     pub families: Vec<Vec<usize>>,
@@ -298,11 +298,11 @@ impl Plan {
                     != resolution.snapshots[b.snapshot].records[right.record.0].kind
                     || x.layout != y.layout
                     || x.fields.len() != y.fields.len()
-                    || packing(&left.attributes) != packing(&right.attributes)
+                    || !abi_attributes_equal(&left.attributes, &right.attributes)
                     || !x.fields.iter().zip(&y.fields).all(|(x, y)| {
                         x.name == y.name
                             && x.offset_bits == y.offset_bits
-                            && packing(&x.attributes) == packing(&y.attributes)
+                            && abi_attributes_equal(&x.attributes, &y.attributes)
                             && self.same_type(
                                 resolution,
                                 (a.snapshot, x.canonical),
@@ -330,7 +330,7 @@ impl Plan {
             for other in &alias.observations[1..] {
                 let b = &resolution.snapshots[other.snapshot].aliases[other.alias.0].observations
                     [other.observation];
-                if packing(&a.attributes) != packing(&b.attributes)
+                if !abi_attributes_equal(&a.attributes, &b.attributes)
                     || !self.same_type(
                         resolution,
                         (first.snapshot, a.canonical),
