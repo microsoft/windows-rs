@@ -125,18 +125,12 @@ TextBox::new(self.name.clone())
 Handle `Message::SetName(name)` in `update` by assigning `self.name = name`. Reactor suppresses
 feedback from its own writes while still delivering user edits.
 
-Declaring a property gives Reactor ownership of that value. An optional property left undeclared
-stays with the native control for that control's lifetime; subscribing to changes does not take
-ownership. Removing a previously declared property restores its native default once. Keep values
-in component state and declare them when they must survive control replacement.
+Only declared properties are controlled; subscribing to changes does not take ownership. Omitting
+a previously declared property clears its native assignment once. An explicit `None` is a declared
+value, not an omitted property. Store values in component state when they must survive control
+replacement.
 
 The [`controlled`](../../crates/samples/reactor/controlled) sample shows the complete pattern.
-
-`CalendarDatePicker` uses `.date(self.date)` and `.on_date_changed(...)` for the same pattern.
-The value is an `Option<DateTime>`: `.date(None)` explicitly clears the date, while omitting
-`.date(...)` leaves it to the control. Use `.min_date(...)` and `.max_date(...)` to constrain
-selection. WinUI clamps a date when it is set, but changing only the bounds leaves the existing
-date unchanged. The gallery's calendar page shows prefill, reset, and clear.
 
 ## Split up the view
 
