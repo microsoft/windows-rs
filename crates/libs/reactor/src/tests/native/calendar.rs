@@ -152,6 +152,13 @@ fn controlled_calendar_dates() {
                     runtime.update(view(0, 10, Some(date(-10)))).unwrap();
                     assert_date(&mut runtime, Some(date(0)));
 
+                    runtime.update(view(0, 10, Some(date(10)))).unwrap();
+                    assert_date(&mut runtime, Some(date(10)));
+                    runtime.update(view(0, 10, Some(date(20)))).unwrap();
+                    assert_date(&mut runtime, Some(date(10)));
+                    runtime.update(view(0, 30, Some(date(20)))).unwrap();
+                    assert_date(&mut runtime, Some(date(20)));
+
                     runtime.update(view(0, 10, Some(date(5)))).unwrap();
                     runtime.update(view(7, 10, Some(date(5)))).unwrap();
                     assert_date(&mut runtime, Some(date(5)));
