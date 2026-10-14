@@ -1,6 +1,178 @@
 use super::*;
 
 #[test]
+fn property_observations_preserve_declaration_ownership() {
+    let cases: [(View, View, Property); 6] = [
+        (
+            CheckBox::new().into(),
+            CheckBox::new().is_checked(None).into(),
+            Property {
+                id: PropertyId::IsChecked,
+                value: PropertyValue::OptionalBool(Some(true)),
+            },
+        ),
+        (
+            Slider::new().into(),
+            Slider::new().value(0.0).into(),
+            Property {
+                id: PropertyId::Value,
+                value: PropertyValue::F64(42.0),
+            },
+        ),
+        (
+            NumberBox::new().into(),
+            NumberBox::new().value(None).into(),
+            Property {
+                id: PropertyId::Value,
+                value: PropertyValue::OptionalF64(Some(42.0)),
+            },
+        ),
+        (
+            ListView::new().into(),
+            ListView::new().selected_index(None).into(),
+            Property {
+                id: PropertyId::SelectedIndex,
+                value: PropertyValue::SelectionIndex(Some(1)),
+            },
+        ),
+        (
+            RichEditBox::new().into(),
+            RichEditBox::new().text("").into(),
+            Property {
+                id: PropertyId::Document,
+                value: PropertyValue::String(Rc::from("Edited")),
+            },
+        ),
+        (
+            CalendarDatePicker::new().into(),
+            CalendarDatePicker::new().date(None).into(),
+            Property {
+                id: PropertyId::Date,
+                value: PropertyValue::OptionalDateTime(Some(DateTime::from_unix_secs(
+                    1_700_000_000,
+                ))),
+            },
+        ),
+    ];
+    for (omitted, declared, observed) in cases {
+        let mut runtime = Runtime::new(RecordingAdapter::default());
+        runtime.update(omitted.clone()).unwrap();
+        let object = runtime.graph().root().unwrap();
+        let observation = Observation::SetProperty {
+            object,
+            property: observed.clone(),
+        };
+        runtime.adapter_mut().observe(observation.clone());
+        assert!(runtime.update(omitted.clone()).unwrap().is_empty());
+        assert!(runtime.graph().properties(object).unwrap().is_empty());
+
+        let mutations = runtime.update(declared.clone()).unwrap();
+        let expected = runtime.graph().properties(object).unwrap()[0].clone();
+        assert!(matches!(
+            mutations.as_slice(),
+            [Mutation::SetProperties { set, clear, .. }]
+                if set.as_ref() == [expected.clone()] && clear.is_empty()
+        ));
+        runtime.adapter_mut().observe(observation.clone());
+        runtime.dispatch_native_events().unwrap();
+        assert_eq!(runtime.graph().properties(object).unwrap(), [observed]);
+        let mutations = runtime.update(declared.clone()).unwrap();
+        assert!(matches!(
+            mutations.as_slice(),
+            [Mutation::SetProperties { set, clear, .. }]
+                if set.as_ref() == [expected.clone()] && clear.is_empty()
+        ));
+
+        let mutations = runtime.update(omitted.clone()).unwrap();
+        assert!(matches!(
+            mutations.as_slice(),
+            [Mutation::SetProperties { set, clear, .. }]
+                if set.is_empty() && clear.as_ref() == [expected.id]
+        ));
+        runtime.adapter_mut().observe(Observation::SetProperty {
+            object,
+            property: expected.clone(),
+        });
+        runtime.adapter_mut().observe(observation);
+        runtime.dispatch_native_events().unwrap();
+        assert!(runtime.graph().properties(object).unwrap().is_empty());
+        assert!(runtime.update(omitted).unwrap().is_empty());
+
+        let mutations = runtime.update(declared).unwrap();
+        assert!(matches!(
+            mutations.as_slice(),
+            [Mutation::SetProperties { set, clear, .. }]
+                if set.as_ref() == [expected] && clear.is_empty()
+        ));
+    }
+}
+
+#[test]
+fn queued_callbacks_do_not_reclaim_a_removed_property() {
+    let values = Rc::new(RefCell::new(Vec::new()));
+    let received = Rc::clone(&values);
+    let callback = Callback::new(move |value| received.borrow_mut().push(value));
+    let omitted = NumberBox::new().on_value_changed(callback.clone());
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(omitted.clone().value(1.0)).unwrap();
+    let object = runtime.graph().root().unwrap();
+    for value in [Some(2.0), None, Some(3.0)] {
+        runtime.adapter_mut().queue_native_event(
+            Some(Observation::SetProperty {
+                object,
+                property: Property {
+                    id: PropertyId::Value,
+                    value: PropertyValue::OptionalF64(value),
+                },
+            }),
+            Some(EventDispatch::new(
+                object,
+                EventId::ValueChanged,
+                EventValue::OptionalF64(callback.clone()),
+                EventPayload::OptionalF64(value),
+            )),
+        );
+    }
+    let mut first = runtime.next_native_event().unwrap().unwrap();
+    first.invoke();
+    runtime.update(omitted.clone()).unwrap();
+    drop(first);
+
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 2);
+    assert_eq!(*values.borrow(), [Some(2.0), None, Some(3.0)]);
+    assert!(runtime.graph().properties(object).unwrap().is_empty());
+    assert!(runtime.update(omitted.clone()).unwrap().is_empty());
+    assert!(matches!(
+        runtime.update(omitted.value(3.0)).unwrap().as_slice(),
+        [Mutation::SetProperties { set, clear, .. }]
+            if set.as_ref() == [Property {
+                id: PropertyId::Value,
+                value: PropertyValue::OptionalF64(Some(3.0)),
+            }] && clear.is_empty()
+    ));
+}
+
+#[test]
+fn undeclared_property_observations_are_still_validated() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(Slider::new()).unwrap();
+    let object = runtime.graph().root().unwrap();
+    runtime.adapter_mut().observe(Observation::SetProperty {
+        object,
+        property: Property {
+            id: PropertyId::Value,
+            value: PropertyValue::OptionalF64(None),
+        },
+    });
+    assert_eq!(
+        runtime.update(Slider::new()),
+        Err(UpdateError::InvalidNativeEvent(
+            GraphError::InvalidPropertyValue(PropertyId::Value)
+        ))
+    );
+}
+
+#[test]
 fn event_callbacks_update_without_recreating_the_object() {
     let first = Callback::new(|_: Rc<str>| {});
     let second = Callback::new(|_: Rc<str>| {});

@@ -354,7 +354,7 @@ fn observations_survive_a_later_planning_failure() {
             ),
             keyed(
                 "holder",
-                Button::new().content(
+                Button::new().is_enabled(true).content(
                     TextBlock::new()
                         .text("nested")
                         .exit_fade(Duration::from_millis(100)),

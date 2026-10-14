@@ -1510,9 +1510,16 @@ impl<'a> GraphTransaction<'a> {
                 };
                 validate_property(retained.kind, &property)?;
                 let property_id = property.id;
-                self.get_mut(object)
+                // Observing a native value does not make the declaration own that property.
+                if retained
                     .properties
-                    .upsert(|current| current.id == property_id, property);
+                    .iter()
+                    .any(|current| current.id == property_id)
+                {
+                    self.get_mut(object)
+                        .properties
+                        .upsert(|current| current.id == property_id, property);
+                }
             }
             Observation::SetSelection { object, selected } => {
                 let Some(owner) = self.graph.get(object) else {

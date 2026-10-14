@@ -6,6 +6,12 @@ mod images;
 #[path = "lifecycle.rs"]
 mod lifecycle;
 
+#[path = "calendar.rs"]
+mod calendar;
+
+#[path = "ownership.rs"]
+mod ownership;
+
 #[test]
 fn placement_coordinates_round_trip_negative_monitors_and_taskbar_offsets() {
     let screen = native::RECT {

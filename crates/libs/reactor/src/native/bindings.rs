@@ -1342,6 +1342,16 @@ impl CalendarDatePicker {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
+    pub(crate) fn DateProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ICalendarDatePickerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DateProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
     pub(crate) fn IsCalendarOpenProperty() -> windows_core::Result<DependencyProperty> {
         Self::ICalendarDatePickerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1356,6 +1366,26 @@ impl CalendarDatePicker {
         Self::ICalendarDatePickerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PlaceholderTextProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn MinDateProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ICalendarDatePickerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MinDateProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn MaxDateProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ICalendarDatePickerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxDateProperty)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
@@ -6889,6 +6919,17 @@ impl windows_core::RuntimeType for ICalendarDatePicker {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ICalendarDatePicker {
+    pub(crate) fn Date(&self) -> windows_core::Result<windows_time::DateTime> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Date)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+        }
+    }
     pub(crate) fn SetDate(
         &self,
         value: Option<windows_time::DateTime>,
@@ -6929,6 +6970,24 @@ impl ICalendarDatePicker {
             (windows_core::Interface::vtable(self).SetHeader)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetMinDate(&self, value: windows_time::DateTime) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMinDate)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetMaxDate(&self, value: windows_time::DateTime) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMaxDate)(
+                windows_core::Interface::as_raw(self),
+                value,
             )
             .ok()
         }
@@ -6985,7 +7044,10 @@ impl ICalendarDatePicker {
 #[repr(C)]
 pub struct ICalendarDatePicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    Date: usize,
+    pub Date: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub SetDate: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -7014,9 +7076,15 @@ pub struct ICalendarDatePicker_Vtbl {
     Description: usize,
     SetDescription: usize,
     MinDate: usize,
-    SetMinDate: usize,
+    pub SetMinDate: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_time::DateTime,
+    ) -> windows_core::HRESULT,
     MaxDate: usize,
-    SetMaxDate: usize,
+    pub SetMaxDate: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_time::DateTime,
+    ) -> windows_core::HRESULT,
     IsTodayHighlighted: usize,
     pub SetIsTodayHighlighted:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -7103,7 +7171,10 @@ impl windows_core::RuntimeType for ICalendarDatePickerStatics {
 #[repr(C)]
 pub struct ICalendarDatePickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    DateProperty: usize,
+    pub DateProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub IsCalendarOpenProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
@@ -7118,8 +7189,14 @@ pub struct ICalendarDatePickerStatics_Vtbl {
     CalendarViewStyleProperty: usize,
     LightDismissOverlayModeProperty: usize,
     DescriptionProperty: usize,
-    MinDateProperty: usize,
-    MaxDateProperty: usize,
+    pub MinDateProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub MaxDateProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub IsTodayHighlightedProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,

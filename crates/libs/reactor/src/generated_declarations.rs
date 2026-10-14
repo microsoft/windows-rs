@@ -6288,6 +6288,25 @@ impl CalendarDatePicker {
         let declaration = Declaration::new(ObjectType::CalendarDatePicker);
         Self(declaration)
     }
+    pub fn min_date(mut self, min_date: DateTime) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::MinDate, PropertyValue::DateTime(min_date));
+        self
+    }
+    pub fn max_date(mut self, max_date: DateTime) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::MaxDate, PropertyValue::DateTime(max_date));
+        self
+    }
+    pub fn date(mut self, date: impl Into<Option<DateTime>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::Date,
+            PropertyValue::OptionalDateTime(date.into()),
+        );
+        self
+    }
     pub fn placeholder_text(mut self, placeholder_text: impl AsRef<str>) -> Self {
         self.0 = self.0.property(
             PropertyId::PlaceholderText,
