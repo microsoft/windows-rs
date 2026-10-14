@@ -471,6 +471,11 @@ reference, while `SyncWeak` denotes an `Arc` weak reference.
 
 ### Test boundaries
 
+Virtual item content changes refresh retained rows without resetting the native item source.
+The native source is reset when the ordered keys change, including insertion, removal, and reorder.
+Keep row-content updates separate from source changes so equal component inputs preserve their
+instances and skip rendering.
+
 The default API exposes application components, declarations, references, and window integration.
 Host/runtime protocols such as `ComponentHost`, `Runtime`, `Adapter`, retained graphs, mutations,
 service injection, schema metadata, and generic property/event records are available only with

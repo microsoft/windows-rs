@@ -1,6 +1,81 @@
 use super::*;
 
 #[test]
+fn virtual_row_content_updates_do_not_reset_the_native_source() {
+    for lazy in [false, true] {
+        let view = |text: &'static str| {
+            if lazy {
+                ItemsRepeater::new().virtual_source(VirtualSource::new(
+                    0,
+                    1,
+                    |_| "row",
+                    move |_| TextBlock::new().text(text),
+                ))
+            } else {
+                ItemsRepeater::new().item("row", TextBlock::new().text(text))
+            }
+        };
+        let mut runtime = Runtime::new(RecordingAdapter::new());
+        runtime.update(view("Before")).unwrap();
+        let collection = runtime.graph().root().unwrap();
+        runtime
+            .adapter_mut()
+            .queue_realization(RealizationRequest::Realize {
+                collection,
+                container: RealizedContainer(1),
+                index: 0,
+                source_revision: 0,
+            });
+        let Some(NativeWork::Virtual(VirtualWork::Realize {
+            lease, index, view, ..
+        })) = runtime.next_native_work().unwrap()
+        else {
+            panic!("expected initial realization");
+        };
+        runtime.realize_virtual(&lease, index, *view).unwrap();
+        let before = runtime
+            .graph()
+            .virtual_realization(collection, RealizedContainer(1))
+            .unwrap();
+
+        // Fresh view/source closures must not reset the native key/index sequence.
+        let next = if lazy {
+            ItemsRepeater::new().virtual_source(VirtualSource::new(
+                0,
+                1,
+                |_| "row",
+                |_| TextBlock::new().text("After"),
+            ))
+        } else {
+            ItemsRepeater::new().item("row", TextBlock::new().text("After"))
+        };
+        let mutations = runtime.update(next).unwrap();
+        assert!(
+            !mutations
+                .iter()
+                .any(|mutation| matches!(mutation, Mutation::SetVirtualSource { .. }))
+        );
+        let Some(NativeWork::Virtual(VirtualWork::Realize {
+            lease, index, view, ..
+        })) = runtime.next_native_work().unwrap()
+        else {
+            panic!("expected row content refresh");
+        };
+        runtime.realize_virtual(&lease, index, *view).unwrap();
+        assert_eq!(
+            runtime
+                .graph()
+                .virtual_realization(collection, RealizedContainer(1)),
+            Some(before)
+        );
+        assert_eq!(
+            runtime.graph().properties(before).unwrap()[0].value,
+            PropertyValue::String(Rc::from("After"))
+        );
+    }
+}
+
+#[test]
 fn virtual_items_realize_only_requested_rows() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     let source = VirtualSource::new(1, 10_000, Key::from, |index| -> View {

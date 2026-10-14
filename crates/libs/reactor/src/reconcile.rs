@@ -3704,7 +3704,7 @@ impl Planner<'_, '_> {
         retained.lease_revision = lease_revision;
         retained.containers = containers;
         retained.active = active;
-        if items_changed || keys_changed {
+        if keys_changed {
             self.mutations.push(Mutation::SetVirtualSource {
                 object,
                 item_count: retained.keys.len(),
