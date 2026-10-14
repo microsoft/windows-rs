@@ -272,7 +272,7 @@ fn equal_image_sources_share_native_images_across_page_replacement() {
                 StackPanel::new().children((image,))
             }
         };
-        let tick = timer.Tick(move |_, _| {
+        let tick = timer.Tick(move |sender, _| {
             ticks.set(ticks.get() + 1);
             assert!(
                 ticks.get() < 100,
@@ -365,6 +365,7 @@ fn equal_image_sources_share_native_images_across_page_replacement() {
             } else if weak.borrow().iter().all(|image| image.upgrade().is_none()) {
                 assert!(events.borrow().is_empty());
                 assert!(notifications.borrow().is_empty());
+                sender.ok().unwrap().Stop().unwrap();
                 finished.set(true);
                 app.exit().unwrap();
             }
