@@ -40,7 +40,6 @@ impl Component for RatingControlPage {
                                 ))
                                 .opacity(0.6),
                         )),
-                        "RatingControl::new().value(rating).on_value_changed(handler)",
                     ),
                 ),
                 KeyedView::new(
@@ -51,7 +50,6 @@ impl Component for RatingControlPage {
                             .value(7.0)
                             .max_rating(10)
                             .caption("Score out of 10"),
-                        "RatingControl::new().value(7.0).max_rating(10)",
                     ),
                 ),
                 KeyedView::new(
@@ -62,7 +60,6 @@ impl Component for RatingControlPage {
                             .value(4.5)
                             .is_read_only(true)
                             .caption("Average user rating"),
-                        "RatingControl::new().value(4.5).is_read_only(true)",
                     ),
                 ),
             ],

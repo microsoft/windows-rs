@@ -36,7 +36,6 @@ impl Component for SplitViewPage {
                             .pane(Border::new().padding(16.0).content("Pane content"))
                             .content(Border::new().padding(16.0).content("Main content area")),
                     )),
-                    "SplitView::new().is_pane_open(open).pane(pane).content(content)",
                 ),
             )],
         )

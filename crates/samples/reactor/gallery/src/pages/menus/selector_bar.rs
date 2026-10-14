@@ -56,9 +56,6 @@ impl Component for SelectorBarPage {
                             .text(format!("Selected: {}", self.selected))
                             .opacity(0.6),
                     )),
-                    r#"SelectorBar::new()
-    .on_selected_text_changed(h)
-    .items([...])"#,
                 ),
             )],
         )

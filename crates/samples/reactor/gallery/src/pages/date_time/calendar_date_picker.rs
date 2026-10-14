@@ -38,7 +38,6 @@ impl Component for CalendarDatePickerPage {
                                 .header("Appointment Date"),
                             TextBlock::new().text(&self.label).opacity(0.6),
                         )),
-                        "CalendarDatePicker::new()\n    .placeholder_text(\"Select a date\")\n    .on_date_changed(|date| ...)",
                     ),
                 ),
                 KeyedView::new(
@@ -49,7 +48,6 @@ impl Component for CalendarDatePickerPage {
                             .placeholder_text("Cannot change")
                             .is_enabled(false)
                             .header("Locked Date"),
-                        "CalendarDatePicker::new().is_enabled(false)",
                     ),
                 ),
             ],

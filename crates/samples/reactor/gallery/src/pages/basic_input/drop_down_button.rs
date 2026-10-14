@@ -44,7 +44,6 @@ impl Component for DropDownButtonPage {
                                 .text(format!("Last action: {}", self.selected))
                                 .opacity(0.6),
                         )),
-                        "DropDownButton::new().content(label).menu(Menu::new(items, handler))",
                     ),
                 ),
                 KeyedView::new(
@@ -52,7 +51,6 @@ impl Component for DropDownButtonPage {
                     sample_card(
                         "Disabled DropDownButton",
                         DropDownButton::new().is_enabled(false).content("Disabled"),
-                        "DropDownButton::new().is_enabled(false)",
                     ),
                 ),
             ],

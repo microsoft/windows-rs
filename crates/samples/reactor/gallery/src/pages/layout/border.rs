@@ -56,7 +56,6 @@ impl Component for BorderPage {
                                 .on_toggled(context.callback(Message::Thick))
                                 .header("Thick border"),
                         )),
-                        "Border::new().corner_radius(radius).border_thickness(thickness)",
                     ),
                 ),
                 KeyedView::new(
@@ -68,7 +67,6 @@ impl Component for BorderPage {
                             .padding(16.0)
                             .corner_radius(4.0)
                             .content("Styled border"),
-                        "Border::new().background(color).corner_radius(4.0)",
                     ),
                 ),
             ],

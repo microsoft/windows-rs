@@ -42,7 +42,6 @@ impl Component for ComboBoxPage {
                                 .text(format!("Selected: {label}"))
                                 .opacity(0.6),
                         )),
-                        "ComboBox::new().items_source(colors).on_selection_changed(handler)",
                     ),
                 ),
                 KeyedView::new(
@@ -54,7 +53,6 @@ impl Component for ComboBoxPage {
                             .placeholder_text("Type or pick")
                             .is_editable(true)
                             .header("Animal"),
-                        "ComboBox::new().items_source(items).is_editable(true)",
                     ),
                 ),
             ],

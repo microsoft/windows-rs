@@ -63,7 +63,6 @@ impl Component for CanvasPage {
                             .text(format!("Position: {:.0}, {:.0}", self.x, self.y))
                             .opacity(0.6),
                     )),
-                    "Canvas::new().children((child.canvas_left(x).canvas_top(y),))",
                 ),
             )],
         )

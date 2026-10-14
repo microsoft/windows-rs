@@ -40,7 +40,6 @@ impl Component for PasswordBoxPage {
                                 .text(format!("Length: {} chars", self.password.len()))
                                 .opacity(0.6),
                         )),
-                        "PasswordBox::new().password(value).on_password_changed(handler)",
                     ),
                 ),
                 KeyedView::new(
@@ -50,7 +49,6 @@ impl Component for PasswordBoxPage {
                         PasswordBox::new()
                             .placeholder_text("Enter secret")
                             .password_reveal_mode(PasswordRevealMode::Peek),
-                        "PasswordBox::new().password_reveal_mode(PasswordRevealMode::Peek)",
                     ),
                 ),
                 KeyedView::new(
@@ -58,7 +56,6 @@ impl Component for PasswordBoxPage {
                     sample_card(
                         "Disabled PasswordBox",
                         PasswordBox::new().password("hunter2").is_enabled(false),
-                        "PasswordBox::new().password(value).is_enabled(false)",
                     ),
                 ),
             ],

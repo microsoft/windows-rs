@@ -71,16 +71,11 @@ impl Component for TreeViewPage {
                                 .text(format!("Last invoked: {}", self.last_invoked))
                                 .opacity(0.6),
                         )),
-                        r#"TreeView::new().on_item_invoked(...).nodes(nodes)"#,
                     ),
                 ),
                 KeyedView::new(
                     "flat-tree-view",
-                    sample_card(
-                        "Flat TreeView",
-                        TreeView::new().nodes(flat),
-                        r#"TreeView::new().nodes([TreeNode::new("a", "Item A"), ...])"#,
-                    ),
+                    sample_card("Flat TreeView", TreeView::new().nodes(flat)),
                 ),
             ],
         )

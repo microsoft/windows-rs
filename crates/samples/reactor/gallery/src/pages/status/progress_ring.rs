@@ -27,7 +27,6 @@ impl Component for ProgressRingPage {
                     sample_card(
                         "Indeterminate ProgressRing",
                         ProgressRing::new().is_active(true).is_indeterminate(true),
-                        "ProgressRing::new().is_active(true).is_indeterminate(true)",
                     ),
                 ),
                 KeyedView::new(
@@ -49,7 +48,6 @@ impl Component for ProgressRingPage {
                                 .text(format!("{:.0}%", self.value))
                                 .opacity(0.6),
                         )),
-                        "ProgressRing::new().value(value).is_active(true)",
                     ),
                 ),
             ],

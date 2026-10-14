@@ -44,11 +44,6 @@ impl Component for ViewboxPage {
                             .value(self.size)
                             .on_value_changed(context.forward()),
                     )),
-                    r#"Viewbox::new()
-    .width(viewport_width)
-    .height(100.0)
-    .stretch(Stretch::Uniform)
-    .content(content)"#,
                 ),
             )],
         )

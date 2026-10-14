@@ -43,7 +43,6 @@ impl Component for ToolTipPage {
                                 .text(format!("Click count: {}", self.clicks))
                                 .opacity(0.6),
                         )),
-                        "control.tooltip_with(Tooltip::rich(content))",
                     ),
                 ),
                 KeyedView::new(
@@ -53,7 +52,6 @@ impl Component for ToolTipPage {
                         Button::new()
                             .content("Hover me")
                             .tooltip("This is a helpful tooltip"),
-                        "control.tooltip(\"Helpful text\")",
                     ),
                 ),
             ],

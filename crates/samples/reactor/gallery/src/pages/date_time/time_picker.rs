@@ -41,7 +41,6 @@ impl Component for TimePickerPage {
                                 .header("Select time"),
                             TextBlock::new().text(&self.label).opacity(0.6),
                         )),
-                        "TimePicker::new()\n    .on_time_changed(|time| ...)",
                     ),
                 ),
                 KeyedView::new(
@@ -51,7 +50,6 @@ impl Component for TimePickerPage {
                         TimePicker::new()
                             .minute_increment(15)
                             .header("Meeting time"),
-                        "TimePicker::new().minute_increment(15)",
                     ),
                 ),
             ],

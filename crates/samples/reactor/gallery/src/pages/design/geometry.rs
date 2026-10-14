@@ -40,7 +40,6 @@ impl Component for GeometryPage {
                                 radius_sample(8.0, "Overlay - 8px"),
                                 radius_sample(16.0, "Large surface - 16px"),
                             )),
-                        "Border::new().corner_radius(4.0)",
                     ),
                 ),
                 KeyedView::new(
@@ -62,7 +61,6 @@ impl Component for GeometryPage {
                                         .opacity(0.6),
                                 )),
                             ),
-                        "Border::new().corner_radius(8.0).content(dialog)",
                     ),
                 ),
             ],

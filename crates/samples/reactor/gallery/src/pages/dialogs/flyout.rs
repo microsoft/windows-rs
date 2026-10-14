@@ -53,13 +53,6 @@ impl Component for FlyoutPage {
                                 })
                                 .opacity(0.6),
                         )),
-                        r#"Button::new()
-    .content("Delete item")
-    .flyout_with(Flyout::rich(
-        Button::new()
-            .content("Confirm delete")
-            .on_click(context.message(Message::Deleted)),
-    ))"#,
                     ),
                 ),
                 KeyedView::new(
@@ -69,9 +62,6 @@ impl Component for FlyoutPage {
                         Button::new()
                             .content("Click for flyout")
                             .flyout("This is a flyout!"),
-                        r#"Button::new()
-    .content("Click for flyout")
-    .flyout("This is a flyout!")"#,
                     ),
                 ),
                 KeyedView::new(
@@ -90,10 +80,6 @@ impl Component for FlyoutPage {
                                         .placement(FlyoutPlacement::Bottom),
                                 ),
                             )),
-                        r#"Button::new().content("Help").flyout("Press F1 for more help."),
-Button::new()
-    .content("Info")
-    .flyout_with(Flyout::text("This operation cannot be undone.").placement(FlyoutPlacement::Bottom))"#,
                     ),
                 ),
             ],

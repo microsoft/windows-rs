@@ -40,7 +40,6 @@ impl Component for ExpanderPage {
                                 })
                                 .opacity(0.6),
                         )),
-                        "Expander::new().is_expanded(state).on_is_expanded_changed(handler)",
                     ),
                 ),
                 KeyedView::new(
@@ -51,7 +50,6 @@ impl Component for ExpanderPage {
                             .is_expanded(false)
                             .header("More info")
                             .content("Hidden by default."),
-                        "Expander::new().is_expanded(false)",
                     ),
                 ),
             ],

@@ -65,7 +65,6 @@ impl Component for ToggleSwitchPage {
                                 })
                                 .opacity(0.6),
                         )),
-                        "ToggleSwitch::new().is_on(value).on_toggled(handler)",
                     ),
                 ),
                 KeyedView::new(
@@ -82,7 +81,6 @@ impl Component for ToggleSwitchPage {
                                 })
                                 .opacity(0.6),
                         )),
-                        "ToggleSwitch::new().header(header).on_content(on).off_content(off)",
                     ),
                 ),
                 KeyedView::new(
@@ -101,7 +99,6 @@ impl Component for ToggleSwitchPage {
                                 .on_toggled(context.callback(Message::Overnight))
                                 .header("Install updates overnight"),
                         )),
-                        "ToggleSwitch::new().is_enabled(parent_enabled)",
                     ),
                 ),
             ],

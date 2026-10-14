@@ -57,7 +57,6 @@ impl Component for InfoBadgePage {
                                         .opacity(0.6),
                                 )),
                         )),
-                        "InfoBadge::new().value(count)",
                     ),
                 ),
                 KeyedView::new(
@@ -72,7 +71,6 @@ impl Component for InfoBadgePage {
                                 InfoBadge::new().value(12),
                                 InfoBadge::new().value(99),
                             )),
-                        "InfoBadge::new().value(12)",
                     ),
                 ),
             ],

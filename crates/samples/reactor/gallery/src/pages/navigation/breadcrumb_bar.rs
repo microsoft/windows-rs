@@ -36,9 +36,6 @@ impl Component for BreadcrumbBarPage {
                                 ),
                             TextBlock::new().text(self.clicked.clone()).opacity(0.6),
                         )),
-                        r#"BreadcrumbBar::new()
-    .items_source(["Home", "Documents", "Report"])
-    .on_item_clicked(handler)"#,
                     ),
                 ),
                 KeyedView::new(
@@ -50,7 +47,6 @@ impl Component for BreadcrumbBarPage {
                             .on_item_clicked(
                                 context.callback(|value: std::rc::Rc<str>| value.to_string()),
                             ),
-                        "BreadcrumbBar::new().items_source(path)",
                     ),
                 ),
             ],

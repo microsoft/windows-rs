@@ -47,7 +47,6 @@ impl Component for RepeatButtonPage {
                                 .text(format!("Count: {}", self.count))
                                 .opacity(0.6),
                         )),
-                        "RepeatButton::new().on_click(handler).content(label)",
                     ),
                 ),
                 KeyedView::new(
@@ -64,7 +63,6 @@ impl Component for RepeatButtonPage {
                                 .text(format!("Fast count: {}", self.fast_count))
                                 .opacity(0.6),
                         )),
-                        "RepeatButton::new().delay(200).interval(50).on_click(handler)",
                     ),
                 ),
             ],

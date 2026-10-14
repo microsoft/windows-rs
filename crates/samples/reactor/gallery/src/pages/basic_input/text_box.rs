@@ -50,7 +50,6 @@ impl Component for TextBoxPage {
                                 .text(format!("Characters: {}", self.text.len()))
                                 .opacity(0.6),
                         )),
-                        "TextBox::new().text(value).on_text_changed(handler)",
                     ),
                 ),
                 KeyedView::new(
@@ -64,7 +63,6 @@ impl Component for TextBoxPage {
                             .on_text_changed(context.callback(|value: std::rc::Rc<str>| {
                                 Message::Notes(value.to_string())
                             })),
-                        "TextBox::new().accepts_return(true).text_wrapping(TextWrapping::Wrap)",
                     ),
                 ),
                 KeyedView::new(
@@ -72,7 +70,6 @@ impl Component for TextBoxPage {
                     sample_card(
                         "Disabled TextBox",
                         TextBox::new("Read-only content").is_enabled(false),
-                        "TextBox::new().text(content).is_enabled(false)",
                     ),
                 ),
             ],

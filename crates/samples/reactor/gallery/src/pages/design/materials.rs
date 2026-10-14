@@ -59,7 +59,6 @@ impl Component for MaterialsPage {
                                 )),
                             TextBlock::new().text(description).opacity(0.7),
                         )),
-                        "WindowVisuals::new().backdrop(WindowBackdrop::Mica)",
                     ),
                 ),
                 KeyedView::new(
@@ -72,7 +71,6 @@ impl Component for MaterialsPage {
                             "Use Acrylic for transient surfaces.",
                             "Use None for a solid window background.",
                         )),
-                        "WindowBackdrop::{Mica, MicaAlt, Acrylic, None}",
                     ),
                 ),
             ],

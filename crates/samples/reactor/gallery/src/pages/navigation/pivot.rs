@@ -39,8 +39,6 @@ impl Component for PivotPage {
                             .selected_index(self.selected)
                             .on_selection_changed(context.forward())
                             .items(items("basic")),
-                        "Pivot::new().selected_index(index)\n    \
-                         .items(items)",
                     ),
                 ),
                 KeyedView::new(
@@ -56,7 +54,6 @@ impl Component for PivotPage {
                                 .text(format!("Active tab index: {:?}", self.selected))
                                 .opacity(0.6),
                         )),
-                        "Pivot::new().on_selection_changed(handler)",
                     ),
                 ),
             ],

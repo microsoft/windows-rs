@@ -56,7 +56,6 @@ impl Component for CommandBarPage {
                             .text(format!("Last command: {}", self.last_command))
                             .opacity(0.6),
                     )),
-                    r#"CommandBar::new().owned_commands(primary, secondary, |label| ...)"#,
                 ),
             )],
         )
