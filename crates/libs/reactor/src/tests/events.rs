@@ -346,6 +346,166 @@ fn invalid_observation_batch_rolls_back_and_remains_queued() {
 }
 
 #[test]
+fn native_queue_invalid_callback_observation_rolls_back_prefix() {
+    let callback = Callback::new(|_: Rc<str>| panic!("invalid prefix must not dispatch"));
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    runtime
+        .update(
+            TextBox::new()
+                .text("Before")
+                .on_text_changed(callback.clone()),
+        )
+        .unwrap();
+    let object = runtime.graph().root().unwrap();
+    runtime.adapter_mut().observe(Observation::SetProperty {
+        object,
+        property: Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("Pending")),
+        },
+    });
+    runtime.adapter_mut().queue_native_event(
+        Some(Observation::SetProperty {
+            object,
+            property: Property {
+                id: PropertyId::Expanded,
+                value: PropertyValue::Bool(true),
+            },
+        }),
+        Some(EventDispatch::new(
+            object,
+            EventId::TextChanged,
+            EventValue::String(callback),
+            EventPayload::String(Rc::from("Invalid")),
+        )),
+    );
+    let graph = runtime.graph().clone();
+    let adapter = runtime.adapter().clone();
+
+    assert!(matches!(
+        runtime.next_native_work(),
+        Err(UpdateError::InvalidNativeEvent(
+            GraphError::InvalidProperty(ObjectType::TextBox, PropertyId::Expanded)
+        ))
+    ));
+    assert_eq!(runtime.graph(), &graph);
+    assert_eq!(runtime.adapter(), &adapter);
+    assert_eq!(runtime.prepare_update(), Err(UpdateError::Poisoned));
+}
+
+#[test]
+fn native_queue_callback_boundary_preserves_later_observation_rollback() {
+    let calls = Rc::new(Cell::new(0));
+    let called = Rc::clone(&calls);
+    let callback = Callback::new(move |_: Rc<str>| called.set(called.get() + 1));
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    runtime
+        .update(
+            TextBox::new()
+                .text("Before")
+                .on_text_changed(callback.clone()),
+        )
+        .unwrap();
+    let object = runtime.graph().root().unwrap();
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        object,
+        EventId::TextChanged,
+        EventValue::String(callback),
+        EventPayload::String(Rc::from("First")),
+    ));
+    for property in [
+        Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("After")),
+        },
+        Property {
+            id: PropertyId::Expanded,
+            value: PropertyValue::Bool(true),
+        },
+    ] {
+        runtime
+            .adapter_mut()
+            .observe(Observation::SetProperty { object, property });
+    }
+
+    let Some(NativeWork::Event(mut event)) = runtime.next_native_work().unwrap() else {
+        panic!("expected earlier valid callback");
+    };
+    event.invoke();
+    drop(event);
+    assert_eq!(calls.get(), 1);
+    let graph = runtime.graph().clone();
+    let adapter = runtime.adapter().clone();
+    assert!(matches!(
+        runtime.next_native_work(),
+        Err(UpdateError::InvalidNativeEvent(
+            GraphError::InvalidProperty(ObjectType::TextBox, PropertyId::Expanded)
+        ))
+    ));
+    assert_eq!(runtime.graph(), &graph);
+    assert_eq!(runtime.adapter(), &adapter);
+    assert_eq!(runtime.prepare_update(), Err(UpdateError::Poisoned));
+}
+
+#[test]
+fn native_queue_callback_boundary_preserves_later_realization_validation() {
+    let calls = Rc::new(Cell::new(0));
+    let called = Rc::clone(&calls);
+    let callback = Callback::new(move |()| called.set(called.get() + 1));
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    runtime
+        .update(
+            Grid::new().children([
+                Button::new().on_click(callback.clone()).into(),
+                ItemsRepeater::new()
+                    .item("only", TextBlock::new().text("Only"))
+                    .into(),
+            ]),
+        )
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let children = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap();
+    let (button, collection) = (children[0], children[1]);
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        button,
+        EventId::Click,
+        EventValue::Unit(callback),
+        EventPayload::Unit,
+    ));
+    for (container, index) in [(1, 0), (2, 1)] {
+        runtime
+            .adapter_mut()
+            .queue_realization(RealizationRequest::Realize {
+                collection,
+                container: RealizedContainer(container),
+                index,
+                source_revision: 0,
+            });
+    }
+
+    let Some(NativeWork::Event(mut event)) = runtime.next_native_work().unwrap() else {
+        panic!("expected earlier valid callback");
+    };
+    event.invoke();
+    drop(event);
+    assert_eq!(calls.get(), 1);
+    let graph = runtime.graph().clone();
+    let adapter = runtime.adapter().clone();
+    assert!(matches!(
+        runtime.next_native_work(),
+        Err(UpdateError::InvalidNativeEvent(GraphError::InvalidRealization(
+            object,
+            1
+        ))) if object == collection
+    ));
+    assert_eq!(runtime.graph(), &graph);
+    assert_eq!(runtime.adapter(), &adapter);
+}
+
+#[test]
 fn ordered_native_events_hide_future_observations_from_earlier_callbacks() {
     let values = Rc::new(RefCell::new(Vec::new()));
     let callback = {

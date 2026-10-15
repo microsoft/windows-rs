@@ -639,6 +639,65 @@ fn mixed_duplicate_and_stale_retirement_completions_are_idempotent() {
 }
 
 #[test]
+fn native_queue_retirement_cleanup_does_not_consume_later_callback() {
+    let calls = Rc::new(Cell::new(0));
+    let called = Rc::clone(&calls);
+    let callback = Callback::new(move |()| called.set(called.get() + 1));
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    runtime
+        .update(
+            Grid::new().keyed_children([
+                keyed(
+                    "retiring",
+                    TextBox::new()
+                        .text("Retiring")
+                        .exit_fade(Duration::from_millis(100)),
+                ),
+                keyed("active", Button::new().on_click(callback.clone())),
+            ]),
+        )
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let children = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap();
+    let (retiring, active) = (children[0], children[1]);
+    runtime
+        .update(
+            Grid::new().keyed_children([keyed("active", Button::new().on_click(callback.clone()))]),
+        )
+        .unwrap();
+    runtime.adapter_mut().queue_retirement_completion(retiring);
+    runtime.adapter_mut().observe(Observation::SetProperty {
+        object: retiring,
+        property: Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("Stale")),
+        },
+    });
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        active,
+        EventId::Click,
+        EventValue::Unit(callback),
+        EventPayload::Unit,
+    ));
+
+    assert_eq!(
+        runtime.prepare_update(),
+        Err(UpdateError::PendingNativeEvent)
+    );
+    assert_eq!(runtime.graph().retired_count(), 0);
+    assert_eq!(runtime.adapter().retirement_count(), 0);
+    let Some(NativeWork::Event(mut event)) = runtime.next_native_work().unwrap() else {
+        panic!("expected callback after native cleanup");
+    };
+    event.invoke();
+    drop(event);
+    assert_eq!(calls.get(), 1);
+}
+
+#[test]
 fn native_event_before_retirement_completion_keeps_chronological_order() {
     let calls = Rc::new(Cell::new(0));
     let callback = {
