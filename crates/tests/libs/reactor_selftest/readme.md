@@ -38,3 +38,30 @@ The script builds each package independently, captures runtime stdout and stderr
 process to remain alive for three seconds, and then closes or terminates that process. Use
 `-RunSeconds`, `-Family`, or `-Package` to narrow or lengthen a run, and `-KeepLogs` to retain all
 captured output.
+
+Use `-Package` with `-ChangedSince <commit>` to run the named packages plus samples changed between
+that commit and `HEAD`. Added files and deleted files within surviving packages count as changes;
+removed packages are not run. `-List` prints the selection without building or launching anything.
+The comparison commit must be available locally.
+
+## CI
+
+PRs and master pushes run the native self-test once, with cast diagnostics, and retain the native
+regressions, public integration fixtures, deployment checks, isolated feature checks, and public
+API snapshot. Workspace unit tests and generation checks belong to `test.yml` and `gen.yml`.
+
+The smoke gate runs Counter, Gallery, Workbench, the Reactor Composition host, standalone system
+Composition, and Reactor WebView, plus changed or new samples. PRs compare against their base commit;
+pushes compare against the previous branch tip, including every commit in the push. Each package
+is built independently, and GUI processes run serially.
+
+Scheduled and manually dispatched runs also enforce coverage floors, repeat the native self-test,
+and launch every sample. The routine gate targets roughly ten minutes; the exhaustive runs can take
+longer. CLI tools use pinned `cargo install` versions. The public API tool has a separate cache saved
+immediately after installation, so a later test failure does not discard the compiled tool.
+
+Run the sample selection checks without starting any windows:
+
+```text
+pwsh -File crates\tests\libs\reactor_selftest\test_samples.ps1
+```

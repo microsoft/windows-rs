@@ -30,36 +30,39 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
 
+      - name: Restore public API tool
+        id: public-api-cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}\reactor-public-api
+          key: reactor-public-api-0.52.0-${{ runner.os }}-${{ runner.arch }}
+
       - name: Install public API tool
-        run: cargo install cargo-public-api --locked --version 0.52.0
-
-      - name: Install coverage tool
-        run: cargo install cargo-llvm-cov --locked --version 0.8.7
-
-      - name: Regenerate Reactor
-        shell: pwsh
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $true
-          cargo run -p tool-reactor --quiet
-          git diff --exit-code
-
-      - name: Test Reactor
         shell: pwsh
         env:
-          RUSTFLAGS: "-D warnings"
+          CACHE_HIT: ${{ steps.public-api-cache.outputs.cache-hit }}
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          cargo test -p tool-reactor --quiet
-          cargo test -p windows-reactor --all-features --quiet
-          cargo test -p reactor-gallery --quiet
-          cargo test -p reactor-workbench --quiet
-          cargo check -p test-reactor-selftest -p test-reactor-bench --all-targets --quiet
-          cargo check -p test-reactor-integration --all-targets --quiet
-          cargo check -p reactor-workbench --bin reactor-workbench --quiet
+          $root = Join-Path $env:RUNNER_TEMP "reactor-public-api"
+          if ($env:CACHE_HIT -ne "true") {
+            cargo install cargo-public-api --locked --version 0.52.0 --root $root
+          }
+          Add-Content $env:GITHUB_PATH (Join-Path $root "bin")
+
+      - name: Save public API tool
+        if: steps.public-api-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}\reactor-public-api
+          key: ${{ steps.public-api-cache.outputs.cache-primary-key }}
+
+      - name: Install coverage tool
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: cargo install cargo-llvm-cov --locked --version 0.8.7
 
       - name: Check Reactor core coverage
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         shell: pwsh
         env:
           RUSTFLAGS: "-D warnings"
@@ -175,7 +178,8 @@ jobs:
           } 2>&1 | Tee-Object -FilePath $log
           & .\crates\tests\libs\reactor_selftest\check_casts.ps1 -Path $log
 
-      - name: Run live Reactor reliability tests
+      - name: Repeat live Reactor self-test
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         shell: pwsh
         env:
           RUSTFLAGS: "-D warnings"
@@ -185,6 +189,14 @@ jobs:
           1..3 | ForEach-Object {
             cargo run -p test-reactor-selftest --quiet -- --headless
           }
+
+      - name: Run live Reactor integration tests
+        shell: pwsh
+        env:
+          RUSTFLAGS: "-D warnings"
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
           "replacement", "multiple", "startup-error" |
             ForEach-Object {
               cargo run -p test-reactor-integration --bin application_lifecycle `
@@ -223,10 +235,24 @@ jobs:
         shell: pwsh
         env:
           RUSTFLAGS: "-D warnings"
+          FULL_SWEEP: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+          SAMPLE_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          & .\crates\tests\libs\reactor_selftest\run_samples.ps1
+          & .\crates\tests\libs\reactor_selftest\test_samples.ps1
+          if ($env:FULL_SWEEP -eq "true" -or $env:SAMPLE_BASE -match '^0+$') {
+            & .\crates\tests\libs\reactor_selftest\run_samples.ps1
+          } else {
+            if ($env:SAMPLE_BASE -notmatch '^[0-9a-f]{40}$') {
+              throw "Missing sample comparison commit"
+            }
+            git fetch --no-tags --depth=1 origin $env:SAMPLE_BASE
+            & .\crates\tests\libs\reactor_selftest\run_samples.ps1 `
+              -Package reactor-counter,reactor-gallery,reactor-workbench,`
+                composition-host,composition-standalone,webview-reactor `
+              -ChangedSince $env:SAMPLE_BASE
+          }
 
   performance:
     name: Reactor performance
