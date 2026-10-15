@@ -2276,6 +2276,24 @@ impl Border {
         );
         self
     }
+    pub fn translation(mut self, x: f64, y: f64) -> Self {
+        let translation = [x, y];
+        assert!(
+            translation.iter().all(|value| (*value as f32).is_finite()),
+            "Border.Translation requires finite"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::Translation, PropertyValue::Vector2(translation));
+        self
+    }
+    pub fn translation_transition(mut self, translation_transition: Duration) -> Self {
+        self.0 = self.0.property(
+            PropertyId::TranslationTransition,
+            PropertyValue::Duration(translation_transition),
+        );
+        self
+    }
     pub fn capture_pointer_on_press(mut self, capture_pointer_on_press: bool) -> Self {
         self.0 = self.0.property(
             PropertyId::CapturePointerOnPress,

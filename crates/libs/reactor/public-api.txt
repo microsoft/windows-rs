@@ -746,6 +746,8 @@ pub fn windows_reactor::Border::scale(self, f64) -> Self
 pub fn windows_reactor::Border::scale_transition(self, core::time::Duration) -> Self
 pub fn windows_reactor::Border::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::Border::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
+pub fn windows_reactor::Border::translation(self, f64, f64) -> Self
+pub fn windows_reactor::Border::translation_transition(self, core::time::Duration) -> Self
 pub fn windows_reactor::Border::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
 pub fn windows_reactor::Border::width(self, f64) -> Self
 impl core::convert::From<windows_reactor::Border> for windows_reactor::View

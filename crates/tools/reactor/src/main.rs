@@ -180,6 +180,8 @@ enum PropertyAdapter {
     ImplicitOpacityTransition,
     ImplicitScale,
     ImplicitScaleTransition,
+    ImplicitTranslation,
+    ImplicitTranslationTransition,
     InspectableString,
     InspectableStringList,
     KeyAccelerators,
@@ -209,8 +211,11 @@ impl PropertyAdapter {
             Self::GridColumns | Self::GridRows => "GridLengths",
             Self::IconElement | Self::IconSource => "Icon",
             Self::ImageUri => "ImageSource",
-            Self::ImplicitOpacityTransition | Self::ImplicitScaleTransition => "Duration",
+            Self::ImplicitOpacityTransition
+            | Self::ImplicitScaleTransition
+            | Self::ImplicitTranslationTransition => "Duration",
             Self::ImplicitScale => "F64",
+            Self::ImplicitTranslation => "Vector2",
             Self::InspectableString | Self::PathData | Self::RichEditText | Self::Uri => "String",
             Self::InspectableStringList => "StringList",
             Self::KeyAccelerators => "KeyAccelerators",
@@ -2416,9 +2421,20 @@ fn emit_native_property_arms(
             PropertyAdapter::ImplicitOpacityTransition
                 | PropertyAdapter::ImplicitScale
                 | PropertyAdapter::ImplicitScaleTransition
+                | PropertyAdapter::ImplicitTranslation
+                | PropertyAdapter::ImplicitTranslationTransition
         )
     ) {
-        if adapter == Some(PropertyAdapter::ImplicitScale) {
+        if adapter == Some(PropertyAdapter::ImplicitTranslation) {
+            output.push_str(&format!(
+                "{pattern}None) => Some({target}.cast::<native::UIElement>().map_err(Into::into)\
+                 .and_then(|object| object.SetTranslation(native::Vector3::default()).map_err(Into::into))),\n\
+                 {pattern}Some(PropertyValue::Vector2(value))) => \
+                 Some({target}.cast::<native::UIElement>().map_err(Into::into)\
+                 .and_then(|object| object.SetTranslation(native::Vector3 {{ \
+                 x: value[0] as f32, y: value[1] as f32, z: 0.0 }}).map_err(Into::into))),\n"
+            ));
+        } else if adapter == Some(PropertyAdapter::ImplicitScale) {
             output.push_str(&format!(
                 "{pattern}None) => Some({target}.cast::<native::UIElement>().map_err(Into::into)\
                  .and_then(|object| set_implicit_scale(&object, 1.0))),\n\
@@ -2429,6 +2445,8 @@ fn emit_native_property_arms(
         } else {
             let helper = if adapter == Some(PropertyAdapter::ImplicitOpacityTransition) {
                 "set_opacity_transition"
+            } else if adapter == Some(PropertyAdapter::ImplicitTranslationTransition) {
+                "set_translation_transition"
             } else {
                 "set_scale_transition"
             };
@@ -2778,6 +2796,7 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
              Selection,\n\
              ThemeTransitions,\n\
              Thickness,\n\
+             Vector2,\n\
              SelectionIndex,\n\
              StringList,\n\
              Enum { kind: &'static str, variants: &'static [&'static str] },\n\
@@ -3415,6 +3434,9 @@ fn generate_declarations(
                 _ => property_argument_parts(&name, &property.value),
             };
             output.push_str(&format!("pub fn {name}(mut self, {argument}) -> Self {{\n"));
+            if property.value == "Vector2" {
+                output.push_str(&format!("let {name} = [x, y];\n"));
+            }
             if matches!(property.value.as_str(), "CornerRadius" | "Thickness") {
                 output.push_str(&format!("let {name} = {name}.into();\n"));
             }
@@ -3689,6 +3711,9 @@ fn property_argument(property: &Property) -> String {
 
 fn validation_expression(name: &str, value: &str, validation: Validation) -> String {
     match validation {
+        Validation::Finite if value == "Vector2" => {
+            format!("{name}.iter().all(|value| (*value as f32).is_finite())")
+        }
         Validation::Finite => format!("{name}.is_finite()"),
         Validation::FinitePositive => format!("{name}.is_finite() && {name} > 0.0"),
         Validation::FiniteNonNegative if value == "F64" => {
@@ -3726,6 +3751,7 @@ fn property_argument_parts(name: &str, value: &str) -> String {
         "SelectionIndex" => format!("{name}: impl Into<Option<usize>>"),
         "StringList" => format!("{name}: impl IntoIterator<Item = impl Into<Rc<str>>>"),
         "Thickness" => format!("{name}: impl Into<Thickness>"),
+        "Vector2" => "x: f64, y: f64".to_string(),
         value => format!("{name}: {value}"),
     }
 }
@@ -3764,6 +3790,7 @@ fn property_value_parts(value: &str, name: &str) -> String {
             format!("PropertyValue::StringList({name}.into_iter().map(Into::into).collect())")
         }
         "Thickness" => format!("PropertyValue::Thickness({name})"),
+        "Vector2" => format!("PropertyValue::Vector2({name})"),
         _ => format!("{name}.property_value()"),
     }
 }
@@ -3999,6 +4026,7 @@ fn live_property_sample(
         "StringList" => "[\"coverage\"]".to_string(),
         "ThemeTransitions" => "[ThemeTransition::Reposition]".to_string(),
         "Thickness" => "Thickness::uniform(1.0)".to_string(),
+        "Vector2" => "1.0, -1.0".to_string(),
         "AutomationHeadingLevel" => "AutomationHeadingLevel::Level1".to_string(),
         "HorizontalAlignment" => "HorizontalAlignment::Center".to_string(),
         "InfoBarSeverity" => "InfoBarSeverity::Informational".to_string(),
@@ -4087,6 +4115,7 @@ fn is_builtin_value(value: &str) -> bool {
             | "StringList"
             | "ThemeTransitions"
             | "Thickness"
+            | "Vector2"
     )
 }
 

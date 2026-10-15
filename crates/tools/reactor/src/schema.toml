@@ -325,6 +325,15 @@ name = "ScaleTransition"
 adapter = "implicit_scale_transition"
 
 [[objects.properties]]
+name = "Translation"
+adapter = "implicit_translation"
+validation = "finite"
+
+[[objects.properties]]
+name = "TranslationTransition"
+adapter = "implicit_translation_transition"
+
+[[objects.properties]]
 name = "CapturePointerOnPress"
 adapter = "pointer_capture"
 

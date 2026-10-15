@@ -284,6 +284,19 @@ The [`image-sources`](../../crates/samples/reactor/image-sources) sample compare
 builders across images and icon slots. [`image-reuse`](../../crates/samples/reactor/image-reuse)
 shows page replacement with shared sources.
 
+## Animate a visual
+
+`Border` pairs `opacity`, `scale`, and `translation(x, y)` with matching
+`opacity_transition`, `scale_transition`, and `translation_transition` durations. Translation uses
+DIPs and changes visual position without changing layout space.
+
+New or replaced visuals start at their declared values without animating from native defaults.
+Later transition settings apply before target changes in the same render, regardless of builder order.
+Removing a target restores its default using the current transition. Removing a transition affects
+future target changes; an animation already running can finish. Native transitions respect the
+Windows animation setting. See the
+[translation sample](../../crates/samples/reactor/translation-transition) for sliding and reversal.
+
 ## Add icon content
 
 Use `Icon` to supply a control's icon content:

@@ -486,6 +486,28 @@ impl WinUiAdapter {
         self.ui_element(object)?.Opacity().map_err(Into::into)
     }
 
+    pub fn translation(&self, object: ObjectId) -> Result<[f32; 2], WinUiError> {
+        let value = self.ui_element(object)?.Translation()?;
+        Ok([value.x, value.y])
+    }
+
+    pub fn animations_enabled(&self) -> Result<bool, WinUiError> {
+        Ok(native::UISettings::new()?.AnimationsEnabled()?)
+    }
+
+    pub fn transformed_point(
+        &self,
+        object: ObjectId,
+        x: f32,
+        y: f32,
+    ) -> Result<[f32; 2], WinUiError> {
+        let point = self
+            .ui_element(object)?
+            .TransformToVisual(None::<&native::UIElement>)?
+            .TransformPoint(native::Point { x, y })?;
+        Ok([point.x, point.y])
+    }
+
     pub fn simulate_click(&self, object: ObjectId) -> Result<(), WinUiError> {
         let Some(Handle::Generated(handle)) = self.handles.get(&object) else {
             return Err(WinUiError::InvalidObject(object));

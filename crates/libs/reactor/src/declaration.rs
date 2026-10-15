@@ -1123,6 +1123,7 @@ pub enum PropertyValue {
     StringList(Rc<[Rc<str>]>),
     ThemeTransitions(Rc<[ThemeTransition]>),
     Thickness(Thickness),
+    Vector2([f64; 2]),
     Enum {
         kind: &'static str,
         variant: &'static str,

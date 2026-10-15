@@ -5221,6 +5221,54 @@ impl GeneratedHandle {
                     .map_err(Into::into)
                     .and_then(|object| set_scale_transition(&object, Some(*value))),
             ),
+            (Self::Border(object), PropertyId::Translation, None) => Some(
+                object
+                    .value
+                    .cast::<native::UIElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetTranslation(native::Vector3::default())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::Border(object),
+                PropertyId::Translation,
+                Some(PropertyValue::Vector2(value)),
+            ) => Some(
+                object
+                    .value
+                    .cast::<native::UIElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetTranslation(native::Vector3 {
+                                x: value[0] as f32,
+                                y: value[1] as f32,
+                                z: 0.0,
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Border(object), PropertyId::TranslationTransition, None) => Some(
+                object
+                    .value
+                    .cast::<native::UIElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| set_translation_transition(&object, None)),
+            ),
+            (
+                Self::Border(object),
+                PropertyId::TranslationTransition,
+                Some(PropertyValue::Duration(value)),
+            ) => Some(
+                object
+                    .value
+                    .cast::<native::UIElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| set_translation_transition(&object, Some(*value))),
+            ),
             (Self::Border(object), PropertyId::CapturePointerOnPress, None) => {
                 object.capture_pointer_on_press.set(false);
                 Some(Ok(()))

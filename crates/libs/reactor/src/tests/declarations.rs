@@ -568,6 +568,24 @@ fn text_box_read_only_and_alignment_update_and_clear() {
 
 #[test]
 fn shared_value_validation_rejects_invalid_inputs() {
+    for (x, y) in [
+        (f64::NAN, 0.0),
+        (0.0, f64::INFINITY),
+        (f64::MAX, 0.0),
+        (0.0, -f64::MAX),
+    ] {
+        assert!(std::panic::catch_unwind(|| Border::new().translation(x, y)).is_err());
+        assert!(
+            validate_property(
+                ObjectType::Border,
+                &Property {
+                    id: PropertyId::Translation,
+                    value: PropertyValue::Vector2([x, y]),
+                }
+            )
+            .is_err()
+        );
+    }
     assert!(HyperlinkButton::new().navigate_uri("not a uri").is_err());
     assert!(BitmapIcon::new().uri_source("").is_err());
     assert!(
@@ -581,6 +599,44 @@ fn shared_value_validation_rejects_invalid_inputs() {
             ResourceOverrides::new().set("Bad", Thickness::uniform(f64::NAN));
         })
         .is_err()
+    );
+}
+
+#[test]
+fn translation_updates_both_axes_and_clears_independently() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    let view = || {
+        Border::new()
+            .translation(-120.0, 40.0)
+            .translation_transition(Duration::from_secs(1))
+    };
+    runtime.update(view()).unwrap();
+    assert!(runtime.update(view()).unwrap().is_empty());
+    let mutations = runtime
+        .update(
+            Border::new()
+                .translation(80.0, -20.0)
+                .translation_transition(Duration::from_secs(1)),
+        )
+        .unwrap();
+    assert!(
+        matches!(mutations.as_slice(), [Mutation::SetProperties { set, clear, .. }]
+        if clear.is_empty() && set.as_ref() == [Property {
+            id: PropertyId::Translation,
+            value: PropertyValue::Vector2([80.0, -20.0]),
+        }])
+    );
+    let mutations = runtime
+        .update(Border::new().translation_transition(Duration::from_secs(1)))
+        .unwrap();
+    assert!(
+        matches!(mutations.as_slice(), [Mutation::SetProperties { set, clear, .. }]
+        if set.is_empty() && clear.as_ref() == [PropertyId::Translation])
+    );
+    let mutations = runtime.update(Border::new()).unwrap();
+    assert!(
+        matches!(mutations.as_slice(), [Mutation::SetProperties { set, clear, .. }]
+        if set.is_empty() && clear.as_ref() == [PropertyId::TranslationTransition])
     );
 }
 

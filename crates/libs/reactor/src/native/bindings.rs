@@ -4704,6 +4704,34 @@ unsafe impl Sync for FrameworkTemplate {}
 pub const GWL_EXSTYLE: i32 = -20;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct GeneralTransform(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    GeneralTransform,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(GeneralTransform, DependencyObject);
+impl windows_core::RuntimeType for GeneralTransform {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IGeneralTransform>();
+}
+unsafe impl windows_core::Interface for GeneralTransform {
+    type Vtable = <IGeneralTransform as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IGeneralTransform as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for GeneralTransform {
+    type Target = IGeneralTransform;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for GeneralTransform {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Media.GeneralTransform";
+}
+unsafe impl Send for GeneralTransform {}
+unsafe impl Sync for GeneralTransform {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Geometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     Geometry,
@@ -11109,6 +11137,38 @@ impl windows_core::RuntimeType for IFrameworkTemplate {
 #[repr(C)]
 pub struct IFrameworkTemplate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IGeneralTransform,
+    IGeneralTransform_Vtbl,
+    0x04eedeeb_31e5_54c0_ae3f_8bd06645d339
+);
+impl windows_core::RuntimeType for IGeneralTransform {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IGeneralTransform {
+    pub(crate) fn TransformPoint(&self, point: Point) -> windows_core::Result<Point> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).TransformPoint)(
+                windows_core::Interface::as_raw(self),
+                point,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct IGeneralTransform_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Inverse: usize,
+    pub TransformPoint: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        Point,
+        *mut Point,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IGeometry,
@@ -21533,6 +21593,37 @@ impl IUIElement {
             .ok()
         }
     }
+    pub(crate) fn Translation(&self) -> windows_core::Result<Vector3> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Translation)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetTranslation(&self, value: Vector3) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetTranslation)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetTranslationTransition<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<Vector3Transition>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetTranslationTransition)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetScale(&self, value: Vector3) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetScale)(
@@ -22115,6 +22206,20 @@ impl IUIElement {
             .ok()
         }
     }
+    pub(crate) fn TransformToVisual<P0>(&self, visual: P0) -> windows_core::Result<GeneralTransform>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).TransformToVisual)(
+                windows_core::Interface::as_raw(self),
+                visual.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn UpdateLayout(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).UpdateLayout)(windows_core::Interface::as_raw(
@@ -22240,10 +22345,15 @@ pub struct IUIElement_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    Translation: usize,
-    SetTranslation: usize,
+    pub Translation:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut Vector3) -> windows_core::HRESULT,
+    pub SetTranslation:
+        unsafe extern "system" fn(*mut core::ffi::c_void, Vector3) -> windows_core::HRESULT,
     TranslationTransition: usize,
-    SetTranslationTransition: usize,
+    pub SetTranslationTransition: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     Rotation: usize,
     SetRotation: usize,
     RotationTransition: usize,
@@ -22467,7 +22577,11 @@ pub struct IUIElement_Vtbl {
     ReleasePointerCaptures: usize,
     AddHandler: usize,
     RemoveHandler: usize,
-    TransformToVisual: usize,
+    pub TransformToVisual: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     InvalidateMeasure: usize,
     InvalidateArrange: usize,
     pub UpdateLayout: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22585,6 +22699,39 @@ pub struct IUIElementStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IUISettings,
+    IUISettings_Vtbl,
+    0x85361600_1c63_4627_bcb1_3a89e0bc9c55
+);
+impl windows_core::RuntimeType for IUISettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IUISettings {
+    pub(crate) fn AnimationsEnabled(&self) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AnimationsEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct IUISettings_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    HandPreference: usize,
+    CursorSize: usize,
+    ScrollBarSize: usize,
+    ScrollBarArrowSize: usize,
+    ScrollBarThumbBoxSize: usize,
+    MessageDuration: usize,
+    pub AnimationsEnabled:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IUriRuntimeClass,
@@ -31885,6 +32032,50 @@ impl windows_core::RuntimeName for UIElementCollection {
 }
 unsafe impl Send for UIElementCollection {}
 unsafe impl Sync for UIElementCollection {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UISettings(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    UISettings,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl UISettings {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            UISettings,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for UISettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IUISettings>();
+}
+unsafe impl windows_core::Interface for UISettings {
+    type Vtable = <IUISettings as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUISettings as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for UISettings {
+    type Target = IUISettings;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for UISettings {
+    const NAME: &'static str = "Windows.UI.ViewManagement.UISettings";
+}
+unsafe impl Send for UISettings {}
+unsafe impl Sync for UISettings {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Uri(windows_core::IUnknown);
