@@ -221,7 +221,8 @@ impl Adapter for WinUiAdapter {
     type Error = WinUiError;
 
     fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
-        events.extend(
+        NativeEvent::preview_prefix(
+            events,
             self.event_queue
                 .events
                 .borrow()

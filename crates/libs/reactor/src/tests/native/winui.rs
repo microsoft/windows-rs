@@ -19,6 +19,84 @@ mod text_box;
 mod transitions;
 
 #[test]
+fn native_queue_preview_uses_current_callback_and_preserves_order() {
+    let object = ObjectId::test(1);
+    let first = Callback::new(|_: Key| panic!("preview must not invoke callbacks"));
+    let second = Callback::new(|_: Key| panic!("preview must not invoke callbacks"));
+    let mut adapter = WinUiAdapter::default();
+    adapter.menus.insert(
+        object,
+        NativeMenu {
+            menu: Menu::new([], first),
+            revision: 1,
+            flyout: None,
+            _revokers: Vec::new(),
+        },
+    );
+    let observation = Observation::SetProperty {
+        object,
+        property: Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("Before")),
+        },
+    };
+    adapter.event_queue.queue(
+        None,
+        Some(QueuedEvent {
+            object,
+            event: EventId::MenuItemInvoked,
+            revision: 0,
+            payload: EventPayload::Key("stale".into()),
+        }),
+    );
+    adapter.event_queue.queue(Some(observation.clone()), None);
+    adapter.event_queue.queue(
+        None,
+        Some(QueuedEvent {
+            object,
+            event: EventId::MenuItemInvoked,
+            revision: 1,
+            payload: EventPayload::Key("current".into()),
+        }),
+    );
+    adapter.event_queue.queue(Some(observation.clone()), None);
+
+    let mut preview = Vec::new();
+    adapter.preview_native_events(&mut preview);
+    assert_eq!(preview.len(), 3);
+    assert_eq!(adapter.event_queue.events.borrow().len(), 4);
+
+    // Callback replacement preserves the menu presentation revision.
+    adapter.menus.get_mut(&object).unwrap().menu.on_click = second.clone();
+    preview.clear();
+    adapter.preview_native_events(&mut preview);
+    assert_eq!(
+        preview,
+        [
+            NativeEvent::new(None, None),
+            NativeEvent::new(Some(observation.clone()), None),
+            NativeEvent::new(
+                None,
+                Some(EventDispatch::new(
+                    object,
+                    EventId::MenuItemInvoked,
+                    EventValue::Key(second),
+                    EventPayload::Key("current".into()),
+                )),
+            ),
+        ]
+    );
+    for expected in preview {
+        assert_eq!(adapter.pop_native_event(), Some(expected));
+    }
+    assert_eq!(
+        adapter.pop_native_event(),
+        Some(NativeEvent::new(Some(observation), None))
+    );
+    assert_eq!(adapter.pop_native_event(), None);
+}
+
+#[test]
 fn placement_coordinates_round_trip_negative_monitors_and_taskbar_offsets() {
     let screen = native::RECT {
         left: -1600,

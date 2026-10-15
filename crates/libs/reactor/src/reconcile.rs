@@ -420,6 +420,16 @@ pub struct NativeEvent {
 }
 
 impl NativeEvent {
+    pub(crate) fn preview_prefix(events: &mut Vec<Self>, pending: impl Iterator<Item = Self>) {
+        for event in pending {
+            let boundary = event.event.is_some();
+            events.push(event);
+            if boundary {
+                break;
+            }
+        }
+    }
+
     pub fn new(observation: Option<Observation>, event: Option<EventDispatch>) -> Self {
         Self {
             observation,
@@ -1284,6 +1294,12 @@ impl RetainedGraph {
 /// `pop_native_event` calls return. Preview and `validate` must not change backend state.
 /// `apply` may change backend state; an error from `apply` poisons the owning [`Runtime`]
 /// because partial native mutation cannot be rolled back.
+///
+/// WinUI and the recording adapter preview through the first callback. Observations and
+/// realization requests in that prefix are validated together before consuming any of it.
+/// Later work is validated after the callback and its resulting updates, so an invalid later
+/// observation does not prevent an earlier callback from running. Realization-only prefixes
+/// retain batch validation; this does not bound their preview cost.
 pub trait Adapter {
     type Error;
 
@@ -1966,7 +1982,20 @@ impl<A: Adapter> Runtime<A> {
             if next.event.is_some() || next.realization.is_some() {
                 return Err(UpdateError::PendingNativeEvent);
             }
-            self.pop_native_event()?;
+            // Retirement completion applies native mutations that can change the remaining queue.
+            let count = self
+                .native_events
+                .iter()
+                .take_while(|event| {
+                    event.event.is_none()
+                        && event.realization.is_none()
+                        && event.retirement.is_none()
+                })
+                .count()
+                .max(1);
+            for _ in 0..count {
+                self.pop_native_event()?;
+            }
         }
     }
 
