@@ -8,6 +8,10 @@ param(
 
     [string[]]$Package = @(),
 
+    [string]$ChangedSince,
+
+    [switch]$List,
+
     [ValidateRange(1, 30)]
     [int]$CloseTimeoutSeconds = 3,
 
@@ -81,6 +85,18 @@ try {
     }
     $metadata = $metadataJson | ConvertFrom-Json
 
+    $changedPaths = @()
+    if ($ChangedSince) {
+        $changedPaths = @(git -c core.quotePath=false diff --name-only --no-renames `
+            $ChangedSince HEAD -- crates\samples)
+        if ($LASTEXITCODE -ne 0) {
+            throw "git diff failed with exit code $LASTEXITCODE"
+        }
+        $changedPaths = @($changedPaths | ForEach-Object {
+            (Join-Path $repoRoot $_).Replace("\", "/")
+        })
+    }
+
     $samples = foreach ($cargoPackage in $metadata.packages) {
         $manifest = $cargoPackage.manifest_path.Replace("\", "/")
         $match = [regex]::Match(
@@ -90,8 +106,12 @@ try {
         if (!$match.Success -or $Family -notcontains $match.Groups[1].Value) {
             continue
         }
-        if ($Package.Count -ne 0 -and $Package -notcontains $cargoPackage.name) {
-            continue
+        if ($Package.Count -ne 0 -or $ChangedSince) {
+            $directory = $manifest.Substring(0, $manifest.LastIndexOf("/") + 1)
+            $changed = @($changedPaths | Where-Object { $_.StartsWith($directory) })
+            if ($Package -notcontains $cargoPackage.name -and $changed.Count -eq 0) {
+                continue
+            }
         }
 
         $bins = @($cargoPackage.targets | Where-Object {
@@ -122,6 +142,10 @@ try {
         if ($missing.Count -ne 0) {
             throw "unknown or excluded sample package(s): $($missing -join ', ')"
         }
+    }
+
+    if ($List) {
+        return $samples
     }
 
     Write-Host "Running $($samples.Count) sample smoke tests for $RunSeconds second(s) each"
