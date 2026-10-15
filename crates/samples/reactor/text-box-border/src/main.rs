@@ -23,7 +23,8 @@ impl Component for TextBoxBorderSample {
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("TextBox border");
         let text_box = |placeholder| {
-            TextBox::new(self.text.clone())
+            TextBox::new()
+                .text(self.text.clone())
                 .placeholder_text(placeholder)
                 .on_text_changed(context.forward())
         };

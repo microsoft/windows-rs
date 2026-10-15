@@ -151,7 +151,7 @@ fn adapter_apply_failure_poisons_the_runtime() {
 #[test]
 fn graph_transaction_drop_rolls_back_during_unwind() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(TextBox::new("Before")).unwrap();
+    runtime.update(TextBox::new().text("Before")).unwrap();
     let root = runtime.graph().root().unwrap();
     let mut graph = runtime.graph().clone();
     let before = graph.clone();
@@ -167,13 +167,13 @@ fn graph_transaction_drop_rolls_back_during_unwind() {
 #[test]
 fn before_apply_unwind_rolls_back_and_keeps_runtime_usable() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(TextBox::new("Before")).unwrap();
+    runtime.update(TextBox::new().text("Before")).unwrap();
     let root = runtime.graph().root().unwrap();
     let before = runtime.graph().clone();
 
     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
         runtime
-            .update_subtree_before_apply(root, TextBox::new("Changed"), || {
+            .update_subtree_before_apply(root, TextBox::new().text("Changed"), || {
                 panic!("test before_apply unwind");
             })
             .unwrap();
@@ -181,7 +181,9 @@ fn before_apply_unwind_rolls_back_and_keeps_runtime_usable() {
 
     assert!(result.is_err());
     assert_eq!(runtime.graph(), &before);
-    runtime.update_subtree(root, TextBox::new("After")).unwrap();
+    runtime
+        .update_subtree(root, TextBox::new().text("After"))
+        .unwrap();
 }
 
 #[derive(Default)]
@@ -230,13 +232,13 @@ fn adapter_validation_unwind_rolls_back_and_poisons_runtime() {
     });
 
     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-        runtime.update(TextBox::new("Text")).unwrap();
+        runtime.update(TextBox::new().text("Text")).unwrap();
     }));
 
     assert!(result.is_err());
     assert_eq!(runtime.graph().root(), None);
     assert_eq!(
-        runtime.update(TextBox::new("Text")),
+        runtime.update(TextBox::new().text("Text")),
         Err(UpdateError::Poisoned)
     );
 }
@@ -249,13 +251,13 @@ fn adapter_application_unwind_rolls_back_and_poisons_runtime() {
     });
 
     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-        runtime.update(TextBox::new("Text")).unwrap();
+        runtime.update(TextBox::new().text("Text")).unwrap();
     }));
 
     assert!(result.is_err());
     assert_eq!(runtime.graph().root(), None);
     assert_eq!(
-        runtime.update(TextBox::new("Text")),
+        runtime.update(TextBox::new().text("Text")),
         Err(UpdateError::Poisoned)
     );
 }

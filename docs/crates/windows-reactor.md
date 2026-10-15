@@ -117,7 +117,7 @@ To drive an editable control from component state, declare its current value and
 back as messages.
 
 ```rust,ignore
-TextBox::new(self.name.clone())
+TextBox::new().text(self.name.clone())
     .placeholder_text("Type your name")
     .on_text_changed(context.callback(Message::SetName))
 ```

@@ -178,7 +178,6 @@ handwritten = true
 name = "Text"
 controlled = "TextChanged"
 feedback = "exact"
-required = true
 
 [[objects.properties]]
 name = "PlaceholderText"

@@ -331,7 +331,8 @@ impl reactor::Component for Explorer {
                         "Selection uses row actions until native TreeView selection is projected.",
                     )
                     .into(),
-                reactor::TextBox::new(Rc::clone(&self.filter))
+                reactor::TextBox::new()
+                    .text(Rc::clone(&self.filter))
                     .on_text_changed(move |value: Rc<str>| {
                         _ = filter.send(ExplorerMessage::Filter(value.to_string()));
                     })

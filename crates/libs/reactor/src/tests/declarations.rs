@@ -316,7 +316,8 @@ fn shared_value_builders_cover_the_public_family() {
             ),
             keyed(
                 "input",
-                TextBox::new("Text")
+                TextBox::new()
+                    .text("Text")
                     .background(Color::rgb(7, 8, 9))
                     .border_brush(ThemeBrush::Accent)
                     .border_thickness(Thickness::uniform(2.0)),
@@ -471,11 +472,43 @@ fn icon_slots_record_set_update_clear_and_unchanged_updates() {
 }
 
 #[test]
+fn text_box_text_builder_sets_replaces_and_clears() {
+    assert_eq!(TextBox::new(), TextBox::default());
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(TextBox::new()).unwrap();
+    let object = runtime.graph().root().unwrap();
+    assert!(runtime.graph().properties(object).unwrap().is_empty());
+
+    let text_box = TextBox::new().text("First").text("Last");
+    let mutations = runtime.update(text_box.clone()).unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object: target, set, clear }]
+            if *target == object && clear.is_empty() && set.as_ref() == [
+                Property {
+                    id: PropertyId::Text,
+                    value: PropertyValue::String(Rc::from("Last")),
+                },
+            ]
+    ));
+    assert!(runtime.update(text_box).unwrap().is_empty());
+
+    let mutations = runtime.update(TextBox::new()).unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object: target, set, clear }]
+            if *target == object && set.is_empty() && clear.as_ref() == [PropertyId::Text]
+    ));
+    assert!(runtime.update(TextBox::default()).unwrap().is_empty());
+}
+
+#[test]
 fn text_box_appearance_records_set_and_clear() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(
-            TextBox::new("Text")
+            TextBox::new()
+                .text("Text")
                 .placeholder_text("Enter text")
                 .accepts_return(true)
                 .text_wrapping(TextWrapping::Wrap),
@@ -508,7 +541,7 @@ fn text_box_appearance_records_set_and_clear() {
         ]
     );
 
-    let mutations = runtime.update(TextBox::new("Text")).unwrap();
+    let mutations = runtime.update(TextBox::new().text("Text")).unwrap();
     let Mutation::SetProperties { set, clear, .. } = &mutations[0] else {
         panic!("expected property mutation");
     };
@@ -526,7 +559,8 @@ fn text_box_appearance_records_set_and_clear() {
 #[test]
 fn text_box_read_only_and_alignment_update_and_clear() {
     let view = || {
-        TextBox::new("Text")
+        TextBox::new()
+            .text("Text")
             .is_read_only(true)
             .text_alignment(TextAlignment::Center)
     };
@@ -537,7 +571,8 @@ fn text_box_read_only_and_alignment_update_and_clear() {
 
     let mutations = runtime
         .update(
-            TextBox::new("Text")
+            TextBox::new()
+                .text("Text")
                 .is_read_only(false)
                 .text_alignment(TextAlignment::Right),
         )
@@ -556,14 +591,19 @@ fn text_box_read_only_and_alignment_update_and_clear() {
                 },
             ]
     ));
-    let mutations = runtime.update(TextBox::new("Text")).unwrap();
+    let mutations = runtime.update(TextBox::new().text("Text")).unwrap();
     assert!(matches!(
         mutations.as_slice(),
         [Mutation::SetProperties { object: target, set, clear }]
             if *target == object && set.is_empty()
                 && clear.as_ref() == [PropertyId::IsReadOnly, PropertyId::TextAlignment]
     ));
-    assert!(runtime.update(TextBox::new("Text")).unwrap().is_empty());
+    assert!(
+        runtime
+            .update(TextBox::new().text("Text"))
+            .unwrap()
+            .is_empty()
+    );
 }
 
 #[test]
@@ -738,7 +778,8 @@ fn shared_visual_properties_apply_to_handwritten_objects() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(
-            TextBox::new("Text")
+            TextBox::new()
+                .text("Text")
                 .width(240.0)
                 .margin(Thickness::uniform(12.0)),
         )
@@ -756,7 +797,7 @@ fn shared_visual_properties_apply_to_handwritten_objects() {
     );
 
     assert_eq!(
-        runtime.update(TextBox::new("Text")).unwrap(),
+        runtime.update(TextBox::new().text("Text")).unwrap(),
         [Mutation::SetProperties {
             object: text_box,
             set: Rc::from([]),

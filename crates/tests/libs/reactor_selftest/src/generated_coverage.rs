@@ -1890,72 +1890,66 @@ fn coverage_34_clear() -> View {
     TextBlock::new().into()
 }
 fn coverage_35_set() -> View {
-    TextBox::new("Text").into()
+    TextBox::new().text("coverage").into()
 }
 fn coverage_35_clear() -> View {
-    TextBox::new("Text").into()
+    TextBox::new().into()
 }
 fn coverage_36_set() -> View {
-    TextBox::new("Text").placeholder_text("coverage").into()
+    TextBox::new().placeholder_text("coverage").into()
 }
 fn coverage_36_clear() -> View {
-    TextBox::new("Text").into()
+    TextBox::new().into()
 }
 fn coverage_37_set() -> View {
-    TextBox::new("Text").accepts_return(true).into()
+    TextBox::new().accepts_return(true).into()
 }
 fn coverage_37_clear() -> View {
-    TextBox::new("Text").into()
+    TextBox::new().into()
 }
 fn coverage_38_set() -> View {
-    TextBox::new("Text").is_read_only(true).into()
+    TextBox::new().is_read_only(true).into()
 }
 fn coverage_38_clear() -> View {
-    TextBox::new("Text").into()
+    TextBox::new().into()
 }
 fn coverage_39_set() -> View {
-    TextBox::new("Text")
-        .text_alignment(TextAlignment::Center)
-        .into()
+    TextBox::new().text_alignment(TextAlignment::Center).into()
 }
 fn coverage_39_clear() -> View {
-    TextBox::new("Text").into()
+    TextBox::new().into()
 }
 fn coverage_40_set() -> View {
-    TextBox::new("Text")
-        .text_wrapping(TextWrapping::Wrap)
-        .into()
+    TextBox::new().text_wrapping(TextWrapping::Wrap).into()
 }
 fn coverage_40_clear() -> View {
-    TextBox::new("Text").into()
+    TextBox::new().into()
 }
 fn coverage_41_set() -> View {
-    TextBox::new("Text").background(Color::rgb(1, 2, 3)).into()
+    TextBox::new().background(Color::rgb(1, 2, 3)).into()
 }
 fn coverage_41_clear() -> View {
-    TextBox::new("Text").into()
+    TextBox::new().into()
 }
 fn coverage_42_set() -> View {
-    TextBox::new("Text")
-        .border_brush(Color::rgb(1, 2, 3))
-        .into()
+    TextBox::new().border_brush(Color::rgb(1, 2, 3)).into()
 }
 fn coverage_42_clear() -> View {
-    TextBox::new("Text").into()
+    TextBox::new().into()
 }
 fn coverage_43_set() -> View {
-    TextBox::new("Text")
+    TextBox::new()
         .border_thickness(Thickness::uniform(1.0))
         .into()
 }
 fn coverage_43_clear() -> View {
-    TextBox::new("Text").into()
+    TextBox::new().into()
 }
 fn coverage_44_set() -> View {
-    TextBox::new("Text").on_text_changed(|_| {}).into()
+    TextBox::new().on_text_changed(|_| {}).into()
 }
 fn coverage_44_clear() -> View {
-    TextBox::new("Text").into()
+    TextBox::new().into()
 }
 fn coverage_45_set() -> View {
     Button::new().background(Color::rgb(1, 2, 3)).into()

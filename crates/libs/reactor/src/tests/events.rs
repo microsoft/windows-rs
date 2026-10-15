@@ -2,7 +2,15 @@ use super::*;
 
 #[test]
 fn property_observations_preserve_declaration_ownership() {
-    let cases: [(View, View, Property); 6] = [
+    let cases: [(View, View, Property); 7] = [
+        (
+            TextBox::new().into(),
+            TextBox::new().text("").into(),
+            Property {
+                id: PropertyId::Text,
+                value: PropertyValue::String(Rc::from("Edited")),
+            },
+        ),
         (
             CheckBox::new().into(),
             CheckBox::new().is_checked(None).into(),
@@ -178,12 +186,12 @@ fn event_callbacks_update_without_recreating_the_object() {
     let second = Callback::new(|_: Rc<str>| {});
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(TextBox::new("Before").on_text_changed(first))
+        .update(TextBox::new().text("Before").on_text_changed(first))
         .unwrap();
     let root = runtime.graph().root().unwrap();
 
     let mutations = runtime
-        .update(TextBox::new("Before").on_text_changed(second))
+        .update(TextBox::new().text("Before").on_text_changed(second))
         .unwrap();
 
     assert!(matches!(
@@ -197,11 +205,11 @@ fn event_callbacks_can_be_removed_without_recreating_the_object() {
     let callback = Callback::new(|_: Rc<str>| {});
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(TextBox::new("Text").on_text_changed(callback))
+        .update(TextBox::new().text("Text").on_text_changed(callback))
         .unwrap();
     let root = runtime.graph().root().unwrap();
 
-    let mutations = runtime.update(TextBox::new("Text")).unwrap();
+    let mutations = runtime.update(TextBox::new().text("Text")).unwrap();
 
     assert!(matches!(
         mutations.as_slice(),
@@ -213,7 +221,7 @@ fn event_callbacks_can_be_removed_without_recreating_the_object() {
 #[test]
 fn native_property_observation_updates_retained_state_before_reconciliation() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(TextBox::new("Before")).unwrap();
+    runtime.update(TextBox::new().text("Before")).unwrap();
     let root = runtime.graph().root().unwrap();
     runtime.adapter_mut().observe(Observation::SetProperty {
         object: root,
@@ -223,7 +231,7 @@ fn native_property_observation_updates_retained_state_before_reconciliation() {
         },
     });
 
-    let mutations = runtime.update(TextBox::new("After")).unwrap();
+    let mutations = runtime.update(TextBox::new().text("After")).unwrap();
 
     assert!(mutations.is_empty());
     assert_eq!(
@@ -239,7 +247,7 @@ fn native_property_observation_updates_retained_state_before_reconciliation() {
 fn subtree_update_consumes_pending_controlled_observation() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(Grid::new().keyed_children([keyed("text", TextBox::new("Before"))]))
+        .update(Grid::new().keyed_children([keyed("text", TextBox::new().text("Before"))]))
         .unwrap();
     let root = runtime.graph().root().unwrap();
     let text = runtime
@@ -254,7 +262,9 @@ fn subtree_update_consumes_pending_controlled_observation() {
         },
     });
 
-    let mutations = runtime.update_subtree(text, TextBox::new("After")).unwrap();
+    let mutations = runtime
+        .update_subtree(text, TextBox::new().text("After"))
+        .unwrap();
 
     assert!(mutations.is_empty());
     assert_eq!(
@@ -270,7 +280,7 @@ fn subtree_update_consumes_pending_controlled_observation() {
 fn remove_child_consumes_pending_observation_before_planning() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(Grid::new().keyed_children([keyed("text", TextBox::new("Before"))]))
+        .update(Grid::new().keyed_children([keyed("text", TextBox::new().text("Before"))]))
         .unwrap();
     let root = runtime.graph().root().unwrap();
     let text = runtime
@@ -302,7 +312,7 @@ fn remove_child_consumes_pending_observation_before_planning() {
 #[test]
 fn invalid_observation_batch_rolls_back_and_remains_queued() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(TextBox::new("Before")).unwrap();
+    runtime.update(TextBox::new().text("Before")).unwrap();
     let root = runtime.graph().root().unwrap();
     runtime.adapter_mut().observe(Observation::SetProperty {
         object: root,
@@ -322,7 +332,7 @@ fn invalid_observation_batch_rolls_back_and_remains_queued() {
     let adapter = runtime.adapter().clone();
 
     assert_eq!(
-        runtime.update(TextBox::new("After")),
+        runtime.update(TextBox::new().text("After")),
         Err(UpdateError::InvalidNativeEvent(
             GraphError::InvalidProperty(ObjectType::TextBox, PropertyId::Expanded)
         ))
@@ -330,7 +340,7 @@ fn invalid_observation_batch_rolls_back_and_remains_queued() {
     assert_eq!(runtime.graph(), &graph);
     assert_eq!(runtime.adapter(), &adapter);
     assert_eq!(
-        runtime.update(TextBox::new("Before")),
+        runtime.update(TextBox::new().text("Before")),
         Err(UpdateError::Poisoned)
     );
 }
@@ -344,7 +354,11 @@ fn ordered_native_events_hide_future_observations_from_earlier_callbacks() {
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(TextBox::new("Before").on_text_changed(callback.clone()))
+        .update(
+            TextBox::new()
+                .text("Before")
+                .on_text_changed(callback.clone()),
+        )
         .unwrap();
     let object = runtime.graph().root().unwrap();
     for value in ["A", "B"] {
@@ -393,7 +407,11 @@ fn callback_reconciliation_completes_before_the_next_native_occurrence() {
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(TextBox::new("Before").on_text_changed(callback.clone()))
+        .update(
+            TextBox::new()
+                .text("Before")
+                .on_text_changed(callback.clone()),
+        )
         .unwrap();
     let object = runtime.graph().root().unwrap();
     for value in ["A", "B"] {
@@ -418,7 +436,7 @@ fn callback_reconciliation_completes_before_the_next_native_occurrence() {
     first.invoke();
     assert!(rendered.get());
     runtime
-        .update(TextBox::new("Rendered").on_text_changed(callback))
+        .update(TextBox::new().text("Rendered").on_text_changed(callback))
         .unwrap();
     assert_eq!(
         runtime.graph().properties(object).unwrap()[0].value,
@@ -445,7 +463,11 @@ fn callback_panic_releases_the_native_boundary_and_remaining_events_continue() {
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(TextBox::new("Before").on_text_changed(panic_callback.clone()))
+        .update(
+            TextBox::new()
+                .text("Before")
+                .on_text_changed(panic_callback.clone()),
+        )
         .unwrap();
     let object = runtime.graph().root().unwrap();
     runtime.adapter_mut().queue_event(EventDispatch::new(
@@ -467,7 +489,11 @@ fn callback_panic_releases_the_native_boundary_and_remaining_events_continue() {
 
     assert!(result.is_err());
     runtime
-        .update(TextBox::new("B").on_text_changed(next_callback.clone()))
+        .update(
+            TextBox::new()
+                .text("B")
+                .on_text_changed(next_callback.clone()),
+        )
         .unwrap();
     drop(event);
     assert_eq!(
@@ -487,7 +513,7 @@ fn callback_panic_releases_the_native_boundary_and_remaining_events_continue() {
 #[test]
 fn exact_feedback_suppresses_matching_observation_until_write_finishes() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(TextBox::new("Before")).unwrap();
+    runtime.update(TextBox::new().text("Before")).unwrap();
     let object = runtime.graph().root().unwrap();
     let property = Property {
         id: PropertyId::Text,
@@ -691,7 +717,7 @@ fn straightforward_event_payloads_round_trip_through_recording_protocol() {
 #[test]
 fn invalid_native_property_observation_is_rejected() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(TextBox::new("Text")).unwrap();
+    runtime.update(TextBox::new().text("Text")).unwrap();
     let root = runtime.graph().root().unwrap();
     runtime.adapter_mut().observe(Observation::SetProperty {
         object: root,
@@ -702,13 +728,13 @@ fn invalid_native_property_observation_is_rejected() {
     });
 
     assert!(matches!(
-        runtime.update(TextBox::new("Text")),
+        runtime.update(TextBox::new().text("Text")),
         Err(UpdateError::InvalidNativeEvent(
             GraphError::InvalidProperty(ObjectType::TextBox, PropertyId::Expanded)
         ))
     ));
     assert_eq!(
-        runtime.update(TextBox::new("Text")),
+        runtime.update(TextBox::new().text("Text")),
         Err(UpdateError::Poisoned)
     );
 }
@@ -757,7 +783,7 @@ fn stale_queued_event_does_not_reach_replacement_callback() {
     });
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(TextBox::new("Text").on_text_changed(first.clone()))
+        .update(TextBox::new().text("Text").on_text_changed(first.clone()))
         .unwrap();
     let root = runtime.graph().root().unwrap();
     for value in ["First", "Stale"] {
@@ -780,7 +806,7 @@ fn stale_queued_event_does_not_reach_replacement_callback() {
     let mut active = runtime.next_native_event().unwrap().unwrap();
     active.invoke();
     runtime
-        .update(TextBox::new("First").on_text_changed(second.clone()))
+        .update(TextBox::new().text("First").on_text_changed(second.clone()))
         .unwrap();
     drop(active);
 
@@ -791,7 +817,7 @@ fn stale_queued_event_does_not_reach_replacement_callback() {
     );
     assert!(
         runtime
-            .update(TextBox::new("Stale").on_text_changed(second))
+            .update(TextBox::new().text("Stale").on_text_changed(second))
             .unwrap()
             .is_empty()
     );

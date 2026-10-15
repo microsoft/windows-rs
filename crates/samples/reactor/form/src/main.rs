@@ -120,7 +120,8 @@ impl Component for Form {
                     .text_wrapping(TextWrapping::Wrap)
                     .grid_column_span(2),
                 TextBlock::new().text("Name").grid_row(1),
-                TextBox::new(self.name.clone())
+                TextBox::new()
+                    .text(self.name.clone())
                     .element_ref(&self.name_ref)
                     .placeholder_text("Name")
                     .is_enabled(self.status != Status::Submitting)
