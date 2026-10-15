@@ -3,7 +3,7 @@
 use std::cell::Cell;
 use std::rc::Rc;
 use windows_canvas::*;
-use windows_canvas::{Ellipse as CanvasEllipse, Rect as CanvasRect};
+use windows_canvas::{Ellipse as CanvasEllipse, Rect as CanvasRect, TextAlignment};
 use windows_reactor::*;
 
 struct Sample {
