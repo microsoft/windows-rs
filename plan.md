@@ -25,13 +25,14 @@ after the replacement is accepted.
 - Extend the current design, not another rewrite or speculative framework. Keep policy at explicit
   boundaries; do not patch individual headers or copy legacy output to conceal missing support.
 
-## Ordered checklist
+## Acceptance checklist
 
 - [ ] **Freeze the acceptance contract.** Record the baseline commit, SDK/compiler versions, header
   set, configurations, and time/memory budgets. Define required APIs and approved scope exclusions.
-- [ ] **Account for the baseline.** Track constants, types, functions, and interface members across
-  moved partitions. Classify each gap as undiscovered, capture-rejected, incompatible,
-  unrepresentable, consumer-incomplete, or an approved change. Compare semantics, not only names.
+- [ ] **Account for the baseline.** Start with a small, repeatable constant comparison; extend it
+  as other categories are tackled, not as a separate framework project. Track moved ownership and
+  distinguish undiscovered, rejected, incompatible, unrepresentable, consumer-incomplete, and
+  approved differences. Name presence alone does not establish semantic parity.
 - [ ] **Repair validation boundaries.** Preserve the evidence needed for reconciliation despite
   exclusions. Cover conflicting definitions behind an unsupported dependency, input ordering,
   partial mode, and architecture-specific failures.
@@ -51,9 +52,26 @@ after the replacement is accepted.
 
 ## Iteration and completion
 
-Take one bounded gap at a time: failing header fixture -> minimal change -> native/metadata/consumer
-evidence -> full-workload gap comparison. Count closed baseline gaps, not net new declarations.
-Review architectural boundaries after each batch; stop and resolve violations before more breadth.
+The next work is a control batch, not another unrestricted SDK sweep:
+
+1. Freeze the baseline and make the constant-name comparison reproducible, including certbcli.
+2. Add the pruning/conflict reproducer as a regression. Review and repair the
+   capture/reconciliation/pruning boundary before relying on partial-mode results.
+3. Recover certbcli's 22 constants through general discovery and evaluation, with exact semantic
+   checks. Then take ReadFile's buffer relationship through metadata to its consumer.
+
+For each subsequent batch, choose one measured gap family and state its failing case, intended
+change, and completion check before editing. A batch is complete only when:
+
+- The regression fails before the fix and passes afterward.
+- The required native facts, metadata semantics, and consumer behavior agree.
+- The full-workload comparison shows the expected closures and no unexplained new losses.
+- The implementation uses a general rule, with any added policy or complexity explained.
+
+Report cases closed, remaining blockers, and architectural changes, not just output totals or
+passing test counts. Review the affected boundaries after each batch. Stop if the solution needs
+header-specific exceptions, weakens an invariant, or cannot meet its stated completion check;
+report the blocker instead of switching to easier additions.
 
 Partial output is a diagnostic artifact, not a successful replacement. Completion requires every
 required baseline case to pass its semantic checks, with all differences explicitly reviewed.
