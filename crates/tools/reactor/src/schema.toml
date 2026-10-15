@@ -187,6 +187,12 @@ name = "PlaceholderText"
 name = "AcceptsReturn"
 
 [[objects.properties]]
+name = "IsReadOnly"
+
+[[objects.properties]]
+name = "TextAlignment"
+
+[[objects.properties]]
 name = "TextWrapping"
 
 [[objects.properties]]

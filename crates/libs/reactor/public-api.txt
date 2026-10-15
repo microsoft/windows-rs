@@ -426,6 +426,14 @@ pub windows_reactor::TeachingTipPlacementMode::RightTop
 pub windows_reactor::TeachingTipPlacementMode::Top
 pub windows_reactor::TeachingTipPlacementMode::TopLeft
 pub windows_reactor::TeachingTipPlacementMode::TopRight
+#[non_exhaustive] pub enum windows_reactor::TextAlignment
+pub windows_reactor::TextAlignment::Center
+pub windows_reactor::TextAlignment::DetectFromContent
+pub windows_reactor::TextAlignment::End
+pub windows_reactor::TextAlignment::Justify
+pub windows_reactor::TextAlignment::Left
+pub windows_reactor::TextAlignment::Right
+pub windows_reactor::TextAlignment::Start
 #[non_exhaustive] pub enum windows_reactor::TextTrimming
 pub windows_reactor::TextTrimming::CharacterEllipsis
 pub windows_reactor::TextTrimming::Clip
@@ -3722,6 +3730,7 @@ pub fn windows_reactor::TextBox::header(self, impl core::convert::Into<windows_r
 pub fn windows_reactor::TextBox::height(self, f64) -> Self
 pub fn windows_reactor::TextBox::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::TextBox::is_enabled(self, bool) -> Self
+pub fn windows_reactor::TextBox::is_read_only(self, bool) -> Self
 pub fn windows_reactor::TextBox::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TextBox::max_height(self, f64) -> Self
 pub fn windows_reactor::TextBox::max_width(self, f64) -> Self
@@ -3737,6 +3746,7 @@ pub fn windows_reactor::TextBox::relative_align_left(self) -> Self
 pub fn windows_reactor::TextBox::relative_align_right(self) -> Self
 pub fn windows_reactor::TextBox::relative_align_top(self) -> Self
 pub fn windows_reactor::TextBox::relative_align_vertical_center(self) -> Self
+pub fn windows_reactor::TextBox::text_alignment(self, windows_reactor::TextAlignment) -> Self
 pub fn windows_reactor::TextBox::text_wrapping(self, windows_reactor::TextWrapping) -> Self
 pub fn windows_reactor::TextBox::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::TextBox::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>

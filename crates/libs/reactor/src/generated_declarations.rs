@@ -1446,6 +1446,51 @@ impl TeachingTipPlacementMode {
 }
 #[non_exhaustive]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TextAlignment {
+    Center,
+    Left,
+    Start,
+    Right,
+    End,
+    Justify,
+    DetectFromContent,
+}
+impl TextAlignment {
+    pub(crate) fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Center => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "Center",
+            },
+            Self::Left => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "Left",
+            },
+            Self::Start => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "Start",
+            },
+            Self::Right => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "Right",
+            },
+            Self::End => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "End",
+            },
+            Self::Justify => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "Justify",
+            },
+            Self::DetectFromContent => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "DetectFromContent",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum TextTrimming {
     None,
     CharacterEllipsis,
@@ -1901,6 +1946,18 @@ impl TextBox {
             PropertyId::AcceptsReturn,
             PropertyValue::Bool(accepts_return),
         );
+        self
+    }
+    pub fn is_read_only(mut self, is_read_only: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsReadOnly, PropertyValue::Bool(is_read_only));
+        self
+    }
+    pub fn text_alignment(mut self, text_alignment: TextAlignment) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::TextAlignment, text_alignment.property_value());
         self
     }
     pub fn text_wrapping(mut self, text_wrapping: TextWrapping) -> Self {

@@ -524,6 +524,49 @@ fn text_box_appearance_records_set_and_clear() {
 }
 
 #[test]
+fn text_box_read_only_and_alignment_update_and_clear() {
+    let view = || {
+        TextBox::new("Text")
+            .is_read_only(true)
+            .text_alignment(TextAlignment::Center)
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(view()).unwrap();
+    let object = runtime.graph().root().unwrap();
+    assert!(runtime.update(view()).unwrap().is_empty());
+
+    let mutations = runtime
+        .update(
+            TextBox::new("Text")
+                .is_read_only(false)
+                .text_alignment(TextAlignment::Right),
+        )
+        .unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object: target, set, clear }]
+            if *target == object && clear.is_empty() && set.as_ref() == [
+                Property {
+                    id: PropertyId::IsReadOnly,
+                    value: PropertyValue::Bool(false),
+                },
+                Property {
+                    id: PropertyId::TextAlignment,
+                    value: TextAlignment::Right.property_value(),
+                },
+            ]
+    ));
+    let mutations = runtime.update(TextBox::new("Text")).unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object: target, set, clear }]
+            if *target == object && set.is_empty()
+                && clear.as_ref() == [PropertyId::IsReadOnly, PropertyId::TextAlignment]
+    ));
+    assert!(runtime.update(TextBox::new("Text")).unwrap().is_empty());
+}
+
+#[test]
 fn shared_value_validation_rejects_invalid_inputs() {
     assert!(HyperlinkButton::new().navigate_uri("not a uri").is_err());
     assert!(BitmapIcon::new().uri_source("").is_err());

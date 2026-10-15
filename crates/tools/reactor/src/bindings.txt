@@ -214,8 +214,8 @@ Microsoft::UI::Xaml::Controls::ItemCollection::{}
 Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
 Microsoft::UI::Xaml::Controls::ITextBlock::{get_FontWeight, get_Text, put_FontSize, put_FontWeight, put_Foreground, put_IsTextSelectionEnabled, put_MaxLines, put_Padding, put_Text, put_TextTrimming, put_TextWrapping}
 Microsoft::UI::Xaml::Controls::ITextBlockStatics::{get_FontWeightProperty, get_ForegroundProperty, get_IsTextSelectionEnabledProperty, get_MaxLinesProperty, get_TextTrimmingProperty, get_TextWrappingProperty}
-Microsoft::UI::Xaml::Controls::ITextBox::{add_TextChanged, get_AcceptsReturn, get_PlaceholderText, get_SelectionLength, get_SelectionStart, get_Text, get_TextWrapping, put_AcceptsReturn, put_Header, put_PlaceholderText, put_SelectionLength, put_SelectionStart, put_Text, put_TextWrapping, remove_TextChanged}
-Microsoft::UI::Xaml::Controls::ITextBoxStatics::{get_AcceptsReturnProperty, get_PlaceholderTextProperty, get_TextWrappingProperty}
+Microsoft::UI::Xaml::Controls::ITextBox::{GetRectFromCharacterIndex, add_TextChanged, get_AcceptsReturn, get_IsReadOnly, get_PlaceholderText, get_SelectedText, get_SelectionLength, get_SelectionStart, get_Text, get_TextAlignment, get_TextWrapping, put_AcceptsReturn, put_Header, put_IsReadOnly, put_PlaceholderText, put_SelectionLength, put_SelectionStart, put_Text, put_TextAlignment, put_TextWrapping, remove_TextChanged}
+Microsoft::UI::Xaml::Controls::ITextBoxStatics::{get_AcceptsReturnProperty, get_IsReadOnlyProperty, get_PlaceholderTextProperty, get_TextAlignmentProperty, get_TextWrappingProperty}
 Microsoft::UI::Xaml::Controls::ITimePicker::{add_SelectedTimeChanged, put_ClockIdentifier, put_Header, put_MinuteIncrement, remove_SelectedTimeChanged}
 Microsoft::UI::Xaml::Controls::ITimePickerSelectedValueChangedEventArgs::get_NewTime
 Microsoft::UI::Xaml::Controls::ITimePickerStatics::{get_ClockIdentifierProperty, get_MinuteIncrementProperty}

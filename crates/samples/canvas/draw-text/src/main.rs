@@ -1,5 +1,6 @@
 #![windows_subsystem = "windows"]
 
+use windows_canvas::TextAlignment;
 use windows_canvas::*;
 use windows_reactor::*;
 

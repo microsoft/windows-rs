@@ -4147,6 +4147,60 @@ impl GeneratedHandle {
                         .and_then(|object| object.SetAcceptsReturn(*value).map_err(Into::into)),
                 )
             }
+            (ObjectType::TextBox, PropertyId::IsReadOnly, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::TextBox::IsReadOnlyProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (ObjectType::TextBox, PropertyId::IsReadOnly, Some(PropertyValue::Bool(value))) => {
+                Some(
+                    element
+                        .cast::<native::ITextBox>()
+                        .map_err(Into::into)
+                        .and_then(|object| object.SetIsReadOnly(*value).map_err(Into::into)),
+                )
+            }
+            (ObjectType::TextBox, PropertyId::TextAlignment, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::TextBox::TextAlignmentProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (
+                ObjectType::TextBox,
+                PropertyId::TextAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "TextAlignment",
+                    variant,
+                }),
+            ) => Some(
+                element
+                    .cast::<native::ITextBox>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetTextAlignment(match *variant {
+                                "Center" => native::TextAlignment::Center,
+                                "Left" => native::TextAlignment::Left,
+                                "Start" => native::TextAlignment::Start,
+                                "Right" => native::TextAlignment::Right,
+                                "End" => native::TextAlignment::End,
+                                "Justify" => native::TextAlignment::Justify,
+                                "DetectFromContent" => native::TextAlignment::DetectFromContent,
+                                _ => unreachable!("validated enum variant"),
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
             (ObjectType::TextBox, PropertyId::TextWrapping, None) => Some(
                 element
                     .cast::<native::IDependencyObject>()
