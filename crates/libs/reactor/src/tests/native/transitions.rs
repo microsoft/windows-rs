@@ -38,16 +38,15 @@ fn transitions_use_current_batch_policy_and_retarget_in_flight() {
     let completed = Rc::new(Cell::new(false));
     let finished = completed.clone();
     App::run_with(move |app| {
-        let view = |border: Border| {
-            Border::new().content(
-                border
-                    .width(100.0)
-                    .height(100.0)
-                    .horizontal_alignment(HorizontalAlignment::Left)
-                    .vertical_alignment(VerticalAlignment::Top)
-                    .background(Color::rgb(70, 130, 200)),
-            )
+        let target = |border: Border| {
+            border
+                .width(100.0)
+                .height(100.0)
+                .horizontal_alignment(HorizontalAlignment::Left)
+                .vertical_alignment(VerticalAlignment::Top)
+                .background(Color::rgb(70, 130, 200))
         };
+        let view = move |border| Border::new().content(target(border));
         let mut runtime = Runtime::new(WinUiAdapter::default());
         let animations = runtime.adapter().animations_enabled().unwrap();
         eprintln!("Native animations enabled: {animations}");
@@ -203,9 +202,48 @@ fn transitions_use_current_batch_policy_and_retarget_in_flight() {
                 }
                 14 => {
                     assert_point(offset, [80.0, 40.0]);
+                    runtime
+                        .update_subtree_before_apply(
+                            object,
+                            TextBlock::new().text("replacement"),
+                            || {},
+                        )
+                        .unwrap();
+                    let mutations = runtime
+                        .update_subtree_before_apply(
+                            object,
+                            target(
+                                Border::new()
+                                    .translation(-40.0, -20.0)
+                                    .translation_transition(slow)
+                                    .scale(1.5)
+                                    .scale_transition(slow),
+                            ),
+                            || {},
+                        )
+                        .unwrap();
+                    assert!(mutations.iter().any(
+                        |mutation| matches!(mutation, Mutation::Replace { object: replaced, .. }
+                            if *replaced == object)
+                    ));
+                    assert_eq!(
+                        runtime.graph().child(root, RelationId::Content),
+                        Some(object)
+                    );
+                    stage.set(15);
+                    started.set(Instant::now());
+                    return;
+                }
+                15 => {
+                    assert_point(offset, [-40.0, -20.0]);
+                    let right = runtime
+                        .adapter()
+                        .transformed_point(object, 100.0, 0.0)
+                        .unwrap();
+                    assert!((right[0] - point[0] - 150.0).abs() < 0.01);
                     runtime.update(Border::new()).unwrap();
                     holder.take();
-                    stage.set(15);
+                    stage.set(16);
                     started.set(Instant::now());
                     return;
                 }

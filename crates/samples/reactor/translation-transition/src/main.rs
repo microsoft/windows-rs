@@ -32,7 +32,11 @@ impl Component for Sample {
                     .background(Color::rgb(70, 130, 200))
                     .translation(if self.open { 0.0 } else { -280.0 }, 0.0)
                     .translation_transition(Duration::from_millis(600))
-                    .content("Click again to reverse."),
+                    .content(
+                        TextBlock::new()
+                            .text("Click again to reverse.")
+                            .foreground(Color::rgb(0, 0, 0)),
+                    ),
             ))
             .into()
     }

@@ -612,6 +612,16 @@ fn translation_updates_both_axes_and_clears_independently() {
     };
     runtime.update(view()).unwrap();
     assert!(runtime.update(view()).unwrap().is_empty());
+    assert!(
+        runtime
+            .update(
+                Border::new()
+                    .translation_transition(Duration::from_secs(1))
+                    .translation(-120.0, 40.0),
+            )
+            .unwrap()
+            .is_empty()
+    );
     let mutations = runtime
         .update(
             Border::new()
