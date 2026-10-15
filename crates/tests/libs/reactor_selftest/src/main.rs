@@ -49,6 +49,8 @@ struct Fixture {
     content_dialog_window: Option<reactor::native::NativeWindow>,
     content_dialog: Option<reactor::ObjectId>,
     content_dialog_result: Rc<Cell<Option<reactor::ContentDialogResult>>>,
+    content_dialog_opened: Rc<Cell<bool>>,
+    content_dialog_opened_revoker: Option<windows_core::EventRevoker>,
     content_dialog_hide_requested: bool,
     content_dialog_verified: bool,
     content_dialog_waits: usize,
@@ -2892,6 +2894,8 @@ impl reactor::Component for Fixture {
             content_dialog_window: None,
             content_dialog: None,
             content_dialog_result,
+            content_dialog_opened: Rc::new(Cell::new(false)),
+            content_dialog_opened_revoker: None,
             content_dialog_hide_requested: false,
             content_dialog_verified: false,
             content_dialog_waits: 0,
@@ -3022,10 +3026,19 @@ impl reactor::Component for Fixture {
             let mut runtime = reactor::Runtime::new(reactor::native::WinUiAdapter::default());
             runtime.update(dialog_view(false)).unwrap();
             let root = runtime.graph().root().unwrap();
+            let dialog = runtime.graph().content_dialog(root).unwrap().0;
+            let opened = Rc::clone(&self.content_dialog_opened);
+            self.content_dialog_opened_revoker = Some(
+                runtime
+                    .adapter()
+                    .observe_content_dialog_opened(dialog, move || opened.set(true))
+                    .unwrap(),
+            );
+            runtime.update(dialog_view(true)).unwrap();
+            assert!(!self.content_dialog_opened.get());
             let window = runtime.adapter().create_window(root).unwrap();
             window.activate().unwrap();
-            runtime.update(dialog_view(true)).unwrap();
-            self.content_dialog = Some(runtime.graph().content_dialog(root).unwrap().0);
+            self.content_dialog = Some(dialog);
             self.content_dialog_runtime = Some(runtime);
             self.content_dialog_window = Some(window);
             Self::schedule(context);
@@ -3035,15 +3048,26 @@ impl reactor::Component for Fixture {
         content_dialog_runtime.dispatch_native_events().unwrap();
         if !self.content_dialog_verified {
             if !self.content_dialog_hide_requested {
+                if !self.content_dialog_opened.get() {
+                    self.content_dialog_waits += 1;
+                    assert!(
+                        self.content_dialog_waits < LIVE_EVENT_TIMEOUT_TICKS,
+                        "real WinUI ContentDialog.Opened event was not delivered"
+                    );
+                    Self::schedule(context);
+                    return;
+                }
                 content_dialog_runtime
                     .adapter()
                     .hide_content_dialog(self.content_dialog.unwrap())
                     .unwrap();
                 self.content_dialog_hide_requested = true;
+                self.content_dialog_waits = 0;
                 Self::schedule(context);
                 return;
             }
             if self.content_dialog_result.get() == Some(reactor::ContentDialogResult::None) {
+                self.content_dialog_opened_revoker.take();
                 content_dialog_runtime
                     .update(reactor::Button::new().content("Dialog owner"))
                     .unwrap();
@@ -3055,10 +3079,10 @@ impl reactor::Component for Fixture {
                 self.content_dialog_verified = true;
             } else {
                 self.content_dialog_waits += 1;
-                if self.content_dialog_waits >= LIVE_EVENT_TIMEOUT_TICKS {
-                    eprintln!("real WinUI ContentDialog.Closed event was not delivered");
-                    std::process::exit(1);
-                }
+                assert!(
+                    self.content_dialog_waits < LIVE_EVENT_TIMEOUT_TICKS,
+                    "real WinUI ContentDialog.Closed event was not delivered"
+                );
                 Self::schedule(context);
                 return;
             }
@@ -3079,10 +3103,10 @@ impl reactor::Component for Fixture {
                 }
             } else if !flyout_runtime.adapter().is_flyout_open(target).unwrap() {
                 self.popup_waits += 1;
-                if self.popup_waits >= LIVE_EVENT_TIMEOUT_TICKS {
-                    eprintln!("real WinUI flyout did not open");
-                    std::process::exit(1);
-                }
+                assert!(
+                    self.popup_waits < LIVE_EVENT_TIMEOUT_TICKS,
+                    "real WinUI flyout did not open"
+                );
                 Self::schedule(context);
                 return;
             }
@@ -3107,10 +3131,10 @@ impl reactor::Component for Fixture {
                 }
             } else if !menu_runtime.adapter().is_menu_open(target).unwrap() {
                 self.popup_waits += 1;
-                if self.popup_waits >= LIVE_EVENT_TIMEOUT_TICKS {
-                    eprintln!("real WinUI menu did not open");
-                    std::process::exit(1);
-                }
+                assert!(
+                    self.popup_waits < LIVE_EVENT_TIMEOUT_TICKS,
+                    "real WinUI menu did not open"
+                );
                 Self::schedule(context);
                 return;
             }
@@ -3143,10 +3167,10 @@ impl reactor::Component for Fixture {
                 .unwrap()
             {
                 self.popup_waits += 1;
-                if self.popup_waits >= LIVE_EVENT_TIMEOUT_TICKS {
-                    eprintln!("real WinUI command-bar flyout did not open");
-                    std::process::exit(1);
-                }
+                assert!(
+                    self.popup_waits < LIVE_EVENT_TIMEOUT_TICKS,
+                    "real WinUI command-bar flyout did not open"
+                );
                 Self::schedule(context);
                 return;
             }
@@ -3248,16 +3272,13 @@ impl reactor::Component for Fixture {
                     return;
                 }
                 Some(_) if self.encoded_image_cleared => {
-                    eprintln!("cleared encoded image delivered a stale decode event");
-                    std::process::exit(1);
+                    panic!("cleared encoded image delivered a stale decode event");
                 }
                 Some(true) => {
-                    eprintln!("invalid encoded image unexpectedly raised ImageOpened");
-                    std::process::exit(1);
+                    panic!("invalid encoded image unexpectedly raised ImageOpened");
                 }
                 Some(false) => {
-                    eprintln!("valid encoded image unexpectedly raised ImageFailed");
-                    std::process::exit(1);
+                    panic!("valid encoded image unexpectedly raised ImageFailed");
                 }
                 None => {
                     self.encoded_image_waits += 1;
@@ -3271,11 +3292,9 @@ impl reactor::Component for Fixture {
                             self.encoded_image_window.take().unwrap().close().unwrap();
                             self.encoded_image_runtime.take();
                         } else if self.encoded_image_validated {
-                            eprintln!("real WinUI encoded ImageFailed event was not delivered");
-                            std::process::exit(1);
+                            panic!("real WinUI encoded ImageFailed event was not delivered");
                         } else {
-                            eprintln!("real WinUI encoded ImageOpened event was not delivered");
-                            std::process::exit(1);
+                            panic!("real WinUI encoded ImageOpened event was not delivered");
                         }
                     }
                     if self.encoded_image_runtime.is_some() {
@@ -3311,10 +3330,10 @@ impl reactor::Component for Fixture {
             if self.pointer_injection_stage == 0 && unsafe { GetForegroundWindow() } != hwnd {
                 self.pointer_injection_waits += 1;
                 window.activate().unwrap();
-                if self.pointer_injection_waits >= LIVE_EVENT_TIMEOUT_TICKS {
-                    eprintln!("real WinUI pointer window did not become foreground");
-                    std::process::exit(1);
-                }
+                assert!(
+                    self.pointer_injection_waits < LIVE_EVENT_TIMEOUT_TICKS,
+                    "real WinUI pointer window did not become foreground"
+                );
                 Self::schedule(context);
                 return;
             }
@@ -3332,31 +3351,19 @@ impl reactor::Component for Fixture {
                     let window = self.pointer_window.as_ref().unwrap();
                     window.activate().unwrap();
                     let hwnd = window.raw_handle().unwrap();
-                    if let Err(error) = Self::inject_pointer(hwnd, 0) {
-                        eprintln!("{error}");
-                        std::process::exit(1);
-                    }
+                    Self::inject_pointer(hwnd, 0).unwrap();
                 }
-                if self.pointer_injection_waits >= LIVE_EVENT_TIMEOUT_TICKS {
-                    eprintln!(
-                        "real WinUI pointer stage {} was not delivered",
-                        self.pointer_injection_stage - 1
-                    );
-                    std::process::exit(1);
-                }
+                assert!(
+                    self.pointer_injection_waits < LIVE_EVENT_TIMEOUT_TICKS,
+                    "real WinUI pointer stage {} was not delivered",
+                    self.pointer_injection_stage - 1
+                );
                 Self::schedule(context);
                 return;
             }
-            match Self::inject_pointer(raw, self.pointer_injection_stage) {
-                Ok(()) => {
-                    self.pointer_injection_stage += 1;
-                    self.pointer_injection_waits = 0;
-                }
-                Err(error) => {
-                    eprintln!("{error}");
-                    std::process::exit(1);
-                }
-            }
+            Self::inject_pointer(raw, self.pointer_injection_stage).unwrap();
+            self.pointer_injection_stage += 1;
+            self.pointer_injection_waits = 0;
             Self::schedule(context);
             return;
         }
@@ -3366,10 +3373,10 @@ impl reactor::Component for Fixture {
             assert_eq!(pointer.capture_succeeded, None);
         } else {
             self.pointer_waits += 1;
-            if self.pointer_waits >= LIVE_EVENT_TIMEOUT_TICKS {
-                eprintln!("real WinUI PointerReleased event was not delivered");
-                std::process::exit(1);
-            }
+            assert!(
+                self.pointer_waits < LIVE_EVENT_TIMEOUT_TICKS,
+                "real WinUI PointerReleased event was not delivered"
+            );
             Self::schedule(context);
             return;
         }

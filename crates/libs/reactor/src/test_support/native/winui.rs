@@ -290,6 +290,23 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    pub fn observe_content_dialog_opened(
+        &self,
+        dialog: ObjectId,
+        callback: impl Fn() + 'static,
+    ) -> Result<windows_core::EventRevoker, WinUiError> {
+        let value = self
+            .event_queue
+            .content_dialogs
+            .borrow()
+            .dialogs
+            .get(&dialog)
+            .ok_or(WinUiError::MissingObject(dialog))?
+            .value
+            .clone();
+        value.Opened(move |_, _| callback()).map_err(Into::into)
+    }
+
     pub fn hide_content_dialog(&self, dialog: ObjectId) -> Result<(), WinUiError> {
         let value = self
             .event_queue

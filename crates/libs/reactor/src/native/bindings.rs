@@ -2563,6 +2563,33 @@ impl windows_core::RuntimeName for ContentDialogClosedEventArgs {
 unsafe impl Send for ContentDialogClosedEventArgs {}
 unsafe impl Sync for ContentDialogClosedEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ContentDialogOpenedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ContentDialogOpenedEventArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for ContentDialogOpenedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IContentDialogOpenedEventArgs>();
+}
+unsafe impl windows_core::Interface for ContentDialogOpenedEventArgs {
+    type Vtable = <IContentDialogOpenedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IContentDialogOpenedEventArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ContentDialogOpenedEventArgs {
+    type Target = IContentDialogOpenedEventArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ContentDialogOpenedEventArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.ContentDialogOpenedEventArgs";
+}
+unsafe impl Send for ContentDialogOpenedEventArgs {}
+unsafe impl Sync for ContentDialogOpenedEventArgs {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContentDialogResult(pub i32);
 impl ContentDialogResult {
@@ -8456,6 +8483,36 @@ impl IContentDialog {
             ))
         }
     }
+    pub(crate) fn Opened<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<ContentDialog>, windows_core::Ref<ContentDialogOpenedEventArgs>)
+            + 'static,
+    {
+        let handler: TypedEventHandler<ContentDialog, ContentDialogOpenedEventArgs> = {
+            let com = windows_core::imp::DelegateBox::<
+                TypedEventHandler<ContentDialog, ContentDialogOpenedEventArgs>,
+                F,
+            >::new(
+                &TypedEventHandlerBox::<ContentDialog, ContentDialogOpenedEventArgs, F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).Opened)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveOpened,
+            ))
+        }
+    }
     pub(crate) fn Hide(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Hide)(windows_core::Interface::as_raw(self)).ok()
@@ -8536,8 +8593,13 @@ pub struct IContentDialog_Vtbl {
     ) -> windows_core::HRESULT,
     pub RemoveClosed:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    Opened: usize,
-    RemoveOpened: usize,
+    pub Opened: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveOpened:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     PrimaryButtonClick: usize,
     RemovePrimaryButtonClick: usize,
     SecondaryButtonClick: usize,
@@ -8597,6 +8659,19 @@ pub struct IContentDialogFactory_Vtbl {
         *mut *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IContentDialogOpenedEventArgs,
+    IContentDialogOpenedEventArgs_Vtbl,
+    0xd1355ed8_64ed_5bbc_9411_5f4dbca7d93f
+);
+impl windows_core::RuntimeType for IContentDialogOpenedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IContentDialogOpenedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
     IContentDialogStatics,

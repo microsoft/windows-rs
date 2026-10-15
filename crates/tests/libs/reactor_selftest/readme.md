@@ -15,6 +15,12 @@ Application lifecycle, menu, Canvas, WebView, and window-state fixtures live in
 [`test-reactor-integration`](../reactor_integration/readme.md). They use the public application
 API without enabling Reactor's diagnostic `test` feature.
 
+Asynchronous phases wait for native readiness rather than assuming a timer tick is sufficient.
+The ContentDialog check requests opening before its owner window exists, waits for `Opened`, then
+calls `Hide` and requires `Closed`.
+Use assertions for failures in component callbacks. Calling `process::exit` there can run
+application teardown while callback state is still borrowed.
+
 CI also runs the self-test and native library tests in debug mode with
 `RUSTFLAGS="-D warnings --cfg windows_cast_diagnostics"`. `check_casts.ps1` checks their captured
 output for unexpected same-pointer `QueryInterface` calls. Its allowlist covers agility checks,

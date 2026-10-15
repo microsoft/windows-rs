@@ -99,7 +99,7 @@ Microsoft::UI::Xaml::Controls::IComboBoxStatics::{get_IsEditableProperty, get_Pl
 Microsoft::UI::Xaml::Controls::ICommandBar::{get_PrimaryCommands, get_SecondaryCommands}
 Microsoft::UI::Xaml::Controls::ICommandBarFlyout::{get_PrimaryCommands, get_SecondaryCommands}
 Microsoft::UI::Xaml::Controls::IContentControl::put_Content
-Microsoft::UI::Xaml::Controls::IContentDialog::{add_Closed, Hide, put_CloseButtonText, put_IsPrimaryButtonEnabled, put_IsSecondaryButtonEnabled, put_PrimaryButtonText, put_SecondaryButtonText, put_Title, remove_Closed, ShowAsync}
+Microsoft::UI::Xaml::Controls::IContentDialog::{add_Closed, add_Opened, Hide, put_CloseButtonText, put_IsPrimaryButtonEnabled, put_IsSecondaryButtonEnabled, put_PrimaryButtonText, put_SecondaryButtonText, put_Title, remove_Closed, remove_Opened, ShowAsync}
 Microsoft::UI::Xaml::Controls::IContentDialogClosedEventArgs::get_Result
 Microsoft::UI::Xaml::Controls::IContentDialogStatics::{get_CloseButtonTextProperty, get_IsPrimaryButtonEnabledProperty, get_IsSecondaryButtonEnabledProperty, get_PrimaryButtonTextProperty, get_SecondaryButtonTextProperty, get_TitleProperty}
 Microsoft::UI::Xaml::Controls::IControl::{get_IsEnabled, put_Background, put_BorderBrush, put_BorderThickness, put_HorizontalContentAlignment, put_IsEnabled, put_VerticalContentAlignment}
