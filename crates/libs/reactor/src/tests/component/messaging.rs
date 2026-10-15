@@ -137,7 +137,8 @@ impl Component for OrderedText {
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
         input.rendered.replace(self.text.clone());
-        TextBox::new(self.text.clone())
+        TextBox::new()
+            .text(self.text.clone())
             .on_text_changed(self.callback.clone())
             .into()
     }

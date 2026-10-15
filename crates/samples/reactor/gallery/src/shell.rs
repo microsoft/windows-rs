@@ -302,7 +302,8 @@ impl Component for Gallery {
             .on_pane_toggle_requested(context.message(Message::TogglePane))
             .grid_row(0)
             .content(
-                TextBox::new(self.search.clone())
+                TextBox::new()
+                    .text(self.search.clone())
                     .placeholder_text("Search controls and samples...")
                     .on_text_changed(context.callback(|value: std::rc::Rc<str>| {
                         Message::SearchChanged(value.to_string())

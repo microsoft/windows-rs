@@ -1926,13 +1926,16 @@ pub struct TextBox(Declaration);
 impl Sealed for TextBox {}
 impl ReferenceElement for TextBox {}
 impl TextBox {
-    pub fn new(text: impl AsRef<str>) -> Self {
+    pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::TextBox);
-        let declaration = declaration.property(
+        Self(declaration)
+    }
+    pub fn text(mut self, text: impl AsRef<str>) -> Self {
+        self.0 = self.0.property(
             PropertyId::Text,
             PropertyValue::String(Rc::from(text.as_ref())),
         );
-        Self(declaration)
+        self
     }
     pub fn placeholder_text(mut self, placeholder_text: impl AsRef<str>) -> Self {
         self.0 = self.0.property(
@@ -1999,7 +2002,7 @@ impl TextBox {
     ///
     /// ```compile_fail
     /// use windows_reactor::*;
-    /// let _ = TextBox::new("Text").header(TreeNode::new("node", "Node"));
+    /// let _ = TextBox::new().header(TreeNode::new("node", "Node"));
     /// ```
     pub fn header(mut self, content: impl Into<View>) -> Self {
         self.0 = self.0.relation(
@@ -2014,6 +2017,11 @@ impl TextBox {
             EventValue::String(callback.into_payload_callback()),
         );
         self
+    }
+}
+impl Default for TextBox {
+    fn default() -> Self {
+        Self::new()
     }
 }
 impl From<TextBox> for View {

@@ -413,7 +413,8 @@ impl Component for TaskRow {
                 .is_on(input.item.done)
                 .on_toggled(context.callback(RowMessage::SetDone))
                 .into(),
-            TextBox::new(self.draft.clone())
+            TextBox::new()
+                .text(self.draft.clone())
                 .element_ref(&self.input)
                 .is_enabled(editing)
                 .on_text_changed(

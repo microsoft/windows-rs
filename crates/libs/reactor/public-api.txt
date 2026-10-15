@@ -3738,7 +3738,7 @@ pub fn windows_reactor::TextBox::max_height(self, f64) -> Self
 pub fn windows_reactor::TextBox::max_width(self, f64) -> Self
 pub fn windows_reactor::TextBox::min_height(self, f64) -> Self
 pub fn windows_reactor::TextBox::min_width(self, f64) -> Self
-pub fn windows_reactor::TextBox::new(impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TextBox::new() -> Self
 pub fn windows_reactor::TextBox::on_text_changed(self, impl windows_reactor::IntoPayloadCallback<alloc::rcs::rc::Rc<str>>) -> Self
 pub fn windows_reactor::TextBox::opacity(self, f64) -> Self
 pub fn windows_reactor::TextBox::placeholder_text(self, impl core::convert::AsRef<str>) -> Self
@@ -3748,6 +3748,7 @@ pub fn windows_reactor::TextBox::relative_align_left(self) -> Self
 pub fn windows_reactor::TextBox::relative_align_right(self) -> Self
 pub fn windows_reactor::TextBox::relative_align_top(self) -> Self
 pub fn windows_reactor::TextBox::relative_align_vertical_center(self) -> Self
+pub fn windows_reactor::TextBox::text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TextBox::text_alignment(self, windows_reactor::TextAlignment) -> Self
 pub fn windows_reactor::TextBox::text_wrapping(self, windows_reactor::TextWrapping) -> Self
 pub fn windows_reactor::TextBox::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
@@ -3756,6 +3757,8 @@ pub fn windows_reactor::TextBox::vertical_alignment(self, windows_reactor::Verti
 pub fn windows_reactor::TextBox::width(self, f64) -> Self
 impl core::convert::From<windows_reactor::TextBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TextBox) -> Self
+impl core::default::Default for windows_reactor::TextBox
+pub fn windows_reactor::TextBox::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::TextBox
 pub struct windows_reactor::Thickness
 pub windows_reactor::Thickness::bottom: f64

@@ -37,9 +37,17 @@ fn read_only_text_box_preserves_selection_and_resets_properties() {
         let calls = Rc::new(Cell::new(0));
         let changed = Rc::clone(&calls);
         let callback = Callback::new(move |_: Rc<str>| changed.set(changed.get() + 1));
-        let text_box = move |text| TextBox::new(text).on_text_changed(callback.clone());
+        let text_box = {
+            let callback = callback.clone();
+            move |text| TextBox::new().text(text).on_text_changed(callback.clone())
+        };
         let view = |control: TextBox, width| Border::new().width(width).content(control);
         let mut runtime = Runtime::new(WinUiAdapter::default());
+        runtime.update(view(TextBox::new(), 400.0)).unwrap();
+        let root = runtime.graph().root().unwrap();
+        let object = runtime.graph().child(root, RelationId::Content).unwrap();
+        assert_eq!(runtime.adapter().text_box_state(object).unwrap().0, "");
+        assert_eq!(runtime.adapter().text_box_set_count(object).unwrap(), 0);
         runtime
             .update(view(
                 text_box("0123456789")
@@ -48,8 +56,6 @@ fn read_only_text_box_preserves_selection_and_resets_properties() {
                 400.0,
             ))
             .unwrap();
-        let root = runtime.graph().root().unwrap();
-        let object = runtime.graph().child(root, RelationId::Content).unwrap();
         let window = runtime
             .adapter_mut()
             .create_window_with_policy(root, &WindowPolicy::new().client_size(800.0, 400.0))
@@ -215,6 +221,41 @@ fn read_only_text_box_preserves_selection_and_resets_properties() {
                 assert_eq!(value.Text().unwrap(), "Updated from state");
                 runtime.dispatch_native_events().unwrap();
                 assert_eq!(calls.get(), 0);
+
+                let unowned = view(TextBox::new().on_text_changed(callback.clone()), 600.0);
+                runtime.update(unowned.clone()).unwrap();
+                assert_eq!(value.Text().unwrap(), "");
+                runtime.dispatch_native_events().unwrap();
+                assert_eq!(calls.get(), 0);
+                runtime
+                    .adapter()
+                    .simulate_text_input(object, "Native text", 7, 4)
+                    .unwrap();
+                runtime.dispatch_native_events().unwrap();
+                assert_eq!(calls.get(), 1);
+                assert!(runtime.graph().properties(object).unwrap().is_empty());
+                let editing = runtime.adapter().text_box_state(object).unwrap();
+                assert!(runtime.update(unowned).unwrap().is_empty());
+                assert_eq!(runtime.adapter().text_box_state(object).unwrap(), editing);
+                assert_eq!(editing, ("Native text".to_string(), 7, 4));
+
+                let controlled = view(text_box(""), 600.0);
+                runtime.update(controlled.clone()).unwrap();
+                assert_eq!(value.Text().unwrap(), "");
+                runtime
+                    .adapter()
+                    .simulate_text_input(object, "Edited", 0, 0)
+                    .unwrap();
+                runtime.dispatch_native_events().unwrap();
+                assert_eq!(calls.get(), 2);
+                runtime.update(controlled).unwrap();
+                assert_eq!(value.Text().unwrap(), "");
+                runtime.dispatch_native_events().unwrap();
+                assert_eq!(calls.get(), 2);
+                assert_eq!(
+                    runtime.graph().child(root, RelationId::Content),
+                    Some(object)
+                );
             }
             // Unload the focused text control before destroying the window's input site.
             runtime.update(Border::new()).unwrap();

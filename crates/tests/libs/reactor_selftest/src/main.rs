@@ -433,7 +433,7 @@ impl Fixture {
                 reactor::DataItem::new("first", format!("First item {iteration}")),
             ]
         };
-        let text_box = reactor::TextBox::new(text);
+        let text_box = reactor::TextBox::new().text(text);
         let text_box = if let Some(text_changed) = text_changed {
             text_box.on_text_changed(text_changed)
         } else {
@@ -759,12 +759,16 @@ impl reactor::Component for Fixture {
         let mut replacement_runtime =
             reactor::Runtime::new(reactor::native::WinUiAdapter::default());
         replacement_runtime
-            .update(reactor::Grid::new().keyed_children([reactor::keyed(
-                "replace",
-                reactor::TextBox::new("Old").on_text_changed(move |_| {
-                    stale_callback_calls.set(stale_callback_calls.get() + 1);
-                }),
-            )]))
+            .update(
+                reactor::Grid::new().keyed_children([reactor::keyed(
+                    "replace",
+                    reactor::TextBox::new()
+                        .text("Old")
+                        .on_text_changed(move |_| {
+                            stale_callback_calls.set(stale_callback_calls.get() + 1);
+                        }),
+                )]),
+            )
             .unwrap();
         let replacement_root = replacement_runtime.graph().root().unwrap();
         let replacement_child = replacement_runtime

@@ -367,7 +367,8 @@ impl Component for EditorPage {
             .spacing(4.0)
             .children((
                 format!("{} editor", input.role.label()),
-                TextBox::new(input.note.clone())
+                TextBox::new()
+                    .text(input.note.clone())
                     .element_ref(&input.editor_ref)
                     .on_text_changed(input.changed.clone()),
             ))

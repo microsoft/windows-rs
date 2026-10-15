@@ -61,7 +61,7 @@ fn typed_references_cover_all_imperative_controls() {
     let webview = ElementRef::<WebView2>::new();
     let swap_chain = ElementRef::<SwapChainPanel>::new();
 
-    let _: View = TextBox::new("").element_ref(&text_box).into();
+    let _: View = TextBox::new().text("").element_ref(&text_box).into();
     let _: View = Grid::new().element_ref(&grid).into();
     let _: View = Image::new().element_ref(&image).into();
     let _: View = WebView2::new().element_ref(&webview).into();
@@ -74,7 +74,7 @@ fn typed_element_reference_queues_focus() {
     let result = Rc::new(Cell::new(None));
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(TextBox::new("").element_ref(&reference))
+        .update(TextBox::new().text("").element_ref(&reference))
         .unwrap();
     let completed = Rc::clone(&result);
     assert!(reference.request_focus_result(move |value| {
@@ -426,7 +426,7 @@ fn references_survive_keyed_replacement_and_clear_on_destruction() {
     runtime
         .update(Grid::new().keyed_children([keyed(
             "focused",
-            TextBox::new("replacement").element_ref(&reference),
+            TextBox::new().text("replacement").element_ref(&reference),
         )]))
         .unwrap();
     let replacement = runtime

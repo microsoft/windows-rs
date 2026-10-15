@@ -46,7 +46,7 @@ impl Component for TypedElementReference {
                 StackPanel::new().spacing(8.0).children((
                     "The typed reference exists across renders, points at the TextBox only while \
                      mounted, and cannot be attached to a different widget type.",
-                    TextBox::new("Focus target").element_ref(&self.input),
+                    TextBox::new().text("Focus target").element_ref(&self.input),
                     Button::new()
                         .on_click(context.message(Message::Focus))
                         .content("Focus TextBox"),
