@@ -1,3 +1,12 @@
+fn is_implicit_transition(id: PropertyId) -> bool {
+    matches!(
+        id,
+        PropertyId::OpacityTransition
+            | PropertyId::ScaleTransition
+            | PropertyId::TranslationTransition
+    )
+}
+
 impl WinUiAdapter {
     fn create(&mut self, object: ObjectId, kind: ObjectType) -> Result<(), WinUiError> {
         if self.handles.contains_key(&object) {
@@ -189,11 +198,34 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    fn set_transition_properties(
+        &self,
+        object: ObjectId,
+        set: &[Property],
+        clear: &[PropertyId],
+    ) -> Result<(), WinUiError> {
+        for (id, value) in clear
+            .iter()
+            .map(|id| (*id, None))
+            .chain(set.iter().map(|property| (property.id, Some(&property.value))))
+            .filter(|(id, _)| is_implicit_transition(*id))
+        {
+            let Some(Handle::Generated(handle)) = self.handles.get(&object) else {
+                return Err(WinUiError::InvalidObject(object));
+            };
+            handle
+                .set_property(id, value, None)
+                .ok_or(WinUiError::InvalidObject(object))??;
+        }
+        Ok(())
+    }
+
     fn set_properties(
         &mut self,
         object: ObjectId,
         set: &[Property],
         clear: &[PropertyId],
+        initializing: bool,
     ) -> Result<(), WinUiError> {
         let kind = self.kind(object)?;
         let sorted_clear = (kind == ObjectType::ListView).then(|| {
@@ -208,13 +240,18 @@ impl WinUiAdapter {
         });
         let clear = sorted_clear.as_deref().unwrap_or(clear);
         let set = sorted_set.as_deref().unwrap_or(set);
+        // Native setters choose their animation immediately. Apply the new transition policy
+        // before target changes, but establish initial values before installing transitions.
+        if !initializing {
+            self.set_transition_properties(object, set, clear)?;
+        }
         if !clear.is_empty()
             && let Some(subscription) = self.image_subscriptions.get(&object)
             && clear.contains(&subscription.property)
         {
             self.release_image(object);
         }
-        for property in clear.iter().copied() {
+        for property in clear.iter().copied().filter(|id| !is_implicit_transition(*id)) {
             if property == PropertyId::Source
                 && let Some(Handle::Generated(GeneratedHandle::Image(control))) =
                     self.handles.get(&object)
@@ -323,7 +360,7 @@ impl WinUiAdapter {
                 Self::schedule_event_wake(&self.event_queue);
             }
         }
-        for property in set {
+        for property in set.iter().filter(|property| !is_implicit_transition(property.id)) {
             let feedback =
                 GeneratedHandle::feedback_expectation(kind, property.id, Some(&property.value));
             if let Some((event, expectation)) = feedback.clone() {
@@ -493,6 +530,9 @@ impl WinUiAdapter {
                 self.event_queue.queue(Some(observation), None);
                 Self::schedule_event_wake(&self.event_queue);
             }
+        }
+        if initializing {
+            self.set_transition_properties(object, set, clear)?;
         }
         Ok(())
     }

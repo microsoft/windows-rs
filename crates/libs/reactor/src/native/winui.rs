@@ -1513,19 +1513,33 @@ fn set_implicit_scale(element: &native::UIElement, value: f64) -> Result<(), Win
     Ok(())
 }
 
-fn set_scale_transition(
+fn set_translation_transition(
     element: &native::UIElement,
     duration: Option<Duration>,
 ) -> Result<(), WinUiError> {
+    let transition = vector_transition(duration)?;
+    element.SetTranslationTransition(transition.as_ref())?;
+    Ok(())
+}
+
+fn vector_transition(
+    duration: Option<Duration>,
+) -> Result<Option<native::Vector3Transition>, WinUiError> {
     let Some(duration) = duration else {
-        return element
-            .SetScaleTransition(None::<&native::Vector3Transition>)
-            .map_err(Into::into);
+        return Ok(None);
     };
     let duration = TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
     let transition = native::Vector3Transition::new()?;
     transition.SetDuration(duration)?;
-    element.SetScaleTransition(&transition)?;
+    Ok(Some(transition))
+}
+
+fn set_scale_transition(
+    element: &native::UIElement,
+    duration: Option<Duration>,
+) -> Result<(), WinUiError> {
+    let transition = vector_transition(duration)?;
+    element.SetScaleTransition(transition.as_ref())?;
     Ok(())
 }
 

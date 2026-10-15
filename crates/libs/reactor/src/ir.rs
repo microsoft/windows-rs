@@ -369,6 +369,9 @@ pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result
         | (ValueType::StringList, PropertyValue::StringList(_))
         | (ValueType::ThemeTransitions, PropertyValue::ThemeTransitions(_))
         | (ValueType::Thickness, PropertyValue::Thickness(_)) => true,
+        (ValueType::Vector2, PropertyValue::Vector2(value)) => {
+            value.iter().all(|value| (*value as f32).is_finite())
+        }
         (
             ValueType::Enum {
                 kind: expected,

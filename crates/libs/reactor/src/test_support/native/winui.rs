@@ -290,6 +290,23 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    pub fn observe_content_dialog_opened(
+        &self,
+        dialog: ObjectId,
+        callback: impl Fn() + 'static,
+    ) -> Result<windows_core::EventRevoker, WinUiError> {
+        let value = self
+            .event_queue
+            .content_dialogs
+            .borrow()
+            .dialogs
+            .get(&dialog)
+            .ok_or(WinUiError::MissingObject(dialog))?
+            .value
+            .clone();
+        value.Opened(move |_, _| callback()).map_err(Into::into)
+    }
+
     pub fn hide_content_dialog(&self, dialog: ObjectId) -> Result<(), WinUiError> {
         let value = self
             .event_queue
@@ -484,6 +501,28 @@ impl WinUiAdapter {
 
     pub fn opacity(&self, object: ObjectId) -> Result<f64, WinUiError> {
         self.ui_element(object)?.Opacity().map_err(Into::into)
+    }
+
+    pub fn translation(&self, object: ObjectId) -> Result<[f32; 2], WinUiError> {
+        let value = self.ui_element(object)?.Translation()?;
+        Ok([value.x, value.y])
+    }
+
+    pub fn animations_enabled(&self) -> Result<bool, WinUiError> {
+        Ok(native::UISettings::new()?.AnimationsEnabled()?)
+    }
+
+    pub fn transformed_point(
+        &self,
+        object: ObjectId,
+        x: f32,
+        y: f32,
+    ) -> Result<[f32; 2], WinUiError> {
+        let point = self
+            .ui_element(object)?
+            .TransformToVisual(None::<&native::UIElement>)?
+            .TransformPoint(native::Point { x, y })?;
+        Ok([point.x, point.y])
     }
 
     pub fn simulate_click(&self, object: ObjectId) -> Result<(), WinUiError> {

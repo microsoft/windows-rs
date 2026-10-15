@@ -99,7 +99,7 @@ Microsoft::UI::Xaml::Controls::IComboBoxStatics::{get_IsEditableProperty, get_Pl
 Microsoft::UI::Xaml::Controls::ICommandBar::{get_PrimaryCommands, get_SecondaryCommands}
 Microsoft::UI::Xaml::Controls::ICommandBarFlyout::{get_PrimaryCommands, get_SecondaryCommands}
 Microsoft::UI::Xaml::Controls::IContentControl::put_Content
-Microsoft::UI::Xaml::Controls::IContentDialog::{add_Closed, Hide, put_CloseButtonText, put_IsPrimaryButtonEnabled, put_IsSecondaryButtonEnabled, put_PrimaryButtonText, put_SecondaryButtonText, put_Title, remove_Closed, ShowAsync}
+Microsoft::UI::Xaml::Controls::IContentDialog::{add_Closed, add_Opened, Hide, put_CloseButtonText, put_IsPrimaryButtonEnabled, put_IsSecondaryButtonEnabled, put_PrimaryButtonText, put_SecondaryButtonText, put_Title, remove_Closed, remove_Opened, ShowAsync}
 Microsoft::UI::Xaml::Controls::IContentDialogClosedEventArgs::get_Result
 Microsoft::UI::Xaml::Controls::IContentDialogStatics::{get_CloseButtonTextProperty, get_IsPrimaryButtonEnabledProperty, get_IsSecondaryButtonEnabledProperty, get_PrimaryButtonTextProperty, get_SecondaryButtonTextProperty, get_TitleProperty}
 Microsoft::UI::Xaml::Controls::IControl::{get_IsEnabled, put_Background, put_BorderBrush, put_BorderThickness, put_HorizontalContentAlignment, put_IsEnabled, put_VerticalContentAlignment}
@@ -363,7 +363,7 @@ Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::IRoutedEventArgs::get_OriginalSource
 Microsoft::UI::Xaml::IScalarTransition::put_Duration
 Microsoft::UI::Xaml::ISizeChangedEventArgs::get_NewSize
-Microsoft::UI::Xaml::IUIElement::{add_CharacterReceived, add_DragEnter, add_DragLeave, add_DragOver, add_Drop, add_GotFocus, add_KeyUp, add_LostFocus, add_PointerCanceled, add_PointerCaptureLost, add_PointerEntered, add_PointerExited, add_PointerMoved, add_PointerPressed, add_PointerReleased, add_PreviewKeyDown, CapturePointer, Focus, get_AllowDrop, get_FocusState, get_KeyboardAccelerators, get_Opacity, get_PointerCaptures, get_XamlRoot, put_AllowDrop, put_CenterPoint, put_IsTabStop, put_KeyboardAcceleratorPlacementMode, put_Opacity, put_OpacityTransition, put_Scale, put_ScaleTransition, put_Transitions, put_XamlRoot, ReleasePointerCapture, remove_CharacterReceived, remove_DragEnter, remove_DragLeave, remove_DragOver, remove_Drop, remove_GotFocus, remove_KeyUp, remove_LostFocus, remove_PointerCanceled, remove_PointerCaptureLost, remove_PointerEntered, remove_PointerExited, remove_PointerMoved, remove_PointerPressed, remove_PointerReleased, remove_PreviewKeyDown, UpdateLayout}
+Microsoft::UI::Xaml::IUIElement::{add_CharacterReceived, add_DragEnter, add_DragLeave, add_DragOver, add_Drop, add_GotFocus, add_KeyUp, add_LostFocus, add_PointerCanceled, add_PointerCaptureLost, add_PointerEntered, add_PointerExited, add_PointerMoved, add_PointerPressed, add_PointerReleased, add_PreviewKeyDown, CapturePointer, Focus, get_AllowDrop, get_FocusState, get_KeyboardAccelerators, get_Opacity, get_PointerCaptures, get_Translation, get_XamlRoot, put_AllowDrop, put_CenterPoint, put_IsTabStop, put_KeyboardAcceleratorPlacementMode, put_Opacity, put_OpacityTransition, put_Scale, put_ScaleTransition, put_Transitions, put_Translation, put_TranslationTransition, put_XamlRoot, ReleasePointerCapture, remove_CharacterReceived, remove_DragEnter, remove_DragLeave, remove_DragOver, remove_Drop, remove_GotFocus, remove_KeyUp, remove_LostFocus, remove_PointerCanceled, remove_PointerCaptureLost, remove_PointerEntered, remove_PointerExited, remove_PointerMoved, remove_PointerPressed, remove_PointerReleased, remove_PreviewKeyDown, TransformToVisual, UpdateLayout}
 Microsoft::UI::Xaml::IUIElementStatics::{get_AllowDropProperty, get_IsTabStopProperty, get_OpacityProperty, get_TransitionsProperty}
 Microsoft::UI::Xaml::IVector3Transition::put_Duration
 Microsoft::UI::Xaml::IWindow::{Activate, add_Closed, Close, put_Content, put_ExtendsContentIntoTitleBar, put_Title, remove_Closed, SetTitleBar}
@@ -381,6 +381,7 @@ Microsoft::UI::Xaml::Media::Animation::TransitionCollection::CreateInstance
 Microsoft::UI::Xaml::Media::CompositionTarget::{add_Rendering, remove_Rendering}
 Microsoft::UI::Xaml::Media::DesktopAcrylicBackdrop::CreateInstance
 Microsoft::UI::Xaml::Media::Geometry::{}
+Microsoft::UI::Xaml::Media::IGeneralTransform::TransformPoint
 Microsoft::UI::Xaml::Media::ImageSource::{}
 Microsoft::UI::Xaml::Media::Imaging::BitmapImage::CreateInstance
 Microsoft::UI::Xaml::Media::Imaging::IBitmapImage::{add_ImageFailed, add_ImageOpened, put_UriSource, remove_ImageFailed, remove_ImageOpened}
@@ -427,6 +428,8 @@ Windows::System::{VirtualKey, VirtualKeyModifiers}
 Windows::UI::Core::CorePhysicalKeyStatus
 Windows::UI::Text::FontStyle::Italic
 Windows::UI::Text::FontWeight
+Windows::UI::ViewManagement::IUISettings::get_AnimationsEnabled
+Windows::UI::ViewManagement::UISettings::CreateInstance
 Windows::UI::Xaml::Interop::TypeKind::Metadata
 Windows::UI::Xaml::Interop::TypeName
 Windows::Win32::AddPackageDependency

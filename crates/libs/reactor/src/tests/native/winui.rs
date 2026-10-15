@@ -15,6 +15,9 @@ mod ownership;
 #[path = "text_box.rs"]
 mod text_box;
 
+#[path = "transitions.rs"]
+mod transitions;
+
 #[test]
 fn placement_coordinates_round_trip_negative_monitors_and_taskbar_offsets() {
     let screen = native::RECT {
