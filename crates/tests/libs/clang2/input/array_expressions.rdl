@@ -1,7 +1,7 @@
 #[win32]
 mod Fixture {
-    extern "C" fn AliasCallback(param0: *const i32, param1: *mut i8, param2: *mut [i32; 2]);
-    extern "C" fn ArrayCallback(param0: *mut i32);
+    extern "C" fn AliasCallback(value: *const i32, bytes: *mut i8, multi: *mut [i32; 2]);
+    extern "C" fn ArrayCallback(value: *mut i32);
     #[arch(X64 | Arm64)]
     struct Arrays {
         add: [i8; 5],

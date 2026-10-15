@@ -145,7 +145,7 @@ pub enum TypeKind {
     LValueReference(TypeId),
     Array {
         element: TypeId,
-        length: u64,
+        length: Option<u64>,
     },
     Record(RecordId),
     Alias(AliasId),
@@ -164,19 +164,29 @@ pub enum CallingConvention {
     Stdcall,
 }
 
-/// Accepted prototypes have no variadic, exception, or supplementary function properties.
+/// Decoded function prototypes; variadics and unknown function properties remain unsupported.
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub struct Function {
     pub convention: CallingConvention,
+    pub exceptions: ExceptionSpecification,
+    pub method_qualifiers: Qualifiers,
     pub result: TypeId,
     pub parameters: Vec<TypeId>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub enum ExceptionSpecification {
+    None,
+    Noexcept,
+    NoThrow,
+    DynamicNone,
 }
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub struct Type {
     pub kind: TypeKind,
     pub qualifiers: Qualifiers,
-    /// Object layout; void, functions, references, and incomplete records have no layout.
+    /// Object layout; void, functions, references, and incomplete types have no layout.
     pub layout: Option<Layout>,
 }
 
@@ -200,7 +210,10 @@ pub enum AttributeKind {
     Uuid(u128),
     NoVTable,
     DllImport,
+    NoThrow,
+    SelectAny,
     Sal(Box<SalAnnotation>),
+    Deprecated(Box<Deprecation>),
     MaxFieldAlignment { bits: u32 },
     Aligned { bits: u32, kind: AlignmentKind },
     Unresolved(String),
@@ -231,6 +244,12 @@ pub struct SalAnnotation {
     pub expanded: String,
 }
 
+#[derive(Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct Deprecation {
+    pub message: String,
+    pub replacement: String,
+}
+
 #[derive(Debug, Eq, PartialEq)]
 pub struct Alias {
     pub name: String,
@@ -246,6 +265,8 @@ pub struct AliasObservation {
     /// The direct typedef type specifier defines the record or enum, rather than referencing it.
     pub defines_tag: bool,
     pub attributes: Vec<Attribute>,
+    /// Parameters of a prototype written in this declaration, not part of ABI type identity.
+    pub parameters: Option<Vec<Parameter>>,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -289,23 +310,38 @@ pub struct RecordDefinition {
     pub layout: Layout,
     pub fields: Vec<Field>,
     /// Direct public, non-virtual bases, in declaration order.
-    pub bases: Vec<RecordId>,
+    pub bases: Vec<Base>,
     /// Direct public, pure virtual methods, in vtable order.
     pub methods: Vec<Method>,
-    /// C++ member templates have no vtable slots. Retained as provenance, not ABI comparisons.
-    pub member_templates: Vec<MemberTemplate>,
+    /// Members without vtable slots. Retained as provenance, not ABI comparisons.
+    pub non_vtable_members: Vec<NonVTableMember>,
 }
 
 #[derive(Debug, Eq, PartialEq)]
-pub struct MemberTemplate {
+pub struct NonVTableMember {
     pub name: String,
     pub usr: String,
     pub location: Location,
+    pub kind: NonVTableMemberKind,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct Base {
+    pub record: RecordId,
+    pub offset_bits: u64,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum NonVTableMemberKind {
+    Template,
+    Method,
+    Using,
 }
 
 #[derive(Debug, Eq, PartialEq)]
 pub struct Method {
     pub name: String,
+    pub slot: u64,
     pub observation: ValueObservation,
 }
 
@@ -315,6 +351,14 @@ pub struct Parameter {
     pub written: TypeId,
     pub location: Location,
     pub attributes: Vec<Attribute>,
+    pub default: Option<DefaultArgument>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct DefaultArgument {
+    /// Compiler-printed expression, not evaluated or treated as an ABI parameter.
+    pub expression: String,
+    pub location: Location,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -341,9 +385,21 @@ pub enum ValueKind {
         language: LanguageLinkage,
     },
     Constant {
-        value: EnumValue,
+        value: ConstantValue,
         origin: ConstantOrigin,
     },
+}
+
+/// Scalar constant values; floating-point payloads retain their IEEE bits, including signed zero.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum ConstantValue {
+    Integer(EnumValue),
+    Boolean(bool),
+    Float32(u32),
+    Float64(u64),
+    Guid(u128),
+    PropertyKey { format: u128, id: u32 },
+    String { value: String, wide: bool },
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -387,10 +443,17 @@ pub struct EnumMember {
     pub attributes: Vec<Attribute>,
 }
 
-#[derive(Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum EnumValue {
     Signed(i64),
     Unsigned(u64),
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct InlineFunction {
+    pub name: String,
+    pub usr: String,
+    pub location: Location,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -407,6 +470,8 @@ pub struct Snapshot {
     pub aliases: Vec<Alias>,
     pub enums: Vec<Enum>,
     pub values: Vec<ValueDeclaration>,
+    /// C++ inline overload observations beside selected C declarations, outside the exported ABI.
+    pub inline_functions: Vec<InlineFunction>,
     pub observations: Vec<RecordObservation>,
     pub types: Vec<Type>,
 }
@@ -474,6 +539,8 @@ impl Snapshot {
                         | AttributeKind::Uuid(_)
                         | AttributeKind::NoVTable
                         | AttributeKind::DllImport
+                        | AttributeKind::NoThrow
+                        | AttributeKind::SelectAny
                         | AttributeKind::MaxFieldAlignment { .. }
                         | AttributeKind::Aligned { .. } => 0,
                         AttributeKind::Unresolved(kind) => kind.capacity(),
@@ -484,6 +551,25 @@ impl Snapshot {
                                 + value.arguments.capacity()
                                 + value.expanded.capacity()
                         }
+                        AttributeKind::Deprecated(value) => {
+                            size_of::<Deprecation>()
+                                + value.message.capacity()
+                                + value.replacement.capacity()
+                        }
+                    })
+                    .sum::<usize>()
+        }
+        fn parameters_bytes(parameters: &Vec<Parameter>) -> usize {
+            vector_bytes(parameters)
+                + parameters
+                    .iter()
+                    .map(|parameter| {
+                        parameter.name.capacity()
+                            + attributes_bytes(&parameter.attributes)
+                            + parameter
+                                .default
+                                .as_ref()
+                                .map_or(0, |value| value.expression.capacity())
                     })
                     .sum::<usize>()
         }
@@ -494,17 +580,11 @@ impl Snapshot {
                         parameters,
                         mangling,
                         ..
-                    } => {
-                        mangling.capacity()
-                            + vector_bytes(parameters)
-                            + parameters
-                                .iter()
-                                .map(|parameter| {
-                                    parameter.name.capacity()
-                                        + attributes_bytes(&parameter.attributes)
-                                })
-                                .sum::<usize>()
-                    }
+                    } => mangling.capacity() + parameters_bytes(parameters),
+                    ValueKind::Constant {
+                        value: ConstantValue::String { value, .. },
+                        ..
+                    } => value.capacity(),
                     ValueKind::Constant { .. } => 0,
                 }
         }
@@ -520,6 +600,12 @@ impl Snapshot {
             + vector_bytes(&self.aliases)
             + vector_bytes(&self.enums)
             + vector_bytes(&self.values)
+            + vector_bytes(&self.inline_functions)
+            + self
+                .inline_functions
+                .iter()
+                .map(|function| function.name.capacity() + function.usr.capacity())
+                .sum::<usize>()
             + vector_bytes(&self.observations)
             + vector_bytes(&self.types);
         for ty in &self.types {
@@ -538,7 +624,10 @@ impl Snapshot {
                 + alias
                     .observations
                     .iter()
-                    .map(|value| attributes_bytes(&value.attributes))
+                    .map(|value| {
+                        attributes_bytes(&value.attributes)
+                            + value.parameters.as_ref().map_or(0, parameters_bytes)
+                    })
                     .sum::<usize>();
         }
         for enumeration in &self.enums {
@@ -571,9 +660,9 @@ impl Snapshot {
                 owned_bytes += vector_bytes(&definition.fields)
                     + vector_bytes(&definition.bases)
                     + vector_bytes(&definition.methods)
-                    + vector_bytes(&definition.member_templates)
+                    + vector_bytes(&definition.non_vtable_members)
                     + definition
-                        .member_templates
+                        .non_vtable_members
                         .iter()
                         .map(|member| member.name.capacity() + member.usr.capacity())
                         .sum::<usize>()

@@ -33,7 +33,9 @@ libclang callers must not create indices during a batch. Native hangs affect the
 Supported: named structs, unions, and integer-backed enums; typedefs, non-template `using` aliases,
 forwards, scalars, qualified pointers, arrays, pragma packing, explicit record alignment, and
 plain C/stdcall callback prototypes. Written aliases and attributed calling conventions are retained.
-Fixed array extents are compiler-evaluated; array callback parameters use native pointer adjustment.
+Fixed array extents are compiler-evaluated; fixed and unsized array parameters use native pointer
+adjustment, retaining element aliases, constness, and inner dimensions. An absent bound is distinct
+from zero length. Incomplete array storage remains unsupported.
 Default field initializers remain unsupported, including initializers hidden from cursor traversal.
 Native record compatibility uses canonical types. Alias groups retain all name-corresponding
 bindings; their public compatibility is checked during projection, not assumed by native merge.
@@ -43,8 +45,11 @@ out-of-line definitions. RDL preserves their scope through inline fields or nest
 and references such as `Outer::Inner`. Nested enums and aliases declared inside records remain
 unsupported.
 Callback capture checks native function properties before accepting a prototype. Explicit
-`regparm`, `noreturn`, variadic or exception-qualified functions, other calling conventions, and
-unknown attributes remain unsupported rather than being normalized to ordinary C.
+`regparm`, `noreturn`, variadic functions, other calling conventions, and unknown attributes remain
+unsupported rather than being normalized to ordinary C. Unconditional `noexcept`, `nothrow`,
+and empty `throw()` retain their native distinction and publish an explicit
+`NativeExceptionSpecificationAttribute`
+on functions, methods, and named callbacks. Other exception specifications remain unsupported.
 The native qualifier query rejects `__unaligned` and other non-CVR qualifiers before interning,
 including qualifiers inherited through typedefs.
 Default type visibility is retained and compared as native evidence. It needs no metadata
@@ -56,7 +61,7 @@ The optional `projection` feature provides `projection::generate(inputs, namespa
 three-target capture, merge, and partitioned RDL output. It emits structs, unions, enums, constants,
 value typedefs, and named callbacks, checks metadata ABI layout, and rejects unsupported declarations
 or ambiguous names. Callback signatures retain calling convention, result and parameter types;
-parameter names are positional on named callbacks. Unnamed signatures have structural function types.
+named callbacks preserve declared parameter names. Unnamed signatures have structural function types.
 Written value-typedef and callback names are preserved in fields and callback signatures, including
 their dependencies. Alias declarations retain canonical storage types. Unnamed function pointers
 use compatible callback names resolved across the target, independent of the representative TU.
@@ -65,23 +70,66 @@ as ECMA-335 `FNPTR` signatures. No public callback names are synthesized.
 
 External C-linkage functions retain native signatures, parameter names, and mangling.
 `project_with_imports` and `project_partial_with_imports` take explicit DLL/export ownership;
-it is not guessed from headers. UUID-bearing, single-vptr interfaces support a public non-virtual
+it is not guessed from headers. The SDK driver can supply it with `--sdk-imports`, using the pinned
+SDK's ordered import-library policy and checked corrections. Ordinal-only imports remain explicit
+omissions. Native-compatible free-function redeclarations with ambiguous public names or aliases
+remain strict errors; partial mode reports and omits them on every target.
+UUID-bearing, single-vptr interfaces support a public non-virtual
 base and ordered public pure virtual methods with the platform COM convention. C++ lvalue
-reference parameters preserve constness through metadata byrefs. Non-vtable member templates
-remain provenance, not exported methods or a claim of full C++ compatibility.
+reference parameters preserve constness through metadata byrefs. Nonvirtual helpers, member templates,
+and method `using` declarations remain provenance, not exported methods or a claim of full C++
+compatibility. Const methods and compiler-printed parameter defaults retain explicit metadata
+attributes; volatile/restrict and ref-qualified methods remain unsupported.
 
-Const integer declarations and explicitly selected `Input::macros` use compiler evaluation.
-Macros are evaluated after the input and retain native definition ownership. A constant-expression
-check rejects runtime side effects that libclang's general folding API may ignore. This slice
-does not implement string macros, general initializers, or automatic macro discovery.
+Const integer, enum, boolean, and finite float/double declarations and selected `Input::macros`
+use compiler evaluation. Floating-point values retain exact bits, including signed zero.
+Enum constants retain their nominal enum or written typedef rather than becoming plain integers.
+GUIDs and property keys use compiler-evaluated aggregate fields with checked native shapes.
+Terminated ASCII and UTF-16 arrays publish strings with explicit encodings, preserving embedded
+zeros and padding. A declaration can use its compiler-linked definition's initializer.
+Macros are evaluated after the input and retain native definition ownership, including selected
+string and GUID expressions. A constant-expression check rejects runtime side effects that
+libclang's general folding API may ignore. This slice does not implement non-finite or extended
+floats, arbitrary aggregates, pointer strings, non-ASCII narrow strings, or automatic macro discovery.
+Declaration-only GUIDs without an initializer remain unsupported.
 The header/RDL fixtures and SDK breadth test cover all three categories
 through x86, x64, and ARM64 WinMD round trips.
+The `sdk_functions` fixture covers 114 real SDK imports with explicit DLL ownership, including file
+I/O, callbacks, COM activation, registry/security, sockets, cryptography, GDI, timing, virtual memory,
+Direct3D/DXGI, HTTP, event logging, service control, and process inspection. It also checks Direct3D
+floating-point macros, architecture-dependent socket storage, DirectWrite factory creation, and
+Direct2D matrix operations and device/context creation. External C++ inline overloads beside a
+selected C declaration retain names, identities, and locations outside the exported ABI.
+Non-inline overloads and C function definitions remain unsupported.
+The `sdk_interfaces` fixture covers storage, imaging, properties, monikers, shell, Direct3D/DXGI,
+DirectWrite, and Direct2D geometry dependencies, including UUIDs, inheritance, method order, and
+exception contracts. COM object constness remains native
+evidence but does not change the published interface reference; const on pointer storage is retained.
+Interface typedefs publish as transparent aliases. The full DirectWrite factory closure includes
+font collections, font faces, text analysis, formatting, and layout. Direct2D coverage reaches
+`ID2D1Factory7` and `ID2D1DeviceContext6`, including effects, printing, imaging, and SVG, plus WIC
+factory2 and raw-image development. DirectWrite coverage reaches `IDWriteFactory7` and
+`IDWriteFontSet3`.
+
+Virtual overloads retain their native names and compiler-owned vtable slots; declaration order is
+not the MSVC slot order. Ordinary value inheritance publishes one public nonvirtual base as a
+`base` field with `NativeBaseAttribute`, after checking the complete derived layout. Inherited
+records are supported through pointers and parameter references, not by-value callable signatures.
+Multiple, virtual, or empty bases and unrepresentable layouts remain explicit errors.
+
+Deprecation messages and replacement names retain explicit `NativeDeprecatedAttribute` payloads.
+Empty payloads and enum-member annotations survive metadata round trips. Relocated typedef
+annotations retain their original owner; conflicting deprecation payloads are rejected.
 
 The SDK driver preserves SAL source-hook evidence through the provisional `NativeSalAttribute`,
 including capacity, initialized-length, and conditional contracts. Common parameter direction and
 argument-optionality flags are also projected. This is not a complete SAL interpreter; expressions
 and nested contracts remain explicit evidence. Typedef publication accepts an observed annotation
 set that contains all other observations, but never invents a union of incomparable sets.
+Callback parameter names and contracts belong to declaration observations, not shared ABI types.
+ABI-based callback naming excludes annotated and indirect prototypes. Defining-typedef annotations
+retain their original owner through `NativeSalAttribute.TypedefName` when published on a record or
+enum; inherited callback typedef contracts use the same ownership marker.
 
 All same-target record and callback observations must agree on their public names after native
 compatibility is checked; conflicting names are errors, including in partial mode.
@@ -106,7 +154,8 @@ Anonymous enums without a public type name publish their members as typed consta
 constants must agree in native backing type and value; architectures can retain different variants.
 Type and constant names occupy separate publication namespaces. Typedef-named enums remain enums;
 references to otherwise unnamed enum types are rejected rather than replaced with integers.
-Mixed const/mutable pointer chains retain per-level qualifiers through RDL and WinMD.
+Mixed const/mutable pointer chains retain per-level storage qualifiers through RDL and WinMD;
+COM object constness follows the publication rule above.
 `char16_t` and `char32_t` project to `u16` and `u32`, while native reconciliation keeps their
 identities distinct from other equal-sized integer types.
 By-value aliases can connect distinct native records only after their definitions are checked.
@@ -127,7 +176,6 @@ Failed entities and dependent declarations are removed across all targets; compi
 conflicts in retained definitions or alias bindings still fail. A non-value typedef, such as `void`,
 can remain as native evidence and expand at use sites. A named value alias or callback
 that cannot be published is removed with its dependents rather than replaced by its canonical type.
-Macro constants are not captured.
 
 Fixtures, inspection, and scaling live in `test_clang2`. See
 [crate notes](../../../docs/crates/windows-clang2.md) for commands.

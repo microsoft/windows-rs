@@ -9,7 +9,6 @@ struct TransitiveUser { Transitive callback; };
 typedef void (*Good)(Safe* value);
 struct GoodUser { Good callback; };
 typedef void (*Variadic)(int count, ...);
-typedef void (*Noexcept)() noexcept;
 typedef void (__attribute__((noreturn)) *NoReturn)();
 typedef NoReturn (*ReturningNoReturn)();
 typedef void (*TakingNoReturn)(NoReturn callback);

@@ -72,11 +72,17 @@ fn declaration_fidelity() {
         );
         assert!(matches!(
             snapshot.types[alias("RecordArray").0].kind,
-            TypeKind::Array { length: 2, .. }
+            TypeKind::Array {
+                length: Some(2),
+                ..
+            }
         ));
         assert!(matches!(
             snapshot.types[alias("PointerArray").0].kind,
-            TypeKind::Array { length: 3, .. }
+            TypeKind::Array {
+                length: Some(3),
+                ..
+            }
         ));
     }
     let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();

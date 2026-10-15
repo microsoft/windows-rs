@@ -5,17 +5,10 @@ use windows_metadata::{Value, reader, reader::HasAttributes};
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 fn input() -> Input {
-    let mut input = test_clang2::sdk_fixture();
+    let mut input = test_clang2::annotated_sdk_fixture();
     input.name = "annotations.h".into();
     input.source = test_clang2::fixture("annotations").source;
     input.roots.clear();
-    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
-    input.arguments.extend([
-        "-include".into(),
-        root.join("crates\\tools\\win32-2\\src\\sal.h")
-            .display()
-            .to_string(),
-    ]);
     input
 }
 
@@ -71,6 +64,28 @@ fn annotation_roundtrip() {
     helpers::ensure_libclang();
     let input = input();
     let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+    for snapshot in &snapshots {
+        let alias = |name: &str| {
+            &snapshot
+                .aliases
+                .iter()
+                .find(|alias| alias.name == name)
+                .unwrap()
+                .observations[0]
+        };
+        assert_eq!(alias("AContract").canonical, alias("ZPlain").canonical);
+        assert!(
+            alias("AContract").parameters.as_ref().unwrap()[0]
+                .attributes
+                .iter()
+                .any(|attribute| matches!(attribute.kind, AttributeKind::Sal(_)))
+        );
+        assert!(
+            alias("ZPlain").parameters.as_ref().unwrap()[0]
+                .attributes
+                .is_empty()
+        );
+    }
     let merged = merge(&snapshots).unwrap();
     let output = projection::project_with_imports(&merged, "Fixture", &imports()).unwrap();
     let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
@@ -185,11 +200,118 @@ fn annotation_roundtrip() {
                 conditional[0][2],
                 Value::Utf8("capacity > 0,_Out_writes_(capacity)".into())
             );
+            for name in ["AContract", "CopiedContract"] {
+                let callback = index.expect("Fixture", name);
+                let invoke = callback
+                    .methods()
+                    .find(|method| method.name() == "Invoke")
+                    .unwrap();
+                let params: Vec<_> = invoke.params().collect();
+                assert_eq!(
+                    params.iter().map(|param| param.name()).collect::<Vec<_>>(),
+                    ["buffer", "capacity", "written"]
+                );
+                let contract = attributes(params[0]);
+                assert_eq!(contract.len(), 1);
+                assert_eq!(contract[0][1], Value::Utf8("_When_".into()));
+                assert_eq!(
+                    contract[0][2],
+                    Value::Utf8("capacity > 0,_Out_writes_bytes_to_(capacity, *written)".into())
+                );
+                assert_eq!(params[1].direction(), reader::ParamDirection::Input);
+                assert_eq!(params[2].direction(), reader::ParamDirection::Output);
+            }
+            let plain = index.expect("Fixture", "ZPlain");
+            for (name, callback) in [
+                ("ContractAddress", "AContract"),
+                ("ResultAddress", "AResultContract"),
+            ] {
+                assert_eq!(
+                    index.expect("Fixture", name).underlying_type(),
+                    Some(windows_metadata::Type::PtrMut(
+                        Box::new(windows_metadata::Type::class_named("Fixture", callback)),
+                        1
+                    ))
+                );
+            }
+            assert!(
+                plain
+                    .methods()
+                    .find(|method| method.name() == "Invoke")
+                    .unwrap()
+                    .params()
+                    .all(|param| attributes(param).is_empty())
+            );
+            let result_callback = index
+                .expect("Fixture", "ResultOnly")
+                .fields()
+                .next()
+                .unwrap()
+                .ty();
+            assert!(matches!(result_callback, windows_metadata::Type::FnPtr(_)));
+            let inherited = index.expect("Fixture", "CopiedResult");
+            assert!(inherited.attributes().any(|attribute| {
+                attribute.name() == "NativeSalAttribute"
+                    && attribute.value().iter().any(|(name, value)| {
+                        name == "TypedefName" && *value == Value::Utf8("AResultContract".into())
+                    })
+            }));
+            let holder = index.expect("Fixture", "CallbackHolder");
+            let field = |name| {
+                holder
+                    .fields()
+                    .find(|field| field.name() == name)
+                    .unwrap()
+                    .ty()
+            };
+            assert_eq!(
+                field("named"),
+                windows_metadata::Type::class_named("Fixture", "AContract")
+            );
+            assert_eq!(
+                field("inferred"),
+                windows_metadata::Type::class_named("Fixture", "ZPlain")
+            );
+            let tagged = index.expect("Fixture", "Tagged");
+            let sal: Vec<_> = tagged
+                .attributes()
+                .filter(|attribute| attribute.name() == "NativeSalAttribute")
+                .map(|attribute| attribute.value())
+                .collect();
+            assert_eq!(sal.len(), 2);
+            assert_eq!(
+                sal.iter()
+                    .filter(|values| values.iter().any(|(name, value)| {
+                        name == "TypedefName" && *value == Value::Utf8("Tagged".into())
+                    }))
+                    .count(),
+                1
+            );
+            assert!(
+                index
+                    .expect("Fixture", "Code")
+                    .attributes()
+                    .filter(|attribute| attribute.name() == "NativeSalAttribute")
+                    .any(|attribute| attribute
+                        .value()
+                        .iter()
+                        .any(|(name, value)| name == "TypedefName"
+                            && *value == Value::Utf8("Code".into())))
+            );
         }
     }
     for path in [winmd, rdl, again] {
         std::fs::remove_file(path).unwrap();
     }
+    let mut selected = self::input();
+    selected.roots = vec!["AContract".into(), "OnlyInferred".into()];
+    let selected = projection::generate(&[selected], "Fixture").unwrap();
+    let text: String = selected
+        .partitions
+        .values()
+        .map(|part| part.rdl.as_str())
+        .collect();
+    assert!(text.contains("callback: extern"), "{text}");
     assert_eq!(
         projection::project_partial_with_imports(
             capture_partial(&[input], &TARGETS).unwrap(),
@@ -391,10 +513,52 @@ fn invalid_annotation_transport() {
             "{error}"
         );
     }
+
     let mut input = test_clang2::fixture("annotation_transport");
     input
         .source
         .insert_str(0, "#define PAYLOAD \"unrecognized annotation\"\n");
     let snapshots = capture(&[input], &[Target::X64]).unwrap();
     assert!(merge(&snapshots).is_err());
+}
+
+#[test]
+fn callback_contract_boundaries() {
+    helpers::ensure_libclang();
+    let mut inputs = [
+        test_clang2::selected_fixture("callback_contracts", &["Reader"]),
+        test_clang2::selected_fixture("callback_contracts", &["Reader"]),
+    ];
+    inputs[1].name = "other.h".into();
+    inputs[1]
+        .source
+        .insert_str(0, "#define DIRECTION \"_Out_\"\n");
+    for _ in 0..2 {
+        let snapshots = capture(&inputs, &TARGETS).unwrap();
+        let merged = merge(&snapshots).unwrap();
+        let error = projection::project(&merged, "Fixture")
+            .unwrap_err()
+            .to_string();
+        assert!(
+            error.contains("conflicting public names or contracts"),
+            "{error}"
+        );
+        assert!(projection::generate_partial(&inputs, "Fixture").is_err());
+        inputs.reverse();
+    }
+    let input = test_clang2::selected_fixture("callback_contracts", &["UsesNested"]);
+    let output = projection::generate_partial(&[input], "Fixture").unwrap();
+    assert!(output.output.partitions.is_empty());
+    assert!(
+        output
+            .omissions
+            .iter()
+            .any(|value| value.contains("nested callback contract"))
+    );
+    assert!(
+        output
+            .omissions
+            .iter()
+            .any(|value| value.contains("UsesNested"))
+    );
 }

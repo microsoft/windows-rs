@@ -1,0 +1,22 @@
+#[win32]
+mod Fixture {
+    const LARGE: Wide = 18446744073709551615;
+    #[repr(i8)]
+    #[scoped]
+    enum Mode {
+        Off = -1,
+        On = 2,
+    }
+    type ModeAlias = Mode;
+    #[arch(X64 | Arm64)]
+    const NATIVE_WIDTH: Wide = 8;
+    #[arch(X86)]
+    const NATIVE_WIDTH: Wide = 4;
+    const SELECTED: ModeAlias = -1;
+    const SELECTED_MACRO: Mode = 2;
+    const UNNAMED_VALUE: Mode = 3;
+    #[repr(u64)]
+    enum Wide {
+        Maximum = 18446744073709551615,
+    }
+}

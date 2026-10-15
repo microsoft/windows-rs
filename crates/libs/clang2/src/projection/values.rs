@@ -1,21 +1,19 @@
 use super::*;
 
 pub(super) fn check_constant<'a>(
-    constants: &mut HashMap<&'a str, (&'a TypeKind, Option<Layout>, &'a EnumValue)>,
+    constants: &mut HashMap<&'a str, (&'a TypeKind, Option<Layout>, ConstantValue)>,
     target: Target,
     name: &'a str,
     ty: &'a Type,
-    value: &'a EnumValue,
+    value: ConstantValue,
 ) -> Result<(), Error> {
     let native = (&ty.kind, ty.layout, value);
-    if constants
-        .insert(name, native)
-        .is_some_and(|old| old != native)
-    {
+    if constants.get(name).is_some_and(|old| old != &native) {
         return Err(Error(format!(
             "conflicting native definitions for constant `{name}` on {target:?}"
         )));
     }
+    constants.insert(name, native);
     Ok(())
 }
 
@@ -37,7 +35,10 @@ impl Projector<'_, '_> {
                 if observation.attributes.iter().any(|attribute| {
                     !matches!(
                         attribute.kind,
-                        AttributeKind::DllImport | AttributeKind::Sal(_)
+                        AttributeKind::DllImport
+                            | AttributeKind::Sal(_)
+                            | AttributeKind::Deprecated(_)
+                            | AttributeKind::NoThrow
                     )
                 }) {
                     return Err(Error(format!(
@@ -63,22 +64,90 @@ impl Projector<'_, '_> {
                 };
                 let name = ident(name)?;
                 let native = annotations::write(&observation.attributes);
+                let exceptions = annotations::function(written_function(
+                    self.resolution.snapshots[snapshot],
+                    observation.written,
+                )?);
                 Ok(Body {
-                    attributes: quote! { #native #[library(#library #import_name)] },
+                    attributes: quote! { #native #exceptions #[library(#library #import_name)] },
                     declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
                 })
             }
             ValueKind::Constant { value, .. } => {
-                if !annotations::only_sal(&observation.attributes) {
+                if observation.attributes.iter().any(|attribute| {
+                    !matches!(
+                        attribute.kind,
+                        AttributeKind::Sal(_)
+                            | AttributeKind::Deprecated(_)
+                            | AttributeKind::SelectAny
+                    )
+                }) {
                     return Err(Error(format!(
                         "attributed constant `{name}` is unsupported"
                     )));
                 }
+                if let ConstantValue::String { value, wide } = value {
+                    let encoding = if *wide { "utf-16" } else { "ansi" };
+                    let name = ident(name)?;
+                    let native = annotations::write(&observation.attributes);
+                    return Ok(Body {
+                        attributes: quote! { #native #[encoding(#encoding)] },
+                        declaration: quote! { const #name: String = #value; },
+                    });
+                }
+                if let ConstantValue::Guid(guid) | ConstantValue::PropertyKey { format: guid, .. } =
+                    value
+                {
+                    let ty = self.ty(snapshot, observation.canonical)?;
+                    let expected = if matches!(value, ConstantValue::Guid(_)) {
+                        "GUID"
+                    } else {
+                        "PROPERTYKEY"
+                    };
+                    if !matches!(&ty, MetadataType::ValueName(name) if name.name == expected) {
+                        return Err(Error(format!(
+                            "aggregate constant `{name}` requires canonical {expected} metadata"
+                        )));
+                    }
+                    let ty = write_type(self.namespace, &ty);
+                    let guid: TokenStream = format!("0x{guid:032x}").parse().unwrap();
+                    let name = ident(name)?;
+                    let native = annotations::write(&observation.attributes);
+                    return Ok(match value {
+                        ConstantValue::Guid(_) => Body {
+                            attributes: native,
+                            declaration: quote! { const #name: #ty = #guid; },
+                        },
+                        ConstantValue::PropertyKey { id, .. } => {
+                            let id =
+                                write_value(self.namespace, &windows_metadata::Value::U32(*id));
+                            Body {
+                                attributes: quote! { #native #[guid(#guid)] },
+                                declaration: quote! { const #name: #ty = #id; },
+                            }
+                        }
+                        _ => unreachable!(),
+                    });
+                }
                 let ty = self.written_ty(snapshot, observation.written, observation.canonical)?;
                 let ty = write_type(self.namespace, &ty);
                 let value = match *value {
-                    EnumValue::Signed(value) => windows_metadata::Value::I64(value),
-                    EnumValue::Unsigned(value) => windows_metadata::Value::U64(value),
+                    ConstantValue::Integer(EnumValue::Signed(value)) => {
+                        windows_metadata::Value::I64(value)
+                    }
+                    ConstantValue::Integer(EnumValue::Unsigned(value)) => {
+                        windows_metadata::Value::U64(value)
+                    }
+                    ConstantValue::Boolean(value) => windows_metadata::Value::Bool(value),
+                    ConstantValue::Float32(bits) => {
+                        windows_metadata::Value::F32(f32::from_bits(bits))
+                    }
+                    ConstantValue::Float64(bits) => {
+                        windows_metadata::Value::F64(f64::from_bits(bits))
+                    }
+                    ConstantValue::Guid(_)
+                    | ConstantValue::PropertyKey { .. }
+                    | ConstantValue::String { .. } => unreachable!(),
                 };
                 let value = write_value(self.namespace, &value);
                 let name = ident(name)?;
@@ -97,17 +166,35 @@ impl Projector<'_, '_> {
     ) -> Result<(Vec<TokenStream>, TokenStream), Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
         let function = written_function(snapshot, observation.canonical)?;
+        self.check_function_abi(snapshot_id, function)?;
         let written = written_function(snapshot, observation.written)?;
         let ValueKind::Function { parameters, .. } = &observation.kind else {
             return Err(Error("expected a callable observation".into()));
         };
+        let parameters = self.parameters(snapshot_id, function, parameters)?;
+        let result = self.written_ty(snapshot_id, written.result, function.result)?;
+        let result = if result == MetadataType::Void {
+            TokenStream::new()
+        } else {
+            let result = write_type(self.namespace, &result);
+            quote! { -> #result }
+        };
+        Ok((parameters, result))
+    }
+
+    pub(super) fn parameters(
+        &self,
+        snapshot_id: usize,
+        function: &Function,
+        parameters: &[Parameter],
+    ) -> Result<Vec<TokenStream>, Error> {
         if parameters.len() != function.parameters.len() {
             return Err(Error(
                 "parameter declarations and prototype arity differ".into(),
             ));
         }
         let mut names = HashSet::new();
-        let parameters = parameters
+        parameters
             .iter()
             .zip(&function.parameters)
             .enumerate()
@@ -121,20 +208,18 @@ impl Projector<'_, '_> {
                     return Err(Error(format!("duplicate projected parameter `{name}`")));
                 }
                 let name = ident(&name)?;
-                let ty = self.parameter_ty(snapshot_id, parameter.written, canonical)?;
+                let ty = self
+                    .parameter_ty(snapshot_id, parameter.written, canonical)
+                    .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
                 let attributes = annotations::parameter(&parameter.attributes, &ty)?;
+                let default = parameter.default.as_ref().map(|value| {
+                    let expression = &value.expression;
+                    quote! { #[Windows::Win32::Metadata::NativeDefaultArgument(#expression)] }
+                });
                 let ty = write_type(self.namespace, &ty);
-                Ok(quote! { #attributes #name: #ty })
+                Ok(quote! { #attributes #default #name: #ty })
             })
-            .collect::<Result<Vec<_>, Error>>()?;
-        let result = self.written_ty(snapshot_id, written.result, function.result)?;
-        let result = if result == MetadataType::Void {
-            TokenStream::new()
-        } else {
-            let result = write_type(self.namespace, &result);
-            quote! { -> #result }
-        };
-        Ok((parameters, result))
+            .collect()
     }
 
     pub(super) fn interface_record(&self, snapshot: usize, record: RecordId) -> bool {
@@ -180,34 +265,78 @@ impl Projector<'_, '_> {
                     | AttributeKind::DefaultTypeVisibility
                     | AttributeKind::MaxFieldAlignment { .. }
                     | AttributeKind::Sal(_)
+                    | AttributeKind::Deprecated(_)
             )
         }) {
             return Err(Error(format!(
                 "unsupported interface attributes on `{name}`"
             )));
         }
+        let mut first_slot = 0;
         let base = if let Some(&base) = definition.bases.first() {
-            if !self.interface_record(snapshot_id, base) {
+            if base.offset_bits != 0 || !self.interface_record(snapshot_id, base.record) {
                 return Err(Error(format!(
                     "interface `{name}` base is not an interface"
                 )));
             }
-            let base = ident(&self.plan.names[self.plan.family(snapshot_id, base)])?;
+            let (mut base_snapshot, mut record) = (snapshot_id, base.record);
+            loop {
+                let group = self.resolution.group(RecordRef {
+                    snapshot: base_snapshot,
+                    record,
+                });
+                let reference = group.definition.as_ref().unwrap();
+                let inherited = self.resolution.snapshots[reference.snapshot].observations
+                    [reference.observation.0]
+                    .definition
+                    .as_ref()
+                    .unwrap();
+                first_slot += inherited.methods.len() as u64;
+                let Some(base) = inherited.bases.first() else {
+                    break;
+                };
+                base_snapshot = reference.snapshot;
+                record = base.record;
+            }
+            let base = ident(&self.plan.names[self.plan.family(snapshot_id, base.record)])?;
             quote! { : #base }
         } else {
             TokenStream::new()
         };
         let mut methods = Vec::new();
         let mut names = HashSet::new();
-        for method in &definition.methods {
-            if !names.insert(&method.name) || !annotations::only_sal(&method.observation.attributes)
-            {
+        let mut overloads = HashMap::new();
+        for (index, method) in definition.methods.iter().enumerate() {
+            if method.slot != first_slot + index as u64 {
                 return Err(Error(format!(
-                    "overloaded or attributed interface method `{name}.{}`",
+                    "non-contiguous virtual method slots on `{name}`"
+                )));
+            }
+            if !annotations::callable(&method.observation.attributes) {
+                return Err(Error(format!(
+                    "attributed interface method `{name}.{}`",
                     method.name
                 )));
             }
+            let count = overloads.entry(&method.name).or_insert(0_u32);
+            *count += 1;
+            let projected = if *count == 1 {
+                method.name.clone()
+            } else {
+                format!("{}{count}", method.name)
+            };
+            if !names.insert(projected.clone()) {
+                return Err(Error(format!(
+                    "interface method name collision `{name}.{projected}`"
+                )));
+            }
             let function = written_function(snapshot, method.observation.canonical)?;
+            if function.method_qualifiers.volatile || function.method_qualifiers.restrict {
+                return Err(Error(format!(
+                    "unsupported volatile/restrict method `{name}.{}`",
+                    method.name
+                )));
+            }
             let convention = if snapshot.target == Target::X86 {
                 CallingConvention::Stdcall
             } else {
@@ -219,10 +348,24 @@ impl Projector<'_, '_> {
                     method.name
                 )));
             }
-            let (parameters, result) = self.callable(snapshot_id, &method.observation)?;
+            let (parameters, result) =
+                self.callable(snapshot_id, &method.observation)
+                    .map_err(|error| {
+                        Error(format!(
+                            "interface method `{name}.{}`: {error}",
+                            method.name
+                        ))
+                    })?;
             let method_name = ident(&method.name)?;
             let attributes = annotations::write(&method.observation.attributes);
-            methods.push(quote! { #attributes fn #method_name(&self #(, #parameters)*) #result; });
+            let exceptions =
+                annotations::function(written_function(snapshot, method.observation.written)?);
+            let constant = function.method_qualifiers.constant.then(|| {
+                quote! { #[Windows::Win32::Metadata::NativeConstMethod] }
+            });
+            methods.push(
+                quote! { #attributes #exceptions #constant fn #method_name(&self #(, #parameters)*) #result; },
+            );
         }
         let uuid: TokenStream = format!(
             "0x{:08x}_{:04x}_{:04x}_{:04x}_{:012x}",

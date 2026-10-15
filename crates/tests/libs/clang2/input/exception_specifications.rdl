@@ -1,0 +1,60 @@
+#[win32]
+mod Fixture {
+    struct CallbackUsers {
+        safe: NoThrowCallback,
+        ordinary: OrdinaryCallback,
+        inferred_safe: NoThrowCallback,
+        inferred_ordinary: OrdinaryCallback,
+    }
+    #[guid(0x98765432_1234_5678_90ab_cdef01234567)]
+    interface INoThrow: IBase {
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
+        fn Safe(&self, value: i32) -> i32;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Legacy(&self, value: i32) -> i32;
+        fn Ordinary(&self, value: i32) -> i32;
+    }
+    #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
+    #[library("example.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn NativeSum(value: i32) -> i32;
+    #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
+    #[library("example.dll")]
+    #[arch(X86)]
+    extern fn NativeSum(value: i32) -> i32;
+    #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn NoThrowCallback(value: i32) -> i32;
+    #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
+    #[arch(X86)]
+    extern fn NoThrowCallback(value: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    extern "C" fn OrdinaryCallback(value: i32) -> i32;
+    #[arch(X86)]
+    extern fn OrdinaryCallback(value: i32) -> i32;
+    #[Windows::Win32::Metadata::NativeExceptionSpecification("throw()")]
+    #[library("example.dll", import = "ReadPayloadEntry")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn ReadPayload(value: i32) -> i32;
+    #[Windows::Win32::Metadata::NativeExceptionSpecification("throw()")]
+    #[library("example.dll", import = "ReadPayloadEntry")]
+    #[arch(X86)]
+    extern fn ReadPayload(value: i32) -> i32;
+}
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type HRESULT = i32;
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IBase {
+        fn QueryInterface(&self, riid: &GUID, object: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+    type ULONG = u32;
+}

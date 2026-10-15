@@ -90,7 +90,7 @@ fn check_record(snapshot: &Snapshot) {
                     let TypeKind::Array { element, length } = ty.kind else {
                         panic!("expected array")
                     };
-                    assert_eq!(length, 3);
+                    assert_eq!(length, Some(3));
                     assert_eq!(
                         snapshot.types[element.0].kind,
                         TypeKind::Scalar(Scalar::UnsignedChar)
@@ -168,7 +168,9 @@ fn summary(resolution: &Resolution<'_>) -> Vec<String> {
             TypeKind::Scalar(scalar) => format!("{scalar:?}"),
             TypeKind::Pointer(target) => format!("*{}", ty(snapshot, *target)),
             TypeKind::LValueReference(target) => format!("&{}", ty(snapshot, *target)),
-            TypeKind::Array { element, length } => format!("[{};{length}]", ty(snapshot, *element)),
+            TypeKind::Array { element, length } => {
+                format!("[{};{length:?}]", ty(snapshot, *element))
+            }
             TypeKind::Record(record) => snapshot.records[record.0].name.clone(),
             TypeKind::Alias(alias) => snapshot.aliases[alias.0].name.clone(),
             TypeKind::Enum(id) => snapshot.enums[id.0].name.clone(),

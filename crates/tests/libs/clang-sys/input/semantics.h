@@ -8,6 +8,11 @@ int NativeCpp(int);
 extern "C" const int NativeCValue = 3;
 const int NativeCppValue = 4;
 const int NativeSideEffect = (NativeCpp(0), 3);
+const float NativeFloat = 1.25f;
+const double NativeDouble = -0.0;
+const bool NativeBool = true;
+const double NativeFloatSideEffect = (NativeCpp(0), 1.25);
+extern const double NativeUninitialized;
 #pragma pack(push, 2)
 struct PackTwo { char value; };
 #pragma pack(pop)
@@ -56,6 +61,10 @@ struct _GUID {
     unsigned short Data3;
     unsigned char Data4[8];
 };
+const _GUID NativeGuid = {0xffffffff, 0x8000, 2 + 3, {0xff, 1}};
+const _GUID NativeGuidSideEffect = {(unsigned long)NativeCpp(0), 0, 0, {}};
+const wchar_t NativeWideString[] = L"A\U0001F600";
+const char NativeNegativeByte[] = "\xff";
 struct alignas(AlignStandard) AlignType { char value; };
 struct __attribute__((aligned(32))) AlignGNU { char value; };
 struct __attribute__((aligned)) AlignDefault { char value; };
@@ -63,6 +72,13 @@ template<unsigned N> struct alignas(N) AlignDependent { char value; };
 typedef void (*PlainVoid)(int value);
 typedef void (__attribute__((noreturn)) *NoReturn)(int value);
 typedef void QualifiedFunction() const;
+typedef void VolatileFunction() volatile;
+typedef void CVFunction() const volatile;
+typedef void RestrictedFunction() __restrict;
+void NativeDefaults(int value, int count = 3, int* pointer = nullptr);
+__declspec(deprecated("use \"new\"\nnext")) void NativeDeprecated();
+__attribute__((deprecated("old", "NewFunction"))) void NativeReplacement();
+[[deprecated]] void NativeEmptyDeprecation();
 
 typedef int PlainInt;
 typedef const volatile int CVInt;
@@ -85,3 +101,16 @@ typedef void (*UnalignedPointer)(__unaligned int*);
 #if defined(_M_X64) || defined(_M_ARM64)
 static_assert(!__is_same(PlainPointer, UnalignedPointer));
 #endif
+struct NativeSlotBase {
+    virtual int __stdcall Start() = 0;
+};
+struct NativeSlots : NativeSlotBase {
+    virtual int __stdcall Read(int value) = 0;
+    virtual int __stdcall Tail() = 0;
+    virtual int __stdcall Read(float value) = 0;
+    virtual int __stdcall Read(int value) const = 0;
+    int Helper();
+};
+struct NativeSlotVirtual : virtual NativeSlotBase {
+    virtual int __stdcall Start() override = 0;
+};

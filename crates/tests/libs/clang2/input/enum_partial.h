@@ -9,10 +9,10 @@ struct Changing { int value; };
 #endif
 struct Dependent { Changing* value; };
 enum BadMember {
-    Bad [[deprecated]] = 1
+    Bad [[clang::annotate("unhandled")]] = 1
 };
 struct BadDependent { BadMember value; };
 typedef BadMember* BadPointer;
-typedef unsigned int Backing __attribute__((deprecated));
+typedef unsigned int Backing __attribute__((annotate("unhandled")));
 enum BackingEnum : Backing { BackingValue = 0 };
 struct BackingUser { BackingEnum value; };

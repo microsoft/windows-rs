@@ -72,7 +72,7 @@ fn array_expressions() {
     assert_eq!(partial.output.aliases, 1, "{partial:?}");
     assert_eq!(
         partial.output.partitions["array_parameters"].rdl,
-        "#[win32]\nmod Fixture {\n    extern \"C\" fn GoodBound(param0: *mut i32);\n}\n"
+        "#[win32]\nmod Fixture {\n    extern \"C\" fn GoodBound(values: *mut i32);\n}\n"
     );
     for name in ["StaticBound", "QualifiedBound", "VariableBound"] {
         assert!(

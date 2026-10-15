@@ -77,7 +77,7 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
             if let Some(definition) = &observation.definition {
                 for &base in &definition.bases {
                     dependents
-                        .entry(Key::of(snapshot, DeclarationId::Record(base)))
+                        .entry(Key::of(snapshot, DeclarationId::Record(base.record)))
                         .or_default()
                         .insert(Key::of(snapshot, DeclarationId::Record(observation.record)));
                 }
@@ -105,6 +105,9 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
             for observation in &alias.observations {
                 edge(&Key::Alias(alias.name.clone()), observation.underlying);
                 edge(&Key::Alias(alias.name.clone()), observation.canonical);
+                for parameter in observation.parameters.iter().flatten() {
+                    edge(&Key::Alias(alias.name.clone()), parameter.written);
+                }
             }
         }
         for enumeration in &snapshot.enums {
@@ -268,13 +271,16 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
         for observation in &mut alias.observations {
             observation.underlying.0 = types[observation.underlying.0].unwrap();
             observation.canonical.0 = types[observation.canonical.0].unwrap();
+            for parameter in observation.parameters.iter_mut().flatten() {
+                parameter.written.0 = types[parameter.written.0].unwrap();
+            }
         }
     }
     for observation in &mut snapshot.observations {
         observation.record.0 = records[observation.record.0].unwrap();
         if let Some(definition) = &mut observation.definition {
             for base in &mut definition.bases {
-                base.0 = records[base.0].unwrap();
+                base.record.0 = records[base.record.0].unwrap();
             }
             for method in &mut definition.methods {
                 remap_value(&mut method.observation, &types);

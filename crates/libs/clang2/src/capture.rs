@@ -174,7 +174,47 @@ pub(super) fn read(
         }
         result
     };
+    let mut c_functions = HashSet::new();
+    for cursor in &selected {
+        if unsafe { clang_getCursorKind(cursor.0) } == CXCursor_FunctionDecl
+            && unsafe { clang_getCursorLinkage(cursor.0) } == CXLinkage_External
+            && values::language_linkage(cursor.0)? == LanguageLinkage::C
+        {
+            c_functions.insert(text(unsafe { clang_getCursorSpelling(cursor.0) }));
+        }
+    }
     for cursor in selected {
+        if unsafe { clang_getCursorKind(cursor.0) } == CXCursor_FunctionDecl
+            && unsafe { clang_getCursorLinkage(cursor.0) } == CXLinkage_External
+            && c_functions.contains(&text(unsafe { clang_getCursorSpelling(cursor.0) }))
+            && values::language_linkage(cursor.0)? == LanguageLinkage::Cxx
+        {
+            let observations = &capture.declarations[&cursor];
+            if observations
+                .iter()
+                .all(|cursor| unsafe { clang_Cursor_isFunctionInlined(*cursor) } != 0)
+                && observations
+                    .iter()
+                    .any(|cursor| unsafe { clang_isCursorDefinition(*cursor) } != 0)
+            {
+                for observation in observations.clone() {
+                    let usr = text(unsafe { clang_getCursorUSR(observation) });
+                    if usr.is_empty() {
+                        return Err(unsupported(
+                            observation,
+                            "inline function identity unavailable",
+                        ));
+                    }
+                    let function = InlineFunction {
+                        name: text(unsafe { clang_getCursorSpelling(observation) }),
+                        usr,
+                        location: capture.location(observation),
+                    };
+                    capture.snapshot.inline_functions.push(function);
+                }
+                continue;
+            }
+        }
         let declaration = if matches!(
             unsafe { clang_getCursorKind(cursor.0) },
             CXCursor_StructDecl | CXCursor_UnionDecl
@@ -365,8 +405,9 @@ impl Capture<'_> {
     }
 
     fn alias_observation(&mut self, alias: AliasId, cursor: CXCursor) -> Result<(), Error> {
-        let attributes = self.attributes(cursor)?;
         let underlying = unsafe { clang_getTypedefDeclUnderlyingType(cursor) };
+        let parameters = self.callback_parameters(cursor, underlying)?;
+        let attributes = self.declaration_attributes(cursor, parameters.is_some(), None)?;
         let mut defines_tag = 0;
         let status = unsafe { windows_clang_getTypedefDefinition(cursor, &raw mut defines_tag) };
         if status != WindowsClangSuccess {
@@ -381,6 +422,7 @@ impl Capture<'_> {
             canonical: self.ty(unsafe { clang_getCanonicalType(underlying) }, cursor)?,
             defines_tag: defines_tag != 0,
             attributes,
+            parameters,
         };
         self.snapshot.aliases[alias.0]
             .observations
@@ -475,7 +517,7 @@ impl Capture<'_> {
             let mut fields = Vec::new();
             let mut bases = Vec::new();
             let mut methods = Vec::new();
-            let mut member_templates = Vec::new();
+            let mut non_vtable_members = Vec::new();
             for child in children(cursor) {
                 let kind = unsafe { clang_getCursorKind(child) };
                 if unsafe { clang_isAttribute(kind) } != 0 {
@@ -501,18 +543,60 @@ impl Capture<'_> {
                             "only public non-virtual bases are supported",
                         ));
                     }
-                    bases.push(self.record(unsafe {
-                        clang_getTypeDeclaration(clang_getCanonicalType(clang_getCursorType(child)))
-                    })?);
+                    bases.push(Base {
+                        record: self.record(unsafe {
+                            clang_getTypeDeclaration(clang_getCanonicalType(clang_getCursorType(
+                                child,
+                            )))
+                        })?,
+                        offset_bits: unsafe { clang_getOffsetOfBase(cursor, child) }
+                            .try_into()
+                            .map_err(|_| unsupported(child, "base offset unavailable"))?,
+                    });
                     continue;
                 }
-                if kind == CXCursor_FunctionTemplate
+                let non_vtable = if kind == CXCursor_FunctionTemplate
                     && unsafe { clang_getTemplateCursorKind(child) } == CXCursor_CXXMethod
                 {
-                    member_templates.push(MemberTemplate {
+                    Some(NonVTableMemberKind::Template)
+                } else if kind == CXCursor_CXXMethod
+                    && unsafe { clang_CXXMethod_isVirtual(child) } == 0
+                {
+                    Some(NonVTableMemberKind::Method)
+                } else if kind == CXCursor_UsingDeclaration {
+                    let references: Vec<_> = children(child)
+                        .into_iter()
+                        .filter(|cursor| unsafe { clang_getCursorKind(*cursor) } == CXCursor_OverloadedDeclRef)
+                        .collect();
+                    let mut methods = 0;
+                    for reference in references {
+                        for index in 0..unsafe { clang_getNumOverloadedDecls(reference) } {
+                            let target = unsafe { clang_getOverloadedDecl(reference, index) };
+                            if unsafe { clang_getCursorKind(target) } != CXCursor_CXXMethod {
+                                return Err(unsupported(
+                                    child,
+                                    "only method using declarations are supported",
+                                ));
+                            }
+                            methods += 1;
+                        }
+                    }
+                    if methods == 0 {
+                        return Err(unsupported(
+                            child,
+                            "method using declaration targets unavailable",
+                        ));
+                    }
+                    Some(NonVTableMemberKind::Using)
+                } else {
+                    None
+                };
+                if let Some(kind) = non_vtable {
+                    non_vtable_members.push(NonVTableMember {
                         name: text(unsafe { clang_getCursorSpelling(child) }),
                         usr: text(unsafe { clang_getCursorUSR(child) }),
                         location: self.location(child),
+                        kind,
                     });
                     continue;
                 }
@@ -537,8 +621,18 @@ impl Capture<'_> {
                             "overridden virtual methods are unsupported",
                         ));
                     }
+                    let mut slot = 0;
+                    if unsafe { windows_clang_getVirtualMethodSlot(child, &raw mut slot) }
+                        != WindowsClangSuccess
+                    {
+                        return Err(unsupported(
+                            child,
+                            "primary virtual method slot unavailable",
+                        ));
+                    }
                     methods.push(Method {
                         name: text(unsafe { clang_getCursorSpelling(child) }),
+                        slot,
                         observation: self.function_observation(child)?,
                     });
                     continue;
@@ -607,13 +701,14 @@ impl Capture<'_> {
                     attributes: self.attributes(field)?,
                 });
             }
+            methods.sort_by_key(|method| method.slot);
             Some(RecordDefinition {
                 layout: layout(unsafe { clang_getCursorType(cursor) })
                     .map_err(|reason| unsupported(cursor, reason))?,
                 fields,
                 bases,
                 methods,
-                member_templates,
+                non_vtable_members,
             })
         } else {
             attributes = self.attributes(cursor)?;
@@ -642,7 +737,26 @@ impl Capture<'_> {
             "Packed" => AttributeKind::Packed,
             "MSNoVTable" => AttributeKind::NoVTable,
             "DLLImport" => AttributeKind::DllImport,
+            "NoThrow" => AttributeKind::NoThrow,
+            "SelectAny" => AttributeKind::SelectAny,
             "Annotate" => annotations::read(cursor)?,
+            "Deprecated" => {
+                let mut message = CXString::default();
+                let mut replacement = CXString::default();
+                let status = unsafe {
+                    windows_clang_getDeprecation(cursor, &raw mut message, &raw mut replacement)
+                };
+                if status != WindowsClangSuccess {
+                    return Err(unsupported(
+                        cursor,
+                        &format!("deprecation query failed: {status}"),
+                    ));
+                }
+                AttributeKind::Deprecated(Box::new(Deprecation {
+                    message: text(message),
+                    replacement: text(replacement),
+                }))
+            }
             "Uuid" => {
                 let mut uuid = CXString::default();
                 let status = unsafe { windows_clang_getUuid(cursor, &raw mut uuid) };
@@ -727,22 +841,35 @@ impl Capture<'_> {
     }
 
     fn attributes(&mut self, cursor: CXCursor) -> Result<Vec<Attribute>, Error> {
+        self.declaration_attributes(cursor, false, None)
+    }
+
+    fn declaration_attributes(
+        &mut self,
+        cursor: CXCursor,
+        parameters: bool,
+        default: Option<CXCursor>,
+    ) -> Result<Vec<Attribute>, Error> {
         let mut result = Vec::new();
         for child in children(cursor) {
             let kind = unsafe { clang_getCursorKind(child) };
             if unsafe { clang_isAttribute(kind) } != 0 {
                 result.push(self.attribute(child)?);
             } else if kind == CXCursor_ParmDecl {
-                if !matches!(
-                    unsafe { clang_getCursorKind(cursor) },
-                    CXCursor_FunctionDecl | CXCursor_CXXMethod
-                ) && !self.attributes(child)?.is_empty()
+                if !parameters
+                    && !matches!(
+                        unsafe { clang_getCursorKind(cursor) },
+                        CXCursor_FunctionDecl | CXCursor_CXXMethod
+                    )
+                    && !self.attributes(child)?.is_empty()
                 {
                     return Err(unsupported(
                         child,
                         "attributed callback parameter is unsupported",
                     ));
                 }
+            } else if default.is_some_and(|default| Cursor(default) == Cursor(child)) {
+                continue;
             } else if kind != CXCursor_TypeRef
                 && !(unsafe { clang_isExpression(kind) } != 0 && layout_expression(cursor, child)?)
             {
@@ -835,9 +962,15 @@ impl Capture<'_> {
                 CXType_Pointer => TypeKind::Pointer(self.ty(clang_getPointeeType(ty), cursor)?),
                 CXType_ConstantArray => TypeKind::Array {
                     element: self.ty(clang_getArrayElementType(ty), cursor)?,
-                    length: clang_getArraySize(ty)
-                        .try_into()
-                        .map_err(|_| unsupported(cursor, "array extent unavailable"))?,
+                    length: Some(
+                        clang_getArraySize(ty)
+                            .try_into()
+                            .map_err(|_| unsupported(cursor, "array extent unavailable"))?,
+                    ),
+                },
+                CXType_IncompleteArray => TypeKind::Array {
+                    element: self.ty(clang_getArrayElementType(ty), cursor)?,
+                    length: None,
                 },
                 CXType_Record => TypeKind::Record(self.record(clang_getTypeDeclaration(ty))?),
                 CXType_Enum => TypeKind::Enum(self.enumeration(clang_getTypeDeclaration(ty))?),
@@ -882,7 +1015,7 @@ impl Capture<'_> {
                         || info.no_caller_saved_registers != 0
                         || info.no_cf_check != 0
                         || info.cmse_nonsecure_call != 0
-                        || info.additional_properties != 0
+                        || info.additional_properties & !(WindowsClangMethodQualifiers as u32) != 0
                     {
                         return Err(unsupported(
                             cursor,
@@ -898,14 +1031,31 @@ impl Capture<'_> {
                             ),
                         ));
                     }
-                    if clang_isFunctionTypeVariadic(ty) != 0
-                        || clang_getExceptionSpecificationType(ty)
-                            != CXCursor_ExceptionSpecificationKind_None
-                    {
-                        return Err(unsupported(
-                            cursor,
-                            "variadic or exception-qualified callback is unsupported",
-                        ));
+                    if clang_isFunctionTypeVariadic(ty) != 0 {
+                        return Err(unsupported(cursor, "variadic function is unsupported"));
+                    }
+                    let exceptions = match clang_getExceptionSpecificationType(ty) {
+                        CXCursor_ExceptionSpecificationKind_None => ExceptionSpecification::None,
+                        CXCursor_ExceptionSpecificationKind_DynamicNone => {
+                            ExceptionSpecification::DynamicNone
+                        }
+                        CXCursor_ExceptionSpecificationKind_BasicNoexcept => {
+                            ExceptionSpecification::Noexcept
+                        }
+                        CXCursor_ExceptionSpecificationKind_NoThrow => {
+                            ExceptionSpecification::NoThrow
+                        }
+                        value => {
+                            return Err(unsupported(
+                                cursor,
+                                &format!("unsupported function exception specification: {value}"),
+                            ));
+                        }
+                    };
+                    let mut method_qualifiers = 0;
+                    let status = windows_clang_getMethodQualifiers(ty, &raw mut method_qualifiers);
+                    if status != WindowsClangSuccess || method_qualifiers & !supported != 0 {
+                        return Err(unsupported(cursor, "unsupported method qualifiers"));
                     }
                     let convention = match clang_getFunctionTypeCallingConv(ty) {
                         CXCallingConv_C => CallingConvention::C,
@@ -925,6 +1075,12 @@ impl Capture<'_> {
                         .collect::<Result<_, _>>()?;
                     TypeKind::Function(Box::new(Function {
                         convention,
+                        exceptions,
+                        method_qualifiers: Qualifiers {
+                            constant: method_qualifiers & WindowsClangConst as u32 != 0,
+                            volatile: method_qualifiers & WindowsClangVolatile as u32 != 0,
+                            restrict: method_qualifiers & WindowsClangRestrict as u32 != 0,
+                        },
                         result: self.ty(clang_getResultType(ty), cursor)?,
                         parameters,
                     }))
@@ -949,7 +1105,10 @@ impl Capture<'_> {
             },
             layout: if matches!(
                 canonical.kind,
-                CXType_Void | CXType_FunctionProto | CXType_LValueReference
+                CXType_Void
+                    | CXType_FunctionProto
+                    | CXType_LValueReference
+                    | CXType_IncompleteArray
             ) || incomplete
             {
                 None

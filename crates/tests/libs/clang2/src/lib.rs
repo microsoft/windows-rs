@@ -66,6 +66,18 @@ pub fn sdk_fixture() -> Input {
     input
 }
 
+pub fn annotated_sdk_fixture() -> Input {
+    let mut input = sdk_fixture();
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+    input.arguments.extend([
+        "-include".into(),
+        root.join("crates\\tools\\win32-2\\src\\sal.h")
+            .display()
+            .to_string(),
+    ]);
+    input
+}
+
 pub fn shared_graph(count: usize) -> [Input; 2] {
     assert!(count > 0);
     let mut source = String::new();

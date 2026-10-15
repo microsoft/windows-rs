@@ -22,6 +22,225 @@ fn native_semantics() {
                 .find(|cursor| text(unsafe { clang_getCursorSpelling(**cursor) }) == name)
                 .unwrap()
         };
+        let methods: Vec<_> = children(find("NativeSlots"))
+            .into_iter()
+            .filter(|cursor| cursor.kind == CXCursor_CXXMethod)
+            .collect();
+        for (method, expected) in methods
+            .iter()
+            .zip([Some(3), Some(4), Some(2), Some(1), None])
+        {
+            let mut slot = 99;
+            let status = unsafe { windows_clang_getVirtualMethodSlot(*method, &raw mut slot) };
+            assert_eq!(
+                status,
+                if expected.is_some() {
+                    WindowsClangSuccess
+                } else {
+                    WindowsClangWrongKind
+                }
+            );
+            assert_eq!(slot, expected.unwrap_or(99));
+        }
+        assert_eq!(methods.len(), 5);
+        let method = children(find("NativeSlotVirtual"))
+            .into_iter()
+            .find(|cursor| cursor.kind == CXCursor_CXXMethod)
+            .unwrap();
+        let mut slot = 99;
+        assert_eq!(
+            unsafe { windows_clang_getVirtualMethodSlot(method, &raw mut slot) },
+            WindowsClangWrongKind
+        );
+        assert_eq!(slot, 99);
+        assert_eq!(
+            unsafe { windows_clang_getVirtualMethodSlot(find("NativeSlots"), &raw mut slot) },
+            WindowsClangWrongKind
+        );
+        assert_eq!(slot, 99);
+        assert_eq!(
+            unsafe { windows_clang_getVirtualMethodSlot(method, std::ptr::null_mut()) },
+            WindowsClangInvalidArgument
+        );
+        for (name, path, status, expected) in [
+            ("NativeGuid", vec![0], WindowsClangSuccess, 0xffffffff),
+            ("NativeGuid", vec![1], WindowsClangSuccess, 0x8000),
+            ("NativeGuid", vec![2], WindowsClangSuccess, 5),
+            ("NativeGuid", vec![3, 0], WindowsClangSuccess, 0xff),
+            ("NativeGuid", vec![3, 7], WindowsClangSuccess, 0),
+            ("NativeGuid", vec![3, 8], WindowsClangWrongKind, 99),
+            ("NativeGuid", vec![4], WindowsClangWrongKind, 99),
+            ("NativeGuid", vec![0, 0], WindowsClangWrongKind, 99),
+            ("NativeGuid", vec![], WindowsClangWrongKind, 99),
+            ("NativeGuidSideEffect", vec![0], WindowsClangDependent, 99),
+            ("NativeUninitialized", vec![], WindowsClangWrongKind, 99),
+            ("NativeCpp", vec![], WindowsClangWrongKind, 99),
+            ("NativeWideString", vec![0], WindowsClangSuccess, 65),
+            ("NativeWideString", vec![1], WindowsClangSuccess, 0xd83d),
+            ("NativeWideString", vec![2], WindowsClangSuccess, 0xde00),
+            ("NativeWideString", vec![3], WindowsClangSuccess, 0),
+            ("NativeNegativeByte", vec![0], WindowsClangWrongKind, 99),
+        ] {
+            let mut value = 99;
+            assert_eq!(
+                unsafe {
+                    windows_clang_getConstantIntegerElement(
+                        find(name),
+                        path.as_ptr(),
+                        path.len() as u32,
+                        &raw mut value,
+                    )
+                },
+                status,
+                "{name} {path:?}",
+            );
+            assert_eq!(value, expected, "{name} {path:?}");
+        }
+        let mut value = 99;
+        assert_eq!(
+            unsafe {
+                windows_clang_getConstantIntegerElement(
+                    find("NativeGuid"),
+                    std::ptr::null(),
+                    1,
+                    &raw mut value,
+                )
+            },
+            WindowsClangInvalidArgument,
+        );
+        assert_eq!(value, 99);
+        assert_eq!(
+            unsafe {
+                windows_clang_getConstantIntegerElement(
+                    find("NativeGuid"),
+                    std::ptr::null(),
+                    0,
+                    std::ptr::null_mut(),
+                )
+            },
+            WindowsClangInvalidArgument,
+        );
+        for (name, expected) in [
+            ("NativeDeprecated", ("use \"new\"\nnext", "")),
+            ("NativeReplacement", ("old", "NewFunction")),
+            ("NativeEmptyDeprecation", ("", "")),
+        ] {
+            let declaration = find(name);
+            let attribute = children(declaration)
+                .into_iter()
+                .find(|cursor| {
+                    (unsafe { clang_isAttribute(cursor.kind) }) != 0
+                        && native_name(unsafe { windows_clang_getAttributeKindName(*cursor) })
+                            == "Deprecated"
+                })
+                .unwrap();
+            let mut message = CXString::default();
+            let mut replacement = CXString::default();
+            assert_eq!(
+                unsafe {
+                    windows_clang_getDeprecation(attribute, &raw mut message, &raw mut replacement)
+                },
+                WindowsClangSuccess,
+            );
+            assert_eq!(
+                (text(message), text(replacement)),
+                (expected.0.into(), expected.1.into())
+            );
+            assert_eq!(
+                unsafe {
+                    windows_clang_getDeprecation(
+                        declaration,
+                        &raw mut message,
+                        &raw mut replacement,
+                    )
+                },
+                WindowsClangWrongKind,
+            );
+            assert_eq!(
+                unsafe {
+                    windows_clang_getDeprecation(
+                        attribute,
+                        std::ptr::null_mut(),
+                        &raw mut replacement,
+                    )
+                },
+                WindowsClangInvalidArgument,
+            );
+            assert_eq!(
+                unsafe {
+                    windows_clang_getDeprecation(attribute, &raw mut message, std::ptr::null_mut())
+                },
+                WindowsClangInvalidArgument,
+            );
+        }
+        for (parameter, expected) in
+            children(find("NativeDefaults"))
+                .into_iter()
+                .zip([None, Some("3"), Some("nullptr")])
+        {
+            let mut expression = CXCursor::default();
+            let mut spelling = CXString::default();
+            assert_eq!(
+                unsafe {
+                    windows_clang_getParameterDefaultArgument(
+                        parameter,
+                        &raw mut expression,
+                        &raw mut spelling,
+                    )
+                },
+                WindowsClangSuccess,
+            );
+            assert_eq!(text(spelling), expected.unwrap_or(""));
+            assert_eq!(
+                unsafe { clang_Cursor_isNull(expression) } != 0,
+                expected.is_none()
+            );
+            if expected.is_some() {
+                assert!(
+                    children(parameter)
+                        .iter()
+                        .any(|child| unsafe { clang_equalCursors(*child, expression) } != 0)
+                );
+            }
+            assert_eq!(
+                unsafe {
+                    windows_clang_getParameterDefaultArgument(
+                        parameter,
+                        std::ptr::null_mut(),
+                        &raw mut spelling,
+                    )
+                },
+                WindowsClangInvalidArgument,
+            );
+            assert_eq!(
+                unsafe {
+                    windows_clang_getParameterDefaultArgument(
+                        parameter,
+                        &raw mut expression,
+                        std::ptr::null_mut(),
+                    )
+                },
+                WindowsClangInvalidArgument,
+            );
+        }
+        for (name, expected) in [
+            ("QualifiedFunction", WindowsClangConst),
+            ("VolatileFunction", WindowsClangVolatile),
+            ("CVFunction", WindowsClangConst | WindowsClangVolatile),
+            ("RestrictedFunction", WindowsClangRestrict),
+        ] {
+            let ty = unsafe { clang_getTypedefDeclUnderlyingType(find(name)) };
+            let mut value = 99;
+            assert_eq!(
+                unsafe { windows_clang_getMethodQualifiers(ty, &raw mut value) },
+                WindowsClangSuccess
+            );
+            assert_eq!(value, expected as u32);
+            assert_eq!(
+                unsafe { windows_clang_getMethodQualifiers(ty, std::ptr::null_mut()) },
+                WindowsClangInvalidArgument
+            );
+        }
         for (cursor, expected) in std::iter::once((find("NativeComputed"), vec![1])).chain(
             children(find("NativeExpressions"))
                 .into_iter()
@@ -178,6 +397,33 @@ fn native_semantics() {
         assert!(!folded.is_null());
         assert_eq!(unsafe { clang_EvalResult_getAsInt(folded) }, 3);
         unsafe { clang_EvalResult_dispose(folded) };
+        for (name, expected) in [
+            ("NativeCppValue", 1),
+            ("NativeFloat", 1),
+            ("NativeDouble", 1),
+            ("NativeBool", 1),
+            ("NativeSideEffect", 0),
+            ("NativeFloatSideEffect", 0),
+            ("NativeUninitialized", 0),
+        ] {
+            let cursor = find(name);
+            let mut value = 99;
+            assert_eq!(
+                unsafe { windows_clang_getConstantInitializer(cursor, &raw mut value) },
+                WindowsClangSuccess
+            );
+            assert_eq!(value, expected);
+            assert_eq!(
+                unsafe { windows_clang_getConstantInitializer(cursor, std::ptr::null_mut()) },
+                WindowsClangInvalidArgument
+            );
+        }
+        let mut value = 99;
+        assert_eq!(
+            unsafe { windows_clang_getConstantInitializer(find("NativeCpp"), &raw mut value) },
+            WindowsClangWrongKind
+        );
+        assert_eq!(value, 99);
         let mut layouts = Vec::new();
         for (name, expected) in [
             ("NativeOwned", 1),
@@ -433,7 +679,7 @@ fn native_semantics() {
             let library = Arc::clone(&library);
             scope.spawn(move || {
                 let previous = set_library(Some(library));
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 7);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 12);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION

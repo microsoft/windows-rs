@@ -296,6 +296,7 @@ fn parse(
             aliases: Vec::new(),
             enums: Vec::new(),
             values: Vec::new(),
+            inline_functions: Vec::new(),
             observations: Vec::new(),
             types: Vec::new(),
         };

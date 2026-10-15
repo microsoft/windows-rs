@@ -1,8 +1,196 @@
 use test_clang2::{input_dir, selected_fixture};
 use windows_clang2::*;
+use windows_metadata::reader::HasAttributes;
 use windows_metadata::{Type, reader};
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
+
+#[test]
+fn value_inheritance() {
+    inheritance_layouts(&[None]);
+    let mut inputs = [
+        selected_fixture("value_inheritance", &[]),
+        selected_fixture("value_inheritance", &[]),
+    ];
+    let expected = projection::generate(&inputs[..1], "Fixture").unwrap();
+    let mut partial = selected_fixture("value_inheritance", &[]);
+    partial.source = format!(
+        "struct Rejected {{ volatile int value; }};\n{}",
+        partial.source
+    );
+    let partial = projection::generate_partial(&[partial], "Fixture").unwrap();
+    assert!(!partial.omissions.is_empty());
+    assert_eq!(partial.output, expected);
+    inputs[1].name = "other.h".into();
+    inputs[1].source = format!("struct Unrelated {{ int value; }};\n{}", inputs[1].source);
+    let mut snapshots = capture(&inputs, &TARGETS).unwrap();
+    let base = |snapshot: &Snapshot| {
+        snapshot
+            .records
+            .iter()
+            .position(|record| record.name == "Base")
+            .unwrap()
+    };
+    assert_ne!(base(&snapshots[0]), base(&snapshots[1]));
+    let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
+    inputs.reverse();
+    assert_eq!(projection::generate(&inputs, "Fixture").unwrap(), output);
+    let derived = snapshots[1]
+        .records
+        .iter()
+        .find(|record| record.name == "Derived")
+        .unwrap()
+        .observations[0];
+    snapshots[1].observations[derived.0]
+        .definition
+        .as_mut()
+        .unwrap()
+        .bases[0]
+        .offset_bits += 8;
+    assert!(
+        merge(&snapshots)
+            .err()
+            .unwrap()
+            .to_string()
+            .contains("base identities, order, or offsets")
+    );
+}
+
+#[test]
+#[ignore = "requires the x86, x64, and ARM64 MSVC Rust targets"]
+fn value_inheritance_cross_targets() {
+    inheritance_layouts(&TARGETS.map(Some));
+}
+
+fn inheritance_layouts(targets: &[Option<Target>]) {
+    helpers::ensure_libclang();
+    let snapshots = capture(&[selected_fixture("value_inheritance", &[])], &TARGETS).unwrap();
+    let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
+    assert_eq!(output.records, 8);
+    let text: String = output
+        .partitions
+        .values()
+        .map(|part| part.rdl.as_str())
+        .collect();
+    assert_eq!(
+        text,
+        std::fs::read_to_string(input_dir().join("value_inheritance.rdl"))
+            .unwrap()
+            .replace("\r\n", "\n")
+    );
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+    let name = if targets.len() == 1 {
+        "value-inheritance"
+    } else {
+        "value-inheritance-cross-targets"
+    };
+    let winmd = root.join(format!("target\\test-clang2-{name}.winmd"));
+    let rewritten = winmd.with_extension("rdl");
+    let again = winmd.with_extension("again.winmd");
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input_text(&text)
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_rdl::writer()
+        .input(&winmd)
+        .filter("Fixture")
+        .output(&rewritten)
+        .write()
+        .unwrap();
+    assert_eq!(text, std::fs::read_to_string(&rewritten).unwrap());
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input(&rewritten)
+        .output(&again)
+        .write()
+        .unwrap();
+    let bindings = winmd.with_extension("rs");
+    windows_bindgen::builder()
+        .input(&again)
+        .filter("Fixture")
+        .sys()
+        .flat()
+        .output(&bindings)
+        .write();
+    let mut rust = std::fs::read_to_string(&bindings).unwrap();
+    for (snapshot, bit) in snapshots.iter().zip([1, 2, 4]) {
+        let pointer_size = if bit == 1 { 4 } else { 8 };
+        let arch = match snapshot.target {
+            Target::X86 => "x86",
+            Target::X64 => "x86_64",
+            Target::Arm64 => "aarch64",
+        };
+        rust.push_str(&format!(
+            "\n#[cfg(target_arch = \"{arch}\")] const _: () = {{\n"
+        ));
+        for path in [&winmd, &again] {
+            let index =
+                reader::Index::new_for_architecture(vec![reader::File::read(path).unwrap()], bit);
+            for record in &snapshot.records {
+                let native = snapshot.observations[record.observations[0].0]
+                    .definition
+                    .as_ref()
+                    .unwrap();
+                let (layout, offsets) = record_layout(&index, &record.name, pointer_size);
+                assert_eq!(layout, native.layout, "{arch}: {}", record.name);
+                let expected: Vec<_> = native
+                    .bases
+                    .iter()
+                    .map(|base| base.offset_bits)
+                    .chain(native.fields.iter().map(|field| field.offset_bits))
+                    .collect();
+                assert_eq!(offsets, expected, "{arch}: {}", record.name);
+                let fields: Vec<_> = index.expect("Fixture", &record.name).fields().collect();
+                for (i, field) in fields.iter().enumerate() {
+                    assert_eq!(
+                        field.find_attribute("NativeBaseAttribute").is_some(),
+                        i < native.bases.len()
+                    );
+                    rust.push_str(&format!(
+                        "assert!(core::mem::offset_of!({}, {}) == {});\n",
+                        record.name,
+                        field.name(),
+                        expected[i] / 8
+                    ));
+                }
+                rust.push_str(&format!("assert!(core::mem::size_of::<{}>() == {});\nassert!(core::mem::align_of::<{}>() == {});\n",
+                    record.name, layout.size, record.name, layout.alignment));
+            }
+        }
+        rust.push_str("};\n");
+    }
+    std::fs::write(&bindings, rust).unwrap();
+    let compiled = winmd.with_extension("rmeta");
+    for target in targets {
+        let mut command = std::process::Command::new("rustc");
+        command.args([
+            "--crate-name",
+            "test_clang2_inheritance",
+            "--crate-type=lib",
+            "--emit=metadata",
+            "--edition=2024",
+        ]);
+        if let Some(target) = target {
+            command.args(["--target", target.triple()]);
+        }
+        let result = command
+            .arg(&bindings)
+            .arg("-o")
+            .arg(&compiled)
+            .output()
+            .unwrap();
+        assert!(
+            result.status.success(),
+            "{target:?}: {}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+    }
+    for path in [winmd, rewritten, again, bindings, compiled] {
+        std::fs::remove_file(path).unwrap();
+    }
+}
 
 #[test]
 fn projection_gate() {

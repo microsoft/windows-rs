@@ -91,7 +91,7 @@ fn roundtrip() {
         assert!(rust.contains(field), "{rust}");
     }
     assert!(rust.contains("pub type Seconds = f64;"), "{rust}");
-    assert!(rust.contains("fn(param0: CountAlias) -> Count"), "{rust}");
+    assert!(rust.contains("fn(value: CountAlias) -> Count"), "{rust}");
     let compiled = root.join("target\\test-clang2-names.rmeta");
     let result = std::process::Command::new("rustc")
         .args([
@@ -131,7 +131,9 @@ fn conflicts() {
             .unwrap_err()
             .to_string();
         assert!(
-            error.contains(&format!("conflicting public names for `{root}`")),
+            error.contains(&format!(
+                "conflicting public names or contracts for `{root}`"
+            )),
             "{error}"
         );
         inputs.reverse();

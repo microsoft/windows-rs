@@ -528,14 +528,18 @@ fn write_const_value(
     })
 }
 
-fn write_const_guid(
-    _namespace: &str,
-    item: &metadata::reader::Field,
-) -> Result<TokenStream, Error> {
+fn write_const_guid(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
+    let ty = write_type(namespace, &item.ty());
     let arch_attr = write_arch_attr(item.arches());
     let literal = guid_attribute_literal(item)?;
-    Ok(quote! { #arch_attr const #name: GUID = #literal; })
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["GuidAttribute", "SupportedArchitectureAttribute"],
+    )?;
+    Ok(quote! { #arch_attr #(#custom_attrs)* const #name: #ty = #literal; })
 }
 
 /// Recombines a property-key constant's `fmtid` and `pid` into RDL form.
@@ -551,7 +555,13 @@ fn write_const_property_key(
         .constant()
         .ok_or_else(|| writer_err!("property key constant `{}` has no `pid` value", item.name()))?;
     let pid = write_value(namespace, &constant.value());
-    Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty = #pid; })
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["GuidAttribute", "SupportedArchitectureAttribute"],
+    )?;
+    Ok(quote! { #arch_attr #(#custom_attrs)* #[guid(#guid)] const #name: #ty = #pid; })
 }
 
 /// Folds the 11-argument `GuidAttribute` into RDL's u128 GUID literal.

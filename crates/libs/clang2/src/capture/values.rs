@@ -1,5 +1,15 @@
 use super::*;
 
+pub(super) fn language_linkage(cursor: CXCursor) -> Result<LanguageLinkage, Error> {
+    let mut language = WindowsClangNoLanguageLinkage;
+    let status = unsafe { windows_clang_getLanguageLinkage(cursor, &raw mut language) };
+    match (status, language) {
+        (WindowsClangSuccess, WindowsClangCLanguageLinkage) => Ok(LanguageLinkage::C),
+        (WindowsClangSuccess, WindowsClangCXXLanguageLinkage) => Ok(LanguageLinkage::Cxx),
+        _ => Err(unsupported(cursor, "function language linkage unavailable")),
+    }
+}
+
 impl Capture<'_> {
     pub(super) fn value(&mut self, cursor: CXCursor) -> Result<ValueId, Error> {
         let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
@@ -64,26 +74,16 @@ impl Capture<'_> {
         let ty = unsafe { clang_getCursorType(cursor) };
         let canonical = self.ty(unsafe { clang_getCanonicalType(ty) }, cursor)?;
         let written = self.ty(ty, cursor)?;
-        let mut language = WindowsClangNoLanguageLinkage;
-        let status = unsafe { windows_clang_getLanguageLinkage(cursor, &raw mut language) };
-        let language = match (status, language) {
-            (WindowsClangSuccess, WindowsClangCLanguageLinkage) => LanguageLinkage::C,
-            (WindowsClangSuccess, WindowsClangCXXLanguageLinkage) => LanguageLinkage::Cxx,
-            _ => return Err(unsupported(cursor, "function language linkage unavailable")),
-        };
+        let language = language_linkage(cursor)?;
         let count: u32 = unsafe { clang_Cursor_getNumArguments(cursor) }
             .try_into()
             .map_err(|_| unsupported(cursor, "function parameters unavailable"))?;
         let mut parameters = Vec::new();
         for index in 0..count {
             let parameter = unsafe { clang_Cursor_getArgument(cursor, index) };
-            parameters.push(Parameter {
-                name: text(unsafe { clang_getCursorSpelling(parameter) }),
-                written: self.ty(unsafe { clang_getCursorType(parameter) }, parameter)?,
-                location: self.location(parameter),
-                attributes: self.attributes(parameter)?,
-            });
+            parameters.push(self.parameter(parameter)?);
         }
+
         Ok(ValueObservation {
             location: self.location(cursor),
             written,
@@ -97,20 +97,89 @@ impl Capture<'_> {
         })
     }
 
-    fn constant_observation(&mut self, cursor: CXCursor) -> Result<ValueObservation, Error> {
-        let mut constant = 0;
-        let status =
-            unsafe { windows_clang_getIntegerConstantInitializer(cursor, &raw mut constant) };
+    fn parameter(&mut self, cursor: CXCursor) -> Result<Parameter, Error> {
+        let mut expression = CXCursor::default();
+        let mut spelling = CXString::default();
+        let status = unsafe {
+            windows_clang_getParameterDefaultArgument(
+                cursor,
+                &raw mut expression,
+                &raw mut spelling,
+            )
+        };
         if status != WindowsClangSuccess {
             return Err(unsupported(
                 cursor,
-                &format!("integer initializer query failed: {status}"),
+                &format!("parameter default query failed: {status}"),
+            ));
+        }
+        let spelling = text(spelling);
+        let default = (unsafe { clang_Cursor_isNull(expression) } == 0).then_some(expression);
+        Ok(Parameter {
+            name: text(unsafe { clang_getCursorSpelling(cursor) }),
+            written: self.ty(unsafe { clang_getCursorType(cursor) }, cursor)?,
+            location: self.location(cursor),
+            attributes: self.declaration_attributes(cursor, false, default)?,
+            default: default.map(|expression| DefaultArgument {
+                expression: spelling,
+                location: self.location(expression),
+            }),
+        })
+    }
+
+    pub(super) fn callback_parameters(
+        &mut self,
+        cursor: CXCursor,
+        mut ty: CXType,
+    ) -> Result<Option<Vec<Parameter>>, Error> {
+        loop {
+            ty = unsafe {
+                match ty.kind {
+                    CXType_Elaborated => clang_Type_getNamedType(ty),
+                    CXType_Attributed => clang_Type_getModifiedType(ty),
+                    CXType_Pointer => clang_getPointeeType(ty),
+                    CXType_FunctionProto => break,
+                    _ => return Ok(None),
+                }
+            };
+        }
+        let parameters = children(cursor)
+            .into_iter()
+            .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
+            .collect::<Vec<_>>();
+        if parameters.len() != unsafe { clang_getNumArgTypes(ty) } as usize {
+            return Err(unsupported(
+                cursor,
+                "callback parameter ownership is ambiguous",
+            ));
+        }
+        parameters
+            .into_iter()
+            .map(|parameter| self.parameter(parameter))
+            .collect::<Result<Vec<_>, _>>()
+            .map(Some)
+    }
+
+    fn constant_observation(&mut self, cursor: CXCursor) -> Result<ValueObservation, Error> {
+        let definition = unsafe { clang_getCursorDefinition(cursor) };
+        let initializer = if unsafe { clang_Cursor_isNull(definition) } != 0 {
+            cursor
+        } else {
+            definition
+        };
+        let mut constant = 0;
+        let status =
+            unsafe { windows_clang_getConstantInitializer(initializer, &raw mut constant) };
+        if status != WindowsClangSuccess {
+            return Err(unsupported(
+                cursor,
+                &format!("constant initializer query failed: {status}"),
             ));
         }
         if constant == 0 {
             return Err(unsupported(
                 cursor,
-                "initializer is not an integer constant expression",
+                "initializer is not a constant expression",
             ));
         }
         let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
@@ -118,27 +187,67 @@ impl Capture<'_> {
         let ty = unsafe { clang_getCursorType(cursor) };
         let canonical = self.ty(unsafe { clang_getCanonicalType(ty) }, cursor)?;
         let native = &self.snapshot.types[canonical.0];
-        let signed = match &native.kind {
-            TypeKind::Scalar(scalar) if native.qualifiers.constant => scalar.signed_integer(),
-            _ => None,
+        if !native.qualifiers.constant {
+            return Err(unsupported(
+                cursor,
+                "constant declaration requires a const-qualified type",
+            ));
         }
-        .ok_or_else(|| unsupported(cursor, "only constant integer declarations are supported"))?;
-        let result = unsafe { clang_Cursor_Evaluate(cursor) };
-        if result.is_null() {
-            return Err(unsupported(cursor, "constant initializer is not evaluable"));
-        }
-        let value = unsafe {
-            let value = (clang_EvalResult_getKind(result) == CXEval_Int).then(|| {
-                if signed {
-                    EnumValue::Signed(clang_EvalResult_getAsLongLong(result))
-                } else {
-                    EnumValue::Unsigned(clang_EvalResult_getAsUnsigned(result))
-                }
-            });
-            clang_EvalResult_dispose(result);
-            value
-        }
-        .ok_or_else(|| unsupported(cursor, "initializer does not evaluate to an integer"))?;
+        let value_type = if matches!(native.kind, TypeKind::Enum(_)) {
+            self.ty(
+                unsafe {
+                    clang_getEnumDeclIntegerType(clang_getTypeDeclaration(clang_getCanonicalType(
+                        ty,
+                    )))
+                },
+                cursor,
+            )?
+        } else {
+            canonical
+        };
+        let value = if let TypeKind::Scalar(scalar) = &self.snapshot.types[value_type.0].kind {
+            let result = unsafe { clang_Cursor_Evaluate(initializer) };
+            if result.is_null() {
+                return Err(unsupported(cursor, "constant initializer is not evaluable"));
+            }
+            unsafe {
+                let value = match (scalar, clang_EvalResult_getKind(result)) {
+                    (Scalar::Bool, CXEval_Int) => Some(ConstantValue::Boolean(
+                        clang_EvalResult_getAsInt(result) != 0,
+                    )),
+                    (Scalar::Float, CXEval_Float) => {
+                        let value = clang_EvalResult_getAsDouble(result) as f32;
+                        value
+                            .is_finite()
+                            .then(|| ConstantValue::Float32(value.to_bits()))
+                    }
+                    (Scalar::Double, CXEval_Float) => {
+                        let value = clang_EvalResult_getAsDouble(result);
+                        value
+                            .is_finite()
+                            .then(|| ConstantValue::Float64(value.to_bits()))
+                    }
+                    (scalar, CXEval_Int) => scalar.signed_integer().map(|signed| {
+                        ConstantValue::Integer(if signed {
+                            EnumValue::Signed(clang_EvalResult_getAsLongLong(result))
+                        } else {
+                            EnumValue::Unsigned(clang_EvalResult_getAsUnsigned(result))
+                        })
+                    }),
+                    _ => None,
+                };
+                clang_EvalResult_dispose(result);
+                value
+            }
+            .ok_or_else(|| {
+                unsupported(
+                    cursor,
+                    "initializer is not a supported finite scalar constant",
+                )
+            })?
+        } else {
+            aggregate_constant(initializer, ty)?
+        };
         let mut attributes = Vec::new();
         for child in children(cursor) {
             let kind = unsafe { clang_getCursorKind(child) };
@@ -167,4 +276,132 @@ impl Capture<'_> {
             },
         })
     }
+}
+
+fn aggregate_constant(cursor: CXCursor, ty: CXType) -> Result<ConstantValue, Error> {
+    let integer = |path: &[u32]| -> Result<u64, Error> {
+        let mut value = 0;
+        let status = unsafe {
+            windows_clang_getConstantIntegerElement(
+                cursor,
+                path.as_ptr(),
+                path.len() as u32,
+                &raw mut value,
+            )
+        };
+        if status != WindowsClangSuccess {
+            return Err(unsupported(
+                cursor,
+                &format!("aggregate constant element query failed: {status}"),
+            ));
+        }
+        Ok(value)
+    };
+    let canonical = unsafe { clang_getCanonicalType(ty) };
+    if canonical.kind == CXType_ConstantArray {
+        let element = unsafe { clang_getCanonicalType(clang_getArrayElementType(canonical)) };
+        let wide = matches!(element.kind, CXType_WChar | CXType_Char16);
+        if wide || matches!(element.kind, CXType_Char_S | CXType_Char_U) {
+            let count: u32 = unsafe { clang_getArraySize(canonical) }
+                .try_into()
+                .map_err(|_| unsupported(cursor, "string array size is unavailable"))?;
+            let mut units = (0..count)
+                .map(|index| {
+                    integer(&[index])?
+                        .try_into()
+                        .map_err(|_| unsupported(cursor, "string code unit exceeds u16"))
+                })
+                .collect::<Result<Vec<u16>, Error>>()?;
+            if units.pop() != Some(0) {
+                return Err(unsupported(
+                    cursor,
+                    "string array requires a terminating zero",
+                ));
+            }
+            if !wide && units.iter().any(|unit| *unit > 0x7f) {
+                return Err(unsupported(
+                    cursor,
+                    "non-ASCII narrow string encoding is unsupported",
+                ));
+            }
+            let value = String::from_utf16(&units)
+                .map_err(|_| unsupported(cursor, "invalid UTF-16 string constant"))?;
+            return Ok(ConstantValue::String { value, wide });
+        }
+    }
+    let guid = |prefix: &[u32]| -> Result<u128, Error> {
+        let leaf = |suffix: &[u32]| {
+            let path: Vec<_> = prefix.iter().chain(suffix).copied().collect();
+            integer(&path)
+        };
+        let mut value = u128::from(leaf(&[0])?) << 96
+            | u128::from(leaf(&[1])?) << 80
+            | u128::from(leaf(&[2])?) << 64;
+        for index in 0..8 {
+            value |= u128::from(leaf(&[3, index])?) << (56 - index * 8);
+        }
+        Ok(value)
+    };
+    if guid_type(ty) {
+        return Ok(ConstantValue::Guid(guid(&[])?));
+    }
+    let ty = unsafe { clang_getCanonicalType(ty) };
+    if ty.kind == CXType_Record {
+        let fields = record_fields(unsafe { clang_getTypeDeclaration(ty) });
+        if let [format, id] = fields.as_slice()
+            && text(unsafe { clang_getCursorSpelling(*format) }) == "fmtid"
+            && text(unsafe { clang_getCursorSpelling(*id) }) == "pid"
+            && guid_type(unsafe { clang_getCursorType(*format) })
+            && unsigned_field(*id, 4)
+            && unsafe { clang_Cursor_getOffsetOfField(*format) } == 0
+            && unsafe { clang_Cursor_getOffsetOfField(*id) } == 128
+            && unsafe { clang_Type_getSizeOf(ty) } == 20
+        {
+            return Ok(ConstantValue::PropertyKey {
+                format: guid(&[0])?,
+                id: integer(&[1])?
+                    .try_into()
+                    .map_err(|_| unsupported(cursor, "property ID exceeds u32"))?,
+            });
+        }
+    }
+    Err(unsupported(cursor, "unsupported aggregate constant shape"))
+}
+
+fn unsigned_field(field: CXCursor, size: i64) -> bool {
+    let ty = unsafe { clang_getCanonicalType(clang_getCursorType(field)) };
+    matches!(
+        ty.kind,
+        CXType_UChar | CXType_UShort | CXType_UInt | CXType_ULong
+    ) && unsafe { clang_Type_getSizeOf(ty) } == size
+        && unsafe { clang_Cursor_isBitField(field) } == 0
+}
+
+fn guid_type(ty: CXType) -> bool {
+    let ty = unsafe { clang_getCanonicalType(ty) };
+    if ty.kind != CXType_Record || unsafe { clang_Type_getSizeOf(ty) } != 16 {
+        return false;
+    }
+    let fields = record_fields(unsafe { clang_getTypeDeclaration(ty) });
+    let [a, b, c, d] = fields.as_slice() else {
+        return false;
+    };
+    for ((field, name), offset) in fields
+        .iter()
+        .zip(["Data1", "Data2", "Data3", "Data4"])
+        .zip([0, 32, 48, 64])
+    {
+        if text(unsafe { clang_getCursorSpelling(*field) }) != name
+            || unsafe { clang_Cursor_getOffsetOfField(*field) } != offset
+        {
+            return false;
+        }
+    }
+    let array = unsafe { clang_getCanonicalType(clang_getCursorType(*d)) };
+    unsigned_field(*a, 4)
+        && unsigned_field(*b, 2)
+        && unsigned_field(*c, 2)
+        && array.kind == CXType_ConstantArray
+        && unsafe { clang_getArraySize(array) } == 8
+        && unsafe { clang_getCanonicalType(clang_getArrayElementType(array)) }.kind == CXType_UChar
 }

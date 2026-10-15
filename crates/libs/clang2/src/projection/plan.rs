@@ -258,6 +258,14 @@ impl Plan {
     fn callback_names(&self, resolution: &Resolution<'_>) -> Vec<HashMap<TypeId, String>> {
         let mut candidates = HashMap::<_, Vec<_>>::new();
         for alias in &resolution.aliases {
+            if alias.observations.iter().any(|reference| {
+                let snapshot = resolution.snapshots[reference.snapshot];
+                let observation =
+                    &snapshot.aliases[reference.alias.0].observations[reference.observation];
+                observation.parameters.is_none() || callback_contracts(snapshot, observation)
+            }) {
+                continue;
+            }
             let reference = alias.observations[0];
             let snapshot = resolution.snapshots[reference.snapshot];
             let id =
@@ -408,13 +416,14 @@ impl Plan {
                     || x.bases.len() != y.bases.len()
                     || x.methods.len() != y.methods.len()
                     || !attributes_equal(&left.attributes, &right.attributes)
-                    || !x
-                        .bases
-                        .iter()
-                        .zip(&y.bases)
-                        .all(|(&x, &y)| self.family(a.snapshot, x) == self.family(b.snapshot, y))
+                    || !x.bases.iter().zip(&y.bases).all(|(&x, &y)| {
+                        x.offset_bits == y.offset_bits
+                            && self.family(a.snapshot, x.record)
+                                == self.family(b.snapshot, y.record)
+                    })
                     || !x.methods.iter().zip(&y.methods).all(|(x, y)| {
                         x.name == y.name
+                            && x.slot == y.slot
                             && resolve::value_shape_equal(&x.observation, &y.observation, false)
                             && self.same_type(
                                 resolution,

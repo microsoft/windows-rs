@@ -2290,6 +2290,19 @@ pub(crate) struct Functions {
         info: *mut WindowsClangAlignmentInfo,
     ) -> WindowsClangStatus,
     pub windows_clang_getAttributeKindName: unsafe extern "C" fn(cursor: CXCursor) -> *const i8,
+    pub windows_clang_getConstantInitializer:
+        unsafe extern "C" fn(cursor: CXCursor, is_constant: *mut u32) -> WindowsClangStatus,
+    pub windows_clang_getConstantIntegerElement: unsafe extern "C" fn(
+        cursor: CXCursor,
+        indices: *const u32,
+        count: u32,
+        value: *mut u64,
+    ) -> WindowsClangStatus,
+    pub windows_clang_getDeprecation: unsafe extern "C" fn(
+        cursor: CXCursor,
+        message: *mut CXString,
+        replacement: *mut CXString,
+    ) -> WindowsClangStatus,
     pub windows_clang_getFieldInitializer:
         unsafe extern "C" fn(cursor: CXCursor, has_initializer: *mut u32) -> WindowsClangStatus,
     pub windows_clang_getFunctionInfo: unsafe extern "C" fn(
@@ -2310,6 +2323,13 @@ pub(crate) struct Functions {
     ) -> WindowsClangStatus,
     pub windows_clang_getMaxFieldAlignment:
         unsafe extern "C" fn(cursor: CXCursor, alignment_bits: *mut u32) -> WindowsClangStatus,
+    pub windows_clang_getMethodQualifiers:
+        unsafe extern "C" fn(r#type: CXType, qualifiers: *mut u32) -> WindowsClangStatus,
+    pub windows_clang_getParameterDefaultArgument: unsafe extern "C" fn(
+        parameter: CXCursor,
+        expression: *mut CXCursor,
+        spelling: *mut CXString,
+    ) -> WindowsClangStatus,
     pub windows_clang_getRuntimeIdentity: unsafe extern "C" fn() -> *const core::ffi::c_void,
     pub windows_clang_getTypeAttributeKindName: unsafe extern "C" fn(r#type: CXType) -> *const i8,
     pub windows_clang_getTypeQualifiers:
@@ -2322,6 +2342,8 @@ pub(crate) struct Functions {
         unsafe extern "C" fn(cursor: CXCursor, defines_tag: *mut u32) -> WindowsClangStatus,
     pub windows_clang_getUuid:
         unsafe extern "C" fn(cursor: CXCursor, uuid: *mut CXString) -> WindowsClangStatus,
+    pub windows_clang_getVirtualMethodSlot:
+        unsafe extern "C" fn(cursor: CXCursor, slot: *mut u64) -> WindowsClangStatus,
 }
 impl Functions {
     pub(crate) unsafe fn load(
@@ -4761,6 +4783,33 @@ impl Functions {
                         )
                     })?
             },
+            windows_clang_getConstantInitializer: unsafe {
+                *extension
+                    .get(b"windows_clang_getConstantInitializer\0")
+                    .map_err(|error| {
+                        format!(
+                            "{}: {error}",
+                            stringify!(windows_clang_getConstantInitializer)
+                        )
+                    })?
+            },
+            windows_clang_getConstantIntegerElement: unsafe {
+                *extension
+                    .get(b"windows_clang_getConstantIntegerElement\0")
+                    .map_err(|error| {
+                        format!(
+                            "{}: {error}",
+                            stringify!(windows_clang_getConstantIntegerElement)
+                        )
+                    })?
+            },
+            windows_clang_getDeprecation: unsafe {
+                *extension
+                    .get(b"windows_clang_getDeprecation\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getDeprecation))
+                    })?
+            },
             windows_clang_getFieldInitializer: unsafe {
                 *extension
                     .get(b"windows_clang_getFieldInitializer\0")
@@ -4816,6 +4865,23 @@ impl Functions {
                         )
                     })?
             },
+            windows_clang_getMethodQualifiers: unsafe {
+                *extension
+                    .get(b"windows_clang_getMethodQualifiers\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getMethodQualifiers))
+                    })?
+            },
+            windows_clang_getParameterDefaultArgument: unsafe {
+                *extension
+                    .get(b"windows_clang_getParameterDefaultArgument\0")
+                    .map_err(|error| {
+                        format!(
+                            "{}: {error}",
+                            stringify!(windows_clang_getParameterDefaultArgument)
+                        )
+                    })?
+            },
             windows_clang_getRuntimeIdentity: unsafe {
                 *extension
                     .get(b"windows_clang_getRuntimeIdentity\0")
@@ -4861,6 +4927,16 @@ impl Functions {
                 *extension
                     .get(b"windows_clang_getUuid\0")
                     .map_err(|error| format!("{}: {error}", stringify!(windows_clang_getUuid)))?
+            },
+            windows_clang_getVirtualMethodSlot: unsafe {
+                *extension
+                    .get(b"windows_clang_getVirtualMethodSlot\0")
+                    .map_err(|error| {
+                        format!(
+                            "{}: {error}",
+                            stringify!(windows_clang_getVirtualMethodSlot)
+                        )
+                    })?
             },
         })
     }
@@ -6903,6 +6979,33 @@ pub unsafe fn windows_clang_getAttributeKindName(cursor: CXCursor) -> *const i8 
         (library.functions.windows_clang_getAttributeKindName)(cursor)
     })
 }
+pub unsafe fn windows_clang_getConstantInitializer(
+    cursor: CXCursor,
+    is_constant: *mut u32,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getConstantInitializer)(cursor, is_constant)
+    })
+}
+pub unsafe fn windows_clang_getConstantIntegerElement(
+    cursor: CXCursor,
+    indices: *const u32,
+    count: u32,
+    value: *mut u64,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getConstantIntegerElement)(cursor, indices, count, value)
+    })
+}
+pub unsafe fn windows_clang_getDeprecation(
+    cursor: CXCursor,
+    message: *mut CXString,
+    replacement: *mut CXString,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getDeprecation)(cursor, message, replacement)
+    })
+}
 pub unsafe fn windows_clang_getFieldInitializer(
     cursor: CXCursor,
     has_initializer: *mut u32,
@@ -6961,6 +7064,25 @@ pub unsafe fn windows_clang_getMaxFieldAlignment(
         (library.functions.windows_clang_getMaxFieldAlignment)(cursor, alignment_bits)
     })
 }
+pub unsafe fn windows_clang_getMethodQualifiers(
+    r#type: CXType,
+    qualifiers: *mut u32,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getMethodQualifiers)(r#type, qualifiers)
+    })
+}
+pub unsafe fn windows_clang_getParameterDefaultArgument(
+    parameter: CXCursor,
+    expression: *mut CXCursor,
+    spelling: *mut CXString,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getParameterDefaultArgument)(
+            parameter, expression, spelling,
+        )
+    })
+}
 pub unsafe fn windows_clang_getRuntimeIdentity() -> *const core::ffi::c_void {
     crate::with_library(|library| unsafe { (library.functions.windows_clang_getRuntimeIdentity)() })
 }
@@ -6996,5 +7118,13 @@ pub unsafe fn windows_clang_getTypedefDefinition(
 pub unsafe fn windows_clang_getUuid(cursor: CXCursor, uuid: *mut CXString) -> WindowsClangStatus {
     crate::with_library(|library| unsafe {
         (library.functions.windows_clang_getUuid)(cursor, uuid)
+    })
+}
+pub unsafe fn windows_clang_getVirtualMethodSlot(
+    cursor: CXCursor,
+    slot: *mut u64,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getVirtualMethodSlot)(cursor, slot)
     })
 }

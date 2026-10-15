@@ -36,9 +36,18 @@ The typedef-definition query exposes whether a direct type specifier defines its
 so consumers can distinguish defining typedefs from later aliases without parsing spelling.
 Layout-expression queries distinguish evaluated array bounds and bitfield widths from unrelated
 expressions. The field-initializer query also detects initializers hidden from cursor traversal.
+The parameter-default query returns the compiler-owned expression cursor and a compiler-printed
+expression string; it distinguishes absence and dependent defaults. Method qualifiers are decoded
+separately from qualifiers on a function type, with the same residual-qualifier checks.
+The virtual-slot query supplies compiler-owned Microsoft vftable indices and rejects slots needing
+virtual-base or secondary-vptr adjustment. Declaration order does not establish overload slot order.
 UUID and language-linkage queries expose semantic payloads without parsing declaration spelling.
-The integer constant-initializer query rejects runtime side effects that libclang's general
-expression folding can ignore. UUID results are owned `CXString` values; release them with
-`clang_disposeString`.
+Deprecation queries preserve both the message and replacement from the individual native attribute.
+The integer and general constant-initializer queries reject runtime side effects that libclang's
+expression folding can ignore. The general query also accepts boolean and floating-point
+initializers. The integer-element query reads compiler-evaluated struct and array leaves, including
+zero-filled tails, without exposing Clang's C++ value layout or parsing initializer tokens.
+UUID, deprecation, and default-expression strings are owned `CXString` values;
+release them with `clang_disposeString`.
 
 See the [crate notes](../../../docs/crates/windows-clang-sys.md) for generation and maintenance.

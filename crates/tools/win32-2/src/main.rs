@@ -1,6 +1,9 @@
 #[path = "../../win32/src/headers.rs"]
 mod headers;
+#[path = "../../win32/src/imports.rs"]
+mod import_policy;
 
+use std::collections::BTreeMap;
 use std::path::Path;
 use std::time::Instant;
 use windows_clang2::{Input, projection};
@@ -28,12 +31,15 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     let mut headers = Vec::new();
     let mut partial = false;
+    let mut sdk_imports = false;
     let mut first = None;
-    let mut imports = std::collections::BTreeMap::new();
+    let mut imports = BTreeMap::new();
     let mut macros = Vec::new();
     for argument in std::env::args().skip(1) {
         if argument == "--partial" {
             partial = true;
+        } else if argument == "--sdk-imports" {
+            sdk_imports = true;
         } else if let Some(value) = argument.strip_prefix("--import=") {
             let (name, library) = value
                 .split_once('=')
@@ -60,7 +66,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
         } else if argument.starts_with('-') {
             return Err(format!(
-                "unknown option `{argument}`; use --partial, --first=N, --import=Function=library.dll, --macro=NAME, or header names"
+                "unknown option `{argument}`; use --partial, --sdk-imports, --first=N, --import=Function=library.dll, --macro=NAME, or header names"
             )
             .into());
         } else {
@@ -119,6 +125,18 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let started = Instant::now();
     let scratch = Path::new("target\\win32-2");
     std::fs::create_dir_all(scratch)?;
+    if sdk_imports {
+        let directory =
+            helpers::nuget_package("microsoft.windows.sdk.cpp.x64", SDK_VERSION).join("c");
+        let discovered = read_sdk_imports(&directory)?;
+        let omitted = add_sdk_imports(&mut imports, discovered);
+        std::fs::write(scratch.join("import-omissions.txt"), &omitted)?;
+        println!(
+            "SDK ownership: {} named imports; {} ordinal imports excluded (target\\win32-2\\import-omissions.txt)",
+            imports.len(),
+            omitted.lines().count(),
+        );
+    }
     let output = if partial {
         let result = projection::project_partial_with_imports(
             windows_clang2::capture_partial(
@@ -217,6 +235,76 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+fn add_sdk_imports(
+    imports: &mut BTreeMap<String, projection::Import>,
+    discovered: BTreeMap<String, windows_rdl::implib::Import>,
+) -> String {
+    let mut omitted = String::new();
+    for (symbol, import) in discovered {
+        match import.name {
+            windows_rdl::implib::ImportName::Name(name) => {
+                imports.entry(symbol.clone()).or_insert(projection::Import {
+                    library: import.dll,
+                    name: (name != symbol).then_some(name),
+                });
+            }
+            windows_rdl::implib::ImportName::Ordinal(ordinal) => {
+                if !imports.contains_key(&symbol) {
+                    omitted.push_str(&format!(
+                        "{symbol}: {} ordinal {ordinal} requires ordinal import metadata\n",
+                        import.dll,
+                    ));
+                }
+            }
+        }
+    }
+    omitted
+}
+
+fn read_sdk_imports(
+    directory: &Path,
+) -> Result<BTreeMap<String, windows_rdl::implib::Import>, Box<dyn std::error::Error>> {
+    let mut imports = BTreeMap::new();
+    for library in import_policy::IMPORT_LIBS {
+        let path = ["um", "ucrt"]
+            .into_iter()
+            .map(|part| directory.join(part).join("x64").join(library))
+            .find(|path| path.is_file())
+            .ok_or_else(|| {
+                format!(
+                    "SDK import library `{library}` is missing from {}",
+                    directory.display()
+                )
+            })?;
+        let bytes = std::fs::read(&path)?;
+        let members = windows_rdl::implib::read(&bytes)
+            .map_err(|error| format!("{}: {error}", path.display()))?;
+        for import in members {
+            imports.entry(import.symbol.clone()).or_insert(import);
+        }
+    }
+    for entry in import_policy::LIBRARY_OVERRIDES {
+        if imports.get(entry.symbol).map(|import| import.dll.as_str()) != entry.sdk_library {
+            return Err(format!(
+                "SDK library mapping for `{}` changed; remove or update the override",
+                entry.symbol
+            )
+            .into());
+        }
+    }
+    for entry in import_policy::LIBRARY_OVERRIDES {
+        imports.insert(
+            entry.symbol.into(),
+            windows_rdl::implib::Import {
+                symbol: entry.symbol.into(),
+                dll: entry.corrected_library.into(),
+                name: windows_rdl::implib::ImportName::Name(entry.symbol.into()),
+            },
+        );
+    }
+    Ok(imports)
+}
+
 fn inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
     let (satellite, main): (Vec<_>, Vec<_>) = headers
         .iter()
@@ -255,4 +343,96 @@ fn inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
         });
     }
     inputs
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use windows_rdl::implib::{Import, ImportName};
+
+    #[test]
+    fn import_names_and_explicit_overrides() {
+        let discovered = [
+            ("Original", ImportName::Name("Original".into())),
+            ("Local", ImportName::Name("Export".into())),
+            ("Ordinal", ImportName::Ordinal(123)),
+            ("Override", ImportName::Ordinal(456)),
+            ("NamedOverride", ImportName::Name("SDK".into())),
+        ]
+        .into_iter()
+        .map(|(symbol, name)| {
+            (
+                symbol.into(),
+                Import {
+                    symbol: symbol.into(),
+                    dll: "sdk.dll".into(),
+                    name,
+                },
+            )
+        })
+        .collect();
+        let mut imports = ["Override", "NamedOverride"]
+            .into_iter()
+            .map(|name| {
+                (
+                    name.into(),
+                    projection::Import {
+                        library: "explicit.dll".into(),
+                        name: None,
+                    },
+                )
+            })
+            .collect();
+        assert_eq!(
+            add_sdk_imports(&mut imports, discovered),
+            "Ordinal: sdk.dll ordinal 123 requires ordinal import metadata\n"
+        );
+        assert_eq!(imports.len(), 4);
+        assert_eq!(imports["Original"].name, None);
+        assert_eq!(imports["Local"].name.as_deref(), Some("Export"));
+        assert_eq!(imports["Original"].library, "sdk.dll");
+        for name in ["Override", "NamedOverride"] {
+            assert_eq!(imports[name].library, "explicit.dll");
+            assert_eq!(imports[name].name, None);
+        }
+    }
+
+    #[test]
+    #[ignore = "requires the pinned Windows SDK import libraries"]
+    fn sdk_library_policy() {
+        let directory =
+            helpers::nuget_package("microsoft.windows.sdk.cpp.x64", SDK_VERSION).join("c");
+        let imports = read_sdk_imports(&directory).unwrap();
+        assert!(imports.len() > 20_000);
+        for (symbol, library) in [
+            ("CreateFileW", "kernel32.dll"),
+            ("MessageBoxW", "user32.dll"),
+            ("DWriteCreateFactory", "dwrite.dll"),
+            ("DecodeRemotePointer", "kernelbase.dll"),
+            (
+                "OpenTraceFromFile",
+                "api-ms-win-eventing-consumer-l1-1-2.dll",
+            ),
+            ("InitializeXamlDiagnosticsEx", "windows.ui.xaml.dll"),
+        ] {
+            assert!(
+                imports[symbol].dll.eq_ignore_ascii_case(library),
+                "{symbol}"
+            );
+            assert_eq!(
+                imports[symbol].name,
+                ImportName::Name(symbol.into()),
+                "{symbol}"
+            );
+        }
+        assert!(imports["WaitOnAddress"].dll.starts_with("api-ms-win-"));
+        assert!(matches!(
+            imports["GetScaleFactorForWindow"].name,
+            ImportName::Ordinal(_)
+        ));
+        assert_eq!(
+            imports["GetScaleFactorForWindow"].dll,
+            "api-ms-win-shcore-scaling-l1-1-1.dll"
+        );
+    }
 }

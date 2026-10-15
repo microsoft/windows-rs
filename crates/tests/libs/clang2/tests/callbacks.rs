@@ -266,7 +266,6 @@ fn rejections() {
         "ParameterUser",
         "TransitiveUser",
         "Variadic",
-        "Noexcept",
         "NoReturn",
         "ReturningNoReturn",
         "TakingNoReturn",

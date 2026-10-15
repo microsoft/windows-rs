@@ -19,7 +19,7 @@ fn macro_probe_provenance() {
         assert!(matches!(
             observation.kind,
             ValueKind::Constant {
-                value: EnumValue::Signed(2),
+                value: ConstantValue::Integer(EnumValue::Signed(2)),
                 origin: ConstantOrigin::Macro
             }
         ));

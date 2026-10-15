@@ -139,6 +139,17 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
         }
         for (alias, value) in snapshot.aliases.iter().enumerate() {
             for (observation, value) in value.observations.iter().enumerate() {
+                for parameter in value.parameters.iter().flatten() {
+                    attributes(
+                        &snapshots,
+                        Owner::Alias(AliasObservationRef {
+                            snapshot: id,
+                            alias: AliasId(alias),
+                            observation,
+                        }),
+                        &parameter.attributes,
+                    )?;
+                }
                 attributes(
                     &snapshots,
                     Owner::Alias(AliasObservationRef {
@@ -280,13 +291,18 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             return Err(conflict("record layout or field count differs"));
         }
         for (&a, &b) in a.bases.iter().zip(&b.bases) {
-            if membership[left.snapshot][a.0] != membership[right.snapshot][b.0] {
-                return Err(conflict("native base identities or order differ"));
+            if membership[left.snapshot][a.record.0] != membership[right.snapshot][b.record.0]
+                || a.offset_bits != b.offset_bits
+            {
+                return Err(conflict("native base identities, order, or offsets differ"));
             }
         }
         for (a, b) in a.methods.iter().zip(&b.methods) {
-            if a.name != b.name || !value_shape_equal(&a.observation, &b.observation, false) {
-                return Err(conflict("native method names, order, or attributes differ"));
+            if a.name != b.name
+                || a.slot != b.slot
+                || !value_shape_equal(&a.observation, &b.observation, false)
+            {
+                return Err(conflict("native method names, slots, or attributes differ"));
             }
             types.push((
                 (left.snapshot, a.observation.canonical),
@@ -464,6 +480,8 @@ pub(crate) fn types_equal(
         match (&x.kind, &y.kind) {
             (TypeKind::Function(x), TypeKind::Function(y)) => {
                 return x.convention == y.convention
+                    && x.exceptions == y.exceptions
+                    && x.method_qualifiers == y.method_qualifiers
                     && x.parameters.len() == y.parameters.len()
                     && types_equal(
                         snapshots,
@@ -592,11 +610,14 @@ pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
     packing(a) == packing(b)
         && alignments(a) == alignments(b)
         && default_type_visibility(a) == default_type_visibility(b)
+        && deprecations(a) == deprecations(b)
         && uuid(a) == uuid(b)
         && a.iter().any(|value| value.kind == AttributeKind::NoVTable)
             == b.iter().any(|value| value.kind == AttributeKind::NoVTable)
         && a.iter().any(|value| value.kind == AttributeKind::DllImport)
             == b.iter().any(|value| value.kind == AttributeKind::DllImport)
+        && a.iter().any(|value| value.kind == AttributeKind::NoThrow)
+            == b.iter().any(|value| value.kind == AttributeKind::NoThrow)
 }
 
 pub(crate) fn attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
@@ -617,6 +638,22 @@ pub(crate) fn sal(attributes: &[Attribute]) -> Vec<&SalAnnotation> {
     result.sort_unstable();
     result.dedup();
     result
+}
+
+pub(crate) fn deprecations(attributes: &[Attribute]) -> Vec<&Deprecation> {
+    let mut values: Vec<_> = attributes
+        .iter()
+        .filter_map(|attribute| {
+            if let AttributeKind::Deprecated(value) = &attribute.kind {
+                Some(value.as_ref())
+            } else {
+                None
+            }
+        })
+        .collect();
+    values.sort_unstable();
+    values.dedup();
+    values
 }
 
 pub(crate) fn uuid(attributes: &[Attribute]) -> Option<u128> {
@@ -646,9 +683,11 @@ pub(crate) fn value_shape_equal(a: &ValueObservation, b: &ValueObservation, symb
                 x == y
                     && (!symbol || xm == ym)
                     && a.len() == b.len()
-                    && a.iter()
-                        .zip(b)
-                        .all(|(a, b)| attributes_equal(&a.attributes, &b.attributes))
+                    && a.iter().zip(b).all(|(a, b)| {
+                        attributes_equal(&a.attributes, &b.attributes)
+                            && a.default.as_ref().map(|value| &value.expression)
+                                == b.default.as_ref().map(|value| &value.expression)
+                    })
             }
             (ValueKind::Constant { value: a, .. }, ValueKind::Constant { value: b, .. }) => a == b,
             _ => false,

@@ -73,6 +73,15 @@ WINDOWS_CLANG_API const char* windows_clang_getTypeAttributeKindName(CXType type
 // Includes qualifiers inherited through typedefs; OtherQualifiers requires further decoding.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypeQualifiers(
     CXType type, unsigned* qualifiers);
+// Function prototype method qualifiers, distinct from qualifiers on the function type itself.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getMethodQualifiers(
+    CXType type, unsigned* qualifiers);
+// Absolute Microsoft vftable slot; rejects virtual-base or secondary-vptr adjustment.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getVirtualMethodSlot(
+    CXCursor cursor, unsigned long long* slot);
+// Null cursor/empty string means no default. The caller disposes the compiler-printed expression.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getParameterDefaultArgument(
+    CXCursor parameter, CXCursor* expression, CXString* spelling);
 // Writes the requested maximum field alignment in bits, not the observed record alignment.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getMaxFieldAlignment(
     CXCursor cursor, unsigned* alignment_bits);
@@ -97,11 +106,21 @@ WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getFunctionInfo(
 // The caller owns the returned string and releases it with clang_disposeString.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getUuid(
     CXCursor cursor, CXString* uuid);
+// Reads one DeprecatedAttr, not effective platform availability. Both strings are caller-owned.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getDeprecation(
+    CXCursor cursor, CXString* message, CXString* replacement);
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getLanguageLinkage(
     CXCursor cursor, enum WindowsClangLanguageLinkage* linkage);
 // Unlike clang_Cursor_Evaluate, this rejects folding that ignores runtime side effects.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getIntegerConstantInitializer(
     CXCursor cursor, unsigned* is_constant);
+// C++ constant expressions, including floating-point values, without runtime side effects.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getConstantInitializer(
+    CXCursor cursor, unsigned* is_constant);
+// Evaluates an unsigned integer leaf in a constant aggregate initializer. Indices select
+// struct fields or array elements; no source tokens or object-memory layout are interpreted.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getConstantIntegerElement(
+    CXCursor cursor, const unsigned* indices, unsigned count, unsigned long long* value);
 
 #ifdef __cplusplus
 }

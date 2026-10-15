@@ -1,0 +1,31 @@
+#[win32]
+mod Fixture {
+    #[guid(0x12345678_1234_5678_1234_567812345678)]
+    interface ICppMembers: IDerived {
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
+        #[Windows::Win32::Metadata::NativeConstMethod]
+        fn Inspect(&self, #[Windows::Win32::Metadata::NativeDefaultArgument("7")] count: i32, #[Windows::Win32::Metadata::NativeDefaultArgument("nullptr")] pointer: *const i32, #[Windows::Win32::Metadata::NativeDefaultArgument("nullptr")] slots: *mut i32, #[Windows::Win32::Metadata::NativeDefaultArgument("RuntimeDefault()")] runtime: i32) -> i32;
+    }
+}
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type HRESULT = i32;
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IBase {
+        fn QueryInterface(&self, riid: &GUID, object: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+    #[guid(0x01234567_89ab_cdef_0123_456789abcdef)]
+    interface IDerived: IBase {
+        fn Read(&self, index: ULONG, object: *mut IBase) -> HRESULT;
+        fn Count(&self) -> ULONG;
+    }
+    type ULONG = u32;
+}

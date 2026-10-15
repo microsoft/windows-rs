@@ -1,6 +1,6 @@
 #[win32]
 mod Fixture {
-    extern "C" fn AReader(param0: Count) -> Count;
+    extern "C" fn AReader(value: Count) -> Count;
     type Count = u32;
     type CountAlias = u32;
     type CountPointer = *mut u32;
@@ -14,7 +14,7 @@ mod Fixture {
         alias: ReaderAlias,
         context: *mut void,
     }
-    extern "C" fn ReaderAlias(param0: CountAlias) -> Count;
+    extern "C" fn ReaderAlias(value: CountAlias) -> Count;
     type Seconds = f64;
-    extern "C" fn ZReader(param0: CountAlias) -> Count;
+    extern "C" fn ZReader(value: CountAlias) -> Count;
 }
