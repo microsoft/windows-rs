@@ -128,6 +128,19 @@ The file format is unchanged, but readers must support per-level modifiers to co
 signature modifier positions, references, and fixed arrays. `test_rdl` `mixed_pointers` checks
 canonical text round trips; `test_clang2` checks native headers through WinMD.
 
+### Function pointers
+
+`Type::FnPtr(Box<Signature>)` encodes ECMA-335 II.23.2.12 `FNPTR MethodDefSig`: the `0x1b` element
+code followed by calling-convention flags, parameter count, return type, and parameter types.
+It is a structural pointer type, not a reference to a generated delegate declaration.
+Named callbacks keep their `MulticastDelegate` representation.
+
+RDL supports plain unmanaged C (`MethodCallAttributes::C`, `0x01`) and stdcall
+(`MethodCallAttributes::STDCALL`, `0x02`) signatures. Function-pointer types can occur inside other
+signatures, pointers, and arrays. Namespace remapping visits their results and parameters; merging
+compares the entire signature, including calling convention. `test_metadata` `function_pointers`
+checks exact signature bytes, nesting, architecture variants, and remapped references.
+
 ### Multi-arch merge
 
 `windows-metadata`'s `merge` module coalesces the per-architecture winmds that `tool-win32` scrapes

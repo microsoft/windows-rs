@@ -14,11 +14,20 @@ does not inspect private cursor fields or depend on Clang C++ class layouts.
 | `windows_clang_getAttributeKindName` | Native attribute kind, including tokenless attributes. |
 | `windows_clang_getTypeAttributeKindName` | Attribute kind on an attributed type. |
 | `windows_clang_getTypeQualifiers` | CVR, `__unaligned`, and a flag for all other qualifiers. |
+| `windows_clang_getMethodQualifiers` | Function prototype method qualifiers, using the same complete flag set. |
+| `windows_clang_getVirtualMethodSlot` | Absolute method index in the primary Microsoft vftable. |
+| `windows_clang_getParameterDefaultArgument` | TU-owned default expression cursor and compiler-printed expression. |
 | `windows_clang_getMaxFieldAlignment` | Requested maximum field alignment in bits. |
 | `windows_clang_getAlignment` | Evaluated alignment bits and GNU, standard, or declspec form. |
 | `windows_clang_getTypeVisibility` | Default, hidden, or protected `TypeVisibilityAttr` payload. |
 | `windows_clang_getTypedefDefinition` | Whether a direct typedef type specifier defines its tag. |
 | `windows_clang_getFunctionInfo` | Function `ExtInfo` properties and extra-property flags. |
+| `windows_clang_getUuid` | Compiler-validated `UuidAttr` text as an owned `CXString`. |
+| `windows_clang_getDeprecation` | One `DeprecatedAttr` message and replacement as owned strings. |
+| `windows_clang_getLanguageLinkage` | Native C, C++, or absent language linkage. |
+| `windows_clang_getIntegerConstantInitializer` | Integer constant-expression initializer validity. |
+| `windows_clang_getConstantInitializer` | C++11 constant-expression initializer validity. |
+| `windows_clang_getConstantIntegerElement` | Evaluated nonnegative integer leaf at a struct/array index path. |
 
 Packing comes from `MaxFieldAlignmentAttr`, not observed record layout or explicit `AlignedAttr`.
 The alignment query reads each `AlignedAttr`, including zero, type operands, and GNU requests
@@ -33,7 +42,46 @@ These flags signal more information to handle or reject; they are not decoded pa
 The qualifier query includes qualifiers inherited through typedefs. After identifying const,
 volatile, restrict, and unaligned, it checks the remaining native qualifier set, rather than
 assuming those four exhaust Clang's type qualifiers. Address spaces and other undecoded qualifiers
-set `WindowsClangOtherQualifiers`. The extension ABI version is 5.
+set `WindowsClangOtherQualifiers`. Method qualifiers use the same decoding, independently of the
+function type's own qualifiers. The extension ABI version is 12.
+
+The virtual-slot query reads `MicrosoftVTableContext::getMethodVFTableLocation`, rejecting
+locations that need virtual-base or secondary-vptr adjustment. Nonvirtual methods and non-Microsoft
+ABIs return wrong-kind status; dependent or incomplete parents return dependent status.
+MSVC overload slots can differ from declaration order, including overloads separated by other
+methods. The native fixture checks their exact slots on all three targets. Record base offsets
+already come from stock `clang_getOffsetOfBase`; no extra query is needed for value-base layout.
+
+The default-argument query returns a TU-owned expression cursor and caller-owned `CXString`.
+No default returns a null cursor and empty string; unparsed/uninstantiated or dependent defaults
+return `WindowsClangDependent`. The cursor preserves implicit conversions so it matches the
+parameter's actual child rather than an expression guessed from tokens or source offsets.
+
+UUID payloads come from the native attribute, not macro spelling. Dispose their strings with
+`clang_disposeString`. Language linkage is distinct from external/internal symbol linkage and
+cannot be inferred from a mangled-name heuristic.
+Deprecation payloads come from the individual attribute rather than effective platform availability.
+Both message and replacement strings are caller-owned, including empty strings.
+
+The constant-initializer queries check `Expr::isIntegerConstantExpr` or
+`Expr::isCXX11ConstantExpr` before numeric evaluation. The latter also accepts boolean and
+floating-point initializers.
+Stock `clang_Cursor_Evaluate` accepts `(call(), 3)` and returns `3`; that is not evidence that
+a variable has a constant initializer. The native fixture exercises this distinction on all
+three targets, as well as UUID/linkage results and wrong-kind/null-output errors.
+
+The integer-element query applies the same constant-expression gate and traverses the resulting
+`APValue` by field and array indices, including implicit array fillers. It accepts nonnegative
+integer leaves fitting `u64`; negative values, other leaf kinds, invalid paths, and structs with
+bases return wrong-kind status without changing the output. Non-constant initializers return
+`WindowsClangDependent`. The caller supplies a variable with an initializer, following the compiler's
+definition cursor if needed. No object bytes or source tokens cross this interface.
+
+`windows_clang_getLayoutExpression` identifies constant array bounds through native `TypeLoc`
+and bitfield widths through `FieldDecl`, ignoring implicit AST wrappers when comparing expressions.
+It does not accept arbitrary expression children, variable bounds, or C array-parameter contracts
+such as `static` extents and index qualifiers. `windows_clang_getFieldInitializer` checks
+`hasInClassInitializer`, including bitfield initializers omitted by the stock child visitor.
 
 The type-visibility query reads the attribute itself, including implicit attributes with no tokens.
 It is distinct from ordinary symbol `VisibilityAttr` and from `clang_getCursorVisibility`, which

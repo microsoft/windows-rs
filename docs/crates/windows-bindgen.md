@@ -59,6 +59,9 @@ in the metadata name; filters do not expand C preprocessor aliases.
 Signature dependencies are included automatically. You do not need to list every parameter and
 return type. Select an interface or its members explicitly when you also need to call its methods.
 
+Structural C/stdcall `FNPTR` signatures become `Option<unsafe extern "C"/"system" fn(...)>`.
+Their result and parameter dependencies are included without creating public callback names.
+
 The bundled Win32 metadata places APIs in `Windows.Win32`. Bare names such as `GetTickCount` and
 qualified names such as `Windows.Win32.GetTickCount` both work. The subsystem paths used by
 `windows` and `windows-sys` package features, such as `Win32_System_Com`, are not metadata

@@ -55,6 +55,22 @@ different metadata signatures and round-trip without flattening. Homogeneous cha
 existing binary encoding. Mixed chains use per-level modifiers and require an updated metadata
 reader; see [pointer constness](windows-metadata.md#pointer-constness).
 
+Win32 inline function-pointer types use `extern "C" fn(T, ...) -> R` for C or
+`extern fn(T, ...) -> R` for system/stdcall. Omit `-> R` for void results. Parameters are positional
+types without names or attributes. Nested function pointers, pointers, arrays, and named record
+references retain their types. These encode ECMA-335 `FNPTR` signatures without declaring named
+callbacks; named `extern fn Name(...)` declarations keep their delegate representation.
+Inline types reject WinRT use, unsupported ABIs, variadics, lifetimes, and `unsafe` qualifiers.
+The writer rejects unsupported imported signature flags rather than changing their ABI.
+
+Custom attributes on `type Name = Type;` declarations attach to the metadata typedef and survive
+RDL/WinMD round trips, including architecture-specific aliases. The provisional `NativeSalAttribute`
+in `metadata/metadata.rdl` uses this support to retain header annotation evidence without new syntax.
+Enum variant attributes attach to the corresponding constant fields and survive both directions,
+including deprecation payloads.
+GUID constants retain their declared type, architecture tags, and custom attributes in both
+directions. Property-key constants retain those attributes alongside their format GUID and ID.
+
 RDL uses Rust tokens and module syntax, but it describes metadata rather than executable Rust.
 A top-level `mod` is a metadata namespace. Tag it `#[winrt]` or `#[win32]` to select the type
 system. Items include classes, interfaces, delegates, callbacks, enums, structs, unions, typedefs,
@@ -160,8 +176,7 @@ C/C++ headers -- clang() --> .rdl -- reader() --> .winmd -- bindgen() --> bindin
 - RDL references must be supplied separately; naming an external type does not locate its winmd.
 - The reader rejects unsupported types, constants, callback ABIs, variadic callback parameters,
   and function ABIs instead of dropping them.
-- Pointer chains have one constness bit plus depth. Uniform `*mut *mut T` and
-  `*const *const T` chains work; mixed chains do not.
+- Mixed pointer chains require a metadata reader that understands per-level `IsConst` modifiers.
 - `len_param` and `size_param` store raw zero-based signature positions. Update the attribute when
   parameters move.
 - RDL cannot spell a metadata parameter with neither In nor Out. Omitting direction invokes the
@@ -237,6 +252,13 @@ The merge compares type structure through [`windows-metadata`](windows-metadata.
 `merge_arch_rdl` handles orchestration. It reads each architecture's RDL, runs the merge, and writes
 the combined output. `ArchInput` stores its RDL directory and winmd as `PathBuf`.
 
+### Import libraries
+
+`implib::read` reads COFF short-import members in archive order, preserving duplicate entries.
+Each import retains the linker symbol, DLL, and `ImportName`: either the named PE export or its
+ordinal. Name-prefix removal, undecoration, and export-as names follow the short-import header,
+not assumptions about the linker symbol. Library precedence and corrections belong to the driver.
+
 ### Published crates and namespace remap
 
 The in-repo Win32 and WDK metadata lives in flat namespaces. Published `windows` and `windows-sys`
@@ -287,15 +309,35 @@ RDL stable.
 The reader rejects unsupported forms with errors. It does not silently drop them. Examples include
 unsupported types, constants, callback ABIs, variadic callback parameters, and function ABIs.
 
-### Inline nested records
+### Nested records
 
 Inline structs and unions have nested TypeDefs linked by `NestedClass` rows. Their field
 signatures reference those definitions through enclosing-TypeRef chains, including every level
-of nesting. The writer matches the qualified identity to the containing record and renders the
-same inline syntax. It also accepts the unscoped leaf references in existing metadata.
+of nesting. Unshared direct fields retain inline syntax when the nested name matches the reader's
+generated name. The writer also accepts the unscoped leaf references in existing metadata.
+
+Shared, named, and indirectly referenced records use declarations inside their owning record:
+
+```rust,ignore
+struct Outer {
+    struct Inner {
+        value: i32,
+        next: *mut Outer::Inner,
+    }
+    first: Outer::Inner,
+    second: Outer::Inner,
+}
+```
+
+Both fields reference the same nested TypeDef. Nested declarations do not occupy field positions.
+The reader supports forward references and unqualified lookup from the nearest record scope;
+canonical output uses qualified paths such as `Outer::Inner`. Nested structs and unions can
+contain further records, and references can occur inside arrays, pointers, and function signatures.
+Nested types remain under their owner rather than becoming top-level helper declarations.
 
 `test_rdl::nested_references` checks physical TypeRef scopes before and after the text round trip,
-alongside the canonical `struct_nested_anon.rdl` fixture. `test_metadata::nested_references`
+shared identity, lexical lookup, reference assemblies, and name collisions, alongside the canonical
+`struct_nested_anon.rdl` and `struct_nested_named.rdl` fixtures. `test_metadata::nested_references`
 independently covers the underlying signature reader, merge, and namespace remapper.
 
 ### Method parameter rows
@@ -325,6 +367,5 @@ WDK metadata has at least one representable direction flag.
   to carry them, so attributes on its sequence 0 row are not represented.
 - **Count relationships:** `#[len_param(N)]` and `#[size_param(N)]` store raw zero-based signature
   positions. Reordering parameters without updating `N` changes the relationship.
-- **Pointer constness:** `metadata::Type` stores one constness bit with a pointer depth. Uniform
-  chains such as `*mut *mut T` and `*const *const T` round-trip. Mixed chains are rejected before
-  metadata is written, including chains nested inside a reference.
+- **Function pointers:** Inline signatures support plain C and system/stdcall only. Other flags,
+  WinRT use, and parameter annotations are rejected rather than normalized.

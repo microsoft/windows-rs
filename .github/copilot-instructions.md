@@ -244,6 +244,54 @@ changes (the `gen` workflow enforces this).
 
 ### clang2 rapid iteration
 
+The `test_clang2` breadth fixtures cover free functions, COM-style interfaces, const integers,
+booleans, finite floats, and selected object-like macros through capture, target association, RDL,
+and WinMD. The SDK case uses `GetCurrentProcessId`, `IUnknown`, `IClassFactory`,
+`UIA_InvokePatternId`, and `MAX_PATH`. Keep DLL ownership in publication policy and macro
+evaluation distinct from ordinary declaration capture.
+`tool-win32-2 --partial --sdk-imports` reads the pinned SDK x64 libraries with the shared
+`tool-win32/src/imports.rs` policy. Preserve library order and checked overrides. Explicit imports
+win; ordinal-only entries remain reported omissions rather than guessed named exports.
+Native ABI conflicts are fatal. Native-compatible value declarations whose public parameter names
+or aliases disagree are strict projection errors and explicit all-target partial omissions.
+Repeated GUID blocks also occur in the main TU (`winioctl.h`); enabling INITGUID before its prelude
+fails even with satellite definition mode disabled.
+Unselected object-like macros are absent from both output and omission diagnostics. The
+`certbcli.rdl` diff loses 22 such constants (20 numeric/typed values and two strings).
+Track baseline constant parity separately from captured-declaration counts; automatic macro
+discovery remains open. Do not treat these absent constants as already-covered evaluation cases.
+The `sdk_functions` fixture covers 114 imports across fourteen DLLs, including buffers, callbacks,
+COM activation, registry/security, sockets, cryptography, GDI, timing, virtual memory, HTTP,
+event logging, service control, process inspection, Direct3D device creation, DirectWrite factory
+creation, and Direct2D matrix/device/context operations.
+External C++ inline overload observations are retained in Snapshot::inline_functions when the
+same selected name has an external C declaration in that TU. Every overload observation must be
+inline and a definition must be present. Do not suppress non-inline overloads or C definitions.
+Enum constants retain their nominal type. The `sdk_interfaces` fixture checks storage, imaging,
+properties, monikers, shell, Direct3D/DXGI, DirectWrite, Direct2D factory4, and WIC raw-imaging
+dependencies. Exception contracts retain explicit metadata.
+Constant breadth includes compiler-evaluated GUIDs, property keys, ASCII/UTF-16 arrays, and selected
+string/GUID macros. `aggregate_constants` and `sdk_constants` check exact RDL and both metadata
+round trips, including architecture variants and annotations. Definitions come from compiler cursor
+links; aggregate leaves come from `APValue`, not numeric-token parsing. Bulk discovery of
+declaration-only GUID definitions and object-like macros remains separate work. Do not count
+unselected macros as covered or enable `INITGUID` globally across repeated SDK GUID blocks.
+Review whether each qualification has useful projected semantics before requiring new metadata.
+COM object constness remains in native evidence and reconciliation, but publication maps `I*`
+and `const I*` to the same interface reference. DXGI's `SetPrivateDataInterface` retains/releases
+its `const IUnknown*` argument; this is not an immutability contract. Preserve const on pointer
+storage (`I* const*`), and reject volatile/restrict. Do not apply this normalization to ordinary
+records. Interface typedefs publish as transparent aliases; call signatures remain canonical COM
+references. Qualification review must not hold up unrelated breadth work.
+Keep annotation interpretation bounded: preserve owner and evidence, and expand semantic lowering
+only when a concrete API or consumer requires it.
+
+Use these slices to assess whether the shared architecture remains simpler and preserves more
+native information across equivalent responsibilities. Record/alias counts alone cannot establish
+replacement readiness. Do not let bitfield, opaque-record, or annotation completeness become a
+prerequisite for a basic slice in another category. Expand difficult cases only when the slice
+needs them; keep unsupported contracts explicit.
+
 Drive the rewrite toward complete, correct canonical metadata with a short feedback loop:
 
 1. Pick a concrete metadata difference or root omission and add a focused header/RDL fixture
@@ -261,6 +309,25 @@ diffs remain outstanding work. Review architectural pressure points as coverage 
 substitute repeated redesigns, arbitrary naming/routing rules, or weaker rejection for coverage.
 
 ### clang2 remaining attribute coverage
+
+`tool-win32-2` force-includes its SAL transport. Source hooks and structural wrappers preserve
+contract names, source-hook arguments, and further macro expansion in `NativeSalAttribute`.
+These strings are evidence, not evaluated expressions or guaranteed original header tokens.
+Common direction/argument-optionality flags are projected; result nullability is distinct.
+Typedef reconciliation selects an observed annotation set containing every other observed set;
+incomparable sets fail, and original observations remain unchanged. Native definitions and
+callable observations still require matching annotations. Annotation owners that cannot be
+published are rejected with their dependents, not stripped. Keep this provisional vocabulary
+explicit until canonical contract attributes replace it.
+
+Array-bound expressions are accepted through the native `windows_clang_getLayoutExpression`
+query, not an expression-kind allowlist. Captured constant array extents and bitfield widths carry
+the evaluated values. An incomplete array extent is `None`, distinct from `Some(0)`. Unsized
+parameters use native pointer adjustment; incomplete array storage is not projected.
+`windows_clang_getFieldInitializer` rejects in-class initializers, including
+bitfield initializers hidden by libclang's child visitor.
+Callback array parameters follow Clang's canonical pointer adjustment and preserve written element
+aliases. Variable bounds and C static/qualified array-parameter contracts remain unsupported.
 
 `clang2` `capture.rs` `attribute` uses native kind names, requested `MaxFieldAlignment` bits, and
 evaluated `AlignedAttr` requests with their semantic form.
@@ -301,8 +368,13 @@ attributed types makes every remaining function prototype plain C.
 The sys crate's `windows_clang_getFunctionInfo` recovers these hidden properties, including
 explicit `regparm(0)` versus absence, and flags additional prototype information for rejection
 or later decoding. `test_clang_sys` exercises these distinctions on all three parsing targets.
-Explicit regparm (including zero), noreturn, variadics, exception-qualified functions, and unknown
-properties remain rejected. Callback dependency pruning follows result and all parameter edges.
+Explicit regparm (including zero), noreturn, variadics, and unknown properties remain rejected.
+Unconditional noexcept, nothrow, and empty throw() retain written and canonical exception
+specifications.
+Methods, imports, and delegates preserve the written form through NativeExceptionSpecification;
+unnamed non-throwing pointers require a compatible named callback because FNPTR has no attribute
+owner. Computed/dependent and nonempty dynamic exception specifications remain unsupported.
+Callback dependency pruning follows result and all parameter edges.
 Failed value-alias or callback publication must remove the declaration, not just its root marker:
 reachable named values are published as dependencies, so root-only removal would retry the failure.
 
@@ -310,13 +382,71 @@ reachable named values are published as dependencies, so root-only removal would
 represented; unaligned and all remaining qualifiers are rejected, including typedef inheritance.
 Callback naming uses target-wide candidates after public-family and alias validation. Candidate
 searches use the shared native/public type checker and discard assumed pairs after each failure.
+When no compatible callback name exists, projection emits structural C/stdcall function-pointer
+types. RDL encodes these as ECMA-335 `FNPTR` signatures; do not invent public callback names.
+Named callbacks retain their delegate representation. Signature traversal must include results and
+every parameter for dependency collection, namespace remapping, and nested-reference rewriting.
+
+### clang2 native declaration queries
+
+Native companion ABI 12 also supplies UUID payloads, language linkage, and constant-expression
+validity. `clang_Cursor_Evaluate` can fold `(call(), 3)` to `3`; successful evaluation alone does
+not establish a constant initializer. `capture/values.rs` gates scalar evaluation with the native
+C++11 constant-expression query. Float values retain their IEEE bits, including signed zero;
+non-finite values and extended floating-point types remain unsupported.
+The integer-element query walks evaluated struct/array values with checked index paths and
+zero-filled tails. String arrays remove one trailing terminator; embedded zeros remain intact.
+SelectAny is storage evidence, not part of published constant-value equality.
+C++ member templates, nonvirtual methods, and method using declarations are retained in
+RecordDefinition::non_vtable_members; they are not exported methods or part of ABI comparison.
+Parameter defaults retain the exact compiler-owned expression cursor, printed expression, and
+location. NativeDefaultArgument preserves that expression without evaluating it or altering arity.
+Method CVR is decoded separately from type qualifiers; NativeConstMethod preserves const methods.
+Volatile/restrict and ref-qualified methods remain rejected. DirectWrite factory7/font-set3 and
+Direct2D factory7/device-context6 closures publish. NativeDeprecated preserves message/replacement
+payloads, including enum members and original typedef ownership.
+Virtual methods retain absolute slots from MicrosoftVTableContext, not source declaration order.
+Overloads retain native metadata names; existing bindgen suffixes must not collide with literal
+method names. Verify contiguous slots after the inherited vtable prefix.
+Value records permit one public nonvirtual base at compiler-reported offset zero, represented by
+a NativeBase field. Complete base storage and derived offsets/size/alignment must match Clang.
+Inherited values and containing records/arrays remain blocked in by-value callable signatures.
+Base types resolve through canonical native
+declarations, including typedef-spelled bases, rather than registering typedef cursors as records.
+
+Attributes retain decoded payloads and locations, not raw cursor-range token dumps. Macro-expanded
+attribute extents can span unrelated header declarations. Unknown attributes remain explicit errors
+with compact diagnostics. Macro evaluation binds the initializer expansion and synthetic declaration
+by exact input-file offsets; an earlier expansion of the same name is not probe evidence.
+
+### clang2 nested records
+
+Stock `clang_Type_visitFields` exposes implicit anonymous aggregate fields and their native offsets.
+Use `clang_Cursor_isAnonymousRecordDecl` on the field's type declaration to distinguish a promoted
+anonymous aggregate from a named field whose record type is unnamed. The predicates on the field
+cursor itself do not make that distinction. These queries work on all three parsing targets.
+
+`clang2` `Record::owner` retains semantic ownership. Named children correspond by scoped name;
+unnamed children use their first owning native field. `Snapshot::record_identity` supplies the
+same owner-relative key to native resolution and cross-target association. Public families check
+corresponding children independently, and partial pruning removes children with their owner.
+Do not use display spellings or source offsets as nested identity.
+
+RDL preserves shared and named nested records through owner-scoped declarations and references
+such as `Outer::Inner`. A native declaration such as `struct { int value; } first, second;` has
+one shared type, not two independent inline types. `rdl` `writer/struct.rs` `write_record` keeps
+unshared direct fields inline when their nested names match the generated field-position names.
+Other nested records remain explicit declarations under their owner, not top-level helper types.
 
 ### clang2 replacement boundary
 
 `clang2` `projection.rs` `Projector::written_ty` preserves written value-typedef and callback names
 at use sites. Native agreement precedes public-name agreement across observations; conflicts are
-errors, not representative-selection choices. `Projector::callback` uses positional parameter
-names. Native agreement alone does not establish annotation correctness. Before a production
+errors, not representative-selection choices. Callback parameter evidence belongs to
+`AliasObservation`; publication preserves native names, with positional names for unnamed
+parameters. ABI-based callback naming excludes annotated and indirect prototypes. Relocated
+typedef contracts retain `NativeSalAttribute.TypedefName`. Native agreement alone does not
+establish annotation correctness. Before a production
 cutover, define intended names and annotations and check the header -> RDL -> WinMD -> generated Rust
 path for representative consumers and issue
 reproductions. Do not count explicit partial omissions or uncaptured macros as solved coverage.
