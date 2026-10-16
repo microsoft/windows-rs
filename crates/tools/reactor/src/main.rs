@@ -767,6 +767,20 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
                     event.name
                 );
             }
+            if matches!(
+                event.adapter,
+                Some(EventAdapter::DragKind | EventAdapter::DroppedData)
+            ) {
+                assert!(
+                    event
+                        .active_properties
+                        .iter()
+                        .any(|property| property == "drop_policy"),
+                    "{}.{} must list drop_policy in active_properties",
+                    object.name,
+                    event.name
+                );
+            }
         }
         for relation in &object.relations {
             if let Some(item) = &relation.item {
@@ -897,11 +911,15 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 }
             }
             for event in &object.events {
+                let field = snake_case(&event.name);
+                let revoker = if is_lazy_event(object, event) {
+                    "Option<GeneratedRevoker>"
+                } else {
+                    "GeneratedRevoker"
+                };
                 output.push_str(&format!(
-                    "{}: Rc<RefCell<Native{}Event>>,\n_{}: GeneratedRevoker,\n",
-                    snake_case(&event.name),
+                    "{field}: Rc<RefCell<Native{}Event>>,\n_{field}: {revoker},\n",
                     event.value,
-                    snake_case(&event.name)
                 ));
             }
             output.push_str("}\n");
@@ -1019,10 +1037,10 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     }
     output.push_str("}\nimpl GeneratedHandle {\n");
 
+    let mut lazy_subscriptions = String::new();
     output.push_str(
         "fn create(kind: ObjectType, object: ObjectId, event_queue: \
-                     &Rc<NativeEventQueue>, pending_focus_states: \
-                     &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>) -> \
+                     &Rc<NativeEventQueue>) -> \
                      Result<Option<Self>, WinUiError> {\nOk(Some(match kind {\n",
     );
     for object in &objects {
@@ -1056,10 +1074,13 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 .iter()
                 .find(|property| property.adapter == Some(PropertyAdapter::ImageUri))
                 .map(|property| snake_case(&property.name));
+            let mut subscriptions = String::new();
             for event in &object.events {
                 let field = snake_case(&event.name);
+                let lazy = is_lazy_event(object, event);
+                let mut code = String::new();
                 if let Some(source) = &managed_source {
-                    output.push_str(&format!("let managed_source = Rc::clone(&{source});\n"));
+                    code.push_str(&format!("let managed_source = Rc::clone(&{source});\n"));
                 }
                 let selection = object
                     .selection
@@ -1091,7 +1112,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         metadata,
                     );
                     let observed_read = format!("{observed_target}.{observed_native}()");
-                    output.push_str(&format!("let source_{field} = value.clone();\n"));
+                    code.push_str(&format!("let source_{field} = value.clone();\n"));
                     let read = if property.adapter == Some(PropertyAdapter::RichEditText) {
                         format!("read_rich_edit_text(&source_{field})")
                     } else {
@@ -1118,15 +1139,18 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             _ => unreachable!("unsupported generated observation type"),
                         }
                     };
-                    output.push_str(&format!("let read_{field} = move || {read};\n"));
+                    code.push_str(&format!("let read_{field} = move || {read};\n"));
                 }
                 output.push_str(&format!(
-                    "let {field} = Rc::new(RefCell::new(Native{}Event::default()));\n\
-                     let event_for_callback = Rc::clone(&{field});\n",
+                    "let {field} = Rc::new(RefCell::new(Native{}Event::default()));\n",
                     event.value
                 ));
+                let owner = if lazy { "self." } else { "" };
+                code.push_str(&format!(
+                    "let event_for_callback = Rc::clone(&{owner}{field});\n"
+                ));
                 if !event.routed {
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "let event_queue_{field} = Rc::clone(event_queue);\n"
                     ));
                 }
@@ -1145,27 +1169,27 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             selected_interface,
                             metadata,
                         );
-                        output.push_str(&format!("let source_{field} = {selected_target};\n"));
+                        code.push_str(&format!("let source_{field} = {selected_target};\n"));
                     }
                 } else if event.value == "PointerEventInfo" {
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "let source_{field} = value.cast::<native::UIElement>()?;\n\
                          let pending_focus_states_{field} = Rc::clone(pending_focus_states);\n"
                     ));
                     for property in &event.active_properties {
                         let property = snake_case(property);
-                        output.push_str(&format!(
-                            "let {property}_{field} = Rc::clone(&{property});\n"
+                        code.push_str(&format!(
+                            "let {property}_{field} = Rc::clone(&{owner}{property});\n"
                         ));
                     }
                 } else if event.value == "FocusEventInfo" {
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "let source_{field} = value.cast::<native::UIElement>()?;\n\
                          let pending_focus_states_{field} = Rc::clone(pending_focus_states);\n"
                     ));
                 } else if matches!(event.value.as_str(), "DragKind" | "DroppedData") {
-                    output.push_str(&format!(
-                        "let drop_policy_{field} = Rc::clone(&drop_policy);\n"
+                    code.push_str(&format!(
+                        "let drop_policy_{field} = Rc::clone(&{owner}drop_policy);\n"
                     ));
                 } else if event.value == "StringList" {
                     let interface = if object.name == "TabView" {
@@ -1175,7 +1199,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     };
                     let source =
                         native_interface_owned("value", &native_name(object), interface, metadata);
-                    output.push_str(&format!("let source_{field} = {source};\n"));
+                    code.push_str(&format!("let source_{field} = {source};\n"));
                 }
                 let args = if event.routed
                     || event.value == "PointerEventInfo"
@@ -1200,7 +1224,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         .dependency_property(&native_name(object), native)
                         .unwrap();
                     let owner = owner.rsplit('.').next().unwrap();
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "let property_{field} = native::{owner}::{native}Property()?;\n\
                          let object_{field} = value.cast::<native::DependencyObject>()?;\n\
                          let callback_{field} = native::DependencyPropertyChangedCallback::new(\
@@ -1213,7 +1237,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         interface.unwrap(),
                         metadata,
                     );
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "let revoker = {event_target}.{}(move |_, {args}| {{\n",
                         event.name,
                     ));
@@ -1233,7 +1257,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             }
                         }
                         "EventArgs" => {
-                            output.push_str("let args = args.unwrap();\n");
+                            code.push_str("let args = args.unwrap();\n");
                             if metadata
                                 .resolve_event_args_object_property(
                                     &native_name(object),
@@ -1253,7 +1277,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         }
                         _ => unreachable!(),
                     };
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "WinUiAdapter::handle_selection_changed(\n\
                          &event_for_callback,\n\
                          &event_queue_{field},\n\
@@ -1276,7 +1300,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     } else {
                         "observed"
                     };
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "let observed = match read_{field}() {{ Ok(value) => value, Err(error) => {{ \
                          report_error(error); return; }} }};\n\
                          let observation = Observation::SetProperty {{ \
@@ -1288,17 +1312,17 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         event.name
                     ));
                 } else if managed_source.is_some() {
-                    output.push_str(
+                    code.push_str(
                         "let dispatch = !managed_source.get();\nlet observation = None;\n",
                     );
                 } else if !event.routed {
-                    output.push_str("let dispatch = true;\nlet observation = None;\n");
+                    code.push_str("let dispatch = true;\nlet observation = None;\n");
                 }
                 if selection.is_none()
                     && let Some(payload) = &event.payload
                 {
                     if event.payload_adapter == Some(PayloadAdapter::ItemTag) {
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let args = args.unwrap();\n\
                              let payload = match args.{payload}()\
                              .and_then(|value| value.cast::<native::IFrameworkElement>())\
@@ -1315,7 +1339,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         event.payload_adapter,
                         Some(PayloadAdapter::OptionalDateTime | PayloadAdapter::OptionalTimeSpan)
                     ) {
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let args = args.unwrap();\n\
                              let payload = match args.{payload}() {{ Ok(value) => Some(value), \
                              Err(error) if error.code().is_ok() => None, Err(error) => {{ \
@@ -1345,7 +1369,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             None => "",
                             _ => unreachable!(),
                         };
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let args = args.unwrap();\n\
                              let payload = match args.{payload}(){conversion} {{ Ok(value) => value, \
                              Err(error) => {{ report_error(error); return; }} }};\n"
@@ -1358,10 +1382,11 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     "observed"
                 };
                 if selection.is_some() {
-                    output.push_str("})?;\n");
-                    output.push_str(&format!(
+                    code.push_str("})?;\n");
+                    code.push_str(&format!(
                         "let _{field} = GeneratedRevoker::Event(revoker);\n"
                     ));
+                    output.push_str(&code);
                     continue;
                 }
                 let value = match event.value.as_str() {
@@ -1377,7 +1402,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     | "String" => Some(dispatch_value),
                     "Unit" => Some("()"),
                     "ContentDialogResult" => {
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "match WinUiAdapter::content_dialog_closed(&event_queue_{field}, object) {{ \
                              Ok(true) if dispatch => WinUiAdapter::dispatch(\
                              &event_for_callback, &event_queue_{field}, object, EventId::{}, \
@@ -1403,7 +1428,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         } else {
                             "false"
                         };
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let value = match WinUiAdapter::pointer_event_info(\
                              object, &source_{field}, args, {capture_on_press}, {release_capture}, \
                              {focus_on_release}, &pending_focus_states_{field}) {{ \
@@ -1414,7 +1439,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     }
                     "FocusEventInfo" => {
                         let got_focus = event.name == "GotFocus";
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let value = match WinUiAdapter::focus_event_info(\
                              object, &source_{field}, args, {got_focus}, \
                              &pending_focus_states_{field}) {{ Ok(value) => value, Err(error) => {{ \
@@ -1423,7 +1448,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         Some("value")
                     }
                     "DragKind" => {
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let value = match WinUiAdapter::drag_kind(\
                              args, &drop_policy_{field}) {{ Ok(value) => value, Err(error) => {{ \
                              report_error(error.into()); return; }} }};\n"
@@ -1431,7 +1456,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         Some("value")
                     }
                     "DroppedData" => {
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let _ = dispatch;\n\
                              if let Err(error) = WinUiAdapter::dispatch_dropped_data(\
                              &event_for_callback, &event_queue_{field}, object, EventId::{}, \
@@ -1442,7 +1467,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         None
                     }
                     "StringList" => {
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let value = match WinUiAdapter::{}(&source_{field}) {{ \
                              Ok(value) => value, Err(error) => {{ \
                              report_error(error.into()); return; }} }};\n",
@@ -1455,7 +1480,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         Some("value")
                     }
                     "KeyEventInfo" => {
-                        output.push_str(
+                        code.push_str(
                             "let args = args.unwrap();\n\
                              let value = match WinUiAdapter::key_event_info(args) { Ok(value) => value, \
                              Err(error) => { report_error(error.into()); return; } };\n\
@@ -1467,7 +1492,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         None
                     }
                     "CharacterEventInfo" => {
-                        output.push_str(
+                        code.push_str(
                             "let args = args.unwrap();\n\
                              let value = match WinUiAdapter::character_event_info(args) { \
                              Ok(value) => value, Err(error) => { \
@@ -1482,14 +1507,14 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     _ => unreachable!("unsupported generated native event"),
                 };
                 if let Some(value) = value {
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "if dispatch {{ WinUiAdapter::dispatch(&event_for_callback, \
                          &event_queue_{field}, object, EventId::{}, observation, {value}); }}\n",
                         event.name,
                     ));
                 }
                 if event.property_changed {
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "}});\n\
                          let token_{field} = object_{field}.RegisterPropertyChangedCallback(\
                          &property_{field}, &callback_{field})?;\n\
@@ -1497,12 +1522,48 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                          object: object_{field}, property: property_{field}, token: token_{field} \
                          }});\n"
                     ));
+                } else if lazy {
+                    code.push_str("})?;\n");
+                    code.push_str(&format!(
+                        "self._{field} = Some(GeneratedRevoker::Event(revoker));\n"
+                    ));
                 } else {
-                    output.push_str("})?;\n");
-                    output.push_str(&format!(
+                    code.push_str("})?;\n");
+                    code.push_str(&format!(
                         "let _{field} = GeneratedRevoker::Event(revoker);\n"
                     ));
                 }
+                if lazy {
+                    output.push_str(&format!("let _{field} = None;\n"));
+                    let (object_id, event_queue) = if event.routed {
+                        ("_object", "_event_queue")
+                    } else {
+                        ("object", "event_queue")
+                    };
+                    let pending_focus_states =
+                        if matches!(event.value.as_str(), "PointerEventInfo" | "FocusEventInfo") {
+                            "pending_focus_states"
+                        } else {
+                            "_pending_focus_states"
+                        };
+                    subscriptions.push_str(&format!(
+                        "fn subscribe_{field}(&mut self, {object_id}: ObjectId, \
+                         {event_queue}: &Rc<NativeEventQueue>, {pending_focus_states}: \
+                         &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>) -> \
+                         Result<(), WinUiError> {{\n\
+                         if self._{field}.is_some() {{ return Ok(()); }}\n\
+                         let value = &self.value;\n\
+                         {code}Ok(())\n}}\n"
+                    ));
+                } else {
+                    output.push_str(&code);
+                }
+            }
+            if !subscriptions.is_empty() {
+                lazy_subscriptions.push_str(&format!(
+                    "impl Generated{} {{\n{subscriptions}}}\n",
+                    object.name
+                ));
             }
             output.push_str(&format!(
                 "Self::{}(Box::new(Generated{} {{ value,",
@@ -2171,7 +2232,9 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     output.push_str("_ => None,\n} }\n");
 
     output.push_str(
-        "fn set_events(&mut self, object_id: ObjectId, set: &[Event], clear: &[EventId]) -> \
+        "fn set_events(&mut self, object_id: ObjectId, set: &[Event], clear: &[EventId], \
+         event_queue: &Rc<NativeEventQueue>, pending_focus_states: \
+         &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>) -> \
                      Option<Result<(), WinUiError>> { match self {\n",
     );
     for object in &objects {
@@ -2191,11 +2254,16 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
         output.push_str("for event in set { match (event.id, &event.value) {\n");
         for event in &object.events {
             let field = snake_case(&event.name);
+            let subscribe = if is_lazy_event(object, event) {
+                format!("object.subscribe_{field}(object_id, event_queue, pending_focus_states)?;")
+            } else {
+                String::new()
+            };
             output.push_str(&format!(
-                "(EventId::{}, EventValue::{}(callback)) => {{ let mut native_event = \
+                "(EventId::{}, EventValue::{}(callback)) => {{ {{ let mut native_event = \
                              object.{field}.borrow_mut(); native_event.revision = \
                              native_event.revision.wrapping_add(1); native_event.callback = \
-                             Some(callback.clone()); }}\n",
+                             Some(callback.clone()); }} {subscribe} }}\n",
                 event.name, event.value
             ));
         }
@@ -2203,6 +2271,38 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
         output.push_str("Ok(())\n})()),\n");
     }
     output.push_str("_ => None,\n} }\n");
+
+    output.push_str(
+        "fn subscribe_property_events(&mut self, object_id: ObjectId, property: PropertyId, \
+         event_queue: &Rc<NativeEventQueue>, pending_focus_states: \
+         &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>) -> Result<(), WinUiError> { \
+         match (self, property) {\n",
+    );
+    for object in &objects {
+        for property in &object.properties {
+            let name = snake_case(&property.name);
+            let events = object
+                .events
+                .iter()
+                .filter(|event| {
+                    is_lazy_event(object, event) && event.active_properties.contains(&name)
+                })
+                .map(|event| {
+                    format!(
+                        "object.subscribe_{}(object_id, event_queue, pending_focus_states)?;",
+                        snake_case(&event.name)
+                    )
+                })
+                .collect::<String>();
+            if !events.is_empty() {
+                output.push_str(&format!(
+                    "(Self::{}(object), PropertyId::{}) => {{ {events} }}\n",
+                    object.name, property.name
+                ));
+            }
+        }
+    }
+    output.push_str("_ => {}\n}\nOk(())\n}\n");
 
     output.push_str(
         "fn set_content(&self, relation: RelationId, child: Option<&native::UIElement>) -> \
@@ -2301,7 +2401,26 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     output.push_str("_ => None,\n} }\n");
 
     output.push_str("}\n");
+    output.push_str(&lazy_subscriptions);
     output
+}
+
+/// Events that only forward to a Reactor callback subscribe when the first callback is set, or
+/// when one of their `active_properties` is set. Events that observe properties, track
+/// selection, or report managed image state subscribe at creation because they do work without
+/// a callback.
+fn is_lazy_event(object: &Object, event: &Event) -> bool {
+    !event.property_changed
+        && event.observes.is_none()
+        && event.value != "ContentDialogResult"
+        && !object
+            .selection
+            .as_ref()
+            .is_some_and(|selection| selection.event == event.name)
+        && !object
+            .properties
+            .iter()
+            .any(|property| property.adapter == Some(PropertyAdapter::ImageUri))
 }
 
 fn native_name(object: &Object) -> String {

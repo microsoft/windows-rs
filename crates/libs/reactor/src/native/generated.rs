@@ -203,7 +203,7 @@ fn native_symbol(value: Symbol) -> native::Symbol {
 struct GeneratedButton {
     value: native::Button,
     click: Rc<RefCell<NativeUnitEvent>>,
-    _click: GeneratedRevoker,
+    _click: Option<GeneratedRevoker>,
 }
 struct GeneratedCheckBox {
     value: native::CheckBox,
@@ -218,44 +218,44 @@ struct GeneratedBorder {
     focus_on_pointer_release: Rc<Cell<bool>>,
     drop_policy: Rc<RefCell<Option<Rc<DragDropPolicy>>>>,
     pointer_pressed: Rc<RefCell<NativePointerEventInfoEvent>>,
-    _pointer_pressed: GeneratedRevoker,
+    _pointer_pressed: Option<GeneratedRevoker>,
     pointer_moved: Rc<RefCell<NativePointerEventInfoEvent>>,
-    _pointer_moved: GeneratedRevoker,
+    _pointer_moved: Option<GeneratedRevoker>,
     pointer_entered: Rc<RefCell<NativePointerEventInfoEvent>>,
-    _pointer_entered: GeneratedRevoker,
+    _pointer_entered: Option<GeneratedRevoker>,
     pointer_exited: Rc<RefCell<NativePointerEventInfoEvent>>,
-    _pointer_exited: GeneratedRevoker,
+    _pointer_exited: Option<GeneratedRevoker>,
     pointer_released: Rc<RefCell<NativePointerEventInfoEvent>>,
-    _pointer_released: GeneratedRevoker,
+    _pointer_released: Option<GeneratedRevoker>,
     pointer_capture_lost: Rc<RefCell<NativeUnitEvent>>,
-    _pointer_capture_lost: GeneratedRevoker,
+    _pointer_capture_lost: Option<GeneratedRevoker>,
     pointer_canceled: Rc<RefCell<NativeUnitEvent>>,
-    _pointer_canceled: GeneratedRevoker,
+    _pointer_canceled: Option<GeneratedRevoker>,
     preview_key_down: Rc<RefCell<NativeKeyEventInfoEvent>>,
-    _preview_key_down: GeneratedRevoker,
+    _preview_key_down: Option<GeneratedRevoker>,
     key_up: Rc<RefCell<NativeKeyEventInfoEvent>>,
-    _key_up: GeneratedRevoker,
+    _key_up: Option<GeneratedRevoker>,
     character_received: Rc<RefCell<NativeCharacterEventInfoEvent>>,
-    _character_received: GeneratedRevoker,
+    _character_received: Option<GeneratedRevoker>,
     got_focus: Rc<RefCell<NativeFocusEventInfoEvent>>,
-    _got_focus: GeneratedRevoker,
+    _got_focus: Option<GeneratedRevoker>,
     lost_focus: Rc<RefCell<NativeFocusEventInfoEvent>>,
-    _lost_focus: GeneratedRevoker,
+    _lost_focus: Option<GeneratedRevoker>,
     drag_enter: Rc<RefCell<NativeDragKindEvent>>,
-    _drag_enter: GeneratedRevoker,
+    _drag_enter: Option<GeneratedRevoker>,
     drag_over: Rc<RefCell<NativeDragKindEvent>>,
-    _drag_over: GeneratedRevoker,
+    _drag_over: Option<GeneratedRevoker>,
     drag_leave: Rc<RefCell<NativeUnitEvent>>,
-    _drag_leave: GeneratedRevoker,
+    _drag_leave: Option<GeneratedRevoker>,
     drop: Rc<RefCell<NativeDroppedDataEvent>>,
-    _drop: GeneratedRevoker,
+    _drop: Option<GeneratedRevoker>,
 }
 struct GeneratedTitleBar {
     value: native::TitleBar,
     back_requested: Rc<RefCell<NativeUnitEvent>>,
-    _back_requested: GeneratedRevoker,
+    _back_requested: Option<GeneratedRevoker>,
     pane_toggle_requested: Rc<RefCell<NativeUnitEvent>>,
-    _pane_toggle_requested: GeneratedRevoker,
+    _pane_toggle_requested: Option<GeneratedRevoker>,
 }
 struct GeneratedSlider {
     value: native::Slider,
@@ -265,24 +265,24 @@ struct GeneratedSlider {
 struct GeneratedHyperlinkButton {
     value: native::HyperlinkButton,
     click: Rc<RefCell<NativeUnitEvent>>,
-    _click: GeneratedRevoker,
+    _click: Option<GeneratedRevoker>,
 }
 struct GeneratedRepeatButton {
     value: native::RepeatButton,
     click: Rc<RefCell<NativeUnitEvent>>,
-    _click: GeneratedRevoker,
+    _click: Option<GeneratedRevoker>,
 }
 struct GeneratedBreadcrumbBar {
     value: native::BreadcrumbBar,
     item_clicked: Rc<RefCell<NativeStringEvent>>,
-    _item_clicked: GeneratedRevoker,
+    _item_clicked: Option<GeneratedRevoker>,
 }
 struct GeneratedAutoSuggestBox {
     value: native::AutoSuggestBox,
     text_changed: Rc<RefCell<NativeStringEvent>>,
     _text_changed: GeneratedRevoker,
     suggestion_chosen: Rc<RefCell<NativeStringEvent>>,
-    _suggestion_chosen: GeneratedRevoker,
+    _suggestion_chosen: Option<GeneratedRevoker>,
 }
 struct GeneratedPasswordBox {
     value: native::PasswordBox,
@@ -301,7 +301,7 @@ struct GeneratedNavigationView {
     selection_changed: Rc<RefCell<NativeSelectionEvent>>,
     _selection_changed: GeneratedRevoker,
     display_mode_changed: Rc<RefCell<NativeNavigationViewDisplayModeEvent>>,
-    _display_mode_changed: GeneratedRevoker,
+    _display_mode_changed: Option<GeneratedRevoker>,
 }
 struct GeneratedSplitView {
     value: native::SplitView,
@@ -331,7 +331,7 @@ struct GeneratedRadioButtons {
 struct GeneratedInfoBar {
     value: native::InfoBar,
     closed: Rc<RefCell<NativeUnitEvent>>,
-    _closed: GeneratedRevoker,
+    _closed: Option<GeneratedRevoker>,
 }
 struct GeneratedImage {
     value: native::Image,
@@ -379,35 +379,35 @@ struct GeneratedSelectorBar {
 struct GeneratedTabView {
     value: native::TabView,
     add_tab_button_click: Rc<RefCell<NativeUnitEvent>>,
-    _add_tab_button_click: GeneratedRevoker,
+    _add_tab_button_click: Option<GeneratedRevoker>,
     selection_changed: Rc<RefCell<NativeSelectionIndexEvent>>,
     _selection_changed: GeneratedRevoker,
     tab_close_requested: Rc<RefCell<NativeStringEvent>>,
-    _tab_close_requested: GeneratedRevoker,
+    _tab_close_requested: Option<GeneratedRevoker>,
     tab_items_changed: Rc<RefCell<NativeStringListEvent>>,
-    _tab_items_changed: GeneratedRevoker,
+    _tab_items_changed: Option<GeneratedRevoker>,
 }
 struct GeneratedTeachingTip {
     value: native::TeachingTip,
     closed: Rc<RefCell<NativeUnitEvent>>,
-    _closed: GeneratedRevoker,
+    _closed: Option<GeneratedRevoker>,
     action_button_click: Rc<RefCell<NativeUnitEvent>>,
-    _action_button_click: GeneratedRevoker,
+    _action_button_click: Option<GeneratedRevoker>,
 }
 struct GeneratedDropDownButton {
     value: native::DropDownButton,
     click: Rc<RefCell<NativeUnitEvent>>,
-    _click: GeneratedRevoker,
+    _click: Option<GeneratedRevoker>,
 }
 struct GeneratedAppBarButton {
     value: native::AppBarButton,
     click: Rc<RefCell<NativeUnitEvent>>,
-    _click: GeneratedRevoker,
+    _click: Option<GeneratedRevoker>,
 }
 struct GeneratedSplitButton {
     value: native::SplitButton,
     click: Rc<RefCell<NativeUnitEvent>>,
-    _click: GeneratedRevoker,
+    _click: Option<GeneratedRevoker>,
 }
 struct GeneratedColorPicker {
     value: native::ColorPicker,
@@ -417,12 +417,12 @@ struct GeneratedColorPicker {
 struct GeneratedDatePicker {
     value: native::DatePicker,
     selected_date_changed: Rc<RefCell<NativeOptionalDateTimeEvent>>,
-    _selected_date_changed: GeneratedRevoker,
+    _selected_date_changed: Option<GeneratedRevoker>,
 }
 struct GeneratedTimePicker {
     value: native::TimePicker,
     selected_time_changed: Rc<RefCell<NativeOptionalTimeSpanEvent>>,
-    _selected_time_changed: GeneratedRevoker,
+    _selected_time_changed: Option<GeneratedRevoker>,
 }
 struct GeneratedCalendarDatePicker {
     value: native::CalendarDatePicker,
@@ -437,14 +437,14 @@ struct GeneratedContentDialog {
 struct GeneratedCalendarView {
     value: native::CalendarView,
     selected_dates_changed: Rc<RefCell<NativeUnitEvent>>,
-    _selected_dates_changed: GeneratedRevoker,
+    _selected_dates_changed: Option<GeneratedRevoker>,
 }
 struct GeneratedGridView {
     value: native::GridView,
     selection_changed: Rc<RefCell<NativeSelectionIndexEvent>>,
     _selection_changed: GeneratedRevoker,
     drag_items_completed: Rc<RefCell<NativeStringListEvent>>,
-    _drag_items_completed: GeneratedRevoker,
+    _drag_items_completed: Option<GeneratedRevoker>,
 }
 struct GeneratedRichEditBox {
     value: native::RichEditBox,
@@ -623,30 +623,13 @@ impl GeneratedHandle {
         kind: ObjectType,
         object: ObjectId,
         event_queue: &Rc<NativeEventQueue>,
-        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
     ) -> Result<Option<Self>, WinUiError> {
         Ok(Some(match kind {
             ObjectType::TextBlock => Self::TextBlock(native::TextBlock::new()?),
             ObjectType::Button => {
                 let value = native::Button::new()?;
                 let click = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&click);
-                let event_queue_click = Rc::clone(event_queue);
-                let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_click,
-                            object,
-                            EventId::Click,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _click = GeneratedRevoker::Event(revoker);
+                let _click = None;
                 Self::Button(Box::new(GeneratedButton {
                     value,
                     click,
@@ -655,6 +638,7 @@ impl GeneratedHandle {
             }
             ObjectType::CheckBox => {
                 let value = native::CheckBox::new()?;
+                let click = Rc::new(RefCell::new(NativeUnitEvent::default()));
                 let source_click = value.clone();
                 let read_click =
                     move || match source_click.cast::<native::IToggleButton>()?.IsChecked() {
@@ -662,7 +646,6 @@ impl GeneratedHandle {
                         Err(error) if error.code().is_ok() => Ok(None),
                         Err(error) => Err(error),
                     };
-                let click = Rc::new(RefCell::new(NativeUnitEvent::default()));
                 let event_for_callback = Rc::clone(&click);
                 let event_queue_click = Rc::clone(event_queue);
                 let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
@@ -695,6 +678,7 @@ impl GeneratedHandle {
                     }
                 })?;
                 let _click = GeneratedRevoker::Event(revoker);
+                let is_checked_changed = Rc::new(RefCell::new(NativeOptionalBoolEvent::default()));
                 let source_is_checked_changed = value.clone();
                 let read_is_checked_changed = move || match source_is_checked_changed
                     .cast::<native::IToggleButton>()?
@@ -704,7 +688,6 @@ impl GeneratedHandle {
                     Err(error) if error.code().is_ok() => Ok(None),
                     Err(error) => Err(error),
                 };
-                let is_checked_changed = Rc::new(RefCell::new(NativeOptionalBoolEvent::default()));
                 let event_for_callback = Rc::clone(&is_checked_changed);
                 let event_queue_is_checked_changed = Rc::clone(event_queue);
                 let property_is_checked_changed = native::ToggleButton::IsCheckedProperty()?;
@@ -766,478 +749,39 @@ impl GeneratedHandle {
                 let focus_on_pointer_release = Rc::new(Cell::new(false));
                 let drop_policy = Rc::new(RefCell::new(None));
                 let pointer_pressed = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
-                let event_for_callback = Rc::clone(&pointer_pressed);
-                let event_queue_pointer_pressed = Rc::clone(event_queue);
-                let source_pointer_pressed = value.cast::<native::UIElement>()?;
-                let pending_focus_states_pointer_pressed = Rc::clone(pending_focus_states);
-                let capture_pointer_on_press_pointer_pressed = Rc::clone(&capture_pointer_on_press);
-                let revoker =
-                    value
-                        .cast::<native::IUIElement>()?
-                        .PointerPressed(move |_, args| {
-                            let dispatch = true;
-                            let observation = None;
-                            let value = match WinUiAdapter::pointer_event_info(
-                                object,
-                                &source_pointer_pressed,
-                                args,
-                                Some(capture_pointer_on_press_pointer_pressed.get()),
-                                false,
-                                false,
-                                &pending_focus_states_pointer_pressed,
-                            ) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error.into());
-                                    return;
-                                }
-                            };
-                            if dispatch {
-                                WinUiAdapter::dispatch(
-                                    &event_for_callback,
-                                    &event_queue_pointer_pressed,
-                                    object,
-                                    EventId::PointerPressed,
-                                    observation,
-                                    value,
-                                );
-                            }
-                        })?;
-                let _pointer_pressed = GeneratedRevoker::Event(revoker);
+                let _pointer_pressed = None;
                 let pointer_moved = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
-                let event_for_callback = Rc::clone(&pointer_moved);
-                let event_queue_pointer_moved = Rc::clone(event_queue);
-                let source_pointer_moved = value.cast::<native::UIElement>()?;
-                let pending_focus_states_pointer_moved = Rc::clone(pending_focus_states);
-                let revoker =
-                    value
-                        .cast::<native::IUIElement>()?
-                        .PointerMoved(move |_, args| {
-                            let dispatch = true;
-                            let observation = None;
-                            let value = match WinUiAdapter::pointer_event_info(
-                                object,
-                                &source_pointer_moved,
-                                args,
-                                None,
-                                false,
-                                false,
-                                &pending_focus_states_pointer_moved,
-                            ) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error.into());
-                                    return;
-                                }
-                            };
-                            if dispatch {
-                                WinUiAdapter::dispatch(
-                                    &event_for_callback,
-                                    &event_queue_pointer_moved,
-                                    object,
-                                    EventId::PointerMoved,
-                                    observation,
-                                    value,
-                                );
-                            }
-                        })?;
-                let _pointer_moved = GeneratedRevoker::Event(revoker);
+                let _pointer_moved = None;
                 let pointer_entered = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
-                let event_for_callback = Rc::clone(&pointer_entered);
-                let event_queue_pointer_entered = Rc::clone(event_queue);
-                let source_pointer_entered = value.cast::<native::UIElement>()?;
-                let pending_focus_states_pointer_entered = Rc::clone(pending_focus_states);
-                let revoker =
-                    value
-                        .cast::<native::IUIElement>()?
-                        .PointerEntered(move |_, args| {
-                            let dispatch = true;
-                            let observation = None;
-                            let value = match WinUiAdapter::pointer_event_info(
-                                object,
-                                &source_pointer_entered,
-                                args,
-                                None,
-                                false,
-                                false,
-                                &pending_focus_states_pointer_entered,
-                            ) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error.into());
-                                    return;
-                                }
-                            };
-                            if dispatch {
-                                WinUiAdapter::dispatch(
-                                    &event_for_callback,
-                                    &event_queue_pointer_entered,
-                                    object,
-                                    EventId::PointerEntered,
-                                    observation,
-                                    value,
-                                );
-                            }
-                        })?;
-                let _pointer_entered = GeneratedRevoker::Event(revoker);
+                let _pointer_entered = None;
                 let pointer_exited = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
-                let event_for_callback = Rc::clone(&pointer_exited);
-                let event_queue_pointer_exited = Rc::clone(event_queue);
-                let source_pointer_exited = value.cast::<native::UIElement>()?;
-                let pending_focus_states_pointer_exited = Rc::clone(pending_focus_states);
-                let revoker =
-                    value
-                        .cast::<native::IUIElement>()?
-                        .PointerExited(move |_, args| {
-                            let dispatch = true;
-                            let observation = None;
-                            let value = match WinUiAdapter::pointer_event_info(
-                                object,
-                                &source_pointer_exited,
-                                args,
-                                None,
-                                false,
-                                false,
-                                &pending_focus_states_pointer_exited,
-                            ) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error.into());
-                                    return;
-                                }
-                            };
-                            if dispatch {
-                                WinUiAdapter::dispatch(
-                                    &event_for_callback,
-                                    &event_queue_pointer_exited,
-                                    object,
-                                    EventId::PointerExited,
-                                    observation,
-                                    value,
-                                );
-                            }
-                        })?;
-                let _pointer_exited = GeneratedRevoker::Event(revoker);
+                let _pointer_exited = None;
                 let pointer_released =
                     Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
-                let event_for_callback = Rc::clone(&pointer_released);
-                let event_queue_pointer_released = Rc::clone(event_queue);
-                let source_pointer_released = value.cast::<native::UIElement>()?;
-                let pending_focus_states_pointer_released = Rc::clone(pending_focus_states);
-                let capture_pointer_on_press_pointer_released =
-                    Rc::clone(&capture_pointer_on_press);
-                let focus_on_pointer_release_pointer_released =
-                    Rc::clone(&focus_on_pointer_release);
-                let revoker =
-                    value
-                        .cast::<native::IUIElement>()?
-                        .PointerReleased(move |_, args| {
-                            let dispatch = true;
-                            let observation = None;
-                            let value = match WinUiAdapter::pointer_event_info(
-                                object,
-                                &source_pointer_released,
-                                args,
-                                None,
-                                capture_pointer_on_press_pointer_released.get(),
-                                focus_on_pointer_release_pointer_released.get(),
-                                &pending_focus_states_pointer_released,
-                            ) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error.into());
-                                    return;
-                                }
-                            };
-                            if dispatch {
-                                WinUiAdapter::dispatch(
-                                    &event_for_callback,
-                                    &event_queue_pointer_released,
-                                    object,
-                                    EventId::PointerReleased,
-                                    observation,
-                                    value,
-                                );
-                            }
-                        })?;
-                let _pointer_released = GeneratedRevoker::Event(revoker);
+                let _pointer_released = None;
                 let pointer_capture_lost = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&pointer_capture_lost);
-                let event_queue_pointer_capture_lost = Rc::clone(event_queue);
-                let revoker =
-                    value
-                        .cast::<native::IUIElement>()?
-                        .PointerCaptureLost(move |_, _| {
-                            let dispatch = true;
-                            let observation = None;
-                            if dispatch {
-                                WinUiAdapter::dispatch(
-                                    &event_for_callback,
-                                    &event_queue_pointer_capture_lost,
-                                    object,
-                                    EventId::PointerCaptureLost,
-                                    observation,
-                                    (),
-                                );
-                            }
-                        })?;
-                let _pointer_capture_lost = GeneratedRevoker::Event(revoker);
+                let _pointer_capture_lost = None;
                 let pointer_canceled = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&pointer_canceled);
-                let event_queue_pointer_canceled = Rc::clone(event_queue);
-                let revoker =
-                    value
-                        .cast::<native::IUIElement>()?
-                        .PointerCanceled(move |_, _| {
-                            let dispatch = true;
-                            let observation = None;
-                            if dispatch {
-                                WinUiAdapter::dispatch(
-                                    &event_for_callback,
-                                    &event_queue_pointer_canceled,
-                                    object,
-                                    EventId::PointerCanceled,
-                                    observation,
-                                    (),
-                                );
-                            }
-                        })?;
-                let _pointer_canceled = GeneratedRevoker::Event(revoker);
+                let _pointer_canceled = None;
                 let preview_key_down = Rc::new(RefCell::new(NativeKeyEventInfoEvent::default()));
-                let event_for_callback = Rc::clone(&preview_key_down);
-                let revoker =
-                    value
-                        .cast::<native::IUIElement>()?
-                        .PreviewKeyDown(move |_, args| {
-                            let args = args.unwrap();
-                            let value = match WinUiAdapter::key_event_info(args) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error.into());
-                                    return;
-                                }
-                            };
-                            let handled = event_for_callback
-                                .borrow()
-                                .callback
-                                .as_ref()
-                                .is_some_and(|callback| callback.call(value));
-                            if let Err(error) = args.SetHandled(handled) {
-                                report_error(error);
-                            }
-                        })?;
-                let _preview_key_down = GeneratedRevoker::Event(revoker);
+                let _preview_key_down = None;
                 let key_up = Rc::new(RefCell::new(NativeKeyEventInfoEvent::default()));
-                let event_for_callback = Rc::clone(&key_up);
-                let revoker = value.cast::<native::IUIElement>()?.KeyUp(move |_, args| {
-                    let args = args.unwrap();
-                    let value = match WinUiAdapter::key_event_info(args) {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error.into());
-                            return;
-                        }
-                    };
-                    let handled = event_for_callback
-                        .borrow()
-                        .callback
-                        .as_ref()
-                        .is_some_and(|callback| callback.call(value));
-                    if let Err(error) = args.SetHandled(handled) {
-                        report_error(error);
-                    }
-                })?;
-                let _key_up = GeneratedRevoker::Event(revoker);
+                let _key_up = None;
                 let character_received =
                     Rc::new(RefCell::new(NativeCharacterEventInfoEvent::default()));
-                let event_for_callback = Rc::clone(&character_received);
-                let revoker =
-                    value
-                        .cast::<native::IUIElement>()?
-                        .CharacterReceived(move |_, args| {
-                            let args = args.unwrap();
-                            let value = match WinUiAdapter::character_event_info(args) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error.into());
-                                    return;
-                                }
-                            };
-                            let handled = event_for_callback
-                                .borrow()
-                                .callback
-                                .as_ref()
-                                .is_some_and(|callback| callback.call(value));
-                            if let Err(error) = args.SetHandled(handled) {
-                                report_error(error);
-                            }
-                        })?;
-                let _character_received = GeneratedRevoker::Event(revoker);
+                let _character_received = None;
                 let got_focus = Rc::new(RefCell::new(NativeFocusEventInfoEvent::default()));
-                let event_for_callback = Rc::clone(&got_focus);
-                let event_queue_got_focus = Rc::clone(event_queue);
-                let source_got_focus = value.cast::<native::UIElement>()?;
-                let pending_focus_states_got_focus = Rc::clone(pending_focus_states);
-                let revoker = value
-                    .cast::<native::IUIElement>()?
-                    .GotFocus(move |_, args| {
-                        let dispatch = true;
-                        let observation = None;
-                        let value = match WinUiAdapter::focus_event_info(
-                            object,
-                            &source_got_focus,
-                            args,
-                            true,
-                            &pending_focus_states_got_focus,
-                        ) {
-                            Ok(value) => value,
-                            Err(error) => {
-                                report_error(error.into());
-                                return;
-                            }
-                        };
-                        if dispatch {
-                            WinUiAdapter::dispatch(
-                                &event_for_callback,
-                                &event_queue_got_focus,
-                                object,
-                                EventId::GotFocus,
-                                observation,
-                                value,
-                            );
-                        }
-                    })?;
-                let _got_focus = GeneratedRevoker::Event(revoker);
+                let _got_focus = None;
                 let lost_focus = Rc::new(RefCell::new(NativeFocusEventInfoEvent::default()));
-                let event_for_callback = Rc::clone(&lost_focus);
-                let event_queue_lost_focus = Rc::clone(event_queue);
-                let source_lost_focus = value.cast::<native::UIElement>()?;
-                let pending_focus_states_lost_focus = Rc::clone(pending_focus_states);
-                let revoker = value
-                    .cast::<native::IUIElement>()?
-                    .LostFocus(move |_, args| {
-                        let dispatch = true;
-                        let observation = None;
-                        let value = match WinUiAdapter::focus_event_info(
-                            object,
-                            &source_lost_focus,
-                            args,
-                            false,
-                            &pending_focus_states_lost_focus,
-                        ) {
-                            Ok(value) => value,
-                            Err(error) => {
-                                report_error(error.into());
-                                return;
-                            }
-                        };
-                        if dispatch {
-                            WinUiAdapter::dispatch(
-                                &event_for_callback,
-                                &event_queue_lost_focus,
-                                object,
-                                EventId::LostFocus,
-                                observation,
-                                value,
-                            );
-                        }
-                    })?;
-                let _lost_focus = GeneratedRevoker::Event(revoker);
+                let _lost_focus = None;
                 let drag_enter = Rc::new(RefCell::new(NativeDragKindEvent::default()));
-                let event_for_callback = Rc::clone(&drag_enter);
-                let event_queue_drag_enter = Rc::clone(event_queue);
-                let drop_policy_drag_enter = Rc::clone(&drop_policy);
-                let revoker = value
-                    .cast::<native::IUIElement>()?
-                    .DragEnter(move |_, args| {
-                        let dispatch = true;
-                        let observation = None;
-                        let value = match WinUiAdapter::drag_kind(args, &drop_policy_drag_enter) {
-                            Ok(value) => value,
-                            Err(error) => {
-                                report_error(error.into());
-                                return;
-                            }
-                        };
-                        if dispatch {
-                            WinUiAdapter::dispatch(
-                                &event_for_callback,
-                                &event_queue_drag_enter,
-                                object,
-                                EventId::DragEnter,
-                                observation,
-                                value,
-                            );
-                        }
-                    })?;
-                let _drag_enter = GeneratedRevoker::Event(revoker);
+                let _drag_enter = None;
                 let drag_over = Rc::new(RefCell::new(NativeDragKindEvent::default()));
-                let event_for_callback = Rc::clone(&drag_over);
-                let event_queue_drag_over = Rc::clone(event_queue);
-                let drop_policy_drag_over = Rc::clone(&drop_policy);
-                let revoker = value
-                    .cast::<native::IUIElement>()?
-                    .DragOver(move |_, args| {
-                        let dispatch = true;
-                        let observation = None;
-                        let value = match WinUiAdapter::drag_kind(args, &drop_policy_drag_over) {
-                            Ok(value) => value,
-                            Err(error) => {
-                                report_error(error.into());
-                                return;
-                            }
-                        };
-                        if dispatch {
-                            WinUiAdapter::dispatch(
-                                &event_for_callback,
-                                &event_queue_drag_over,
-                                object,
-                                EventId::DragOver,
-                                observation,
-                                value,
-                            );
-                        }
-                    })?;
-                let _drag_over = GeneratedRevoker::Event(revoker);
+                let _drag_over = None;
                 let drag_leave = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&drag_leave);
-                let event_queue_drag_leave = Rc::clone(event_queue);
-                let revoker = value.cast::<native::IUIElement>()?.DragLeave(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_drag_leave,
-                            object,
-                            EventId::DragLeave,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _drag_leave = GeneratedRevoker::Event(revoker);
+                let _drag_leave = None;
                 let drop = Rc::new(RefCell::new(NativeDroppedDataEvent::default()));
-                let event_for_callback = Rc::clone(&drop);
-                let event_queue_drop = Rc::clone(event_queue);
-                let drop_policy_drop = Rc::clone(&drop_policy);
-                let revoker = value.cast::<native::IUIElement>()?.Drop(move |_, args| {
-                    let dispatch = true;
-                    let observation = None;
-                    let _ = dispatch;
-                    if let Err(error) = WinUiAdapter::dispatch_dropped_data(
-                        &event_for_callback,
-                        &event_queue_drop,
-                        object,
-                        EventId::Drop,
-                        observation,
-                        args,
-                        &drop_policy_drop,
-                    ) {
-                        report_error(error.into());
-                    }
-                })?;
-                let _drop = GeneratedRevoker::Event(revoker);
+                let _drop = None;
                 Self::Border(Box::new(GeneratedBorder {
                     value,
                     capture_pointer_on_press,
@@ -1285,41 +829,9 @@ impl GeneratedHandle {
             ObjectType::TitleBar => {
                 let value = native::TitleBar::new()?;
                 let back_requested = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&back_requested);
-                let event_queue_back_requested = Rc::clone(event_queue);
-                let revoker = value.BackRequested(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_back_requested,
-                            object,
-                            EventId::BackRequested,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _back_requested = GeneratedRevoker::Event(revoker);
+                let _back_requested = None;
                 let pane_toggle_requested = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&pane_toggle_requested);
-                let event_queue_pane_toggle_requested = Rc::clone(event_queue);
-                let revoker = value.PaneToggleRequested(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_pane_toggle_requested,
-                            object,
-                            EventId::PaneToggleRequested,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _pane_toggle_requested = GeneratedRevoker::Event(revoker);
+                let _pane_toggle_requested = None;
                 Self::TitleBar(Box::new(GeneratedTitleBar {
                     value,
                     back_requested,
@@ -1330,10 +842,10 @@ impl GeneratedHandle {
             }
             ObjectType::Slider => {
                 let value = native::Slider::new()?;
+                let value_changed = Rc::new(RefCell::new(NativeF64Event::default()));
                 let source_value_changed = value.clone();
                 let read_value_changed =
                     move || source_value_changed.cast::<native::IRangeBase>()?.Value();
-                let value_changed = Rc::new(RefCell::new(NativeF64Event::default()));
                 let event_for_callback = Rc::clone(&value_changed);
                 let event_queue_value_changed = Rc::clone(event_queue);
                 let revoker =
@@ -1389,23 +901,7 @@ impl GeneratedHandle {
             ObjectType::HyperlinkButton => {
                 let value = native::HyperlinkButton::new()?;
                 let click = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&click);
-                let event_queue_click = Rc::clone(event_queue);
-                let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_click,
-                            object,
-                            EventId::Click,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _click = GeneratedRevoker::Event(revoker);
+                let _click = None;
                 Self::HyperlinkButton(Box::new(GeneratedHyperlinkButton {
                     value,
                     click,
@@ -1415,23 +911,7 @@ impl GeneratedHandle {
             ObjectType::RepeatButton => {
                 let value = native::RepeatButton::new()?;
                 let click = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&click);
-                let event_queue_click = Rc::clone(event_queue);
-                let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_click,
-                            object,
-                            EventId::Click,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _click = GeneratedRevoker::Event(revoker);
+                let _click = None;
                 Self::RepeatButton(Box::new(GeneratedRepeatButton {
                     value,
                     click,
@@ -1441,36 +921,7 @@ impl GeneratedHandle {
             ObjectType::BreadcrumbBar => {
                 let value = native::BreadcrumbBar::new()?;
                 let item_clicked = Rc::new(RefCell::new(NativeStringEvent::default()));
-                let event_for_callback = Rc::clone(&item_clicked);
-                let event_queue_item_clicked = Rc::clone(event_queue);
-                let revoker = value.ItemClicked(move |_, args| {
-                    let dispatch = true;
-                    let observation = None;
-                    let args = args.unwrap();
-                    let payload = match args
-                        .Item()
-                        .and_then(|value| value.cast::<windows_reference::IReference<HSTRING>>())
-                        .and_then(|value| value.Value())
-                        .map(|value| Rc::<str>::from(value.to_string_lossy()))
-                    {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_item_clicked,
-                            object,
-                            EventId::ItemClicked,
-                            observation,
-                            payload,
-                        );
-                    }
-                })?;
-                let _item_clicked = GeneratedRevoker::Event(revoker);
+                let _item_clicked = None;
                 Self::BreadcrumbBar(Box::new(GeneratedBreadcrumbBar {
                     value,
                     item_clicked,
@@ -1482,9 +933,9 @@ impl GeneratedHandle {
             }
             ObjectType::AutoSuggestBox => {
                 let value = native::AutoSuggestBox::new()?;
+                let text_changed = Rc::new(RefCell::new(NativeStringEvent::default()));
                 let source_text_changed = value.clone();
                 let read_text_changed = move || source_text_changed.Text().map(Rc::<str>::from);
-                let text_changed = Rc::new(RefCell::new(NativeStringEvent::default()));
                 let event_for_callback = Rc::clone(&text_changed);
                 let event_queue_text_changed = Rc::clone(event_queue);
                 let revoker = value.TextChanged(move |_, _| {
@@ -1521,36 +972,7 @@ impl GeneratedHandle {
                 })?;
                 let _text_changed = GeneratedRevoker::Event(revoker);
                 let suggestion_chosen = Rc::new(RefCell::new(NativeStringEvent::default()));
-                let event_for_callback = Rc::clone(&suggestion_chosen);
-                let event_queue_suggestion_chosen = Rc::clone(event_queue);
-                let revoker = value.SuggestionChosen(move |_, args| {
-                    let dispatch = true;
-                    let observation = None;
-                    let args = args.unwrap();
-                    let payload = match args
-                        .SelectedItem()
-                        .and_then(|value| value.cast::<windows_reference::IReference<HSTRING>>())
-                        .and_then(|value| value.Value())
-                        .map(|value| Rc::<str>::from(value.to_string_lossy()))
-                    {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_suggestion_chosen,
-                            object,
-                            EventId::SuggestionChosen,
-                            observation,
-                            payload,
-                        );
-                    }
-                })?;
-                let _suggestion_chosen = GeneratedRevoker::Event(revoker);
+                let _suggestion_chosen = None;
                 Self::AutoSuggestBox(Box::new(GeneratedAutoSuggestBox {
                     value,
                     text_changed,
@@ -1561,10 +983,10 @@ impl GeneratedHandle {
             }
             ObjectType::PasswordBox => {
                 let value = native::PasswordBox::new()?;
+                let password_changed = Rc::new(RefCell::new(NativeStringEvent::default()));
                 let source_password_changed = value.clone();
                 let read_password_changed =
                     move || source_password_changed.Password().map(Rc::<str>::from);
-                let password_changed = Rc::new(RefCell::new(NativeStringEvent::default()));
                 let event_for_callback = Rc::clone(&password_changed);
                 let event_queue_password_changed = Rc::clone(event_queue);
                 let revoker = value.PasswordChanged(move |_, _| {
@@ -1608,9 +1030,9 @@ impl GeneratedHandle {
             }
             ObjectType::NumberBox => {
                 let value = native::NumberBox::new()?;
+                let value_changed = Rc::new(RefCell::new(NativeOptionalF64Event::default()));
                 let source_value_changed = value.clone();
                 let read_value_changed = move || source_value_changed.Value().map(number_box_value);
-                let value_changed = Rc::new(RefCell::new(NativeOptionalF64Event::default()));
                 let event_for_callback = Rc::clone(&value_changed);
                 let event_queue_value_changed = Rc::clone(event_queue);
                 let revoker = value.ValueChanged(move |_, args| {
@@ -1662,9 +1084,9 @@ impl GeneratedHandle {
             }
             ObjectType::NavigationView => {
                 let value = native::NavigationView::new()?;
+                let is_pane_open_changed = Rc::new(RefCell::new(NativeBoolEvent::default()));
                 let source_is_pane_open_changed = value.clone();
                 let read_is_pane_open_changed = move || source_is_pane_open_changed.IsPaneOpen();
-                let is_pane_open_changed = Rc::new(RefCell::new(NativeBoolEvent::default()));
                 let event_for_callback = Rc::clone(&is_pane_open_changed);
                 let event_queue_is_pane_open_changed = Rc::clone(event_queue);
                 let property_is_pane_open_changed = native::NavigationView::IsPaneOpenProperty()?;
@@ -1729,31 +1151,7 @@ impl GeneratedHandle {
                 let _selection_changed = GeneratedRevoker::Event(revoker);
                 let display_mode_changed =
                     Rc::new(RefCell::new(NativeNavigationViewDisplayModeEvent::default()));
-                let event_for_callback = Rc::clone(&display_mode_changed);
-                let event_queue_display_mode_changed = Rc::clone(event_queue);
-                let revoker = value.DisplayModeChanged(move |_, args| {
-                    let dispatch = true;
-                    let observation = None;
-                    let args = args.unwrap();
-                    let payload = match args.DisplayMode().map(navigation_view_display_mode) {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_display_mode_changed,
-                            object,
-                            EventId::DisplayModeChanged,
-                            observation,
-                            payload,
-                        );
-                    }
-                })?;
-                let _display_mode_changed = GeneratedRevoker::Event(revoker);
+                let _display_mode_changed = None;
                 Self::NavigationView(Box::new(GeneratedNavigationView {
                     value,
                     is_pane_open_changed,
@@ -1769,9 +1167,9 @@ impl GeneratedHandle {
             }
             ObjectType::SplitView => {
                 let value = native::SplitView::new()?;
+                let pane_closed = Rc::new(RefCell::new(NativeBoolEvent::default()));
                 let source_pane_closed = value.clone();
                 let read_pane_closed = move || source_pane_closed.IsPaneOpen();
-                let pane_closed = Rc::new(RefCell::new(NativeBoolEvent::default()));
                 let event_for_callback = Rc::clone(&pane_closed);
                 let event_queue_pane_closed = Rc::clone(event_queue);
                 let revoker = value.PaneClosed(move |_, _| {
@@ -1816,9 +1214,9 @@ impl GeneratedHandle {
             ObjectType::ProgressBar => Self::ProgressBar(native::ProgressBar::new()?),
             ObjectType::ToggleSwitch => {
                 let value = native::ToggleSwitch::new()?;
+                let toggled = Rc::new(RefCell::new(NativeBoolEvent::default()));
                 let source_toggled = value.clone();
                 let read_toggled = move || source_toggled.IsOn();
-                let toggled = Rc::new(RefCell::new(NativeBoolEvent::default()));
                 let event_for_callback = Rc::clone(&toggled);
                 let event_queue_toggled = Rc::clone(event_queue);
                 let revoker = value.Toggled(move |_, _| {
@@ -1859,13 +1257,13 @@ impl GeneratedHandle {
             }
             ObjectType::ToggleButton => {
                 let value = native::ToggleButton::new()?;
+                let is_checked_changed = Rc::new(RefCell::new(NativeOptionalBoolEvent::default()));
                 let source_is_checked_changed = value.clone();
                 let read_is_checked_changed = move || match source_is_checked_changed.IsChecked() {
                     Ok(value) => Ok(Some(value)),
                     Err(error) if error.code().is_ok() => Ok(None),
                     Err(error) => Err(error),
                 };
-                let is_checked_changed = Rc::new(RefCell::new(NativeOptionalBoolEvent::default()));
                 let event_for_callback = Rc::clone(&is_checked_changed);
                 let event_queue_is_checked_changed = Rc::clone(event_queue);
                 let property_is_checked_changed = native::ToggleButton::IsCheckedProperty()?;
@@ -1921,6 +1319,7 @@ impl GeneratedHandle {
             }
             ObjectType::RadioButton => {
                 let value = native::RadioButton::new()?;
+                let checked = Rc::new(RefCell::new(NativeOptionalBoolEvent::default()));
                 let source_checked = value.clone();
                 let read_checked =
                     move || match source_checked.cast::<native::IToggleButton>()?.IsChecked() {
@@ -1928,7 +1327,6 @@ impl GeneratedHandle {
                         Err(error) if error.code().is_ok() => Ok(None),
                         Err(error) => Err(error),
                     };
-                let checked = Rc::new(RefCell::new(NativeOptionalBoolEvent::default()));
                 let event_for_callback = Rc::clone(&checked);
                 let event_queue_checked = Rc::clone(event_queue);
                 let revoker = value
@@ -1974,13 +1372,13 @@ impl GeneratedHandle {
             }
             ObjectType::RadioButtons => {
                 let value = native::RadioButtons::new()?;
+                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
                 let source_selection_changed = value.clone();
                 let read_selection_changed = move || {
                     source_selection_changed
                         .SelectedIndex()
                         .map(|value| usize::try_from(value).ok())
                 };
-                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
                 let event_for_callback = Rc::clone(&selection_changed);
                 let event_queue_selection_changed = Rc::clone(event_queue);
                 let revoker = value.SelectionChanged(move |_, _| {
@@ -2027,23 +1425,7 @@ impl GeneratedHandle {
             ObjectType::InfoBar => {
                 let value = native::InfoBar::new()?;
                 let closed = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&closed);
-                let event_queue_closed = Rc::clone(event_queue);
-                let revoker = value.Closed(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_closed,
-                            object,
-                            EventId::Closed,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _closed = GeneratedRevoker::Event(revoker);
+                let _closed = None;
                 Self::InfoBar(Box::new(GeneratedInfoBar {
                     value,
                     closed,
@@ -2055,8 +1437,8 @@ impl GeneratedHandle {
             ObjectType::Image => {
                 let value = native::Image::new()?;
                 let source = Rc::new(Cell::new(false));
-                let managed_source = Rc::clone(&source);
                 let image_opened = Rc::new(RefCell::new(NativeUnitEvent::default()));
+                let managed_source = Rc::clone(&source);
                 let event_for_callback = Rc::clone(&image_opened);
                 let event_queue_image_opened = Rc::clone(event_queue);
                 let revoker = value.ImageOpened(move |_, _| {
@@ -2074,8 +1456,8 @@ impl GeneratedHandle {
                     }
                 })?;
                 let _image_opened = GeneratedRevoker::Event(revoker);
-                let managed_source = Rc::clone(&source);
                 let image_failed = Rc::new(RefCell::new(NativeUnitEvent::default()));
+                let managed_source = Rc::clone(&source);
                 let event_for_callback = Rc::clone(&image_failed);
                 let event_queue_image_failed = Rc::clone(event_queue);
                 let revoker = value.ImageFailed(move |_, _| {
@@ -2140,9 +1522,9 @@ impl GeneratedHandle {
             ObjectType::ListBoxItem => Self::ListBoxItem(native::ListBoxItem::new()?),
             ObjectType::RatingControl => {
                 let value = native::RatingControl::new()?;
+                let value_changed = Rc::new(RefCell::new(NativeOptionalF64Event::default()));
                 let source_value_changed = value.clone();
                 let read_value_changed = move || source_value_changed.Value().map(rating_value);
-                let value_changed = Rc::new(RefCell::new(NativeOptionalF64Event::default()));
                 let event_for_callback = Rc::clone(&value_changed);
                 let event_queue_value_changed = Rc::clone(event_queue);
                 let revoker = value.ValueChanged(move |_, _| {
@@ -2186,9 +1568,9 @@ impl GeneratedHandle {
             }
             ObjectType::Expander => {
                 let value = native::Expander::new()?;
+                let is_expanded_changed = Rc::new(RefCell::new(NativeBoolEvent::default()));
                 let source_is_expanded_changed = value.clone();
                 let read_is_expanded_changed = move || source_is_expanded_changed.IsExpanded();
-                let is_expanded_changed = Rc::new(RefCell::new(NativeBoolEvent::default()));
                 let event_for_callback = Rc::clone(&is_expanded_changed);
                 let event_queue_is_expanded_changed = Rc::clone(event_queue);
                 let property_is_expanded_changed = native::Expander::IsExpandedProperty()?;
@@ -2244,6 +1626,7 @@ impl GeneratedHandle {
             }
             ObjectType::ComboBox => {
                 let value = native::ComboBox::new()?;
+                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
                 let source_selection_changed = value.clone();
                 let read_selection_changed = move || {
                     source_selection_changed
@@ -2251,7 +1634,6 @@ impl GeneratedHandle {
                         .SelectedIndex()
                         .map(|value| usize::try_from(value).ok())
                 };
-                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
                 let event_for_callback = Rc::clone(&selection_changed);
                 let event_queue_selection_changed = Rc::clone(event_queue);
                 let revoker =
@@ -2298,13 +1680,13 @@ impl GeneratedHandle {
             }
             ObjectType::Pivot => {
                 let value = native::Pivot::new()?;
+                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
                 let source_selection_changed = value.clone();
                 let read_selection_changed = move || {
                     source_selection_changed
                         .SelectedIndex()
                         .map(|value| usize::try_from(value).ok())
                 };
-                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
                 let event_for_callback = Rc::clone(&selection_changed);
                 let event_queue_selection_changed = Rc::clone(event_queue);
                 let revoker = value.SelectionChanged(move |_, _| {
@@ -2349,6 +1731,7 @@ impl GeneratedHandle {
             ObjectType::PivotItem => Self::PivotItem(native::PivotItem::new()?),
             ObjectType::FlipView => {
                 let value = native::FlipView::new()?;
+                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
                 let source_selection_changed = value.clone();
                 let read_selection_changed = move || {
                     source_selection_changed
@@ -2356,7 +1739,6 @@ impl GeneratedHandle {
                         .SelectedIndex()
                         .map(|value| usize::try_from(value).ok())
                 };
-                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
                 let event_for_callback = Rc::clone(&selection_changed);
                 let event_queue_selection_changed = Rc::clone(event_queue);
                 let revoker =
@@ -2430,30 +1812,14 @@ impl GeneratedHandle {
             ObjectType::TabView => {
                 let value = native::TabView::new()?;
                 let add_tab_button_click = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&add_tab_button_click);
-                let event_queue_add_tab_button_click = Rc::clone(event_queue);
-                let revoker = value.AddTabButtonClick(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_add_tab_button_click,
-                            object,
-                            EventId::AddTabButtonClick,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _add_tab_button_click = GeneratedRevoker::Event(revoker);
+                let _add_tab_button_click = None;
+                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
                 let source_selection_changed = value.clone();
                 let read_selection_changed = move || {
                     source_selection_changed
                         .SelectedIndex()
                         .map(|value| usize::try_from(value).ok())
                 };
-                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
                 let event_for_callback = Rc::clone(&selection_changed);
                 let event_queue_selection_changed = Rc::clone(event_queue);
                 let revoker = value.SelectionChanged(move |_, _| {
@@ -2490,71 +1856,9 @@ impl GeneratedHandle {
                 })?;
                 let _selection_changed = GeneratedRevoker::Event(revoker);
                 let tab_close_requested = Rc::new(RefCell::new(NativeStringEvent::default()));
-                let event_for_callback = Rc::clone(&tab_close_requested);
-                let event_queue_tab_close_requested = Rc::clone(event_queue);
-                let revoker = value.TabCloseRequested(move |_, args| {
-                    let dispatch = true;
-                    let observation = None;
-                    let args = args.unwrap();
-                    let payload = match args
-                        .Tab()
-                        .and_then(|value| value.cast::<native::IFrameworkElement>())
-                        .and_then(|value| value.Tag())
-                    {
-                        Ok(value) => match value
-                            .cast::<windows_reference::IReference<HSTRING>>()
-                            .and_then(|value| value.Value())
-                        {
-                            Ok(value) => Rc::<str>::from(value.to_string_lossy()),
-                            Err(error) => {
-                                report_error(error);
-                                return;
-                            }
-                        },
-                        Err(error) if error.code().is_ok() => Rc::<str>::from(""),
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_tab_close_requested,
-                            object,
-                            EventId::TabCloseRequested,
-                            observation,
-                            payload,
-                        );
-                    }
-                })?;
-                let _tab_close_requested = GeneratedRevoker::Event(revoker);
+                let _tab_close_requested = None;
                 let tab_items_changed = Rc::new(RefCell::new(NativeStringListEvent::default()));
-                let event_for_callback = Rc::clone(&tab_items_changed);
-                let event_queue_tab_items_changed = Rc::clone(event_queue);
-                let source_tab_items_changed = value.clone();
-                let revoker = value.TabItemsChanged(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    let value = match WinUiAdapter::tab_item_tags(&source_tab_items_changed) {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error.into());
-                            return;
-                        }
-                    };
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_tab_items_changed,
-                            object,
-                            EventId::TabItemsChanged,
-                            observation,
-                            value,
-                        );
-                    }
-                })?;
-                let _tab_items_changed = GeneratedRevoker::Event(revoker);
+                let _tab_items_changed = None;
                 Self::TabView(Box::new(GeneratedTabView {
                     value,
                     add_tab_button_click,
@@ -2571,41 +1875,9 @@ impl GeneratedHandle {
             ObjectType::TeachingTip => {
                 let value = native::TeachingTip::new()?;
                 let closed = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&closed);
-                let event_queue_closed = Rc::clone(event_queue);
-                let revoker = value.Closed(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_closed,
-                            object,
-                            EventId::Closed,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _closed = GeneratedRevoker::Event(revoker);
+                let _closed = None;
                 let action_button_click = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&action_button_click);
-                let event_queue_action_button_click = Rc::clone(event_queue);
-                let revoker = value.ActionButtonClick(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_action_button_click,
-                            object,
-                            EventId::ActionButtonClick,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _action_button_click = GeneratedRevoker::Event(revoker);
+                let _action_button_click = None;
                 Self::TeachingTip(Box::new(GeneratedTeachingTip {
                     value,
                     closed,
@@ -2617,23 +1889,7 @@ impl GeneratedHandle {
             ObjectType::DropDownButton => {
                 let value = native::DropDownButton::new()?;
                 let click = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&click);
-                let event_queue_click = Rc::clone(event_queue);
-                let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_click,
-                            object,
-                            EventId::Click,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _click = GeneratedRevoker::Event(revoker);
+                let _click = None;
                 Self::DropDownButton(Box::new(GeneratedDropDownButton {
                     value,
                     click,
@@ -2644,23 +1900,7 @@ impl GeneratedHandle {
             ObjectType::AppBarButton => {
                 let value = native::AppBarButton::new()?;
                 let click = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&click);
-                let event_queue_click = Rc::clone(event_queue);
-                let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_click,
-                            object,
-                            EventId::Click,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _click = GeneratedRevoker::Event(revoker);
+                let _click = None;
                 Self::AppBarButton(Box::new(GeneratedAppBarButton {
                     value,
                     click,
@@ -2673,23 +1913,7 @@ impl GeneratedHandle {
             ObjectType::SplitButton => {
                 let value = native::SplitButton::new()?;
                 let click = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&click);
-                let event_queue_click = Rc::clone(event_queue);
-                let revoker = value.Click(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_click,
-                            object,
-                            EventId::Click,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _click = GeneratedRevoker::Event(revoker);
+                let _click = None;
                 Self::SplitButton(Box::new(GeneratedSplitButton {
                     value,
                     click,
@@ -2698,10 +1922,10 @@ impl GeneratedHandle {
             }
             ObjectType::ColorPicker => {
                 let value = native::ColorPicker::new()?;
+                let color_changed = Rc::new(RefCell::new(NativeColorEvent::default()));
                 let source_color_changed = value.clone();
                 let read_color_changed =
                     move || source_color_changed.Color().map(from_native_color);
-                let color_changed = Rc::new(RefCell::new(NativeColorEvent::default()));
                 let event_for_callback = Rc::clone(&color_changed);
                 let event_queue_color_changed = Rc::clone(event_queue);
                 let revoker = value.ColorChanged(move |_, args| {
@@ -2755,32 +1979,7 @@ impl GeneratedHandle {
                 let value = native::DatePicker::new()?;
                 let selected_date_changed =
                     Rc::new(RefCell::new(NativeOptionalDateTimeEvent::default()));
-                let event_for_callback = Rc::clone(&selected_date_changed);
-                let event_queue_selected_date_changed = Rc::clone(event_queue);
-                let revoker = value.SelectedDateChanged(move |_, args| {
-                    let dispatch = true;
-                    let observation = None;
-                    let args = args.unwrap();
-                    let payload = match args.NewDate() {
-                        Ok(value) => Some(value),
-                        Err(error) if error.code().is_ok() => None,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_selected_date_changed,
-                            object,
-                            EventId::SelectedDateChanged,
-                            observation,
-                            payload,
-                        );
-                    }
-                })?;
-                let _selected_date_changed = GeneratedRevoker::Event(revoker);
+                let _selected_date_changed = None;
                 Self::DatePicker(Box::new(GeneratedDatePicker {
                     value,
                     selected_date_changed,
@@ -2791,32 +1990,7 @@ impl GeneratedHandle {
                 let value = native::TimePicker::new()?;
                 let selected_time_changed =
                     Rc::new(RefCell::new(NativeOptionalTimeSpanEvent::default()));
-                let event_for_callback = Rc::clone(&selected_time_changed);
-                let event_queue_selected_time_changed = Rc::clone(event_queue);
-                let revoker = value.SelectedTimeChanged(move |_, args| {
-                    let dispatch = true;
-                    let observation = None;
-                    let args = args.unwrap();
-                    let payload = match args.NewTime() {
-                        Ok(value) => Some(value),
-                        Err(error) if error.code().is_ok() => None,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_selected_time_changed,
-                            object,
-                            EventId::SelectedTimeChanged,
-                            observation,
-                            payload,
-                        );
-                    }
-                })?;
-                let _selected_time_changed = GeneratedRevoker::Event(revoker);
+                let _selected_time_changed = None;
                 Self::TimePicker(Box::new(GeneratedTimePicker {
                     value,
                     selected_time_changed,
@@ -2825,13 +1999,13 @@ impl GeneratedHandle {
             }
             ObjectType::CalendarDatePicker => {
                 let value = native::CalendarDatePicker::new()?;
+                let date_changed = Rc::new(RefCell::new(NativeOptionalDateTimeEvent::default()));
                 let source_date_changed = value.clone();
                 let read_date_changed = move || match source_date_changed.Date() {
                     Ok(value) => Ok(Some(value)),
                     Err(error) if error.code().is_ok() => Ok(None),
                     Err(error) => Err(error),
                 };
-                let date_changed = Rc::new(RefCell::new(NativeOptionalDateTimeEvent::default()));
                 let event_for_callback = Rc::clone(&date_changed);
                 let event_queue_date_changed = Rc::clone(event_queue);
                 let revoker = value.DateChanged(move |_, args| {
@@ -2922,23 +2096,7 @@ impl GeneratedHandle {
             ObjectType::CalendarView => {
                 let value = native::CalendarView::new()?;
                 let selected_dates_changed = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let event_for_callback = Rc::clone(&selected_dates_changed);
-                let event_queue_selected_dates_changed = Rc::clone(event_queue);
-                let revoker = value.SelectedDatesChanged(move |_, _| {
-                    let dispatch = true;
-                    let observation = None;
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_selected_dates_changed,
-                            object,
-                            EventId::SelectedDatesChanged,
-                            observation,
-                            (),
-                        );
-                    }
-                })?;
-                let _selected_dates_changed = GeneratedRevoker::Event(revoker);
+                let _selected_dates_changed = None;
                 Self::CalendarView(Box::new(GeneratedCalendarView {
                     value,
                     selected_dates_changed,
@@ -2948,6 +2106,7 @@ impl GeneratedHandle {
             ObjectType::ListViewItem => Self::ListViewItem(native::ListViewItem::new()?),
             ObjectType::GridView => {
                 let value = native::GridView::new()?;
+                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
                 let source_selection_changed = value.clone();
                 let read_selection_changed = move || {
                     source_selection_changed
@@ -2955,7 +2114,6 @@ impl GeneratedHandle {
                         .SelectedIndex()
                         .map(|value| usize::try_from(value).ok())
                 };
-                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
                 let event_for_callback = Rc::clone(&selection_changed);
                 let event_queue_selection_changed = Rc::clone(event_queue);
                 let revoker =
@@ -2995,35 +2153,7 @@ impl GeneratedHandle {
                         })?;
                 let _selection_changed = GeneratedRevoker::Event(revoker);
                 let drag_items_completed = Rc::new(RefCell::new(NativeStringListEvent::default()));
-                let event_for_callback = Rc::clone(&drag_items_completed);
-                let event_queue_drag_items_completed = Rc::clone(event_queue);
-                let source_drag_items_completed = value.cast::<native::IItemsControl>()?;
-                let revoker =
-                    value
-                        .cast::<native::IListViewBase>()?
-                        .DragItemsCompleted(move |_, _| {
-                            let dispatch = true;
-                            let observation = None;
-                            let value = match WinUiAdapter::item_tags(&source_drag_items_completed)
-                            {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error.into());
-                                    return;
-                                }
-                            };
-                            if dispatch {
-                                WinUiAdapter::dispatch(
-                                    &event_for_callback,
-                                    &event_queue_drag_items_completed,
-                                    object,
-                                    EventId::DragItemsCompleted,
-                                    observation,
-                                    value,
-                                );
-                            }
-                        })?;
-                let _drag_items_completed = GeneratedRevoker::Event(revoker);
+                let _drag_items_completed = None;
                 Self::GridView(Box::new(GeneratedGridView {
                     value,
                     selection_changed,
@@ -3036,9 +2166,9 @@ impl GeneratedHandle {
             ObjectType::RelativePanel => Self::RelativePanel(native::RelativePanel::new()?),
             ObjectType::RichEditBox => {
                 let value = native::RichEditBox::new()?;
+                let text_changed = Rc::new(RefCell::new(NativeStringEvent::default()));
                 let source_text_changed = value.clone();
                 let read_text_changed = move || read_rich_edit_text(&source_text_changed);
-                let text_changed = Rc::new(RefCell::new(NativeStringEvent::default()));
                 let event_for_callback = Rc::clone(&text_changed);
                 let event_queue_text_changed = Rc::clone(event_queue);
                 let revoker = value.TextChanged(move |_, _| {
@@ -9452,6 +8582,8 @@ impl GeneratedHandle {
         object_id: ObjectId,
         set: &[Event],
         clear: &[EventId],
+        event_queue: &Rc<NativeEventQueue>,
+        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
     ) -> Option<Result<(), WinUiError>> {
         match self {
             Self::Button(object) => Some((|| {
@@ -9463,9 +8595,12 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            let mut native_event = object.click.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.click.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_click(object_id, event_queue, pending_focus_states)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9584,84 +8719,192 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::PointerPressed, EventValue::PointerEventInfo(callback)) => {
-                            let mut native_event = object.pointer_pressed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.pointer_pressed.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_pointer_pressed(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::PointerMoved, EventValue::PointerEventInfo(callback)) => {
-                            let mut native_event = object.pointer_moved.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.pointer_moved.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_pointer_moved(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::PointerEntered, EventValue::PointerEventInfo(callback)) => {
-                            let mut native_event = object.pointer_entered.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.pointer_entered.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_pointer_entered(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::PointerExited, EventValue::PointerEventInfo(callback)) => {
-                            let mut native_event = object.pointer_exited.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.pointer_exited.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_pointer_exited(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::PointerReleased, EventValue::PointerEventInfo(callback)) => {
-                            let mut native_event = object.pointer_released.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.pointer_released.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_pointer_released(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::PointerCaptureLost, EventValue::Unit(callback)) => {
-                            let mut native_event = object.pointer_capture_lost.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.pointer_capture_lost.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_pointer_capture_lost(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::PointerCanceled, EventValue::Unit(callback)) => {
-                            let mut native_event = object.pointer_canceled.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.pointer_canceled.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_pointer_canceled(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::PreviewKeyDown, EventValue::KeyEventInfo(callback)) => {
-                            let mut native_event = object.preview_key_down.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.preview_key_down.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_preview_key_down(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::KeyUp, EventValue::KeyEventInfo(callback)) => {
-                            let mut native_event = object.key_up.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.key_up.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_key_up(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::CharacterReceived, EventValue::CharacterEventInfo(callback)) => {
-                            let mut native_event = object.character_received.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.character_received.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_character_received(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::GotFocus, EventValue::FocusEventInfo(callback)) => {
-                            let mut native_event = object.got_focus.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.got_focus.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_got_focus(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::LostFocus, EventValue::FocusEventInfo(callback)) => {
-                            let mut native_event = object.lost_focus.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.lost_focus.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_lost_focus(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::DragEnter, EventValue::DragKind(callback)) => {
-                            let mut native_event = object.drag_enter.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.drag_enter.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_drag_enter(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::DragOver, EventValue::DragKind(callback)) => {
-                            let mut native_event = object.drag_over.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.drag_over.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_drag_over(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::DragLeave, EventValue::Unit(callback)) => {
-                            let mut native_event = object.drag_leave.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.drag_leave.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_drag_leave(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::Drop, EventValue::DroppedData(callback)) => {
-                            let mut native_event = object.drop.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.drop.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_drop(object_id, event_queue, pending_focus_states)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9682,14 +8925,28 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::BackRequested, EventValue::Unit(callback)) => {
-                            let mut native_event = object.back_requested.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.back_requested.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_back_requested(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::PaneToggleRequested, EventValue::Unit(callback)) => {
-                            let mut native_event = object.pane_toggle_requested.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.pane_toggle_requested.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_pane_toggle_requested(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9723,9 +8980,12 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            let mut native_event = object.click.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.click.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_click(object_id, event_queue, pending_focus_states)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9741,9 +9001,12 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            let mut native_event = object.click.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.click.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_click(object_id, event_queue, pending_focus_states)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9759,9 +9022,16 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ItemClicked, EventValue::String(callback)) => {
-                            let mut native_event = object.item_clicked.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.item_clicked.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_item_clicked(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9787,9 +9057,16 @@ impl GeneratedHandle {
                             native_event.callback = Some(callback.clone());
                         }
                         (EventId::SuggestionChosen, EventValue::String(callback)) => {
-                            let mut native_event = object.suggestion_chosen.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.suggestion_chosen.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_suggestion_chosen(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9864,9 +9141,16 @@ impl GeneratedHandle {
                             EventId::DisplayModeChanged,
                             EventValue::NavigationViewDisplayMode(callback),
                         ) => {
-                            let mut native_event = object.display_mode_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.display_mode_changed.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_display_mode_changed(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9972,9 +9256,16 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Closed, EventValue::Unit(callback)) => {
-                            let mut native_event = object.closed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.closed.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_closed(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -10159,9 +9450,16 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::AddTabButtonClick, EventValue::Unit(callback)) => {
-                            let mut native_event = object.add_tab_button_click.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.add_tab_button_click.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_add_tab_button_click(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
                             let mut native_event = object.selection_changed.borrow_mut();
@@ -10169,14 +9467,28 @@ impl GeneratedHandle {
                             native_event.callback = Some(callback.clone());
                         }
                         (EventId::TabCloseRequested, EventValue::String(callback)) => {
-                            let mut native_event = object.tab_close_requested.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.tab_close_requested.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_tab_close_requested(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::TabItemsChanged, EventValue::StringList(callback)) => {
-                            let mut native_event = object.tab_items_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.tab_items_changed.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_tab_items_changed(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -10197,14 +9509,28 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Closed, EventValue::Unit(callback)) => {
-                            let mut native_event = object.closed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.closed.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_closed(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         (EventId::ActionButtonClick, EventValue::Unit(callback)) => {
-                            let mut native_event = object.action_button_click.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.action_button_click.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_action_button_click(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -10220,9 +9546,12 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            let mut native_event = object.click.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.click.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_click(object_id, event_queue, pending_focus_states)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -10238,9 +9567,12 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            let mut native_event = object.click.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.click.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_click(object_id, event_queue, pending_focus_states)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -10256,9 +9588,12 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            let mut native_event = object.click.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.click.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_click(object_id, event_queue, pending_focus_states)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -10292,9 +9627,16 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectedDateChanged, EventValue::OptionalDateTime(callback)) => {
-                            let mut native_event = object.selected_date_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.selected_date_changed.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_selected_date_changed(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -10310,9 +9652,16 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectedTimeChanged, EventValue::OptionalTimeSpan(callback)) => {
-                            let mut native_event = object.selected_time_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.selected_time_changed.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_selected_time_changed(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -10364,9 +9713,16 @@ impl GeneratedHandle {
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectedDatesChanged, EventValue::Unit(callback)) => {
-                            let mut native_event = object.selected_dates_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.selected_dates_changed.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_selected_dates_changed(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -10392,9 +9748,16 @@ impl GeneratedHandle {
                             native_event.callback = Some(callback.clone());
                         }
                         (EventId::DragItemsCompleted, EventValue::StringList(callback)) => {
-                            let mut native_event = object.drag_items_completed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            {
+                                let mut native_event = object.drag_items_completed.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_drag_items_completed(
+                                object_id,
+                                event_queue,
+                                pending_focus_states,
+                            )?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -10421,6 +9784,30 @@ impl GeneratedHandle {
             })()),
             _ => None,
         }
+    }
+    fn subscribe_property_events(
+        &mut self,
+        object_id: ObjectId,
+        property: PropertyId,
+        event_queue: &Rc<NativeEventQueue>,
+        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        match (self, property) {
+            (Self::Border(object), PropertyId::CapturePointerOnPress) => {
+                object.subscribe_pointer_pressed(object_id, event_queue, pending_focus_states)?;
+                object.subscribe_pointer_released(object_id, event_queue, pending_focus_states)?;
+            }
+            (Self::Border(object), PropertyId::FocusOnPointerRelease) => {
+                object.subscribe_pointer_released(object_id, event_queue, pending_focus_states)?;
+            }
+            (Self::Border(object), PropertyId::DropPolicy) => {
+                object.subscribe_drag_enter(object_id, event_queue, pending_focus_states)?;
+                object.subscribe_drag_over(object_id, event_queue, pending_focus_states)?;
+                object.subscribe_drop(object_id, event_queue, pending_focus_states)?;
+            }
+            _ => {}
+        }
+        Ok(())
     }
     fn set_content(
         &self,
@@ -11297,5 +10684,1378 @@ impl GeneratedHandle {
             }
             _ => None,
         }
+    }
+}
+impl GeneratedButton {
+    fn subscribe_click(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._click.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.click);
+        let event_queue_click = Rc::clone(event_queue);
+        let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_click,
+                    object,
+                    EventId::Click,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._click = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedBorder {
+    fn subscribe_pointer_pressed(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._pointer_pressed.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.pointer_pressed);
+        let event_queue_pointer_pressed = Rc::clone(event_queue);
+        let source_pointer_pressed = value.cast::<native::UIElement>()?;
+        let pending_focus_states_pointer_pressed = Rc::clone(pending_focus_states);
+        let capture_pointer_on_press_pointer_pressed = Rc::clone(&self.capture_pointer_on_press);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .PointerPressed(move |_, args| {
+                let dispatch = true;
+                let observation = None;
+                let value = match WinUiAdapter::pointer_event_info(
+                    object,
+                    &source_pointer_pressed,
+                    args,
+                    Some(capture_pointer_on_press_pointer_pressed.get()),
+                    false,
+                    false,
+                    &pending_focus_states_pointer_pressed,
+                ) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_pointer_pressed,
+                        object,
+                        EventId::PointerPressed,
+                        observation,
+                        value,
+                    );
+                }
+            })?;
+        self._pointer_pressed = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_pointer_moved(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._pointer_moved.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.pointer_moved);
+        let event_queue_pointer_moved = Rc::clone(event_queue);
+        let source_pointer_moved = value.cast::<native::UIElement>()?;
+        let pending_focus_states_pointer_moved = Rc::clone(pending_focus_states);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .PointerMoved(move |_, args| {
+                let dispatch = true;
+                let observation = None;
+                let value = match WinUiAdapter::pointer_event_info(
+                    object,
+                    &source_pointer_moved,
+                    args,
+                    None,
+                    false,
+                    false,
+                    &pending_focus_states_pointer_moved,
+                ) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_pointer_moved,
+                        object,
+                        EventId::PointerMoved,
+                        observation,
+                        value,
+                    );
+                }
+            })?;
+        self._pointer_moved = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_pointer_entered(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._pointer_entered.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.pointer_entered);
+        let event_queue_pointer_entered = Rc::clone(event_queue);
+        let source_pointer_entered = value.cast::<native::UIElement>()?;
+        let pending_focus_states_pointer_entered = Rc::clone(pending_focus_states);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .PointerEntered(move |_, args| {
+                let dispatch = true;
+                let observation = None;
+                let value = match WinUiAdapter::pointer_event_info(
+                    object,
+                    &source_pointer_entered,
+                    args,
+                    None,
+                    false,
+                    false,
+                    &pending_focus_states_pointer_entered,
+                ) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_pointer_entered,
+                        object,
+                        EventId::PointerEntered,
+                        observation,
+                        value,
+                    );
+                }
+            })?;
+        self._pointer_entered = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_pointer_exited(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._pointer_exited.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.pointer_exited);
+        let event_queue_pointer_exited = Rc::clone(event_queue);
+        let source_pointer_exited = value.cast::<native::UIElement>()?;
+        let pending_focus_states_pointer_exited = Rc::clone(pending_focus_states);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .PointerExited(move |_, args| {
+                let dispatch = true;
+                let observation = None;
+                let value = match WinUiAdapter::pointer_event_info(
+                    object,
+                    &source_pointer_exited,
+                    args,
+                    None,
+                    false,
+                    false,
+                    &pending_focus_states_pointer_exited,
+                ) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_pointer_exited,
+                        object,
+                        EventId::PointerExited,
+                        observation,
+                        value,
+                    );
+                }
+            })?;
+        self._pointer_exited = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_pointer_released(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._pointer_released.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.pointer_released);
+        let event_queue_pointer_released = Rc::clone(event_queue);
+        let source_pointer_released = value.cast::<native::UIElement>()?;
+        let pending_focus_states_pointer_released = Rc::clone(pending_focus_states);
+        let capture_pointer_on_press_pointer_released = Rc::clone(&self.capture_pointer_on_press);
+        let focus_on_pointer_release_pointer_released = Rc::clone(&self.focus_on_pointer_release);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .PointerReleased(move |_, args| {
+                let dispatch = true;
+                let observation = None;
+                let value = match WinUiAdapter::pointer_event_info(
+                    object,
+                    &source_pointer_released,
+                    args,
+                    None,
+                    capture_pointer_on_press_pointer_released.get(),
+                    focus_on_pointer_release_pointer_released.get(),
+                    &pending_focus_states_pointer_released,
+                ) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_pointer_released,
+                        object,
+                        EventId::PointerReleased,
+                        observation,
+                        value,
+                    );
+                }
+            })?;
+        self._pointer_released = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_pointer_capture_lost(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._pointer_capture_lost.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.pointer_capture_lost);
+        let event_queue_pointer_capture_lost = Rc::clone(event_queue);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .PointerCaptureLost(move |_, _| {
+                let dispatch = true;
+                let observation = None;
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_pointer_capture_lost,
+                        object,
+                        EventId::PointerCaptureLost,
+                        observation,
+                        (),
+                    );
+                }
+            })?;
+        self._pointer_capture_lost = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_pointer_canceled(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._pointer_canceled.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.pointer_canceled);
+        let event_queue_pointer_canceled = Rc::clone(event_queue);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .PointerCanceled(move |_, _| {
+                let dispatch = true;
+                let observation = None;
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_pointer_canceled,
+                        object,
+                        EventId::PointerCanceled,
+                        observation,
+                        (),
+                    );
+                }
+            })?;
+        self._pointer_canceled = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_preview_key_down(
+        &mut self,
+        _object: ObjectId,
+        _event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._preview_key_down.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.preview_key_down);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .PreviewKeyDown(move |_, args| {
+                let args = args.unwrap();
+                let value = match WinUiAdapter::key_event_info(args) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                let handled = event_for_callback
+                    .borrow()
+                    .callback
+                    .as_ref()
+                    .is_some_and(|callback| callback.call(value));
+                if let Err(error) = args.SetHandled(handled) {
+                    report_error(error);
+                }
+            })?;
+        self._preview_key_down = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_key_up(
+        &mut self,
+        _object: ObjectId,
+        _event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._key_up.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.key_up);
+        let revoker = value.cast::<native::IUIElement>()?.KeyUp(move |_, args| {
+            let args = args.unwrap();
+            let value = match WinUiAdapter::key_event_info(args) {
+                Ok(value) => value,
+                Err(error) => {
+                    report_error(error.into());
+                    return;
+                }
+            };
+            let handled = event_for_callback
+                .borrow()
+                .callback
+                .as_ref()
+                .is_some_and(|callback| callback.call(value));
+            if let Err(error) = args.SetHandled(handled) {
+                report_error(error);
+            }
+        })?;
+        self._key_up = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_character_received(
+        &mut self,
+        _object: ObjectId,
+        _event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._character_received.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.character_received);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .CharacterReceived(move |_, args| {
+                let args = args.unwrap();
+                let value = match WinUiAdapter::character_event_info(args) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                let handled = event_for_callback
+                    .borrow()
+                    .callback
+                    .as_ref()
+                    .is_some_and(|callback| callback.call(value));
+                if let Err(error) = args.SetHandled(handled) {
+                    report_error(error);
+                }
+            })?;
+        self._character_received = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_got_focus(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._got_focus.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.got_focus);
+        let event_queue_got_focus = Rc::clone(event_queue);
+        let source_got_focus = value.cast::<native::UIElement>()?;
+        let pending_focus_states_got_focus = Rc::clone(pending_focus_states);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .GotFocus(move |_, args| {
+                let dispatch = true;
+                let observation = None;
+                let value = match WinUiAdapter::focus_event_info(
+                    object,
+                    &source_got_focus,
+                    args,
+                    true,
+                    &pending_focus_states_got_focus,
+                ) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_got_focus,
+                        object,
+                        EventId::GotFocus,
+                        observation,
+                        value,
+                    );
+                }
+            })?;
+        self._got_focus = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_lost_focus(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._lost_focus.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.lost_focus);
+        let event_queue_lost_focus = Rc::clone(event_queue);
+        let source_lost_focus = value.cast::<native::UIElement>()?;
+        let pending_focus_states_lost_focus = Rc::clone(pending_focus_states);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .LostFocus(move |_, args| {
+                let dispatch = true;
+                let observation = None;
+                let value = match WinUiAdapter::focus_event_info(
+                    object,
+                    &source_lost_focus,
+                    args,
+                    false,
+                    &pending_focus_states_lost_focus,
+                ) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_lost_focus,
+                        object,
+                        EventId::LostFocus,
+                        observation,
+                        value,
+                    );
+                }
+            })?;
+        self._lost_focus = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_drag_enter(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._drag_enter.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.drag_enter);
+        let event_queue_drag_enter = Rc::clone(event_queue);
+        let drop_policy_drag_enter = Rc::clone(&self.drop_policy);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .DragEnter(move |_, args| {
+                let dispatch = true;
+                let observation = None;
+                let value = match WinUiAdapter::drag_kind(args, &drop_policy_drag_enter) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_drag_enter,
+                        object,
+                        EventId::DragEnter,
+                        observation,
+                        value,
+                    );
+                }
+            })?;
+        self._drag_enter = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_drag_over(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._drag_over.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.drag_over);
+        let event_queue_drag_over = Rc::clone(event_queue);
+        let drop_policy_drag_over = Rc::clone(&self.drop_policy);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .DragOver(move |_, args| {
+                let dispatch = true;
+                let observation = None;
+                let value = match WinUiAdapter::drag_kind(args, &drop_policy_drag_over) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_drag_over,
+                        object,
+                        EventId::DragOver,
+                        observation,
+                        value,
+                    );
+                }
+            })?;
+        self._drag_over = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_drag_leave(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._drag_leave.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.drag_leave);
+        let event_queue_drag_leave = Rc::clone(event_queue);
+        let revoker = value.cast::<native::IUIElement>()?.DragLeave(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_drag_leave,
+                    object,
+                    EventId::DragLeave,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._drag_leave = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_drop(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._drop.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.drop);
+        let event_queue_drop = Rc::clone(event_queue);
+        let drop_policy_drop = Rc::clone(&self.drop_policy);
+        let revoker = value.cast::<native::IUIElement>()?.Drop(move |_, args| {
+            let dispatch = true;
+            let observation = None;
+            let _ = dispatch;
+            if let Err(error) = WinUiAdapter::dispatch_dropped_data(
+                &event_for_callback,
+                &event_queue_drop,
+                object,
+                EventId::Drop,
+                observation,
+                args,
+                &drop_policy_drop,
+            ) {
+                report_error(error.into());
+            }
+        })?;
+        self._drop = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedTitleBar {
+    fn subscribe_back_requested(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._back_requested.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.back_requested);
+        let event_queue_back_requested = Rc::clone(event_queue);
+        let revoker = value.BackRequested(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_back_requested,
+                    object,
+                    EventId::BackRequested,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._back_requested = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_pane_toggle_requested(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._pane_toggle_requested.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.pane_toggle_requested);
+        let event_queue_pane_toggle_requested = Rc::clone(event_queue);
+        let revoker = value.PaneToggleRequested(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_pane_toggle_requested,
+                    object,
+                    EventId::PaneToggleRequested,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._pane_toggle_requested = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedHyperlinkButton {
+    fn subscribe_click(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._click.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.click);
+        let event_queue_click = Rc::clone(event_queue);
+        let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_click,
+                    object,
+                    EventId::Click,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._click = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedRepeatButton {
+    fn subscribe_click(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._click.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.click);
+        let event_queue_click = Rc::clone(event_queue);
+        let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_click,
+                    object,
+                    EventId::Click,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._click = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedBreadcrumbBar {
+    fn subscribe_item_clicked(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._item_clicked.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.item_clicked);
+        let event_queue_item_clicked = Rc::clone(event_queue);
+        let revoker = value.ItemClicked(move |_, args| {
+            let dispatch = true;
+            let observation = None;
+            let args = args.unwrap();
+            let payload = match args
+                .Item()
+                .and_then(|value| value.cast::<windows_reference::IReference<HSTRING>>())
+                .and_then(|value| value.Value())
+                .map(|value| Rc::<str>::from(value.to_string_lossy()))
+            {
+                Ok(value) => value,
+                Err(error) => {
+                    report_error(error);
+                    return;
+                }
+            };
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_item_clicked,
+                    object,
+                    EventId::ItemClicked,
+                    observation,
+                    payload,
+                );
+            }
+        })?;
+        self._item_clicked = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedAutoSuggestBox {
+    fn subscribe_suggestion_chosen(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._suggestion_chosen.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.suggestion_chosen);
+        let event_queue_suggestion_chosen = Rc::clone(event_queue);
+        let revoker = value.SuggestionChosen(move |_, args| {
+            let dispatch = true;
+            let observation = None;
+            let args = args.unwrap();
+            let payload = match args
+                .SelectedItem()
+                .and_then(|value| value.cast::<windows_reference::IReference<HSTRING>>())
+                .and_then(|value| value.Value())
+                .map(|value| Rc::<str>::from(value.to_string_lossy()))
+            {
+                Ok(value) => value,
+                Err(error) => {
+                    report_error(error);
+                    return;
+                }
+            };
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_suggestion_chosen,
+                    object,
+                    EventId::SuggestionChosen,
+                    observation,
+                    payload,
+                );
+            }
+        })?;
+        self._suggestion_chosen = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedNavigationView {
+    fn subscribe_display_mode_changed(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._display_mode_changed.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.display_mode_changed);
+        let event_queue_display_mode_changed = Rc::clone(event_queue);
+        let revoker = value.DisplayModeChanged(move |_, args| {
+            let dispatch = true;
+            let observation = None;
+            let args = args.unwrap();
+            let payload = match args.DisplayMode().map(navigation_view_display_mode) {
+                Ok(value) => value,
+                Err(error) => {
+                    report_error(error);
+                    return;
+                }
+            };
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_display_mode_changed,
+                    object,
+                    EventId::DisplayModeChanged,
+                    observation,
+                    payload,
+                );
+            }
+        })?;
+        self._display_mode_changed = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedInfoBar {
+    fn subscribe_closed(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._closed.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.closed);
+        let event_queue_closed = Rc::clone(event_queue);
+        let revoker = value.Closed(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_closed,
+                    object,
+                    EventId::Closed,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._closed = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedTabView {
+    fn subscribe_add_tab_button_click(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._add_tab_button_click.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.add_tab_button_click);
+        let event_queue_add_tab_button_click = Rc::clone(event_queue);
+        let revoker = value.AddTabButtonClick(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_add_tab_button_click,
+                    object,
+                    EventId::AddTabButtonClick,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._add_tab_button_click = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_tab_close_requested(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._tab_close_requested.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.tab_close_requested);
+        let event_queue_tab_close_requested = Rc::clone(event_queue);
+        let revoker = value.TabCloseRequested(move |_, args| {
+            let dispatch = true;
+            let observation = None;
+            let args = args.unwrap();
+            let payload = match args
+                .Tab()
+                .and_then(|value| value.cast::<native::IFrameworkElement>())
+                .and_then(|value| value.Tag())
+            {
+                Ok(value) => match value
+                    .cast::<windows_reference::IReference<HSTRING>>()
+                    .and_then(|value| value.Value())
+                {
+                    Ok(value) => Rc::<str>::from(value.to_string_lossy()),
+                    Err(error) => {
+                        report_error(error);
+                        return;
+                    }
+                },
+                Err(error) if error.code().is_ok() => Rc::<str>::from(""),
+                Err(error) => {
+                    report_error(error);
+                    return;
+                }
+            };
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_tab_close_requested,
+                    object,
+                    EventId::TabCloseRequested,
+                    observation,
+                    payload,
+                );
+            }
+        })?;
+        self._tab_close_requested = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_tab_items_changed(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._tab_items_changed.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.tab_items_changed);
+        let event_queue_tab_items_changed = Rc::clone(event_queue);
+        let source_tab_items_changed = value.clone();
+        let revoker = value.TabItemsChanged(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            let value = match WinUiAdapter::tab_item_tags(&source_tab_items_changed) {
+                Ok(value) => value,
+                Err(error) => {
+                    report_error(error.into());
+                    return;
+                }
+            };
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_tab_items_changed,
+                    object,
+                    EventId::TabItemsChanged,
+                    observation,
+                    value,
+                );
+            }
+        })?;
+        self._tab_items_changed = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedTeachingTip {
+    fn subscribe_closed(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._closed.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.closed);
+        let event_queue_closed = Rc::clone(event_queue);
+        let revoker = value.Closed(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_closed,
+                    object,
+                    EventId::Closed,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._closed = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_action_button_click(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._action_button_click.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.action_button_click);
+        let event_queue_action_button_click = Rc::clone(event_queue);
+        let revoker = value.ActionButtonClick(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_action_button_click,
+                    object,
+                    EventId::ActionButtonClick,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._action_button_click = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedDropDownButton {
+    fn subscribe_click(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._click.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.click);
+        let event_queue_click = Rc::clone(event_queue);
+        let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_click,
+                    object,
+                    EventId::Click,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._click = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedAppBarButton {
+    fn subscribe_click(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._click.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.click);
+        let event_queue_click = Rc::clone(event_queue);
+        let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_click,
+                    object,
+                    EventId::Click,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._click = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedSplitButton {
+    fn subscribe_click(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._click.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.click);
+        let event_queue_click = Rc::clone(event_queue);
+        let revoker = value.Click(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_click,
+                    object,
+                    EventId::Click,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._click = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedDatePicker {
+    fn subscribe_selected_date_changed(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._selected_date_changed.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.selected_date_changed);
+        let event_queue_selected_date_changed = Rc::clone(event_queue);
+        let revoker = value.SelectedDateChanged(move |_, args| {
+            let dispatch = true;
+            let observation = None;
+            let args = args.unwrap();
+            let payload = match args.NewDate() {
+                Ok(value) => Some(value),
+                Err(error) if error.code().is_ok() => None,
+                Err(error) => {
+                    report_error(error);
+                    return;
+                }
+            };
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_selected_date_changed,
+                    object,
+                    EventId::SelectedDateChanged,
+                    observation,
+                    payload,
+                );
+            }
+        })?;
+        self._selected_date_changed = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedTimePicker {
+    fn subscribe_selected_time_changed(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._selected_time_changed.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.selected_time_changed);
+        let event_queue_selected_time_changed = Rc::clone(event_queue);
+        let revoker = value.SelectedTimeChanged(move |_, args| {
+            let dispatch = true;
+            let observation = None;
+            let args = args.unwrap();
+            let payload = match args.NewTime() {
+                Ok(value) => Some(value),
+                Err(error) if error.code().is_ok() => None,
+                Err(error) => {
+                    report_error(error);
+                    return;
+                }
+            };
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_selected_time_changed,
+                    object,
+                    EventId::SelectedTimeChanged,
+                    observation,
+                    payload,
+                );
+            }
+        })?;
+        self._selected_time_changed = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedCalendarView {
+    fn subscribe_selected_dates_changed(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._selected_dates_changed.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.selected_dates_changed);
+        let event_queue_selected_dates_changed = Rc::clone(event_queue);
+        let revoker = value.SelectedDatesChanged(move |_, _| {
+            let dispatch = true;
+            let observation = None;
+            if dispatch {
+                WinUiAdapter::dispatch(
+                    &event_for_callback,
+                    &event_queue_selected_dates_changed,
+                    object,
+                    EventId::SelectedDatesChanged,
+                    observation,
+                    (),
+                );
+            }
+        })?;
+        self._selected_dates_changed = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedGridView {
+    fn subscribe_drag_items_completed(
+        &mut self,
+        object: ObjectId,
+        event_queue: &Rc<NativeEventQueue>,
+        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+    ) -> Result<(), WinUiError> {
+        if self._drag_items_completed.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.drag_items_completed);
+        let event_queue_drag_items_completed = Rc::clone(event_queue);
+        let source_drag_items_completed = value.cast::<native::IItemsControl>()?;
+        let revoker = value
+            .cast::<native::IListViewBase>()?
+            .DragItemsCompleted(move |_, _| {
+                let dispatch = true;
+                let observation = None;
+                let value = match WinUiAdapter::item_tags(&source_drag_items_completed) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_drag_items_completed,
+                        object,
+                        EventId::DragItemsCompleted,
+                        observation,
+                        value,
+                    );
+                }
+            })?;
+        self._drag_items_completed = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
     }
 }

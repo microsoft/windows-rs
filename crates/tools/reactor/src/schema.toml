@@ -419,6 +419,7 @@ name = "DragLeave"
 [[objects.events]]
 name = "Drop"
 adapter = "dropped_data"
+active_properties = ["drop_policy"]
 
 [[objects]]
 name = "Grid"
