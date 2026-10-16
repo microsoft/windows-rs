@@ -1,0 +1,37 @@
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    windows_reactor_setup::as_self_contained();
+
+    windows_bindgen::builder()
+        .output(std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("bindings.rs"))
+        .filters([
+            "CoCreateInstance",
+            "CoInitializeEx",
+            "CoUninitialize",
+            "COINIT_MULTITHREADED",
+            "CLSCTX_INPROC_SERVER",
+            "CUIAutomation",
+            "IUIAutomation::{CompareElements,GetRootElement,GetFocusedElement,CreatePropertyCondition,CreateTrueCondition}",
+            "IUIAutomationElement::{FindAll,CurrentName,CurrentAutomationId,CurrentControlType,CurrentIsOffscreen,CurrentNativeWindowHandle,GetCurrentPatternAs,SetFocus}",
+            "IUIAutomationElementArray::{Length,GetElement}",
+            "IUIAutomationInvokePattern::Invoke",
+            "IUIAutomationValuePattern::{CurrentValue,SetValue}",
+            "TreeScope_Children",
+            "TreeScope_Descendants",
+            "TreeScope_Subtree",
+            "VT_I4",
+            "GetWindowThreadProcessId",
+            "GetForegroundWindow",
+            "SetForegroundWindow",
+            "GetAsyncKeyState",
+            "SendInput",
+            "INPUT_KEYBOARD",
+            "KEYEVENTF_UNICODE",
+            "KEYEVENTF_KEYUP",
+            "PostMessageW",
+            "WM_CLOSE",
+        ])
+        .flat()
+        .minimal()
+        .write();
+}

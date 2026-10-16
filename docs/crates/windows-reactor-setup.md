@@ -65,14 +65,19 @@ setup for a Reactor app containing the XAML WebView2 control.
 8. Pass linker arguments that embed the manifest in binary targets.
 
 Downloads and extracted packages are cached under
-`%LOCALAPPDATA%\windows-reactor-setup\temp` when `LOCALAPPDATA` is available. Cargo may rerun the
+`%LOCALAPPDATA%\windows-reactor-setup\temp\v1` when `LOCALAPPDATA` is available. Cargo may rerun the
 build script, but the cached package and extraction directories avoid downloading on every build.
+The versioned cache does not reuse unchecked entries in the parent `temp` directory. Its first
+use requires a fresh download. MSIX extraction caches are separate for each target architecture.
 
 ## Deployment and shared target directories
 
 The Cargo profile directory can contain outputs from several packages. Stage the application from
 a clean, known build profile and copy every runtime file and subdirectory required beside the
 executable. Copying only the `.exe` does not produce a self-contained deployment.
+
+A destination-owned file lock serializes runtime and WebView2 copying by build scripts sharing
+the same Cargo profile directory. Cache locks alone do not protect this shared output.
 
 The embedded manifest includes a `windows-reactor-self-contained` description marker. Reactor reads
 that marker to select the private runtime. A framework-dependent executable ignores private files
@@ -85,10 +90,15 @@ assembly used by the XAML control, not the `webview2loader.dll` used by COM-only
 
 ## Failures and cleanup
 
-`as_self_contained` has no `Result` return. Unsupported target configuration and missing Cargo
-environment variables panic during the build. Download, extraction, and individual copy failures
-are printed by the helper; inspect build output and the profile directory if a staged file is
-missing.
+`as_self_contained` has no `Result` return. Unsupported target configuration, missing Cargo
+environment variables, and staging errors panic during the build. Download, extraction, directory
+access, and copy errors stop staging before the helper emits manifest linker arguments. Diagnostics
+include the failing path or command.
+
+Cache entries are published only after extraction succeeds and required files are present.
+Failed or interrupted staging leaves an unpublished `.partial` directory, which the next attempt
+discards and rebuilds. A failed copy can leave some files in the Cargo output directory, but the
+build fails and the next attempt copies the runtime again.
 
 The first build therefore requires reliable NuGet access. In offline build environments, populate
 the helper's package cache before disconnecting or use a build environment with the required cache.
@@ -96,8 +106,7 @@ Do not delete the cache while another build is using it.
 
 Staged files live in the Cargo profile output directory, outside the package's `OUT_DIR`.
 `cargo clean` removes the target output but not the package cache under `LOCALAPPDATA`. Remove that
-specific cache directory manually only when forcing a fresh package download or recovering from a
-bad partial download.
+specific cache directory manually only when forcing a fresh package download.
 
 The helper copies fixed package versions. Update the crate rather than replacing staged files by
 hand so the manifest, runtime allow-list, and WebView2 projection stay compatible.
@@ -112,10 +121,22 @@ This section is for contributors to `windows-reactor-setup`.
 ancestor matching `PROFILE`, and falls back to the conventional ancestor depth. The unit tests
 cover standard and split-package `OUT_DIR` layouts.
 
-`stage_pkg` caches `.nupkg` files and extracted package directories. Runtime MSIX extraction uses a
-separate `.msix_extract` directory. `copy_runtime_to` copies only top-level entries named in
-`assets/runtime.txt`, then recursively preserves any selected directory. Keep that allow-list in
-sync with the pinned Windows App SDK runtime.
+`stage_pkg` downloads a `.nupkg` inside a staging directory, extracts it, verifies the requested
+architecture's MSIX or WebView2 DLL, and removes the archive before publishing the directory.
+Runtime MSIX extraction uses `.msix_extract-<arch>` and checks for the core runtime and XAML DLLs
+before publication.
+
+`cached_dir` holds a file lock for each cache entry while checking, populating, and publishing it.
+Extraction happens in a sibling `.partial` directory, followed by a rename to the final name.
+The lock is released when its file handle is dropped, including after a failed or terminated build.
+Concurrent builds share the completed entry rather than modifying the same staging directory.
+
+`copy_runtime_to` copies only top-level entries named in `assets/runtime.txt`, then recursively
+preserves any selected directory. Keep that allow-list in sync with the pinned Windows App SDK
+runtime. Filesystem tests cover architecture isolation, failed extraction and retry, required-file
+checks, concurrent cache publication, concurrent deployment processes, and copy failures.
+Archive tests use local ZIP fixtures and the system `tar.exe`; they do not download packages or
+launch WinUI.
 
 The application manifest template is `assets/app.manifest`. The function inserts the deployment
 marker after the opening assembly element, writes the result to `OUT_DIR`, and emits binary-only

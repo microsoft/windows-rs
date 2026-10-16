@@ -19,3 +19,7 @@ Call the setup function from `build.rs`:
 ```rust,no_run
 windows_reactor_setup::as_self_contained();
 ```
+
+Runtime extraction caches are separate for each target architecture and are reused only after
+successful extraction and required-file checks. Download, extraction, and copy errors fail the
+build rather than leaving it to succeed with missing runtime files.
