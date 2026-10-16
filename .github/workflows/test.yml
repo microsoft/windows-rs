@@ -97,14 +97,56 @@ jobs:
               Where-Object { $_.reason -eq "compiler-artifact" -and $_.target.name -eq "test_canvas" -and $_.executable } |
               Select-Object -ExpandProperty executable -Last 1
             if (-not $canvas) { throw "Canvas test executable not found" }
+            $ui = Get-Content $artifacts | ConvertFrom-Json |
+              Where-Object { $_.reason -eq "compiler-artifact" -and $_.target.name -eq "ui" -and $_.package_id -match "#test-reactor@" -and $_.executable } |
+              Select-Object -ExpandProperty executable -Last 1
+            if (-not $ui) { throw "Reactor UI test executable not found" }
+            function Invoke-Canvas($phase) {
+              Write-Host "Canvas phase: $phase"
+              $process = Start-Process -FilePath $canvas -ArgumentList "--test-threads=4" -NoNewWindow -PassThru
+              try {
+                if (-not $process.WaitForExit(45000)) {
+                  Write-Host "Canvas process $($process.Id) stalled; capturing native dump"
+                  "CANVAS_DUMP=1" >> $env:GITHUB_ENV
+                  $zip = Join-Path $env:RUNNER_TEMP "procdump.zip"
+                  $tools = Join-Path $env:RUNNER_TEMP "procdump"
+                  Invoke-WebRequest https://download.sysinternals.com/files/Procdump.zip -OutFile $zip -TimeoutSec 15
+                  Expand-Archive $zip $tools -Force
+                  $dump = Join-Path $env:RUNNER_TEMP "canvas-hang.dmp"
+                  $capture = Start-Process -FilePath "$tools\procdump64.exe" -ArgumentList "-accepteula", "-mm", "$($process.Id)", $dump -NoNewWindow -PassThru
+                  try {
+                    if (-not $capture.WaitForExit(20000)) { throw "Dump capture exceeded 20 seconds" }
+                    if ($capture.ExitCode -ne 0) { throw "Dump capture failed: $($capture.ExitCode)" }
+                  } finally {
+                    if (-not $capture.HasExited) { $capture.Kill($true); $capture.WaitForExit() }
+                    $capture.Dispose()
+                  }
+                  throw "Canvas stalled during $phase"
+                }
+                if ($process.ExitCode -ne 0) { throw "Canvas failed during ${phase}: $($process.ExitCode)" }
+              } finally {
+                if (-not $process.HasExited) { $process.Kill($true); $process.WaitForExit() }
+                $process.Dispose()
+              }
+            }
             $env:WINDOWS_CANVAS_DIAGNOSTICS = "1"
             $originalPath = $env:PATH
             $deps = Split-Path $canvas
             $profile = Split-Path $deps
             $env:PATH = "$deps;$profile;$originalPath"
-            Write-Host "Canvas before the workspace UI tests: $canvas"
-            & $canvas --test-threads=4
-            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            Invoke-Canvas "before new Reactor tests"
+            foreach ($case in @(
+              "process::child_panic_is_reported",
+              "process::hung_child_is_terminated",
+              "process::early_successful_exit_is_rejected",
+              "menu_callback_replacement_and_removal",
+              "text_box_native_edit_and_controlled_reset"
+            )) {
+              Write-Host "Run isolated Reactor test: $case"
+              & $ui --exact $case --nocapture
+              if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+              Invoke-Canvas "after $case"
+            }
             $env:PATH = $originalPath
             $uiControl = @(
               "--",
@@ -117,6 +159,15 @@ jobs:
             Write-Host "Canvas preflight passed; control run excludes only the five new Reactor tests"
           }
           cargo test --all --target ${{ matrix.target }} ${{ matrix.clang-exclude }} --exclude windows-composition --exclude canvas-standalone --exclude test_composition --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas @uiControl
+      - name: Upload Canvas diagnostic dump
+        if: failure() && env.CANVAS_DUMP == '1'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: canvas-native-hang
+          path: |
+            ${{ runner.temp }}\canvas-hang.dmp
+            target\x86_64-pc-windows-msvc\debug\deps\test_canvas-*.exe
+            target\x86_64-pc-windows-msvc\debug\deps\test_canvas-*.pdb
       - name: Test system Composition stack
         run: cargo test -p windows-canvas -p windows-composition -p canvas-standalone -p test_composition -p composition-standalone -p composition-minesweeper -p composition-canvas --features windows-canvas/system --target ${{ matrix.target }}
       - name: Check diff
