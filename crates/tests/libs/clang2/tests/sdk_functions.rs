@@ -3,6 +3,9 @@ use windows_clang2::*;
 use windows_metadata::{Type, Value, reader, reader::HasAttributes};
 
 const FUNCTIONS: &[(&str, &str, usize)] = &[
+    ("u_errorName", "icuuc.dll", 1),
+    ("u_strlen", "icuuc.dll", 1),
+    ("u_strToUTF8", "icuuc.dll", 6),
     ("GetCurrentProcessId", "kernel32.dll", 0),
     ("GetLastError", "kernel32.dll", 0),
     ("SetLastError", "kernel32.dll", 1),
@@ -218,7 +221,11 @@ fn sdk_functions() {
                 assert_eq!(import.import_scope().name(), library);
                 assert_eq!(
                     method.calling_convention(),
-                    if bit == 1 { "system" } else { "C" }
+                    if bit == 1 && library != "icuuc.dll" {
+                        "system"
+                    } else {
+                        "C"
+                    }
                 );
             }
             let enumeration = methods

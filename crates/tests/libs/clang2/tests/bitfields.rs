@@ -255,7 +255,7 @@ fn conflicts() {
             .to_string();
         assert!(
             error.contains(if tag == "Bits" {
-                "bit width differs"
+                "field name, order, offset, bit width, or attributes differ"
             } else {
                 "incompatible native definitions"
             }),

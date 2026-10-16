@@ -71,12 +71,18 @@ as ECMA-335 `FNPTR` signatures. No public callback names are synthesized.
 Incomplete global structs publish empty nominal pointee markers, not native storage layouts.
 Pointers preserve their tag identity and qualifiers. A definition in another input supplies the
 real record; failed or complete empty definitions cannot fall back to markers. Incomplete records
-cannot pass or return by value in callable signatures. Incomplete unions, classes, nested records,
-and forwards with layout or UUID attributes remain unsupported.
+cannot pass or return by value in callable signatures. Incomplete unions, plain classes, nested
+records, and forwards with layout attributes remain unsupported.
+
+Global UUID-bearing class and struct forwards publish GUID constants under their native tag names.
+The UUID comes from compiler-decoded attributes, with same-target agreement checked before pruning.
+This does not publish a class layout or make the tag usable as a metadata type. Type aliases cannot
+rename the constant, and unrelated `CLSID_*` or `IID_*` object declarations still need definitions.
 
 External C-linkage functions retain native signatures, parameter names, and mangling.
 `project_with_imports` and `project_partial_with_imports` take explicit DLL/export ownership;
-it is not guessed from headers. The SDK driver can supply it with `--sdk-imports`, using the pinned
+it is not guessed from headers. Function `dllimport` and `dllexport` remain distinct native
+attributes; neither supplies the DLL identity. The SDK driver uses `--sdk-imports` with the pinned
 SDK's ordered import-library policy and checked corrections. Ordinal-only imports remain explicit
 omissions. Native-compatible free-function redeclarations with ambiguous public names or aliases
 remain strict errors; partial mode reports and omits them on every target.
@@ -90,7 +96,8 @@ attributes; volatile/restrict and ref-qualified methods remain unsupported.
 Const integer, enum, boolean, and finite float/double declarations and selected `Input::macros`
 use compiler evaluation. Floating-point values retain exact bits, including signed zero.
 Enum constants retain their nominal enum or written typedef rather than becoming plain integers.
-GUIDs and property keys use compiler-evaluated aggregate fields with checked native shapes.
+GUIDs and property/device keys use compiler-evaluated aggregate fields with checked native shapes.
+`PROPERTYKEY` and `DEVPROPKEY` retain their distinct metadata types.
 Terminated ASCII and UTF-16 arrays publish strings with explicit encodings, preserving embedded
 zeros and padding. Typed constant declarations retain their native evidence and reconcile with
 definitions in the same or another input. Definitions must agree on type, linkage, contracts, and
@@ -118,8 +125,10 @@ floats, arbitrary aggregates, pointer strings, or non-ASCII narrow strings.
 Numeric data-pointer constants use compiler-validated static initialization and retain target-width
 address bits, pointer typedefs, and pointee constness. Relocations, code addresses, side effects,
 undefined behavior, and COM interface constants are rejected.
-Publication requires a valid definition for each target. The SDK driver uses a separate lean
-Windows `INITGUID` input for winnt and winsvc GUID definitions, without relaxing ordinary capture.
+Publication requires a valid definition for each target. The SDK driver uses separate `INITGUID`
+inputs for the selected headers, retaining a lean Windows input for winnt and winsvc definitions.
+Main, satellite, and device groups separate repeated, unguarded SDK definition blocks. Ordinary
+capture and macro discovery keep their declaration contexts.
 All SDK inputs share support headers before Windows headers so constant dependencies are available
 and native annotation expansions agree across declaration and definition inputs.
 The header/RDL fixtures and SDK breadth test cover all three categories

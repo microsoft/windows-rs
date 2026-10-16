@@ -444,8 +444,9 @@ impl Plan {
                 let right = &resolution.snapshots[b.snapshot].observations[b.observation.0];
                 let x = left.definition.as_ref().unwrap();
                 let y = right.definition.as_ref().unwrap();
-                if resolution.snapshots[a.snapshot].records[left.record.0].kind
-                    != resolution.snapshots[b.snapshot].records[right.record.0].kind
+                if !resolution.snapshots[a.snapshot].records[left.record.0]
+                    .kind
+                    .compatible(resolution.snapshots[b.snapshot].records[right.record.0].kind)
                     || x.layout != y.layout
                     || x.fields.len() != y.fields.len()
                     || x.bases.len() != y.bases.len()

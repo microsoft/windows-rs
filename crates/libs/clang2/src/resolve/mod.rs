@@ -186,7 +186,9 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
         let first = records[0];
         let first = &snapshots[first.snapshot].records[first.record.0];
         if records.iter().any(|reference| {
-            snapshots[reference.snapshot].records[reference.record.0].kind != first.kind
+            !snapshots[reference.snapshot].records[reference.record.0]
+                .kind
+                .compatible(first.kind)
         }) {
             return Err(Error(format!(
                 "native record kind differs for `{}`",
@@ -194,10 +196,28 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             )));
         }
         let mut definitions = Vec::new();
+        let mut identified: Option<(u128, ObservationRef)> = None;
         for reference in &records {
             membership[reference.snapshot][reference.record.0] = groups.len();
             let snapshot = &snapshots[reference.snapshot];
             for &id in &snapshot.records[reference.record.0].observations {
+                if let Some(value) = uuid(&snapshot.observations[id.0].attributes) {
+                    let current = ObservationRef {
+                        snapshot: reference.snapshot,
+                        observation: id,
+                    };
+                    if let Some((previous, owner)) = identified
+                        && previous != value
+                    {
+                        return Err(conflict(
+                            &snapshots,
+                            Owner::Record(owner),
+                            Owner::Record(current),
+                            "record UUID differs",
+                        ));
+                    }
+                    identified = Some((value, current));
+                }
                 if snapshot.observations[id.0].definition.is_some() {
                     definitions.push(ObservationRef {
                         snapshot: reference.snapshot,
@@ -642,6 +662,8 @@ pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
             == b.iter().any(|value| value.kind == AttributeKind::NoVTable)
         && a.iter().any(|value| value.kind == AttributeKind::DllImport)
             == b.iter().any(|value| value.kind == AttributeKind::DllImport)
+        && a.iter().any(|value| value.kind == AttributeKind::DllExport)
+            == b.iter().any(|value| value.kind == AttributeKind::DllExport)
         && a.iter().any(|value| value.kind == AttributeKind::NoThrow)
             == b.iter().any(|value| value.kind == AttributeKind::NoThrow)
 }

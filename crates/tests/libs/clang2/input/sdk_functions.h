@@ -16,3 +16,4 @@
 #include <d2d1effectauthor.h>
 #include <documenttarget.h>
 #include <dwrite.h>
+#include <icu.h>

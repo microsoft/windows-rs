@@ -143,34 +143,13 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         macro_headers.sort();
         macro_headers.dedup();
     }
-    let mut arguments = vec![
-        "-fms-extensions".into(),
-        "-include".into(),
-        std::fs::canonicalize("crates\\tools\\win32-2\\src\\sal.h")?
-            .display()
-            .to_string(),
-        "-resource-dir".into(),
-        std::fs::canonicalize(helpers::clang_resource_dir())?
-            .display()
-            .to_string(),
-    ];
-    for directory in ["ucrt", "um", "shared", "winrt", "cppwinrt"] {
-        arguments.extend([
-            "-isystem".into(),
-            include.join(directory).display().to_string(),
-        ]);
-    }
+    let arguments = sdk_arguments(&include, Path::new(&helpers::clang_resource_dir()))?;
     let mut inputs = inputs(&headers, &arguments);
     for input in &mut inputs {
         input.macros.clone_from(&macros);
         input.macro_headers.clone_from(&macro_headers);
     }
-    inputs.push(Input {
-        name: "win32-2-guid-definitions.h".into(),
-        source: format!("#define WIN32_LEAN_AND_MEAN\n#define WIN32_NO_STATUS\n#define INITGUID\n{SUPPORT_PRELUDE}#include <windows.h>\n"),
-        arguments: arguments.clone(),
-        ..Default::default()
-    });
+    inputs.extend(guid_inputs(&headers, &arguments));
     let started = Instant::now();
     let scratch = Path::new("target\\win32-2");
     std::fs::create_dir_all(scratch)?;
@@ -433,6 +412,86 @@ fn read_sdk_imports(
     Ok(imports)
 }
 
+fn sdk_arguments(include: &Path, resource: &Path) -> Result<Vec<String>, std::io::Error> {
+    let mut arguments = vec![
+        "-fms-extensions".into(),
+        "-include".into(),
+        std::fs::canonicalize(Path::new(env!("CARGO_MANIFEST_DIR")).join("src\\sal.h"))?
+            .display()
+            .to_string(),
+        "-resource-dir".into(),
+        std::fs::canonicalize(resource)?.display().to_string(),
+    ];
+    for directory in ["ucrt", "um", "shared", "winrt", "cppwinrt"] {
+        arguments.extend([
+            "-isystem".into(),
+            include.join(directory).display().to_string(),
+        ]);
+    }
+    Ok(arguments)
+}
+
+fn guid_inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
+    let mut inputs = vec![Input {
+        name: "win32-2-guid-definitions.h".into(),
+        source: format!(
+            "#define WIN32_LEAN_AND_MEAN\n#define WIN32_NO_STATUS\n#define INITGUID\n{SUPPORT_PRELUDE}#include <windows.h>\n"
+        ),
+        arguments: arguments.to_vec(),
+        ..Default::default()
+    }];
+    let mut groups: [Vec<&str>; 3] = Default::default();
+    for header in headers {
+        let (group, header) = match header.as_str() {
+            // These storage headers include ntddstor's unguarded GUID block.
+            "ntddcdrm.h" | "ntddtape.h" => (2, "ntddstor.h"),
+            // Unguarded definitions also reached through other selected headers.
+            "devpkey.h" | "ntddstor.h" | "poclass.h" => (2, header.as_str()),
+            header if headers::SATELLITE_HEADERS.contains(&header) => (1, header),
+            header => (0, header),
+        };
+        if !groups[group].contains(&header) {
+            groups[group].push(header);
+        }
+        // shlobj_core suppresses this include when INITGUID is defined.
+        if matches!(header, "shlobj.h" | "shlobj_core.h") && !groups[0].contains(&"shlguid.h") {
+            groups[0].push("shlguid.h");
+        }
+    }
+    let topology = headers.iter().any(|header| header == "devicetopology.h");
+    for (name, group) in [
+        "win32-2-main-guid-definitions.h",
+        "win32-2-satellite-guid-definitions.h",
+        "win32-2-device-guid-definitions.h",
+    ]
+    .into_iter()
+    .zip(groups)
+    {
+        if group.is_empty() {
+            continue;
+        }
+        // The Windows prelude supplies prerequisites in declaration mode.
+        let mut source =
+            format!("{SUPPORT_PRELUDE}{PRELUDE}#define INITGUID\n#include <guiddef.h>\n");
+        if topology {
+            source.push_str("#include <ks.h>\n");
+        }
+        for header in group {
+            if header == "devicetopology.h" {
+                source.push_str("#define _KS_\n");
+            }
+            source.push_str(&format!("#include <{header}>\n"));
+        }
+        inputs.push(Input {
+            name: name.into(),
+            source,
+            arguments: arguments.to_vec(),
+            ..Default::default()
+        });
+    }
+    inputs
+}
+
 fn inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
     let (satellite, main): (Vec<_>, Vec<_>) = headers
         .iter()
@@ -594,5 +653,84 @@ mod tests {
                 .all(|header| Path::new(header).file_name().unwrap() == header.as_str())
         );
         assert!(sdk_macro_headers(&include.join("missing")).is_err());
+    }
+
+    #[test]
+    fn guid_definition_scope() {
+        let headers = ["ntddtape.h", "ntddcdrm.h", "ntddstor.h", "devpkey.h"].map(String::from);
+        let inputs = guid_inputs(&headers, &[]);
+        assert_eq!(inputs.len(), 2);
+        let source = &inputs[1].source;
+        assert_eq!(source.matches("#include <ntddstor.h>").count(), 1);
+        assert_eq!(source.matches("#include <devpkey.h>").count(), 1);
+        assert!(!source.contains("#include <ntddtape.h>"));
+        assert!(!source.contains("#include <ntddcdrm.h>"));
+        assert!(!source.contains("#include <propkey.h>"));
+        assert!(
+            inputs
+                .iter()
+                .all(|input| input.macros.is_empty() && input.macro_headers.is_empty())
+        );
+        let inputs = guid_inputs(&["shlobj.h".into(), "shlguid.h".into()], &[]);
+        assert_eq!(inputs.len(), 2);
+        assert_eq!(inputs[1].source.matches("#include <shlguid.h>").count(), 1);
+    }
+
+    #[test]
+    #[ignore = "requires the pinned Windows SDK headers"]
+    fn sdk_guid_definitions() {
+        helpers::ensure_libclang();
+        let include = helpers::nuget_package("microsoft.windows.sdk.cpp", SDK_VERSION)
+            .join("c")
+            .join("Include")
+            .join(helpers::marketing_dir(SDK_VERSION));
+        let resource = std::env::var_os("CLANG_RESOURCE_DIR").map_or_else(
+            || {
+                Path::new(env!("CARGO_MANIFEST_DIR"))
+                    .join("..\\..\\..\\target\\tool-clang\\clang-resource")
+                    .join(helpers::LIBCLANG_VERSION)
+            },
+            std::path::PathBuf::from,
+        );
+        let arguments = sdk_arguments(&include, &resource).unwrap();
+        let headers: Vec<_> = headers::HEADERS
+            .iter()
+            .chain(headers::SATELLITE_HEADERS)
+            .map(|header| (*header).to_string())
+            .collect();
+        let mut inputs = inputs(&headers, &arguments);
+        inputs.extend(guid_inputs(&headers, &arguments));
+        let targets = [
+            windows_clang2::Target::X86,
+            windows_clang2::Target::X64,
+            windows_clang2::Target::Arm64,
+        ];
+        let captured = windows_clang2::capture_partial(&inputs, &targets).unwrap();
+        for target in targets {
+            for name in [
+                "PKEY_Title",
+                "DEVPKEY_Device_DeviceDesc",
+                "MF_MT_MAJOR_TYPE",
+                "FOLDERID_Desktop",
+                "GUID_DEVINTERFACE_DISK",
+                "GUID_DEVINTERFACE_HID",
+                "CLSID_MyComputer",
+            ] {
+                assert!(
+                    captured
+                        .snapshots
+                        .iter()
+                        .filter(|snapshot| snapshot.target == target)
+                        .flat_map(|snapshot| &snapshot.values)
+                        .filter(|value| value.name == name)
+                        .flat_map(|value| &value.observations)
+                        .any(|observation| matches!(
+                            observation.kind,
+                            windows_clang2::ValueKind::Constant { value: Some(_), .. }
+                        )),
+                    "{target:?}: {name}"
+                );
+            }
+        }
     }
 }

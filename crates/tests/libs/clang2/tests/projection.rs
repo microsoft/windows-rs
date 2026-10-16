@@ -221,7 +221,7 @@ fn partial_review() {
     ];
     let first = capture_partial(&inputs, &TARGETS).unwrap_err().to_string();
     assert!(
-        first.starts_with("field name, order, offset, or bit width differs:"),
+        first.starts_with("field name, order, offset, bit width, or attributes differ:"),
         "{first}"
     );
     inputs.reverse();

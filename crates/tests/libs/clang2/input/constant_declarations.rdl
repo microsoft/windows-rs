@@ -1,7 +1,7 @@
 #[win32]
 mod Fixture {
     const ADDRESS: *const void = -1;
-    const GUID_VALUE: GUID = 0x123456789abcdef00102030405060708;
+    const GUID_VALUE: GUID = 0x12345678_9abc_def0_0102_030405060708;
     const NUMBER: Word = 42;
     type Word = u32;
 }

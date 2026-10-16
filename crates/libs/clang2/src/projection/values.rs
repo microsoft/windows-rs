@@ -1,5 +1,18 @@
 use super::*;
 
+pub(super) fn write_guid(value: u128) -> TokenStream {
+    format!(
+        "0x{:08x}_{:04x}_{:04x}_{:04x}_{:012x}",
+        value >> 96,
+        (value >> 80) & 0xffff,
+        (value >> 64) & 0xffff,
+        (value >> 48) & 0xffff,
+        value & 0xffffffffffff
+    )
+    .parse()
+    .unwrap()
+}
+
 pub(super) fn check_constant<'a>(
     constants: &mut HashMap<&'a str, (&'a TypeKind, Option<Layout>, ConstantValue)>,
     target: Target,
@@ -37,6 +50,7 @@ impl Projector<'_, '_> {
                     !matches!(
                         attribute.kind,
                         AttributeKind::DllImport
+                            | AttributeKind::DllExport
                             | AttributeKind::Sal(_)
                             | AttributeKind::Deprecated(_)
                             | AttributeKind::NoThrow
@@ -103,18 +117,20 @@ impl Projector<'_, '_> {
                     value
                 {
                     let ty = self.ty(snapshot, observation.canonical)?;
-                    let expected = if matches!(value, ConstantValue::Guid(_)) {
-                        "GUID"
+                    let expected: &[&str] = if matches!(value, ConstantValue::Guid(_)) {
+                        &["GUID"]
                     } else {
-                        "PROPERTYKEY"
+                        &["PROPERTYKEY", "DEVPROPKEY"]
                     };
-                    if !matches!(&ty, MetadataType::ValueName(name) if name.name == expected) {
+                    if !matches!(&ty, MetadataType::ValueName(name) if expected.contains(&name.name.as_str()))
+                    {
                         return Err(Error(format!(
-                            "aggregate constant `{name}` requires canonical {expected} metadata"
+                            "aggregate constant `{name}` requires canonical {} metadata",
+                            expected.join(" or ")
                         )));
                     }
                     let ty = write_type(self.namespace, &ty);
-                    let guid: TokenStream = format!("0x{guid:032x}").parse().unwrap();
+                    let guid = write_guid(*guid);
                     let name = ident(name)?;
                     let native = annotations::write(&observation.attributes);
                     return Ok(match value {
@@ -144,8 +160,34 @@ impl Projector<'_, '_> {
                             .into(),
                     ));
                 }
-                let ty = self.written_ty(snapshot, observation.written, observation.canonical)?;
-                let ty = write_type(self.namespace, &ty);
+                let ty = match self.resolution.snapshots[snapshot].types[observation.canonical.0]
+                    .kind
+                {
+                    TypeKind::Enum(id)
+                        if self.plan.enum_constants(
+                            self.resolution,
+                            self.resolution.enum_groups[snapshot][id.0],
+                        ) =>
+                    {
+                        let group = self.resolution.enum_group(EnumRef {
+                            snapshot,
+                            enumeration: id,
+                        });
+                        let reference = group.definition.ok_or_else(|| {
+                            Error(format!(
+                                "enum constant `{name}` has no captured enum definition"
+                            ))
+                        })?;
+                        let enumeration = &self.resolution.snapshots[reference.snapshot].enums
+                            [reference.enumeration.0]
+                            .observations[reference.observation];
+                        self.enum_backing(reference.snapshot, enumeration, name)?
+                    }
+                    _ => write_type(
+                        self.namespace,
+                        &self.written_ty(snapshot, observation.written, observation.canonical)?,
+                    ),
+                };
                 let value = match *value {
                     ConstantValue::Pointer(value) => windows_metadata::Value::I64(value),
                     ConstantValue::Integer(EnumValue::Signed(value)) => {
@@ -244,6 +286,22 @@ impl Projector<'_, '_> {
                 Ok(quote! { #attributes #size #default #name: #ty })
             })
             .collect()
+    }
+
+    pub(super) fn uuid_tag(&self, group: &Group) -> Option<u128> {
+        let first = group.records[0];
+        let record = &self.resolution.snapshots[first.snapshot].records[first.record.0];
+        if group.definition.is_some() || record.owner.is_some() || record.kind == RecordKind::Union
+        {
+            return None;
+        }
+        group.records.iter().find_map(|reference| {
+            let snapshot = self.resolution.snapshots[reference.snapshot];
+            snapshot.records[reference.record.0]
+                .observations
+                .iter()
+                .find_map(|id| resolve::uuid(&snapshot.observations[id.0].attributes))
+        })
     }
 
     pub(super) fn interface_record(&self, snapshot: usize, record: RecordId) -> bool {
@@ -391,16 +449,7 @@ impl Projector<'_, '_> {
                 quote! { #attributes #exceptions #constant fn #method_name(&self #(, #parameters)*) #result; },
             );
         }
-        let uuid: TokenStream = format!(
-            "0x{:08x}_{:04x}_{:04x}_{:04x}_{:012x}",
-            uuid >> 96,
-            (uuid >> 80) & 0xffff,
-            (uuid >> 64) & 0xffff,
-            (uuid >> 48) & 0xffff,
-            uuid & 0xffffffffffff
-        )
-        .parse()
-        .map_err(|_| Error("cannot encode UUID".into()))?;
+        let uuid = write_guid(uuid);
         let native = annotations::write(&observation.attributes);
         Ok(Body {
             attributes: quote! { #native #[guid(#uuid)] },

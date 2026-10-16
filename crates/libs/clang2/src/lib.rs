@@ -213,6 +213,7 @@ pub enum AttributeKind {
     Uuid(u128),
     NoVTable,
     DllImport,
+    DllExport,
     NoThrow,
     SelectAny,
     Sal(Box<SalAnnotation>),
@@ -297,7 +298,15 @@ pub(crate) enum RecordMember {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum RecordKind {
     Struct,
+    Class,
     Union,
+}
+
+impl RecordKind {
+    pub(crate) fn compatible(self, other: Self) -> bool {
+        // C++ permits class and struct tags to redeclare the same non-union record.
+        (self == Self::Union) == (other == Self::Union)
+    }
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -561,6 +570,7 @@ impl Snapshot {
                         | AttributeKind::Uuid(_)
                         | AttributeKind::NoVTable
                         | AttributeKind::DllImport
+                        | AttributeKind::DllExport
                         | AttributeKind::NoThrow
                         | AttributeKind::SelectAny
                         | AttributeKind::MaxFieldAlignment { .. }

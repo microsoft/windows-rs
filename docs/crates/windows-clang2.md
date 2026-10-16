@@ -136,6 +136,10 @@ Use `project_with_imports` or `project_partial_with_imports` after capture to su
 ownership. Native C mangling is evidence, not an inferred DLL export name. Missing imports are
 errors or explicit partial omissions. Callbacks, declared functions, and methods preserve parameter
 names, using positional names only for unnamed parameters.
+Function `dllimport` and `dllexport` attributes remain distinct native evidence and must agree across
+observations. Both can publish a callable import when its DLL/export ownership is supplied separately;
+`dllexport` does not identify that DLL. Exported records and constant objects remain unsupported.
+The SDK's ICU entry points exercise exported C declarations without overriding their header macros.
 
 Interfaces remain native records until publication. Reconciliation checks UUIDs, base identities,
 base offsets, method slots, and canonical signatures. Native queries establish virtuality and
@@ -166,10 +170,23 @@ Pointers retain distinct native tags, aliases, and constness. A definition in an
 supplies the real record instead; complete empty or rejected definitions cannot become markers.
 Callable parameters, results, and callbacks reject incomplete records by value, resolving
 completeness across inputs rather than using a local forward's missing layout. Record fields still
-require native storage. Incomplete unions, classes, nested records, and layout- or UUID-attributed
-forwards remain unsupported. SAL and deprecation annotations remain attached to accepted markers.
+require native storage. Incomplete unions, plain classes, nested records, and layout-attributed forwards remain unsupported
+as pointee markers. SAL and deprecation annotations remain attached to accepted markers.
 Forward-only ownership uses declaration headers; a real definition retains definition ownership.
 The `opaque_records` fixture covers these boundaries through RDL and WinMD without Rust generation.
+
+Global UUID-bearing class and struct forwards publish a GUID constant under the native tag name,
+not a type alias or an inferred `CLSID_`/`IID_` name. Capture retains native record kinds, identities,
+attributes, and separate observations. Native resolution checks every observed UUID before pruning,
+including when there is no record definition. Class and struct redeclarations can share a non-union
+identity; this does not equate their keywords or supply a layout.
+Publication classifies the reconciled forward, not an arbitrary representative cursor. A definition
+in any input prevents the forward-only path. Class definitions remain unsupported. GUID tags cannot
+be used as metadata types, and differently named type aliases remain explicit omissions. A plain,
+same-named typedef adds no public type. Existing interface definitions keep their interface contract.
+Value-name collisions require matching published bodies; an unpublishable native value cannot borrow
+the tag's UUID. The `uuid_tags` header/RDL fixture checks native conflicts, target variants, input
+order, selected roots, matching macro values, type rejection, and both WinMD round trips.
 
 Parameter defaults retain a compiler-owned expression cursor, location, and compiler-printed
 expression. Capture matches that exact cursor when distinguishing defaults from array bounds and
@@ -234,7 +251,8 @@ identity. Its RDL-only test is independent of the deferred consumer test.
 
 Unselected headers' macros are not captured and do not appear in the omission report. Constant
 coverage therefore still needs a baseline comparison, not publication or omission counts.
-Definition inputs for further GUID headers and broader macro coverage remain open.
+The full SDK configuration below combines broad macro selection with manifest-derived definition
+inputs; neither selection alone establishes complete constant coverage.
 
 Selecting `winerror.h` and `urlmon.h` recovers all 7,456 frozen winerror constant names through the
 same discovery path. All values match; 363 constants retain their written `DWORD` alias rather than
@@ -255,7 +273,7 @@ definition belongs to the unselected support header.
 A separate lean Windows `INITGUID` input supplies definitions for 259 winnt and 11 winsvc GUIDs.
 It shares the compiler arguments and target settings
 of the ordinary inputs, but does not repeat macro discovery. All native observations are reconciled
-before publication; the full workload uses three TUs. The `winnt` fixture checks exact GUID values,
+before publication. The `winnt` fixture checks exact GUID values,
 cross-input reconciliation, and input-order independence.
 Every input includes `intsafe.h` before Windows headers. This provides `DWORD_MAX` for
 `POWER_LIMIT_VALUE_NO_CONTROL` without displacing winerror's active `S_OK` definition. The common
@@ -315,13 +333,14 @@ ignored with an explicit reason, while the SDK fixture checks the omissions and 
 Only a small companion-side adjustment is in scope. No suitable pre-parse hook is established;
 rebuilding libclang or duplicating its parser is not part of this work. Other discovery continues,
 without counting affected GUIDs as semantically covered.
-The full companion selection has two missing mmreg names, `KSDATAFORMAT_SUBTYPE_PCM` and
-`KSDATAFORMAT_SUBTYPE_WAVEFORMATEX`, rejected by ksmedia's satellite-input PCH probes. Ksmedia has
+Without definition inputs, the companion selection has two missing mmreg names,
+`KSDATAFORMAT_SUBTYPE_PCM` and `KSDATAFORMAT_SUBTYPE_WAVEFORMATEX`, rejected by ksmedia's
+satellite-input PCH probes. Ksmedia has
 460 additional baseline macro GUIDs with the same diagnostic. Three property-key declarations
 still need definitions. Its UUID tag `KSEVENTSETID_VIDCAPTOSTI` has no value macro of that name;
 the differently named `KSEVENTSETID_VIDCAPNotify` alias is also PCH-blocked. Publishing the tag
-itself as a constant needs a separate policy decision. Successful discovery in another input
-context does not close the compiler bug.
+itself as a constant needs a separate policy decision. Successful discovery or independent definition capture in another input context does not close
+the compiler bug.
 
 MIDL gives anonymous IDL enums reserved, numbered tags. Publication recognizes unscoped
 `__MIDL_..._NNNN` helper names, retaining an authored typedef when one is available and otherwise
@@ -355,13 +374,20 @@ for exact comparison, including signed zero. Non-finite values and extended floa
 remain unsupported. The `scalar_constants` fixtures check rounding, subnormals, finite extremes,
 constexpr evaluation, target-dependent values, conflicts, and bit-preserving metadata round trips.
 Enum-valued constants use their native backing type for evaluation while retaining the enum or
-written typedef as the published type. The `enum_constants` fixture covers signed and unsigned
-limits, scoped enum macros, unnamed values, target-dependent values, and cross-input reconciliation.
+written typedef as the published type. When the enum publishes only loose members, constant aliases
+use the same checked backing type, without inventing a public enum name. This includes genuine
+anonymous enums and reserved MIDL helper tags, not unrelated named enums or adjacent typedefs.
+Unsupported enum annotations still reject dependent constants. The `enum_constants` fixture covers
+signed and unsigned limits, scoped enum macros, unnamed values, target-dependent values, and
+cross-input reconciliation.
 
 Aggregate evaluation reads integer leaves from Clang's `APValue`, including implicit zero-filled
 array tails. GUID and property-key recognition checks field names, types, offsets, and total size;
-publication requires the canonical `GUID` or `PROPERTYKEY` type. Values are not reconstructed from
-numeric tokens or host object memory.
+publication requires the canonical `GUID`, `PROPERTYKEY`, or `DEVPROPKEY` type. Property and device
+keys retain their distinct metadata types while sharing the GUID-plus-unsigned-ID encoding.
+Values are not reconstructed from numeric tokens or host object memory.
+GUID constants and attributes share the canonical `0x12345678_9abc_def0_0102_030405060708`
+spelling, including property keys and UUID-tag constants.
 
 Constant observations retain written/canonical types, qualifiers, attributes, source location, and
 internal or external linkage. External linkage includes language and native symbol spelling.
@@ -377,6 +403,16 @@ their RDL bodies to agree. A target without a definition is an explicit error; p
 the name on every target rather than inventing target availability. The `constant_declarations`
 fixtures cover scalar, pointer, and forward-declared GUID types, missing/invalid definitions,
 linkage and qualifier conflicts, target-specific definitions, and pruning boundaries.
+
+The SDK driver supplements declaration inputs with `INITGUID` definition inputs derived from the
+selected header manifest. A lean Windows input defines winnt/winsvc GUIDs. Other inputs enable
+definitions after the shared Windows prelude, which supplies prerequisites in declaration mode.
+Main, satellite, and device groups avoid repeated unguarded GUID/property-key blocks: devpkey,
+ntddstor, and poclass have separate direct includes, while ntddcdrm/ntddtape use their ntddstor
+definition dependency. Definition inputs do not repeat macro discovery. All inputs use the same
+compiler arguments and participate in native reconciliation before pruning. The driver SDK test
+checks the full native graph and representative definitions on all three targets.
+The shell definition group explicitly includes shlguid, which shlobj_core omits under `INITGUID`.
 
 String arrays remove exactly one final terminator and preserve embedded zeros and padding.
 UTF-16 decoding rejects unpaired surrogates. Narrow non-ASCII bytes, unterminated arrays, pointer
@@ -397,8 +433,8 @@ uses the SDK's `GetCurrentProcessId`, `IUnknown`, `IClassFactory`, `UIA_InvokePa
 `MAX_PATH`. Full SAL interpretation, broader macro discovery,
 and general C++ declarations remain separate coverage work.
 
-The ignored `sdk_functions` fixture publishes 114 explicit imports across kernel32, user32, ole32,
-advapi32, ws2_32, bcrypt, gdi32, dxgi, winhttp, wevtapi, d3d11, d3d12, d2d1, and dwrite.
+The ignored `sdk_functions` fixture publishes 117 explicit imports across kernel32, user32, ole32,
+advapi32, ws2_32, bcrypt, gdi32, dxgi, winhttp, wevtapi, d3d11, d3d12, d2d1, dwrite, and icuuc.
 Coverage includes buffers, DirectWrite factory creation and Direct2D matrix operations,
 Direct3D device creation and root signatures, callbacks,
 COM activation, registry/security, sockets, cryptography, GDI, timing, virtual memory, HTTP,
@@ -561,7 +597,8 @@ diagnostic formatting, and TU disposal are timed separately; candidate, empty-de
 confirmation, and rejection counts identify repeated work. Phase wall times are inclusive, and
 target and confirmation workers overlap. Do not add these times together as process elapsed time.
 
-The 370-header, 1,800-owner profile performs 29,939 isolated confirmations, versus 36 batch parses.
+The three-TU, 370-header, 1,800-owner profile performs 29,939 isolated confirmations, versus 36
+batch parses.
 In the serial-confirmation control, confirmations account for over 90% of capture-worker time.
 Native reconciliation and diagnostic formatting are small by comparison. SDK PCH replays show no
 material gain from a lean PCH, disabled validation, local-only indexing, reparsing, preamble reuse, or
@@ -574,6 +611,62 @@ partitions and omissions are byte-identical, including with profiling disabled. 
 independent rejection checks, and confirmation count are unchanged. Precise timings require a
 quiet machine.
 
+The six-TU definition workload uses the same 370-header manifest, 1,800 macro-owner filenames,
+compiler/SDK pins, and three targets with `--partial --sdk-imports --sdk-macros`. Its current
+candidate contains 93,038 constants in 787 partitions:
+
+| Constant-name accounting | Count |
+| --- | ---: |
+| Frozen baseline | 82,854 |
+| Baseline names present as loose constants | 82,546 (99.628%) |
+| Baseline names absent as loose constants | 308 |
+| Additional names | 10,492 |
+
+Definition capture, device keys, UUID tags, and anonymous-enum constant aliases add 5,443 constants
+to the 87,595-constant control, including 4,009 baseline names. Canonical comparisons find no retained
+declarations lost or changed and no new omission identities. Record, enum, alias, function, and
+interface counts are unchanged. UUID capture changes 43 diagnostic texts for already-omitted class
+definitions and their dependents. The final anonymous-enum alias step removes two omissions and
+recovers both baseline declarations with matching types and values.
+The 93,036-constant UUID control produces byte-identical RDL partitions and omissions in two runs,
+taking 264.5 and 248.2 seconds with peak working sets of 6.73 and 6.93 GiB. The 93,038-constant
+candidate takes 278.0 and 255.1 seconds with peak working sets of 6.88 and 7.01 GiB. Its RDL,
+omissions, and capture configuration are byte-identical across those runs. These are workload
+observations, not another controlled optimization comparison.
+
+Decoded DLL-export attributes add 1,037 ICU functions across all three targets, raising the function
+count from 11,363 to 12,400 without changing any retained declarations or the constant accounting.
+All added imports are present in the frozen baseline. Ten already-omitted declarations receive
+more specific diagnostics: nine depend on the unsupported ARM64 `va_list` alias, directly or through
+trace callbacks, and one lacks configured DLL ownership. No new omission identities appear.
+The resulting 74,400 omissions remain explicit. Two full runs take 270.8 and 274.7 seconds with
+peak working sets of 6.79 and 6.82 GiB. All 787 RDL partitions, omissions, capture configuration,
+constant accounting, and canonical WinMD exports are byte-identical.
+
+Baseline comparison of the added ICU signatures finds 432 exact matches on all targets and 580
+names that differ only by checked primitive typedef spellings. The other 25 names include
+12 that use inline function pointers instead of named callbacks and 17 with different outer pointer
+constness, with four names in both groups. The pointer forms preserve native declarations such as
+`const char **source` as `*mut *const i8`, not `*const *const i8`. Bare function typedefs remain
+unpublished, unlike pointer-to-function typedefs, so their callback names need a shared publication
+fix. These differences are not blanket baseline-parity approval.
+
+The remaining name gaps include 239 names captured as members of 32 named enums rather than loose
+constants, and 17 serial macros rejected for differing written aliases across inputs
+(`DWORD`/`ULONG` or `BYTE`/`UCHAR`). The approved UUID-tag policy recovers 713 baseline names without
+inferring values for separately declared `CLSID_*` or `IID_*` objects. Five enum members have
+signed/unsigned value differences with matching 32-bit patterns; their public type/ownership
+contract remains unresolved. `MediaEventType` is a separate `DWORD` typedef, not a native alias
+of its neighboring MIDL enum. Do not infer that association from adjacency.
+
+Other omissions include deferred PCH failures and missing definitions. Olectl's 27 baseline GUIDs
+sit inside `#if !defined(INITGUID)`, so ordinary definition mode excludes their source declarations.
+No header guards or declaration macros are overridden to manufacture those definitions.
+Among present loose constants, canonical comparison records 1,900 type-classified names, the
+`CLSCTX_VALID_MASK` value difference, and no attribute differences. Name presence, unchanged
+preceding output, and repeatability do not resolve these baseline semantic differences or satisfy
+replacement acceptance.
+
 `--sdk-imports` loads the pinned SDK's x64 import libraries using the shared ordered policy in
 `crates/tools/win32/src/imports.rs`. Host libraries precede API-set umbrellas, and the enclave runtime
 comes last. The same checked DLL corrections apply in both generators; an unexpected SDK mapping
@@ -581,7 +674,7 @@ fails generation. This is an x64-derived publication policy, not per-architectur
 Explicit `--import` entries take precedence over discovered entries.
 The driver carries 18 named-export mappings exercised by `sdk_functions` whose SDK import records
 use ordinals. It verifies their DLL and ordinal before applying this policy. The remaining fixture
-imports come from named SDK records, so broad capture does not require copying its 114 mappings
+imports come from named SDK records, so broad capture does not require copying its 117 mappings
 onto the command line. This policy is not a general inference that an ordinal record has a named
 export.
 

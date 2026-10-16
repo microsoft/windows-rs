@@ -1,6 +1,10 @@
 #[win32]
 mod Fixture {
+    const ANONYMOUS_MACRO: i16 = -2;
+    const ANONYMOUS_MEMBER: i16 = -2;
     const LARGE: Wide = 18446744073709551615;
+    const MIDL_MACRO: u16 = 65535;
+    const MIDL_MEMBER: u16 = 65535;
     #[repr(i8)]
     #[scoped]
     enum Mode {

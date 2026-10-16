@@ -13,8 +13,8 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    const FOLDERID_Desktop: GUID = 0xb4bfcc3adb2c424cb0297fe99a87c641;
-    const FOLDERID_Documents: GUID = 0xfdd39ad0238f46afadb46c85480369c7;
+    const FOLDERID_Desktop: GUID = 0xb4bfcc3a_db2c_424c_b029_7fe99a87c641;
+    const FOLDERID_Documents: GUID = 0xfdd39ad0_238f_46af_adb4_6c85480369c7;
 }
 #[win32]
 mod Fixture {
@@ -22,9 +22,9 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    #[guid(0xb725f13047ef101aa5f102608c9eebac)]
+    #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
     const PKEY_ItemNameDisplay: PROPERTYKEY = 10;
-    #[guid(0xf29f85e04ff91068ab9108002b27b3d9)]
+    #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
     const PKEY_Title: PROPERTYKEY = 2;
 }
 #[win32]

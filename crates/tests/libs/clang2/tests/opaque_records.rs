@@ -92,6 +92,12 @@ fn no_fabricated_storage() {
     .unwrap();
     assert_eq!(output.output.functions, 0);
     assert_eq!(output.output.records, 3);
+    assert_eq!(output.output.constants, 1);
+    assert!(output.output.partitions.values().any(|partition| {
+        partition
+            .rdl
+            .contains("const Identified: GUID = 0x12345678_1234_1234_1234_123456789abc;")
+    }));
     for name in [
         "Make",
         "Consume",
@@ -101,7 +107,6 @@ fn no_fabricated_storage() {
         "Consumer",
         "Unknown",
         "Aligned",
-        "Identified",
         "Parent",
         "Inherit",
     ] {

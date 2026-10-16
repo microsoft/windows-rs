@@ -11,7 +11,9 @@ fn guid_definition_input() {
     let output = projection::generate(std::slice::from_ref(&input), "Fixture").unwrap();
     let rdl = &output.partitions["winnt"].rdl;
     assert!(
-        rdl.contains("const GUID_MAX_POWER_SAVINGS: GUID = 0xa184130835414fabbc81f71556f20b4a;"),
+        rdl.contains(
+            "const GUID_MAX_POWER_SAVINGS: GUID = 0xa1841308_3541_4fab_bc81_f71556f20b4a;"
+        ),
         "{rdl}"
     );
     let mut declaration = test_clang2::annotated_sdk_fixture();

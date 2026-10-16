@@ -70,8 +70,17 @@ fn compact_attribute_evidence() {
         assert_eq!(attribute.location.as_ref().unwrap().line, 10_006);
     }
     input.roots = vec!["Exported".into()];
+    let exported = capture_partial(std::slice::from_ref(&input), &TARGETS).unwrap();
+    assert!(exported.omissions.is_empty());
+    for snapshot in exported.snapshots {
+        assert_eq!(
+            snapshot.values[0].observations[0].attributes[0].kind,
+            AttributeKind::DllExport
+        );
+    }
+    input.roots = vec!["Unsupported".into()];
     let partial = capture_partial(&[input], &TARGETS).unwrap();
     assert_eq!(partial.omissions.len(), 1);
-    assert!(partial.omissions[0].contains("DLLExport"));
+    assert!(partial.omissions[0].contains("NoInline"));
     assert!(partial.omissions[0].len() < 256, "{}", partial.omissions[0]);
 }

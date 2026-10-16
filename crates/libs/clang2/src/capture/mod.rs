@@ -118,12 +118,13 @@ pub(super) fn read(
         if unsafe { clang_isPreprocessing(kind) } != 0 {
             continue;
         }
-        if matches!(kind, CXCursor_StructDecl | CXCursor_UnionDecl)
-            && matches!(
-                unsafe { clang_getCursorKind(clang_getCursorSemanticParent(cursor)) },
-                CXCursor_StructDecl | CXCursor_UnionDecl
-            )
-        {
+        if matches!(
+            kind,
+            CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
+        ) && matches!(
+            unsafe { clang_getCursorKind(clang_getCursorSemanticParent(cursor)) },
+            CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
+        ) {
             let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
             capture.declarations.entry(key).or_default().push(cursor);
             continue;
@@ -131,6 +132,7 @@ pub(super) fn read(
         if !matches!(
             kind,
             CXCursor_StructDecl
+                | CXCursor_ClassDecl
                 | CXCursor_UnionDecl
                 | CXCursor_EnumDecl
                 | CXCursor_TypedefDecl
@@ -234,7 +236,7 @@ pub(super) fn read(
         }
         let declaration = if matches!(
             unsafe { clang_getCursorKind(cursor.0) },
-            CXCursor_StructDecl | CXCursor_UnionDecl
+            CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
         ) {
             DeclarationId::Record(capture.record(cursor.0)?)
         } else if unsafe { clang_getCursorKind(cursor.0) } == CXCursor_EnumDecl {
@@ -454,11 +456,11 @@ impl Capture<'_> {
     fn record(&mut self, cursor: CXCursor) -> Result<RecordId, Error> {
         if !matches!(
             unsafe { clang_getCursorKind(cursor) },
-            CXCursor_StructDecl | CXCursor_UnionDecl
+            CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
         ) {
             return Err(unsupported(
                 cursor,
-                "expected a struct or union declaration",
+                "expected a struct, class, or union declaration",
             ));
         }
         let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
@@ -468,7 +470,7 @@ impl Capture<'_> {
         let parent = unsafe { clang_getCursorSemanticParent(cursor) };
         let owner = if matches!(
             unsafe { clang_getCursorKind(parent) },
-            CXCursor_StructDecl | CXCursor_UnionDecl
+            CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
         ) {
             let record = self.record(parent)?;
             let field = if unsafe { clang_Cursor_isAnonymous(cursor) } != 0 {
@@ -519,10 +521,10 @@ impl Capture<'_> {
             },
             usr,
             owner,
-            kind: if unsafe { clang_getCursorKind(cursor) } == CXCursor_UnionDecl {
-                RecordKind::Union
-            } else {
-                RecordKind::Struct
+            kind: match unsafe { clang_getCursorKind(cursor) } {
+                CXCursor_UnionDecl => RecordKind::Union,
+                CXCursor_ClassDecl => RecordKind::Class,
+                _ => RecordKind::Struct,
             },
             observations: Vec::new(),
         });
@@ -534,6 +536,9 @@ impl Capture<'_> {
     fn observation(&mut self, record: RecordId, cursor: CXCursor) -> Result<(), Error> {
         let mut attributes = Vec::new();
         let definition = if unsafe { clang_isCursorDefinition(cursor) } != 0 {
+            if unsafe { clang_getCursorKind(cursor) } == CXCursor_ClassDecl {
+                return Err(unsupported(cursor, "class definitions are unsupported"));
+            }
             let native_fields = record_fields(cursor);
             let mut fields = Vec::new();
             let mut bases = Vec::new();
@@ -758,6 +763,7 @@ impl Capture<'_> {
             "Packed" => AttributeKind::Packed,
             "MSNoVTable" => AttributeKind::NoVTable,
             "DLLImport" => AttributeKind::DllImport,
+            "DLLExport" => AttributeKind::DllExport,
             "NoThrow" => AttributeKind::NoThrow,
             "SelectAny" => AttributeKind::SelectAny,
             "Annotate" => annotations::read(cursor)?,

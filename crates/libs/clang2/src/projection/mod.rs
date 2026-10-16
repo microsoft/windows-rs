@@ -222,6 +222,7 @@ fn project_impl(
         };
         let mut published = HashSet::new();
         let mut constants = HashMap::new();
+        let mut unpublished_values = HashSet::new();
         for value in &resolution.values {
             let keys: Vec<_> = value
                 .observations
@@ -289,11 +290,72 @@ fn project_impl(
                         kind,
                     )?;
                 }
-                Err(error) => reject(&mut rejected, keys, error)?,
+                Err(error) => {
+                    unpublished_values.insert(value.name.as_str());
+                    reject(&mut rejected, keys, error)?;
+                }
+            }
+        }
+        for group in &resolution.groups {
+            let Some(uuid) = projector.uuid_tag(group) else {
+                continue;
+            };
+            let name = resolution.name(group);
+            let key = partial::Key::Tag(name.into());
+            let mut headers = BTreeSet::new();
+            let result = (|| {
+                if unpublished_values.contains(name) {
+                    return Err(Error(format!(
+                        "UUID tag `{name}` collides with an unpublishable native value"
+                    )));
+                }
+                let mut bodies = Vec::new();
+                for reference in &group.records {
+                    let snapshot = resolution.snapshots[reference.snapshot];
+                    for id in &snapshot.records[reference.record.0].observations {
+                        let observation = &snapshot.observations[id.0];
+                        headers.insert(snapshot.files[observation.location.file.0].clone());
+                        if observation.attributes.iter().any(|attribute| {
+                            !matches!(
+                                attribute.kind,
+                                AttributeKind::Uuid(_)
+                                    | AttributeKind::Sal(_)
+                                    | AttributeKind::Deprecated(_)
+                            )
+                        }) {
+                            return Err(Error(format!(
+                                "unsupported UUID tag attributes on `{name}`"
+                            )));
+                        }
+                        let name = ident(name)?;
+                        let guid = values::write_guid(uuid);
+                        bodies.push(Body {
+                            attributes: annotations::write(&observation.attributes),
+                            declaration: quote! { const #name: GUID = #guid; },
+                        });
+                    }
+                }
+                agree(name, target, &bodies)?;
+                Ok(bodies.into_iter().next().unwrap())
+            })();
+            match result {
+                Ok(body) => publish(
+                    &mut declarations,
+                    target,
+                    name,
+                    body,
+                    headers,
+                    vec![key],
+                    PublishedKind::Constant,
+                )?,
+                Err(error) => reject(&mut rejected, [key], error)?,
             }
         }
         for (id, family) in plan.families.iter().enumerate() {
             if family.is_empty() || plan.owned[id] {
+                continue;
+            }
+            if projector.uuid_tag(&resolution.groups[family[0]]).is_some() {
                 continue;
             }
             let name = &plan.names[id];
@@ -499,6 +561,35 @@ fn project_impl(
             let snapshot = resolution.snapshots[first.snapshot];
             let canonical =
                 snapshot.aliases[first.alias.0].observations[first.observation].canonical;
+            if let TypeKind::Record(record) = snapshot.types[canonical.0].kind
+                && projector
+                    .uuid_tag(resolution.group(RecordRef {
+                        snapshot: first.snapshot,
+                        record,
+                    }))
+                    .is_some()
+            {
+                if alias.name != snapshot.records[record.0].name
+                    || alias.observations.iter().any(|reference| {
+                        let snapshot = resolution.snapshots[reference.snapshot];
+                        let observation = &snapshot.aliases[reference.alias.0].observations
+                            [reference.observation];
+                        !observation.attributes.is_empty()
+                            || snapshot.types[observation.canonical.0].qualifiers
+                                != Qualifiers::default()
+                    })
+                {
+                    reject(
+                        &mut rejected,
+                        [partial::Key::Alias(alias.name.clone())],
+                        Error(format!(
+                            "UUID tag alias `{}` has no projected type",
+                            alias.name
+                        )),
+                    )?;
+                }
+                continue;
+            }
             if !publishable_alias(snapshot, canonical)
                 && alias.observations.iter().any(|reference| {
                     let snapshot = resolution.snapshots[reference.snapshot];
@@ -1243,6 +1334,15 @@ impl Projector<'_, '_> {
                     .map_err(|_| Error("array extent exceeds host size".into()))?,
             ),
             TypeKind::Record(record) => {
+                if self
+                    .uuid_tag(self.resolution.group(RecordRef {
+                        snapshot: snapshot_id,
+                        record: *record,
+                    }))
+                    .is_some()
+                {
+                    return Err(Error("UUID tag has no projected type".into()));
+                }
                 if self.interface_record(snapshot_id, *record) {
                     return Err(Error("interface values require a native pointer".into()));
                 }
@@ -1386,7 +1486,10 @@ impl Projector<'_, '_> {
         if attributes.iter().any(|attribute| {
             matches!(
                 attribute.kind,
-                AttributeKind::Uuid(_) | AttributeKind::NoVTable | AttributeKind::DllImport
+                AttributeKind::Uuid(_)
+                    | AttributeKind::NoVTable
+                    | AttributeKind::DllImport
+                    | AttributeKind::DllExport
             )
         }) {
             return Err(Error(format!(
@@ -1697,7 +1800,7 @@ impl Projector<'_, '_> {
             return Err(Error(format!("record `{name}` cannot use metadata layout")));
         }
         let keyword = match kind {
-            RecordKind::Struct => quote! { struct },
+            RecordKind::Struct | RecordKind::Class => quote! { struct },
             RecordKind::Union => quote! { union },
         };
         let declaration_name = (!inline_record).then_some(name);

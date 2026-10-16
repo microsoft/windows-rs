@@ -6,6 +6,166 @@ use windows_metadata::{Type as MetadataType, reader};
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
+#[test]
+fn uuid_tags() {
+    helpers::ensure_libclang();
+    let input = test_clang2::fixture("uuid_tags");
+    let output = project(&[input]);
+    assert_eq!(output.constants, 3);
+    assert_eq!(output.records, 0);
+    assert_eq!(output.aliases, 0);
+    roundtrip("uuid_tags", &output, |index, bit| {
+        let api = index.expect("Fixture", "Apis");
+        for (name, guid) in [
+            ("ClassTag", 0x123456789abcdef00102030405060708_u128),
+            ("StructTag", 0xffffffffabcd123480010203040506ff),
+            (
+                "ArchTag",
+                u128::from(if bit == 1 { 4_u32 } else { 8 }) << 96,
+            ),
+        ] {
+            let field = api
+                .fields()
+                .find(|field| {
+                    field.name() == name && (field.arches() == 0 || field.arches() & bit != 0)
+                })
+                .unwrap();
+            let mut expected = vec![
+                windows_metadata::Value::U32((guid >> 96) as u32),
+                windows_metadata::Value::U16((guid >> 80) as u16),
+                windows_metadata::Value::U16((guid >> 64) as u16),
+            ];
+            expected.extend(
+                guid.to_be_bytes()[8..]
+                    .iter()
+                    .map(|byte| windows_metadata::Value::U8(*byte)),
+            );
+            assert_eq!(
+                field
+                    .find_attribute("GuidAttribute")
+                    .unwrap()
+                    .value()
+                    .into_iter()
+                    .map(|(_, value)| value)
+                    .collect::<Vec<_>>(),
+                expected
+            );
+        }
+    });
+}
+
+#[test]
+fn uuid_tag_contracts() {
+    helpers::ensure_libclang();
+    let selected = selected_fixture("uuid_tags", &["ClassTag"]);
+    assert_eq!(project(&[selected]).constants, 1);
+    let mut inputs = [
+        test_clang2::fixture("uuid_tags"),
+        Input {
+            name: "uuid_declarations.h".into(),
+            source: "class ClassTag; struct StructTag; class ArchTag;".into(),
+            ..Default::default()
+        },
+    ];
+    let expected = project(&inputs);
+    inputs.reverse();
+    assert_eq!(project(&inputs), expected);
+    inputs[0].source = "struct ClassTag; class StructTag; class ArchTag;".into();
+    assert_eq!(project(&inputs), expected);
+    inputs[0].source =
+        "class __declspec(uuid(\"00000000-0000-0000-0000-000000000000\")) ClassTag; \
+        struct Bad { ClassTag* tag; const int invalid; };"
+            .into();
+    for _ in 0..2 {
+        assert!(
+            projection::generate(&inputs, "Fixture")
+                .unwrap_err()
+                .to_string()
+                .contains("UUID differs")
+        );
+        assert!(
+            projection::generate_partial(&inputs, "Fixture")
+                .unwrap_err()
+                .to_string()
+                .contains("UUID differs")
+        );
+        inputs.reverse();
+    }
+    let mut input = test_clang2::fixture("uuid_tags");
+    input.source.push_str(
+        "\ntypedef struct _GUID { unsigned long Data1; unsigned short Data2, Data3; unsigned char Data4[8]; } GUID;\n\
+         #define StructTag __uuidof(struct StructTag)\n",
+    );
+    input.macros.push("StructTag".into());
+    let output = project(&[input]);
+    assert_eq!(output.constants, 3);
+    assert_eq!(output.records, 1);
+}
+
+#[test]
+fn uuid_tags_are_not_types_or_object_definitions() {
+    helpers::ensure_libclang();
+    for declaration in [
+        "typedef ClassTag Renamed;",
+        "struct Consumer { ClassTag* value; };",
+        "class Plain;",
+        "class ClassTag {};",
+        "struct __declspec(align(16)) StructTag;",
+        "const int ClassTag = 7;",
+    ] {
+        let mut input = test_clang2::fixture("uuid_tags");
+        input.source = input.source.replace("typedef class ClassTag ClassTag;", "");
+        input.source.push_str(declaration);
+        assert!(
+            projection::generate(&[input], "Fixture").is_err(),
+            "{declaration}"
+        );
+    }
+    let mut input = test_clang2::fixture("uuid_tags");
+    input.source.push_str(
+        "\nstruct GUID { unsigned long Data1; unsigned short Data2, Data3; unsigned char Data4[8]; };\
+         extern const GUID CLSID_ClassTag;\
+         typedef ClassTag Renamed;\
+         struct Consumer { ClassTag* value; };",
+    );
+    let partial = projection::generate_partial(&[input], "Fixture").unwrap();
+    assert_eq!(partial.output.constants, 3);
+    for name in ["CLSID_ClassTag", "Renamed", "Consumer"] {
+        assert!(
+            partial.omissions.iter().any(|error| error.contains(name)),
+            "{name}"
+        );
+        assert!(
+            !partial
+                .output
+                .partitions
+                .values()
+                .any(|partition| partition.rdl.contains(name))
+        );
+    }
+    let mut input = test_clang2::fixture("uuid_tags");
+    input.source = input.source.replace("typedef class ClassTag ClassTag;", "");
+    input.source.push_str("\nextern const int ClassTag;");
+    let partial = projection::generate_partial(&[input], "Fixture").unwrap();
+    assert_eq!(partial.output.constants, 2);
+    assert!(
+        partial
+            .omissions
+            .iter()
+            .any(|error| error.contains("unpublishable native value"))
+    );
+    let mut input = test_clang2::fixture("uuid_tags");
+    input.source.push_str("\nclass ClassTag {};");
+    let partial = projection::generate_partial(&[input], "Fixture").unwrap();
+    assert_eq!(partial.output.constants, 2);
+    assert!(
+        partial
+            .omissions
+            .iter()
+            .any(|error| error.contains("class definitions are unsupported"))
+    );
+}
+
 fn imports() -> BTreeMap<String, projection::Import> {
     [
         ("ReadPayload", "example.dll", Some("ReadPayloadEntry")),
@@ -432,9 +592,16 @@ fn interface_overload_bindings() {
 fn enum_constants() {
     helpers::ensure_libclang();
     let mut input = selected_fixture("enum_constants", &[]);
-    input.macros = vec!["SELECTED_MACRO".into(), "UNNAMED_VALUE".into()];
+    input.macros = [
+        "SELECTED_MACRO",
+        "UNNAMED_VALUE",
+        "ANONYMOUS_MACRO",
+        "MIDL_MACRO",
+    ]
+    .map(String::from)
+    .into();
     let output = project(std::slice::from_ref(&input));
-    assert_eq!(output.constants, 5);
+    assert_eq!(output.constants, 9);
     assert_eq!(output.enums, 2);
     let mut equal = [
         selected_fixture("enum_constants", &["SELECTED"]),
@@ -474,6 +641,22 @@ fn enum_constants() {
     roundtrip("enum_constants", &output, |index, bit| {
         let apis = index.expect("Fixture", "Apis");
         for (name, ty, value) in [
+            (
+                "ANONYMOUS_MACRO",
+                MetadataType::I16,
+                windows_metadata::Value::I16(-2),
+            ),
+            (
+                "MIDL_MACRO",
+                MetadataType::U16,
+                windows_metadata::Value::U16(u16::MAX),
+            ),
+        ] {
+            let field = apis.fields().find(|field| field.name() == name).unwrap();
+            assert_eq!(field.ty(), ty);
+            assert_eq!(field.constant().unwrap().value(), value);
+        }
+        for (name, ty, value) in [
             ("SELECTED", "ModeAlias", windows_metadata::Value::I8(-1)),
             ("SELECTED_MACRO", "Mode", windows_metadata::Value::I8(2)),
             ("UNNAMED_VALUE", "Mode", windows_metadata::Value::I8(3)),
@@ -497,6 +680,18 @@ fn enum_constants() {
     let partial = projection::generate_partial(&[input], "Fixture").unwrap();
     assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
     assert_eq!(partial.output, output);
+    for attribute in ["align(8)", "deprecated(\"legacy\")"] {
+        let mut input = selected_fixture("enum_constants", &["ANONYMOUS_MACRO"]);
+        input.macros = vec!["ANONYMOUS_MACRO".into()];
+        input.source = input.source.replace(
+            "enum : short",
+            &format!("enum __declspec({attribute}) : short"),
+        );
+        assert!(projection::generate(std::slice::from_ref(&input), "Fixture").is_err());
+        let partial = projection::generate_partial(&[input], "Fixture").unwrap();
+        assert_eq!(partial.output.constants, 0);
+        assert!(!partial.omissions.is_empty());
+    }
     for replacement in ["Mode::On", "static_cast<Mode>(3)"] {
         let mut inputs = [
             selected_fixture("enum_constants", &["SELECTED"]),
@@ -524,7 +719,7 @@ fn aggregate_constants() {
         .map(String::from)
         .into();
     let output = project(std::slice::from_ref(&input));
-    assert_eq!(output.constants, 12);
+    assert_eq!(output.constants, 14);
     let partial = projection::generate_partial(std::slice::from_ref(&input), "Fixture").unwrap();
     assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
     assert_eq!(partial.output, output);
@@ -570,6 +765,11 @@ fn aggregate_constants() {
                 u128::from(if bit == 1 { 4_u32 } else { 8 }) << 96,
             ),
             ("KEY", 0x123456789abcdef00102030405060708),
+            ("DEVICE_KEY", 0x123456789abcdef00102030405060708),
+            (
+                "ARCH_DEVICE_KEY",
+                u128::from(if bit == 1 { 4_u32 } else { 8 }) << 96,
+            ),
         ] {
             let field = field(name);
             let mut expected = vec![
@@ -597,6 +797,19 @@ fn aggregate_constants() {
             field("KEY").constant().unwrap().value(),
             windows_metadata::Value::U32(42)
         );
+        for (name, id) in [
+            ("DEVICE_KEY", u32::MAX),
+            ("ARCH_DEVICE_KEY", if bit == 1 { 4 } else { 8 }),
+        ] {
+            assert_eq!(
+                field(name).ty(),
+                MetadataType::ValueName(windows_metadata::TypeName::named("Fixture", "DEVPROPKEY"))
+            );
+            assert_eq!(
+                field(name).constant().unwrap().value(),
+                windows_metadata::Value::U32(id)
+            );
+        }
         for (name, message) in [("KEY", "use another key"), ("SELECTED_GUID", "use next")] {
             assert_eq!(
                 field(name)
@@ -635,6 +848,21 @@ fn aggregate_constants() {
         conflict[1].source = conflict[1].source.replace(old, new);
         assert!(projection::generate(&conflict, "Fixture").is_err());
         assert!(projection::generate_partial(&conflict, "Fixture").is_err());
+    }
+    for (old, new) in [
+        ("DEVPROPID pid", "long pid"),
+        ("DEVPROPID pid", "unsigned short pid"),
+        ("DEVPROPKEY", "OtherKey"),
+    ] {
+        let mut input = selected_fixture("aggregate_constants", &["DEVICE_KEY"]);
+        input.source = input
+            .source
+            .replace("0xffffffff};", "42};")
+            .replace(old, new);
+        assert!(projection::generate(std::slice::from_ref(&input), "Fixture").is_err());
+        let partial = projection::generate_partial(&[input], "Fixture").unwrap();
+        assert_eq!(partial.output.constants, 0);
+        assert!(!partial.omissions.is_empty());
     }
     for name in [
         "SIDE_EFFECT",
@@ -926,6 +1154,22 @@ fn free_functions() {
     assert_eq!(merged.values.len(), 2);
     assert!(merged.values.iter().all(|value| value.groups.len() == 3));
     for snapshot in &snapshots {
+        for (name, kind) in [
+            ("ReadPayload", AttributeKind::DllImport),
+            ("NativeSum", AttributeKind::DllExport),
+        ] {
+            let value = snapshot
+                .values
+                .iter()
+                .find(|value| value.name == name)
+                .unwrap();
+            assert!(value.observations.iter().all(|observation| {
+                observation
+                    .attributes
+                    .iter()
+                    .any(|attribute| attribute.kind == kind)
+            }));
+        }
         let value = snapshot
             .values
             .iter()
@@ -967,6 +1211,14 @@ fn free_functions() {
     );
     roundtrip("free_functions", &output, |index, bit| {
         let apis = index.expect("Fixture", "Apis");
+        let exported = apis
+            .methods()
+            .find(|method| method.name() == "NativeSum")
+            .unwrap();
+        let map = exported.impl_map().unwrap();
+        assert_eq!(map.import_scope().name(), "example.dll");
+        assert_eq!(map.import_name(), "NativeSum");
+        assert_eq!(exported.calling_convention(), "C");
         let method = apis
             .methods()
             .find(|method| {
@@ -1003,6 +1255,53 @@ fn free_functions() {
             ["payload", "written"]
         );
     });
+}
+
+#[test]
+fn dll_export_contracts() {
+    helpers::ensure_libclang();
+    let mut inputs = [
+        selected_fixture("free_functions", &[]),
+        selected_fixture("free_functions", &[]),
+    ];
+    inputs[1].name = "other.h".into();
+    let expected = project(&inputs);
+    inputs.reverse();
+    assert_eq!(project(&inputs), expected);
+    for replacement in ["", "__declspec(dllimport)"] {
+        let original = inputs[0].source.clone();
+        inputs[0].source = original.replace("__declspec(dllexport)", replacement);
+        for _ in 0..2 {
+            assert!(capture_partial(&inputs, &TARGETS).is_err());
+            inputs.reverse();
+        }
+        inputs[0].source = original;
+    }
+    let mut ownership = imports();
+    ownership.remove("NativeSum");
+    let output = projection::project_partial_with_imports(
+        capture_partial(&inputs, &TARGETS).unwrap(),
+        "Fixture",
+        &ownership,
+    )
+    .unwrap();
+    assert_eq!(output.output.functions, 1);
+    assert!(output.omissions.iter().any(|error| {
+        error.contains("NativeSum") && error.contains("no configured DLL/export ownership")
+    }));
+    for source in [
+        "extern \"C\" __declspec(dllexport) const int Exported = 42;",
+        "struct __declspec(dllexport) Exported { int field; };",
+    ] {
+        let input = Input {
+            name: "exported_storage.h".into(),
+            source: source.into(),
+            ..Default::default()
+        };
+        let output = projection::generate_partial(&[input], "Fixture").unwrap();
+        assert_eq!(output.output.constants + output.output.records, 0);
+        assert!(!output.omissions.is_empty());
+    }
 }
 
 #[test]

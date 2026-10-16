@@ -6,4 +6,4 @@ struct Payload {
 
 extern "C" __declspec(dllimport) Count __stdcall ReadPayload(
     const Payload* payload, Count* written);
-extern "C" int __cdecl NativeSum(int left, int right);
+extern "C" __declspec(dllexport) int __cdecl NativeSum(int left, int right);
