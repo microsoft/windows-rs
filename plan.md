@@ -58,6 +58,29 @@ New failures must be classified, not silently ignored. Stop and seek a decision 
 weaken an invariant, require an exception, change required scope, or exceed an agreed resource
 budget. Do not substitute an easier header-by-header queue for the architectural problem.
 
+## Recurring quality gates
+
+Quality checks and review are required throughout implementation, not postponed to final acceptance.
+
+- **Each implementation change:** format affected code, build/check affected crates, run clippy
+  with warnings denied, and run focused regressions. Cover the changed contract, rejection paths,
+  and relevant target/input-order behavior. Native companion changes also require native boundary
+  checks. Documentation-only changes do not require code tests.
+- **Each mechanism change:** review the actual diff in a separate pass before returning to breadth.
+  Check correctness, ownership, validation before pruning, error reporting, determinism, and
+  maintainability. Confirm that the solution is general and adds no unnecessary complexity,
+  duplication, name-specific exceptions, or guessed evidence.
+- **Each breadth batch:** compare the full candidate with its control, review semantic differences
+  and new omissions, and inspect runtime/peak-memory results. Account for regressions before
+  accepting the batch; name counts and successful compilation alone are insufficient.
+- **Each batch handoff:** record the checks run, review findings, and unresolved risks outside this
+  plan. Fix issues introduced by the work; do not declare completion with unexplained failures.
+
+Keep checks proportional to the change and reuse existing tooling. Escalate to broader suites when
+the affected boundary or results require them, not for every added header. These gates apply to the
+parser, native companion, metadata, and tooling now; downstream Rust consumer checks remain a
+separate final acceptance requirement.
+
 ## Current boundaries
 
 Header-to-RDL iteration is the working loop. Use focused WinMD checks where needed to establish

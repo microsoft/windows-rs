@@ -1,0 +1,8 @@
+#[win32]
+mod Fixture {
+    const KSAUDIO_SPEAKER_5POINT1: i32 = 63;
+    const KSAUDIO_SPEAKER_STEREO: i32 = 3;
+    const SPEAKER_ALL: u32 = 2147483648;
+    const SPEAKER_FRONT_LEFT: i32 = 1;
+    const SPEAKER_FRONT_LEFT_OF_CENTER: i32 = 64;
+}

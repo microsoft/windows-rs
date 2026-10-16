@@ -68,6 +68,12 @@ use compatible callback names resolved across the target, independent of the rep
 Without a compatible name they use inline `extern "C" fn(...)` or `extern fn(...)` types, encoded
 as ECMA-335 `FNPTR` signatures. No public callback names are synthesized.
 
+Incomplete global structs publish empty nominal pointee markers, not native storage layouts.
+Pointers preserve their tag identity and qualifiers. A definition in another input supplies the
+real record; failed or complete empty definitions cannot fall back to markers. Incomplete records
+cannot pass or return by value in callable signatures. Incomplete unions, classes, nested records,
+and forwards with layout or UUID attributes remain unsupported.
+
 External C-linkage functions retain native signatures, parameter names, and mangling.
 `project_with_imports` and `project_partial_with_imports` take explicit DLL/export ownership;
 it is not guessed from headers. The SDK driver can supply it with `--sdk-imports`, using the pinned
@@ -95,8 +101,11 @@ in selected header filenames. Isolated compiler probes report invalid expression
 a failed AST or disrupting unrelated capture. Strict mode fails on rejected candidates; partial mode
 reports them as omissions. The SDK driver exposes this as repeatable `--macro-header=header.h`.
 Discovery uses the active definition's owner, not a superseded definition in another header.
-A constant-expression check rejects runtime side effects that
-libclang's general folding API may ignore. This slice does not implement non-finite or extended
+Probes do not parenthesize initializers: comma-separated field fragments must not become scalar
+constants. Comma expressions already parenthesized in the macro remain supported.
+A native static-initializer check requires evaluation without runtime side effects or undefined
+behavior. It accepts compiler-supported field-offset expressions without parsing macro tokens.
+Successful folding alone is insufficient. This slice does not implement non-finite or extended
 floats, arbitrary aggregates, pointer strings, or non-ASCII narrow strings.
 Numeric data-pointer constants use compiler-validated static initialization and retain target-width
 address bits, pointer typedefs, and pointee constness. Relocations, code addresses, side effects,

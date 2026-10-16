@@ -1,0 +1,18 @@
+#[win32]
+mod Fixture {
+    const CFE_BOLD: i32 = 1;
+    const CFM_BOLD: i32 = 1;
+    const EM_GETZOOM: i32 = 1248;
+    const EM_SETZOOM: i32 = 1249;
+    const EM_SETTEXTEX: i32 = 1121;
+    #[encoding("utf-16")]
+    const MSFTEDIT_CLASS: String = "RICHEDIT50W";
+    #[encoding("ansi")]
+    const RICHEDIT_CLASS: String = "RichEdit20A";
+    #[encoding("ansi")]
+    const RICHEDIT_CLASSA: String = "RichEdit20A";
+    #[encoding("utf-16")]
+    const RICHEDIT_CLASSW: String = "RichEdit20W";
+    const SF_TEXT: i32 = 1;
+    const SF_UNICODE: i32 = 16;
+}

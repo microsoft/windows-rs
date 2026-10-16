@@ -84,6 +84,27 @@ mod Windows {
             attribute NativeBitfieldAttribute {
                 fn(name: String, offset: i64, length: i64);
             }
+            // Provisional native evidence emitted by windows-clang2.
+            attribute NativeSalAttribute {
+                fn(version: String, name: String, arguments: String, expanded: String);
+                TypedefName: String,
+            }
+            attribute NativeDeprecatedAttribute {
+                fn(message: String, replacement: String);
+                TypedefName: String,
+            }
+            attribute NativeExceptionSpecificationAttribute {
+                fn(specification: String);
+            }
+            attribute NativeDefaultArgumentAttribute {
+                fn(expression: String);
+            }
+            attribute NativeConstMethodAttribute {
+                fn();
+            }
+            attribute NativeBaseAttribute {
+                fn();
+            }
         }
     }
 }

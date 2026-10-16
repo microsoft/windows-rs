@@ -316,7 +316,9 @@ fn project_impl(
                     let snapshot = resolution.snapshots[reference.snapshot];
                     for &observation in &snapshot.records[reference.record.0].observations {
                         let observation = &snapshot.observations[observation.0];
-                        if observation.definition.is_some() {
+                        if observation.definition.is_some()
+                            || resolution.groups[group].definition.is_none()
+                        {
                             bodies.push(projector.record(
                                 reference.snapshot,
                                 observation,
@@ -954,47 +956,46 @@ impl Projector<'_, '_> {
             .iter()
             .chain(std::iter::once(&function.result))
         {
-            if self.inherits_by_value(snapshot, ty, &mut HashSet::new()) {
-                return Err(Error(
-                    "by-value C++ inheritance requires a calling-ABI contract".into(),
-                ));
-            }
+            self.check_value_abi(snapshot, ty, &mut HashSet::new())?;
         }
         Ok(())
     }
 
-    fn inherits_by_value(
+    fn check_value_abi(
         &self,
         snapshot: usize,
         ty: TypeId,
         seen: &mut HashSet<RecordRef>,
-    ) -> bool {
+    ) -> Result<(), Error> {
         match self.resolution.snapshots[snapshot].types[ty.0].kind {
-            TypeKind::Array { element, .. } => self.inherits_by_value(snapshot, element, seen),
+            TypeKind::Array { element, .. } => self.check_value_abi(snapshot, element, seen),
             TypeKind::Record(record) => {
                 let record = RecordRef { snapshot, record };
-                seen.insert(record)
-                    && self
-                        .resolution
-                        .group(record)
-                        .definition
-                        .is_some_and(|reference| {
-                            let definition = self.resolution.snapshots[reference.snapshot]
-                                .observations[reference.observation.0]
-                                .definition
-                                .as_ref()
-                                .unwrap();
-                            !definition.bases.is_empty()
-                                || definition.fields.iter().any(|field| {
-                                    self.inherits_by_value(
-                                        reference.snapshot,
-                                        field.canonical,
-                                        seen,
-                                    )
-                                })
-                        })
+                if !seen.insert(record) {
+                    return Ok(());
+                }
+                let reference = self.resolution.group(record).definition.ok_or_else(|| {
+                    Error(format!(
+                        "incomplete record `{}` cannot be used by value",
+                        self.resolution.snapshots[snapshot].records[record.record.0].name
+                    ))
+                })?;
+                let definition = self.resolution.snapshots[reference.snapshot].observations
+                    [reference.observation.0]
+                    .definition
+                    .as_ref()
+                    .unwrap();
+                if !definition.bases.is_empty() {
+                    return Err(Error(
+                        "by-value C++ inheritance requires a calling-ABI contract".into(),
+                    ));
+                }
+                for field in &definition.fields {
+                    self.check_value_abi(reference.snapshot, field.canonical, seen)?;
+                }
+                Ok(())
             }
-            _ => false,
+            _ => Ok(()),
         }
     }
 
@@ -1358,9 +1359,26 @@ impl Projector<'_, '_> {
         inline_record: bool,
     ) -> Result<Body, Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
-        let definition = observation.definition.as_ref().unwrap();
         let attributes = &observation.attributes;
         let kind = snapshot.records[observation.record.0].kind;
+        let Some(definition) = &observation.definition else {
+            if inline_record
+                || kind != RecordKind::Struct
+                || attributes.iter().any(|attribute| {
+                    !matches!(
+                        attribute.kind,
+                        AttributeKind::Sal(_) | AttributeKind::Deprecated(_)
+                    )
+                })
+            {
+                return Err(Error(format!("unsupported incomplete record `{name}`")));
+            }
+            // A nominal pointee marker carries no native storage or layout claim.
+            return Ok(Body {
+                attributes: annotations::write(attributes),
+                declaration: quote! { struct #name {} },
+            });
+        };
         if !definition.methods.is_empty() || self.interface_record(snapshot_id, observation.record)
         {
             return self.interface(snapshot_id, observation, name);

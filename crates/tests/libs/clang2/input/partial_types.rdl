@@ -11,7 +11,11 @@ mod Fixture {
     struct Good {
         value: i32,
     }
+    struct Incomplete {}
     type MixedPointer = *mut *const i32;
+    struct OpaqueDependent {
+        value: *mut Incomplete,
+    }
     struct PackingConsumer {
         value: *mut UnknownPacking,
     }

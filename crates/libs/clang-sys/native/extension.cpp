@@ -19,7 +19,7 @@ static const char* attributeName(clang::attr::Kind kind) {
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 14;
+    return 15;
 }
 
 WindowsClangStatus windows_clang_getTypeOfOperand(CXCursor cursor, CXCursor* expression) {
@@ -176,8 +176,13 @@ WindowsClangStatus windows_clang_getConstantInitializer(
         return WindowsClangWrongKind;
     }
     auto initializer = declaration->getInit();
-    *is_constant = initializer &&
-        initializer->isCXX11ConstantExpr(clang::cxcursor::getCursorContext(cursor));
+    auto& context = clang::cxcursor::getCursorContext(cursor);
+    *is_constant = 0;
+    if (initializer && initializer->isConstantInitializer(context, false)) {
+        clang::Expr::EvalResult evaluated;
+        *is_constant = initializer->EvaluateAsRValue(evaluated, context) &&
+            !evaluated.HasSideEffects && !evaluated.HasUndefinedBehavior;
+    }
     return WindowsClangSuccess;
 }
 

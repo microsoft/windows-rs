@@ -154,13 +154,14 @@ fn macro_source(input: &Input, macros: &[String], prefix: &str) -> Result<Source
             .len()
             .try_into()
             .map_err(|_| Error("source too large".into()))?;
-        source.push_str(&format!("{prefix}_{index} = ("));
+        // Parentheses would turn initializer fragments into comma expressions.
+        source.push_str(&format!("{prefix}_{index} = "));
         let expansion = source
             .len()
             .try_into()
             .map_err(|_| Error("source too large".into()))?;
         source.push_str(name);
-        source.push_str(");\n");
+        source.push_str(";\n");
         probes.push(capture::MacroProbe {
             name: name.clone(),
             declaration,

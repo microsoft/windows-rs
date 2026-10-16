@@ -114,7 +114,7 @@ WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getLanguageLinkage(
 // Unlike clang_Cursor_Evaluate, this rejects folding that ignores runtime side effects.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getIntegerConstantInitializer(
     CXCursor cursor, unsigned* is_constant);
-// C++ constant expressions, including floating-point values, without runtime side effects.
+// Compiler-accepted static initializer without runtime side effects or undefined behavior.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getConstantInitializer(
     CXCursor cursor, unsigned* is_constant);
 // Numeric data-pointer static initializer with no relocation, side effects, or undefined behavior.

@@ -256,10 +256,70 @@ Native ABI conflicts are fatal. Native-compatible value declarations whose publi
 or aliases disagree are strict projection errors and explicit all-target partial omissions.
 Repeated GUID blocks also occur in the main TU (`winioctl.h`); enabling INITGUID before its prelude
 fails even with satellite definition mode disabled.
-Unselected object-like macros are absent from both output and omission diagnostics. The
-`certbcli.rdl` diff loses 22 such constants (20 numeric/typed values and two strings).
-Track baseline constant parity separately from captured-declaration counts; automatic macro
-discovery remains open. Do not treat these absent constants as already-covered evaluation cases.
+`Input.macro_headers` and `--macro-header=header.h` discover object-like macros through compiler
+preprocessing records and isolated expression probes. Failed probe ASTs never supply capture
+evidence. The certbcli slice recovers its 22 baseline constants, retaining `CSBFT` typedefs, plus two
+string macros whose encoding follows UNICODE. Unselected headers' macros remain absent from both
+output and omissions; track baseline parity separately from captured-declaration counts.
+Winerror and urlmon discovery recover all 7,456 baseline winerror names with unchanged values.
+Retain written typedefs; 363 use `DWORD` where the baseline used `u32`. The active definitions of
+18 `INET_E_*` macros belong to urlmon. Do not recover names by capturing superseded definitions.
+Ntstatus discovery recovers all 3,072 baseline declarations with unchanged types and values.
+Its standalone input needs `winternl.h` for `NTSTATUS`; use `WIN32_NO_STATUS` around Windows headers.
+Active definitions owned by mferror or wincred remain explicit discovery diagnostics in the full TU.
+Winnt macro discovery recovers 3,231 baseline names with unchanged values and 32 written-typedef
+differences. A separate lean Windows INITGUID input recovers 259 winnt and 11 winsvc GUIDs through
+the existing aggregate evaluator. It does not repeat macro discovery.
+Constant observations retain native type, qualifiers, attributes, location, and linkage; only a
+declaration has no value. Resolution compares against a definition when available so declarations
+cannot hide conflicting values. Missing definitions fail publication; invalid initializers remain
+capture failures. All SDK inputs include intsafe before Windows headers, supplying `DWORD_MAX` for
+`POWER_LIMIT_VALUE_NO_CONTROL` without displacing winerror's `S_OK`. Mixed support contexts change
+native SAL arguments and must fail reconciliation. Winnt has 3,490 baseline names present; its only
+missing name, `_ARM64_MULT_INTRINS_SUPPORTED`, is an approved compiler-internal scope exclusion
+whose active definition belongs to the unselected support header, not a parser special case.
+Hidusage macro discovery recovers all 2,833 baseline constants with exact types and values on all
+targets. Only `hidusage.rdl` changes; the header guard is the sole new omission.
+Winuser/imm discovery recovers 3,123 baseline names with unchanged values and target availability;
+75 retain written typedefs. The active owners of `MOD_ALT`, `MOD_CONTROL`, and `MOD_SHIFT` are imm.
+Keep macro-constant exclusions separate from native value exclusions through capture, dependency
+pruning, and publication. Failed probes must not erase observed native functions with the same
+name; known native conflicts still fail before pruning. The `macro_function_aliases` fixture covers
+these boundaries, including SDK-style x86 aliases for functions declared on 64-bit targets.
+Wincrypt discovery closes 2,678 baseline names with unchanged values, encodings, and target
+availability; 173 retain `LPCSTR` aliases. Its fixture covers string concatenation and embedded NULs.
+Four `CERT_STRONG_{SIGN,KEY}_PARA_OS_*` brace initializer macros still require a destination type
+and remain unsupported; never infer that type from macro names or tokens.
+Commctrl/richedit discovery closes 2,157 and 567 baseline names and five moved commdlg constants.
+All prior declarations remain unchanged. Generic opaque pointee markers recover their dependents;
+checked compiler static initializers recover the 38 structure-size macros without SDK exceptions.
+Mmreg and its ksmedia/wmsdkidl companions add 2,475 baseline constants without changing prior
+declarations. Active ownership puts 20 speaker flags in ksmedia and `WAVE_FORMAT_DRM` in wmsdkidl.
+Retained values and target availability match; 55 constants preserve written typedefs. The full
+selection retains 1,974 of 1,976 mmreg names and all 78 wmsdkidl names. Mmreg's PCM/WAVEFORMATEX
+GUIDs and 460 ksmedia baseline macro GUIDs remain PCH-blocked in the satellite input.
+Three ksmedia property keys need definitions; `KSEVENTSETID_VIDCAPTOSTI` is a UUID tag without a
+same-named value macro, so publishing its tag name as a constant needs a separate policy decision.
+The standalone mmreg fixture exposes PCH GUID completeness: `uuid_macros.h` captures `__uuidof`
+explicitly but discovery rejects it after PCH reload, even with a complete `_GUID` definition.
+The matching Clang executable reproduces the failure. Do not hide this with selected GUID names or
+guessed values. Per-failure source confirmation recovers the GUIDs but is too slow: the unchanged
+SDK run exceeds 515.9 seconds without completing capture, against 338.8 seconds for
+capture/merge/project without confirmation.
+The prototype is removed. A native diagnostic probe shows the definition is still in the PCH:
+`ExternalASTSource::CompleteRedeclChain` on Clang's builtin GUID tag loads it and restores correct
+GUID values on all targets. Genuinely incomplete types still fail. This libclang bug is deferred:
+only a small companion tweak is in scope, not a libclang rebuild or parser duplication. No suitable
+pre-parse hook is established. Keep the ignored parity reproducer and explicit GUID coverage, record
+affected gaps, and continue measured families. Do not retain source retries or add parser exceptions.
+Macro probe initializers must not add parentheses around the macro. That turns comma-separated
+initializer fragments into scalar comma expressions. Preserve source-authored grouped expressions;
+let Clang reject field lists without filtering macro names or interpreting their tokens.
+Publication recognizes unscoped numbered `__MIDL_` helper-enum tags, preserves authored typedefs,
+and otherwise emits loose constants without changing native enum identity. Numeric data-pointer
+constants use native static-initialization evidence and require numeric addresses without relocations.
+Their values are sign-extended from the target pointer width. Reject relocations, side effects,
+undefined behavior, function pointers, and COM interface references.
 The `sdk_functions` fixture covers 114 imports across fourteen DLLs, including buffers, callbacks,
 COM activation, registry/security, sockets, cryptography, GDI, timing, virtual memory, HTTP,
 event logging, service control, process inspection, Direct3D device creation, DirectWrite factory
@@ -273,9 +333,9 @@ dependencies. Exception contracts retain explicit metadata.
 Constant breadth includes compiler-evaluated GUIDs, property keys, ASCII/UTF-16 arrays, and selected
 string/GUID macros. `aggregate_constants` and `sdk_constants` check exact RDL and both metadata
 round trips, including architecture variants and annotations. Definitions come from compiler cursor
-links; aggregate leaves come from `APValue`, not numeric-token parsing. Bulk discovery of
-declaration-only GUID definitions and object-like macros remains separate work. Do not count
-unselected macros as covered or enable `INITGUID` globally across repeated SDK GUID blocks.
+links; aggregate leaves come from `APValue`, not numeric-token parsing. Discovery of
+definition inputs for further GUID headers and coverage of further macro headers remain separate work.
+Do not count unselected macros as covered or enable `INITGUID` globally across repeated SDK GUID blocks.
 Review whether each qualification has useful projected semantics before requiring new metadata.
 COM object constness remains in native evidence and reconciliation, but publication maps `I*`
 and `const I*` to the same interface reference. DXGI's `SetPrivateDataInterface` retains/releases
@@ -292,21 +352,33 @@ replacement readiness. Do not let bitfield, opaque-record, or annotation complet
 prerequisite for a basic slice in another category. Expand difficult cases only when the slice
 needs them; keep unsupported contracts explicit.
 
-Drive the rewrite toward complete, correct canonical metadata with a short feedback loop:
+Drive the rewrite toward complete, correct canonical metadata with a short feedback loop.
+Use header-to-RDL fixtures during breadth iteration; defer Rust generation and consumer validation
+to final acceptance rather than running them for each batch.
 
 1. Pick a concrete metadata difference or root omission and add a focused header/RDL fixture
    establishing the intended result.
 2. Fix the responsible capture, reconciliation, or projection layer. If a feature requires
    scattered exceptions or conflicting interpretations, correct that boundary before continuing.
-3. Regenerate `metadata/win32` and leave the generated changes in the worktree for review. Check
-   intended gains, unexpected losses, and representative generated Rust behavior across targets.
-   Do not restore generated output merely because the run was partial.
+3. Regenerate tracked `metadata/win32` even for partial runs, leaving all changes visible in
+   VS Code's Git diff for review. Do not hide or restore partial changes, including deletions.
+   Run `tool-win32-2 --compare-constants` against the frozen Git baseline after successful generation.
+   Check intended gains and unexpected losses against the header/RDL fixtures on all targets.
 4. Compare root omissions, dependent losses, time, and memory with the preceding iteration.
    Diagnostic counts include dependency cascades; uncaptured macros are not counted.
 
 Partial runs and passing fixtures are progress evidence, not replacement readiness. Large deletion
 diffs remain outstanding work. Review architectural pressure points as coverage grows; do not
 substitute repeated redesigns, arbitrary naming/routing rules, or weaker rejection for coverage.
+`capture_partial` reconciles successfully captured observations before dependency pruning. Failed
+observations remain unvalidated omissions, not evidence of compatibility. The validation-pruning
+fixture covers conflicts behind unsupported dependencies and empty enum/alias observations.
+
+`clang2` projects genuine incomplete global structs as nominal pointee markers with no class layout.
+Completeness comes from the reconciled native group, not the local type's layout. By-value callable
+use is rejected; failed definitions and complete empty records cannot fall back to markers.
+Incomplete unions, classes, nested records, and layout/UUID-attributed forwards remain unsupported.
+`test_clang2` `opaque_records.rs` checks this boundary without generating Rust consumers.
 
 ### clang2 remaining attribute coverage
 
@@ -314,6 +386,9 @@ substitute repeated redesigns, arbitrary naming/routing rules, or weaker rejecti
 contract names, source-hook arguments, and further macro expansion in `NativeSalAttribute`.
 These strings are evidence, not evaluated expressions or guaranteed original header tokens.
 Common direction/argument-optionality flags are projected; result nullability is distinct.
+Direct named integer capacities emit `size_param` for bytes and `len_param` for elements through
+the shared function/callback/method parameter path. Capacity is not initialized length; indirect,
+compound, constant, and conditional expressions retain SAL evidence without guessed relationships.
 Typedef reconciliation selects an observed annotation set containing every other observed set;
 incomparable sets fail, and original observations remain unchanged. Native definitions and
 callable observations still require matching annotations. Annotation owners that cannot be
@@ -329,7 +404,7 @@ bitfield initializers hidden by libclang's child visitor.
 Callback array parameters follow Clang's canonical pointer adjustment and preserve written element
 aliases. Variable bounds and C static/qualified array-parameter contracts remain unsupported.
 
-`clang2` `capture.rs` `attribute` uses native kind names, requested `MaxFieldAlignment` bits, and
+`clang2` `capture/mod.rs` `attribute` uses native kind names, requested `MaxFieldAlignment` bits, and
 evaluated `AlignedAttr` requests with their semantic form.
 `test_clang2` `fidelity.rs` `opaque_packing` distinguishes `pack(1)` and `pack(2)` despite identical
 char-only layouts. Reconciliation checks requested packing, and projection preserves it.
@@ -389,10 +464,12 @@ every parameter for dependency collection, namespace remapping, and nested-refer
 
 ### clang2 native declaration queries
 
-Native companion ABI 12 also supplies UUID payloads, language linkage, and constant-expression
+The native companion supplies UUID payloads, language linkage, and static-initializer
 validity. `clang_Cursor_Evaluate` can fold `(call(), 3)` to `3`; successful evaluation alone does
 not establish a constant initializer. `capture/values.rs` gates scalar evaluation with the native
-C++11 constant-expression query. Float values retain their IEEE bits, including signed zero;
+static-initializer query, including explicit side-effect and undefined-behavior checks. Compiler
+field-offset expressions need not be C++ core constant expressions; no macro-name or AST-shape
+exceptions are used. Float values retain their IEEE bits, including signed zero;
 non-finite values and extended floating-point types remain unsupported.
 The integer-element query walks evaluated struct/array values with checked index paths and
 zero-filled tails. String arrays remove one trailing terminator; embedded zeros remain intact.
@@ -440,7 +517,7 @@ Other nested records remain explicit declarations under their owner, not top-lev
 
 ### clang2 replacement boundary
 
-`clang2` `projection.rs` `Projector::written_ty` preserves written value-typedef and callback names
+`clang2` `projection/mod.rs` `Projector::written_ty` preserves written value-typedef and callback names
 at use sites. Native agreement precedes public-name agreement across observations; conflicts are
 errors, not representative-selection choices. Callback parameter evidence belongs to
 `AliasObservation`; publication preserves native names, with positional names for unnamed

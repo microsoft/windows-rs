@@ -196,8 +196,6 @@ fn inheritance_layouts(targets: &[Option<Target>]) {
 fn projection_gate() {
     helpers::ensure_libclang();
     round_trip();
-    rejections();
-    partial_results();
     partial_review();
     unions();
     union_families();
@@ -242,7 +240,9 @@ fn partial_review() {
     );
 }
 
+#[test]
 fn partial_results() {
+    helpers::ensure_libclang();
     let first = selected_fixture("partial", &[]);
     let mut second = selected_fixture("partial", &[]);
     second.name = "second.h".into();
@@ -275,7 +275,7 @@ fn partial_results() {
             result.output.aliases,
             result.output.partitions.len()
         ),
-        (12, 5, 2)
+        (14, 5, 2)
     );
     for stem in ["partial_types", "projection_types"] {
         assert_eq!(
@@ -292,8 +292,6 @@ fn partial_results() {
         "PlatformConsumer",
         "ProjectionBad",
         "ProjectionConsumer",
-        "Incomplete",
-        "OpaqueDependent",
         "Nothing",
         "unsupported_function",
     ] {
@@ -777,7 +775,9 @@ fn union_families() {
     assert!(merge(&capture(&inputs, &TARGETS).unwrap()).is_err());
 }
 
+#[test]
 fn rejections() {
+    helpers::ensure_libclang();
     let input = selected_fixture("projection_unsupported", &[]);
     let error = projection::generate(&[input], "Fixture")
         .unwrap_err()
@@ -792,7 +792,6 @@ fn rejections() {
     }
     for (roots, expected) in [
         (vec!["Empty"], "empty record"),
-        (vec!["OpaquePointer"], "is incomplete"),
         (vec!["ConstField"], "const field"),
         (vec!["VolatileField"], "volatile/restrict"),
         (vec!["FieldCollision"], "duplicate projected field"),
@@ -803,6 +802,20 @@ fn rejections() {
             .to_string();
         assert!(error.contains(expected), "{roots:?}: {error}");
     }
+    let output = projection::generate(
+        &[selected_fixture(
+            "projection_rejections",
+            &["OpaquePointer"],
+        )],
+        "Fixture",
+    )
+    .unwrap();
+    assert_eq!(output.records, 2);
+    assert!(
+        output.partitions["projection_rejections"]
+            .rdl
+            .contains("struct Incomplete {}")
+    );
     let first = selected_fixture("projection_types", &["Node"]);
     let mut second = selected_fixture("projection_types", &["Node"]);
     second.name = "other.h".into();

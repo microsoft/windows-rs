@@ -388,13 +388,22 @@ impl Plan {
         if let Some(alias) = self.primary[family] {
             return self.alias_headers(resolution, &resolution.aliases[alias]);
         }
-        owners(
-            &self.names[family],
-            self.families[family]
-                .iter()
-                .flat_map(|id| self.definition_headers[*id].iter().cloned())
-                .collect(),
-        )
+        let mut headers: BTreeSet<_> = self.families[family]
+            .iter()
+            .flat_map(|id| self.definition_headers[*id].iter().cloned())
+            .collect();
+        if headers.is_empty() {
+            for &group in &self.families[family] {
+                for reference in &resolution.groups[group].records {
+                    let snapshot = resolution.snapshots[reference.snapshot];
+                    for &id in &snapshot.records[reference.record.0].observations {
+                        let observation = &snapshot.observations[id.0];
+                        headers.insert(snapshot.files[observation.location.file.0].clone());
+                    }
+                }
+            }
+        }
+        owners(&self.names[family], headers)
     }
 
     pub fn enum_headers(

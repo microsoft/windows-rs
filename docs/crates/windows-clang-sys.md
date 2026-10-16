@@ -26,7 +26,10 @@ does not inspect private cursor fields or depend on Clang C++ class layouts.
 | `windows_clang_getDeprecation` | One `DeprecatedAttr` message and replacement as owned strings. |
 | `windows_clang_getLanguageLinkage` | Native C, C++, or absent language linkage. |
 | `windows_clang_getIntegerConstantInitializer` | Integer constant-expression initializer validity. |
-| `windows_clang_getConstantInitializer` | C++11 constant-expression initializer validity. |
+| `windows_clang_getConstantInitializer` | Checked static-initializer validity. |
+| `windows_clang_getConstantPointerInitializer` | Numeric data-pointer static initializer, without relocations. |
+| `windows_clang_getTypeOfOperand` | Original expression in a variable's `typeof` type. |
+| `windows_clang_getPredefinedType` | Underlying type of compiler-predefined sugar, not user typedefs. |
 | `windows_clang_getConstantIntegerElement` | Evaluated nonnegative integer leaf at a struct/array index path. |
 
 Packing comes from `MaxFieldAlignmentAttr`, not observed record layout or explicit `AlignedAttr`.
@@ -43,7 +46,7 @@ The qualifier query includes qualifiers inherited through typedefs. After identi
 volatile, restrict, and unaligned, it checks the remaining native qualifier set, rather than
 assuming those four exhaust Clang's type qualifiers. Address spaces and other undecoded qualifiers
 set `WindowsClangOtherQualifiers`. Method qualifiers use the same decoding, independently of the
-function type's own qualifiers. The extension ABI version is 12.
+function type's own qualifiers. The extension ABI version is 15.
 
 The virtual-slot query reads `MicrosoftVTableContext::getMethodVFTableLocation`, rejecting
 locations that need virtual-base or secondary-vptr adjustment. Nonvirtual methods and non-Microsoft
@@ -63,14 +66,27 @@ cannot be inferred from a mangled-name heuristic.
 Deprecation payloads come from the individual attribute rather than effective platform availability.
 Both message and replacement strings are caller-owned, including empty strings.
 
-The constant-initializer queries check `Expr::isIntegerConstantExpr` or
-`Expr::isCXX11ConstantExpr` before numeric evaluation. The latter also accepts boolean and
-floating-point initializers.
-Stock `clang_Cursor_Evaluate` accepts `(call(), 3)` and returns `3`; that is not evidence that
-a variable has a constant initializer. The native fixture exercises this distinction on all
-three targets, as well as UUID/linkage results and wrong-kind/null-output errors.
+The integer-only initializer query checks `Expr::isIntegerConstantExpr`. The general query requires
+`Expr::isConstantInitializer` and successful `EvaluateAsRValue` with neither `HasSideEffects` nor
+`HasUndefinedBehavior`. This accepts compiler-supported static field-offset expressions that are
+not C++ core constant expressions, without accepting runtime reads, calls, or signed overflow.
+Stock `clang_Cursor_Evaluate` accepts `(call(), 3)` and returns `3`; evaluation alone is insufficient.
+The native fixture exercises these distinctions on all three targets, as well as UUID/linkage
+results and wrong-kind/null-output errors.
 
-The integer-element query applies the same constant-expression gate and traverses the resulting
+Numeric pointer initializers use a separate static-initialization query: integer-to-pointer casts
+need not be C++ constant expressions. It requires `isConstantInitializer`, rejects side effects and
+undefined behavior, and accepts only a compiler-evaluated address without a relocation base.
+The result is sign-extended from the target pointer width, not the host width. Function pointers
+and symbol addresses are rejected.
+
+The `typeof` query returns the original operand before initializer conversions. Its type retains
+cast typedefs and string-literal arrays; an initializer cursor can instead carry the synthetic
+variable's `typeof` type. Compiler-predefined sugar, such as the result type of `sizeof`, has its own
+query. Only native `PredefinedSugarType` is desugared; unknown types and user typedefs are not
+canonicalized as a fallback.
+
+The integer-element query requires a C++11 constant expression and traverses the resulting
 `APValue` by field and array indices, including implicit array fillers. It accepts nonnegative
 integer leaves fitting `u64`; negative values, other leaf kinds, invalid paths, and structs with
 bases return wrong-kind status without changing the output. Non-constant initializers return

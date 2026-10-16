@@ -75,7 +75,7 @@ fn native_semantics() {
             },
             WindowsClangSuccess
         );
-        assert_eq!(constant, 0);
+        assert_eq!(constant, 1);
         let mut pointer = 99;
         assert_eq!(
             unsafe {
@@ -527,6 +527,11 @@ fn native_semantics() {
             ("NativeSideEffect", 0),
             ("NativeFloatSideEffect", 0),
             ("NativeUninitialized", 0),
+            ("NativeMemberEnd", 1),
+            ("NativeMemberOffset", 1),
+            ("NativeSignedOverflow", 0),
+            ("NativeDivisionByZero", 0),
+            ("NativeNullRead", 0),
         ] {
             let cursor = find(name);
             let mut value = 99;
@@ -801,7 +806,7 @@ fn native_semantics() {
             let library = Arc::clone(&library);
             scope.spawn(move || {
                 let previous = set_library(Some(library));
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 14);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 15);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION

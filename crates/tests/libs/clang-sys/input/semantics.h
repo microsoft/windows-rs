@@ -23,6 +23,13 @@ void* const NativePointerSideEffect = (NativeCpp(0), (void*)-1);
 void* const NativePointerUndefined = (void*)(0x7fffffff + 1);
 const double NativeFloatSideEffect = (NativeCpp(0), 1.25);
 extern const double NativeUninitialized;
+struct NativeLayout { char tag; void* value; };
+const auto NativeMemberEnd = (int)((char*)&((NativeLayout*)0)->value - (char*)0)
+    + sizeof(((NativeLayout*)0)->value);
+const auto NativeMemberOffset = (unsigned long long)&((NativeLayout*)0)->value;
+const auto NativeSignedOverflow = 0x7fffffff + 1;
+const auto NativeDivisionByZero = 1 / 0;
+const auto NativeNullRead = *(int*)0;
 #pragma pack(push, 2)
 struct PackTwo { char value; };
 #pragma pack(pop)
