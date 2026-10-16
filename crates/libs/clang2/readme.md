@@ -99,7 +99,13 @@ Macros are evaluated after the input and retain native definition ownership and 
 including selected string and GUID expressions. `Input.macro_headers` discovers object-like macros
 in selected header filenames. Isolated compiler probes report invalid expressions without accepting
 a failed AST or disrupting unrelated capture. Strict mode fails on rejected candidates; partial mode
-reports them as omissions. The SDK driver exposes this as repeatable `--macro-header=header.h`.
+reports them as omissions. Diagnostics only identify suspects; each rejection requires an
+independent failed parse. Compiler-tokenized empty definitions need no expression parse.
+The SDK driver exposes discovery as repeatable `--macro-header=header.h`, or `--sdk-macros`
+for the pinned SDK's `um` and `shared` header filenames, including transitive owners.
+The include manifest still determines which headers are parsed. The driver writes its inputs and
+resolved imports to `target/win32-2/capture-configuration.txt`; `--dry-run` writes that configuration
+without changing RDL/WinMD.
 Discovery uses the active definition's owner, not a superseded definition in another header.
 Probes do not parenthesize initializers: comma-separated field fragments must not become scalar
 constants. Comma expressions already parenthesized in the macro remain supported.

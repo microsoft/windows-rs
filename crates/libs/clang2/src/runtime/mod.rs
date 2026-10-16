@@ -149,6 +149,10 @@ fn macro_source(input: &Input, macros: &[String], prefix: &str) -> Result<Source
     let mut source = input.source.clone();
     let mut probes = Vec::new();
     for (index, name) in macros.iter().enumerate() {
+        let start = source
+            .len()
+            .try_into()
+            .map_err(|_| Error("source too large".into()))?;
         source.push_str(&format!("\nstatic const __typeof__(({name})) "));
         let declaration = source
             .len()
@@ -164,6 +168,7 @@ fn macro_source(input: &Input, macros: &[String], prefix: &str) -> Result<Source
         source.push_str(";\n");
         probes.push(capture::MacroProbe {
             name: name.clone(),
+            start,
             declaration,
             expansion,
         });

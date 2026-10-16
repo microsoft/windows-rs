@@ -7,12 +7,29 @@ struct Candidate {
     origin: String,
 }
 
-fn selected_header(input: &Input, file: &str) -> bool {
-    let header = Path::new(file).file_name().and_then(|name| name.to_str());
-    input
-        .macro_headers
-        .iter()
-        .any(|name| header.is_some_and(|header| header.eq_ignore_ascii_case(name)))
+fn selected_header(headers: &HashSet<String>, file: &str) -> bool {
+    Path::new(file)
+        .file_name()
+        .and_then(|name| name.to_str())
+        .is_some_and(|header| headers.contains(&header.to_ascii_lowercase()))
+}
+
+fn empty_definition(unit: &Unit, definition: CXCursor, name: &str) -> bool {
+    let mut tokens = std::ptr::null_mut();
+    let mut count = 0;
+    unsafe {
+        clang_tokenize(
+            unit.0,
+            clang_getCursorExtent(definition),
+            &raw mut tokens,
+            &raw mut count,
+        );
+        let empty = count == 1
+            && clang_getTokenKind(*tokens) == CXToken_Identifier
+            && text(clang_getTokenSpelling(unit.0, *tokens)) == name;
+        clang_disposeTokens(unit.0, tokens, count);
+        empty
+    }
 }
 
 pub(super) fn discover(
@@ -23,6 +40,11 @@ pub(super) fn discover(
     arguments: &[String],
     target: Target,
 ) -> Result<(Vec<String>, partial::Issues), Error> {
+    let headers = input
+        .macro_headers
+        .iter()
+        .map(|header| header.to_ascii_lowercase())
+        .collect();
     let mut candidates = BTreeMap::new();
     for cursor in native::children(unsafe { clang_getTranslationUnitCursor(unit.0) }) {
         if cursor.kind != CXCursor_MacroDefinition
@@ -32,7 +54,7 @@ pub(super) fn discover(
             continue;
         }
         let (file, line, column, _) = native::source(cursor);
-        if !selected_header(input, &file) {
+        if !selected_header(&headers, &file) {
             continue;
         }
         let name = text(unsafe { clang_getCursorSpelling(cursor) });
@@ -66,6 +88,7 @@ pub(super) fn discover(
         }
     }
     arguments.extend([
+        "-ferror-limit=0".into(),
         "-include-pch".into(),
         pch.path.as_ref().unwrap().display().to_string(),
     ]);
@@ -131,7 +154,7 @@ pub(super) fn discover(
         candidate.origin = format!("{file}:{line}:{column}: macro `{}`", candidate.name);
         let reason = if unsafe { clang_Cursor_isMacroFunctionLike(definition) } != 0 {
             Some("active definition is function-like")
-        } else if !selected_header(input, &file) {
+        } else if !selected_header(&headers, &file) {
             Some("active definition is outside the selected macro headers")
         } else {
             None
@@ -140,6 +163,14 @@ pub(super) fn discover(
             issues
                 .messages
                 .insert(format!("{target:?}: {}: {reason}", candidate.origin));
+        } else if empty_definition(&bindings.unit, definition, &candidate.name) {
+            issues.reject(
+                partial::Key::Macro(candidate.name),
+                format!(
+                    "{target:?}: {}: empty macro replacement is not an expression",
+                    candidate.origin
+                ),
+            );
         } else {
             candidates.push(candidate);
         }
@@ -147,9 +178,9 @@ pub(super) fn discover(
     drop(bindings);
     let mut pending = Vec::new();
     if !candidates.is_empty() {
-        pending.push(candidates.as_slice());
+        pending.push(candidates);
     }
-    while let Some(batch) = pending.pop() {
+    while let Some(mut batch) = pending.pop() {
         let names: Vec<_> = batch.iter().map(|value| value.name.clone()).collect();
         let probe_source = macro_source(&probe, &names, "__windows_clang_probe")?;
         let parsed = parse_unit(
@@ -158,6 +189,47 @@ pub(super) fn discover(
             &arguments,
             CXTranslationUnit_DetailedPreprocessingRecord,
         )?;
+        if parsed.failed && batch.len() > 1 {
+            let suspects = suspect_probes(&parsed, &probe_source);
+            drop(parsed);
+            let mut remaining = Vec::new();
+            let count = batch.len();
+            for (position, candidate) in batch.into_iter().enumerate() {
+                if suspects.contains(&position) {
+                    // Recovery can blame valid siblings. Confirm failure in isolation.
+                    let isolated = macro_source(
+                        &probe,
+                        std::slice::from_ref(&candidate.name),
+                        "__windows_clang_probe",
+                    )?;
+                    let checked = parse_unit(
+                        index,
+                        &[&isolated, source],
+                        &arguments,
+                        CXTranslationUnit_DetailedPreprocessingRecord,
+                    )?;
+                    if let Err(error) = checked.check() {
+                        issues.reject(
+                            partial::Key::Macro(candidate.name.clone()),
+                            format!(
+                                "{target:?}: {}: expression probe failed:\n{error}",
+                                candidate.origin
+                            ),
+                        );
+                        continue;
+                    }
+                }
+                remaining.push(candidate);
+            }
+            if remaining.len() == count {
+                let right = remaining.split_off(remaining.len() / 2);
+                pending.push(right);
+            }
+            if !remaining.is_empty() {
+                pending.push(remaining);
+            }
+            continue;
+        }
         let checked = parsed.check().and_then(|()| {
             let file = unsafe { clang_getFile(parsed.unit.0, probe_source.name.as_ptr()) };
             probe_source.probes.iter().try_for_each(|probe| {
@@ -167,9 +239,9 @@ pub(super) fn discover(
         match checked {
             Ok(()) => accepted.extend(names),
             Err(_) if batch.len() > 1 => {
-                let (left, right) = batch.split_at(batch.len() / 2);
+                let right = batch.split_off(batch.len() / 2);
                 pending.push(right);
-                pending.push(left);
+                pending.push(batch);
             }
             Err(error) => {
                 let candidate = &batch[0];
@@ -185,6 +257,43 @@ pub(super) fn discover(
     }
     pch.remove()?;
     Ok((accepted, issues))
+}
+
+fn suspect_probes(parsed: &Parsed, source: &Source) -> HashSet<usize> {
+    let file = unsafe { clang_getFile(parsed.unit.0, source.name.as_ptr()) };
+    let locate = |location| {
+        let mut found = std::ptr::null_mut();
+        let mut offset = 0;
+        unsafe {
+            clang_getExpansionLocation(
+                location,
+                &raw mut found,
+                std::ptr::null_mut(),
+                std::ptr::null_mut(),
+                &raw mut offset,
+            );
+        }
+        if found != file {
+            return None;
+        }
+        source
+            .probes
+            .partition_point(|probe| probe.start <= offset)
+            .checked_sub(1)
+    };
+    let mut rejected = HashSet::new();
+    for id in 0..unsafe { clang_getNumDiagnostics(parsed.unit.0) } {
+        let diagnostic = unsafe { clang_getDiagnostic(parsed.unit.0, id) };
+        if unsafe { clang_getDiagnosticSeverity(diagnostic) } < CXDiagnostic_Error {
+            unsafe { clang_disposeDiagnostic(diagnostic) };
+            continue;
+        }
+        if let Some(attribution) = locate(unsafe { clang_getDiagnosticLocation(diagnostic) }) {
+            rejected.insert(attribution);
+        }
+        unsafe { clang_disposeDiagnostic(diagnostic) };
+    }
+    rejected
 }
 
 struct Precompiled {

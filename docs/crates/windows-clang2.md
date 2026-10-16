@@ -200,15 +200,24 @@ those fragments while preserving comma expressions parenthesized in the source m
 `macro_initializers` covers this boundary for selected macros and discovery.
 `Input::macro_headers` discovers object-like macros by source-header filename. Active bindings come
 from conditional preprocessing references, excluding undefined, function-like, or out-of-scope
-redefinitions. A validated TU supplies a temporary PCH for isolated expression probes. Failing
-batches split to identify rejected candidates; no failed AST supplies capture evidence. Forced
+redefinitions. Compiler tokens identify empty replacement lists without an expression parse.
+A validated TU supplies a temporary PCH for expression probes. Diagnostics from a failed batch
+identify suspects, not invalid macros: parser recovery can blame a valid sibling. Each suspect
+must fail an independent parse before rejection. If no failure is confirmed, the batch splits.
+Survivors must pass a clean batch; no failed AST supplies capture evidence. Forced
 includes are not replayed in probes. The final capture reparses the original input plus accepted
 probes cleanly. Original-source and native parse-status errors remain fatal.
+`macro_diagnostics`, `macro_recovery`, and `macro_empty` cover recovery, diagnostic limits, empty
+active definitions, redefinitions, and valid siblings across the three targets.
 
 Macro-constant exclusions are separate from native value exclusions. A rejected constant probe
 removes constants of that name across targets, including failed dependencies and publication,
 but does not remove observed native functions. A native declaration failure still excludes the
 native value across targets. Known conflicts remain fatal before either kind of pruning.
+Synthetic macro storage does not impose linkage on a same-named native declaration. All actual
+constant declarations still agree on linkage independently of which observation represents their
+group; canonical types, attributes, and values remain checked. `macro_declarations` covers
+matching definitions and native linkage, type, and value conflicts in both input orders.
 `macro_function_aliases` covers each failure stage and preserves functions only on targets where
 they were declared. This matters for the SDK's x86 `*LongPtrA/W` aliases and 64-bit functions.
 
@@ -252,22 +261,20 @@ reconciliation even when record layouts agree; the fixture covers this failure i
 
 Selecting `hidusage.h` recovers all 2,833 baseline constants with exact `USAGE` and `USAGE_VALUE`
 types and values on all three targets. The fixture covers both aliases, zero, and high unsigned
-16-bit values. The only omission is the non-value `__HIDUSAGE_H__` guard. This batch changes only
-`hidusage.rdl`; all other SDK partitions remain byte-identical.
+16-bit values. The only omission is the non-value `__HIDUSAGE_H__` guard.
 
 Selecting `winuser.h` and `imm.h` recovers all 2,896 winuser and 221 imm baseline names, plus six
 mouse/keyboard constants whose active definitions belong to winuser. `MOD_ALT`, `MOD_CONTROL`,
 and `MOD_SHIFT` belong to imm in the full input. Values and target availability match the baseline;
 75 constants retain written `LPSTR`, `LPWSTR`, `LONG`, or `DWORD` aliases. The SDK fixture covers
 negative handles, high-bit scalar values, resource identifiers, and ANSI/UNICODE pointer types.
-Only the two constant partitions change; all existing native declarations, including the eight
-64-bit `*LongPtrA/W` functions, remain unchanged. Rust consumer validation remains deferred.
+The eight 64-bit `*LongPtrA/W` native functions remain independent of their macro aliases.
+Rust consumer validation remains deferred.
 
 Selecting `wincrypt.h` recovers all 2,678 baseline constants with unchanged values, encodings, and
 target availability; 173 retain written `LPCSTR` aliases instead of `PCSTR`. The 28 additional
 strings include 18 algorithm names, nine registry paths, and one multi-string. The fixture checks
 ANSI/UNICODE provider selection, pointer sentinels, concatenation, and embedded NULs through WinMD.
-All other partitions and existing declarations remain unchanged.
 The 28 rejected candidates are 17 function aliases, seven guards/type/import macros, and four
 `CERT_STRONG_{SIGN,KEY}_PARA_OS_*` brace initializers. Those initializers require a destination type;
 discovery does not infer one from tokens or naming. They remain unsupported outside this baseline
@@ -278,21 +285,15 @@ values, encodings, and target availability; 13 constants retain written typedefs
 constants are owned by these headers in the active input. `EM_GETZOOM` and `EM_SETZOOM` belong to
 richedit. The fixture checks ANSI/UNICODE control classes, pointer sentinels, unsigned notification
 arithmetic, and target-dependent structure sizes. All 38 size macros use the native static-initializer
-contract, not token evaluation. Genuine opaque pointees also recover 229 records, 488 aliases,
-690 functions, and 37 interfaces. Every previous declaration remains unchanged on every target.
+contract, not token evaluation.
 Five new names are three clipboard strings, a drag-list message string, and a URL limit.
-Changed incomplete-record diagnostics do not represent new native omissions; new omitted entities
-are macro candidates. The tracked candidate contains 723 partitions, with 42 changed in this slice.
 
 The mmreg selection includes `ksmedia.h` and `wmsdkidl.h`, the active owners of 20 speaker-position
 constants and `WAVE_FORMAT_DRM`. It recovers 1,974 of 1,976 mmreg baseline names, plus 454 ksmedia
 names and 47 additional wmsdkidl names. All 78 wmsdkidl baseline names are present. Retained values,
 attributes, and target availability match; 55 constants across these headers retain written
-typedefs. All previously accepted declarations remain unchanged. Four partitions change, including
-the shared Foundation owner of `WAVE_FORMAT_EXTENSIBLE`; 719 remain byte-identical.
+typedefs.
 `mmreg_ownership.h` checks the active-owner boundary with and without the companion selection.
-The full candidate has 37,267 constants and takes 455.617 seconds for capture/merge/project and
-6.189 seconds to compile.
 
 The standalone mmreg discovery fixture has a compiler/PCH mismatch for its three
 `KSDATAFORMAT_SUBTYPE_*` GUIDs. Explicit macro capture succeeds, but discovery's PCH probe reports
@@ -525,6 +526,8 @@ cargo run --release -p test_clang2 -- sdk-sweep tus 32
 cargo run -p tool-win32-2 --quiet
 cargo run -p tool-win32-2 --quiet -- --partial
 cargo run -p tool-win32-2 --quiet -- --partial --sdk-imports
+cargo run -p tool-win32-2 --quiet -- --partial --sdk-imports --sdk-macros
+cargo run -p tool-win32-2 --quiet -- --partial --sdk-imports --sdk-macros --dry-run
 cargo run -p tool-win32-2 --quiet -- --compare-constants
 cargo run -p tool-win32-2 --release --quiet -- --partial --first=357
 ```
@@ -538,13 +541,25 @@ manifest and defaults to all headers. Main and satellite TUs follow the SDK's in
 `--import=Function=library.dll` supplies function ownership; `--macro=NAME` selects a constant macro
 in each input. `--macro-header=header.h` discovers object-like macros in that header. These options
 can be repeated. Unconfigured function imports remain explicit omissions.
+`--sdk-macros` selects header filenames recursively from the pinned SDK's `um` and `shared`
+directories, including transitive owners such as `winbase.h` and `nserror.h`. It does not add
+includes: a header must still be reached by the selected input TUs. CRT and compiler resource
+directories are not part of this discovery scope. Selection uses the active definition's filename,
+as with `--macro-header`, and does not claim coverage of headers absent from the input.
+Each invocation writes `target/win32-2/capture-configuration.txt` with the SDK/compiler pins,
+target set, input sources, arguments, macro selections, and resolved imports. `--dry-run` writes
+this configuration without parsing headers or changing RDL/WinMD. The file describes the attempted
+configuration, not proof that generation completed.
 `--sdk-imports` loads the pinned SDK's x64 import libraries using the shared ordered policy in
 `crates/tools/win32/src/imports.rs`. Host libraries precede API-set umbrellas, and the enclave runtime
 comes last. The same checked DLL corrections apply in both generators; an unexpected SDK mapping
 fails generation. This is an x64-derived publication policy, not per-architecture export validation.
 Explicit `--import` entries take precedence over discovered entries.
-Keep existing known named imports when enabling discovery: a COFF ordinal entry does not establish
-whether the DLL also exports that function by name.
+The driver carries 18 named-export mappings exercised by `sdk_functions` whose SDK import records
+use ordinals. It verifies their DLL and ordinal before applying this policy. The remaining fixture
+imports come from named SDK records, so broad capture does not require copying its 114 mappings
+onto the command line. This policy is not a general inference that an ordinal record has a named
+export.
 
 The COFF reader distinguishes linker symbols from named or ordinal PE exports. Renamed exports
 retain their export name. Ordinal-only entries are excluded and reported in

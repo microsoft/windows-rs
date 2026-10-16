@@ -9,6 +9,7 @@ mod values;
 
 pub(super) struct MacroProbe {
     pub name: String,
+    pub start: u32,
     pub declaration: u32,
     pub expansion: u32,
 }

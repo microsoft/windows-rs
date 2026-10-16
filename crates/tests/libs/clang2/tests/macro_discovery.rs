@@ -66,7 +66,7 @@ fn failed_probes_do_not_poison_capture() {
         );
     }
 
-    for name in ["BAD_TYPE", "BAD_TOKENS", "EMPTY", "ARCHFAIL"] {
+    for name in ["BAD_TYPE", "BAD_TOKENS", "ARCHFAIL"] {
         assert!(
             result.omissions.iter().any(
                 |message| message.contains(name) && message.contains("expression probe failed")
@@ -75,6 +75,10 @@ fn failed_probes_do_not_poison_capture() {
             result.omissions
         );
     }
+    assert!(result.omissions.iter().any(|message| {
+        message.contains("EMPTY")
+            && message.contains("empty macro replacement is not an expression")
+    }));
     assert!(
         result
             .omissions

@@ -27,5 +27,8 @@ fn discovered_constant_rdl() {
         );
     }
     assert_eq!(output.omissions.len(), 1, "{:?}", output.omissions);
-    assert!(output.omissions[0].contains("macro `__HIDUSAGE_H__`: expression probe failed"));
+    assert!(
+        output.omissions[0]
+            .contains("macro `__HIDUSAGE_H__`: empty macro replacement is not an expression")
+    );
 }

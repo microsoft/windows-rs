@@ -397,10 +397,30 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
         });
         let first = observations[0];
         let a = &snapshots[first.snapshot].values[first.value.0].observations[first.observation];
+        let mut declaration_linkage = None;
         for &reference in observations.iter() {
             let b = &snapshots[reference.snapshot].values[reference.value.0].observations
                 [reference.observation];
             value_attributes(&snapshots, Owner::Value(reference), b)?;
+            if let ValueKind::Constant {
+                origin: ConstantOrigin::Declaration,
+                linkage,
+                ..
+            } = &b.kind
+            {
+                if let Some((previous, expected)) = declaration_linkage {
+                    if expected != linkage {
+                        return Err(conflict(
+                            &snapshots,
+                            Owner::Value(previous),
+                            Owner::Value(reference),
+                            "native constant linkages differ",
+                        ));
+                    }
+                } else {
+                    declaration_linkage = Some((reference, linkage));
+                }
+            }
             if !value_shape_equal(a, b, true) {
                 return Err(conflict(
                     &snapshots,
@@ -699,14 +719,18 @@ pub(crate) fn value_shape_equal(a: &ValueObservation, b: &ValueObservation, symb
                 ValueKind::Constant {
                     value: a,
                     linkage: x,
-                    ..
+                    origin: xo,
                 },
                 ValueKind::Constant {
                     value: b,
                     linkage: y,
-                    ..
+                    origin: yo,
                 },
-            ) => x == y && (a.is_none() || b.is_none() || a == b),
+            ) => {
+                // Probe storage is synthetic, not the native symbol's linkage.
+                (xo == &ConstantOrigin::Macro || yo == &ConstantOrigin::Macro || x == y)
+                    && (a.is_none() || b.is_none() || a == b)
+            }
             _ => false,
         }
 }

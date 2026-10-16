@@ -4,7 +4,7 @@ mod headers;
 #[path = "../../win32/src/imports.rs"]
 mod import_policy;
 
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 use std::path::Path;
 use std::time::Instant;
 use windows_clang2::{Input, projection};
@@ -19,6 +19,28 @@ const PRELUDE: &str = "#define SECURITY_WIN32
 #include <ntstatus.h>
 ";
 const GUID_RESET: &str = "#undef INITGUID\n#include <guiddef.h>\n";
+
+// Named exports covered by sdk_functions whose SDK import records use ordinals.
+const NAMED_SDK_IMPORTS: &[(&str, &str, u16)] = &[
+    ("WSAStartup", "ws2_32.dll", 115),
+    ("WSACleanup", "ws2_32.dll", 116),
+    ("socket", "ws2_32.dll", 23),
+    ("bind", "ws2_32.dll", 2),
+    ("listen", "ws2_32.dll", 13),
+    ("accept", "ws2_32.dll", 1),
+    ("connect", "ws2_32.dll", 4),
+    ("send", "ws2_32.dll", 19),
+    ("recv", "ws2_32.dll", 16),
+    ("closesocket", "ws2_32.dll", 3),
+    ("D3D12CreateDevice", "d3d12.dll", 101),
+    ("D3D12GetDebugInterface", "d3d12.dll", 102),
+    ("D2D1MakeRotateMatrix", "d2d1.dll", 2),
+    ("D2D1MakeSkewMatrix", "d2d1.dll", 3),
+    ("D2D1IsMatrixInvertible", "d2d1.dll", 4),
+    ("D2D1InvertMatrix", "d2d1.dll", 5),
+    ("D2D1CreateDevice", "d2d1.dll", 7),
+    ("D2D1CreateDeviceContext", "d2d1.dll", 8),
+];
 
 fn main() {
     if let Err(error) = run() {
@@ -40,6 +62,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut headers = Vec::new();
     let mut partial = false;
     let mut sdk_imports = false;
+    let mut sdk_macros = false;
+    let mut dry_run = false;
     let mut first = None;
     let mut imports = BTreeMap::new();
     let mut macros = Vec::new();
@@ -49,6 +73,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             partial = true;
         } else if argument == "--sdk-imports" {
             sdk_imports = true;
+        } else if argument == "--sdk-macros" {
+            sdk_macros = true;
+        } else if argument == "--dry-run" {
+            dry_run = true;
         } else if let Some(value) = argument.strip_prefix("--import=") {
             let (name, library) = value
                 .split_once('=')
@@ -80,7 +108,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
         } else if argument.starts_with('-') {
             return Err(format!(
-                "unknown option `{argument}`; use --compare-constants alone, or --partial, --sdk-imports, --first=N, --import=Function=library.dll, --macro=NAME, --macro-header=header.h, or header names"
+                "unknown option `{argument}`; use --compare-constants alone, or --partial, --sdk-imports, --sdk-macros, --dry-run, --first=N, --import=Function=library.dll, --macro=NAME, --macro-header=header.h, or header names"
             )
             .into());
         } else {
@@ -110,6 +138,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         .join("c")
         .join("Include")
         .join(helpers::marketing_dir(SDK_VERSION));
+    if sdk_macros {
+        macro_headers.extend(sdk_macro_headers(&include)?);
+        macro_headers.sort();
+        macro_headers.dedup();
+    }
     let mut arguments = vec![
         "-fms-extensions".into(),
         "-include".into(),
@@ -138,11 +171,6 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         arguments: arguments.clone(),
         ..Default::default()
     });
-    println!(
-        "Capturing {} headers in {} translation units for x86, x64, and ARM64",
-        headers.len(),
-        inputs.len()
-    );
     let started = Instant::now();
     let scratch = Path::new("target\\win32-2");
     std::fs::create_dir_all(scratch)?;
@@ -158,6 +186,35 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             omitted.lines().count(),
         );
     }
+    let mut configuration = format!(
+        "SDK: {SDK_VERSION}\nLLVM: {}\nTargets: x86, x64, ARM64\nPartial: {partial}\nCommand arguments: {:?}\n",
+        helpers::LIBCLANG_VERSION,
+        std::env::args().skip(1).collect::<Vec<_>>(),
+    );
+    for input in &inputs {
+        configuration.push_str(&format!(
+            "\nInput: {}\nArguments: {:?}\nMacros: {:?}\nMacro headers: {:?}\nSource:\n{}\n",
+            input.name, input.arguments, input.macros, input.macro_headers, input.source,
+        ));
+    }
+    configuration.push_str("\nImports:\n");
+    for (symbol, import) in &imports {
+        configuration.push_str(&format!(
+            "{symbol}={}!{}\n",
+            import.library,
+            import.name.as_deref().unwrap_or(symbol),
+        ));
+    }
+    std::fs::write(scratch.join("capture-configuration.txt"), configuration)?;
+    if dry_run {
+        println!("Configuration only; see target\\win32-2\\capture-configuration.txt");
+        return Ok(());
+    }
+    println!(
+        "Capturing {} headers in {} translation units for x86, x64, and ARM64",
+        headers.len(),
+        inputs.len()
+    );
     let output = if partial {
         let result = projection::project_partial_with_imports(
             windows_clang2::capture_partial(
@@ -259,6 +316,34 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+fn sdk_macro_headers(include: &Path) -> Result<Vec<String>, std::io::Error> {
+    let mut pending = vec![include.join("um"), include.join("shared")];
+    let mut headers = BTreeSet::new();
+    while let Some(directory) = pending.pop() {
+        for entry in std::fs::read_dir(directory)? {
+            let entry = entry?;
+            let path = entry.path();
+            let kind = entry.file_type()?;
+            if kind.is_dir() {
+                pending.push(path);
+            } else if kind.is_file()
+                && path
+                    .extension()
+                    .is_some_and(|extension| extension.eq_ignore_ascii_case("h"))
+            {
+                let name = entry.file_name().into_string().map_err(|name| {
+                    std::io::Error::new(
+                        std::io::ErrorKind::InvalidData,
+                        format!("SDK header filename is not UTF-8: {name:?}"),
+                    )
+                })?;
+                headers.insert(name.to_ascii_lowercase());
+            }
+        }
+    }
+    Ok(headers.into_iter().collect())
+}
+
 fn add_sdk_imports(
     imports: &mut BTreeMap<String, projection::Import>,
     discovered: BTreeMap<String, windows_rdl::implib::Import>,
@@ -325,6 +410,21 @@ fn read_sdk_imports(
                 name: windows_rdl::implib::ImportName::Name(entry.symbol.into()),
             },
         );
+    }
+    for &(symbol, library, ordinal) in NAMED_SDK_IMPORTS {
+        let import = imports
+            .get_mut(symbol)
+            .filter(|import| {
+                import.dll.eq_ignore_ascii_case(library)
+                    && import.name == windows_rdl::implib::ImportName::Ordinal(ordinal)
+            })
+            .ok_or_else(|| {
+                format!(
+                    "SDK ordinal mapping for `{symbol}` changed; update its named-export policy"
+                )
+            })?;
+        import.dll = library.into();
+        import.name = windows_rdl::implib::ImportName::Name(symbol.into());
     }
     Ok(imports)
 }
@@ -428,6 +528,10 @@ mod tests {
             helpers::nuget_package("microsoft.windows.sdk.cpp.x64", SDK_VERSION).join("c");
         let imports = read_sdk_imports(&directory).unwrap();
         assert!(imports.len() > 20_000);
+        for &(symbol, library, _) in NAMED_SDK_IMPORTS {
+            assert_eq!(imports[symbol].dll, library);
+            assert_eq!(imports[symbol].name, ImportName::Name(symbol.into()));
+        }
         for (symbol, library) in [
             ("CreateFileW", "kernel32.dll"),
             ("MessageBoxW", "user32.dll"),
@@ -458,5 +562,33 @@ mod tests {
             imports["GetScaleFactorForWindow"].dll,
             "api-ms-win-shcore-scaling-l1-1-1.dll"
         );
+    }
+
+    #[test]
+    #[ignore = "requires the pinned Windows SDK headers"]
+    fn sdk_macro_scope() {
+        let include = helpers::nuget_package("microsoft.windows.sdk.cpp", SDK_VERSION)
+            .join("c")
+            .join("Include")
+            .join(helpers::marketing_dir(SDK_VERSION));
+        let headers = sdk_macro_headers(&include).unwrap();
+        assert!(headers.windows(2).all(|pair| pair[0] < pair[1]));
+        for name in [
+            "windows.h",
+            "winbase.h",
+            "nserror.h",
+            "bthdef.h",
+            "wiadef.h",
+            "gl.h",
+        ] {
+            assert!(headers.iter().any(|header| header == name), "{name}");
+        }
+        assert!(!headers.iter().any(|header| header == "stdio.h"));
+        assert!(
+            headers
+                .iter()
+                .all(|header| Path::new(header).file_name().unwrap() == header.as_str())
+        );
+        assert!(sdk_macro_headers(&include.join("missing")).is_err());
     }
 }
