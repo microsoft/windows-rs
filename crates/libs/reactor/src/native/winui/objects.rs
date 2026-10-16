@@ -13,7 +13,7 @@ impl WinUiAdapter {
             return Err(WinUiError::DuplicateObject(object));
         }
         let handle = if let Some(handle) =
-            GeneratedHandle::create(kind, object, &self.event_queue, &self.pending_focus_states)?
+            GeneratedHandle::create(kind, object, &self.event_queue)?
         {
             Handle::Generated(handle)
         } else {
@@ -240,6 +240,15 @@ impl WinUiAdapter {
         });
         let clear = sorted_clear.as_deref().unwrap_or(clear);
         let set = sorted_set.as_deref().unwrap_or(set);
+        if let Some(Handle::Generated(handle)) = self.handles.get_mut(&object) {
+            let context = EventContext {
+                event_queue: &self.event_queue,
+                pending_focus_states: &self.pending_focus_states,
+            };
+            for property in set {
+                handle.subscribe_property_events(object, property.id, context)?;
+            }
+        }
         // Native setters choose their animation immediately. Apply the new transition policy
         // before target changes, but establish initial values before installing transitions.
         if !initializing {

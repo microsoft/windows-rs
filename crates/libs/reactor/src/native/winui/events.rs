@@ -594,10 +594,18 @@ impl WinUiAdapter {
         set: &[Event],
         clear: &[EventId],
     ) -> Result<(), WinUiError> {
-        match self.handle(object)? {
+        let context = EventContext {
+            event_queue: &self.event_queue,
+            pending_focus_states: &self.pending_focus_states,
+        };
+        match self
+            .handles
+            .get_mut(&object)
+            .ok_or(WinUiError::MissingObject(object))?
+        {
             Handle::Generated(value) => {
                 return value
-                    .set_events(object, set, clear)
+                    .set_events(object, set, clear, context)
                     .unwrap_or(Err(WinUiError::InvalidObject(object)));
             }
             Handle::TextBox(value) => {
