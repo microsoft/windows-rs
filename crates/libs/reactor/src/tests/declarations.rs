@@ -1,6 +1,16 @@
 use super::*;
 
 #[test]
+fn number_box_small_change_requires_finite_values() {
+    for value in [f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+        assert!(std::panic::catch_unwind(|| NumberBox::new().small_change(value)).is_err());
+    }
+    for value in [-0.5, 0.0, 0.25, 2.0] {
+        NumberBox::new().small_change(value);
+    }
+}
+
+#[test]
 fn calendar_date_properties_order_update_and_clear() {
     let min = DateTime::from_unix_secs(1_700_000_000);
     let max = DateTime::from_unix_secs(1_800_000_000);

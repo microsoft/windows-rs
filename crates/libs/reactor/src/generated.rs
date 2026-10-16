@@ -228,8 +228,10 @@ pub enum PropertyId {
     ShowAsMonochrome,
     ShowError,
     ShowPaused,
+    SmallChange,
     Source,
     Spacing,
+    SpinButtonPlacementMode,
     StepFrequency,
     Stretch,
     Stroke,
@@ -1527,6 +1529,17 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::OptionalF64,
         }),
+        (ObjectType::NumberBox, PropertyId::SmallChange) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::NumberBox, PropertyId::SpinButtonPlacementMode) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "NumberBoxSpinButtonPlacementMode",
+                variants: &["Hidden", "Compact", "Inline"],
+            },
+        }),
         (ObjectType::NavigationView, PropertyId::PaneDisplayMode) => Some(PropertyContract {
             id,
             value: ValueType::Enum {
@@ -2495,6 +2508,8 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::NumberBox, PropertyId::Minimum) => 27,
         (ObjectType::NumberBox, PropertyId::Maximum) => 28,
         (ObjectType::NumberBox, PropertyId::Value) => 29,
+        (ObjectType::NumberBox, PropertyId::SmallChange) => 30,
+        (ObjectType::NumberBox, PropertyId::SpinButtonPlacementMode) => 31,
         (ObjectType::NavigationView, PropertyId::IsEnabled) => 26,
         (ObjectType::NavigationView, PropertyId::PaneDisplayMode) => 27,
         (ObjectType::NavigationView, PropertyId::IsPaneToggleButtonVisible) => 28,
@@ -2890,8 +2905,10 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::ShowAsMonochrome,
     PropertyId::ShowError,
     PropertyId::ShowPaused,
+    PropertyId::SmallChange,
     PropertyId::Source,
     PropertyId::Spacing,
+    PropertyId::SpinButtonPlacementMode,
     PropertyId::StepFrequency,
     PropertyId::Stretch,
     PropertyId::Stroke,

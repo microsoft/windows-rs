@@ -1232,6 +1232,29 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    pub fn number_box_options(
+        &self,
+        object: ObjectId,
+    ) -> Result<(f64, NumberBoxSpinButtonPlacementMode), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::NumberBox(value))) = self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let mode = match value.value.SpinButtonPlacementMode()? {
+            native::NumberBoxSpinButtonPlacementMode::Hidden => {
+                NumberBoxSpinButtonPlacementMode::Hidden
+            }
+            native::NumberBoxSpinButtonPlacementMode::Compact => {
+                NumberBoxSpinButtonPlacementMode::Compact
+            }
+            native::NumberBoxSpinButtonPlacementMode::Inline => {
+                NumberBoxSpinButtonPlacementMode::Inline
+            }
+            _ => return Err(WinUiError::StateMismatch(object)),
+        };
+        Ok((value.value.SmallChange()?, mode))
+    }
+
     pub fn slider_state(&self, object: ObjectId) -> Result<(f64, f64, f64), WinUiError> {
         let Some(Handle::Generated(GeneratedHandle::Slider(slider))) = self.handles.get(&object)
         else {
