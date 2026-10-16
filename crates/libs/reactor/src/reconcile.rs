@@ -1637,13 +1637,13 @@ impl Drop for GraphTransaction<'_> {
     }
 }
 
-struct ReferenceUnwindGuard {
-    references: Vec<(ElementRef, ObjectId)>,
+struct ReferenceUnwindGuard<'a> {
+    references: &'a [(ElementRef, ObjectId)],
     armed: bool,
 }
 
-impl ReferenceUnwindGuard {
-    fn new(references: Vec<(ElementRef, ObjectId)>) -> Self {
+impl<'a> ReferenceUnwindGuard<'a> {
+    fn new(references: &'a [(ElementRef, ObjectId)]) -> Self {
         Self {
             references,
             armed: true,
@@ -1655,10 +1655,10 @@ impl ReferenceUnwindGuard {
     }
 }
 
-impl Drop for ReferenceUnwindGuard {
+impl Drop for ReferenceUnwindGuard<'_> {
     fn drop(&mut self) {
         if self.armed && std::thread::panicking() {
-            for (reference, object) in &self.references {
+            for (reference, object) in self.references {
                 reference.clear(*object);
             }
         }
@@ -1670,7 +1670,7 @@ fn validate_adapter<A: Adapter>(
     mutations: &[Mutation],
     references: &[(ElementRef, ObjectId)],
 ) -> Result<(), A::Error> {
-    let guard = ReferenceUnwindGuard::new(references.to_vec());
+    let guard = ReferenceUnwindGuard::new(references);
     let result = adapter.validate(mutations);
     guard.disarm();
     result
@@ -1681,7 +1681,7 @@ fn apply_adapter<A: Adapter>(
     mutations: &[Mutation],
     references: &[(ElementRef, ObjectId)],
 ) -> Result<(), A::Error> {
-    let guard = ReferenceUnwindGuard::new(references.to_vec());
+    let guard = ReferenceUnwindGuard::new(references);
     let result = adapter.apply(mutations);
     guard.disarm();
     result
