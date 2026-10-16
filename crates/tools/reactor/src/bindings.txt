@@ -102,7 +102,7 @@ Microsoft::UI::Xaml::Controls::IContentControl::put_Content
 Microsoft::UI::Xaml::Controls::IContentDialog::{add_Closed, add_Opened, get_DefaultButton, Hide, put_CloseButtonText, put_DefaultButton, put_IsPrimaryButtonEnabled, put_IsSecondaryButtonEnabled, put_PrimaryButtonText, put_SecondaryButtonText, put_Title, remove_Closed, remove_Opened, ShowAsync}
 Microsoft::UI::Xaml::Controls::IContentDialogClosedEventArgs::get_Result
 Microsoft::UI::Xaml::Controls::IContentDialogStatics::{get_CloseButtonTextProperty, get_DefaultButtonProperty, get_IsPrimaryButtonEnabledProperty, get_IsSecondaryButtonEnabledProperty, get_PrimaryButtonTextProperty, get_SecondaryButtonTextProperty, get_TitleProperty}
-Microsoft::UI::Xaml::Controls::IControl::{get_IsEnabled, put_Background, put_BorderBrush, put_BorderThickness, put_HorizontalContentAlignment, put_IsEnabled, put_VerticalContentAlignment}
+Microsoft::UI::Xaml::Controls::IControl::{get_IsEnabled, put_Background, put_BorderBrush, put_BorderThickness, put_Foreground, put_HorizontalContentAlignment, put_IsEnabled, put_VerticalContentAlignment}
 Microsoft::UI::Xaml::Controls::IControlStatics::{get_BackgroundProperty, get_BorderBrushProperty, get_BorderThicknessProperty, get_HorizontalContentAlignmentProperty, get_IsEnabledProperty, get_VerticalContentAlignmentProperty}
 Microsoft::UI::Xaml::Controls::IDatePicker::{add_SelectedDateChanged, put_DayVisible, put_Header, put_MonthVisible, put_YearVisible, remove_SelectedDateChanged}
 Microsoft::UI::Xaml::Controls::IDatePickerSelectedValueChangedEventArgs::get_NewDate
@@ -110,13 +110,15 @@ Microsoft::UI::Xaml::Controls::IDatePickerStatics::{get_DayVisibleProperty, get_
 Microsoft::UI::Xaml::Controls::IExpander::{get_IsExpanded, put_Header, put_IsExpanded}
 Microsoft::UI::Xaml::Controls::IExpanderStatics::get_IsExpandedProperty
 Microsoft::UI::Xaml::Controls::IFlyout::put_Content
-Microsoft::UI::Xaml::Controls::IFontIcon::put_Glyph
+Microsoft::UI::Xaml::Controls::IFontIcon::{get_FontSize, put_FontSize, put_Glyph}
 Microsoft::UI::Xaml::Controls::IFontIconSource::put_Glyph
-Microsoft::UI::Xaml::Controls::IFontIconStatics::get_GlyphProperty
+Microsoft::UI::Xaml::Controls::IFontIconStatics::{get_FontSizeProperty, get_GlyphProperty}
 Microsoft::UI::Xaml::Controls::IGrid::{get_ColumnDefinitions, get_RowDefinitions, put_ColumnSpacing, put_RowSpacing}
 Microsoft::UI::Xaml::Controls::IGridStatics::{get_ColumnSpacingProperty, get_RowSpacingProperty}
 Microsoft::UI::Xaml::Controls::IHyperlinkButton::put_NavigateUri
 Microsoft::UI::Xaml::Controls::IHyperlinkButtonStatics::get_NavigateUriProperty
+Microsoft::UI::Xaml::Controls::IIconElement::{get_Foreground, put_Foreground}
+Microsoft::UI::Xaml::Controls::IIconElementStatics::get_ForegroundProperty
 Microsoft::UI::Xaml::Controls::IImage::{add_ImageFailed, add_ImageOpened, get_Source, put_Source, put_Stretch, remove_ImageFailed, remove_ImageOpened}
 Microsoft::UI::Xaml::Controls::IImageIcon::{get_Source, put_Source}
 Microsoft::UI::Xaml::Controls::IImageIconSource::put_ImageSource
@@ -391,7 +393,7 @@ Microsoft::UI::Xaml::Media::Imaging::ISvgImageSource::{SetSourceAsync, add_Opene
 Microsoft::UI::Xaml::Media::Imaging::SvgImageSource::CreateInstance
 Microsoft::UI::Xaml::Media::Imaging::SvgImageSourceLoadStatus::{}
 Microsoft::UI::Xaml::Media::IMicaBackdrop::put_Kind
-Microsoft::UI::Xaml::Media::ISolidColorBrush::put_Color
+Microsoft::UI::Xaml::Media::ISolidColorBrush::{get_Color, put_Color}
 Microsoft::UI::Xaml::Media::MicaBackdrop::CreateInstance
 Microsoft::UI::Xaml::Media::SolidColorBrush::CreateInstance
 Microsoft::UI::Xaml::Media::Stretch

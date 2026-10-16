@@ -4408,6 +4408,16 @@ impl FontIcon {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
+    pub(crate) fn FontSizeProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFontIconStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FontSizeProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
     fn IFontIconFactory<R, F: FnOnce(&IFontIconFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -8787,6 +8797,18 @@ impl windows_core::RuntimeType for IControl {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IControl {
+    pub(crate) fn SetForeground<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<Brush>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetForeground)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
     pub(crate) fn IsEnabled(&self) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8886,7 +8908,10 @@ pub struct IControl_Vtbl {
     CharacterSpacing: usize,
     SetCharacterSpacing: usize,
     Foreground: usize,
-    SetForeground: usize,
+    pub SetForeground: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     IsTextScaleFactorEnabled: usize,
     SetIsTextScaleFactorEnabled: usize,
     pub IsEnabled:
@@ -10638,6 +10663,25 @@ impl IFontIcon {
             .ok()
         }
     }
+    pub(crate) fn FontSize(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FontSize)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetFontSize(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetFontSize)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
 }
 #[repr(C)]
 pub struct IFontIcon_Vtbl {
@@ -10647,6 +10691,10 @@ pub struct IFontIcon_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+    pub FontSize:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub SetFontSize:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IFontIconFactory,
@@ -10728,6 +10776,10 @@ impl windows_core::RuntimeType for IFontIconStatics {
 pub struct IFontIconStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GlyphProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub FontSizeProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -11652,9 +11704,58 @@ impl windows_core::RuntimeType for IIconElement {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+impl IIconElement {
+    pub(crate) fn Foreground(&self) -> windows_core::Result<Brush> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Foreground)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn SetForeground<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<Brush>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetForeground)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
 #[repr(C)]
 pub struct IIconElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Foreground: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub SetForeground: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IIconElementStatics,
+    IIconElementStatics_Vtbl,
+    0x4ccfdc81_9d9d_5a02_b95b_ad1add921750
+);
+impl windows_core::RuntimeType for IIconElementStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIconElementStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ForegroundProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IIconSource,
@@ -18132,6 +18233,16 @@ impl windows_core::RuntimeType for ISolidColorBrush {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ISolidColorBrush {
+    pub(crate) fn Color(&self) -> windows_core::Result<Color> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Color)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn SetColor(&self, value: Color) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetColor)(
@@ -18145,7 +18256,8 @@ impl ISolidColorBrush {
 #[repr(C)]
 pub struct ISolidColorBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    Color: usize,
+    pub Color:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut Color) -> windows_core::HRESULT,
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, Color) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpan, ISpan_Vtbl, 0x91b93d4d_4e28_57b9_bffb_3566c2a3c2a1);
@@ -23978,6 +24090,25 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(IconElement, FrameworkElement, UIElement, DependencyObject);
+impl IconElement {
+    pub(crate) fn ForegroundProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IIconElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ForegroundProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    fn IIconElementStatics<R, F: FnOnce(&IIconElementStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<IconElement, IIconElementStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeType for IconElement {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IIconElement>();

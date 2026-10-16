@@ -5118,6 +5118,23 @@ impl FontIcon {
         );
         self
     }
+    pub fn font_size(mut self, font_size: f64) -> Self {
+        assert!(
+            font_size.is_finite() && font_size > 0.0,
+            "FontIcon.FontSize requires finite_positive"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::FontSize, PropertyValue::F64(font_size));
+        self
+    }
+    pub fn foreground(mut self, foreground: impl Into<Brush>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::Foreground,
+            PropertyValue::Brush(foreground.into()),
+        );
+        self
+    }
     visual_methods!();
 }
 impl Default for FontIcon {

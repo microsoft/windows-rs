@@ -1551,6 +1551,8 @@ pub fn windows_reactor::FontIcon::canvas_left(self, f64) -> Self
 pub fn windows_reactor::FontIcon::canvas_top(self, f64) -> Self
 pub fn windows_reactor::FontIcon::exit_fade(self, core::time::Duration) -> Self
 pub fn windows_reactor::FontIcon::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
+pub fn windows_reactor::FontIcon::font_size(self, f64) -> Self
+pub fn windows_reactor::FontIcon::foreground(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
 pub fn windows_reactor::FontIcon::glyph(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::FontIcon::grid_column(self, i32) -> Self
 pub fn windows_reactor::FontIcon::grid_column_span(self, i32) -> Self

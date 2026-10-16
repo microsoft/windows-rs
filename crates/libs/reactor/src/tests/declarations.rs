@@ -1,6 +1,14 @@
 use super::*;
 
 #[test]
+fn font_icon_font_size_requires_finite_positive_values() {
+    for value in [0.0, -1.0, f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+        assert!(std::panic::catch_unwind(|| FontIcon::new().font_size(value)).is_err());
+    }
+    FontIcon::new().font_size(16.0);
+}
+
+#[test]
 fn text_block_alignment_shares_the_text_box_contract_and_clears() {
     assert_eq!(
         property_contract(ObjectType::TextBlock, PropertyId::TextAlignment),
