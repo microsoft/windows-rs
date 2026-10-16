@@ -2298,6 +2298,8 @@ pub(crate) struct Functions {
         count: u32,
         value: *mut u64,
     ) -> WindowsClangStatus,
+    pub windows_clang_getConstantPointerInitializer:
+        unsafe extern "C" fn(cursor: CXCursor, value: *mut i64) -> WindowsClangStatus,
     pub windows_clang_getDeprecation: unsafe extern "C" fn(
         cursor: CXCursor,
         message: *mut CXString,
@@ -2330,8 +2332,12 @@ pub(crate) struct Functions {
         expression: *mut CXCursor,
         spelling: *mut CXString,
     ) -> WindowsClangStatus,
+    pub windows_clang_getPredefinedType:
+        unsafe extern "C" fn(r#type: CXType, underlying: *mut CXType) -> WindowsClangStatus,
     pub windows_clang_getRuntimeIdentity: unsafe extern "C" fn() -> *const core::ffi::c_void,
     pub windows_clang_getTypeAttributeKindName: unsafe extern "C" fn(r#type: CXType) -> *const i8,
+    pub windows_clang_getTypeOfOperand:
+        unsafe extern "C" fn(cursor: CXCursor, expression: *mut CXCursor) -> WindowsClangStatus,
     pub windows_clang_getTypeQualifiers:
         unsafe extern "C" fn(r#type: CXType, qualifiers: *mut u32) -> WindowsClangStatus,
     pub windows_clang_getTypeVisibility: unsafe extern "C" fn(
@@ -4803,6 +4809,16 @@ impl Functions {
                         )
                     })?
             },
+            windows_clang_getConstantPointerInitializer: unsafe {
+                *extension
+                    .get(b"windows_clang_getConstantPointerInitializer\0")
+                    .map_err(|error| {
+                        format!(
+                            "{}: {error}",
+                            stringify!(windows_clang_getConstantPointerInitializer)
+                        )
+                    })?
+            },
             windows_clang_getDeprecation: unsafe {
                 *extension
                     .get(b"windows_clang_getDeprecation\0")
@@ -4882,6 +4898,13 @@ impl Functions {
                         )
                     })?
             },
+            windows_clang_getPredefinedType: unsafe {
+                *extension
+                    .get(b"windows_clang_getPredefinedType\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getPredefinedType))
+                    })?
+            },
             windows_clang_getRuntimeIdentity: unsafe {
                 *extension
                     .get(b"windows_clang_getRuntimeIdentity\0")
@@ -4897,6 +4920,13 @@ impl Functions {
                             "{}: {error}",
                             stringify!(windows_clang_getTypeAttributeKindName)
                         )
+                    })?
+            },
+            windows_clang_getTypeOfOperand: unsafe {
+                *extension
+                    .get(b"windows_clang_getTypeOfOperand\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getTypeOfOperand))
                     })?
             },
             windows_clang_getTypeQualifiers: unsafe {
@@ -6997,6 +7027,16 @@ pub unsafe fn windows_clang_getConstantIntegerElement(
         (library.functions.windows_clang_getConstantIntegerElement)(cursor, indices, count, value)
     })
 }
+pub unsafe fn windows_clang_getConstantPointerInitializer(
+    cursor: CXCursor,
+    value: *mut i64,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library
+            .functions
+            .windows_clang_getConstantPointerInitializer)(cursor, value)
+    })
+}
 pub unsafe fn windows_clang_getDeprecation(
     cursor: CXCursor,
     message: *mut CXString,
@@ -7083,12 +7123,28 @@ pub unsafe fn windows_clang_getParameterDefaultArgument(
         )
     })
 }
+pub unsafe fn windows_clang_getPredefinedType(
+    r#type: CXType,
+    underlying: *mut CXType,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getPredefinedType)(r#type, underlying)
+    })
+}
 pub unsafe fn windows_clang_getRuntimeIdentity() -> *const core::ffi::c_void {
     crate::with_library(|library| unsafe { (library.functions.windows_clang_getRuntimeIdentity)() })
 }
 pub unsafe fn windows_clang_getTypeAttributeKindName(r#type: CXType) -> *const i8 {
     crate::with_library(|library| unsafe {
         (library.functions.windows_clang_getTypeAttributeKindName)(r#type)
+    })
+}
+pub unsafe fn windows_clang_getTypeOfOperand(
+    cursor: CXCursor,
+    expression: *mut CXCursor,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getTypeOfOperand)(cursor, expression)
     })
 }
 pub unsafe fn windows_clang_getTypeQualifiers(

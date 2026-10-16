@@ -24,6 +24,7 @@ impl Projector<'_, '_> {
         observation: &ValueObservation,
         name: &str,
         imports: &BTreeMap<String, Import>,
+        definition: Option<&ConstantValue>,
     ) -> Result<Body, Error> {
         match &observation.kind {
             ValueKind::Function { language, .. } => {
@@ -74,6 +75,9 @@ impl Projector<'_, '_> {
                 })
             }
             ValueKind::Constant { value, .. } => {
+                let value = value.as_ref().or(definition).ok_or_else(|| {
+                    Error(format!("constant `{name}` has no captured definition"))
+                })?;
                 if observation.attributes.iter().any(|attribute| {
                     !matches!(
                         attribute.kind,
@@ -129,9 +133,21 @@ impl Projector<'_, '_> {
                         _ => unreachable!(),
                     });
                 }
+                if matches!(value, ConstantValue::Pointer(_))
+                    && !matches!(
+                        self.ty(snapshot, observation.canonical)?,
+                        MetadataType::PtrMut(..) | MetadataType::PtrConst(..)
+                    )
+                {
+                    return Err(Error(
+                        "numeric pointer constant requires a native data-pointer representation"
+                            .into(),
+                    ));
+                }
                 let ty = self.written_ty(snapshot, observation.written, observation.canonical)?;
                 let ty = write_type(self.namespace, &ty);
                 let value = match *value {
+                    ConstantValue::Pointer(value) => windows_metadata::Value::I64(value),
                     ConstantValue::Integer(EnumValue::Signed(value)) => {
                         windows_metadata::Value::I64(value)
                     }
@@ -212,12 +228,20 @@ impl Projector<'_, '_> {
                     .parameter_ty(snapshot_id, parameter.written, canonical)
                     .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
                 let attributes = annotations::parameter(&parameter.attributes, &ty)?;
+                let size = annotations::buffer_capacity(
+                    self.resolution.snapshots[snapshot_id],
+                    function,
+                    parameters,
+                    index,
+                    &ty,
+                )
+                .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
                 let default = parameter.default.as_ref().map(|value| {
                     let expression = &value.expression;
                     quote! { #[Windows::Win32::Metadata::NativeDefaultArgument(#expression)] }
                 });
                 let ty = write_type(self.namespace, &ty);
-                Ok(quote! { #attributes #default #name: #ty })
+                Ok(quote! { #attributes #size #default #name: #ty })
             })
             .collect()
     }

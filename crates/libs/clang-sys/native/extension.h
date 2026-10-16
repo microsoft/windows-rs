@@ -117,6 +117,16 @@ WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getIntegerConstantInitia
 // C++ constant expressions, including floating-point values, without runtime side effects.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getConstantInitializer(
     CXCursor cursor, unsigned* is_constant);
+// Numeric data-pointer static initializer with no relocation, side effects, or undefined behavior.
+// The result is the pointer bit pattern sign-extended from the target pointer width.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getConstantPointerInitializer(
+    CXCursor cursor, long long* value);
+// Original operand of a variable's typeof expression, before initializer conversions.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypeOfOperand(
+    CXCursor cursor, CXCursor* expression);
+// Desugars only compiler-predefined types, such as the result type of sizeof, not user typedefs.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getPredefinedType(
+    CXType type, CXType* underlying);
 // Evaluates an unsigned integer leaf in a constant aggregate initializer. Indices select
 // struct fields or array elements; no source tokens or object-memory layout are interpreted.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getConstantIntegerElement(

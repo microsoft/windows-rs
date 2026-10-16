@@ -19,7 +19,40 @@ static const char* attributeName(clang::attr::Kind kind) {
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 12;
+    return 14;
+}
+
+WindowsClangStatus windows_clang_getTypeOfOperand(CXCursor cursor, CXCursor* expression) {
+    if (!expression) {
+        return WindowsClangInvalidArgument;
+    }
+    if (cursor.kind != CXCursor_VarDecl) {
+        return WindowsClangWrongKind;
+    }
+    auto declaration = llvm::dyn_cast<clang::VarDecl>(clang::cxcursor::getCursorDecl(cursor));
+    auto type = declaration ? declaration->getType()->getAs<clang::TypeOfExprType>() : nullptr;
+    if (!type) {
+        return WindowsClangWrongKind;
+    }
+    auto operand = type->getUnderlyingExpr();
+    if (operand->isTypeDependent() || operand->isValueDependent()) {
+        return WindowsClangDependent;
+    }
+    *expression = clang::cxcursor::MakeCXCursor(
+        operand, declaration, clang::cxcursor::getCursorTU(cursor));
+    return WindowsClangSuccess;
+}
+
+WindowsClangStatus windows_clang_getPredefinedType(CXType type, CXType* underlying) {
+    if (!underlying) {
+        return WindowsClangInvalidArgument;
+    }
+    auto value = GetQualType(type);
+    if (value.isNull() || !llvm::isa<clang::PredefinedSugarType>(value.getTypePtr())) {
+        return WindowsClangWrongKind;
+    }
+    *underlying = clang_getCanonicalType(type);
+    return WindowsClangSuccess;
 }
 
 WindowsClangStatus windows_clang_getVirtualMethodSlot(
@@ -145,6 +178,42 @@ WindowsClangStatus windows_clang_getConstantInitializer(
     auto initializer = declaration->getInit();
     *is_constant = initializer &&
         initializer->isCXX11ConstantExpr(clang::cxcursor::getCursorContext(cursor));
+    return WindowsClangSuccess;
+}
+
+WindowsClangStatus windows_clang_getConstantPointerInitializer(
+    CXCursor cursor, long long* value) {
+    if (!value) {
+        return WindowsClangInvalidArgument;
+    }
+    if (cursor.kind != CXCursor_VarDecl) {
+        return WindowsClangWrongKind;
+    }
+    auto declaration = llvm::dyn_cast<clang::VarDecl>(clang::cxcursor::getCursorDecl(cursor));
+    if (!declaration || !declaration->getType()->isPointerType() ||
+        declaration->getType()->isFunctionPointerType() || !declaration->getInit()) {
+        return WindowsClangWrongKind;
+    }
+    auto& context = clang::cxcursor::getCursorContext(cursor);
+    auto initializer = declaration->getInit();
+    if (!initializer->isConstantInitializer(context, false)) {
+        return WindowsClangDependent;
+    }
+    clang::Expr::EvalResult evaluated;
+    if (!initializer->EvaluateAsRValue(evaluated, context) ||
+        evaluated.HasSideEffects || evaluated.HasUndefinedBehavior) {
+        return WindowsClangDependent;
+    }
+    if (!evaluated.Val.isLValue() || evaluated.Val.getLValueBase()) {
+        return WindowsClangWrongKind;
+    }
+    auto width = context.getTypeSize(declaration->getType());
+    if (!width || width > 64) {
+        return WindowsClangWrongKind;
+    }
+    llvm::APInt bits(static_cast<unsigned>(width),
+        static_cast<uint64_t>(evaluated.Val.getLValueOffset().getQuantity()));
+    *value = bits.getSExtValue();
     return WindowsClangSuccess;
 }
 

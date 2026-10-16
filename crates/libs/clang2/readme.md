@@ -86,12 +86,25 @@ use compiler evaluation. Floating-point values retain exact bits, including sign
 Enum constants retain their nominal enum or written typedef rather than becoming plain integers.
 GUIDs and property keys use compiler-evaluated aggregate fields with checked native shapes.
 Terminated ASCII and UTF-16 arrays publish strings with explicit encodings, preserving embedded
-zeros and padding. A declaration can use its compiler-linked definition's initializer.
-Macros are evaluated after the input and retain native definition ownership, including selected
-string and GUID expressions. A constant-expression check rejects runtime side effects that
+zeros and padding. Typed constant declarations retain their native evidence and reconcile with
+definitions in the same or another input. Definitions must agree on type, linkage, contracts, and
+value; a missing initializer is distinct from an invalid initializer.
+Macros are evaluated after the input and retain native definition ownership and written typedefs,
+including selected string and GUID expressions. `Input.macro_headers` discovers object-like macros
+in selected header filenames. Isolated compiler probes report invalid expressions without accepting
+a failed AST or disrupting unrelated capture. Strict mode fails on rejected candidates; partial mode
+reports them as omissions. The SDK driver exposes this as repeatable `--macro-header=header.h`.
+Discovery uses the active definition's owner, not a superseded definition in another header.
+A constant-expression check rejects runtime side effects that
 libclang's general folding API may ignore. This slice does not implement non-finite or extended
-floats, arbitrary aggregates, pointer strings, non-ASCII narrow strings, or automatic macro discovery.
-Declaration-only GUIDs without an initializer remain unsupported.
+floats, arbitrary aggregates, pointer strings, or non-ASCII narrow strings.
+Numeric data-pointer constants use compiler-validated static initialization and retain target-width
+address bits, pointer typedefs, and pointee constness. Relocations, code addresses, side effects,
+undefined behavior, and COM interface constants are rejected.
+Publication requires a valid definition for each target. The SDK driver uses a separate lean
+Windows `INITGUID` input for winnt and winsvc GUID definitions, without relaxing ordinary capture.
+All SDK inputs share support headers before Windows headers so constant dependencies are available
+and native annotation expansions agree across declaration and definition inputs.
 The header/RDL fixtures and SDK breadth test cover all three categories
 through x86, x64, and ARM64 WinMD round trips.
 The `sdk_functions` fixture covers 114 real SDK imports with explicit DLL ownership, including file
@@ -124,7 +137,10 @@ annotations retain their original owner; conflicting deprecation payloads are re
 The SDK driver preserves SAL source-hook evidence through the provisional `NativeSalAttribute`,
 including capacity, initialized-length, and conditional contracts. Common parameter direction and
 argument-optionality flags are also projected. This is not a complete SAL interpreter; expressions
-and nested contracts remain explicit evidence. Typedef publication accepts an observed annotation
+and nested contracts remain explicit evidence. Direct named integer buffer capacities emit
+`size_param` for bytes and `len_param` for elements, using the declared parameter index.
+Initialized length is not substituted for capacity. Other expressions retain SAL evidence without
+an inferred count relationship. Typedef publication accepts an observed annotation
 set that contains all other observations, but never invents a union of incomparable sets.
 Callback parameter names and contracts belong to declaration observations, not shared ABI types.
 ABI-based callback naming excludes annotated and indirect prototypes. Defining-typedef annotations
@@ -148,6 +164,8 @@ signedness between named members in one storage unit and enum/bool bitfields rem
 Storage layouts must match native size, alignment, and offsets; no packing request is inferred.
 Downstream union-accessor defects are tracked separately rather than blocking correct metadata.
 Enums retain nominal identity, scopedness, exact signed/unsigned values, and backing types.
+MIDL-generated anonymous-enum tags remain in native evidence, but publication uses an authored
+typedef when available or emits loose constants instead of the generated name.
 Forward declarations must agree with complete definitions. Projection preserves `#[scoped]` and
 the integer representation; it does not infer flags or combine distinct enums by matching values.
 Anonymous enums without a public type name publish their members as typed constants. Same-target
@@ -172,10 +190,13 @@ observations remain distinct; foundation routing never resolves a type conflict.
 
 `capture_partial` and `projection::generate_partial` return supported output plus omission reports.
 `projection::project_partial` accepts an existing partial capture without reparsing.
-Failed entities and dependent declarations are removed across all targets; compiler errors and
-conflicts in retained definitions or alias bindings still fail. A non-value typedef, such as `void`,
-can remain as native evidence and expand at use sites. A named value alias or callback
+Successfully captured observations undergo native reconciliation before failed entities and their
+dependents are removed across targets. Known conflicts remain fatal even in excluded dependents.
+Failed observations are reported as omissions, not validated as compatible. A non-value typedef,
+such as `void`, can remain as native evidence and expand at use sites. A named value alias or callback
 that cannot be published is removed with its dependents rather than replaced by its canonical type.
+Failed macro-constant probes exclude constants across targets, not observed native functions with
+the same spelling. Native declaration failures and known-conflict checks retain their own scope.
 
 Fixtures, inspection, and scaling live in `test_clang2`. See
 [crate notes](../../../docs/crates/windows-clang2.md) for commands.

@@ -64,7 +64,15 @@ pub(super) fn resolve(
                 value.location.offset,
             )
         });
-        let first = observations[0];
+        let Some(&first) = observations.first() else {
+            // Failed capture can retain an identity without a successful observation.
+            // Correspondence alone does not provide a verified definition.
+            groups.push(EnumGroup {
+                enums,
+                definition: None,
+            });
+            continue;
+        };
         let a =
             &snapshots[first.snapshot].enums[first.enumeration.0].observations[first.observation];
         let mut definition: Option<EnumObservationRef> = None;

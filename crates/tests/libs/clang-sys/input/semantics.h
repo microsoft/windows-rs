@@ -11,6 +11,16 @@ const int NativeSideEffect = (NativeCpp(0), 3);
 const float NativeFloat = 1.25f;
 const double NativeDouble = -0.0;
 const bool NativeBool = true;
+typedef unsigned short NativeMacroWord;
+const __typeof__((NativeMacroWord)33) NativeTypeOfWord = (NativeMacroWord)33;
+const __typeof__(("backup")) NativeTypeOfText = ("backup");
+const __typeof__(sizeof(void*)) NativeTypeOfSize = sizeof(void*);
+void* const NativePointerNull = nullptr;
+unsigned char* const NativePointerSentinel = (unsigned char*)-1;
+void* const NativePointer32 = (void*)0xffffffffULL;
+const double* const NativePointerRelocation = &NativeDouble;
+void* const NativePointerSideEffect = (NativeCpp(0), (void*)-1);
+void* const NativePointerUndefined = (void*)(0x7fffffff + 1);
 const double NativeFloatSideEffect = (NativeCpp(0), 1.25);
 extern const double NativeUninitialized;
 #pragma pack(push, 2)

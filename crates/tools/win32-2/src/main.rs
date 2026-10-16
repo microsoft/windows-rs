@@ -1,3 +1,4 @@
+mod coverage;
 #[path = "../../win32/src/headers.rs"]
 mod headers;
 #[path = "../../win32/src/imports.rs"]
@@ -9,6 +10,7 @@ use std::time::Instant;
 use windows_clang2::{Input, projection};
 
 const SDK_VERSION: &str = "10.0.28000.2270";
+const SUPPORT_PRELUDE: &str = "#include <intsafe.h>\n";
 const PRELUDE: &str = "#define SECURITY_WIN32
 #define WIN32_NO_STATUS
 #include <winsock2.h>
@@ -29,12 +31,19 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if !Path::new("metadata\\metadata.rdl").is_file() {
         return Err("run tool-win32-2 from the repository root".into());
     }
+    if std::env::args().nth(1).as_deref() == Some("--compare-constants") {
+        if std::env::args().len() != 2 {
+            return Err("--compare-constants cannot be combined with generation arguments".into());
+        }
+        return coverage::run();
+    }
     let mut headers = Vec::new();
     let mut partial = false;
     let mut sdk_imports = false;
     let mut first = None;
     let mut imports = BTreeMap::new();
     let mut macros = Vec::new();
+    let mut macro_headers = Vec::new();
     for argument in std::env::args().skip(1) {
         if argument == "--partial" {
             partial = true;
@@ -60,13 +69,18 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
         } else if let Some(name) = argument.strip_prefix("--macro=") {
             macros.push(name.to_string());
+        } else if let Some(header) = argument.strip_prefix("--macro-header=") {
+            if header.is_empty() {
+                return Err("--macro-header requires a header filename".into());
+            }
+            macro_headers.push(header.to_string());
         } else if let Some(count) = argument.strip_prefix("--first=") {
             if first.replace(count.parse::<usize>()?).is_some() {
                 return Err("--first may only be specified once".into());
             }
         } else if argument.starts_with('-') {
             return Err(format!(
-                "unknown option `{argument}`; use --partial, --sdk-imports, --first=N, --import=Function=library.dll, --macro=NAME, or header names"
+                "unknown option `{argument}`; use --compare-constants alone, or --partial, --sdk-imports, --first=N, --import=Function=library.dll, --macro=NAME, --macro-header=header.h, or header names"
             )
             .into());
         } else {
@@ -116,7 +130,14 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut inputs = inputs(&headers, &arguments);
     for input in &mut inputs {
         input.macros.clone_from(&macros);
+        input.macro_headers.clone_from(&macro_headers);
     }
+    inputs.push(Input {
+        name: "win32-2-guid-definitions.h".into(),
+        source: format!("#define WIN32_LEAN_AND_MEAN\n#define WIN32_NO_STATUS\n#define INITGUID\n{SUPPORT_PRELUDE}#include <windows.h>\n"),
+        arguments: arguments.clone(),
+        ..Default::default()
+    });
     println!(
         "Capturing {} headers in {} translation units for x86, x64, and ARM64",
         headers.len(),
@@ -176,7 +197,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     };
     let generated = started.elapsed();
     if output.partitions.is_empty() {
-        return Err("no declarations could be projected; canonical metadata is unchanged".into());
+        return Err("no declarations could be projected; output is unchanged".into());
     }
     println!(
         "Compiling {} records, {} enums, {} aliases, {} constants, {} functions, and {} interfaces from {} partitions",
@@ -231,7 +252,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         generated.as_secs_f64(),
         compiled.as_secs_f64()
     );
-    println!("Rebuilt metadata\\win32. Validation WinMD: target\\win32-2\\Windows.Win32.winmd");
+    println!(
+        "Rebuilt {}. Validation WinMD: target\\win32-2\\Windows.Win32.winmd",
+        destination.display()
+    );
     Ok(())
 }
 
@@ -319,7 +343,7 @@ fn inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
         if group.is_empty() {
             continue;
         }
-        let mut source = PRELUDE.to_string();
+        let mut source = format!("{SUPPORT_PRELUDE}{PRELUDE}");
         if reset {
             source.push_str(GUID_RESET);
         } else if topology {

@@ -1,0 +1,20 @@
+#[win32]
+mod Fixture {
+    extern "C" fn ConditionalBytes(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_(capacity)", "capacity > 0, __attribute__((annotate(\"windows_clang:sal:2:\" \"_Out_writes_bytes_\" \"\\n\" \"(capacity)\" \"\\n\" \"(capacity)\")))")] buffer: *mut void, capacity: Count);
+    extern "C" fn ConstantBytes(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "16", "16")] #[out] buffer: *mut void);
+    type Count = u32;
+    extern "C" fn ElementCount(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "capacity", "capacity")] #[in] #[len_param(1)] buffer: *const u16, capacity: Count);
+    extern "C" fn ElementOutput(capacity: Count, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "capacity,written", "capacity,written")] #[out] #[opt] #[len_param(0)] buffer: *mut u16, written: Count);
+    extern "C" fn ElementUpdate(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "capacity", "capacity")] #[in] #[out] #[len_param(1)] buffer: *mut u16, capacity: Count);
+    extern "C" fn ExpressionBytes(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "capacity + 1", "capacity + 1")] #[out] buffer: *mut void, capacity: Count);
+    #[guid(0x22222222_1111_1111_1111_111111111111)]
+    interface IBuffer {
+        fn Read(&self, capacity: Count, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "capacity", "capacity")] #[out] #[size_param(0)] buffer: *mut void);
+    }
+    extern "C" fn IndirectBytes(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*capacity", "*capacity")] #[out] buffer: *mut void, capacity: *mut Count);
+    extern "C" fn Plain(capacity: Count, buffer: *const u16);
+    extern "C" fn ReadBytes(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "capacity,*written", "capacity,*written")] #[out] #[opt] #[size_param(1)] buffer: *mut void, capacity: Count, written: *mut Count);
+    extern "C" fn RepeatedBytes(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "capacity", "capacity")] #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "capacity,written", "capacity,written")] #[out] #[size_param(1)] buffer: *mut void, capacity: Count, written: Count);
+    extern "C" fn UpdateBytes(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_opt_", "capacity", "capacity")] #[in] #[out] #[opt] #[size_param(1)] buffer: *mut u32, capacity: Count);
+    extern "C" fn WriteBytes(capacity: Count, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "CAPACITY", "capacity")] #[in] #[size_param(0)] buffer: *const u16);
+}

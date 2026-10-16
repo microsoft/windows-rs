@@ -6,6 +6,8 @@ pub(crate) enum Key {
     Tag(String),
     Alias(String),
     Value(String),
+    /// Failed constant probes exclude constants, not native functions with the same spelling.
+    Macro(String),
     Nested(Box<Self>, RecordMember),
 }
 
@@ -21,7 +23,22 @@ impl Key {
             }
             DeclarationId::Alias(id) => Self::Alias(snapshot.aliases[id.0].name.clone()),
             DeclarationId::Enum(id) => Self::Tag(snapshot.enums[id.0].name.clone()),
-            DeclarationId::Value(id) => Self::Value(snapshot.values[id.0].name.clone()),
+            DeclarationId::Value(id) => {
+                let value = &snapshot.values[id.0];
+                if value.observations.iter().any(|observation| {
+                    matches!(
+                        observation.kind,
+                        ValueKind::Constant {
+                            origin: ConstantOrigin::Macro,
+                            ..
+                        }
+                    )
+                }) {
+                    Self::Macro(value.name.clone())
+                } else {
+                    Self::Value(value.name.clone())
+                }
+            }
         }
     }
 }
@@ -116,11 +133,12 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
                 edge(&Key::Tag(enumeration.name.clone()), observation.canonical);
             }
         }
-        let values = snapshot.values.iter().flat_map(|value| {
+        let values = snapshot.values.iter().enumerate().flat_map(|(id, value)| {
+            let key = Key::of(snapshot, DeclarationId::Value(ValueId(id)));
             value
                 .observations
                 .iter()
-                .map(|observation| (Key::Value(value.name.clone()), observation))
+                .map(move |observation| (key.clone(), observation))
         });
         let methods = snapshot.observations.iter().flat_map(|observation| {
             observation.definition.iter().flat_map(move |definition| {
@@ -225,12 +243,14 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
             .iter()
             .map(|value| !excluded.contains_key(&Key::Tag(value.name.clone()))),
     );
-    let values = remap(
-        snapshot
-            .values
-            .iter()
-            .map(|value| !excluded.contains_key(&Key::Value(value.name.clone()))),
-    );
+    let values = remap(snapshot.values.iter().map(|value| {
+        !excluded.contains_key(&Key::Value(value.name.clone()))
+            && (!excluded.contains_key(&Key::Macro(value.name.clone()))
+                || value
+                    .observations
+                    .iter()
+                    .any(|observation| matches!(observation.kind, ValueKind::Function { .. })))
+    }));
     let declaration = |id| match id {
         DeclarationId::Record(id) => records[id.0].map(|id| DeclarationId::Record(RecordId(id))),
         DeclarationId::Alias(id) => aliases[id.0].map(|id| DeclarationId::Alias(AliasId(id))),

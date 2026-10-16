@@ -1,0 +1,5 @@
+#[win32]
+mod Fixture {
+    const INET_E_INVALID_URL: HRESULT = -2146697214;
+    const INET_E_REDIRECT_TO_DIR: HRESULT = -2146697195;
+}

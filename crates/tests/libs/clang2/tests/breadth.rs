@@ -1497,8 +1497,9 @@ fn constants() {
         assert!(matches!(
             observation.kind,
             ValueKind::Constant {
-                value: ConstantValue::Integer(EnumValue::Unsigned(1099511627779)),
+                value: Some(ConstantValue::Integer(EnumValue::Unsigned(1099511627779))),
                 origin: ConstantOrigin::Macro,
+                ..
             }
         ));
         assert_eq!(observation.location.line, 7);
@@ -1613,8 +1614,10 @@ fn conflicts_and_observation_order() {
                 Err(error) => error.to_string(),
             };
             assert!(error.contains("differ"), "{error}");
-            let partial = capture_partial(&inputs, &TARGETS).unwrap();
-            assert!(merge(&partial.snapshots).is_err());
+            assert_eq!(
+                capture_partial(&inputs, &TARGETS).unwrap_err().to_string(),
+                error
+            );
             inputs.reverse();
         }
     }

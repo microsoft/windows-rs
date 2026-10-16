@@ -38,7 +38,7 @@ fn scalar_constants() {
         assert!(matches!(
             negative.observations[0].kind,
             ValueKind::Constant {
-                value: ConstantValue::Float32(0x80000000),
+                value: Some(ConstantValue::Float32(0x80000000)),
                 ..
             }
         ));

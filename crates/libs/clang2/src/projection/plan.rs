@@ -1,4 +1,12 @@
 use super::*;
+
+// MIDL supplies reserved, numbered tags for anonymous IDL enums.
+fn midl_enum_name(name: &str) -> bool {
+    name.starts_with("__MIDL_")
+        && name.rsplit_once('_').is_some_and(|(_, suffix)| {
+            suffix.len() >= 4 && suffix.bytes().all(|byte| byte.is_ascii_digit())
+        })
+}
 use crate::resolve::{TypePair, abi_attributes_equal, attributes_equal, types_equal};
 
 pub(super) struct Plan {
@@ -247,9 +255,26 @@ impl Plan {
             self.names[id].clone_from(&resolution.aliases[alias].name);
         }
         for (id, candidates) in enum_defining.iter().enumerate() {
+            let aliases;
+            let candidates = if candidates.is_empty() && midl_enum_name(&self.enum_names[id]) {
+                aliases = self
+                    .enum_aliases
+                    .iter()
+                    .enumerate()
+                    .filter_map(|(alias, group)| (*group == Some(id)).then_some(alias))
+                    .collect::<Vec<_>>();
+                &aliases
+            } else {
+                candidates
+            };
             if let [alias] = candidates.as_slice() {
                 self.enum_primary[id] = Some(*alias);
                 self.enum_names[id].clone_from(&resolution.aliases[*alias].name);
+            } else if !candidates.is_empty() && midl_enum_name(&self.enum_names[id]) {
+                return Err(Error(format!(
+                    "MIDL enum `{}` has multiple authored typedef names",
+                    self.enum_names[id]
+                )));
             }
         }
         Ok(())
@@ -386,9 +411,10 @@ impl Plan {
 
     pub fn enum_constants(&self, resolution: &Resolution<'_>, id: usize) -> bool {
         let reference = resolution.enums[id].enums[0];
-        resolution.snapshots[reference.snapshot].enums[reference.enumeration.0].observations[0]
-            .anonymous
-            && self.enum_primary[id].is_none()
+        let enumeration = &resolution.snapshots[reference.snapshot].enums[reference.enumeration.0];
+        let observation = &enumeration.observations[0];
+        self.enum_primary[id].is_none()
+            && (observation.anonymous || (!observation.scoped && midl_enum_name(&enumeration.name)))
     }
 
     fn validate(&self, resolution: &Resolution<'_>) -> Result<(), Error> {

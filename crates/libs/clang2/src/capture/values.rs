@@ -6,7 +6,10 @@ pub(super) fn language_linkage(cursor: CXCursor) -> Result<LanguageLinkage, Erro
     match (status, language) {
         (WindowsClangSuccess, WindowsClangCLanguageLinkage) => Ok(LanguageLinkage::C),
         (WindowsClangSuccess, WindowsClangCXXLanguageLinkage) => Ok(LanguageLinkage::Cxx),
-        _ => Err(unsupported(cursor, "function language linkage unavailable")),
+        _ => Err(unsupported(
+            cursor,
+            "declaration language linkage unavailable",
+        )),
     }
 }
 
@@ -161,38 +164,115 @@ impl Capture<'_> {
     }
 
     fn constant_observation(&mut self, cursor: CXCursor) -> Result<ValueObservation, Error> {
-        let definition = unsafe { clang_getCursorDefinition(cursor) };
-        let initializer = if unsafe { clang_Cursor_isNull(definition) } != 0 {
-            cursor
-        } else {
-            definition
+        let linkage = match unsafe { clang_getCursorLinkage(cursor) } {
+            CXLinkage_Internal => ConstantLinkage::Internal,
+            CXLinkage_External => ConstantLinkage::External {
+                language: language_linkage(cursor)?,
+                mangling: text(unsafe { clang_Cursor_getMangling(cursor) }),
+            },
+            _ => return Err(unsupported(cursor, "unsupported constant linkage")),
         };
-        let mut constant = 0;
-        let status =
-            unsafe { windows_clang_getConstantInitializer(initializer, &raw mut constant) };
-        if status != WindowsClangSuccess {
-            return Err(unsupported(
-                cursor,
-                &format!("constant initializer query failed: {status}"),
-            ));
-        }
-        if constant == 0 {
-            return Err(unsupported(
-                cursor,
-                "initializer is not a constant expression",
-            ));
-        }
-        let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
-        let definition = self.probes.get(&key).map(|(_, cursor)| *cursor);
         let ty = unsafe { clang_getCursorType(cursor) };
         let canonical = self.ty(unsafe { clang_getCanonicalType(ty) }, cursor)?;
-        let native = &self.snapshot.types[canonical.0];
-        if !native.qualifiers.constant {
+        if !self.snapshot.types[canonical.0].qualifiers.constant {
             return Err(unsupported(
                 cursor,
                 "constant declaration requires a const-qualified type",
             ));
         }
+        if unsafe { clang_getCursorTLSKind(cursor) } != CXTLS_None {
+            return Err(unsupported(
+                cursor,
+                "thread-local constants are unsupported",
+            ));
+        }
+        let declaration = unsafe {
+            clang_Cursor_isNull(clang_Cursor_getVarDeclInitializer(cursor)) != 0
+                && clang_isCursorDefinition(cursor) == 0
+        };
+        let value = if declaration && matches!(linkage, ConstantLinkage::External { .. }) {
+            None
+        } else {
+            Some(self.constant_value(cursor, ty, canonical)?)
+        };
+        let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
+        let definition = self.probes.get(&key).map(|(_, cursor)| *cursor);
+        if definition.is_some() && value.is_none() {
+            return Err(unsupported(cursor, "macro probe requires an initializer"));
+        }
+        let mut attributes = Vec::new();
+        for child in children(cursor) {
+            let kind = unsafe { clang_getCursorKind(child) };
+            if unsafe { clang_isAttribute(kind) } != 0 {
+                attributes.push(self.attribute(child)?);
+            } else if kind != CXCursor_TypeRef && unsafe { clang_isExpression(kind) } == 0 {
+                return Err(unsupported(child, "unsupported constant declaration child"));
+            }
+        }
+        Ok(ValueObservation {
+            location: self.location(definition.unwrap_or(cursor)),
+            written: if definition.is_some() {
+                let mut expression = unsafe { clang_getNullCursor() };
+                let status = unsafe { windows_clang_getTypeOfOperand(cursor, &raw mut expression) };
+                if status != WindowsClangSuccess {
+                    return Err(unsupported(
+                        cursor,
+                        &format!("macro expression type unavailable: {status}"),
+                    ));
+                }
+                self.ty(unsafe { clang_getCursorType(expression) }, expression)?
+            } else {
+                self.ty(ty, cursor)?
+            },
+            canonical,
+            attributes,
+            kind: ValueKind::Constant {
+                value,
+                origin: if definition.is_some() {
+                    ConstantOrigin::Macro
+                } else {
+                    ConstantOrigin::Declaration
+                },
+                linkage,
+            },
+        })
+    }
+
+    fn constant_value(
+        &mut self,
+        cursor: CXCursor,
+        ty: CXType,
+        canonical: TypeId,
+    ) -> Result<ConstantValue, Error> {
+        let pointer = if unsafe { clang_getCanonicalType(ty) }.kind == CXType_Pointer {
+            let mut value = 0;
+            let status =
+                unsafe { windows_clang_getConstantPointerInitializer(cursor, &raw mut value) };
+            if status != WindowsClangSuccess {
+                return Err(unsupported(
+                    cursor,
+                    &format!("numeric pointer initializer unavailable: {status}"),
+                ));
+            }
+            Some(value)
+        } else {
+            let mut constant = 0;
+            let status = unsafe { windows_clang_getConstantInitializer(cursor, &raw mut constant) };
+            if status != WindowsClangSuccess {
+                return Err(unsupported(
+                    cursor,
+                    &format!("constant initializer query failed: {status}"),
+                ));
+            }
+            if constant == 0 {
+                return Err(unsupported(
+                    cursor,
+                    "initializer is not a constant expression",
+                ));
+            }
+            None
+        };
+        let native = &self.snapshot.types[canonical.0];
         let value_type = if matches!(native.kind, TypeKind::Enum(_)) {
             self.ty(
                 unsafe {
@@ -205,8 +285,10 @@ impl Capture<'_> {
         } else {
             canonical
         };
-        let value = if let TypeKind::Scalar(scalar) = &self.snapshot.types[value_type.0].kind {
-            let result = unsafe { clang_Cursor_Evaluate(initializer) };
+        let value = if let Some(value) = pointer {
+            ConstantValue::Pointer(value)
+        } else if let TypeKind::Scalar(scalar) = &self.snapshot.types[value_type.0].kind {
+            let result = unsafe { clang_Cursor_Evaluate(cursor) };
             if result.is_null() {
                 return Err(unsupported(cursor, "constant initializer is not evaluable"));
             }
@@ -246,35 +328,9 @@ impl Capture<'_> {
                 )
             })?
         } else {
-            aggregate_constant(initializer, ty)?
+            aggregate_constant(cursor, ty)?
         };
-        let mut attributes = Vec::new();
-        for child in children(cursor) {
-            let kind = unsafe { clang_getCursorKind(child) };
-            if unsafe { clang_isAttribute(kind) } != 0 {
-                attributes.push(self.attribute(child)?);
-            } else if kind != CXCursor_TypeRef && unsafe { clang_isExpression(kind) } == 0 {
-                return Err(unsupported(child, "unsupported constant declaration child"));
-            }
-        }
-        Ok(ValueObservation {
-            location: self.location(definition.unwrap_or(cursor)),
-            written: if definition.is_some() {
-                canonical
-            } else {
-                self.ty(ty, cursor)?
-            },
-            canonical,
-            attributes,
-            kind: ValueKind::Constant {
-                value,
-                origin: if definition.is_some() {
-                    ConstantOrigin::Macro
-                } else {
-                    ConstantOrigin::Declaration
-                },
-            },
-        })
+        Ok(value)
     }
 }
 

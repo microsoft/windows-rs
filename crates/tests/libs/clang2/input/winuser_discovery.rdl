@@ -1,0 +1,22 @@
+#[win32]
+mod Fixture {
+    const CW_USEDEFAULT: i32 = -2147483648;
+    const HBMMENU_CALLBACK: HBITMAP = -1;
+    const HWND_BOTTOM: HWND = 1;
+    const HWND_BROADCAST: HWND = 65535;
+    const HWND_DESKTOP: HWND = 0;
+    const HWND_MESSAGE: HWND = -3;
+    const HWND_NOTOPMOST: HWND = -2;
+    const HWND_TOP: HWND = 0;
+    const HWND_TOPMOST: HWND = -1;
+    const IDC_ARROW: LPSTR = 32512;
+    const IDI_APPLICATION: LPSTR = 32512;
+    const RT_CURSOR: LPSTR = 1;
+    const RT_GROUP_ICON: LPSTR = 14;
+    const UNICODE_NOCHAR: i32 = 65535;
+    const USER_TIMER_MAXIMUM: i32 = 2147483647;
+    const WC_DIALOG: LPTSTR = 32770;
+    const WM_APP: i32 = 32768;
+    const WM_USER: i32 = 1024;
+    const WS_POPUP: u32 = 2147483648;
+}

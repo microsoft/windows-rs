@@ -112,7 +112,10 @@ pub fn project_partial_with_imports(
         }
         for (key, reason) in rejected.excluded {
             match &key {
-                partial::Key::Tag(_) | partial::Key::Nested(_, _) | partial::Key::Value(_) => {
+                partial::Key::Tag(_)
+                | partial::Key::Nested(_, _)
+                | partial::Key::Value(_)
+                | partial::Key::Macro(_) => {
                     issues.reject(key, format!("projection: {reason}"));
                 }
                 partial::Key::Alias(name) => {
@@ -220,20 +223,35 @@ fn project_impl(
         let mut published = HashSet::new();
         let mut constants = HashMap::new();
         for value in &resolution.values {
-            let key = partial::Key::Value(value.name.clone());
+            let keys: Vec<_> = value
+                .observations
+                .iter()
+                .map(|reference| {
+                    partial::Key::of(
+                        resolution.snapshots[reference.snapshot],
+                        DeclarationId::Value(reference.value),
+                    )
+                })
+                .collect();
             let first = value.observations[0];
             let snapshot = resolution.snapshots[first.snapshot];
             let observation = &snapshot.values[first.value.0].observations[first.observation];
+            let definition = match &observation.kind {
+                ValueKind::Constant { value, .. } => value.as_ref(),
+                ValueKind::Function { .. } => None,
+            };
             let kind = match &observation.kind {
                 ValueKind::Function { .. } => PublishedKind::Function,
                 ValueKind::Constant { value: number, .. } => {
-                    values::check_constant(
-                        &mut constants,
-                        target,
-                        &value.name,
-                        &snapshot.types[observation.canonical.0],
-                        number.clone(),
-                    )?;
+                    if let Some(number) = number {
+                        values::check_constant(
+                            &mut constants,
+                            target,
+                            &value.name,
+                            &snapshot.types[observation.canonical.0],
+                            number.clone(),
+                        )?;
+                    }
                     PublishedKind::Constant
                 }
             };
@@ -246,7 +264,13 @@ fn project_impl(
                     let observation =
                         &snapshot.values[reference.value.0].observations[reference.observation];
                     headers.insert(snapshot.files[observation.location.file.0].clone());
-                    projector.value(reference.snapshot, observation, &value.name, imports)
+                    projector.value(
+                        reference.snapshot,
+                        observation,
+                        &value.name,
+                        imports,
+                        definition,
+                    )
                 })
                 .collect::<Result<Vec<_>, _>>()
                 .and_then(|bodies| {
@@ -261,11 +285,11 @@ fn project_impl(
                         &value.name,
                         bodies.into_iter().next().unwrap(),
                         headers,
-                        vec![key],
+                        keys,
                         kind,
                     )?;
                 }
-                Err(error) => reject(&mut rejected, [key], error)?,
+                Err(error) => reject(&mut rejected, keys, error)?,
             }
         }
         for (id, family) in plan.families.iter().enumerate() {

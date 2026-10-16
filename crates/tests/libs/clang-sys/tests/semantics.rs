@@ -22,6 +22,128 @@ fn native_semantics() {
                 .find(|cursor| text(unsafe { clang_getCursorSpelling(**cursor) }) == name)
                 .unwrap()
         };
+        for (name, expected) in [
+            ("NativePointerNull", 0),
+            ("NativePointerSentinel", -1),
+            (
+                "NativePointer32",
+                if target.starts_with("i686") {
+                    -1
+                } else {
+                    0xffffffff
+                },
+            ),
+        ] {
+            let mut value = 99;
+            assert_eq!(
+                unsafe { windows_clang_getConstantPointerInitializer(find(name), &raw mut value) },
+                WindowsClangSuccess,
+                "{name}"
+            );
+            assert_eq!(value, expected, "{name}");
+        }
+        for (name, expected) in [
+            ("NativePointerRelocation", WindowsClangWrongKind),
+            ("NativePointerSideEffect", WindowsClangDependent),
+            ("NativePointerUndefined", WindowsClangDependent),
+            ("NativeCppValue", WindowsClangWrongKind),
+        ] {
+            let mut value = 99;
+            assert_eq!(
+                unsafe { windows_clang_getConstantPointerInitializer(find(name), &raw mut value) },
+                expected,
+                "{name}"
+            );
+            assert_eq!(value, 99);
+        }
+        assert_eq!(
+            unsafe {
+                windows_clang_getConstantPointerInitializer(
+                    find("NativePointerNull"),
+                    std::ptr::null_mut(),
+                )
+            },
+            WindowsClangInvalidArgument
+        );
+        let mut constant = 1;
+        assert_eq!(
+            unsafe {
+                windows_clang_getConstantInitializer(
+                    find("NativePointerSentinel"),
+                    &raw mut constant,
+                )
+            },
+            WindowsClangSuccess
+        );
+        assert_eq!(constant, 0);
+        let mut pointer = 99;
+        assert_eq!(
+            unsafe {
+                windows_clang_getConstantPointerInitializer(clang_getNullCursor(), &raw mut pointer)
+            },
+            WindowsClangWrongKind
+        );
+        assert_eq!(pointer, 99);
+        for (name, expected) in [
+            ("NativeTypeOfWord", "NativeMacroWord"),
+            ("NativeTypeOfText", "const char[7]"),
+        ] {
+            let mut expression = unsafe { clang_getNullCursor() };
+            assert_eq!(
+                unsafe { windows_clang_getTypeOfOperand(find(name), &raw mut expression) },
+                WindowsClangSuccess
+            );
+            assert_eq!(
+                text(unsafe { clang_getTypeSpelling(clang_getCursorType(expression)) }),
+                expected
+            );
+        }
+        let mut size = unsafe { clang_getNullCursor() };
+        assert_eq!(
+            unsafe { windows_clang_getTypeOfOperand(find("NativeTypeOfSize"), &raw mut size) },
+            WindowsClangSuccess
+        );
+        let size = unsafe { clang_getCursorType(size) };
+        let mut underlying = unsafe { clang_getCursorType(find("NativeCppValue")) };
+        assert_eq!(
+            unsafe { windows_clang_getPredefinedType(size, &raw mut underlying) },
+            WindowsClangSuccess
+        );
+        assert_eq!(
+            underlying.kind,
+            if target.starts_with("i686") {
+                CXType_UInt
+            } else {
+                CXType_ULongLong
+            }
+        );
+        assert_eq!(
+            unsafe { windows_clang_getPredefinedType(size, std::ptr::null_mut()) },
+            WindowsClangInvalidArgument
+        );
+        let alias = unsafe { clang_getCursorType(find("NativeMacroWord")) };
+        assert_eq!(alias.kind, CXType_Typedef);
+        let sentinel = underlying;
+        assert_eq!(
+            unsafe { windows_clang_getPredefinedType(alias, &raw mut underlying) },
+            WindowsClangWrongKind
+        );
+        assert_ne!(unsafe { clang_equalTypes(underlying, sentinel) }, 0);
+        let mut unchanged = find("NativeCppValue");
+        assert_eq!(
+            unsafe { windows_clang_getTypeOfOperand(unchanged, &raw mut unchanged) },
+            WindowsClangWrongKind
+        );
+        assert_ne!(
+            unsafe { clang_equalCursors(unchanged, find("NativeCppValue")) },
+            0
+        );
+        assert_eq!(
+            unsafe {
+                windows_clang_getTypeOfOperand(find("NativeTypeOfWord"), std::ptr::null_mut())
+            },
+            WindowsClangInvalidArgument
+        );
         let methods: Vec<_> = children(find("NativeSlots"))
             .into_iter()
             .filter(|cursor| cursor.kind == CXCursor_CXXMethod)
@@ -679,7 +801,7 @@ fn native_semantics() {
             let library = Arc::clone(&library);
             scope.spawn(move || {
                 let previous = set_library(Some(library));
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 12);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 14);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION

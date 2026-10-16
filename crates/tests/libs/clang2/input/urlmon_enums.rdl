@@ -1,0 +1,5 @@
+#[win32]
+mod Fixture {
+    const MAX_ZONE_DESCRIPTION: i32 = 200;
+    const MAX_ZONE_PATH: i32 = 260;
+}

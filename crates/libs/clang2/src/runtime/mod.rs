@@ -6,6 +6,8 @@ use std::ffi::CString;
 use std::sync::{Arc, Mutex};
 use windows_clang_sys::*;
 
+mod macros;
+
 static BATCH: Mutex<()> = Mutex::new(());
 
 /// Captures each input as a separate TU, returning target-major, input-order snapshots.
@@ -24,9 +26,12 @@ pub struct PartialCapture {
 }
 
 /// Captures supported declarations and reports omissions, including affected dependents.
-/// Compiler errors remain fatal. Failed declarations are removed across all targets and inputs.
+/// Successfully captured observations are reconciled before exclusions remove their dependents.
+/// Compiler errors and native conflicts remain fatal. Failed observations are not validated;
+/// their declarations are removed across all targets and inputs.
 pub fn capture_partial(inputs: &[Input], targets: &[Target]) -> Result<PartialCapture, Error> {
     let (mut snapshots, mut issues) = capture_impl(inputs, targets, true)?;
+    merge(&snapshots)?;
     partial::prune(&mut snapshots, &mut issues);
     Ok(PartialCapture {
         snapshots,
@@ -49,7 +54,31 @@ fn capture_impl(
             if !names.insert(&input.name) {
                 return Err(Error(format!("duplicate input name `{}`", input.name)));
             }
-            macro_source(input)
+            let mut macros = HashSet::new();
+            for name in &input.macros {
+                if name.is_empty()
+                    || !name.bytes().enumerate().all(|(index, value)| {
+                        value == b'_'
+                            || value.is_ascii_alphabetic()
+                            || index != 0 && value.is_ascii_digit()
+                    })
+                    || !macros.insert(name)
+                {
+                    return Err(Error(format!("invalid or duplicate macro name `{name}`")));
+                }
+            }
+            for header in &input.macro_headers {
+                if std::path::Path::new(header)
+                    .file_name()
+                    .and_then(|name| name.to_str())
+                    != Some(header)
+                {
+                    return Err(Error(format!(
+                        "macro header must be a filename: `{header}`"
+                    )));
+                }
+            }
+            macro_source(input, &input.macros, "__windows_clang_macro")
         })
         .collect::<Result<Vec<_>, Error>>()?;
     let _batch = BATCH.lock().map_err(|error| Error(error.to_string()))?;
@@ -116,25 +145,16 @@ struct Source {
     probes: Vec<capture::MacroProbe>,
 }
 
-fn macro_source(input: &Input) -> Result<Source, Error> {
+fn macro_source(input: &Input, macros: &[String], prefix: &str) -> Result<Source, Error> {
     let mut source = input.source.clone();
     let mut probes = Vec::new();
-    let mut names = HashSet::new();
-    for (index, name) in input.macros.iter().enumerate() {
-        if name.is_empty()
-            || !name.bytes().enumerate().all(|(index, value)| {
-                value == b'_' || value.is_ascii_alphabetic() || index != 0 && value.is_ascii_digit()
-            })
-            || !names.insert(name)
-        {
-            return Err(Error(format!("invalid or duplicate macro name `{name}`")));
-        }
+    for (index, name) in macros.iter().enumerate() {
         source.push_str(&format!("\nstatic const __typeof__(({name})) "));
         let declaration = source
             .len()
             .try_into()
             .map_err(|_| Error("source too large".into()))?;
-        source.push_str(&format!("__windows_clang_macro_{index} = ("));
+        source.push_str(&format!("{prefix}_{index} = ("));
         let expansion = source
             .len()
             .try_into()
@@ -208,6 +228,86 @@ impl Drop for Unit {
     }
 }
 
+struct Parsed {
+    unit: Unit,
+    diagnostics: Vec<String>,
+    failed: bool,
+}
+
+impl Parsed {
+    fn check(&self) -> Result<(), Error> {
+        if self.failed {
+            return Err(Error(format!(
+                "libclang parse failed:\n{}",
+                self.diagnostics.join("\n")
+            )));
+        }
+        Ok(())
+    }
+}
+
+fn parse_unit(
+    index: &Index,
+    sources: &[&Source],
+    arguments: &[String],
+    flags: CXTranslationUnit_Flags,
+) -> Result<Parsed, Error> {
+    let args = arguments
+        .iter()
+        .map(|arg| CString::new(arg.as_str()).map_err(|error| Error(error.to_string())))
+        .collect::<Result<Vec<_>, _>>()?;
+    let pointers: Vec<_> = args.iter().map(|arg| arg.as_ptr()).collect();
+    let mut unsaved: Vec<_> = sources
+        .iter()
+        .map(|source| {
+            Ok(CXUnsavedFile {
+                Filename: source.name.as_ptr(),
+                Contents: source.text.as_ptr(),
+                Length: source
+                    .text
+                    .as_bytes()
+                    .len()
+                    .try_into()
+                    .map_err(|_| Error("source too large".into()))?,
+            })
+        })
+        .collect::<Result<_, Error>>()?;
+    let mut unit = Unit(std::ptr::null_mut());
+    let status = unsafe {
+        clang_parseTranslationUnit2(
+            index.0,
+            sources[0].name.as_ptr(),
+            pointers.as_ptr(),
+            pointers.len().try_into().unwrap(),
+            unsaved.as_mut_ptr(),
+            unsaved.len().try_into().unwrap(),
+            flags.try_into().unwrap(),
+            &raw mut unit.0,
+        )
+    };
+    if unit.0.is_null() || status != CXError_Success {
+        return Err(Error(format!("libclang parse failed: {status}")));
+    }
+    let mut diagnostics = Vec::new();
+    let mut failed = false;
+    unsafe {
+        for id in 0..clang_getNumDiagnostics(unit.0) {
+            let diagnostic = clang_getDiagnostic(unit.0, id);
+            failed |= clang_getDiagnosticSeverity(diagnostic) >= CXDiagnostic_Error;
+            diagnostics.push(text(clang_formatDiagnostic(
+                diagnostic,
+                clang_defaultDiagnosticDisplayOptions(),
+            )));
+            clang_disposeDiagnostic(diagnostic);
+        }
+    }
+    Ok(Parsed {
+        unit,
+        diagnostics,
+        failed,
+    })
+}
+
 fn parse(
     index: &Index,
     source: &Source,
@@ -226,70 +326,53 @@ fn parse(
         arguments.join(" ")
     );
     let parse = || {
-        let args: Vec<_> = arguments
-            .iter()
-            .map(|arg| CString::new(arg.as_str()).map_err(|error| Error(error.to_string())))
-            .collect::<Result<_, _>>()?;
-        let pointers: Vec<_> = args.iter().map(|arg| arg.as_ptr()).collect();
-        let mut unsaved = CXUnsavedFile {
-            Filename: source.name.as_ptr(),
-            Contents: source.text.as_ptr(),
-            Length: source
-                .text
-                .as_bytes()
-                .len()
-                .try_into()
-                .map_err(|_| Error("source too large".into()))?,
-        };
-        let mut unit = Unit(std::ptr::null_mut());
-        let status = unsafe {
-            clang_parseTranslationUnit2(
-                index.0,
-                source.name.as_ptr(),
-                pointers.as_ptr(),
-                pointers.len().try_into().unwrap(),
-                &raw mut unsaved,
-                1,
-                (CXTranslationUnit_IncludeAttributedTypes
-                    | CXTranslationUnit_VisitImplicitAttributes
-                    | if input.macros.is_empty() {
-                        0
-                    } else {
-                        CXTranslationUnit_DetailedPreprocessingRecord
-                    })
-                .try_into()
-                .unwrap(),
-                &raw mut unit.0,
-            )
-        };
-        if unit.0.is_null() {
-            return Err(Error(format!("libclang parse failed: {status}")));
-        }
-        let mut diagnostics = Vec::new();
-        let mut failed = status != CXError_Success;
-        unsafe {
-            for id in 0..clang_getNumDiagnostics(unit.0) {
-                let diagnostic = clang_getDiagnostic(unit.0, id);
-                failed |= clang_getDiagnosticSeverity(diagnostic) >= CXDiagnostic_Error;
-                diagnostics.push(text(clang_formatDiagnostic(
-                    diagnostic,
-                    clang_defaultDiagnosticDisplayOptions(),
-                )));
-                clang_disposeDiagnostic(diagnostic);
+        let flags = CXTranslationUnit_IncludeAttributedTypes
+            | CXTranslationUnit_VisitImplicitAttributes
+            | if input.macros.is_empty() && input.macro_headers.is_empty() {
+                0
+            } else {
+                CXTranslationUnit_DetailedPreprocessingRecord
+            };
+        let mut parsed = parse_unit(
+            index,
+            &[source],
+            &arguments,
+            flags
+                | if input.macro_headers.is_empty() {
+                    0
+                } else {
+                    CXTranslationUnit_ForSerialization
+                },
+        )?;
+        parsed.check()?;
+        let mut issues = partial::Issues::default();
+        let generated = if input.macro_headers.is_empty() {
+            None
+        } else {
+            let (discovered, rejected) =
+                macros::discover(index, &parsed.unit, source, input, &arguments, target)?;
+            if !partial && !rejected.excluded.is_empty() {
+                return Err(Error(rejected.finish().join("\n")));
             }
+            issues.extend(rejected);
+            if discovered.is_empty() {
+                None
+            } else {
+                let names: Vec<_> = input.macros.iter().cloned().chain(discovered).collect();
+                Some(macro_source(input, &names, "__windows_clang_macro")?)
+            }
+        };
+        if let Some(source) = &generated {
+            parsed = parse_unit(index, &[source], &arguments, flags)?;
+            parsed.check()?;
         }
-        if failed {
-            return Err(Error(format!(
-                "libclang parse failed ({status}):\n{}",
-                diagnostics.join("\n")
-            )));
-        }
+        let source = generated.as_ref().unwrap_or(source);
         let mut snapshot = Snapshot {
             input: source.name.to_string_lossy().into_owned(),
             target,
             compiler: compiler.to_string(),
             arguments: arguments.clone(),
-            diagnostics,
+            diagnostics: parsed.diagnostics,
             roots: Vec::new(),
             files: Vec::new(),
             records: Vec::new(),
@@ -300,7 +383,14 @@ fn parse(
             observations: Vec::new(),
             types: Vec::new(),
         };
-        let issues = capture::read(unit.0, &input.roots, &source.probes, &mut snapshot, partial)?;
+        snapshot.diagnostics.extend(issues.messages.iter().cloned());
+        issues.extend(capture::read(
+            parsed.unit.0,
+            &input.roots,
+            &source.probes,
+            &mut snapshot,
+            partial,
+        )?);
         Ok((snapshot, issues))
     };
     parse().map_err(|error| Error(format!("{context}\n{error}")))

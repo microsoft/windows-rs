@@ -154,7 +154,18 @@ pub(super) fn parameter(attributes: &[Attribute], ty: &MetadataType) -> Result<T
             | "_COM_Outptr_opt_result_maybenull_"
             | "__out"
             | "__out_opt" => Some((false, true)),
-            "_Inout_" | "_Inout_opt_" | "__inout" | "__inout_opt" => Some((true, true)),
+            "_Inout_"
+            | "_Inout_opt_"
+            | "_Inout_updates_"
+            | "_Inout_updates_opt_"
+            | "_Inout_updates_to_"
+            | "_Inout_updates_to_opt_"
+            | "_Inout_updates_bytes_"
+            | "_Inout_updates_bytes_opt_"
+            | "_Inout_updates_bytes_to_"
+            | "_Inout_updates_bytes_to_opt_"
+            | "__inout"
+            | "__inout_opt" => Some((true, true)),
             _ => None,
         };
         if let Some((read, write)) = direction {
@@ -173,4 +184,81 @@ pub(super) fn parameter(attributes: &[Attribute], ty: &MetadataType) -> Result<T
     let optional = optional.then(|| quote! { #[opt] });
     let native = write(attributes);
     Ok(quote! { #native #input #output #optional })
+}
+
+pub(super) fn buffer_capacity(
+    snapshot: &Snapshot,
+    function: &Function,
+    parameters: &[Parameter],
+    index: usize,
+    ty: &MetadataType,
+) -> Result<TokenStream, Error> {
+    let mut size = None;
+    for value in resolve::sal(&parameters[index].attributes) {
+        let bytes = match value.name.as_str() {
+            "_In_reads_bytes_"
+            | "_In_reads_bytes_opt_"
+            | "_Out_writes_bytes_"
+            | "_Out_writes_bytes_opt_"
+            | "_Out_writes_bytes_to_"
+            | "_Out_writes_bytes_to_opt_"
+            | "_Inout_updates_bytes_"
+            | "_Inout_updates_bytes_opt_"
+            | "_Inout_updates_bytes_to_"
+            | "_Inout_updates_bytes_to_opt_" => true,
+            "_In_reads_"
+            | "_In_reads_opt_"
+            | "_Out_writes_"
+            | "_Out_writes_opt_"
+            | "_Out_writes_to_"
+            | "_Out_writes_to_opt_"
+            | "_Inout_updates_"
+            | "_Inout_updates_opt_"
+            | "_Inout_updates_to_"
+            | "_Inout_updates_to_opt_" => false,
+            _ => continue,
+        };
+        // The first argument is capacity; the initialized length in *_to_* remains SAL evidence.
+        let capacity = value.expanded.split(',').next().unwrap().trim();
+        let Some(count) = parameters
+            .iter()
+            .position(|parameter| !parameter.name.is_empty() && parameter.name == capacity)
+        else {
+            continue;
+        };
+        if !matches!(
+            snapshot.types[function.parameters[index].0].kind,
+            TypeKind::Pointer(_)
+        ) || matches!(ty, MetadataType::ClassName(_) | MetadataType::FnPtr(_))
+        {
+            return Err(Error(
+                "SAL buffer capacity requires a buffer pointer".into(),
+            ));
+        }
+        if !matches!(&snapshot.types[function.parameters[count].0].kind,
+            TypeKind::Scalar(scalar) if scalar.signed_integer().is_some())
+        {
+            return Err(Error(format!(
+                "SAL buffer capacity `{capacity}` requires a by-value integer parameter"
+            )));
+        }
+        if size.is_some_and(|previous| previous != (count, bytes)) {
+            return Err(Error(
+                "conflicting SAL buffer capacity parameters or units".into(),
+            ));
+        }
+        size = Some((count, bytes));
+    }
+    let Some((size, bytes)) = size else {
+        return Ok(TokenStream::new());
+    };
+    let size: i16 = size
+        .try_into()
+        .map_err(|_| Error("SAL buffer capacity parameter index exceeds metadata range".into()))?;
+    let size = proc_macro2::Literal::i16_unsuffixed(size);
+    Ok(if bytes {
+        quote! { #[size_param(#size)] }
+    } else {
+        quote! { #[len_param(#size)] }
+    })
 }

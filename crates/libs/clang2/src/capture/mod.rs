@@ -13,6 +13,37 @@ pub(super) struct MacroProbe {
     pub expansion: u32,
 }
 
+pub(super) fn macro_definition(
+    unit: CXTranslationUnit,
+    file: CXFile,
+    probe: &MacroProbe,
+) -> Result<CXCursor, Error> {
+    let expansion = unsafe {
+        clang_getCursor(
+            unit,
+            clang_getLocationForOffset(unit, file, probe.expansion),
+        )
+    };
+    if expansion.kind != CXCursor_MacroExpansion
+        || text(unsafe { clang_getCursorSpelling(expansion) }) != probe.name
+    {
+        return Err(Error(format!(
+            "macro `{}` has no expansion at its evaluation probe",
+            probe.name
+        )));
+    }
+    let definition = unsafe { clang_getCursorReferenced(expansion) };
+    if definition.kind != CXCursor_MacroDefinition
+        || unsafe { clang_Cursor_isMacroFunctionLike(definition) } != 0
+    {
+        return Err(Error(format!(
+            "macro `{}` is not an object-like definition",
+            probe.name
+        )));
+    }
+    Ok(definition)
+}
+
 pub(super) fn read(
     unit: CXTranslationUnit,
     roots: &[String],
@@ -23,12 +54,13 @@ pub(super) fn read(
     let mut issues = partial::Issues::default();
     let declarations = declarations(unsafe { clang_getTranslationUnitCursor(unit) });
     let mut sites = HashMap::new();
+    let mut main_file = std::ptr::null_mut();
     if !macros.is_empty() {
         let name = std::ffi::CString::new(snapshot.input.as_str()).unwrap();
-        let main_file = unsafe { clang_getFile(unit, name.as_ptr()) };
+        main_file = unsafe { clang_getFile(unit, name.as_ptr()) };
         for &cursor in &declarations {
             let kind = unsafe { clang_getCursorKind(cursor) };
-            if matches!(kind, CXCursor_MacroExpansion | CXCursor_VarDecl) {
+            if kind == CXCursor_VarDecl {
                 let mut file = std::ptr::null_mut();
                 let mut offset = 0;
                 unsafe {
@@ -50,23 +82,7 @@ pub(super) fn read(
         .iter()
         .map(|probe| {
             let name = &probe.name;
-            let expansion = sites
-                .get(&(CXCursor_MacroExpansion, probe.expansion))
-                .copied()
-                .filter(|cursor| text(unsafe { clang_getCursorSpelling(*cursor) }) == *name)
-                .ok_or_else(|| {
-                    Error(format!(
-                        "macro `{name}` has no expansion at its evaluation probe"
-                    ))
-                })?;
-            let definition = unsafe { clang_getCursorReferenced(expansion) };
-            if unsafe { clang_getCursorKind(definition) } != CXCursor_MacroDefinition
-                || unsafe { clang_Cursor_isMacroFunctionLike(definition) } != 0
-            {
-                return Err(Error(format!(
-                    "macro `{name}` is not an object-like definition"
-                )));
-            }
+            let definition = macro_definition(unit, main_file, probe)?;
             let declaration = sites
                 .get(&(CXCursor_VarDecl, probe.declaration))
                 .ok_or_else(|| Error(format!("macro `{name}` has no evaluation declaration")))?;
@@ -270,7 +286,11 @@ pub(super) fn read(
                     return Err(error);
                 }
                 issues.reject(
-                    partial::Key::of(capture.snapshot, id),
+                    if let Some((name, _)) = capture.probes.get(&key) {
+                        partial::Key::Macro(name.clone())
+                    } else {
+                        partial::Key::of(capture.snapshot, id)
+                    },
                     format!("{:?}: {error}", capture.snapshot.target),
                 );
             }
@@ -935,6 +955,15 @@ impl Capture<'_> {
         }
         if ty.kind == CXType_Elaborated {
             ty = unsafe { clang_Type_getNamedType(ty) };
+        }
+        if ty.kind == CXType_Unexposed {
+            let status = unsafe { windows_clang_getPredefinedType(ty, &raw mut ty) };
+            if status != WindowsClangSuccess && status != WindowsClangWrongKind {
+                return Err(unsupported(
+                    cursor,
+                    &format!("predefined type query failed: {status}"),
+                ));
+            }
         }
         let kind = unsafe {
             match ty.kind {

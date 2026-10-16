@@ -47,6 +47,11 @@ The integer and general constant-initializer queries reject runtime side effects
 expression folding can ignore. The general query also accepts boolean and floating-point
 initializers. The integer-element query reads compiler-evaluated struct and array leaves, including
 zero-filled tails, without exposing Clang's C++ value layout or parsing initializer tokens.
+The `typeof` operand query preserves expression types before initializer conversions. A separate
+query desugars compiler-predefined types such as the result of `sizeof`, without erasing typedefs.
+Numeric data-pointer initializers have a separate static-initialization query. It rejects
+relocations, function pointers, side effects, and undefined behavior, and returns address bits
+sign-extended from the target pointer width.
 UUID, deprecation, and default-expression strings are owned `CXString` values;
 release them with `clang_disposeString`.
 

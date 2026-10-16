@@ -21,6 +21,7 @@ fn imports() -> BTreeMap<String, projection::Import> {
         "OptionalResult",
         "Conditional",
         "ReadFile",
+        "GetModuleFileNameW",
     ]
     .into_iter()
     .map(|name| {
@@ -348,7 +349,11 @@ fn sdk_annotations() {
     helpers::ensure_libclang();
     let mut input = input();
     input.source = "#include <windows.h>\n#include <unknwn.h>\n".into();
-    input.roots = vec!["ReadFile".into(), "IClassFactory".into()];
+    input.roots = vec![
+        "ReadFile".into(),
+        "GetModuleFileNameW".into(),
+        "IClassFactory".into(),
+    ];
     let snapshots = capture(&[input], &TARGETS).unwrap();
     for snapshot in &snapshots {
         let read = snapshot
@@ -378,11 +383,13 @@ fn sdk_annotations() {
     let output =
         projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports())
             .unwrap();
-    assert_eq!(output.functions, 1);
+    assert_eq!(output.functions, 2);
     assert_eq!(output.interfaces, 2);
     let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
     assert!(text.contains("_COM_Outptr_"));
     assert!(text.contains("_Return_type_success_"));
+    assert!(text.contains("#[size_param(2)] lpBuffer:"), "{text}");
+    assert!(text.contains("#[len_param(2)] lpFilename:"), "{text}");
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
     let path = root.join("target\\test-clang2-sdk-annotations.winmd");
     windows_rdl::reader()
@@ -407,6 +414,34 @@ fn sdk_annotations() {
                 "nNumberOfBytesToRead,*lpNumberOfBytesRead",
                 "nNumberOfBytesToRead,*lpNumberOfBytesRead",
             ))
+        );
+        assert_eq!(
+            method
+                .params()
+                .nth(1)
+                .unwrap()
+                .find_attribute("MemorySizeAttribute")
+                .unwrap()
+                .value(),
+            [("BytesParamIndex".into(), Value::I16(2))]
+        );
+        let module_name = index
+            .expect("Fixture", "Apis")
+            .methods()
+            .find(|method| {
+                method.name() == "GetModuleFileNameW"
+                    && (method.arches() == 0 || method.arches() & bit != 0)
+            })
+            .unwrap();
+        assert_eq!(
+            module_name
+                .params()
+                .nth(1)
+                .unwrap()
+                .find_attribute("NativeArrayInfoAttribute")
+                .unwrap()
+                .value(),
+            [("CountParamIndex".into(), Value::I16(2))]
         );
         let create = index
             .expect("Fixture", "IClassFactory")

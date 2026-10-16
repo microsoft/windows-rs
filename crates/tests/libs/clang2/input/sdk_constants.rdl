@@ -1,6 +1,6 @@
 #[win32]
 mod Fixture {
-    const INVALID_FILE_ATTRIBUTES: u32 = 4294967295;
+    const INVALID_FILE_ATTRIBUTES: DWORD = 4294967295;
 }
 #[win32]
 mod Fixture {
@@ -39,14 +39,16 @@ mod Fixture {
 #[win32]
 mod Fixture {
     const ERROR_ACCESS_DENIED: i32 = 5;
-    const E_FAIL: i32 = -2147467259;
-    const S_OK: i32 = 0;
+    const E_FAIL: HRESULT = -2147467259;
+    const S_OK: HRESULT = 0;
     const WAIT_TIMEOUT: i32 = 258;
 }
 #[win32]
 mod Fixture {
     const FILE_ATTRIBUTE_NORMAL: i32 = 128;
     const GENERIC_READ: u32 = 2147483648;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    type HRESULT = i32;
     type WCHAR = u16;
 }
 #[win32]

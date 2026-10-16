@@ -1,0 +1,8 @@
+#[win32]
+mod Fixture {
+    const IME_SMODE_NONE: i32 = 0;
+    const IMN_CLOSESTATUSWINDOW: i32 = 1;
+    const MOD_ALT: i32 = 1;
+    const MOD_CONTROL: i32 = 2;
+    const MOD_SHIFT: i32 = 4;
+}

@@ -221,10 +221,16 @@ fn partial_review() {
         selected_fixture("partial_order_a", &[]),
         selected_fixture("partial_order_b", &[]),
     ];
-    let first = capture_partial(&inputs, &TARGETS).unwrap();
+    let first = capture_partial(&inputs, &TARGETS).unwrap_err().to_string();
+    assert!(
+        first.starts_with("field name, order, offset, or bit width differs:"),
+        "{first}"
+    );
     inputs.reverse();
-    let second = capture_partial(&inputs, &[Target::Arm64, Target::X64, Target::X86]).unwrap();
-    assert_eq!(first.omissions, second.omissions);
+    let second = capture_partial(&inputs, &[Target::Arm64, Target::X64, Target::X86])
+        .unwrap_err()
+        .to_string();
+    assert_eq!(first, second);
     inputs[1]
         .source
         .push_str("\n#error fatal after other TUs succeed\n");
@@ -348,7 +354,10 @@ fn partial_results() {
     let error = projection::generate_partial(&[first, second], "Fixture")
         .unwrap_err()
         .to_string();
-    assert!(error.starts_with("merge:"), "{error}");
+    assert!(
+        error.starts_with("capture: native field types differ:"),
+        "{error}"
+    );
 }
 
 fn packing() {

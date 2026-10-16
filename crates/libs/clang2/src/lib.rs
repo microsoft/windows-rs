@@ -44,6 +44,9 @@ pub struct Input {
     pub roots: Vec<String>,
     /// Object-like macros to evaluate as constant expressions after this input's declarations.
     pub macros: Vec<String>,
+    /// Header filenames in which to discover object-like macros at the end of this input.
+    /// Non-expression candidates are errors in strict capture and omissions in partial capture.
+    pub macro_headers: Vec<String>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -385,8 +388,19 @@ pub enum ValueKind {
         language: LanguageLinkage,
     },
     Constant {
-        value: ConstantValue,
+        /// None only for a native declaration, never for a failed initializer.
+        value: Option<ConstantValue>,
         origin: ConstantOrigin,
+        linkage: ConstantLinkage,
+    },
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub enum ConstantLinkage {
+    Internal,
+    External {
+        language: LanguageLinkage,
+        mangling: String,
     },
 }
 
@@ -394,12 +408,20 @@ pub enum ValueKind {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ConstantValue {
     Integer(EnumValue),
+    /// Numeric address bits sign-extended from the target pointer width; no relocation.
+    Pointer(i64),
     Boolean(bool),
     Float32(u32),
     Float64(u64),
     Guid(u128),
-    PropertyKey { format: u128, id: u32 },
-    String { value: String, wide: bool },
+    PropertyKey {
+        format: u128,
+        id: u32,
+    },
+    String {
+        value: String,
+        wide: bool,
+    },
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -581,11 +603,16 @@ impl Snapshot {
                         mangling,
                         ..
                     } => mangling.capacity() + parameters_bytes(parameters),
-                    ValueKind::Constant {
-                        value: ConstantValue::String { value, .. },
-                        ..
-                    } => value.capacity(),
-                    ValueKind::Constant { .. } => 0,
+                    ValueKind::Constant { value, linkage, .. } => {
+                        let text = match value {
+                            Some(ConstantValue::String { value, .. }) => value.capacity(),
+                            _ => 0,
+                        };
+                        text + match linkage {
+                            ConstantLinkage::Internal => 0,
+                            ConstantLinkage::External { mangling, .. } => mangling.capacity(),
+                        }
+                    }
                 }
         }
         let mut fields = 0;

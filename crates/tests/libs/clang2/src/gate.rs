@@ -95,6 +95,7 @@ pub fn scale(tus: usize) {
             arguments: template.arguments.clone(),
             roots: template.roots.clone(),
             macros: template.macros.clone(),
+            macro_headers: template.macro_headers.clone(),
         })
         .collect();
     let started = Instant::now();

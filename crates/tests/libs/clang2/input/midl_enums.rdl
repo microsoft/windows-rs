@@ -1,0 +1,31 @@
+#[win32]
+mod Fixture {
+    #[repr(i32)]
+    enum Authored {
+        AuthoredReady = 2,
+    }
+    #[repr(i32)]
+    enum Later {
+        LaterValue = 5,
+    }
+    const LooseLimit: i32 = 260;
+    const LooseNegative: i32 = -1;
+    #[repr(i32)]
+    enum Mode {
+        ModeReady = 1,
+    }
+    struct User {
+        mode: Mode,
+        authored: Authored,
+        later: Later,
+    }
+    #[repr(i32)]
+    enum __MIDL_AuthoredName {
+        SimilarPrefix = 3,
+    }
+    #[repr(i32)]
+    #[scoped]
+    enum __MIDL_Example_0003 {
+        ScopedValue = 4,
+    }
+}

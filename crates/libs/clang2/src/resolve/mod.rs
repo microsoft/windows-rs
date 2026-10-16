@@ -43,6 +43,7 @@ pub struct ValueObservationRef {
 
 pub struct ValueGroup {
     pub name: String,
+    /// Constant definitions precede declarations; remaining order is stable by source.
     pub observations: Vec<ValueObservationRef>,
 }
 
@@ -317,7 +318,9 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
                 || a.bit_width != b.bit_width
                 || !attributes_equal(&a.attributes, &b.attributes)
             {
-                return Err(conflict("field name, order, offset, or bit width differs"));
+                return Err(conflict(
+                    "field name, order, offset, bit width, or attributes differ",
+                ));
             }
             // Typedef names are retained as evidence, but do not create nominal native types.
             let (a, b) = (a.canonical, b.canonical);
@@ -381,9 +384,12 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
     for observations in values.values_mut() {
         observations.sort_by_key(|reference| {
             let snapshot = snapshots[reference.snapshot];
-            let location =
-                &snapshot.values[reference.value.0].observations[reference.observation].location;
+            let observation =
+                &snapshot.values[reference.value.0].observations[reference.observation];
+            let location = &observation.location;
             (
+                // A declaration must not hide disagreements between definitions.
+                matches!(observation.kind, ValueKind::Constant { value: None, .. }),
                 snapshot.input.as_str(),
                 snapshot.files[location.file.0].as_str(),
                 location.offset,
@@ -689,7 +695,18 @@ pub(crate) fn value_shape_equal(a: &ValueObservation, b: &ValueObservation, symb
                                 == b.default.as_ref().map(|value| &value.expression)
                     })
             }
-            (ValueKind::Constant { value: a, .. }, ValueKind::Constant { value: b, .. }) => a == b,
+            (
+                ValueKind::Constant {
+                    value: a,
+                    linkage: x,
+                    ..
+                },
+                ValueKind::Constant {
+                    value: b,
+                    linkage: y,
+                    ..
+                },
+            ) => x == y && (a.is_none() || b.is_none() || a == b),
             _ => false,
         }
 }

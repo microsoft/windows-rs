@@ -1,0 +1,32 @@
+#[win32]
+mod Fixture {
+    const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295;
+    const CSBACKUP_TYPE_FULL: i32 = 1;
+    const CSBACKUP_TYPE_LOGS_ONLY: i32 = 2;
+    const CSBACKUP_TYPE_MASK: i32 = 3;
+    type CSBFT = u16;
+    const CSBFT_CERTSERVER_DATABASE: CSBFT = 68;
+    const CSBFT_CHECKPOINT_DIR: CSBFT = 131;
+    const CSBFT_DATABASE_DIRECTORY: i32 = 64;
+    const CSBFT_DIRECTORY: i32 = 128;
+    const CSBFT_LOG: CSBFT = 33;
+    const CSBFT_LOG_DIR: CSBFT = 130;
+    const CSBFT_LOG_DIRECTORY: i32 = 32;
+    const CSBFT_PATCH_FILE: CSBFT = 37;
+    const CSBFT_UNKNOWN: CSBFT = 15;
+    const CSCONTROL_RESTART: i32 = 3;
+    const CSCONTROL_SHUTDOWN: i32 = 1;
+    const CSCONTROL_SUSPEND: i32 = 2;
+    const CSRESTORE_TYPE_CATCHUP: i32 = 4;
+    const CSRESTORE_TYPE_FULL: i32 = 1;
+    const CSRESTORE_TYPE_MASK: i32 = 5;
+    const CSRESTORE_TYPE_ONLINE: i32 = 2;
+    #[encoding("ansi")]
+    const szBACKUPANNOTATION: String = "Cert Server Backup Interface";
+    #[encoding("ansi")]
+    const szRESTOREANNOTATION: String = "Cert Server Restore Interface";
+    #[encoding("ansi")]
+    const wszBACKUPANNOTATION: String = "Cert Server Backup Interface";
+    #[encoding("ansi")]
+    const wszRESTOREANNOTATION: String = "Cert Server Restore Interface";
+}
