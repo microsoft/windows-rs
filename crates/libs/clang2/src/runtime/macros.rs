@@ -33,12 +33,13 @@ fn empty_definition(unit: &Unit, definition: CXCursor, name: &str) -> bool {
 }
 
 pub(super) fn discover(
-    index: &Index,
+    indices: &mut [Index],
     unit: &Unit,
     source: &Source,
     input: &Input,
     arguments: &[String],
     target: Target,
+    library: &Arc<SharedLibrary>,
 ) -> Result<(Vec<String>, partial::Issues), Error> {
     let headers = input
         .macro_headers
@@ -74,7 +75,11 @@ pub(super) fn discover(
     if candidates.is_empty() {
         return Ok((accepted, issues));
     }
-    let mut pch = Precompiled::new(unit)?;
+    profile::count("candidates", candidates.len());
+    let mut pch = {
+        let _phase = profile::phase("pch-save");
+        Precompiled::new(unit)?
+    };
     let mut inherited = arguments.iter();
     let mut arguments = Vec::new();
     while let Some(argument) = inherited.next() {
@@ -112,8 +117,9 @@ pub(super) fn discover(
     }
     let control = macro_source(&probe, &[], "__windows_clang_probe")?;
     probe.source.clear();
+    let control_phase = profile::phase("control");
     let bindings = parse_unit(
-        index,
+        &indices[0],
         &[&control, source],
         &arguments,
         CXTranslationUnit_DetailedPreprocessingRecord,
@@ -164,6 +170,7 @@ pub(super) fn discover(
                 .messages
                 .insert(format!("{target:?}: {}: {reason}", candidate.origin));
         } else if empty_definition(&bindings.unit, definition, &candidate.name) {
+            profile::count("empty", 1);
             issues.reject(
                 partial::Key::Macro(candidate.name),
                 format!(
@@ -176,15 +183,18 @@ pub(super) fn discover(
         }
     }
     drop(bindings);
+    drop(control_phase);
     let mut pending = Vec::new();
     if !candidates.is_empty() {
         pending.push(candidates);
     }
     while let Some(mut batch) = pending.pop() {
+        let _phase = profile::phase("batch");
+        profile::count("expressions", batch.len());
         let names: Vec<_> = batch.iter().map(|value| value.name.clone()).collect();
         let probe_source = macro_source(&probe, &names, "__windows_clang_probe")?;
         let parsed = parse_unit(
-            index,
+            &indices[0],
             &[&probe_source, source],
             &arguments,
             CXTranslationUnit_DetailedPreprocessingRecord,
@@ -194,34 +204,64 @@ pub(super) fn discover(
             drop(parsed);
             let mut remaining = Vec::new();
             let count = batch.len();
-            for (position, candidate) in batch.into_iter().enumerate() {
-                if suspects.contains(&position) {
-                    // Recovery can blame valid siblings. Confirm failure in isolation.
-                    let isolated = macro_source(
-                        &probe,
-                        std::slice::from_ref(&candidate.name),
-                        "__windows_clang_probe",
-                    )?;
-                    let checked = parse_unit(
-                        index,
-                        &[&isolated, source],
-                        &arguments,
-                        CXTranslationUnit_DetailedPreprocessingRecord,
-                    )?;
-                    if let Err(error) = checked.check() {
-                        issues.reject(
-                            partial::Key::Macro(candidate.name.clone()),
-                            format!(
-                                "{target:?}: {}: expression probe failed:\n{error}",
-                                candidate.origin
-                            ),
-                        );
-                        continue;
-                    }
+            let mut positions: Vec<_> = suspects.into_iter().collect();
+            positions.sort_unstable();
+            let failures = std::thread::scope(|scope| {
+                let mut tasks = Vec::new();
+                let size = positions.len().div_ceil(indices.len()).max(1);
+                for (index, positions) in indices.iter_mut().zip(positions.chunks(size)) {
+                    let library = Arc::clone(library);
+                    let batch = &batch;
+                    let probe = &probe;
+                    let arguments = &arguments;
+                    tasks.push(scope.spawn(move || {
+                        let _binding = Binding::new(library);
+                        let _profile =
+                            profile::begin(format!("{target:?} {} confirmations", input.name));
+                        let mut failures = Vec::new();
+                        for &position in positions {
+                            let _phase = profile::phase("confirmation");
+                            // Recovery can blame valid siblings. Confirm failure in isolation.
+                            let isolated = macro_source(
+                                probe,
+                                std::slice::from_ref(&batch[position].name),
+                                "__windows_clang_probe",
+                            )?;
+                            let checked = parse_unit(
+                                index,
+                                &[&isolated, source],
+                                arguments,
+                                CXTranslationUnit_DetailedPreprocessingRecord,
+                            )?;
+                            if let Err(error) = checked.check() {
+                                profile::count("rejected", 1);
+                                failures.push((position, error));
+                            }
+                        }
+                        Ok::<_, Error>(failures)
+                    }));
                 }
-                remaining.push(candidate);
+                let mut failures = BTreeMap::new();
+                for task in tasks {
+                    failures.extend(task.join().unwrap()?);
+                }
+                Ok::<_, Error>(failures)
+            })?;
+            for (position, candidate) in batch.into_iter().enumerate() {
+                if let Some(error) = failures.get(&position) {
+                    issues.reject(
+                        partial::Key::Macro(candidate.name.clone()),
+                        format!(
+                            "{target:?}: {}: expression probe failed:\n{error}",
+                            candidate.origin
+                        ),
+                    );
+                } else {
+                    remaining.push(candidate);
+                }
             }
             if remaining.len() == count {
+                profile::count("bisections", 1);
                 let right = remaining.split_off(remaining.len() / 2);
                 pending.push(right);
             }

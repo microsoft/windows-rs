@@ -111,3 +111,33 @@ fn malformed_probes_preserve_valid_siblings() {
     }));
     assert_eq!(generate(&[Target::Arm64, Target::X64, Target::X86]), output);
 }
+
+#[test]
+fn confirmation_workers_preserve_capture_order() {
+    helpers::ensure_libclang();
+    let mut inputs = [
+        test_clang2::selected_fixture("macro_diagnostics", &["Anchor"]),
+        test_clang2::selected_fixture("macro_recovery", &[]),
+    ];
+    for input in &mut inputs {
+        input.macro_headers = vec![input.name.clone()];
+    }
+    let targets = [Target::X86, Target::X64, Target::Arm64];
+    let captured = capture_partial(&inputs, &targets).unwrap();
+    for target in targets {
+        let single = capture_partial(&inputs, &[target]).unwrap();
+        let expected: Vec<_> = captured
+            .snapshots
+            .iter()
+            .filter(|snapshot| snapshot.target == target)
+            .collect();
+        assert_eq!(single.snapshots.iter().collect::<Vec<_>>(), expected);
+    }
+    let expected = projection::project_partial(captured, "Fixture").unwrap();
+    inputs.reverse();
+    let reordered = capture_partial(&inputs, &[Target::Arm64, Target::X64, Target::X86]).unwrap();
+    assert_eq!(
+        projection::project_partial(reordered, "Fixture").unwrap(),
+        expected
+    );
+}

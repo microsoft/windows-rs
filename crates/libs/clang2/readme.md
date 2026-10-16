@@ -101,6 +101,8 @@ in selected header filenames. Isolated compiler probes report invalid expression
 a failed AST or disrupting unrelated capture. Strict mode fails on rejected candidates; partial mode
 reports them as omissions. Diagnostics only identify suspects; each rejection requires an
 independent failed parse. Compiler-tokenized empty definitions need no expression parse.
+Independent confirmations run on separate, precreated indices. The available CPU count, capped at
+24, is divided across targets, with at least one worker per target. Results retain candidate order.
 The SDK driver exposes discovery as repeatable `--macro-header=header.h`, or `--sdk-macros`
 for the pinned SDK's `um` and `shared` header filenames, including transitive owners.
 The include manifest still determines which headers are parsed. The driver writes its inputs and

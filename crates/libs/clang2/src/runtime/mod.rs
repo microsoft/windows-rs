@@ -7,6 +7,7 @@ use std::sync::{Arc, Mutex};
 use windows_clang_sys::*;
 
 mod macros;
+mod profile;
 
 static BATCH: Mutex<()> = Mutex::new(());
 
@@ -30,9 +31,16 @@ pub struct PartialCapture {
 /// Compiler errors and native conflicts remain fatal. Failed observations are not validated;
 /// their declarations are removed across all targets and inputs.
 pub fn capture_partial(inputs: &[Input], targets: &[Target]) -> Result<PartialCapture, Error> {
+    let _profile = profile::begin("all-targets".into());
+    let workers = profile::phase("workers");
     let (mut snapshots, mut issues) = capture_impl(inputs, targets, true)?;
+    drop(workers);
+    let validation = profile::phase("validation");
     merge(&snapshots)?;
+    drop(validation);
+    let pruning = profile::phase("pruning");
     partial::prune(&mut snapshots, &mut issues);
+    drop(pruning);
     Ok(PartialCapture {
         snapshots,
         omissions: issues.finish(),
@@ -85,41 +93,55 @@ fn capture_impl(
     let library = Arc::new(load_manually().map_err(Error)?);
     let _binding = Binding::new(Arc::clone(&library));
     let compiler = text(unsafe { clang_getClangVersion() });
+    let workers = if inputs.iter().any(|input| !input.macro_headers.is_empty()) {
+        let available = std::thread::available_parallelism()
+            .map_err(|error| Error(format!("cannot determine capture parallelism: {error}")))?
+            .get()
+            .min(24);
+        (available / targets.len()).max(1)
+    } else {
+        1
+    };
     let indices = targets
         .iter()
         .map(|_| {
-            let handle = unsafe { clang_createIndex(0, 0) };
-            if handle.is_null() {
-                Err(Error("clang_createIndex failed".into()))
-            } else {
-                Ok(Index(handle))
-            }
+            (0..workers)
+                .map(|_| {
+                    let handle = unsafe { clang_createIndex(0, 0) };
+                    if handle.is_null() {
+                        Err(Error("clang_createIndex failed".into()))
+                    } else {
+                        Ok(Index(handle))
+                    }
+                })
+                .collect::<Result<Vec<_>, _>>()
         })
         .collect::<Result<Vec<_>, _>>()?;
     let (indices, results): (Vec<_>, Vec<_>) = std::thread::scope(|scope| {
         let tasks: Vec<_> = indices
             .into_iter()
             .zip(targets)
-            .map(|(index, &target)| {
+            .map(|(indices, &target)| {
                 let library = Arc::clone(&library);
                 let compiler = &compiler;
                 let sources = &sources;
                 scope.spawn(move || {
-                    let _binding = Binding::new(library);
+                    let _binding = Binding::new(Arc::clone(&library));
                     // Dispose before restoring bindings if this worker unwinds.
-                    let owned_index = index;
+                    let mut owned_indices = indices;
                     let mut results = Batch::default();
                     for (source, input) in sources.iter().zip(inputs) {
                         results.push(parse(
-                            &owned_index,
+                            &mut owned_indices,
                             source,
                             input,
                             target,
                             compiler,
                             partial,
+                            &library,
                         ));
                     }
-                    (owned_index, results)
+                    (owned_indices, results)
                 })
             })
             .collect();
@@ -229,7 +251,9 @@ struct Unit(CXTranslationUnit);
 impl Drop for Unit {
     fn drop(&mut self) {
         if !self.0.is_null() {
+            let started = std::time::Instant::now();
             unsafe { clang_disposeTranslationUnit(self.0) };
+            profile::record("dispose", started.elapsed());
         }
     }
 }
@@ -279,6 +303,7 @@ fn parse_unit(
         })
         .collect::<Result<_, Error>>()?;
     let mut unit = Unit(std::ptr::null_mut());
+    let started = std::time::Instant::now();
     let status = unsafe {
         clang_parseTranslationUnit2(
             index.0,
@@ -291,11 +316,13 @@ fn parse_unit(
             &raw mut unit.0,
         )
     };
+    profile::record("native-parse", started.elapsed());
     if unit.0.is_null() || status != CXError_Success {
         return Err(Error(format!("libclang parse failed: {status}")));
     }
     let mut diagnostics = Vec::new();
     let mut failed = false;
+    let started = std::time::Instant::now();
     unsafe {
         for id in 0..clang_getNumDiagnostics(unit.0) {
             let diagnostic = clang_getDiagnostic(unit.0, id);
@@ -306,6 +333,8 @@ fn parse_unit(
             )));
             clang_disposeDiagnostic(diagnostic);
         }
+        profile::count("diagnostic-count", diagnostics.len());
+        profile::record("diagnostics", started.elapsed());
     }
     Ok(Parsed {
         unit,
@@ -315,13 +344,15 @@ fn parse_unit(
 }
 
 fn parse(
-    index: &Index,
+    indices: &mut [Index],
     source: &Source,
     input: &Input,
     target: Target,
     compiler: &str,
     partial: bool,
+    library: &Arc<SharedLibrary>,
 ) -> Result<(Snapshot, partial::Issues), Error> {
+    let _profile = profile::begin(format!("{target:?} {}", input.name));
     let mut arguments = vec!["-x".into(), "c++".into(), "-std=c++20".into()];
     arguments.extend(input.arguments.iter().cloned());
     arguments.push(format!("--target={}", target.triple()));
@@ -331,7 +362,7 @@ fn parse(
         target.triple(),
         arguments.join(" ")
     );
-    let parse = || {
+    let mut parse = || {
         let flags = CXTranslationUnit_IncludeAttributedTypes
             | CXTranslationUnit_VisitImplicitAttributes
             | if input.macros.is_empty() && input.macro_headers.is_empty() {
@@ -339,8 +370,9 @@ fn parse(
             } else {
                 CXTranslationUnit_DetailedPreprocessingRecord
             };
+        let initial = profile::phase("initial");
         let mut parsed = parse_unit(
-            index,
+            &indices[0],
             &[source],
             &arguments,
             flags
@@ -351,12 +383,21 @@ fn parse(
                 },
         )?;
         parsed.check()?;
+        drop(initial);
         let mut issues = partial::Issues::default();
         let generated = if input.macro_headers.is_empty() {
             None
         } else {
-            let (discovered, rejected) =
-                macros::discover(index, &parsed.unit, source, input, &arguments, target)?;
+            let _phase = profile::phase("discovery");
+            let (discovered, rejected) = macros::discover(
+                indices,
+                &parsed.unit,
+                source,
+                input,
+                &arguments,
+                target,
+                library,
+            )?;
             if !partial && !rejected.excluded.is_empty() {
                 return Err(Error(rejected.finish().join("\n")));
             }
@@ -369,10 +410,12 @@ fn parse(
             }
         };
         if let Some(source) = &generated {
-            parsed = parse_unit(index, &[source], &arguments, flags)?;
+            let _phase = profile::phase("final");
+            parsed = parse_unit(&indices[0], &[source], &arguments, flags)?;
             parsed.check()?;
         }
         let source = generated.as_ref().unwrap_or(source);
+        let _phase = profile::phase("capture");
         let mut snapshot = Snapshot {
             input: source.name.to_string_lossy().into_owned(),
             target,

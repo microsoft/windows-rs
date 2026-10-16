@@ -204,6 +204,10 @@ redefinitions. Compiler tokens identify empty replacement lists without an expre
 A validated TU supplies a temporary PCH for expression probes. Diagnostics from a failed batch
 identify suspects, not invalid macros: parser recovery can blame a valid sibling. Each suspect
 must fail an independent parse before rejection. If no failure is confirmed, the batch splits.
+Confirmations use separate indices created before any capture starts. A CPU budget capped at 24
+is divided across targets, with at least one worker per target. Each index is used by only one
+thread at a time, and all confirmations finish before their PCH is removed. Results are applied in
+candidate order, independent of worker completion order.
 Survivors must pass a clean batch; no failed AST supplies capture evidence. Forced
 includes are not replayed in probes. The final capture reparses the original input plus accepted
 probes cleanly. Original-source and native parse-status errors remain fatal.
@@ -550,6 +554,26 @@ Each invocation writes `target/win32-2/capture-configuration.txt` with the SDK/c
 target set, input sources, arguments, macro selections, and resolved imports. `--dry-run` writes
 this configuration without parsing headers or changing RDL/WinMD. The file describes the attempted
 configuration, not proof that generation completed.
+
+Set `WINDOWS_CLANG_PROFILE=1` to emit tab-separated `clang-profile` records on stderr. Each record
+contains the target/input label, phase, operation, count, and elapsed seconds. Native parse,
+diagnostic formatting, and TU disposal are timed separately; candidate, empty-definition,
+confirmation, and rejection counts identify repeated work. Phase wall times are inclusive, and
+target and confirmation workers overlap. Do not add these times together as process elapsed time.
+
+The 370-header, 1,800-owner profile performs 29,939 isolated confirmations, versus 36 batch parses.
+In the serial-confirmation control, confirmations account for over 90% of capture-worker time.
+Native reconciliation and diagnostic formatting are small by comparison. SDK PCH replays show no
+material gain from a lean PCH, disabled validation, local-only indexing, reparsing, preamble reuse, or
+disabling libclang's helper threads. These experimental settings are not enabled in capture.
+Direct `-cc1` replay fails with `CXError_ASTReadError` and supplies no valid speed comparison.
+On a 24-logical-CPU, 64 GiB Windows machine, bounded parallel confirmation reduces the recorded
+full workload from 692.6 seconds to 220.0 and 223.3 seconds in repeated runs, including projection
+and WinMD compilation. Observed peak working set increases from 3.85 to about 6.9 GiB. All 780 RDL
+partitions and omissions are byte-identical, including with profiling disabled. The input scope,
+independent rejection checks, and confirmation count are unchanged. Precise timings require a
+quiet machine.
+
 `--sdk-imports` loads the pinned SDK's x64 import libraries using the shared ordered policy in
 `crates/tools/win32/src/imports.rs`. Host libraries precede API-set umbrellas, and the enclave runtime
 comes last. The same checked DLL corrections apply in both generators; an unexpected SDK mapping

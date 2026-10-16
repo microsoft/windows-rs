@@ -216,18 +216,22 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         inputs.len()
     );
     let output = if partial {
-        let result = projection::project_partial_with_imports(
-            windows_clang2::capture_partial(
-                &inputs,
-                &[
-                    windows_clang2::Target::X86,
-                    windows_clang2::Target::X64,
-                    windows_clang2::Target::Arm64,
-                ],
-            )?,
-            "Windows.Win32",
-            &imports,
+        let captured = windows_clang2::capture_partial(
+            &inputs,
+            &[
+                windows_clang2::Target::X86,
+                windows_clang2::Target::X64,
+                windows_clang2::Target::Arm64,
+            ],
         )?;
+        let projection_started = Instant::now();
+        let result = projection::project_partial_with_imports(captured, "Windows.Win32", &imports)?;
+        if std::env::var_os("WINDOWS_CLANG_PROFILE").is_some() {
+            eprintln!(
+                "clang-profile\tall-targets\tprojection\twall\t1\t{:.6}",
+                projection_started.elapsed().as_secs_f64(),
+            );
+        }
         std::fs::write(
             scratch.join("omissions.txt"),
             result.omissions.join("\n") + "\n",
