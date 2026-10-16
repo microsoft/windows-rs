@@ -61,6 +61,13 @@ own window. Failure cancels further driver work and terminates the owned child.
 | `early_successful_exit_is_rejected` | Exiting with code zero before the driver finishes is a failure, not a passing test. |
 | `child_panic_is_reported` | A child panic produces a failed exit and captured stdout and stderr. |
 | `hung_child_is_terminated` | A ready but unresponsive child times out and is terminated. |
+| `driver_timeout_cancels_worker` | The supervisor deadline cancels a cooperative driver and reaps its child without consuming the cleanup allowance. |
+| `driver_timeout_bounds_blocked_worker_cleanup` | The supervisor reaps the child and returns after its cleanup allowance even when the driver remains blocked. |
+
+The driver timeout regressions use the same supervisor as live UI cases, with short private
+deadlines and synthetic workers rather than COM calls. Each case releases and joins its worker
+before asserting the outcome. Live cases retain the 30-second deadline and five-second cleanup
+allowance.
 
 The driver uses exact automation IDs, or exact name and control type for menu items, scoped to the
 child's windows. Repeated entries for the same native element count once; distinct matching elements
