@@ -1,6 +1,8 @@
 use std::rc::Rc;
 use windows_reactor::*;
 
+mod pointer;
+
 struct MenuFixture {
     generation: u32,
     calls: u32,
@@ -123,6 +125,10 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
     match fixture {
         "menu" => App::run_component::<MenuFixture>(())?,
         "text" => App::run_component::<TextFixture>(())?,
+        "pointer-capture-mounted" => pointer::run(true, true)?,
+        "pointer-capture-added" => pointer::run(true, false)?,
+        "pointer-focus-mounted" => pointer::run(false, true)?,
+        "pointer-focus-added" => pointer::run(false, false)?,
         "exit" => {}
         "panic" => {
             println!("UI fixture panic probe stdout");
@@ -134,7 +140,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
                 std::thread::park();
             }
         }
-        _ => panic!("expected menu, text, exit, panic, or hang fixture"),
+        _ => panic!("unknown fixture: {fixture}"),
     }
     Ok(())
 }

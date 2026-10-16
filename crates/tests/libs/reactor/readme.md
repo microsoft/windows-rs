@@ -42,6 +42,8 @@ or foreground is unavailable.
 | `tests/ui/main.rs` | Named behavioral tests driven through UI Automation |
 | `tests/ui/automation.rs` | Scoped lookup, native actions, condition waits, and diagnostics |
 | `tests/ui/process.rs` | Child ownership, deadlines, shutdown, and harness failure checks |
+| `tests/ui/pointer.rs` | Native mouse injection, owned button cleanup, and physical coordinates |
+| `src/pointer.rs` | Property-only pointer capture and focus fixtures |
 
 The library contains the application fixtures. Cargo's integration-test harness supplies the
 host executable's path without filesystem searches or a child mode in the test runner. Keeping the
@@ -63,6 +65,9 @@ own window. Failure cancels further driver work and terminates the owned child.
 | `hung_child_is_terminated` | A ready but unresponsive child times out and is terminated. |
 | `driver_timeout_cancels_worker` | The supervisor deadline cancels a cooperative driver and reaps its child without consuming the cleanup allowance. |
 | `driver_timeout_bounds_blocked_worker_cleanup` | The supervisor reaps the child and returns after its cleanup allowance even when the driver remains blocked. |
+| `pointer_capture_policy_at_mount` / `pointer_capture_policy_added_to_existing_border` | With only the capture policy, movement outside reaches the pressed Border; after release it reaches the outside surface. |
+| `pointer_focus_policy_at_mount` / `pointer_focus_policy_added_to_existing_border` | With only the release/focus policy, the Border receives direct native pointer focus after release, not on press. |
+| `pointer_button_is_released_after_driver_failure` | A driver failure while pressing the mouse releases the injected button before the fixture is stopped. |
 
 The driver timeout regressions use the same supervisor as live UI cases, with short private
 deadlines and synthetic workers rather than COM calls. Each case releases and joins its worker
@@ -74,6 +79,23 @@ child's windows. Repeated entries for the same native element count once; distin
 are an error. Waits inspect current UI state; they do not force layout or synthesize Reactor
 callbacks. UIA invocation, Value edits, and keyboard input are separate operations. Keyboard injection
 checks the foreground process, focused element, and modifier keys.
+
+Pointer cases use `SendInput` with physical virtual-desktop coordinates derived from UIA anchor
+bounds. The fixture's Border has no UIA peer; short text anchors locate its bare background without
+clicking the text itself. Guards check foreground ownership, the window under button input, and
+held buttons/modifiers. The supervisor owns button cleanup, so cancellation or a blocked UIA worker
+cannot leave cleanup dependent on that worker returning. A case that finishes with an injected
+button still pressed fails.
+
+The policy fixtures install no press/release callbacks on the target. Capture and release are
+observed through native movement routing, not a stored policy or capture flag. Focus is observed
+through the target's direct native focus event; setting focus on the baseline button is a separate
+driver action. Dynamic cases omit the policy entirely at mount, exercise that state, and then enable
+it while preserving the UIA anchor's identity. They do not set the policy to false initially, since
+that setter can itself activate a lazy native subscription.
+
+This covers mouse capture and release/focus, not native drag/drop negotiation. Drag/drop needs an
+owned data source and assertions on the negotiated operation, not just a held-button mouse move.
 
 Cargo captures driver steps and assertion failures. On a condition timeout the driver also prints
 the fixture's UI tree. Child stdout and stderr are written to separate files to avoid blocked pipes;

@@ -15,9 +15,11 @@ mod bindings {
 }
 
 mod automation;
+mod pointer;
 mod process;
 
 use automation::*;
+use pointer::*;
 
 type Result<T = ()> = std::result::Result<T, Box<dyn std::error::Error + Send + Sync>>;
 
@@ -75,4 +77,84 @@ fn text_box_native_edit_and_controlled_reset() -> Result<()> {
         ui.name("echo", "Text: x")?;
         ui.value("input", "x")
     })
+}
+
+#[test]
+fn pointer_capture_policy_at_mount() -> Result<()> {
+    process::run("pointer-capture-mounted", |ui| capture_policy(ui, false))
+}
+
+#[test]
+fn pointer_capture_policy_added_to_existing_border() -> Result<()> {
+    process::run("pointer-capture-added", |ui| capture_policy(ui, true))
+}
+
+#[test]
+fn pointer_focus_policy_at_mount() -> Result<()> {
+    process::run("pointer-focus-mounted", |ui| focus_policy(ui, false))
+}
+
+#[test]
+fn pointer_focus_policy_added_to_existing_border() -> Result<()> {
+    process::run("pointer-focus-added", |ui| focus_policy(ui, true))
+}
+
+fn enable_pointer_policy(ui: &Automation) -> Result<()> {
+    let original = ui.element("left")?;
+    ui.name("policy", "Absent")?;
+    ui.pointer_move("left", 0.5, 2.0)?;
+    ui.name("pointer", "Left false; outside false")?;
+    ui.pointer_button(true)?;
+    ui.pointer_move("right", 0.5, 2.0)?;
+    ui.name("pointer", "Left true; outside false")?;
+    ui.pointer_button(false)?;
+    ui.pointer_move("left", 0.5, 2.0)?;
+    ui.name("pointer", "Left false; outside false")?;
+    ui.name("focus", "Unfocused")?;
+    ui.invoke("enable")?;
+    ui.name("policy", "Enabled")?;
+    unsafe {
+        assert!(
+            ui.client
+                .CompareElements(&original, &ui.element("left")?)?
+                .as_bool()
+        );
+    }
+    Ok(())
+}
+
+fn capture_policy(ui: &Automation, added: bool) -> Result<()> {
+    ui.focus("baseline")?;
+    if added {
+        enable_pointer_policy(ui)?;
+    }
+    ui.pointer_move("left", 0.5, 2.0)?;
+    ui.name("pointer", "Left false; outside false")?;
+    ui.pointer_button(true)?;
+    ui.pointer_move("right", 0.5, 2.0)?;
+    ui.name("pointer", "Left true; outside false")?;
+    ui.pointer_move("outside", 0.5, 0.5)?;
+    ui.name("pointer", "Left true; outside true")?;
+    ui.name("outside-state", "No released move outside")?;
+    ui.pointer_button(false)?;
+    ui.pointer_move("outside", 0.75, 0.5)?;
+    ui.name("outside-state", "Released move outside")?;
+    ui.pointer_move("right", 0.5, 2.0)?;
+    ui.name("pointer", "Left false; outside false")?;
+    ui.name("focus", "Unfocused")
+}
+
+fn focus_policy(ui: &Automation, added: bool) -> Result<()> {
+    ui.focus("baseline")?;
+    if added {
+        enable_pointer_policy(ui)?;
+    }
+    ui.pointer_move("right", 0.5, 2.0)?;
+    ui.name("pointer", "Left false; outside false")?;
+    ui.pointer_button(true)?;
+    ui.pointer_move("left", 0.5, 2.0)?;
+    ui.name("pointer", "Left true; outside false")?;
+    ui.name("focus", "Unfocused")?;
+    ui.pointer_button(false)?;
+    ui.name("focus", "Pointer focused")
 }
