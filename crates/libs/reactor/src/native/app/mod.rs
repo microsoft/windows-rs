@@ -1329,11 +1329,11 @@ fn exit_ui_thread() {
 }
 
 #[cfg(test)]
-#[path = "../tests/native/app.rs"]
+#[path = "../../tests/native/app.rs"]
 mod tests;
 
 #[cfg(feature = "test")]
-#[path = "../test_support/native/app.rs"]
+#[path = "../../test_support/native/app.rs"]
 mod test_support;
 #[cfg(feature = "test")]
 pub use test_support::*;

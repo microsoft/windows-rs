@@ -143,7 +143,7 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 
 ### Reactor architecture
 
-- WinUI backend ownership is split across `crates/libs/reactor/src/native/winui.rs` and
+- WinUI backend ownership is split across `crates/libs/reactor/src/native/winui/mod.rs` and
   `crates/libs/reactor/src/native/winui/`.
 - The TOML config (`crates/tools/reactor/src/schema.toml`) declares 79 WinUI controls. Keys are
   WinUI metadata names; the tool infers types, setter patterns, and event handlers from `.winmd`
@@ -160,6 +160,9 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 
 ## Conventions
 
+- **Module layout**: When a module has a directory, put its entry point in `name/mod.rs`, not
+  `name.rs` beside the `name/` directory. The workspace enables Clippy's `self_named_module_files`
+  lint to enforce this for modules with external submodules.
 - **Panics**: Use `panic!` only for invariant violations. Use `diag::` helpers for missing features
   (warn in debug, no-op in release).
 - **`.unwrap()` over `.expect("...")`** - the panic hook provides full context.
