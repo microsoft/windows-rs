@@ -1,6 +1,44 @@
 use super::*;
 
 #[test]
+fn text_block_alignment_shares_the_text_box_contract_and_clears() {
+    assert_eq!(
+        property_contract(ObjectType::TextBlock, PropertyId::TextAlignment),
+        property_contract(ObjectType::TextBox, PropertyId::TextAlignment)
+    );
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(TextBlock::new().text_alignment(TextAlignment::Center))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    assert!(
+        runtime
+            .update(TextBlock::new().text_alignment(TextAlignment::Center))
+            .unwrap()
+            .is_empty()
+    );
+    let mutations = runtime
+        .update(TextBlock::new().text_alignment(TextAlignment::Right))
+        .unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object, set, clear }]
+            if *object == root && clear.is_empty()
+                && set.as_ref() == [Property {
+                    id: PropertyId::TextAlignment,
+                    value: TextAlignment::Right.property_value(),
+                }]
+    ));
+    let mutations = runtime.update(TextBlock::new()).unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object, set, clear }]
+            if *object == root && set.is_empty() && clear.as_ref() == [PropertyId::TextAlignment]
+    ));
+    assert!(runtime.update(TextBlock::new()).unwrap().is_empty());
+}
+
+#[test]
 fn number_box_small_change_requires_finite_values() {
     for value in [f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
         assert!(std::panic::catch_unwind(|| NumberBox::new().small_change(value)).is_err());

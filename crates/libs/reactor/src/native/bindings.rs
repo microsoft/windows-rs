@@ -19875,6 +19875,25 @@ impl ITextBlock {
             .ok()
         }
     }
+    pub(crate) fn TextAlignment(&self) -> windows_core::Result<TextAlignment> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).TextAlignment)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetTextAlignment(&self, value: TextAlignment) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetTextAlignment)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn Text(&self) -> windows_core::Result<String> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -19913,6 +19932,26 @@ impl ITextBlock {
                 value,
             )
             .ok()
+        }
+    }
+    pub(crate) fn ContentStart(&self) -> windows_core::Result<TextPointer> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ContentStart)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn ContentEnd(&self) -> windows_core::Result<TextPointer> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ContentEnd)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetMaxLines(&self, value: i32) -> windows_core::Result<()> {
@@ -19954,8 +19993,12 @@ pub struct ITextBlock_Vtbl {
     TextTrimming: usize,
     pub SetTextTrimming:
         unsafe extern "system" fn(*mut core::ffi::c_void, TextTrimming) -> windows_core::HRESULT,
-    TextAlignment: usize,
-    SetTextAlignment: usize,
+    pub TextAlignment: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut TextAlignment,
+    ) -> windows_core::HRESULT,
+    pub SetTextAlignment:
+        unsafe extern "system" fn(*mut core::ffi::c_void, TextAlignment) -> windows_core::HRESULT,
     pub Text: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
@@ -19976,8 +20019,14 @@ pub struct ITextBlock_Vtbl {
     pub SetIsTextSelectionEnabled:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     SelectedText: usize,
-    ContentStart: usize,
-    ContentEnd: usize,
+    pub ContentStart: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub ContentEnd: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     SelectionStart: usize,
     SelectionEnd: usize,
     BaselineOffset: usize,
@@ -20020,7 +20069,10 @@ pub struct ITextBlockStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    TextAlignmentProperty: usize,
+    pub TextAlignmentProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     TextProperty: usize,
     PaddingProperty: usize,
     LineHeightProperty: usize,
@@ -20591,6 +20643,44 @@ pub struct ITextElement_Vtbl {
     FontStyle: usize,
     pub SetFontStyle:
         unsafe extern "system" fn(*mut core::ffi::c_void, FontStyle) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ITextPointer,
+    ITextPointer_Vtbl,
+    0x842eb385_ee41_5930_979b_438fa7525a51
+);
+impl windows_core::RuntimeType for ITextPointer {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl ITextPointer {
+    pub(crate) fn GetCharacterRect(
+        &self,
+        direction: LogicalDirection,
+    ) -> windows_core::Result<Rect> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCharacterRect)(
+                windows_core::Interface::as_raw(self),
+                direction,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct ITextPointer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Parent: usize,
+    VisualParent: usize,
+    LogicalDirection: usize,
+    Offset: usize,
+    pub GetCharacterRect: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        LogicalDirection,
+        *mut Rect,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ITimePicker,
@@ -25303,6 +25393,21 @@ impl windows_core::imp::TypeKind for ListViewSelectionMode {
 impl windows_core::RuntimeType for ListViewSelectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Microsoft.UI.Xaml.Controls.ListViewSelectionMode;i4)",
+    );
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LogicalDirection(pub i32);
+impl LogicalDirection {
+    pub const Backward: Self = Self(0);
+    pub const Forward: Self = Self(1);
+}
+impl windows_core::imp::TypeKind for LogicalDirection {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for LogicalDirection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Documents.LogicalDirection;i4)",
     );
 }
 pub const MB_ICONERROR: i32 = 16;
@@ -30908,6 +31013,16 @@ impl TextBlock {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
+    pub(crate) fn TextAlignmentProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ITextBlockStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TextAlignmentProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
     pub(crate) fn IsTextSelectionEnabledProperty() -> windows_core::Result<DependencyProperty> {
         Self::ITextBlockStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -31229,6 +31344,33 @@ impl core::ops::Not for TextGetOptions {
         Self(self.0.not())
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TextPointer(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    TextPointer,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for TextPointer {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ITextPointer>();
+}
+unsafe impl windows_core::Interface for TextPointer {
+    type Vtable = <ITextPointer as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ITextPointer as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for TextPointer {
+    type Target = ITextPointer;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for TextPointer {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Documents.TextPointer";
+}
+unsafe impl Send for TextPointer {}
+unsafe impl Sync for TextPointer {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextSetOptions(pub u32);

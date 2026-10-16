@@ -168,6 +168,9 @@ name = "TextTrimming"
 name = "MaxLines"
 validation = "non_negative"
 
+[[objects.properties]]
+name = "TextAlignment"
+
 [[objects]]
 name = "TextBox"
 enabled = true

@@ -1162,6 +1162,21 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::I32,
         }),
+        (ObjectType::TextBlock, PropertyId::TextAlignment) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "TextAlignment",
+                variants: &[
+                    "Center",
+                    "Left",
+                    "Start",
+                    "Right",
+                    "End",
+                    "Justify",
+                    "DetectFromContent",
+                ],
+            },
+        }),
         (ObjectType::TextBox, PropertyId::Text) => Some(PropertyContract {
             id,
             value: ValueType::String,
@@ -2418,6 +2433,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::TextBlock, PropertyId::IsTextSelectionEnabled) => 32,
         (ObjectType::TextBlock, PropertyId::TextTrimming) => 33,
         (ObjectType::TextBlock, PropertyId::MaxLines) => 34,
+        (ObjectType::TextBlock, PropertyId::TextAlignment) => 35,
         (ObjectType::TextBox, PropertyId::Text) => 26,
         (ObjectType::TextBox, PropertyId::PlaceholderText) => 27,
         (ObjectType::TextBox, PropertyId::AcceptsReturn) => 28,

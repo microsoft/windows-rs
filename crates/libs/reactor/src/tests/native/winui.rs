@@ -12,6 +12,7 @@ mod calendar;
 #[path = "ownership.rs"]
 mod ownership;
 
+mod text_block;
 #[path = "text_box.rs"]
 mod text_box;
 
