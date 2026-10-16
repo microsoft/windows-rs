@@ -1,5 +1,90 @@
 use super::*;
 
+fn content_dialog_default_button_preserves_ownership() {
+    let view = |button: Option<ContentDialogButton>| {
+        let mut dialog = ContentDialog::new()
+            .primary_button_text("Save")
+            .secondary_button_text("Discard")
+            .close_button_text("Cancel");
+        if let Some(button) = button {
+            dialog = dialog.default_button(button);
+        }
+        Border::new().content_dialog(dialog)
+    };
+    let mut runtime = Runtime::new(WinUiAdapter::default());
+    runtime.update(view(None)).unwrap();
+    let root = runtime.graph().root().unwrap();
+    let object = runtime.graph().content_dialog(root).unwrap().0;
+    let Some(Handle::Generated(GeneratedHandle::ContentDialog(handle))) =
+        runtime.adapter().handles.get(&object)
+    else {
+        panic!()
+    };
+    let value = handle.value.clone();
+    assert_eq!(
+        runtime
+            .adapter()
+            .content_dialog_default_button(object)
+            .unwrap(),
+        ContentDialogButton::None
+    );
+
+    value
+        .SetDefaultButton(native::ContentDialogButton::Secondary)
+        .unwrap();
+    assert!(runtime.update(view(None)).unwrap().is_empty());
+    assert_eq!(
+        runtime
+            .adapter()
+            .content_dialog_default_button(object)
+            .unwrap(),
+        ContentDialogButton::Secondary
+    );
+
+    for button in [
+        ContentDialogButton::None,
+        ContentDialogButton::Primary,
+        ContentDialogButton::Secondary,
+        ContentDialogButton::Close,
+    ] {
+        runtime.update(view(Some(button))).unwrap();
+        assert_eq!(
+            runtime
+                .adapter()
+                .content_dialog_default_button(object)
+                .unwrap(),
+            button
+        );
+        assert_eq!(runtime.graph().content_dialog(root).unwrap().0, object);
+        let Some(Handle::Generated(GeneratedHandle::ContentDialog(handle))) =
+            runtime.adapter().handles.get(&object)
+        else {
+            panic!()
+        };
+        assert_eq!(handle.value, value);
+        assert!(runtime.update(view(Some(button))).unwrap().is_empty());
+    }
+    runtime.update(view(None)).unwrap();
+    assert_eq!(
+        runtime
+            .adapter()
+            .content_dialog_default_button(object)
+            .unwrap(),
+        ContentDialogButton::None
+    );
+    value
+        .SetDefaultButton(native::ContentDialogButton::Primary)
+        .unwrap();
+    assert!(runtime.update(view(None)).unwrap().is_empty());
+    assert_eq!(
+        runtime
+            .adapter()
+            .content_dialog_default_button(object)
+            .unwrap(),
+        ContentDialogButton::Primary
+    );
+}
+
 fn nullable_checked_values_preserve_ownership() {
     let values = Rc::new(RefCell::new(Vec::new()));
     let received = Rc::clone(&values);
@@ -102,6 +187,7 @@ fn native_edits_and_coercion_do_not_claim_undeclared_values() {
     let completed = Rc::new(Cell::new(false));
     let finished = Rc::clone(&completed);
     App::run_with(move |app| {
+        content_dialog_default_button_preserves_ownership();
         nullable_checked_values_preserve_ownership();
         let calls = Rc::new(Cell::new(0));
         let toggle_calls = Rc::clone(&calls);
