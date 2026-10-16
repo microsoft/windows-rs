@@ -28,11 +28,13 @@ impl SwapChain {
             ..Default::default()
         };
 
+        diagnose("CreateSwapChainForComposition");
         let swap_chain = unsafe {
             device
                 .dxgi_factory()
                 .CreateSwapChainForComposition(device.d3d_device(), &desc, None)?
         };
+        diagnose("CreateSwapChainForComposition returned");
 
         Self::from_swap_chain(device, swap_chain, width, height)
     }
@@ -76,11 +78,13 @@ impl SwapChain {
         width: u32,
         height: u32,
     ) -> Result<Self> {
+        diagnose("ID2D1Device::CreateDeviceContext");
         let d2d_context = unsafe {
             device
                 .d2d_device()
                 .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?
         };
+        diagnose("ID2D1Device::CreateDeviceContext returned");
 
         let mut result = Self {
             swap_chain,
@@ -92,6 +96,7 @@ impl SwapChain {
             dpi_y: 96.0,
         };
         result.set_target()?;
+        diagnose("SwapChain ready");
         Ok(result)
     }
 
@@ -122,7 +127,9 @@ impl SwapChain {
         if self.device_lost_flag.get() {
             return Ok(false);
         }
+        diagnose("Present");
         let result = unsafe { self.swap_chain.Present(1, 0) };
+        diagnose("Present returned");
         if is_device_lost(result) {
             return Ok(false);
         }
@@ -182,6 +189,7 @@ impl SwapChain {
 
     fn set_target(&mut self) -> Result<()> {
         unsafe {
+            diagnose("GetBuffer");
             let surface: IDXGISurface = self.swap_chain.GetBuffer(0)?;
             let props = D2D1_BITMAP_PROPERTIES1 {
                 pixelFormat: D2D1_PIXEL_FORMAT {
@@ -193,11 +201,15 @@ impl SwapChain {
                 bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
                 ..Default::default()
             };
+            diagnose("CreateBitmapFromDxgiSurface");
             let bitmap = self
                 .d2d_context
                 .CreateBitmapFromDxgiSurface(&surface, Some(&props))?;
+            diagnose("SetTarget");
             self.d2d_context.SetTarget(&bitmap);
+            diagnose("SetDpi");
             self.d2d_context.SetDpi(self.dpi_x, self.dpi_y);
+            diagnose("set_target returned");
             Ok(())
         }
     }

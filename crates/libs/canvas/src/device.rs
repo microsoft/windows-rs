@@ -35,6 +35,7 @@ impl GpuDevice {
 
         let mut d3d_device: Option<ID3D11Device> = None;
         let feature_levels = [D3D_FEATURE_LEVEL_11_0];
+        diagnose("D3D11CreateDevice");
         unsafe {
             D3D11CreateDevice(
                 std::ptr::null_mut(),
@@ -53,6 +54,7 @@ impl GpuDevice {
         let d3d_device = d3d_device.unwrap();
 
         let mut d2d_factory: Option<ID2D1Factory1> = None;
+        diagnose("D2D1CreateFactory");
         unsafe {
             D2D1CreateFactory(
                 D2D1_FACTORY_TYPE_SINGLE_THREADED,
@@ -64,13 +66,19 @@ impl GpuDevice {
         }
         let d2d_factory = d2d_factory.unwrap();
 
+        diagnose("QueryInterface IDXGIDevice");
         let dxgi_device: IDXGIDevice = d3d_device.cast()?;
+        diagnose("ID2D1Factory1::CreateDevice");
         let d2d_device = unsafe { d2d_factory.CreateDevice(&dxgi_device)? };
 
+        diagnose("IDXGIDevice::GetAdapter");
         let dxgi_adapter: IDXGIAdapter = unsafe { dxgi_device.GetAdapter()? };
+        diagnose("IDXGIAdapter::GetParent");
         let dxgi_factory: IDXGIFactory2 = unsafe { dxgi_adapter.GetParent()? };
 
+        diagnose("dwrite_factory");
         let dwrite_factory = dwrite_factory()?;
+        diagnose("GpuDevice ready");
 
         Ok(Self {
             d3d_device,

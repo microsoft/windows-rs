@@ -284,6 +284,7 @@ pub(crate) fn dwrite_factory() -> Result<IDWriteFactory> {
     }
 
     let mut factory: Option<IDWriteFactory> = None;
+    diagnose("DWriteCreateFactory");
     unsafe {
         DWriteCreateFactory(
             DWRITE_FACTORY_TYPE_SHARED,
@@ -292,6 +293,7 @@ pub(crate) fn dwrite_factory() -> Result<IDWriteFactory> {
         )
         .ok()?;
     }
+    diagnose("DWriteCreateFactory returned");
     let factory = factory.ok_or_else(Error::empty)?;
     Ok(SHARED.get_or_init(|| SharedFactory(factory)).0.clone())
 }

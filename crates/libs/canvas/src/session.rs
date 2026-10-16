@@ -21,7 +21,9 @@ impl<'a> DrawingSession<'a> {
         context: &'a ID2D1DeviceContext,
         device_lost_flag: &'a Cell<bool>,
     ) -> Result<Self> {
+        diagnose("BeginDraw");
         unsafe { context.BeginDraw() };
+        diagnose("BeginDraw returned");
         Ok(Self {
             context,
             mode: Mode::Owned { device_lost_flag },
@@ -451,7 +453,9 @@ impl Drop for DrawingSession<'_> {
             return;
         };
         unsafe {
+            diagnose("EndDraw");
             let result = self.context.EndDraw(None, None);
+            diagnose("EndDraw returned");
             if is_device_lost(result) {
                 device_lost_flag.set(true);
             }

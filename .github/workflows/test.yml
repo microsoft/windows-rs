@@ -86,7 +86,28 @@ jobs:
       - name: Test
         # The system Composition graph is excluded because Reactor consumers select the
         # incompatible lifted Composition stack.
-        run: cargo test --all --target ${{ matrix.target }} ${{ matrix.clang-exclude }} --exclude windows-composition --exclude canvas-standalone --exclude test_composition --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas
+        run: |
+          if ("${{ matrix.target }}" -eq "x86_64-pc-windows-msvc") {
+            $ErrorActionPreference = "Stop"
+            $artifacts = Join-Path $env:RUNNER_TEMP "canvas-test-artifacts.jsonl"
+            cargo test --all --target ${{ matrix.target }} ${{ matrix.clang-exclude }} --exclude windows-composition --exclude canvas-standalone --exclude test_composition --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas --no-run --message-format=json > $artifacts
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            $canvas = Get-Content $artifacts | ConvertFrom-Json |
+              Where-Object { $_.reason -eq "compiler-artifact" -and $_.target.name -eq "test_canvas" -and $_.executable } |
+              Select-Object -ExpandProperty executable -Last 1
+            if (-not $canvas) { throw "Canvas test executable not found" }
+            $env:WINDOWS_CANVAS_DIAGNOSTICS = "1"
+            $originalPath = $env:PATH
+            $deps = Split-Path $canvas
+            $profile = Split-Path $deps
+            $env:PATH = "$deps;$profile;$originalPath"
+            Write-Host "Canvas before the workspace UI tests: $canvas"
+            & $canvas --test-threads=4
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            $env:PATH = $originalPath
+            Write-Host "Canvas preflight passed; running the ordinary workspace tests"
+          }
+          cargo test --all --target ${{ matrix.target }} ${{ matrix.clang-exclude }} --exclude windows-composition --exclude canvas-standalone --exclude test_composition --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas
       - name: Test system Composition stack
         run: cargo test -p windows-canvas -p windows-composition -p canvas-standalone -p test_composition -p composition-standalone -p composition-minesweeper -p composition-canvas --features windows-canvas/system --target ${{ matrix.target }}
       - name: Check diff

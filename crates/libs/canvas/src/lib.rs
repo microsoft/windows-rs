@@ -34,6 +34,34 @@ use std::cell::Cell;
 use std::os::windows::ffi::OsStrExt;
 use windows_core::*;
 
+// Temporary diagnostics for the x64 CI hang.
+#[expect(
+    clippy::explicit_write,
+    reason = "Bypass libtest capture so hung tests leave diagnostics."
+)]
+fn diagnose(stage: &str) {
+    use std::io::Write;
+
+    if std::env::var_os("WINDOWS_CANVAS_DIAGNOSTICS").is_none() {
+        return;
+    }
+    static START: std::sync::Once = std::sync::Once::new();
+    START.call_once(|| {
+        std::thread::spawn(|| {
+            std::thread::sleep(std::time::Duration::from_secs(90));
+            writeln!(std::io::stderr(), "Canvas diagnostic deadline exceeded").unwrap();
+            std::process::abort();
+        });
+    });
+    writeln!(
+        std::io::stderr(),
+        "Canvas {:?} {:?}: {stage}",
+        std::thread::current().id(),
+        std::thread::current().name()
+    )
+    .unwrap();
+}
+
 pub use bitmap::Bitmap;
 pub use color::ColorF;
 #[cfg(feature = "composition")]
