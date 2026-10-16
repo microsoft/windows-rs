@@ -118,7 +118,7 @@ impl Drop for PropertyChangedRevoker {
     }
 }
 
-include!("generated.rs");
+include!("../generated.rs");
 
 struct QueuedEvent {
     object: ObjectId,
@@ -2160,17 +2160,17 @@ fn clear_window_icon(hwnd: *mut core::ffi::c_void) {
     }
 }
 
-include!("winui/hosting.rs");
+include!("hosting.rs");
 
 #[cfg(any(test, feature = "test"))]
-#[path = "../test_support/native/winui.rs"]
+#[path = "../../test_support/native/winui.rs"]
 mod test_support;
 
-include!("winui/objects.rs");
-include!("winui/events.rs");
-include!("winui/relations.rs");
+include!("objects.rs");
+include!("events.rs");
+include!("relations.rs");
 
-include!("winui/adapter.rs");
+include!("adapter.rs");
 
 fn relation_contract(
     kind: ObjectType,
@@ -2341,5 +2341,5 @@ fn set_grid_definitions(
 }
 
 #[cfg(test)]
-#[path = "../tests/native/winui.rs"]
+#[path = "../../tests/native/winui.rs"]
 mod tests;
