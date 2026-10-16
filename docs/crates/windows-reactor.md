@@ -371,15 +371,4 @@ cargo check -p windows-reactor --quiet
 cargo test -p windows-reactor --all-features --lib
 ```
 
-The `test` feature exposes internal hosts, runtime records, and diagnostics for framework tests
-and benchmarks. Application code does not need it.
-
-| Location | Purpose |
-| --- | --- |
-| `crates/libs/reactor/src/tests` | Private unit tests, scoped beneath their owning modules |
-| `crates/libs/reactor/src/test_support` | Recording adapters, diagnostics, and live-test helpers |
-| `crates/tests/libs/reactor_selftest` | Privileged live WinUI coverage |
-| [`test-reactor-integration`](../../crates/tests/libs/reactor_integration/readme.md) | Public application and companion-crate fixtures |
-
-Build public integration fixtures separately from packages using the `test` feature to avoid
-Cargo feature unification. Changes to the public API also require updating `public-api.txt`.
+Changes to the public API also require updating `public-api.txt`.

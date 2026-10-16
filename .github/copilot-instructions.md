@@ -75,7 +75,10 @@ cargo check -p windows-reactor --quiet
 # Unit tests (headless, fast)
 cargo test -p windows-reactor --all-features --quiet
 
-# Integration tests (launches WinUI window)
+# New Cargo UI tests (requires an interactive desktop; Cargo deploys the runtime)
+cargo test -p test-reactor
+
+# Legacy integration fixtures (retained during migration)
 cargo run -p test-reactor-selftest
 cargo run -p test-reactor-selftest -- --headless    # CI mode
 cargo run -p test-reactor-integration --bin application_menu
@@ -168,10 +171,16 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 - **`.unwrap()` over `.expect("...")`** - the panic hook provides full context.
 - **No `thread_local!` in app code** - keep state in components and pass shared values through typed
   contexts. `thread_local!` is reserved for framework plumbing.
-- **Test naming**: Reactor unit tests live in `windows-reactor`; live WinUI coverage lives in
-  `test-reactor-selftest`. Public application and companion-crate fixtures live in
-  `test-reactor-integration` without the Reactor `test` feature. Build that package separately
-  from privileged tests to avoid Cargo feature unification. Canvas tests use WARP rendering.
+- **Test naming**: Reactor unit tests live in `windows-reactor`. New public UI coverage belongs in
+  `test-reactor`; migrate legacy cases individually before retiring their tests and helpers.
+  `test-reactor-selftest` and `test-reactor-integration` remain during migration. The new crate
+  participates in workspace tests and uses `windows-reactor-setup` in its build script. Run it
+  alone when checking Reactor's default features rather than the workspace's unified features.
+  Canvas tests use WARP rendering.
+- **Reactor test documentation**: Keep testing instructions in `crates/tests/libs/reactor/readme.md`,
+  not `docs/crates/windows-reactor.md`. `cargo test -p test-reactor` must run the whole new suite
+  without ignored-test flags. Generate its native bindings with `windows-bindgen` in `build.rs`
+  rather than depending on the `windows` crate.
 
 ## Documentation
 
