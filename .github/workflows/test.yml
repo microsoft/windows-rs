@@ -101,9 +101,9 @@ jobs:
               Where-Object { $_.reason -eq "compiler-artifact" -and $_.target.name -eq "ui" -and $_.package_id -match "#test-reactor@" -and $_.executable } |
               Select-Object -ExpandProperty executable -Last 1
             if (-not $ui) { throw "Reactor UI test executable not found" }
-            function Invoke-Canvas($phase) {
+            function Invoke-Canvas($phase, $arguments = @("--test-threads=4")) {
               Write-Host "Canvas phase: $phase"
-              $process = Start-Process -FilePath $canvas -ArgumentList "--test-threads=4" -NoNewWindow -PassThru
+              $process = Start-Process -FilePath $canvas -ArgumentList $arguments -NoNewWindow -PassThru
               try {
                 if (-not $process.WaitForExit(45000)) {
                   Write-Host "Canvas process $($process.Id) stalled; capturing native dump"
@@ -116,7 +116,8 @@ jobs:
                   $capture = Start-Process -FilePath "$tools\procdump64.exe" -ArgumentList "-accepteula", "-mm", "$($process.Id)", $dump -NoNewWindow -PassThru
                   try {
                     if (-not $capture.WaitForExit(20000)) { throw "Dump capture exceeded 20 seconds" }
-                    if ($capture.ExitCode -ne 0) { throw "Dump capture failed: $($capture.ExitCode)" }
+                    Write-Host "ProcDump exit code: $($capture.ExitCode)"
+                    if (-not (Test-Path $dump)) { throw "ProcDump did not create a dump" }
                   } finally {
                     if (-not $capture.HasExited) { $capture.Kill($true); $capture.WaitForExit() }
                     $capture.Dispose()
@@ -147,6 +148,7 @@ jobs:
               if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
               Invoke-Canvas "after $case"
             }
+            Invoke-Canvas "original unattached presentation negative control" @("--ignored", "--exact", "tests::unbound_presentation_probe")
             $env:PATH = $originalPath
             $uiControl = @(
               "--",
