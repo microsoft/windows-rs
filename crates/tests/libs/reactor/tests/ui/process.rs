@@ -4,6 +4,7 @@ use std::path::PathBuf;
 use std::process::{Child, Command, ExitStatus, Stdio};
 use std::sync::atomic::{AtomicBool, AtomicU32, Ordering};
 use std::sync::{Arc, Mutex};
+use std::thread::JoinHandle;
 
 static SERIAL: Mutex<()> = Mutex::new(());
 static NEXT_LOG: AtomicU32 = AtomicU32::new(0);
@@ -121,34 +122,13 @@ fn drive(
         ui.window_handle()
     });
     let deadline = Instant::now() + Duration::from_secs(30);
-    let result: Result<()> = (|| {
-        while !driver.is_finished() {
-            if let Some(status) = host.child.try_wait()? {
-                return Err(format!("fixture exited before the UI test finished: {status}").into());
-            }
-            if Instant::now() >= deadline {
-                return Err("UI test timed out (including UI Automation calls)".into());
-            }
-            std::thread::sleep(Duration::from_millis(10));
-        }
-        Ok(())
-    })();
-    if let Err(error) = result {
-        cancelled.store(true, Ordering::Relaxed);
-        host.stop()?;
-        // Killing the provider normally releases an outstanding UIA call. Never block on join.
-        let cleanup = Instant::now() + Duration::from_secs(5);
-        while !driver.is_finished() && Instant::now() < cleanup {
-            std::thread::sleep(Duration::from_millis(10));
-        }
+    if let Err(error) = wait_driver(host, &driver, &cancelled, deadline, Duration::from_secs(5)) {
         if driver.is_finished() {
             match driver.join() {
                 Ok(Ok(_)) => {}
                 Ok(Err(error)) => eprintln!("UI worker also failed: {error}"),
                 Err(_) => eprintln!("UI worker also panicked"),
             }
-        } else {
-            eprintln!("UI Automation worker did not finish after its provider was terminated");
         }
         return Err(error);
     }
@@ -171,6 +151,121 @@ fn drive(
     }
     host.wait(deadline)?;
     Ok(())
+}
+
+fn wait_driver(
+    host: &mut Host,
+    driver: &JoinHandle<Result<usize>>,
+    cancelled: &AtomicBool,
+    deadline: Instant,
+    cleanup_timeout: Duration,
+) -> Result<()> {
+    let result: Result<()> = (|| {
+        while !driver.is_finished() {
+            if let Some(status) = host.child.try_wait()? {
+                return Err(format!("fixture exited before the UI test finished: {status}").into());
+            }
+            if Instant::now() >= deadline {
+                return Err("UI test timed out (including UI Automation calls)".into());
+            }
+            std::thread::sleep(Duration::from_millis(10));
+        }
+        Ok(())
+    })();
+    if let Err(error) = result {
+        cancelled.store(true, Ordering::Relaxed);
+        host.stop()?;
+        // Killing the provider normally releases an outstanding UIA call. Never block on join.
+        let cleanup = Instant::now() + cleanup_timeout;
+        while !driver.is_finished() && Instant::now() < cleanup {
+            std::thread::sleep(Duration::from_millis(10));
+        }
+        if !driver.is_finished() {
+            eprintln!("UI Automation worker did not finish after its provider was terminated");
+        }
+        return Err(error);
+    }
+    Ok(())
+}
+
+#[test]
+fn driver_timeout_cancels_worker() -> Result<()> {
+    driver_timeout(true)
+}
+
+#[test]
+fn driver_timeout_bounds_blocked_worker_cleanup() -> Result<()> {
+    driver_timeout(false)
+}
+
+fn driver_timeout(cooperative: bool) -> Result<()> {
+    use std::sync::mpsc::{RecvTimeoutError, channel};
+
+    let mut host = Host::spawn("hang")?;
+    let cancelled = Arc::new(AtomicBool::new(false));
+    let driver_cancelled = cancelled.clone();
+    let (ready, started) = channel();
+    let (release, released) = channel::<()>();
+    let driver = std::thread::spawn(move || {
+        ready.send(()).unwrap();
+        let deadline = Instant::now() + Duration::from_secs(10);
+        loop {
+            if cooperative && driver_cancelled.load(Ordering::Relaxed) {
+                return Ok(0);
+            }
+            match released.recv_timeout(Duration::from_millis(10)) {
+                Ok(()) | Err(RecvTimeoutError::Disconnected) => return Ok(0),
+                Err(RecvTimeoutError::Timeout) => {
+                    if Instant::now() >= deadline {
+                        return Err("synthetic UI worker was not released".into());
+                    }
+                }
+            }
+        }
+    });
+    let ready = started.recv_timeout(Duration::from_secs(10));
+    let start = Instant::now();
+    let timeout = Duration::from_millis(100);
+    let cleanup = if cooperative {
+        Duration::from_secs(10)
+    } else {
+        Duration::from_millis(100)
+    };
+    let result = wait_driver(&mut host, &driver, &cancelled, start + timeout, cleanup);
+    let elapsed = start.elapsed();
+    let finished = driver.is_finished();
+    let status = host.child.try_wait();
+
+    // Release and join even when the supervisor returned an unexpected result.
+    drop(release);
+    let worker = driver.join();
+    host.stop()?;
+
+    assert!(
+        ready.is_ok(),
+        "synthetic UI worker did not start: {ready:?}"
+    );
+    let error = result.unwrap_err();
+    assert_eq!(
+        error.to_string(),
+        "UI test timed out (including UI Automation calls)"
+    );
+    assert!(cancelled.load(Ordering::Relaxed));
+    assert!(status?.is_some(), "supervisor did not reap the fixture");
+    assert_eq!(finished, cooperative);
+    assert!(worker.unwrap().is_ok(), "synthetic UI worker timed out");
+    assert!(elapsed >= timeout, "supervisor returned early: {elapsed:?}");
+    assert!(
+        elapsed < Duration::from_secs(5),
+        "supervisor did not return promptly: {elapsed:?}"
+    );
+    if !cooperative {
+        assert!(
+            elapsed >= timeout + cleanup,
+            "supervisor skipped worker cleanup: {elapsed:?}"
+        );
+    }
+    host.remove_logs()
 }
 
 #[test]
