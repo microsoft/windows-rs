@@ -1316,6 +1316,14 @@ name = "FontIcon"
 [[objects.properties]]
 name = "Glyph"
 
+[[objects.properties]]
+name = "FontSize"
+validation = "finite_positive"
+
+[[objects.properties]]
+name = "Foreground"
+adapter = "theme_brush"
+
 [[objects]]
 name = "BitmapIcon"
 

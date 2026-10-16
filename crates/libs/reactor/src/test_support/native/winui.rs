@@ -1474,6 +1474,26 @@ impl WinUiAdapter {
         Ok(value.FontWeight()?.weight)
     }
 
+    pub fn font_icon_state(&self, object: ObjectId) -> Result<(f64, Color), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::FontIcon(value))) = self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let color = value
+            .cast::<native::IIconElement>()?
+            .Foreground()?
+            .cast::<native::SolidColorBrush>()?
+            .Color()?;
+        Ok((value.FontSize()?, from_native_color(color)))
+    }
+
+    pub fn set_control_foreground(&self, object: ObjectId, color: Color) -> Result<(), WinUiError> {
+        self.ui_element(object)?
+            .cast::<native::IControl>()?
+            .SetForeground(&solid_color_brush(color)?)?;
+        Ok(())
+    }
+
     pub fn text_block_alignment(&self, object: ObjectId) -> Result<TextAlignment, WinUiError> {
         let Some(Handle::Generated(GeneratedHandle::TextBlock(value))) = self.handles.get(&object)
         else {
