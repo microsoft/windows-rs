@@ -90,6 +90,13 @@ type NativeStringEvent = NativeTextEvent;
 type NativeStringListEvent = NativeValueEvent<Vec<String>>;
 type NativeUnitEvent = NativeValueEvent<()>;
 
+/// Adapter state that generated native event handlers capture when they subscribe.
+#[derive(Clone, Copy)]
+struct EventContext<'a> {
+    event_queue: &'a Rc<NativeEventQueue>,
+    pending_focus_states: &'a Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+}
+
 enum GeneratedRevoker {
     Event(windows_core::EventRevoker),
     Property(PropertyChangedRevoker),

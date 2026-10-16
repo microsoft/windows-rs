@@ -8582,8 +8582,7 @@ impl GeneratedHandle {
         object_id: ObjectId,
         set: &[Event],
         clear: &[EventId],
-        event_queue: &Rc<NativeEventQueue>,
-        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Option<Result<(), WinUiError>> {
         match self {
             Self::Button(object) => Some((|| {
@@ -8600,7 +8599,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_click(object_id, event_queue, pending_focus_states)?;
+                            object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -8724,11 +8723,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_pointer_pressed(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_pointer_pressed(object_id, context)?;
                         }
                         (EventId::PointerMoved, EventValue::PointerEventInfo(callback)) => {
                             {
@@ -8736,11 +8731,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_pointer_moved(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_pointer_moved(object_id, context)?;
                         }
                         (EventId::PointerEntered, EventValue::PointerEventInfo(callback)) => {
                             {
@@ -8748,11 +8739,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_pointer_entered(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_pointer_entered(object_id, context)?;
                         }
                         (EventId::PointerExited, EventValue::PointerEventInfo(callback)) => {
                             {
@@ -8760,11 +8747,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_pointer_exited(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_pointer_exited(object_id, context)?;
                         }
                         (EventId::PointerReleased, EventValue::PointerEventInfo(callback)) => {
                             {
@@ -8772,11 +8755,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_pointer_released(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_pointer_released(object_id, context)?;
                         }
                         (EventId::PointerCaptureLost, EventValue::Unit(callback)) => {
                             {
@@ -8784,11 +8763,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_pointer_capture_lost(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_pointer_capture_lost(object_id, context)?;
                         }
                         (EventId::PointerCanceled, EventValue::Unit(callback)) => {
                             {
@@ -8796,11 +8771,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_pointer_canceled(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_pointer_canceled(object_id, context)?;
                         }
                         (EventId::PreviewKeyDown, EventValue::KeyEventInfo(callback)) => {
                             {
@@ -8808,11 +8779,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_preview_key_down(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_preview_key_down(object_id, context)?;
                         }
                         (EventId::KeyUp, EventValue::KeyEventInfo(callback)) => {
                             {
@@ -8820,11 +8787,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_key_up(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_key_up(object_id, context)?;
                         }
                         (EventId::CharacterReceived, EventValue::CharacterEventInfo(callback)) => {
                             {
@@ -8832,11 +8795,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_character_received(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_character_received(object_id, context)?;
                         }
                         (EventId::GotFocus, EventValue::FocusEventInfo(callback)) => {
                             {
@@ -8844,11 +8803,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_got_focus(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_got_focus(object_id, context)?;
                         }
                         (EventId::LostFocus, EventValue::FocusEventInfo(callback)) => {
                             {
@@ -8856,11 +8811,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_lost_focus(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_lost_focus(object_id, context)?;
                         }
                         (EventId::DragEnter, EventValue::DragKind(callback)) => {
                             {
@@ -8868,11 +8819,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_drag_enter(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_drag_enter(object_id, context)?;
                         }
                         (EventId::DragOver, EventValue::DragKind(callback)) => {
                             {
@@ -8880,11 +8827,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_drag_over(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_drag_over(object_id, context)?;
                         }
                         (EventId::DragLeave, EventValue::Unit(callback)) => {
                             {
@@ -8892,11 +8835,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_drag_leave(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_drag_leave(object_id, context)?;
                         }
                         (EventId::Drop, EventValue::DroppedData(callback)) => {
                             {
@@ -8904,7 +8843,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_drop(object_id, event_queue, pending_focus_states)?;
+                            object.subscribe_drop(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -8930,11 +8869,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_back_requested(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_back_requested(object_id, context)?;
                         }
                         (EventId::PaneToggleRequested, EventValue::Unit(callback)) => {
                             {
@@ -8942,11 +8877,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_pane_toggle_requested(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_pane_toggle_requested(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -8985,7 +8916,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_click(object_id, event_queue, pending_focus_states)?;
+                            object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9006,7 +8937,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_click(object_id, event_queue, pending_focus_states)?;
+                            object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9027,11 +8958,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_item_clicked(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_item_clicked(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9062,11 +8989,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_suggestion_chosen(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_suggestion_chosen(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9146,11 +9069,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_display_mode_changed(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_display_mode_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9261,11 +9180,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_closed(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_closed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9455,11 +9370,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_add_tab_button_click(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_add_tab_button_click(object_id, context)?;
                         }
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
                             let mut native_event = object.selection_changed.borrow_mut();
@@ -9472,11 +9383,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_tab_close_requested(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_tab_close_requested(object_id, context)?;
                         }
                         (EventId::TabItemsChanged, EventValue::StringList(callback)) => {
                             {
@@ -9484,11 +9391,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_tab_items_changed(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_tab_items_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9514,11 +9417,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_closed(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_closed(object_id, context)?;
                         }
                         (EventId::ActionButtonClick, EventValue::Unit(callback)) => {
                             {
@@ -9526,11 +9425,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_action_button_click(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_action_button_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9551,7 +9446,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_click(object_id, event_queue, pending_focus_states)?;
+                            object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9572,7 +9467,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_click(object_id, event_queue, pending_focus_states)?;
+                            object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9593,7 +9488,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_click(object_id, event_queue, pending_focus_states)?;
+                            object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9632,11 +9527,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_selected_date_changed(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_selected_date_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9657,11 +9548,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_selected_time_changed(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_selected_time_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9718,11 +9605,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_selected_dates_changed(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_selected_dates_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9753,11 +9636,7 @@ impl GeneratedHandle {
                                 native_event.revision = native_event.revision.wrapping_add(1);
                                 native_event.callback = Some(callback.clone());
                             }
-                            object.subscribe_drag_items_completed(
-                                object_id,
-                                event_queue,
-                                pending_focus_states,
-                            )?;
+                            object.subscribe_drag_items_completed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -9789,21 +9668,20 @@ impl GeneratedHandle {
         &mut self,
         object_id: ObjectId,
         property: PropertyId,
-        event_queue: &Rc<NativeEventQueue>,
-        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         match (self, property) {
             (Self::Border(object), PropertyId::CapturePointerOnPress) => {
-                object.subscribe_pointer_pressed(object_id, event_queue, pending_focus_states)?;
-                object.subscribe_pointer_released(object_id, event_queue, pending_focus_states)?;
+                object.subscribe_pointer_pressed(object_id, context)?;
+                object.subscribe_pointer_released(object_id, context)?;
             }
             (Self::Border(object), PropertyId::FocusOnPointerRelease) => {
-                object.subscribe_pointer_released(object_id, event_queue, pending_focus_states)?;
+                object.subscribe_pointer_released(object_id, context)?;
             }
             (Self::Border(object), PropertyId::DropPolicy) => {
-                object.subscribe_drag_enter(object_id, event_queue, pending_focus_states)?;
-                object.subscribe_drag_over(object_id, event_queue, pending_focus_states)?;
-                object.subscribe_drop(object_id, event_queue, pending_focus_states)?;
+                object.subscribe_drag_enter(object_id, context)?;
+                object.subscribe_drag_over(object_id, context)?;
+                object.subscribe_drop(object_id, context)?;
             }
             _ => {}
         }
@@ -10690,15 +10568,14 @@ impl GeneratedButton {
     fn subscribe_click(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._click.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.click);
-        let event_queue_click = Rc::clone(event_queue);
+        let event_queue_click = Rc::clone(context.event_queue);
         let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -10721,17 +10598,16 @@ impl GeneratedBorder {
     fn subscribe_pointer_pressed(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._pointer_pressed.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.pointer_pressed);
-        let event_queue_pointer_pressed = Rc::clone(event_queue);
+        let event_queue_pointer_pressed = Rc::clone(context.event_queue);
         let source_pointer_pressed = value.cast::<native::UIElement>()?;
-        let pending_focus_states_pointer_pressed = Rc::clone(pending_focus_states);
+        let pending_focus_states_pointer_pressed = Rc::clone(context.pending_focus_states);
         let capture_pointer_on_press_pointer_pressed = Rc::clone(&self.capture_pointer_on_press);
         let revoker = value
             .cast::<native::IUIElement>()?
@@ -10770,17 +10646,16 @@ impl GeneratedBorder {
     fn subscribe_pointer_moved(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._pointer_moved.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.pointer_moved);
-        let event_queue_pointer_moved = Rc::clone(event_queue);
+        let event_queue_pointer_moved = Rc::clone(context.event_queue);
         let source_pointer_moved = value.cast::<native::UIElement>()?;
-        let pending_focus_states_pointer_moved = Rc::clone(pending_focus_states);
+        let pending_focus_states_pointer_moved = Rc::clone(context.pending_focus_states);
         let revoker = value
             .cast::<native::IUIElement>()?
             .PointerMoved(move |_, args| {
@@ -10818,17 +10693,16 @@ impl GeneratedBorder {
     fn subscribe_pointer_entered(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._pointer_entered.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.pointer_entered);
-        let event_queue_pointer_entered = Rc::clone(event_queue);
+        let event_queue_pointer_entered = Rc::clone(context.event_queue);
         let source_pointer_entered = value.cast::<native::UIElement>()?;
-        let pending_focus_states_pointer_entered = Rc::clone(pending_focus_states);
+        let pending_focus_states_pointer_entered = Rc::clone(context.pending_focus_states);
         let revoker = value
             .cast::<native::IUIElement>()?
             .PointerEntered(move |_, args| {
@@ -10866,17 +10740,16 @@ impl GeneratedBorder {
     fn subscribe_pointer_exited(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._pointer_exited.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.pointer_exited);
-        let event_queue_pointer_exited = Rc::clone(event_queue);
+        let event_queue_pointer_exited = Rc::clone(context.event_queue);
         let source_pointer_exited = value.cast::<native::UIElement>()?;
-        let pending_focus_states_pointer_exited = Rc::clone(pending_focus_states);
+        let pending_focus_states_pointer_exited = Rc::clone(context.pending_focus_states);
         let revoker = value
             .cast::<native::IUIElement>()?
             .PointerExited(move |_, args| {
@@ -10914,17 +10787,16 @@ impl GeneratedBorder {
     fn subscribe_pointer_released(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._pointer_released.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.pointer_released);
-        let event_queue_pointer_released = Rc::clone(event_queue);
+        let event_queue_pointer_released = Rc::clone(context.event_queue);
         let source_pointer_released = value.cast::<native::UIElement>()?;
-        let pending_focus_states_pointer_released = Rc::clone(pending_focus_states);
+        let pending_focus_states_pointer_released = Rc::clone(context.pending_focus_states);
         let capture_pointer_on_press_pointer_released = Rc::clone(&self.capture_pointer_on_press);
         let focus_on_pointer_release_pointer_released = Rc::clone(&self.focus_on_pointer_release);
         let revoker = value
@@ -10964,15 +10836,14 @@ impl GeneratedBorder {
     fn subscribe_pointer_capture_lost(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._pointer_capture_lost.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.pointer_capture_lost);
-        let event_queue_pointer_capture_lost = Rc::clone(event_queue);
+        let event_queue_pointer_capture_lost = Rc::clone(context.event_queue);
         let revoker = value
             .cast::<native::IUIElement>()?
             .PointerCaptureLost(move |_, _| {
@@ -10995,15 +10866,14 @@ impl GeneratedBorder {
     fn subscribe_pointer_canceled(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._pointer_canceled.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.pointer_canceled);
-        let event_queue_pointer_canceled = Rc::clone(event_queue);
+        let event_queue_pointer_canceled = Rc::clone(context.event_queue);
         let revoker = value
             .cast::<native::IUIElement>()?
             .PointerCanceled(move |_, _| {
@@ -11026,8 +10896,7 @@ impl GeneratedBorder {
     fn subscribe_preview_key_down(
         &mut self,
         _object: ObjectId,
-        _event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        _context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._preview_key_down.is_some() {
             return Ok(());
@@ -11060,8 +10929,7 @@ impl GeneratedBorder {
     fn subscribe_key_up(
         &mut self,
         _object: ObjectId,
-        _event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        _context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._key_up.is_some() {
             return Ok(());
@@ -11092,8 +10960,7 @@ impl GeneratedBorder {
     fn subscribe_character_received(
         &mut self,
         _object: ObjectId,
-        _event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        _context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._character_received.is_some() {
             return Ok(());
@@ -11126,17 +10993,16 @@ impl GeneratedBorder {
     fn subscribe_got_focus(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._got_focus.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.got_focus);
-        let event_queue_got_focus = Rc::clone(event_queue);
+        let event_queue_got_focus = Rc::clone(context.event_queue);
         let source_got_focus = value.cast::<native::UIElement>()?;
-        let pending_focus_states_got_focus = Rc::clone(pending_focus_states);
+        let pending_focus_states_got_focus = Rc::clone(context.pending_focus_states);
         let revoker = value
             .cast::<native::IUIElement>()?
             .GotFocus(move |_, args| {
@@ -11172,17 +11038,16 @@ impl GeneratedBorder {
     fn subscribe_lost_focus(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._lost_focus.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.lost_focus);
-        let event_queue_lost_focus = Rc::clone(event_queue);
+        let event_queue_lost_focus = Rc::clone(context.event_queue);
         let source_lost_focus = value.cast::<native::UIElement>()?;
-        let pending_focus_states_lost_focus = Rc::clone(pending_focus_states);
+        let pending_focus_states_lost_focus = Rc::clone(context.pending_focus_states);
         let revoker = value
             .cast::<native::IUIElement>()?
             .LostFocus(move |_, args| {
@@ -11218,15 +11083,14 @@ impl GeneratedBorder {
     fn subscribe_drag_enter(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._drag_enter.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.drag_enter);
-        let event_queue_drag_enter = Rc::clone(event_queue);
+        let event_queue_drag_enter = Rc::clone(context.event_queue);
         let drop_policy_drag_enter = Rc::clone(&self.drop_policy);
         let revoker = value
             .cast::<native::IUIElement>()?
@@ -11257,15 +11121,14 @@ impl GeneratedBorder {
     fn subscribe_drag_over(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._drag_over.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.drag_over);
-        let event_queue_drag_over = Rc::clone(event_queue);
+        let event_queue_drag_over = Rc::clone(context.event_queue);
         let drop_policy_drag_over = Rc::clone(&self.drop_policy);
         let revoker = value
             .cast::<native::IUIElement>()?
@@ -11296,15 +11159,14 @@ impl GeneratedBorder {
     fn subscribe_drag_leave(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._drag_leave.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.drag_leave);
-        let event_queue_drag_leave = Rc::clone(event_queue);
+        let event_queue_drag_leave = Rc::clone(context.event_queue);
         let revoker = value.cast::<native::IUIElement>()?.DragLeave(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -11325,15 +11187,14 @@ impl GeneratedBorder {
     fn subscribe_drop(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._drop.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.drop);
-        let event_queue_drop = Rc::clone(event_queue);
+        let event_queue_drop = Rc::clone(context.event_queue);
         let drop_policy_drop = Rc::clone(&self.drop_policy);
         let revoker = value.cast::<native::IUIElement>()?.Drop(move |_, args| {
             let dispatch = true;
@@ -11359,15 +11220,14 @@ impl GeneratedTitleBar {
     fn subscribe_back_requested(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._back_requested.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.back_requested);
-        let event_queue_back_requested = Rc::clone(event_queue);
+        let event_queue_back_requested = Rc::clone(context.event_queue);
         let revoker = value.BackRequested(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -11388,15 +11248,14 @@ impl GeneratedTitleBar {
     fn subscribe_pane_toggle_requested(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._pane_toggle_requested.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.pane_toggle_requested);
-        let event_queue_pane_toggle_requested = Rc::clone(event_queue);
+        let event_queue_pane_toggle_requested = Rc::clone(context.event_queue);
         let revoker = value.PaneToggleRequested(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -11419,15 +11278,14 @@ impl GeneratedHyperlinkButton {
     fn subscribe_click(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._click.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.click);
-        let event_queue_click = Rc::clone(event_queue);
+        let event_queue_click = Rc::clone(context.event_queue);
         let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -11450,15 +11308,14 @@ impl GeneratedRepeatButton {
     fn subscribe_click(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._click.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.click);
-        let event_queue_click = Rc::clone(event_queue);
+        let event_queue_click = Rc::clone(context.event_queue);
         let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -11481,15 +11338,14 @@ impl GeneratedBreadcrumbBar {
     fn subscribe_item_clicked(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._item_clicked.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.item_clicked);
-        let event_queue_item_clicked = Rc::clone(event_queue);
+        let event_queue_item_clicked = Rc::clone(context.event_queue);
         let revoker = value.ItemClicked(move |_, args| {
             let dispatch = true;
             let observation = None;
@@ -11525,15 +11381,14 @@ impl GeneratedAutoSuggestBox {
     fn subscribe_suggestion_chosen(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._suggestion_chosen.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.suggestion_chosen);
-        let event_queue_suggestion_chosen = Rc::clone(event_queue);
+        let event_queue_suggestion_chosen = Rc::clone(context.event_queue);
         let revoker = value.SuggestionChosen(move |_, args| {
             let dispatch = true;
             let observation = None;
@@ -11569,15 +11424,14 @@ impl GeneratedNavigationView {
     fn subscribe_display_mode_changed(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._display_mode_changed.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.display_mode_changed);
-        let event_queue_display_mode_changed = Rc::clone(event_queue);
+        let event_queue_display_mode_changed = Rc::clone(context.event_queue);
         let revoker = value.DisplayModeChanged(move |_, args| {
             let dispatch = true;
             let observation = None;
@@ -11608,15 +11462,14 @@ impl GeneratedInfoBar {
     fn subscribe_closed(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._closed.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.closed);
-        let event_queue_closed = Rc::clone(event_queue);
+        let event_queue_closed = Rc::clone(context.event_queue);
         let revoker = value.Closed(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -11639,15 +11492,14 @@ impl GeneratedTabView {
     fn subscribe_add_tab_button_click(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._add_tab_button_click.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.add_tab_button_click);
-        let event_queue_add_tab_button_click = Rc::clone(event_queue);
+        let event_queue_add_tab_button_click = Rc::clone(context.event_queue);
         let revoker = value.AddTabButtonClick(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -11668,15 +11520,14 @@ impl GeneratedTabView {
     fn subscribe_tab_close_requested(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._tab_close_requested.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.tab_close_requested);
-        let event_queue_tab_close_requested = Rc::clone(event_queue);
+        let event_queue_tab_close_requested = Rc::clone(context.event_queue);
         let revoker = value.TabCloseRequested(move |_, args| {
             let dispatch = true;
             let observation = None;
@@ -11719,15 +11570,14 @@ impl GeneratedTabView {
     fn subscribe_tab_items_changed(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._tab_items_changed.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.tab_items_changed);
-        let event_queue_tab_items_changed = Rc::clone(event_queue);
+        let event_queue_tab_items_changed = Rc::clone(context.event_queue);
         let source_tab_items_changed = value.clone();
         let revoker = value.TabItemsChanged(move |_, _| {
             let dispatch = true;
@@ -11758,15 +11608,14 @@ impl GeneratedTeachingTip {
     fn subscribe_closed(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._closed.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.closed);
-        let event_queue_closed = Rc::clone(event_queue);
+        let event_queue_closed = Rc::clone(context.event_queue);
         let revoker = value.Closed(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -11787,15 +11636,14 @@ impl GeneratedTeachingTip {
     fn subscribe_action_button_click(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._action_button_click.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.action_button_click);
-        let event_queue_action_button_click = Rc::clone(event_queue);
+        let event_queue_action_button_click = Rc::clone(context.event_queue);
         let revoker = value.ActionButtonClick(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -11818,15 +11666,14 @@ impl GeneratedDropDownButton {
     fn subscribe_click(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._click.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.click);
-        let event_queue_click = Rc::clone(event_queue);
+        let event_queue_click = Rc::clone(context.event_queue);
         let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -11849,15 +11696,14 @@ impl GeneratedAppBarButton {
     fn subscribe_click(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._click.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.click);
-        let event_queue_click = Rc::clone(event_queue);
+        let event_queue_click = Rc::clone(context.event_queue);
         let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -11880,15 +11726,14 @@ impl GeneratedSplitButton {
     fn subscribe_click(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._click.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.click);
-        let event_queue_click = Rc::clone(event_queue);
+        let event_queue_click = Rc::clone(context.event_queue);
         let revoker = value.Click(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -11911,15 +11756,14 @@ impl GeneratedDatePicker {
     fn subscribe_selected_date_changed(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._selected_date_changed.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.selected_date_changed);
-        let event_queue_selected_date_changed = Rc::clone(event_queue);
+        let event_queue_selected_date_changed = Rc::clone(context.event_queue);
         let revoker = value.SelectedDateChanged(move |_, args| {
             let dispatch = true;
             let observation = None;
@@ -11951,15 +11795,14 @@ impl GeneratedTimePicker {
     fn subscribe_selected_time_changed(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._selected_time_changed.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.selected_time_changed);
-        let event_queue_selected_time_changed = Rc::clone(event_queue);
+        let event_queue_selected_time_changed = Rc::clone(context.event_queue);
         let revoker = value.SelectedTimeChanged(move |_, args| {
             let dispatch = true;
             let observation = None;
@@ -11991,15 +11834,14 @@ impl GeneratedCalendarView {
     fn subscribe_selected_dates_changed(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._selected_dates_changed.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.selected_dates_changed);
-        let event_queue_selected_dates_changed = Rc::clone(event_queue);
+        let event_queue_selected_dates_changed = Rc::clone(context.event_queue);
         let revoker = value.SelectedDatesChanged(move |_, _| {
             let dispatch = true;
             let observation = None;
@@ -12022,15 +11864,14 @@ impl GeneratedGridView {
     fn subscribe_drag_items_completed(
         &mut self,
         object: ObjectId,
-        event_queue: &Rc<NativeEventQueue>,
-        _pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
+        context: EventContext,
     ) -> Result<(), WinUiError> {
         if self._drag_items_completed.is_some() {
             return Ok(());
         }
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.drag_items_completed);
-        let event_queue_drag_items_completed = Rc::clone(event_queue);
+        let event_queue_drag_items_completed = Rc::clone(context.event_queue);
         let source_drag_items_completed = value.cast::<native::IItemsControl>()?;
         let revoker = value
             .cast::<native::IListViewBase>()?

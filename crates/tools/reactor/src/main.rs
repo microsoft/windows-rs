@@ -1146,12 +1146,13 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     event.value
                 ));
                 let owner = if lazy { "self." } else { "" };
+                let context = if lazy { "context." } else { "" };
                 code.push_str(&format!(
                     "let event_for_callback = Rc::clone(&{owner}{field});\n"
                 ));
                 if !event.routed {
                     code.push_str(&format!(
-                        "let event_queue_{field} = Rc::clone(event_queue);\n"
+                        "let event_queue_{field} = Rc::clone({context}event_queue);\n"
                     ));
                 }
                 if let Some(selection) = selection {
@@ -1174,7 +1175,8 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 } else if event.value == "PointerEventInfo" {
                     code.push_str(&format!(
                         "let source_{field} = value.cast::<native::UIElement>()?;\n\
-                         let pending_focus_states_{field} = Rc::clone(pending_focus_states);\n"
+                         let pending_focus_states_{field} = \
+                         Rc::clone({context}pending_focus_states);\n"
                     ));
                     for property in &event.active_properties {
                         let property = snake_case(property);
@@ -1185,7 +1187,8 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 } else if event.value == "FocusEventInfo" {
                     code.push_str(&format!(
                         "let source_{field} = value.cast::<native::UIElement>()?;\n\
-                         let pending_focus_states_{field} = Rc::clone(pending_focus_states);\n"
+                         let pending_focus_states_{field} = \
+                         Rc::clone({context}pending_focus_states);\n"
                     ));
                 } else if matches!(event.value.as_str(), "DragKind" | "DroppedData") {
                     code.push_str(&format!(
@@ -1535,22 +1538,14 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 }
                 if lazy {
                     output.push_str(&format!("let _{field} = None;\n"));
-                    let (object_id, event_queue) = if event.routed {
-                        ("_object", "_event_queue")
+                    let (object_id, context) = if event.routed {
+                        ("_object", "_context")
                     } else {
-                        ("object", "event_queue")
+                        ("object", "context")
                     };
-                    let pending_focus_states =
-                        if matches!(event.value.as_str(), "PointerEventInfo" | "FocusEventInfo") {
-                            "pending_focus_states"
-                        } else {
-                            "_pending_focus_states"
-                        };
                     subscriptions.push_str(&format!(
                         "fn subscribe_{field}(&mut self, {object_id}: ObjectId, \
-                         {event_queue}: &Rc<NativeEventQueue>, {pending_focus_states}: \
-                         &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>) -> \
-                         Result<(), WinUiError> {{\n\
+                         {context}: EventContext) -> Result<(), WinUiError> {{\n\
                          if self._{field}.is_some() {{ return Ok(()); }}\n\
                          let value = &self.value;\n\
                          {code}Ok(())\n}}\n"
@@ -2233,9 +2228,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
 
     output.push_str(
         "fn set_events(&mut self, object_id: ObjectId, set: &[Event], clear: &[EventId], \
-         event_queue: &Rc<NativeEventQueue>, pending_focus_states: \
-         &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>) -> \
-                     Option<Result<(), WinUiError>> { match self {\n",
+         context: EventContext) -> Option<Result<(), WinUiError>> { match self {\n",
     );
     for object in &objects {
         if object.events.is_empty() {
@@ -2255,7 +2248,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
         for event in &object.events {
             let field = snake_case(&event.name);
             let subscribe = if is_lazy_event(object, event) {
-                format!("object.subscribe_{field}(object_id, event_queue, pending_focus_states)?;")
+                format!("object.subscribe_{field}(object_id, context)?;")
             } else {
                 String::new()
             };
@@ -2274,9 +2267,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
 
     output.push_str(
         "fn subscribe_property_events(&mut self, object_id: ObjectId, property: PropertyId, \
-         event_queue: &Rc<NativeEventQueue>, pending_focus_states: \
-         &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>) -> Result<(), WinUiError> { \
-         match (self, property) {\n",
+         context: EventContext) -> Result<(), WinUiError> { match (self, property) {\n",
     );
     for object in &objects {
         for property in &object.properties {
@@ -2289,7 +2280,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 })
                 .map(|event| {
                     format!(
-                        "object.subscribe_{}(object_id, event_queue, pending_focus_states)?;",
+                        "object.subscribe_{}(object_id, context)?;",
                         snake_case(&event.name)
                     )
                 })
