@@ -307,6 +307,24 @@ impl WinUiAdapter {
         value.Opened(move |_, _| callback()).map_err(Into::into)
     }
 
+    pub fn content_dialog_default_button(
+        &self,
+        object: ObjectId,
+    ) -> Result<ContentDialogButton, WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::ContentDialog(value))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        match value.value.DefaultButton()? {
+            native::ContentDialogButton::None => Ok(ContentDialogButton::None),
+            native::ContentDialogButton::Primary => Ok(ContentDialogButton::Primary),
+            native::ContentDialogButton::Secondary => Ok(ContentDialogButton::Secondary),
+            native::ContentDialogButton::Close => Ok(ContentDialogButton::Close),
+            _ => Err(WinUiError::StateMismatch(object)),
+        }
+    }
+
     pub fn hide_content_dialog(&self, dialog: ObjectId) -> Result<(), WinUiError> {
         let value = self
             .event_queue

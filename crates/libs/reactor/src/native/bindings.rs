@@ -2501,6 +2501,16 @@ impl ContentDialog {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
+    pub(crate) fn DefaultButtonProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IContentDialogStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DefaultButtonProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
     fn IContentDialogFactory<R, F: FnOnce(&IContentDialogFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -2535,6 +2545,23 @@ impl windows_core::RuntimeName for ContentDialog {
 }
 unsafe impl Send for ContentDialog {}
 unsafe impl Sync for ContentDialog {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContentDialogButton(pub i32);
+impl ContentDialogButton {
+    pub const None: Self = Self(0);
+    pub const Primary: Self = Self(1);
+    pub const Secondary: Self = Self(2);
+    pub const Close: Self = Self(3);
+}
+impl windows_core::imp::TypeKind for ContentDialogButton {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for ContentDialogButton {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Controls.ContentDialogButton;i4)",
+    );
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContentDialogClosedEventArgs(windows_core::IUnknown);
@@ -8453,6 +8480,25 @@ impl IContentDialog {
             .ok()
         }
     }
+    pub(crate) fn DefaultButton(&self) -> windows_core::Result<ContentDialogButton> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).DefaultButton)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetDefaultButton(&self, value: ContentDialogButton) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDefaultButton)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<ContentDialog>, windows_core::Ref<ContentDialogClosedEventArgs>)
@@ -8582,8 +8628,14 @@ pub struct IContentDialog_Vtbl {
     SetSecondaryButtonStyle: usize,
     CloseButtonStyle: usize,
     SetCloseButtonStyle: usize,
-    DefaultButton: usize,
-    SetDefaultButton: usize,
+    pub DefaultButton: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut ContentDialogButton,
+    ) -> windows_core::HRESULT,
+    pub SetDefaultButton: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        ContentDialogButton,
+    ) -> windows_core::HRESULT,
     Closing: usize,
     RemoveClosing: usize,
     pub Closed: unsafe extern "system" fn(
@@ -8714,6 +8766,13 @@ pub struct IContentDialogStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     pub IsSecondaryButtonEnabledProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    PrimaryButtonStyleProperty: usize,
+    SecondaryButtonStyleProperty: usize,
+    CloseButtonStyleProperty: usize,
+    pub DefaultButtonProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
