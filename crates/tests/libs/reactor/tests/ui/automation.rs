@@ -1,6 +1,6 @@
 use super::*;
-use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::{Arc, Mutex};
 use windows_core::{HRESULT, Interface};
 
 pub const ELEMENT_UNAVAILABLE: HRESULT = HRESULT(0x80040201u32 as i32);
@@ -30,10 +30,16 @@ pub struct Automation {
     condition: IUIAutomationCondition,
     title: String,
     cancelled: Arc<AtomicBool>,
+    pressed: Arc<Mutex<bool>>,
 }
 
 impl Automation {
-    pub fn new(process: u32, fixture: &str, cancelled: Arc<AtomicBool>) -> Result<Self> {
+    pub fn new(
+        process: u32,
+        fixture: &str,
+        cancelled: Arc<AtomicBool>,
+        pressed: Arc<Mutex<bool>>,
+    ) -> Result<Self> {
         unsafe {
             let mut raw = std::ptr::null_mut();
             CoCreateInstance(
@@ -67,6 +73,7 @@ impl Automation {
                 condition,
                 title: format!("Reactor UI fixture: {fixture}"),
                 cancelled,
+                pressed,
             })
         }
     }
@@ -254,26 +261,148 @@ impl Automation {
         Ok(())
     }
 
-    pub fn type_text(&self, id: &str, text: &str) -> Result<()> {
-        eprintln!("type Unicode input {text:?} into {id:?}");
+    pub fn focus(&self, id: &str) -> Result<IUIAutomationElement> {
+        eprintln!("focus {id:?}");
         let element = self.element(id)?;
         unsafe {
             let window = self.window_handle()? as HWND;
             if GetForegroundWindow() != window {
                 assert!(
                     SetForegroundWindow(window).as_bool(),
-                    "fixture could not acquire foreground; refusing keyboard input"
+                    "fixture could not acquire foreground; refusing input"
                 );
             }
             element.SetFocus().ok()?;
-            let _ = self.wait(
-                "input receives keyboard focus",
-                || {
-                    self.client
-                        .CompareElements(&self.client.GetFocusedElement()?, &element)
-                },
-                |same| same.as_bool(),
-            )?;
+        }
+        self.focused(id)?;
+        Ok(element)
+    }
+
+    pub fn focused(&self, id: &str) -> Result<()> {
+        let element = self.element(id)?;
+        let _ = self.wait(
+            &format!("{id:?} has keyboard focus"),
+            || unsafe {
+                self.client
+                    .CompareElements(&self.client.GetFocusedElement()?, &element)
+            },
+            |same| same.as_bool(),
+        )?;
+        Ok(())
+    }
+
+    fn pointer_ready(&self) -> Result<()> {
+        self.ensure_active()?;
+        unsafe {
+            let mut owner = 0;
+            GetWindowThreadProcessId(GetForegroundWindow(), &mut owner);
+            if owner != self.process {
+                return Err("refusing pointer input to another process".into());
+            }
+            for key in [0x02, 0x04, 0x05, 0x06, 0x10, 0x11, 0x12, 0x5b, 0x5c] {
+                if GetAsyncKeyState(key) & i16::MIN != 0 {
+                    return Err("mouse button or modifier key is held".into());
+                }
+            }
+        }
+        Ok(())
+    }
+
+    pub fn pointer_move(&self, id: &str, x: f64, y: f64) -> Result<()> {
+        eprintln!("move pointer to {id:?}");
+        let _coordinates = PhysicalCoordinates::new()?;
+        let bounds = unsafe { self.element(id)?.CurrentBoundingRectangle()? };
+        if bounds.right <= bounds.left || bounds.bottom <= bounds.top {
+            return Err(format!("{id:?} has no pointer target area").into());
+        }
+        // Fractions outside 0..=1 target the surface around an accessible anchor.
+        let x = f64::from(bounds.left) + f64::from(bounds.right - bounds.left) * x;
+        let y = f64::from(bounds.top) + f64::from(bounds.bottom - bounds.top) * y;
+        if !x.is_finite()
+            || !y.is_finite()
+            || x < f64::from(i32::MIN)
+            || x > f64::from(i32::MAX)
+            || y < f64::from(i32::MIN)
+            || y > f64::from(i32::MAX)
+        {
+            return Err("invalid pointer position".into());
+        }
+        let point = POINT {
+            x: x.round() as i32,
+            y: y.round() as i32,
+        };
+        unsafe {
+            let mut owner = 0;
+            GetWindowThreadProcessId(WindowFromPoint(point), &mut owner);
+            if owner != self.process {
+                return Err("pointer target is covered by another process".into());
+            }
+            let x = GetSystemMetrics(SM_XVIRTUALSCREEN);
+            let y = GetSystemMetrics(SM_YVIRTUALSCREEN);
+            let width = GetSystemMetrics(SM_CXVIRTUALSCREEN);
+            let height = GetSystemMetrics(SM_CYVIRTUALSCREEN);
+            if width < 2
+                || height < 2
+                || point.x < x
+                || point.x >= x + width
+                || point.y < y
+                || point.y >= y + height
+            {
+                return Err("pointer target is outside the virtual desktop".into());
+            }
+            let pressed = self.pressed.lock().unwrap();
+            self.pointer_ready()?;
+            if !*pressed && GetAsyncKeyState(0x01) & i16::MIN != 0 {
+                return Err("left mouse button is held by another input source".into());
+            }
+            send_mouse(
+                MOUSEEVENTF_MOVE
+                    | MOUSEEVENTF_MOVE_NOCOALESCE
+                    | MOUSEEVENTF_ABSOLUTE
+                    | MOUSEEVENTF_VIRTUALDESK,
+                ((f64::from(point.x - x) * 65535.0) / f64::from(width - 1)).round() as i32,
+                ((f64::from(point.y - y) * 65535.0) / f64::from(height - 1)).round() as i32,
+            )
+        }
+    }
+
+    pub fn pointer_button(&self, down: bool) -> Result<()> {
+        eprintln!("left mouse button {}", if down { "down" } else { "up" });
+        let _coordinates = PhysicalCoordinates::new()?;
+        let mut pressed = self.pressed.lock().unwrap();
+        unsafe {
+            let mut point = POINT::default();
+            GetCursorPos(&mut point).ok()?;
+            let mut owner = 0;
+            GetWindowThreadProcessId(WindowFromPoint(point), &mut owner);
+            if owner != self.process {
+                return Err("pointer moved over another process; refusing button input".into());
+            }
+        }
+        self.pointer_ready()?;
+        if *pressed == down {
+            return Err("unbalanced pointer button action".into());
+        }
+        if down && unsafe { GetAsyncKeyState(0x01) } & i16::MIN != 0 {
+            return Err("left mouse button is held by another input source".into());
+        }
+        send_mouse(
+            if down {
+                MOUSEEVENTF_LEFTDOWN
+            } else {
+                MOUSEEVENTF_LEFTUP
+            },
+            0,
+            0,
+        )?;
+        *pressed = down;
+        Ok(())
+    }
+
+    pub fn type_text(&self, id: &str, text: &str) -> Result<()> {
+        eprintln!("type Unicode input {text:?} into {id:?}");
+        let element = self.focus(id)?;
+        unsafe {
             for unit in text.encode_utf16() {
                 self.ensure_active()?;
                 assert!(

@@ -115,9 +115,11 @@ fn drive(
     let process = host.child.id();
     let cancelled = Arc::new(AtomicBool::new(false));
     let driver_cancelled = cancelled.clone();
+    let pointer = PointerInput::default();
+    let pressed = pointer.pressed.clone();
     let driver = std::thread::spawn(move || {
         let _com = Com::new()?;
-        let ui = Automation::new(process, fixture, driver_cancelled)?;
+        let ui = Automation::new(process, fixture, driver_cancelled, pressed)?;
         test(&ui)?;
         ui.window_handle()
     });
@@ -140,6 +142,9 @@ fn drive(
             .unwrap_or("non-string panic");
         format!("UI assertion panicked: {message}")
     })??;
+    if *pointer.pressed.lock().unwrap() {
+        return Err("UI test finished with an injected mouse button still pressed".into());
+    }
     unsafe {
         let window = window as HWND;
         let mut owner = 0;
@@ -151,6 +156,35 @@ fn drive(
     }
     host.wait(deadline)?;
     Ok(())
+}
+
+#[test]
+fn pointer_button_is_released_after_driver_failure() -> Result<()> {
+    let serial = SERIAL.lock().unwrap();
+    let mut host = Host::spawn("pointer-capture-mounted")?;
+    let result = drive(&mut host, "pointer-capture-mounted", |ui| {
+        ui.focus("baseline")?;
+        ui.pointer_move("left", 0.5, 2.0)?;
+        ui.name("pointer", "Left false; outside false")?;
+        ui.pointer_button(true)?;
+        ui.pointer_move("right", 0.5, 2.0)?;
+        ui.name("pointer", "Left true; outside false")?;
+        Err("pointer driver failure probe".into())
+    });
+    let deadline = Instant::now() + Duration::from_secs(5);
+    while unsafe { GetAsyncKeyState(0x01) } & i16::MIN != 0 && Instant::now() < deadline {
+        std::thread::sleep(Duration::from_millis(10));
+    }
+    let released = unsafe { GetAsyncKeyState(0x01) } & i16::MIN == 0;
+    host.stop()?;
+    drop(serial);
+    let error = result.unwrap_err();
+    assert_eq!(error.to_string(), "pointer driver failure probe");
+    assert!(
+        released,
+        "failed driver left the injected mouse button pressed"
+    );
+    host.remove_logs()
 }
 
 fn wait_driver(
