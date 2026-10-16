@@ -1,5 +1,94 @@
 use super::*;
 
+fn number_box_options_preserve_ownership() {
+    let changes = Rc::new(Cell::new(0));
+    let changed = Rc::clone(&changes);
+    let callback = Callback::new(move |_: Option<f64>| changed.set(changed.get() + 1));
+    let view = |options: Option<(f64, NumberBoxSpinButtonPlacementMode)>| {
+        let mut input = NumberBox::new()
+            .value(Some(10.0))
+            .on_value_changed(callback.clone());
+        if let Some((step, mode)) = options {
+            input = input.small_change(step).spin_button_placement_mode(mode);
+        }
+        input
+    };
+    let mut runtime = Runtime::new(WinUiAdapter::default());
+    runtime.update(view(None)).unwrap();
+    let object = runtime.graph().root().unwrap();
+    let Some(Handle::Generated(GeneratedHandle::NumberBox(handle))) =
+        runtime.adapter().handles.get(&object)
+    else {
+        panic!()
+    };
+    let value = handle.value.clone();
+    assert_eq!(
+        runtime.adapter().number_box_options(object).unwrap(),
+        (1.0, NumberBoxSpinButtonPlacementMode::Hidden)
+    );
+    value.SetSmallChange(3.0).unwrap();
+    value
+        .SetSpinButtonPlacementMode(native::NumberBoxSpinButtonPlacementMode::Inline)
+        .unwrap();
+    assert!(runtime.update(view(None)).unwrap().is_empty());
+    assert_eq!(
+        runtime.adapter().number_box_options(object).unwrap(),
+        (3.0, NumberBoxSpinButtonPlacementMode::Inline)
+    );
+
+    for options in [
+        (0.25, NumberBoxSpinButtonPlacementMode::Inline),
+        (2.0, NumberBoxSpinButtonPlacementMode::Compact),
+        (0.0, NumberBoxSpinButtonPlacementMode::Hidden),
+        (-0.5, NumberBoxSpinButtonPlacementMode::Inline),
+    ] {
+        runtime.update(view(Some(options))).unwrap();
+        assert_eq!(
+            runtime.adapter().number_box_options(object).unwrap(),
+            options
+        );
+        assert_eq!(value.Value().unwrap(), 10.0);
+        assert!(runtime.update(view(Some(options))).unwrap().is_empty());
+        let Some(Handle::Generated(GeneratedHandle::NumberBox(handle))) =
+            runtime.adapter().handles.get(&object)
+        else {
+            panic!()
+        };
+        assert_eq!(handle.value, value);
+    }
+    runtime.update(view(None).small_change(2.0)).unwrap();
+    assert_eq!(
+        runtime.adapter().number_box_options(object).unwrap(),
+        (2.0, NumberBoxSpinButtonPlacementMode::Hidden)
+    );
+    runtime
+        .update(view(None).spin_button_placement_mode(NumberBoxSpinButtonPlacementMode::Compact))
+        .unwrap();
+    assert_eq!(
+        runtime.adapter().number_box_options(object).unwrap(),
+        (1.0, NumberBoxSpinButtonPlacementMode::Compact)
+    );
+    runtime
+        .update(view(Some((0.25, NumberBoxSpinButtonPlacementMode::Inline))))
+        .unwrap();
+    runtime.update(view(None)).unwrap();
+    assert_eq!(
+        runtime.adapter().number_box_options(object).unwrap(),
+        (1.0, NumberBoxSpinButtonPlacementMode::Hidden)
+    );
+    value.SetSmallChange(4.0).unwrap();
+    value
+        .SetSpinButtonPlacementMode(native::NumberBoxSpinButtonPlacementMode::Compact)
+        .unwrap();
+    assert!(runtime.update(view(None)).unwrap().is_empty());
+    assert_eq!(
+        runtime.adapter().number_box_options(object).unwrap(),
+        (4.0, NumberBoxSpinButtonPlacementMode::Compact)
+    );
+    runtime.dispatch_native_events().unwrap();
+    assert_eq!(changes.get(), 0);
+}
+
 fn content_dialog_default_button_preserves_ownership() {
     let view = |button: Option<ContentDialogButton>| {
         let mut dialog = ContentDialog::new()
@@ -187,6 +276,7 @@ fn native_edits_and_coercion_do_not_claim_undeclared_values() {
     let completed = Rc::new(Cell::new(false));
     let finished = Rc::clone(&completed);
     App::run_with(move |app| {
+        number_box_options_preserve_ownership();
         content_dialog_default_button_preserves_ownership();
         nullable_checked_values_preserve_ownership();
         let calls = Rc::new(Cell::new(0));

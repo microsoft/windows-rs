@@ -4033,6 +4033,9 @@ fn live_property_sample(
         "ListViewSelectionMode" => "ListViewSelectionMode::Single".to_string(),
         "NavigationViewBackButtonVisible" => "NavigationViewBackButtonVisible::Visible".to_string(),
         "NavigationViewPaneDisplayMode" => "NavigationViewPaneDisplayMode::Left".to_string(),
+        "NumberBoxSpinButtonPlacementMode" => {
+            "NumberBoxSpinButtonPlacementMode::Inline".to_string()
+        }
         "Orientation" => "Orientation::Horizontal".to_string(),
         "PasswordRevealMode" => "PasswordRevealMode::Visible".to_string(),
         "ScrollBarVisibility" => "ScrollBarVisibility::Visible".to_string(),

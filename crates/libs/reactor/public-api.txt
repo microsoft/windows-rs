@@ -168,6 +168,10 @@ pub windows_reactor::NavigationViewPaneDisplayMode::Left
 pub windows_reactor::NavigationViewPaneDisplayMode::LeftCompact
 pub windows_reactor::NavigationViewPaneDisplayMode::LeftMinimal
 pub windows_reactor::NavigationViewPaneDisplayMode::Top
+#[non_exhaustive] pub enum windows_reactor::NumberBoxSpinButtonPlacementMode
+pub windows_reactor::NumberBoxSpinButtonPlacementMode::Compact
+pub windows_reactor::NumberBoxSpinButtonPlacementMode::Hidden
+pub windows_reactor::NumberBoxSpinButtonPlacementMode::Inline
 #[non_exhaustive] pub enum windows_reactor::Orientation
 pub windows_reactor::Orientation::Horizontal
 pub windows_reactor::Orientation::Vertical
@@ -2465,6 +2469,8 @@ pub fn windows_reactor::NumberBox::relative_align_left(self) -> Self
 pub fn windows_reactor::NumberBox::relative_align_right(self) -> Self
 pub fn windows_reactor::NumberBox::relative_align_top(self) -> Self
 pub fn windows_reactor::NumberBox::relative_align_vertical_center(self) -> Self
+pub fn windows_reactor::NumberBox::small_change(self, f64) -> Self
+pub fn windows_reactor::NumberBox::spin_button_placement_mode(self, windows_reactor::NumberBoxSpinButtonPlacementMode) -> Self
 pub fn windows_reactor::NumberBox::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::NumberBox::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::NumberBox::value(self, impl core::convert::Into<core::option::Option<f64>>) -> Self

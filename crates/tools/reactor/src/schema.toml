@@ -828,6 +828,13 @@ adapter = "number_box_value"
 controlled = "ValueChanged"
 feedback = "normalized"
 
+[[objects.properties]]
+name = "SmallChange"
+validation = "finite"
+
+[[objects.properties]]
+name = "SpinButtonPlacementMode"
+
 [[objects.relations]]
 name = "Header"
 

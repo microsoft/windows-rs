@@ -155,8 +155,8 @@ Microsoft::UI::Xaml::Controls::INavigationViewStatics2::{get_IsBackButtonVisible
 Microsoft::UI::Xaml::Controls::InfoBadge::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBar::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBarSeverity
-Microsoft::UI::Xaml::Controls::INumberBox::{add_ValueChanged, get_Value, put_Header, put_Maximum, put_Minimum, put_Value, remove_ValueChanged}
-Microsoft::UI::Xaml::Controls::INumberBoxStatics::{get_MaximumProperty, get_MinimumProperty, get_ValueProperty}
+Microsoft::UI::Xaml::Controls::INumberBox::{add_ValueChanged, get_SmallChange, get_SpinButtonPlacementMode, get_Value, put_Header, put_Maximum, put_Minimum, put_SmallChange, put_SpinButtonPlacementMode, put_Value, remove_ValueChanged}
+Microsoft::UI::Xaml::Controls::INumberBoxStatics::{get_MaximumProperty, get_MinimumProperty, get_SmallChangeProperty, get_SpinButtonPlacementModeProperty, get_ValueProperty}
 Microsoft::UI::Xaml::Controls::INumberBoxValueChangedEventArgs::get_NewValue
 Microsoft::UI::Xaml::Controls::IPanel::{get_Children, put_Background}
 Microsoft::UI::Xaml::Controls::IPanelStatics::get_BackgroundProperty
