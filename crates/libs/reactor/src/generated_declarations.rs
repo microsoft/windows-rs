@@ -1964,6 +1964,12 @@ impl TextBlock {
             .property(PropertyId::MaxLines, PropertyValue::I32(max_lines));
         self
     }
+    pub fn text_alignment(mut self, text_alignment: TextAlignment) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::TextAlignment, text_alignment.property_value());
+        self
+    }
     visual_methods!();
 }
 impl Default for TextBlock {

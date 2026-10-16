@@ -4873,6 +4873,37 @@ impl GeneratedHandle {
             (Self::TextBlock(object), PropertyId::MaxLines, Some(PropertyValue::I32(value))) => {
                 Some(object.SetMaxLines(*value).map_err(Into::into))
             }
+            (Self::TextBlock(object), PropertyId::TextAlignment, None) => Some(
+                object
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::TextBlock::TextAlignmentProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (
+                Self::TextBlock(object),
+                PropertyId::TextAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "TextAlignment",
+                    variant,
+                }),
+            ) => Some(
+                object
+                    .SetTextAlignment(match *variant {
+                        "Center" => native::TextAlignment::Center,
+                        "Left" => native::TextAlignment::Left,
+                        "Start" => native::TextAlignment::Start,
+                        "Right" => native::TextAlignment::Right,
+                        "End" => native::TextAlignment::End,
+                        "Justify" => native::TextAlignment::Justify,
+                        "DetectFromContent" => native::TextAlignment::DetectFromContent,
+                        _ => unreachable!("validated enum variant"),
+                    })
+                    .map_err(Into::into),
+            ),
             (Self::Button(object), PropertyId::Background, None) => Some(
                 object
                     .value

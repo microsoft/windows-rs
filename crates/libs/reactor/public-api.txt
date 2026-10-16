@@ -3712,6 +3712,7 @@ pub fn windows_reactor::TextBlock::relative_align_right(self) -> Self
 pub fn windows_reactor::TextBlock::relative_align_top(self) -> Self
 pub fn windows_reactor::TextBlock::relative_align_vertical_center(self) -> Self
 pub fn windows_reactor::TextBlock::text(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TextBlock::text_alignment(self, windows_reactor::TextAlignment) -> Self
 pub fn windows_reactor::TextBlock::text_trimming(self, windows_reactor::TextTrimming) -> Self
 pub fn windows_reactor::TextBlock::text_wrapping(self, windows_reactor::TextWrapping) -> Self
 pub fn windows_reactor::TextBlock::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>

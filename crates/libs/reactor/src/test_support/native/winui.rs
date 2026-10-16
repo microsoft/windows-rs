@@ -1474,6 +1474,42 @@ impl WinUiAdapter {
         Ok(value.FontWeight()?.weight)
     }
 
+    pub fn text_block_alignment(&self, object: ObjectId) -> Result<TextAlignment, WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::TextBlock(value))) = self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        match value.TextAlignment()? {
+            native::TextAlignment::Center => Ok(TextAlignment::Center),
+            native::TextAlignment::Left => Ok(TextAlignment::Left),
+            native::TextAlignment::Right => Ok(TextAlignment::Right),
+            native::TextAlignment::Justify => Ok(TextAlignment::Justify),
+            native::TextAlignment::DetectFromContent => Ok(TextAlignment::DetectFromContent),
+            _ => Err(WinUiError::StateMismatch(object)),
+        }
+    }
+
+    pub fn text_block_edge_rect(
+        &self,
+        object: ObjectId,
+        end: bool,
+    ) -> Result<[f32; 4], WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::TextBlock(value))) = self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let rect = if end {
+            value
+                .ContentEnd()?
+                .GetCharacterRect(native::LogicalDirection::Backward)?
+        } else {
+            value
+                .ContentStart()?
+                .GetCharacterRect(native::LogicalDirection::Forward)?
+        };
+        Ok([rect.x, rect.y, rect.width, rect.height])
+    }
+
     pub fn text_box_state(&self, object: ObjectId) -> Result<(String, i32, i32), WinUiError> {
         let Some(Handle::TextBox(value)) = self.handles.get(&object) else {
             return Err(WinUiError::InvalidObject(object));
