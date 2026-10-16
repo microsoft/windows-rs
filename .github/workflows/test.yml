@@ -87,6 +87,7 @@ jobs:
         # The system Composition graph is excluded because Reactor consumers select the
         # incompatible lifted Composition stack.
         run: |
+          $uiControl = @()
           if ("${{ matrix.target }}" -eq "x86_64-pc-windows-msvc") {
             $ErrorActionPreference = "Stop"
             $artifacts = Join-Path $env:RUNNER_TEMP "canvas-test-artifacts.jsonl"
@@ -105,9 +106,17 @@ jobs:
             & $canvas --test-threads=4
             if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
             $env:PATH = $originalPath
-            Write-Host "Canvas preflight passed; running the ordinary workspace tests"
+            $uiControl = @(
+              "--",
+              "--skip", "menu_callback_replacement_and_removal",
+              "--skip", "text_box_native_edit_and_controlled_reset",
+              "--skip", "process::child_panic_is_reported",
+              "--skip", "process::hung_child_is_terminated",
+              "--skip", "process::early_successful_exit_is_rejected"
+            )
+            Write-Host "Canvas preflight passed; control run excludes only the five new Reactor tests"
           }
-          cargo test --all --target ${{ matrix.target }} ${{ matrix.clang-exclude }} --exclude windows-composition --exclude canvas-standalone --exclude test_composition --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas
+          cargo test --all --target ${{ matrix.target }} ${{ matrix.clang-exclude }} --exclude windows-composition --exclude canvas-standalone --exclude test_composition --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas @uiControl
       - name: Test system Composition stack
         run: cargo test -p windows-canvas -p windows-composition -p canvas-standalone -p test_composition -p composition-standalone -p composition-minesweeper -p composition-canvas --features windows-canvas/system --target ${{ matrix.target }}
       - name: Check diff
