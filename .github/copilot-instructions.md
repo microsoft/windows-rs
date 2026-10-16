@@ -75,7 +75,7 @@ cargo check -p windows-reactor --quiet
 # Unit tests (headless, fast)
 cargo test -p windows-reactor --all-features --quiet
 
-# New Cargo UI tests (requires an interactive desktop; Cargo deploys the runtime)
+# New Cargo UI tests (x64 interactive desktop; Cargo deploys the runtime)
 cargo test -p test-reactor
 
 # Legacy integration fixtures (retained during migration)
@@ -174,8 +174,10 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 - **Test naming**: Reactor unit tests live in `windows-reactor`. New public UI coverage belongs in
   `test-reactor`; migrate legacy cases individually before retiring their tests and helpers.
   `test-reactor-selftest` and `test-reactor-integration` remain during migration. The new crate
-  participates in workspace tests and uses `windows-reactor-setup` in its build script. Run it
-  alone when checking Reactor's default features rather than the workspace's unified features.
+  participates in workspace tests and uses `windows-reactor-setup` in its build script. Live UI
+  cases run on x64; setup's filesystem and multiprocess tests run on all Windows architectures.
+  Run the new crate alone when checking default features rather than the workspace's unified
+  features.
   Canvas tests use WARP rendering.
 - **Reactor test documentation**: Keep testing instructions in `crates/tests/libs/reactor/readme.md`,
   not `docs/crates/windows-reactor.md`. `cargo test -p test-reactor` must run the whole new suite

@@ -17,8 +17,8 @@ There are no generated test cases, external runners, or dependencies on the `win
 cargo test -p test-reactor
 ```
 
-This runs the entire suite, including live WinUI cases and harness failure checks. It requires an
-interactive desktop. Cargo deploys the runtime; no machine-wide runtime installation is needed.
+On x64 this runs the entire suite, including live WinUI cases and harness failure checks. It requires
+an interactive desktop. Cargo deploys the runtime; no machine-wide runtime installation is needed.
 The first build needs network access to download the pinned runtime packages. There are no ignored
 tests or silent skips when foreground or focus is unavailable. Do not interact with other applications
 while the suite runs. Standard Cargo name filters can select individual cases during development.
@@ -26,6 +26,11 @@ while the suite runs. Standard Cargo name filters can select individual cases du
 The crate also runs in the ordinary workspace test command. Other workspace packages can enable
 Reactor's legacy `test` feature through Cargo feature unification; this fixture still uses only the
 public application API and real WinUI. The package-only command covers the default-feature build.
+
+The `ui` integration target is x64-only. The existing x64 workspace job runs the live suite; x86 and
+ARM64 build the fixture and run `windows-reactor-setup`'s filesystem and multiprocess tests as part
+of workspace testing. This is an explicit architecture boundary, not a runtime skip when focus
+or foreground is unavailable.
 
 ## Layout
 
