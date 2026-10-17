@@ -8,7 +8,6 @@ performance benchmarks separate.
 
 ```text
 cargo test -p test-reactor
-cargo test -p test-reactor --test ui webview::
 cargo test -p test-reactor --test ui canvas:: -- --nocapture
 ```
 
@@ -19,8 +18,7 @@ Cases are serialized and run in separate fixture processes with bounded timeouts
 the child process's stdout/stderr log directory; successful cases remove their logs.
 
 `build.rs` generates native bindings and deploys the Windows App Runtime and WebView2 projection
-DLL. The first build needs network access for the pinned packages. The WebView case also needs an
-installed WebView2 Runtime; its in-memory page needs no network. Canvas uses WARP rendering.
+DLL. The first build needs network access for the pinned packages. Canvas uses WARP rendering.
 
 Run this crate alone to check default features; workspace builds can enable Reactor's `test`
 feature through benchmark dependencies.
