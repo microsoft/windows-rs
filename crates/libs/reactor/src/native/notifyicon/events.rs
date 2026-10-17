@@ -16,7 +16,7 @@ use super::*;
 fn callback_window_enqueues_interaction_and_recovery() {
     let path = concat!(
         env!("CARGO_MANIFEST_DIR"),
-        "\\..\\..\\tests\\libs\\reactor_integration\\icon.ico"
+        "\\..\\..\\tests\\libs\\reactor\\icon.ico"
     );
     let events = std::rc::Rc::new(std::cell::RefCell::new(Vec::new()));
     let queued = std::rc::Rc::clone(&events);

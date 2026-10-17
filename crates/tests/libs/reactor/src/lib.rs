@@ -1,7 +1,10 @@
 use std::rc::Rc;
 use windows_reactor::*;
 
+mod application;
+mod dialog;
 mod drag;
+mod image;
 mod pointer;
 mod tray;
 mod window;
@@ -256,6 +259,11 @@ impl Component for ReorderFixture {
 
 pub fn run(fixture: &str) -> windows_core::Result<()> {
     match fixture {
+        "application" => App::run_application::<application::ApplicationFixture>(())?,
+        "window-replacement" => App::run_component::<application::ReplacingWindow>(false)?,
+        "startup-error" => application::startup_error()?,
+        "dialog" => App::run_component::<dialog::DialogFixture>(())?,
+        "image" => App::run_component::<image::ImageFixture>(())?,
         "menu" => App::run_component::<MenuFixture>(MenuSurface::Button)?,
         "menu-dropdown" => App::run_component::<MenuFixture>(MenuSurface::DropDown)?,
         "menu-bar" => App::run_component::<MenuFixture>(MenuSurface::MenuBar)?,

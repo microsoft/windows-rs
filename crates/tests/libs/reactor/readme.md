@@ -1,10 +1,8 @@
 # Reactor tests
 
-`test-reactor` is the home for the new Cargo-based Reactor tests. It lives alongside the existing
-selftest, integration, and performance crates without depending on their harnesses or Reactor's
-`test` feature. Add new cases here and assess existing coverage individually. Preserve useful
-behavioral assertions when replacing an old case; remove redundant or low-value checks without
-recreating them. Retire old helpers when their consumers are gone.
+`test-reactor` is the functional test crate for Reactor's public API. Keep cases focused on
+observable behavior and ownership, not exhaustive control/property combinations. Library unit
+tests remain in `windows-reactor`; performance benchmarks remain separate.
 
 The crate uses the public Reactor API, direct Windows UI Automation, and the Rust standard library.
 `build.rs` generates only the required native bindings into `OUT_DIR` using `windows-bindgen` and
@@ -42,6 +40,9 @@ or foreground is unavailable.
 | `src/main.rs` | Entry point for the isolated WinUI host |
 | `tests/ui/main.rs` | Named behavioral tests driven through UI Automation |
 | `tests/ui/automation.rs` | Scoped lookup, native actions, condition waits, and diagnostics |
+| `src/application.rs`, `tests/ui/application.rs` | Window ownership, activation, replacement, and startup errors |
+| `src/dialog.rs`, `tests/ui/dialog.rs` | Dialog opening at mount and native completion results |
+| `src/image.rs`, `tests/ui/image.rs` | Native decode failure and recovery |
 | `tests/ui/menu.rs` | Shared menu scenarios and focused command-bar and tray lifetime cases |
 | `tests/ui/window.rs` | Native title, client-size, and explicit icon updates |
 | `tests/ui/process.rs` | Child ownership, deadlines, shutdown, and harness failure checks |
@@ -62,6 +63,8 @@ serializes desktop cases even with Cargo's default thread count. UI Automation r
 worker, while the test thread watches the child and enforces a 30-second deadline, including blocked
 UIA calls. Success requires completed assertions and a successful exit after closing the fixture's
 own window. Failure cancels further driver work and terminates the owned child.
+The startup-error case asserts the returned error inside the child and uses the same process owner
+and deadline to require a successful exit without starting a UIA driver.
 
 Menu cases use the prefixes `menu_` (Button), `dropdown_` (DropDownButton), and `menu_bar_`
 (MenuBarItem). Each prefix has the four shared scenarios listed below.
@@ -82,6 +85,11 @@ all four scenarios.
 | `keyed_reorder_moves_only_displaced_children` | Moving the last keyed TextBox to the front keeps every element's native identity and produces the new layout order. The focused TextBox that triggered the reorder is not displaced, so it keeps keyboard focus. |
 | `window_title_and_client_size_updates` | Updating and restoring the title and client size changes the native window without replacing its content; the size observer agrees with native dimensions. |
 | `window_icon_set_and_clear` | Both explicit native icon slots start empty, become populated, and are cleared when the declaration omits the icon. |
+| `application_window_activation_and_updates_preserve_identity` | Repeated activation mounts one secondary window; application updates preserve its native content; closing it drops its component once. Closing the main window then exits normally. |
+| `replacing_the_last_window_keeps_the_application_alive` | A replacement window receives a fresh action after its predecessor closes; closing the replacement exits the process. |
+| `application_startup_error_is_returned` | The application runner returns the startup callback's HRESULT. |
+| `dialog_requested_at_mount_closes_and_reopens` | A dialog requested before window creation opens, reports a native Primary result, reopens, and reports None on close without duplicate delivery. |
+| `image_decode_failure_and_recovery` | Valid and invalid encoded data report native opened/failed events; a valid source loads again after failure without duplicate delivery. |
 | `early_successful_exit_is_rejected` | Exiting with code zero before the driver finishes is a failure, not a passing test. |
 | `child_panic_is_reported` | A child panic produces a failed exit and captured stdout and stderr. |
 | `hung_child_is_terminated` | A ready but unresponsive child times out and is terminated. |
@@ -119,8 +127,8 @@ Command-bar cases exercise primary commands through their native MenuItem peers.
 The fixture's controls choose an activation action before opening the popup; icon activation then
 changes its callback, removes the icon, or replaces its key without a main-window action dismissing
 the popup. Selection uses real UIA invoke providers. These cases cover native notification dispatch
-and menu lifetimes, not physical Shell icon hit-testing or popup positioning. Tray placement and
-DPI checks remain in the integration crate. Closing the fixture window exits its application and
+and menu lifetimes, not physical Shell icon hit-testing or popup positioning.
+Closing the fixture window exits its application and
 removes its icon through the normal application lifetime.
 
 Window cases use the native caption, not a custom TitleBar. Client dimensions are measured with
@@ -148,6 +156,20 @@ Cargo captures driver steps and assertion failures. On a condition timeout the d
 the fixture's UI tree. Child stdout and stderr are written to separate files to avoid blocked pipes;
 failures report the log directory under the system temporary directory. Successful cases remove
 their logs. The parent deadline still applies if reading the UI tree stalls.
+
+## Scope and CI
+
+The Reactor workflow runs this crate with default features, checks feature combinations and the
+public API, and keeps scheduled performance benchmarks separate. The shared x64 workspace job
+covers feature-unified dependencies. Neither uses a custom sample sweep, cast-log allowlist, or
+coverage-percentage gate for Reactor.
+
+The suite does not reproduce the retired standalone fixtures' full coverage. Nested message-pump
+reentrancy, the full window-observer matrix, first-show placement, tray/DPI geometry, rendered
+themes, Canvas/WebView bridges, and private virtualization/reference sweeps need separate
+assessment before adding new cases. Existing library unit tests remain; ignored native library
+tests require explicit local execution and are not run by this workflow. Treat these as coverage
+boundaries, not a checklist to recreate the old suite.
 
 ## Opt-in drag/drop coverage
 
@@ -231,5 +253,5 @@ The unique profile directory prevents earlier runs from contributing counts. Chi
 inherit the profile pattern, and `%p-%m` separates their output. Report against `test-reactor.exe`,
 not just the integration-test driver: the native Reactor code runs in the fixture. The source filter
 above shows the menu callback update and native text setter paths exercised by these cases. This
-is a pilot path report, not an overall Reactor coverage percentage or a replacement for the core
-coverage job. Close the PowerShell session afterwards to discard the instrumentation environment.
+is a local path report, not an overall Reactor coverage percentage. Close the PowerShell session
+afterwards to discard the instrumentation environment.
