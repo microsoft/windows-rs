@@ -8,6 +8,7 @@ mod drag;
 mod image;
 mod pointer;
 mod reference;
+mod selection;
 mod tray;
 mod webview;
 mod window;
@@ -270,6 +271,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
         "image" => App::run_component::<image::ImageFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
+        "selection" => App::run_component::<selection::SelectionFixture>(())?,
         "menu" => App::run_component::<MenuFixture>(MenuSurface::Button)?,
         "menu-dropdown" => App::run_component::<MenuFixture>(MenuSurface::DropDown)?,
         "menu-bar" => App::run_component::<MenuFixture>(MenuSurface::MenuBar)?,

@@ -7,7 +7,9 @@ use windows_core::{HRESULT, Interface};
 pub const ELEMENT_UNAVAILABLE: HRESULT = HRESULT(0x80040201u32 as i32);
 pub const INVOKE_PATTERN: i32 = 10000;
 const VALUE_PATTERN: i32 = 10002;
+const SELECTION_PATTERN: i32 = 10001;
 const PROCESS_ID: i32 = 30002;
+const LIST_ITEM: i32 = 50007;
 const MENU_ITEM: i32 = 50011;
 
 pub struct Com;
@@ -181,6 +183,75 @@ impl Automation {
                 Option::is_some,
             )?
             .unwrap())
+    }
+
+    pub fn list_item(&self, id: &str, name: &str) -> Result<IUIAutomationElement> {
+        let list = self.element(id)?;
+        Ok(self
+            .wait(
+                &format!("find list item {name:?} in {id:?}"),
+                || unsafe {
+                    let all = self.client.CreateTrueCondition()?;
+                    let items = list.FindAll(TreeScope_Descendants, &all)?;
+                    let mut found = None;
+                    for index in 0..items.Length()? {
+                        let item = items.GetElement(index)?;
+                        if item.CurrentControlType()? != LIST_ITEM
+                            || item.CurrentIsOffscreen()?.as_bool()
+                        {
+                            continue;
+                        }
+                        // DataItem text belongs to the container's child peer.
+                        let content = item.FindAll(TreeScope_Descendants, &all)?;
+                        let mut matches = false;
+                        for index in 0..content.Length()? {
+                            if content.GetElement(index)?.CurrentName()? == name {
+                                matches = true;
+                                break;
+                            }
+                        }
+                        if matches {
+                            if let Some(previous) = &found {
+                                assert!(
+                                    self.client.CompareElements(previous, &item)?.as_bool(),
+                                    "ambiguous list item {name:?} in {id:?}"
+                                );
+                            } else {
+                                found = Some(item);
+                            }
+                        }
+                    }
+                    Ok(found)
+                },
+                Option::is_some,
+            )?
+            .unwrap())
+    }
+
+    pub fn selected_list_item(
+        &self,
+        id: &str,
+        expected: Option<&IUIAutomationElement>,
+    ) -> Result<()> {
+        let list = self.element(id)?;
+        self.wait(
+            &format!("list {id:?} selection becomes {expected:?}"),
+            || unsafe {
+                let items = list
+                    .GetCurrentPatternAs::<IUIAutomationSelectionPattern>(SELECTION_PATTERN)?
+                    .GetCurrentSelection()?;
+                match expected {
+                    Some(expected) => Ok(items.Length()? == 1
+                        && self
+                            .client
+                            .CompareElements(&items.GetElement(0)?, expected)?
+                            .as_bool()),
+                    None => Ok(items.Length()? == 0),
+                }
+            },
+            |matches| *matches,
+        )?;
+        Ok(())
     }
 
     pub fn menu_gone(&self, name: &str) -> Result<()> {
