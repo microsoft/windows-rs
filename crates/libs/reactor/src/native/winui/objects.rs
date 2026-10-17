@@ -240,6 +240,7 @@ impl WinUiAdapter {
         });
         let clear = sorted_clear.as_deref().unwrap_or(clear);
         let set = sorted_set.as_deref().unwrap_or(set);
+        let element = self.ui_element(object).ok();
         if let Some(Handle::Generated(handle)) = self.handles.get_mut(&object) {
             let context = EventContext {
                 event_queue: &self.event_queue,
@@ -305,21 +306,21 @@ impl WinUiAdapter {
                 }) {
                     self.set_theme_brush(object, property, None)?;
                 }
-                if let Ok(element) = self.ui_element(object)
+                if let Some(element) = &element
                     && let Some(result) =
-                        GeneratedHandle::set_attached_property(&element, property, None)
+                        GeneratedHandle::set_attached_property(element, property, None)
                 {
                     break 'apply result;
                 }
-                if let Ok(element) = self.ui_element(object)
+                if let Some(element) = &element
                     && let Some(result) =
-                        GeneratedHandle::set_visual_property(&element, property, None)
+                        GeneratedHandle::set_visual_property(element, property, None)
                 {
                     break 'apply result;
                 }
-                if let Ok(element) = self.ui_element(object)
+                if let Some(element) = &element
                     && let Some(result) =
-                        GeneratedHandle::set_handwritten_property(kind, &element, property, None)
+                        GeneratedHandle::set_handwritten_property(kind, element, property, None)
                 {
                     break 'apply result;
                 }
@@ -404,9 +405,9 @@ impl WinUiAdapter {
                             properties.iter().any(|(candidate, _)| *candidate == id)
                         }) =>
                     {
-                        if let Ok(element) = self.ui_element(object)
+                        if let Some(element) = &element
                             && let Some(result) =
-                                GeneratedHandle::set_handwritten_property(kind, &element, id, None)
+                                GeneratedHandle::set_handwritten_property(kind, element, id, None)
                         {
                             result?;
                         } else if let Some(Handle::Generated(handle)) = self.handles.get(&object)
@@ -427,28 +428,28 @@ impl WinUiAdapter {
                     }
                     _ => {}
                 }
-                if let Ok(element) = self.ui_element(object)
+                if let Some(element) = &element
                     && let Some(result) = GeneratedHandle::set_attached_property(
-                        &element,
+                        element,
                         property.id,
                         Some(&property.value),
                     )
                 {
                     break 'apply result;
                 }
-                if let Ok(element) = self.ui_element(object)
+                if let Some(element) = &element
                     && let Some(result) = GeneratedHandle::set_visual_property(
-                        &element,
+                        element,
                         property.id,
                         Some(&property.value),
                     )
                 {
                     break 'apply result;
                 }
-                if let Ok(element) = self.ui_element(object)
+                if let Some(element) = &element
                     && let Some(result) = GeneratedHandle::set_handwritten_property(
                         kind,
-                        &element,
+                        element,
                         property.id,
                         Some(&property.value),
                     )
