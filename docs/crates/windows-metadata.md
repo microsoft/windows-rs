@@ -71,6 +71,12 @@ when the same shape is present on every merged architecture; divergent shapes ar
 The remapper rewrites definitions and references together and splits Win32 `Apis` members across
 their routed target namespaces.
 
+`System.Type` attribute values use `Value::TypeName`. `Type::type_name` and `TypeName::primitive`
+convert between intrinsic types and their CLR names without requiring a type definition.
+Named type-valued arguments use the ECMA-335 `0x50` serialization tag. The remapper rewrites
+attribute constructors, signatures, and nominal type values alongside ordinary references;
+intrinsic `System` names remain unchanged when remapping Win32 namespaces.
+
 ## Integration and pitfalls
 
 - [`windows-default`](windows-default.md) supplies the standard WinRT and Win32 files as byte

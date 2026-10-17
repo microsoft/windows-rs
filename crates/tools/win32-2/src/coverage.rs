@@ -39,48 +39,61 @@ pub fn run() -> Result<(), Box<dyn std::error::Error>> {
         add(&mut baseline, header, declaration)?;
     }
     let mut current = Constants::new();
+    let mut members = Constants::new();
     for entry in std::fs::read_dir(candidate)? {
         let path = entry?.path();
         if path.extension().is_some_and(|extension| extension == "rdl") {
             for line in std::fs::read_to_string(&path)?.lines() {
                 add(&mut current, &path.to_string_lossy(), line)?;
             }
+            for name in windows_rdl::enum_member_names(&path, "Windows.Win32")? {
+                members
+                    .entry(name)
+                    .or_default()
+                    .insert(path.file_name().unwrap().to_string_lossy().into_owned());
+            }
         }
     }
     std::fs::create_dir_all(directory)?;
     std::fs::write(
         directory.join("constant-coverage.csv"),
-        report(&baseline, &current),
+        report(&baseline, &current, &members),
     )?;
     let present = baseline
         .keys()
         .filter(|name| current.contains_key(*name))
         .count();
-    let missing = baseline.len() - present;
+    let enum_members = baseline
+        .keys()
+        .filter(|name| !current.contains_key(*name) && members.contains_key(*name))
+        .count();
+    let missing = baseline.len() - present - enum_members;
     let added = current.len() - present;
     println!("Baseline: {BASELINE}");
     println!(
-        "Constants: {} baseline, {} current; {present} present, {missing} missing, {added} new",
+        "Constants: {} baseline, {} current; {present} present, {enum_members} enum members, {missing} missing, {added} new",
         baseline.len(),
         current.len()
     );
     println!(
-        "Name presence only, not type/value/architecture parity. See target\\win32-2\\constant-coverage.csv"
+        "Name presence only, not type/scope/value/architecture parity. See target\\win32-2\\constant-coverage.csv"
     );
     Ok(())
 }
 
-fn report(baseline: &Constants, current: &Constants) -> String {
+fn report(baseline: &Constants, current: &Constants, members: &Constants) -> String {
     let names: BTreeSet<_> = baseline.keys().chain(current.keys()).collect();
     let mut csv = String::from("Name,Status,BaselineHeaders,CurrentHeaders\n");
     for name in names {
         let old = baseline.get(name);
         let new = current.get(name);
-        let status = match (old, new) {
-            (Some(_), Some(_)) => "present",
-            (Some(_), None) => "missing",
-            (None, Some(_)) => "new",
-            (None, None) => unreachable!(),
+        let member = members.get(name);
+        let status = match (old, new, member) {
+            (Some(_), Some(_), _) => "present",
+            (Some(_), None, Some(_)) => "enum-member",
+            (Some(_), None, None) => "missing",
+            (None, Some(_), _) => "new",
+            (None, None, _) => unreachable!(),
         };
         let headers = |value: Option<&BTreeSet<String>>| {
             value
@@ -90,7 +103,12 @@ fn report(baseline: &Constants, current: &Constants) -> String {
                 .collect::<Vec<_>>()
                 .join(";")
         };
-        let row = [name.clone(), status.to_string(), headers(old), headers(new)];
+        let row = [
+            name.clone(),
+            status.to_string(),
+            headers(old),
+            headers(new.or(member)),
+        ];
         csv.push_str(
             &row.iter()
                 .map(|value| format!("\"{}\"", value.replace('"', "\"\"")))
@@ -111,6 +129,7 @@ fn add(values: &mut Constants, header: &str, line: &str) -> Result<(), String> {
         .split_once(':')
         .ok_or_else(|| format!("invalid constant declaration in {header}: {line}"))?;
     let name = name.trim();
+    let name = name.strip_prefix("r#").unwrap_or(name);
     if name.is_empty() || name.chars().any(char::is_whitespace) {
         return Err(format!("invalid constant name in {header}: {line}"));
     }
@@ -139,6 +158,9 @@ mod tests {
             BTreeSet::from(["a.rdl".into(), "b.rdl".into()])
         );
         assert!(add(&mut values, "bad.rdl", "const Broken").is_err());
+        add(&mut values, "raw.rdl", "const r#type: u32 = 1;").unwrap();
+        assert!(values.contains_key("type"));
+        assert!(!values.contains_key("r#type"));
     }
 
     #[test]
@@ -150,12 +172,34 @@ mod tests {
         add(&mut baseline, "old.rdl", "const Missing: u32 = 0;").unwrap();
         add(&mut current, "new.rdl", "const missing: u32 = 0;").unwrap();
         assert_eq!(
-            report(&baseline, &current),
+            report(&baseline, &current, &Constants::new()),
             concat!(
                 "Name,Status,BaselineHeaders,CurrentHeaders\n",
                 "\"Missing\",\"missing\",\"old.rdl\",\"\"\n",
                 "\"Moved\",\"present\",\"old.rdl\",\"new.rdl\"\n",
                 "\"missing\",\"new\",\"\",\"new.rdl\"\n",
+            )
+        );
+    }
+
+    #[test]
+    fn enum_members_have_distinct_accounting() {
+        let baseline = ["Both", "Member", "Missing"]
+            .into_iter()
+            .map(|name| (name.into(), BTreeSet::from(["old.rdl".into()])))
+            .collect();
+        let current = BTreeMap::from([("Both".into(), BTreeSet::from(["constant.rdl".into()]))]);
+        let members = ["Both", "Member", "NotInBaseline"]
+            .into_iter()
+            .map(|name| (name.into(), BTreeSet::from(["enum.rdl".into()])))
+            .collect();
+        assert_eq!(
+            report(&baseline, &current, &members),
+            concat!(
+                "Name,Status,BaselineHeaders,CurrentHeaders\n",
+                "\"Both\",\"present\",\"old.rdl\",\"constant.rdl\"\n",
+                "\"Member\",\"enum-member\",\"old.rdl\",\"enum.rdl\"\n",
+                "\"Missing\",\"missing\",\"old.rdl\",\"\"\n",
             )
         );
     }

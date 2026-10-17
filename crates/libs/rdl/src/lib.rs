@@ -111,6 +111,13 @@ pub fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<String>
     reader::item_names(path, namespace)
 }
 
+/// Parses one `.rdl` file and returns enum member names under `namespace`.
+///
+/// Includes scoped enum members. Name matches do not establish type, scope, or value equivalence.
+pub fn enum_member_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<String>, Error> {
+    reader::enum_member_names(path, namespace)
+}
+
 /// Creates a [`Writer`] that converts `.winmd` metadata into RDL.
 pub fn writer() -> Writer {
     Writer::new()

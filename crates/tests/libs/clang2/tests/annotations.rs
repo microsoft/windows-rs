@@ -12,7 +12,7 @@ fn input() -> Input {
     input
 }
 
-fn imports() -> BTreeMap<String, projection::Import> {
+fn imports() -> projection::Imports {
     [
         "ReadBuffer",
         "ReadFixed",
@@ -146,13 +146,20 @@ fn annotation_roundtrip() {
                 vec![annotation("_Must_inspect_result_", "", "")]
             );
             let params: Vec<_> = read.params().collect();
+            assert!(attributes(params[0]).is_empty());
             assert_eq!(
-                attributes(params[0]),
-                vec![annotation(
-                    "_Out_writes_bytes_to_opt_",
-                    "capacity,*written",
-                    "capacity,*written"
-                )]
+                params[0]
+                    .find_attribute("NativeInitializedLengthAttribute")
+                    .unwrap()
+                    .value()
+                    .into_iter()
+                    .collect::<BTreeMap<_, _>>(),
+                [
+                    ("CountParamIndex".into(), Value::I16(2)),
+                    ("IsByteCount".into(), Value::Bool(true)),
+                    ("Dereference".into(), Value::Bool(true)),
+                ]
+                .into()
             );
             assert!(params[0].is_optional());
             assert_eq!(params[0].direction(), reader::ParamDirection::Output);
@@ -388,7 +395,7 @@ fn sdk_annotations() {
     let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
     assert!(text.contains("_COM_Outptr_"));
     assert!(text.contains("_Return_type_success_"));
-    assert!(text.contains("#[size_param(2)] lpBuffer:"), "{text}");
+    assert!(text.contains("#[size_param(2)]"), "{text}");
     assert!(text.contains("#[len_param(2)] lpFilename:"), "{text}");
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
     let path = root.join("target\\test-clang2-sdk-annotations.winmd");
@@ -408,12 +415,22 @@ fn sdk_annotations() {
                 method.name() == "ReadFile" && (method.arches() == 0 || method.arches() & bit != 0)
             })
             .unwrap();
-        assert!(
-            attributes(method.params().nth(1).unwrap()).contains(&annotation(
-                "_Out_writes_bytes_to_opt_",
-                "nNumberOfBytesToRead,*lpNumberOfBytesRead",
-                "nNumberOfBytesToRead,*lpNumberOfBytesRead",
-            ))
+        assert_eq!(
+            method
+                .params()
+                .nth(1)
+                .unwrap()
+                .find_attribute("NativeInitializedLengthAttribute")
+                .unwrap()
+                .value()
+                .into_iter()
+                .collect::<BTreeMap<_, _>>(),
+            [
+                ("CountParamIndex".into(), Value::I16(3)),
+                ("IsByteCount".into(), Value::Bool(true)),
+                ("Dereference".into(), Value::Bool(true)),
+            ]
+            .into()
         );
         assert_eq!(
             method

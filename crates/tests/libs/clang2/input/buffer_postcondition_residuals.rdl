@@ -1,0 +1,16 @@
+#[win32]
+mod Fixture {
+    extern "C" fn Conditional(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0, _Out_writes_z_(capacity)", "capacity > 0, _Out_writes_z_(capacity)")] buffer: *mut u16, capacity: u32);
+    extern "C" fn ConstantCapacity(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_z_", "16", "16")] #[out] buffer: *mut u16);
+    extern "C" fn EntryAndSuccess(#[Windows::Win32::Metadata::NativeSal("2", "_In_z_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_z_", "capacity", "capacity")] #[in] #[out] #[len_param(1)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = true)] buffer: *mut u16, capacity: u32);
+    extern "C" fn EntryOnly(#[Windows::Win32::Metadata::NativeSal("2", "_In_z_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")] #[in] #[out] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] buffer: *mut u16);
+    extern "C" fn Expression(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "capacity, written + 1", "capacity, written + 1")] #[out] #[len_param(1)] buffer: *mut u16, capacity: u32, written: u32);
+    extern "C" fn ExtraArguments(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "capacity, written, other", "capacity, written, other")] #[out] #[len_param(1)] buffer: *mut u16, capacity: u32, written: u32, other: u32);
+    extern "C" fn IndirectCapacity(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*capacity, written", "*capacity, written")] #[out] buffer: *mut u16, capacity: *mut u32, written: u32);
+    extern "C" fn OptionalCount(#[out] #[opt] #[len_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] buffer: *mut u16, capacity: u32, #[out] #[opt] written: *mut u32);
+    extern "C" fn PointerDifference(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_ptr_z_", "end", "end")] buffer: *mut u16, end: *mut u16);
+    extern "C" fn ReturnLength(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "capacity, return", "capacity, return")] #[out] #[len_param(1)] buffer: *mut u16, capacity: u32);
+    #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+    extern "C" fn Successful(#[out] #[len_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] buffer: *mut u16, capacity: u32, written: *mut u32) -> i32;
+    extern "C" fn UnexpectedArguments(#[Windows::Win32::Metadata::NativeSal("2", "_In_z_", "unexpected", "unexpected")] buffer: *mut u16);
+}

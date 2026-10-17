@@ -198,6 +198,12 @@ support. The `#[implement]`/`#[interface]` proc macros are re-exported from the
 behind the `proc-macros` feature, and the `implement_macro`/`interface_macro` modules supply the
 `implement_decl!`/`interface_decl!` declarative equivalents used when that feature is off.
 
+`Interface::assume_vtable` reads the object's vtable pointer with `read_unaligned`. SDK interface
+declarations can have reduced alignment under packing. This load also supports implementations
+whose object addresses are unaligned, including base-interface views. The vtable itself must be
+aligned. Weak-reference forwarding uses this shared access path rather than dereferencing the
+object pointer as an aligned pointer slot.
+
 ### Testing
 
 Run `cargo test -p windows-core`; see also the workspace test crates.

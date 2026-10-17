@@ -23,7 +23,7 @@ fn opaque_callbacks() {
         "CallbackUser",
         "Safe",
     ];
-    for root in ["RegisterCallback", "NoReturnCallback", "CallbackUser"] {
+    for root in ["RegisterCallback", "CallbackUser"] {
         let error = capture(&[selected_fixture("opaque_callbacks", &[root])], &TARGETS)
             .unwrap_err()
             .to_string();
@@ -33,7 +33,22 @@ fn opaque_callbacks() {
     let captured =
         capture_partial(&[selected_fixture("opaque_callbacks", &roots)], &TARGETS).unwrap();
     for snapshot in &captured.snapshots {
-        assert_eq!(snapshot.aliases.len(), 4);
+        assert_eq!(snapshot.aliases.len(), 5);
+        for name in ["PlainVoidCallback", "NoReturnCallback"] {
+            let alias = snapshot
+                .aliases
+                .iter()
+                .find(|alias| alias.name == name)
+                .unwrap();
+            let TypeKind::Pointer(pointee) = snapshot.types[alias.observations[0].canonical.0].kind
+            else {
+                panic!()
+            };
+            let TypeKind::Function(function) = &snapshot.types[pointee.0].kind else {
+                panic!()
+            };
+            assert_eq!(function.noreturn, name == "NoReturnCallback");
+        }
         assert_eq!(
             snapshot
                 .records
@@ -50,9 +65,9 @@ fn opaque_callbacks() {
             result.output.enums,
             result.output.aliases
         ),
-        (1, 0, 4)
+        (1, 0, 5)
     );
-    for root in ["RegisterCallback", "NoReturnCallback", "CallbackUser"] {
+    for root in ["RegisterCallback", "CallbackUser"] {
         assert!(
             result
                 .omissions

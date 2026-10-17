@@ -1,0 +1,34 @@
+#[win32]
+mod Fixture {
+    extern "C" fn Bare(#[in] value: *mut i32) -> Count;
+    extern "C" fn BareAgain(#[in] value: *mut i32) -> Count;
+    type Count = u32;
+    extern "C" fn Dispatcher(callback: Bare, pointer: Bare, again: BareAgain, alias: Pointer, indirect: *mut Bare, constant: *const Bare, other: OtherBare, values: *mut i32, no_throw: *mut NoThrow);
+    extern "C" fn Factory() -> Bare;
+    struct FunctionTypes {
+        direct: Bare,
+        again: BareAgain,
+        alias: Pointer,
+        indirect: *mut Bare,
+        constant: *const Bare,
+        array: [Bare; 2],
+        dispatch: Dispatcher,
+        factory: Factory,
+        no_throw: NoThrow,
+        stdcall_callback: StdcallBare,
+        inline_pointer: extern "C" fn(*mut i32) -> Count,
+        no_throw_address: *mut NoThrow,
+        no_throw_array: [NoThrow; 2],
+        no_throw_alias: NoThrowIndirect,
+    }
+    type Indirect = *mut Bare;
+    #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
+    extern "C" fn NoThrow(#[in] value: *mut i32);
+    type NoThrowIndirect = *mut NoThrow;
+    extern "C" fn OtherBare(#[in] value: *mut i32) -> Count;
+    extern "C" fn Pointer(#[in] value: *mut i32) -> Count;
+    #[arch(X64 | Arm64)]
+    extern "C" fn StdcallBare(count: Count);
+    #[arch(X86)]
+    extern fn StdcallBare(count: Count);
+}

@@ -1,18 +1,30 @@
 use super::*;
 
+pub(super) fn backing(snapshot: &Snapshot, field: &Field) -> Result<TypeId, Error> {
+    let id = match snapshot.types[field.canonical.0].kind {
+        TypeKind::Enum(id) => snapshot.enums[id.0].observations[0].canonical,
+        _ => field.canonical,
+    };
+    let ty = &snapshot.types[id.0];
+    if !matches!(&ty.kind, TypeKind::Scalar(scalar)
+        if *scalar == Scalar::Bool || scalar.signed_integer().is_some())
+        || ty.layout != snapshot.types[field.canonical.0].layout
+    {
+        return Err(Error(format!(
+            "bitfield `{}` requires an integer or boolean member type with matching layout",
+            field.name
+        )));
+    }
+    Ok(id)
+}
+
 pub(super) fn groups<'a>(
     snapshot: &Snapshot,
     fields: &'a [Field],
     kind: RecordKind,
 ) -> Result<Vec<&'a [Field]>, Error> {
     for field in fields.iter().filter(|field| field.bit_width.is_some()) {
-        let ty = &snapshot.types[field.canonical.0];
-        if !matches!(&ty.kind, TypeKind::Scalar(scalar) if scalar.signed_integer().is_some()) {
-            return Err(Error(format!(
-                "bitfield `{}` requires an integer backing type",
-                field.name
-            )));
-        }
+        let ty = &snapshot.types[backing(snapshot, field)?.0];
         if ty
             .layout
             .is_none_or(|layout| u64::from(field.bit_width.unwrap()) > layout.size * 8)
@@ -37,7 +49,6 @@ pub(super) fn groups<'a>(
             continue;
         }
         let ty = &snapshot.types[field.canonical.0];
-        let mut backing = (!field.name.is_empty()).then_some(ty);
         let limit = field.offset_bits + ty.layout.unwrap().size * 8;
         let mut end = field.offset_bits + u64::from(width);
         while kind != RecordKind::Union && index < fields.len() {
@@ -49,21 +60,11 @@ pub(super) fn groups<'a>(
                 break;
             }
             let next_ty = &snapshot.types[next.canonical.0];
-            let signed = |ty: &Type| match &ty.kind {
-                TypeKind::Scalar(scalar) => scalar.signed_integer(),
-                _ => None,
-            };
-            if ty.layout != next_ty.layout
-                || (!next.name.is_empty()
-                    && backing.is_some_and(|backing| signed(backing) != signed(next_ty)))
-            {
+            if ty.layout != next_ty.layout {
                 return Err(Error(format!(
-                    "bitfield storage mixes backing types at `{}`",
+                    "bitfield storage mixes backing layouts at `{}`",
                     next.name
                 )));
-            }
-            if !next.name.is_empty() {
-                backing = Some(next_ty);
             }
             if next.offset_bits != end || end + u64::from(width) > limit {
                 return Err(Error(format!(

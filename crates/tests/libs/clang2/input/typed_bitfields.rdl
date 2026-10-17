@@ -1,0 +1,55 @@
+#[win32]
+mod Fixture {
+    struct BoolBits {
+        #[Windows::Win32::Metadata::NativeBitfield("enabled", 0, 1, MemberType = bool)]
+        #[Windows::Win32::Metadata::NativeBitfield("other", 4, 4, MemberType = u8)]
+        #[Windows::Win32::Metadata::NativeBitfield("wide", 1, 3, MemberType = bool)]
+        _bitfield: u8,
+    }
+    struct DependentBits {
+        mixed: MixedBits,
+        flags: BoolBits,
+    }
+    struct FullSignedBits {
+        #[Windows::Win32::Metadata::NativeBitfield("value", 0, 64, MemberType = WideInt)]
+        _bitfield: i64,
+    }
+    struct MixedBits {
+        #[Windows::Win32::Metadata::NativeBitfield("alias", 15, 5, MemberType = OtherInt)]
+        #[Windows::Win32::Metadata::NativeBitfield("alternate", 20, 3, MemberType = ModeAlias)]
+        #[Windows::Win32::Metadata::NativeBitfield("flag", 8, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("mode", 10, 3, MemberType = Mode)]
+        #[Windows::Win32::Metadata::NativeBitfield("negative", 3, 5, MemberType = i32)]
+        #[Windows::Win32::Metadata::NativeBitfield("positive", 0, 3, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("sign", 9, 1, MemberType = i32)]
+        #[Windows::Win32::Metadata::NativeBitfield("state", 13, 2, MemberType = State)]
+        _bitfield: u32,
+    }
+    #[repr(i32)]
+    #[scoped]
+    enum Mode {
+        Negative = -1,
+        Positive = 1,
+    }
+    type ModeAlias = Mode;
+    type NativeInt = i32;
+    type OtherInt = i32;
+    struct ReverseBits {
+        #[Windows::Win32::Metadata::NativeBitfield("negative", 0, 5, MemberType = i32)]
+        #[Windows::Win32::Metadata::NativeBitfield("positive", 5, 3, MemberType = u32)]
+        _bitfield: i32,
+    }
+    #[repr(u32)]
+    enum State {
+        Off = 0,
+        On = 1,
+    }
+    union TypedUnion {
+        #[Windows::Win32::Metadata::NativeBitfield("mode", 0, 3, MemberType = Mode)]
+        _bitfield1: i32,
+        #[Windows::Win32::Metadata::NativeBitfield("sign", 0, 1, MemberType = i32)]
+        _bitfield2: i32,
+        storage: u32,
+    }
+    type WideInt = i64;
+}

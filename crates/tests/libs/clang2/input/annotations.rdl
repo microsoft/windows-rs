@@ -1,9 +1,9 @@
 #[win32]
 mod Fixture {
     #[arch(X64 | Arm64)]
-    extern "C" fn AContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, __attribute__((annotate(\"windows_clang:sal:2:\" \"_Out_writes_bytes_to_\" \"\\n\" \"(capacity,*written)\" \"\\n\" \"(capacity,*written)\")))")] buffer: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")] #[in] capacity: u32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")] #[out] written: *mut u32) -> Status;
+    extern "C" fn AContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, __attribute__((annotate(\"windows_clang:sal:2:\" \"_Out_writes_bytes_to_\" \"\\n\" \"(capacity,*written)\" \"\\n\" \"(capacity,*written)\")))")] buffer: *mut void, #[in] capacity: u32, #[out] written: *mut u32) -> Status;
     #[arch(X86)]
-    extern fn AContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, __attribute__((annotate(\"windows_clang:sal:2:\" \"_Out_writes_bytes_to_\" \"\\n\" \"(capacity,*written)\" \"\\n\" \"(capacity,*written)\")))")] buffer: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")] #[in] capacity: u32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")] #[out] written: *mut u32) -> Status;
+    extern fn AContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, __attribute__((annotate(\"windows_clang:sal:2:\" \"_Out_writes_bytes_to_\" \"\\n\" \"(capacity,*written)\" \"\\n\" \"(capacity,*written)\")))")] buffer: *mut void, #[in] capacity: u32, #[out] written: *mut u32) -> Status;
     #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
     extern "C" fn AResultContract(context: *mut void) -> Status;
     struct BufferView {
@@ -26,9 +26,9 @@ mod Fixture {
     extern "C" fn Conditional(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_(capacity)", "capacity > 0, __attribute__((annotate(\"windows_clang:sal:2:\" \"_Out_writes_\" \"\\n\" \"(capacity)\" \"\\n\" \"(capacity)\")))")] buffer: *mut void, capacity: u32);
     type ContractAddress = *mut AContract;
     #[arch(X64 | Arm64)]
-    extern "C" fn CopiedContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, __attribute__((annotate(\"windows_clang:sal:2:\" \"_Out_writes_bytes_to_\" \"\\n\" \"(capacity,*written)\" \"\\n\" \"(capacity,*written)\")))")] buffer: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")] #[in] capacity: u32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")] #[out] written: *mut u32) -> Status;
+    extern "C" fn CopiedContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, __attribute__((annotate(\"windows_clang:sal:2:\" \"_Out_writes_bytes_to_\" \"\\n\" \"(capacity,*written)\" \"\\n\" \"(capacity,*written)\")))")] buffer: *mut void, #[in] capacity: u32, #[out] written: *mut u32) -> Status;
     #[arch(X86)]
-    extern fn CopiedContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, __attribute__((annotate(\"windows_clang:sal:2:\" \"_Out_writes_bytes_to_\" \"\\n\" \"(capacity,*written)\" \"\\n\" \"(capacity,*written)\")))")] buffer: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")] #[in] capacity: u32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")] #[out] written: *mut u32) -> Status;
+    extern fn CopiedContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, __attribute__((annotate(\"windows_clang:sal:2:\" \"_Out_writes_bytes_to_\" \"\\n\" \"(capacity,*written)\" \"\\n\" \"(capacity,*written)\")))")] buffer: *mut void, #[in] capacity: u32, #[out] written: *mut u32) -> Status;
     #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "", TypedefName = "AResultContract")]
     extern "C" fn CopiedResult(context: *mut void) -> Status;
     #[guid(0x11111111_1111_1111_1111_111111111111)]
@@ -44,7 +44,7 @@ mod Fixture {
     extern "C" fn OptionalResult(#[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_", "", "")] #[out] #[opt] result: *mut *mut void);
     #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
     #[library("example.dll")]
-    extern "C" fn ReadBuffer(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "capacity,*written", "capacity,*written")] #[out] #[opt] #[size_param(1)] buffer: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")] #[in] capacity: u32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_opt_", "", "")] #[out] #[opt] written: *mut u32) -> Status;
+    extern "C" fn ReadBuffer(#[out] #[opt] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] buffer: *mut void, #[in] capacity: u32, #[out] #[opt] written: *mut u32) -> Status;
     #[library("example.dll")]
     extern "C" fn ReadFixed(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "16", "16")] #[in] values: *const i32);
     #[library("example.dll")]

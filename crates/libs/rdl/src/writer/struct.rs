@@ -163,6 +163,13 @@ fn write_field_scoped(
 }
 
 fn collect_bitfield_members(item: &metadata::reader::Field) -> Vec<(String, u32, u32)> {
+    if item.attributes().any(|attr| {
+        attr.namespace() == METADATA_NAMESPACE
+            && attr.name() == "NativeBitfieldAttribute"
+            && attr.value().iter().any(|(name, _)| !name.is_empty())
+    }) {
+        return Vec::new();
+    }
     let mut members: Vec<(String, u32, u32)> = item
         .attributes()
         .filter(|attr| {

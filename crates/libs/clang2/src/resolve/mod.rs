@@ -527,6 +527,7 @@ pub(crate) fn types_equal(
             (TypeKind::Function(x), TypeKind::Function(y)) => {
                 return x.convention == y.convention
                     && x.exceptions == y.exceptions
+                    && x.noreturn == y.noreturn
                     && x.method_qualifiers == y.method_qualifiers
                     && x.parameters.len() == y.parameters.len()
                     && types_equal(
@@ -666,10 +667,24 @@ pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
             == b.iter().any(|value| value.kind == AttributeKind::DllExport)
         && a.iter().any(|value| value.kind == AttributeKind::NoThrow)
             == b.iter().any(|value| value.kind == AttributeKind::NoThrow)
+        && a.iter()
+            .any(|value| value.kind == AttributeKind::Cxx11NoReturn)
+            == b.iter()
+                .any(|value| value.kind == AttributeKind::Cxx11NoReturn)
 }
 
 pub(crate) fn attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
     abi_attributes_equal(a, b) && sal(a) == sal(b)
+}
+
+pub(crate) fn parameters_equal(a: &[Parameter], b: &[Parameter]) -> bool {
+    a.len() == b.len()
+        && a.iter().zip(b).all(|(left, right)| {
+            abi_attributes_equal(&left.attributes, &right.attributes)
+                && sal::parameters(&left.attributes, a) == sal::parameters(&right.attributes, b)
+                && left.default.as_ref().map(|value| &value.expression)
+                    == right.default.as_ref().map(|value| &value.expression)
+        })
 }
 
 pub(crate) fn sal(attributes: &[Attribute]) -> Vec<&SalAnnotation> {
@@ -727,16 +742,7 @@ pub(crate) fn value_shape_equal(a: &ValueObservation, b: &ValueObservation, symb
                     language: y,
                     mangling: ym,
                 },
-            ) => {
-                x == y
-                    && (!symbol || xm == ym)
-                    && a.len() == b.len()
-                    && a.iter().zip(b).all(|(a, b)| {
-                        attributes_equal(&a.attributes, &b.attributes)
-                            && a.default.as_ref().map(|value| &value.expression)
-                                == b.default.as_ref().map(|value| &value.expression)
-                    })
-            }
+            ) => x == y && (!symbol || xm == ym) && parameters_equal(a, b),
             (
                 ValueKind::Constant {
                     value: a,

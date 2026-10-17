@@ -29,6 +29,12 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
+    const EXCEPTION_RO_ORIGINATEERROR: DWORD = 1074266625;
+    const EXCEPTION_RO_TRANSFORMERROR: DWORD = 1074266626;
+    const MAX_ERROR_MESSAGE_CHARS: i32 = 512;
+}
+#[win32]
+mod Fixture {
     #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     #[encoding("utf-16")]
     const InterfaceName_Windows_Foundation_IStringable: String = "Windows.Foundation.IStringable";
@@ -58,4 +64,41 @@ mod Fixture {
         fmtid: GUID,
         pid: DWORD,
     }
+}
+#[win32]
+mod Fixture {
+    #[repr(i32)]
+    enum CLSCTX {
+        CLSCTX_INPROC_SERVER = 1,
+        CLSCTX_INPROC_HANDLER = 2,
+        CLSCTX_LOCAL_SERVER = 4,
+        CLSCTX_INPROC_SERVER16 = 8,
+        CLSCTX_REMOTE_SERVER = 16,
+        CLSCTX_INPROC_HANDLER16 = 32,
+        CLSCTX_RESERVED1 = 64,
+        CLSCTX_RESERVED2 = 128,
+        CLSCTX_RESERVED3 = 256,
+        CLSCTX_RESERVED4 = 512,
+        CLSCTX_NO_CODE_DOWNLOAD = 1024,
+        CLSCTX_RESERVED5 = 2048,
+        CLSCTX_NO_CUSTOM_MARSHAL = 4096,
+        CLSCTX_ENABLE_CODE_DOWNLOAD = 8192,
+        CLSCTX_NO_FAILURE_LOG = 16384,
+        CLSCTX_DISABLE_AAA = 32768,
+        CLSCTX_ENABLE_AAA = 65536,
+        CLSCTX_FROM_DEFAULT_CONTEXT = 131072,
+        CLSCTX_ACTIVATE_X86_SERVER = 262144,
+        CLSCTX_ACTIVATE_32_BIT_SERVER = 262144,
+        CLSCTX_ACTIVATE_64_BIT_SERVER = 524288,
+        CLSCTX_ENABLE_CLOAKING = 1048576,
+        CLSCTX_APPCONTAINER = 4194304,
+        CLSCTX_ACTIVATE_AAA_AS_IU = 8388608,
+        CLSCTX_RESERVED6 = 16777216,
+        CLSCTX_ACTIVATE_ARM32_SERVER = 33554432,
+        CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION = 67108864,
+        CLSCTX_SERVER_MUST_BE_EQUAL_OR_GREATER_PRIVILEGE = 134217728,
+        CLSCTX_DO_NOT_ELEVATE_SERVER = 268435456,
+        CLSCTX_PS_DLL = -2147483648,
+    }
+    const CLSCTX_VALID_MASK: CLSCTX = -1612712929;
 }

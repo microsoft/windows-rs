@@ -409,7 +409,15 @@ impl Capture<'_> {
         if let Some(&id) = self.aliases.get(&key) {
             return Ok(id);
         }
-        if !self.declarations.contains_key(&key) {
+        if typedef_implicit(key.0)?
+            && unsafe { clang_getCursorKind(clang_getCursorSemanticParent(key.0)) }
+                == CXCursor_TranslationUnit
+        {
+            let observations = self.declarations.entry(key).or_default();
+            if !observations.iter().any(|cursor| Cursor(*cursor) == key) {
+                observations.insert(0, key.0);
+            }
+        } else if !self.declarations.contains_key(&key) {
             return Err(unsupported(cursor, "dependency is not a global type alias"));
         }
         let usr = text(unsafe { clang_getCursorUSR(cursor) });
@@ -443,6 +451,7 @@ impl Capture<'_> {
             location: self.location(cursor),
             underlying: self.ty(underlying, cursor)?,
             canonical: self.ty(unsafe { clang_getCanonicalType(underlying) }, cursor)?,
+            implicit: typedef_implicit(cursor)?,
             defines_tag: defines_tag != 0,
             attributes,
             parameters,
@@ -765,6 +774,7 @@ impl Capture<'_> {
             "DLLImport" => AttributeKind::DllImport,
             "DLLExport" => AttributeKind::DllExport,
             "NoThrow" => AttributeKind::NoThrow,
+            "CXX11NoReturn" => AttributeKind::Cxx11NoReturn,
             "SelectAny" => AttributeKind::SelectAny,
             "Annotate" => annotations::read(cursor)?,
             "Deprecated" => {
@@ -953,7 +963,23 @@ impl Capture<'_> {
                 &format!("type qualifier query failed: {status}"),
             ));
         }
-        let supported = (WindowsClangConst | WindowsClangVolatile | WindowsClangRestrict) as u32;
+        let mut supported =
+            (WindowsClangConst | WindowsClangVolatile | WindowsClangRestrict) as u32;
+        if qualifiers & WindowsClangUnaligned as u32 != 0 {
+            let unqualified = unsafe { clang_getUnqualifiedType(clang_getCanonicalType(ty)) };
+            if !matches!(
+                unqualified.kind,
+                CXType_Void
+                    | CXType_FunctionProto
+                    | CXType_FunctionNoProto
+                    | CXType_LValueReference
+                    | CXType_RValueReference
+                    | CXType_IncompleteArray
+            ) && layout(unqualified).is_ok_and(|layout| layout.alignment == 1)
+            {
+                supported |= WindowsClangUnaligned as u32;
+            }
+        }
         if qualifiers & !supported != 0 {
             return Err(unsupported(
                 cursor,
@@ -1046,7 +1072,6 @@ impl Capture<'_> {
                         ));
                     }
                     if info.has_regparm != 0
-                        || info.no_return != 0
                         || info.produces_result != 0
                         || info.no_caller_saved_registers != 0
                         || info.no_cf_check != 0
@@ -1112,10 +1137,12 @@ impl Capture<'_> {
                     TypeKind::Function(Box::new(Function {
                         convention,
                         exceptions,
+                        noreturn: info.no_return != 0,
                         method_qualifiers: Qualifiers {
                             constant: method_qualifiers & WindowsClangConst as u32 != 0,
                             volatile: method_qualifiers & WindowsClangVolatile as u32 != 0,
                             restrict: method_qualifiers & WindowsClangRestrict as u32 != 0,
+                            unaligned: false,
                         },
                         result: self.ty(clang_getResultType(ty), cursor)?,
                         parameters,
@@ -1138,6 +1165,7 @@ impl Capture<'_> {
                 constant: qualifiers & WindowsClangConst as u32 != 0,
                 volatile: qualifiers & WindowsClangVolatile as u32 != 0,
                 restrict: qualifiers & WindowsClangRestrict as u32 != 0,
+                unaligned: qualifiers & WindowsClangUnaligned as u32 != 0,
             },
             layout: if matches!(
                 canonical.kind,

@@ -1,4 +1,3 @@
-use std::collections::BTreeMap;
 use windows_clang2::*;
 use windows_metadata::{Type, Value, reader, reader::HasAttributes};
 
@@ -143,7 +142,7 @@ fn sdk_functions() {
         ]
         .map(String::from),
     );
-    let imports: BTreeMap<_, _> = FUNCTIONS
+    let imports: projection::Imports = FUNCTIONS
         .iter()
         .map(|(name, library, _)| {
             (

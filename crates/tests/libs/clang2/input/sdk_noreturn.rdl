@@ -1,0 +1,59 @@
+#[win32]
+mod Fixture {
+    type DWORD = u32;
+    type UINT = u32;
+}
+#[win32]
+mod Fixture {
+    #[noreturn]
+    #[library("kernel32.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn FreeLibraryAndExitThread(#[in] hLibModule: HMODULE, #[in] dwExitCode: DWORD);
+    #[noreturn]
+    #[library("kernel32.dll")]
+    #[arch(X86)]
+    extern fn FreeLibraryAndExitThread(#[in] hLibModule: HMODULE, #[in] dwExitCode: DWORD);
+}
+#[win32]
+mod Fixture {
+    type HINSTANCE = *mut HINSTANCE__;
+    struct HINSTANCE__ {
+        unused: i32,
+    }
+    type HMODULE = *mut HINSTANCE__;
+}
+#[win32]
+mod Fixture {
+    #[noreturn]
+    #[library("kernel32.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn ExitProcess(#[in] uExitCode: UINT);
+    #[noreturn]
+    #[library("kernel32.dll")]
+    #[arch(X86)]
+    extern fn ExitProcess(#[in] uExitCode: UINT);
+    #[noreturn]
+    #[library("kernel32.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn ExitThread(#[in] dwExitCode: DWORD);
+    #[noreturn]
+    #[library("kernel32.dll")]
+    #[arch(X86)]
+    extern fn ExitThread(#[in] dwExitCode: DWORD);
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return == 0", "return == 0")]
+    type RPC_STATUS = i32;
+}
+#[win32]
+mod Fixture {
+    #[noreturn]
+    #[library("rpcrt4.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn RpcRaiseException(#[in] exception: RPC_STATUS);
+    #[noreturn]
+    #[library("rpcrt4.dll")]
+    #[arch(X86)]
+    extern fn RpcRaiseException(#[in] exception: RPC_STATUS);
+}

@@ -264,12 +264,13 @@ impl Encoder<'_> {
                 _ => self.err(value, "expected string literal"),
             },
             metadata::Type::ClassName(tn) if tn == ("System", "Type") => match value {
-                syn::Expr::Path(syn::ExprPath { path, .. }) => match self.encode_path(path)? {
-                    metadata::Type::ClassName(tn) | metadata::Type::ValueName(tn) => {
-                        Ok(metadata::Value::TypeName(tn))
-                    }
-                    _ => self.err(value, "expected type name"),
-                },
+                syn::Expr::Path(syn::ExprPath { path, .. }) => self
+                    .encode_path(path)?
+                    .type_name()
+                    .map(metadata::Value::TypeName)
+                    .ok_or_else(|| {
+                        self.error(value, "expected a primitive or nongeneric type name")
+                    }),
                 _ => self.err(value, "expected type path"),
             },
             metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {

@@ -1,0 +1,10 @@
+#[win32]
+mod Fixture {
+    extern "C" fn Buffer(#[in] #[len_param(1)] buffer: *mut u16, count: u32, other: u32);
+    #[library("example.dll")]
+    extern "C" fn BufferFunction(#[in] #[len_param(1)] buffer: *mut u16, count: u32, other: u32);
+    #[guid(0x11111111_2222_3333_4444_555555555555)]
+    interface IBuffer {
+        fn Read(&self, #[in] #[len_param(1)] buffer: *mut u16, count: u32, other: u32);
+    }
+}

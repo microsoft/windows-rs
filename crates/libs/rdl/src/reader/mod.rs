@@ -296,6 +296,44 @@ impl Reader {
 
 /// Parses one `.rdl` file and returns the items it defines under `namespace`.
 pub(crate) fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<String>, Error> {
+    read_names(path, namespace, |ns| {
+        ns.types
+            .keys()
+            .chain(ns.functions.keys())
+            .chain(ns.constants.keys())
+            .cloned()
+            .collect()
+    })
+}
+
+pub(crate) fn enum_member_names(
+    path: impl AsRef<Path>,
+    namespace: &str,
+) -> Result<Vec<String>, Error> {
+    read_names(path, namespace, |ns| {
+        let mut names = Vec::new();
+        for variants in ns.types.values() {
+            for (_, item) in variants {
+                if let Item::Enum(item) = item {
+                    names.extend(
+                        item.variants
+                            .iter()
+                            .map(|member| member.ident.unraw_to_string()),
+                    );
+                }
+            }
+        }
+        names.sort();
+        names.dedup();
+        names
+    })
+}
+
+fn read_names(
+    path: impl AsRef<Path>,
+    namespace: &str,
+    names: impl FnOnce(&Namespace<'_>) -> Vec<String>,
+) -> Result<Vec<String>, Error> {
     let path = path.as_ref().to_path_buf();
     let input = expand_rdl_files(std::slice::from_ref(&path), &[])?;
     let mut index = Index::new();
@@ -304,13 +342,11 @@ pub(crate) fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<
             index.insert(file, "", item);
         }
     }
-    let mut names = vec![];
-    if let Some(ns) = index.namespaces.get(namespace) {
-        names.extend(ns.types.keys().cloned());
-        names.extend(ns.functions.keys().cloned());
-        names.extend(ns.constants.keys().cloned());
-    }
-    Ok(names)
+    Ok(index
+        .namespaces
+        .get(namespace)
+        .map(names)
+        .unwrap_or_default())
 }
 
 /// Rewrites RDL tokens that would otherwise confuse `syn`.

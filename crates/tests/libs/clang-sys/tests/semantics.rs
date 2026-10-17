@@ -554,6 +554,7 @@ fn native_semantics() {
         let mut layouts = Vec::new();
         for (name, expected) in [
             ("NativeOwned", 1),
+            ("NativeBuiltinArguments", 0),
             ("NativeAlias", 0),
             ("NativeTagAlias", 0),
             ("NativePointer", 0),
@@ -583,6 +584,11 @@ fn native_semantics() {
             );
             assert_eq!(value, expected, "{target}: {name}");
             assert_eq!(
+                unsafe { windows_clang_getTypedefImplicit(cursor, &raw mut value) },
+                WindowsClangSuccess
+            );
+            assert_eq!(value, 0, "{target}: {name}");
+            assert_eq!(
                 unsafe { windows_clang_getTypedefDefinition(cursor, std::ptr::null_mut()) },
                 WindowsClangInvalidArgument
             );
@@ -590,6 +596,26 @@ fn native_semantics() {
         let mut value = 99;
         assert_eq!(
             unsafe { windows_clang_getTypedefDefinition(find("NativeTag"), &raw mut value) },
+            WindowsClangWrongKind
+        );
+        assert_eq!(value, 99);
+        let builtin = unsafe {
+            clang_getTypeDeclaration(clang_getTypedefDeclUnderlyingType(find(
+                "NativeBuiltinArguments",
+            )))
+        };
+        assert_eq!(
+            unsafe { windows_clang_getTypedefImplicit(builtin, &raw mut value) },
+            WindowsClangSuccess
+        );
+        assert_eq!(value, 1);
+        assert_eq!(
+            unsafe { windows_clang_getTypedefImplicit(builtin, std::ptr::null_mut()) },
+            WindowsClangInvalidArgument
+        );
+        value = 99;
+        assert_eq!(
+            unsafe { windows_clang_getTypedefImplicit(find("NativeTag"), &raw mut value) },
             WindowsClangWrongKind
         );
         assert_eq!(value, 99);
@@ -776,6 +802,8 @@ fn native_semantics() {
             ("RestrictedPointer", WindowsClangRestrict),
             ("UnalignedInt", WindowsClangUnaligned),
             ("InheritedUnalignedInt", WindowsClangUnaligned),
+            ("UnalignedByteRecord", WindowsClangUnaligned),
+            ("InheritedUnalignedByteRecord", WindowsClangUnaligned),
             ("AddressSpaceInt", WindowsClangOtherQualifiers),
         ] {
             let ty = unsafe { clang_getTypedefDeclUnderlyingType(find(name)) };
@@ -785,6 +813,29 @@ fn native_semantics() {
                 WindowsClangSuccess
             );
             assert_eq!(qualifiers, expected as u32, "{target}: {name}");
+        }
+        for (name, alignment) in [
+            ("UnalignedInt", 4),
+            ("InheritedUnalignedInt", 4),
+            ("UnalignedByteRecord", 1),
+            ("InheritedUnalignedByteRecord", 1),
+        ] {
+            let ty = unsafe {
+                clang_getUnqualifiedType(clang_getCanonicalType(
+                    clang_getTypedefDeclUnderlyingType(find(name)),
+                ))
+            };
+            let mut qualifiers = 99;
+            assert_eq!(
+                unsafe { windows_clang_getTypeQualifiers(ty, &raw mut qualifiers) },
+                WindowsClangSuccess
+            );
+            assert_eq!(qualifiers, 0, "{target}: {name}");
+            assert_eq!(
+                unsafe { clang_Type_getAlignOf(ty) },
+                alignment,
+                "{target}: {name}"
+            );
         }
         let mut qualifiers = 99;
         assert_eq!(
@@ -806,7 +857,7 @@ fn native_semantics() {
             let library = Arc::clone(&library);
             scope.spawn(move || {
                 let previous = set_library(Some(library));
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 15);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 16);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION

@@ -256,7 +256,7 @@ fn conflicts() {
 fn rejections() {
     let input = selected_fixture("callback_rejections", &[]);
     let result = projection::generate_partial(&[input], "Fixture").unwrap();
-    assert_eq!((result.output.records, result.output.aliases), (3, 2));
+    assert_eq!((result.output.records, result.output.aliases), (3, 5));
     for name in [
         "Broken",
         "BadResult",
@@ -266,9 +266,6 @@ fn rejections() {
         "ParameterUser",
         "TransitiveUser",
         "Variadic",
-        "NoReturn",
-        "ReturningNoReturn",
-        "TakingNoReturn",
         "Annotated",
         "ZeroRegisters",
         "Registers",
@@ -287,7 +284,6 @@ fn rejections() {
     for (root, reason) in [
         ("ZeroRegisters", "regparm=Some(0)"),
         ("Registers", "regparm=Some(2)"),
-        ("NoReturn", "noreturn=1"),
     ] {
         let error = capture(
             &[selected_fixture("callback_rejections", &[root])],

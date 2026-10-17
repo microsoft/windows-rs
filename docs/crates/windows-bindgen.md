@@ -131,6 +131,13 @@ add the dependencies referenced by the generated source.
 For native bit fields, default and minimal bindings provide getters and setters over the backing
 integer fields. Sys bindings keep the backing fields without accessors.
 
+`NativeBitfieldAttribute.MemberType` supplies an optional member type independently of storage.
+Typed accessors retain signedness, bools, scoped enum wrappers, and transparent typedef names.
+Signed fields are sign-extended from their declared width, including single-bit signed integers.
+Setters truncate to that width without changing neighboring bits. Both dependency walks include
+member types. Typed union accessors contain the required unsafe storage reads.
+Untyped attributes keep the existing single-bit `bool` and backing-type behavior.
+
 ## Common options
 
 The [builder reference] documents all methods, and [`bindgen`] lists the command-line-style

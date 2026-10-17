@@ -34,6 +34,10 @@ const ROOTS: &[&str] = &[
     "IDWriteFontSet3",
     "ID2D1Factory7",
     "ID2D1DeviceContext6",
+    "IACList",
+    "IACList2",
+    "ICopyHookW",
+    "IColumnsInfo",
 ];
 
 fn check_deprecations<'a>(

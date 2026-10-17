@@ -5,9 +5,18 @@ use crate::Error;
 /// One short-import symbol and its implementing DLL.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Import {
+    pub machine: u16,
+    pub kind: ImportKind,
     pub symbol: String,
     pub dll: String,
     pub name: ImportName,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ImportKind {
+    Code,
+    Data,
+    Const,
 }
 
 /// The PE export referenced by an import-library symbol.
@@ -80,6 +89,13 @@ fn parse_short_import(data: &[u8]) -> Result<Import, Error> {
     let symbol = next_string(&mut parts, "symbol")?;
     let dll = next_string(&mut parts, "DLL")?;
     let flags = u16::from_le_bytes(data[18..20].try_into().unwrap());
+    let machine = u16::from_le_bytes(data[6..8].try_into().unwrap());
+    let kind = match flags & 3 {
+        0 => ImportKind::Code,
+        1 => ImportKind::Data,
+        2 => ImportKind::Const,
+        _ => return Err(err("unsupported short import type")),
+    };
     let name = match (flags >> 2) & 7 {
         0 => ImportName::Ordinal(u16::from_le_bytes(data[16..18].try_into().unwrap())),
         1 => ImportName::Name(symbol.clone()),
@@ -99,7 +115,13 @@ fn parse_short_import(data: &[u8]) -> Result<Import, Error> {
         _ => return Err(err("unsupported short import name type")),
     };
 
-    Ok(Import { symbol, dll, name })
+    Ok(Import {
+        machine,
+        kind,
+        symbol,
+        dll,
+        name,
+    })
 }
 
 fn next_string<'a>(

@@ -8,7 +8,7 @@ fn input() -> Input {
     input
 }
 
-fn imports() -> std::collections::BTreeMap<String, projection::Import> {
+fn imports() -> projection::Imports {
     ["Echo", "Make", "Consume", "Inherit"]
         .into_iter()
         .map(|name| {

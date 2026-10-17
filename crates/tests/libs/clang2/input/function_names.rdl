@@ -1,0 +1,5 @@
+#[win32]
+mod Fixture {
+    #[library("example.dll")]
+    extern "C" fn NativeSum(alpha: i32, zeta: i32) -> i32;
+}

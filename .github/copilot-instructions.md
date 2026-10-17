@@ -244,14 +244,21 @@ changes (the `gen` workflow enforces this).
 
 ### clang2 rapid iteration
 
+SDK-specific definition include configurations are provisional. Revisit these workarounds together
+before replacement acceptance, including Olectl's dependency preloading and split
+`DEFINE_GUID`/`INITGUID` state. Keep them in the SDK driver, not parser or per-symbol policy.
+
 The `test_clang2` breadth fixtures cover free functions, COM-style interfaces, const integers,
 booleans, finite floats, and selected object-like macros through capture, target association, RDL,
 and WinMD. The SDK case uses `GetCurrentProcessId`, `IUnknown`, `IClassFactory`,
 `UIA_InvokePatternId`, and `MAX_PATH`. Keep DLL ownership in publication policy and macro
 evaluation distinct from ordinary declaration capture.
-`tool-win32-2 --partial --sdk-imports` reads the pinned SDK x64 libraries with the shared
-`tool-win32/src/imports.rs` policy. Preserve library order and checked overrides. Explicit imports
-win; ordinal-only entries remain reported omissions rather than guessed named exports.
+`tool-win32-2 --partial --sdk-imports` reads each target's pinned SDK libraries with the shared
+`tool-win32/src/imports.rs` policy. Preserve library order and checked overrides. Explicit public
+imports win over exact compiler linker symbols in target-specific maps. Filter short-import members
+by machine before ordered selection; ARM64 archives also contain ARM64EC members. Code/data/const
+kinds remain distinct. Preserve named exports and native ordinals without guessing named exports;
+bindgen ordinal support remains a final consumer acceptance requirement.
 Native ABI conflicts are fatal. Native-compatible value declarations whose public parameter names
 or aliases disagree are strict projection errors and explicit all-target partial omissions.
 Repeated GUID blocks also occur in the main TU (`winioctl.h`); enabling INITGUID before its prelude
@@ -443,7 +450,13 @@ attributed types makes every remaining function prototype plain C.
 The sys crate's `windows_clang_getFunctionInfo` recovers these hidden properties, including
 explicit `regparm(0)` versus absence, and flags additional prototype information for rejection
 or later decoding. `test_clang_sys` exercises these distinctions on all three parsing targets.
-Explicit regparm (including zero), noreturn, variadics, and unknown properties remain rejected.
+Explicit regparm (including zero), variadics, and unknown properties remain rejected.
+`Function::noreturn` retains the native function-type bit; `Cxx11NoReturn` retains declaration-owned
+standard attributes separately. Native/public comparison checks both. The shared callable writer
+emits one DoesNotReturn attribute for imports, methods, and named callbacks. Non-returning anonymous
+pointers require a compatible named callback, not an ordinary signature with the contract discarded.
+The noreturn fixtures cover native ownership, duplicate forms, conflicts, partial dependencies,
+metadata round trips, and four SDK exit/exception APIs on all targets.
 Unconditional noexcept, nothrow, and empty throw() retain written and canonical exception
 specifications.
 Methods, imports, and delegates preserve the written form through NativeExceptionSpecification;
@@ -453,8 +466,11 @@ Callback dependency pruning follows result and all parameter edges.
 Failed value-alias or callback publication must remove the declaration, not just its root marker:
 reachable named values are published as dependencies, so root-only removal would retry the failure.
 
-`windows_clang_getTypeQualifiers` checks qualifiers before `clang2` type interning. CVR is
-represented; unaligned and all remaining qualifiers are rejected, including typedef inheritance.
+`windows_clang_getTypeQualifiers` checks qualifiers before `clang2` type interning. CVR and
+supported unaligned requests are represented, including typedef inheritance. An unaligned request
+requires canonical unqualified native storage alignment one; native comparison retains the request,
+but metadata needs no additional modifier. Wider or incomplete storage and remaining qualifiers
+stay rejected. `byte_aligned_qualifiers` and the SDK fixture check this boundary on all targets.
 Callback naming uses target-wide candidates after public-family and alias validation. Candidate
 searches use the shared native/public type checker and discard assumed pairs after each failure.
 When no compatible callback name exists, projection emits structural C/stdcall function-pointer
@@ -485,6 +501,12 @@ payloads, including enum members and original typedef ownership.
 Virtual methods retain absolute slots from MicrosoftVTableContext, not source declaration order.
 Overloads retain native metadata names; existing bindgen suffixes must not collide with literal
 method names. Verify contiguous slots after the inherited vtable prefix.
+
+COM interfaces publish as opaque references, not packed value records. Check pointer-sized,
+fieldless layouts against inherited alignment capped by the local packing request. Keep packing
+in native reconciliation. Core vtable-pointer loads and weak-reference forwarding use the shared
+alignment-safe `Interface::assume_vtable`; the vtable itself remains aligned.
+
 Value records permit one public nonvirtual base at compiler-reported offset zero, represented by
 a NativeBase field. Complete base storage and derived offsets/size/alignment must match Clang.
 Inherited values and containing records/arrays remain blocked in by-value callable signatures.
@@ -528,6 +550,13 @@ cutover, define intended names and annotations and check the header -> RDL -> Wi
 path for representative consumers and issue
 reproductions. Do not count explicit partial omissions or uncaptured macros as solved coverage.
 
+Scalar constants may use their common native primitive type when conflicting written aliases have
+no attributes. Ordinary public agreement preserves unique aliases. The check follows every alias
+chain through all resolved observations, including annotation-only inputs without the constant.
+Native type/value/annotation conflicts still fail before pruning; enum, pointer, and callable
+alias conflicts remain rejected. `scalar_constant_aliases` covers values, macros, definitions,
+input order, alias-owned contracts, and constant-owned attributes through RDL and WinMD.
+
 ### clang2 public ownership
 
 After native and public compatibility checks, declarations with several candidate header owners
@@ -556,6 +585,11 @@ unique common alias if none defines a tag. An ambiguous family fails even in par
 Do not choose a primary name alphabetically, by source/header order, or by stripping underscores.
 Primary naming and output ownership are separate checks.
 
+Named enum constants retain their native enum type. A separate scalar typedef is not an enum
+alias merely because its name matches the tag without an underscore. The 239 reviewed baseline
+constant-to-enum-member differences, including five signed interpretations of unchanged 32-bit
+patterns, are approved. The `native_enum_types` fixture checks this distinction on all targets.
+
 ### clang2 metadata and consumer boundaries
 
 `clang2` `Field::bit_width` retains evaluated widths, including unnamed zero-width barriers.
@@ -571,11 +605,12 @@ Raw `windows-sys` bindings can check layout while high-level accessor defects re
 - `bindgen` `cpp_struct.rs` `BitfieldBacking::write_accessor` emits union field reads without
   `unsafe`; generated union bitfield methods fail to compile. This is a downstream TODO, not a
   clang2 metadata gate. Union bitfields emit as separate offset-zero storage fields.
-- `NativeBitfieldAttribute` carries name, offset, and width, not member type. Bindgen takes
-  signedness from the backing field, so mixed signed/unsigned named members cannot share one
-  backing without losing semantics. Define the member-type representation before accepting these
-  cases; enum and bool bitfields also remain unsupported. Unnamed padding has no member value;
-  its signedness does not constrain the backing, but its native type remains in reconciliation.
+- `NativeBitfieldAttribute.MemberType` is an optional `System.Type` property. It preserves mixed
+  signedness, bool/enum types, typedef identity, and single-bit integer semantics independently of
+  storage. RDL retains typed attributes, and metadata remapping updates their nominal references.
+  Typed union accessors use unsafe reads; legacy untyped output retains its existing behavior.
+  Updated readers are required. Unnamed padding has no member value, but its native type remains
+  in reconciliation.
 - MSVC unions containing only bitfields can have alignment 1 despite wider integer storage.
   Keep layout mismatches explicit until the storage alignment has a metadata encoding; do not
   invent a native packing request from the final layout.

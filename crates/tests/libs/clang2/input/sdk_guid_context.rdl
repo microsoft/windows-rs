@@ -1,0 +1,15 @@
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+}
+#[win32]
+mod Fixture {
+    const CLSID_CFontPropPage: GUID = 0x0be35200_8f91_11ce_9de3_00aa004bb851;
+    const GUID_HANDLE: GUID = 0x66504313_be0f_101a_8bbb_00aa00300cab;
+    const GUID_HIMETRIC: GUID = 0x66504300_be0f_101a_8bbb_00aa00300cab;
+}

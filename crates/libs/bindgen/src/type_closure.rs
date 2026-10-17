@@ -209,6 +209,9 @@ impl CombineClosure for Type {
                     let field_ty = field.field_type(Some(s), reader);
                     field_ty.combine_closure(types, reader, references);
                 }
+                for ty in s.bitfield_types(reader) {
+                    ty.combine_closure(types, reader, references);
+                }
             }
             Self::Enum(_) | Self::CppEnum(_) => {}
             Self::Delegate(d) => {

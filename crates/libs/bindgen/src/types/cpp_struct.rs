@@ -474,6 +474,15 @@ impl CppStruct {
         }
     }
 
+    pub fn bitfield_types(&self, reader: &Reader) -> impl Iterator<Item = Type> {
+        self.def.fields().flat_map(move |field| {
+            field
+                .attributes()
+                .filter(|attribute| attribute.name() == "NativeBitfieldAttribute")
+                .filter_map(move |attribute| bitfield_member_type(&attribute.value(), self, reader))
+        })
+    }
+
     /// Generates typed accessors for coalesced C bit-fields in non-sys projections.
     fn write_bitfield_accessors(&self, config: &Config, cfg: &TokenStream) -> TokenStream {
         if config.bindgen.style.is_sys() {
@@ -493,10 +502,12 @@ impl CppStruct {
             }
 
             let field_ident = to_ident(field.name());
-            let Some(backing) =
-                BitfieldBacking::from_type(&field.field_type(Some(self), config.reader))
-            else {
-                continue;
+            let backing = BitfieldBacking::from_type(&field.field_type(Some(self), config.reader))
+                .unwrap_or_else(|| panic!("bitfield storage `{}` is not an integer", field.name()));
+            let read = if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
+                quote! { (unsafe { self.#field_ident }) }
+            } else {
+                quote! { self.#field_ident }
             };
 
             for attr in bitfields {
@@ -507,15 +518,30 @@ impl CppStruct {
                     Some((_, Value::I64(length))),
                 ) = (values.first(), values.get(1), values.get(2))
                 else {
-                    continue;
+                    panic!("invalid NativeBitfieldAttribute on `{}`", field.name());
                 };
 
-                accessors.push(backing.write_accessor(
-                    &field_ident,
-                    member,
-                    *offset as u32,
-                    *length as u32,
-                ));
+                let offset = u32::try_from(*offset).unwrap();
+                let width = u32::try_from(*length).unwrap();
+                assert!(
+                    width > 0
+                        && offset
+                            .checked_add(width)
+                            .is_some_and(|end| end <= backing.bits),
+                    "bitfield `{member}` exceeds its backing type"
+                );
+                if let Some(ty) = bitfield_member_type(&values, self, config.reader) {
+                    accessors.push(backing.write_typed_accessor(
+                        config,
+                        &field_ident,
+                        &read,
+                        member,
+                        (offset, width),
+                        &ty,
+                    ));
+                } else {
+                    accessors.push(backing.write_accessor(&field_ident, member, offset, width));
+                }
             }
         }
 
@@ -531,6 +557,21 @@ impl CppStruct {
             }
         }
     }
+}
+
+fn bitfield_member_type(
+    values: &[(String, Value)],
+    enclosing: &CppStruct,
+    reader: &Reader,
+) -> Option<Type> {
+    let (_, value) = values.iter().find(|(name, _)| name == "MemberType")?;
+    let Value::TypeName(name) = value else {
+        panic!("NativeBitfieldAttribute.MemberType must be System.Type");
+    };
+    let ty = name
+        .primitive()
+        .unwrap_or_else(|| windows_metadata::Type::ValueName(name.clone()));
+    Some(Type::from_metadata_type(&ty, Some(enclosing), &[], reader))
 }
 
 /// Integer type backing a coalesced bit-field.
@@ -660,6 +701,133 @@ impl BitfieldBacking {
             }
         }
     }
+
+    fn write_typed_accessor(
+        &self,
+        config: &Config,
+        field: &TokenStream,
+        read: &TokenStream,
+        member: &str,
+        range: (u32, u32),
+        ty: &Type,
+    ) -> TokenStream {
+        let (offset, width) = range;
+        let mut scalar = ty.clone();
+        let mut wrappers = Vec::new();
+        let mut seen = HashSet::new();
+        loop {
+            assert!(seen.insert(scalar.clone()), "cyclic bitfield member type");
+            let wrap = match &scalar {
+                Type::CppEnum(ty) => ty.def.has_attribute("ScopedEnumAttribute"),
+                Type::CppStruct(ty) if ty.is_handle(config.reader) || ty.is_native_typedef() => {
+                    !config.typedef_emits_bare(ty.def)
+                }
+                Type::BOOL | Type::HRESULT | Type::NTSTATUS | Type::RPC_STATUS => {
+                    !config.bindgen.uses_inline_core_types()
+                }
+                _ => break,
+            };
+            if wrap {
+                wrappers.push(scalar.write_name(config));
+            }
+            scalar = scalar.underlying_type(config.reader);
+        }
+        let prim = &self.prim;
+        let uprim = &self.uprim;
+        let shift_offset = Literal::u32_unsuffixed(offset);
+        let mask = Literal::u64_unsuffixed(u64::MAX >> (64 - width));
+        let raw = if self.signed {
+            quote! { (#read as #uprim) }
+        } else {
+            read.clone()
+        };
+        let mut bits = if offset == 0 {
+            raw.clone()
+        } else {
+            quote! { (#raw >> #shift_offset) }
+        };
+        if offset + width < self.bits {
+            bits = quote! { (#bits & #mask) };
+        }
+        let member_backing = (scalar != Type::Bool).then(|| {
+            let member_backing = Self::from_type(&scalar)
+                .unwrap_or_else(|| panic!("unsupported bitfield member type: {ty:?}"));
+            assert!(
+                width <= member_backing.bits,
+                "bitfield `{member}` exceeds its member type"
+            );
+            member_backing
+        });
+        let mut get = if let Some(member_backing) = &member_backing {
+            let member_prim = &member_backing.prim;
+            if member_backing.signed && width < member_backing.bits {
+                let shift = Literal::u32_unsuffixed(member_backing.bits - width);
+                quote! { ((#bits as #member_prim) << #shift) >> #shift }
+            } else if width == self.bits
+                && member_backing.bits == self.bits
+                && member_backing.signed == self.signed
+            {
+                read.clone()
+            } else if !member_backing.signed && member_backing.bits == self.bits {
+                bits
+            } else {
+                quote! { #bits as #member_prim }
+            }
+        } else {
+            quote! { #bits != 0 }
+        };
+        let mut value = quote! { value };
+        for _ in &wrappers {
+            value = quote! { #value.0 };
+        }
+        for wrapper in wrappers.iter().rev() {
+            get = quote! { #wrapper(#get) };
+        }
+        let set = if width == self.bits {
+            if member_backing
+                .as_ref()
+                .is_some_and(|member| member.bits == self.bits && member.signed == self.signed)
+            {
+                value
+            } else {
+                quote! { #value as #prim }
+            }
+        } else {
+            let value = if member_backing
+                .as_ref()
+                .is_some_and(|member| member.bits == self.bits && !member.signed)
+            {
+                value
+            } else {
+                quote! { (#value as #uprim) }
+            };
+            let (clear, place) = if offset == 0 {
+                (quote! { !#mask }, quote! { (#value & #mask) })
+            } else {
+                (
+                    quote! { !(#mask << #shift_offset) },
+                    quote! { ((#value & #mask) << #shift_offset) },
+                )
+            };
+            let merged = quote! { (#raw & #clear) | #place };
+            if self.signed {
+                quote! { (#merged) as #prim }
+            } else {
+                merged
+            }
+        };
+        let getter = to_ident(member);
+        let setter = to_ident(&format!("set_{member}"));
+        let name = ty.write_name(config);
+        quote! {
+            pub fn #getter(&self) -> #name {
+                #get
+            }
+            pub fn #setter(&mut self, value: #name) {
+                self.#field = #set;
+            }
+        }
+    }
 }
 
 impl Dependencies for CppStruct {
@@ -668,6 +836,9 @@ impl Dependencies for CppStruct {
             field
                 .field_type(Some(self), reader)
                 .combine(dependencies, reader);
+        }
+        for ty in self.bitfield_types(reader) {
+            ty.combine(dependencies, reader);
         }
     }
 }

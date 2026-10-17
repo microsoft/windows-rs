@@ -94,6 +94,9 @@ WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypeVisibility(
 // Whether a typedef's direct type specifier defines its underlying record or enum.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypedefDefinition(
     CXCursor cursor, unsigned* defines_tag);
+// Compiler-provided typedef declaration, independently of its source location.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypedefImplicit(
+    CXCursor cursor, unsigned* is_implicit);
 // Whether a child expression is a fixed array bound or bitfield width, not an initializer.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getLayoutExpression(
     CXCursor declaration, CXCursor expression, unsigned* is_layout_expression);

@@ -25,21 +25,29 @@ pub(super) fn write(attributes: &[Attribute]) -> TokenStream {
     write_owned(attributes, None)
 }
 
-pub(super) fn function(function: &Function) -> TokenStream {
+pub(super) fn function(function: &Function, attributes: &[Attribute]) -> TokenStream {
+    let noreturn = (function.noreturn
+        || attributes
+            .iter()
+            .any(|attribute| attribute.kind == AttributeKind::Cxx11NoReturn))
+    .then(|| quote! { #[noreturn] });
     let value = match function.exceptions {
-        ExceptionSpecification::None => return TokenStream::new(),
+        ExceptionSpecification::None => return quote! { #noreturn },
         ExceptionSpecification::Noexcept => "noexcept",
         ExceptionSpecification::NoThrow => "nothrow",
         ExceptionSpecification::DynamicNone => "throw()",
     };
-    quote! { #[Windows::Win32::Metadata::NativeExceptionSpecification(#value)] }
+    quote! { #noreturn #[Windows::Win32::Metadata::NativeExceptionSpecification(#value)] }
 }
 
 pub(super) fn callable(attributes: &[Attribute]) -> bool {
     attributes.iter().all(|attribute| {
         matches!(
             attribute.kind,
-            AttributeKind::Sal(_) | AttributeKind::Deprecated(_) | AttributeKind::NoThrow
+            AttributeKind::Sal(_)
+                | AttributeKind::Deprecated(_)
+                | AttributeKind::NoThrow
+                | AttributeKind::Cxx11NoReturn
         )
     })
 }
@@ -88,8 +96,16 @@ pub(super) fn inherited_callback(
 }
 
 fn write_owned(attributes: &[Attribute], typedef: Option<&str>) -> TokenStream {
+    write_with_sal(attributes, typedef, resolve::sal(attributes))
+}
+
+fn write_with_sal<'a>(
+    attributes: &[Attribute],
+    typedef: Option<&str>,
+    sal: impl IntoIterator<Item = &'a SalAnnotation>,
+) -> TokenStream {
     let owner = typedef.map(|name| quote! { , TypedefName = #name });
-    let sal = resolve::sal(attributes).into_iter().map(|value| {
+    let sal = sal.into_iter().map(|value| {
         let SalAnnotation {
             version,
             name,
@@ -117,63 +133,43 @@ pub(super) fn only_contracts(attributes: &[Attribute]) -> bool {
     })
 }
 
-pub(super) fn parameter(attributes: &[Attribute], ty: &MetadataType) -> Result<TokenStream, Error> {
+pub(super) fn parameter(
+    attributes: &[Attribute],
+    parameters: &[Parameter],
+    ty: &MetadataType,
+) -> Result<TokenStream, Error> {
     if !only_contracts(attributes) {
         return Err(Error("unsupported function parameter attributes".into()));
     }
     let (mut input, mut output, mut optional) = (false, false, false);
     for value in resolve::sal(attributes) {
-        let direction = match value.name.as_str() {
-            "_In_"
-            | "_In_opt_"
-            | "_In_z_"
-            | "_In_opt_z_"
-            | "_In_reads_"
-            | "_In_reads_opt_"
-            | "_In_reads_bytes_"
-            | "_In_reads_bytes_opt_"
-            | "__in"
-            | "__in_opt" => Some((true, false)),
-            "_Out_"
-            | "_Out_opt_"
-            | "_Out_writes_"
-            | "_Out_writes_opt_"
-            | "_Out_writes_to_"
-            | "_Out_writes_to_opt_"
-            | "_Out_writes_bytes_"
-            | "_Out_writes_bytes_opt_"
-            | "_Out_writes_bytes_to_"
-            | "_Out_writes_bytes_to_opt_"
-            | "_Outptr_"
-            | "_Outptr_opt_"
-            | "_Outptr_result_maybenull_"
-            | "_Outptr_opt_result_maybenull_"
-            | "_COM_Outptr_"
-            | "_COM_Outptr_opt_"
-            | "_COM_Outptr_result_maybenull_"
-            | "_COM_Outptr_opt_result_maybenull_"
-            | "__out"
-            | "__out_opt" => Some((false, true)),
-            "_Inout_"
-            | "_Inout_opt_"
-            | "_Inout_updates_"
-            | "_Inout_updates_opt_"
-            | "_Inout_updates_to_"
-            | "_Inout_updates_to_opt_"
-            | "_Inout_updates_bytes_"
-            | "_Inout_updates_bytes_opt_"
-            | "_Inout_updates_bytes_to_"
-            | "_Inout_updates_bytes_to_opt_"
-            | "__inout"
-            | "__inout_opt" => Some((true, true)),
-            _ => None,
-        };
-        if let Some((read, write)) = direction {
-            input |= read;
-            output |= write;
-            optional |= value.name.contains("_opt_") || value.name.ends_with("_opt");
+        if let Some((direction, argument_optional)) = sal::direction(value) {
+            input |= direction != sal::Direction::Output;
+            output |= direction != sal::Direction::Input;
+            optional |= argument_optional;
         }
     }
+    let normalized = sal::parameters(attributes, parameters);
+    let preserve = normalized.iter().any(|value| {
+        matches!(
+            value,
+            sal::ParameterAnnotation::Contract(contract)
+                if matches!(ty, MetadataType::ClassName(_))
+                    && contract.direction != sal::Direction::Input
+        )
+    });
+    let native = if preserve {
+        write(attributes)
+    } else {
+        write_with_sal(
+            attributes,
+            None,
+            normalized.iter().filter_map(|value| match value {
+                sal::ParameterAnnotation::Evidence(value) => Some(*value),
+                sal::ParameterAnnotation::Contract(_) | sal::ParameterAnnotation::Reserved => None,
+            }),
+        )
+    };
     // A by-value interface reference supplies an existing object, not a replaceable pointer.
     if matches!(ty, MetadataType::ClassName(_)) {
         input |= output;
@@ -182,11 +178,13 @@ pub(super) fn parameter(attributes: &[Attribute], ty: &MetadataType) -> Result<T
     let input = input.then(|| quote! { #[r#in] });
     let output = output.then(|| quote! { #[out] });
     let optional = optional.then(|| quote! { #[opt] });
-    let native = write(attributes);
-    Ok(quote! { #native #input #output #optional })
+    let reserved = normalized
+        .contains(&sal::ParameterAnnotation::Reserved)
+        .then(|| quote! { #[reserved] });
+    Ok(quote! { #native #input #output #optional #reserved })
 }
 
-pub(super) fn buffer_capacity(
+pub(super) fn buffer(
     snapshot: &Snapshot,
     function: &Function,
     parameters: &[Parameter],
@@ -194,71 +192,109 @@ pub(super) fn buffer_capacity(
     ty: &MetadataType,
 ) -> Result<TokenStream, Error> {
     let mut size = None;
+    let mut initialized = None;
+    let (mut on_entry, mut on_success) = (false, false);
     for value in resolve::sal(&parameters[index].attributes) {
-        let bytes = match value.name.as_str() {
-            "_In_reads_bytes_"
-            | "_In_reads_bytes_opt_"
-            | "_Out_writes_bytes_"
-            | "_Out_writes_bytes_opt_"
-            | "_Out_writes_bytes_to_"
-            | "_Out_writes_bytes_to_opt_"
-            | "_Inout_updates_bytes_"
-            | "_Inout_updates_bytes_opt_"
-            | "_Inout_updates_bytes_to_"
-            | "_Inout_updates_bytes_to_opt_" => true,
-            "_In_reads_"
-            | "_In_reads_opt_"
-            | "_Out_writes_"
-            | "_Out_writes_opt_"
-            | "_Out_writes_to_"
-            | "_Out_writes_to_opt_"
-            | "_Inout_updates_"
-            | "_Inout_updates_opt_"
-            | "_Inout_updates_to_"
-            | "_Inout_updates_to_opt_" => false,
-            _ => continue,
-        };
-        // The first argument is capacity; the initialized length in *_to_* remains SAL evidence.
-        let capacity = value.expanded.split(',').next().unwrap().trim();
-        let Some(count) = parameters
-            .iter()
-            .position(|parameter| !parameter.name.is_empty() && parameter.name == capacity)
-        else {
+        let contract =
+            sal::parameter(value, parameters).or_else(|| sal::rpc_buffer(value, parameters));
+        let capacity = contract
+            .and_then(|contract| contract.capacity)
+            .or_else(|| sal::capacity(value, parameters));
+        let termination = sal::termination(value, contract);
+        let length = contract.and_then(|contract| contract.initialized);
+        if capacity.is_none() && termination.is_none() && length.is_none() {
             continue;
-        };
+        }
         if !matches!(
             snapshot.types[function.parameters[index].0].kind,
             TypeKind::Pointer(_)
         ) || matches!(ty, MetadataType::ClassName(_) | MetadataType::FnPtr(_))
         {
             return Err(Error(
-                "SAL buffer capacity requires a buffer pointer".into(),
+                "SAL buffer contract requires a buffer pointer".into(),
             ));
         }
+        if let Some((entry, success)) = termination {
+            on_entry |= entry;
+            on_success |= success;
+        }
+        if let Some(length) = length {
+            let count = length.count.parameter;
+            let mut kind = &snapshot.types[function.parameters[count].0].kind;
+            if length.dereference
+                && let TypeKind::Pointer(inner) = kind
+            {
+                kind = &snapshot.types[inner.0].kind;
+            } else if length.dereference {
+                return Err(Error(format!(
+                    "SAL initialized length `{}` requires a pointer to an integer parameter",
+                    parameters[count].name,
+                )));
+            }
+            if !matches!(kind,
+                    TypeKind::Scalar(scalar) if scalar.signed_integer().is_some())
+            {
+                return Err(Error(format!(
+                    "SAL initialized length `{}` requires an integer count",
+                    parameters[count].name,
+                )));
+            }
+            if initialized.is_some_and(|previous| previous != length) {
+                return Err(Error(
+                    "conflicting SAL initialized length parameters, units, or indirection".into(),
+                ));
+            }
+            initialized = Some(length);
+        }
+        let Some(capacity) = capacity else {
+            continue;
+        };
+        let count = capacity.parameter;
         if !matches!(&snapshot.types[function.parameters[count].0].kind,
             TypeKind::Scalar(scalar) if scalar.signed_integer().is_some())
         {
             return Err(Error(format!(
-                "SAL buffer capacity `{capacity}` requires a by-value integer parameter"
+                "SAL buffer capacity `{}` requires a by-value integer parameter",
+                parameters[count].name,
             )));
         }
-        if size.is_some_and(|previous| previous != (count, bytes)) {
+        if size.is_some_and(|previous| previous != capacity) {
             return Err(Error(
                 "conflicting SAL buffer capacity parameters or units".into(),
             ));
         }
-        size = Some((count, bytes));
+        size = Some(capacity);
     }
-    let Some((size, bytes)) = size else {
-        return Ok(TokenStream::new());
-    };
-    let size: i16 = size
+    let mut attributes = TokenStream::new();
+    if let Some(capacity) = size {
+        let size = count_index(capacity.parameter)?;
+        attributes.extend(if capacity.units == sal::Units::Bytes {
+            quote! { #[size_param(#size)] }
+        } else {
+            quote! { #[len_param(#size)] }
+        });
+    }
+    if on_entry || on_success {
+        attributes.extend(quote! {
+            #[Windows::Win32::Metadata::NativeNullTerminated(
+                OnEntry = #on_entry, OnSuccess = #on_success)]
+        });
+    }
+    if let Some(length) = initialized {
+        let index = count_index(length.count.parameter)?;
+        let bytes = length.count.units == sal::Units::Bytes;
+        let dereference = length.dereference;
+        attributes.extend(quote! {
+            #[Windows::Win32::Metadata::NativeInitializedLength(
+                CountParamIndex = #index, IsByteCount = #bytes, Dereference = #dereference)]
+        });
+    }
+    Ok(attributes)
+}
+
+fn count_index(index: usize) -> Result<proc_macro2::Literal, Error> {
+    let index: i16 = index
         .try_into()
-        .map_err(|_| Error("SAL buffer capacity parameter index exceeds metadata range".into()))?;
-    let size = proc_macro2::Literal::i16_unsuffixed(size);
-    Ok(if bytes {
-        quote! { #[size_param(#size)] }
-    } else {
-        quote! { #[len_param(#size)] }
-    })
+        .map_err(|_| Error("SAL count parameter index exceeds metadata range".into()))?;
+    Ok(proc_macro2::Literal::i16_unsuffixed(index))
 }

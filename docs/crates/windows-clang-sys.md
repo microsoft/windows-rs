@@ -21,6 +21,7 @@ does not inspect private cursor fields or depend on Clang C++ class layouts.
 | `windows_clang_getAlignment` | Evaluated alignment bits and GNU, standard, or declspec form. |
 | `windows_clang_getTypeVisibility` | Default, hidden, or protected `TypeVisibilityAttr` payload. |
 | `windows_clang_getTypedefDefinition` | Whether a direct typedef type specifier defines its tag. |
+| `windows_clang_getTypedefImplicit` | Whether Clang supplies the typedef declaration implicitly. |
 | `windows_clang_getFunctionInfo` | Function `ExtInfo` properties and extra-property flags. |
 | `windows_clang_getUuid` | Compiler-validated `UuidAttr` text as an owned `CXString`. |
 | `windows_clang_getDeprecation` | One `DeprecatedAttr` message and replacement as owned strings. |
@@ -46,7 +47,7 @@ The qualifier query includes qualifiers inherited through typedefs. After identi
 volatile, restrict, and unaligned, it checks the remaining native qualifier set, rather than
 assuming those four exhaust Clang's type qualifiers. Address spaces and other undecoded qualifiers
 set `WindowsClangOtherQualifiers`. Method qualifiers use the same decoding, independently of the
-function type's own qualifiers. The extension ABI version is 15.
+function type's own qualifiers. The extension ABI version is 16.
 
 The virtual-slot query reads `MicrosoftVTableContext::getMethodVFTableLocation`, rejecting
 locations that need virtual-base or secondary-vptr adjustment. Nonvirtual methods and non-Microsoft
@@ -109,6 +110,11 @@ It distinguishes `typedef struct Tag { ... } Name` from references, forward decl
 alias chains, and pointer/array declarators. Multiple value typedefs in the same definition each
 retain this evidence. No declaration ordering, token matching, or source-range heuristic is used
 by the Rust capture or projection layers.
+
+The implicit-typedef query reads `TypedefNameDecl::isImplicit()`, not source-location validity.
+Compiler-provided aliases can have stable identities and underlying types even when the stock
+translation-unit visitor omits their declarations. The native fixture checks such a declaration,
+authored typedefs, and wrong-kind/null-output failures on all three targets.
 
 These queries supplement calling convention, argument, result, exception, variadic, and other
 stock type queries. A zero extra-property mask is not permission to discard attributed types or

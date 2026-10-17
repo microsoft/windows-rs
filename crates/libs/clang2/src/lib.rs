@@ -8,6 +8,7 @@ mod partial;
 pub mod projection;
 mod resolve;
 mod runtime;
+mod sal;
 pub use merge::{Merged, Variants, merge};
 pub use resolve::{
     AliasGroup, AliasObservationRef, EnumGroup, EnumObservationRef, EnumRef, Group, ObservationRef,
@@ -98,6 +99,7 @@ pub struct Qualifiers {
     pub constant: bool,
     pub volatile: bool,
     pub restrict: bool,
+    pub unaligned: bool,
 }
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
@@ -172,6 +174,7 @@ pub enum CallingConvention {
 pub struct Function {
     pub convention: CallingConvention,
     pub exceptions: ExceptionSpecification,
+    pub noreturn: bool,
     pub method_qualifiers: Qualifiers,
     pub result: TypeId,
     pub parameters: Vec<TypeId>,
@@ -215,6 +218,7 @@ pub enum AttributeKind {
     DllImport,
     DllExport,
     NoThrow,
+    Cxx11NoReturn,
     SelectAny,
     Sal(Box<SalAnnotation>),
     Deprecated(Box<Deprecation>),
@@ -266,6 +270,8 @@ pub struct AliasObservation {
     pub location: Location,
     pub underlying: TypeId,
     pub canonical: TypeId,
+    /// Compiler-provided declaration rather than an authored public typedef.
+    pub implicit: bool,
     /// The direct typedef type specifier defines the record or enum, rather than referencing it.
     pub defines_tag: bool,
     pub attributes: Vec<Attribute>,
@@ -572,6 +578,7 @@ impl Snapshot {
                         | AttributeKind::DllImport
                         | AttributeKind::DllExport
                         | AttributeKind::NoThrow
+                        | AttributeKind::Cxx11NoReturn
                         | AttributeKind::SelectAny
                         | AttributeKind::MaxFieldAlignment { .. }
                         | AttributeKind::Aligned { .. } => 0,

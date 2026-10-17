@@ -36,11 +36,13 @@ impl Projector<'_, '_> {
         snapshot: usize,
         observation: &ValueObservation,
         name: &str,
-        imports: &BTreeMap<String, Import>,
+        imports: &Imports,
         definition: Option<&ConstantValue>,
     ) -> Result<Body, Error> {
         match &observation.kind {
-            ValueKind::Function { language, .. } => {
+            ValueKind::Function {
+                language, mangling, ..
+            } => {
                 if *language != LanguageLinkage::C {
                     return Err(Error(format!(
                         "function `{name}` requires C language linkage"
@@ -54,23 +56,45 @@ impl Projector<'_, '_> {
                             | AttributeKind::Sal(_)
                             | AttributeKind::Deprecated(_)
                             | AttributeKind::NoThrow
+                            | AttributeKind::Cxx11NoReturn
                     )
                 }) {
                     return Err(Error(format!(
                         "unsupported function attributes on `{name}`"
                     )));
                 }
-                let import = imports.get(name).ok_or_else(|| {
-                    Error(format!(
-                        "function `{name}` has no configured DLL/export ownership"
-                    ))
-                })?;
+                let import = imports
+                    .functions
+                    .get(name)
+                    .or_else(|| {
+                        imports
+                            .symbols
+                            .get(&self.resolution.snapshots[snapshot].target)?
+                            .get(mangling)
+                    })
+                    .ok_or_else(|| {
+                        Error(format!(
+                            "function `{name}` has no configured DLL/export ownership"
+                        ))
+                    })?;
                 if import.library.is_empty() || import.name.as_ref().is_some_and(String::is_empty) {
                     return Err(Error(format!("empty DLL/export ownership for `{name}`")));
                 }
+                if let Some(ordinal) = import
+                    .name
+                    .as_deref()
+                    .and_then(|name| name.strip_prefix('#'))
+                    && ordinal.parse::<u16>().is_err()
+                {
+                    return Err(Error(format!("invalid import ordinal for `{name}`")));
+                }
                 let library = &import.library;
-                let import_name = import.name.as_ref().map(|name| quote! { , import = #name });
-                let (parameters, result) = self.callable(snapshot, observation)?;
+                let import_name = import
+                    .name
+                    .as_ref()
+                    .filter(|import| import.as_str() != name)
+                    .map(|name| quote! { , import = #name });
+                let (parameters, result) = self.callable(snapshot, observation, true)?;
                 let function =
                     written_function(self.resolution.snapshots[snapshot], observation.canonical)?;
                 let abi = match function.convention {
@@ -79,12 +103,12 @@ impl Projector<'_, '_> {
                 };
                 let name = ident(name)?;
                 let native = annotations::write(&observation.attributes);
-                let exceptions = annotations::function(written_function(
-                    self.resolution.snapshots[snapshot],
-                    observation.written,
-                )?);
+                let contracts = annotations::function(
+                    written_function(self.resolution.snapshots[snapshot], observation.written)?,
+                    &observation.attributes,
+                );
                 Ok(Body {
-                    attributes: quote! { #native #exceptions #[library(#library #import_name)] },
+                    attributes: quote! { #native #contracts #[library(#library #import_name)] },
                     declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
                 })
             }
@@ -188,39 +212,121 @@ impl Projector<'_, '_> {
                         &self.written_ty(snapshot, observation.written, observation.canonical)?,
                     ),
                 };
-                let value = match *value {
-                    ConstantValue::Pointer(value) => windows_metadata::Value::I64(value),
-                    ConstantValue::Integer(EnumValue::Signed(value)) => {
-                        windows_metadata::Value::I64(value)
-                    }
-                    ConstantValue::Integer(EnumValue::Unsigned(value)) => {
-                        windows_metadata::Value::U64(value)
-                    }
-                    ConstantValue::Boolean(value) => windows_metadata::Value::Bool(value),
-                    ConstantValue::Float32(bits) => {
-                        windows_metadata::Value::F32(f32::from_bits(bits))
-                    }
-                    ConstantValue::Float64(bits) => {
-                        windows_metadata::Value::F64(f64::from_bits(bits))
-                    }
-                    ConstantValue::Guid(_)
-                    | ConstantValue::PropertyKey { .. }
-                    | ConstantValue::String { .. } => unreachable!(),
-                };
-                let value = write_value(self.namespace, &value);
-                let name = ident(name)?;
-                Ok(Body {
-                    attributes: annotations::write(&observation.attributes),
-                    declaration: quote! { const #name: #ty = #value; },
-                })
+                self.constant_body(observation, name, value, ty)
             }
         }
+    }
+
+    fn constant_body(
+        &self,
+        observation: &ValueObservation,
+        name: &str,
+        value: &ConstantValue,
+        ty: TokenStream,
+    ) -> Result<Body, Error> {
+        let value = match *value {
+            ConstantValue::Pointer(value) => windows_metadata::Value::I64(value),
+            ConstantValue::Integer(EnumValue::Signed(value)) => windows_metadata::Value::I64(value),
+            ConstantValue::Integer(EnumValue::Unsigned(value)) => {
+                windows_metadata::Value::U64(value)
+            }
+            ConstantValue::Boolean(value) => windows_metadata::Value::Bool(value),
+            ConstantValue::Float32(bits) => windows_metadata::Value::F32(f32::from_bits(bits)),
+            ConstantValue::Float64(bits) => windows_metadata::Value::F64(f64::from_bits(bits)),
+            ConstantValue::Guid(_)
+            | ConstantValue::PropertyKey { .. }
+            | ConstantValue::String { .. } => unreachable!(),
+        };
+        let value = write_value(self.namespace, &value);
+        let name = ident(name)?;
+        Ok(Body {
+            attributes: annotations::write(&observation.attributes),
+            declaration: quote! { const #name: #ty = #value; },
+        })
+    }
+
+    pub(super) fn agree_constants(
+        &self,
+        value: &ValueGroup,
+        target: Target,
+        definition: Option<&ConstantValue>,
+        bodies: &mut Vec<Body>,
+    ) -> Result<(), Error> {
+        let Err(conflict) = agree(&value.name, target, bodies) else {
+            return Ok(());
+        };
+        let mut canonical = Vec::with_capacity(bodies.len());
+        for reference in &value.observations {
+            let snapshot = self.resolution.snapshots[reference.snapshot];
+            let observation =
+                &snapshot.values[reference.value.0].observations[reference.observation];
+            if !matches!(
+                snapshot.types[observation.canonical.0].kind,
+                TypeKind::Scalar(_)
+            ) || !self.unannotated_scalar(reference.snapshot, observation.written)
+            {
+                return Err(conflict);
+            }
+            let ValueKind::Constant { value: number, .. } = &observation.kind else {
+                return Err(Error("expected a constant observation".into()));
+            };
+            let ty = write_type(
+                self.namespace,
+                &self.ty(reference.snapshot, observation.canonical)?,
+            );
+            canonical.push(self.constant_body(
+                observation,
+                &value.name,
+                number.as_ref().or(definition).unwrap(),
+                ty,
+            )?);
+        }
+        if agree(&value.name, target, &canonical).is_err() {
+            return Err(conflict);
+        }
+        *bodies = canonical;
+        Ok(())
+    }
+
+    fn unannotated_scalar(&self, snapshot: usize, written: TypeId) -> bool {
+        let mut pending = vec![(snapshot, written)];
+        let mut seen = HashSet::new();
+        while let Some((snapshot, ty)) = pending.pop() {
+            if !seen.insert((snapshot, ty)) {
+                continue;
+            }
+            let snapshot = self.resolution.snapshots[snapshot];
+            match snapshot.types[ty.0].kind {
+                TypeKind::Scalar(_) => {}
+                TypeKind::Alias(id) => {
+                    let name = &snapshot.aliases[id.0].name;
+                    let index = self
+                        .resolution
+                        .aliases
+                        .binary_search_by(|group| group.name.cmp(name))
+                        .unwrap();
+                    // Contracts may come from another TU with no use of this constant.
+                    for reference in &self.resolution.aliases[index].observations {
+                        let alias = &self.resolution.snapshots[reference.snapshot].aliases
+                            [reference.alias.0]
+                            .observations[reference.observation];
+                        if !alias.attributes.is_empty() {
+                            return false;
+                        }
+                        pending.push((reference.snapshot, alias.underlying));
+                    }
+                }
+                _ => return false,
+            }
+        }
+        true
     }
 
     fn callable(
         &self,
         snapshot_id: usize,
         observation: &ValueObservation,
+        named: bool,
     ) -> Result<(Vec<TokenStream>, TokenStream), Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
         let function = written_function(snapshot, observation.canonical)?;
@@ -229,7 +335,7 @@ impl Projector<'_, '_> {
         let ValueKind::Function { parameters, .. } = &observation.kind else {
             return Err(Error("expected a callable observation".into()));
         };
-        let parameters = self.parameters(snapshot_id, function, parameters)?;
+        let parameters = self.parameter_list(snapshot_id, function, parameters, named)?;
         let result = self.written_ty(snapshot_id, written.result, function.result)?;
         let result = if result == MetadataType::Void {
             TokenStream::new()
@@ -245,6 +351,16 @@ impl Projector<'_, '_> {
         snapshot_id: usize,
         function: &Function,
         parameters: &[Parameter],
+    ) -> Result<Vec<TokenStream>, Error> {
+        self.parameter_list(snapshot_id, function, parameters, true)
+    }
+
+    fn parameter_list(
+        &self,
+        snapshot_id: usize,
+        function: &Function,
+        parameters: &[Parameter],
+        named: bool,
     ) -> Result<Vec<TokenStream>, Error> {
         if parameters.len() != function.parameters.len() {
             return Err(Error(
@@ -265,12 +381,16 @@ impl Projector<'_, '_> {
                 if !names.insert(name.clone()) {
                     return Err(Error(format!("duplicate projected parameter `{name}`")));
                 }
-                let name = ident(&name)?;
+                let name = if named {
+                    ident(&name)?
+                } else {
+                    ident(&format!("param{index}"))?
+                };
                 let ty = self
                     .parameter_ty(snapshot_id, parameter.written, canonical)
                     .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
-                let attributes = annotations::parameter(&parameter.attributes, &ty)?;
-                let size = annotations::buffer_capacity(
+                let attributes = annotations::parameter(&parameter.attributes, parameters, &ty)?;
+                let size = annotations::buffer(
                     self.resolution.snapshots[snapshot_id],
                     function,
                     parameters,
@@ -286,6 +406,53 @@ impl Projector<'_, '_> {
                 Ok(quote! { #attributes #size #default #name: #ty })
             })
             .collect()
+    }
+
+    pub(super) fn agree_functions(
+        &self,
+        value: &ValueGroup,
+        target: Target,
+        bodies: &mut [Body],
+    ) -> Result<(), Error> {
+        let Err(conflict) = agree(&value.name, target, bodies) else {
+            return Ok(());
+        };
+        let mut contracts = Vec::with_capacity(bodies.len());
+        let mut preferred = None;
+        for (index, (reference, body)) in value.observations.iter().zip(bodies.iter()).enumerate() {
+            let snapshot = self.resolution.snapshots[reference.snapshot];
+            let observation =
+                &snapshot.values[reference.value.0].observations[reference.observation];
+            let ValueKind::Function { parameters, .. } = &observation.kind else {
+                return Err(Error("expected a callable observation".into()));
+            };
+            let named = parameters
+                .iter()
+                .filter(|parameter| !parameter.name.is_empty())
+                .count();
+            let preference = (std::cmp::Reverse(named), body.key());
+            if preferred
+                .as_ref()
+                .is_none_or(|(_, previous)| &preference < previous)
+            {
+                preferred = Some((index, preference));
+            }
+            // SAL still binds against the original names; only comparison labels are positional.
+            let (parameters, result) = self.callable(reference.snapshot, observation, false)?;
+            let abi = match written_function(snapshot, observation.canonical)?.convention {
+                CallingConvention::C => quote! { "C" },
+                CallingConvention::Stdcall => TokenStream::new(),
+            };
+            contracts.push(Body {
+                attributes: body.attributes.clone(),
+                declaration: quote! { extern #abi fn(#(#parameters),*) #result; },
+            });
+        }
+        if agree(&value.name, target, &contracts).is_err() {
+            return Err(conflict);
+        }
+        bodies.swap(0, preferred.unwrap().0);
+        Ok(())
     }
 
     pub(super) fn uuid_tag(&self, group: &Group) -> Option<u128> {
@@ -328,11 +495,6 @@ impl Projector<'_, '_> {
         let size = if snapshot.target == Target::X86 { 4 } else { 8 };
         if !definition.fields.is_empty()
             || definition.bases.len() > 1
-            || definition.layout
-                != (Layout {
-                    size,
-                    alignment: size,
-                })
             || snapshot.records[observation.record.0].owner.is_some()
         {
             return Err(Error(format!(
@@ -355,6 +517,7 @@ impl Projector<'_, '_> {
             )));
         }
         let mut first_slot = 0;
+        let mut base_alignment = None;
         let base = if let Some(&base) = definition.bases.first() {
             if base.offset_bits != 0 || !self.interface_record(snapshot_id, base.record) {
                 return Err(Error(format!(
@@ -373,6 +536,7 @@ impl Projector<'_, '_> {
                     .definition
                     .as_ref()
                     .unwrap();
+                base_alignment.get_or_insert(inherited.layout.alignment);
                 first_slot += inherited.methods.len() as u64;
                 let Some(base) = inherited.bases.first() else {
                     break;
@@ -385,6 +549,15 @@ impl Projector<'_, '_> {
         } else {
             TokenStream::new()
         };
+        let mut alignment = base_alignment.unwrap_or(size);
+        if let Some(bits) = resolve::packing(&observation.attributes).1 {
+            alignment = alignment.min(u64::from(bits / 8));
+        }
+        if definition.layout != (Layout { size, alignment }) {
+            return Err(Error(format!(
+                "interface `{name}` requires one vptr, no data, and at most one base"
+            )));
+        }
         let mut methods = Vec::new();
         let mut names = HashSet::new();
         let mut overloads = HashMap::new();
@@ -430,23 +603,25 @@ impl Projector<'_, '_> {
                     method.name
                 )));
             }
-            let (parameters, result) =
-                self.callable(snapshot_id, &method.observation)
-                    .map_err(|error| {
-                        Error(format!(
-                            "interface method `{name}.{}`: {error}",
-                            method.name
-                        ))
-                    })?;
+            let (parameters, result) = self
+                .callable(snapshot_id, &method.observation, true)
+                .map_err(|error| {
+                    Error(format!(
+                        "interface method `{name}.{}`: {error}",
+                        method.name
+                    ))
+                })?;
             let method_name = ident(&method.name)?;
             let attributes = annotations::write(&method.observation.attributes);
-            let exceptions =
-                annotations::function(written_function(snapshot, method.observation.written)?);
+            let contracts = annotations::function(
+                written_function(snapshot, method.observation.written)?,
+                &method.observation.attributes,
+            );
             let constant = function.method_qualifiers.constant.then(|| {
                 quote! { #[Windows::Win32::Metadata::NativeConstMethod] }
             });
             methods.push(
-                quote! { #attributes #exceptions #constant fn #method_name(&self #(, #parameters)*) #result; },
+                quote! { #attributes #contracts #constant fn #method_name(&self #(, #parameters)*) #result; },
             );
         }
         let uuid = write_guid(uuid);

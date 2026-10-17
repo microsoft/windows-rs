@@ -1,0 +1,67 @@
+#[win32]
+mod Fixture {
+    type BYTE = u8;
+    type USHORT = u16;
+    type WORD = u16;
+}
+#[win32]
+mod Fixture {
+    #[library("SHELL32.dll", import = "#18")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn ILClone(#[in] pidl: LPCITEMIDLIST) -> LPITEMIDLIST;
+    #[library("SHELL32.dll", import = "#18")]
+    #[arch(X86)]
+    extern fn ILClone(#[in] pidl: LPCITEMIDLIST) -> LPITEMIDLIST;
+    #[library("SHELL32.dll", import = "#155")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn ILFree(#[in] #[opt] pidl: LPITEMIDLIST);
+    #[library("SHELL32.dll", import = "#155")]
+    #[arch(X86)]
+    extern fn ILFree(#[in] #[opt] pidl: LPITEMIDLIST);
+}
+#[win32]
+mod Fixture {
+    #[packed(1)]
+    struct ITEMIDLIST {
+        mkid: SHITEMID,
+    }
+    type LPCITEMIDLIST = *const ITEMIDLIST;
+    type LPITEMIDLIST = *mut ITEMIDLIST;
+    #[packed(1)]
+    struct SHITEMID {
+        cb: USHORT,
+        abID: [BYTE; 1],
+    }
+}
+#[win32]
+mod Fixture {
+    type LPWSADATA = *mut WSAData;
+    #[arch(X64 | Arm64)]
+    struct WSAData {
+        wVersion: WORD,
+        wHighVersion: WORD,
+        iMaxSockets: u16,
+        iMaxUdpDg: u16,
+        lpVendorInfo: *mut i8,
+        szDescription: [i8; 257],
+        szSystemStatus: [i8; 129],
+    }
+    #[arch(X86)]
+    struct WSAData {
+        wVersion: WORD,
+        wHighVersion: WORD,
+        szDescription: [i8; 257],
+        szSystemStatus: [i8; 129],
+        iMaxSockets: u16,
+        iMaxUdpDg: u16,
+        lpVendorInfo: *mut i8,
+    }
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("WS2_32.dll", import = "#115")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn WSAStartup(#[in] wVersionRequested: WORD, #[out] lpWSAData: LPWSADATA) -> i32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("WS2_32.dll", import = "#115")]
+    #[arch(X86)]
+    extern fn WSAStartup(#[in] wVersionRequested: WORD, #[out] lpWSAData: LPWSADATA) -> i32;
+}

@@ -7,7 +7,7 @@ const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 #[test]
 fn bitfields() {
     helpers::ensure_libclang();
-    roundtrip("bitfields", &[None]);
+    roundtrip("bitfields", "bitfields", &[None]);
     conflicts();
     rejections();
 }
@@ -16,17 +16,50 @@ fn bitfields() {
 #[ignore = "requires the x86, x64, and ARM64 MSVC Rust targets"]
 fn bitfields_cross_targets() {
     helpers::ensure_libclang();
-    roundtrip("bitfields-cross-targets", &TARGETS.map(Some));
+    roundtrip("bitfields", "bitfields-cross-targets", &TARGETS.map(Some));
+    roundtrip(
+        "typed_bitfields",
+        "typed-bitfields-cross-targets",
+        &TARGETS.map(Some),
+    );
 }
 
-fn roundtrip(name: &str, targets: &[Option<Target>]) {
-    let snapshots = capture(&[selected_fixture("bitfields", &[])], &TARGETS).unwrap();
+#[test]
+fn typed_bitfields() {
+    helpers::ensure_libclang();
+    roundtrip("typed_bitfields", "typed-bitfields", &[None]);
+    for (first, second) in [
+        ("unsigned int", "signed int"),
+        ("unsigned char", "bool"),
+        ("Mode", "unsigned int"),
+    ] {
+        let mut inputs =
+            [first, second].map(|ty| {
+                let mut input = selected_fixture("bitfields_conflict", &["PublicBits"]);
+                input.source.insert_str(0, &format!(
+                "enum Mode : unsigned int {{ Off = 0, On = 1 }};\n#define MEMBER_TYPE {ty}\n"
+            ));
+                input
+            });
+        inputs[1].name = "other.h".into();
+        for _ in 0..2 {
+            let error = projection::generate_partial(&inputs, "Fixture")
+                .unwrap_err()
+                .to_string();
+            assert!(error.contains("native field types differ"), "{error}");
+            inputs.reverse();
+        }
+    }
+}
+
+fn roundtrip(fixture: &str, name: &str, targets: &[Option<Target>]) {
+    let snapshots = capture(&[selected_fixture(fixture, &[])], &TARGETS).unwrap();
     let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
-    assert_eq!(output.records, 16);
-    let rdl = &output.partitions["bitfields"].rdl;
+    assert_eq!(output.records, if fixture == "bitfields" { 16 } else { 6 });
+    let rdl = &output.partitions[fixture].rdl;
     assert_eq!(
         *rdl,
-        std::fs::read_to_string(input_dir().join("bitfields.rdl"))
+        std::fs::read_to_string(input_dir().join(format!("{fixture}.rdl")))
             .unwrap()
             .replace("\r\n", "\n")
     );
@@ -74,8 +107,11 @@ fn roundtrip(name: &str, targets: &[Option<Target>]) {
                 .filter(|field| field.bit_width.is_some() && !field.name.is_empty())
                 .collect();
             assert_eq!(members.len(), named.len(), "{}", record.name);
-            for ((backing, member), field) in members.iter().zip(named) {
-                assert_eq!(member[0].1, Value::Utf8(field.name.clone()));
+            for field in named {
+                let (backing, member) = members
+                    .iter()
+                    .find(|(_, member)| member[0].1 == Value::Utf8(field.name.clone()))
+                    .unwrap();
                 assert_eq!(member[2].1, Value::I64(i64::from(field.bit_width.unwrap())));
                 let Value::I64(offset) = member[1].1 else {
                     panic!("expected bit offset")
@@ -85,15 +121,17 @@ fn roundtrip(name: &str, targets: &[Option<Target>]) {
                     record.name, field.offset_bits));
             }
         }
-        let unsigned = index.expect("Fixture", "Unsigned");
-        let attrs: Vec<_> = unsigned
-            .fields()
-            .next()
-            .unwrap()
-            .attributes()
-            .filter(|attr| attr.name() == "NativeBitfieldAttribute")
-            .collect();
-        assert_eq!(attrs[1].value()[1].1, Value::I64(5));
+        if fixture == "bitfields" {
+            let unsigned = index.expect("Fixture", "Unsigned");
+            let attrs: Vec<_> = unsigned
+                .fields()
+                .next()
+                .unwrap()
+                .attributes()
+                .filter(|attr| attr.name() == "NativeBitfieldAttribute")
+                .collect();
+            assert_eq!(attrs[1].value()[1].1, Value::I64(5));
+        }
     }
     let rewritten = root.join(format!("target\\test-clang2-{name}.rdl"));
     windows_rdl::writer()
@@ -145,7 +183,10 @@ fn roundtrip(name: &str, targets: &[Option<Target>]) {
         }
         rust.push_str("};\n");
     }
-    let accessor_checks = r#"
+    let accessor_checks = if fixture == "typed_bitfields" {
+        include_str!("../input/typed_bitfields.rs")
+    } else {
+        r#"
 fn main() {
     let mut unsigned = Unsigned { _bitfield: 0, tail: 0 };
     unsigned.set_low(7);
@@ -164,43 +205,33 @@ fn main() {
     full.set_value(u64::MAX);
     assert_eq!(full.value(), u64::MAX);
 }
-"#;
+"#
+    };
     std::fs::write(&bindings, rust).unwrap();
     let compiled = root.join(format!("target\\test-clang2-{name}.rmeta"));
     for target in targets {
-        let mut command = std::process::Command::new("rustc");
-        command.args([
-            "--crate-name",
-            "test_clang2_bitfields",
-            "--crate-type=lib",
-            "--emit=metadata",
-            "--edition=2024",
-        ]);
-        if let Some(target) = target {
-            command.args(["--target", target.triple()]);
-        }
-        windows_bindgen::builder()
-            .input(&winmd)
-            .filter("Fixture.Unsigned")
-            .filter("Fixture.Signed")
-            .filter("Fixture.Full")
-            .flat()
-            .output(&bindings)
-            .write();
-        let mut rust = std::fs::read_to_string(&bindings).unwrap();
-        rust.push_str(accessor_checks);
-        std::fs::write(&bindings, rust).unwrap();
-        let result = command
-            .arg(&bindings)
-            .arg("-o")
-            .arg(&compiled)
-            .output()
-            .unwrap();
-        assert!(
-            result.status.success(),
-            "{target:?}: {}",
-            String::from_utf8_lossy(&result.stderr)
-        );
+        compile(&bindings, &compiled, *target);
+    }
+    let mut builder = windows_bindgen::builder();
+    builder.input(&winmd).flat().output(&bindings);
+    for record in if fixture == "bitfields" {
+        &["Unsigned", "Signed", "Full"][..]
+    } else {
+        &[
+            "DependentBits",
+            "ReverseBits",
+            "FullSignedBits",
+            "TypedUnion",
+        ][..]
+    } {
+        builder.filter(&format!("Fixture.{record}"));
+    }
+    builder.write();
+    let mut rust = std::fs::read_to_string(&bindings).unwrap();
+    rust.push_str(accessor_checks);
+    std::fs::write(&bindings, rust).unwrap();
+    for target in targets {
+        compile(&bindings, &compiled, *target);
     }
     let executable = root.join(format!("target\\test-clang2-{name}.exe"));
     let result = std::process::Command::new("rustc")
@@ -231,6 +262,31 @@ fn main() {
     ] {
         std::fs::remove_file(path).unwrap();
     }
+}
+
+fn compile(bindings: &std::path::Path, compiled: &std::path::Path, target: Option<Target>) {
+    let mut command = std::process::Command::new("rustc");
+    command.args([
+        "--crate-name",
+        "test_clang2_bitfields",
+        "--crate-type=lib",
+        "--emit=metadata",
+        "--edition=2024",
+    ]);
+    if let Some(target) = target {
+        command.args(["--target", target.triple()]);
+    }
+    let result = command
+        .arg(bindings)
+        .arg("-o")
+        .arg(compiled)
+        .output()
+        .unwrap();
+    assert!(
+        result.status.success(),
+        "{target:?}: {}",
+        String::from_utf8_lossy(&result.stderr)
+    );
 }
 
 fn conflicts() {
@@ -268,16 +324,8 @@ fn rejections() {
     let output =
         projection::generate_partial(&[selected_fixture("bitfields_rejections", &[])], "Fixture")
             .unwrap();
-    assert_eq!(output.output.records, 1);
-    for name in [
-        "Mixed",
-        "EnumBits",
-        "BoolBits",
-        "Collision",
-        "AlignedField",
-        "Dependent",
-        "Underaligned",
-    ] {
+    assert_eq!(output.output.records, 5);
+    for name in ["Collision", "AlignedField", "Underaligned"] {
         assert!(
             output
                 .omissions

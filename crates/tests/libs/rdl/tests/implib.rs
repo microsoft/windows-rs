@@ -5,7 +5,7 @@
 //! best-effort integration test reads a real `kernel32.lib` when the SDK is
 //! installed.
 
-use windows_rdl::implib::{self, Import, ImportName};
+use windows_rdl::implib::{self, Import, ImportKind, ImportName};
 
 /// Build a 60-byte archive member header followed by `data` (padded to an even
 /// length, as archives require).
@@ -63,11 +63,34 @@ fn reads_single_import() {
     assert_eq!(
         imports,
         vec![Import {
+            machine: 0x8664,
+            kind: ImportKind::Code,
             symbol: "CreateFileW".to_string(),
             dll: "KERNEL32.dll".to_string(),
             name: ImportName::Name("CreateFileW".into()),
         }]
     );
+}
+
+#[test]
+fn preserves_machine_and_import_kind() {
+    for machine in [0x14c_u16, 0x8664, 0xaa64] {
+        for (bits, kind) in [
+            (0, ImportKind::Code),
+            (1, ImportKind::Data),
+            (2, ImportKind::Const),
+        ] {
+            let mut data = short_import("Entry", "example.dll");
+            data[6..8].copy_from_slice(&machine.to_le_bytes());
+            data[18..20].copy_from_slice(&(4_u16 | bits).to_le_bytes());
+            let imports = implib::read(&archive(&[member("import/", &data)])).unwrap();
+            assert_eq!(imports[0].machine, machine);
+            assert_eq!(imports[0].kind, kind);
+        }
+    }
+    let mut data = short_import("Entry", "example.dll");
+    data[18..20].copy_from_slice(&7_u16.to_le_bytes());
+    assert!(implib::read(&archive(&[member("import/", &data)])).is_err());
 }
 
 #[test]

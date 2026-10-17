@@ -1,0 +1,23 @@
+#[win32]
+mod Fixture {
+    type USHORT = u16;
+}
+#[win32]
+mod Fixture {
+    type BYTE = u8;
+}
+#[win32]
+mod Fixture {
+    #[packed(1)]
+    struct ITEMIDLIST {
+        mkid: SHITEMID,
+    }
+    type LPCITEMIDLIST = *const ITEMIDLIST;
+    type LPITEMIDLIST = *mut ITEMIDLIST;
+    type LPSHITEMID = *mut SHITEMID;
+    #[packed(1)]
+    struct SHITEMID {
+        cb: USHORT,
+        abID: [BYTE; 1],
+    }
+}

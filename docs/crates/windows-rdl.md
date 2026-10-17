@@ -46,7 +46,9 @@ Writer inputs are definitions to render; `input_default` renders the bundled met
 Writer filters accept namespace prefixes, qualified or unqualified names, and `!` exclusions.
 `split` writes one file per namespace. `partition` accepts an item-name -> file-stem map and writes
 one file per defining header. `item_names` reads the names declared under one namespace without
-compiling the file.
+compiling the file. `enum_member_names` reads enum member names separately, including scoped
+members and deduplicating architecture variants. These queries report names, not type, scope,
+value, or architecture equivalence.
 
 ## RDL syntax
 
@@ -127,6 +129,13 @@ struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
 Member offsets are implicit. Each offset is the total width of earlier members, including padding.
 The reader writes one `Windows.Win32.Metadata.NativeBitfieldAttribute(name, offset, width)` custom
 attribute per named member. The writer renders it back to block form.
+
+An optional `MemberType: System.Type` named argument retains a member type independently of
+storage. Write it explicitly, for example
+`#[Windows::Win32::Metadata::NativeBitfield("delta", 0, 3, MemberType = i32)]`.
+Typed members remain explicit attributes rather than block shorthand. Primitive, enum, and typedef
+names survive both metadata round trips; namespace remapping also updates named type values.
+Updated metadata readers are required for the named `System.Type` serialization tag.
 
 See [`windows-clang`](windows-clang.md#bit-field-member-scraping) for how the scraper emits bit
 fields. See [`windows-bindgen`](windows-bindgen.md#bit-field-accessors) for the accessors they
@@ -255,9 +264,10 @@ the combined output. `ArchInput` stores its RDL directory and winmd as `PathBuf`
 ### Import libraries
 
 `implib::read` reads COFF short-import members in archive order, preserving duplicate entries.
-Each import retains the linker symbol, DLL, and `ImportName`: either the named PE export or its
-ordinal. Name-prefix removal, undecoration, and export-as names follow the short-import header,
-not assumptions about the linker symbol. Library precedence and corrections belong to the driver.
+Each import retains the machine, code/data/const kind, linker symbol, DLL, and `ImportName`: either
+the named PE export or its ordinal. Name-prefix removal, undecoration, and export-as names follow
+the short-import header, not assumptions about the linker symbol. Machine selection, library
+precedence, and corrections belong to the driver.
 
 ### Published crates and namespace remap
 

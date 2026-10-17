@@ -45,13 +45,19 @@ out-of-line definitions. RDL preserves their scope through inline fields or nest
 and references such as `Outer::Inner`. Nested enums and aliases declared inside records remain
 unsupported.
 Callback capture checks native function properties before accepting a prototype. Explicit
-`regparm`, `noreturn`, variadic functions, other calling conventions, and unknown attributes remain
+`regparm`, variadic functions, other calling conventions, and unknown attributes remain
 unsupported rather than being normalized to ordinary C. Unconditional `noexcept`, `nothrow`,
 and empty `throw()` retain their native distinction and publish an explicit
 `NativeExceptionSpecificationAttribute`
 on functions, methods, and named callbacks. Other exception specifications remain unsupported.
-The native qualifier query rejects `__unaligned` and other non-CVR qualifiers before interning,
-including qualifiers inherited through typedefs.
+Native `noreturn` function properties and declaration-owned `[[noreturn]]` remain distinct during
+reconciliation and emit `DoesNotReturnAttribute` on imports, methods, and named callbacks.
+An unnamed non-returning or non-throwing pointer needs a compatible named callback because a
+structural function-pointer signature has no attribute owner.
+The native qualifier query retains `__unaligned` only for storage whose canonical unqualified
+alignment is already one, including inherited typedef qualifiers. Native comparison preserves the
+request; metadata needs no additional alignment modifier. Wider or incomplete storage and other
+non-CVR qualifiers remain rejected before interning.
 Default type visibility is retained and compared as native evidence. It needs no metadata
 attribute for plain records and enums. Interface publication handles its own vtable contract;
 C++ RTTI is not projected.
@@ -68,6 +74,20 @@ use compatible callback names resolved across the target, independent of the rep
 Without a compatible name they use inline `extern "C" fn(...)` or `extern fn(...)` types, encoded
 as ECMA-335 `FNPTR` signatures. No public callback names are synthesized.
 
+Scalar constants with conflicting unannotated aliases use their common native primitive type.
+Unique written aliases remain preserved. Alias contracts are checked across all observations,
+including inputs that do not use the constant. Native type, value, and annotation conflicts stay
+errors; this rule does not apply to enum, pointer, record, or callable aliases.
+
+Bare function typedefs also publish named callbacks. Their native types remain functions: an
+authored pointer or parameter adjustment becomes the callback value, while additional pointer
+levels stay explicit. These typedefs do not supply names for unrelated inline function pointers.
+
+Compiler-provided global aliases retain native observations and compatibility checks, but do not
+create public metadata names without an authored declaration. Their underlying types remain usable
+through authored aliases such as `va_list`. Native origin comes from the compiler, not file names
+or missing source locations.
+
 Incomplete global structs publish empty nominal pointee markers, not native storage layouts.
 Pointers preserve their tag identity and qualifiers. A definition in another input supplies the
 real record; failed or complete empty definitions cannot fall back to markers. Incomplete records
@@ -80,11 +100,13 @@ This does not publish a class layout or make the tag usable as a metadata type. 
 rename the constant, and unrelated `CLSID_*` or `IID_*` object declarations still need definitions.
 
 External C-linkage functions retain native signatures, parameter names, and mangling.
-`project_with_imports` and `project_partial_with_imports` take explicit DLL/export ownership;
-it is not guessed from headers. Function `dllimport` and `dllexport` remain distinct native
-attributes; neither supplies the DLL identity. The SDK driver uses `--sdk-imports` with the pinned
-SDK's ordered import-library policy and checked corrections. Ordinal-only imports remain explicit
-omissions. Native-compatible free-function redeclarations with ambiguous public names or aliases
+`project_with_imports` and `project_partial_with_imports` take `projection::Imports`.
+Explicit public-name mappings in `functions` override target-specific native linker mappings in
+`symbols`. DLL/export ownership is not guessed from headers. Function `dllimport` and `dllexport`
+remain distinct native attributes; neither supplies the DLL identity. The SDK driver reads each
+target's pinned import libraries in policy order, applies checked DLL corrections, and preserves
+named exports or ordinals. Ordinals survive RDL/WinMD; bindgen support remains a consumer gap.
+Native-compatible free-function redeclarations with ambiguous public names or aliases
 remain strict errors; partial mode reports and omits them on every target.
 UUID-bearing, single-vptr interfaces support a public non-virtual
 base and ordered public pure virtual methods with the platform COM convention. C++ lvalue
@@ -111,7 +133,8 @@ independent failed parse. Compiler-tokenized empty definitions need no expressio
 Independent confirmations run on separate, precreated indices. The available CPU count, capped at
 24, is divided across targets, with at least one worker per target. Results retain candidate order.
 The SDK driver exposes discovery as repeatable `--macro-header=header.h`, or `--sdk-macros`
-for the pinned SDK's `um` and `shared` header filenames, including transitive owners.
+for the pinned SDK's `um` and `shared` header filenames, including transitive owners, plus the
+selected input headers. This includes selected WinRT headers without scanning the whole directory.
 The include manifest still determines which headers are parsed. The driver writes its inputs and
 resolved imports to `target/win32-2/capture-configuration.txt`; `--dry-run` writes that configuration
 without changing RDL/WinMD.
@@ -160,12 +183,35 @@ Deprecation messages and replacement names retain explicit `NativeDeprecatedAttr
 Empty payloads and enum-member annotations survive metadata round trips. Relocated typedef
 annotations retain their original owner; conflicting deprecation payloads are rejected.
 
-The SDK driver preserves SAL source-hook evidence through the provisional `NativeSalAttribute`,
-including capacity, initialized-length, and conditional contracts. Common parameter direction and
-argument-optionality flags are also projected. This is not a complete SAL interpreter; expressions
-and nested contracts remain explicit evidence. Direct named integer buffer capacities emit
+Imported prototypes may differ in parameter names when their published types and annotations agree.
+Selection prefers a complete observed prototype with more authored names, then lexical declaration
+order. Native compatibility is checked first; different written type identities remain conflicts
+even when their ABI matches.
+
+The SDK driver retains SAL source-hook evidence in native observations. Simple parameter direction
+and optionality contracts share semantic normalization across reconciliation and publication,
+including the SDK's corresponding SAL1/SAL2 forms. Direct named buffer capacities normalize to
+parameter indices with byte/element units. Reserved parameter contracts emit `#[reserved]` for the
+zero/null requirement without inventing direction or optionality. These contracts emit canonical
+flags and count attributes rather than duplicate `NativeSalAttribute` payloads.
+Seven direct RPC SAL aliases share this
+normalization; RPC input direction and optionality emit flags while retaining their distinct
+evidence, without assuming SAL2's readonly guarantee. Composed contracts retain raw evidence.
+RPC dereferenced-pointer forms lower outer direction and optionality without confusing inner-pointer
+nullability with optional argument storage. SAL2 out-pointer forms use the same checked flag path;
+inner-pointer and COM failure contracts remain evidence.
+Direct RPC string contracts also lower termination while retaining native evidence. Optional inout
+strings require termination on entry, without promising it on success.
+RPC buffers also lower direct element capacities and successful initialized lengths independently.
+Input readable lengths remain entry evidence; output/inout `xcount` arguments do not become counts.
+Zero termination records distinct entry and successful-output conditions without inferring an
+encoding. Initialized length records a separate
+integer parameter or one dereference, with byte/element units; it is not substituted for capacity.
+Success predicates and count-pointer optionality remain separate contracts. This is not a complete
+SAL interpreter; unsupported expressions and nested contracts retain `NativeSalAttribute` evidence.
+Direct named integer buffer capacities emit
 `size_param` for bytes and `len_param` for elements, using the declared parameter index.
-Initialized length is not substituted for capacity. Other expressions retain SAL evidence without
+Other expressions retain SAL evidence without
 an inferred count relationship. Typedef publication accepts an observed annotation
 set that contains all other observations, but never invents a union of incomparable sets.
 Callback parameter names and contracts belong to declaration observations, not shared ABI types.
@@ -183,10 +229,12 @@ combined packing/alignment, and packed records containing aligned types remain u
 Unions retain their record kind, publish explicit-layout fields at offset zero, and must match
 captured size and alignment. Structs and unions never share a public family, even with identical
 fields and layouts.
-Integer bitfields retain evaluated widths and native offsets. Projection coalesces
+Integer, bool, and enum bitfields retain evaluated widths and native offsets. Projection coalesces
 compatible members into checked storage fields, preserving unnamed padding and zero-width
-barriers in native evidence. Union members use separate offset-zero storage fields. Mixed
-signedness between named members in one storage unit and enum/bool bitfields remain unsupported.
+barriers in native evidence. Union members use separate offset-zero storage fields.
+`NativeBitfieldAttribute.MemberType` preserves mixed signedness, bool and enum types, written
+typedefs, and single-bit integer semantics independently of storage. Typed metadata requires updated
+readers; untyped attributes retain their existing interpretation.
 Storage layouts must match native size, alignment, and offsets; no packing request is inferred.
 Downstream union-accessor defects are tracked separately rather than blocking correct metadata.
 Enums retain nominal identity, scopedness, exact signed/unsigned values, and backing types.

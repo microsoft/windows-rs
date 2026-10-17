@@ -35,6 +35,7 @@ struct PackTwo { char value; };
 #pragma pack(pop)
 
 typedef struct NativeTag { int value; } NativeOwned;
+typedef __builtin_va_list NativeBuiltinArguments;
 typedef NativeOwned NativeAlias;
 typedef struct NativeTag NativeTagAlias;
 typedef NativeOwned* NativePointer;
@@ -103,6 +104,9 @@ typedef CVInt InheritedCVInt;
 typedef int* __restrict RestrictedPointer;
 typedef __unaligned int UnalignedInt;
 typedef UnalignedInt InheritedUnalignedInt;
+struct NativeByteRecord { unsigned char value; };
+typedef __unaligned NativeByteRecord UnalignedByteRecord;
+typedef UnalignedByteRecord InheritedUnalignedByteRecord;
 typedef __attribute__((address_space(1))) int AddressSpaceInt;
 typedef void (*PlainPointer)(int*);
 enum { NativeExtent = 3 };

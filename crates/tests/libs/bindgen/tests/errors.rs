@@ -14,6 +14,43 @@ fn missing_command_file_panics() {
 }
 
 #[test]
+fn invalid_bitfield_members() {
+    let source = include_str!("../input/struct_typed_bitfield.rdl");
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("invalid_bitfield_members");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    let output = scratch.join("output.rs");
+    for (replacement, expected) in [
+        ("0, 4, MemberType = f32", "unsupported bitfield member type"),
+        ("0, 9, MemberType = i8", "exceeds its member type"),
+        ("0, 0, MemberType = i32", "exceeds its backing type"),
+        ("15, 4, MemberType = i32", "exceeds its backing type"),
+    ] {
+        windows_rdl::reader()
+            .input_text(&source.replace("0, 4, MemberType = Alias", replacement))
+            .output(&winmd)
+            .write()
+            .unwrap();
+        let result = std::panic::catch_unwind(|| {
+            windows_bindgen::builder()
+                .input(&winmd)
+                .filter("Test.Bits")
+                .flat()
+                .output(&output)
+                .write();
+        })
+        .unwrap_err();
+        let message = result
+            .downcast_ref::<String>()
+            .map(String::as_str)
+            .or_else(|| result.downcast_ref::<&str>().copied())
+            .unwrap();
+        assert!(message.contains(expected), "{message}");
+    }
+    std::fs::remove_file(winmd).unwrap();
+}
+
+#[test]
 #[should_panic(expected = "failed to open file")]
 fn missing_filter_file_panics() {
     let missing = std::env::temp_dir().join("test_bindgen_missing_filter_file.txt");

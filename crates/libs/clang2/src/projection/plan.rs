@@ -206,6 +206,9 @@ impl Plan {
         let mut defining = vec![Vec::new(); self.families.len()];
         let mut enum_defining = vec![Vec::new(); self.enum_names.len()];
         for (id, alias) in resolution.aliases.iter().enumerate() {
+            if alias_source(resolution, alias).is_none() {
+                continue;
+            }
             let defines = alias.observations.iter().any(|reference| {
                 resolution.snapshots[reference.snapshot].aliases[reference.alias.0].observations
                     [reference.observation]
@@ -287,7 +290,9 @@ impl Plan {
                 let snapshot = resolution.snapshots[reference.snapshot];
                 let observation =
                     &snapshot.aliases[reference.alias.0].observations[reference.observation];
-                observation.parameters.is_none() || callback_contracts(snapshot, observation)
+                observation.implicit
+                    || observation.parameters.is_none()
+                    || callback_contracts(snapshot, observation)
             }) {
                 continue;
             }
@@ -347,6 +352,9 @@ impl Plan {
             let snapshot = resolution.snapshots[reference.snapshot];
             let observation =
                 &snapshot.aliases[reference.alias.0].observations[reference.observation];
+            if observation.implicit {
+                continue;
+            }
             let header = &snapshot.files[observation.location.file.0];
             headers.insert(header.clone());
             let mut ty = observation.canonical;
@@ -500,6 +508,16 @@ impl Plan {
             for other in &alias.observations[1..] {
                 let b = &resolution.snapshots[other.snapshot].aliases[other.alias.0].observations
                     [other.observation];
+                if let (Some(a), Some(b)) = (
+                    callback_parameters(resolution.snapshots[first.snapshot], a),
+                    callback_parameters(resolution.snapshots[other.snapshot], b),
+                ) && !resolve::parameters_equal(a, b)
+                {
+                    return Err(Error(format!(
+                        "conflicting public names or contracts for `{}`: callback parameter annotations differ",
+                        alias.name
+                    )));
+                }
                 if !abi_attributes_equal(&a.attributes, &b.attributes)
                     || !self.same_type(
                         resolution,

@@ -55,6 +55,22 @@ mod Windows {
                 fn();
                 BytesParamIndex: i16,
             }
+            // Zero termination is independent of capacity and does not specify an encoding.
+            // OnSuccess is a postcondition subject to the callable's success contract.
+            attribute NativeNullTerminatedAttribute {
+                fn();
+                OnEntry: bool,
+                OnSuccess: bool,
+            }
+            // Initialized length on successful completion, not allocated capacity.
+            // CountParamIndex is zero-based. False IsByteCount means elements.
+            // Dereference selects the pointed-to count and does not imply a non-null pointer.
+            attribute NativeInitializedLengthAttribute {
+                fn();
+                CountParamIndex: i16,
+                IsByteCount: bool,
+                Dereference: bool,
+            }
             // Marks a parameter that is reserved and must be zero/null (SAL `_Reserved_`).
             // RDL: `#[reserved]`.
             attribute ReservedAttribute {
@@ -78,11 +94,12 @@ mod Windows {
             // attribute instance per member — carrying the member's name, its bit
             // offset within the backing field, and its width in bits. bindgen reads
             // these to generate typed get/set accessors. Signedness of a multi-bit
-            // member is taken from the backing field's own type.
+            // member is taken from the backing field unless MemberType is supplied.
             // RDL: written as a C-like block on the backing field, e.g.
             // `_bitfield: u8 { Name: 1, _: 3, Other: 4 }` (anonymous padding is `_`).
             attribute NativeBitfieldAttribute {
                 fn(name: String, offset: i64, length: i64);
+                MemberType: Type,
             }
             // Provisional native evidence emitted by windows-clang2.
             attribute NativeSalAttribute {

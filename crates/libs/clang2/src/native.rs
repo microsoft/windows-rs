@@ -72,6 +72,14 @@ pub(super) fn field_initializer(cursor: CXCursor) -> Result<bool, Error> {
     Ok(value != 0)
 }
 
+pub(super) fn typedef_implicit(cursor: CXCursor) -> Result<bool, Error> {
+    let mut value = 0;
+    if unsafe { windows_clang_getTypedefImplicit(cursor, &raw mut value) } != WindowsClangSuccess {
+        return Err(unsupported(cursor, "implicit typedef query failed"));
+    }
+    Ok(value != 0)
+}
+
 pub(super) fn layout_expression(
     declaration: CXCursor,
     expression: CXCursor,

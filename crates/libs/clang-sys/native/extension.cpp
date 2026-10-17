@@ -19,7 +19,7 @@ static const char* attributeName(clang::attr::Kind kind) {
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 15;
+    return 16;
 }
 
 WindowsClangStatus windows_clang_getTypeOfOperand(CXCursor cursor, CXCursor* expression) {
@@ -445,6 +445,22 @@ WindowsClangStatus windows_clang_getTypedefDefinition(CXCursor cursor, unsigned*
     auto tag = declaration->getTypeSourceInfo()->getTypeLoc()
         .getUnqualifiedLoc().getAs<clang::TagTypeLoc>();
     *defines_tag = !tag.isNull() && tag.isDefinition();
+    return WindowsClangSuccess;
+}
+
+WindowsClangStatus windows_clang_getTypedefImplicit(CXCursor cursor, unsigned* is_implicit) {
+    if (!is_implicit) {
+        return WindowsClangInvalidArgument;
+    }
+    if (cursor.kind != CXCursor_TypedefDecl && cursor.kind != CXCursor_TypeAliasDecl) {
+        return WindowsClangWrongKind;
+    }
+    auto declaration = llvm::dyn_cast<clang::TypedefNameDecl>(
+        clang::cxcursor::getCursorDecl(cursor));
+    if (!declaration) {
+        return WindowsClangWrongKind;
+    }
+    *is_implicit = declaration->isImplicit();
     return WindowsClangSuccess;
 }
 

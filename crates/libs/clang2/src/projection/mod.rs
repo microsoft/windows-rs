@@ -40,6 +40,23 @@ pub struct Import {
     pub name: Option<String>,
 }
 
+#[derive(Clone, Debug, Default)]
+pub struct Imports {
+    /// Explicit public-name mappings take precedence on every target.
+    pub functions: BTreeMap<String, Import>,
+    /// SDK mappings use exact compiler linker symbols within each target.
+    pub symbols: BTreeMap<Target, BTreeMap<String, Import>>,
+}
+
+impl FromIterator<(String, Import)> for Imports {
+    fn from_iter<T: IntoIterator<Item = (String, Import)>>(iter: T) -> Self {
+        Self {
+            functions: iter.into_iter().collect(),
+            ..Default::default()
+        }
+    }
+}
+
 #[derive(Debug, Eq, PartialEq)]
 pub struct PartialOutput {
     pub output: Output,
@@ -56,13 +73,13 @@ pub fn generate_partial(inputs: &[Input], namespace: &str) -> Result<PartialOutp
 
 /// Projects an existing partial capture without reparsing its headers.
 pub fn project_partial(captured: PartialCapture, namespace: &str) -> Result<PartialOutput, Error> {
-    project_partial_with_imports(captured, namespace, &BTreeMap::new())
+    project_partial_with_imports(captured, namespace, &Imports::default())
 }
 
 pub fn project_partial_with_imports(
     captured: PartialCapture,
     namespace: &str,
-    imports: &BTreeMap<String, Import>,
+    imports: &Imports,
 ) -> Result<PartialOutput, Error> {
     let mut snapshots = captured.snapshots;
     let published_aliases: HashSet<_> = snapshots
@@ -73,7 +90,7 @@ pub fn project_partial_with_imports(
                 .iter()
                 .filter(|alias| {
                     alias.observations.iter().any(|observation| {
-                        publishable_alias(snapshot, observation.canonical)
+                        publishable_alias(snapshot, observation)
                             || !resolve::alignments(&observation.attributes).is_empty()
                             || !resolve::sal(&observation.attributes).is_empty()
                             || !resolve::deprecations(&observation.attributes).is_empty()
@@ -159,13 +176,13 @@ pub fn generate(inputs: &[Input], namespace: &str) -> Result<Output, Error> {
 /// Checked by-value alias families share a public record, without merging native identities.
 /// Other reachable value names remain transparent aliases. Shared ownership uses foundation.rdl.
 pub fn project(merged: &Merged<'_>, namespace: &str) -> Result<Output, Error> {
-    project_with_imports(merged, namespace, &BTreeMap::new())
+    project_with_imports(merged, namespace, &Imports::default())
 }
 
 pub fn project_with_imports(
     merged: &Merged<'_>,
     namespace: &str,
-    imports: &BTreeMap<String, Import>,
+    imports: &Imports,
 ) -> Result<Output, Error> {
     project_impl(merged, namespace, imports, None)
 }
@@ -173,7 +190,7 @@ pub fn project_with_imports(
 fn project_impl(
     merged: &Merged<'_>,
     namespace: &str,
-    imports: &BTreeMap<String, Import>,
+    imports: &Imports,
     mut rejected: Option<&mut partial::Issues>,
 ) -> Result<Output, Error> {
     if merged.targets.keys().copied().collect::<Vec<_>>() != TARGETS {
@@ -274,8 +291,12 @@ fn project_impl(
                     )
                 })
                 .collect::<Result<Vec<_>, _>>()
-                .and_then(|bodies| {
-                    agree(&value.name, target, &bodies)?;
+                .and_then(|mut bodies| {
+                    if matches!(kind, PublishedKind::Function) {
+                        projector.agree_functions(value, target, &mut bodies)?;
+                    } else {
+                        projector.agree_constants(value, target, definition, &mut bodies)?;
+                    }
                     Ok(bodies)
                 });
             match bodies {
@@ -557,10 +578,10 @@ fn project_impl(
                 )?;
                 continue;
             }
-            let first = alias.observations[0];
+            let first = alias_source(resolution, alias).unwrap_or(alias.observations[0]);
             let snapshot = resolution.snapshots[first.snapshot];
-            let canonical =
-                snapshot.aliases[first.alias.0].observations[first.observation].canonical;
+            let observation = &snapshot.aliases[first.alias.0].observations[first.observation];
+            let canonical = observation.canonical;
             if let TypeKind::Record(record) = snapshot.types[canonical.0].kind
                 && projector
                     .uuid_tag(resolution.group(RecordRef {
@@ -590,7 +611,7 @@ fn project_impl(
                 }
                 continue;
             }
-            if !publishable_alias(snapshot, canonical)
+            if !publishable_alias(snapshot, observation)
                 && alias.observations.iter().any(|reference| {
                     let snapshot = resolution.snapshots[reference.snapshot];
                     callback_contracts(
@@ -609,8 +630,9 @@ fn project_impl(
                 )?;
                 continue;
             }
-            if (!root_aliases.contains(alias.name.as_str())
-                && !publishable_alias(snapshot, canonical))
+            if observation.implicit
+                || (!root_aliases.contains(alias.name.as_str())
+                    && !publishable_alias(snapshot, observation))
                 || plan.aliases[id].is_some_and(|family| plan.names[family] == alias.name)
                 || plan.enum_aliases[id].is_some_and(|group| plan.enum_names[group] == alias.name)
             {
@@ -632,6 +654,11 @@ fn project_impl(
             let bodies = alias
                 .observations
                 .iter()
+                .filter(|reference| {
+                    !resolution.snapshots[reference.snapshot].aliases[reference.alias.0]
+                        .observations[reference.observation]
+                        .implicit
+                })
                 .map(|reference| {
                     let snapshot = resolution.snapshots[reference.snapshot];
                     let observation =
@@ -807,9 +834,70 @@ struct Projector<'a, 'b> {
     plan: &'a Plan,
 }
 
-fn publishable_alias(snapshot: &Snapshot, id: TypeId) -> bool {
+fn publishable_alias(snapshot: &Snapshot, observation: &AliasObservation) -> bool {
+    let ty = &snapshot.types[observation.canonical.0];
+    !observation.implicit
+        && !ty.qualifiers.constant
+        && (ty.layout.is_some() || matches!(ty.kind, TypeKind::Record(_) | TypeKind::Function(_)))
+}
+
+fn alias_source(resolution: &Resolution<'_>, alias: &AliasGroup) -> Option<AliasObservationRef> {
+    alias.observations.iter().copied().find(|reference| {
+        !resolution.snapshots[reference.snapshot].aliases[reference.alias.0].observations
+            [reference.observation]
+            .implicit
+    })
+}
+
+fn checked_type(snapshot: &Snapshot, id: TypeId) -> Result<&Type, Error> {
     let ty = &snapshot.types[id.0];
-    !ty.qualifiers.constant && (ty.layout.is_some() || matches!(ty.kind, TypeKind::Record(_)))
+    if ty.qualifiers.unaligned && ty.layout.is_none_or(|layout| layout.alignment != 1) {
+        return Err(Error(
+            "unaligned type requires naturally byte-aligned storage".into(),
+        ));
+    }
+    if ty.qualifiers.volatile || ty.qualifiers.restrict {
+        return Err(Error(
+            "volatile/restrict type projection is not implemented".into(),
+        ));
+    }
+    if let TypeKind::Pointer(pointee) = ty.kind {
+        let size = if snapshot.target == Target::X86 { 4 } else { 8 };
+        if ty.layout
+            != Some(Layout {
+                size,
+                alignment: size,
+            })
+        {
+            return Err(Error("unsupported pointer layout".into()));
+        }
+        if matches!(snapshot.types[pointee.0].kind, TypeKind::Function(_))
+            && snapshot.types[pointee.0].qualifiers != Qualifiers::default()
+        {
+            return Err(Error(
+                "qualified function type projection is unsupported".into(),
+            ));
+        }
+    }
+    Ok(ty)
+}
+
+fn function_alias_name(snapshot: &Snapshot, mut id: TypeId) -> Option<&str> {
+    loop {
+        match snapshot.types[id.0].kind {
+            TypeKind::Attributed { modified, .. } => id = modified,
+            TypeKind::Alias(alias) => {
+                let alias = &snapshot.aliases[alias.0];
+                let observation = alias.observations.iter().find(|value| !value.implicit)?;
+                return matches!(
+                    snapshot.types[observation.canonical.0].kind,
+                    TypeKind::Function(_)
+                )
+                .then_some(alias.name.as_str());
+            }
+            _ => return None,
+        }
+    }
 }
 
 fn agree(name: &str, target: Target, bodies: &[Body]) -> Result<(), Error> {
@@ -904,14 +992,18 @@ impl Projector<'_, '_> {
         attributes: &[Attribute],
     ) -> Result<Body, Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
-        if !publishable_alias(snapshot, observation.canonical) {
+        if !publishable_alias(snapshot, observation) {
             return Err(Error(format!(
                 "typedef `{name}` is not an unqualified value type"
             )));
         }
         let name = ident(name)?;
-        if let Some(function) = callback(snapshot, observation.canonical) {
-            self.ty(snapshot_id, observation.canonical)?;
+        let canonical = checked_type(snapshot, observation.canonical)?;
+        let function = match &canonical.kind {
+            TypeKind::Function(function) => Some(function.as_ref()),
+            _ => callback(snapshot, observation.canonical),
+        };
+        if let Some(function) = function {
             let written = written_function(snapshot, observation.underlying)?;
             let mut body = self.callback(
                 snapshot_id,
@@ -919,6 +1011,7 @@ impl Projector<'_, '_> {
                 written,
                 &name,
                 callback_parameters(snapshot, observation),
+                attributes,
             )?;
             body.attributes.extend(annotations::write(attributes));
             body.attributes.extend(annotations::inherited_callback(
@@ -944,9 +1037,7 @@ impl Projector<'_, '_> {
                 self.namespace,
                 &self.plan.names[self.plan.family(snapshot_id, record)],
             )
-        } else if callback_parameters(snapshot, observation).is_some()
-            && callback_contracts(snapshot, observation)
-        {
+        } else if callback_parameters(snapshot, observation).is_some() {
             self.written_ty(snapshot_id, observation.underlying, observation.canonical)?
         } else {
             self.ty(snapshot_id, observation.canonical)?
@@ -965,6 +1056,7 @@ impl Projector<'_, '_> {
         written: &Function,
         name: &TokenStream,
         declarations: Option<&[Parameter]>,
+        attributes: &[Attribute],
     ) -> Result<Body, Error> {
         let signature = self.signature(snapshot, function, Some(written))?;
         let abi = match function.convention {
@@ -993,7 +1085,7 @@ impl Projector<'_, '_> {
             quote! { -> #result }
         };
         Ok(Body {
-            attributes: annotations::function(written),
+            attributes: annotations::function(written, attributes),
             declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
         })
     }
@@ -1107,15 +1199,19 @@ impl Projector<'_, '_> {
                 _ => break,
             }
         }
-        if let TypeKind::Function(written) = &snapshot.types[source.0].kind
+        if let TypeKind::Function(prototype) = &snapshot.types[source.0].kind
             && let Some(function) = callback(snapshot, canonical)
         {
+            checked_type(snapshot, canonical)?;
+            if let Some(name) = function_alias_name(snapshot, written) {
+                return Ok(MetadataType::class_named(self.namespace, name));
+            }
             let value = self.ty(snapshot_id, canonical)?;
             return if matches!(value, MetadataType::FnPtr(_)) {
                 Ok(MetadataType::FnPtr(Box::new(self.signature(
                     snapshot_id,
                     function,
-                    Some(written),
+                    Some(prototype),
                 )?)))
             } else {
                 Ok(value)
@@ -1124,7 +1220,7 @@ impl Projector<'_, '_> {
         if let TypeKind::Array { element, .. } = snapshot.types[source.0].kind
             && let TypeKind::Pointer(pointee) = snapshot.types[canonical.0].kind
         {
-            self.ty(snapshot_id, canonical)?;
+            checked_type(snapshot, canonical)?;
             let inner = Box::new(self.written_ty(snapshot_id, element, pointee)?);
             return Ok(if snapshot.types[pointee.0].qualifiers.constant {
                 MetadataType::PtrConst(inner, 1)
@@ -1154,34 +1250,44 @@ impl Projector<'_, '_> {
         written: TypeId,
         canonical: TypeId,
     ) -> Result<MetadataType, Error> {
-        let value = self.ty(snapshot_id, canonical)?;
         let snapshot = self.resolution.snapshots[snapshot_id];
+        let native = checked_type(snapshot, canonical)?;
         Ok(match &snapshot.types[written.0].kind {
             TypeKind::Alias(id)
-                if publishable_alias(
-                    snapshot,
-                    snapshot.aliases[id.0].observations[0].canonical,
-                ) =>
+                if snapshot.aliases[id.0]
+                    .observations
+                    .iter()
+                    .any(|observation| publishable_alias(snapshot, observation)) =>
             {
-                let name = &snapshot.aliases[id.0].name;
+                let alias = &snapshot.aliases[id.0];
+                if callback_parameters(snapshot, &alias.observations[0]).is_none() {
+                    self.ty(snapshot_id, canonical)?;
+                }
+                let name = &alias.name;
                 if callback(snapshot, canonical).is_some() {
                     MetadataType::class_named(self.namespace, name)
+                } else if matches!(native.kind, TypeKind::Function(_)) {
+                    return Err(Error("function values require a native pointer".into()));
                 } else {
                     MetadataType::value_named(self.namespace, name)
                 }
             }
             TypeKind::Pointer(written) => {
-                let TypeKind::Pointer(canonical) = snapshot.types[canonical.0].kind else {
+                let TypeKind::Pointer(pointee) = native.kind else {
                     return Err(Error(
                         "written pointer has a non-pointer canonical type".into(),
                     ));
                 };
-                if let TypeKind::Record(record) = snapshot.types[canonical.0].kind
+                if let TypeKind::Record(record) = snapshot.types[pointee.0].kind
                     && self.interface_record(snapshot_id, record)
                 {
-                    return Ok(value);
+                    return self.ty(snapshot_id, canonical);
                 }
-                if let TypeKind::Function(function) = &snapshot.types[canonical.0].kind {
+                if let TypeKind::Function(function) = &snapshot.types[pointee.0].kind {
+                    if let Some(name) = function_alias_name(snapshot, *written) {
+                        return Ok(MetadataType::class_named(self.namespace, name));
+                    }
+                    let value = self.ty(snapshot_id, canonical)?;
                     if matches!(value, MetadataType::FnPtr(_)) {
                         MetadataType::FnPtr(Box::new(self.signature(
                             snapshot_id,
@@ -1192,8 +1298,8 @@ impl Projector<'_, '_> {
                         value
                     }
                 } else {
-                    let inner = Box::new(self.written_ty(snapshot_id, *written, canonical)?);
-                    if snapshot.types[canonical.0].qualifiers.constant {
+                    let inner = Box::new(self.written_ty(snapshot_id, *written, pointee)?);
+                    if snapshot.types[pointee.0].qualifiers.constant {
                         MetadataType::PtrConst(inner, 1)
                     } else {
                         MetadataType::PtrMut(inner, 1)
@@ -1223,18 +1329,13 @@ impl Projector<'_, '_> {
             TypeKind::Attributed { modified, .. } => {
                 self.written_ty(snapshot_id, *modified, canonical)?
             }
-            _ => value,
+            _ => self.ty(snapshot_id, canonical)?,
         })
     }
 
     fn ty(&self, snapshot_id: usize, id: TypeId) -> Result<MetadataType, Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
-        let ty = &snapshot.types[id.0];
-        if ty.qualifiers.volatile || ty.qualifiers.restrict {
-            return Err(Error(
-                "volatile/restrict type projection is not implemented".into(),
-            ));
-        }
+        let ty = checked_type(snapshot, id)?;
         Ok(match &ty.kind {
             TypeKind::Void => MetadataType::Void,
             TypeKind::Scalar(scalar) => {
@@ -1269,23 +1370,14 @@ impl Projector<'_, '_> {
                 value
             }
             TypeKind::Pointer(pointee) => {
-                let size = if snapshot.target == Target::X86 { 4 } else { 8 };
-                if ty.layout
-                    != Some(Layout {
-                        size,
-                        alignment: size,
-                    })
-                {
-                    return Err(Error("unsupported pointer layout".into()));
-                }
                 if let TypeKind::Function(function) = &snapshot.types[pointee.0].kind {
-                    if snapshot.types[pointee.0].qualifiers != Qualifiers::default() {
-                        return Err(Error(
-                            "qualified function type projection is unsupported".into(),
-                        ));
-                    }
                     return if let Some(name) = self.plan.callbacks[snapshot_id].get(&id) {
                         Ok(MetadataType::class_named(self.namespace, name))
+                    } else if function.noreturn {
+                        Err(Error(
+                            "noreturn function pointer requires a named callback to retain its contract"
+                                .into(),
+                        ))
                     } else if function.exceptions != ExceptionSpecification::None {
                         Err(Error(
                             "noexcept function pointer requires a named callback to retain its contract"
@@ -1302,12 +1394,7 @@ impl Projector<'_, '_> {
                 if let TypeKind::Record(record) = snapshot.types[pointee.0].kind
                     && self.interface_record(snapshot_id, record)
                 {
-                    let qualifiers = &snapshot.types[pointee.0].qualifiers;
-                    if qualifiers.volatile || qualifiers.restrict {
-                        return Err(Error(
-                            "volatile/restrict interface projection is not implemented".into(),
-                        ));
-                    }
+                    checked_type(snapshot, *pointee)?;
                     // COM references do not express C++ object constness. Outer pointer
                     // qualifiers still describe pointer storage and are projected normally.
                     return Ok(MetadataType::class_named(
@@ -1687,7 +1774,7 @@ impl Projector<'_, '_> {
         let mut anonymous = 0;
         for (position, group) in groups.into_iter().enumerate() {
             let field = &group[0];
-            let (field_name, ty, members) = if field.bit_width.is_some() {
+            let (field_name, ty, members, member_attributes) = if field.bit_width.is_some() {
                 bitfield_index += 1;
                 let backing = if bitfield_count == 1 {
                     "_bitfield".to_string()
@@ -1699,36 +1786,73 @@ impl Projector<'_, '_> {
                         "bitfield backing `{backing}` collides in `{name}`"
                     )));
                 }
-                let members = group
+                let first = group
                     .iter()
-                    .rposition(|member| !member.name.is_empty())
-                    .map(|last| {
-                        let members = group[..=last].iter().map(|member| {
-                            let member_name = if member.name.is_empty() {
-                                quote! { _ }
-                            } else {
-                                ident(&member.name).unwrap()
-                            };
+                    .find(|member| !member.name.is_empty())
+                    .unwrap_or(field);
+                let mut ty = self.ty(snapshot_id, bitfields::backing(snapshot, first)?)?;
+                if ty == MetadataType::Bool {
+                    ty = MetadataType::U8;
+                }
+                let named = group
+                    .iter()
+                    .filter(|member| !member.name.is_empty())
+                    .map(|member| {
+                        Ok((
+                            member,
+                            self.written_ty(snapshot_id, member.written, member.canonical)?,
+                        ))
+                    })
+                    .collect::<Result<Vec<_>, Error>>()?;
+                let typed = named
+                    .iter()
+                    .any(|(member, member_ty)| *member_ty != ty || member.bit_width == Some(1));
+                let member_attributes = if typed {
+                    let mut attributes: Vec<_> = named
+                        .iter()
+                        .map(|(member, member_ty)| {
+                            let name = &member.name;
+                            let offset = proc_macro2::Literal::u64_unsuffixed(
+                                member.offset_bits - field.offset_bits,
+                            );
                             let width =
                                 proc_macro2::Literal::u32_unsuffixed(member.bit_width.unwrap());
-                            quote! { #member_name: #width, }
-                        });
-                        quote! { { #(#members)* } }
-                    });
+                            let member_ty = write_type(self.namespace, member_ty);
+                            quote! {
+                                #[Windows::Win32::Metadata::NativeBitfield(
+                                    #name, #offset, #width, MemberType = #member_ty
+                                )]
+                            }
+                        })
+                        .collect();
+                    attributes.sort_by_key(TokenStream::to_string);
+                    quote! { #(#attributes)* }
+                } else {
+                    TokenStream::new()
+                };
+                let members = (!typed).then(|| {
+                    group
+                        .iter()
+                        .rposition(|member| !member.name.is_empty())
+                        .map(|last| {
+                            let members = group[..=last].iter().map(|member| {
+                                let member_name = if member.name.is_empty() {
+                                    quote! { _ }
+                                } else {
+                                    ident(&member.name).unwrap()
+                                };
+                                let width =
+                                    proc_macro2::Literal::u32_unsuffixed(member.bit_width.unwrap());
+                                quote! { #member_name: #width, }
+                            });
+                            quote! { { #(#members)* } }
+                        })
+                });
                 (
                     ident(&backing)?,
-                    write_type(
-                        self.namespace,
-                        &self.ty(
-                            snapshot_id,
-                            group
-                                .iter()
-                                .find(|member| !member.name.is_empty())
-                                .unwrap_or(field)
-                                .canonical,
-                        )?,
-                    ),
+                    write_type(self.namespace, &ty),
                     quote! { #members },
+                    member_attributes,
                 )
             } else {
                 let field_name = if field.name.is_empty() {
@@ -1768,7 +1892,7 @@ impl Projector<'_, '_> {
                         &self.written_ty(snapshot_id, field.written, field.canonical)?,
                     )
                 };
-                (field_name, ty, TokenStream::new())
+                (field_name, ty, TokenStream::new(), TokenStream::new())
             };
             let layout = snapshot.types[field.canonical.0]
                 .layout
@@ -1788,7 +1912,7 @@ impl Projector<'_, '_> {
             size = size.max(offset + layout.size);
             alignment = alignment.max(field_alignment);
             let attributes = annotations::write(&field.attributes);
-            fields.push(quote! { #attributes #field_name: #ty #members, });
+            fields.push(quote! { #attributes #member_attributes #field_name: #ty #members, });
         }
         alignment = alignment.max(u64::from(forced.unwrap_or(1)));
         if definition.layout

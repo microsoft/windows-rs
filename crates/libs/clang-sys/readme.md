@@ -49,6 +49,8 @@ initializers. The integer-element query reads compiler-evaluated struct and arra
 zero-filled tails, without exposing Clang's C++ value layout or parsing initializer tokens.
 The `typeof` operand query preserves expression types before initializer conversions. A separate
 query desugars compiler-predefined types such as the result of `sizeof`, without erasing typedefs.
+The implicit-typedef query distinguishes compiler-provided declarations from authored aliases
+without treating a missing source location as evidence of their origin.
 Numeric data-pointer initializers have a separate static-initialization query. It rejects
 relocations, function pointers, side effects, and undefined behavior, and returns address bits
 sign-extended from the target pointer width.

@@ -647,6 +647,8 @@ impl File {
                 };
                 buffer.write_compressed(enum_name.len());
                 buffer.extend_from_slice(enum_name.as_bytes());
+            } else if matches!(value, Value::TypeName(_)) {
+                buffer.push(0x50); // System.Type in a custom attribute named argument.
             } else {
                 buffer.push(value.ty().code());
             }

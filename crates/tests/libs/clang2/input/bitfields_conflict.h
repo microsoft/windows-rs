@@ -4,7 +4,10 @@
 #ifndef WIDTH
 #define WIDTH 3
 #endif
+#ifndef MEMBER_TYPE
+#define MEMBER_TYPE unsigned int
+#endif
 
 typedef struct TAG {
-    unsigned int value : WIDTH;
+    MEMBER_TYPE value : WIDTH;
 } PublicBits;

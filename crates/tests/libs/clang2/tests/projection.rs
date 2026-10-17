@@ -693,22 +693,14 @@ fn unions() {
     let result =
         projection::generate_partial(&[selected_fixture("union_rejections", &[])], "Fixture")
             .unwrap();
-    assert_eq!(result.output.records, 3);
+    assert_eq!(result.output.records, 5);
     assert_eq!(
         result.output.partitions["union_rejections"].rdl,
         std::fs::read_to_string(input_dir().join("union_rejections.rdl"))
             .unwrap()
             .replace("\r\n", "\n")
     );
-    for name in ["Bad", "BadConsumer"] {
-        assert!(
-            result
-                .omissions
-                .iter()
-                .any(|message| message.contains(name)),
-            "{name}"
-        );
-    }
+    assert!(result.omissions.is_empty());
 
     let mut snapshots = capture(&[selected_fixture("unions", &[])], &TARGETS).unwrap();
     let snapshot = &mut snapshots[0];

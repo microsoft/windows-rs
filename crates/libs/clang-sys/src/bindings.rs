@@ -2346,6 +2346,8 @@ pub(crate) struct Functions {
     ) -> WindowsClangStatus,
     pub windows_clang_getTypedefDefinition:
         unsafe extern "C" fn(cursor: CXCursor, defines_tag: *mut u32) -> WindowsClangStatus,
+    pub windows_clang_getTypedefImplicit:
+        unsafe extern "C" fn(cursor: CXCursor, is_implicit: *mut u32) -> WindowsClangStatus,
     pub windows_clang_getUuid:
         unsafe extern "C" fn(cursor: CXCursor, uuid: *mut CXString) -> WindowsClangStatus,
     pub windows_clang_getVirtualMethodSlot:
@@ -4953,6 +4955,13 @@ impl Functions {
                         )
                     })?
             },
+            windows_clang_getTypedefImplicit: unsafe {
+                *extension
+                    .get(b"windows_clang_getTypedefImplicit\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getTypedefImplicit))
+                    })?
+            },
             windows_clang_getUuid: unsafe {
                 *extension
                     .get(b"windows_clang_getUuid\0")
@@ -7169,6 +7178,14 @@ pub unsafe fn windows_clang_getTypedefDefinition(
 ) -> WindowsClangStatus {
     crate::with_library(|library| unsafe {
         (library.functions.windows_clang_getTypedefDefinition)(cursor, defines_tag)
+    })
+}
+pub unsafe fn windows_clang_getTypedefImplicit(
+    cursor: CXCursor,
+    is_implicit: *mut u32,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getTypedefImplicit)(cursor, is_implicit)
     })
 }
 pub unsafe fn windows_clang_getUuid(cursor: CXCursor, uuid: *mut CXString) -> WindowsClangStatus {
