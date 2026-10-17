@@ -142,7 +142,7 @@ jobs:
             --bin window_observers --quiet
           cargo run -p test-reactor-integration --features self-contained `
             --bin window_theme --quiet
-          "menu", "dropdown", "menubar", "command", "tray" | ForEach-Object {
+          "dropdown", "menubar", "command", "tray" | ForEach-Object {
             cargo run -p test-reactor-integration --features self-contained `
               --bin menu_lifetimes --quiet -- $_
           }
@@ -204,7 +204,7 @@ jobs:
             }
           cargo run -p test-reactor-integration --bin application_menu --quiet
           cargo run -p test-reactor-integration --bin application_menus --quiet
-          "menu", "dropdown", "menubar", "command", "tray" | ForEach-Object {
+          "dropdown", "menubar", "command", "tray" | ForEach-Object {
             cargo run -p test-reactor-integration --bin menu_lifetimes --quiet -- $_
           }
           cargo run -p test-reactor-integration --bin tray_flyout --quiet

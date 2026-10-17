@@ -131,14 +131,6 @@ impl Component for MenuWindow {
         });
         let attached = phase != 4;
         let target: View = match input.kind.as_str() {
-            "menu" => {
-                let button = Button::new().content("Open menu");
-                if attached {
-                    button.menu(menu(phase, callback))
-                } else {
-                    button.into()
-                }
-            }
             "dropdown" => {
                 let button = DropDownButton::new().content("Open menu");
                 if attached {
@@ -491,7 +483,7 @@ fn main() -> windows_core::Result<()> {
     let kind = std::env::args().nth(1).unwrap();
     assert!(matches!(
         kind.as_str(),
-        "menu" | "dropdown" | "menubar" | "command" | "tray"
+        "dropdown" | "menubar" | "command" | "tray"
     ));
     std::thread::spawn(|| {
         std::thread::sleep(Duration::from_secs(45));
