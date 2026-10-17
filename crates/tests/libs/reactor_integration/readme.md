@@ -18,7 +18,6 @@ cargo run -p test-reactor-integration --bin tray_flyout
 cargo run -p test-reactor-integration --bin menu_position -- thread-unaware
 cargo run -p test-reactor-integration --bin canvas_integration
 cargo run -p test-reactor-integration --bin webview_integration
-cargo run -p test-reactor-integration --bin window_state
 cargo run -p test-reactor-integration --bin window_observers
 cargo run -p test-reactor-integration --bin window_theme
 cargo run -p test-reactor-integration --bin title_bar
@@ -35,8 +34,8 @@ The tray-flyout fixture uses an application-owned icon and checks that its menu 
 monitor, extends outside that monitor's work area, and closes during application shutdown.
 It measures menu-item bounds through UI Automation rather than the popup window's shadow bounds,
 and requires a running Windows shell with a notification area. Companion-crate fixtures exercise
-Canvas drawing and WebView initialization. The window-state fixture observes size and icon changes
-through the public window callback and Win32 APIs. The window-observer fixture covers callback
+Canvas drawing and WebView initialization. Window title, client-size, and icon updates are covered
+by [`test-reactor`](../reactor/readme.md). The window-observer fixture covers callback
 replacement without replay, real changes, removal, re-subscription, and independent subscriptions
 for color scheme, size, and placement. It also covers removal and re-subscription within one drain,
 handoff from a parent to a child, and replacement of the subscribing child. The title-bar fixture

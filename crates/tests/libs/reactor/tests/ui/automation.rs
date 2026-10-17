@@ -1,4 +1,5 @@
 use super::*;
+use std::cell::Cell;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 use windows_core::{HRESULT, Interface};
@@ -29,6 +30,7 @@ pub struct Automation {
     process: u32,
     condition: IUIAutomationCondition,
     title: String,
+    window: Cell<Option<usize>>,
     cancelled: Arc<AtomicBool>,
     pressed: Arc<Mutex<bool>>,
 }
@@ -72,6 +74,7 @@ impl Automation {
                 process,
                 condition,
                 title: format!("Reactor UI fixture: {fixture}"),
+                window: Cell::new(None),
                 cancelled,
                 pressed,
             })
@@ -514,21 +517,114 @@ impl Automation {
     }
 
     pub fn window_handle(&self) -> Result<usize> {
+        self.ensure_active()?;
+        let window = if let Some(window) = self.window.get() {
+            window
+        } else {
+            let window = self
+                .wait(
+                    &format!("find window {:?}", self.title),
+                    || unsafe {
+                        let roots = self.roots()?;
+                        for index in 0..roots.Length()? {
+                            let element = roots.GetElement(index)?;
+                            if element.CurrentName()? == self.title {
+                                return Ok(Some(element.CurrentNativeWindowHandle()? as usize));
+                            }
+                        }
+                        Ok(None)
+                    },
+                    Option::is_some,
+                )?
+                .unwrap();
+            self.window.set(Some(window));
+            window
+        };
+        unsafe {
+            let mut owner = 0;
+            GetWindowThreadProcessId(window as HWND, &mut owner);
+            assert_eq!(owner, self.process, "fixture window owner changed");
+        }
+        Ok(window)
+    }
+
+    pub fn window_title(&self, expected: &str) -> Result<()> {
+        let window = self.window_handle()?;
         self.wait(
-            &format!("find window {:?}", self.title),
+            &format!("window title becomes {expected:?}"),
             || unsafe {
-                let roots = self.roots()?;
-                for index in 0..roots.Length()? {
-                    let element = roots.GetElement(index)?;
-                    if element.CurrentName()? == self.title {
-                        return Ok(Some(element.CurrentNativeWindowHandle()? as usize));
-                    }
-                }
-                Ok(None)
+                self.client
+                    .ElementFromHandle(window as *mut core::ffi::c_void)?
+                    .CurrentName()
             },
-            Option::is_some,
-        )
-        .map(Option::unwrap)
+            |title| title == expected,
+        )?;
+        Ok(())
+    }
+
+    pub fn window_size(&self, width: f64, height: f64) -> Result<()> {
+        let _physical = PhysicalCoordinates::new()?;
+        let window = self.window_handle()? as HWND;
+        self.wait(
+            &format!("native client size and observer become {width} x {height} DIPs"),
+            || unsafe {
+                let mut rect = RECT::default();
+                GetClientRect(window, &mut rect).ok()?;
+                let dpi = GetDpiForWindow(window);
+                if dpi == 0 {
+                    return Err(windows_core::Error::new(E_UNEXPECTED, "window DPI is zero"));
+                }
+                let actual = (rect.right - rect.left, rect.bottom - rect.top);
+                let pixels = |dips: f64| (dips * f64::from(dpi) / 96.0).round() as i32;
+                let expected = (pixels(width), pixels(height));
+                let observed = self
+                    .find("size", false)?
+                    .map(|element| element.CurrentName())
+                    .transpose()?;
+                let expected_observed = format!(
+                    "Size {:.3} x {:.3}",
+                    f64::from(actual.0) * 96.0 / f64::from(dpi),
+                    f64::from(actual.1) * 96.0 / f64::from(dpi),
+                );
+                Ok((actual, expected, observed, expected_observed))
+            },
+            |(actual, expected, observed, expected_observed)| {
+                actual == expected
+                    && observed
+                        .as_ref()
+                        .is_some_and(|name| name == expected_observed.as_str())
+            },
+        )?;
+        Ok(())
+    }
+
+    pub fn window_icon(&self, present: bool) -> Result<()> {
+        let window = self.window_handle()? as HWND;
+        self.wait(
+            &format!("explicit window icons present: {present}"),
+            || unsafe {
+                let mut icons = [false; 2];
+                for (index, kind) in [ICON_BIG, ICON_SMALL].into_iter().enumerate() {
+                    let mut icon = 0;
+                    if SendMessageTimeoutW(
+                        window,
+                        WM_GETICON as u32,
+                        kind as usize,
+                        0,
+                        (SMTO_ABORTIFHUNG | SMTO_BLOCK) as u32,
+                        1000,
+                        &mut icon,
+                    ) == 0
+                    {
+                        return Err(windows_core::Error::from_thread());
+                    }
+                    icons[index] = icon != 0;
+                }
+                Ok(icons)
+            },
+            |icons| *icons == [present; 2],
+        )?;
+        Ok(())
     }
 
     fn dump(&self) -> Result<()> {

@@ -15,7 +15,7 @@ cargo run -p test-reactor-selftest --quiet -- --headless
 ```
 
 A watchdog terminates the process with an error if WinUI hangs or the application fails to exit.
-Application lifecycle, menu, Canvas, WebView, and window-state fixtures live in
+Application lifecycle, menu, Canvas, and WebView fixtures live in
 [`test-reactor-integration`](../reactor_integration/readme.md). They use the public application
 API without enabling Reactor's diagnostic `test` feature.
 

@@ -103,6 +103,14 @@ fn main() {
             "WM_CONTEXTMENU",
             "NIN_SELECT",
             "WM_CLOSE",
+            "GetClientRect",
+            "GetDpiForWindow",
+            "SendMessageTimeoutW",
+            "SMTO_ABORTIFHUNG",
+            "SMTO_BLOCK",
+            "WM_GETICON",
+            "ICON_BIG",
+            "ICON_SMALL",
         ])
         .flat()
         .minimal()

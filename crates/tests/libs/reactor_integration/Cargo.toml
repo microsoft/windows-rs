@@ -36,10 +36,6 @@ name = "webview_integration"
 path = "src/webview_integration.rs"
 
 [[bin]]
-name = "window_state"
-path = "src/window_state.rs"
-
-[[bin]]
 name = "window_observers"
 path = "src/window_observers.rs"
 

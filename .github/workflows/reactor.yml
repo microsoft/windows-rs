@@ -139,8 +139,6 @@ jobs:
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
           cargo run -p test-reactor-integration --features self-contained `
-            --bin window_state --quiet
-          cargo run -p test-reactor-integration --features self-contained `
             --bin window_observers --quiet
           if ($env:RUN_LIVE_THEME_TESTS -eq "true") {
             cargo run -p test-reactor-integration --features self-contained `
@@ -225,7 +223,6 @@ jobs:
                 --quiet -- $_
             }
           cargo run -p test-reactor-integration --bin canvas_integration --quiet
-          cargo run -p test-reactor-integration --bin window_state --quiet
           cargo run -p test-reactor-integration --bin window_observers --quiet
           if ($env:RUN_LIVE_THEME_TESTS -eq "true") {
             cargo run -p test-reactor-integration --bin window_theme --quiet

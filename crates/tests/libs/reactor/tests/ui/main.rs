@@ -19,6 +19,7 @@ mod drag;
 mod menu;
 mod pointer;
 mod process;
+mod window;
 
 use automation::*;
 use pointer::*;
