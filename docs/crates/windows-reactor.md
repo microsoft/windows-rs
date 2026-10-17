@@ -356,7 +356,7 @@ content and visibility settings.
 
 Controls are generated from `crates/tools/reactor/src/schema.toml` and the committed WinUI metadata.
 Edit the schema or generator, not the generated files. `tool-reactor-metadata` refreshes the
-metadata; `tool-reactor` generates declarations, native adapters, bindings, and control coverage.
+metadata; `tool-reactor` generates declarations, native adapters, and bindings.
 The native binding filter is `crates/tools/reactor/src/bindings.txt`.
 
 Use metadata names unless a shared Reactor name matches the public value, role, and behavior.

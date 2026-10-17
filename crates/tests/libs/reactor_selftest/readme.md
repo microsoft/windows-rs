@@ -1,9 +1,13 @@
 # Reactor native self-test
 
-This executable runs the Reactor WinUI adapter inside the Reactor application host. Generated
-coverage constructs and clears every schema property and event contract. Handwritten phases cover
-controlled input, ordered native events, attachments, images, references, pointer injection,
-retirement, TreeView content, ListView data, and virtualization.
+This executable runs handwritten checks of the Reactor WinUI adapter inside the Reactor application
+host. Its phases cover controlled input, ordered native events, attachments, images, references,
+pointer injection, retirement, TreeView content, ListView data, and virtualization.
+
+Pointer, keyboard, focus, drag payloads, and callback-revision protocols are covered by the
+`windows-reactor` unit tests. Public native capture and focus behavior belongs in
+[`test-reactor`](../reactor/readme.md). This fixture retains its real pointer-injection phase,
+including release payload checks; it does not simulate those input callbacks.
 
 ```text
 cargo run -p test-reactor-selftest --quiet

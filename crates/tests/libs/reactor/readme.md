@@ -2,9 +2,9 @@
 
 `test-reactor` is the home for the new Cargo-based Reactor tests. It lives alongside the existing
 selftest, integration, and performance crates without depending on their harnesses or Reactor's
-`test` feature. Add new cases here and migrate existing coverage individually. Remove an old case
-only after its replacement proves the same behavior; retire old helpers when their consumers are
-gone.
+`test` feature. Add new cases here and assess existing coverage individually. Preserve useful
+behavioral assertions when replacing an old case; remove redundant or low-value checks without
+recreating them. Retire old helpers when their consumers are gone.
 
 The crate uses the public Reactor API, direct Windows UI Automation, and the Rust standard library.
 `build.rs` generates only the required native bindings into `OUT_DIR` using `windows-bindgen` and
@@ -171,6 +171,12 @@ source thread. The OLE callback checks cancellation and a 20-second deadline; th
 supervisor still bounds blocked native calls. No UIA timeout is retried or treated as success.
 
 ## App-process coverage
+
+Use coverage to find untested handwritten paths, not to target a global percentage. Select live
+cases for observable behavior and distinct native paths rather than every generated setter or
+branch. Report generated adapters separately from handwritten code, and exclude test scaffolding
+and raw bindings from product totals. Instrument the existing suite; do not expand UIA runs merely
+to raise coverage.
 
 The pilot uses compiler instrumentation and the `llvm-tools` Rust toolchain component, without a
 Cargo coverage plugin. In a fresh PowerShell session at the repository root:
