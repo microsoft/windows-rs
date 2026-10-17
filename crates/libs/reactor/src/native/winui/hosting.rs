@@ -120,6 +120,10 @@ impl WinUiAdapter {
             None | Some(ButtonStyle::Default) => None,
             Some(value) => Some(value),
         };
+        // State exists only while a style is applied, so clearing without state is a no-op.
+        if base.is_none() && !self.style_states.contains_key(&object) {
+            return Ok(());
+        }
         self.style_states.entry(object).or_default().base = base;
         self.apply_style_state(object)
     }
@@ -130,6 +134,9 @@ impl WinUiAdapter {
         property: PropertyId,
         value: Option<ThemeBrush>,
     ) -> Result<(), WinUiError> {
+        if value.is_none() && !self.style_states.contains_key(&object) {
+            return Ok(());
+        }
         let state = self.style_states.entry(object).or_default();
         if let Some(value) = value {
             state.brushes.insert(property, value);
