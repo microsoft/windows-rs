@@ -1,24 +1,22 @@
 use super::*;
 
-#[path = "images.rs"]
-mod images;
-
-#[path = "lifecycle.rs"]
-mod lifecycle;
-
-#[path = "calendar.rs"]
-mod calendar;
-
-#[path = "ownership.rs"]
-mod ownership;
-
-mod font_icon;
-mod text_block;
-#[path = "text_box.rs"]
-mod text_box;
-
-#[path = "transitions.rs"]
-mod transitions;
+#[test]
+fn image_load_subscriptions_complete_once_and_do_not_retain_controls() {
+    let state = ImageLoadState::default();
+    let values = Rc::new(RefCell::new(Vec::new()));
+    let result = Rc::clone(&values);
+    let callback: Rc<dyn Fn(bool)> = Rc::new(move |value| result.borrow_mut().push(value));
+    let removed: Rc<dyn Fn(bool)> = Rc::new(|_| panic!("removed subscription"));
+    assert_eq!(state.subscribe(&removed), None);
+    drop(removed);
+    assert_eq!(state.subscribe(&callback), None);
+    state.complete(true);
+    state.complete(false);
+    assert_eq!(*values.borrow(), [true]);
+    assert_eq!(state.subscribe(&callback), Some(true));
+    assert_eq!(*values.borrow(), [true]);
+    assert!(state.subscribers.borrow().is_empty());
+}
 
 #[test]
 fn native_queue_preview_uses_current_callback_and_preserves_order() {
@@ -519,82 +517,6 @@ fn pointer_event_queue_preserves_payload_and_revision() {
     assert_eq!(event.event, EventId::PointerReleased);
     assert_eq!(event.revision, 7);
     assert_eq!(event.payload, EventPayload::PointerEventInfo(payload));
-}
-
-#[test]
-#[ignore = "requires an interactive WinUI desktop"]
-fn event_dispatch_wakes_only_when_queued() {
-    // WinUI supports one Application lifetime per process.
-    if std::env::var_os("REACTOR_EVENT_WAKE_TEST_CHILD").is_none() {
-        let status = std::process::Command::new(std::env::current_exe().unwrap())
-            .args([
-                "--exact",
-                "native::winui::tests::event_dispatch_wakes_only_when_queued",
-                "--ignored",
-                "--nocapture",
-            ])
-            .env("REACTOR_EVENT_WAKE_TEST_CHILD", "1")
-            .status()
-            .unwrap();
-        assert!(status.success());
-        return;
-    }
-    let completed = Rc::new(Cell::new(false));
-    let finished = Rc::clone(&completed);
-    let result = App::run_with(move |app| {
-        let mut runtime = Runtime::new(RecordingAdapter::default());
-        runtime.update(Border::new()).unwrap();
-        let object = runtime.graph().root().unwrap();
-        let wakes = Rc::new(Cell::new(0));
-        let event_queue = Rc::new(NativeEventQueue::default());
-        *event_queue.waker.borrow_mut() = Some(Rc::new({
-            let wakes = Rc::clone(&wakes);
-            move || wakes.set(wakes.get() + 1)
-        }));
-
-        // An unsupported drop with no subscriber or observation must not wake.
-        let unsubscribed = Rc::new(RefCell::new(NativeDroppedDataEvent::default()));
-        WinUiAdapter::dispatch(
-            &unsubscribed,
-            &event_queue,
-            object,
-            EventId::Drop,
-            None,
-            DroppedData::Unsupported,
-        );
-        assert!(event_queue.events.borrow().is_empty());
-        assert!(!event_queue.wake_pending.get());
-
-        let subscribed = Rc::new(RefCell::new(NativeDroppedDataEvent {
-            revision: 1,
-            callback: Some(Callback::new(|_| {})),
-        }));
-        WinUiAdapter::dispatch(
-            &subscribed,
-            &event_queue,
-            object,
-            EventId::Drop,
-            None,
-            DroppedData::Unsupported,
-        );
-        assert_eq!(event_queue.events.borrow().len(), 1);
-        assert!(event_queue.wake_pending.get());
-
-        let timer = native::DispatcherQueue::GetForCurrentThread()?.CreateTimer()?;
-        timer.SetInterval(TimeSpan::try_from(Duration::from_millis(100)).unwrap())?;
-        let app = app.clone();
-        let tick = timer.Tick(move |sender, _| {
-            assert_eq!(wakes.get(), 1);
-            assert!(!event_queue.wake_pending.get());
-            sender.ok().unwrap().Stop().unwrap();
-            finished.set(true);
-            app.exit().unwrap();
-        })?;
-        timer.Start()?;
-        Ok((timer, tick))
-    });
-    result.unwrap();
-    assert!(completed.get());
 }
 
 #[test]

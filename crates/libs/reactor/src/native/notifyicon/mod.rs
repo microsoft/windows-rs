@@ -12,20 +12,11 @@ use std::path::{Path, PathBuf};
 use windows_core::{Error, PCWSTR, Result};
 use windows_window::{Window, WindowBuilder};
 
-#[cfg(test)]
-mod events;
-#[cfg(test)]
-mod lifetime;
-
 const CALLBACK_MESSAGE: u32 = WM_USER as u32 + 1;
 const ICON_ID: u32 = 1;
 
 /// A point in screen coordinates.
 pub type Point = POINT;
-
-/// A rectangle in screen coordinates.
-#[cfg(test)]
-pub type Rect = RECT;
 
 /// Native work to enqueue for the application's guarded drain.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -233,28 +224,6 @@ impl NotifyIcon {
         }
     }
 
-    /// Returns the hidden callback window's borrowed raw `HWND`.
-    ///
-    /// The handle remains owned by this value and must not be closed or destroyed.
-    #[cfg(test)]
-    pub fn hwnd(&self) -> *mut core::ffi::c_void {
-        self.callback_window.hwnd()
-    }
-
-    /// Returns the Shell's current icon anchor rectangle in screen coordinates.
-    ///
-    /// For an icon hidden in the overflow area, Windows may return the overflow button rectangle.
-    #[cfg(test)]
-    pub fn rect(&self) -> Result<Rect> {
-        let value = icon_rect(self.callback_window.hwnd())?;
-        Ok(Rect {
-            left: value.left,
-            top: value.top,
-            right: value.right,
-            bottom: value.bottom,
-        })
-    }
-
     /// Replaces the icon using an `.ico` file.
     pub fn set_icon(&mut self, path: impl AsRef<Path>) -> Result<()> {
         let icon = OwnedIcon::load(path.as_ref())?;
@@ -367,21 +336,6 @@ fn allow_message(hwnd: *mut core::ffi::c_void, message: u32) -> Result<()> {
     }
 }
 
-#[cfg(test)]
-fn icon_rect(hwnd: *mut core::ffi::c_void) -> Result<RECT> {
-    let identifier = NOTIFYICONIDENTIFIER {
-        cbSize: size_of::<NOTIFYICONIDENTIFIER>() as u32,
-        hWnd: hwnd.cast(),
-        uID: ICON_ID,
-        ..Default::default()
-    };
-    let mut value = RECT::default();
-    unsafe {
-        Shell_NotifyIconGetRect(&identifier, &mut value).ok()?;
-    }
-    Ok(value)
-}
-
 fn decode_event(wparam: usize, lparam: isize) -> Option<NotifyIconEvent> {
     let event = lparam as u16 as u32;
     let position = Point {
@@ -451,6 +405,20 @@ fn shell_error(message: &'static str) -> Error {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn builder_accepts_the_public_configuration() {
+        let _builder =
+            NotifyIcon::new("icon.ico")
+                .tooltip("Example")
+                .on_event(|event| match event {
+                    NotifyIconEvent::Activate { position }
+                    | NotifyIconEvent::ContextMenu { position } => {
+                        let _ = position;
+                    }
+                    NotifyIconEvent::Recover => {}
+                });
+    }
 
     fn registration(icon: usize) -> Registration {
         Registration {

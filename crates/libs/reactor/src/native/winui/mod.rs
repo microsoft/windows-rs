@@ -36,7 +36,6 @@ struct NativeTextBox {
     value: native::TextBox,
     event: Rc<RefCell<NativeTextEvent>>,
     observed_text: Rc<RefCell<Rc<str>>>,
-    set_count: Cell<usize>,
     _text_changed: windows_core::EventRevoker,
 }
 
@@ -1080,7 +1079,6 @@ pub enum WinUiError {
     InvalidRelation(ObjectId, RelationId),
     InvalidMutation(RelationId),
     InvalidEvent(ObjectId, EventId),
-    StateMismatch(ObjectId),
     MissingContract(ObjectType, RelationId),
     IndexOverflow(usize),
     ChildNotFound(ObjectId),
@@ -2171,7 +2169,7 @@ fn clear_window_icon(hwnd: *mut core::ffi::c_void) {
 
 include!("hosting.rs");
 
-#[cfg(any(test, feature = "test"))]
+#[cfg(feature = "test")]
 #[path = "../../test_support/native/winui.rs"]
 mod test_support;
 

@@ -22,9 +22,10 @@ cases are explicitly ignored; see [Opt-in drag/drop coverage](#opt-in-dragdrop-c
 or focus failures do not silently skip tests. Do not interact with other applications while the
 suite runs. Standard Cargo name filters can select individual cases during development.
 
-The crate also runs in the ordinary workspace test command. Other workspace packages can enable
-Reactor's legacy `test` feature through Cargo feature unification; this fixture still uses only the
-public application API and real WinUI. The package-only command covers the default-feature build.
+The crate also runs in the ordinary workspace test command. Benchmark packages can enable
+Reactor's `test` feature through Cargo feature unification; this fixture still uses only the public
+application API and real WinUI. That feature exposes recording and benchmark support, not the native
+implementation module. The package-only command covers the default-feature build.
 
 The `ui` integration target is x64-only. The existing x64 workspace job runs the live suite; x86 and
 ARM64 build the fixture and run `windows-reactor-setup`'s filesystem and multiprocess tests as part
@@ -164,12 +165,12 @@ public API, and keeps scheduled performance benchmarks separate. The shared x64 
 covers feature-unified dependencies. Neither uses a custom sample sweep, cast-log allowlist, or
 coverage-percentage gate for Reactor.
 
-The suite does not reproduce the retired standalone fixtures' full coverage. Nested message-pump
-reentrancy, the full window-observer matrix, first-show placement, tray/DPI geometry, rendered
-themes, Canvas/WebView bridges, and private virtualization/reference sweeps need separate
-assessment before adding new cases. Existing library unit tests remain; ignored native library
-tests require explicit local execution and are not run by this workflow. Treat these as coverage
-boundaries, not a checklist to recreate the old suite.
+Nested message-pump reentrancy, the full window-observer matrix, first-show placement, tray/DPI
+geometry, rendered themes and transitions, Canvas/WebView bridges, native selection/coercion,
+and shared image-source lifetimes need separate assessment before adding live cases. Library unit
+tests cover headless contracts; live behavioral tests belong in this crate, not private library
+fixtures or child-process runners. Treat these as coverage boundaries, not a checklist to build
+an exhaustive suite.
 
 ## Opt-in drag/drop coverage
 

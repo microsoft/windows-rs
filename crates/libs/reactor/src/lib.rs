@@ -12,10 +12,7 @@ mod component;
 mod declaration;
 mod generated;
 mod ir;
-#[cfg(not(feature = "test"))]
 mod native;
-#[cfg(feature = "test")]
-pub mod native;
 mod reconcile;
 mod reference;
 mod sealed {

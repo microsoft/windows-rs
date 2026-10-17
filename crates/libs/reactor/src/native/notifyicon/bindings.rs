@@ -3,7 +3,6 @@ windows_core::link!("user32.dll" "system" fn DestroyIcon(hicon : HICON) -> windo
 windows_core::link!("user32.dll" "system" fn GetSystemMetrics(nindex : i32) -> i32);
 windows_core::link!("user32.dll" "system" fn LoadImageW(hinst : HINSTANCE, name : windows_core::PCWSTR, r#type : u32, cx : i32, cy : i32, fuload : u32) -> HANDLE);
 windows_core::link!("user32.dll" "system" fn RegisterWindowMessageW(lpstring : windows_core::PCWSTR) -> u32);
-windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconGetRect(identifier : *const NOTIFYICONIDENTIFIER, iconlocation : *mut RECT) -> windows_core::HRESULT);
 windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : u32, lpdata : PNOTIFYICONDATAW) -> windows_core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -139,28 +138,6 @@ impl Default for NOTIFYICONDATAW_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
-pub struct NOTIFYICONIDENTIFIER {
-    pub cbSize: u32,
-    pub hWnd: HWND,
-    pub uID: u32,
-    pub guidItem: windows_core::GUID,
-}
-#[repr(C)]
-#[cfg(any(
-    target_arch = "aarch64",
-    target_arch = "arm64ec",
-    target_arch = "x86_64"
-))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NOTIFYICONIDENTIFIER {
-    pub cbSize: u32,
-    pub hWnd: HWND,
-    pub uID: u32,
-    pub guidItem: windows_core::GUID,
-}
 pub const NOTIFYICON_VERSION_4: i32 = 4;
 pub type PCHANGEFILTERSTRUCT = *mut CHANGEFILTERSTRUCT;
 pub type PNOTIFYICONDATAW = *mut NOTIFYICONDATAW;
@@ -169,14 +146,6 @@ pub type PNOTIFYICONDATAW = *mut NOTIFYICONDATAW;
 pub struct POINT {
     pub x: i32,
     pub y: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RECT {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
 }
 pub const SM_CXSMICON: i32 = 49;
 pub const SM_CYSMICON: i32 = 50;

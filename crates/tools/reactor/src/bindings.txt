@@ -31,7 +31,7 @@ Microsoft::UI::Windowing::TitleBarHeightOption::{Standard, Tall}
 Microsoft::UI::Windowing::TitleBarTheme::{Dark, Light, UseDefaultAppMode}
 Microsoft::UI::Xaml::Application::{CreateInstance, Current, Exit, Start}
 Microsoft::UI::Xaml::ApplicationInitializationCallback
-Microsoft::UI::Xaml::Automation::AutomationProperties::{GetName, HeadingLevelProperty, SetAutomationId, SetHeadingLevel, SetName}
+Microsoft::UI::Xaml::Automation::AutomationProperties::{HeadingLevelProperty, SetAutomationId, SetHeadingLevel, SetName}
 Microsoft::UI::Xaml::Automation::ExpandCollapseState::Expanded
 Microsoft::UI::Xaml::Automation::Peers::FrameworkElementAutomationPeer::CreatePeerForElement
 Microsoft::UI::Xaml::Automation::Peers::IAutomationPeer::GetPattern
@@ -47,7 +47,7 @@ Microsoft::UI::Xaml::Controls::BreadcrumbBar::CreateInstance
 Microsoft::UI::Xaml::Controls::Button::CreateInstance
 Microsoft::UI::Xaml::Controls::CalendarDatePicker::CreateInstance
 Microsoft::UI::Xaml::Controls::CalendarView::CreateInstance
-Microsoft::UI::Xaml::Controls::Canvas::{CreateInstance, GetLeft, GetTop, LeftProperty, SetLeft, SetTop, TopProperty}
+Microsoft::UI::Xaml::Controls::Canvas::{CreateInstance, LeftProperty, SetLeft, SetTop, TopProperty}
 Microsoft::UI::Xaml::Controls::CheckBox::CreateInstance
 Microsoft::UI::Xaml::Controls::ColorPicker::CreateInstance
 Microsoft::UI::Xaml::Controls::ColumnDefinition::CreateInstance
@@ -66,7 +66,7 @@ Microsoft::UI::Xaml::Controls::FlipView::CreateInstance
 Microsoft::UI::Xaml::Controls::Flyout::CreateInstance
 Microsoft::UI::Xaml::Controls::FontIcon::CreateInstance
 Microsoft::UI::Xaml::Controls::FontIconSource::CreateInstance
-Microsoft::UI::Xaml::Controls::Grid::{ColumnProperty, ColumnSpanProperty, CreateInstance, GetRow, RowProperty, RowSpanProperty, SetColumn, SetColumnSpan, SetRow, SetRowSpan}
+Microsoft::UI::Xaml::Controls::Grid::{ColumnProperty, ColumnSpanProperty, CreateInstance, RowProperty, RowSpanProperty, SetColumn, SetColumnSpan, SetRow, SetRowSpan}
 Microsoft::UI::Xaml::Controls::GridView::CreateInstance
 Microsoft::UI::Xaml::Controls::GridViewItem::CreateInstance
 Microsoft::UI::Xaml::Controls::HyperlinkButton::CreateInstance
@@ -99,10 +99,10 @@ Microsoft::UI::Xaml::Controls::IComboBoxStatics::{get_IsEditableProperty, get_Pl
 Microsoft::UI::Xaml::Controls::ICommandBar::{get_PrimaryCommands, get_SecondaryCommands}
 Microsoft::UI::Xaml::Controls::ICommandBarFlyout::{get_PrimaryCommands, get_SecondaryCommands}
 Microsoft::UI::Xaml::Controls::IContentControl::put_Content
-Microsoft::UI::Xaml::Controls::IContentDialog::{add_Closed, add_Opened, get_DefaultButton, Hide, put_CloseButtonText, put_DefaultButton, put_IsPrimaryButtonEnabled, put_IsSecondaryButtonEnabled, put_PrimaryButtonText, put_SecondaryButtonText, put_Title, remove_Closed, remove_Opened, ShowAsync}
+Microsoft::UI::Xaml::Controls::IContentDialog::{add_Closed, Hide, put_CloseButtonText, put_DefaultButton, put_IsPrimaryButtonEnabled, put_IsSecondaryButtonEnabled, put_PrimaryButtonText, put_SecondaryButtonText, put_Title, remove_Closed, ShowAsync}
 Microsoft::UI::Xaml::Controls::IContentDialogClosedEventArgs::get_Result
 Microsoft::UI::Xaml::Controls::IContentDialogStatics::{get_CloseButtonTextProperty, get_DefaultButtonProperty, get_IsPrimaryButtonEnabledProperty, get_IsSecondaryButtonEnabledProperty, get_PrimaryButtonTextProperty, get_SecondaryButtonTextProperty, get_TitleProperty}
-Microsoft::UI::Xaml::Controls::IControl::{get_IsEnabled, put_Background, put_BorderBrush, put_BorderThickness, put_Foreground, put_HorizontalContentAlignment, put_IsEnabled, put_VerticalContentAlignment}
+Microsoft::UI::Xaml::Controls::IControl::{put_Background, put_BorderBrush, put_BorderThickness, put_HorizontalContentAlignment, put_IsEnabled, put_VerticalContentAlignment}
 Microsoft::UI::Xaml::Controls::IControlStatics::{get_BackgroundProperty, get_BorderBrushProperty, get_BorderThicknessProperty, get_HorizontalContentAlignmentProperty, get_IsEnabledProperty, get_VerticalContentAlignmentProperty}
 Microsoft::UI::Xaml::Controls::IDatePicker::{add_SelectedDateChanged, put_DayVisible, put_Header, put_MonthVisible, put_YearVisible, remove_SelectedDateChanged}
 Microsoft::UI::Xaml::Controls::IDatePickerSelectedValueChangedEventArgs::get_NewDate
@@ -110,17 +110,17 @@ Microsoft::UI::Xaml::Controls::IDatePickerStatics::{get_DayVisibleProperty, get_
 Microsoft::UI::Xaml::Controls::IExpander::{get_IsExpanded, put_Header, put_IsExpanded}
 Microsoft::UI::Xaml::Controls::IExpanderStatics::get_IsExpandedProperty
 Microsoft::UI::Xaml::Controls::IFlyout::put_Content
-Microsoft::UI::Xaml::Controls::IFontIcon::{get_FontSize, put_FontSize, put_Glyph}
+Microsoft::UI::Xaml::Controls::IFontIcon::{put_FontSize, put_Glyph}
 Microsoft::UI::Xaml::Controls::IFontIconSource::put_Glyph
 Microsoft::UI::Xaml::Controls::IFontIconStatics::{get_FontSizeProperty, get_GlyphProperty}
 Microsoft::UI::Xaml::Controls::IGrid::{get_ColumnDefinitions, get_RowDefinitions, put_ColumnSpacing, put_RowSpacing}
 Microsoft::UI::Xaml::Controls::IGridStatics::{get_ColumnSpacingProperty, get_RowSpacingProperty}
 Microsoft::UI::Xaml::Controls::IHyperlinkButton::put_NavigateUri
 Microsoft::UI::Xaml::Controls::IHyperlinkButtonStatics::get_NavigateUriProperty
-Microsoft::UI::Xaml::Controls::IIconElement::{get_Foreground, put_Foreground}
+Microsoft::UI::Xaml::Controls::IIconElement::put_Foreground
 Microsoft::UI::Xaml::Controls::IIconElementStatics::get_ForegroundProperty
-Microsoft::UI::Xaml::Controls::IImage::{add_ImageFailed, add_ImageOpened, get_Source, put_Source, put_Stretch, remove_ImageFailed, remove_ImageOpened}
-Microsoft::UI::Xaml::Controls::IImageIcon::{get_Source, put_Source}
+Microsoft::UI::Xaml::Controls::IImage::{add_ImageFailed, add_ImageOpened, put_Source, put_Stretch, remove_ImageFailed, remove_ImageOpened}
+Microsoft::UI::Xaml::Controls::IImageIcon::put_Source
 Microsoft::UI::Xaml::Controls::IImageIconSource::put_ImageSource
 Microsoft::UI::Xaml::Controls::IImageStatics::get_StretchProperty
 Microsoft::UI::Xaml::Controls::IInfoBadge::put_Value
@@ -132,7 +132,7 @@ Microsoft::UI::Xaml::Controls::IItemContainerStatics::get_IsSelectedProperty
 Microsoft::UI::Xaml::Controls::IItemsControl::{get_Items, put_ItemsSource, put_ItemTemplate}
 Microsoft::UI::Xaml::Controls::IItemsControlStatics::get_ItemsSourceProperty
 Microsoft::UI::Xaml::Controls::IItemsRepeater::{GetOrCreateElement, put_ItemsSource, put_ItemTemplate}
-Microsoft::UI::Xaml::Controls::IListViewBase::{add_DragItemsCompleted, get_CanDragItems, get_CanReorderItems, get_SelectionMode, put_CanDragItems, put_CanReorderItems, put_SelectionMode, remove_DragItemsCompleted}
+Microsoft::UI::Xaml::Controls::IListViewBase::{add_DragItemsCompleted, put_CanDragItems, put_CanReorderItems, put_SelectionMode, remove_DragItemsCompleted}
 Microsoft::UI::Xaml::Controls::IListViewBaseStatics::{get_CanDragItemsProperty, get_CanReorderItemsProperty, get_SelectionModeProperty}
 Microsoft::UI::Xaml::Controls::Image::CreateInstance
 Microsoft::UI::Xaml::Controls::ImageIcon::CreateInstance
@@ -144,7 +144,7 @@ Microsoft::UI::Xaml::Controls::IMenuFlyout::get_Items
 Microsoft::UI::Xaml::Controls::IMenuFlyoutItem::{add_Click, put_Text, remove_Click}
 Microsoft::UI::Xaml::Controls::IMenuFlyoutSubItem::{get_Items, put_Text}
 Microsoft::UI::Xaml::Controls::INavigationView::{add_DisplayModeChanged, add_SelectionChanged, get_FooterMenuItems, get_IsPaneOpen, get_MenuItems, get_SelectedItem, put_AlwaysShowHeader, put_Header, put_IsPaneOpen, put_IsPaneToggleButtonVisible, put_IsSettingsVisible, put_OpenPaneLength, put_PaneFooter, put_SelectedItem, remove_DisplayModeChanged, remove_SelectionChanged}
-Microsoft::UI::Xaml::Controls::INavigationView2::{get_IsBackEnabled, get_IsPaneVisible, get_PaneHeader, put_IsBackButtonVisible, put_IsBackEnabled, put_IsPaneVisible, put_PaneCustomContent, put_PaneDisplayMode, put_PaneHeader, put_PaneTitle}
+Microsoft::UI::Xaml::Controls::INavigationView2::{put_IsBackButtonVisible, put_IsBackEnabled, put_IsPaneVisible, put_PaneCustomContent, put_PaneDisplayMode, put_PaneHeader, put_PaneTitle}
 Microsoft::UI::Xaml::Controls::INavigationViewDisplayModeChangedEventArgs::get_DisplayMode
 Microsoft::UI::Xaml::Controls::INavigationViewItem::put_Icon
 Microsoft::UI::Xaml::Controls::INavigationViewItem2::{get_MenuItems, put_IsExpanded, put_SelectsOnInvoked}
@@ -157,7 +157,7 @@ Microsoft::UI::Xaml::Controls::INavigationViewStatics2::{get_IsBackButtonVisible
 Microsoft::UI::Xaml::Controls::InfoBadge::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBar::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBarSeverity
-Microsoft::UI::Xaml::Controls::INumberBox::{add_ValueChanged, get_SmallChange, get_SpinButtonPlacementMode, get_Value, put_Header, put_Maximum, put_Minimum, put_SmallChange, put_SpinButtonPlacementMode, put_Value, remove_ValueChanged}
+Microsoft::UI::Xaml::Controls::INumberBox::{add_ValueChanged, get_Value, put_Header, put_Maximum, put_Minimum, put_SmallChange, put_SpinButtonPlacementMode, put_Value, remove_ValueChanged}
 Microsoft::UI::Xaml::Controls::INumberBoxStatics::{get_MaximumProperty, get_MinimumProperty, get_SmallChangeProperty, get_SpinButtonPlacementModeProperty, get_ValueProperty}
 Microsoft::UI::Xaml::Controls::INumberBoxValueChangedEventArgs::get_NewValue
 Microsoft::UI::Xaml::Controls::IPanel::{get_Children, put_Background}
@@ -200,7 +200,7 @@ Microsoft::UI::Xaml::Controls::ISliderStatics::{get_OrientationProperty, get_Ste
 Microsoft::UI::Xaml::Controls::ISplitButton::{add_Click, put_Flyout, remove_Click}
 Microsoft::UI::Xaml::Controls::ISplitView::{add_PaneClosed, get_IsPaneOpen, put_CompactPaneLength, put_Content, put_DisplayMode, put_IsPaneOpen, put_OpenPaneLength, put_Pane, remove_PaneClosed}
 Microsoft::UI::Xaml::Controls::ISplitViewStatics::{get_CompactPaneLengthProperty, get_DisplayModeProperty, get_IsPaneOpenProperty, get_OpenPaneLengthProperty}
-Microsoft::UI::Xaml::Controls::IStackPanel::{get_Orientation, get_Spacing, put_Orientation, put_Spacing}
+Microsoft::UI::Xaml::Controls::IStackPanel::{put_Orientation, put_Spacing}
 Microsoft::UI::Xaml::Controls::ISwapChainPanel::{add_CompositionScaleChanged, get_CompositionScaleX, get_CompositionScaleY, remove_CompositionScaleChanged}
 Microsoft::UI::Xaml::Controls::ISymbolIcon::put_Symbol
 Microsoft::UI::Xaml::Controls::ISymbolIconSource::put_Symbol
@@ -214,9 +214,9 @@ Microsoft::UI::Xaml::Controls::ITeachingTip::{add_ActionButtonClick, add_Closed,
 Microsoft::UI::Xaml::Controls::ITeachingTipStatics::{get_ActionButtonContentProperty, get_CloseButtonContentProperty, get_IsLightDismissEnabledProperty, get_IsOpenProperty, get_PreferredPlacementProperty, get_SubtitleProperty, get_TitleProperty}
 Microsoft::UI::Xaml::Controls::ItemCollection::{}
 Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
-Microsoft::UI::Xaml::Controls::ITextBlock::{get_ContentEnd, get_ContentStart, get_FontWeight, get_Text, get_TextAlignment, put_FontSize, put_FontWeight, put_Foreground, put_IsTextSelectionEnabled, put_MaxLines, put_Padding, put_Text, put_TextAlignment, put_TextTrimming, put_TextWrapping}
+Microsoft::UI::Xaml::Controls::ITextBlock::{put_FontSize, put_FontWeight, put_Foreground, put_IsTextSelectionEnabled, put_MaxLines, put_Padding, put_Text, put_TextAlignment, put_TextTrimming, put_TextWrapping}
 Microsoft::UI::Xaml::Controls::ITextBlockStatics::{get_FontWeightProperty, get_ForegroundProperty, get_IsTextSelectionEnabledProperty, get_MaxLinesProperty, get_TextAlignmentProperty, get_TextTrimmingProperty, get_TextWrappingProperty}
-Microsoft::UI::Xaml::Controls::ITextBox::{GetRectFromCharacterIndex, add_TextChanged, get_AcceptsReturn, get_IsReadOnly, get_PlaceholderText, get_SelectedText, get_SelectionLength, get_SelectionStart, get_Text, get_TextAlignment, get_TextWrapping, put_AcceptsReturn, put_Header, put_IsReadOnly, put_PlaceholderText, put_SelectionLength, put_SelectionStart, put_Text, put_TextAlignment, put_TextWrapping, remove_TextChanged}
+Microsoft::UI::Xaml::Controls::ITextBox::{add_TextChanged, get_SelectionLength, get_SelectionStart, get_Text, put_AcceptsReturn, put_Header, put_IsReadOnly, put_PlaceholderText, put_SelectionLength, put_SelectionStart, put_Text, put_TextAlignment, put_TextWrapping, remove_TextChanged}
 Microsoft::UI::Xaml::Controls::ITextBoxStatics::{get_AcceptsReturnProperty, get_IsReadOnlyProperty, get_PlaceholderTextProperty, get_TextAlignmentProperty, get_TextWrappingProperty}
 Microsoft::UI::Xaml::Controls::ITimePicker::{add_SelectedTimeChanged, put_ClockIdentifier, put_Header, put_MinuteIncrement, remove_SelectedTimeChanged}
 Microsoft::UI::Xaml::Controls::ITimePickerSelectedValueChangedEventArgs::get_NewTime
@@ -226,7 +226,7 @@ Microsoft::UI::Xaml::Controls::ITitleBar::{put_IconSource, put_LeftHeader}
 Microsoft::UI::Xaml::Controls::ITitleBarStatics::{get_IsBackButtonEnabledProperty, get_IsBackButtonVisibleProperty, get_IsPaneToggleButtonVisibleProperty}
 Microsoft::UI::Xaml::Controls::IToggleSwitch::{add_Toggled, get_IsOn, put_Header, put_IsOn, put_OffContent, put_OnContent, remove_Toggled}
 Microsoft::UI::Xaml::Controls::IToggleSwitchStatics::get_IsOnProperty
-Microsoft::UI::Xaml::Controls::ITreeView::{add_ItemInvoked, get_RootNodes, get_SelectionMode, put_SelectionMode, remove_ItemInvoked}
+Microsoft::UI::Xaml::Controls::ITreeView::{add_ItemInvoked, get_RootNodes, put_SelectionMode, remove_ItemInvoked}
 Microsoft::UI::Xaml::Controls::ITreeView2::put_ItemTemplate
 Microsoft::UI::Xaml::Controls::ITreeViewItemInvokedEventArgs::get_InvokedItem
 Microsoft::UI::Xaml::Controls::ITreeViewNode::{get_Children, put_Content, put_IsExpanded}
@@ -261,8 +261,8 @@ Microsoft::UI::Xaml::Controls::Pivot::CreateInstance
 Microsoft::UI::Xaml::Controls::PivotItem::CreateInstance
 Microsoft::UI::Xaml::Controls::Primitives::FlyoutPlacementMode
 Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::{add_Click, remove_Click}
-Microsoft::UI::Xaml::Controls::Primitives::IFlyoutBase::{add_Closed, get_IsOpen, Hide, put_Placement, put_ShouldConstrainToRootBounds, put_XamlRoot, remove_Closed, ShowAt}
-Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::{add_ValueChanged, get_Maximum, get_Minimum, get_Value, put_Maximum, put_Minimum, put_Value, remove_ValueChanged}
+Microsoft::UI::Xaml::Controls::Primitives::IFlyoutBase::{add_Closed, Hide, put_Placement, put_ShouldConstrainToRootBounds, put_XamlRoot, remove_Closed, ShowAt}
+Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::{add_ValueChanged, get_Value, put_Maximum, put_Minimum, put_Value, remove_ValueChanged}
 Microsoft::UI::Xaml::Controls::Primitives::IRangeBaseStatics::{get_MaximumProperty, get_MinimumProperty, get_ValueProperty}
 Microsoft::UI::Xaml::Controls::Primitives::IRangeBaseValueChangedEventArgs::get_NewValue
 Microsoft::UI::Xaml::Controls::Primitives::IRepeatButton::{put_Delay, put_Interval}
@@ -281,7 +281,7 @@ Microsoft::UI::Xaml::Controls::ProgressRing::CreateInstance
 Microsoft::UI::Xaml::Controls::RadioButton::CreateInstance
 Microsoft::UI::Xaml::Controls::RadioButtons::CreateInstance
 Microsoft::UI::Xaml::Controls::RatingControl::CreateInstance
-Microsoft::UI::Xaml::Controls::RelativePanel::{AlignBottomWithPanelProperty, AlignHorizontalCenterWithPanelProperty, AlignLeftWithPanelProperty, AlignRightWithPanelProperty, AlignTopWithPanelProperty, AlignVerticalCenterWithPanelProperty, CreateInstance, GetAlignLeftWithPanel, SetAlignBottomWithPanel, SetAlignHorizontalCenterWithPanel, SetAlignLeftWithPanel, SetAlignRightWithPanel, SetAlignTopWithPanel, SetAlignVerticalCenterWithPanel}
+Microsoft::UI::Xaml::Controls::RelativePanel::{AlignBottomWithPanelProperty, AlignHorizontalCenterWithPanelProperty, AlignLeftWithPanelProperty, AlignRightWithPanelProperty, AlignTopWithPanelProperty, AlignVerticalCenterWithPanelProperty, CreateInstance, SetAlignBottomWithPanel, SetAlignHorizontalCenterWithPanel, SetAlignLeftWithPanel, SetAlignRightWithPanel, SetAlignTopWithPanel, SetAlignVerticalCenterWithPanel}
 Microsoft::UI::Xaml::Controls::RichEditBox::CreateInstance
 Microsoft::UI::Xaml::Controls::RichTextBlock::CreateInstance
 Microsoft::UI::Xaml::Controls::RowDefinition::CreateInstance
@@ -330,7 +330,6 @@ Microsoft::UI::Xaml::Documents::IParagraph::get_Inlines
 Microsoft::UI::Xaml::Documents::IRun::put_Text
 Microsoft::UI::Xaml::Documents::ISpan::get_Inlines
 Microsoft::UI::Xaml::Documents::ITextElement::{put_FontStyle, put_FontWeight}
-Microsoft::UI::Xaml::Documents::ITextPointer::GetCharacterRect
 Microsoft::UI::Xaml::Documents::LineBreak::CreateInstance
 Microsoft::UI::Xaml::Documents::Paragraph::CreateInstance
 Microsoft::UI::Xaml::Documents::Run::CreateInstance
@@ -353,7 +352,7 @@ Microsoft::UI::Xaml::IDragUIOverride::{put_Caption, put_IsCaptionVisible}
 Microsoft::UI::Xaml::IElementFactory::{}
 Microsoft::UI::Xaml::IElementFactoryGetArgs::get_Data
 Microsoft::UI::Xaml::IElementFactoryRecycleArgs::get_Element
-Microsoft::UI::Xaml::IFrameworkElement::{add_ActualThemeChanged, add_Loaded, add_SizeChanged, get_ActualHeight, get_ActualTheme, get_ActualWidth, get_IsLoaded, get_MaxHeight, get_MinWidth, get_Resources, get_Tag, put_AllowFocusOnInteraction, put_Height, put_HorizontalAlignment, put_Margin, put_MaxHeight, put_MaxWidth, put_MinHeight, put_MinWidth, put_RequestedTheme, put_Style, put_Tag, put_VerticalAlignment, put_Width, remove_ActualThemeChanged, remove_Loaded, remove_SizeChanged}
+Microsoft::UI::Xaml::IFrameworkElement::{add_ActualThemeChanged, add_Loaded, add_SizeChanged, get_ActualHeight, get_ActualTheme, get_ActualWidth, get_IsLoaded, get_Resources, get_Tag, put_AllowFocusOnInteraction, put_Height, put_HorizontalAlignment, put_Margin, put_MaxHeight, put_MaxWidth, put_MinHeight, put_MinWidth, put_RequestedTheme, put_Style, put_Tag, put_VerticalAlignment, put_Width, remove_ActualThemeChanged, remove_Loaded, remove_SizeChanged}
 Microsoft::UI::Xaml::IFrameworkElementStatics::{get_AllowFocusOnInteractionProperty, get_HeightProperty, get_HorizontalAlignmentProperty, get_MarginProperty, get_MaxHeightProperty, get_MaxWidthProperty, get_MinHeightProperty, get_MinWidthProperty, get_TagProperty, get_VerticalAlignmentProperty, get_WidthProperty}
 Microsoft::UI::Xaml::Input::ICharacterReceivedRoutedEventArgs::{get_Character, get_KeyStatus, put_Handled}
 Microsoft::UI::Xaml::Input::IKeyboardAccelerator::{Invoked, put_Key, put_Modifiers}
@@ -366,7 +365,7 @@ Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::IRoutedEventArgs::get_OriginalSource
 Microsoft::UI::Xaml::IScalarTransition::put_Duration
 Microsoft::UI::Xaml::ISizeChangedEventArgs::get_NewSize
-Microsoft::UI::Xaml::IUIElement::{add_CharacterReceived, add_DragEnter, add_DragLeave, add_DragOver, add_Drop, add_GotFocus, add_KeyUp, add_LostFocus, add_PointerCanceled, add_PointerCaptureLost, add_PointerEntered, add_PointerExited, add_PointerMoved, add_PointerPressed, add_PointerReleased, add_PreviewKeyDown, CapturePointer, Focus, get_AllowDrop, get_FocusState, get_KeyboardAccelerators, get_Opacity, get_PointerCaptures, get_Translation, get_XamlRoot, put_AllowDrop, put_CenterPoint, put_IsTabStop, put_KeyboardAcceleratorPlacementMode, put_Opacity, put_OpacityTransition, put_Scale, put_ScaleTransition, put_Transitions, put_Translation, put_TranslationTransition, put_XamlRoot, ReleasePointerCapture, remove_CharacterReceived, remove_DragEnter, remove_DragLeave, remove_DragOver, remove_Drop, remove_GotFocus, remove_KeyUp, remove_LostFocus, remove_PointerCanceled, remove_PointerCaptureLost, remove_PointerEntered, remove_PointerExited, remove_PointerMoved, remove_PointerPressed, remove_PointerReleased, remove_PreviewKeyDown, TransformToVisual, UpdateLayout}
+Microsoft::UI::Xaml::IUIElement::{add_CharacterReceived, add_DragEnter, add_DragLeave, add_DragOver, add_Drop, add_GotFocus, add_KeyUp, add_LostFocus, add_PointerCanceled, add_PointerCaptureLost, add_PointerEntered, add_PointerExited, add_PointerMoved, add_PointerPressed, add_PointerReleased, add_PreviewKeyDown, CapturePointer, Focus, get_FocusState, get_KeyboardAccelerators, get_PointerCaptures, get_XamlRoot, put_AllowDrop, put_CenterPoint, put_IsTabStop, put_KeyboardAcceleratorPlacementMode, put_Opacity, put_OpacityTransition, put_Scale, put_ScaleTransition, put_Transitions, put_Translation, put_TranslationTransition, put_XamlRoot, ReleasePointerCapture, remove_CharacterReceived, remove_DragEnter, remove_DragLeave, remove_DragOver, remove_Drop, remove_GotFocus, remove_KeyUp, remove_LostFocus, remove_PointerCanceled, remove_PointerCaptureLost, remove_PointerEntered, remove_PointerExited, remove_PointerMoved, remove_PointerPressed, remove_PointerReleased, remove_PreviewKeyDown, UpdateLayout}
 Microsoft::UI::Xaml::IUIElementStatics::{get_AllowDropProperty, get_IsTabStopProperty, get_OpacityProperty, get_TransitionsProperty}
 Microsoft::UI::Xaml::IVector3Transition::put_Duration
 Microsoft::UI::Xaml::IWindow::{Activate, add_Closed, Close, put_Content, put_ExtendsContentIntoTitleBar, put_Title, remove_Closed, SetTitleBar}
@@ -384,7 +383,6 @@ Microsoft::UI::Xaml::Media::Animation::TransitionCollection::CreateInstance
 Microsoft::UI::Xaml::Media::CompositionTarget::{add_Rendering, remove_Rendering}
 Microsoft::UI::Xaml::Media::DesktopAcrylicBackdrop::CreateInstance
 Microsoft::UI::Xaml::Media::Geometry::{}
-Microsoft::UI::Xaml::Media::IGeneralTransform::TransformPoint
 Microsoft::UI::Xaml::Media::ImageSource::{}
 Microsoft::UI::Xaml::Media::Imaging::BitmapImage::CreateInstance
 Microsoft::UI::Xaml::Media::Imaging::IBitmapImage::{add_ImageFailed, add_ImageOpened, put_UriSource, remove_ImageFailed, remove_ImageOpened}
@@ -393,7 +391,7 @@ Microsoft::UI::Xaml::Media::Imaging::ISvgImageSource::{SetSourceAsync, add_Opene
 Microsoft::UI::Xaml::Media::Imaging::SvgImageSource::CreateInstance
 Microsoft::UI::Xaml::Media::Imaging::SvgImageSourceLoadStatus::{}
 Microsoft::UI::Xaml::Media::IMicaBackdrop::put_Kind
-Microsoft::UI::Xaml::Media::ISolidColorBrush::{get_Color, put_Color}
+Microsoft::UI::Xaml::Media::ISolidColorBrush::put_Color
 Microsoft::UI::Xaml::Media::MicaBackdrop::CreateInstance
 Microsoft::UI::Xaml::Media::SolidColorBrush::CreateInstance
 Microsoft::UI::Xaml::Media::Stretch
@@ -431,8 +429,6 @@ Windows::System::{VirtualKey, VirtualKeyModifiers}
 Windows::UI::Core::CorePhysicalKeyStatus
 Windows::UI::Text::FontStyle::Italic
 Windows::UI::Text::FontWeight
-Windows::UI::ViewManagement::IUISettings::get_AnimationsEnabled
-Windows::UI::ViewManagement::UISettings::CreateInstance
 Windows::UI::Xaml::Interop::TypeKind::Metadata
 Windows::UI::Xaml::Interop::TypeName
 Windows::Win32::AddPackageDependency
