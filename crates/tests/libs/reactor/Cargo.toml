@@ -9,6 +9,7 @@ name = "test-reactor"
 test = false
 
 [dependencies]
+windows-canvas = { workspace = true, features = ["reactor"] }
 windows-core = { workspace = true, features = ["proc-macros"] }
 windows-reactor = { workspace = true }
 

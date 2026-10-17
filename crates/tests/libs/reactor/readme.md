@@ -42,6 +42,7 @@ or foreground is unavailable.
 | `tests/ui/main.rs` | Named behavioral tests driven through UI Automation |
 | `tests/ui/automation.rs` | Scoped lookup, native actions, condition waits, and diagnostics |
 | `src/application.rs`, `tests/ui/application.rs` | Window ownership, activation, replacement, and startup errors |
+| `src/canvas.rs`, `tests/ui/canvas.rs` | WARP-backed drawing, resize, and callback retirement |
 | `src/dialog.rs`, `tests/ui/dialog.rs` | Dialog opening at mount and native completion results |
 | `src/image.rs`, `tests/ui/image.rs` | Native decode failure and recovery |
 | `tests/ui/menu.rs` | Shared menu scenarios and focused command-bar and tray lifetime cases |
@@ -93,6 +94,7 @@ all four scenarios.
 | `application_startup_error_is_returned` | The application runner returns the startup callback's HRESULT. |
 | `dialog_requested_at_mount_closes_and_reopens` | A dialog requested before window creation opens, reports a native Primary result, reopens, and reports None on close without duplicate delivery. |
 | `image_decode_failure_and_recovery` | Valid and invalid encoded data report native opened/failed events; a valid source loads again after failure without duplicate delivery. |
+| `canvas_draws_resizes_and_releases_callbacks_on_removal` | A WARP-backed canvas draws after native attachment and resize; removal releases its captured callback state, and a new canvas draws after reattachment. This checks lifecycle behavior, not rendered pixels. |
 | `early_successful_exit_is_rejected` | Exiting with code zero before the driver finishes is a failure, not a passing test. |
 | `child_panic_is_reported` | A child panic produces a failed exit and captured stdout and stderr. |
 | `hung_child_is_terminated` | A ready but unresponsive child times out and is terminated. |
@@ -168,7 +170,7 @@ covers feature-unified dependencies. Neither uses a custom sample sweep, cast-lo
 coverage-percentage gate for Reactor.
 
 Nested message-pump reentrancy, the full window-observer matrix, first-show placement, tray/DPI
-geometry, rendered themes and transitions, Canvas/WebView bridges, native selection/coercion,
+geometry, rendered themes and transitions, WebView bridges, native selection/coercion,
 and shared image-source lifetimes need separate assessment before adding live cases. Library unit
 tests cover headless contracts; live behavioral tests belong in this crate, not private library
 fixtures or child-process runners. Treat these as coverage boundaries, not a checklist to build

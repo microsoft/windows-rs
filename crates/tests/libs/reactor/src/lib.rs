@@ -2,6 +2,7 @@ use std::rc::Rc;
 use windows_reactor::*;
 
 mod application;
+mod canvas;
 mod dialog;
 mod drag;
 mod image;
@@ -263,6 +264,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "application" => App::run_application::<application::ApplicationFixture>(())?,
         "window-replacement" => App::run_component::<application::ReplacingWindow>(false)?,
         "startup-error" => application::startup_error()?,
+        "canvas" => App::run_component::<canvas::CanvasFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
         "image" => App::run_component::<image::ImageFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
