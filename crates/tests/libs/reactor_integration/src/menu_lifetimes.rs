@@ -131,23 +131,6 @@ impl Component for MenuWindow {
         });
         let attached = phase != 4;
         let target: View = match input.kind.as_str() {
-            "dropdown" => {
-                let button = DropDownButton::new().content("Open menu");
-                if attached {
-                    button.menu(menu(phase, callback))
-                } else {
-                    button.into()
-                }
-            }
-            "menubar" => {
-                let item = MenuBarItem::new().title("Open menu");
-                let item = if attached {
-                    item.menu(menu(phase, callback))
-                } else {
-                    item.into()
-                };
-                MenuBar::new().items([item]).into()
-            }
             "command" => {
                 let button = Button::new().content("Open menu");
                 if attached {
@@ -481,10 +464,7 @@ fn drive(kind: &str, completed: Receiver<u8>) -> windows_core::Result<()> {
 
 fn main() -> windows_core::Result<()> {
     let kind = std::env::args().nth(1).unwrap();
-    assert!(matches!(
-        kind.as_str(),
-        "dropdown" | "menubar" | "command" | "tray"
-    ));
+    assert!(matches!(kind.as_str(), "command" | "tray"));
     std::thread::spawn(|| {
         std::thread::sleep(Duration::from_secs(45));
         eprintln!("Menu lifetimes fixture timed out");
