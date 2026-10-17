@@ -543,17 +543,6 @@ impl WinUiAdapter {
         Ok([point.x, point.y])
     }
 
-    pub fn simulate_click(&self, object: ObjectId) -> Result<(), WinUiError> {
-        let Some(Handle::Generated(handle)) = self.handles.get(&object) else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        let Some(event) = handle.unit_event(EventId::Click) else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        Self::dispatch(event, &self.event_queue, object, EventId::Click, None, ());
-        Ok(())
-    }
-
     pub fn simulate_is_checked(
         &self,
         object: ObjectId,
@@ -607,74 +596,6 @@ impl WinUiAdapter {
             return Err(WinUiError::InvalidObject(object));
         };
         handle.value.SetDate(Some(value))?;
-        Ok(())
-    }
-
-    pub fn simulate_pointer_released(
-        &self,
-        object: ObjectId,
-        value: PointerEventInfo,
-    ) -> Result<(), WinUiError> {
-        self.simulate_pointer_event(object, EventId::PointerReleased, value)
-    }
-
-    pub fn pointer_policy(&self, object: ObjectId) -> Result<(bool, bool), WinUiError> {
-        let Some(Handle::Generated(GeneratedHandle::Border(border))) = self.handles.get(&object)
-        else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        Ok((
-            border.capture_pointer_on_press.get(),
-            border.focus_on_pointer_release.get(),
-        ))
-    }
-
-    pub fn drop_policy(&self, object: ObjectId) -> Result<Option<Rc<DragDropPolicy>>, WinUiError> {
-        let Some(Handle::Generated(GeneratedHandle::Border(border))) = self.handles.get(&object)
-        else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        let value = border.drop_policy.borrow().clone();
-        Ok(value)
-    }
-
-    pub fn simulate_drag_kind(
-        &self,
-        object: ObjectId,
-        event: EventId,
-        value: DragKind,
-    ) -> Result<(), WinUiError> {
-        let Some(Handle::Generated(GeneratedHandle::Border(border))) = self.handles.get(&object)
-        else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        let native_event = match event {
-            EventId::DragEnter => &border.drag_enter,
-            EventId::DragOver => &border.drag_over,
-            _ => return Err(WinUiError::InvalidEvent(object, event)),
-        };
-        Self::dispatch(native_event, &self.event_queue, object, event, None, value);
-        Ok(())
-    }
-
-    pub fn simulate_dropped_data(
-        &self,
-        object: ObjectId,
-        value: DroppedData,
-    ) -> Result<(), WinUiError> {
-        let Some(Handle::Generated(GeneratedHandle::Border(border))) = self.handles.get(&object)
-        else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        Self::queue_event(
-            &border.drop,
-            &self.event_queue,
-            object,
-            EventId::Drop,
-            None,
-            value,
-        );
-        Self::schedule_event_wake(&self.event_queue);
         Ok(())
     }
 
@@ -1141,86 +1062,6 @@ impl WinUiAdapter {
             shape.push(inlines.Size()?);
         }
         Ok(shape)
-    }
-
-    pub fn simulate_key_event(
-        &self,
-        object: ObjectId,
-        event: EventId,
-        value: KeyEventInfo,
-    ) -> Result<bool, WinUiError> {
-        let Some(Handle::Generated(GeneratedHandle::Border(border))) = self.handles.get(&object)
-        else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        let native_event = match event {
-            EventId::PreviewKeyDown => &border.preview_key_down,
-            EventId::KeyUp => &border.key_up,
-            _ => return Err(WinUiError::InvalidEvent(object, event)),
-        };
-        Ok(native_event
-            .borrow()
-            .callback
-            .as_ref()
-            .is_some_and(|callback| callback.call(value)))
-    }
-
-    pub fn simulate_character_event(
-        &self,
-        object: ObjectId,
-        value: CharacterEventInfo,
-    ) -> Result<bool, WinUiError> {
-        let Some(Handle::Generated(GeneratedHandle::Border(border))) = self.handles.get(&object)
-        else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        Ok(border
-            .character_received
-            .borrow()
-            .callback
-            .as_ref()
-            .is_some_and(|callback| callback.call(value)))
-    }
-
-    pub fn simulate_focus_event(
-        &self,
-        object: ObjectId,
-        event: EventId,
-        value: FocusEventInfo,
-    ) -> Result<(), WinUiError> {
-        let Some(Handle::Generated(GeneratedHandle::Border(border))) = self.handles.get(&object)
-        else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        let native_event = match event {
-            EventId::GotFocus => &border.got_focus,
-            EventId::LostFocus => &border.lost_focus,
-            _ => return Err(WinUiError::InvalidEvent(object, event)),
-        };
-        Self::dispatch(native_event, &self.event_queue, object, event, None, value);
-        Ok(())
-    }
-
-    pub fn simulate_pointer_event(
-        &self,
-        object: ObjectId,
-        event: EventId,
-        value: PointerEventInfo,
-    ) -> Result<(), WinUiError> {
-        let Some(Handle::Generated(GeneratedHandle::Border(border))) = self.handles.get(&object)
-        else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        let native_event = match event {
-            EventId::PointerPressed => &border.pointer_pressed,
-            EventId::PointerMoved => &border.pointer_moved,
-            EventId::PointerEntered => &border.pointer_entered,
-            EventId::PointerExited => &border.pointer_exited,
-            EventId::PointerReleased => &border.pointer_released,
-            _ => return Err(WinUiError::InvalidEvent(object, event)),
-        };
-        Self::dispatch(native_event, &self.event_queue, object, event, None, value);
-        Ok(())
     }
 
     pub fn set_slider_value(&self, object: ObjectId, value: f64) -> Result<(), WinUiError> {

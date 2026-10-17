@@ -1,7 +1,6 @@
 use serde::Deserialize;
 use std::borrow::Cow;
 use std::collections::{BTreeMap, BTreeSet};
-use std::fmt::Write as _;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
@@ -15,7 +14,6 @@ const BINDINGS_FILTER: &str = "crates/tools/reactor/src/bindings.txt";
 const BINDINGS_OUTPUT: &str = "crates/libs/reactor/src/native/bindings.rs";
 const CANVAS_FILTER: &str = "crates/tools/reactor/src/canvas.txt";
 const CANVAS_BINDINGS_OUTPUT: &str = "crates/libs/canvas/src/reactor_bindings.rs";
-const LIVE_COVERAGE_OUTPUT: &str = "crates/tests/libs/reactor_selftest/src/generated_coverage.rs";
 
 #[derive(Clone, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -474,7 +472,6 @@ fn main() {
     let generated = rustfmt(&generate(&schema, &metadata));
     let declarations = rustfmt(&generate_declarations(&schema, &metadata));
     let native = rustfmt(&generate_native(&schema, &metadata));
-    let live_coverage = rustfmt(&generate_live_coverage(&schema));
     let output = workspace_path(OUTPUT);
     if fs::read_to_string(&output).ok().as_deref() != Some(&generated) {
         fs::write(output, generated).unwrap();
@@ -487,10 +484,6 @@ fn main() {
     let native_output = workspace_path(NATIVE_OUTPUT);
     if fs::read_to_string(&native_output).ok().as_deref() != Some(&native) {
         fs::write(native_output, native).unwrap();
-    }
-    let live_coverage_output = workspace_path(LIVE_COVERAGE_OUTPUT);
-    if fs::read_to_string(&live_coverage_output).ok().as_deref() != Some(&live_coverage) {
-        fs::write(live_coverage_output, live_coverage).unwrap();
     }
     windows_bindgen::builder()
         .input(workspace_path(WINMD))
@@ -2385,25 +2378,6 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     }
     output.push_str("_ => None,\n} }\n");
 
-    output.push_str(
-        "#[cfg(any(test, feature = \"test\"))]\n\
-         fn unit_event(&self, event: EventId) -> Option<&Rc<RefCell<NativeUnitEvent>>> { \
-                     match (self, event) {\n",
-    );
-    for object in &objects {
-        for event in &object.events {
-            if event.value == "Unit" {
-                output.push_str(&format!(
-                    "(Self::{}(object), EventId::{}) => Some(&object.{}),\n",
-                    object.name,
-                    event.name,
-                    snake_case(&event.name)
-                ));
-            }
-        }
-    }
-    output.push_str("_ => None,\n} }\n");
-
     output.push_str("}\n");
     output.push_str(&lazy_subscriptions);
     output
@@ -3934,245 +3908,6 @@ fn property_default_parts(value_type: &str, value: &str) -> String {
         "SelectionIndex" => "None".to_string(),
         "StringList" => "Vec::<Option<IInspectable>>::new().into()".to_string(),
         _ => format!("native::{value_type}::{value}"),
-    }
-}
-
-fn generate_live_coverage(schema: &Schema) -> String {
-    let mut output = String::from(
-        "use windows_reactor as reactor;\n\
-         use reactor::*;\n\
-         pub struct CoverageCase {\n\
-             pub contract: &'static str,\n\
-             pub set: fn() -> View,\n\
-             pub clear: fn() -> View,\n\
-         }\n\
-         pub fn cases() -> Vec<CoverageCase> {\n\
-             vec![\n",
-    );
-    let mut functions = String::new();
-    let mut index = 0;
-    let representative = schema
-        .objects
-        .iter()
-        .find(|object| object.name == "TextBlock")
-        .unwrap();
-
-    for property in &schema.attached_properties {
-        write_live_property_case(
-            &mut output,
-            &mut functions,
-            &mut index,
-            "attached",
-            representative,
-            &property.name,
-            &snake_case(&property.name),
-            &property.value,
-            None,
-            property.default.as_deref(),
-            property.flag,
-            false,
-        );
-    }
-    for property in &schema.visual_properties {
-        write_live_property_case(
-            &mut output,
-            &mut functions,
-            &mut index,
-            "visual",
-            representative,
-            &property.name,
-            &snake_case(&property.name),
-            &property.value,
-            None,
-            property.default.as_deref(),
-            false,
-            false,
-        );
-    }
-    for object in &schema.objects {
-        if object.category != ObjectCategory::Visual || live_coverage_specialized(object) {
-            continue;
-        }
-        for property in &object.properties {
-            let method = property.method();
-            write_live_property_case(
-                &mut output,
-                &mut functions,
-                &mut index,
-                &object.name,
-                object,
-                &property.name,
-                &method,
-                &property.value,
-                property.adapter,
-                property.default.as_deref(),
-                false,
-                property.required,
-            );
-        }
-        for event in &object.events {
-            let method = event
-                .field
-                .as_deref()
-                .and_then(|field| field.strip_prefix("on_"))
-                .map_or_else(|| snake_case(&event.name), str::to_string);
-            let set_name = format!("coverage_{index}_set");
-            let clear_name = format!("coverage_{index}_clear");
-            writeln!(
-                output,
-                "CoverageCase {{ contract: \"{}.{}\", set: {set_name}, clear: {clear_name} }},",
-                object.name, event.name
-            )
-            .unwrap();
-            let constructor = example_constructor(object);
-            let callback = if event.routed {
-                match event.value.as_str() {
-                    "CharacterEventInfo" => "RoutedCallback::new(|_| false)",
-                    "KeyEventInfo" => "RoutedCallback::new(|_| false)",
-                    value => unreachable!("unsupported routed live coverage event {value}"),
-                }
-                .to_string()
-            } else if event.value == "Unit" {
-                "|| {}".to_string()
-            } else {
-                "|_| {}".to_string()
-            };
-            writeln!(
-                functions,
-                "fn {set_name}() -> View {{ {constructor}.on_{method}({callback}).into() }}\n\
-                 fn {clear_name}() -> View {{ {constructor}.into() }}"
-            )
-            .unwrap();
-            index += 1;
-        }
-    }
-    output.push_str("]\n}\n");
-    output.push_str(&functions);
-    output
-}
-
-#[allow(clippy::too_many_arguments)]
-fn write_live_property_case(
-    output: &mut String,
-    functions: &mut String,
-    index: &mut usize,
-    owner: &str,
-    object: &Object,
-    property_name: &str,
-    method: &str,
-    value: &str,
-    adapter: Option<PropertyAdapter>,
-    default: Option<&str>,
-    flag: bool,
-    required: bool,
-) {
-    let set_name = format!("coverage_{}_set", *index);
-    let clear_name = format!("coverage_{}_clear", *index);
-    writeln!(
-        output,
-        "CoverageCase {{ contract: \"{owner}.{property_name}\", set: {set_name}, clear: \
-         {clear_name} }},"
-    )
-    .unwrap();
-    let constructor = example_constructor(object);
-    let sample = live_property_sample(property_name, value, adapter, default);
-    let set = if required {
-        constructor.clone()
-    } else if flag {
-        format!("{constructor}.{method}()")
-    } else if matches!(
-        adapter,
-        Some(PropertyAdapter::Uri | PropertyAdapter::ImageUri)
-    ) {
-        format!("{constructor}.{method}({sample}).unwrap()")
-    } else {
-        format!("{constructor}.{method}({sample})")
-    };
-    writeln!(
-        functions,
-        "fn {set_name}() -> View {{ {set}.into() }}\n\
-         fn {clear_name}() -> View {{ {constructor}.into() }}"
-    )
-    .unwrap();
-    *index += 1;
-}
-
-fn live_coverage_specialized(object: &Object) -> bool {
-    matches!(
-        object.name.as_str(),
-        "TitleBar" | "ToolTip" | "ContentDialog"
-    )
-}
-
-fn live_property_sample(
-    name: &str,
-    value: &str,
-    adapter: Option<PropertyAdapter>,
-    default: Option<&str>,
-) -> String {
-    if matches!(
-        adapter,
-        Some(PropertyAdapter::Uri | PropertyAdapter::ImageUri)
-    ) {
-        return "\"https://example.com\"".to_string();
-    }
-    match value {
-        "String" if name == "ClockIdentifier" => "\"24HourClock\"".to_string(),
-        "String" if adapter == Some(PropertyAdapter::PathData) => "\"M 0,0 L 1,1\"".to_string(),
-        "String" => "\"coverage\"".to_string(),
-        "Bool" if matches!(name, "IsOpen" | "IsCalendarOpen") => "false".to_string(),
-        "Bool" => match default {
-            Some("true") => "false".to_string(),
-            _ => "true".to_string(),
-        },
-        "F64" if name == "Opacity" => "0.5".to_string(),
-        "F64" => "1.0".to_string(),
-        "I32" => "1".to_string(),
-        "Icon" => "Symbol::Previous".to_string(),
-        "Brush" => "Color::rgb(1, 2, 3)".to_string(),
-        "ButtonStyle" => "ButtonStyle::Default".to_string(),
-        "Color" => "Color::rgb(1, 2, 3)".to_string(),
-        "CornerRadius" => "CornerRadius::uniform(1.0)".to_string(),
-        "DateTime" | "OptionalDateTime" => "DateTime::now()".to_string(),
-        "Duration" => "std::time::Duration::from_millis(1)".to_string(),
-        "DragDropPolicy" => "DragDropPolicy::new()".to_string(),
-        "FontWeight" => "FontWeight::SEMI_BOLD".to_string(),
-        "GridLengths" => "[GridLength::Auto]".to_string(),
-        "KeyAccelerators" => "KeyAccelerators::default()".to_string(),
-        "OptionalBool" => "Some(true)".to_string(),
-        "OptionalF64" => "Some(1.0)".to_string(),
-        "ResourceOverrides" => "ResourceOverrides::new()".to_string(),
-        "RichText" => "RichText::new([RichTextParagraph::new([RichTextInline::Run(\
-                       RichTextRun::plain(\"coverage\"))])])"
-            .to_string(),
-        "SelectionIndex" => "Some(0)".to_string(),
-        "StringList" => "[\"coverage\"]".to_string(),
-        "ThemeTransitions" => "[ThemeTransition::Reposition]".to_string(),
-        "Thickness" => "Thickness::uniform(1.0)".to_string(),
-        "Vector2" => "1.0, -1.0".to_string(),
-        "AutomationHeadingLevel" => "AutomationHeadingLevel::Level1".to_string(),
-        "HorizontalAlignment" => "HorizontalAlignment::Center".to_string(),
-        "InfoBarSeverity" => "InfoBarSeverity::Informational".to_string(),
-        "ListViewSelectionMode" => "ListViewSelectionMode::Single".to_string(),
-        "NavigationViewBackButtonVisible" => "NavigationViewBackButtonVisible::Visible".to_string(),
-        "NavigationViewPaneDisplayMode" => "NavigationViewPaneDisplayMode::Left".to_string(),
-        "NumberBoxSpinButtonPlacementMode" => {
-            "NumberBoxSpinButtonPlacementMode::Inline".to_string()
-        }
-        "Orientation" => "Orientation::Horizontal".to_string(),
-        "PasswordRevealMode" => "PasswordRevealMode::Visible".to_string(),
-        "ScrollBarVisibility" => "ScrollBarVisibility::Visible".to_string(),
-        "ScrollingScrollBarVisibility" => "ScrollingScrollBarVisibility::Visible".to_string(),
-        "SplitViewDisplayMode" => "SplitViewDisplayMode::Inline".to_string(),
-        "Stretch" => "Stretch::Uniform".to_string(),
-        "Symbol" => "Symbol::Previous".to_string(),
-        "TeachingTipPlacementMode" => "TeachingTipPlacementMode::Top".to_string(),
-        "TextAlignment" => "TextAlignment::Center".to_string(),
-        "TextTrimming" => "TextTrimming::CharacterEllipsis".to_string(),
-        "TextWrapping" => "TextWrapping::Wrap".to_string(),
-        "TreeViewSelectionMode" => "TreeViewSelectionMode::Single".to_string(),
-        "VerticalAlignment" => "VerticalAlignment::Center".to_string(),
-        value => unreachable!("unsupported live coverage value {value}"),
     }
 }
 

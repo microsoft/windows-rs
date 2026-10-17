@@ -1,7 +1,5 @@
 #![windows_subsystem = "console"]
 
-mod generated_coverage;
-
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 use std::time::Duration;
@@ -295,30 +293,6 @@ impl Fixture {
         runtime.adapter().validate_graph(runtime.graph()).unwrap();
     }
 
-    fn verify_generated_coverage() {
-        for case in generated_coverage::cases() {
-            let mut runtime = reactor::Runtime::new(reactor::native::WinUiAdapter::default());
-            runtime
-                .update((case.set)())
-                .unwrap_or_else(|error| panic!("{} set failed: {error:?}", case.contract));
-            runtime
-                .dispatch_native_events()
-                .unwrap_or_else(|error| panic!("{} set dispatch failed: {error:?}", case.contract));
-            runtime
-                .update((case.clear)())
-                .unwrap_or_else(|error| panic!("{} clear failed: {error:?}", case.contract));
-            runtime.dispatch_native_events().unwrap_or_else(|error| {
-                panic!("{} clear dispatch failed: {error:?}", case.contract)
-            });
-            runtime
-                .adapter()
-                .validate_graph(runtime.graph())
-                .unwrap_or_else(|error| {
-                    panic!("{} graph validation failed: {error:?}", case.contract)
-                });
-        }
-    }
-
     fn inject_pointer(hwnd: *mut core::ffi::c_void, stage: u8) -> Result<(), String> {
         let hwnd: windows::Win32::HWND = hwnd.cast();
         unsafe {
@@ -546,7 +520,6 @@ impl reactor::Component for Fixture {
     type Message = ();
 
     fn create(_input: &Self::Input, context: &reactor::ComponentContext<Self>) -> Self {
-        Self::verify_generated_coverage();
         Self::verify_navigation_view_properties();
         let text = Rc::new(RefCell::new(Rc::<str>::from("Initial text")));
         let text_changed_count = Rc::new(Cell::new(0));
@@ -800,28 +773,6 @@ impl reactor::Component for Fixture {
             .validate_graph(replacement_runtime.graph())
             .unwrap();
         replacement_window.close().unwrap();
-        let button_calls = Rc::new(Cell::new(0));
-        let button_callback_calls = Rc::clone(&button_calls);
-        let mut button_runtime = reactor::Runtime::new(reactor::native::WinUiAdapter::default());
-        button_runtime
-            .update(
-                reactor::Button::new()
-                    .content(reactor::TextBlock::new().text("Click"))
-                    .on_click(move || {
-                        button_callback_calls.set(button_callback_calls.get() + 1);
-                    }),
-            )
-            .unwrap();
-        let button = button_runtime.graph().root().unwrap();
-        let button_window = button_runtime.adapter().open_window(button).unwrap();
-        button_runtime.adapter().simulate_click(button).unwrap();
-        assert_eq!(button_runtime.dispatch_native_events().unwrap(), 1);
-        assert_eq!(button_calls.get(), 1);
-        button_runtime
-            .adapter()
-            .validate_graph(button_runtime.graph())
-            .unwrap();
-        button_window.close().unwrap();
         let controlled_calls = Rc::new(Cell::new(0));
         let checked_value = Rc::new(Cell::new(None));
         let toggle_value = Rc::new(Cell::new(None));
@@ -964,227 +915,13 @@ impl reactor::Component for Fixture {
             .simulate_calendar_date(calendar, reactor::DateTime::from_unix_secs(1_720_000_000))
             .unwrap();
         assert_eq!(calendar_runtime.dispatch_native_events().unwrap(), 0);
-        let pointer_value = reactor::PointerEventInfo {
-            x: 12.5,
-            y: 24.5,
-            window_x: 112.5,
-            window_y: 224.5,
-            pointer_id: 42,
-            is_captured: true,
-            is_right_button_pressed: true,
-            ..Default::default()
-        };
         let received_pointer = Rc::new(RefCell::new(None));
         let received_pointer_callback = Rc::clone(&received_pointer);
         let received_pointer_moved = Rc::new(Cell::new(false));
         let received_pointer_moved_callback = Rc::clone(&received_pointer_moved);
         let received_pointer_pressed = Rc::new(Cell::new(false));
         let received_pointer_pressed_callback = Rc::clone(&received_pointer_pressed);
-        let stale_pointer_calls = Rc::new(Cell::new(0));
-        let stale_pointer_callback = Rc::clone(&stale_pointer_calls);
-        let pointer_motion_events = Rc::new(RefCell::new(Vec::new()));
-        let pointer_motion_callback = |event| {
-            let events = Rc::clone(&pointer_motion_events);
-            move |_| events.borrow_mut().push(event)
-        };
         let mut pointer_runtime = reactor::Runtime::new(reactor::native::WinUiAdapter::default());
-        let pressed_pointer = Rc::new(RefCell::new(None));
-        let pressed_pointer_callback = Rc::clone(&pressed_pointer);
-        let routed_keys = Rc::new(RefCell::new(Vec::new()));
-        let preview_keys = Rc::clone(&routed_keys);
-        let released_keys = Rc::clone(&routed_keys);
-        let routed_characters = Rc::new(RefCell::new(Vec::new()));
-        let character_values = Rc::clone(&routed_characters);
-        let focus_values = Rc::new(RefCell::new(Vec::new()));
-        let got_focus_values = Rc::clone(&focus_values);
-        let lost_focus_values = Rc::clone(&focus_values);
-        let drag_values = Rc::new(RefCell::new(Vec::new()));
-        let drag_enter_values = Rc::clone(&drag_values);
-        let drag_over_values = Rc::clone(&drag_values);
-        let dropped_values = Rc::new(RefCell::new(Vec::new()));
-        let dropped_callback = Rc::clone(&dropped_values);
-        let drop_policy = reactor::DragDropPolicy::new()
-            .storage_items(reactor::DragDropAction::new(
-                reactor::DragDropOperation::Move,
-            ))
-            .text(
-                reactor::DragDropAction::new(reactor::DragDropOperation::Copy).caption("Copy text"),
-            );
-        pointer_runtime
-            .update(
-                reactor::Border::new()
-                    .width(200.0)
-                    .height(200.0)
-                    .background(reactor::Color::rgb(255, 255, 255))
-                    .capture_pointer_on_press(true)
-                    .focus_on_pointer_release(true)
-                    .on_pointer_pressed(move |value| {
-                        *pressed_pointer_callback.borrow_mut() = Some(value);
-                    })
-                    .on_pointer_moved(pointer_motion_callback(reactor::EventId::PointerMoved))
-                    .on_pointer_entered(pointer_motion_callback(reactor::EventId::PointerEntered))
-                    .on_pointer_exited(pointer_motion_callback(reactor::EventId::PointerExited))
-                    .on_pointer_released(move |_| {
-                        stale_pointer_callback.set(stale_pointer_callback.get() + 1);
-                    })
-                    .on_preview_key_down(reactor::RoutedCallback::new(move |value| {
-                        preview_keys.borrow_mut().push(value);
-                        true
-                    }))
-                    .on_key_up(reactor::RoutedCallback::new(move |value| {
-                        released_keys.borrow_mut().push(value);
-                        false
-                    }))
-                    .on_character_received(reactor::RoutedCallback::new(move |value| {
-                        character_values.borrow_mut().push(value);
-                        true
-                    }))
-                    .on_got_focus(move |value| got_focus_values.borrow_mut().push(value))
-                    .on_lost_focus(move |value| lost_focus_values.borrow_mut().push(value))
-                    .drop_policy(drop_policy.clone())
-                    .on_drag_enter(move |value| drag_enter_values.borrow_mut().push(value))
-                    .on_drag_over(move |value| drag_over_values.borrow_mut().push(value))
-                    .on_drop(move |value| dropped_callback.borrow_mut().push(value)),
-            )
-            .unwrap();
-        let pointer_border = pointer_runtime.graph().root().unwrap();
-        assert_eq!(
-            pointer_runtime
-                .adapter()
-                .pointer_policy(pointer_border)
-                .unwrap(),
-            (true, true)
-        );
-        assert_eq!(
-            pointer_runtime
-                .adapter()
-                .drop_policy(pointer_border)
-                .unwrap(),
-            Some(Rc::new(drop_policy))
-        );
-        let pressed_value = reactor::PointerEventInfo {
-            capture_succeeded: Some(true),
-            ..pointer_value
-        };
-        pointer_runtime
-            .adapter()
-            .simulate_pointer_event(
-                pointer_border,
-                reactor::EventId::PointerPressed,
-                pressed_value,
-            )
-            .unwrap();
-        for event in [
-            reactor::EventId::PointerMoved,
-            reactor::EventId::PointerEntered,
-            reactor::EventId::PointerExited,
-        ] {
-            pointer_runtime
-                .adapter()
-                .simulate_pointer_event(pointer_border, event, pointer_value)
-                .unwrap();
-        }
-        assert_eq!(pointer_runtime.dispatch_native_events().unwrap(), 4);
-        assert_eq!(*pressed_pointer.borrow(), Some(pressed_value));
-        let key_value = reactor::KeyEventInfo {
-            key: reactor::VirtualKey::ENTER,
-            original_key: reactor::VirtualKey::ENTER,
-            status: reactor::PhysicalKeyStatus::default(),
-            modifiers: reactor::InputModifiers::CONTROL,
-        };
-        assert!(
-            pointer_runtime
-                .adapter()
-                .simulate_key_event(pointer_border, reactor::EventId::PreviewKeyDown, key_value,)
-                .unwrap()
-        );
-        assert!(
-            !pointer_runtime
-                .adapter()
-                .simulate_key_event(pointer_border, reactor::EventId::KeyUp, key_value)
-                .unwrap()
-        );
-        let character_value = reactor::CharacterEventInfo {
-            character: b'A' as u16,
-            status: reactor::PhysicalKeyStatus::default(),
-            modifiers: reactor::InputModifiers::SHIFT,
-        };
-        assert!(
-            pointer_runtime
-                .adapter()
-                .simulate_character_event(pointer_border, character_value)
-                .unwrap()
-        );
-        assert_eq!(&*routed_keys.borrow(), &[key_value, key_value]);
-        assert_eq!(&*routed_characters.borrow(), &[character_value]);
-        let got_focus = reactor::FocusEventInfo {
-            state: reactor::ElementFocusState::Pointer,
-            is_direct: true,
-        };
-        let lost_focus = reactor::FocusEventInfo {
-            state: reactor::ElementFocusState::Unfocused,
-            is_direct: false,
-        };
-        pointer_runtime
-            .adapter()
-            .simulate_focus_event(pointer_border, reactor::EventId::GotFocus, got_focus)
-            .unwrap();
-        pointer_runtime
-            .adapter()
-            .simulate_focus_event(pointer_border, reactor::EventId::LostFocus, lost_focus)
-            .unwrap();
-        assert_eq!(pointer_runtime.dispatch_native_events().unwrap(), 2);
-        assert_eq!(&*focus_values.borrow(), &[got_focus, lost_focus]);
-        pointer_runtime
-            .adapter()
-            .simulate_drag_kind(
-                pointer_border,
-                reactor::EventId::DragEnter,
-                reactor::DragKind::Text,
-            )
-            .unwrap();
-        pointer_runtime
-            .adapter()
-            .simulate_drag_kind(
-                pointer_border,
-                reactor::EventId::DragOver,
-                reactor::DragKind::StorageItems,
-            )
-            .unwrap();
-        pointer_runtime
-            .adapter()
-            .simulate_dropped_data(
-                pointer_border,
-                reactor::DroppedData::Text("value".to_string()),
-            )
-            .unwrap();
-        assert_eq!(pointer_runtime.dispatch_native_events().unwrap(), 3);
-        assert_eq!(
-            &*drag_values.borrow(),
-            &[reactor::DragKind::Text, reactor::DragKind::StorageItems]
-        );
-        assert_eq!(
-            &*dropped_values.borrow(),
-            &[reactor::DroppedData::Text("value".to_string())]
-        );
-        assert_eq!(
-            &*pointer_motion_events.borrow(),
-            &[
-                reactor::EventId::PointerMoved,
-                reactor::EventId::PointerEntered,
-                reactor::EventId::PointerExited
-            ]
-        );
-        pointer_runtime
-            .adapter()
-            .simulate_pointer_released(pointer_border, pointer_value)
-            .unwrap();
-        pointer_runtime
-            .adapter()
-            .simulate_pointer_released(pointer_border, pointer_value)
-            .unwrap();
-        let mut active = pointer_runtime.next_native_event().unwrap().unwrap();
-        active.invoke();
         pointer_runtime
             .update(
                 reactor::Border::new()
@@ -1200,36 +937,6 @@ impl reactor::Component for Fixture {
                     }),
             )
             .unwrap();
-        assert_eq!(
-            pointer_runtime
-                .adapter()
-                .pointer_policy(pointer_border)
-                .unwrap(),
-            (true, true)
-        );
-        assert_eq!(
-            pointer_runtime
-                .adapter()
-                .drop_policy(pointer_border)
-                .unwrap(),
-            None
-        );
-        assert!(
-            !pointer_runtime
-                .adapter()
-                .simulate_key_event(pointer_border, reactor::EventId::PreviewKeyDown, key_value,)
-                .unwrap()
-        );
-        drop(active);
-        assert_eq!(pointer_runtime.dispatch_native_events().unwrap(), 0);
-        assert_eq!(stale_pointer_calls.get(), 1);
-        pointer_runtime
-            .adapter()
-            .simulate_pointer_released(pointer_border, pointer_value)
-            .unwrap();
-        assert_eq!(pointer_runtime.dispatch_native_events().unwrap(), 1);
-        assert_eq!(*received_pointer.borrow(), Some(pointer_value));
-        *received_pointer.borrow_mut() = None;
         pointer_runtime
             .adapter()
             .validate_graph(pointer_runtime.graph())

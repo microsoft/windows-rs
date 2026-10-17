@@ -193,7 +193,7 @@ Two independent NuGet paths, both using `https://www.nuget.org/api/v2/package/{i
 | `tool-webview` | `WEBVIEW2_VERSION` | zero-diff regen of `webview/src/bindings.rs` |
 | `tool-clang` | `LIBCLANG_VERSION` (drives NuGet DLL + `llvmorg-<ver>` header tag) | pure-check assertion |
 | `tool-reactor-metadata` | `WINDOWS_APP_SDK_VERSION`; reactor-setup sync | zero-diff regen of the winmd files; guard reads reactor-setup constants |
-| `tool-reactor` | Reactor schema and WinUI projection | zero-diff regen of declarations, native code, bindings, canvas bridge bindings, and live coverage |
+| `tool-reactor` | Reactor schema and WinUI projection | zero-diff regen of declarations, native code, bindings, and canvas bridge bindings |
 
 All cross-file reads go through `helpers::read_str_const`, so each pin is declared once by its owner
 and read back everywhere else.

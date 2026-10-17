@@ -10545,41 +10545,6 @@ impl GeneratedHandle {
             _ => None,
         }
     }
-    #[cfg(any(test, feature = "test"))]
-    fn unit_event(&self, event: EventId) -> Option<&Rc<RefCell<NativeUnitEvent>>> {
-        match (self, event) {
-            (Self::Button(object), EventId::Click) => Some(&object.click),
-            (Self::CheckBox(object), EventId::Click) => Some(&object.click),
-            (Self::Border(object), EventId::PointerCaptureLost) => {
-                Some(&object.pointer_capture_lost)
-            }
-            (Self::Border(object), EventId::PointerCanceled) => Some(&object.pointer_canceled),
-            (Self::Border(object), EventId::DragLeave) => Some(&object.drag_leave),
-            (Self::TitleBar(object), EventId::BackRequested) => Some(&object.back_requested),
-            (Self::TitleBar(object), EventId::PaneToggleRequested) => {
-                Some(&object.pane_toggle_requested)
-            }
-            (Self::HyperlinkButton(object), EventId::Click) => Some(&object.click),
-            (Self::RepeatButton(object), EventId::Click) => Some(&object.click),
-            (Self::InfoBar(object), EventId::Closed) => Some(&object.closed),
-            (Self::Image(object), EventId::ImageOpened) => Some(&object.image_opened),
-            (Self::Image(object), EventId::ImageFailed) => Some(&object.image_failed),
-            (Self::TabView(object), EventId::AddTabButtonClick) => {
-                Some(&object.add_tab_button_click)
-            }
-            (Self::TeachingTip(object), EventId::Closed) => Some(&object.closed),
-            (Self::TeachingTip(object), EventId::ActionButtonClick) => {
-                Some(&object.action_button_click)
-            }
-            (Self::DropDownButton(object), EventId::Click) => Some(&object.click),
-            (Self::AppBarButton(object), EventId::Click) => Some(&object.click),
-            (Self::SplitButton(object), EventId::Click) => Some(&object.click),
-            (Self::CalendarView(object), EventId::SelectedDatesChanged) => {
-                Some(&object.selected_dates_changed)
-            }
-            _ => None,
-        }
-    }
 }
 impl GeneratedButton {
     fn subscribe_click(
