@@ -502,23 +502,21 @@ impl GeneratedCollection {
             Self::SelectorBarItem(value) => value.Size().map_err(Into::into),
         }
     }
-    fn get_at(&self, index: u32) -> Result<IInspectable, WinUiError> {
+    fn get_at(&self, index: u32) -> Result<native::UIElement, WinUiError> {
         match self {
-            Self::Visual(value) => value.GetAt(index).map(Into::into).map_err(Into::into),
-            Self::Inspectable(value) => value.GetAt(index).map_err(Into::into),
-            Self::ICommandBarElement(value) => {
-                value.GetAt(index).map(Into::into).map_err(Into::into)
-            }
-            Self::MenuBarItem(value) => value.GetAt(index).map(Into::into).map_err(Into::into),
-            Self::SelectorBarItem(value) => value.GetAt(index).map(Into::into).map_err(Into::into),
+            Self::Visual(value) => value.GetAt(index).map_err(Into::into),
+            Self::Inspectable(value) => Ok(value.GetAt(index)?.cast()?),
+            Self::ICommandBarElement(value) => Ok(value.GetAt(index)?.cast()?),
+            Self::MenuBarItem(value) => Ok(value.GetAt(index)?.cast()?),
+            Self::SelectorBarItem(value) => Ok(value.GetAt(index)?.cast()?),
         }
     }
-    fn insert_at(&self, index: u32, child: &IInspectable) -> Result<(), WinUiError> {
+    fn insert_at(&self, index: u32, child: &native::UIElement) -> Result<(), WinUiError> {
         match self {
-            Self::Visual(value) => value
-                .InsertAt(index, &child.cast::<native::UIElement>()?)
+            Self::Visual(value) => value.InsertAt(index, child).map_err(Into::into),
+            Self::Inspectable(value) => value
+                .InsertAt(index, &child.cast::<IInspectable>()?)
                 .map_err(Into::into),
-            Self::Inspectable(value) => value.InsertAt(index, child).map_err(Into::into),
             Self::ICommandBarElement(value) => value
                 .InsertAt(index, &child.cast::<native::ICommandBarElement>()?)
                 .map_err(Into::into),
@@ -529,6 +527,25 @@ impl GeneratedCollection {
                 .InsertAt(index, &child.cast::<native::SelectorBarItem>()?)
                 .map_err(Into::into),
         }
+    }
+    fn index_of(&self, child: &native::UIElement) -> Result<Option<u32>, WinUiError> {
+        let mut index = 0;
+        let found = match self {
+            Self::Visual(value) => value.IndexOf(child, &mut index)?,
+            Self::Inspectable(value) => {
+                value.IndexOf(&child.cast::<IInspectable>()?, &mut index)?
+            }
+            Self::ICommandBarElement(value) => {
+                value.IndexOf(&child.cast::<native::ICommandBarElement>()?, &mut index)?
+            }
+            Self::MenuBarItem(value) => {
+                value.IndexOf(&child.cast::<native::MenuBarItem>()?, &mut index)?
+            }
+            Self::SelectorBarItem(value) => {
+                value.IndexOf(&child.cast::<native::SelectorBarItem>()?, &mut index)?
+            }
+        };
+        Ok(found.then_some(index))
     }
     fn remove_at(&self, index: u32) -> Result<(), WinUiError> {
         match self {

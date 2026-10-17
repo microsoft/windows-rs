@@ -122,10 +122,49 @@ impl Component for TextFixture {
     }
 }
 
+struct ReorderFixture {
+    order: Vec<&'static str>,
+}
+
+impl Component for ReorderFixture {
+    type Input = ();
+    type Message = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            order: vec!["a", "b", "c", "d"],
+        }
+    }
+
+    fn update(&mut self, _: (), _: &ComponentContext<Self>) {
+        self.order = vec!["d", "a", "b", "c"];
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let rows = self.order.iter().map(|&key| {
+            let mut row = TextBox::new().automation_id(key);
+            if key == "b" {
+                row = row.on_text_changed(context.callback(|_| ()));
+            }
+            KeyedView::new(key, row)
+        });
+        context.window_frame(
+            "Reactor UI fixture: keyed-reorder",
+            StackPanel::new().margin(20.0).spacing(12.0).children((
+                TextBlock::new()
+                    .automation_id("order")
+                    .text(format!("Order {}", self.order.join(" "))),
+                StackPanel::new().spacing(8.0).keyed_children(rows),
+            )),
+        )
+    }
+}
+
 pub fn run(fixture: &str) -> windows_core::Result<()> {
     match fixture {
         "menu" => App::run_component::<MenuFixture>(())?,
         "text" => App::run_component::<TextFixture>(())?,
+        "keyed-reorder" => App::run_component::<ReorderFixture>(())?,
         "pointer-capture-mounted" => pointer::run(true, true)?,
         "pointer-capture-added" => pointer::run(true, false)?,
         "pointer-focus-mounted" => pointer::run(false, true)?,

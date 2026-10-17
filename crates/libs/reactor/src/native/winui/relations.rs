@@ -79,6 +79,12 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    fn has_retirements(&self, parent: ObjectId, relation: RelationId) -> bool {
+        self.retirements
+            .values()
+            .any(|retirement| retirement.parent == parent && retirement.relation == relation)
+    }
+
     fn active_native_index(
         &self,
         parent: ObjectId,
@@ -98,11 +104,8 @@ impl WinUiAdapter {
         let values = self.owned_collection(parent, relation)?;
         let retired = retired
             .into_iter()
-            .map(|root| {
-                self.ui_element(root)
-                    .and_then(|value| value.cast().map_err(Into::into))
-            })
-            .collect::<Result<Vec<IInspectable>, _>>()?;
+            .map(|root| self.ui_element(root))
+            .collect::<Result<Vec<_>, _>>()?;
         let mut active = 0;
         for index in 0..values.size()? {
             if retired.contains(&values.get_at(index)?) {
@@ -159,7 +162,7 @@ impl WinUiAdapter {
             match relation_contract(self.kind(parent)?, relation)?.realization {
                 Realization::Owned => {
                     self.owned_collection(parent, relation)?
-                        .insert_at(index32(index)?, &self.ui_element(child)?.cast()?)?;
+                        .insert_at(index32(index)?, &self.ui_element(child)?)?;
                 }
                 Realization::Structural => {
                     self.tree_nodes(parent)?
@@ -221,7 +224,7 @@ impl WinUiAdapter {
             match relation_contract(self.kind(parent)?, relation)?.realization {
                 Realization::Owned => {
                     let values = self.owned_collection(parent, relation)?;
-                    if values.get_at(index32(index)?)? != self.ui_element(child)?.cast()? {
+                    if values.get_at(index32(index)?)? != self.ui_element(child)? {
                         return Err(WinUiError::ChildNotFound(child));
                     }
                     values.remove_at(index32(index)?)?;
@@ -274,6 +277,26 @@ impl WinUiAdapter {
         let feedback = self.begin_selection_feedback(parent, selection);
         let result = (|| {
             match relation_contract(self.kind(parent)?, relation)?.realization {
+                Realization::Owned if !self.has_retirements(parent, relation) => {
+                    // Without retiring children, native order matches active order, so the
+                    // reconciler's moves apply directly and unmoved children stay in place.
+                    let values = self.owned_collection(parent, relation)?;
+                    for movement in moves {
+                        let child = self.ui_element(movement.child)?;
+                        let previous = values
+                            .index_of(&child)?
+                            .ok_or(WinUiError::ChildNotFound(movement.child))?;
+                        values.remove_at(previous)?;
+                        let index = if let Some(before) = movement.before {
+                            values
+                                .index_of(&self.ui_element(before)?)?
+                                .ok_or(WinUiError::ChildNotFound(before))?
+                        } else {
+                            values.size()?
+                        };
+                        values.insert_at(index, &child)?;
+                    }
+                }
                 Realization::Owned => {
                     let values = self.owned_collection(parent, relation)?;
                     let mut current = (0..values.size()?)
@@ -688,7 +711,7 @@ impl WinUiAdapter {
         let parent = retirement.parent;
         let relation = retirement.relation;
         let values = self.owned_collection(parent, relation)?;
-        let root_value: IInspectable = self.ui_element(root)?.cast()?;
+        let root_value = self.ui_element(root)?;
         let mut index = 0;
         while index < values.size()? && values.get_at(index)? != root_value {
             index += 1;
