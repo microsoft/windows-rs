@@ -98,6 +98,10 @@ fn main() {
             "TOKEN_QUERY",
             "CloseHandle",
             "PostMessageW",
+            "FindWindowExW",
+            "WM_USER",
+            "WM_CONTEXTMENU",
+            "NIN_SELECT",
             "WM_CLOSE",
         ])
         .flat()

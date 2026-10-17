@@ -3,12 +3,14 @@ use windows_reactor::*;
 
 mod drag;
 mod pointer;
+mod tray;
 
 #[derive(Clone, Copy, PartialEq)]
 enum MenuSurface {
     Button,
     DropDown,
     MenuBar,
+    CommandBar,
 }
 
 struct MenuFixture {
@@ -86,25 +88,39 @@ impl Component for MenuFixture {
                     .title("Open menu")
                     .into(),
             ),
+            MenuSurface::CommandBar => (
+                "Reactor UI fixture: command-bar",
+                Button::new()
+                    .automation_id("open")
+                    .content("Open commands")
+                    .into(),
+            ),
         };
         if self.attached {
-            target = target.menu(Menu::new(
-                [
-                    MenuItem::item(
-                        "command",
-                        if self.changed {
-                            "Changed command"
-                        } else {
-                            "Command"
-                        },
-                    ),
-                    MenuItem::submenu("more", "More", [MenuItem::item("nested", "Nested")]),
-                ],
-                context.callback(move |key: Key| {
-                    assert_eq!(key.as_str(), Some("command"));
-                    MenuMessage::Selected(generation)
-                }),
-            ));
+            let label = if self.changed {
+                "Changed command"
+            } else {
+                "Command"
+            };
+            let callback = context.callback(move |key: Key| {
+                assert_eq!(key.as_str(), Some("command"));
+                MenuMessage::Selected(generation)
+            });
+            target = if *input == MenuSurface::CommandBar {
+                target.command_bar_flyout(CommandBarFlyout::new(
+                    [CommandBarCommand::button("command", label)],
+                    [],
+                    callback,
+                ))
+            } else {
+                target.menu(Menu::new(
+                    [
+                        MenuItem::item("command", label),
+                        MenuItem::submenu("more", "More", [MenuItem::item("nested", "Nested")]),
+                    ],
+                    callback,
+                ))
+            };
         }
         let target = if *input == MenuSurface::MenuBar {
             MenuBar::new().items([target]).into()
@@ -242,6 +258,8 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "menu" => App::run_component::<MenuFixture>(MenuSurface::Button)?,
         "menu-dropdown" => App::run_component::<MenuFixture>(MenuSurface::DropDown)?,
         "menu-bar" => App::run_component::<MenuFixture>(MenuSurface::MenuBar)?,
+        "command-bar" => App::run_component::<MenuFixture>(MenuSurface::CommandBar)?,
+        "tray" => App::run_application::<tray::TrayFixture>(())?,
         "text" => App::run_component::<TextFixture>(())?,
         "keyed-reorder" => App::run_component::<ReorderFixture>(())?,
         "pointer-capture-mounted" => pointer::run(true, true)?,
