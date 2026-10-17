@@ -15,7 +15,7 @@ $allowed = @(
     # Virtual item indices and data/selection strings must be unboxed from IInspectable.
     "windows-core: cast::<windows_reference::reference::IReference<i32>> at .*crates/libs/reactor/src/native/winui/mod\.rs$location",
     "windows-core: cast::<windows_reference::reference::IReference<windows_strings::hstring::HSTRING>> at .*crates/libs/reactor/src/(native/(?:winui/\.\./)?generated|(?:native/winui/\.\./\.\./)?test_support/native/winui)\.rs$location",
-    # Generated collection insertion recovers the element type from IInspectable.
+    # Generated item collections convert between UIElement and the collection's item type.
     "windows-core: cast::<windows_reactor::native::bindings::(UIElement|ICommandBarElement|MenuBarItem|SelectorBarItem)> at .*crates/libs/reactor/src/native/(?:winui/\.\./)?generated\.rs$location"
 )
 

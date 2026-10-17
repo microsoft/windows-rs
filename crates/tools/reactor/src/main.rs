@@ -988,22 +988,22 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     }
     output.push_str("} }\n");
     output.push_str(
-        "fn get_at(&self, index: u32) -> Result<IInspectable, WinUiError> { match self { \
-         Self::Visual(value) => value.GetAt(index).map(Into::into).map_err(Into::into), \
-         Self::Inspectable(value) => value.GetAt(index).map_err(Into::into),",
+        "fn get_at(&self, index: u32) -> Result<native::UIElement, WinUiError> { match self { \
+         Self::Visual(value) => value.GetAt(index).map_err(Into::into), \
+         Self::Inspectable(value) => Ok(value.GetAt(index)?.cast()?),",
     );
     for item in &collection_items {
         let item = item.rsplit('.').next().unwrap();
         output.push_str(&format!(
-            "Self::{item}(value) => value.GetAt(index).map(Into::into).map_err(Into::into),"
+            "Self::{item}(value) => Ok(value.GetAt(index)?.cast()?),"
         ));
     }
     output.push_str("} }\n");
     output.push_str(
-        "fn insert_at(&self, index: u32, child: &IInspectable) -> Result<(), WinUiError> { \
-         match self { Self::Visual(value) => value.InsertAt(index, \
-         &child.cast::<native::UIElement>()?).map_err(Into::into), \
-         Self::Inspectable(value) => value.InsertAt(index, child).map_err(Into::into),",
+        "fn insert_at(&self, index: u32, child: &native::UIElement) -> Result<(), WinUiError> { \
+         match self { Self::Visual(value) => value.InsertAt(index, child).map_err(Into::into), \
+         Self::Inspectable(value) => value.InsertAt(index, &child.cast::<IInspectable>()?)\
+         .map_err(Into::into),",
     );
     for item in &collection_items {
         let item = item.rsplit('.').next().unwrap();
@@ -1014,6 +1014,19 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     }
     output.push_str(
         "} }\n\
+         fn index_of(&self, child: &native::UIElement) -> Result<Option<u32>, WinUiError> { \
+         let mut index = 0; let found = match self { \
+         Self::Visual(value) => value.IndexOf(child, &mut index)?, \
+         Self::Inspectable(value) => value.IndexOf(&child.cast::<IInspectable>()?, &mut index)?,",
+    );
+    for item in &collection_items {
+        let item = item.rsplit('.').next().unwrap();
+        output.push_str(&format!(
+            "Self::{item}(value) => value.IndexOf(&child.cast::<native::{item}>()?, &mut index)?,"
+        ));
+    }
+    output.push_str(
+        "}; Ok(found.then_some(index)) }\n\
          fn remove_at(&self, index: u32) -> Result<(), WinUiError> { match self { \
          Self::Visual(value) => value.RemoveAt(index).map_err(Into::into), \
          Self::Inspectable(value) => value.RemoveAt(index).map_err(Into::into),",
