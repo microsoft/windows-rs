@@ -22,6 +22,7 @@ mod image;
 mod menu;
 mod pointer;
 mod process;
+mod reference;
 mod window;
 
 use automation::*;
