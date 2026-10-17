@@ -16,6 +16,8 @@ fn main() {
             "IUIAutomationElementArray::{Length,GetElement}",
             "IUIAutomationInvokePattern::Invoke",
             "IUIAutomationValuePattern::{CurrentValue,SetValue}",
+            "IUIAutomationSelectionPattern::GetCurrentSelection",
+            "IUIAutomationSelectionItemPattern::Select",
             "TreeScope_Children",
             "TreeScope_Descendants",
             "TreeScope_Subtree",
