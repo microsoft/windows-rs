@@ -718,7 +718,6 @@ impl WinUiAdapter {
             }
             Cardinality::Many => {
                 let values = self.owned_collection(parent, relation)?;
-                let previous: IInspectable = previous.cast()?;
                 let mut index = 0;
                 while index < values.size()? && values.get_at(index)? != previous {
                     index += 1;

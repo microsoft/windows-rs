@@ -502,15 +502,13 @@ impl GeneratedCollection {
             Self::SelectorBarItem(value) => value.Size().map_err(Into::into),
         }
     }
-    fn get_at(&self, index: u32) -> Result<IInspectable, WinUiError> {
+    fn get_at(&self, index: u32) -> Result<native::UIElement, WinUiError> {
         match self {
-            Self::Visual(value) => value.GetAt(index).map(Into::into).map_err(Into::into),
-            Self::Inspectable(value) => value.GetAt(index).map_err(Into::into),
-            Self::ICommandBarElement(value) => {
-                value.GetAt(index).map(Into::into).map_err(Into::into)
-            }
-            Self::MenuBarItem(value) => value.GetAt(index).map(Into::into).map_err(Into::into),
-            Self::SelectorBarItem(value) => value.GetAt(index).map(Into::into).map_err(Into::into),
+            Self::Visual(value) => value.GetAt(index).map_err(Into::into),
+            Self::Inspectable(value) => Ok(value.GetAt(index)?.cast()?),
+            Self::ICommandBarElement(value) => Ok(value.GetAt(index)?.cast()?),
+            Self::MenuBarItem(value) => Ok(value.GetAt(index)?.cast()?),
+            Self::SelectorBarItem(value) => Ok(value.GetAt(index)?.cast()?),
         }
     }
     fn insert_at(&self, index: u32, child: &native::UIElement) -> Result<(), WinUiError> {

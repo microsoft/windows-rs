@@ -104,11 +104,8 @@ impl WinUiAdapter {
         let values = self.owned_collection(parent, relation)?;
         let retired = retired
             .into_iter()
-            .map(|root| {
-                self.ui_element(root)
-                    .and_then(|value| value.cast().map_err(Into::into))
-            })
-            .collect::<Result<Vec<IInspectable>, _>>()?;
+            .map(|root| self.ui_element(root))
+            .collect::<Result<Vec<_>, _>>()?;
         let mut active = 0;
         for index in 0..values.size()? {
             if retired.contains(&values.get_at(index)?) {
@@ -227,7 +224,7 @@ impl WinUiAdapter {
             match relation_contract(self.kind(parent)?, relation)?.realization {
                 Realization::Owned => {
                     let values = self.owned_collection(parent, relation)?;
-                    if values.get_at(index32(index)?)? != self.ui_element(child)?.cast()? {
+                    if values.get_at(index32(index)?)? != self.ui_element(child)? {
                         return Err(WinUiError::ChildNotFound(child));
                     }
                     values.remove_at(index32(index)?)?;
@@ -321,8 +318,8 @@ impl WinUiAdapter {
                     for (left, right, left_value, right_value) in swaps {
                         values.remove_at(index32(right)?)?;
                         values.remove_at(index32(left)?)?;
-                        values.insert_at(index32(left)?, &left_value.cast()?)?;
-                        values.insert_at(index32(right)?, &right_value.cast()?)?;
+                        values.insert_at(index32(left)?, &left_value)?;
+                        values.insert_at(index32(right)?, &right_value)?;
                     }
                 }
                 Realization::Structural => {
@@ -714,7 +711,7 @@ impl WinUiAdapter {
         let parent = retirement.parent;
         let relation = retirement.relation;
         let values = self.owned_collection(parent, relation)?;
-        let root_value: IInspectable = self.ui_element(root)?.cast()?;
+        let root_value = self.ui_element(root)?;
         let mut index = 0;
         while index < values.size()? && values.get_at(index)? != root_value {
             index += 1;

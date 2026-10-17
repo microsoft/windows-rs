@@ -988,14 +988,14 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     }
     output.push_str("} }\n");
     output.push_str(
-        "fn get_at(&self, index: u32) -> Result<IInspectable, WinUiError> { match self { \
-         Self::Visual(value) => value.GetAt(index).map(Into::into).map_err(Into::into), \
-         Self::Inspectable(value) => value.GetAt(index).map_err(Into::into),",
+        "fn get_at(&self, index: u32) -> Result<native::UIElement, WinUiError> { match self { \
+         Self::Visual(value) => value.GetAt(index).map_err(Into::into), \
+         Self::Inspectable(value) => Ok(value.GetAt(index)?.cast()?),",
     );
     for item in &collection_items {
         let item = item.rsplit('.').next().unwrap();
         output.push_str(&format!(
-            "Self::{item}(value) => value.GetAt(index).map(Into::into).map_err(Into::into),"
+            "Self::{item}(value) => Ok(value.GetAt(index)?.cast()?),"
         ));
     }
     output.push_str("} }\n");
