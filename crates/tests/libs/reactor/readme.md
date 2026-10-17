@@ -60,6 +60,7 @@ own window. Failure cancels further driver work and terminates the owned child.
 | --- | --- |
 | `menu_callback_replacement_and_removal` | An open item's native identity survives callback replacement; invoking it reaches the new callback exactly once. A retired item's invocation does not change the displayed count during a 250 ms observation period. |
 | `text_box_native_edit_and_controlled_reset` | UIA Value edits reach component state; declarative reset clears the native value; focused Unicode keyboard input reaches both state and the native TextBox. |
+| `keyed_reorder_moves_only_displaced_children` | Moving the last keyed TextBox to the front keeps every element's native identity and produces the new layout order. The focused TextBox that triggered the reorder is not displaced, so it keeps keyboard focus. |
 | `early_successful_exit_is_rejected` | Exiting with code zero before the driver finishes is a failure, not a passing test. |
 | `child_panic_is_reported` | A child panic produces a failed exit and captured stdout and stderr. |
 | `hung_child_is_terminated` | A ready but unresponsive child times out and is terminated. |

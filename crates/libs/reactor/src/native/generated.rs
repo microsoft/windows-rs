@@ -513,12 +513,12 @@ impl GeneratedCollection {
             Self::SelectorBarItem(value) => value.GetAt(index).map(Into::into).map_err(Into::into),
         }
     }
-    fn insert_at(&self, index: u32, child: &IInspectable) -> Result<(), WinUiError> {
+    fn insert_at(&self, index: u32, child: &native::UIElement) -> Result<(), WinUiError> {
         match self {
-            Self::Visual(value) => value
-                .InsertAt(index, &child.cast::<native::UIElement>()?)
+            Self::Visual(value) => value.InsertAt(index, child).map_err(Into::into),
+            Self::Inspectable(value) => value
+                .InsertAt(index, &child.cast::<IInspectable>()?)
                 .map_err(Into::into),
-            Self::Inspectable(value) => value.InsertAt(index, child).map_err(Into::into),
             Self::ICommandBarElement(value) => value
                 .InsertAt(index, &child.cast::<native::ICommandBarElement>()?)
                 .map_err(Into::into),
@@ -529,6 +529,25 @@ impl GeneratedCollection {
                 .InsertAt(index, &child.cast::<native::SelectorBarItem>()?)
                 .map_err(Into::into),
         }
+    }
+    fn index_of(&self, child: &native::UIElement) -> Result<Option<u32>, WinUiError> {
+        let mut index = 0;
+        let found = match self {
+            Self::Visual(value) => value.IndexOf(child, &mut index)?,
+            Self::Inspectable(value) => {
+                value.IndexOf(&child.cast::<IInspectable>()?, &mut index)?
+            }
+            Self::ICommandBarElement(value) => {
+                value.IndexOf(&child.cast::<native::ICommandBarElement>()?, &mut index)?
+            }
+            Self::MenuBarItem(value) => {
+                value.IndexOf(&child.cast::<native::MenuBarItem>()?, &mut index)?
+            }
+            Self::SelectorBarItem(value) => {
+                value.IndexOf(&child.cast::<native::SelectorBarItem>()?, &mut index)?
+            }
+        };
+        Ok(found.then_some(index))
     }
     fn remove_at(&self, index: u32) -> Result<(), WinUiError> {
         match self {

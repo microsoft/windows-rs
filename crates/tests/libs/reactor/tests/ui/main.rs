@@ -80,6 +80,36 @@ fn text_box_native_edit_and_controlled_reset() -> Result<()> {
 }
 
 #[test]
+fn keyed_reorder_moves_only_displaced_children() -> Result<()> {
+    process::run("keyed-reorder", |ui| {
+        let keys = ["a", "b", "c", "d"];
+        let before = keys
+            .iter()
+            .map(|key| ui.element(key))
+            .collect::<Result<Vec<_>>>()?;
+        ui.type_text("b", "x")?;
+        ui.name("order", "Order d a b c")?;
+        for (key, original) in keys.iter().zip(&before) {
+            unsafe {
+                assert!(
+                    ui.client
+                        .CompareElements(original, &ui.element(key)?)?
+                        .as_bool(),
+                    "{key:?} lost its native identity"
+                );
+            }
+        }
+        let tops = ["d", "a", "b", "c"]
+            .iter()
+            .map(|key| Ok(unsafe { ui.element(key)?.CurrentBoundingRectangle()?.top }))
+            .collect::<Result<Vec<_>>>()?;
+        assert!(tops.is_sorted(), "native order is not d a b c: {tops:?}");
+        // Removing and reinserting an element drops its focus, so b must not have been moved.
+        ui.focused("b")
+    })
+}
+
+#[test]
 fn pointer_capture_policy_at_mount() -> Result<()> {
     process::run("pointer-capture-mounted", |ui| capture_policy(ui, false))
 }

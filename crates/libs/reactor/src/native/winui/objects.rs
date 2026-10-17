@@ -739,7 +739,7 @@ impl WinUiAdapter {
         let replacement = self.ui_element(object)?;
         if let Some(index) = index {
             self.owned_collection(parent, relation)?
-                .insert_at(index, &replacement.cast()?)?;
+                .insert_at(index, &replacement)?;
         } else {
             match (self.handle(parent)?, relation) {
                 (Handle::Generated(parent_handle), relation) => {
