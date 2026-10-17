@@ -42,7 +42,7 @@ or foreground is unavailable.
 | `src/main.rs` | Entry point for the isolated WinUI host |
 | `tests/ui/main.rs` | Named behavioral tests driven through UI Automation |
 | `tests/ui/automation.rs` | Scoped lookup, native actions, condition waits, and diagnostics |
-| `tests/ui/menu.rs` | Button-menu callback, content, attachment, and owner lifetimes |
+| `tests/ui/menu.rs` | Shared button, dropdown, and menu-bar lifetime scenarios |
 | `tests/ui/process.rs` | Child ownership, deadlines, shutdown, and harness failure checks |
 | `tests/ui/pointer.rs` | Native mouse injection, owned button cleanup, and physical coordinates |
 | `src/pointer.rs` | Property-only pointer capture and focus fixtures |
@@ -60,12 +60,15 @@ worker, while the test thread watches the child and enforces a 30-second deadlin
 UIA calls. Success requires completed assertions and a successful exit after closing the fixture's
 own window. Failure cancels further driver work and terminates the owned child.
 
+Menu cases use the prefixes `menu_` (Button), `dropdown_` (DropDownButton), and `menu_bar_`
+(MenuBarItem). Each prefix has the four shared scenarios listed below.
+
 | Case | Assertion |
 | --- | --- |
-| `menu_callback_replacement_and_removal` | An open item's native identity survives callback replacement; invoking it reaches the new callback exactly once. A retired item's invocation does not change the displayed count during a 250 ms observation period. |
-| `menu_content_replacement_retires_open_items` | Changing content closes the old popup and creates a new item on the same owner. The old item stays inert before and after opening the replacement. |
-| `menu_reattachment_does_not_revive_retired_items` | Removing and reattaching a menu on the same native owner creates new items without reviving retained providers. |
-| `menu_owner_replacement_retires_open_items` | Replacing the keyed button closes its popup and changes native owner/item identity. A callback update on the replacement preserves its open item and reaches the current callback. |
+| `*_callback_replacement_and_removal` | An open item's native identity survives callback replacement; invoking it reaches the new callback exactly once. A retired item's invocation does not change the displayed count during a 250 ms observation period. |
+| `*_content_replacement_retires_open_items` | Changing content closes the old popup and creates a new item on the same owner. The old item stays inert before and after opening the replacement. |
+| `*_reattachment_does_not_revive_retired_items` | Removing and reattaching a menu on the same native owner creates new items without reviving retained providers. |
+| `*_owner_replacement_retires_open_items` | Replacing the keyed owner closes its popup and changes native owner/item identity. A callback update on the replacement preserves its open item and reaches the current callback. |
 | `text_box_native_edit_and_controlled_reset` | UIA Value edits reach component state; declarative reset clears the native value; focused Unicode keyboard input reaches both state and the native TextBox. |
 | `keyed_reorder_moves_only_displaced_children` | Moving the last keyed TextBox to the front keeps every element's native identity and produces the new layout order. The focused TextBox that triggered the reorder is not displaced, so it keeps keyboard focus. |
 | `early_successful_exit_is_rejected` | Exiting with code zero before the driver finishes is a failure, not a passing test. |
@@ -89,13 +92,16 @@ are an error. Waits inspect current UI state; they do not force layout or synthe
 callbacks. UIA invocation, Value edits, and keyboard input are separate operations. Keyboard injection
 checks the foreground process, focused element, and modifier keys.
 
-Button-menu cases use UIA Invoke to exercise WinUI's menu actions, not synthetic Reactor events.
-They retain old invoke providers across content, attachment, and owner changes, check popup closure
-including the submenu entry, and invoke retired providers before and after opening a replacement.
+Menu cases establish foreground and keyboard focus before using UIA Invoke to exercise WinUI's
+menu actions, not synthetic Reactor events. They retain old invoke providers across content,
+attachment, and owner changes, check popup closure including the submenu entry, and invoke retired
+providers before and after opening a replacement.
 Retired invocations must leave both the callback count and the replacement popup unchanged. Current
 items must deliver the expected key and callback generation exactly once; callback counts are
-observed for 250 ms to detect extra deliveries. These tests cover button menus. Dropdown, menu-bar,
-command-bar, and tray surfaces remain in the legacy integration fixture.
+observed for 250 ms to detect extra deliveries. All three surfaces use the same assertions and one
+fixture with a typed surface input, not separate copies of the scenario code. The menu-bar cases
+also exercise WinUI's item collection updates: duplicate visible entries fail even when the new
+command is present. Command-bar and tray surfaces remain in the legacy integration fixture.
 
 Pointer cases use `SendInput` with physical virtual-desktop coordinates derived from UIA anchor
 bounds. The fixture's Border has no UIA peer; short text anchors locate its bare background without

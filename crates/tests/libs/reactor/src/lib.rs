@@ -4,6 +4,13 @@ use windows_reactor::*;
 mod drag;
 mod pointer;
 
+#[derive(Clone, Copy, PartialEq)]
+enum MenuSurface {
+    Button,
+    DropDown,
+    MenuBar,
+}
+
 struct MenuFixture {
     generation: u32,
     calls: u32,
@@ -24,10 +31,10 @@ enum MenuMessage {
 }
 
 impl Component for MenuFixture {
-    type Input = ();
+    type Input = MenuSurface;
     type Message = MenuMessage;
 
-    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+    fn create(_: &MenuSurface, _: &ComponentContext<Self>) -> Self {
         Self {
             generation: 0,
             calls: 0,
@@ -55,11 +62,33 @@ impl Component for MenuFixture {
         }
     }
 
-    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+    fn view(&self, input: &MenuSurface, context: &mut ViewContext<Self>) -> View {
         let generation = self.generation;
-        let button = Button::new().automation_id("open").content("Open menu");
-        let button: View = if self.attached {
-            button.menu(Menu::new(
+        let (title, mut target): (&str, View) = match input {
+            MenuSurface::Button => (
+                "Reactor UI fixture: menu",
+                Button::new()
+                    .automation_id("open")
+                    .content("Open menu")
+                    .into(),
+            ),
+            MenuSurface::DropDown => (
+                "Reactor UI fixture: menu-dropdown",
+                DropDownButton::new()
+                    .automation_id("open")
+                    .content("Open menu")
+                    .into(),
+            ),
+            MenuSurface::MenuBar => (
+                "Reactor UI fixture: menu-bar",
+                MenuBarItem::new()
+                    .automation_id("open")
+                    .title("Open menu")
+                    .into(),
+            ),
+        };
+        if self.attached {
+            target = target.menu(Menu::new(
                 [
                     MenuItem::item(
                         "command",
@@ -75,15 +104,18 @@ impl Component for MenuFixture {
                     assert_eq!(key.as_str(), Some("command"));
                     MenuMessage::Selected(generation)
                 }),
-            ))
+            ));
+        }
+        let target = if *input == MenuSurface::MenuBar {
+            MenuBar::new().items([target]).into()
         } else {
-            button.into()
+            target
         };
         context.window_visuals(WindowVisuals::new().client_size(500.0, 500.0));
         context.window_frame(
-            "Reactor UI fixture: menu",
+            title,
             StackPanel::new().margin(20.0).spacing(12.0).children((
-                StackPanel::new().keyed_children([keyed(self.owner, button)]),
+                StackPanel::new().keyed_children([keyed(self.owner, target)]),
                 Button::new()
                     .automation_id("replace")
                     .content("Replace callback")
@@ -207,7 +239,9 @@ impl Component for ReorderFixture {
 
 pub fn run(fixture: &str) -> windows_core::Result<()> {
     match fixture {
-        "menu" => App::run_component::<MenuFixture>(())?,
+        "menu" => App::run_component::<MenuFixture>(MenuSurface::Button)?,
+        "menu-dropdown" => App::run_component::<MenuFixture>(MenuSurface::DropDown)?,
+        "menu-bar" => App::run_component::<MenuFixture>(MenuSurface::MenuBar)?,
         "text" => App::run_component::<TextFixture>(())?,
         "keyed-reorder" => App::run_component::<ReorderFixture>(())?,
         "pointer-capture-mounted" => pointer::run(true, true)?,
