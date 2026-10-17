@@ -474,6 +474,8 @@ fn window_visual_changes_only_apply_changed_contracts() {
     assert!(!changes.constraints);
     assert!(!changes.icon);
     assert!(changes.theme);
+    assert!(changes.any());
+    assert!(!window_visual_changes(&next, &next).any());
 }
 
 #[test]

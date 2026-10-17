@@ -1746,7 +1746,7 @@ pub struct NativeWindow {
     state: Rc<NativeWindowState>,
     actual_theme_changed: Option<windows_core::EventRevoker>,
     closed: Option<windows_core::EventRevoker>,
-    published_title: bool,
+    published_title: Option<String>,
     published_visuals: bool,
     size_changed: Option<windows_core::EventRevoker>,
     placement_changed: Option<windows_core::EventRevoker>,
@@ -1812,7 +1812,7 @@ impl Clone for NativeWindow {
             state: Rc::clone(&self.state),
             actual_theme_changed: None,
             closed: None,
-            published_title: self.published_title,
+            published_title: self.published_title.clone(),
             published_visuals: self.published_visuals,
             size_changed: None,
             placement_changed: None,
@@ -1834,22 +1834,15 @@ impl NativeWindow {
         Ok(handle)
     }
 
-    pub fn set_title(&self, title: &str) -> Result<(), WinUiError> {
-        self.state.window.SetTitle(title).map_err(Into::into)
-    }
-
     pub(crate) fn apply_publication(
         &mut self,
         title: Option<&str>,
         visuals: Option<&WindowVisuals>,
         initial: bool,
     ) -> Result<(), WinUiError> {
-        if let Some(title) = title {
-            self.set_title(title)?;
-            self.published_title = true;
-        } else if self.published_title {
-            self.set_title("")?;
-            self.published_title = false;
+        if self.published_title.as_deref() != title {
+            self.state.window.SetTitle(title.unwrap_or_default())?;
+            self.published_title = title.map(str::to_owned);
         }
 
         if let Some(visuals) = visuals {
@@ -1940,6 +1933,9 @@ impl NativeWindow {
 
     fn apply_visuals(&mut self, visuals: &WindowVisuals, initial: bool) -> Result<(), WinUiError> {
         let changes = window_visual_changes(&self.visuals, visuals);
+        if !initial && !changes.any() {
+            return Ok(());
+        }
         let window_2 = self.state.window.cast::<native::IWindow2>()?;
         let app_window = window_2.AppWindow()?;
         let mut hwnd = None;
@@ -2138,6 +2134,12 @@ struct WindowVisualChanges {
     constraints: bool,
     icon: bool,
     theme: bool,
+}
+
+impl WindowVisualChanges {
+    fn any(self) -> bool {
+        self.backdrop || self.client_size || self.constraints || self.icon || self.theme
+    }
 }
 
 fn window_visual_changes(previous: &WindowVisuals, next: &WindowVisuals) -> WindowVisualChanges {
