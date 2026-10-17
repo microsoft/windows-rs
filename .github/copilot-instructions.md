@@ -166,9 +166,10 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
   contexts. `thread_local!` is reserved for framework plumbing.
 - **Test naming**: Reactor unit tests live in `windows-reactor`. Public behavioral coverage belongs
   in `test-reactor`. Prefer a small set of high-value contracts over exhaustive UIA matrices or
-  preserving every legacy assertion. Do not add separate runners or test scripts. The crate
-  participates in workspace tests and uses `windows-reactor-setup` in its build script. Live UI
-  cases run on x64; setup's filesystem and multiprocess tests run on all Windows architectures.
+  preserving every legacy assertion. Do not add separate runners or test scripts. Keep library tests
+  headless rather than adding ignored native fixtures. The functional crate participates in workspace
+  tests and uses `windows-reactor-setup` in its build script. Live UI cases run on x64; setup's
+  filesystem and multiprocess tests run on all Windows architectures.
   Run the crate alone when checking default features rather than the workspace's unified
   features.
   Canvas tests use WARP rendering.
@@ -235,6 +236,13 @@ probe using `ViewContext::window_frame` and `WindowVisuals::client_size(480.0, 3
 `window_title` with a native caption matched the requested size. The root size observer reported
 480 x 349.333 DIPs in the custom-title-bar probe. The cause is unconfirmed; keep this separate
 from the native-caption sizing tests.
+
+### Native menu theme propagation
+
+Investigate `crates/libs/reactor/src/native/transient_menu.rs` `MenuThemeState::refresh` and
+`show_pending`. A CI run observed a flyout item remaining Light while its anchor reported Dark.
+The cause is unconfirmed. The headless preference and callback tests do not establish native theme
+propagation; investigate the behavior before adding a focused public-API regression case.
 
 ### Repo-wide dead-code / quality audit (2026-07)
 

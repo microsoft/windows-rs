@@ -46,7 +46,6 @@ impl WinUiAdapter {
                         value,
                         event,
                         observed_text,
-                        set_count: Cell::new(0),
                         _text_changed: text_changed,
                     })
                 }

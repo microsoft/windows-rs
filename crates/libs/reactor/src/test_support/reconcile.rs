@@ -112,22 +112,6 @@ impl NativeEvent {
 }
 
 impl RetainedGraph {
-    pub(crate) fn menu(&self, target: ObjectId) -> Option<(&Menu, u64)> {
-        self.get(target)?
-            .attachments
-            .as_ref()
-            .and_then(|attachments| attachments.menu.as_ref())
-            .map(|menu| (&menu.menu, menu.revision))
-    }
-
-    pub(crate) fn command_bar_flyout(&self, target: ObjectId) -> Option<(&CommandBarFlyout, u64)> {
-        self.get(target)?
-            .attachments
-            .as_ref()
-            .and_then(|attachments| attachments.command_bar_flyout.as_ref())
-            .map(|flyout| (&flyout.flyout, flyout.revision))
-    }
-
     pub fn retained_memory(&self) -> RetainedMemory {
         let mut memory = RetainedMemory {
             graph_size: size_of::<Self>(),
