@@ -160,17 +160,33 @@ fn drive(
 
 #[test]
 fn pointer_button_is_released_after_driver_failure() -> Result<()> {
-    let serial = SERIAL.lock().unwrap();
-    let mut host = Host::spawn("pointer-capture-mounted")?;
-    let result = drive(&mut host, "pointer-capture-mounted", |ui| {
+    input_failure("pointer-capture-mounted", |ui| {
         ui.focus("baseline")?;
         ui.pointer_move("left", 0.5, 2.0)?;
         ui.name("pointer", "Left false; outside false")?;
         ui.pointer_button(true)?;
         ui.pointer_move("right", 0.5, 2.0)?;
         ui.name("pointer", "Left true; outside false")?;
-        Err("pointer driver failure probe".into())
-    });
+        Err("input driver failure probe".into())
+    })
+}
+
+#[test]
+#[ignore = "requires a non-elevated interactive desktop; WinUI issue microsoft/microsoft-ui-xaml#7690"]
+fn drag_source_is_stopped_after_driver_failure() -> Result<()> {
+    drag::require_non_elevated()?;
+    input_failure("drag-mounted", |ui| {
+        drag::start(ui)?;
+        ui.pointer_move("target", 0.5, 0.5)?;
+        ui.name("feedback", "Copy")?;
+        Err("input driver failure probe".into())
+    })
+}
+
+fn input_failure(fixture: &'static str, test: fn(&Automation) -> Result<()>) -> Result<()> {
+    let serial = SERIAL.lock().unwrap();
+    let mut host = Host::spawn(fixture)?;
+    let result = drive(&mut host, fixture, test);
     let deadline = Instant::now() + Duration::from_secs(5);
     while unsafe { GetAsyncKeyState(0x01) } & i16::MIN != 0 && Instant::now() < deadline {
         std::thread::sleep(Duration::from_millis(10));
@@ -179,7 +195,7 @@ fn pointer_button_is_released_after_driver_failure() -> Result<()> {
     host.stop()?;
     drop(serial);
     let error = result.unwrap_err();
-    assert_eq!(error.to_string(), "pointer driver failure probe");
+    assert_eq!(error.to_string(), "input driver failure probe");
     assert!(
         released,
         "failed driver left the injected mouse button pressed"

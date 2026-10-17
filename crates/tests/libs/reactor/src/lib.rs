@@ -1,6 +1,7 @@
 use std::rc::Rc;
 use windows_reactor::*;
 
+mod drag;
 mod pointer;
 
 struct MenuFixture {
@@ -8,12 +9,17 @@ struct MenuFixture {
     calls: u32,
     selected: u32,
     attached: bool,
+    changed: bool,
+    owner: u32,
 }
 
 #[derive(Clone)]
 enum MenuMessage {
     Replace,
+    Change,
     Remove,
+    Attach,
+    ReplaceOwner,
     Selected(u32),
 }
 
@@ -27,13 +33,21 @@ impl Component for MenuFixture {
             calls: 0,
             selected: 0,
             attached: true,
+            changed: false,
+            owner: 0,
         }
     }
 
     fn update(&mut self, message: MenuMessage, _: &ComponentContext<Self>) {
         match message {
             MenuMessage::Replace => self.generation += 1,
+            MenuMessage::Change => self.changed = true,
             MenuMessage::Remove => self.attached = false,
+            MenuMessage::Attach => self.attached = true,
+            MenuMessage::ReplaceOwner => {
+                self.owner += 1;
+                self.generation += 1;
+            }
             MenuMessage::Selected(generation) => {
                 self.selected = generation;
                 self.calls += 1;
@@ -46,24 +60,50 @@ impl Component for MenuFixture {
         let button = Button::new().automation_id("open").content("Open menu");
         let button: View = if self.attached {
             button.menu(Menu::new(
-                [MenuItem::item("command", "Command")],
-                context.callback(move |_: Key| MenuMessage::Selected(generation)),
+                [
+                    MenuItem::item(
+                        "command",
+                        if self.changed {
+                            "Changed command"
+                        } else {
+                            "Command"
+                        },
+                    ),
+                    MenuItem::submenu("more", "More", [MenuItem::item("nested", "Nested")]),
+                ],
+                context.callback(move |key: Key| {
+                    assert_eq!(key.as_str(), Some("command"));
+                    MenuMessage::Selected(generation)
+                }),
             ))
         } else {
             button.into()
         };
+        context.window_visuals(WindowVisuals::new().client_size(500.0, 500.0));
         context.window_frame(
             "Reactor UI fixture: menu",
             StackPanel::new().margin(20.0).spacing(12.0).children((
-                button,
+                StackPanel::new().keyed_children([keyed(self.owner, button)]),
                 Button::new()
                     .automation_id("replace")
                     .content("Replace callback")
                     .on_click(context.message(MenuMessage::Replace)),
                 Button::new()
+                    .automation_id("change")
+                    .content("Change content")
+                    .on_click(context.message(MenuMessage::Change)),
+                Button::new()
                     .automation_id("remove")
                     .content("Remove menu")
                     .on_click(context.message(MenuMessage::Remove)),
+                Button::new()
+                    .automation_id("attach")
+                    .content("Attach menu")
+                    .on_click(context.message(MenuMessage::Attach)),
+                Button::new()
+                    .automation_id("replace-owner")
+                    .content("Replace owner")
+                    .on_click(context.message(MenuMessage::ReplaceOwner)),
                 TextBlock::new().automation_id("state").text(format!(
                     "Generation {}; attached {}",
                     generation, self.attached
@@ -71,6 +111,12 @@ impl Component for MenuFixture {
                 TextBlock::new()
                     .automation_id("selection")
                     .text(format!("Selected {}; calls {}", self.selected, self.calls)),
+                TextBlock::new()
+                    .automation_id("content")
+                    .text(if self.changed { "Changed" } else { "Original" }),
+                TextBlock::new()
+                    .automation_id("owner")
+                    .text(format!("Owner {}", self.owner)),
             )),
         )
     }
@@ -168,6 +214,8 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "pointer-capture-added" => pointer::run(true, false)?,
         "pointer-focus-mounted" => pointer::run(false, true)?,
         "pointer-focus-added" => pointer::run(false, false)?,
+        "drag-mounted" => drag::run(true)?,
+        "drag-added" => drag::run(false)?,
         "exit" => {}
         "panic" => {
             println!("UI fixture panic probe stdout");

@@ -11,7 +11,7 @@ cargo run -p test-reactor-integration --bin application_lifecycle -- multiple
 cargo run -p test-reactor-integration --bin application_lifecycle -- startup-error
 cargo run -p test-reactor-integration --bin application_menu
 cargo run -p test-reactor-integration --bin application_menus
-cargo run -p test-reactor-integration --bin menu_lifetimes -- menu
+cargo run -p test-reactor-integration --bin menu_lifetimes -- dropdown
 cargo run -p test-reactor-integration --bin application_resources -- lifecycle
 cargo run -p test-reactor-integration --bin application_dispatch -- application
 cargo run -p test-reactor-integration --bin application_dispatch -- notification
@@ -48,8 +48,9 @@ caption-button inset as the first window.
 Run `window_theme` on an interactive desktop. It temporarily makes its windows topmost without
 activation to sample their rendered backgrounds.
 
-Run `menu_lifetimes` with `menu`, `dropdown`, `menubar`, `command`, or `tray` on an interactive
-desktop. It uses process-scoped UI Automation and notification messages sent to its own icon.
+Run `menu_lifetimes` with `dropdown`, `menubar`, `command`, or `tray` on an interactive desktop.
+It uses process-scoped UI Automation and notification messages sent to its own icon. Button-menu
+lifetimes are covered by the named Cargo tests in [`test-reactor`](../reactor/readme.md).
 
 The menu-position fixture covers `pmv2`, `unaware`, `system`, and `thread-unaware` DPI modes. It
 checks exact physical host bounds and restoration of the caller's thread context, including when

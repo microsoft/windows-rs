@@ -17,11 +17,12 @@ There are no generated test cases, external runners, or dependencies on the `win
 cargo test -p test-reactor
 ```
 
-On x64 this runs the entire suite, including live WinUI cases and harness failure checks. It requires
+On x64 this runs the automated suite, including live WinUI cases and harness failure checks. It requires
 an interactive desktop. Cargo deploys the runtime; no machine-wide runtime installation is needed.
-The first build needs network access to download the pinned runtime packages. There are no ignored
-tests or silent skips when foreground or focus is unavailable. Do not interact with other applications
-while the suite runs. Standard Cargo name filters can select individual cases during development.
+The first build needs network access to download the pinned runtime packages. Five native drag/drop
+cases are explicitly ignored; see [Opt-in drag/drop coverage](#opt-in-dragdrop-coverage). Foreground
+or focus failures do not silently skip tests. Do not interact with other applications while the
+suite runs. Standard Cargo name filters can select individual cases during development.
 
 The crate also runs in the ordinary workspace test command. Other workspace packages can enable
 Reactor's legacy `test` feature through Cargo feature unification; this fixture still uses only the
@@ -41,9 +42,12 @@ or foreground is unavailable.
 | `src/main.rs` | Entry point for the isolated WinUI host |
 | `tests/ui/main.rs` | Named behavioral tests driven through UI Automation |
 | `tests/ui/automation.rs` | Scoped lookup, native actions, condition waits, and diagnostics |
+| `tests/ui/menu.rs` | Button-menu callback, content, attachment, and owner lifetimes |
 | `tests/ui/process.rs` | Child ownership, deadlines, shutdown, and harness failure checks |
 | `tests/ui/pointer.rs` | Native mouse injection, owned button cleanup, and physical coordinates |
 | `src/pointer.rs` | Property-only pointer capture and focus fixtures |
+| `src/drag/` | Property-only drop target and owned native OLE text source |
+| `tests/ui/drag.rs` | Opt-in drag negotiation, policy changes, and cancellation |
 
 The library contains the application fixtures. Cargo's integration-test harness supplies the
 host executable's path without filesystem searches or a child mode in the test runner. Keeping the
@@ -59,6 +63,9 @@ own window. Failure cancels further driver work and terminates the owned child.
 | Case | Assertion |
 | --- | --- |
 | `menu_callback_replacement_and_removal` | An open item's native identity survives callback replacement; invoking it reaches the new callback exactly once. A retired item's invocation does not change the displayed count during a 250 ms observation period. |
+| `menu_content_replacement_retires_open_items` | Changing content closes the old popup and creates a new item on the same owner. The old item stays inert before and after opening the replacement. |
+| `menu_reattachment_does_not_revive_retired_items` | Removing and reattaching a menu on the same native owner creates new items without reviving retained providers. |
+| `menu_owner_replacement_retires_open_items` | Replacing the keyed button closes its popup and changes native owner/item identity. A callback update on the replacement preserves its open item and reaches the current callback. |
 | `text_box_native_edit_and_controlled_reset` | UIA Value edits reach component state; declarative reset clears the native value; focused Unicode keyboard input reaches both state and the native TextBox. |
 | `keyed_reorder_moves_only_displaced_children` | Moving the last keyed TextBox to the front keeps every element's native identity and produces the new layout order. The focused TextBox that triggered the reorder is not displaced, so it keeps keyboard focus. |
 | `early_successful_exit_is_rejected` | Exiting with code zero before the driver finishes is a failure, not a passing test. |
@@ -69,6 +76,7 @@ own window. Failure cancels further driver work and terminates the owned child.
 | `pointer_capture_policy_at_mount` / `pointer_capture_policy_added_to_existing_border` | With only the capture policy, movement outside reaches the pressed Border; after release it reaches the outside surface. |
 | `pointer_focus_policy_at_mount` / `pointer_focus_policy_added_to_existing_border` | With only the release/focus policy, the Border receives direct native pointer focus after release, not on press. |
 | `pointer_button_is_released_after_driver_failure` | A driver failure while pressing the mouse releases the injected button before the fixture is stopped. |
+| `text_data_transfers_owned_unicode_memory` | The data source rejects unsupported formats and returns independent, nul-terminated UTF-16 allocations that outlive its COM object. This unit test runs normally. |
 
 The driver timeout regressions use the same supervisor as live UI cases, with short private
 deadlines and synthetic workers rather than COM calls. Each case releases and joins its worker
@@ -80,6 +88,14 @@ child's windows. Repeated entries for the same native element count once; distin
 are an error. Waits inspect current UI state; they do not force layout or synthesize Reactor
 callbacks. UIA invocation, Value edits, and keyboard input are separate operations. Keyboard injection
 checks the foreground process, focused element, and modifier keys.
+
+Button-menu cases use UIA Invoke to exercise WinUI's menu actions, not synthetic Reactor events.
+They retain old invoke providers across content, attachment, and owner changes, check popup closure
+including the submenu entry, and invoke retired providers before and after opening a replacement.
+Retired invocations must leave both the callback count and the replacement popup unchanged. Current
+items must deliver the expected key and callback generation exactly once; callback counts are
+observed for 250 ms to detect extra deliveries. These tests cover button menus. Dropdown, menu-bar,
+command-bar, and tray surfaces remain in the legacy integration fixture.
 
 Pointer cases use `SendInput` with physical virtual-desktop coordinates derived from UIA anchor
 bounds. The fixture's Border has no UIA peer; short text anchors locate its bare background without
@@ -95,13 +111,58 @@ driver action. Dynamic cases omit the policy entirely at mount, exercise that st
 it while preserving the UIA anchor's identity. They do not set the policy to false initially, since
 that setter can itself activate a lazy native subscription.
 
-This covers mouse capture and release/focus, not native drag/drop negotiation. Drag/drop needs an
-owned data source and assertions on the negotiated operation, not just a held-button mouse move.
-
 Cargo captures driver steps and assertion failures. On a condition timeout the driver also prints
 the fixture's UI tree. Child stdout and stderr are written to separate files to avoid blocked pipes;
 failures report the log directory under the system temporary directory. Successful cases remove
 their logs. The parent deadline still applies if reading the UI tree stalls.
+
+## Opt-in drag/drop coverage
+
+The native drag/drop cases are preserved from PR #5115, but are not part of the default automated
+suite. WinUI does not support this drag/drop path in elevated processes
+([microsoft/microsoft-ui-xaml#7690](https://github.com/microsoft/microsoft-ui-xaml/issues/7690)).
+GitHub-hosted Windows runners run as administrator. The tests use `#[ignore = "..."]` so Cargo reports
+them as ignored, not passed. Explicitly running them elevated fails before launching a fixture.
+No runner-specific skip, token manipulation, or automatic elevation change is used.
+
+Run the policy and failure-cleanup cases from a non-elevated terminal on an idle interactive desktop:
+
+```text
+cargo test -p test-reactor --test ui drop_policy -- --ignored
+cargo test -p test-reactor --test ui drag_source_is_stopped_after_driver_failure -- --ignored
+```
+
+The cancellation case also has an unresolved intermittent UIA timeout (`0x80131505`) after
+cancellation. Keeping the source window and its STA alive across drags has not eliminated that
+failure. It remains an opt-in regression case, not evidence that cancellation is reliable:
+
+```text
+cargo test -p test-reactor --test ui cancelled_drag_can_be_restarted -- --ignored --nocapture
+```
+
+To run all five opt-in cases, including the unresolved cancellation regression:
+
+```text
+cargo test -p test-reactor --test ui -- --ignored
+```
+
+| Opt-in case | Assertion |
+| --- | --- |
+| `drop_policy_at_mount` / `drop_policy_added_to_existing_border` | A callback-free Border accepts native text drags through its policy, including activation after an initially rejected drop. |
+| `drop_policy_changes_during_drag` | Source feedback follows Copy-to-Move policy changes while hovering; switching back before release produces a Copy drop that reads the text. |
+| `cancelled_drag_can_be_restarted` | Three cancelled hovers preserve the source's native UIA identity; another drag then drops successfully. Subject to the unresolved timeout above. |
+| `drag_source_is_stopped_after_driver_failure` | Failure during an accepted OLE hover releases the injected button and reaps the fixture process, including its source thread. |
+
+The source is a native window on a dedicated OLE STA in the fixture process. It receives injected
+input and runs `DoDragDrop`, leaving WinUI free to render policy changes and read dropped data.
+It advertises only `CF_UNICODETEXT`. Assertions require source-reported hover operations, the final
+OLE operation, and a text read, not just a Copy cursor. The target has no drag/drop callbacks that
+could mask policy-only activation.
+
+The source window and STA live for the fixture session. Each drag owns its data and feedback
+objects. Normal shutdown joins the UIA driver before closing the fixture, which stops and joins the
+source thread. The OLE callback checks cancellation and a 20-second deadline; the existing parent
+supervisor still bounds blocked native calls. No UIA timeout is retried or treated as success.
 
 ## App-process coverage
 
