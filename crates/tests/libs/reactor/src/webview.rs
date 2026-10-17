@@ -1,4 +1,5 @@
 use super::*;
+use std::time::Instant;
 use windows_webview::{EventRegistration, WebView, webview};
 
 const PAGE: &str = r#"<!DOCTYPE html>
@@ -98,6 +99,8 @@ struct Browser {
     report: Callback<Message>,
     core: Option<WebView>,
     _subscription: Option<EventRegistration>,
+    _navigation: Option<EventRegistration>,
+    started: Instant,
 }
 
 #[derive(Clone)]
@@ -122,29 +125,53 @@ impl Component for Browser {
     type Message = BrowserMessage;
 
     fn create(input: &Self::Input, _: &ComponentContext<Self>) -> Self {
+        eprintln!("WebView {}: waiting for initialization", input.0);
         Self {
             generation: input.0,
             report: input.1.clone(),
             core: None,
             _subscription: None,
+            _navigation: None,
+            started: Instant::now(),
         }
     }
 
     fn update(&mut self, message: BrowserMessage, _: &ComponentContext<Self>) {
         match message {
             BrowserMessage::Ready(core) => {
+                eprintln!(
+                    "WebView {}: initialized after {:?}",
+                    self.generation,
+                    self.started.elapsed()
+                );
                 assert!(self.core.is_none(), "browser initialized more than once");
+                let generation = self.generation;
+                let started = self.started;
+                self._navigation = Some(
+                    core.on_navigation_completed(move |args| {
+                        eprintln!(
+                            "WebView {generation}: navigation completed after {:?}, success {}",
+                            started.elapsed(),
+                            args.is_success()
+                        );
+                    })
+                    .unwrap(),
+                );
                 let lifetime = MessageLifetime {
                     generation: self.generation,
                     report: self.report.clone(),
                 };
                 self._subscription = Some(
                     core.on_web_message_received(move |args| {
+                        let message = args.try_web_message_as_string().unwrap();
+                        eprintln!(
+                            "WebView {generation}: message {message:?} after {:?}",
+                            started.elapsed(),
+                        );
                         assert_eq!(args.source(), "about:blank");
-                        lifetime.report.call(Message::Received(
-                            lifetime.generation,
-                            args.try_web_message_as_string().unwrap(),
-                        ));
+                        lifetime
+                            .report
+                            .call(Message::Received(lifetime.generation, message));
                     })
                     .unwrap(),
                 );
