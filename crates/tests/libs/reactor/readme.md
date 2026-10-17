@@ -43,10 +43,12 @@ or foreground is unavailable.
 | `tests/ui/main.rs` | Named behavioral tests driven through UI Automation |
 | `tests/ui/automation.rs` | Scoped lookup, native actions, condition waits, and diagnostics |
 | `tests/ui/menu.rs` | Shared menu scenarios and focused command-bar and tray lifetime cases |
+| `tests/ui/window.rs` | Native title, client-size, and explicit icon updates |
 | `tests/ui/process.rs` | Child ownership, deadlines, shutdown, and harness failure checks |
 | `tests/ui/pointer.rs` | Native mouse injection, owned button cleanup, and physical coordinates |
 | `src/pointer.rs` | Property-only pointer capture and focus fixtures |
 | `src/tray.rs` | Application-owned notification icon and its visible state |
+| `src/window.rs` | Reactive window visuals and the public size observer |
 | `src/drag/` | Property-only drop target and owned native OLE text source |
 | `tests/ui/drag.rs` | Opt-in drag negotiation, policy changes, and cancellation |
 
@@ -78,6 +80,8 @@ all four scenarios.
 | `tray_icon_replacement_retires_open_items` | Replacing the keyed icon closes its popup and creates new items; retained providers cannot invoke callbacks or close the replacement popup. |
 | `text_box_native_edit_and_controlled_reset` | UIA Value edits reach component state; declarative reset clears the native value; focused Unicode keyboard input reaches both state and the native TextBox. |
 | `keyed_reorder_moves_only_displaced_children` | Moving the last keyed TextBox to the front keeps every element's native identity and produces the new layout order. The focused TextBox that triggered the reorder is not displaced, so it keeps keyboard focus. |
+| `window_title_and_client_size_updates` | Updating and restoring the title and client size changes the native window without replacing its content; the size observer agrees with native dimensions. |
+| `window_icon_set_and_clear` | Both explicit native icon slots start empty, become populated, and are cleared when the declaration omits the icon. |
 | `early_successful_exit_is_rejected` | Exiting with code zero before the driver finishes is a failure, not a passing test. |
 | `child_panic_is_reported` | A child panic produces a failed exit and captured stdout and stderr. |
 | `hung_child_is_terminated` | A ready but unresponsive child times out and is terminated. |
@@ -118,6 +122,13 @@ the popup. Selection uses real UIA invoke providers. These cases cover native no
 and menu lifetimes, not physical Shell icon hit-testing or popup positioning. Tray placement and
 DPI checks remain in the integration crate. Closing the fixture window exits its application and
 removes its icon through the normal application lifetime.
+
+Window cases use the native caption, not a custom TitleBar. Client dimensions are measured with
+`GetClientRect` in a per-monitor-aware thread and compared with the requested DIPs converted using
+the window's DPI. The size observer's displayed value must agree with those native dimensions;
+intermediate events are allowed. Both large and small icon slots are queried with bounded
+`WM_GETICON` messages. Window lookup retains the process-owned HWND across title updates and
+rechecks ownership before returning it. These cases do not assert theme or backdrop rendering.
 
 Pointer cases use `SendInput` with physical virtual-desktop coordinates derived from UIA anchor
 bounds. The fixture's Border has no UIA peer; short text anchors locate its bare background without

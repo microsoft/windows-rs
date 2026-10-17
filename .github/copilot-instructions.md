@@ -77,6 +77,7 @@ cargo test -p windows-reactor --all-features --quiet
 
 # New Cargo UI tests (x64 interactive desktop; Cargo deploys the runtime)
 cargo test -p test-reactor
+cargo test -p test-reactor --test ui window::
 
 # Legacy integration fixtures (retained during migration)
 cargo run -p test-reactor-selftest
@@ -84,7 +85,6 @@ cargo run -p test-reactor-selftest -- --headless    # CI mode
 cargo run -p test-reactor-integration --bin application_menu
 cargo run -p test-reactor-integration --bin canvas_integration
 cargo run -p test-reactor-integration --bin webview_integration
-cargo run -p test-reactor-integration --bin window_state
 
 # Clippy
 cargo clippy -p windows-reactor --all-targets
@@ -232,6 +232,16 @@ These rules were established while cleaning up the docs and code comments and ap
 Enduring record of known issues so they are not lost between sessions. Add findings here; remove or
 mark done as they are addressed. Cite code by file + symbol name, not line number - line numbers go
 stale fast.
+
+### Custom title-bar startup sizing
+
+Investigate `crates/libs/reactor/src/native/winui/mod.rs` `NativeWindow::apply_visuals` and
+`crates/libs/reactor/src/native/winui/hosting.rs` `apply_title_bar_to_window` ordering. A startup
+probe using `ViewContext::window_frame` and `WindowVisuals::client_size(480.0, 320.0)` observed a
+720 x 525 physical client area at 144 DPI, rather than 720 x 480. The same fixture using
+`window_title` with a native caption matched the requested size. The root size observer reported
+480 x 349.333 DIPs in the custom-title-bar probe. The cause is unconfirmed; keep this separate
+from the native-caption sizing tests.
 
 ### Repo-wide dead-code / quality audit (2026-07)
 

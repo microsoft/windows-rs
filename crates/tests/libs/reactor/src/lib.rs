@@ -4,6 +4,7 @@ use windows_reactor::*;
 mod drag;
 mod pointer;
 mod tray;
+mod window;
 
 #[derive(Clone, Copy, PartialEq)]
 enum MenuSurface {
@@ -260,6 +261,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "menu-bar" => App::run_component::<MenuFixture>(MenuSurface::MenuBar)?,
         "command-bar" => App::run_component::<MenuFixture>(MenuSurface::CommandBar)?,
         "tray" => App::run_application::<tray::TrayFixture>(())?,
+        "window" => App::run_component::<window::WindowFixture>(())?,
         "text" => App::run_component::<TextFixture>(())?,
         "keyed-reorder" => App::run_component::<ReorderFixture>(())?,
         "pointer-capture-mounted" => pointer::run(true, true)?,
