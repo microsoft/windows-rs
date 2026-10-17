@@ -243,7 +243,6 @@ impl WinUiAdapter {
             .SetStyle(&background_style)?;
         surface.SetChild(&root)?;
         window.SetContent(&surface)?;
-        self.apply_window_policy(&window, &surface.cast()?, policy)?;
         let state = Rc::new(NativeWindowState {
             window,
             root: root_object,
@@ -257,12 +256,13 @@ impl WinUiAdapter {
             placement_callback: RefCell::new(None),
             last_placement: Cell::new(None),
         });
-        self.windows.borrow_mut().push(Rc::downgrade(&state));
         if let Some((object, height)) = self.window_title_bar
             && self.owns(state.root, object)
         {
             self.apply_title_bar_to_window(&state, object, height)?;
         }
+        self.apply_window_policy(&state.window, &state.surface.cast()?, policy)?;
+        self.windows.borrow_mut().push(Rc::downgrade(&state));
         Ok(NativeWindow {
             state,
             actual_theme_changed: None,
@@ -977,10 +977,13 @@ impl WinUiAdapter {
             }
 
             if let Some((width, height)) = policy.client_size {
-                client_window.ResizeClient(native::SizeInt32 {
-                    width: pixels(width),
-                    height: pixels(height),
-                })?;
+                resize_window_client(
+                    &app_window,
+                    native::SizeInt32 {
+                        width: pixels(width),
+                        height: pixels(height),
+                    },
+                )?;
             }
         }
         Ok(())

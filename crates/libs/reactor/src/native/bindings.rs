@@ -5366,6 +5366,15 @@ impl IAppWindow {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    pub(crate) fn Resize(&self, size: SizeInt32) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Resize)(
+                windows_core::Interface::as_raw(self),
+                size,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetIcon(&self, iconpath: &str) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetIcon)(
@@ -5431,7 +5440,8 @@ pub struct IAppWindow_Vtbl {
     Move: usize,
     MoveAndResize: usize,
     MoveAndResizeRelativeToDisplayArea: usize,
-    Resize: usize,
+    pub Resize:
+        unsafe extern "system" fn(*mut core::ffi::c_void, SizeInt32) -> windows_core::HRESULT,
     pub SetIcon: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -5469,26 +5479,12 @@ impl IAppWindow2 {
             .map(|| result__)
         }
     }
-    pub(crate) fn ResizeClient(&self, size: SizeInt32) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).ResizeClient)(
-                windows_core::Interface::as_raw(self),
-                size,
-            )
-            .ok()
-        }
-    }
 }
 #[repr(C)]
 pub struct IAppWindow2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ClientSize:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut SizeInt32) -> windows_core::HRESULT,
-    MoveInZOrderAtBottom: usize,
-    MoveInZOrderAtTop: usize,
-    MoveInZOrderBelow: usize,
-    pub ResizeClient:
-        unsafe extern "system" fn(*mut core::ffi::c_void, SizeInt32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IAppWindowChangedEventArgs,

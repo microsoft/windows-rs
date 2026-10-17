@@ -269,7 +269,12 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "menu-bar" => App::run_component::<MenuFixture>(MenuSurface::MenuBar)?,
         "command-bar" => App::run_component::<MenuFixture>(MenuSurface::CommandBar)?,
         "tray" => App::run_application::<tray::TrayFixture>(())?,
-        "window" => App::run_component::<window::WindowFixture>(())?,
+        "window" => App::run_component::<window::WindowFixture>(window::WindowMode::Native)?,
+        "window-frame" => App::run_component::<window::WindowFixture>(window::WindowMode::Custom)?,
+        "window-frame-policy" => App::run_component_with_policy::<window::WindowFixture>(
+            window::WindowMode::CustomPolicy,
+            WindowPolicy::new().client_size(480.0, 320.0),
+        )?,
         "text" => App::run_component::<TextFixture>(())?,
         "keyed-reorder" => App::run_component::<ReorderFixture>(())?,
         "pointer-capture-mounted" => pointer::run(true, true)?,

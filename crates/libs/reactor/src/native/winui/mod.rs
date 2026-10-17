@@ -1874,15 +1874,27 @@ impl NativeWindow {
         self.size_changed = None;
         self.size_changed = observer
             .map(|observer| {
+                let window = self
+                    .state
+                    .window
+                    .cast::<native::IWindow2>()?
+                    .AppWindow()?
+                    .cast::<native::IAppWindow2>()?;
+                let hwnd = self.raw_handle()?;
                 self.state.root_element.SizeChanged(move |_, args| {
-                    let Some(args) = args.as_ref() else {
+                    if args.as_ref().is_none() {
                         return;
-                    };
-                    match args.NewSize() {
-                        Ok(size) => observer(WindowSize {
-                            width: f64::from(size.width),
-                            height: f64::from(size.height),
-                        }),
+                    }
+                    // Root layout can exclude a border pixel from the native client area.
+                    match window.ClientSize() {
+                        Ok(size) => {
+                            let dpi = unsafe { native::GetDpiForWindow(hwnd.cast()) }.max(96);
+                            let dips = 96.0 / f64::from(dpi);
+                            observer(WindowSize {
+                                width: f64::from(size.width) * dips,
+                                height: f64::from(size.height) * dips,
+                            });
+                        }
                         Err(error) => report_error(error),
                     }
                 })
@@ -2045,12 +2057,13 @@ impl NativeWindow {
         {
             let dpi = unsafe { native::GetDpiForWindow(window_handle()?.cast()) }.max(96);
             let pixels = |dips: f64| (dips * f64::from(dpi) / 96.0).round() as i32;
-            app_window
-                .cast::<native::IAppWindow2>()?
-                .ResizeClient(native::SizeInt32 {
+            resize_window_client(
+                &app_window,
+                native::SizeInt32 {
                     width: pixels(width),
                     height: pixels(height),
-                })?;
+                },
+            )?;
         }
 
         self.visuals = visuals.clone();
@@ -2123,6 +2136,23 @@ impl NativeWindow {
         })?);
         Ok(())
     }
+}
+
+fn resize_window_client(
+    window: &native::AppWindow,
+    size: native::SizeInt32,
+) -> windows_core::Result<()> {
+    // ResizeClient includes the native caption even when XAML extends into the title bar.
+    let outer = window.Size()?;
+    let inner = window.cast::<native::IAppWindow2>()?.ClientSize()?;
+    window.Resize(native::SizeInt32 {
+        width: size
+            .width
+            .saturating_add(outer.width.saturating_sub(inner.width)),
+        height: size
+            .height
+            .saturating_add(outer.height.saturating_sub(inner.height)),
+    })
 }
 
 #[derive(Clone, Copy)]

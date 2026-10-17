@@ -227,16 +227,6 @@ Enduring record of known issues so they are not lost between sessions. Add findi
 mark done as they are addressed. Cite code by file + symbol name, not line number - line numbers go
 stale fast.
 
-### Custom title-bar startup sizing
-
-Investigate `crates/libs/reactor/src/native/winui/mod.rs` `NativeWindow::apply_visuals` and
-`crates/libs/reactor/src/native/winui/hosting.rs` `apply_title_bar_to_window` ordering. A startup
-probe using `ViewContext::window_frame` and `WindowVisuals::client_size(480.0, 320.0)` observed a
-720 x 525 physical client area at 144 DPI, rather than 720 x 480. The same fixture using
-`window_title` with a native caption matched the requested size. The root size observer reported
-480 x 349.333 DIPs in the custom-title-bar probe. The cause is unconfirmed; keep this separate
-from the native-caption sizing tests.
-
 ### Native menu theme propagation
 
 Investigate `crates/libs/reactor/src/native/transient_menu.rs` `MenuThemeState::refresh` and

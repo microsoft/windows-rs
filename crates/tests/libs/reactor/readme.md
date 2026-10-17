@@ -85,6 +85,7 @@ all four scenarios.
 | `text_box_native_edit_and_controlled_reset` | UIA Value edits reach component state; declarative reset clears the native value; focused Unicode keyboard input reaches both state and the native TextBox. |
 | `keyed_reorder_moves_only_displaced_children` | Moving the last keyed TextBox to the front keeps every element's native identity and produces the new layout order. The focused TextBox that triggered the reorder is not displaced, so it keeps keyboard focus. |
 | `window_title_and_client_size_updates` | Updating and restoring the title and client size changes the native window without replacing its content; the size observer agrees with native dimensions. |
+| `custom_title_bar_client_size_updates` | Custom-title-bar startup sizing through both `WindowVisuals` and `WindowPolicy`, followed by explicit resize/reset, matches native client dimensions and size observations without replacing content. |
 | `window_icon_set_and_clear` | Both explicit native icon slots start empty, become populated, and are cleared when the declaration omits the icon. |
 | `application_window_activation_and_updates_preserve_identity` | Repeated activation mounts one secondary window; application updates preserve its native content; closing it drops its component once. Closing the main window then exits normally. |
 | `replacing_the_last_window_keeps_the_application_alive` | A replacement window receives a fresh action after its predecessor closes; closing the replacement exits the process. |

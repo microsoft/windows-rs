@@ -25,6 +25,30 @@ fn window_title_and_client_size_updates() -> Result<()> {
 }
 
 #[test]
+fn custom_title_bar_client_size_updates() -> Result<()> {
+    for fixture in ["window-frame", "window-frame-policy"] {
+        process::run(fixture, |ui| {
+            let original = ui.element("resize")?;
+            ui.window_size(480.0, 320.0)?;
+            ui.invoke("resize")?;
+            ui.window_size(640.0, 400.0)?;
+            ui.invoke("reset")?;
+            ui.window_size(480.0, 320.0)?;
+            unsafe {
+                assert!(
+                    ui.client
+                        .CompareElements(&original, &ui.element("resize")?)?
+                        .as_bool(),
+                    "client sizing replaced the custom title-bar content"
+                );
+            }
+            Ok(())
+        })?;
+    }
+    Ok(())
+}
+
+#[test]
 fn window_icon_set_and_clear() -> Result<()> {
     process::run("window", |ui| {
         ui.window_icon(false)?;

@@ -118,6 +118,7 @@ impl WindowVisuals {
         self
     }
 
+    /// Sets the native client-area size in DIPs, including any custom title bar.
     pub fn client_size(mut self, width: f64, height: f64) -> Self {
         validate_window_size(width, height);
         self.client_size = Some((width, height));
@@ -188,6 +189,7 @@ impl WindowPolicy {
         self
     }
 
+    /// Sets the native client-area size in DIPs, including any custom title bar.
     pub fn client_size(mut self, width: f64, height: f64) -> Self {
         validate_window_size(width, height);
         self.client_size = Some((width, height));
