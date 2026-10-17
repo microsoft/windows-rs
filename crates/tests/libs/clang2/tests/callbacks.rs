@@ -158,10 +158,7 @@ fn roundtrip() {
             let Value::EnumValue(_, value) = value else {
                 panic!()
             };
-            assert_eq!(
-                *value,
-                Value::I32(if name == "Stdcall" && bit == 1 { 1 } else { 2 })
-            );
+            assert_eq!(*value, Value::I32(if name == "Stdcall" { 1 } else { 2 }));
         }
         assert_eq!(
             index

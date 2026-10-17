@@ -24,7 +24,7 @@ pub fn ensure_libclang() {
     }
 }
 
-/// Resolve or fetch the pinned host-arch `libclang.dll` directory without setting env vars.
+/// Resolve a fresh pinned host-arch native build without setting environment variables.
 pub fn libclang_dir() -> PathBuf {
     let triple = if cfg!(target_arch = "x86_64") {
         "x86_64-pc-windows-msvc"
@@ -41,24 +41,23 @@ pub fn libclang_dir() -> PathBuf {
         .join(LIBCLANG_VERSION)
         .join(triple)
         .join("bin");
-    if !native.join("libClangSharp.dll").is_file() || !native.join("libclang.dll").is_file() {
-        let output = std::process::Command::new("powershell.exe")
-            .args(["-NoProfile", "-File"])
-            .arg(root.join("crates\\libs\\clang-sys\\native\\build.ps1"))
-            .args([
-                "-Architecture",
-                if cfg!(target_arch = "aarch64") {
-                    "Arm64"
-                } else {
-                    "X64"
-                },
-            ])
-            .output()
-            .unwrap();
-        eprint!("{}", String::from_utf8_lossy(&output.stdout));
-        eprint!("{}", String::from_utf8_lossy(&output.stderr));
-        assert!(output.status.success(), "windows-clang native build failed");
-    }
+    let output = std::process::Command::new("powershell.exe")
+        .args(["-NoProfile", "-File"])
+        .arg(root.join("crates\\libs\\clang-sys\\native\\build.ps1"))
+        .args([
+            "-Architecture",
+            if cfg!(target_arch = "aarch64") {
+                "Arm64"
+            } else {
+                "X64"
+            },
+            "-Ensure",
+        ])
+        .output()
+        .unwrap();
+    eprint!("{}", String::from_utf8_lossy(&output.stdout));
+    eprint!("{}", String::from_utf8_lossy(&output.stderr));
+    assert!(output.status.success(), "windows-clang native build failed");
     assert!(
         native.join("libclang.dll").is_file(),
         "`{}` is missing `libclang.dll`",

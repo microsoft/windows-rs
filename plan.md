@@ -47,7 +47,7 @@ Changes to strategy, scope, deferrals, or acceptance gates require approval.
    conventions, native identity versus public naming, incomplete types and packing, bitfields,
    annotations, and macro/definition inputs. Run bounded consumer probes alongside this review:
    compare baseline and candidate API presence, signatures, layout, linkage, and behavior for
-   ordinal imports, callbacks, COM, and bitfields. Compilation alone is insufficient.
+   imports, callbacks, COM, and bitfields. Compilation alone is insufficient.
    Deliver one ranked finding per listed case, naming the owner, evidence, preserved facts,
    rejection rules, proposed resolution, and completion check. Review shared-runtime changes
    independently from parser acceptance. Stop when every case has an evidenced disposition and
@@ -58,7 +58,9 @@ Changes to strategy, scope, deferrals, or acceptance gates require approval.
    case. Investigate per-function x86 import decoration as ABI evidence, checking provider, target,
    symbol identity, and compiler-verified signature compatibility. Do not rewrite captured ABI
    from names or change callback defaults; ambiguous or conflicting evidence remains an error.
-   Recovering names alone is never justification. Exclusions require approval.
+   Prefer established named exports; ordinal archive records do not require ordinal consumers.
+   Require checked SDK publication policy or pinned export evidence for those names, retaining the
+   original records. Recovering names alone is never justification. Exclusions require approval.
 4. **Make correctness reproducible and end-to-end.** Establish a clean-checkout reproduction path,
    reusable semantic comparisons, and selected SDK-backed CI coverage. Promote the review's
    consumer probes into repeatable acceptance checks. Complete the metadata compatibility gate
@@ -73,18 +75,22 @@ Changes to strategy, scope, deferrals, or acceptance gates require approval.
 - Make small, independently reviewable changes. State the contract and completion check first.
   Use focused header/RDL fixtures with native and consumer expectations independent of the
   implementation. Preserve useful assertions for rejection, target variation, and input order.
-  Stop after each validated mechanism change with its diff and remaining risks ready for review.
-  Do not begin the next mechanism until the maintainer resumes work; the maintainer handles commits.
+  Checkpoint each validated mechanism change with its diff and remaining risks ready for review.
+  Continue unless blocked on evidence or a maintainer decision; the maintainer handles commits.
 - Format, build/check, run warnings-denied clippy, and exercise affected regressions for each code
   change. Native changes also require native boundary checks. Review the actual diff in a separate
   pass for correctness, ownership, complexity, and error reporting.
 - Use focused checks during implementation and full semantic comparisons at mechanism boundaries.
+  Start with concrete RDL differences and validate them against native/header evidence; the baseline
+  is a reference, not an authority. Repair and check header/RDL fixtures before escalating to Rust
+  consumers or package generation. Do not make baseline infrastructure the iteration's focus.
   Record configuration, phase timings, peak memory, review findings, and unresolved risks. Do not
   accept unexplained regressions or repeatedly run the full workload for minor fixture changes.
 
 ## Controls and finish line
 
-Comparison baseline: `6e68e56081340eaa932f4dbc92ec54c56ed51473`. The existing 370-header manifest
+Comparison baseline: `6e68e56081340eaa932f4dbc92ec54c56ed51473`, plus the approved `WM_CTLCOLOR`
+source correction in `crates/tools/win32-2/src/baseline`. The existing 370-header manifest
 is a workload control, not proof of complete required scope. Record compiler/SDK pins, companion
 identity, targets, TU sources, arguments, macro selection, and import policy for reproducible runs.
 Keep partial candidates visible in the working tree under `metadata/win32`, not committed or

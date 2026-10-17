@@ -7,16 +7,8 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[library("SHELL32.dll", import = "#18")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn ILClone(#[in] pidl: LPCITEMIDLIST) -> LPITEMIDLIST;
-    #[library("SHELL32.dll", import = "#18")]
-    #[arch(X86)]
     extern fn ILClone(#[in] pidl: LPCITEMIDLIST) -> LPITEMIDLIST;
     #[library("SHELL32.dll", import = "#155")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn ILFree(#[in] #[opt] pidl: LPITEMIDLIST);
-    #[library("SHELL32.dll", import = "#155")]
-    #[arch(X86)]
     extern fn ILFree(#[in] #[opt] pidl: LPITEMIDLIST);
 }
 #[win32]
@@ -58,10 +50,5 @@ mod Fixture {
     }
     #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
     #[library("WS2_32.dll", import = "#115")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn WSAStartup(#[in] wVersionRequested: WORD, #[out] lpWSAData: LPWSADATA) -> i32;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
-    #[library("WS2_32.dll", import = "#115")]
-    #[arch(X86)]
     extern fn WSAStartup(#[in] wVersionRequested: WORD, #[out] lpWSAData: LPWSADATA) -> i32;
 }

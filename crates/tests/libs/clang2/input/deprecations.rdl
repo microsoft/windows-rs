@@ -25,11 +25,6 @@ mod Fixture {
     }
     #[Windows::Win32::Metadata::NativeDeprecated("old function", "")]
     #[library("example.dll")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn NativeSum(value: i32) -> i32;
-    #[Windows::Win32::Metadata::NativeDeprecated("old function", "")]
-    #[library("example.dll")]
-    #[arch(X86)]
     extern fn NativeSum(value: i32) -> i32;
     #[Windows::Win32::Metadata::NativeDeprecated("old count", "NewCount")]
     type OldCount = i32;

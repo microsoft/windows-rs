@@ -17,6 +17,9 @@ cargo test -p test_clang_sys
 Building requires Visual Studio C++ tools and its CMake/Ninja component. Native hosts are Windows
 x64 and ARM64; either host can parse x86, x64, and ARM64 input. The first build downloads the LLVM
 development archive and ClangSharp sources. Subsequent builds reuse `target\tool-clang\native`.
+Automatic provisioning checks native source/build inputs and both DLL fingerprints before reuse.
+`--native` forces a rebuild. An explicit `LIBCLANG_PATH` remains caller-owned; `tool-clang path`
+validates that pair without rebuilding or replacing it.
 
 Call `load()` before using a raw function on a thread. For worker threads, share an
 `Arc<SharedLibrary>` from `load_manually()` and bind it with `set_library()`. Dispose every native

@@ -257,8 +257,10 @@ evaluation distinct from ordinary declaration capture.
 `tool-win32/src/imports.rs` policy. Preserve library order and checked overrides. Explicit public
 imports win over exact compiler linker symbols in target-specific maps. Filter short-import members
 by machine before ordered selection; ARM64 archives also contain ARM64EC members. Code/data/const
-kinds remain distinct. Preserve named exports and native ordinals without guessing named exports;
-bindgen ordinal support remains a final consumer acceptance requirement.
+kinds remain distinct. Keep ordinal archive evidence, but publish established exports by name
+through checked SDK policy. Unreviewed ordinal records remain explicit omissions; do not add
+ordinal consumer support or infer names by undecorating symbols. Consumer fixtures check API
+presence, ABI, execution, and named PE imports independently of std's import libraries.
 The first target-native import run exposes 182 missing x86 mappings: 94 declarations use default
 cdecl while their libraries contain stdcall symbols, and 88 have no matching entry in the selected
 x86 libraries. `sdk_import_gaps` preserves both boundaries. A compiler-default stdcall probe matches
@@ -448,7 +450,8 @@ those semantics. Do not relax rejection to increase output counts.
 
 `windows-clang-sys` replaces `clang-sys` for both parser crates and helpers. Rebuild native changes
 with `cargo run -p tool-clang-sys -- --native`, then regenerate with `cargo run -p tool-clang-sys`.
-Helper provisioning builds missing DLLs but does not detect changed native source files.
+Helper provisioning checks native build-input and DLL fingerprints, rebuilding stale managed pairs.
+Explicit `LIBCLANG_PATH` builds remain caller-owned and are never silently replaced.
 
 Callback capture accepts plain C/stdcall prototypes after checking native function properties.
 `test_clang2` `opaque_callbacks.h`

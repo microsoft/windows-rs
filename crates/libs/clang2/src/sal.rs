@@ -38,6 +38,7 @@ pub(crate) struct InitializedLength {
 enum ContractKind {
     Value,
     Buffer(Units),
+    FullBuffer(Units),
     Terminated,
     TerminatedBuffer,
     InitializedBuffer(Units),
@@ -65,8 +66,15 @@ pub(crate) fn parameter(
     match kind {
         ContractKind::Value => {}
         ContractKind::Terminated => contract.terminated = true,
-        ContractKind::Buffer(units) => {
-            contract.capacity = Some(count(&value.expanded, parameters, units)?);
+        ContractKind::Buffer(units) | ContractKind::FullBuffer(units) => {
+            let count = count(&value.expanded, parameters, units)?;
+            contract.capacity = Some(count);
+            if matches!(kind, ContractKind::FullBuffer(_)) {
+                contract.initialized = Some(InitializedLength {
+                    count,
+                    dereference: false,
+                });
+            }
         }
         ContractKind::TerminatedBuffer => {
             contract.capacity = Some(count(&value.expanded, parameters, Units::Elements)?);
@@ -199,7 +207,9 @@ pub(crate) fn rpc_buffer(
 pub(crate) fn capacity(value: &SalAnnotation, parameters: &[Parameter]) -> Option<Count> {
     let (_, _, kind) = shape(value)?;
     let (name, units) = match kind {
-        ContractKind::Buffer(units) => (value.expanded.as_str(), units),
+        ContractKind::Buffer(units) | ContractKind::FullBuffer(units) => {
+            (value.expanded.as_str(), units)
+        }
         ContractKind::TerminatedBuffer => (value.expanded.as_str(), Units::Elements),
         ContractKind::InitializedBuffer(units) => (value.expanded.split_once(',')?.0, units),
         _ => return None,
@@ -232,6 +242,39 @@ pub(crate) fn termination(
 pub(crate) fn direction(value: &SalAnnotation) -> Option<(Direction, bool)> {
     if let Some((direction, optional, _, _)) = rpc_buffer_shape(value) {
         return Some((direction, optional));
+    }
+    if value.version == "2" && !value.arguments.is_empty() && !value.expanded.is_empty() {
+        match value.name.as_str() {
+            "_Outptr_result_buffer_"
+            | "_Outptr_result_buffer_to_"
+            | "_Outptr_result_buffer_all_"
+            | "_Outptr_result_buffer_maybenull_"
+            | "_Outptr_result_buffer_to_maybenull_"
+            | "_Outptr_result_buffer_all_maybenull_"
+            | "_Outptr_result_bytebuffer_"
+            | "_Outptr_result_bytebuffer_to_"
+            | "_Outptr_result_bytebuffer_all_"
+            | "_Outptr_result_bytebuffer_maybenull_"
+            | "_Outptr_result_bytebuffer_to_maybenull_"
+            | "_Outptr_result_bytebuffer_all_maybenull_" => {
+                return Some((Direction::Output, false));
+            }
+            "_Outptr_opt_result_buffer_"
+            | "_Outptr_opt_result_buffer_to_"
+            | "_Outptr_opt_result_buffer_all_"
+            | "_Outptr_opt_result_buffer_maybenull_"
+            | "_Outptr_opt_result_buffer_to_maybenull_"
+            | "_Outptr_opt_result_buffer_all_maybenull_"
+            | "_Outptr_opt_result_bytebuffer_"
+            | "_Outptr_opt_result_bytebuffer_to_"
+            | "_Outptr_opt_result_bytebuffer_all_"
+            | "_Outptr_opt_result_bytebuffer_maybenull_"
+            | "_Outptr_opt_result_bytebuffer_to_maybenull_"
+            | "_Outptr_opt_result_bytebuffer_all_maybenull_" => {
+                return Some((Direction::Output, true));
+            }
+            _ => {}
+        }
     }
     // Partial lowering preserves readonly, inner-pointer, and failure contracts as evidence.
     if value.arguments.is_empty() && value.expanded.is_empty() {
@@ -321,6 +364,10 @@ fn shape(value: &SalAnnotation) -> Option<(Direction, bool, ContractKind)> {
         ("2", "_Out_writes_bytes_opt_") | ("1", "__out_bcount_opt") => {
             (Direction::Output, true, Buffer(Units::Bytes))
         }
+        ("2", "_Out_writes_all_") => (Direction::Output, false, FullBuffer(Units::Elements)),
+        ("2", "_Out_writes_all_opt_") => (Direction::Output, true, FullBuffer(Units::Elements)),
+        ("2", "_Out_writes_bytes_all_") => (Direction::Output, false, FullBuffer(Units::Bytes)),
+        ("2", "_Out_writes_bytes_all_opt_") => (Direction::Output, true, FullBuffer(Units::Bytes)),
         ("2", "_Inout_updates_") | ("1", "__inout_ecount") | ("1.2", "__RPC__inout_ecount") => {
             (Direction::InputOutput, false, Buffer(Units::Elements))
         }
@@ -331,6 +378,18 @@ fn shape(value: &SalAnnotation) -> Option<(Direction, bool, ContractKind)> {
             (Direction::InputOutput, false, Buffer(Units::Bytes))
         }
         ("2", "_Inout_updates_bytes_opt_") => (Direction::InputOutput, true, Buffer(Units::Bytes)),
+        ("2", "_Inout_updates_all_") => {
+            (Direction::InputOutput, false, FullBuffer(Units::Elements))
+        }
+        ("2", "_Inout_updates_all_opt_") => {
+            (Direction::InputOutput, true, FullBuffer(Units::Elements))
+        }
+        ("2", "_Inout_updates_bytes_all_") => {
+            (Direction::InputOutput, false, FullBuffer(Units::Bytes))
+        }
+        ("2", "_Inout_updates_bytes_all_opt_") => {
+            (Direction::InputOutput, true, FullBuffer(Units::Bytes))
+        }
         ("2", "_In_z_") | ("1", "__in_z") => (Direction::Input, false, Terminated),
         ("2", "_In_opt_z_") | ("1", "__in_z_opt") => (Direction::Input, true, Terminated),
         ("2", "_Out_writes_z_") => (Direction::Output, false, TerminatedBuffer),

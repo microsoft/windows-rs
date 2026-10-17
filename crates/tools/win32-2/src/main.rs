@@ -3,6 +3,7 @@ mod coverage;
 mod headers;
 #[path = "../../win32/src/imports.rs"]
 mod import_policy;
+mod named_exports;
 
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::Path;
@@ -147,7 +148,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 helpers::nuget_package(&format!("microsoft.windows.sdk.cpp.{arch}"), SDK_VERSION)
                     .join("c");
             let discovered = read_sdk_imports(&directory, target, &mut import_evidence)?;
-            import_evidence.push_str(&add_sdk_imports(&mut imports, target, discovered));
+            import_evidence.push_str(&add_sdk_imports(&mut imports, target, discovered)?);
         }
         for entry in import_policy::LIBRARY_OVERRIDES
             .iter()
@@ -357,7 +358,7 @@ fn add_sdk_imports(
     imports: &mut projection::Imports,
     target: Target,
     discovered: BTreeMap<String, windows_rdl::implib::Import>,
-) -> String {
+) -> Result<String, String> {
     let mut omitted = String::new();
     let symbols = imports.symbols.entry(target).or_default();
     for (symbol, import) in discovered {
@@ -368,9 +369,22 @@ fn add_sdk_imports(
             ));
             continue;
         }
-        let name = match import.name {
-            windows_rdl::implib::ImportName::Name(name) => name,
-            windows_rdl::implib::ImportName::Ordinal(ordinal) => format!("#{ordinal}"),
+        let name = match &import.name {
+            windows_rdl::implib::ImportName::Name(name) => name.clone(),
+            windows_rdl::implib::ImportName::Ordinal(ordinal) => {
+                let Some(name) = named_exports::resolve(target, &import)? else {
+                    omitted.push_str(&format!(
+                        "{target:?} {symbol}: {}!#{ordinal} has no reviewed named-export evidence\n",
+                        import.dll,
+                    ));
+                    continue;
+                };
+                omitted.push_str(&format!(
+                    "{target:?} {symbol}: {}!#{ordinal} publishes by reviewed export name `{name}`\n",
+                    import.dll,
+                ));
+                name.into()
+            }
         };
         symbols.insert(
             symbol,
@@ -380,7 +394,7 @@ fn add_sdk_imports(
             },
         );
     }
-    omitted
+    Ok(omitted)
 }
 
 fn import_target(target: Target) -> (&'static str, u16) {
@@ -639,12 +653,14 @@ mod tests {
                 )
             })
             .collect();
-        assert_eq!(add_sdk_imports(&mut imports, Target::X64, discovered), "");
+        let omitted = add_sdk_imports(&mut imports, Target::X64, discovered).unwrap();
+        assert!(omitted.contains("Ordinal: sdk.dll!#123 has no reviewed named-export evidence"));
+        assert!(omitted.contains("Override: sdk.dll!#456 has no reviewed named-export evidence"));
         let symbols = &imports.symbols[&Target::X64];
-        assert_eq!(symbols.len(), 5);
+        assert_eq!(symbols.len(), 3);
         assert_eq!(symbols["Original"].name.as_deref(), Some("Original"));
         assert_eq!(symbols["Local"].name.as_deref(), Some("Export"));
-        assert_eq!(symbols["Ordinal"].name.as_deref(), Some("#123"));
+        assert!(!symbols.contains_key("Ordinal"));
         assert_eq!(symbols["Original"].library, "sdk.dll");
         for name in ["Override", "NamedOverride"] {
             assert_eq!(imports.functions[name].library, "explicit.dll");
@@ -661,14 +677,16 @@ mod tests {
             &mut imports,
             Target::X64,
             [("Data".into(), data)].into_iter().collect(),
-        );
+        )
+        .unwrap();
         assert!(omitted.contains("Data import is not a function"));
         assert!(!imports.symbols[&Target::X64].contains_key("Data"));
     }
 
     #[test]
-    #[ignore = "requires the pinned Windows SDK import libraries"]
+    #[ignore = "requires the pinned Windows SDK headers, import libraries, and native companion"]
     fn sdk_library_policy() {
+        let mut published = projection::Imports::default();
         for target in [Target::X86, Target::X64, Target::Arm64] {
             let (arch, machine) = import_target(target);
             let directory =
@@ -708,6 +726,16 @@ mod tests {
             } {
                 assert_eq!(imports[symbol].name, ImportName::Ordinal(ordinal));
             }
+            let publication = add_sdk_imports(&mut published, target, imports.clone()).unwrap();
+            for &(name, library, ordinal, x86) in named_exports::EXPORTS {
+                let symbol = if target == Target::X86 { x86 } else { name };
+                let raw = &imports[symbol];
+                assert_eq!(raw.name, ImportName::Ordinal(ordinal));
+                let named = &published.symbols[&target][symbol];
+                assert!(named.library.eq_ignore_ascii_case(library));
+                assert_eq!(named.name.as_deref(), Some(name));
+                assert!(publication.contains(&format!("reviewed export name `{name}`")));
+            }
             if target == Target::Arm64 {
                 assert!(evidence.contains("unselected machine 0xa641"));
             } else if target == Target::X86 {
@@ -715,6 +743,34 @@ mod tests {
                 assert!(evidence.contains("SDK does not provide vertdll.lib"));
             }
         }
+        let fixtures =
+            Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\tests\\libs\\clang2\\input");
+        let input = Input {
+            name: "sdk_import_targets.h".into(),
+            source: std::fs::read_to_string(fixtures.join("sdk_import_targets.h")).unwrap(),
+            arguments: sdk_test_arguments(false),
+            roots: ["ILClone", "ILFree", "WSAStartup"].map(String::from).into(),
+            ..Default::default()
+        };
+        let snapshots =
+            windows_clang2::capture(&[input], &[Target::X86, Target::X64, Target::Arm64]).unwrap();
+        let output = projection::project_with_imports(
+            &windows_clang2::merge(&snapshots).unwrap(),
+            "Fixture",
+            &published,
+        )
+        .unwrap();
+        let actual: String = output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        let expected_path = fixtures.join("sdk_named_imports.rdl");
+        if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+            std::fs::write(&expected_path, &actual).unwrap();
+        }
+        let expected = std::fs::read_to_string(expected_path).unwrap();
+        assert_eq!(actual.replace("\r\n", "\n"), expected.replace("\r\n", "\n"));
     }
 
     #[test]
@@ -758,9 +814,7 @@ mod tests {
         assert!(sdk_macro_headers(&include.join("missing"), &[]).is_err());
     }
 
-    #[test]
-    #[ignore = "requires the pinned Windows SDK and import libraries"]
-    fn sdk_stdcall() {
+    fn sdk_test_arguments(stdcall: bool) -> Vec<String> {
         helpers::ensure_libclang();
         let include = helpers::nuget_package("microsoft.windows.sdk.cpp", SDK_VERSION)
             .join("c")
@@ -774,6 +828,12 @@ mod tests {
             },
             std::path::PathBuf::from,
         );
+        sdk_arguments(&include, &resource, stdcall).unwrap()
+    }
+
+    #[test]
+    #[ignore = "requires the pinned Windows SDK and import libraries"]
+    fn sdk_stdcall() {
         let targets = [Target::X86, Target::X64, Target::Arm64];
         let mut imports = projection::Imports::default();
         for target in targets {
@@ -782,7 +842,7 @@ mod tests {
                 helpers::nuget_package(&format!("microsoft.windows.sdk.cpp.{arch}"), SDK_VERSION)
                     .join("c");
             let discovered = read_sdk_imports(&directory, target, &mut String::new()).unwrap();
-            add_sdk_imports(&mut imports, target, discovered);
+            add_sdk_imports(&mut imports, target, discovered).unwrap();
         }
         for stdcall in [false, true] {
             let input = Input {
@@ -792,7 +852,7 @@ mod tests {
                         .join("..\\..\\tests\\libs\\clang2\\input\\sdk_import_gaps.h"),
                 )
                 .unwrap(),
-                arguments: sdk_arguments(&include, &resource, stdcall).unwrap(),
+                arguments: sdk_test_arguments(stdcall),
                 roots: ["DhcpAddServer", "DnsValidateName_W"]
                     .map(String::from)
                     .into(),

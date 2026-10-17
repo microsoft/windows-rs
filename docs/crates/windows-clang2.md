@@ -153,6 +153,13 @@ Use `project_with_imports` or `project_partial_with_imports` after capture to su
 ownership. Native C mangling is evidence, not an inferred DLL export name. Missing imports are
 errors or explicit partial omissions. Callbacks, declared functions, and methods preserve parameter
 names, using positional names only for unnamed parameters.
+Imported functions and named callbacks use their reconciled x86 C/stdcall spelling on all targets
+when an x86 observation exists. Windows x64 and ARM64 have one supported ABI for these conventions,
+so this avoids architecture variants that differ only in spelling. Native conventions, mangling,
+callback naming, compiler defaults, and import matching remain unchanged. Callables without an
+x86 observation and structural function pointers retain their target's spelling. Real signature or
+import-name differences stay separate. `import_conventions` covers both named callable kinds;
+`sdk_resource_callbacks` checks the SDK's resource callback declarations.
 Function `dllimport` and `dllexport` attributes remain distinct native evidence and must agree across
 observations. Both can publish a callable import when its DLL/export ownership is supplied separately;
 `dllexport` does not identify that DLL. Exported records and constant objects remain unsupported.
@@ -579,6 +586,12 @@ The eight SAL2 out-pointer forms use the same version/argument-checked direction
 Their result nullability and COM failure guarantees remain evidence, and distinct contracts still
 fail reconciliation even when they produce the same direction flags. `pointer_parameter_flags`
 checks these distinctions through functions, callbacks, methods, and the actual SDK definitions.
+The 24 SAL2 returned-buffer forms also lower outer output direction and argument optionality.
+Their buffer extent and result nullability remain evidence: an extent of a returned allocation is
+not caller-supplied capacity. `returned_buffer_flags` and its SDK case check the full family;
+`sdk_bcrypt` covers the optional returned buffer in `BCryptEnumContexts`.
+Selected breadth goldens can be regenerated with `UPDATE_CLANG2_RDL=1`; rerun the same selection
+without it to check the saved expectations.
 
 The four direct RPC string contracts lower direction, argument optionality, and termination while
 retaining their raw evidence. `__RPC__in_string` and `__RPC__in_opt_string` require termination on
@@ -619,6 +632,10 @@ and four direct, non-optional SAL1 aliases encode initialized length in
 parameter or, with `Dereference = true`, one pointer to an integer. `IsByteCount` distinguishes bytes
 from elements. This is a postcondition subject to the callable's success contract; it does not
 authorize dereferencing a null optional count pointer. Count parameter optionality remains separate.
+The eight SAL2 `*_all_*` output/update forms use the same direct integer parameter for capacity
+and initialized length. Unsupported count expressions retain their source evidence and known
+direction without an inferred relationship. `buffer_full` checks equivalence with matching
+`*_to_*` capacity/length contracts, and its SDK case checks the real macro definitions.
 Unrepresented length expressions retain the full SAL payload alongside any known direct capacity.
 
 The six SAL2 input/output/update zero-termination forms and three direct SAL1 aliases emit
@@ -963,12 +980,24 @@ without falling through to another provider. The pinned x86 SDK lacks `winhvplat
 malformed archives are fatal. `target/win32-2/import-omissions.txt` records these exclusions.
 Header capture and native reconciliation do not infer DLL ownership.
 
-Renamed exports retain their export name; ordinals use `#[library("DLL", import = "#N")]`.
-No named-export exceptions replace ordinal records. The `import_targets` fixture checks independent
-target mappings, explicit precedence, missing-target rejection, invalid ordinals, and native conflicts.
-The SDK fixture checks `ILClone`, `ILFree`, and `WSAStartup` against all three native import libraries
-through both metadata round trips. Bindgen currently skips ordinal imports; consumer support remains
-a final acceptance requirement, not a reason to invent named exports.
+SDK publication prefers named exports. `tool-win32-2/src/named_exports.rs` contains checked public
+entry points whose SDK archives select ordinals: ten Winsock, two Direct3D 12, six Direct2D, and
+`ILClone`/`ILFree`. These are established named bindings, also verified against the installed
+x86/x64 DLL export tables. The policy checks exact native symbols, target, provider, ordinal, and
+code kind; it does not derive export names from linker decoration. Changed evidence fails.
+Unreviewed ordinal imports remain explicit omissions. Original ordinal records remain intact,
+and the configuration records each reviewed named-publication decision.
+
+Generic projection can encode `#[library("DLL", import = "#N")]`; this is distinct from SDK
+publication policy. `import_targets` checks target mappings, explicit precedence, missing-target
+rejection, invalid ordinals, and native conflicts. `sdk_import_targets` preserves native archive
+evidence through both metadata round trips. The driver's `sdk_library_policy` checks every reviewed
+entry on all targets and compares actual named publication to `sdk_named_imports.rdl`.
+`named_import_consumers` consumes that fixture with the unchanged bindgen/windows-link path.
+It checks API presence, native signatures, host execution, and three-target named PE imports.
+The PE probe excludes Rust std, whose own import libraries may select Winsock ordinals regardless
+of the generated bindings. A separate host consumer retains std. This does not establish export
+availability on every supported Windows release or package-wide acceptance.
 
 The first per-target import candidate adds 1,462 functions and removes 182, for 13,766 functions
 across 789 partitions. Existing retained signatures, types, constants, owners, and availability are

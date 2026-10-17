@@ -27,8 +27,5 @@ mod Fixture {
     type NoThrowIndirect = *mut NoThrow;
     extern "C" fn OtherBare(#[in] value: *mut i32) -> Count;
     extern "C" fn Pointer(#[in] value: *mut i32) -> Count;
-    #[arch(X64 | Arm64)]
-    extern "C" fn StdcallBare(count: Count);
-    #[arch(X86)]
     extern fn StdcallBare(count: Count);
 }

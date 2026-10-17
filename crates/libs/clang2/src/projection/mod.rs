@@ -213,6 +213,31 @@ fn project_impl(
             })
         })
         .collect();
+    let mut function_conventions = HashMap::new();
+    let x86 = &merged.targets[&Target::X86];
+    for value in &x86.values {
+        let reference = value.observations[0];
+        let snapshot = x86.snapshots[reference.snapshot];
+        let observation = &snapshot.values[reference.value.0].observations[reference.observation];
+        if matches!(observation.kind, ValueKind::Function { .. })
+            && let TypeKind::Function(function) = &snapshot.types[observation.canonical.0].kind
+        {
+            function_conventions.insert(value.name.clone(), function.convention);
+        }
+    }
+    let mut callback_conventions = HashMap::new();
+    for alias in &x86.aliases {
+        let reference = alias.observations[0];
+        let snapshot = x86.snapshots[reference.snapshot];
+        let observation = &snapshot.aliases[reference.alias.0].observations[reference.observation];
+        let function = match &snapshot.types[observation.canonical.0].kind {
+            TypeKind::Function(function) => Some(function.as_ref()),
+            _ => callback(snapshot, observation.canonical),
+        };
+        if let Some(function) = function {
+            callback_conventions.insert(alias.name.clone(), function.convention);
+        }
+    }
     let mut declarations = BTreeMap::new();
     for (&target, resolution) in &merged.targets {
         let plan = Plan::new(resolution)?;
@@ -236,6 +261,8 @@ fn project_impl(
             namespace,
             resolution,
             plan: &plan,
+            function_conventions: &function_conventions,
+            callback_conventions: &callback_conventions,
         };
         let mut published = HashSet::new();
         let mut constants = HashMap::new();
@@ -832,6 +859,8 @@ struct Projector<'a, 'b> {
     namespace: &'a str,
     resolution: &'a Resolution<'b>,
     plan: &'a Plan,
+    function_conventions: &'a HashMap<String, CallingConvention>,
+    callback_conventions: &'a HashMap<String, CallingConvention>,
 }
 
 fn publishable_alias(snapshot: &Snapshot, observation: &AliasObservation) -> bool {
@@ -912,6 +941,14 @@ fn agree(name: &str, target: Target, bodies: &[Body]) -> Result<(), Error> {
         }
     }
     Ok(())
+}
+
+fn callable_abi(native: CallingConvention, x86: Option<&CallingConvention>) -> TokenStream {
+    // Win64 C and stdcall share an ABI; use the observed x86 spelling for named callables.
+    match x86.copied().unwrap_or(native) {
+        CallingConvention::C => quote! { "C" },
+        CallingConvention::Stdcall => TokenStream::new(),
+    }
 }
 
 fn callback(snapshot: &Snapshot, id: TypeId) -> Option<&Function> {
@@ -997,7 +1034,6 @@ impl Projector<'_, '_> {
                 "typedef `{name}` is not an unqualified value type"
             )));
         }
-        let name = ident(name)?;
         let canonical = checked_type(snapshot, observation.canonical)?;
         let function = match &canonical.kind {
             TypeKind::Function(function) => Some(function.as_ref()),
@@ -1009,7 +1045,7 @@ impl Projector<'_, '_> {
                 snapshot_id,
                 function,
                 written,
-                &name,
+                name,
                 callback_parameters(snapshot, observation),
                 attributes,
             )?;
@@ -1021,6 +1057,7 @@ impl Projector<'_, '_> {
             )?);
             return Ok(body);
         }
+        let name = ident(name)?;
         if observation.parameters.as_ref().is_some_and(|parameters| {
             parameters
                 .iter()
@@ -1054,15 +1091,13 @@ impl Projector<'_, '_> {
         snapshot: usize,
         function: &Function,
         written: &Function,
-        name: &TokenStream,
+        name: &str,
         declarations: Option<&[Parameter]>,
         attributes: &[Attribute],
     ) -> Result<Body, Error> {
         let signature = self.signature(snapshot, function, Some(written))?;
-        let abi = match function.convention {
-            CallingConvention::C => quote! { "C" },
-            CallingConvention::Stdcall => TokenStream::new(),
-        };
+        let abi = callable_abi(function.convention, self.callback_conventions.get(name));
+        let name = ident(name)?;
         let parameters = if let Some(declarations) = declarations {
             self.parameters(snapshot, function, declarations)?
         } else {

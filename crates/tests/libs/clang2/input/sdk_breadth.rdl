@@ -21,10 +21,6 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[library("kernel32.dll")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn GetCurrentProcessId() -> DWORD;
-    #[library("kernel32.dll")]
-    #[arch(X86)]
     extern fn GetCurrentProcessId() -> DWORD;
 }
 #[win32]

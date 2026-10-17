@@ -38,14 +38,17 @@ pub fn run() -> Result<(), Box<dyn std::error::Error>> {
         };
         add(&mut baseline, header, declaration)?;
     }
-    let mut current = Constants::new();
+    let supplement = Path::new(env!("CARGO_MANIFEST_DIR")).join("src\\baseline");
+    for (name, headers) in read_constants(&supplement)? {
+        if baseline.insert(name.clone(), headers).is_some() {
+            return Err(format!("baseline supplement duplicates frozen constant `{name}`").into());
+        }
+    }
+    let current = read_constants(candidate)?;
     let mut members = Constants::new();
     for entry in std::fs::read_dir(candidate)? {
         let path = entry?.path();
         if path.extension().is_some_and(|extension| extension == "rdl") {
-            for line in std::fs::read_to_string(&path)?.lines() {
-                add(&mut current, &path.to_string_lossy(), line)?;
-            }
             for name in windows_rdl::enum_member_names(&path, "Windows.Win32")? {
                 members
                     .entry(name)
@@ -69,7 +72,10 @@ pub fn run() -> Result<(), Box<dyn std::error::Error>> {
         .count();
     let missing = baseline.len() - present - enum_members;
     let added = current.len() - present;
-    println!("Baseline: {BASELINE}");
+    println!(
+        "Baseline: {BASELINE} + reviewed source supplement ({})",
+        supplement.display()
+    );
     println!(
         "Constants: {} baseline, {} current; {present} present, {enum_members} enum members, {missing} missing, {added} new",
         baseline.len(),
@@ -79,6 +85,19 @@ pub fn run() -> Result<(), Box<dyn std::error::Error>> {
         "Name presence only, not type/scope/value/architecture parity. See target\\win32-2\\constant-coverage.csv"
     );
     Ok(())
+}
+
+fn read_constants(directory: &Path) -> Result<Constants, Box<dyn std::error::Error>> {
+    let mut constants = Constants::new();
+    for entry in std::fs::read_dir(directory)? {
+        let path = entry?.path();
+        if path.extension().is_some_and(|extension| extension == "rdl") {
+            for line in std::fs::read_to_string(&path)?.lines() {
+                add(&mut constants, &path.to_string_lossy(), line)?;
+            }
+        }
+    }
+    Ok(constants)
 }
 
 fn report(baseline: &Constants, current: &Constants, members: &Constants) -> String {
@@ -143,6 +162,18 @@ fn add(values: &mut Constants, header: &str, line: &str) -> Result<(), String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn baseline_supplement() {
+        let directory = Path::new(env!("CARGO_MANIFEST_DIR")).join("src\\baseline");
+        assert_eq!(
+            read_constants(&directory).unwrap(),
+            BTreeMap::from([(
+                "WM_CTLCOLOR".into(),
+                BTreeSet::from(["windowsx.rdl".into()]),
+            )])
+        );
+    }
 
     #[test]
     fn constant_names_and_owners() {

@@ -141,9 +141,19 @@ cargo run -p tool-clang-sys -- --native
 cargo run -p tool-clang-sys
 ```
 
-The first command rebuilds native source changes. Helper provisioning builds only when a DLL is
-missing; it does not detect changed native sources. The second command regenerates
-`src/bindings.rs`, which must not be hand-edited. CI regenerates the bindings and rejects a diff.
+The first command forces a native rebuild. Helper provisioning invokes the same script with
+`-Ensure`, reusing a build only when its freshness stamp matches SHA-256 hashes of every file under
+`native`, the LLVM version and host target, and both deployed DLLs. This includes the build recipe
+and its ClangSharp pin. A stale build is cleaned before compilation, so preserved source timestamps
+cannot hide changed contents from Ninja. Downloads remain cached.
+
+The script holds an exclusive cache lock through checking, building, and deployment. It removes
+the stamp before building and writes it only after successful deployment with unchanged inputs.
+Failed builds cannot certify a stale pair. Pinned dependency archives are trusted build inputs;
+the stamp does not authenticate modified dependency caches or externally supplied libraries.
+
+The second command regenerates `src/bindings.rs`, which must not be hand-edited. CI regenerates
+the bindings and rejects a diff.
 
 The generator parses pinned `clang-c/Index.h` and the extension header with `windows-clang`,
 compiles RDL to WinMD, and emits raw types through `windows-bindgen`. It transforms generated link
@@ -158,6 +168,8 @@ its version and update the loader's expectation together.
 
 `LIBCLANG_PATH` selects the pair directory or a DLL within it. Otherwise the loader searches PATH.
 It checks the extension ABI, LLVM version, and identity of the companion's imported libclang.
+`tool-clang path` validates the selected pair before printing its path. An explicit external path
+is never replaced or rebuilt by provisioning; its producer owns source freshness.
 Version checks do not make arbitrary same-version builds interchangeable; distribute the pair
 produced by the native build, not independently sourced DLLs.
 
@@ -169,6 +181,8 @@ produced by the native build, not independently sourced DLLs.
 Qualifier cases include CVR, typedef inheritance, `__unaligned`, and address-space detection.
 Type-visibility cases include Clang's implicit default attribute on `_GUID`.
 It also covers query errors, shared library thread binding, and missing-library errors.
+`cargo test -p helpers native_freshness` exercises provisioning without an SDK, including input
+changes with preserved timestamps, missing or replaced DLLs, and failed builds.
 
 Native x86 processes are unsupported. Cross-target parsing from a supported host does not require
 an x86 DLL. ARM64 host execution is covered by the ARM64 CI job, not by parsing an ARM64 target

@@ -710,6 +710,227 @@ fn postcondition_input(name: &str, arguments: &str, indirect: bool) -> Input {
     input
 }
 
+const FULL_BUFFERS: [(&str, &str); 8] = [
+    ("_Out_writes_all_", "_Out_writes_to_"),
+    ("_Out_writes_all_opt_", "_Out_writes_to_opt_"),
+    ("_Out_writes_bytes_all_", "_Out_writes_bytes_to_"),
+    ("_Out_writes_bytes_all_opt_", "_Out_writes_bytes_to_opt_"),
+    ("_Inout_updates_all_", "_Inout_updates_to_"),
+    ("_Inout_updates_all_opt_", "_Inout_updates_to_opt_"),
+    ("_Inout_updates_bytes_all_", "_Inout_updates_bytes_to_"),
+    (
+        "_Inout_updates_bytes_all_opt_",
+        "_Inout_updates_bytes_to_opt_",
+    ),
+];
+
+#[test]
+fn buffer_full() {
+    helpers::ensure_libclang();
+    for (full, partial) in FULL_BUFFERS {
+        let input = postcondition_input(full, "capacity", false);
+        let mut expected = postcondition_input(partial, "capacity, capacity", false);
+        let output = project(std::slice::from_ref(&input));
+        assert_eq!(
+            output.partitions["buffer_postconditions"].rdl,
+            project(std::slice::from_ref(&expected)).partitions["buffer_postconditions"].rdl,
+            "{full}"
+        );
+        if full == "_Out_writes_bytes_all_" {
+            assert_eq!(
+                output.partitions["buffer_postconditions"].rdl,
+                std::fs::read_to_string(input_dir().join("buffer_full.rdl"))
+                    .unwrap()
+                    .replace("\r\n", "\n")
+            );
+        }
+        expected.name = "other.h".into();
+        let mut inputs = [input, expected];
+        for _ in 0..2 {
+            assert_eq!(
+                project(&inputs).partitions.values().next().unwrap().rdl,
+                output.partitions["buffer_postconditions"].rdl
+            );
+            inputs.reverse();
+        }
+    }
+    for count in ["capacity + 1", "*written", "16"] {
+        let output = project(&[postcondition_input("_Out_writes_bytes_all_", count, false)]);
+        let rdl = &output.partitions["buffer_postconditions"].rdl;
+        assert!(rdl.contains("NativeSal(") && rdl.contains("#[out]"));
+        assert!(!rdl.contains("size_param") && !rdl.contains("NativeInitializedLength"));
+    }
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn buffer_full_sdk() {
+    helpers::ensure_libclang();
+    for (full, partial) in FULL_BUFFERS {
+        let mut input = test_clang2::annotated_sdk_fixture();
+        input.name = "buffer_postconditions.h".into();
+        input.source = test_clang2::fixture("buffer_postconditions")
+            .source
+            .replace(
+                "BUFFER unsigned short*",
+                &format!("{full}(capacity) unsigned short*"),
+            );
+        input.roots = ["Buffer", "BufferFunction", "IBuffer"]
+            .map(String::from)
+            .into();
+        assert_eq!(project(&[input]).partitions["buffer_postconditions"].rdl,
+            project(&[postcondition_input(partial, "capacity, capacity", false)])
+                .partitions["buffer_postconditions"].rdl, "{full}");
+    }
+}
+
+fn returned_buffer_contracts() -> Vec<(String, String, bool)> {
+    let mut contracts = Vec::new();
+    for units in ["buffer", "bytebuffer"] {
+        for suffix in [
+            "",
+            "_to",
+            "_all",
+            "_maybenull",
+            "_to_maybenull",
+            "_all_maybenull",
+        ] {
+            for optional in [false, true] {
+                contracts.push((
+                    format!(
+                        "_Outptr{}_result_{units}{suffix}_",
+                        if optional { "_opt" } else { "" }
+                    ),
+                    if suffix.starts_with("_to") {
+                        "capacity, *written"
+                    } else {
+                        "*written"
+                    }
+                    .into(),
+                    optional,
+                ));
+            }
+        }
+    }
+    contracts
+}
+
+#[test]
+fn returned_buffer_flags() {
+    helpers::ensure_libclang();
+    for (name, arguments, optional) in returned_buffer_contracts() {
+        let mut input = postcondition_input(&name, &arguments, true);
+        input.source = input
+            .source
+            .replace("BUFFER unsigned short*", "BUFFER unsigned short**");
+        let output = project(&[input]);
+        let rdl = &output.partitions["buffer_postconditions"].rdl;
+        assert_eq!(rdl.matches("#[out]").count(), 3, "{name}");
+        assert_eq!(
+            rdl.matches("#[opt]").count(),
+            if optional { 3 } else { 0 },
+            "{name}"
+        );
+        assert_eq!(rdl.matches("NativeSal(").count(), 3, "{name}");
+        assert!(
+            !rdl.contains("size_param")
+                && !rdl.contains("len_param")
+                && !rdl.contains("NativeInitializedLength"),
+            "{rdl}"
+        );
+        if name == "_Outptr_opt_result_bytebuffer_all_maybenull_" {
+            roundtrip("returned_buffer", &output, |index, _| {
+                let method = index.expect("Fixture", "Apis").methods().next().unwrap();
+                let parameter = method.params().next().unwrap();
+                assert_eq!(parameter.direction(), reader::ParamDirection::Output);
+                assert!(parameter.is_optional());
+                assert!(parameter.buffer_relationship().is_none());
+            });
+        }
+    }
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn returned_buffer_flags_sdk() {
+    helpers::ensure_libclang();
+    for (name, arguments, _) in returned_buffer_contracts() {
+        let mut expected = postcondition_input(&name, &arguments, true);
+        expected.source = expected
+            .source
+            .replace("BUFFER unsigned short*", "BUFFER unsigned short**");
+        let mut input = test_clang2::annotated_sdk_fixture();
+        input.name = expected.name.clone();
+        input.roots = ["Buffer", "BufferFunction", "IBuffer"]
+            .map(String::from)
+            .into();
+        input.source = expected.source.replace(
+            "BUFFER unsigned short**",
+            &format!("{name}({arguments}) unsigned short**"),
+        );
+        assert_eq!(
+            project(&[input]).partitions["buffer_postconditions"].rdl,
+            project(&[expected]).partitions["buffer_postconditions"].rdl,
+            "{name}"
+        );
+    }
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn sdk_bcrypt() {
+    helpers::ensure_libclang();
+    let mut input = test_clang2::annotated_sdk_fixture();
+    input.name = "sdk_bcrypt.h".into();
+    input.source = test_clang2::fixture("sdk_bcrypt").source;
+    input.roots = [
+        "BCryptDeleteContext",
+        "BCryptFinishHash",
+        "BCryptEnumContexts",
+    ]
+    .map(String::from)
+    .into();
+    let imports = input
+        .roots
+        .iter()
+        .map(|name| {
+            (
+                name.clone(),
+                projection::Import {
+                    library: "bcrypt.dll".into(),
+                    name: None,
+                },
+            )
+        })
+        .collect();
+    let snapshots = capture(&[input], &TARGETS).unwrap();
+    let output =
+        projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports).unwrap();
+    let rdl: String = output
+        .partitions
+        .values()
+        .map(|part| part.rdl.as_str())
+        .collect();
+    assert_eq!(rdl.matches("fn BCryptDeleteContext(").count(), 1);
+    assert_eq!(rdl.matches("fn BCryptFinishHash(").count(), 1);
+    assert!(rdl.contains("extern fn BCryptDeleteContext("));
+    assert!(rdl.contains("#[out] #[opt] ppBuffer: *mut PCRYPT_CONTEXTS"));
+    assert!(rdl.contains("#[out] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = false)] pbOutput: PUCHAR"));
+    roundtrip("sdk_bcrypt", &output, |index, _| {
+        let method = index
+            .expect("Fixture", "Apis")
+            .methods()
+            .find(|method| method.name() == "BCryptFinishHash")
+            .unwrap();
+        let buffer = method.params().nth(1).unwrap();
+        assert_eq!(buffer.direction(), reader::ParamDirection::Output);
+        assert_eq!(
+            buffer.buffer_relationship(),
+            Some(reader::BufferRelationship::BytesParam(2))
+        );
+    });
+}
+
 #[test]
 fn pointer_parameter_flags() {
     helpers::ensure_libclang();
@@ -1995,6 +2216,10 @@ fn buffer_postconditions_conflicts() {
     for root in ["Buffer", "BufferFunction", "IBuffer"] {
         for (first, second) in [
             (
+                postcondition_input("_Out_writes_bytes_all_", "capacity", false),
+                postcondition_input("_Out_writes_bytes_", "capacity", false),
+            ),
+            (
                 postcondition_input("_In_z_", "", false),
                 postcondition_input("_In_", "", false),
             ),
@@ -2197,7 +2422,7 @@ fn function_typedefs() {
     let output = project(&inputs);
     inputs.reverse();
     assert_eq!(output, project(&inputs));
-    roundtrip("function_typedefs", &output, |index, bit| {
+    roundtrip("function_typedefs", &output, |index, _| {
         let bare = MetadataType::class_named("Fixture", "Bare");
         let again = MetadataType::class_named("Fixture", "BareAgain");
         let pointer = MetadataType::class_named("Fixture", "Pointer");
@@ -2282,10 +2507,7 @@ fn function_typedefs() {
         let windows_metadata::Value::EnumValue(_, convention) = convention else {
             panic!()
         };
-        assert_eq!(
-            *convention,
-            windows_metadata::Value::I32(if bit == 1 { 1 } else { 2 })
-        );
+        assert_eq!(*convention, windows_metadata::Value::I32(1));
         assert!(
             index
                 .expect("Fixture", "NoThrow")
@@ -2499,7 +2721,11 @@ fn roundtrip(name: &str, output: &projection::Output, check: impl Fn(&reader::In
         .values()
         .map(|partition| partition.rdl.as_str())
         .collect();
-    let expected = std::fs::read_to_string(input_dir().join(format!("{name}.rdl"))).unwrap();
+    let path = input_dir().join(format!("{name}.rdl"));
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(&path, &text).unwrap();
+    }
+    let expected = std::fs::read_to_string(path).unwrap();
     assert_eq!(text, expected.replace("\r\n", "\n"));
     roundtrip_metadata(name, &text, check);
 }
@@ -3517,6 +3743,122 @@ fn sdk_import_gaps() {
 }
 
 #[test]
+fn import_conventions() {
+    helpers::ensure_libclang();
+    let snapshots = capture(&[selected_fixture("import_conventions", &[])], &TARGETS).unwrap();
+    let imports = ["Cdecl", "Shared", "Varying", "Only64"]
+        .map(|name| {
+            (
+                name.into(),
+                projection::Import {
+                    library: "example.dll".into(),
+                    name: None,
+                },
+            )
+        })
+        .into_iter()
+        .collect();
+    let output =
+        projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports).unwrap();
+    roundtrip("import_conventions", &output, |index, _| {
+        for (name, abi) in [
+            ("CdeclCallback", 2),
+            ("SharedCallback", 1),
+            ("VaryingCallback", 1),
+        ] {
+            let callback = index.expect("Fixture", name);
+            let attribute = callback
+                .find_attribute("UnmanagedFunctionPointerAttribute")
+                .unwrap();
+            let windows_metadata::Value::EnumValue(_, value) = attribute.value().remove(0).1 else {
+                panic!()
+            };
+            assert_eq!(*value, windows_metadata::Value::I32(abi));
+        }
+    });
+    for snapshot in &snapshots {
+        for alias in &snapshot.aliases {
+            let TypeKind::Pointer(pointee) = snapshot.types[alias.observations[0].canonical.0].kind
+            else {
+                panic!()
+            };
+            let TypeKind::Function(function) = &snapshot.types[pointee.0].kind else {
+                panic!()
+            };
+            assert_eq!(
+                function.convention,
+                if snapshot.target == Target::X86 && alias.name != "CdeclCallback" {
+                    CallingConvention::Stdcall
+                } else {
+                    CallingConvention::C
+                }
+            );
+        }
+        let error = projection::project_with_imports(
+            &merge(std::slice::from_ref(snapshot)).unwrap(),
+            "Fixture",
+            &imports,
+        )
+        .unwrap_err();
+        assert_eq!(
+            error.to_string(),
+            "projection requires x86, x64, and ARM64 observations",
+        );
+        for value in &snapshot.values {
+            let TypeKind::Function(function) =
+                &snapshot.types[value.observations[0].canonical.0].kind
+            else {
+                panic!()
+            };
+            assert_eq!(
+                function.convention,
+                if snapshot.target == Target::X86 && value.name != "Cdecl" {
+                    CallingConvention::Stdcall
+                } else {
+                    CallingConvention::C
+                }
+            );
+        }
+    }
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn sdk_resource_callbacks() {
+    helpers::ensure_libclang();
+    let mut input = test_clang2::annotated_sdk_fixture();
+    input.name = "sdk_resource_callbacks.h".into();
+    input.source = test_clang2::fixture("sdk_resource_callbacks").source;
+    input.roots = ["ENUMRESNAMEPROCA", "ENUMRESTYPEPROCW"]
+        .map(String::from)
+        .into();
+    let output = project(&[input]);
+    let rdl: String = output
+        .partitions
+        .values()
+        .map(|part| part.rdl.as_str())
+        .collect();
+    for name in ["ENUMRESNAMEPROCA", "ENUMRESTYPEPROCW"] {
+        assert_eq!(rdl.matches(&format!("fn {name}(")).count(), 1);
+        assert!(rdl.contains(&format!("extern fn {name}(")));
+    }
+    assert!(rdl.contains("#[in] lpName: LPSTR"));
+    assert!(rdl.contains("#[in] lpType: LPWSTR"));
+    roundtrip("sdk_resource_callbacks", &output, |index, _| {
+        for name in ["ENUMRESNAMEPROCA", "ENUMRESTYPEPROCW"] {
+            let callback = index.expect("Fixture", name);
+            let attribute = callback
+                .find_attribute("UnmanagedFunctionPointerAttribute")
+                .unwrap();
+            let windows_metadata::Value::EnumValue(_, value) = attribute.value().remove(0).1 else {
+                panic!()
+            };
+            assert_eq!(*value, windows_metadata::Value::I32(1));
+        }
+    });
+}
+
+#[test]
 fn calling_defaults() {
     helpers::ensure_libclang();
     for stdcall in [false, true] {
@@ -3595,8 +3937,7 @@ fn calling_defaults() {
             &output,
             |index, bit| {
                 for name in ["Plain", "Cdecl", "Stdcall"] {
-                    let expected = if bit == 1 && (name == "Stdcall" || stdcall && name == "Plain")
-                    {
+                    let expected = if name == "Stdcall" || stdcall && name == "Plain" {
                         "system"
                     } else {
                         "C"
@@ -4491,10 +4832,7 @@ fn free_functions() {
         let map = method.impl_map().unwrap();
         assert_eq!(map.import_scope().name(), "example.dll");
         assert_eq!(map.import_name(), "ReadPayloadEntry");
-        assert_eq!(
-            method.calling_convention(),
-            if bit == 1 { "system" } else { "C" }
-        );
+        assert_eq!(method.calling_convention(), "system");
         assert_eq!(
             method.signature(&[]).return_type,
             MetadataType::value_named("Fixture", "Count")

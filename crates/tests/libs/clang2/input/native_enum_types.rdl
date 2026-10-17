@@ -1,10 +1,6 @@
 #[win32]
 mod Fixture {
     #[library("example.dll")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn BufferFunction(flags: Options);
-    #[library("example.dll")]
-    #[arch(X86)]
     extern fn BufferFunction(flags: Options);
     type DWORD = u32;
     const ENUM_VALUE: _Options = -1;

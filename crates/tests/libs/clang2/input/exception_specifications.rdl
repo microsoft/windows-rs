@@ -16,29 +16,12 @@ mod Fixture {
     }
     #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
     #[library("example.dll")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn NativeSum(value: i32) -> i32;
-    #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
-    #[library("example.dll")]
-    #[arch(X86)]
     extern fn NativeSum(value: i32) -> i32;
     #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn NoThrowCallback(value: i32) -> i32;
-    #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
-    #[arch(X86)]
     extern fn NoThrowCallback(value: i32) -> i32;
-    #[arch(X64 | Arm64)]
-    extern "C" fn OrdinaryCallback(value: i32) -> i32;
-    #[arch(X86)]
     extern fn OrdinaryCallback(value: i32) -> i32;
     #[Windows::Win32::Metadata::NativeExceptionSpecification("throw()")]
     #[library("example.dll", import = "ReadPayloadEntry")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn ReadPayload(value: i32) -> i32;
-    #[Windows::Win32::Metadata::NativeExceptionSpecification("throw()")]
-    #[library("example.dll", import = "ReadPayloadEntry")]
-    #[arch(X86)]
     extern fn ReadPayload(value: i32) -> i32;
 }
 #[win32]

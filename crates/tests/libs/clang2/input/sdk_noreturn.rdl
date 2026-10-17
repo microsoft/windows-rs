@@ -7,11 +7,6 @@ mod Fixture {
 mod Fixture {
     #[noreturn]
     #[library("kernel32.dll")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn FreeLibraryAndExitThread(#[in] hLibModule: HMODULE, #[in] dwExitCode: DWORD);
-    #[noreturn]
-    #[library("kernel32.dll")]
-    #[arch(X86)]
     extern fn FreeLibraryAndExitThread(#[in] hLibModule: HMODULE, #[in] dwExitCode: DWORD);
 }
 #[win32]
@@ -26,19 +21,9 @@ mod Fixture {
 mod Fixture {
     #[noreturn]
     #[library("kernel32.dll")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn ExitProcess(#[in] uExitCode: UINT);
-    #[noreturn]
-    #[library("kernel32.dll")]
-    #[arch(X86)]
     extern fn ExitProcess(#[in] uExitCode: UINT);
     #[noreturn]
     #[library("kernel32.dll")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn ExitThread(#[in] dwExitCode: DWORD);
-    #[noreturn]
-    #[library("kernel32.dll")]
-    #[arch(X86)]
     extern fn ExitThread(#[in] dwExitCode: DWORD);
 }
 #[win32]
@@ -50,10 +35,5 @@ mod Fixture {
 mod Fixture {
     #[noreturn]
     #[library("rpcrt4.dll")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn RpcRaiseException(#[in] exception: RPC_STATUS);
-    #[noreturn]
-    #[library("rpcrt4.dll")]
-    #[arch(X86)]
     extern fn RpcRaiseException(#[in] exception: RPC_STATUS);
 }

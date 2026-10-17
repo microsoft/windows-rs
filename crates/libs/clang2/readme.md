@@ -140,6 +140,9 @@ resolved imports to `target/win32-2/capture-configuration.txt`; `--dry-run` writ
 without changing RDL/WinMD.
 The experimental `--x86-stdcall` option changes Clang's x86 default for unannotated functions and
 callbacks. It recovers imports but also changes callback ABIs; it is not an accepted SDK default.
+Imports and named callbacks use an observed x86 C/stdcall spelling on x64 and ARM64, where these
+share an ABI, to avoid redundant architecture variants. Native evidence and compiler defaults
+remain unchanged; structural function pointers keep their native conventions.
 Discovery uses the active definition's owner, not a superseded definition in another header.
 Probes do not parenthesize initializers: comma-separated field fragments must not become scalar
 constants. Comma expressions already parenthesized in the macro remain supported.
@@ -201,7 +204,8 @@ normalization; RPC input direction and optionality emit flags while retaining th
 evidence, without assuming SAL2's readonly guarantee. Composed contracts retain raw evidence.
 RPC dereferenced-pointer forms lower outer direction and optionality without confusing inner-pointer
 nullability with optional argument storage. SAL2 out-pointer forms use the same checked flag path;
-inner-pointer and COM failure contracts remain evidence.
+inner-pointer and COM failure contracts remain evidence. Returned-buffer forms lower outer output
+direction and argument optionality without treating the returned allocation as caller capacity.
 Direct RPC string contracts also lower termination while retaining native evidence. Optional inout
 strings require termination on entry, without promising it on success.
 RPC buffers also lower direct element capacities and successful initialized lengths independently.
@@ -209,6 +213,7 @@ Input readable lengths remain entry evidence; output/inout `xcount` arguments do
 Zero termination records distinct entry and successful-output conditions without inferring an
 encoding. Initialized length records a separate
 integer parameter or one dereference, with byte/element units; it is not substituted for capacity.
+Full-output/update contracts use the same direct integer count for capacity and initialized length.
 Success predicates and count-pointer optionality remain separate contracts. This is not a complete
 SAL interpreter; unsupported expressions and nested contracts retain `NativeSalAttribute` evidence.
 Direct named integer buffer capacities emit

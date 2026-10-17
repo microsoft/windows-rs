@@ -6,9 +6,5 @@ mod Fixture {
         value: i32,
     }
     #[library("example.dll", import = "ReadPayloadEntry")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn ReadPayload(value: *const Payload, written: *mut u32) -> i32;
-    #[library("example.dll", import = "ReadPayloadEntry")]
-    #[arch(X86)]
     extern fn ReadPayload(value: *const Payload, written: *mut u32) -> i32;
 }

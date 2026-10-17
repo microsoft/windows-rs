@@ -1,0 +1,10 @@
+#[win32]
+mod Fixture {
+    extern "C" fn Buffer(#[out] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 1, IsByteCount = true, Dereference = false)] buffer: *mut u16, capacity: u32, written: u32, other: u32);
+    #[library("example.dll")]
+    extern "C" fn BufferFunction(#[out] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 1, IsByteCount = true, Dereference = false)] buffer: *mut u16, capacity: u32, written: u32, other: u32);
+    #[guid(0x11111111_2222_3333_4444_555555555555)]
+    interface IBuffer {
+        fn Read(&self, #[out] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 1, IsByteCount = true, Dereference = false)] buffer: *mut u16, capacity: u32, written: u32, other: u32);
+    }
+}

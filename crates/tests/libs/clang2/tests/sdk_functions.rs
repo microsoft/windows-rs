@@ -220,7 +220,7 @@ fn sdk_functions() {
                 assert_eq!(import.import_scope().name(), library);
                 assert_eq!(
                     method.calling_convention(),
-                    if bit == 1 && library != "icuuc.dll" {
+                    if library != "icuuc.dll" {
                         "system"
                     } else {
                         "C"

@@ -7,9 +7,5 @@ mod Fixture {
         count: Count,
     }
     #[library("example.dll", import = "ReadPayloadEntry")]
-    #[arch(X64 | Arm64)]
-    extern "C" fn ReadPayload(payload: *const Payload, written: *mut Count) -> Count;
-    #[library("example.dll", import = "ReadPayloadEntry")]
-    #[arch(X86)]
     extern fn ReadPayload(payload: *const Payload, written: *mut Count) -> Count;
 }

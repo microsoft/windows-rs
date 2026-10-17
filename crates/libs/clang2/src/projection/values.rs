@@ -97,10 +97,7 @@ impl Projector<'_, '_> {
                 let (parameters, result) = self.callable(snapshot, observation, true)?;
                 let function =
                     written_function(self.resolution.snapshots[snapshot], observation.canonical)?;
-                let abi = match function.convention {
-                    CallingConvention::C => quote! { "C" },
-                    CallingConvention::Stdcall => TokenStream::new(),
-                };
+                let abi = callable_abi(function.convention, self.function_conventions.get(name));
                 let name = ident(name)?;
                 let native = annotations::write(&observation.attributes);
                 let contracts = annotations::function(
