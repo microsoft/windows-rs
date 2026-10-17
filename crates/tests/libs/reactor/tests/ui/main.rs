@@ -15,6 +15,7 @@ mod bindings {
 }
 
 mod automation;
+mod drag;
 mod pointer;
 mod process;
 

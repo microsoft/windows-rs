@@ -9,7 +9,7 @@ name = "test-reactor"
 test = false
 
 [dependencies]
-windows-core = { workspace = true }
+windows-core = { workspace = true, features = ["proc-macros"] }
 windows-reactor = { workspace = true }
 
 [build-dependencies]

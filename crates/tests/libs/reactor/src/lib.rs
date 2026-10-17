@@ -1,6 +1,7 @@
 use std::rc::Rc;
 use windows_reactor::*;
 
+mod drag;
 mod pointer;
 
 struct MenuFixture {
@@ -129,6 +130,8 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "pointer-capture-added" => pointer::run(true, false)?,
         "pointer-focus-mounted" => pointer::run(false, true)?,
         "pointer-focus-added" => pointer::run(false, false)?,
+        "drag-mounted" => drag::run(true)?,
+        "drag-added" => drag::run(false)?,
         "exit" => {}
         "panic" => {
             println!("UI fixture panic probe stdout");

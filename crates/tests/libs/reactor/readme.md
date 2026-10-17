@@ -44,6 +44,8 @@ or foreground is unavailable.
 | `tests/ui/process.rs` | Child ownership, deadlines, shutdown, and harness failure checks |
 | `tests/ui/pointer.rs` | Native mouse injection, owned button cleanup, and physical coordinates |
 | `src/pointer.rs` | Property-only pointer capture and focus fixtures |
+| `src/drag/` | Property-only drop target and owned native OLE text source |
+| `tests/ui/drag.rs` | Native drag negotiation, policy changes, and cancellation |
 
 The library contains the application fixtures. Cargo's integration-test harness supplies the
 host executable's path without filesystem searches or a child mode in the test runner. Keeping the
@@ -68,6 +70,11 @@ own window. Failure cancels further driver work and terminates the owned child.
 | `pointer_capture_policy_at_mount` / `pointer_capture_policy_added_to_existing_border` | With only the capture policy, movement outside reaches the pressed Border; after release it reaches the outside surface. |
 | `pointer_focus_policy_at_mount` / `pointer_focus_policy_added_to_existing_border` | With only the release/focus policy, the Border receives direct native pointer focus after release, not on press. |
 | `pointer_button_is_released_after_driver_failure` | A driver failure while pressing the mouse releases the injected button before the fixture is stopped. |
+| `drop_policy_at_mount` / `drop_policy_added_to_existing_border` | A callback-free Border accepts native text drags through its policy, including activation after an initially rejected drop on the same anchored tree. |
+| `drop_policy_changes_during_drag` | Source feedback follows Copy-to-Move policy changes while hovering; switching back before release produces a Copy drop that reads the text. |
+| `cancelled_drag_can_be_restarted` | Three cancelled hovers preserve the source's native UIA identity and leave it usable; another drag then drops successfully. |
+| `drag_source_is_stopped_after_driver_failure` | Failure during an accepted OLE hover releases the injected button and reaps the fixture process, including its source thread. |
+| `text_data_transfers_owned_unicode_memory` | The data source rejects unsupported formats and returns independent, nul-terminated UTF-16 allocations that outlive the source COM object. |
 
 The driver timeout regressions use the same supervisor as live UI cases, with short private
 deadlines and synthetic workers rather than COM calls. Each case releases and joins its worker
@@ -94,8 +101,24 @@ driver action. Dynamic cases omit the policy entirely at mount, exercise that st
 it while preserving the UIA anchor's identity. They do not set the policy to false initially, since
 that setter can itself activate a lazy native subscription.
 
-This covers mouse capture and release/focus, not native drag/drop negotiation. Drag/drop needs an
-owned data source and assertions on the negotiated operation, not just a held-button mouse move.
+Drag cases create a native source window over the source anchor on a dedicated OLE STA thread in
+the fixture process. That thread receives the injected press and runs `DoDragDrop`; the WinUI
+thread remains free to render policy changes and read dropped data. The source advertises only
+`CF_UNICODETEXT`, avoiding shell file formats that would select a different Reactor policy.
+No drag/drop callbacks are installed on the target. Assertions check source-reported hover
+operations, the final OLE operation, and that the target read the text. A Copy cursor or final
+Copy operation alone does not prove that Reactor processed the drop.
+
+The source window and its STA live for the fixture session, not for one drag. UIA can retain native
+providers while inspecting the window tree; ending their apartment between drags races that work.
+Each drag owns its data and feedback objects and reports completion after releasing them. The
+fixture stops and joins the source thread after the application loop exits. On the successful
+path, the parent finishes and joins its UIA worker before asking the fixture to close.
+
+The OLE source callback checks cancellation and a 20-second drag deadline. The parent supervisor
+remains the hard bound if native code blocks. Driver failure retains the shared supervisor-owned
+button cleanup and fixture-process termination. No UIA timeout is treated as a successful lookup
+or retried as a missing element.
 
 Cargo captures driver steps and assertion failures. On a condition timeout the driver also prints
 the fixture's UI tree. Child stdout and stderr are written to separate files to avoid blocked pipes;
