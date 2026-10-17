@@ -3424,6 +3424,199 @@ fn sdk_import_targets() {
 }
 
 #[test]
+#[ignore = "requires the pinned Windows SDK and import libraries"]
+fn sdk_import_gaps() {
+    helpers::ensure_libclang();
+    let input = || {
+        let mut input = test_clang2::annotated_sdk_fixture();
+        input.name = "sdk_import_gaps.h".into();
+        input.source = test_clang2::fixture("sdk_import_gaps").source;
+        input.roots = ["DhcpAddServer", "DnsValidateName_W", "BSTR_UserSize64"]
+            .map(String::from)
+            .into();
+        input
+    };
+    let snapshots = capture(&[input()], &TARGETS).unwrap();
+    let mut imports = projection::Imports::default();
+    for snapshot in &snapshots {
+        let (arch, machine) = match snapshot.target {
+            Target::X86 => ("x86", 0x14c),
+            Target::X64 => ("x64", 0x8664),
+            Target::Arm64 => ("arm64", 0xaa64),
+        };
+        let root = helpers::nuget_package(
+            &format!("microsoft.windows.sdk.cpp.{arch}"),
+            "10.0.28000.2270",
+        )
+        .join("c")
+        .join("um")
+        .join(arch);
+        let symbols = imports.symbols.entry(snapshot.target).or_default();
+        for library in ["dhcpsapi.lib", "dnsapi.lib", "oleaut32.lib"] {
+            for import in
+                windows_rdl::implib::read(&std::fs::read(root.join(library)).unwrap()).unwrap()
+            {
+                if import.machine != machine || import.kind != windows_rdl::implib::ImportKind::Code
+                {
+                    continue;
+                }
+                let name = match import.name {
+                    windows_rdl::implib::ImportName::Name(name) => name,
+                    windows_rdl::implib::ImportName::Ordinal(ordinal) => format!("#{ordinal}"),
+                };
+                symbols.insert(
+                    import.symbol,
+                    projection::Import {
+                        library: import.dll,
+                        name: Some(name),
+                    },
+                );
+            }
+        }
+        for value in &snapshot.values {
+            let ValueKind::Function { mangling, .. } = &value.observations[0].kind else {
+                panic!()
+            };
+            assert_eq!(
+                symbols.contains_key(mangling),
+                snapshot.target != Target::X86
+            );
+            if snapshot.target == Target::X86 {
+                match value.name.as_str() {
+                    "DhcpAddServer" => {
+                        assert_eq!(mangling, "_DhcpAddServer");
+                        assert!(symbols.contains_key("_DhcpAddServer@20"));
+                    }
+                    "DnsValidateName_W" => {
+                        assert_eq!(mangling, "_DnsValidateName_W");
+                        assert!(symbols.contains_key("_DnsValidateName_W@8"));
+                    }
+                    "BSTR_UserSize64" => assert!(
+                        symbols
+                            .values()
+                            .all(|import| import.name.as_deref() != Some("BSTR_UserSize64"))
+                    ),
+                    _ => unreachable!(),
+                }
+            }
+        }
+    }
+    assert!(
+        projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports).is_err()
+    );
+    let partial = projection::project_partial_with_imports(
+        capture_partial(&[input()], &TARGETS).unwrap(),
+        "Fixture",
+        &imports,
+    )
+    .unwrap();
+    assert_eq!(partial.output.functions, 0);
+    for name in ["DhcpAddServer", "DnsValidateName_W", "BSTR_UserSize64"] {
+        assert!(partial.omissions.iter().any(|error| error.contains(name)));
+    }
+}
+
+#[test]
+fn calling_defaults() {
+    helpers::ensure_libclang();
+    for stdcall in [false, true] {
+        let mut input = selected_fixture("calling_defaults", &[]);
+        if stdcall {
+            input
+                .arguments
+                .extend(["-Xarch_i686".into(), "-mrtd".into()]);
+        }
+        let snapshots = capture(&[input], &TARGETS).unwrap();
+        for snapshot in &snapshots {
+            let expected = |name: &str| {
+                if snapshot.target == Target::X86
+                    && (name.starts_with("Stdcall") || stdcall && name.starts_with("Plain"))
+                {
+                    CallingConvention::Stdcall
+                } else {
+                    CallingConvention::C
+                }
+            };
+            for value in &snapshot.values {
+                let TypeKind::Function(function) =
+                    &snapshot.types[value.observations[0].canonical.0].kind
+                else {
+                    panic!()
+                };
+                assert_eq!(function.convention, expected(&value.name));
+                let ValueKind::Function { mangling, .. } = &value.observations[0].kind else {
+                    panic!()
+                };
+                let name = &value.name;
+                assert_eq!(
+                    mangling,
+                    &if snapshot.target != Target::X86 {
+                        name.clone()
+                    } else if expected(name) == CallingConvention::Stdcall {
+                        format!("_{name}@4")
+                    } else {
+                        format!("_{name}")
+                    }
+                );
+            }
+            for alias in &snapshot.aliases {
+                let TypeKind::Pointer(pointee) =
+                    &snapshot.types[alias.observations[0].canonical.0].kind
+                else {
+                    panic!()
+                };
+                let TypeKind::Function(function) = &snapshot.types[pointee.0].kind else {
+                    panic!()
+                };
+                assert_eq!(function.convention, expected(&alias.name));
+            }
+        }
+        let imports = ["Plain", "Cdecl", "Stdcall"]
+            .map(|name| {
+                (
+                    name.into(),
+                    projection::Import {
+                        library: "example.dll".into(),
+                        name: None,
+                    },
+                )
+            })
+            .into_iter()
+            .collect();
+        let output =
+            projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports)
+                .unwrap();
+        roundtrip(
+            if stdcall {
+                "calling_defaults_stdcall"
+            } else {
+                "calling_defaults_cdecl"
+            },
+            &output,
+            |index, bit| {
+                for name in ["Plain", "Cdecl", "Stdcall"] {
+                    let expected = if bit == 1 && (name == "Stdcall" || stdcall && name == "Plain")
+                    {
+                        "system"
+                    } else {
+                        "C"
+                    };
+                    let method = index
+                        .expect("Fixture", "Apis")
+                        .methods()
+                        .find(|method| {
+                            method.name() == name
+                                && (method.arches() == 0 || method.arches() & bit != 0)
+                        })
+                        .unwrap();
+                    assert_eq!(method.calling_convention(), expected);
+                }
+            },
+        );
+    }
+}
+
+#[test]
 #[ignore = "requires the pinned Windows SDK and clang resource headers"]
 fn sdk_noreturn() {
     helpers::ensure_libclang();

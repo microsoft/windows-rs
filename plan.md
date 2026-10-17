@@ -1,135 +1,96 @@
 # windows-clang replacement plan
 
-## Fixed execution contract
+## Goal and focus
 
-Replace windows-clang with a smaller, maintainable compiler-backed pipeline that reproduces the
-required canonical Win32 metadata and usable Rust bindings for x86, x64, and ARM64. Preserve the
-baseline public surface and semantics, except for explicitly reviewed corrections or exclusions.
-Do not reproduce legacy bugs merely to obtain identical text.
+Replace windows-clang with a compiler-backed pipeline that is better in architecture, accuracy,
+correctness, testability, and maintainability, and produces usable Rust bindings for x86, x64, and
+ARM64. Preserve the required public surface and semantics except for reviewed corrections or
+exclusions. Parity is a compatibility constraint, not success; do not reproduce legacy bugs.
 
-This plan defines the work, not a running progress log. Changes to its strategy, required scope,
-deferrals, or acceptance gates require explicit maintainer approval. Do not rewrite the plan to
-justify the current activity. Keep changing counts, per-header results, and investigation details
-in the crate documentation and session artifacts. Retain this contract until the maintainer accepts
-the replacement.
+**Pause breadth expansion. Focus on architecture and acceptance.** Use the existing workload to
+expose and verify design problems. Add coverage only to resolve an agreed contract or acceptance
+gap. Resuming breadth expansion requires maintainer approval.
+
+This is the steering contract, not a progress log. Keep findings, measurements, and decisions
+outside this file. Changes to strategy, scope, deferrals, or acceptance gates require approval.
 
 ## Architecture and invariants
 
 `Headers -> owned native IR -> reconciliation -> publication -> RDL/WinMD -> Rust bindings`
 
-- Use compiler-owned identities, types, values, layouts, and vtable slots. Keep typed IDs, indexed
-  lookup, separate declaration observations, and target-specific evidence.
-- Validate native compatibility before publication pruning. Partial mode must not hide known
-  conflicts, treat failed observations as validated, or infer absence from an unobserved target.
-- Separate discovery, capture, compatibility, naming, metadata representation, and consumer
-  semantics. Unsupported cases must have explicit diagnostics.
-- Use general mechanisms and existing metadata contracts. Do not add header/name-specific parser
-  exceptions, guess values or layouts, or copy legacy output to conceal missing support.
-- Extend the current design. No new rewrite, speculative framework, or reporting infrastructure
-  project. Modules with child files use `module/mod.rs`.
-
-## Execution cadence
-
-**Breadth is the default. Small slices isolate new architectural failures; they are not the unit
-of coverage rollout.**
-
-1. **Scale across the agreed header set.** The driver already parses the shared 370-header manifest
-   across three architectures. Expand macro discovery and definition coverage in substantial
-   batches toward that full scope, rather than advancing one header at a time. Dinput is part of
-   this breadth work, not a separate milestone.
-2. **Compare and classify each breadth result.** Reuse the baseline comparison and omission
-   evidence. Group failures by underlying cause, not header or individual missing name. Distinguish
-   discovery/configuration gaps, compiler failures, native conflicts, publication/representation
-   gaps, downstream issues, and approved differences.
-3. **Reduce only new hard failures.** State the failing contract and completion check; create the
-   smallest representative header/RDL fixture; fix the general mechanism; demonstrate the failure
-   before the fix and correct output afterward. Cover relevant rejection and target/input-order
-   cases. Return immediately to breadth once that mechanism is established.
-4. **Amortize full-workload runs.** Use focused checks while implementing a mechanism and a full
-   comparison at the batch boundary. Do not add a fixture and repeat the entire SDK run for every
-   header that needs no implementation change. Smaller batches need a concrete isolation or
-   resource reason, not habit.
-5. **Measure scaling.** Record phase timings and peak memory with the input/configuration and
-   coverage result. Investigate measured bottlenecks that prevent full-scope execution; do not
-   optimize tiny fixtures or add costly fallbacks without workload evidence.
-
-Known deferred failures remain explicit omissions; they do not stop unrelated breadth work.
-New failures must be classified, not silently ignored. Stop and seek a decision if proceeding would
-weaken an invariant, require an exception, change required scope, or exceed an agreed resource
-budget. Do not substitute an easier header-by-header queue for the architectural problem.
-
-## Recurring quality gates
-
-Quality checks and review are required throughout implementation, not postponed to final acceptance.
-
-- **Each implementation change:** format affected code, build/check affected crates, run clippy
-  with warnings denied, and run focused regressions. Cover the changed contract, rejection paths,
-  and relevant target/input-order behavior. Native companion changes also require native boundary
-  checks. Documentation-only changes do not require code tests.
-- **Each mechanism change:** review the actual diff in a separate pass before returning to breadth.
-  Check correctness, ownership, validation before pruning, error reporting, determinism, and
-  maintainability. Confirm that the solution is general and adds no unnecessary complexity,
-  duplication, name-specific exceptions, or guessed evidence.
-- **Each breadth batch:** compare the full candidate with its control, review semantic differences
-  and new omissions, and inspect runtime/peak-memory results. Account for regressions before
-  accepting the batch; name counts and successful compilation alone are insufficient.
-- **Each batch handoff:** record the checks run, review findings, and unresolved risks outside this
-  plan. Fix issues introduced by the work; do not declare completion with unexplained failures.
-
-Keep checks proportional to the change and reuse existing tooling. Escalate to broader suites when
-the affected boundary or results require them, not for every added header. These gates apply to the
-parser, native companion, metadata, and tooling now; downstream Rust consumer checks remain a
-separate final acceptance requirement.
-
-## Current boundaries
-
-Header-to-RDL iteration is the working loop. Use focused WinMD checks where needed to establish
-metadata contracts. Defer Rust generation and consumer execution to final acceptance.
-
-The PCH GUID materialization bug is deferred. Preserve the ignored `uuid_macros` reproducer,
-explicit GUID-value coverage, and affected omissions. Do not reopen the investigation during
-breadth work. A small `windows-clang-sys` companion adjustment is the only permitted fix scope;
-no suitable pre-parse hook is established. Rebuilding libclang, duplicating its parser, and
-per-failure full-source retries are out of scope.
-
-The remaining hard contracts are not reasons to serialize header coverage:
-
-| Area | Required resolution |
+| Layer | Responsibility |
 | --- | --- |
-| Constants | Broad macro discovery, declaration/definition coverage, and GUID naming policy |
-| Annotations | Required direction, optionality, termination, and buffer relationships |
-| Representation | Per-member bitfield types and reduced storage alignment |
-| Imports | Conflicting public prototypes, ordinal imports, and target-specific export ownership |
-| Consumers | Union accessors, flat COM identity, and required generated Rust behavior |
+| Capture | Preserve compiler-owned identities, types, values, layouts, attributes, and provenance |
+| Reconciliation | Validate native compatibility across observations before publication pruning |
+| SDK policy | Declare supported compilation contexts and justified publication choices |
+| Projection | Encode validated contracts without inventing native facts |
+| Consumers | Implement metadata contracts with correct ABI and behavior |
 
-Resolve shared causes with representative fixtures, then apply them broadly. Preserving annotation
-strings is not implementing their meaning. Recording a gap is not satisfying an acceptance gate.
+- Keep typed identities, separate observations, and target-specific evidence. Failed observations
+  are not agreement; missing import evidence is not proof of target absence.
+- No name-specific parser exceptions, guessed values or layouts, silent fallbacks, or workarounds
+  that manufacture support. Unsupported contracts remain explicit failures.
+- Give each decision one owner. Fix conflicting interpretations at their boundary rather than
+  patching several layers. Prefer simpler shared mechanisms over duplicated logic or abstractions.
+- Improve the existing design. No new rewrite, speculative framework, or reporting-system project.
 
-## Controls and acceptance
+## Work sequence
 
-Comparison baseline: `6e68e56081340eaa932f4dbc92ec54c56ed51473`.
-Initial controls: LLVM 22.1.8, companion ABI 15, SDK 10.0.28000.2270, shared 370-header manifest,
-and x86/x64/ARM64. Record TU groups, support/definition inputs, macro selection, and import policy
-for each run. Version or configuration changes must be explicit, not mixed into unexplained diffs.
+1. **Establish the acceptance picture.** Agree on required API/configuration scope and time/memory
+   budgets. Record the baseline, accepted control, and experimental candidate separately. Classify
+   remaining gaps by root cause and affected contracts, separating dependent losses. Report
+   obligations satisfied, unresolved, or explicitly excluded, not a completion percentage.
+2. **Review the architecture through difficult cases.** Start with import ABI and calling
+   conventions, native identity versus public naming, incomplete types and packing, bitfields,
+   annotations, and macro/definition inputs. Identify the owner, evidence, preserved facts, and
+   rejection rules. Produce ranked findings and proposed resolutions before another feature
+   batch. Review shared-runtime changes independently from parser acceptance.
+3. **Resolve provisional mechanisms.** Review SDK include configurations, import corrections, the
+   stdcall experiment, and core alignment changes. Each must become a justified, tested part of the
+   design, be replaced by a simpler correct mechanism, or be removed with an explicit unsupported
+   case. Recovering names alone is never justification. Resolve required gaps without weakening
+   invariants; exclusions require approval.
+4. **Make correctness reproducible and end-to-end.** Establish companion freshness checks, a
+   clean-checkout reproduction path, reusable semantic comparisons, and selected SDK-backed CI
+   coverage. Use bounded consumer probes now, comparing baseline and candidate API presence,
+   signatures, layout, linkage, and behavior. Cover ordinal imports, callbacks, COM, and bitfields;
+   successful compilation or round trips alone cannot establish correctness.
+5. **Consolidate and qualify the replacement.** Remove abandoned experiments and redundant paths.
+   Keep repository instructions short and crate documentation about the current design. Run the
+   complete agreed workload and consumer checks, account for every difference, and obtain
+   maintainer acceptance before switching production callers or removing the old implementation.
 
-Keep generated partial candidates visible in tracked `metadata/win32`; do not hand-edit them.
-`--compare-constants` supplies name/owner accounting, not semantic parity. Preserve the preceding
-candidate as a comparison control. Compare required types, values, encodings, contracts, layouts,
-ownership, and target availability as applicable; explain every loss or change.
+## Change discipline
 
-Replacement acceptance requires:
+- Make small, independently reviewable changes. State the contract and completion check first.
+  Use focused header/RDL fixtures with native and consumer expectations independent of the
+  implementation. Preserve useful assertions for rejection, target variation, and input order.
+- Format, build/check, run warnings-denied clippy, and exercise affected regressions for each code
+  change. Native changes also require native boundary checks. Review the actual diff in a separate
+  pass for correctness, ownership, complexity, and error reporting.
+- Use focused checks during implementation and full semantic comparisons at mechanism boundaries.
+  Record configuration, phase timings, peak memory, review findings, and unresolved risks. Do not
+  accept unexplained regressions or repeatedly run the full workload for minor fixture changes.
 
-- An agreed required API/configuration scope and runtime/peak-memory budgets. The initial manifest
-  is a control, not proof that the required scope or budgets are settled.
-- Accounting for the baseline across required declaration categories, with semantic comparisons
-  and explicit approval of corrections or exclusions. `_ARM64_MULT_INTRINS_SUPPORTED` is the
-  approved compiler-internal exclusion; other failures are not automatically excluded.
-- Required constant, annotation, representation, and import contracts implemented without weakening
-  pre-pruning validation. Deferred required cases must be resolved or explicitly excluded.
-- Repeated full-scope generation with deterministic output, no unexplained losses, preserved
-  regressions, and acceptable scaling.
-- Final downstream Rust generation, compilation, and behavior checks across the required targets.
+## Controls and finish line
 
-Only after these gates and maintainer acceptance may production callers switch and obsolete
-implementation paths be removed. Partial output and increased name counts are not replacement
-readiness.
+Comparison baseline: `6e68e56081340eaa932f4dbc92ec54c56ed51473`. The existing 370-header manifest
+is a workload control, not proof of complete required scope. Record compiler/SDK pins, companion
+identity, targets, TU sources, arguments, macro selection, and import policy for reproducible runs.
+Keep partial candidates visible in tracked `metadata/win32`; never hand-edit or hide their changes.
+
+The PCH GUID bug remains deferred pending an explicit decision. Preserve its reproducer and
+omissions. Only a small companion adjustment is within the existing fix scope; libclang rebuilds,
+parser duplication, and per-failure full-source retries remain out of scope.
+
+Acceptance requires all of the following:
+
+- Reviewed architecture with clear ownership and no unresolved workaround-dependent required path.
+- Required API and contract accounting, with justified corrections and approved exclusions.
+  `_ARM64_MULT_INTRINS_SUPPORTED` remains an approved compiler-internal exclusion.
+- Reproducible native, metadata, and consumer checks across x86, x64, and ARM64, including required
+  API presence and behavior. Preserving annotation strings is not implementing their semantics.
+- Deterministic full-scope generation, no unexplained losses, and agreed performance budgets met.
+- Maintainable code, fixtures, tooling, and documentation that do not depend on this conversation.
+
+An explicit omission is honest progress, not completion. Only maintainer acceptance ends this plan.

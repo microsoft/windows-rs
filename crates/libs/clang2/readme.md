@@ -138,6 +138,8 @@ selected input headers. This includes selected WinRT headers without scanning th
 The include manifest still determines which headers are parsed. The driver writes its inputs and
 resolved imports to `target/win32-2/capture-configuration.txt`; `--dry-run` writes that configuration
 without changing RDL/WinMD.
+The experimental `--x86-stdcall` option changes Clang's x86 default for unannotated functions and
+callbacks. It recovers imports but also changes callback ABIs; it is not an accepted SDK default.
 Discovery uses the active definition's owner, not a superseded definition in another header.
 Probes do not parenthesize initializers: comma-separated field fragments must not become scalar
 constants. Comma expressions already parenthesized in the macro remain supported.

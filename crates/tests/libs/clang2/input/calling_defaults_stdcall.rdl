@@ -1,0 +1,26 @@
+#[win32]
+mod Fixture {
+    #[library("example.dll")]
+    extern "C" fn Cdecl(value: i32) -> i32;
+    extern "C" fn CdeclCallback(value: i32) -> i32;
+    #[library("example.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn Plain(value: i32) -> i32;
+    #[library("example.dll")]
+    #[arch(X86)]
+    extern fn Plain(value: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    extern "C" fn PlainCallback(value: i32) -> i32;
+    #[arch(X86)]
+    extern fn PlainCallback(value: i32) -> i32;
+    #[library("example.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn Stdcall(value: i32) -> i32;
+    #[library("example.dll")]
+    #[arch(X86)]
+    extern fn Stdcall(value: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    extern "C" fn StdcallCallback(value: i32) -> i32;
+    #[arch(X86)]
+    extern fn StdcallCallback(value: i32) -> i32;
+}

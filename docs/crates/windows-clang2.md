@@ -768,6 +768,7 @@ cargo run -p tool-win32-2 --quiet
 cargo run -p tool-win32-2 --quiet -- --partial
 cargo run -p tool-win32-2 --quiet -- --partial --sdk-imports
 cargo run -p tool-win32-2 --quiet -- --partial --sdk-imports --sdk-macros
+cargo run -p tool-win32-2 --quiet -- --partial --sdk-imports --sdk-macros --x86-stdcall
 cargo run -p tool-win32-2 --quiet -- --partial --sdk-imports --sdk-macros --dry-run
 cargo run -p tool-win32-2 --quiet -- --compare-constants
 cargo run -p tool-win32-2 --release --quiet -- --partial --first=357
@@ -968,6 +969,53 @@ target mappings, explicit precedence, missing-target rejection, invalid ordinals
 The SDK fixture checks `ILClone`, `ILFree`, and `WSAStartup` against all three native import libraries
 through both metadata round trips. Bindgen currently skips ordinal imports; consumer support remains
 a final acceptance requirement, not a reason to invent named exports.
+
+The first per-target import candidate adds 1,462 functions and removes 182, for 13,766 functions
+across 789 partitions. Existing retained signatures, types, constants, owners, and availability are
+unchanged. Eighteen named-export exceptions become native ordinals on all targets.
+`RtlCompareMemory` uses ntdll on x86; `RtlRaiseException` uses ntdll on x86/ARM64, following the
+ordered native library records. Exact compiler linker symbols verify all 4,439 added or changed
+target declarations. Of 4,382 added target declarations, 4,380 occur in the frozen baseline.
+
+The 182 losses remain unresolved, not approved baseline exclusions. Each has a missing x86 mapping,
+so partial publication removes it on every target. For 94 functions, including DHCP and DNS APIs,
+the current compiler default produces cdecl symbols while the SDK libraries contain stdcall symbols.
+An isolated x86 compiler-default probe matches all 94; that configuration has not been adopted.
+The other 88 have no matching x86 entry or named export in the selected libraries, including
+NDR64 marshalling and UMS functions. Missing import evidence does not establish runtime absence.
+`sdk_import_gaps` preserves both failures without guessed exports, calling conventions, or target
+availability. These losses require resolution before accepting the batch.
+
+`--x86-stdcall` opts into an SDK compiler configuration under review. It passes
+`-Xarch_i686 -mrtd` to Clang, matching the exact x86 target triple; x64/ARM64 keep their native
+defaults. Explicit cdecl/stdcall declarations retain their requested convention. Unannotated free
+functions and callbacks change together, as checked by the `calling_defaults` header/RDL fixtures.
+The parser and native IR have no SDK-specific convention rewrite. The option is not enabled by
+default, and full metadata review must account for callback changes as well as recovered imports.
+
+The stdcall trial recovers all 94 functions on all three targets, with every import matched to the
+compiler linker symbol and target library record. It loses no declarations relative to the
+target-native import candidate. It also changes 86 existing x86 declarations: 84 named callbacks,
+`InitializeXamlDiagnosticsEx`, and the six function-pointer fields in `UReplaceableCallbacks`.
+Seventy-five named declarations match the frozen baseline's cdecl ABI before this change; ten
+callback aliases have no baseline declaration. The baseline uses opaque pointers for the ICU
+fields, so it supplies no calling-convention evidence for them. Import-library agreement for the
+94 functions does not validate these callback and explicitly mapped export changes. The blanket
+default is not accepted for canonical publication.
+
+All other source/canonical declarations, types, layouts, constants, owners, target availability,
+and imports are unchanged. The trial removes 94 import omissions without adding declaration
+omissions. Thirteen existing compiler-warning type spellings gain stdcall; an unused-argument
+warning records the inactive architecture selector on other targets. The candidate has 13,860
+functions and 72,002 omission diagnostics. Metadata round trips preserve 36,462 root/nested type
+shapes and stable canonical text. Observed wall time is 270.4 seconds, with a 7.50 GB peak working
+set. Repeat generation is deferred while the ABI changes remain unresolved.
+
+Without the stdcall option, the target-native import candidate removes 1,462 omission identities
+and adds exactly those 182 import gaps, leaving 72,096 diagnostics. Input sources, arguments, and
+constant accounting remain unchanged.
+Observed wall time is 242.6 seconds, with a 7.21 GB peak working set. Repeat generation and final
+acceptance remain pending; this result is not replacement readiness.
 
 Strict mode fails on unsupported declarations. `--partial` emits the supported subset and
 writes `target/win32-2/omissions.txt`; compiler errors and captured-definition conflicts remain

@@ -259,6 +259,17 @@ imports win over exact compiler linker symbols in target-specific maps. Filter s
 by machine before ordered selection; ARM64 archives also contain ARM64EC members. Code/data/const
 kinds remain distinct. Preserve named exports and native ordinals without guessing named exports;
 bindgen ordinal support remains a final consumer acceptance requirement.
+The first target-native import run exposes 182 missing x86 mappings: 94 declarations use default
+cdecl while their libraries contain stdcall symbols, and 88 have no matching entry in the selected
+x86 libraries. `sdk_import_gaps` preserves both boundaries. A compiler-default stdcall probe matches
+the 94 alternate symbols. The approved `--x86-stdcall` experiment uses Clang's
+`-Xarch_i686 -mrtd`, not an IR convention rewrite. It remains opt-in; review unannotated callbacks
+as well as functions. Do not repair gaps with symbol spelling guesses or treat missing import
+evidence as native target absence.
+The stdcall trial recovers 94 functions but also changes 84 callbacks, the six ICU
+`UReplaceableCallbacks` fields, and `InitializeXamlDiagnosticsEx` on x86. Seventy-five named
+declarations matched baseline cdecl before the trial. Native import agreement does not validate
+these extra ABI changes; the blanket default is not accepted for canonical publication.
 Native ABI conflicts are fatal. Native-compatible value declarations whose public parameter names
 or aliases disagree are strict projection errors and explicit all-target partial omissions.
 Repeated GUID blocks also occur in the main TU (`winioctl.h`); enabling INITGUID before its prelude

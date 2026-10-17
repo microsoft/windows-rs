@@ -41,6 +41,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut partial = false;
     let mut sdk_imports = false;
     let mut sdk_macros = false;
+    let mut x86_stdcall = false;
     let mut dry_run = false;
     let mut first = None;
     let mut imports = projection::Imports::default();
@@ -53,6 +54,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             sdk_imports = true;
         } else if argument == "--sdk-macros" {
             sdk_macros = true;
+        } else if argument == "--x86-stdcall" {
+            x86_stdcall = true;
         } else if argument == "--dry-run" {
             dry_run = true;
         } else if let Some(value) = argument.strip_prefix("--import=") {
@@ -87,7 +90,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
         } else if argument.starts_with('-') {
             return Err(format!(
-                "unknown option `{argument}`; use --compare-constants alone, or --partial, --sdk-imports, --sdk-macros, --dry-run, --first=N, --import=Function=library.dll, --macro=NAME, --macro-header=header.h, or header names"
+                "unknown option `{argument}`; use --compare-constants alone, or --partial, --sdk-imports, --sdk-macros, --x86-stdcall, --dry-run, --first=N, --import=Function=library.dll, --macro=NAME, --macro-header=header.h, or header names"
             )
             .into());
         } else {
@@ -122,7 +125,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         macro_headers.sort();
         macro_headers.dedup();
     }
-    let arguments = sdk_arguments(&include, Path::new(&helpers::clang_resource_dir()))?;
+    let arguments = sdk_arguments(
+        &include,
+        Path::new(&helpers::clang_resource_dir()),
+        x86_stdcall,
+    )?;
     let mut inputs = inputs(&headers, &arguments);
     for input in &mut inputs {
         input.macros.clone_from(&macros);
@@ -449,7 +456,11 @@ fn read_sdk_imports(
     Ok(imports)
 }
 
-fn sdk_arguments(include: &Path, resource: &Path) -> Result<Vec<String>, std::io::Error> {
+fn sdk_arguments(
+    include: &Path,
+    resource: &Path,
+    x86_stdcall: bool,
+) -> Result<Vec<String>, std::io::Error> {
     let mut arguments = vec![
         "-fms-extensions".into(),
         "-include".into(),
@@ -464,6 +475,9 @@ fn sdk_arguments(include: &Path, resource: &Path) -> Result<Vec<String>, std::io
             "-isystem".into(),
             include.join(directory).display().to_string(),
         ]);
+    }
+    if x86_stdcall {
+        arguments.extend(["-Xarch_i686".into(), "-mrtd".into()]);
     }
     Ok(arguments)
 }
@@ -745,6 +759,60 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "requires the pinned Windows SDK and import libraries"]
+    fn sdk_stdcall() {
+        helpers::ensure_libclang();
+        let include = helpers::nuget_package("microsoft.windows.sdk.cpp", SDK_VERSION)
+            .join("c")
+            .join("Include")
+            .join(helpers::marketing_dir(SDK_VERSION));
+        let resource = std::env::var_os("CLANG_RESOURCE_DIR").map_or_else(
+            || {
+                Path::new(env!("CARGO_MANIFEST_DIR"))
+                    .join("..\\..\\..\\target\\tool-clang\\clang-resource")
+                    .join(helpers::LIBCLANG_VERSION)
+            },
+            std::path::PathBuf::from,
+        );
+        let targets = [Target::X86, Target::X64, Target::Arm64];
+        let mut imports = projection::Imports::default();
+        for target in targets {
+            let (arch, _) = import_target(target);
+            let directory =
+                helpers::nuget_package(&format!("microsoft.windows.sdk.cpp.{arch}"), SDK_VERSION)
+                    .join("c");
+            let discovered = read_sdk_imports(&directory, target, &mut String::new()).unwrap();
+            add_sdk_imports(&mut imports, target, discovered);
+        }
+        for stdcall in [false, true] {
+            let input = Input {
+                name: "sdk_import_gaps.h".into(),
+                source: std::fs::read_to_string(
+                    Path::new(env!("CARGO_MANIFEST_DIR"))
+                        .join("..\\..\\tests\\libs\\clang2\\input\\sdk_import_gaps.h"),
+                )
+                .unwrap(),
+                arguments: sdk_arguments(&include, &resource, stdcall).unwrap(),
+                roots: ["DhcpAddServer", "DnsValidateName_W"]
+                    .map(String::from)
+                    .into(),
+                ..Default::default()
+            };
+            let snapshots = windows_clang2::capture(&[input], &targets).unwrap();
+            let output = projection::project_with_imports(
+                &windows_clang2::merge(&snapshots).unwrap(),
+                "Fixture",
+                &imports,
+            );
+            if stdcall {
+                assert_eq!(output.unwrap().functions, 2);
+            } else {
+                assert!(output.is_err());
+            }
+        }
+    }
+
+    #[test]
     fn guid_definition_scope() {
         let headers = ["ntddtape.h", "ntddcdrm.h", "ntddstor.h", "devpkey.h"].map(String::from);
         let inputs = guid_inputs(&headers, &[]);
@@ -794,7 +862,7 @@ mod tests {
             },
             std::path::PathBuf::from,
         );
-        let arguments = sdk_arguments(&include, &resource).unwrap();
+        let arguments = sdk_arguments(&include, &resource, false).unwrap();
         let headers: Vec<_> = headers::HEADERS
             .iter()
             .chain(headers::SATELLITE_HEADERS)
