@@ -267,7 +267,7 @@ impl WinUiAdapter {
             state,
             actual_theme_changed: None,
             closed: None,
-            published_title: false,
+            published_title: None,
             published_visuals: false,
             size_changed: None,
             placement_changed: None,
