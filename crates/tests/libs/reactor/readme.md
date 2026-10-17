@@ -42,10 +42,11 @@ or foreground is unavailable.
 | `src/main.rs` | Entry point for the isolated WinUI host |
 | `tests/ui/main.rs` | Named behavioral tests driven through UI Automation |
 | `tests/ui/automation.rs` | Scoped lookup, native actions, condition waits, and diagnostics |
-| `tests/ui/menu.rs` | Shared button, dropdown, and menu-bar lifetime scenarios |
+| `tests/ui/menu.rs` | Shared menu scenarios and focused command-bar and tray lifetime cases |
 | `tests/ui/process.rs` | Child ownership, deadlines, shutdown, and harness failure checks |
 | `tests/ui/pointer.rs` | Native mouse injection, owned button cleanup, and physical coordinates |
 | `src/pointer.rs` | Property-only pointer capture and focus fixtures |
+| `src/tray.rs` | Application-owned notification icon and its visible state |
 | `src/drag/` | Property-only drop target and owned native OLE text source |
 | `tests/ui/drag.rs` | Opt-in drag negotiation, policy changes, and cancellation |
 
@@ -62,6 +63,8 @@ own window. Failure cancels further driver work and terminates the owned child.
 
 Menu cases use the prefixes `menu_` (Button), `dropdown_` (DropDownButton), and `menu_bar_`
 (MenuBarItem). Each prefix has the four shared scenarios listed below.
+Command-bar and tray cases cover selected callback and retirement contracts rather than repeating
+all four scenarios.
 
 | Case | Assertion |
 | --- | --- |
@@ -69,6 +72,10 @@ Menu cases use the prefixes `menu_` (Button), `dropdown_` (DropDownButton), and 
 | `*_content_replacement_retires_open_items` | Changing content closes the old popup and creates a new item on the same owner. The old item stays inert before and after opening the replacement. |
 | `*_reattachment_does_not_revive_retired_items` | Removing and reattaching a menu on the same native owner creates new items without reviving retained providers. |
 | `*_owner_replacement_retires_open_items` | Replacing the keyed owner closes its popup and changes native owner/item identity. A callback update on the replacement preserves its open item and reaches the current callback. |
+| `command_callback_replacement_and_removal` | An open primary command keeps its native identity and reaches the new callback; removing the flyout retires its retained provider. |
+| `command_content_replacement_retires_open_items` | Changing command content closes the old flyout without replacing its button; old providers stay inert when the new command opens. |
+| `tray_callback_replacement_and_icon_removal` | An open tray item keeps its native identity and reaches the new callback; removing the icon closes its popup, destroys its notification window, and retires its provider. |
+| `tray_icon_replacement_retires_open_items` | Replacing the keyed icon closes its popup and creates new items; retained providers cannot invoke callbacks or close the replacement popup. |
 | `text_box_native_edit_and_controlled_reset` | UIA Value edits reach component state; declarative reset clears the native value; focused Unicode keyboard input reaches both state and the native TextBox. |
 | `keyed_reorder_moves_only_displaced_children` | Moving the last keyed TextBox to the front keeps every element's native identity and produces the new layout order. The focused TextBox that triggered the reorder is not displaced, so it keeps keyboard focus. |
 | `early_successful_exit_is_rejected` | Exiting with code zero before the driver finishes is a failure, not a passing test. |
@@ -101,7 +108,16 @@ items must deliver the expected key and callback generation exactly once; callba
 observed for 250 ms to detect extra deliveries. All three surfaces use the same assertions and one
 fixture with a typed surface input, not separate copies of the scenario code. The menu-bar cases
 also exercise WinUI's item collection updates: duplicate visible entries fail even when the new
-command is present. Command-bar and tray surfaces remain in the legacy integration fixture.
+command is present.
+
+Command-bar cases exercise primary commands through their native MenuItem peers. Tray cases send
+`WM_CONTEXTMENU` and `NIN_SELECT` notifications to the fixture's process-owned icon window.
+The fixture's controls choose an activation action before opening the popup; icon activation then
+changes its callback, removes the icon, or replaces its key without a main-window action dismissing
+the popup. Selection uses real UIA invoke providers. These cases cover native notification dispatch
+and menu lifetimes, not physical Shell icon hit-testing or popup positioning. Tray placement and
+DPI checks remain in the integration crate. Closing the fixture window exits its application and
+removes its icon through the normal application lifetime.
 
 Pointer cases use `SendInput` with physical virtual-desktop coordinates derived from UIA anchor
 bounds. The fixture's Border has no UIA peer; short text anchors locate its bare background without

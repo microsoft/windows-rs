@@ -200,6 +200,75 @@ impl Automation {
         Ok(())
     }
 
+    fn tray_window(&self) -> windows_core::Result<Option<HWND>> {
+        let mut after = std::ptr::null_mut();
+        let mut found = None;
+        unsafe {
+            loop {
+                after = FindWindowExW(
+                    std::ptr::null_mut(),
+                    after,
+                    windows_core::PCWSTR::null(),
+                    windows_core::w!("windows-notifyicon"),
+                );
+                if after.is_null() {
+                    return Ok(found);
+                }
+                let mut process = 0;
+                GetWindowThreadProcessId(after, &mut process);
+                if process == self.process {
+                    assert!(found.is_none(), "multiple fixture notification windows");
+                    found = Some(after);
+                }
+            }
+        }
+    }
+
+    pub fn open_tray_menu(&self) -> Result<()> {
+        self.tray_event(WM_CONTEXTMENU as u32)
+    }
+
+    pub fn activate_tray_icon(&self) -> Result<()> {
+        self.tray_event(NIN_SELECT as u32)
+    }
+
+    fn tray_event(&self, event: u32) -> Result<()> {
+        eprintln!("send Shell notification {event:#x} to fixture icon");
+        let hwnd = self
+            .wait(
+                "find fixture notification window",
+                || self.tray_window(),
+                Option::is_some,
+            )?
+            .unwrap();
+        let bounds = unsafe {
+            self.client
+                .ElementFromHandle(self.window_handle()? as *mut core::ffi::c_void)?
+                .CurrentBoundingRectangle()?
+        };
+        let x = bounds.left + 32;
+        let y = bounds.top + 32;
+        let point =
+            usize::from(i16::try_from(x)? as u16) | (usize::from(i16::try_from(y)? as u16) << 16);
+        self.ensure_active()?;
+        unsafe {
+            let mut process = 0;
+            GetWindowThreadProcessId(hwnd, &mut process);
+            assert_eq!(process, self.process, "notification window owner changed");
+            PostMessageW(hwnd, WM_USER as u32 + 1, point, event as isize).ok()?;
+        }
+        Ok(())
+    }
+
+    pub fn tray_gone(&self) -> Result<()> {
+        self.wait(
+            "fixture notification window disappears",
+            || self.tray_window(),
+            Option::is_none,
+        )?;
+        Ok(())
+    }
+
     pub fn name(&self, id: &str, expected: &str) -> Result<()> {
         self.wait(
             &format!("{id:?} name becomes {expected:?}"),
