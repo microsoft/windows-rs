@@ -49,6 +49,8 @@ The comparison commit must be available locally.
 PRs and master pushes run the native self-test once, with cast diagnostics, and retain the native
 regressions, public integration fixtures, deployment checks, isolated feature checks, and public
 API snapshot. Workspace unit tests and generation checks belong to `test.yml` and `gen.yml`.
+The two [quarantined live theme checks](#quarantined-live-theme-checks) run only on scheduled and
+manually dispatched workflows.
 
 The smoke gate runs Counter, Gallery, Workbench, the Reactor Composition host, standalone system
 Composition, and Reactor WebView, plus changed or new samples. PRs compare against their base commit;
@@ -64,4 +66,29 @@ Run the sample selection checks without starting any windows:
 
 ```text
 pwsh -File crates\tests\libs\reactor_selftest\test_samples.ps1
+```
+
+## Quarantined live theme checks
+
+PR and master-push gates exclude the checks below. Scheduled and manually dispatched workflows
+still run them, including both deployment modes for `window_theme`, and failures fail the job.
+Deterministic theme/error-handling tests, window-observer tests, and other native tests remain
+enabled in the routine gates. This is a temporary coverage gap, not a fix for either failure.
+
+| Check | Unresolved failure |
+| --- | --- |
+| `window_theme` | Phase 11 observed Dark instead of Light in the installed-runtime run. |
+| `system_menu_theme_updates_live_and_propagates_errors` | A flyout item reported Light instead of Dark while its anchor had the expected theme. |
+
+Both failures occurred in [PR #5121's workflow run](https://github.com/microsoft/windows-rs/actions/runs/39045500488):
+the first in attempt 1, the second in attempt 2. Both checks use 300 ms timer steps; a timing
+cause has not been established. Re-enabling them requires investigating theme propagation with
+bounded observations and useful phase diagnostics, not longer sleeps or retries.
+
+Run the checks locally on an interactive desktop:
+
+```text
+cargo run -p test-reactor-integration --bin window_theme
+cargo run -p test-reactor-integration --features self-contained --bin window_theme
+cargo test -p windows-reactor --lib native::transient_menu::tests::system_menu_theme_updates_live_and_propagates_errors -- --exact --ignored --nocapture
 ```

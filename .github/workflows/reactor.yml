@@ -16,6 +16,8 @@ concurrency:
 env:
   CARGO_TERM_COLOR: always
   CARGO_INCREMENTAL: "0"
+  # Keep quarantined live theme checks visible in exhaustive runs.
+  RUN_LIVE_THEME_TESTS: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
 
 jobs:
   test:
@@ -140,8 +142,10 @@ jobs:
             --bin window_state --quiet
           cargo run -p test-reactor-integration --features self-contained `
             --bin window_observers --quiet
-          cargo run -p test-reactor-integration --features self-contained `
-            --bin window_theme --quiet
+          if ($env:RUN_LIVE_THEME_TESTS -eq "true") {
+            cargo run -p test-reactor-integration --features self-contained `
+              --bin window_theme --quiet
+          }
           "command", "tray" | ForEach-Object {
             cargo run -p test-reactor-integration --features self-contained `
               --bin menu_lifetimes --quiet -- $_
@@ -171,10 +175,17 @@ jobs:
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
           $log = Join-Path $env:RUNNER_TEMP "reactor-cast-diagnostics.log"
+          $nativeArgs = @("--ignored", "--test-threads=1", "--nocapture")
+          if ($env:RUN_LIVE_THEME_TESTS -ne "true") {
+            $nativeArgs += @(
+              "--skip",
+              "native::transient_menu::tests::system_menu_theme_updates_live_and_propagates_errors"
+            )
+          }
           & {
             cargo run -p test-reactor-selftest --quiet -- --headless
             cargo test -p windows-reactor --lib native:: --quiet `
-              -- --ignored --test-threads=1 --nocapture
+              -- @nativeArgs
           } 2>&1 | Tee-Object -FilePath $log
           & .\crates\tests\libs\reactor_selftest\check_casts.ps1 -Path $log
 
@@ -223,7 +234,9 @@ jobs:
           cargo run -p test-reactor-integration --bin canvas_integration --quiet
           cargo run -p test-reactor-integration --bin window_state --quiet
           cargo run -p test-reactor-integration --bin window_observers --quiet
-          cargo run -p test-reactor-integration --bin window_theme --quiet
+          if ($env:RUN_LIVE_THEME_TESTS -eq "true") {
+            cargo run -p test-reactor-integration --bin window_theme --quiet
+          }
           cargo run -p test-reactor-integration --bin title_bar --quiet
           "normal", "maximized", "position", "offscreen", "secondary", "same-bounds", "constrained" |
             ForEach-Object {

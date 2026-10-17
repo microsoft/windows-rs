@@ -46,7 +46,9 @@ opens a second window from a running application and checks through UI Automatio
 caption-button inset as the first window.
 
 Run `window_theme` on an interactive desktop. It temporarily makes its windows topmost without
-activation to sample their rendered backgrounds.
+activation to sample their rendered backgrounds. Its CI runs are
+[quarantined to scheduled and manual workflows](../reactor_selftest/readme.md#quarantined-live-theme-checks)
+while a theme-observation failure is investigated.
 
 Run `menu_lifetimes` with `command` or `tray` on an interactive desktop. It uses process-scoped UI
 Automation and notification messages sent to its own icon. Button, dropdown, and menu-bar lifetimes
