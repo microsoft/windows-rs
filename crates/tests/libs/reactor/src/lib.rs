@@ -6,6 +6,7 @@ mod dialog;
 mod drag;
 mod image;
 mod pointer;
+mod reference;
 mod tray;
 mod window;
 
@@ -264,6 +265,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "startup-error" => application::startup_error()?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
         "image" => App::run_component::<image::ImageFixture>(())?,
+        "reference" => App::run_component::<reference::ReferenceFixture>(())?,
         "menu" => App::run_component::<MenuFixture>(MenuSurface::Button)?,
         "menu-dropdown" => App::run_component::<MenuFixture>(MenuSurface::DropDown)?,
         "menu-bar" => App::run_component::<MenuFixture>(MenuSurface::MenuBar)?,
