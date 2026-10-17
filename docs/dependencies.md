@@ -154,12 +154,13 @@ failing loudly on drift) that:
 
 - `WINDOWS_APP_SDK_VERSION` (metadata) equals `RUNTIME_VER` (runtime) - one number drives both;
 - `WEBVIEW2_VER` equals `WEBVIEW2_VERSION`, so the staged WebView2 runtime matches the ABI the
-  bindings target; and
-- `reactor.yml`'s installer URL installs `RUNTIME_VER` (`.../windowsappsdk/<major.minor>/<ver>/`),
-  so CI's self-tests exercise the runtime apps ship.
+  bindings target.
+
+`test-reactor` deploys its runtime through `windows-reactor-setup`; CI does not install a separate
+Windows App Runtime for these tests.
 
 - **To update metadata + runtime:** bump `WINDOWS_APP_SDK_VERSION` (`tool-reactor-metadata`) and
-  `RUNTIME_VER` (`reactor-setup`) together, update the `reactor.yml` installer URL, then run
+  `RUNTIME_VER` (`reactor-setup`) together, then run
   `cargo run -p tool-reactor-metadata` and commit the refreshed metadata. The guard enforces the
   version agreement; the regen enforces the metadata.
 - `assets/app.manifest` is a **generated activation asset with no committed generator** -

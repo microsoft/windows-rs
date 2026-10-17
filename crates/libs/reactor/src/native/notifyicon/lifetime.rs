@@ -17,7 +17,7 @@ fn builder_accepts_the_public_configuration() {
 fn live_icon_has_a_window_and_shell_rectangle() {
     let path = concat!(
         env!("CARGO_MANIFEST_DIR"),
-        "\\..\\..\\tests\\libs\\reactor_integration\\icon.ico"
+        "\\..\\..\\tests\\libs\\reactor\\icon.ico"
     );
     let mut icon = NotifyIcon::new(path).tooltip("Live test").build().unwrap();
     assert!(!icon.hwnd().is_null());
@@ -34,7 +34,7 @@ fn live_icon_has_a_window_and_shell_rectangle() {
 fn window_and_notification_icon_lifetimes_are_independent() {
     let path = concat!(
         env!("CARGO_MANIFEST_DIR"),
-        "\\..\\..\\tests\\libs\\reactor_integration\\icon.ico"
+        "\\..\\..\\tests\\libs\\reactor\\icon.ico"
     );
 
     let window = windows_window::Window::new("Notification icon lifetime test")

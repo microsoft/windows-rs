@@ -192,6 +192,15 @@ impl Automation {
         Ok(())
     }
 
+    pub fn gone(&self, id: &str) -> Result<()> {
+        self.wait(
+            &format!("automation ID {id:?} disappears"),
+            || self.find(id, false),
+            Option::is_none,
+        )?;
+        Ok(())
+    }
+
     pub fn invoke(&self, id: &str) -> Result<()> {
         eprintln!("invoke {id:?}");
         unsafe {
@@ -303,6 +312,15 @@ impl Automation {
             }
             std::thread::sleep(Duration::from_millis(20));
         }
+    }
+
+    pub fn name_of(&self, element: &IUIAutomationElement, expected: &str) -> Result<()> {
+        self.wait(
+            &format!("retained element name becomes {expected:?}"),
+            || unsafe { element.CurrentName() },
+            |name| name == expected,
+        )?;
+        Ok(())
     }
 
     pub fn value(&self, id: &str, expected: &str) -> Result<()> {

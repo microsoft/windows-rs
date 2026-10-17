@@ -107,6 +107,18 @@ pub fn run(fixture: &'static str, test: fn(&Automation) -> Result<()>) -> Result
     }
 }
 
+pub fn run_to_exit(fixture: &str) -> Result<()> {
+    let _serial = SERIAL.lock().unwrap();
+    let mut host = Host::spawn(fixture)?;
+    match host.wait(Instant::now() + Duration::from_secs(30)) {
+        Ok(_) => host.remove_logs(),
+        Err(error) => {
+            host.stop()?;
+            Err(format!("{fixture}: {error}\n{}", host.output()?).into())
+        }
+    }
+}
+
 fn drive(
     host: &mut Host,
     fixture: &'static str,

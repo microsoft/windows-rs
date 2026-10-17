@@ -14,8 +14,11 @@ mod bindings {
     include!(concat!(env!("OUT_DIR"), "\\bindings.rs"));
 }
 
+mod application;
 mod automation;
+mod dialog;
 mod drag;
+mod image;
 mod menu;
 mod pointer;
 mod process;

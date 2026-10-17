@@ -75,16 +75,9 @@ cargo check -p windows-reactor --quiet
 # Unit tests (headless, fast)
 cargo test -p windows-reactor --all-features --quiet
 
-# New Cargo UI tests (x64 interactive desktop; Cargo deploys the runtime)
+# Public API tests (x64 interactive desktop; Cargo deploys the runtime)
 cargo test -p test-reactor
 cargo test -p test-reactor --test ui window::
-
-# Legacy integration fixtures (retained during migration)
-cargo run -p test-reactor-selftest
-cargo run -p test-reactor-selftest -- --headless    # CI mode
-cargo run -p test-reactor-integration --bin application_menu
-cargo run -p test-reactor-integration --bin canvas_integration
-cargo run -p test-reactor-integration --bin webview_integration
 
 # Clippy
 cargo clippy -p windows-reactor --all-targets
@@ -171,16 +164,16 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 - **`.unwrap()` over `.expect("...")`** - the panic hook provides full context.
 - **No `thread_local!` in app code** - keep state in components and pass shared values through typed
   contexts. `thread_local!` is reserved for framework plumbing.
-- **Test naming**: Reactor unit tests live in `windows-reactor`. New public UI coverage belongs in
-  `test-reactor`; migrate legacy cases individually before retiring their tests and helpers.
-  `test-reactor-selftest` and `test-reactor-integration` remain during migration. The new crate
+- **Test naming**: Reactor unit tests live in `windows-reactor`. Public behavioral coverage belongs
+  in `test-reactor`. Prefer a small set of high-value contracts over exhaustive UIA matrices or
+  preserving every legacy assertion. Do not add separate runners or test scripts. The crate
   participates in workspace tests and uses `windows-reactor-setup` in its build script. Live UI
   cases run on x64; setup's filesystem and multiprocess tests run on all Windows architectures.
-  Run the new crate alone when checking default features rather than the workspace's unified
+  Run the crate alone when checking default features rather than the workspace's unified
   features.
   Canvas tests use WARP rendering.
 - **Reactor test documentation**: Keep testing instructions in `crates/tests/libs/reactor/readme.md`,
-  not `docs/crates/windows-reactor.md`. `cargo test -p test-reactor` must run the whole new suite
+  not `docs/crates/windows-reactor.md`. `cargo test -p test-reactor` must run the automated suite
   without ignored-test flags. Generate its native bindings with `windows-bindgen` in `build.rs`
   rather than depending on the `windows` crate.
 

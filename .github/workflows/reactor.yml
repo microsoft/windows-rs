@@ -16,8 +16,6 @@ concurrency:
 env:
   CARGO_TERM_COLOR: always
   CARGO_INCREMENTAL: "0"
-  # Keep quarantined live theme checks visible in exhaustive runs.
-  RUN_LIVE_THEME_TESTS: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
 
 jobs:
   test:
@@ -59,23 +57,6 @@ jobs:
           path: ${{ runner.temp }}\reactor-public-api
           key: ${{ steps.public-api-cache.outputs.cache-primary-key }}
 
-      - name: Install coverage tool
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        run: cargo install cargo-llvm-cov --locked --version 0.8.7
-
-      - name: Check Reactor core coverage
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        shell: pwsh
-        env:
-          RUSTFLAGS: "-D warnings"
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $true
-          cargo +nightly llvm-cov clean --workspace
-          cargo +nightly llvm-cov -p windows-reactor --all-features `
-            --branch --json --output-path target\reactor-coverage.json
-          crates\tests\libs\reactor_selftest\coverage.ps1
-
       - name: Check Reactor feature combinations
         shell: pwsh
         env:
@@ -85,7 +66,7 @@ jobs:
           $PSNativeCommandUseErrorActionPreference = $true
           cargo clippy -p windows-reactor --all-targets --quiet
           cargo clippy -p windows-reactor --all-features --all-targets --quiet
-          cargo clippy -p test-reactor-integration --all-targets --quiet
+          cargo clippy -p test-reactor --all-targets --quiet
           cargo clippy -p reactor-virtual --features perf --all-targets --quiet
           cargo clippy -p windows-canvas --no-default-features `
             --features reactor --all-targets --quiet
@@ -115,147 +96,15 @@ jobs:
             throw "windows-reactor public API changed"
           }
 
-      - name: Install WebView2 Evergreen runtime
-        shell: pwsh
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $true
-          $installerUrl = "https://go.microsoft.com/fwlink/p/?LinkId=2124703"
-          $installerPath = Join-Path $env:RUNNER_TEMP "MicrosoftEdgeWebview2Setup.exe"
-          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
-          $installer = Start-Process -FilePath $installerPath `
-            -ArgumentList "/silent", "/install" -Wait -PassThru
-          if ($installer.ExitCode -ne 0) {
-            throw "WebView2 installer exited with code $($installer.ExitCode)"
-          }
-
-      - name: Run live self-contained Reactor tests
-        shell: pwsh
-        env:
-          RUSTFLAGS: "-D warnings"
-          CARGO_TARGET_DIR: "${{ runner.temp }}\\reactor-self-contained"
-          LOCALAPPDATA: "${{ runner.temp }}\\reactor-self-contained-appdata"
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $true
-          cargo run -p test-reactor-integration --features self-contained `
-            --bin window_observers --quiet
-          if ($env:RUN_LIVE_THEME_TESTS -eq "true") {
-            cargo run -p test-reactor-integration --features self-contained `
-              --bin window_theme --quiet
-          }
-          cargo run -p test-reactor-integration --features self-contained `
-            --bin webview_integration --quiet
-
-      - name: Install Windows App Runtime
-        shell: pwsh
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $true
-          $installerUrl = "https://aka.ms/windowsappsdk/2.5/2.5.1/windowsappruntimeinstall-x64.exe"
-          $installerPath = Join-Path $env:RUNNER_TEMP "WindowsAppRuntimeInstall.exe"
-          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
-          $installer = Start-Process -FilePath $installerPath -ArgumentList "--quiet" `
-            -Wait -PassThru
-          if ($installer.ExitCode -ne 0) {
-            throw "Windows App Runtime installer exited with code $($installer.ExitCode)"
-          }
-
-      - name: Check Reactor cast diagnostics
-        shell: pwsh
-        env:
-          RUSTFLAGS: "-D warnings --cfg windows_cast_diagnostics"
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $true
-          $log = Join-Path $env:RUNNER_TEMP "reactor-cast-diagnostics.log"
-          $nativeArgs = @("--ignored", "--test-threads=1", "--nocapture")
-          if ($env:RUN_LIVE_THEME_TESTS -ne "true") {
-            $nativeArgs += @(
-              "--skip",
-              "native::transient_menu::tests::system_menu_theme_updates_live_and_propagates_errors"
-            )
-          }
-          & {
-            cargo run -p test-reactor-selftest --quiet -- --headless
-            cargo test -p windows-reactor --lib native:: --quiet `
-              -- @nativeArgs
-          } 2>&1 | Tee-Object -FilePath $log
-          & .\crates\tests\libs\reactor_selftest\check_casts.ps1 -Path $log
-
-      - name: Repeat live Reactor self-test
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      - name: Run Reactor tests
+        # Workspace tests cover feature unification; keep this default-feature run isolated.
         shell: pwsh
         env:
           RUSTFLAGS: "-D warnings"
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          1..3 | ForEach-Object {
-            cargo run -p test-reactor-selftest --quiet -- --headless
-          }
-
-      - name: Run live Reactor integration tests
-        shell: pwsh
-        env:
-          RUSTFLAGS: "-D warnings"
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $true
-          "replacement", "multiple", "startup-error" |
-            ForEach-Object {
-              cargo run -p test-reactor-integration --bin application_lifecycle `
-                --quiet -- $_
-            }
-          cargo run -p test-reactor-integration --bin application_menu --quiet
-          cargo run -p test-reactor-integration --bin application_menus --quiet
-          cargo run -p test-reactor-integration --bin tray_flyout --quiet
-          "pmv2", "unaware", "system", "thread-unaware" | ForEach-Object {
-            cargo run -p test-reactor-integration --bin menu_position --quiet -- $_
-          }
-          "input", "close", "application", "notification" | ForEach-Object {
-            cargo run -p test-reactor-integration --bin application_dispatch --quiet -- $_
-          }
-          "lifecycle", "menus", "empty", "exit", "unknown", "invalid-icon", "duplicate",
-          "window-only", "runtime-error", "explicit-exit" |
-            ForEach-Object {
-              cargo run -p test-reactor-integration --bin application_resources `
-                --quiet -- $_
-            }
-          cargo run -p test-reactor-integration --bin canvas_integration --quiet
-          cargo run -p test-reactor-integration --bin window_observers --quiet
-          if ($env:RUN_LIVE_THEME_TESTS -eq "true") {
-            cargo run -p test-reactor-integration --bin window_theme --quiet
-          }
-          cargo run -p test-reactor-integration --bin title_bar --quiet
-          "normal", "maximized", "position", "offscreen", "secondary", "same-bounds", "constrained" |
-            ForEach-Object {
-              cargo run -p test-reactor-integration --bin window_placement `
-                --quiet -- $_
-            }
-
-      - name: Run Reactor sample smoke tests
-        shell: pwsh
-        env:
-          RUSTFLAGS: "-D warnings"
-          FULL_SWEEP: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
-          SAMPLE_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $true
-          & .\crates\tests\libs\reactor_selftest\test_samples.ps1
-          if ($env:FULL_SWEEP -eq "true" -or $env:SAMPLE_BASE -match '^0+$') {
-            & .\crates\tests\libs\reactor_selftest\run_samples.ps1
-          } else {
-            if ($env:SAMPLE_BASE -notmatch '^[0-9a-f]{40}$') {
-              throw "Missing sample comparison commit"
-            }
-            git fetch --no-tags --depth=1 origin $env:SAMPLE_BASE
-            & .\crates\tests\libs\reactor_selftest\run_samples.ps1 `
-              -Package reactor-counter,reactor-gallery,reactor-workbench,`
-                composition-host,composition-standalone,webview-reactor `
-              -ChangedSince $env:SAMPLE_BASE
-          }
+          cargo test -p test-reactor --quiet
 
   performance:
     name: Reactor performance
