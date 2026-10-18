@@ -4,6 +4,7 @@ mod Windows {
         mod Xaml {
             mod Controls {
                 mod Maps {
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ICustomMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12,6 +13,7 @@ mod Windows {
                     class CustomMapTileDataSource: MapTileDataSource {
                         ICustomMapTileDataSource,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IHttpMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1438,6 +1440,7 @@ mod Windows {
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn FindNearbyAsync(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, radiusInMeters: f64) -> super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>;
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ILocalMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1610,6 +1613,7 @@ mod Windows {
                     class MapControlTransitFeatureRightTappedEventArgs {
                         IMapControlTransitFeatureRightTappedEventArgs,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapCustomExperienceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1626,6 +1630,7 @@ mod Windows {
                     class MapCustomExperienceChangedEventArgs {
                         IMapCustomExperienceChangedEventArgs,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapElementFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1764,6 +1769,7 @@ mod Windows {
                     class MapItemsControl: super::super::DependencyObject {
                         IMapItemsControl,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapLayerFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1782,6 +1788,7 @@ mod Windows {
                         DataUnavailable = 2,
                         DownloadedMapsManagerUnavailable = 3,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapModel3DFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1840,6 +1847,7 @@ mod Windows {
                     class MapRightTappedEventArgs {
                         IMapRightTappedEventArgs,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapRouteViewFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1931,6 +1939,7 @@ mod Windows {
                         IMapTileBitmapRequestedEventArgs,
                         IMapTileBitmapRequestedEventArgs2,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1949,6 +1958,7 @@ mod Windows {
                         BackgroundOverlay = 3,
                         BackgroundReplacement = 4,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapTileSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

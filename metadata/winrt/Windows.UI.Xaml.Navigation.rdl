@@ -3,6 +3,7 @@ mod Windows {
     mod UI {
         mod Xaml {
             mod Navigation {
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IFrameNavigationOptionsFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

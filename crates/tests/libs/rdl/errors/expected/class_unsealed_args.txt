@@ -1,0 +1,2 @@
+error: `unsealed` attribute does not accept arguments
+ --> errors/input/class_unsealed_args.rdl:4:5

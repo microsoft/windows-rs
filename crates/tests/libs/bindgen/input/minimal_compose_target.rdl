@@ -17,6 +17,7 @@ mod Windows {
 }
 #[winrt]
 mod Test {
+    #[unsealed]
     #[Windows::Foundation::Metadata::Composable(IBaseFactory, Public, 1)]
     class Base {
         IOverrides,

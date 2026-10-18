@@ -1,0 +1,2 @@
+error: base class must be `#[unsealed]`
+ --> errors/input/class_sealed_base.rdl:8:21

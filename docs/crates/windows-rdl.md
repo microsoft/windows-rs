@@ -129,6 +129,20 @@ mod Robotics {
 }
 ```
 
+Classes are sealed unless marked `#[unsealed]`. A class can only extend an unsealed class, so a
+class hierarchy marks each base class:
+
+```text
+#[unsealed]
+class Visual {
+    IVisual,
+}
+
+class SpriteVisual: Visual {
+    ISpriteVisual,
+}
+```
+
 The `crates/tests/libs/rdl/input` directory has focused `.rdl` files for syntax examples. It covers
 structs, flags, delegates, generic interfaces, unions, and more.
 

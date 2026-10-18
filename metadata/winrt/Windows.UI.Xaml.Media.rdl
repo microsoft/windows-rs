@@ -10,6 +10,7 @@ mod Windows {
                     HostBackdrop = 0,
                     Backdrop = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IAcrylicBrushFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -88,6 +89,7 @@ mod Windows {
                 class BitmapCache: CacheMode {
                     IBitmapCache,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IBrushFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -115,6 +117,7 @@ mod Windows {
                     Absolute = 0,
                     RelativeToBoundingBox = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ICacheModeFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -189,6 +192,7 @@ mod Windows {
                     EvenOdd = 0,
                     Nonzero = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IFontFamilyFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -198,6 +202,7 @@ mod Windows {
                 class FontFamily {
                     IFontFamily,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IGeneralTransformFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -207,6 +212,7 @@ mod Windows {
                     IGeneralTransform,
                     IGeneralTransformOverrides,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IGeometryFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -235,6 +241,7 @@ mod Windows {
                 class GeometryGroup: Geometry {
                     IGeometryGroup,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IGradientBrushFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1480,6 +1487,7 @@ mod Windows {
                 class ImageBrush: TileBrush {
                     IImageBrush,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IImageSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1641,6 +1649,7 @@ mod Windows {
                 class PathGeometry: Geometry {
                     IPathGeometry,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IPathSegmentFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1723,6 +1732,7 @@ mod Windows {
                 class PolyQuadraticBezierSegment: PathSegment {
                     IPolyQuadraticBezierSegment,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IProjectionFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1773,6 +1783,7 @@ mod Windows {
                 class RenderingEventArgs {
                     IRenderingEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IRevealBackgroundBrushFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1781,6 +1792,7 @@ mod Windows {
                 class RevealBackgroundBrush: RevealBrush {
                     IRevealBackgroundBrush,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IRevealBorderBrushFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1789,6 +1801,7 @@ mod Windows {
                 class RevealBorderBrush: RevealBrush {
                     IRevealBorderBrush,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IRevealBrushFactory, Protected, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1824,6 +1837,7 @@ mod Windows {
                 class ScaleTransform: Transform {
                     IScaleTransform,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IShadowFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1892,6 +1906,7 @@ mod Windows {
                     Counterclockwise = 0,
                     Clockwise = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IThemeShadowFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1900,6 +1915,7 @@ mod Windows {
                 class ThemeShadow: Shadow {
                     IThemeShadow,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITileBrushFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1939,6 +1955,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 delegate fn TimelineMarkerRoutedEventHandler(sender: Object, e: TimelineMarkerRoutedEventArgs);
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITransformFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1985,6 +2002,7 @@ mod Windows {
                 class VisualTreeHelper {
                     IVisualTreeHelper,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IXamlCompositionBrushBaseFactory, Protected, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1996,6 +2014,7 @@ mod Windows {
                     IXamlCompositionBrushBaseProtected,
                     IXamlCompositionBrushBaseOverrides,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IXamlLightFactory, Public, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
