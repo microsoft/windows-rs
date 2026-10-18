@@ -32,17 +32,6 @@ fn same_item(ui: &Automation, item: &IUIAutomationElement, label: &str) -> Resul
     Ok(())
 }
 
-fn retired(ui: &Automation, item: &IUIAutomationInvokePattern, selection: &str) -> Result<()> {
-    let result = unsafe { item.Invoke() };
-    assert!(
-        result.is_ok()
-            || result == ELEMENT_UNAVAILABLE
-            || result == windows_core::HRESULT(0x80004005u32 as i32),
-        "unexpected retired-provider result: {result:?}"
-    );
-    ui.name_stays("selection", selection, Duration::from_millis(250))
-}
-
 #[test]
 fn menu_callback_replacement_and_removal() -> Result<()> {
     process::run("menu", callback_replacement_and_removal)
