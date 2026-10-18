@@ -13,7 +13,8 @@ cargo test -p test-reactor --test ui canvas:: -- --nocapture
 
 Use Cargo name filters to select cases and `-- --nocapture` to see driver steps.
 
-Live UI tests run on x64 and require an interactive desktop. Leave the mouse and keyboard idle.
+Live UI tests run on x64 and require an interactive desktop. Start them from a foreground terminal,
+keep other windows from covering the fixtures, and leave the mouse and keyboard idle.
 Cases are serialized and run in separate fixture processes with bounded timeouts. Failures report
 the child process's stdout/stderr log directory; successful cases remove their logs.
 
