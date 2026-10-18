@@ -1,12 +1,17 @@
-using Test;
+using Class;
+using static Harness;
 
 public static class Client
 {
-    public static Widget Create() => new Widget();
-
-    public static int Use(Widget widget)
+    public static void Test()
     {
+        var widget = new Widget();
+        Check(widget.Add(1, 2) == 3);
+        Check(widget.Name == "");
+        Check(widget.Count == 0);
+
         widget.Name = "name";
-        return widget.Add(1, 2) + widget.Count + widget.Name.Length;
+        Check(widget.Name == "name");
+        Check(widget.Count == 1);
     }
 }

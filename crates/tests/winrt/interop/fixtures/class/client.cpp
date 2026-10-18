@@ -1,16 +1,17 @@
-#include <winrt/Test.h>
+#include <winrt/Class.h>
+#include "check.h"
 
 using namespace winrt;
-using namespace Test;
+using namespace Class;
 
-Widget create()
+void test()
 {
-    return Widget();
-}
+    Widget widget;
+    check(widget.Add(1, 2) == 3);
+    check(widget.Name().empty());
+    check(widget.Count() == 0);
 
-int32_t use(Widget const& widget)
-{
     widget.Name(L"name");
-    hstring name = widget.Name();
-    return widget.Add(1, 2) + widget.Count() + static_cast<int32_t>(name.size());
+    check(widget.Name() == L"name");
+    check(widget.Count() == 1);
 }

@@ -1,5 +1,5 @@
 #[winrt]
-mod Test {
+mod Class {
     #[Windows::Foundation::Metadata::Activatable(1)]
     class Widget {
         IWidget,

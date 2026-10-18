@@ -4,13 +4,18 @@ version = "0.0.0"
 edition = "2024"
 publish = false
 
+# The library is the Rust component that fixture clients activate. Tests build it with a nested
+# `cargo build` to get a DLL at a known path (see `tests/support/mod.rs`).
 [lib]
+crate-type = ["cdylib"]
 doc = false
 doctest = false
 test = false
 
 [dependencies]
-windows-rdl = { workspace = true }
+windows = { workspace = true, features = ["activation", "winerror"] }
+windows-core = { workspace = true, default-features = true }
+windows-collections = { workspace = true, features = ["std"] }
 
 [dev-dependencies]
 cc = "1.0"
@@ -18,6 +23,8 @@ cppwinrt = { workspace = true }
 
 [build-dependencies]
 cppwinrt = { workspace = true }
+windows-bindgen = { workspace = true }
+windows-rdl = { workspace = true }
 
 [lints]
 workspace = true
