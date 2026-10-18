@@ -1,0 +1,15 @@
+#[win32]
+mod Fixture {
+    extern "C" fn Buffer(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] raw: *mut *mut void, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] alias: *mut Untyped, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] typed: *mut IObject, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] constant: *mut *const void, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] indirect: *mut *mut *mut void, comment: *mut *mut void);
+    #[library("example.dll")]
+    extern "C" fn BufferFunction(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] raw: *mut *mut void, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] alias: *mut Untyped, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] typed: *mut IObject, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] constant: *mut *const void, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] indirect: *mut *mut *mut void, comment: *mut *mut void);
+    #[guid(0x22222222_2222_2222_2222_222222222222)]
+    interface IBuffer {
+        fn Read(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] raw: *mut *mut void, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] alias: *mut Untyped, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] typed: *mut IObject, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] constant: *mut *const void, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] indirect: *mut *mut *mut void, comment: *mut *mut void);
+    }
+    #[guid(0x11111111_1111_1111_1111_111111111111)]
+    interface IObject {
+        fn Run(&self);
+    }
+    type Untyped = *mut void;
+}

@@ -5,6 +5,7 @@ use native::*;
 use windows_clang_sys::*;
 
 mod annotations;
+mod comments;
 mod values;
 
 pub(super) struct MacroProbe {
@@ -937,7 +938,11 @@ impl Capture<'_> {
     }
 
     fn location(&mut self, cursor: CXCursor) -> Location {
-        let (name, line, column, offset) = source(cursor);
+        self.location_at(unsafe { clang_getCursorLocation(cursor) })
+    }
+
+    fn location_at(&mut self, location: CXSourceLocation) -> Location {
+        let (name, line, column, offset) = source_location(location);
         let file = if let Some(&file) = self.files.get(&name) {
             file
         } else {

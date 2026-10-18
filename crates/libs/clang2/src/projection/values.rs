@@ -96,14 +96,11 @@ impl Projector<'_, '_> {
                     .map(|name| quote! { , import = #name });
                 let (parameters, result) = self.callable(snapshot, observation, true)?;
                 let function =
-                    written_function(self.resolution.snapshots[snapshot], observation.canonical)?;
-                let abi = callable_abi(function.convention, self.function_conventions.get(name));
+                    written_function(self.resolution.snapshots[snapshot], observation.written)?;
+                let abi = callable_abi(function.convention);
                 let name = ident(name)?;
                 let native = annotations::write(&observation.attributes);
-                let contracts = annotations::function(
-                    written_function(self.resolution.snapshots[snapshot], observation.written)?,
-                    &observation.attributes,
-                );
+                let contracts = annotations::function(function.prototype, &observation.attributes);
                 Ok(Body {
                     attributes: quote! { #native #contracts #[library(#library #import_name)] },
                     declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
@@ -326,14 +323,14 @@ impl Projector<'_, '_> {
         named: bool,
     ) -> Result<(Vec<TokenStream>, TokenStream), Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
-        let function = written_function(snapshot, observation.canonical)?;
+        let function = written_function(snapshot, observation.canonical)?.prototype;
         self.check_function_abi(snapshot_id, function)?;
         let written = written_function(snapshot, observation.written)?;
         let ValueKind::Function { parameters, .. } = &observation.kind else {
             return Err(Error("expected a callable observation".into()));
         };
         let parameters = self.parameter_list(snapshot_id, function, parameters, named)?;
-        let result = self.written_ty(snapshot_id, written.result, function.result)?;
+        let result = self.written_ty(snapshot_id, written.prototype.result, function.result)?;
         let result = if result == MetadataType::Void {
             TokenStream::new()
         } else {
@@ -386,7 +383,7 @@ impl Projector<'_, '_> {
                 let ty = self
                     .parameter_ty(snapshot_id, parameter.written, canonical)
                     .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
-                let attributes = annotations::parameter(&parameter.attributes, parameters, &ty)?;
+                let attributes = annotations::parameter(parameter, parameters, &ty)?;
                 let size = annotations::buffer(
                     self.resolution.snapshots[snapshot_id],
                     function,
@@ -436,10 +433,7 @@ impl Projector<'_, '_> {
             }
             // SAL still binds against the original names; only comparison labels are positional.
             let (parameters, result) = self.callable(reference.snapshot, observation, false)?;
-            let abi = match written_function(snapshot, observation.canonical)?.convention {
-                CallingConvention::C => quote! { "C" },
-                CallingConvention::Stdcall => TokenStream::new(),
-            };
+            let abi = callable_abi(written_function(snapshot, observation.written)?.convention);
             contracts.push(Body {
                 attributes: body.attributes.clone(),
                 declaration: quote! { extern #abi fn(#(#parameters),*) #result; },
@@ -582,7 +576,7 @@ impl Projector<'_, '_> {
                     "interface method name collision `{name}.{projected}`"
                 )));
             }
-            let function = written_function(snapshot, method.observation.canonical)?;
+            let function = written_function(snapshot, method.observation.canonical)?.prototype;
             if function.method_qualifiers.volatile || function.method_qualifiers.restrict {
                 return Err(Error(format!(
                     "unsupported volatile/restrict method `{name}.{}`",
@@ -611,7 +605,7 @@ impl Projector<'_, '_> {
             let method_name = ident(&method.name)?;
             let attributes = annotations::write(&method.observation.attributes);
             let contracts = annotations::function(
-                written_function(snapshot, method.observation.written)?,
+                written_function(snapshot, method.observation.written)?.prototype,
                 &method.observation.attributes,
             );
             let constant = function.method_qualifiers.constant.then(|| {

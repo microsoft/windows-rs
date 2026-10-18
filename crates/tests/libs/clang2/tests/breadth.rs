@@ -56,7 +56,7 @@ const RPC_CONTRACTS: [(&str, &str, &str); 7] = [
     ),
 ];
 
-const POINTER_CONTRACTS: [(&str, &str, reader::ParamDirection, bool); 18] = {
+const POINTER_CONTRACTS: [(&str, &str, reader::ParamDirection, bool); 22] = {
     use reader::ParamDirection::*;
     [
         ("1.2", "__RPC__deref_in", Input, false),
@@ -77,6 +77,10 @@ const POINTER_CONTRACTS: [(&str, &str, reader::ParamDirection, bool); 18] = {
         ("2", "_COM_Outptr_opt_", Output, true),
         ("2", "_COM_Outptr_result_maybenull_", Output, false),
         ("2", "_COM_Outptr_opt_result_maybenull_", Output, true),
+        ("1", "__deref_out", Output, false),
+        ("1", "__deref_out_opt", Output, false),
+        ("1", "__deref_opt_out", Output, true),
+        ("1", "__deref_opt_out_opt", Output, true),
     ]
 };
 
@@ -247,6 +251,7 @@ fn imports() -> projection::Imports {
         ("NormalizeFunction", "example.dll", None),
         ("BufferFunction", "example.dll", None),
         ("GetCurrentProcessId", "kernel32.dll", None),
+        ("MetaDataGetDispenser", "RoMetadata.dll", None),
     ]
     .into_iter()
     .map(|(name, library, import)| {
@@ -454,7 +459,7 @@ fn annotation_normalization_residuals() {
         for (name, count, direction) in [
             ("Conditional", 1, reader::ParamDirection::Output),
             ("Mixed", 2, reader::ParamDirection::InputOutput),
-            ("NullableResult", 1, reader::ParamDirection::Output),
+            ("NullableResult", 0, reader::ParamDirection::Output),
             ("ObjectInput", 0, reader::ParamDirection::Input),
             ("ObjectOutput", 1, reader::ParamDirection::Input),
             ("ObjectUpdate", 1, reader::ParamDirection::Input),
@@ -476,6 +481,12 @@ fn annotation_normalization_residuals() {
                     .count(),
                 count,
                 "{name}"
+            );
+            assert_eq!(
+                parameter
+                    .find_attribute("NativeReturnedPointerAttribute")
+                    .is_some(),
+                name == "NullableResult"
             );
         }
         let field = index
@@ -511,6 +522,9 @@ fn buffer_normalization() {
         let output = project(std::slice::from_ref(&input));
         let text = &output.partitions.values().next().unwrap().rdl;
         if case == 0 {
+            if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+                std::fs::write(input_dir().join("buffer_normalization.rdl"), text).unwrap();
+            }
             assert_eq!(
                 text,
                 &std::fs::read_to_string(input_dir().join("buffer_normalization.rdl"))
@@ -573,6 +587,14 @@ fn buffer_normalization() {
                     })
                 );
                 assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                let entry = parameter.find_attribute("NativeInputAttribute");
+                assert_eq!(entry.is_some(), case < 4);
+                if let Some(entry) = entry {
+                    assert_eq!(
+                        entry.value().into_iter().collect::<BTreeMap<_, _>>(),
+                        [("ReadOnly".into(), windows_metadata::Value::Bool(true))].into()
+                    );
+                }
             }
         });
     }
@@ -952,15 +974,39 @@ fn pointer_parameter_flags() {
                 let parameter = method.params().next().unwrap();
                 assert_eq!(parameter.direction(), direction, "{name}");
                 assert_eq!(parameter.is_optional(), optional, "{name}");
-                let evidence = parameter
-                    .find_attribute("NativeSalAttribute")
-                    .unwrap()
-                    .value();
-                assert_eq!(evidence[0].1, windows_metadata::Value::Utf8(version.into()));
-                assert_eq!(evidence[1].1, windows_metadata::Value::Utf8(name.into()));
+                if direction == reader::ParamDirection::Output {
+                    assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                    assert_eq!(
+                        parameter
+                            .find_attribute("NativeReturnedPointerAttribute")
+                            .unwrap()
+                            .value(),
+                        [
+                            (
+                                "MayBeNull".into(),
+                                windows_metadata::Value::Bool(
+                                    name.contains("maybenull")
+                                        || (version == "1" && name.ends_with("_opt")),
+                                ),
+                            ),
+                            (
+                                "NullOnFailure".into(),
+                                windows_metadata::Value::Bool(name.starts_with("_COM_")),
+                            ),
+                        ]
+                    );
+                } else {
+                    let evidence = parameter
+                        .find_attribute("NativeSalAttribute")
+                        .unwrap()
+                        .value();
+                    assert_eq!(evidence[0].1, windows_metadata::Value::Utf8(version.into()));
+                    assert_eq!(evidence[1].1, windows_metadata::Value::Utf8(name.into()));
+                }
             }
         });
-        for (version, arguments) in [("1", ""), (version, "unexpected")] {
+        let wrong_version = if version == "1" { "2" } else { "1" };
+        for (version, arguments) in [(wrong_version, ""), (version, "unexpected")] {
             let text = project(&[pointer_contract_input(version, name, arguments)])
                 .partitions
                 .into_values()
@@ -997,6 +1043,401 @@ fn pointer_parameter_flags() {
     }
 }
 
+#[test]
+fn sal1_returned_pointer_agreement() {
+    helpers::ensure_libclang();
+    for (legacy, current) in [
+        ("__deref_out", "_Outptr_"),
+        ("__deref_out_opt", "_Outptr_result_maybenull_"),
+        ("__deref_opt_out", "_Outptr_opt_"),
+        ("__deref_opt_out_opt", "_Outptr_opt_result_maybenull_"),
+    ] {
+        let mut inputs = [
+            pointer_contract_input("1", legacy, ""),
+            pointer_contract_input("2", current, ""),
+        ];
+        inputs[1].name = "other.h".into();
+        let expected = project(&inputs);
+        for _ in 0..2 {
+            assert_eq!(project(&inputs), expected);
+            inputs.reverse();
+        }
+    }
+    for name in ["__deref_out_opt", "__deref_opt_out"] {
+        let mut inputs = [
+            pointer_contract_input("1", "__deref_out", ""),
+            pointer_contract_input("1", name, ""),
+        ];
+        inputs[1].name = "other.h".into();
+        for _ in 0..2 {
+            let error = projection::generate_partial(&inputs, "Fixture").unwrap_err();
+            assert!(error.to_string().contains("differ"), "{error}");
+            inputs.reverse();
+        }
+    }
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn sdk_rometadata() {
+    helpers::ensure_libclang();
+    let mut input = test_clang2::annotated_sdk_fixture();
+    input.name = "sdk_rometadata.h".into();
+    input.source = test_clang2::fixture("sdk_rometadata").source;
+    input.roots = vec!["MetaDataGetDispenser".into()];
+    let output = project(&[input]);
+    roundtrip("sdk_rometadata", &output, |index, _| {
+        let method = index
+            .expect("Fixture", "Apis")
+            .methods()
+            .find(|method| method.name() == "MetaDataGetDispenser")
+            .unwrap();
+        let result = method.params().last().unwrap();
+        assert_eq!(result.direction(), reader::ParamDirection::Output);
+        assert!(!result.is_optional());
+        assert!(result.find_attribute("NativeSalAttribute").is_none());
+        assert!(result.find_attribute("ComOutPtrAttribute").is_none());
+        assert_eq!(
+            result
+                .find_attribute("NativeReturnedPointerAttribute")
+                .unwrap()
+                .value(),
+            [
+                ("MayBeNull".into(), windows_metadata::Value::Bool(false)),
+                ("NullOnFailure".into(), windows_metadata::Value::Bool(false)),
+            ]
+        );
+    });
+}
+
+#[test]
+fn com_output() {
+    helpers::ensure_libclang();
+    for (version, annotation, com) in [
+        ("2", "_COM_Outptr_", true),
+        ("2", "_COM_Outptr_opt_", true),
+        ("2", "_COM_Outptr_result_maybenull_", true),
+        ("2", "_COM_Outptr_opt_result_maybenull_", true),
+        ("2", "_Outptr_", false),
+        ("2", "_Outptr_opt_", false),
+        ("1.2", "__RPC__deref_out_opt", false),
+        ("1", "_COM_Outptr_", false),
+    ] {
+        let mut input = test_clang2::fixture("com_output");
+        input.source.insert_str(
+            0,
+            &format!("#define VERSION \"{version}\"\n#define ANNOTATION \"{annotation}\"\n"),
+        );
+        let output = project(&[input]);
+        let text = &output.partitions.values().next().unwrap().rdl;
+        assert_eq!(text.matches("#[iid_is]").count(), if com { 6 } else { 0 });
+        if version == "2" && annotation == "_COM_Outptr_" {
+            roundtrip("com_output", &output, |index, _| {
+                for (owner, name) in [
+                    ("Apis", "BufferFunction"),
+                    ("Buffer", "Invoke"),
+                    ("IBuffer", "Read"),
+                ] {
+                    let method = index
+                        .expect("Fixture", owner)
+                        .methods()
+                        .find(|m| m.name() == name)
+                        .unwrap();
+                    for parameter in method.params() {
+                        assert_eq!(
+                            parameter.find_attribute("ComOutPtrAttribute").is_some(),
+                            matches!(parameter.name(), "raw" | "alias")
+                        );
+                    }
+                }
+            });
+        }
+    }
+}
+
+#[test]
+fn input_contracts() {
+    helpers::ensure_libclang();
+    for (case, (version, name, read_only, optional)) in [
+        ("1.2", "__RPC__in", false, false),
+        ("1.2", "__RPC__in_opt", false, true),
+        ("2", "_In_", true, false),
+        ("2", "_In_opt_", true, true),
+        ("1", "__in", true, false),
+        ("1", "__in_opt", true, true),
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        let mut input = test_clang2::fixture("input_contracts");
+        input.source.insert_str(
+            0,
+            &format!(
+                "#define INPUT __attribute__((annotate(\"windows_clang:sal:{version}:{name}\\n()\\n()\")))\n"
+            ),
+        );
+        let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+        for snapshot in &snapshots {
+            let ValueKind::Function { parameters, .. } = &snapshot.values[0].observations[0].kind
+            else {
+                panic!()
+            };
+            for parameter in parameters {
+                let AttributeKind::Sal(annotation) = &parameter.attributes[0].kind else {
+                    panic!()
+                };
+                assert_eq!(annotation.version, version);
+                assert_eq!(annotation.name, name);
+            }
+        }
+        let output =
+            projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports())
+                .unwrap();
+        let text = &output.partitions.values().next().unwrap().rdl;
+        assert!(!text.contains("NativeSal("), "{text}");
+        let check = |index: &reader::Index, _| {
+            for (owner, method) in [
+                ("Apis", "BufferFunction"),
+                ("Buffer", "Invoke"),
+                ("IBuffer", "Read"),
+            ] {
+                let method = index
+                    .expect("Fixture", owner)
+                    .methods()
+                    .find(|m| m.name() == method)
+                    .unwrap();
+                assert_eq!(method.params().count(), 3);
+                for parameter in method.params() {
+                    assert_eq!(parameter.direction(), reader::ParamDirection::Input);
+                    assert_eq!(parameter.is_optional(), optional);
+                    assert_eq!(
+                        parameter
+                            .find_attribute("NativeInputAttribute")
+                            .unwrap()
+                            .value(),
+                        [("ReadOnly".into(), windows_metadata::Value::Bool(read_only))]
+                    );
+                    assert!(
+                        parameter
+                            .find_attribute("NativeArrayInfoAttribute")
+                            .is_none()
+                    );
+                }
+            }
+        };
+        if case == 0 {
+            roundtrip("input_contracts", &output, check);
+            input.source = input.source.replace("INPUT void*", "INPUT INPUT void*");
+            assert_eq!(project(&[input]), output);
+        } else {
+            roundtrip_metadata(&format!("input_contracts_{case}"), text, check);
+        }
+    }
+    let mut input = test_clang2::fixture("input_contracts");
+    input.source = input.source.replace(
+        "INPUT void*",
+        "INPUT __attribute__((annotate(\"windows_clang:sal:2:_In_\\n()\\n()\"))) void*",
+    );
+    let text = project(&[input])
+        .partitions
+        .into_values()
+        .next()
+        .unwrap()
+        .rdl;
+    assert_eq!(text.matches("NativeSal(").count(), 6);
+    assert_eq!(text.matches("NativeInput(").count(), 6);
+}
+
+#[test]
+fn midl_comments() {
+    helpers::ensure_libclang();
+    let output = project(&[test_clang2::fixture("midl_comments")]);
+    roundtrip("midl_comments", &output, |index, _| {
+        let structural = index
+            .expect("Fixture", "CommentCallbackStorage")
+            .fields()
+            .find(|field| field.name() == "structural")
+            .unwrap();
+        assert!(matches!(structural.ty(), MetadataType::FnPtr(_)));
+        for (owner, method, position, iid, retval) in [
+            ("Apis", "BufferFunction", 1, true, true),
+            ("Buffer", "Invoke", 0, true, false),
+            ("IBuffer", "Read", 0, false, true),
+        ] {
+            let method = index
+                .expect("Fixture", owner)
+                .methods()
+                .find(|m| m.name() == method)
+                .unwrap();
+            for (i, parameter) in method.params().enumerate() {
+                assert_eq!(
+                    parameter.find_attribute("ComOutPtrAttribute").is_some(),
+                    i == position && iid
+                );
+                assert_eq!(
+                    parameter.find_attribute("RetValAttribute").is_some(),
+                    i == position && retval
+                );
+                if i == position {
+                    assert_eq!(parameter.direction(), reader::ParamDirection::Output);
+                }
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn input_contracts_sdk() {
+    helpers::ensure_libclang();
+    for (version, name) in [
+        ("1.2", "__RPC__in"),
+        ("1.2", "__RPC__in_opt"),
+        ("2", "_In_"),
+        ("2", "_In_opt_"),
+        ("1", "__in"),
+        ("1", "__in_opt"),
+    ] {
+        let mut expected = test_clang2::fixture("input_contracts");
+        expected.source.insert_str(0, &format!(
+            "#define INPUT __attribute__((annotate(\"windows_clang:sal:{version}:{name}\\n()\\n()\")))\n"
+        ));
+        let mut input = test_clang2::annotated_sdk_fixture();
+        input.name = expected.name.clone();
+        input.source = format!(
+            "#include <rpcsal.h>\n#define INPUT {name}\n{}",
+            test_clang2::fixture("input_contracts").source
+        );
+        input.roots = ["Buffer", "BufferFunction", "IBuffer"]
+            .map(String::from)
+            .into();
+        assert_eq!(project(&[input]), project(&[expected]));
+    }
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn sdk_accounts_settings() {
+    helpers::ensure_libclang();
+    let mut input = test_clang2::annotated_sdk_fixture();
+    input.name = "sdk_accounts_settings.h".into();
+    input.source = test_clang2::fixture("sdk_accounts_settings").source;
+    input.roots = vec!["IAccountsSettingsPaneInterop".into()];
+    let output = project(&[input]);
+    roundtrip("sdk_accounts_settings", &output, |index, _| {
+        let interface = index.expect("Fixture", "IAccountsSettingsPaneInterop");
+        assert_eq!(interface.methods().count(), 3);
+        for method in interface.methods() {
+            for parameter in method.params().take(2) {
+                assert_eq!(parameter.direction(), reader::ParamDirection::Input);
+                assert!(!parameter.is_optional());
+                assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                assert_eq!(
+                    parameter
+                        .find_attribute("NativeInputAttribute")
+                        .unwrap()
+                        .value(),
+                    [("ReadOnly".into(), windows_metadata::Value::Bool(false))]
+                );
+            }
+            let result = method.params().last().unwrap();
+            assert!(result.find_attribute("ComOutPtrAttribute").is_some());
+            assert!(result.find_attribute("RetValAttribute").is_some());
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn sdk_audio_client() {
+    helpers::ensure_libclang();
+    let mut input = test_clang2::annotated_sdk_fixture();
+    input.name = "sdk_audio_client.h".into();
+    input.source = test_clang2::fixture("sdk_audio_client").source;
+    input.roots = vec!["IAudioClient".into()];
+    let output = project(&[input]);
+    roundtrip("sdk_audio_client", &output, |index, _| {
+        let method = index
+            .expect("Fixture", "IAudioClient")
+            .methods()
+            .find(|m| m.name() == "GetService")
+            .unwrap();
+        let result = method.params().last().unwrap();
+        assert!(result.find_attribute("ComOutPtrAttribute").is_some());
+        assert!(result.find_attribute("RetValAttribute").is_none());
+        assert_eq!(result.direction(), reader::ParamDirection::Output);
+    });
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn sdk_midl_inputs() {
+    helpers::ensure_libclang();
+    let mut input = test_clang2::annotated_sdk_fixture();
+    input.name = "sdk_midl_inputs.h".into();
+    input.source = test_clang2::fixture("sdk_midl_inputs").source;
+    input.roots = [
+        "IBindStatusCallback",
+        "ITfSource",
+        "ITfSourceSingle",
+        "ICommandStream",
+    ]
+    .map(String::from)
+    .into();
+    let output = project(&[input]);
+    roundtrip("sdk_midl_inputs", &output, |index, _| {
+        for (owner, method, name) in [
+            ("IBindStatusCallback", "OnObjectAvailable", "punk"),
+            ("ITfSource", "AdviseSink", "punk"),
+            ("ITfSourceSingle", "AdviseSingleSink", "punk"),
+            ("ICommandStream", "SetCommandStream", "pCommandStream"),
+        ] {
+            let method = index
+                .expect("Fixture", owner)
+                .methods()
+                .find(|m| m.name() == method)
+                .unwrap();
+            let parameter = method.params().find(|p| p.name() == name).unwrap();
+            assert_eq!(parameter.direction(), reader::ParamDirection::Input);
+            assert!(parameter.find_attribute("ComOutPtrAttribute").is_none());
+            assert!(parameter.find_attribute("RetValAttribute").is_none());
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn com_output_sdk() {
+    helpers::ensure_libclang();
+    for annotation in [
+        "_COM_Outptr_",
+        "_COM_Outptr_opt_",
+        "_COM_Outptr_result_maybenull_",
+        "_COM_Outptr_opt_result_maybenull_",
+    ] {
+        let mut expected = test_clang2::fixture("com_output");
+        expected
+            .source
+            .insert_str(0, &format!("#define ANNOTATION \"{annotation}\"\n"));
+        let mut input = test_clang2::annotated_sdk_fixture();
+        input.name = expected.name.clone();
+        input.roots = ["Buffer", "BufferFunction", "IBuffer"]
+            .map(String::from)
+            .into();
+        input.source = format!(
+            "#include <sal.h>\n{}",
+            expected
+                .source
+                .replace(
+                    "#define PARAMETERS OUTPUT",
+                    &format!("#define PARAMETERS {annotation}")
+                )
+                .replace(", OUTPUT ", &format!(", {annotation} "))
+        );
+        assert_eq!(project(&[input]), project(&[expected]));
+    }
+}
+
 fn pointer_contract_input(version: &str, name: &str, arguments: &str) -> Input {
     let mut input = postcondition_input(name, arguments, false);
     input
@@ -1006,6 +1447,117 @@ fn pointer_contract_input(version: &str, name: &str, arguments: &str) -> Input {
         .source
         .replace("unsigned short* buffer", "unsigned short** buffer");
     input
+}
+
+#[test]
+fn returned_pointer_contracts() {
+    helpers::ensure_libclang();
+    let input = pointer_contract_input("1.2", "__RPC__deref_out_opt", "");
+    let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+    for snapshot in &snapshots {
+        let observation = &snapshot
+            .values
+            .iter()
+            .find(|value| value.name == "BufferFunction")
+            .unwrap()
+            .observations[0];
+        let ValueKind::Function { parameters, .. } = &observation.kind else {
+            panic!();
+        };
+        assert!(parameters[0].attributes.iter().any(|attribute| {
+            matches!(&attribute.kind, AttributeKind::Sal(value)
+                if value.version == "1.2" && value.name == "__RPC__deref_out_opt")
+        }));
+    }
+    let output = project(std::slice::from_ref(&input));
+    roundtrip("returned_pointer", &output, |_, _| {});
+    for (version, name) in [("1.2", "__RPC__deref_out"), ("2", "_Outptr_")] {
+        let mut other = pointer_contract_input(version, name, "");
+        assert_eq!(project(std::slice::from_ref(&other)), output);
+        other.name = "other.h".into();
+        let mut inputs = [
+            pointer_contract_input("1.2", "__RPC__deref_out_opt", ""),
+            other,
+        ];
+        for _ in 0..2 {
+            assert_eq!(
+                project(&inputs).partitions.values().next().unwrap().rdl,
+                output.partitions.values().next().unwrap().rdl
+            );
+            inputs.reverse();
+        }
+    }
+    // SAL1's optional returned value is not the RPC alias's non-null result.
+    let optional = project(&[pointer_contract_input("1", "__deref_out_opt", "")]);
+    assert_eq!(
+        optional,
+        project(&[pointer_contract_input("2", "_Outptr_result_maybenull_", "")])
+    );
+    assert_ne!(optional, output);
+    let mut mixed = pointer_contract_input("2", "_Outptr_opt_", "");
+    mixed.source = mixed.source.replace(
+        "BUFFER unsigned short**",
+        "BUFFER __attribute__((annotate(\"windows_clang:sal:2:_Inout_\\n()\\n()\"))) unsigned short**",
+    );
+    let output = project(&[mixed]);
+    let text = &output.partitions.values().next().unwrap().rdl;
+    assert_eq!(text.matches("NativeSal(").count(), 6);
+    assert_eq!(text.matches("\"_Inout_\"").count(), 3);
+    assert_eq!(text.matches("\"_Outptr_opt_\"").count(), 3);
+    assert!(!text.contains("NativeReturnedPointer("));
+    roundtrip("returned_pointer_mixed", &output, |_, _| {});
+    for ty in ["unsigned short", "unsigned short*", "unsigned short&"] {
+        let mut invalid = pointer_contract_input("1.2", "__RPC__deref_out_opt", "");
+        invalid.source = invalid
+            .source
+            .replace("unsigned short** buffer", &format!("{ty} buffer"));
+        let snapshots = capture(&[invalid], &TARGETS).unwrap();
+        let error =
+            projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports())
+                .unwrap_err();
+        assert!(
+            error.to_string().contains("pointer-to-pointer storage"),
+            "{error}"
+        );
+    }
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn sdk_background_copy_error() {
+    helpers::ensure_libclang();
+    let mut input = test_clang2::annotated_sdk_fixture();
+    input.name = "sdk_background_copy_error.h".into();
+    input.source = test_clang2::fixture("sdk_background_copy_error").source;
+    input.roots = vec!["IBackgroundCopyError".into()];
+    let output = project(&[input]);
+    roundtrip("sdk_background_copy_error", &output, |index, _| {
+        for method in index.expect("Fixture", "IBackgroundCopyError").methods() {
+            for parameter in method.params() {
+                assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                if method.name() == "GetError" || parameter.name() == "LanguageId" {
+                    assert!(
+                        parameter
+                            .find_attribute("NativeReturnedPointerAttribute")
+                            .is_none()
+                    );
+                } else {
+                    assert_eq!(parameter.direction(), reader::ParamDirection::Output);
+                    assert!(!parameter.is_optional());
+                    assert_eq!(
+                        parameter
+                            .find_attribute("NativeReturnedPointerAttribute")
+                            .unwrap()
+                            .value(),
+                        [
+                            ("MayBeNull".into(), windows_metadata::Value::Bool(false)),
+                            ("NullOnFailure".into(), windows_metadata::Value::Bool(false)),
+                        ]
+                    );
+                }
+            }
+        }
+    });
 }
 
 #[test]
@@ -1028,6 +1580,25 @@ fn pointer_parameter_flags_sdk() {
         );
         assert_eq!(project(&[input]), project(&[source]), "{name}");
     }
+    let mut input = test_clang2::annotated_sdk_fixture();
+    input.name = "buffer_postconditions.h".into();
+    input.roots = ["Buffer", "BufferFunction", "IBuffer"]
+        .map(String::from)
+        .into();
+    input.source = pointer_contract_input("2", "_Outptr_opt_", "")
+        .source
+        .replace(
+            "BUFFER unsigned short**",
+            "_Outptr_opt_ _Inout_ unsigned short**",
+        );
+    input.source.insert_str(0, "#include <sal.h>\n");
+    let output = project(&[input]);
+    assert_eq!(
+        output.partitions["buffer_postconditions"].rdl,
+        std::fs::read_to_string(input_dir().join("returned_pointer_mixed.rdl"))
+            .unwrap()
+            .replace("\r\n", "\n")
+    );
 }
 
 #[test]
@@ -1058,7 +1629,18 @@ fn rpc_strings() {
                     }
                 );
                 assert_eq!(parameter.is_optional(), position % 2 == 1);
-                assert!(parameter.find_attribute("NativeSalAttribute").is_some());
+                assert_eq!(
+                    parameter.find_attribute("NativeSalAttribute").is_some(),
+                    position >= 2
+                );
+                let input = parameter.find_attribute("NativeInputAttribute");
+                assert_eq!(input.is_some(), position < 2);
+                if let Some(input) = input {
+                    assert_eq!(
+                        input.value().into_iter().collect::<BTreeMap<_, _>>(),
+                        [("ReadOnly".into(), windows_metadata::Value::Bool(false))].into()
+                    );
+                }
                 assert_eq!(parameter.buffer_relationship(), None);
                 assert_eq!(
                     parameter
@@ -1174,6 +1756,179 @@ fn rpc_buffer_input(name: &str, arguments: &str, indirect: bool) -> Input {
 }
 
 #[test]
+fn conditional_length() {
+    helpers::ensure_libclang();
+    let input = test_clang2::fixture("conditional_length");
+    let output = project(&[input]);
+    roundtrip("conditional_length", &output, |index, _| {
+        for (owner, name) in [
+            ("Apis", "BufferFunction"),
+            ("Buffer", "Invoke"),
+            ("IBuffer", "Read"),
+        ] {
+            let method = index
+                .expect("Fixture", owner)
+                .methods()
+                .find(|m| m.name() == name)
+                .unwrap();
+            let parameter = method.params().nth(1).unwrap();
+            assert_eq!(parameter.direction(), reader::ParamDirection::Output);
+            assert_eq!(
+                parameter.buffer_relationship(),
+                Some(reader::BufferRelationship::ElementsParam(0))
+            );
+            assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+            assert_eq!(
+                parameter
+                    .find_attribute("NativeArrayInfoAttribute")
+                    .unwrap()
+                    .value(),
+                [
+                    ("CountParamIndex".into(), windows_metadata::Value::I16(0)),
+                    ("PostWritable".into(), windows_metadata::Value::Bool(true)),
+                ]
+            );
+            assert_eq!(
+                parameter
+                    .find_attribute("NativeInitializedLengthAttribute")
+                    .unwrap()
+                    .value(),
+                [
+                    ("CountParamIndex".into(), windows_metadata::Value::I16(2)),
+                    ("IsByteCount".into(), windows_metadata::Value::Bool(false)),
+                    ("Dereference".into(), windows_metadata::Value::Bool(true)),
+                    (
+                        "NullFallbackParamIndex".into(),
+                        windows_metadata::Value::I16(0)
+                    ),
+                ]
+            );
+        }
+    });
+    for expression in [
+        "written?*written:capacity",
+        " written ? * written : capacity ",
+    ] {
+        let mut input = test_clang2::fixture("conditional_length");
+        input
+            .source
+            .insert_str(0, &format!("#define LENGTH \"{expression}\"\n"));
+        assert_eq!(project(&[input]), output);
+    }
+    for expression in [
+        "other ? *written : capacity",
+        "written ? *written : 1",
+        "written ? *written + 1 : capacity",
+        "!written ? capacity : *written",
+        "written ? *written : other ? other : capacity",
+    ] {
+        let mut input = test_clang2::fixture("conditional_length");
+        input
+            .source
+            .insert_str(0, &format!("#define LENGTH \"{expression}\"\n"));
+        let output = project(&[input]);
+        let text = &output.partitions["conditional_length"].rdl;
+        assert!(
+            text.contains("NativeSal(") && text.contains("len_param(0)"),
+            "{text}"
+        );
+        assert!(!text.contains("NativeInitializedLength("), "{text}");
+    }
+    for definition in [
+        "#define COUNT_TYPE unsigned int\n",
+        "#define COUNT_TYPE float*\n",
+        "#define FALLBACK_TYPE unsigned int*\n",
+    ] {
+        let mut input = test_clang2::fixture("conditional_length");
+        input.source.insert_str(0, definition);
+        let output = projection::project_partial_with_imports(
+            capture_partial(&[input], &TARGETS).unwrap(),
+            "Fixture",
+            &imports(),
+        )
+        .unwrap();
+        assert_eq!(
+            output.output.functions + output.output.aliases + output.output.interfaces,
+            0
+        );
+        assert!(
+            output
+                .omissions
+                .iter()
+                .any(|error| error.contains("requires") && error.contains("integer")),
+            "{:?}",
+            output.omissions
+        );
+    }
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn conditional_length_sdk() {
+    helpers::ensure_libclang();
+    for (version, name) in [("1.2", "__RPC__out_ecount_part"), ("2", "_Out_writes_to_")] {
+        let mut expected = test_clang2::fixture("conditional_length");
+        expected.source.insert_str(
+            0,
+            &format!("#define VERSION \"{version}\"\n#define ANNOTATION \"{name}\"\n"),
+        );
+        let mut input = test_clang2::annotated_sdk_fixture();
+        input.name = expected.name.clone();
+        input.roots = ["Buffer", "BufferFunction", "IBuffer"]
+            .map(String::from)
+            .into();
+        input.source = format!(
+            "#include <rpcsal.h>\n{}",
+            expected.source.replace(
+                "BUFFER unsigned short*",
+                &format!("{name}(capacity, written ? *written : capacity) unsigned short*")
+            )
+        );
+        assert_eq!(project(&[input]), project(&[expected]));
+    }
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn sdk_background_copy_enumerator() {
+    helpers::ensure_libclang();
+    let mut input = test_clang2::annotated_sdk_fixture();
+    input.name = "sdk_background_copy_enumerator.h".into();
+    input.source = test_clang2::fixture("sdk_background_copy_enumerator").source;
+    input.roots = vec!["IEnumBackgroundCopyFiles".into()];
+    let output = project(&[input]);
+    roundtrip("sdk_background_copy_enumerator", &output, |index, _| {
+        let next = index
+            .expect("Fixture", "IEnumBackgroundCopyFiles")
+            .methods()
+            .find(|m| m.name() == "Next")
+            .unwrap();
+        let array = next.params().nth(1).unwrap();
+        assert!(array.find_attribute("NativeSalAttribute").is_none());
+        assert_eq!(
+            array.buffer_relationship(),
+            Some(reader::BufferRelationship::ElementsParam(0))
+        );
+        assert_eq!(
+            array
+                .find_attribute("NativeInitializedLengthAttribute")
+                .unwrap()
+                .value(),
+            [
+                ("CountParamIndex".into(), windows_metadata::Value::I16(2)),
+                ("IsByteCount".into(), windows_metadata::Value::Bool(false)),
+                ("Dereference".into(), windows_metadata::Value::Bool(true)),
+                (
+                    "NullFallbackParamIndex".into(),
+                    windows_metadata::Value::I16(0)
+                ),
+            ]
+        );
+        assert!(next.params().nth(2).unwrap().is_optional());
+    });
+}
+
+#[test]
 fn rpc_buffers() {
     helpers::ensure_libclang();
     let output = project(&[rpc_buffer_input(
@@ -1200,7 +1955,7 @@ fn rpc_buffers() {
                 parameter.buffer_relationship(),
                 Some(reader::BufferRelationship::ElementsParam(1))
             );
-            assert!(parameter.find_attribute("NativeSalAttribute").is_some());
+            assert!(parameter.find_attribute("NativeSalAttribute").is_none());
             assert_eq!(
                 parameter
                     .find_attribute("NativeInitializedLengthAttribute")
@@ -1222,6 +1977,56 @@ fn rpc_buffers() {
 #[test]
 fn rpc_buffer_contracts() {
     check_rpc_buffers(false);
+}
+
+#[test]
+fn rpc_input_buffer_agreement() {
+    helpers::ensure_libclang();
+    for (first, second) in [
+        ("__RPC__in_ecount", "__RPC__in_ecount_full"),
+        ("__RPC__in_ecount", "__RPC__in_xcount_full"),
+        ("__RPC__in_ecount_opt", "__RPC__in_xcount_full_opt"),
+        (
+            "__RPC__in_ecount_full_string",
+            "__RPC__in_xcount_full_string",
+        ),
+        (
+            "__RPC__in_ecount_opt_string",
+            "__RPC__in_ecount_full_opt_string",
+        ),
+    ] {
+        let mut inputs = [
+            rpc_buffer_input(first, "capacity", false),
+            rpc_buffer_input(second, "capacity", false),
+        ];
+        inputs[1].name = "other.h".into();
+        let expected = project(&inputs);
+        for _ in 0..2 {
+            assert_eq!(project(&inputs), expected);
+            inputs.reverse();
+        }
+    }
+    let mut inputs = [
+        rpc_buffer_input("__RPC__in_ecount_full", "capacity", false),
+        postcondition_input("_In_reads_", "capacity", false),
+    ];
+    inputs[1].name = "other.h".into();
+    for _ in 0..2 {
+        let error = projection::generate_partial(&inputs, "Fixture").unwrap_err();
+        assert!(error.to_string().contains("differ"), "{error}");
+        inputs.reverse();
+    }
+    for name in ["__RPC__in_ecount_full", "__RPC__in_ecount_full_string"] {
+        for arguments in ["*written", "capacity + 1", "42"] {
+            let output = project(&[rpc_buffer_input(name, arguments, true)]);
+            let text = &output.partitions.values().next().unwrap().rdl;
+            assert!(text.contains("NativeSal("), "{text}");
+            assert!(text.contains("#[in]"), "{text}");
+            for attribute in ["NativeInput(", "len_param(", "NativeInitializedLength("] {
+                assert!(!text.contains(attribute), "{text}");
+            }
+        }
+    }
 }
 
 #[test]
@@ -1465,10 +2270,21 @@ fn check_rpc_buffers(sdk: bool) {
                     let parameter = method.params().next().unwrap();
                     assert_eq!(parameter.direction(), direction, "{name}");
                     assert_eq!(parameter.is_optional(), optional, "{name}");
-                    assert!(
+                    let input = direction == Input && !name.contains("_part");
+                    assert_eq!(
                         parameter.find_attribute("NativeSalAttribute").is_some(),
+                        !input && *name != "__RPC__out_ecount_part",
                         "{name}"
                     );
+                    let entry = parameter.find_attribute("NativeInputAttribute");
+                    assert_eq!(entry.is_some(), input, "{name}");
+                    if let Some(entry) = entry {
+                        assert_eq!(
+                            entry.value().into_iter().collect::<BTreeMap<_, _>>(),
+                            [("ReadOnly".into(), Value::Bool(false))].into(),
+                            "{name}"
+                        );
+                    }
                     assert_eq!(
                         parameter.buffer_relationship(),
                         capacity.then_some(reader::BufferRelationship::ElementsParam(1)),
@@ -1556,8 +2372,12 @@ fn rpc_buffer_residuals() {
             indirect,
         )]);
         let text = &output.partitions.values().next().unwrap().rdl;
-        assert!(text.contains("NativeSal("), "{text}");
-        assert_eq!(text.contains("len_param(1)"), capacity, "{text}");
+        assert_eq!(text.contains("NativeSal("), !(capacity && length), "{text}");
+        assert_eq!(
+            text.contains("len_param(1)") || text.contains("PostWritable = true"),
+            capacity,
+            "{text}"
+        );
         assert_eq!(text.contains("NativeInitializedLength("), length, "{text}");
         if length {
             assert!(text.contains("Dereference = true"), "{text}");
@@ -1809,6 +2629,39 @@ fn reserved_parameter_residuals() {
 }
 
 #[test]
+fn conditional_length_agreement() {
+    helpers::ensure_libclang();
+    let expected = project(&[test_clang2::fixture("conditional_length")]);
+    for expression in ["written?*written:capacity", "written ? *written : other"] {
+        let mut changed = test_clang2::fixture("conditional_length");
+        changed.name = "other.h".into();
+        changed
+            .source
+            .insert_str(0, &format!("#define LENGTH \"{expression}\"\n"));
+        let mut inputs = [test_clang2::fixture("conditional_length"), changed];
+        for _ in 0..2 {
+            let snapshots = capture(&inputs, &TARGETS).unwrap();
+            if expression.ends_with("capacity") {
+                let actual = projection::project_with_imports(
+                    &merge(&snapshots).unwrap(),
+                    "Fixture",
+                    &imports(),
+                )
+                .unwrap();
+                assert_eq!(
+                    actual.partitions.values().next().unwrap().rdl,
+                    expected.partitions.values().next().unwrap().rdl
+                );
+            } else {
+                let error = merge(&snapshots).err().unwrap();
+                assert!(error.to_string().contains("differ"), "{error}");
+            }
+            inputs.reverse();
+        }
+    }
+}
+
+#[test]
 #[ignore = "requires the pinned SDK"]
 fn reserved_parameters_sdk() {
     helpers::ensure_libclang();
@@ -1991,8 +2844,10 @@ fn rpc_annotation_residuals() {
             .next()
             .unwrap()
             .rdl;
-        assert!(
+        let typed_input = rpc == "__RPC__in" || rpc == "__RPC__in_opt";
+        assert_eq!(
             text.contains(&format!("NativeSal(\"1.2\", \"{rpc}\"")),
+            !typed_input,
             "{text}"
         );
         assert_eq!(
@@ -2005,7 +2860,7 @@ fn rpc_annotation_residuals() {
             rpc == "__RPC__inout_opt_string",
             "{text}"
         );
-        if rpc == "__RPC__in" || rpc == "__RPC__in_opt" {
+        if typed_input {
             roundtrip_metadata(&format!("rpc_residual_{rpc}"), &text, |index, _| {
                 for (owner, name) in [
                     ("Apis", "BufferFunction"),
@@ -2020,7 +2875,14 @@ fn rpc_annotation_residuals() {
                     let parameter = method.params().next().unwrap();
                     assert_eq!(parameter.direction(), reader::ParamDirection::Input);
                     assert_eq!(parameter.is_optional(), rpc == "__RPC__in_opt");
-                    assert!(parameter.find_attribute("NativeSalAttribute").is_some());
+                    assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                    assert_eq!(
+                        parameter
+                            .find_attribute("NativeInputAttribute")
+                            .unwrap()
+                            .value(),
+                        [("ReadOnly".into(), windows_metadata::Value::Bool(false))]
+                    );
                 }
             });
         }
@@ -2068,6 +2930,9 @@ fn buffer_postconditions() {
             let output = project(std::slice::from_ref(&input));
             let text = &output.partitions.values().next().unwrap().rdl;
             if case == 0 && !indirect {
+                if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+                    std::fs::write(input_dir().join("buffer_postconditions.rdl"), text).unwrap();
+                }
                 assert_eq!(
                     text,
                     &std::fs::read_to_string(input_dir().join("buffer_postconditions.rdl"))
@@ -2124,6 +2989,14 @@ fn buffer_postconditions() {
                         );
                         assert_eq!(parameter.is_optional(), current.contains("_opt_"));
                         assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+                        let entry = parameter.find_attribute("NativeInputAttribute");
+                        assert_eq!(entry.is_some(), case < 2);
+                        if let Some(entry) = entry {
+                            assert_eq!(
+                                entry.value().into_iter().collect::<BTreeMap<_, _>>(),
+                                [("ReadOnly".into(), Value::Bool(true))].into()
+                            );
+                        }
                         let terminated = parameter.find_attribute("NativeNullTerminatedAttribute");
                         assert_eq!(terminated.is_some(), case < 6);
                         if let Some(terminated) = terminated {
@@ -3746,7 +4619,7 @@ fn sdk_import_gaps() {
 fn import_conventions() {
     helpers::ensure_libclang();
     let snapshots = capture(&[selected_fixture("import_conventions", &[])], &TARGETS).unwrap();
-    let imports = ["Cdecl", "Shared", "Varying", "Only64"]
+    let imports = ["Cdecl", "Shared", "Varying", "Only64", "Changing"]
         .map(|name| {
             (
                 name.into(),
@@ -3842,11 +4715,27 @@ fn sdk_resource_callbacks() {
         assert_eq!(rdl.matches(&format!("fn {name}(")).count(), 1);
         assert!(rdl.contains(&format!("extern fn {name}(")));
     }
-    assert!(rdl.contains("#[in] lpName: LPSTR"));
-    assert!(rdl.contains("#[in] lpType: LPWSTR"));
+    assert!(rdl.contains("lpName: LPSTR"));
+    assert!(rdl.contains("lpType: LPWSTR"));
     roundtrip("sdk_resource_callbacks", &output, |index, _| {
         for name in ["ENUMRESNAMEPROCA", "ENUMRESTYPEPROCW"] {
             let callback = index.expect("Fixture", name);
+            for parameter in callback
+                .methods()
+                .find(|method| method.name() == "Invoke")
+                .unwrap()
+                .params()
+                .filter(|parameter| matches!(parameter.name(), "lpName" | "lpType"))
+            {
+                assert_eq!(parameter.direction(), reader::ParamDirection::Input);
+                assert_eq!(
+                    parameter
+                        .find_attribute("NativeInputAttribute")
+                        .unwrap()
+                        .value(),
+                    [("ReadOnly".into(), windows_metadata::Value::Bool(true))]
+                );
+            }
             let attribute = callback
                 .find_attribute("UnmanagedFunctionPointerAttribute")
                 .unwrap();
@@ -3937,7 +4826,7 @@ fn calling_defaults() {
             &output,
             |index, bit| {
                 for name in ["Plain", "Cdecl", "Stdcall"] {
-                    let expected = if name == "Stdcall" || stdcall && name == "Plain" {
+                    let expected = if name == "Stdcall" || stdcall && name == "Plain" && bit == 1 {
                         "system"
                     } else {
                         "C"

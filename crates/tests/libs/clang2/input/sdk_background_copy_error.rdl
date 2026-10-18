@@ -1,0 +1,74 @@
+#[win32]
+mod Fixture {
+    type UINT64 = u64;
+}
+#[win32]
+mod Fixture {
+    #[repr(i32)]
+    enum BG_ERROR_CONTEXT {
+        BG_ERROR_CONTEXT_NONE = 0,
+        BG_ERROR_CONTEXT_UNKNOWN = 1,
+        BG_ERROR_CONTEXT_GENERAL_QUEUE_MANAGER = 2,
+        BG_ERROR_CONTEXT_QUEUE_MANAGER_NOTIFICATION = 3,
+        BG_ERROR_CONTEXT_LOCAL_FILE = 4,
+        BG_ERROR_CONTEXT_REMOTE_FILE = 5,
+        BG_ERROR_CONTEXT_GENERAL_TRANSPORT = 6,
+        BG_ERROR_CONTEXT_REMOTE_APPLICATION = 7,
+        BG_ERROR_CONTEXT_SERVER_CERTIFICATE_CALLBACK = 8,
+    }
+    struct BG_FILE_PROGRESS {
+        BytesTotal: UINT64,
+        BytesTransferred: UINT64,
+        Completed: BOOL,
+    }
+    #[guid(0x19c613a0_fcb8_4f28_81ae_897c3d078f81)]
+    interface IBackgroundCopyError: IUnknown {
+        fn GetError(&self, #[out] pContext: *mut BG_ERROR_CONTEXT, #[out] pCode: *mut HRESULT) -> HRESULT;
+        fn GetFile(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut IBackgroundCopyFile) -> HRESULT;
+        fn GetErrorDescription(&self, LanguageId: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pErrorDescription: *mut LPWSTR) -> HRESULT;
+        fn GetErrorContextDescription(&self, LanguageId: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pContextDescription: *mut LPWSTR) -> HRESULT;
+        fn GetProtocol(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pProtocol: *mut LPWSTR) -> HRESULT;
+    }
+    #[guid(0x01b7bd23_fb88_4a77_8490_5891d3e4653a)]
+    interface IBackgroundCopyFile: IUnknown {
+        fn GetRemoteName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut LPWSTR) -> HRESULT;
+        fn GetLocalName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut LPWSTR) -> HRESULT;
+        fn GetProgress(&self, #[out] pVal: *mut BG_FILE_PROGRESS) -> HRESULT;
+    }
+}
+#[win32]
+mod Fixture {
+    type ULONG = u32;
+}
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type IID = GUID;
+}
+#[win32]
+mod Fixture {
+    type BOOL = i32;
+    type DWORD = u32;
+}
+#[win32]
+mod Fixture {
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    type HRESULT = i32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type LPWSTR = *mut u16;
+    type WCHAR = u16;
+}

@@ -34,11 +34,15 @@ pub(super) fn layout(ty: CXType) -> Result<Layout, &'static str> {
 }
 
 pub(super) fn source(cursor: CXCursor) -> (String, u32, u32, u32) {
+    source_location(unsafe { clang_getCursorLocation(cursor) })
+}
+
+pub(super) fn source_location(location: CXSourceLocation) -> (String, u32, u32, u32) {
     let mut file = std::ptr::null_mut();
     let (mut line, mut column, mut offset) = (0, 0, 0);
     unsafe {
         clang_getExpansionLocation(
-            clang_getCursorLocation(cursor),
+            location,
             &raw mut file,
             &raw mut line,
             &raw mut column,

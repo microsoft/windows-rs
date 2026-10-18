@@ -31,12 +31,12 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000001_0000_0000_c000_000000000046)]
     interface IClassFactory: IUnknown {
-        fn CreateInstance(&self, pUnkOuter: IUnknown, riid: &IID, ppvObject: *mut *mut void) -> HRESULT;
+        fn CreateInstance(&self, pUnkOuter: IUnknown, riid: &IID, #[out] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn LockServer(&self, fLock: BOOL) -> HRESULT;
     }
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, riid: &IID, #[out] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

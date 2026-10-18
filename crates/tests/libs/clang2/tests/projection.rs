@@ -72,9 +72,13 @@ fn inheritance_layouts(targets: &[Option<Target>]) {
         .values()
         .map(|part| part.rdl.as_str())
         .collect();
+    let expected = input_dir().join("value_inheritance.rdl");
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(&expected, &text).unwrap();
+    }
     assert_eq!(
         text,
-        std::fs::read_to_string(input_dir().join("value_inheritance.rdl"))
+        std::fs::read_to_string(expected)
             .unwrap()
             .replace("\r\n", "\n")
     );

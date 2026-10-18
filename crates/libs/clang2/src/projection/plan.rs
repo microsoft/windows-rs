@@ -9,13 +9,15 @@ fn midl_enum_name(name: &str) -> bool {
 }
 use crate::resolve::{TypePair, abi_attributes_equal, attributes_equal, types_equal};
 
+type CallbackNames = HashMap<(TypeId, Vec<CallingConvention>), String>;
+
 pub(super) struct Plan {
     pub families: Vec<Vec<usize>>,
     pub names: Vec<String>,
     pub aliases: Vec<Option<usize>>,
     pub enum_names: Vec<String>,
     pub enum_aliases: Vec<Option<usize>>,
-    pub callbacks: Vec<HashMap<TypeId, String>>,
+    pub callbacks: Vec<CallbackNames>,
     pub owned: Vec<bool>,
     pub children: Vec<Vec<Vec<RecordId>>>,
     enum_primary: Vec<Option<usize>>,
@@ -197,7 +199,7 @@ impl Plan {
                 });
             }
         }
-        plan.callbacks = plan.callback_names(resolution);
+        plan.callbacks = plan.callback_names(resolution)?;
         Ok(plan)
     }
 
@@ -283,7 +285,7 @@ impl Plan {
         Ok(())
     }
 
-    fn callback_names(&self, resolution: &Resolution<'_>) -> Vec<HashMap<TypeId, String>> {
+    fn callback_names(&self, resolution: &Resolution<'_>) -> Result<Vec<CallbackNames>, Error> {
         let mut candidates = HashMap::<_, Vec<_>>::new();
         for alias in &resolution.aliases {
             if alias.observations.iter().any(|reference| {
@@ -301,14 +303,20 @@ impl Plan {
             let id =
                 snapshot.aliases[reference.alias.0].observations[reference.observation].canonical;
             if let Some(function) = callback(snapshot, id) {
+                let conventions = written_function(
+                    snapshot,
+                    snapshot.aliases[reference.alias.0].observations[reference.observation]
+                        .underlying,
+                )?
+                .conventions(snapshot)?;
                 candidates
                     .entry((function.convention, function.parameters.len()))
                     .or_default()
-                    .push(((reference.snapshot, id), &alias.name));
+                    .push(((reference.snapshot, id), &alias.name, conventions));
             }
         }
         let mut seen = HashSet::new();
-        resolution
+        Ok(resolution
             .snapshots
             .iter()
             .enumerate()
@@ -323,18 +331,20 @@ impl Plan {
                     else {
                         continue;
                     };
-                    for &(candidate, name) in candidates {
+                    for (candidate, name, conventions) in candidates {
                         // A failed comparison must not leave assumed pairs in the next attempt.
                         seen.clear();
-                        if self.same_type(resolution, (snapshot_id, id), candidate, &mut seen) {
-                            names.insert(id, name.clone());
-                            break;
+                        if names.contains_key(&(id, conventions.clone())) {
+                            continue;
+                        }
+                        if self.same_type(resolution, (snapshot_id, id), *candidate, &mut seen) {
+                            names.insert((id, conventions.clone()), (*name).clone());
                         }
                     }
                 }
                 names
             })
-            .collect()
+            .collect())
     }
 
     pub fn family(&self, snapshot: usize, record: RecordId) -> usize {

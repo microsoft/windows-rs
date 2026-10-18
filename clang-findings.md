@@ -58,8 +58,9 @@ WSAStartup ordinal mappings and WinMD on all targets. `sdk_import_gaps` verifies
 DHCP/DNS x86 convention mismatch and missing BSTR_UserSize64 entry. Both pass.
 
 **Resolution:** preserve established named linkage. No ordinal consumer changes remain in bindgen
-or windows-link. The SDK driver owns a checked 20-entry policy: the 18 functions covered before
-the ordinal experiment, plus ILClone and ILFree. Every entry is checked against all three pinned
+or windows-link. The SDK driver owns a checked 42-entry policy: the 18 functions covered before
+the ordinal experiment, ILClone and ILFree, and 22 Active Directory helpers. Every entry is checked
+against all three pinned
 SDK archives, retaining exact native symbol, machine, provider, kind, and ordinal evidence.
 Unknown entries are reported rather than renamed from linker spelling.
 
@@ -73,6 +74,19 @@ every Windows release or an ARM64 runtime check. Relevant public contracts:
 [ILFree](https://learn.microsoft.com/windows/win32/api/shlobj_core/nf-shlobj_core-ilfree).
 The policy is a bounded preservation choice, not clearance for the roughly 1,478 ordinal names
 in the experimental output.
+
+RDL triage found all 22 functions in `adshlp.rdl` omitted solely because their SDK records select
+ordinals. The installed System32 and SysWOW64 `activeds.dll` export every established name with the
+matching SDK ordinal, including forwarded exports; the public provider remains `ACTIVEDS.dll`.
+The reviewed table now includes those 22 exact symbol/provider/ordinal tuples, without admitting
+other ordinal entries from that DLL. The SDK policy test checks all three archives and captures
+all 22 declarations and their native dependencies into `sdk_adshlp.rdl`.
+Microsoft documents named DLL exports such as
+[ADsGetObject](https://learn.microsoft.com/windows/win32/api/adshlp/nf-adshlp-adsgetobject) and
+[AllocADsMem](https://learn.microsoft.com/windows/win32/api/adshlp/nf-adshlp-allocadsmem).
+Installed export-table evidence remains limited to x86/x64 on version 10.0.26709.1000, not proof
+of every supported Windows version or ARM64 runtime availability. The `adshlp-*` session artifacts
+retain the evidence. No parser, ABI, header-selection, or consumer-linkage mechanism changes.
 
 The driver compares real SDK capture and named publication against `sdk_named_imports.rdl`.
 `named_import_consumers` uses that metadata to check required APIs and exact ABIs. Its isolated
@@ -231,10 +245,11 @@ and the conflict, ordering, and consumer fixtures remain passing.
 
 | Difference | Evidence and owner | Resolution |
 | --- | --- | --- |
-| `BCryptDeleteContext` duplicated by architecture | Native x86 stdcall and unified Win64 C ABI; import publication | Use the observed x86 convention spelling for equivalent Win64 imports. Keep native evidence, callback defaults, and genuine signature/import-name variants. |
-| Resource callbacks duplicated by architecture | `libloaderapi.h` declares `ENUMRESNAMEPROC*` and `ENUMRESTYPEPROC*` with `CALLBACK`; named callback publication | Share the observed-x86 spelling rule with imports. Keep native conventions, callback naming, and compiler defaults unchanged. Callables observed only on 64-bit targets retain their native spelling. |
+| `BCryptDeleteContext` duplicated by architecture | Clang retains explicit stdcall in written attributed types even where the native ABI is C; callable publication | Preserve the written request on every target. Native evidence, compiler defaults, and genuine signature/import-name variants remain unchanged. |
+| Resource callbacks duplicated by architecture | `libloaderapi.h` declares `ENUMRESNAMEPROC*` and `ENUMRESTYPEPROC*` with `CALLBACK`; callable publication | Share written-convention handling across imports, named callbacks, and structural pointers. This also covers 64-bit-only declarations without cross-target inference. |
 | `BCryptFinishHash` lacks output buffer semantics | SDK `bcrypt.h` uses `_Out_writes_bytes_all_`; `sal.h` defines full initialization | Shared SAL lowering emits output, byte capacity, and initialized length from the direct count. Eight full-buffer forms are covered; unsupported expressions retain evidence. |
 | `BCryptEnumContexts` lacks output/optional flags | SDK `_Outptr_opt_result_bytebuffer_all_maybenull_`; the baseline also misses these flags | Lower outer direction/optionality for the 24 returned-buffer forms. Preserve returned extent and inner nullability as evidence, not caller capacity. |
+| BITS mixes `[out]` with directional-looking `NativeSal` | `rpcsal.h` maps `__RPC__deref_out_opt` to `_Outptr_`; shared SAL normalization and publication | Approved bounded `NativeReturnedPointerAttribute` replaces fully represented RPC/SAL2 output-pointer evidence. Keep output storage, result nullability, and COM failure guarantees separate. |
 
 Focused header/RDL fixtures cover all callable kinds and all three targets, with real SDK
 definitions and metadata round trips. `import_conventions` checks native evidence, real target
@@ -249,11 +264,154 @@ Declaration inventory, owners, availability, other attributes/types/values/impor
 configuration are unchanged. Omission diagnostics differ only in equivalent import ABI spelling
 in quoted bodies.
 
-Win64 ABI equivalence does not imply Rust function-pointer type equality: a direct compiler probe
-rejects assigning `extern "system" fn` to `extern "C" fn` and vice versa. Named callable spelling
-therefore remains a consumer-facing decision. Structural function pointers retain their native
-convention; acceptance must check their use alongside named callbacks rather than assuming
-interchangeability from layout or calling convention alone.
+The subsequent `callback_interop` consumer reproduced a named/structural assignment failure on
+Win64 despite compiler-proven native type equivalence. Projection now preserves explicit written
+conventions and checks them throughout nested signatures during callback-name selection.
+The fixture checks both assignment directions without casts, callback returns and adjusted function
+parameters, direct and round-tripped metadata, and both binding styles. All three targets compile;
+x86/x64 execute the calls. ARM64 execution remains unavailable on this host.
+
+The written-convention regeneration changes 188 target declarations in 14 partitions, exclusively
+C/system spelling. No declaration, owner, availability, constant accounting, or capture-configuration
+changes occur. Normalized omissions are unchanged. `written-conventions-comparison.json` and
+`written-conventions-changes.json` record the exact comparison against the preceding candidate.
+
+For returned pointers, `MayBeNull` describes successful result nullability; `NullOnFailure`
+preserves COM's additional guarantee. A non-null successful result supplies one readable element.
+Outer optionality remains `[opt]`; allocation and ownership are not inferred. Native observations
+remain unchanged. Unsupported returned-buffer extents, SAL1 contracts, and conditional wrappers
+remain explicit evidence. `pointer_parameter_flags` covers all ten supported spellings and actual
+SDK definitions; `sdk_background_copy_error` checks the real BITS methods through RDL/WinMD.
+This is typed metadata, not a claim that bindgen consumes the new guarantee.
+
+The full returned-pointer regeneration replaces 14,573 target-parameter payloads across 249
+partitions. Declaration inventory, ownership, availability, types, values, other attributes,
+configuration, omissions, and constant accounting remain unchanged. The SDK writes
+`_Outptr_opt_ _Inout_` on `MprConfigTransportGetInfo::lplpwsDLLPath`; these distinct contracts retain
+both raw annotations rather than acquiring a permissive combined contract. This restores `_Inout_`
+evidence on that parameter on all three targets. A dedicated golden and SDK-macro case cover it.
+`returned-pointer-comparison.json` records the exact comparison and `returned-pointer-tests.log`
+records the focused regression run. The working SDK metadata remains a partial candidate.
+
+The BITS enumerator `Next` contract supplies a separate array-capacity and initialized-length case.
+`__RPC__out_ecount_part(celt, pceltFetched ? *pceltFetched : celt)` uses the fetched count when its
+pointer is present and `celt` otherwise. `NativeInitializedLength.NullFallbackParamIndex` records
+that fallback without parsing arbitrary expressions. `NativeArrayInfo.PostWritable` also preserves
+the RPC macro's successful-output writable-capacity guarantee; omitting it would lose information.
+Both are optional named fields, and existing contracts without them keep their encoding.
+
+The full SDK delta removes 183 fully represented RPC parameter payloads in 22 partitions, including
+15 target-parameter instances with conditional lengths. Every declaration, owner, availability,
+type/value, unrelated attribute, omission, configuration, and constant comparison remains unchanged.
+`conditional-length-comparison.json` records the exact checks. Dedicated header/RDL fixtures cover
+all callable kinds, real SDK macros and BITS, metadata round trips, invalid types, conflicting
+fallbacks, and unsupported expressions. Consumers must understand the new fallback before using
+initialized-length metadata to dereference an optional count pointer; consumer-version acceptance
+remains separate from this metadata repair.
+
+The checked named-publication policy restores all 22 `adshlp.h` helpers as named exports from
+`activeds.dll`. Installed x86/x64 export tables and all three pinned SDK import archives verify
+their name/ordinal identities. `sdk_adshlp.h/.rdl` independently captures every signature.
+`adshlp-comparison.json` confirms 66 added target declarations in the restored `adshlp.rdl`,
+exactly 22 removed omission identities, and no changes to existing declarations or constants.
+No ordinal consumer linkage or parser exception is involved.
+
+Explicit `_COM_Outptr_` contracts also require the existing `ComOutPtrAttribute` (`#[iid_is]`).
+Shared normalization retains COM intent separately from null-on-failure; publication requires
+native unqualified `void**` storage, including aliases. Ordinary output pointers, typed interfaces,
+const pointees, and deeper chains are negative controls. `com_output` covers all callable kinds,
+SDK macros, native evidence, and metadata round trips. The SDK regeneration restores 462
+target-parameter markers in 294 target declarations across 28 partitions. Exact comparison in
+`com-output-comparison.json` confirms no other declaration, ownership, availability, type, value,
+attribute, configuration, omission, or constant-accounting changes.
+
+`accountssettingspaneinterop.rdl` supplies the concrete input-contract fixture. The approved
+`NativeInputAttribute` records valid input on entry, with pointer nullability governed by `[opt]`.
+`ReadOnly = false` represents `__RPC__in`/`__RPC__in_opt`; true preserves the additional read-access
+contract of direct SAL1/SAL2 input forms. False does not require writable storage or change native
+qualifiers. The full SDK delta replaces 13,215 RPC target-parameter payloads and makes 90,634 SAL
+read-access contracts explicit across 416 partitions. Every declaration, type, owner, availability,
+and unrelated attribute remains unchanged. Configuration and constant accounting are identical;
+12 embedded omission-signature lines reflect the new encoding, with no omission changes.
+`input-contract-comparison.json` records these checks.
+
+Leading parameter comments retain compiler-bounded ownership and source locations. Literal MIDL
+bracket lists supply `[retval]`, output-only `[iid_is]`, and accompanying direction flags.
+`IAccountsSettingsPaneInterop` and `IAudioClient::GetService` have dedicated SDK fixtures.
+No IID association is inferred from GUID parameters or names. A full SDK run exposed valid input
+`[iid_is]` contracts on `IBindStatusCallback::OnObjectAvailable`, text-services sink registration,
+and `ICommandStream::SetCommandStream`. They describe supplied interfaces, not returned pointers.
+Shared normalization keeps input/output directions distinct; the input relationships remain native
+comment evidence rather than acquiring a COM output marker. The `sdk_midl_inputs` fixture checks
+these cases, and synthetic tests cover input/inout IID markers, ownership, conflicts, and rejection.
+Other MIDL comment contracts and macro-expanded parameter-list ownership remain separate gaps.
+
+The final MIDL SDK comparison restores 16,728 retval, 633 IID-output, and 3,549 output-direction
+target-parameter markers across 113 partitions. `midl-comments-comparison.json` verifies unchanged
+declaration inventory, ownership, availability, types, other attributes, configuration, omissions,
+and constant accounting. MIDL-only callback contracts also participate in callback naming and
+metadata-owner checks; a structural pointer cannot acquire an unrelated annotated callback name.
+`midl_comments` covers both that boundary and indirect callbacks without a contract owner.
+Final generation reports 317.067 seconds for capture/merge/project and 4.917 seconds for compilation.
+These are observations, not controlled benchmarks; peak memory and resource-budget acceptance
+remain unmeasured.
+
+### RPC input strings and arrays
+
+Argument-free RPC input strings and direct/full input arrays now share typed normalization across
+reconciliation and publication. `NativeInput(ReadOnly = false)` preserves their input validity
+without inventing SAL1/SAL2's additional read-access guarantee. Counted strings also retain entry
+termination. Partial input arrays still preserve their separate readable length and writable
+capacity as evidence; they do not acquire a successful-output initialized length.
+
+`rpc-input-comparison.json` records 1,140 input-string and 738 input-array target-parameter payload
+replacements, plus 5,576 SAL input read-access contracts. The 226 changed partitions retain every
+declaration, type, owner, architecture, and unrelated attribute. Configuration, omissions, and
+constant accounting are identical. The 92 breadth tests include pinned SDK macro definitions,
+equivalent RPC spellings, read-access conflicts, and residual count expressions. Affected annotation
+and callable fixtures, warnings-denied clippy, and the no-default-features check pass.
+Generation reports 309.492 seconds for capture/merge/project and 5.129 seconds for compilation;
+these are observations, not controlled measurements, and peak memory was not measured.
+
+The wider RDL diff review also found:
+
+| Difference | Native evidence and disposition |
+| --- | --- |
+| `FACILITY_NS`, `MAX_INTERFACE_NAME_LEN` | Present under `nserror` and `ifmib`; ownership moves, not losses |
+| `AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS::TargetProcessId` | Written `DWORD` alias retained instead of flattened `u32` |
+| `memorybuffer.rdl` deletion | `IMemoryBufferByteAccess` is inside `Windows::Foundation`; capture descends linkage blocks but not namespaces |
+| `MetaDataGetDispenser` output | Repaired through the four SAL1 returned-pointer aliases described below |
+| `_Null_terminated_` | SDK buffer property without a pre/post phase, including direct `coml2api` parameters; do not blindly replace it with an entry-only guarantee |
+| `_Must_inspect_result_` | Adds `SAL_mustInspect` beyond `_Check_return_`; do not collapse the two return obligations |
+
+Namespace traversal alone is insufficient: native alias correspondence currently assumes global
+names. Preserve namespace-qualified correspondence before admitting namespace declarations, and
+decide flat-public-name collisions rather than merging unrelated aliases by unqualified spelling.
+The maintainer notes that most selected APIs are global, but some `Windows::...` and
+`ABI::Windows::...` declarations refer to WinRT types. The existing parser's
+`is_flat_declaration` consults supplied metadata references for ABI-prefixed namespaces, and
+`tool-win32` supplies `windows_default::WINRT` through `MetadataReferences`. The rewrite has no
+equivalent external-type-reference input. Restore that boundary rather than treating every
+namespaced declaration as a new flat Win32 type. `IMemoryBufferByteAccess` and `IBufferByteAccess`
+are separate IUnknown-based interop helpers in the SDK's `memorybuffer.h` and `robuffer.h`;
+their placement under `Windows` is not itself proof of WinRT type identity.
+
+### SAL1 returned-pointer aliases
+
+The four argument-free SAL1 output-pointer forms share `NativeReturnedPointer` normalization with
+their SAL2 counterparts. `__deref_out_opt` permits a null result, not a null argument.
+`__deref_opt_out` permits a null argument, and `__deref_opt_out_opt` permits both. None supplies
+COM's null-on-failure guarantee or an IID-output marker.
+
+The pinned macro cases and `sdk_rometadata.h`/`.rdl` fixture check all targets. The 94 breadth and
+seven annotation tests pass, including equivalent aliases, distinct nullability contracts,
+malformed arguments, storage rejection, and SDK definitions. Warnings-denied clippy and the
+no-default-features check pass. The exact SDK comparison changes only `MetaDataGetDispenser.ppv`
+in `rometadata.rdl`: raw `__deref_out` becomes `#[out]` plus the non-null returned-pointer contract.
+Every other RDL byte, configuration, omission diagnostic, and constant-accounting row is unchanged.
+Artifacts are `sal1-pointer-*` and `compare-sal1-pointer.py` in the session files.
+Generation reports 297.203 seconds for capture/merge/project and 4.953 seconds for compilation;
+these are observations, not controlled measurements, and peak memory was not measured.
 
 ## Adopted package control correction
 

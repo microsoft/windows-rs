@@ -10,10 +10,10 @@ mod Fixture {
         fn Run(&self);
     }
     extern "C" fn Mixed(#[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")] #[in] #[out] value: *mut i32);
-    extern "C" fn NullableResult(#[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_", "", "")] #[out] value: *mut *mut void);
-    extern "C" fn ObjectInput(#[in] value: IObject);
+    extern "C" fn NullableResult(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] value: *mut *mut void);
+    extern "C" fn ObjectInput(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: IObject);
     extern "C" fn ObjectOutput(#[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")] #[in] value: IObject);
     extern "C" fn ObjectUpdate(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] value: IObject);
-    extern "C" fn Terminated(#[in] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] value: *const i8);
+    extern "C" fn Terminated(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] value: *const i8);
     extern "C" fn UnexpectedArguments(#[Windows::Win32::Metadata::NativeSal("2", "_In_", "unexpected", "unexpected")] value: *mut i32);
 }

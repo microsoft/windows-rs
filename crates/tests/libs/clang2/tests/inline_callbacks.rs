@@ -7,7 +7,11 @@ fn inline_callbacks() {
     let input = selected_fixture("inline_callbacks", &[]);
     let output = projection::generate(std::slice::from_ref(&input), "Fixture").unwrap();
     assert_eq!((output.records, output.aliases), (2, 2));
-    let expected = std::fs::read_to_string(input_dir().join("inline_callbacks.rdl"))
+    let expected_path = input_dir().join("inline_callbacks.rdl");
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(&expected_path, &output.partitions["inline_callbacks"].rdl).unwrap();
+    }
+    let expected = std::fs::read_to_string(expected_path)
         .unwrap()
         .replace("\r\n", "\n");
     assert_eq!(output.partitions["inline_callbacks"].rdl, expected);

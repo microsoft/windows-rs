@@ -7,7 +7,7 @@ mod Fixture {
 mod Fixture {
     #[noreturn]
     #[library("kernel32.dll")]
-    extern fn FreeLibraryAndExitThread(#[in] hLibModule: HMODULE, #[in] dwExitCode: DWORD);
+    extern fn FreeLibraryAndExitThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hLibModule: HMODULE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwExitCode: DWORD);
 }
 #[win32]
 mod Fixture {
@@ -21,10 +21,10 @@ mod Fixture {
 mod Fixture {
     #[noreturn]
     #[library("kernel32.dll")]
-    extern fn ExitProcess(#[in] uExitCode: UINT);
+    extern fn ExitProcess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uExitCode: UINT);
     #[noreturn]
     #[library("kernel32.dll")]
-    extern fn ExitThread(#[in] dwExitCode: DWORD);
+    extern fn ExitThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwExitCode: DWORD);
 }
 #[win32]
 mod Fixture {
@@ -35,5 +35,5 @@ mod Fixture {
 mod Fixture {
     #[noreturn]
     #[library("rpcrt4.dll")]
-    extern fn RpcRaiseException(#[in] exception: RPC_STATUS);
+    extern fn RpcRaiseException(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] exception: RPC_STATUS);
 }

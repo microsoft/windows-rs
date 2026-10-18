@@ -140,9 +140,10 @@ resolved imports to `target/win32-2/capture-configuration.txt`; `--dry-run` writ
 without changing RDL/WinMD.
 The experimental `--x86-stdcall` option changes Clang's x86 default for unannotated functions and
 callbacks. It recovers imports but also changes callback ABIs; it is not an accepted SDK default.
-Imports and named callbacks use an observed x86 C/stdcall spelling on x64 and ARM64, where these
-share an ABI, to avoid redundant architecture variants. Native evidence and compiler defaults
-remain unchanged; structural function pointers keep their native conventions.
+Imports, named callbacks, and structural function pointers preserve explicit C/stdcall requests
+from Clang's written types on every target. Unannotated prototypes retain their native conventions.
+Callback-name selection also checks written conventions in nested signatures. Native evidence and
+compiler defaults remain unchanged; real target-dependent contracts remain distinct.
 Discovery uses the active definition's owner, not a superseded definition in another header.
 Probes do not parenthesize initializers: comma-separated field fragments must not become scalar
 constants. Comma expressions already parenthesized in the macro remain supported.
@@ -199,20 +200,39 @@ including the SDK's corresponding SAL1/SAL2 forms. Direct named buffer capacitie
 parameter indices with byte/element units. Reserved parameter contracts emit `#[reserved]` for the
 zero/null requirement without inventing direction or optionality. These contracts emit canonical
 flags and count attributes rather than duplicate `NativeSalAttribute` payloads.
-Seven direct RPC SAL aliases share this
-normalization; RPC input direction and optionality emit flags while retaining their distinct
-evidence, without assuming SAL2's readonly guarantee. Composed contracts retain raw evidence.
+Seven direct RPC SAL aliases share this normalization. RPC input forms emit
+`NativeInput(ReadOnly = false)` for valid input on entry; direct SAL1/SAL2 input forms emit
+`ReadOnly = true` for their additional read-access contract. Pointer arguments are non-null unless
+optional. Neither value changes native qualifiers or implies a count, and false does not require
+writable storage. Composed contracts retain raw evidence.
 RPC dereferenced-pointer forms lower outer direction and optionality without confusing inner-pointer
-nullability with optional argument storage. SAL2 out-pointer forms use the same checked flag path;
-inner-pointer and COM failure contracts remain evidence. Returned-buffer forms lower outer output
+nullability with optional argument storage. RPC output-pointer aliases, four SAL1 aliases, and eight
+SAL2 out-pointer forms replace fully represented evidence with `NativeReturnedPointerAttribute`:
+result nullability, one readable pointee on success when non-null, and COM's additional
+null-on-failure guarantee.
+The contract requires native pointer-to-pointer storage and specifies no ownership or allocator.
+Explicit COM output-pointer forms also emit `#[iid_is]` for unqualified native `void**`, including
+typedef aliases. Ordinary out pointers do not supply this marker. Compiler-bounded leading parameter
+comments preserve explicit MIDL `[iid_is]` and `[retval]` result markers without guessing a GUID
+association. Other MIDL comment contracts remain unimplemented source evidence.
+Input/inout inner-pointer contracts remain evidence. Returned-buffer forms lower outer output
 direction and argument optionality without treating the returned allocation as caller capacity.
-Direct RPC string contracts also lower termination while retaining native evidence. Optional inout
-strings require termination on entry, without promising it on success.
+Direct RPC input strings replace native evidence with typed input and entry termination contracts.
+RPC inout strings retain evidence; optional inout strings require termination on entry, without
+promising it on success.
 RPC buffers also lower direct element capacities and successful initialized lengths independently.
-Input readable lengths remain entry evidence; output/inout `xcount` arguments do not become counts.
+Fully represented RPC partial-output arrays use typed capacity and initialized-length attributes
+instead of raw evidence, including the guarantee that capacity remains writable on success.
+Direct/full RPC input arrays use typed input and element-count contracts, including optional and
+counted-string forms. RPC input contracts do not acquire SAL1/SAL2's additional read-access guarantee.
+Partial input readable lengths remain entry evidence; output/inout `xcount` arguments do not become
+counts.
 Zero termination records distinct entry and successful-output conditions without inferring an
 encoding. Initialized length records a separate
 integer parameter or one dereference, with byte/element units; it is not substituted for capacity.
+The bounded `p ? *p : n` form records `n` as a fallback when the count pointer is null. The condition
+and dereference must reference the same pointer, and the fallback must be a by-value integer.
+Other conditional expressions remain explicit evidence.
 Full-output/update contracts use the same direct integer count for capacity and initialized length.
 Success predicates and count-pointer optionality remain separate contracts. This is not a complete
 SAL interpreter; unsupported expressions and nested contracts retain `NativeSalAttribute` evidence.

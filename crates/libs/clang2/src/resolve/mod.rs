@@ -682,9 +682,67 @@ pub(crate) fn parameters_equal(a: &[Parameter], b: &[Parameter]) -> bool {
         && a.iter().zip(b).all(|(left, right)| {
             abi_attributes_equal(&left.attributes, &right.attributes)
                 && sal::parameters(&left.attributes, a) == sal::parameters(&right.attributes, b)
+                && midl_parameter(left) == midl_parameter(right)
                 && left.default.as_ref().map(|value| &value.expression)
                     == right.default.as_ref().map(|value| &value.expression)
         })
+}
+
+#[derive(Default, Eq, PartialEq)]
+pub(crate) struct MidlParameter {
+    pub input: bool,
+    pub output: bool,
+    pub retval: bool,
+    pub iid_is: bool,
+}
+
+pub(crate) fn midl_parameter(parameter: &Parameter) -> MidlParameter {
+    let mut result = MidlParameter::default();
+    for comment in &parameter.comments {
+        let Some(mut text) = comment
+            .text
+            .strip_prefix("/*")
+            .and_then(|s| s.strip_suffix("*/"))
+        else {
+            continue;
+        };
+        let mut value = MidlParameter::default();
+        loop {
+            text = text.trim();
+            if text.is_empty() {
+                result.input |= value.input;
+                result.output |= value.output;
+                result.retval |= value.retval;
+                result.iid_is |= value.iid_is;
+                break;
+            }
+            let Some((name, rest)) = text.strip_prefix('[').and_then(|s| s.split_once(']')) else {
+                break;
+            };
+            let name = name.trim();
+            if name.is_empty() || !name.bytes().all(|c| c.is_ascii_alphanumeric() || c == b'_') {
+                break;
+            }
+            match name {
+                "in" => value.input = true,
+                "out" => value.output = true,
+                "retval" => value.retval = true,
+                "iid_is" => value.iid_is = true,
+                _ => {}
+            }
+            text = rest;
+        }
+    }
+    if !result.retval && !result.iid_is {
+        return MidlParameter::default();
+    }
+    for value in sal(&parameter.attributes) {
+        if let Some((direction, _)) = sal::direction(value) {
+            result.input |= direction != sal::Direction::Output;
+            result.output |= direction != sal::Direction::Input;
+        }
+    }
+    result
 }
 
 pub(crate) fn sal(attributes: &[Attribute]) -> Vec<&SalAnnotation> {

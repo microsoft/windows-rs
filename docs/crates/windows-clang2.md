@@ -153,13 +153,15 @@ Use `project_with_imports` or `project_partial_with_imports` after capture to su
 ownership. Native C mangling is evidence, not an inferred DLL export name. Missing imports are
 errors or explicit partial omissions. Callbacks, declared functions, and methods preserve parameter
 names, using positional names only for unnamed parameters.
-Imported functions and named callbacks use their reconciled x86 C/stdcall spelling on all targets
-when an x86 observation exists. Windows x64 and ARM64 have one supported ABI for these conventions,
-so this avoids architecture variants that differ only in spelling. Native conventions, mangling,
-callback naming, compiler defaults, and import matching remain unchanged. Callables without an
-x86 observation and structural function pointers retain their target's spelling. Real signature or
-import-name differences stay separate. `import_conventions` covers both named callable kinds;
-`sdk_resource_callbacks` checks the SDK's resource callback declarations.
+Imports, named callbacks, and structural function pointers preserve explicit C/stdcall requests
+from Clang's attributed written types, including on x64 and ARM64 where native ABIs coincide.
+Without a written request, publication uses the native prototype convention. Native conventions,
+mangling, compiler defaults, and import matching remain unchanged. Callback-name selection checks
+written conventions throughout nested signatures as well as native type compatibility.
+Real target-dependent convention, signature, and import-name differences stay separate.
+`import_conventions` covers named callable kinds and 64-bit-only declarations.
+`callback_interop` checks named/structural assignments without casts, nested callbacks, both binding
+styles, metadata round trips, all-target compilation, and executable calls on x86/x64.
 Function `dllimport` and `dllexport` attributes remain distinct native evidence and must agree across
 observations. Both can publish a callable import when its DLL/export ownership is supplied separately;
 `dllexport` does not identify that DLL. Exported records and constant objects remain unsupported.
@@ -551,7 +553,7 @@ Simple parameter direction and argument-optionality contracts normalize to typed
 by reconciliation and publication. SAL2 `_In_`, `_Out_`, and `_Inout_`, their optional forms, and
 the SDK's six corresponding SAL1 aliases emit canonical `#[in]`, `#[out]`, and `#[opt]` flags
 without duplicate `NativeSal` attributes. The native observations keep the original transport.
-These direction-only forms require no arguments and the expected SAL version. Multiple distinct
+These direct forms require no arguments and the expected SAL version. Multiple distinct
 contracts retain their evidence; they are not replaced with a permissive union. Callback parameter
 contracts are checked before publication pruning, including when distinct contracts would emit
 the same flags. By-value COM references retain output annotation evidence because their metadata
@@ -564,12 +566,19 @@ owners retain evidence. Reserved and unannotated parameters remain distinct duri
 The `reserved_parameters` fixture covers scalar and pointer parameters, independent direction
 flags, functions, callbacks, methods, source aliases, duplicate annotations, and metadata round trips.
 
-RPC SAL 1.2 uses the same normalization only for seven direct SDK aliases: `__RPC__out`,
+RPC SAL 1.2 uses the same normalization for seven direct SDK aliases: `__RPC__out`,
 `__RPC__inout`, `__RPC__inout_opt`, and the `__RPC__inout_ecount` and
 `__RPC__inout_ecount_part` forms with their optional variants. The expected version and argument
-shape are required. `__RPC__in` and `__RPC__in_opt` do not carry SAL2's pointee-readonly contract;
-they emit input direction and argument optionality but keep their raw evidence and remain distinct
-from `_In_` and `_In_opt_` during reconciliation. This does not infer pointee constness.
+shape are required. `__RPC__in` and `__RPC__in_opt` emit `NativeInput(ReadOnly = false)` alongside
+input direction and argument optionality. The attribute records valid input on entry; pointer
+arguments are non-null unless optional. Direct SAL2 `_In_`/`_In_opt_` and SAL1 `__in`/`__in_opt`
+emit `ReadOnly = true` for their additional pointee-read-access contract. False does not require
+writable storage, and absence of the attribute does not assert either contract. Native qualifiers,
+aliases, handles, and references remain unchanged; no element count is inferred. Fully represented
+payloads disappear from RDL but remain in native observations. The RPC and SAL read-access
+contracts remain distinct during reconciliation, including composed annotations.
+`input_contracts` checks every form and actual SDK macros across callable kinds and metadata round
+trips. `sdk_accounts_settings` covers the real `HWND` and `REFIID` arguments.
 Output-count forms add postconditions, and `__RPC__out_xcount` and `__RPC__inout_xcount` do not
 express their argument as a count.
 Those contracts retain raw evidence rather than being equated by their names.
@@ -577,15 +586,48 @@ Those contracts retain raw evidence rather than being equated by their names.
 input order, SDK definitions, and metadata round trips. `rpc_annotation_residuals` checks the
 non-equivalent forms, unexpected arguments, and incorrect versions.
 
-Argument-free RPC dereferenced-pointer forms lower their outer input/output and optionality flags
-while retaining the inner-pointer contracts as evidence. `__RPC__deref_in_opt` and
+Argument-free RPC dereferenced-pointer forms lower their outer input/output and optionality flags.
+Input/inout forms retain their inner-pointer contracts as evidence. `__RPC__deref_in_opt` and
 `__RPC__deref_inout_opt` allow a null inner pointer, not a null argument. Their `deref_opt` forms
 allow a null argument. In this SDK, `__RPC__deref_out_opt` is an exact alias of
-`__RPC__deref_out`, with neither optional argument storage nor a nullable result promise.
-The eight SAL2 out-pointer forms use the same version/argument-checked direction helper.
-Their result nullability and COM failure guarantees remain evidence, and distinct contracts still
-fail reconciliation even when they produce the same direction flags. `pointer_parameter_flags`
-checks these distinctions through functions, callbacks, methods, and the actual SDK definitions.
+`__RPC__deref_out` and SAL2 `_Outptr_`: required output storage and a non-null returned pointee.
+These RPC aliases, four SAL1 aliases, and eight SAL2 out-pointer forms emit
+`NativeReturnedPointerAttribute`, replacing fully represented `NativeSal` payloads.
+`MayBeNull` describes the returned pointer on
+success; `NullOnFailure` records the additional COM failure guarantee. A non-null successful result
+points to one readable element. Neither field specifies an allocator or ownership transfer.
+Outer storage optionality remains `#[opt]`. Native parameter types must supply pointer-to-pointer
+storage, including native COM double pointers. Different result/failure contracts still fail
+reconciliation; equivalent aliases share the same normalized contract. Native observations retain
+the source annotation. SAL1 `__deref_out_opt` permits a null result, unlike the RPC alias.
+SAL1 `__deref_opt_out` instead permits null argument storage, and `__deref_opt_out_opt` permits both.
+`pointer_parameter_flags` checks all callable kinds and SDK definitions; `returned_pointer_contracts`
+checks alias agreement, malformed contracts, and storage rejection. `sdk_background_copy_error`
+checks the real BITS methods through RDL and metadata round trips. `sdk_rometadata` checks
+`MetaDataGetDispenser`'s SAL1 output contract without inventing a COM IID-output marker.
+The four supported `_COM_Outptr_` forms also retain explicit COM intent in the normalized contract.
+On native unqualified `void**` storage, including typedef aliases, they emit the existing
+`#[iid_is]` marker. Ordinary output pointers, typed interface pointers, const pointees, and deeper
+pointer chains do not acquire that marker. Null-on-failure alone is not used to infer COM identity.
+`com_output` checks these boundaries across callable kinds and actual SDK macros.
+
+Leading parameter comments retain their text and location in `Parameter.comments`. Capture uses
+compiler-owned parameter spans and the innermost matching signature parentheses; it does not find
+parameters by spelling or borrow comments from a preceding parameter or nested callback. Overlapping
+macro-expanded parameter spans do not establish ownership. Only bracket-list comments supply MIDL
+result markers: `[retval]` and output-only `[iid_is]` emit existing canonical attributes with their
+direction. SAL may also supply the direction. Result storage must be a pointer, and an output
+`iid_is` requires pointer-to-pointer storage. Explicit MIDL output IID markers remain even on
+typed storage; this differs from inferring COM intent from an output-pointer macro. No GUID-parameter
+association is guessed. Other comment annotations remain native source evidence, not implemented
+MIDL contracts. Input and inout IID relationships are not COM output markers; their native comments
+remain available without an inferred output query. MIDL-only callback contracts prevent structural
+pointers from acquiring annotated callback names and require a metadata owner.
+`midl_comments` checks ownership, prose and macro negatives, input order, conflicts, storage
+rejection, and metadata round trips. The accounts-settings and audio-client SDK fixtures
+cover comment-only IID and retval markers. `sdk_midl_inputs` covers input IID relationships on bind
+status callbacks, text-services sinks, and command streams.
+
 The 24 SAL2 returned-buffer forms also lower outer output direction and argument optionality.
 Their buffer extent and result nullability remain evidence: an extent of a returned allocation is
 not caller-supplied capacity. `returned_buffer_flags` and its SDK case check the full family;
@@ -593,9 +635,11 @@ not caller-supplied capacity. `returned_buffer_flags` and its SDK case check the
 Selected breadth goldens can be regenerated with `UPDATE_CLANG2_RDL=1`; rerun the same selection
 without it to check the saved expectations.
 
-The four direct RPC string contracts lower direction, argument optionality, and termination while
-retaining their raw evidence. `__RPC__in_string` and `__RPC__in_opt_string` require termination on
-entry. `__RPC__inout_string` also promises termination on success, but the SDK's
+The four direct RPC string contracts lower direction, argument optionality, and termination.
+`__RPC__in_string` and `__RPC__in_opt_string` replace raw evidence with
+`NativeInput(ReadOnly = false)` and termination on entry. SAL1/SAL2 input strings instead carry
+`ReadOnly = true`. The inout forms retain evidence: `__RPC__inout_string` also promises termination
+on success, but the SDK's
 `__RPC__inout_opt_string` promises it only on entry. Termination phases are independent of direction
 and do not imply a capacity or character encoding. Version and empty-argument checks prevent
 malformed contracts from supplying flags. `rpc_strings` checks all callable kinds, native conflicts,
@@ -603,8 +647,15 @@ invalid buffer types, input order, SDK definitions, and both metadata round trip
 remain distinct from SAL2 readonly input contracts during reconciliation.
 
 Top-level RPC buffer forms lower representable element capacities and successful initialized
-lengths while retaining their full evidence. Full output/inout buffers use the capacity parameter
-as initialized length; partial output buffers use a separate integer count or one dereference.
+lengths. Fully represented `__RPC__out_ecount_part` contracts replace raw evidence with typed
+attributes. Their array attribute includes `PostWritable = true`, preserving the SDK's additional
+successful-output writable-capacity guarantee. RDL uses the full `NativeArrayInfo` spelling because
+`len_param` alone cannot express this property. Direct/full RPC input buffers and their optional
+and counted-string variants also replace fully represented evidence with typed input, count, and
+termination contracts. Their `NativeInput(ReadOnly = false)` remains distinct from SAL1/SAL2 input
+buffers' read-access guarantee. Equivalent RPC `ecount`/`xcount` spellings share one contract.
+Other RPC buffer forms retain their full evidence. Full output/inout buffers use the capacity
+parameter as initialized length; partial output buffers use a separate integer count or one dereference.
 Partial input readable lengths remain entry-condition evidence, not output lengths. Capacity and
 initialized length can be represented independently when the other expression is unsupported.
 Counted string forms add termination for the phases declared by the SDK.
@@ -632,6 +683,16 @@ and four direct, non-optional SAL1 aliases encode initialized length in
 parameter or, with `Dereference = true`, one pointer to an integer. `IsByteCount` distinguishes bytes
 from elements. This is a postcondition subject to the callable's success contract; it does not
 authorize dereferencing a null optional count pointer. Count parameter optionality remains separate.
+The bounded `p ? *p : n` form adds `NullFallbackParamIndex` for the by-value integer parameter `n`.
+The condition must name the same parameter that is dereferenced. A missing field means no fallback,
+not parameter zero. Pointer/count types are validated; arbitrary conditions, arithmetic, constants,
+and nested ternaries remain evidence rather than guessed relationships. This shared lowering applies
+to supported SAL1, SAL2, and RPC initialized-length forms, without changing native observations.
+`conditional_length` checks metadata round trips, whitespace, input order, conflicting fallbacks,
+invalid types, and unsupported expressions. Its SDK case verifies actual RPC and SAL2 macros;
+`sdk_background_copy_enumerator` covers `IEnumBackgroundCopyFiles::Next`.
+Consumers using initialized-length guarantees must honor the fallback field before dereferencing;
+same-version round trips do not establish compatibility with consumers that ignore it.
 The eight SAL2 `*_all_*` output/update forms use the same direct integer parameter for capacity
 and initialized length. Unsupported count expressions retain their source evidence and known
 direction without an inferred relationship. `buffer_full` checks equivalence with matching
@@ -982,7 +1043,8 @@ Header capture and native reconciliation do not infer DLL ownership.
 
 SDK publication prefers named exports. `tool-win32-2/src/named_exports.rs` contains checked public
 entry points whose SDK archives select ordinals: ten Winsock, two Direct3D 12, six Direct2D, and
-`ILClone`/`ILFree`. These are established named bindings, also verified against the installed
+`ILClone`/`ILFree`, plus 22 Active Directory helpers from `adshlp.h`. These are established named
+bindings, also verified against the installed
 x86/x64 DLL export tables. The policy checks exact native symbols, target, provider, ordinal, and
 code kind; it does not derive export names from linker decoration. Changed evidence fails.
 Unreviewed ordinal imports remain explicit omissions. Original ordinal records remain intact,
@@ -992,7 +1054,8 @@ Generic projection can encode `#[library("DLL", import = "#N")]`; this is distin
 publication policy. `import_targets` checks target mappings, explicit precedence, missing-target
 rejection, invalid ordinals, and native conflicts. `sdk_import_targets` preserves native archive
 evidence through both metadata round trips. The driver's `sdk_library_policy` checks every reviewed
-entry on all targets and compares actual named publication to `sdk_named_imports.rdl`.
+entry on all targets and compares actual named publication to `sdk_named_imports.rdl` and
+`sdk_adshlp.rdl`. The Active Directory fixture covers all 22 helpers with their native dependencies.
 `named_import_consumers` consumes that fixture with the unchanged bindgen/windows-link path.
 It checks API presence, native signatures, host execution, and three-target named PE imports.
 The PE probe excludes Rust std, whose own import libraries may select Winsock ordinals regardless

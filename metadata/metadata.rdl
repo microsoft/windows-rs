@@ -46,6 +46,8 @@ mod Windows {
                 CountParamIndex: i16,
                 CountConst: i32,
                 CountFieldName: String,
+                // Also guarantees this capacity is writable on successful completion.
+                PostWritable: bool,
             }
             // Records that a pointer parameter is a byte buffer whose size in bytes is
             // given by another parameter (`BytesParamIndex`); derived from SAL
@@ -70,6 +72,26 @@ mod Windows {
                 CountParamIndex: i16,
                 IsByteCount: bool,
                 Dereference: bool,
+                // With Dereference, use this by-value count when the count pointer is null.
+                // Absence means there is no fallback; it is distinct from parameter index zero.
+                NullFallbackParamIndex: i16,
+            }
+            // Valid input on entry. Pointer arguments are non-null unless optional.
+            // ReadOnly records the additional SAL pointee-read-access contract. False does not
+            // require writable storage. This does not change native qualifiers or imply a count.
+            attribute NativeInputAttribute {
+                fn();
+                ReadOnly: bool,
+            }
+            // A parameter supplies storage for a returned pointer. If storage is supplied,
+            // successful completion initializes it; a non-null result points to one readable
+            // element. MayBeNull permits a null result on success, not a null storage argument.
+            // NullOnFailure additionally requires a null result on failure. Success/failure
+            // follows the callable's contract. This specifies no allocator or ownership transfer.
+            attribute NativeReturnedPointerAttribute {
+                fn();
+                MayBeNull: bool,
+                NullOnFailure: bool,
             }
             // Marks a parameter that is reserved and must be zero/null (SAL `_Reserved_`).
             // RDL: `#[reserved]`.

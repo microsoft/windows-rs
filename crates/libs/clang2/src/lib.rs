@@ -370,6 +370,13 @@ pub struct Parameter {
     pub location: Location,
     pub attributes: Vec<Attribute>,
     pub default: Option<DefaultArgument>,
+    pub comments: Vec<ParameterComment>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct ParameterComment {
+    pub text: String,
+    pub location: Location,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -605,6 +612,12 @@ impl Snapshot {
                     .map(|parameter| {
                         parameter.name.capacity()
                             + attributes_bytes(&parameter.attributes)
+                            + vector_bytes(&parameter.comments)
+                            + parameter
+                                .comments
+                                .iter()
+                                .map(|value| value.text.capacity())
+                                .sum::<usize>()
                             + parameter
                                 .default
                                 .as_ref()

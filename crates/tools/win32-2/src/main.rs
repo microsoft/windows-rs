@@ -745,32 +745,52 @@ mod tests {
         }
         let fixtures =
             Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\tests\\libs\\clang2\\input");
-        let input = Input {
-            name: "sdk_import_targets.h".into(),
-            source: std::fs::read_to_string(fixtures.join("sdk_import_targets.h")).unwrap(),
-            arguments: sdk_test_arguments(false),
-            roots: ["ILClone", "ILFree", "WSAStartup"].map(String::from).into(),
-            ..Default::default()
-        };
-        let snapshots =
-            windows_clang2::capture(&[input], &[Target::X86, Target::X64, Target::Arm64]).unwrap();
-        let output = projection::project_with_imports(
-            &windows_clang2::merge(&snapshots).unwrap(),
-            "Fixture",
-            &published,
-        )
-        .unwrap();
-        let actual: String = output
-            .partitions
-            .values()
-            .map(|part| part.rdl.as_str())
+        let adshlp: Vec<String> = named_exports::EXPORTS
+            .iter()
+            .filter(|entry| entry.1 == "activeds.dll")
+            .map(|entry| entry.0.into())
             .collect();
-        let expected_path = fixtures.join("sdk_named_imports.rdl");
-        if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
-            std::fs::write(&expected_path, &actual).unwrap();
+        assert_eq!(adshlp.len(), 22);
+        for (header, golden, roots) in [
+            (
+                "sdk_import_targets.h",
+                "sdk_named_imports.rdl",
+                ["ILClone", "ILFree", "WSAStartup"]
+                    .map(String::from)
+                    .to_vec(),
+            ),
+            ("sdk_adshlp.h", "sdk_adshlp.rdl", adshlp),
+        ] {
+            let expected_functions = roots.len();
+            let input = Input {
+                name: header.into(),
+                source: std::fs::read_to_string(fixtures.join(header)).unwrap(),
+                arguments: sdk_test_arguments(false),
+                roots,
+                ..Default::default()
+            };
+            let snapshots =
+                windows_clang2::capture(&[input], &[Target::X86, Target::X64, Target::Arm64])
+                    .unwrap();
+            let output = projection::project_with_imports(
+                &windows_clang2::merge(&snapshots).unwrap(),
+                "Fixture",
+                &published,
+            )
+            .unwrap();
+            assert_eq!(output.functions, expected_functions);
+            let actual: String = output
+                .partitions
+                .values()
+                .map(|part| part.rdl.as_str())
+                .collect();
+            let expected_path = fixtures.join(golden);
+            if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+                std::fs::write(&expected_path, &actual).unwrap();
+            }
+            let expected = std::fs::read_to_string(expected_path).unwrap();
+            assert_eq!(actual.replace("\r\n", "\n"), expected.replace("\r\n", "\n"));
         }
-        let expected = std::fs::read_to_string(expected_path).unwrap();
-        assert_eq!(actual.replace("\r\n", "\n"), expected.replace("\r\n", "\n"));
     }
 
     #[test]

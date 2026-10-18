@@ -1,10 +1,10 @@
 #[win32]
 mod Fixture {
     #[library("example.dll")]
-    extern "C" fn BufferFunction(#[reserved] zero: u32, #[reserved] null: *mut void, #[in] #[reserved] input: *mut void, ordinary: u32);
+    extern "C" fn BufferFunction(#[reserved] zero: u32, #[reserved] null: *mut void, #[in] #[reserved] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] input: *mut void, ordinary: u32);
     #[guid(0x11111111_2222_3333_4444_555555555555)]
     interface IReserved {
-        fn Read(&self, #[reserved] zero: u32, #[reserved] null: *mut void, #[in] #[reserved] input: *mut void, ordinary: u32);
+        fn Read(&self, #[reserved] zero: u32, #[reserved] null: *mut void, #[in] #[reserved] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] input: *mut void, ordinary: u32);
     }
-    extern "C" fn Reserved(#[reserved] zero: u32, #[reserved] null: *mut void, #[in] #[reserved] input: *mut void, ordinary: u32);
+    extern "C" fn Reserved(#[reserved] zero: u32, #[reserved] null: *mut void, #[in] #[reserved] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] input: *mut void, ordinary: u32);
 }

@@ -98,7 +98,7 @@ pub fn project_partial_with_imports(
                                 .parameters
                                 .iter()
                                 .flatten()
-                                .any(|parameter| !parameter.attributes.is_empty())
+                                .any(annotations::parameter_is_annotated)
                     })
                 })
                 .map(|alias| alias.name.clone())
@@ -213,31 +213,6 @@ fn project_impl(
             })
         })
         .collect();
-    let mut function_conventions = HashMap::new();
-    let x86 = &merged.targets[&Target::X86];
-    for value in &x86.values {
-        let reference = value.observations[0];
-        let snapshot = x86.snapshots[reference.snapshot];
-        let observation = &snapshot.values[reference.value.0].observations[reference.observation];
-        if matches!(observation.kind, ValueKind::Function { .. })
-            && let TypeKind::Function(function) = &snapshot.types[observation.canonical.0].kind
-        {
-            function_conventions.insert(value.name.clone(), function.convention);
-        }
-    }
-    let mut callback_conventions = HashMap::new();
-    for alias in &x86.aliases {
-        let reference = alias.observations[0];
-        let snapshot = x86.snapshots[reference.snapshot];
-        let observation = &snapshot.aliases[reference.alias.0].observations[reference.observation];
-        let function = match &snapshot.types[observation.canonical.0].kind {
-            TypeKind::Function(function) => Some(function.as_ref()),
-            _ => callback(snapshot, observation.canonical),
-        };
-        if let Some(function) = function {
-            callback_conventions.insert(alias.name.clone(), function.convention);
-        }
-    }
     let mut declarations = BTreeMap::new();
     for (&target, resolution) in &merged.targets {
         let plan = Plan::new(resolution)?;
@@ -261,8 +236,6 @@ fn project_impl(
             namespace,
             resolution,
             plan: &plan,
-            function_conventions: &function_conventions,
-            callback_conventions: &callback_conventions,
         };
         let mut published = HashSet::new();
         let mut constants = HashMap::new();
@@ -859,8 +832,6 @@ struct Projector<'a, 'b> {
     namespace: &'a str,
     resolution: &'a Resolution<'b>,
     plan: &'a Plan,
-    function_conventions: &'a HashMap<String, CallingConvention>,
-    callback_conventions: &'a HashMap<String, CallingConvention>,
 }
 
 fn publishable_alias(snapshot: &Snapshot, observation: &AliasObservation) -> bool {
@@ -943,9 +914,8 @@ fn agree(name: &str, target: Target, bodies: &[Body]) -> Result<(), Error> {
     Ok(())
 }
 
-fn callable_abi(native: CallingConvention, x86: Option<&CallingConvention>) -> TokenStream {
-    // Win64 C and stdcall share an ABI; use the observed x86 spelling for named callables.
-    match x86.copied().unwrap_or(native) {
+fn callable_abi(convention: CallingConvention) -> TokenStream {
+    match convention {
         CallingConvention::C => quote! { "C" },
         CallingConvention::Stdcall => TokenStream::new(),
     }
@@ -961,13 +931,67 @@ fn callback(snapshot: &Snapshot, id: TypeId) -> Option<&Function> {
     }
 }
 
-fn written_function(snapshot: &Snapshot, mut id: TypeId) -> Result<&Function, Error> {
+#[derive(Clone, Copy)]
+struct WrittenFunction<'a> {
+    prototype: &'a Function,
+    convention: CallingConvention,
+}
+
+impl WrittenFunction<'_> {
+    fn conventions(self, snapshot: &Snapshot) -> Result<Vec<CallingConvention>, Error> {
+        fn append(
+            snapshot: &Snapshot,
+            id: TypeId,
+            values: &mut Vec<CallingConvention>,
+        ) -> Result<(), Error> {
+            match snapshot.types[id.0].kind {
+                TypeKind::Alias(alias) => append(
+                    snapshot,
+                    snapshot.aliases[alias.0].observations[0].underlying,
+                    values,
+                )?,
+                TypeKind::Pointer(inner)
+                | TypeKind::LValueReference(inner)
+                | TypeKind::Array { element: inner, .. } => append(snapshot, inner, values)?,
+                TypeKind::Function(_) | TypeKind::Attributed { .. } => {
+                    values.extend(written_function(snapshot, id)?.conventions(snapshot)?);
+                }
+                _ => {}
+            }
+            Ok(())
+        }
+        let mut values = vec![self.convention];
+        append(snapshot, self.prototype.result, &mut values)?;
+        for &parameter in &self.prototype.parameters {
+            append(snapshot, parameter, &mut values)?;
+        }
+        Ok(values)
+    }
+}
+
+fn written_function(snapshot: &Snapshot, mut id: TypeId) -> Result<WrittenFunction<'_>, Error> {
+    let mut convention = None;
     loop {
         match &snapshot.types[id.0].kind {
             TypeKind::Alias(alias) => id = snapshot.aliases[alias.0].observations[0].underlying,
             TypeKind::Pointer(pointee) => id = *pointee,
-            TypeKind::Attributed { modified, .. } => id = *modified,
-            TypeKind::Function(function) => return Ok(function),
+            TypeKind::Attributed {
+                convention: requested,
+                modified,
+                ..
+            } => {
+                if convention.is_some_and(|convention| convention != *requested) {
+                    return Err(Error("conflicting written calling conventions".into()));
+                }
+                convention.get_or_insert(*requested);
+                id = *modified;
+            }
+            TypeKind::Function(function) => {
+                return Ok(WrittenFunction {
+                    prototype: function,
+                    convention: convention.unwrap_or(function.convention),
+                });
+            }
             _ => return Err(Error("callback has no written prototype".into())),
         }
     }
@@ -997,11 +1021,8 @@ fn callback_parameters<'a>(
 
 fn callback_contracts(snapshot: &Snapshot, observation: &AliasObservation) -> bool {
     if !observation.attributes.is_empty()
-        || callback_parameters(snapshot, observation).is_some_and(|parameters| {
-            parameters
-                .iter()
-                .any(|parameter| !parameter.attributes.is_empty())
-        })
+        || callback_parameters(snapshot, observation)
+            .is_some_and(|parameters| parameters.iter().any(annotations::parameter_is_annotated))
     {
         return true;
     }
@@ -1058,11 +1079,11 @@ impl Projector<'_, '_> {
             return Ok(body);
         }
         let name = ident(name)?;
-        if observation.parameters.as_ref().is_some_and(|parameters| {
-            parameters
-                .iter()
-                .any(|parameter| !parameter.attributes.is_empty())
-        }) {
+        if observation
+            .parameters
+            .as_ref()
+            .is_some_and(|parameters| parameters.iter().any(annotations::parameter_is_annotated))
+        {
             return Err(Error(format!(
                 "nested callback contract on `{name}` has no metadata owner"
             )));
@@ -1090,13 +1111,13 @@ impl Projector<'_, '_> {
         &self,
         snapshot: usize,
         function: &Function,
-        written: &Function,
+        written: WrittenFunction<'_>,
         name: &str,
         declarations: Option<&[Parameter]>,
         attributes: &[Attribute],
     ) -> Result<Body, Error> {
         let signature = self.signature(snapshot, function, Some(written))?;
-        let abi = callable_abi(function.convention, self.callback_conventions.get(name));
+        let abi = callable_abi(written.convention);
         let name = ident(name)?;
         let parameters = if let Some(declarations) = declarations {
             self.parameters(snapshot, function, declarations)?
@@ -1120,7 +1141,7 @@ impl Projector<'_, '_> {
             quote! { -> #result }
         };
         Ok(Body {
-            attributes: annotations::function(written, attributes),
+            attributes: annotations::function(written.prototype, attributes),
             declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
         })
     }
@@ -1129,7 +1150,7 @@ impl Projector<'_, '_> {
         &self,
         snapshot: usize,
         function: &Function,
-        written: Option<&Function>,
+        written: Option<WrittenFunction<'_>>,
     ) -> Result<windows_metadata::Signature, Error> {
         self.check_function_abi(snapshot, function)?;
         if function.method_qualifiers != Qualifiers::default() {
@@ -1137,10 +1158,12 @@ impl Projector<'_, '_> {
                 "method qualifiers are unsupported on callbacks".into(),
             ));
         }
-        if written.is_some_and(|written| function.parameters.len() != written.parameters.len()) {
+        if written
+            .is_some_and(|written| function.parameters.len() != written.prototype.parameters.len())
+        {
             return Err(Error("written and canonical callback arity differ".into()));
         }
-        let flags = match function.convention {
+        let flags = match written.map_or(function.convention, |written| written.convention) {
             CallingConvention::C => windows_metadata::MethodCallAttributes::C,
             CallingConvention::Stdcall => windows_metadata::MethodCallAttributes::STDCALL,
         };
@@ -1150,14 +1173,14 @@ impl Projector<'_, '_> {
             .enumerate()
             .map(|(index, id)| {
                 if let Some(written) = written {
-                    self.parameter_ty(snapshot, written.parameters[index], *id)
+                    self.parameter_ty(snapshot, written.prototype.parameters[index], *id)
                 } else {
                     self.ty(snapshot, *id)
                 }
             })
             .collect::<Result<_, _>>()?;
         let return_type = if let Some(written) = written {
-            self.written_ty(snapshot, written.result, function.result)?
+            self.written_ty(snapshot, written.prototype.result, function.result)?
         } else {
             self.ty(snapshot, function.result)?
         };
@@ -1234,23 +1257,19 @@ impl Projector<'_, '_> {
                 _ => break,
             }
         }
-        if let TypeKind::Function(prototype) = &snapshot.types[source.0].kind
+        if matches!(snapshot.types[source.0].kind, TypeKind::Function(_))
             && let Some(function) = callback(snapshot, canonical)
         {
             checked_type(snapshot, canonical)?;
             if let Some(name) = function_alias_name(snapshot, written) {
                 return Ok(MetadataType::class_named(self.namespace, name));
             }
-            let value = self.ty(snapshot_id, canonical)?;
-            return if matches!(value, MetadataType::FnPtr(_)) {
-                Ok(MetadataType::FnPtr(Box::new(self.signature(
-                    snapshot_id,
-                    function,
-                    Some(prototype),
-                )?)))
-            } else {
-                Ok(value)
-            };
+            return self.function_pointer(
+                snapshot_id,
+                canonical,
+                function,
+                Some(written_function(snapshot, written)?),
+            );
         }
         if let TypeKind::Array { element, .. } = snapshot.types[source.0].kind
             && let TypeKind::Pointer(pointee) = snapshot.types[canonical.0].kind
@@ -1322,16 +1341,12 @@ impl Projector<'_, '_> {
                     if let Some(name) = function_alias_name(snapshot, *written) {
                         return Ok(MetadataType::class_named(self.namespace, name));
                     }
-                    let value = self.ty(snapshot_id, canonical)?;
-                    if matches!(value, MetadataType::FnPtr(_)) {
-                        MetadataType::FnPtr(Box::new(self.signature(
-                            snapshot_id,
-                            function,
-                            Some(written_function(snapshot, *written)?),
-                        )?))
-                    } else {
-                        value
-                    }
+                    self.function_pointer(
+                        snapshot_id,
+                        canonical,
+                        function,
+                        Some(written_function(snapshot, *written)?),
+                    )?
                 } else {
                     let inner = Box::new(self.written_ty(snapshot_id, *written, pointee)?);
                     if snapshot.types[pointee.0].qualifiers.constant {
@@ -1366,6 +1381,36 @@ impl Projector<'_, '_> {
             }
             _ => self.ty(snapshot_id, canonical)?,
         })
+    }
+
+    fn function_pointer(
+        &self,
+        snapshot: usize,
+        id: TypeId,
+        function: &Function,
+        written: Option<WrittenFunction<'_>>,
+    ) -> Result<MetadataType, Error> {
+        let conventions = written
+            .unwrap_or(WrittenFunction {
+                prototype: function,
+                convention: function.convention,
+            })
+            .conventions(self.resolution.snapshots[snapshot])?;
+        if let Some(name) = self.plan.callbacks[snapshot].get(&(id, conventions)) {
+            Ok(MetadataType::class_named(self.namespace, name))
+        } else if function.noreturn {
+            Err(Error(
+                "noreturn function pointer requires a named callback to retain its contract".into(),
+            ))
+        } else if function.exceptions != ExceptionSpecification::None {
+            Err(Error(
+                "noexcept function pointer requires a named callback to retain its contract".into(),
+            ))
+        } else {
+            Ok(MetadataType::FnPtr(Box::new(
+                self.signature(snapshot, function, written)?,
+            )))
+        }
     }
 
     fn ty(&self, snapshot_id: usize, id: TypeId) -> Result<MetadataType, Error> {
@@ -1406,25 +1451,7 @@ impl Projector<'_, '_> {
             }
             TypeKind::Pointer(pointee) => {
                 if let TypeKind::Function(function) = &snapshot.types[pointee.0].kind {
-                    return if let Some(name) = self.plan.callbacks[snapshot_id].get(&id) {
-                        Ok(MetadataType::class_named(self.namespace, name))
-                    } else if function.noreturn {
-                        Err(Error(
-                            "noreturn function pointer requires a named callback to retain its contract"
-                                .into(),
-                        ))
-                    } else if function.exceptions != ExceptionSpecification::None {
-                        Err(Error(
-                            "noexcept function pointer requires a named callback to retain its contract"
-                                .into(),
-                        ))
-                    } else {
-                        Ok(MetadataType::FnPtr(Box::new(self.signature(
-                            snapshot_id,
-                            function,
-                            None,
-                        )?)))
-                    };
+                    return self.function_pointer(snapshot_id, id, function, None);
                 }
                 if let TypeKind::Record(record) = snapshot.types[pointee.0].kind
                     && self.interface_record(snapshot_id, record)

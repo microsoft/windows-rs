@@ -92,6 +92,9 @@ fn annotation_roundtrip() {
     let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
     let expected = test_clang2::input_dir().join("annotations.rdl");
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(&expected, &text).unwrap();
+    }
     assert_eq!(
         text,
         std::fs::read_to_string(expected)
@@ -188,9 +191,18 @@ fn annotation_roundtrip() {
                     .is_optional()
             );
             let interface = index.expect("Fixture", "IAnnotated");
+            let parameter = interface.methods().next().unwrap().params().next().unwrap();
+            assert!(attributes(parameter).is_empty());
+            assert!(parameter.find_attribute("ComOutPtrAttribute").is_some());
             assert_eq!(
-                attributes(interface.methods().next().unwrap().params().next().unwrap()),
-                vec![annotation("_COM_Outptr_", "", "")]
+                parameter
+                    .find_attribute("NativeReturnedPointerAttribute")
+                    .unwrap()
+                    .value(),
+                [
+                    ("MayBeNull".into(), Value::Bool(false)),
+                    ("NullOnFailure".into(), Value::Bool(true)),
+                ]
             );
             let field = index
                 .expect("Fixture", "BufferView")
@@ -393,7 +405,8 @@ fn sdk_annotations() {
     assert_eq!(output.functions, 2);
     assert_eq!(output.interfaces, 2);
     let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
-    assert!(text.contains("_COM_Outptr_"));
+    assert!(!text.contains("_COM_Outptr_"));
+    assert!(text.contains("NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)"));
     assert!(text.contains("_Return_type_success_"));
     assert!(text.contains("#[size_param(2)]"), "{text}");
     assert!(text.contains("#[len_param(2)] lpFilename:"), "{text}");
@@ -466,7 +479,18 @@ fn sdk_annotations() {
             .find(|method| method.name() == "CreateInstance")
             .unwrap();
         let result = create.params().last().unwrap();
-        assert!(attributes(result).contains(&annotation("_COM_Outptr_", "", "")));
+        assert!(!attributes(result).contains(&annotation("_COM_Outptr_", "", "")));
+        assert!(result.find_attribute("ComOutPtrAttribute").is_some());
+        assert_eq!(
+            result
+                .find_attribute("NativeReturnedPointerAttribute")
+                .unwrap()
+                .value(),
+            [
+                ("MayBeNull".into(), Value::Bool(false)),
+                ("NullOnFailure".into(), Value::Bool(true)),
+            ]
+        );
         assert!(!result.is_optional());
     }
     std::fs::remove_file(path).unwrap();

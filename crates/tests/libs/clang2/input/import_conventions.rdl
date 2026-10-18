@@ -5,9 +5,19 @@ mod Fixture {
     extern "C" fn CdeclCallback(value: i32) -> i32;
     #[library("example.dll")]
     #[arch(X64 | Arm64)]
-    extern "C" fn Only64(value: i32) -> i32;
+    extern "C" fn Changing(value: i32) -> i32;
+    #[library("example.dll")]
+    #[arch(X86)]
+    extern fn Changing(value: i32) -> i32;
     #[arch(X64 | Arm64)]
-    extern "C" fn Only64Callback(value: i32) -> i32;
+    extern "C" fn ChangingCallback(value: i32) -> i32;
+    #[arch(X86)]
+    extern fn ChangingCallback(value: i32) -> i32;
+    #[library("example.dll")]
+    #[arch(X64 | Arm64)]
+    extern fn Only64(value: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    extern fn Only64Callback(value: i32) -> i32;
     #[library("example.dll")]
     extern fn Shared(value: i32) -> i32;
     extern fn SharedCallback(value: i32) -> i32;

@@ -133,11 +133,17 @@ pub(super) fn only_contracts(attributes: &[Attribute]) -> bool {
     })
 }
 
+pub(super) fn parameter_is_annotated(parameter: &Parameter) -> bool {
+    !parameter.attributes.is_empty()
+        || resolve::midl_parameter(parameter) != resolve::MidlParameter::default()
+}
+
 pub(super) fn parameter(
-    attributes: &[Attribute],
+    parameter: &Parameter,
     parameters: &[Parameter],
     ty: &MetadataType,
 ) -> Result<TokenStream, Error> {
+    let attributes = &parameter.attributes;
     if !only_contracts(attributes) {
         return Err(Error("unsupported function parameter attributes".into()));
     }
@@ -148,6 +154,12 @@ pub(super) fn parameter(
             output |= direction != sal::Direction::Input;
             optional |= argument_optional;
         }
+    }
+    let midl = resolve::midl_parameter(parameter);
+    input |= midl.input;
+    output |= midl.output;
+    if midl.retval && (!output || input || matches!(ty, MetadataType::ClassName(_))) {
+        return Err(Error("MIDL result marker requires output storage".into()));
     }
     let normalized = sal::parameters(attributes, parameters);
     let preserve = normalized.iter().any(|value| {
@@ -181,7 +193,30 @@ pub(super) fn parameter(
     let reserved = normalized
         .contains(&sal::ParameterAnnotation::Reserved)
         .then(|| quote! { #[reserved] });
-    Ok(quote! { #native #input #output #optional #reserved })
+    let returned = normalized.iter().filter_map(|value| {
+        let sal::ParameterAnnotation::Contract(contract) = value else {
+            return None;
+        };
+        let sal::ReturnedPointer {
+            may_be_null,
+            null_on_failure,
+            ..
+        } = contract.returned_pointer?;
+        Some(quote! {
+            #[Windows::Win32::Metadata::NativeReturnedPointer(
+                MayBeNull = #may_be_null, NullOnFailure = #null_on_failure
+            )]
+        })
+    });
+    let entry = normalized.iter().filter_map(|value| {
+        let sal::ParameterAnnotation::Contract(contract) = value else {
+            return None;
+        };
+        let read_only = contract.input_read_only?;
+        Some(quote! { #[Windows::Win32::Metadata::NativeInput(ReadOnly = #read_only)] })
+    });
+    let retval = midl.retval.then(|| quote! { #[retval] });
+    Ok(quote! { #native #input #output #optional #reserved #retval #(#returned)* #(#entry)* })
 }
 
 pub(super) fn buffer(
@@ -192,11 +227,49 @@ pub(super) fn buffer(
     ty: &MetadataType,
 ) -> Result<TokenStream, Error> {
     let mut size = None;
+    let midl = resolve::midl_parameter(&parameters[index]);
+    let mut com_out = midl.iid_is && midl.output && !midl.input;
+    if (midl.retval || com_out)
+        && !matches!(
+            snapshot.types[function.parameters[index].0].kind,
+            TypeKind::Pointer(_)
+        )
+    {
+        return Err(Error("MIDL result marker requires a pointer".into()));
+    }
+    if com_out {
+        let TypeKind::Pointer(inner) = snapshot.types[function.parameters[index].0].kind else {
+            unreachable!()
+        };
+        if !matches!(snapshot.types[inner.0].kind, TypeKind::Pointer(_)) {
+            return Err(Error(
+                "MIDL iid_is requires pointer-to-pointer storage".into(),
+            ));
+        }
+    }
+    let mut post_writable = false;
     let mut initialized = None;
     let (mut on_entry, mut on_success) = (false, false);
     for value in resolve::sal(&parameters[index].attributes) {
         let contract =
             sal::parameter(value, parameters).or_else(|| sal::rpc_buffer(value, parameters));
+        post_writable |= contract.is_some_and(|contract| contract.post_writable);
+        if let Some(pointer) = contract.and_then(|contract| contract.returned_pointer) {
+            let TypeKind::Pointer(inner) = snapshot.types[function.parameters[index].0].kind else {
+                return Err(Error(
+                    "SAL returned pointer requires pointer-to-pointer storage".into(),
+                ));
+            };
+            let TypeKind::Pointer(pointee) = snapshot.types[inner.0].kind else {
+                return Err(Error(
+                    "SAL returned pointer requires pointer-to-pointer storage".into(),
+                ));
+            };
+            com_out |= pointer.com
+                && matches!(snapshot.types[pointee.0].kind, TypeKind::Void)
+                && snapshot.types[inner.0].qualifiers == Qualifiers::default()
+                && snapshot.types[pointee.0].qualifiers == Qualifiers::default();
+        }
         let capacity = contract
             .and_then(|contract| contract.capacity)
             .or_else(|| sal::capacity(value, parameters));
@@ -219,6 +292,15 @@ pub(super) fn buffer(
             on_success |= success;
         }
         if let Some(length) = length {
+            if let Some(fallback) = length.null_fallback
+                && !matches!(&snapshot.types[function.parameters[fallback].0].kind,
+                    TypeKind::Scalar(scalar) if scalar.signed_integer().is_some())
+            {
+                return Err(Error(format!(
+                    "SAL initialized length fallback `{}` requires a by-value integer parameter",
+                    parameters[fallback].name,
+                )));
+            }
             let count = length.count.parameter;
             let mut kind = &snapshot.types[function.parameters[count].0].kind;
             if length.dereference
@@ -266,9 +348,17 @@ pub(super) fn buffer(
         size = Some(capacity);
     }
     let mut attributes = TokenStream::new();
+    if com_out {
+        attributes.extend(quote! { #[iid_is] });
+    }
     if let Some(capacity) = size {
         let size = count_index(capacity.parameter)?;
-        attributes.extend(if capacity.units == sal::Units::Bytes {
+        attributes.extend(if post_writable {
+            quote! {
+                #[Windows::Win32::Metadata::NativeArrayInfo(
+                    CountParamIndex = #size, PostWritable = true)]
+            }
+        } else if capacity.units == sal::Units::Bytes {
             quote! { #[size_param(#size)] }
         } else {
             quote! { #[len_param(#size)] }
@@ -284,9 +374,14 @@ pub(super) fn buffer(
         let index = count_index(length.count.parameter)?;
         let bytes = length.count.units == sal::Units::Bytes;
         let dereference = length.dereference;
+        let fallback = length
+            .null_fallback
+            .map(count_index)
+            .transpose()?
+            .map(|index| quote! { , NullFallbackParamIndex = #index });
         attributes.extend(quote! {
             #[Windows::Win32::Metadata::NativeInitializedLength(
-                CountParamIndex = #index, IsByteCount = #bytes, Dereference = #dereference)]
+                CountParamIndex = #index, IsByteCount = #bytes, Dereference = #dereference #fallback)]
         });
     }
     Ok(attributes)

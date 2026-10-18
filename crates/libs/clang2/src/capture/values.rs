@@ -86,6 +86,7 @@ impl Capture<'_> {
             let parameter = unsafe { clang_Cursor_getArgument(cursor, index) };
             parameters.push(self.parameter(parameter)?);
         }
+        self.parameter_comments(cursor, &mut parameters);
 
         Ok(ValueObservation {
             location: self.location(cursor),
@@ -127,6 +128,7 @@ impl Capture<'_> {
                 expression: spelling,
                 location: self.location(expression),
             }),
+            comments: Vec::new(),
         })
     }
 
@@ -156,11 +158,12 @@ impl Capture<'_> {
                 "callback parameter ownership is ambiguous",
             ));
         }
-        parameters
+        let mut parameters = parameters
             .into_iter()
             .map(|parameter| self.parameter(parameter))
-            .collect::<Result<Vec<_>, _>>()
-            .map(Some)
+            .collect::<Result<Vec<_>, _>>()?;
+        self.parameter_comments(cursor, &mut parameters);
+        Ok(Some(parameters))
     }
 
     fn constant_observation(&mut self, cursor: CXCursor) -> Result<ValueObservation, Error> {
