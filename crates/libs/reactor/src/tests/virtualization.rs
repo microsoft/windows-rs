@@ -309,12 +309,23 @@ fn virtual_items_remove_active_rows_when_source_becomes_empty() {
 }
 
 #[test]
-fn virtual_realization_batches_validate_before_consumption() {
+fn virtual_realization_requests_validate_at_work_boundaries() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime
-        .update(ItemsRepeater::new().item("only", TextBlock::new().text("only")))
+        .update(
+            ItemsRepeater::new()
+                .width(100.0)
+                .item("only", TextBlock::new().text("only")),
+        )
         .unwrap();
     let collection = runtime.graph().root().unwrap();
+    runtime.adapter_mut().observe(Observation::SetProperty {
+        object: collection,
+        property: Property {
+            id: PropertyId::Width,
+            value: PropertyValue::F64(200.0),
+        },
+    });
     runtime
         .adapter_mut()
         .queue_realization(RealizationRequest::Realize {
@@ -323,6 +334,13 @@ fn virtual_realization_batches_validate_before_consumption() {
             index: 0,
             source_revision: 0,
         });
+    runtime.adapter_mut().observe(Observation::SetProperty {
+        object: collection,
+        property: Property {
+            id: PropertyId::Width,
+            value: PropertyValue::F64(300.0),
+        },
+    });
     runtime
         .adapter_mut()
         .queue_realization(RealizationRequest::Realize {
@@ -332,6 +350,27 @@ fn virtual_realization_batches_validate_before_consumption() {
             source_revision: 0,
         });
 
+    assert_eq!(
+        runtime.prepare_update(),
+        Err(UpdateError::PendingNativeEvent)
+    );
+    let Some(NativeWork::Virtual(VirtualWork::Realize {
+        lease, index, view, ..
+    })) = runtime.next_native_work().unwrap()
+    else {
+        panic!("expected first realization");
+    };
+    assert_eq!(index, 0);
+    runtime.realize_virtual(&lease, index, *view).unwrap();
+    assert_eq!(
+        runtime.graph().properties(collection).unwrap(),
+        &[Property {
+            id: PropertyId::Width,
+            value: PropertyValue::F64(200.0),
+        }]
+    );
+    let graph = runtime.graph().clone();
+    let adapter = runtime.adapter().clone();
     assert!(matches!(
         runtime.next_native_work(),
         Err(UpdateError::InvalidNativeEvent(GraphError::InvalidRealization(
@@ -339,7 +378,9 @@ fn virtual_realization_batches_validate_before_consumption() {
             1
         ))) if object == collection
     ));
-    assert_eq!(runtime.adapter().object_count(), 1);
+    assert_eq!(runtime.graph(), &graph);
+    assert_eq!(runtime.adapter(), &adapter);
+    assert_eq!(runtime.adapter().object_count(), 2);
     assert_eq!(
         runtime.update(ItemsRepeater::new()),
         Err(UpdateError::Poisoned)

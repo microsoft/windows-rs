@@ -639,6 +639,59 @@ fn mixed_duplicate_and_stale_retirement_completions_are_idempotent() {
 }
 
 #[test]
+fn native_queue_retirement_boundary_preserves_later_observation_rollback() {
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    runtime
+        .update(Grid::new().width(100.0).keyed_children([keyed(
+            "retiring",
+            Button::new().exit_fade(Duration::from_millis(100)),
+        )]))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let retiring = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+    runtime.update(Grid::new().width(100.0)).unwrap();
+    assert_eq!(runtime.graph().retired_count(), 1);
+    assert!(runtime.adapter_mut().complete_retirement(retiring));
+    for property in [
+        Property {
+            id: PropertyId::Width,
+            value: PropertyValue::F64(200.0),
+        },
+        Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("Invalid")),
+        },
+    ] {
+        runtime.adapter_mut().observe(Observation::SetProperty {
+            object: root,
+            property,
+        });
+    }
+
+    assert!(matches!(
+        runtime.next_native_work().unwrap(),
+        Some(NativeWork::Maintenance)
+    ));
+    assert_eq!(runtime.graph().retired_count(), 0);
+    assert_eq!(runtime.adapter().retirement_count(), 0);
+    assert_eq!(runtime.adapter().object_count(), 1);
+    let graph = runtime.graph().clone();
+    let adapter = runtime.adapter().clone();
+    assert_eq!(
+        runtime.prepare_update(),
+        Err(UpdateError::InvalidNativeEvent(
+            GraphError::InvalidProperty(ObjectType::Grid, PropertyId::Text)
+        ))
+    );
+    assert_eq!(runtime.graph(), &graph);
+    assert_eq!(runtime.adapter(), &adapter);
+    assert_eq!(runtime.prepare_update(), Err(UpdateError::Poisoned));
+}
+
+#[test]
 fn native_queue_retirement_cleanup_does_not_consume_later_callback() {
     let calls = Rc::new(Cell::new(0));
     let called = Rc::clone(&calls);

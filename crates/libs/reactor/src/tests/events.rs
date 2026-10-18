@@ -492,6 +492,13 @@ fn native_queue_callback_boundary_preserves_later_realization_validation() {
     event.invoke();
     drop(event);
     assert_eq!(calls.get(), 1);
+    let Some(NativeWork::Virtual(VirtualWork::Realize {
+        lease, index, view, ..
+    })) = runtime.next_native_work().unwrap()
+    else {
+        panic!("expected earlier valid realization");
+    };
+    runtime.realize_virtual(&lease, index, *view).unwrap();
     let graph = runtime.graph().clone();
     let adapter = runtime.adapter().clone();
     assert!(matches!(
@@ -503,6 +510,7 @@ fn native_queue_callback_boundary_preserves_later_realization_validation() {
     ));
     assert_eq!(runtime.graph(), &graph);
     assert_eq!(runtime.adapter(), &adapter);
+    assert_eq!(runtime.prepare_update(), Err(UpdateError::Poisoned));
 }
 
 #[test]

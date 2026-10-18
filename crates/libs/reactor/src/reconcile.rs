@@ -422,7 +422,8 @@ pub struct NativeEvent {
 impl NativeEvent {
     pub(crate) fn preview_prefix(events: &mut Vec<Self>, pending: impl Iterator<Item = Self>) {
         for event in pending {
-            let boundary = event.event.is_some();
+            let boundary =
+                event.event.is_some() || event.realization.is_some() || event.retirement.is_some();
             events.push(event);
             if boundary {
                 break;
@@ -1295,11 +1296,10 @@ impl RetainedGraph {
 /// `apply` may change backend state; an error from `apply` poisons the owning [`Runtime`]
 /// because partial native mutation cannot be rolled back.
 ///
-/// WinUI and the recording adapter preview through the first callback. Observations and
-/// realization requests in that prefix are validated together before consuming any of it.
-/// Later work is validated after the callback and its resulting updates, so an invalid later
-/// observation does not prevent an earlier callback from running. Realization-only prefixes
-/// retain batch validation; this does not bound their preview cost.
+/// WinUI and the recording adapter preview through the next callback, realization request,
+/// or retirement completion. That operation and its preceding observations are validated
+/// together before consuming any of the prefix. Later work is validated after the operation
+/// and its resulting updates, which can change retained state and the native event queue.
 pub trait Adapter {
     type Error;
 
