@@ -26,6 +26,7 @@ mod Windows {
                         IBitmapImage2,
                         IBitmapImage3,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IBitmapSourceFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -324,6 +325,7 @@ mod Windows {
                         ISoftwareBitmapSource,
                         super::super::super::super::Foundation::IClosable,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ISurfaceImageSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -332,6 +334,7 @@ mod Windows {
                     class SurfaceImageSource: super::ImageSource {
                         ISurfaceImageSource,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ISvgImageSourceFactory, Public, 262144, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -378,6 +381,7 @@ mod Windows {
                     class WriteableBitmap: BitmapSource {
                         IWriteableBitmap,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IXamlRenderingBackgroundTaskFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

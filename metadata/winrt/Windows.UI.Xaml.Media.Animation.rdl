@@ -21,6 +21,7 @@ mod Windows {
                     class BackEase: EasingFunctionBase {
                         IBackEase,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IBasicConnectedAnimationConfigurationFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -83,6 +84,7 @@ mod Windows {
                     class ColorAnimationUsingKeyFrames: Timeline {
                         IColorAnimationUsingKeyFrames,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IColorKeyFrameFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -134,6 +136,7 @@ mod Windows {
                         CrossFade = 2,
                         Scale = 3,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IConnectedAnimationConfigurationFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -176,6 +179,7 @@ mod Windows {
                     class CubicEase: EasingFunctionBase {
                         ICubicEase,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IDirectConnectedAnimationConfigurationFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -235,6 +239,7 @@ mod Windows {
                     class DoubleAnimationUsingKeyFrames: Timeline {
                         IDoubleAnimationUsingKeyFrames,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IDoubleKeyFrameFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -324,6 +329,7 @@ mod Windows {
                     class EasingDoubleKeyFrame: DoubleKeyFrame {
                         IEasingDoubleKeyFrame,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IEasingFunctionBaseFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -420,6 +426,7 @@ mod Windows {
                         HoldEnd = 0,
                         Stop = 1,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IGravityConnectedAnimationConfigurationFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1814,6 +1821,7 @@ mod Windows {
                     class NavigationThemeTransition: Transition {
                         INavigationThemeTransition,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(INavigationTransitionInfoFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1833,6 +1841,7 @@ mod Windows {
                     class ObjectAnimationUsingKeyFrames: Timeline {
                         IObjectAnimationUsingKeyFrames,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IObjectKeyFrameFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1879,6 +1888,7 @@ mod Windows {
                     class PointAnimationUsingKeyFrames: Timeline {
                         IPointAnimationUsingKeyFrames,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IPointKeyFrameFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2132,6 +2142,7 @@ mod Windows {
                     class SwipeHintThemeAnimation: Timeline {
                         ISwipeHintThemeAnimation,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ITimelineFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2150,6 +2161,7 @@ mod Windows {
                         super::super::super::super::Foundation::Collections::IVector<Timeline>,
                         super::super::super::super::Foundation::Collections::IIterable<Timeline>,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ITransitionFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

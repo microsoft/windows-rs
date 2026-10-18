@@ -161,6 +161,7 @@ mod Windows {
                     class PerspectiveTransform3D: Transform3D {
                         IPerspectiveTransform3D,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ITransform3DFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

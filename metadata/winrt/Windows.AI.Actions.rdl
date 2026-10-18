@@ -2,6 +2,7 @@
 mod Windows {
     mod AI {
         mod Actions {
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IActionEntityFactory, Public, 65536, "Windows.AI.Actions.ActionsContract")]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -17,6 +18,7 @@ mod Windows {
                 IActionEntityDisplayInfo,
                 super::super::Foundation::IClosable,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IActionEntityFactoryFactory, Public, 65536, "Windows.AI.Actions.ActionsContract")]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -95,6 +97,7 @@ mod Windows {
                 Unsupported = 2,
                 Unavailable = 3,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IActionRuntimeFactory, Public, 65536, "Windows.AI.Actions.ActionsContract")]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -132,6 +135,7 @@ mod Windows {
             class ContactActionEntity: ActionEntity {
                 IContactActionEntity,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(ICustomActionEntityStoreFactory, Public, 524288, "Windows.AI.Actions.ActionsContract")]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
             #[Windows::Foundation::Metadata::Experimental]

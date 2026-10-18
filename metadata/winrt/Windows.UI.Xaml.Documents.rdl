@@ -3,6 +3,7 @@ mod Windows {
     mod UI {
         mod Xaml {
             mod Documents {
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IBlockFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -52,6 +53,7 @@ mod Windows {
                 class ContentLinkInvokedEventArgs {
                     IContentLinkInvokedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IContentLinkProviderFactory, Protected, 393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -870,6 +872,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(Underline)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IUnderline {}
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInlineFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -945,6 +948,7 @@ mod Windows {
                 class Run: Inline {
                     IRun,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISpanFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -954,6 +958,7 @@ mod Windows {
                 class Span: Inline {
                     ISpan,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITextElementFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -971,6 +976,7 @@ mod Windows {
                     ITextElement5,
                     ITextElementOverrides,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITextHighlighterFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -980,6 +986,7 @@ mod Windows {
                 class TextHighlighter {
                     ITextHighlighter,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITextHighlighterBaseFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

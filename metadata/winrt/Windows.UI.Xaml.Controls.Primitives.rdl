@@ -35,6 +35,7 @@ mod Windows {
                     class AppBarToggleButtonTemplateSettings: super::super::DependencyObject {
                         IAppBarToggleButtonTemplateSettings,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IButtonBaseFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -59,6 +60,7 @@ mod Windows {
                     class CalendarViewTemplateSettings: super::super::DependencyObject {
                         ICalendarViewTemplateSettings,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ICarouselPanelFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -68,6 +70,7 @@ mod Windows {
                         ICarouselPanel,
                         IScrollSnapPointsInfo,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IColorPickerSliderFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -77,6 +80,7 @@ mod Windows {
                     class ColorPickerSlider: super::Slider {
                         IColorPickerSlider,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IColorSpectrumFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -94,6 +98,7 @@ mod Windows {
                         IComboBoxTemplateSettings,
                         IComboBoxTemplateSettings2,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ICommandBarFlyoutCommandBarFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -126,6 +131,7 @@ mod Windows {
                         Application = 0,
                         Nested = 1,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IDragCompletedEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -138,6 +144,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     delegate fn DragCompletedEventHandler(sender: Object, e: DragCompletedEventArgs);
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IDragDeltaEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -150,6 +157,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     delegate fn DragDeltaEventHandler(sender: Object, e: DragDeltaEventArgs);
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IDragStartedEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -171,6 +179,7 @@ mod Windows {
                         Right = 2,
                         Bottom = 3,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IFlyoutBaseFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -225,6 +234,7 @@ mod Windows {
                         Transient = 2,
                         TransientWithDismissOnPointerMoveAway = 3,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IFlyoutShowOptionsFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -254,6 +264,7 @@ mod Windows {
                     class GeneratorPositionHelper {
                         IGeneratorPositionHelper,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IGridViewItemPresenterFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1963,6 +1974,7 @@ mod Windows {
                     class LayoutInformation {
                         ILayoutInformation,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IListViewItemPresenterFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2036,6 +2048,7 @@ mod Windows {
                     class MenuFlyoutPresenterTemplateSettings: super::super::DependencyObject {
                         IMenuFlyoutPresenterTemplateSettings,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(INavigationViewItemPresenterFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2045,6 +2058,7 @@ mod Windows {
                     class NavigationViewItemPresenter: super::ContentControl {
                         INavigationViewItemPresenter,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IOrientedVirtualizingPanelFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2055,6 +2069,7 @@ mod Windows {
                         IScrollSnapPointsInfo,
                         super::IInsertionPanel,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IPickerFlyoutBaseFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2065,6 +2080,7 @@ mod Windows {
                         IPickerFlyoutBase,
                         IPickerFlyoutBaseOverrides,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IPivotHeaderItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2148,6 +2164,7 @@ mod Windows {
                     class ProgressRingTemplateSettings: super::super::DependencyObject {
                         IProgressRingTemplateSettings,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IRangeBaseFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2221,6 +2238,7 @@ mod Windows {
                         TouchIndicator = 1,
                         MouseIndicator = 2,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ISelectorFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2230,6 +2248,7 @@ mod Windows {
                     class Selector: super::ItemsControl {
                         ISelector,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ISelectorItemFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2296,6 +2315,7 @@ mod Windows {
                         Outside = 3,
                         Inline = 4,
                     }
+                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IToggleButtonFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
