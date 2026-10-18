@@ -16,6 +16,7 @@ mod bindings {
 
 mod application;
 mod automation;
+mod background;
 mod canvas;
 mod dialog;
 mod drag;

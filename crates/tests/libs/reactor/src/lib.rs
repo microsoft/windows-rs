@@ -2,6 +2,7 @@ use std::rc::Rc;
 use windows_reactor::*;
 
 mod application;
+mod background;
 mod canvas;
 mod dialog;
 mod drag;
@@ -266,6 +267,7 @@ impl Component for ReorderFixture {
 pub fn run(fixture: &str) -> windows_core::Result<()> {
     match fixture {
         "application" => App::run_application::<application::ApplicationFixture>(())?,
+        "background" => App::run_component::<background::BackgroundFixture>(())?,
         "window-replacement" => App::run_component::<application::ReplacingWindow>(false)?,
         "startup-error" => application::startup_error()?,
         "canvas" => App::run_component::<canvas::CanvasFixture>(())?,
