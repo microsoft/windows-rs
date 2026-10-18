@@ -620,6 +620,75 @@ impl Automation {
         Ok(())
     }
 
+    pub fn press_keys(&self, id: &str, keys: &[i32]) -> Result<()> {
+        eprintln!("press virtual keys {keys:x?} into {id:?}");
+        assert!(!keys.is_empty());
+        let element = self.focus(id)?;
+        let input = |key: i32, flags| INPUT {
+            r#type: INPUT_KEYBOARD as u32,
+            Anonymous: INPUT_0 {
+                ki: KEYBDINPUT {
+                    wVk: key.try_into().unwrap(),
+                    dwFlags: flags,
+                    ..Default::default()
+                },
+            },
+        };
+        let mut inputs = keys
+            .iter()
+            .map(|&key| input(key, 0))
+            .chain(
+                keys.iter()
+                    .rev()
+                    .map(|&key| input(key, KEYEVENTF_KEYUP as u32)),
+            )
+            .collect::<Vec<_>>();
+        unsafe {
+            assert!(
+                self.client
+                    .CompareElements(&self.client.GetFocusedElement()?, &element)?
+                    .as_bool(),
+                "keyboard focus changed; refusing input"
+            );
+            for key in keys.iter().copied().chain([0x10, 0x11, 0x12, 0x5b, 0x5c]) {
+                assert_eq!(GetAsyncKeyState(key) & i16::MIN, 0, "key is already held");
+            }
+            self.ensure_active()?;
+            let mut owner = 0;
+            GetWindowThreadProcessId(GetForegroundWindow(), &mut owner);
+            assert_eq!(owner, self.process, "refusing input to another process");
+            let inserted = SendInput(
+                inputs.len() as u32,
+                inputs.as_mut_ptr(),
+                size_of::<INPUT>() as i32,
+            ) as usize;
+            if inserted != inputs.len() {
+                // The accepted prefix contains key-downs followed by reversed key-ups.
+                let held = inserted.min(inputs.len() - inserted);
+                let mut releases = keys[..held]
+                    .iter()
+                    .rev()
+                    .map(|&key| input(key, KEYEVENTF_KEYUP as u32))
+                    .collect::<Vec<_>>();
+                let released = if releases.is_empty() {
+                    0
+                } else {
+                    SendInput(
+                        releases.len() as u32,
+                        releases.as_mut_ptr(),
+                        size_of::<INPUT>() as i32,
+                    )
+                };
+                return Err(format!(
+                    "keyboard input accepted {inserted}/{} events; released {released}/{held} held keys",
+                    inputs.len()
+                )
+                .into());
+            }
+        }
+        Ok(())
+    }
+
     pub fn window_handle(&self) -> Result<usize> {
         self.ensure_active()?;
         let window = if let Some(window) = self.window.get() {
