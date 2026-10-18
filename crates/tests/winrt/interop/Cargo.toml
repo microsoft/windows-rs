@@ -1,0 +1,23 @@
+[package]
+name = "test_winrt_interop"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+test = false
+
+[dependencies]
+windows-rdl = { workspace = true }
+
+[dev-dependencies]
+cc = "1.0"
+cppwinrt = { workspace = true }
+
+[build-dependencies]
+cppwinrt = { workspace = true }
+
+[lints]
+workspace = true

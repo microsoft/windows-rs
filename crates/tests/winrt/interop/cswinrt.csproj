@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Built once per fixture by tests/cswinrt.rs, which passes FixtureWinmd and FixtureClient. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <CsWinRTIncludes>Test</CsWinRTIncludes>
+    <CsWinRTWindowsMetadata>$(MSBuildThisFileDirectory)../../../libs/default/Windows.winmd</CsWinRTWindowsMetadata>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.3.1" />
+    <CsWinRTInputs Include="$(FixtureWinmd)" />
+    <Compile Include="$(FixtureClient)" Condition="'$(FixtureClient)' != ''" />
+  </ItemGroup>
+</Project>

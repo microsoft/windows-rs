@@ -192,11 +192,15 @@ Dedicated test crates cover the crate:
 - `tool-roundtrip` re-derives committed RDL files from committed winmd files. The `gen` workflow
   enforces a clean `git diff`.
 - `test_bindgen` covers the `.winmd` to Rust step that consumes this crate's output.
+- `test_winrt_interop` compiles `fixtures/*/api.rdl` and checks that C++/WinRT and C#/WinRT
+  accept the metadata and that optional `client.cpp` and `client.cs` files compile against the
+  projections. See `crates/tests/winrt/interop/readme.md`.
 
 Run targeted tests with:
 
 ```sh
 cargo test -p test_rdl
+cargo test -p test_winrt_interop
 cargo test -p windows-clang
 ```
 
