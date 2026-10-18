@@ -145,7 +145,30 @@ fn virtual_items_recycle_and_reuse_containers_without_stale_ownership() {
         lease
     };
     let first = realize(&mut runtime, RealizedContainer(1), 0);
-    let second = realize(&mut runtime, RealizedContainer(1), 1);
+    let child = runtime
+        .adapter()
+        .children(collection, RelationId::Items)
+        .unwrap()[0];
+    let moved = realize(&mut runtime, RealizedContainer(2), 0);
+    assert_eq!(moved.key, first.key);
+    assert_eq!(moved.revision, first.revision);
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::Recycle {
+            collection,
+            container: RealizedContainer(1),
+            source_revision: 0,
+        });
+    runtime.dispatch_native_events().unwrap();
+    assert_eq!(
+        runtime
+            .adapter()
+            .children(collection, RelationId::Items)
+            .unwrap(),
+        &[child]
+    );
+    assert_eq!(runtime.adapter().realized_count(collection), 1);
+    let second = realize(&mut runtime, RealizedContainer(2), 1);
     assert_ne!(first.key, second.key);
     assert_eq!(runtime.adapter().object_count(), 2);
     assert_eq!(runtime.adapter().realized_count(collection), 1);
@@ -154,7 +177,7 @@ fn virtual_items_recycle_and_reuse_containers_without_stale_ownership() {
         .adapter_mut()
         .queue_realization(RealizationRequest::Recycle {
             collection,
-            container: RealizedContainer(1),
+            container: RealizedContainer(2),
             source_revision: 0,
         });
     let Some(NativeWork::Virtual(VirtualWork::Recycle { lease })) =
@@ -165,6 +188,63 @@ fn virtual_items_recycle_and_reuse_containers_without_stale_ownership() {
     runtime.recycle_virtual(&lease).unwrap();
     assert_eq!(runtime.adapter().object_count(), 1);
     assert_eq!(runtime.adapter().realized_count(collection), 0);
+}
+
+#[test]
+fn invalid_virtual_replacement_rolls_back_container_ownership() {
+    let original: ElementRef = ElementRef::default();
+    let replacement: ElementRef = ElementRef::default();
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    runtime
+        .update(
+            ItemsRepeater::new()
+                .item("original", Button::new().element_ref(&original))
+                .item("replacement", TextBox::new().element_ref(&replacement)),
+        )
+        .unwrap();
+    let collection = runtime.graph().root().unwrap();
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::Realize {
+            collection,
+            container: RealizedContainer(1),
+            index: 0,
+            source_revision: 0,
+        });
+    runtime.dispatch_native_events().unwrap();
+    let original_id = original.get().unwrap();
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::Realize {
+            collection,
+            container: RealizedContainer(1),
+            index: 1,
+            source_revision: 0,
+        });
+    let Some(NativeWork::Virtual(VirtualWork::Realize {
+        lease, index, view, ..
+    })) = runtime.next_native_work().unwrap()
+    else {
+        panic!("expected replacement realization");
+    };
+    let mut invalid = lease.clone();
+    invalid.revision += 1;
+    let graph = runtime.graph().clone();
+    let adapter = runtime.adapter().clone();
+    assert!(matches!(
+        runtime.realize_virtual(&invalid, index, view.as_ref().clone()),
+        Err(UpdateError::Graph(GraphError::InvalidRealization(object, 1)))
+            if object == collection
+    ));
+    assert_eq!(runtime.graph(), &graph);
+    assert_eq!(runtime.adapter(), &adapter);
+    assert_eq!(original.get(), Some(original_id));
+    assert_eq!(replacement.get(), None);
+    runtime.realize_virtual(&lease, index, *view).unwrap();
+    assert_eq!(original.get(), None);
+    assert!(replacement.get().is_some());
+    assert_eq!(runtime.adapter().realized_count(collection), 1);
+    assert_eq!(runtime.adapter().object_count(), 2);
 }
 
 #[test]
