@@ -702,6 +702,45 @@ impl Automation {
         Ok(())
     }
 
+    pub fn window_bounds(&self, x: i32, y: i32, width: i32, height: i32) -> Result<()> {
+        let _physical = PhysicalCoordinates::new()?;
+        let window = self.window_handle()? as HWND;
+        self.wait(
+            &format!("outer window bounds become {x} {y}; {width} x {height} physical pixels"),
+            || unsafe {
+                let mut rect = RECT::default();
+                GetWindowRect(window, &mut rect).ok()?;
+                Ok((
+                    rect.left,
+                    rect.top,
+                    rect.right - rect.left,
+                    rect.bottom - rect.top,
+                ))
+            },
+            |actual| *actual == (x, y, width, height),
+        )?;
+        Ok(())
+    }
+
+    pub fn move_resize_window(&self, x: i32, y: i32, width: i32, height: i32) -> Result<()> {
+        eprintln!("move/resize fixture window to {x} {y}; {width} x {height} physical pixels");
+        let _physical = PhysicalCoordinates::new()?;
+        let window = self.window_handle()? as HWND;
+        unsafe {
+            SetWindowPos(
+                window,
+                std::ptr::null_mut(),
+                x,
+                y,
+                width,
+                height,
+                (SWP_NOACTIVATE | SWP_NOZORDER) as u32,
+            )
+            .ok()?;
+        }
+        Ok(())
+    }
+
     pub fn window_icon(&self, present: bool) -> Result<()> {
         let window = self.window_handle()? as HWND;
         self.wait(
