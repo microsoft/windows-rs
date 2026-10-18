@@ -292,6 +292,30 @@ impl Automation {
         Ok(())
     }
 
+    pub fn removed_from_tree(&self, id: &str) -> Result<()> {
+        let window = unsafe {
+            self.client
+                .ElementFromHandle(self.window_handle()? as *mut core::ffi::c_void)?
+        };
+        let all = unsafe { self.client.CreateTrueCondition()? };
+        self.wait(
+            &format!(
+                "automation ID {id:?} is removed from the window tree, including offscreen elements"
+            ),
+            || unsafe {
+                let elements = window.FindAll(TreeScope_Descendants, &all)?;
+                for index in 0..elements.Length()? {
+                    if elements.GetElement(index)?.CurrentAutomationId()? == id {
+                        return Ok(false);
+                    }
+                }
+                Ok(true)
+            },
+            |removed| *removed,
+        )?;
+        Ok(())
+    }
+
     fn tray_window(&self) -> windows_core::Result<Option<HWND>> {
         let mut after = std::ptr::null_mut();
         let mut found = None;
