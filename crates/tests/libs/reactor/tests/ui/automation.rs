@@ -367,17 +367,23 @@ impl Automation {
 
     pub fn name_stays(&self, id: &str, expected: &str, duration: Duration) -> Result<()> {
         eprintln!("{id:?} remains {expected:?} for {duration:?}");
+        // Observe this peer, not unrelated peers retiring elsewhere in the window.
+        let element = self.element(id)?;
         let deadline = Instant::now() + duration;
         loop {
             self.ensure_active()?;
-            let element = self
-                .find(id, false)?
-                .ok_or_else(|| format!("{id:?} disappeared"))?;
-            assert_eq!(
-                unsafe { element.CurrentName()? },
-                expected,
-                "{id:?} changed"
-            );
+            unsafe {
+                assert_eq!(
+                    element.CurrentAutomationId()?,
+                    id,
+                    "{id:?} lost its identity"
+                );
+                assert!(
+                    !element.CurrentIsOffscreen()?.as_bool(),
+                    "{id:?} disappeared"
+                );
+                assert_eq!(element.CurrentName()?, expected, "{id:?} changed");
+            }
             if Instant::now() >= deadline {
                 return Ok(());
             }

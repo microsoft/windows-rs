@@ -10,7 +10,6 @@ mod pointer;
 mod reference;
 mod selection;
 mod tray;
-mod webview;
 mod window;
 
 #[derive(Clone, Copy, PartialEq)]
@@ -267,7 +266,6 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "window-replacement" => App::run_component::<application::ReplacingWindow>(false)?,
         "startup-error" => application::startup_error()?,
         "canvas" => App::run_component::<canvas::CanvasFixture>(())?,
-        "webview" => App::run_component::<webview::WebViewFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
         "image" => App::run_component::<image::ImageFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
