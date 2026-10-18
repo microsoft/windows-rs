@@ -58,3 +58,34 @@ fn window_icon_set_and_clear() -> Result<()> {
         ui.window_icon(false)
     })
 }
+
+#[test]
+fn initial_window_placement_and_native_updates() -> Result<()> {
+    process::run("window-placement", |ui| {
+        ui.window_bounds(80, 100, 640, 480)?;
+        ui.name("placement", "Placement 80 100; 640 x 480; maximized false")?;
+        let original = ui.element("change-initial")?;
+
+        ui.move_resize_window(140, 160, 700, 520)?;
+        ui.window_bounds(140, 160, 700, 520)?;
+        ui.name("placement", "Placement 140 160; 700 x 520; maximized false")?;
+
+        ui.invoke("change-initial")?;
+        ui.name("state", "Changed initial placement: true")?;
+        ui.name_stays(
+            "placement",
+            "Placement 140 160; 700 x 520; maximized false",
+            Duration::from_millis(250),
+        )?;
+        ui.window_bounds(140, 160, 700, 520)?;
+        unsafe {
+            assert!(
+                ui.client
+                    .CompareElements(&original, &ui.element("change-initial")?)?
+                    .as_bool(),
+                "placement updates replaced the native content"
+            );
+        }
+        Ok(())
+    })
+}

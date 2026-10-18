@@ -280,6 +280,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "command-bar" => App::run_component::<MenuFixture>(MenuSurface::CommandBar)?,
         "tray" => App::run_application::<tray::TrayFixture>(())?,
         "window" => App::run_component::<window::WindowFixture>(window::WindowMode::Native)?,
+        "window-placement" => App::run_component::<window::PlacementFixture>(())?,
         "window-frame" => App::run_component::<window::WindowFixture>(window::WindowMode::Custom)?,
         "window-frame-policy" => App::run_component_with_policy::<window::WindowFixture>(
             window::WindowMode::CustomPolicy,

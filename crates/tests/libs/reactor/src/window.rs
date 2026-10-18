@@ -93,3 +93,81 @@ impl Component for WindowFixture {
         }
     }
 }
+
+pub(super) struct PlacementFixture {
+    changed: bool,
+    observed: Option<WindowPlacement>,
+}
+
+#[derive(Clone, Copy)]
+pub(super) enum PlacementMessage {
+    ChangeInitial,
+    Observed(WindowPlacement),
+}
+
+impl Component for PlacementFixture {
+    type Input = ();
+    type Message = PlacementMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            changed: false,
+            observed: None,
+        }
+    }
+
+    fn update(&mut self, message: PlacementMessage, _: &ComponentContext<Self>) {
+        match message {
+            PlacementMessage::ChangeInitial => self.changed = true,
+            PlacementMessage::Observed(placement) => self.observed = Some(placement),
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let placement = if self.changed {
+            WindowPlacement {
+                x: 240,
+                y: 220,
+                width: 760,
+                height: 580,
+                maximized: false,
+            }
+        } else {
+            WindowPlacement {
+                x: 80,
+                y: 100,
+                width: 640,
+                height: 480,
+                maximized: false,
+            }
+        };
+        let observed = match self.observed {
+            Some(value) => format!(
+                "Placement {} {}; {} x {}; maximized {}",
+                value.x, value.y, value.width, value.height, value.maximized
+            ),
+            None => "Waiting for placement".to_owned(),
+        };
+        context.window_title("Reactor UI fixture: window-placement");
+        context.window_visuals(
+            WindowVisuals::new()
+                .client_size(320.0, 240.0)
+                .initial_placement(placement),
+        );
+        context.on_window_placement(context.callback(PlacementMessage::Observed));
+        StackPanel::new()
+            .margin(20.0)
+            .spacing(12.0)
+            .children((
+                TextBlock::new().automation_id("placement").text(observed),
+                TextBlock::new()
+                    .automation_id("state")
+                    .text(format!("Changed initial placement: {}", self.changed)),
+                Button::new()
+                    .automation_id("change-initial")
+                    .content("Change initial placement")
+                    .on_click(context.message(PlacementMessage::ChangeInitial)),
+            ))
+            .into()
+    }
+}
