@@ -19,6 +19,7 @@ mod automation;
 mod canvas;
 mod dialog;
 mod drag;
+mod flyout;
 mod image;
 mod menu;
 mod pointer;

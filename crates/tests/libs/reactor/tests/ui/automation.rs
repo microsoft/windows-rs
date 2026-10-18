@@ -12,6 +12,15 @@ const PROCESS_ID: i32 = 30002;
 const LIST_ITEM: i32 = 50007;
 const MENU_ITEM: i32 = 50011;
 
+pub fn retired(ui: &Automation, item: &IUIAutomationInvokePattern, selection: &str) -> Result<()> {
+    let result = unsafe { item.Invoke() };
+    assert!(
+        result.is_ok() || result == ELEMENT_UNAVAILABLE || result == HRESULT(0x80004005u32 as i32),
+        "unexpected retired-provider result: {result:?}"
+    );
+    ui.name_stays("selection", selection, Duration::from_millis(250))
+}
+
 pub struct Com;
 
 impl Com {

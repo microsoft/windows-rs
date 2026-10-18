@@ -5,6 +5,7 @@ mod application;
 mod canvas;
 mod dialog;
 mod drag;
+mod flyout;
 mod image;
 mod pointer;
 mod reference;
@@ -266,6 +267,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "window-replacement" => App::run_component::<application::ReplacingWindow>(false)?,
         "startup-error" => application::startup_error()?,
         "canvas" => App::run_component::<canvas::CanvasFixture>(())?,
+        "flyout" => App::run_component::<flyout::FlyoutFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
         "image" => App::run_component::<image::ImageFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
