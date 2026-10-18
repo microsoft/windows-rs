@@ -10,6 +10,7 @@ mod image;
 mod pointer;
 mod reference;
 mod selection;
+mod timer;
 mod tray;
 mod window;
 
@@ -272,6 +273,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "image" => App::run_component::<image::ImageFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
         "selection" => App::run_component::<selection::SelectionFixture>(())?,
+        "timer" => App::run_component::<timer::TimerFixture>(())?,
         "menu" => App::run_component::<MenuFixture>(MenuSurface::Button)?,
         "menu-dropdown" => App::run_component::<MenuFixture>(MenuSurface::DropDown)?,
         "menu-bar" => App::run_component::<MenuFixture>(MenuSurface::MenuBar)?,

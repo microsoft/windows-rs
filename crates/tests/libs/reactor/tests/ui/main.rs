@@ -26,6 +26,7 @@ mod pointer;
 mod process;
 mod reference;
 mod selection;
+mod timer;
 mod window;
 
 use automation::*;
