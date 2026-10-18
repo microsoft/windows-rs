@@ -128,6 +128,7 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
         runtime.graph().object_count()
     );
     assert!(!runtime.adapter_mut().complete_retirement(old));
+    assert_eq!(runtime.graph().full_reference_scan_count(), 0);
 }
 
 #[test]

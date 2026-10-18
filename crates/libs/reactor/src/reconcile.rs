@@ -700,35 +700,16 @@ impl RetainedGraph {
             .map(|dialog| (dialog.object, dialog.open))
     }
 
-    fn references(&self) -> Vec<(ElementRef, ObjectId)> {
+    fn clear_references(&self) {
         #[cfg(test)]
         self.full_reference_scans
             .0
             .set(self.full_reference_scans.0.get() + 1);
-        self.objects
-            .iter()
-            .enumerate()
-            .filter_map(|(index, slot)| {
-                let index = u32::try_from(index).ok()?;
-                slot.object.as_ref()?.reference.as_ref().map(|reference| {
-                    (
-                        reference.clone(),
-                        ObjectId {
-                            index,
-                            generation: slot.generation,
-                        },
-                    )
-                })
-            })
-            .collect()
-    }
-
-    fn clear_references(&mut self) {
-        for (index, slot) in self.objects.iter_mut().enumerate() {
-            let Some(object) = slot.object.as_mut() else {
+        for (index, slot) in self.objects.iter().enumerate() {
+            let Some(object) = slot.object.as_ref() else {
                 continue;
             };
-            if let Some(reference) = object.reference.take()
+            if let Some(reference) = object.reference.as_ref()
                 && let Ok(index) = u32::try_from(index)
             {
                 reference.clear(ObjectId {
@@ -1616,6 +1597,13 @@ impl<'a> GraphTransaction<'a> {
         self.armed = false;
     }
 
+    fn rollback_for_native_unwind(&mut self) {
+        // Restore detached references and their original generations before clearing bindings.
+        self.rollback_entries();
+        self.armed = false;
+        self.graph.clear_references();
+    }
+
     fn commit(mut self) {
         self.armed = false;
     }
@@ -1637,30 +1625,28 @@ impl Drop for GraphTransaction<'_> {
     }
 }
 
-struct ReferenceUnwindGuard<'a> {
-    references: &'a [(ElementRef, ObjectId)],
-    armed: bool,
+struct ReferenceUnwindGuard<F: FnOnce()> {
+    cleanup: Option<F>,
 }
 
-impl<'a> ReferenceUnwindGuard<'a> {
-    fn new(references: &'a [(ElementRef, ObjectId)]) -> Self {
+impl<F: FnOnce()> ReferenceUnwindGuard<F> {
+    fn new(cleanup: F) -> Self {
         Self {
-            references,
-            armed: true,
+            cleanup: Some(cleanup),
         }
     }
 
     fn disarm(mut self) {
-        self.armed = false;
+        self.cleanup = None;
     }
 }
 
-impl Drop for ReferenceUnwindGuard<'_> {
+impl<F: FnOnce()> Drop for ReferenceUnwindGuard<F> {
     fn drop(&mut self) {
-        if self.armed && std::thread::panicking() {
-            for (reference, object) in self.references {
-                reference.clear(*object);
-            }
+        if std::thread::panicking()
+            && let Some(cleanup) = self.cleanup.take()
+        {
+            cleanup();
         }
     }
 }
@@ -1668,9 +1654,9 @@ impl Drop for ReferenceUnwindGuard<'_> {
 fn validate_adapter<A: Adapter>(
     adapter: &A,
     mutations: &[Mutation],
-    references: &[(ElementRef, ObjectId)],
+    cleanup: impl FnOnce(),
 ) -> Result<(), A::Error> {
-    let guard = ReferenceUnwindGuard::new(references);
+    let guard = ReferenceUnwindGuard::new(cleanup);
     let result = adapter.validate(mutations);
     guard.disarm();
     result
@@ -1679,9 +1665,9 @@ fn validate_adapter<A: Adapter>(
 fn apply_adapter<A: Adapter>(
     adapter: &mut A,
     mutations: &[Mutation],
-    references: &[(ElementRef, ObjectId)],
+    cleanup: impl FnOnce(),
 ) -> Result<(), A::Error> {
-    let guard = ReferenceUnwindGuard::new(references);
+    let guard = ReferenceUnwindGuard::new(cleanup);
     let result = adapter.apply(mutations);
     guard.disarm();
     result
@@ -1751,22 +1737,14 @@ impl<A: Adapter> Runtime<A> {
         stats
     }
 
-    fn poison_and_discard(&mut self, references: &[(ElementRef, ObjectId)]) {
+    pub(crate) fn poison_and_discard_all(&mut self) {
         self.poisoned = true;
-        for (reference, object) in references {
-            reference.clear(*object);
-        }
         self.graph.clear_references();
         self.graph = RetainedGraph::default();
         self.mutations.clear();
         self.native_events.clear();
         self.virtual_refreshes.clear();
         self.references.clear();
-    }
-
-    pub(crate) fn poison_and_discard_all(&mut self) {
-        let references = self.graph.references();
-        self.poison_and_discard(&references);
     }
 
     pub(crate) fn set_imperative_waker(&self, waker: impl Fn() + 'static) {
@@ -2006,7 +1984,6 @@ impl<A: Adapter> Runtime<A> {
         root: impl Into<View>,
     ) -> Result<UpdateStats, UpdateError<A::Error>> {
         self.mutations.clear();
-        let poison_references = self.graph.references();
         let mut declaration = root.into().0.object().map_err(UpdateError::Graph)?;
         declaration.key = Some(lease.key.clone());
         let _ = self
@@ -2185,14 +2162,18 @@ impl<A: Adapter> Runtime<A> {
         }
         defer_window_title_bar_sets(&mut self.mutations);
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2207,7 +2188,6 @@ impl<A: Adapter> Runtime<A> {
         before_apply: impl FnOnce(),
     ) -> Result<UpdateStats, UpdateError<A::Error>> {
         self.mutations.clear();
-        let poison_references = self.graph.references();
         let mut transaction = GraphTransaction::new(&mut self.graph);
         let mut references = Vec::new();
         let plan = (|| {
@@ -2266,15 +2246,19 @@ impl<A: Adapter> Runtime<A> {
         }
         defer_window_title_bar_sets(&mut self.mutations);
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         before_apply();
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2290,7 +2274,6 @@ impl<A: Adapter> Runtime<A> {
         container: RealizedContainer,
     ) -> Result<UpdateStats, UpdateError<A::Error>> {
         self.mutations.clear();
-        let poison_references = self.graph.references();
         self.mutations.push(Mutation::Recycle {
             parent: collection,
             relation,
@@ -2298,12 +2281,16 @@ impl<A: Adapter> Runtime<A> {
             child: None,
         });
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            self.graph.clear_references();
+        }) {
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            self.graph.clear_references();
+        }) {
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         self.poisoned = false;
@@ -2348,7 +2335,6 @@ impl<A: Adapter> Runtime<A> {
                 }));
             }
         }
-        let poison_references = self.graph.references();
         let mut transaction = GraphTransaction::new(&mut self.graph);
         let mut references = Vec::new();
         let mut virtual_refreshes = Vec::new();
@@ -2374,14 +2360,18 @@ impl<A: Adapter> Runtime<A> {
         }
         defer_window_title_bar_sets(&mut self.mutations);
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2484,19 +2474,22 @@ impl<A: Adapter> Runtime<A> {
             return Err(UpdateError::Graph(error));
         }
         defer_window_title_bar_sets(&mut self.mutations);
-        let poison_references = detached_references(&references);
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         self.poisoned = false;
         before_apply();
         self.poisoned = true;
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2518,18 +2511,21 @@ impl<A: Adapter> Runtime<A> {
             root: completion.root,
             nodes: nodes.to_vec(),
         });
-        let poison_references = self.graph.references();
         let mut transaction = GraphTransaction::new(&mut self.graph);
         transaction.complete_retirement(completion.root);
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2565,16 +2561,6 @@ enum ReferenceChange {
         reference: ElementRef,
         object: ObjectId,
     },
-}
-
-fn detached_references(changes: &[ReferenceChange]) -> Vec<(ElementRef, ObjectId)> {
-    changes
-        .iter()
-        .filter_map(|change| match change {
-            ReferenceChange::Clear { reference, object } => Some((reference.clone(), *object)),
-            ReferenceChange::Set { .. } => None,
-        })
-        .collect()
 }
 
 fn apply_reference_changes(endpoint: &ReferenceEndpoint, changes: Vec<ReferenceChange>) {

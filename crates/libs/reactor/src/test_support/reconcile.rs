@@ -395,7 +395,6 @@ impl<A: Adapter> Runtime<A> {
             .ok_or(UpdateError::Graph(GraphError::MissingChild(
                 relation, child,
             )))?;
-        let poison_references = self.graph.references();
         let mut transaction = GraphTransaction::new(&mut self.graph);
         let mut references = Vec::new();
         let plan = (|| {
@@ -430,14 +429,18 @@ impl<A: Adapter> Runtime<A> {
         children.remove(index);
         defer_window_title_bar_sets(&mut self.mutations);
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
