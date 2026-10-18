@@ -486,15 +486,15 @@ impl Plan {
                                 &mut seen,
                             )
                     })
-                    || !x.fields.iter().zip(&y.fields).all(|(x, y)| {
-                        x.name == y.name
-                            && x.offset_bits == y.offset_bits
-                            && x.bit_width == y.bit_width
-                            && attributes_equal(&x.attributes, &y.attributes)
+                    || !x.fields.iter().zip(&y.fields).all(|(left, right)| {
+                        left.name == right.name
+                            && left.offset_bits == right.offset_bits
+                            && left.bit_width == right.bit_width
+                            && resolve::field_attributes_equal(left, &x.fields, right, &y.fields)
                             && self.same_type(
                                 resolution,
-                                (a.snapshot, x.canonical),
-                                (b.snapshot, y.canonical),
+                                (a.snapshot, left.canonical),
+                                (b.snapshot, right.canonical),
                                 &mut seen,
                             )
                     })

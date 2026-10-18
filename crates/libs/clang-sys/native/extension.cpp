@@ -5,9 +5,11 @@
 #include <clang/AST/Attr.h>
 #include <clang/AST/ASTContext.h>
 #include <clang/AST/Expr.h>
+#include <clang/AST/Mangle.h>
 #include <clang/AST/Type.h>
 #include <clang/AST/TypeLoc.h>
 #include <clang/AST/VTableBuilder.h>
+#include <clang/Basic/TargetInfo.h>
 #include <llvm/Config/llvm-config.h>
 
 static const char* attributeName(clang::attr::Kind kind) {
@@ -19,7 +21,98 @@ static const char* attributeName(clang::attr::Kind kind) {
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 16;
+    return 17;
+}
+
+WindowsClangStatus windows_clang_getImportConvention(
+    CXCursor cursor, WindowsClangImportConvention* info) {
+    if (!info) {
+        return WindowsClangInvalidArgument;
+    }
+    if (cursor.kind != CXCursor_FunctionDecl) {
+        return WindowsClangWrongKind;
+    }
+    auto declaration = llvm::dyn_cast_or_null<clang::FunctionDecl>(
+        clang::cxcursor::getCursorDecl(cursor));
+    if (!declaration) {
+        return WindowsClangWrongKind;
+    }
+    *info = { WindowsClangConventionUnknown, {}, clang::cxstring::createEmpty() };
+    auto source = declaration->getTypeSourceInfo();
+    if (!source) {
+        return WindowsClangSuccess;
+    }
+    auto location = source->getTypeLoc();
+    while (!location.isNull()) {
+        if (auto attributed = location.getAs<clang::AttributedTypeLoc>();
+            !attributed.isNull() && attributed.getTypePtr()->isCallingConv()) {
+            info->origin = WindowsClangConventionExplicit;
+            return WindowsClangSuccess;
+        }
+        if (!location.getAs<clang::FunctionTypeLoc>().isNull()) {
+            info->origin = WindowsClangConventionDefault;
+            break;
+        }
+        if (auto alias = location.getAs<clang::TypedefTypeLoc>(); !alias.isNull()) {
+            auto underlying = alias.getTypePtr()->getDecl()->getTypeSourceInfo();
+            if (!underlying) {
+                return WindowsClangSuccess;
+            }
+            location = underlying->getTypeLoc();
+        } else {
+            location = location.getNextTypeLoc();
+        }
+    }
+    auto& context = declaration->getASTContext();
+    auto prototype = declaration->getType()->getAs<clang::FunctionProtoType>();
+    if (info->origin != WindowsClangConventionDefault || !prototype ||
+        !context.getTargetInfo().getTriple().isWindowsMSVCEnvironment() ||
+        context.getTargetInfo().getTriple().getArch() != llvm::Triple::x86 ||
+        prototype->getCallConv() != clang::CC_C || prototype->isVariadic() ||
+        prototype->hasExtParameterInfos() ||
+        !declaration->isExternC() || llvm::isa<clang::CXXMethodDecl>(declaration) ||
+        declaration->doesThisDeclarationHaveABody() || declaration->hasAttr<clang::AsmLabelAttr>()) {
+        return WindowsClangSuccess;
+    }
+    WindowsClangFunctionInfo original{};
+    auto status = windows_clang_getFunctionInfo(
+        clang::cxtype::MakeCXType(declaration->getType(), clang::cxcursor::getCursorTU(cursor)),
+        &original);
+    if (status != WindowsClangSuccess) {
+        return status;
+    }
+    if (original.has_regparm || original.produces_result || original.no_caller_saved_registers ||
+        original.no_cf_check || original.cmse_nonsecure_call || original.additional_properties) {
+        return WindowsClangSuccess;
+    }
+
+    // Change only the outer convention. All parameter/result types and prototype properties
+    // remain compiler-owned; do not reparse the header under a different global default.
+    auto properties = prototype->getExtProtoInfo();
+    properties.ExtInfo = properties.ExtInfo.withCallingConv(clang::CC_X86StdCall);
+    auto type = context.getFunctionType(
+        prototype->getReturnType(), prototype->getParamTypes(), properties);
+    auto scope = clang::LinkageSpecDecl::Create(
+        context, context.getTranslationUnitDecl(), {}, {}, clang::LinkageSpecLanguageIDs::C, false);
+    auto candidate = clang::FunctionDecl::Create(
+        context, scope, declaration->getBeginLoc(),
+        declaration->getLocation(), declaration->getDeclName(), type, nullptr,
+        declaration->getStorageClass());
+    llvm::SmallVector<clang::ParmVarDecl*, 8> parameters;
+    for (auto parameter : declaration->parameters()) {
+        parameters.push_back(clang::ParmVarDecl::Create(
+            context, candidate, parameter->getBeginLoc(), parameter->getLocation(),
+            parameter->getIdentifier(), parameter->getType(), parameter->getTypeSourceInfo(),
+            parameter->getStorageClass(), nullptr));
+    }
+    candidate->setParams(parameters);
+    auto symbol = clang::ASTNameGenerator(context).getName(candidate);
+    if (symbol.empty()) {
+        return WindowsClangWrongKind;
+    }
+    info->stdcall_type = clang::cxtype::MakeCXType(type, clang::cxcursor::getCursorTU(cursor));
+    info->stdcall_symbol = clang::cxstring::createDup(symbol);
+    return WindowsClangSuccess;
 }
 
 WindowsClangStatus windows_clang_getTypeOfOperand(CXCursor cursor, CXCursor* expression) {

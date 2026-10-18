@@ -138,10 +138,12 @@ selected input headers. This includes selected WinRT headers without scanning th
 The include manifest still determines which headers are parsed. The driver writes its inputs and
 resolved imports to `target/win32-2/capture-configuration.txt`; `--dry-run` writes that configuration
 without changing RDL/WinMD.
-The experimental `--x86-stdcall` option changes Clang's x86 default for unannotated functions and
-callbacks. It recovers imports but also changes callback ABIs; it is not an accepted SDK default.
+For implicit x86 C imports without ordinary ownership, SDK policy can select a compiler-derived
+stdcall alternative after matching its exact linker symbol and provider. Explicit conventions,
+parameters, results, and callback types remain unchanged. Original native observations are retained;
+there is no global calling-convention override.
 Imports, named callbacks, and structural function pointers preserve explicit C/stdcall requests
-from Clang's written types on every target. Unannotated prototypes retain their native conventions.
+from Clang's written types on every target. Other prototypes retain their native conventions.
 Callback-name selection also checks written conventions in nested signatures. Native evidence and
 compiler defaults remain unchanged; real target-dependent contracts remain distinct.
 Discovery uses the active definition's owner, not a superseded definition in another header.
@@ -206,10 +208,11 @@ Seven direct RPC SAL aliases share this normalization. RPC input forms emit
 optional. Neither value changes native qualifiers or implies a count, and false does not require
 writable storage. Composed contracts retain raw evidence.
 RPC dereferenced-pointer forms lower outer direction and optionality without confusing inner-pointer
-nullability with optional argument storage. RPC output-pointer aliases, four SAL1 aliases, and eight
+nullability with optional argument storage. RPC output-pointer aliases, four SAL1 aliases, and ten
 SAL2 out-pointer forms replace fully represented evidence with `NativeReturnedPointerAttribute`:
 result nullability, one readable pointee on success when non-null, and COM's additional
-null-on-failure guarantee.
+null-on-failure guarantee. Ordinary null-on-failure forms retain the same failure guarantee without
+acquiring COM IID-output markers.
 The contract requires native pointer-to-pointer storage and specifies no ownership or allocator.
 Explicit COM output-pointer forms also emit `#[iid_is]` for unqualified native `void**`, including
 typedef aliases. Ordinary out pointers do not supply this marker. Compiler-bounded leading parameter
@@ -221,8 +224,9 @@ Direct RPC input strings replace native evidence with typed input and entry term
 RPC inout strings retain evidence; optional inout strings require termination on entry, without
 promising it on success.
 RPC buffers also lower direct element capacities and successful initialized lengths independently.
-Fully represented RPC partial-output arrays use typed capacity and initialized-length attributes
+Fully represented RPC output arrays use typed capacity and initialized-length attributes
 instead of raw evidence, including the guarantee that capacity remains writable on success.
+Full inout arrays retain their initialized length without acquiring that extra writable guarantee.
 Direct/full RPC input arrays use typed input and element-count contracts, including optional and
 counted-string forms. RPC input contracts do not acquire SAL1/SAL2's additional read-access guarantee.
 Partial input readable lengths remain entry evidence; output/inout `xcount` arguments do not become
@@ -236,6 +240,9 @@ Other conditional expressions remain explicit evidence.
 Full-output/update contracts use the same direct integer count for capacity and initialized length.
 Success predicates and count-pointer optionality remain separate contracts. This is not a complete
 SAL interpreter; unsupported expressions and nested contracts retain `NativeSalAttribute` evidence.
+Direct integer sibling-field counts use `NativeFieldBufferAttribute`, preserving writable capacity,
+optional readable extent, byte/element units, and nullable storage. These describe a valid containing
+value, not call pre/postconditions. Expressions, bitfield counts, and member paths remain evidence.
 Direct named integer buffer capacities emit
 `size_param` for bytes and `len_param` for elements, using the declared parameter index.
 Other expressions retain SAL evidence without

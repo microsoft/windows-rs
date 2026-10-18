@@ -47,6 +47,18 @@ struct WindowsClangFunctionInfo {
     unsigned additional_properties;
 };
 
+enum WindowsClangConventionOrigin {
+    WindowsClangConventionUnknown = 0,
+    WindowsClangConventionDefault = 1,
+    WindowsClangConventionExplicit = 2
+};
+
+struct WindowsClangImportConvention {
+    enum WindowsClangConventionOrigin origin;
+    CXType stdcall_type;
+    CXString stdcall_symbol;
+};
+
 enum WindowsClangAlignmentKind {
     WindowsClangAlignmentGNU = 0,
     WindowsClangAlignmentStandard = 1,
@@ -106,6 +118,10 @@ WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getFieldInitializer(
 // additional_properties flags prototype information that this structure does not decode.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getFunctionInfo(
     CXType type, struct WindowsClangFunctionInfo* info);
+// A compiler-derived x86 alternative, not a declaration or proof of DLL ownership.
+// Invalid stdcall_type means no candidate. The caller disposes stdcall_symbol.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getImportConvention(
+    CXCursor cursor, struct WindowsClangImportConvention* info);
 // The caller owns the returned string and releases it with clang_disposeString.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getUuid(
     CXCursor cursor, CXString* uuid);

@@ -8,6 +8,7 @@ publish = false
 helpers = { workspace = true }
 windows-clang2 = { workspace = true, features = ["projection"] }
 windows-rdl = { workspace = true }
+windows-metadata = { workspace = true }
 
 [lints]
 workspace = true

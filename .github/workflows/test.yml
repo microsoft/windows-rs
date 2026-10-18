@@ -89,6 +89,19 @@ jobs:
         run: cargo test --all --target ${{ matrix.target }} ${{ matrix.clang-exclude }} --exclude windows-composition --exclude canvas-standalone --exclude test_composition --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas
       - name: Test system Composition stack
         run: cargo test -p windows-canvas -p windows-composition -p canvas-standalone -p test_composition -p composition-standalone -p composition-minesweeper -p composition-canvas --features windows-canvas/system --target ${{ matrix.target }}
+      - name: Test Clang SDK contracts
+        if: matrix.target == 'x86_64-pc-windows-msvc'
+        shell: pwsh
+        run: |
+          cargo test -p tool-win32-2 sdk_ -- --include-ignored &&
+          cargo test -p test_clang2 --test initialization sdk_context -- --ignored &&
+          cargo test -p test_clang2 --test breadth sdk_import_gaps -- --ignored
+      - name: Test Clang cross-target import consumers
+        if: matrix.target == 'x86_64-pc-windows-msvc'
+        shell: pwsh
+        run: |
+          rustup target add i686-pc-windows-msvc aarch64-pc-windows-msvc &&
+          cargo test -p test_clang2 --test named_import_consumers named_import_consumers_cross_targets -- --ignored
       - name: Check diff
         shell: bash
         run: |

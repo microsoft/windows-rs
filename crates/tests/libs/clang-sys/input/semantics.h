@@ -4,6 +4,22 @@ struct PackOne { char value; };
 
 struct __declspec(uuid("01234567-89AB-CDEF-0123-456789ABCDEF")) NativeUuid {};
 extern "C" int NativeC(int);
+typedef int NativeDefaultCallback(int);
+typedef int (__cdecl NativeCdeclCallback)(int);
+extern "C" int __cdecl NativeExplicitC(int);
+extern "C" int __stdcall NativeExplicitStdcall(int);
+extern "C" NativeCdeclCallback NativeExplicitAlias;
+extern "C" NativeDefaultCallback NativeDefaultAlias;
+extern "C" int NativeImplicitComplex(char, unsigned long long, NativeDefaultCallback*);
+extern "C" int __stdcall NativeStdcallComplex(char, unsigned long long, NativeDefaultCallback*);
+extern "C" NativeCdeclCallback* NativeReturnedCallback(int);
+extern "C" int NativeVariadicImport(int, ...);
+#if defined(_M_IX86)
+extern "C" int __attribute__((regparm(2))) NativeRegparmImport(int);
+#else
+extern "C" int NativeRegparmImport(int);
+#endif
+extern "C" int NativeAsmImport(int) __asm__("native_label");
 int NativeCpp(int);
 extern "C" const int NativeCValue = 3;
 const int NativeCppValue = 4;

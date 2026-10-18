@@ -213,6 +213,8 @@ pub struct Field {
 pub enum AttributeKind {
     Packed,
     DefaultTypeVisibility,
+    /// Compiler auto-initialization opt-out, not a layout or caller initialization contract.
+    NoTrivialAutoVarInit,
     Uuid(u128),
     NoVTable,
     DllImport,
@@ -222,8 +224,13 @@ pub enum AttributeKind {
     SelectAny,
     Sal(Box<SalAnnotation>),
     Deprecated(Box<Deprecation>),
-    MaxFieldAlignment { bits: u32 },
-    Aligned { bits: u32, kind: AlignmentKind },
+    MaxFieldAlignment {
+        bits: u32,
+    },
+    Aligned {
+        bits: u32,
+        kind: AlignmentKind,
+    },
     Unresolved(String),
 }
 
@@ -408,6 +415,8 @@ pub enum ValueKind {
         parameters: Vec<Parameter>,
         mangling: String,
         language: LanguageLinkage,
+        convention_origin: CallingConventionOrigin,
+        stdcall_candidate: Option<Box<FunctionCandidate>>,
     },
     Constant {
         /// None only for a native declaration, never for a failed initializer.
@@ -415,6 +424,21 @@ pub enum ValueKind {
         origin: ConstantOrigin,
         linkage: ConstantLinkage,
     },
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum CallingConventionOrigin {
+    Unknown,
+    Default,
+    Explicit,
+}
+
+/// Compiler-derived alternative to an implicit convention, not a native declaration.
+#[derive(Debug, Eq, PartialEq)]
+pub struct FunctionCandidate {
+    pub written: TypeId,
+    pub canonical: TypeId,
+    pub mangling: String,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -580,6 +604,7 @@ impl Snapshot {
                     .map(|value| match &value.kind {
                         AttributeKind::Packed
                         | AttributeKind::DefaultTypeVisibility
+                        | AttributeKind::NoTrivialAutoVarInit
                         | AttributeKind::Uuid(_)
                         | AttributeKind::NoVTable
                         | AttributeKind::DllImport
@@ -631,8 +656,15 @@ impl Snapshot {
                     ValueKind::Function {
                         parameters,
                         mangling,
+                        stdcall_candidate,
                         ..
-                    } => mangling.capacity() + parameters_bytes(parameters),
+                    } => {
+                        mangling.capacity()
+                            + parameters_bytes(parameters)
+                            + stdcall_candidate.as_ref().map_or(0, |candidate| {
+                                size_of::<FunctionCandidate>() + candidate.mangling.capacity()
+                            })
+                    }
                     ValueKind::Constant { value, linkage, .. } => {
                         let text = match value {
                             Some(ConstantValue::String { value, .. }) => value.capacity(),

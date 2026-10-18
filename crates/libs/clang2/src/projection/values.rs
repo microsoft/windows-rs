@@ -41,7 +41,10 @@ impl Projector<'_, '_> {
     ) -> Result<Body, Error> {
         match &observation.kind {
             ValueKind::Function {
-                language, mangling, ..
+                language,
+                mangling,
+                stdcall_candidate,
+                ..
             } => {
                 if *language != LanguageLinkage::C {
                     return Err(Error(format!(
@@ -63,15 +66,24 @@ impl Projector<'_, '_> {
                         "unsupported function attributes on `{name}`"
                     )));
                 }
-                let import = imports
-                    .functions
-                    .get(name)
-                    .or_else(|| {
+                let native_import = imports.functions.get(name).or_else(|| {
+                    imports
+                        .symbols
+                        .get(&self.resolution.snapshots[snapshot].target)?
+                        .get(mangling)
+                });
+                let alternative = stdcall_candidate.as_ref().and_then(|candidate| {
+                    Some((
                         imports
-                            .symbols
+                            .default_stdcall
                             .get(&self.resolution.snapshots[snapshot].target)?
-                            .get(mangling)
-                    })
+                            .get(&candidate.mangling)?,
+                        candidate.written,
+                    ))
+                });
+                let (import, written) = native_import
+                    .map(|import| (import, observation.written))
+                    .or(alternative)
                     .ok_or_else(|| {
                         Error(format!(
                             "function `{name}` has no configured DLL/export ownership"
@@ -95,8 +107,7 @@ impl Projector<'_, '_> {
                     .filter(|import| import.as_str() != name)
                     .map(|name| quote! { , import = #name });
                 let (parameters, result) = self.callable(snapshot, observation, true)?;
-                let function =
-                    written_function(self.resolution.snapshots[snapshot], observation.written)?;
+                let function = written_function(self.resolution.snapshots[snapshot], written)?;
                 let abi = callable_abi(function.convention);
                 let name = ident(name)?;
                 let native = annotations::write(&observation.attributes);

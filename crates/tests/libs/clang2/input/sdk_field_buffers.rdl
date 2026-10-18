@@ -1,0 +1,43 @@
+#[win32]
+mod Fixture {
+    struct AUTHZ_ACCESS_REPLY {
+        ResultListLength: DWORD,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResultListLength", IsByteCount = false, MayBeNull = false)]
+        GrantedAccessMask: PACCESS_MASK,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResultListLength", IsByteCount = false, MayBeNull = true)]
+        SaclEvaluationResults: PDWORD,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResultListLength", IsByteCount = false, MayBeNull = false)]
+        Error: PDWORD,
+    }
+}
+#[win32]
+mod Fixture {
+    #[repr(i32)]
+    enum BCRYPT_HASH_OPERATION_TYPE {
+        BCRYPT_HASH_OPERATION_HASH_DATA = 1,
+        BCRYPT_HASH_OPERATION_FINISH_HASH = 2,
+    }
+    struct BCRYPT_MULTI_HASH_OPERATION {
+        iHash: ULONG,
+        hashOperation: BCRYPT_HASH_OPERATION_TYPE,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbBuffer", IsByteCount = false, MayBeNull = false)]
+        pbBuffer: PUCHAR,
+        cbBuffer: ULONG,
+    }
+}
+#[win32]
+mod Fixture {
+    type DWORD = u32;
+    type UCHAR = u8;
+    type ULONG = u32;
+}
+#[win32]
+mod Fixture {
+    type PDWORD = *mut u32;
+    type PUCHAR = *mut u8;
+}
+#[win32]
+mod Fixture {
+    type ACCESS_MASK = u32;
+    type PACCESS_MASK = *mut u32;
+}

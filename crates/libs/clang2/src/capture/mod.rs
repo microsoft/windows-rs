@@ -771,6 +771,7 @@ impl Capture<'_> {
         let name = unsafe { std::ffi::CStr::from_ptr(name) }.to_string_lossy();
         let kind = match name.as_ref() {
             "Packed" => AttributeKind::Packed,
+            "NoTrivialAutoVarInit" => AttributeKind::NoTrivialAutoVarInit,
             "MSNoVTable" => AttributeKind::NoVTable,
             "DLLImport" => AttributeKind::DllImport,
             "DLLExport" => AttributeKind::DllExport,

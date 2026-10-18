@@ -66,10 +66,95 @@ pub(crate) enum ParameterAnnotation<'a> {
     Evidence(&'a SalAnnotation),
 }
 
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub(crate) struct FieldContract {
+    pub capacity: usize,
+    pub readable: Option<usize>,
+    pub units: Units,
+    pub optional: bool,
+}
+
+#[derive(Eq, Ord, PartialEq, PartialOrd)]
+pub(crate) enum FieldAnnotation<'a> {
+    Contract(FieldContract),
+    Evidence(&'a SalAnnotation),
+}
+
+fn field(value: &SalAnnotation, fields: &[Field]) -> Option<FieldContract> {
+    if value.version != "2" || value.arguments.trim().is_empty() || value.expanded.trim().is_empty()
+    {
+        return None;
+    }
+    let (units, optional, full, partial) = match value.name.as_str() {
+        "_Field_size_" => (Units::Elements, false, false, false),
+        "_Field_size_opt_" => (Units::Elements, true, false, false),
+        "_Field_size_full_" => (Units::Elements, false, true, false),
+        "_Field_size_full_opt_" => (Units::Elements, true, true, false),
+        "_Field_size_part_" => (Units::Elements, false, false, true),
+        "_Field_size_part_opt_" => (Units::Elements, true, false, true),
+        "_Field_size_bytes_" => (Units::Bytes, false, false, false),
+        "_Field_size_bytes_opt_" => (Units::Bytes, true, false, false),
+        "_Field_size_bytes_full_" => (Units::Bytes, false, true, false),
+        "_Field_size_bytes_full_opt_" => (Units::Bytes, true, true, false),
+        "_Field_size_bytes_part_" => (Units::Bytes, false, false, true),
+        "_Field_size_bytes_part_opt_" => (Units::Bytes, true, false, true),
+        _ => return None,
+    };
+    let count = |name: &str| {
+        fields.iter().position(|field| {
+            !field.name.is_empty() && field.name == name.trim() && field.bit_width.is_none()
+        })
+    };
+    let (capacity, readable) = if partial {
+        let (capacity, readable) = value.expanded.split_once(',')?;
+        (count(capacity)?, Some(count(readable)?))
+    } else {
+        let capacity = count(&value.expanded)?;
+        (capacity, full.then_some(capacity))
+    };
+    Some(FieldContract {
+        capacity,
+        readable,
+        units,
+        optional,
+    })
+}
+
+pub(crate) fn fields<'a>(
+    attributes: &'a [Attribute],
+    fields: &[Field],
+) -> Vec<FieldAnnotation<'a>> {
+    let values = resolve::sal(attributes);
+    let mut contracts = values.iter().filter_map(|value| field(value, fields));
+    let first = contracts.next();
+    let distinct = contracts.any(|value| Some(value) != first);
+    let mut result: Vec<_> = values
+        .into_iter()
+        .map(|value| {
+            if !distinct && let Some(contract) = field(value, fields) {
+                FieldAnnotation::Contract(contract)
+            } else {
+                FieldAnnotation::Evidence(value)
+            }
+        })
+        .collect();
+    result.sort_unstable();
+    result.dedup();
+    result
+}
+
 pub(crate) fn parameter(
     value: &SalAnnotation,
     parameters: &[Parameter],
 ) -> Option<ParameterContract> {
+    if let Some((direction, _, RpcBufferKind::Capacity | RpcBufferKind::Full, _)) =
+        rpc_buffer_shape(value)
+        && direction != Direction::Input
+    {
+        let contract = rpc_buffer(value, parameters)?;
+        contract.capacity?;
+        return Some(contract);
+    }
     let (direction, optional, kind) = shape(value)?;
     let mut contract = ParameterContract {
         direction,
@@ -216,7 +301,6 @@ fn rpc_buffer_shape(value: &SalAnnotation) -> Option<(Direction, bool, RpcBuffer
     })
 }
 
-#[cfg(feature = "projection")]
 pub(crate) fn rpc_buffer(
     value: &SalAnnotation,
     parameters: &[Parameter],
@@ -226,7 +310,7 @@ pub(crate) fn rpc_buffer(
         direction,
         optional,
         capacity: None,
-        post_writable: false,
+        post_writable: direction == Direction::Output && !matches!(kind, RpcBufferKind::Uncounted),
         initialized: None,
         terminated,
         returned_pointer: None,
@@ -408,6 +492,15 @@ fn shape(value: &SalAnnotation) -> Option<(Direction, bool, ContractKind)> {
                 may_be_null: false,
                 null_on_failure: true,
                 com: true,
+            }),
+        ),
+        ("2", "_Outptr_result_nullonfailure_" | "_Outptr_opt_result_nullonfailure_") => (
+            Direction::Output,
+            value.name == "_Outptr_opt_result_nullonfailure_",
+            OutPointer(ReturnedPointer {
+                may_be_null: false,
+                null_on_failure: true,
+                com: false,
             }),
         ),
         ("2", "_COM_Outptr_result_maybenull_" | "_COM_Outptr_opt_result_maybenull_") => (

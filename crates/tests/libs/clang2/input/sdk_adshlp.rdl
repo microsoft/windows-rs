@@ -5,7 +5,7 @@ mod Fixture {
     #[library("ACTIVEDS.dll")]
     extern fn ADsBuildVarArrayInt(lpdwObjectTypes: LPDWORD, dwObjectTypes: DWORD, pVar: *mut VARIANT) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn ADsBuildVarArrayStr(#[in] #[len_param(1)] lppPathNames: *mut LPWSTR, dwPathNames: DWORD, pVar: *mut VARIANT) -> HRESULT;
+    extern fn ADsBuildVarArrayStr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] lppPathNames: *mut LPWSTR, dwPathNames: DWORD, pVar: *mut VARIANT) -> HRESULT;
     #[library("ACTIVEDS.dll")]
     extern fn ADsDecodeBinaryData(szSrcData: LPCWSTR, ppbDestData: *mut PBYTE, pdwDestLen: *mut ULONG) -> HRESULT;
     #[library("ACTIVEDS.dll")]
@@ -372,7 +372,7 @@ mod Fixture {
     interface IDispatch: IUnknown {
         fn GetTypeInfoCount(&self, #[out] pctinfo: *mut UINT) -> HRESULT;
         fn GetTypeInfo(&self, iTInfo: UINT, lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
-        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_ecount_full", "cNames", "cNames")] #[in] #[len_param(2)] rgszNames: *mut LPOLESTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,16384", "0,16384")] cNames: UINT, lcid: LCID, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__out_ecount_full", "cNames", "cNames")] #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = false)] rgDispId: *mut DISPID) -> HRESULT;
+        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(2)] rgszNames: *mut LPOLESTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,16384", "0,16384")] cNames: UINT, lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = false)] rgDispId: *mut DISPID) -> HRESULT;
         fn Invoke(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dispIdMember: DISPID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lcid: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wFlags: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDispParams: *mut DISPPARAMS, #[out] #[opt] pVarResult: *mut VARIANT, #[out] #[opt] pExcepInfo: *mut EXCEPINFO, #[out] #[opt] puArgErr: *mut UINT) -> HRESULT;
     }
     #[guid(0x00020404_0000_0000_c000_000000000046)]
@@ -422,7 +422,7 @@ mod Fixture {
         fn GetNames(&self, memid: MEMBERID, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] rgBstrNames: *mut BSTR, cMaxNames: UINT, #[out] pcNames: *mut UINT) -> HRESULT;
         fn GetRefTypeOfImplType(&self, index: UINT, #[out] pRefType: *mut HREFTYPE) -> HRESULT;
         fn GetImplTypeFlags(&self, index: UINT, #[out] pImplTypeFlags: *mut INT) -> HRESULT;
-        fn GetIDsOfNames(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_ecount", "cNames", "cNames")] #[in] #[len_param(1)] rgszNames: *mut LPOLESTR, cNames: UINT, pMemId: *mut MEMBERID) -> HRESULT;
+        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] rgszNames: *mut LPOLESTR, cNames: UINT, pMemId: *mut MEMBERID) -> HRESULT;
         fn Invoke(&self, pvInstance: PVOID, memid: MEMBERID, wFlags: WORD, pDispParams: *mut DISPPARAMS, pVarResult: *mut VARIANT, pExcepInfo: *mut EXCEPINFO, puArgErr: *mut UINT) -> HRESULT;
         fn GetDocumentation(&self, memid: MEMBERID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDocString: *mut BSTR, pdwHelpContext: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrHelpFile: *mut BSTR) -> HRESULT;
         fn GetDllEntry(&self, memid: MEMBERID, invKind: INVOKEKIND, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDllName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, pwOrdinal: *mut WORD) -> HRESULT;

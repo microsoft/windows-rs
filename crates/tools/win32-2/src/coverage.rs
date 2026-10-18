@@ -2,7 +2,7 @@ use super::*;
 use std::collections::BTreeSet;
 use std::process::Command;
 
-const BASELINE: &str = "6e68e56081340eaa932f4dbc92ec54c56ed51473";
+use named_exports::BASELINE;
 type Constants = BTreeMap<String, BTreeSet<String>>;
 
 pub fn run() -> Result<(), Box<dyn std::error::Error>> {

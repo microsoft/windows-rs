@@ -153,7 +153,16 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
         for (key, observation) in values.chain(methods) {
             edge(&key, observation.written);
             edge(&key, observation.canonical);
-            if let ValueKind::Function { parameters, .. } = &observation.kind {
+            if let ValueKind::Function {
+                parameters,
+                stdcall_candidate,
+                ..
+            } = &observation.kind
+            {
+                if let Some(candidate) = stdcall_candidate {
+                    edge(&key, candidate.written);
+                    edge(&key, candidate.canonical);
+                }
                 for parameter in parameters {
                     edge(&key, parameter.written);
                 }
@@ -355,7 +364,16 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
 fn remap_value(value: &mut ValueObservation, types: &[Option<usize>]) {
     value.written.0 = types[value.written.0].unwrap();
     value.canonical.0 = types[value.canonical.0].unwrap();
-    if let ValueKind::Function { parameters, .. } = &mut value.kind {
+    if let ValueKind::Function {
+        parameters,
+        stdcall_candidate,
+        ..
+    } = &mut value.kind
+    {
+        if let Some(candidate) = stdcall_candidate {
+            candidate.written.0 = types[candidate.written.0].unwrap();
+            candidate.canonical.0 = types[candidate.canonical.0].unwrap();
+        }
         for parameter in parameters {
             parameter.written.0 = types[parameter.written.0].unwrap();
         }

@@ -1318,6 +1318,10 @@ pub const WindowsClangCFIUncheckedCallee: WindowsClangFunctionProperties = 64;
 pub const WindowsClangCLanguageLinkage: WindowsClangLanguageLinkage = 1;
 pub const WindowsClangCXXLanguageLinkage: WindowsClangLanguageLinkage = 2;
 pub const WindowsClangConst: WindowsClangTypeQualifiers = 1;
+pub const WindowsClangConventionDefault: WindowsClangConventionOrigin = 1;
+pub const WindowsClangConventionExplicit: WindowsClangConventionOrigin = 2;
+pub type WindowsClangConventionOrigin = i32;
+pub const WindowsClangConventionUnknown: WindowsClangConventionOrigin = 0;
 pub const WindowsClangDependent: WindowsClangStatus = 3;
 pub const WindowsClangExtendedParameters: WindowsClangFunctionProperties = 1;
 pub const WindowsClangExtraAttributes: WindowsClangFunctionProperties = 2;
@@ -1335,6 +1339,13 @@ pub struct WindowsClangFunctionInfo {
     pub additional_properties: u32,
 }
 pub type WindowsClangFunctionProperties = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WindowsClangImportConvention {
+    pub origin: WindowsClangConventionOrigin,
+    pub stdcall_type: CXType,
+    pub stdcall_symbol: CXString,
+}
 pub const WindowsClangInvalidArgument: WindowsClangStatus = 1;
 pub type WindowsClangLanguageLinkage = i32;
 pub const WindowsClangMethodQualifiers: WindowsClangFunctionProperties = 16;
@@ -1571,6 +1582,11 @@ const _: () = {
     assert!(core::mem::offset_of!(WindowsClangFunctionInfo, no_cf_check) == 20usize);
     assert!(core::mem::offset_of!(WindowsClangFunctionInfo, cmse_nonsecure_call) == 24usize);
     assert!(core::mem::offset_of!(WindowsClangFunctionInfo, additional_properties) == 28usize);
+    assert!(size_of::<WindowsClangImportConvention>() == 48usize);
+    assert!(align_of::<WindowsClangImportConvention>() == 8usize);
+    assert!(core::mem::offset_of!(WindowsClangImportConvention, origin) == 0usize);
+    assert!(core::mem::offset_of!(WindowsClangImportConvention, stdcall_type) == 8usize);
+    assert!(core::mem::offset_of!(WindowsClangImportConvention, stdcall_symbol) == 32usize);
 };
 pub(crate) struct Functions {
     pub clang_CXCursorSet_contains:
@@ -2310,6 +2326,10 @@ pub(crate) struct Functions {
     pub windows_clang_getFunctionInfo: unsafe extern "C" fn(
         r#type: CXType,
         info: *mut WindowsClangFunctionInfo,
+    ) -> WindowsClangStatus,
+    pub windows_clang_getImportConvention: unsafe extern "C" fn(
+        cursor: CXCursor,
+        info: *mut WindowsClangImportConvention,
     ) -> WindowsClangStatus,
     pub windows_clang_getIntegerConstantInitializer:
         unsafe extern "C" fn(cursor: CXCursor, is_constant: *mut u32) -> WindowsClangStatus,
@@ -4842,6 +4862,13 @@ impl Functions {
                         format!("{}: {error}", stringify!(windows_clang_getFunctionInfo))
                     })?
             },
+            windows_clang_getImportConvention: unsafe {
+                *extension
+                    .get(b"windows_clang_getImportConvention\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getImportConvention))
+                    })?
+            },
             windows_clang_getIntegerConstantInitializer: unsafe {
                 *extension
                     .get(b"windows_clang_getIntegerConstantInitializer\0")
@@ -7069,6 +7096,14 @@ pub unsafe fn windows_clang_getFunctionInfo(
 ) -> WindowsClangStatus {
     crate::with_library(|library| unsafe {
         (library.functions.windows_clang_getFunctionInfo)(r#type, info)
+    })
+}
+pub unsafe fn windows_clang_getImportConvention(
+    cursor: CXCursor,
+    info: *mut WindowsClangImportConvention,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getImportConvention)(cursor, info)
     })
 }
 pub unsafe fn windows_clang_getIntegerConstantInitializer(

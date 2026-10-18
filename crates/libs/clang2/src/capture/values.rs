@@ -87,6 +87,11 @@ impl Capture<'_> {
             parameters.push(self.parameter(parameter)?);
         }
         self.parameter_comments(cursor, &mut parameters);
+        let (convention_origin, stdcall_candidate) = if language == LanguageLinkage::C {
+            self.import_convention(cursor, canonical)?
+        } else {
+            (CallingConventionOrigin::Unknown, None)
+        };
 
         Ok(ValueObservation {
             location: self.location(cursor),
@@ -97,8 +102,69 @@ impl Capture<'_> {
                 parameters,
                 mangling: text(unsafe { clang_Cursor_getMangling(cursor) }),
                 language,
+                convention_origin,
+                stdcall_candidate,
             },
         })
+    }
+
+    fn import_convention(
+        &mut self,
+        cursor: CXCursor,
+        canonical: TypeId,
+    ) -> Result<(CallingConventionOrigin, Option<Box<FunctionCandidate>>), Error> {
+        let mut info = WindowsClangImportConvention::default();
+        let status = unsafe { windows_clang_getImportConvention(cursor, &raw mut info) };
+        if status != WindowsClangSuccess {
+            return Err(unsupported(
+                cursor,
+                &format!("import convention query failed: {status}"),
+            ));
+        }
+        let mangling = text(info.stdcall_symbol);
+        let origin = match info.origin {
+            WindowsClangConventionUnknown => CallingConventionOrigin::Unknown,
+            WindowsClangConventionDefault => CallingConventionOrigin::Default,
+            WindowsClangConventionExplicit => CallingConventionOrigin::Explicit,
+            value => {
+                return Err(unsupported(
+                    cursor,
+                    &format!("unknown convention origin: {value}"),
+                ));
+            }
+        };
+        if info.stdcall_type.kind == CXType_Invalid {
+            return Ok((origin, None));
+        }
+        let written = self.ty(info.stdcall_type, cursor)?;
+        let alternative = self.ty(unsafe { clang_getCanonicalType(info.stdcall_type) }, cursor)?;
+        let TypeKind::Function(original) = &self.snapshot.types[canonical.0].kind else {
+            return Err(unsupported(cursor, "expected canonical function prototype"));
+        };
+        let TypeKind::Function(candidate) = &self.snapshot.types[alternative.0].kind else {
+            return Err(unsupported(
+                cursor,
+                "expected alternative function prototype",
+            ));
+        };
+        let mut expected = original.as_ref().clone();
+        expected.convention = CallingConvention::Stdcall;
+        if self.snapshot.target != Target::X86
+            || origin != CallingConventionOrigin::Default
+            || original.convention != CallingConvention::C
+            || expected != **candidate
+            || mangling.is_empty()
+        {
+            return Err(unsupported(cursor, "invalid compiler stdcall candidate"));
+        }
+        Ok((
+            origin,
+            Some(Box::new(FunctionCandidate {
+                written,
+                canonical: alternative,
+                mangling,
+            })),
+        ))
     }
 
     fn parameter(&mut self, cursor: CXCursor) -> Result<Parameter, Error> {

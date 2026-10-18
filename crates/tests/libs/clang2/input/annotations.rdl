@@ -5,7 +5,7 @@ mod Fixture {
     extern "C" fn AResultContract(context: *mut void) -> Status;
     struct BufferView {
         count: u32,
-        #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "count", "count")]
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "count", IsByteCount = false, MayBeNull = false)]
         data: *mut u8,
     }
     struct CallbackHolder {

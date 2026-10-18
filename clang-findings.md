@@ -9,16 +9,16 @@ requirement. Ranks order the remaining work; individual exclusions and cutover a
 | Control | Identity and status |
 | --- | --- |
 | Frozen comparison baseline | `6e68e56081340eaa932f4dbc92ec54c56ed51473` |
-| Working source checkpoint | `5246ebc3fd7e8b9cbb1d5fb3fd16effc6d5d74fd`, plus freshness and named-publication changes |
-| Working `metadata/win32` | Regenerated named-publication partial candidate; visible, uncommitted |
+| Working source checkpoint | `58ee55b4d3`, plus output/field contracts, named linkage, context, and per-function ABI repairs |
+| Working `metadata/win32` | Regenerated per-function ABI partial candidate; visible, uncommitted |
 | Reviewed metadata control | `breadth-noreturn-repeat`; not an accepted replacement |
 | Ordinal candidate | `breadth-ordinal-imports`; unresolved x86 import gaps |
 | Stdcall trial | `breadth-sdk-stdcall`; not accepted as the canonical configuration |
-| Scratch output | `target/win32-2/Windows.Win32.winmd` matches the named-publication run |
-| Toolchain | LLVM 22.1.8, companion ABI 16, SDK 10.0.28000.2270; x86/x64/ARM64 |
+| Scratch output | `target/win32-2/Windows.Win32.winmd` matches the per-function ABI run |
+| Toolchain | LLVM 22.1.8, companion ABI 17, SDK 10.0.28000.2270; x86/x64/ARM64 |
 
-The named-publication configuration uses the existing 370 headers and seven translation units,
-without `--x86-stdcall`. Historical control artifacts and SHA-256 identities are recorded in
+The configuration uses the existing 370 headers and seven translation units, with unchanged compiler
+defaults. The global stdcall switch is removed. Historical controls and SHA-256 identities are in
 `rewrite-handoff.json` in Copilot session
 `e8bd0450-292d-42c8-a2b2-45d86a4711e5`; the original artifacts are in session
 `1810274b-2842-4eda-8537-79e6ac99f61c`. These are recovery evidence, not a clean-checkout
@@ -57,8 +57,9 @@ bindgen/link for emitted imports.
 WSAStartup ordinal mappings and WinMD on all targets. `sdk_import_gaps` verifies the unresolved
 DHCP/DNS x86 convention mismatch and missing BSTR_UserSize64 entry. Both pass.
 
-**Resolution:** preserve established named linkage. No ordinal consumer changes remain in bindgen
-or windows-link. The SDK driver owns a checked 42-entry policy: the 18 functions covered before
+**Resolution:** preserve established named linkage using the frozen-baseline/SDK join described
+below. No ordinal consumer changes remain in bindgen or windows-link. The initial 42-entry policy
+covered the 18 functions before
 the ordinal experiment, ILClone and ILFree, and 22 Active Directory helpers. Every entry is checked
 against all three pinned
 SDK archives, retaining exact native symbol, machine, provider, kind, and ordinal evidence.
@@ -413,6 +414,74 @@ Artifacts are `sal1-pointer-*` and `compare-sal1-pointer.py` in the session file
 Generation reports 297.203 seconds for capture/merge/project and 4.953 seconds for compilation;
 these are observations, not controlled measurements, and peak memory was not measured.
 
+### RPC output arrays and ordinary pointer failure contracts
+
+`_Outptr_result_nullonfailure_` and its optional-storage variant use `NativeReturnedPointer`.
+They preserve required non-null results on success and null results on failure without supplying
+COM IID-output intent. The pinned macro cases distinguish these from both `_Outptr_` and
+`_COM_Outptr_`. `sdk_shell_item.h`/`.rdl` checks `IShellItem::GetDisplayName`.
+
+RPC output capacity, full-array, and terminated-array forms now replace fully represented SAL
+payloads with typed attributes. Full inout forms also normalize. Output arrays preserve the SDK's
+extra `PostWritable` guarantee; inout arrays do not acquire it. A known capacity retains that
+guarantee even when the separate initialized-length expression is unsupported. Partial/full aliases
+agree only when the counts and postconditions agree. RPC output and SAL2 output forms with different
+writable guarantees remain distinct.
+
+`rpc_full_buffers.h`/`.rdl` covers capacity, initialized length, termination, and optional inout
+storage. The 97 breadth and seven annotation cases pass, including pinned SDK definitions and
+round trips. The affected SDK interface/function fixtures, warnings-denied clippy, formatting, and
+no-default-features check also pass.
+
+`output-contract-comparison.json` compares the regenerated candidate to the preceding validated
+candidate, not the restored Git baseline. Exactly 33 partitions change: 321 RPC array
+target-parameter payloads normalize, 225 capacities gain their post-writable guarantee, and 135
+ordinary returned-pointer contracts normalize. Declaration inventory, types, ownership,
+availability, and unrelated attributes remain unchanged. Configuration, all 73,532 omission
+diagnostics, and constant accounting are byte-identical. Tracked `metadata/win32` is regenerated
+and left visible. The source repair reuses the shared normalizer; no new metadata vocabulary or
+bindgen changes are needed.
+
+Generation reports 318.588 seconds for capture/merge/project and 5.060 seconds for compilation.
+These are observations, not controlled measurements; peak memory was not measured.
+
+Two further inspected differences remain separate:
+
+- `CFunctionDiscoveryNotificationWrapper` is a C++ implementation helper with method bodies,
+  rather than a separately identified COM interface. Capture reports an unsupported class; the
+  baseline's empty `#[no_guid]` interface is not proof that this helper should be restored.
+- `__RPC_unique_pointer` and `__RPC_full_pointer` expand to the phase-independent `_Maybenull_`
+  property. The examples in `activation`, `comcat`, and `docobj` annotate typedefs, not merely
+  optional call arguments. They belong with the remaining type-property work, not a blanket
+  `#[opt]` replacement.
+
+### Typed field buffers
+
+The approved `NativeFieldBufferAttribute` preserves writable capacity, optional readable extent,
+byte/element units, and nullable storage for twelve SAL2 field-size forms. Counts must name direct
+integer sibling fields, not bitfields, enclosing-record fields, or member paths. These properties
+hold when the containing value is valid; they are not callable pre/postconditions or ownership
+guarantees. Native and public-family comparisons share normalization. Different composed contracts
+remain evidence, and invalid count/storage types fail publication.
+
+`field_buffers.h`/`.rdl` covers aliases, nested owners, and inline arrays. The SDK fixture checks the
+actual twelve macros plus Authz and BCrypt records. Agreement/conflict, retained native evidence,
+unsupported-expression, and enclosing-owner rejection cases pass. All 101 breadth and seven
+annotation cases pass with SDK cases included, as do the SDK function/interface fixtures,
+warnings-denied clippy, no-default-features check, and formatting.
+
+The regenerated SDK candidate changes 64 partitions: 1,754 target-field payloads become typed
+contracts in 1,142 target declarations. Exact comparison preserves every declaration, type, layout,
+owner, target, and unrelated attribute. All 73,532 omission diagnostics, configuration, and constant
+accounting are byte-identical to the preceding candidate. Nested references such as
+`D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU`'s union field referring to enclosing `ObjectCount` remain
+raw evidence; the direct outer field normalizes.
+
+Artifacts are `field-buffer-comparison.json`, `field-buffer-sdk.log`, and the field-buffer regression
+logs in the current session. Generation reports 353.419 seconds for capture/merge/project and 5.763
+seconds for compilation. Tests overlapped this run; these are not controlled timings, and peak
+memory was not measured. This batch establishes a metadata contract, not consumer acceptance.
+
 ## Adopted package control correction
 
 `tool-bindings` and `tool-reactor` regenerated without tracked output changes during the initial
@@ -438,3 +507,210 @@ The initial six-case review and resolution ordering are approved. Required SDK s
 resource budgets and individual format migration requirements
 still need acceptance decisions. No metadata candidate, PCH exclusion, blanket stdcall default,
 or production cutover is accepted by this document.
+
+### Winsock and general named-linkage repair
+
+The maintainer approved frozen-baseline named linkage checked against native SDK import evidence.
+`named_exports.rs` uses a generated snapshot of target, declaration name, DLL, and export name.
+Refresh compiles the frozen Win32 RDL with its matching metadata definitions and external WinRT
+references, then uses the metadata reader. No ABI, layout, signature, or ordinal numbers are copied
+from the baseline. Normal generation uses the checked-in snapshot without Git history.
+
+Publication requires the compiler's exact native linker symbol in the selected target's SDK code
+imports, plus matching baseline name/provider evidence. It never strips linker decoration to infer
+names or rewrites calling conventions. Missing evidence remains omitted, provider conflicts fail,
+and explicit import overrides retain precedence. The handwritten 42-entry policy is removed.
+
+`sdk_winsock.h`/`.rdl` covers all 125 baseline WS2_32 functions from Winsock2 and WS2tcpip. All 109
+Winsock2 baseline functions are present on all three targets, closing its 37 missing names.
+Generated consumers check exact representative signatures, byte-order conversions, error state,
+and `select` behavior. Host and isolated x86/x64 executions pass; all three targets compile/link
+and contain the expected named PE imports. ARM64 execution was not available. Existing DHCP/DNS
+x86 mismatch checks still reject the default configuration.
+
+Full regeneration restores 1,436 baseline functions, or 4,308 target declarations, across 38
+partitions. This is the shared policy's effect, not additional per-family fixes. Every retained
+declaration, type, attribute, owner, and target is identical to the preceding candidate. Exactly
+1,436 missing-import omission roots disappear; constants remain byte-identical. The candidate has
+13,766 functions and 72,096 omission diagnostics. Other recovered families still need their own
+consumer acceptance, rather than inheriting Winsock's behavioral coverage.
+
+`--compare-functions` is a checked-in reader-based comparison of current Win32 RDL against the
+frozen named-linkage snapshot. It reports 445 absent names, 1,321 missing target pairs, and the
+same three known Rtl provider differences. The largest remaining provider groups include kernel32
+(81 names), avifil32 (54), ole32 (50), DHCP (41), and DNS (22). Missing imports are not proof of
+target absence.
+
+Canonical accounting corrects another limitation in the earlier script: its library pattern missed
+50 functions with explicit import-name attributes. The Win32 baseline has 14,171 named functions,
+not 14,121; the pre-repair loss was 1,881 names, not 1,831. The compiled default WinMD has a larger
+scope than `metadata/win32`: it includes WDK inputs. The final snapshot uses the Win32 RDL scope,
+not that combined file. Removing its 489 extra rows changed no SDK publication decision.
+
+An attempted combined Win32/WDK compile also exposes an existing integration failure:
+`metadata/wdk/ntddk.rdl`'s `KPCR` needs missing `NT_TIB`. The pre-Winsock candidate already lacks
+that definition. This remains a separate acceptance issue; no WDK inputs or fallback definitions
+were changed to conceal it.
+
+Artifacts are `winsock-comparison.json`, `winsock-sdk.log`, and the policy/consumer logs in the
+current session. The named-linkage snapshot regenerates identically. Formatting, warnings-denied
+clippy, focused policy/ABI regressions, and consumer checks pass. Generation reports 296.401 seconds
+for capture/merge/project and 5.117 seconds for compilation; this was not a controlled benchmark,
+and peak memory was not measured.
+
+## Independent review disposition
+
+### Residual function roots after named-linkage repair
+
+The 445 missing frozen-baseline functions split into 182 missing import-ownership failures,
+221 capture/dependency/projection failures, and 42 names without a `Value(...)` root diagnostic.
+The last group includes PSAPI aliases, CLFS inline helpers, and other public-name questions;
+absence of a root diagnostic is not evidence that these APIs can be excluded.
+
+The largest direct dependency groups are `IAVIStream` (38 functions), `_CONTEXT` (15),
+`IAVIFile` (11), `ID3DInclude` (7), and `_TP_CALLBACK_ENVIRON_V3` (5). AVI capture rejects
+inherited-slot redeclarations. `ID3DInclude` has no native UUID. Neither problem authorizes
+inventing COM identity or vtable slots. Import ABI mismatches remain separate from absent SDK
+archive entries; the global stdcall experiment is not an accepted correction.
+
+`_CONTEXT` is blocked by Clang's `NoTrivialAutoVarInit` attribute. LLVM 22.1.8
+`clang/lib/CodeGen/CGDecl.cpp`, in `EmitAutoVarInit`, checks the tag or enclosing function for this
+marker before inserting automatic initialization. It does not alter record layout, an import's
+calling convention, or a caller's initialization obligations. Retain the marker in native evidence
+and reconciliation without adding a metadata initialization attribute. `_EXCEPTION_POINTERS` and
+`_EXCEPTION_REGISTRATION_RECORD` depend on `_CONTEXT`; the latter also blocks `NT_TIB` and WDK
+integration. The focused context fixture covers exact native sizes, alignment, and instruction
+pointer offsets on all targets, plus generated bindings and a real `RtlCaptureContext` call.
+
+The context repair restores 19 baseline functions on 54 target pairs. Current accounting is
+426 missing names / 1,267 target pairs: 183 import-ownership failures, 201 capture/dependency
+failures, and 42 without a value-root diagnostic. Eight partitions change; every retained
+declaration, owner, target, type, and attribute is identical. Constants and capture configuration
+are byte-identical. The candidate contains 10,270 records, 4,532 enums, 13,286 aliases,
+93,085 constants, 13,785 functions, and 4,016 interfaces.
+
+Six existing omissions acquire more specific reasons rather than losing additional declarations:
+three minidump records contain aligned context storage under packing, and `RtlCaptureContext2`,
+`__C_specific_handler`, and `_except_handler` lack import ownership. The recovered x86
+`RtlRestoreContext` uses the SDK's `ntdll.dll` provider instead of the baseline's `kernel32.dll`;
+this joins the three recorded Rtl provider differences and still needs acceptance review.
+
+`NT_TIB` and `EXCEPTION_REGISTRATION_RECORD` are recovered. Combined Win32/WDK compilation
+passes that point but fails at `ntifs.rdl`'s `READ_LIST.List`: missing `FILE_SEGMENT_ELEMENT`.
+Its native `PVOID64 Buffer` is a fixed-width pointer even on x86, currently rejected as unsupported
+qualifiers. Do not replace it with a target-sized pointer or copy the baseline union as a fallback.
+WDK integration remains open.
+
+All five initialization regressions pass, including native/public conflicts and attributed forwards.
+The shared import consumer verifies layouts and named linkage on all three targets and executes
+on x86/x64; ARM64 execution remains unavailable. Warnings-denied clippy, the no-default-features
+check, annotation/visibility/fidelity regressions, and formatting pass. Full generation reports
+299.363 seconds capture/merge/project and 5.464 seconds compilation with concurrent validation.
+A mid-run process query observed at least 6,671,699,968 peak working-set bytes; this is not a final
+process-tree peak or a controlled budget measurement. Artifacts are `context-comparison.json`,
+`context-sdk.log`, and the context controls in the current session.
+
+### Compiler-derived per-function import ABI
+
+The maintainer approved per-function ABI resolution, not a new global compiler default.
+`windows_clang_getImportConvention` reads written/defaulted outer convention provenance, including
+function typedefs. For eligible implicit C imports on MSVC x86, it constructs a stdcall type and
+linker symbol through Clang. Explicit conventions, definitions, variadics, asm labels, and
+unsupported function properties have no candidate. Synthetic declarations are not added to TU
+traversal, and original declarations are not mutated.
+
+Capture retains the original types, symbols, parameters, and annotations. It checks that the
+candidate differs only in its outer convention. SDK policy permits publication only with an exact
+candidate symbol/provider match. Explicit public mappings and ordinary native-symbol mappings win.
+Every declaration observation must permit resolution; candidates cannot conceal native conflicts
+or override explicit cdecl declarations. The production `--x86-stdcall` option is removed.
+
+Full regeneration restores exactly 94 baseline functions on 282 target pairs across 13 partitions,
+including 41 DHCP and 22 DNS functions. Every retained declaration, callback, function-pointer field,
+owner, target, type, and attribute is unchanged. There are no new omissions; exactly 94 ownership
+omissions disappear. Constants, source inputs, compiler arguments, explicit imports, and all existing
+target import mappings remain identical. The configuration records 94 per-function decisions.
+The output has 13,879 functions and 71,938 omission diagnostics; other declaration totals are
+unchanged.
+
+Frozen-baseline accounting now leaves 332 missing names / 985 target pairs: 89 import-ownership
+failures, 201 capture/dependency/projection failures, and 42 names without a value-root diagnostic.
+The four Rtl provider differences remain unchanged and need acceptance disposition. Required API
+losses, including AVI interfaces and missing SDK import entries, are not approved exclusions.
+
+Native controls cover explicit conventions and typedefs, nested callbacks, unsupported properties,
+unchanged original types/symbols, and unchanged TU traversal on all targets. Parser controls cover
+mapping precedence, same-TU and cross-TU redeclarations, input order, partial projection, and native
+conflicts. All nonignored parser regressions, warnings-denied clippy, no-default-features checks,
+and the SDK policy suite pass. Generated consumers execute DNS validation without changing DHCP
+configuration on x86/x64; all three targets compile, link, and retain named PE imports. These
+selected consumers do not establish behavior parity for every restored function.
+
+Generation reports 312.210 seconds capture/merge/project and 5.260 seconds compilation. The driver
+wall time is 319.534 seconds; the sampled process peak is 7,333,953,536 bytes. These are observations
+with an unquiet machine, not a process-tree budget measurement or a matched legacy benchmark.
+The session's `implicit-abi-before.zip`, `implicit-abi-comparison.json`, `implicit-abi-sdk.log`,
+and `implicit-abi-resources.json` retain the control and exact retained-declaration comparison.
+
+### Selected SDK checks in CI
+
+The x64 test job explicitly runs the SDK driver's policy/configuration fixtures, the context
+layout fixture, and the missing-import negative fixture. It adds Rust's x86/ARM64 targets and runs
+the named import consumer matrix, including Winsock, context, and DHCP/DNS. Native x64/ARM64 host
+consumers remain part of the ordinary test suites. Unsupported ignored reproducers remain excluded.
+The crate page gives checkout-only commands and prerequisites; no session files enter these checks.
+The exact selected commands pass locally with warnings denied: four driver cases, context capture,
+the missing-import negative case, and the cross-target consumer matrix. The workflow still needs
+its first hosted run. Full-workload semantic comparison and acceptance controls remain separate
+reproducibility work.
+
+The maintainer supplied `D:\clang-ground.md` against `58ee55b4d3`. The field-buffer change above
+finishes the approved in-flight contract. Further annotation batches pause for the acceptance
+work already required by `plan.md`; no new rewrite or reporting framework is proposed.
+
+The table below records review-time evidence. The named-linkage source and per-function ABI
+mechanism are addressed above; the remaining required surface and other acceptance gates are open.
+
+| Priority | Review-time concern | Required disposition |
+| --- | --- | --- |
+| 1 | Named export policy has 42 tuples. Current import diagnostics contain 5,593 unreviewed ordinal target records, or 1,865 provider/ordinal pairs; Winsock has 38 per target. | Replace incremental per-name expansion with a reviewed general source of named-export evidence. Preserve provider, target, raw symbol and ordinal identity; do not infer public names by undecoration. |
+| 1 | Target-aware frozen-baseline comparison finds 14,121 library-backed function names versus 12,330 candidate names: 1,831 missing, 40 added, and 5,480 missing name/target pairs. `htons`, `select`, and `WSAGetLastError` are absent on every target. | Restore required APIs or obtain explicit corrections/exclusions. A previous-candidate comparison is a local regression control, not an acceptance inventory. |
+| 1 | `sdk_import_gaps` still reproduces native C versus decorated x86 stdcall imports and missing x86 entries. The historical 94/88 split has not been freshly reclassified here. `--x86-stdcall` remains available. | Investigate per-function compiler/import ABI evidence; do not change callback defaults. Remove the abandoned global switch without removing the useful negative fixture. |
+| 2 | SDK fixtures remain ignored by the default workflow. There are 61 ignore attributes in `test_clang2`, including intentional unsupported/compiler reproducers. | Select passing SDK-backed acceptance fixtures explicitly for CI; do not enable every ignored test indiscriminately. |
+| 2 | Golden tests are checked in, but workload controls and semantic comparison scripts still depend on session directories. | Provide a checked-in, clean-checkout acceptance command using pinned inputs and frozen-baseline accounting, reusing existing readers rather than maintaining session-only parsers. |
+| 2 | GUID source policy has `guid_definition_scope` and `sdk_guid_definitions` coverage, but the supported compilation contexts and remaining required PCH losses are not accepted. | Review the supported contexts and actual residual required losses together. Neither the old 460-GUID figure nor successful selected GUID capture settles this gate. |
+| 2 | Typed annotation repairs preserve more semantics, but required consumer contracts are not selected; namespace/external WinRT references remain absent. | Select representative required contracts and the external-type-reference boundary. Retained SAL strings and metadata round trips are not end-to-end acceptance. |
+| 3 | Historical reader probes exist, but generator/release compatibility and the core unaligned-vptr contract remain unresolved. | Complete the separate format migration and runtime decisions; do not infer approval from parser fixtures. |
+| 3 | Constant accounting reports 10,491 new names. Scope/additions policy and controlled resource budgets remain unapproved. | Review additions and exclusions as public API choices, then measure the agreed workload against the legacy control on a quiet machine. |
+| 3 | Before this disposition, the crate page was 1,488 lines, `breadth.rs` exceeded 7,200, and instructions were 650. | Consolidate by contract, move detailed working history out of permanent design docs, and keep independently reviewable checkpoints. Relocate/remove root planning files only when their handoff purpose is finished. |
+
+Two numerical/coverage corrections matter. The review's roughly 1,458 missing functions understates
+the current target-aware inventory. The initial adjacent-`library` regex also overstated the result
+as 1,941 because other attributes can intervene before `extern fn`; the declaration-aware count
+above is the one to use. Ordinal import records count archive evidence, not necessarily selected
+declarations, so 1,865 is not a missing-API count.
+
+The workflow excludes clang crates only for the x86 process job, which the native runtime does not
+support. The x64 and ARM64 jobs provision libclang and run nonignored tests, including cross-target
+fixtures. The actual gap is selected ignored SDK coverage, not an absence of all clang CI.
+GUID input policy likewise has bounded tests; its gap is accepted semantics and required-loss
+accounting, not a total absence of testing.
+
+`ground-review.json`, the missing-function list, and import-root list record this check in the
+current session. They remain recovery evidence, not the clean-checkout solution. No API exclusion,
+general named-export source, format migration, runtime expansion, or production cutover is approved
+by this review. The next implementation priority is import evidence and frozen-surface losses,
+not another residual annotation family.
+
+### Deferred input-contract refinement
+
+The maintainer requested revisiting `NativeInput(ReadOnly = true/false)`. The boolean distinguishes
+SAL's additional pointee-read-access annotation from RPC input validity; false does not mean
+writable. Its name obscures that distinction, and blanket emission includes scalar and handle
+parameters. Bindgen does not consume this attribute.
+
+Before refining the vocabulary, specify the consumer-visible guarantees, distinguish them from
+existing input/optionality flags and native qualifiers, and identify the owners where an additional
+contract is meaningful. Preserve original native evidence while deciding what belongs in canonical
+metadata. Do not equate fewer `NativeSal` payloads with improved consumer semantics or merely rename
+the boolean. This refinement is deferred behind import evidence and required API losses.

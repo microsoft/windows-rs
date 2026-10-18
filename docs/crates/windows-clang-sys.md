@@ -23,6 +23,7 @@ does not inspect private cursor fields or depend on Clang C++ class layouts.
 | `windows_clang_getTypedefDefinition` | Whether a direct typedef type specifier defines its tag. |
 | `windows_clang_getTypedefImplicit` | Whether Clang supplies the typedef declaration implicitly. |
 | `windows_clang_getFunctionInfo` | Function `ExtInfo` properties and extra-property flags. |
+| `windows_clang_getImportConvention` | Written/defaulted outer convention and an eligible x86 stdcall type/symbol. |
 | `windows_clang_getUuid` | Compiler-validated `UuidAttr` text as an owned `CXString`. |
 | `windows_clang_getDeprecation` | One `DeprecatedAttr` message and replacement as owned strings. |
 | `windows_clang_getLanguageLinkage` | Native C, C++, or absent language linkage. |
@@ -43,11 +44,19 @@ and CMSE flags. Additional flags identify extended parameters, extra attributes,
 attributes, function effects, method qualifiers, ref qualifiers, and unchecked CFI callees.
 These flags signal more information to handle or reject; they are not decoded payloads.
 
+The import-convention query follows outer type source information, including function typedefs,
+without descending into parameter or result callbacks. A defaulted C declaration on MSVC x86 can
+supply an alternative from `ASTContext::getFunctionType` and `ASTNameGenerator`. Only the outer
+convention changes. Explicit conventions, variadics, definitions, asm labels, and unsupported
+prototype properties supply no alternative. The query neither mutates the original declaration
+nor inserts synthetic declarations into TU traversal. The returned type belongs to the TU; dispose
+the symbol with `clang_disposeString`. An alternative is not evidence of DLL ownership.
+
 The qualifier query includes qualifiers inherited through typedefs. After identifying const,
 volatile, restrict, and unaligned, it checks the remaining native qualifier set, rather than
 assuming those four exhaust Clang's type qualifiers. Address spaces and other undecoded qualifiers
 set `WindowsClangOtherQualifiers`. Method qualifiers use the same decoding, independently of the
-function type's own qualifiers. The extension ABI version is 16.
+function type's own qualifiers. The extension ABI version is 17.
 
 The virtual-slot query reads `MicrosoftVTableContext::getMethodVFTableLocation`, rejecting
 locations that need virtual-base or secondary-vptr adjustment. Nonvirtual methods and non-Microsoft

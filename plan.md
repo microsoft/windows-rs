@@ -61,6 +61,13 @@ Changes to strategy, scope, deferrals, or acceptance gates require approval.
    Prefer established named exports; ordinal archive records do not require ordinal consumers.
    Require checked SDK publication policy or pinned export evidence for those names, retaining the
    original records. Recovering names alone is never justification. Exclusions require approval.
+   The approved first slice uses frozen-baseline named linkage with exact compiler/SDK symbol,
+   provider, and target evidence. Do not copy baseline signatures or infer ABI from decorated names.
+   Close the Winsock losses before expanding to another affected family.
+   The next approved slice resolves implicit x86 import conventions using compiler-derived
+   per-function ABI candidates and exact SDK symbol/provider evidence. Preserve original
+   observations; explicit conventions or changes to nested callback, parameter, layout, or
+   annotation contracts must not be overridden. Do not enable the global stdcall experiment.
 4. **Make correctness reproducible and end-to-end.** Establish a clean-checkout reproduction path,
    reusable semantic comparisons, and selected SDK-backed CI coverage. Promote the review's
    consumer probes into repeatable acceptance checks. Complete the metadata compatibility gate

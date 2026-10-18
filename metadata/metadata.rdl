@@ -57,6 +57,17 @@ mod Windows {
                 fn();
                 BytesParamIndex: i16,
             }
+            // Buffer properties when the containing value is valid, not call pre/postconditions.
+            // Names refer to direct integer fields of the same record. Capacity is writable;
+            // ReadableFieldName, when present, gives the separately readable extent.
+            // Null storage is permitted only with MayBeNull. No ownership or encoding is implied.
+            attribute NativeFieldBufferAttribute {
+                fn();
+                CapacityFieldName: String,
+                ReadableFieldName: String,
+                IsByteCount: bool,
+                MayBeNull: bool,
+            }
             // Zero termination is independent of capacity and does not specify an encoding.
             // OnSuccess is a postcondition subject to the callable's success contract.
             attribute NativeNullTerminatedAttribute {

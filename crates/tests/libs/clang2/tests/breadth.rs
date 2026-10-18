@@ -56,7 +56,7 @@ const RPC_CONTRACTS: [(&str, &str, &str); 7] = [
     ),
 ];
 
-const POINTER_CONTRACTS: [(&str, &str, reader::ParamDirection, bool); 22] = {
+const POINTER_CONTRACTS: [(&str, &str, reader::ParamDirection, bool); 24] = {
     use reader::ParamDirection::*;
     [
         ("1.2", "__RPC__deref_in", Input, false),
@@ -81,6 +81,8 @@ const POINTER_CONTRACTS: [(&str, &str, reader::ParamDirection, bool); 22] = {
         ("1", "__deref_out_opt", Output, false),
         ("1", "__deref_opt_out", Output, true),
         ("1", "__deref_opt_out_opt", Output, true),
+        ("2", "_Outptr_result_nullonfailure_", Output, false),
+        ("2", "_Outptr_opt_result_nullonfailure_", Output, true),
     ]
 };
 
@@ -991,7 +993,9 @@ fn pointer_parameter_flags() {
                             ),
                             (
                                 "NullOnFailure".into(),
-                                windows_metadata::Value::Bool(name.starts_with("_COM_")),
+                                windows_metadata::Value::Bool(
+                                    name.starts_with("_COM_") || name.contains("nullonfailure"),
+                                ),
                             ),
                         ]
                     );
@@ -1024,6 +1028,8 @@ fn pointer_parameter_flags() {
         ("__RPC__deref_inout", "__RPC__deref_inout_opt"),
         ("_Outptr_", "_Outptr_result_maybenull_"),
         ("_Outptr_", "_COM_Outptr_"),
+        ("_Outptr_", "_Outptr_result_nullonfailure_"),
+        ("_COM_Outptr_", "_Outptr_result_nullonfailure_"),
     ] {
         let version = if left.starts_with("__RPC") {
             "1.2"
@@ -1120,6 +1126,8 @@ fn com_output() {
         ("2", "_COM_Outptr_opt_result_maybenull_", true),
         ("2", "_Outptr_", false),
         ("2", "_Outptr_opt_", false),
+        ("2", "_Outptr_result_nullonfailure_", false),
+        ("2", "_Outptr_opt_result_nullonfailure_", false),
         ("1.2", "__RPC__deref_out_opt", false),
         ("1", "_COM_Outptr_", false),
     ] {
@@ -1829,7 +1837,8 @@ fn conditional_length() {
         let output = project(&[input]);
         let text = &output.partitions["conditional_length"].rdl;
         assert!(
-            text.contains("NativeSal(") && text.contains("len_param(0)"),
+            text.contains("NativeSal(")
+                && text.contains("NativeArrayInfo(CountParamIndex = 0, PostWritable = true)"),
             "{text}"
         );
         assert!(!text.contains("NativeInitializedLength("), "{text}");
@@ -2271,9 +2280,10 @@ fn check_rpc_buffers(sdk: bool) {
                     assert_eq!(parameter.direction(), direction, "{name}");
                     assert_eq!(parameter.is_optional(), optional, "{name}");
                     let input = direction == Input && !name.contains("_part");
+                    let output_buffer = direction != Input && name.contains("_ecount");
                     assert_eq!(
                         parameter.find_attribute("NativeSalAttribute").is_some(),
-                        !input && *name != "__RPC__out_ecount_part",
+                        !input && !output_buffer,
                         "{name}"
                     );
                     let entry = parameter.find_attribute("NativeInputAttribute");
@@ -2288,6 +2298,18 @@ fn check_rpc_buffers(sdk: bool) {
                     assert_eq!(
                         parameter.buffer_relationship(),
                         capacity.then_some(reader::BufferRelationship::ElementsParam(1)),
+                        "{name}"
+                    );
+                    let post_writable = parameter
+                        .find_attribute("NativeArrayInfoAttribute")
+                        .is_some_and(|attribute| {
+                            attribute
+                                .value()
+                                .contains(&("PostWritable".into(), Value::Bool(true)))
+                        });
+                    assert_eq!(
+                        post_writable,
+                        output_buffer && direction == Output,
                         "{name}"
                     );
                     let length = parameter.find_attribute("NativeInitializedLengthAttribute");
@@ -2321,6 +2343,112 @@ fn check_rpc_buffers(sdk: bool) {
             });
         }
     }
+}
+
+#[test]
+fn rpc_output_buffer_agreement() {
+    helpers::ensure_libclang();
+    for (first, arguments, second, second_arguments, version, agrees) in [
+        (
+            "__RPC__out_ecount_full",
+            "capacity",
+            "__RPC__out_ecount_part",
+            "capacity, capacity",
+            "1.2",
+            true,
+        ),
+        (
+            "__RPC__inout_ecount_full",
+            "capacity",
+            "_Inout_updates_all_",
+            "capacity",
+            "2",
+            true,
+        ),
+        (
+            "__RPC__out_ecount_full",
+            "capacity",
+            "_Out_writes_all_",
+            "capacity",
+            "2",
+            false,
+        ),
+        (
+            "__RPC__out_ecount",
+            "capacity",
+            "_Out_writes_",
+            "capacity",
+            "2",
+            false,
+        ),
+    ] {
+        let mut other = postcondition_input(second, second_arguments, false);
+        other.name = "other.h".into();
+        other
+            .source
+            .insert_str(0, &format!("#define VERSION \"{version}\"\n"));
+        let mut inputs = [rpc_buffer_input(first, arguments, false), other];
+        for _ in 0..2 {
+            if agrees {
+                project(&inputs);
+            } else {
+                let error = projection::generate_partial(&inputs, "Fixture").unwrap_err();
+                assert!(error.to_string().contains("differ"), "{error}");
+            }
+            inputs.reverse();
+        }
+    }
+    for arguments in ["42", "*written", "capacity + 1"] {
+        let output = project(&[rpc_buffer_input(
+            "__RPC__out_ecount_full_string",
+            arguments,
+            true,
+        )]);
+        let text = &output.partitions.values().next().unwrap().rdl;
+        assert!(text.contains("NativeSal("), "{text}");
+        assert!(!text.contains("PostWritable = true"), "{text}");
+        assert!(text.contains("OnSuccess = true"), "{text}");
+    }
+}
+
+#[test]
+fn rpc_full_buffers() {
+    helpers::ensure_libclang();
+    let output = project(&[test_clang2::fixture("rpc_full_buffers")]);
+    roundtrip("rpc_full_buffers", &output, |_, _| {});
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn sdk_shell_item() {
+    helpers::ensure_libclang();
+    let mut input = test_clang2::annotated_sdk_fixture();
+    input.name = "sdk_shell_item.h".into();
+    input.source = test_clang2::fixture("sdk_shell_item").source;
+    input.roots = vec!["IShellItem".into()];
+    let output = project(&[input]);
+    roundtrip("sdk_shell_item", &output, |index, _| {
+        let method = index
+            .expect("Fixture", "IShellItem")
+            .methods()
+            .find(|method| method.name() == "GetDisplayName")
+            .unwrap();
+        let result = method.params().last().unwrap();
+        assert_eq!(result.direction(), reader::ParamDirection::Output);
+        assert!(!result.is_optional());
+        assert!(result.find_attribute("NativeSalAttribute").is_none());
+        assert!(result.find_attribute("ComOutPtrAttribute").is_none());
+        assert_eq!(
+            result
+                .find_attribute("NativeReturnedPointerAttribute")
+                .unwrap()
+                .value(),
+            [
+                ("MayBeNull".into(), windows_metadata::Value::Bool(false)),
+                ("NullOnFailure".into(), windows_metadata::Value::Bool(true)),
+            ]
+        );
+    });
 }
 
 #[test]
@@ -2847,11 +2975,11 @@ fn rpc_annotation_residuals() {
         let typed_input = rpc == "__RPC__in" || rpc == "__RPC__in_opt";
         assert_eq!(
             text.contains(&format!("NativeSal(\"1.2\", \"{rpc}\"")),
-            !typed_input,
+            !typed_input && rpc != "__RPC__out_ecount",
             "{text}"
         );
         assert_eq!(
-            text.contains("len_param"),
+            text.contains("NativeArrayInfo(CountParamIndex = 1, PostWritable = true)"),
             rpc == "__RPC__out_ecount",
             "{text}"
         );
@@ -5672,6 +5800,7 @@ fn free_functions() {
             language,
             mangling,
             parameters,
+            ..
         } = &observation.kind
         else {
             panic!()
@@ -6786,6 +6915,320 @@ fn sdk_breadth() {
         assert_eq!(
             constant("UIA_InvokePatternId"),
             windows_metadata::Value::I32(10000)
+        );
+    });
+}
+
+const FIELD_CONTRACTS: [(&str, bool, bool, bool, bool); 12] = [
+    ("_Field_size_", false, false, false, false),
+    ("_Field_size_opt_", false, true, false, false),
+    ("_Field_size_full_", false, false, true, false),
+    ("_Field_size_full_opt_", false, true, true, false),
+    ("_Field_size_part_", false, false, false, true),
+    ("_Field_size_part_opt_", false, true, false, true),
+    ("_Field_size_bytes_", true, false, false, false),
+    ("_Field_size_bytes_opt_", true, true, false, false),
+    ("_Field_size_bytes_full_", true, false, true, false),
+    ("_Field_size_bytes_full_opt_", true, true, true, false),
+    ("_Field_size_bytes_part_", true, false, false, true),
+    ("_Field_size_bytes_part_opt_", true, true, false, true),
+];
+
+fn field_buffer_input(name: &str, arguments: &str) -> Input {
+    let mut input = test_clang2::fixture("field_buffers");
+    input.source.insert_str(
+        0,
+        &format!("#define ANNOTATION \"{name}\"\n#define ARGUMENTS \"{arguments}\"\n"),
+    );
+    input
+}
+
+#[test]
+fn field_buffers() {
+    use windows_metadata::Value;
+    helpers::ensure_libclang();
+    for (case, (name, bytes, optional, full, partial)) in FIELD_CONTRACTS.into_iter().enumerate() {
+        let arguments = if partial {
+            "capacity, readable"
+        } else {
+            "capacity"
+        };
+        let input = field_buffer_input(name, arguments);
+        let output = project(&[input]);
+        let text: String = output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        assert!(!text.contains("NativeSal("), "{text}");
+        let check = |index: &reader::Index, _| {
+            let field = index
+                .expect("Fixture", "FieldBuffers")
+                .fields()
+                .find(|field| field.name() == "values")
+                .unwrap();
+            let mut expected: BTreeMap<_, _> = [
+                ("CapacityFieldName".into(), Value::Utf8("capacity".into())),
+                ("IsByteCount".into(), Value::Bool(bytes)),
+                ("MayBeNull".into(), Value::Bool(optional)),
+            ]
+            .into();
+            if full || partial {
+                expected.insert(
+                    "ReadableFieldName".into(),
+                    Value::Utf8(if full { "capacity" } else { "readable" }.into()),
+                );
+            }
+            assert_eq!(
+                field
+                    .find_attribute("NativeFieldBufferAttribute")
+                    .unwrap()
+                    .value()
+                    .into_iter()
+                    .collect::<BTreeMap<_, _>>(),
+                expected
+            );
+        };
+        if case == 0 {
+            roundtrip("field_buffers", &output, check);
+        } else {
+            roundtrip_metadata(&format!("field_buffers_{case}"), &text, check);
+        }
+    }
+    let mut inline = field_buffer_input("_Field_size_", "capacity");
+    inline
+        .source
+        .insert_str(0, "#define BUFFER_FIELD unsigned short values[8]\n");
+    let output = project(&[inline]);
+    roundtrip("field_buffers_inline", &output, |_, _| {});
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn field_buffers_sdk() {
+    helpers::ensure_libclang();
+    for (name, _, _, _, partial) in FIELD_CONTRACTS {
+        let arguments = if partial {
+            "capacity, readable"
+        } else {
+            "capacity"
+        };
+        let expected = field_buffer_input(name, arguments);
+        let mut input = test_clang2::annotated_sdk_fixture();
+        input.name.clone_from(&expected.name);
+        input.roots = ["Count", "FieldBuffers", "FieldAlias", "OuterFields"]
+            .map(String::from)
+            .into();
+        input.source = format!(
+            "#include <sal.h>\n{}",
+            expected.source.replace(
+                "CONTRACT BUFFER_FIELD",
+                &format!("{name}({arguments}) BUFFER_FIELD")
+            )
+        );
+        assert_eq!(project(&[input]), project(&[expected]), "{name}");
+    }
+    let mut input = test_clang2::annotated_sdk_fixture();
+    input.name = "sdk_field_buffers.h".into();
+    input.source = test_clang2::fixture("sdk_field_buffers").source;
+    input.roots = ["AUTHZ_ACCESS_REPLY", "BCRYPT_MULTI_HASH_OPERATION"]
+        .map(String::from)
+        .into();
+    let output = project(&[input]);
+    roundtrip("sdk_field_buffers", &output, |index, _| {
+        for (record, field, count, optional) in [
+            (
+                "AUTHZ_ACCESS_REPLY",
+                "GrantedAccessMask",
+                "ResultListLength",
+                false,
+            ),
+            (
+                "AUTHZ_ACCESS_REPLY",
+                "SaclEvaluationResults",
+                "ResultListLength",
+                true,
+            ),
+            ("AUTHZ_ACCESS_REPLY", "Error", "ResultListLength", false),
+            ("BCRYPT_MULTI_HASH_OPERATION", "pbBuffer", "cbBuffer", false),
+        ] {
+            let field = index
+                .expect("Fixture", record)
+                .fields()
+                .find(|f| f.name() == field)
+                .unwrap();
+            assert!(field.find_attribute("NativeSalAttribute").is_none());
+            assert_eq!(
+                field
+                    .find_attribute("NativeFieldBufferAttribute")
+                    .unwrap()
+                    .value(),
+                [
+                    (
+                        "CapacityFieldName".into(),
+                        windows_metadata::Value::Utf8(count.into())
+                    ),
+                    ("IsByteCount".into(), windows_metadata::Value::Bool(false)),
+                    ("MayBeNull".into(), windows_metadata::Value::Bool(optional)),
+                ]
+            );
+        }
+    });
+}
+
+#[test]
+fn field_buffer_agreement() {
+    helpers::ensure_libclang();
+    for public in [false, true] {
+        for (name, arguments, agrees) in [
+            ("_Field_size_part_", "capacity, capacity", true),
+            ("_Field_size_full_", " capacity ", true),
+            ("_Field_size_", "capacity", false),
+            ("_Field_size_full_opt_", "capacity", false),
+            ("_Field_size_bytes_full_", "capacity", false),
+            ("_Field_size_part_", "capacity, readable", false),
+        ] {
+            let mut inputs = [
+                field_buffer_input("_Field_size_full_", "capacity"),
+                field_buffer_input(name, arguments),
+            ];
+            inputs[1].name = "other.h".into();
+            for input in &mut inputs {
+                input.roots = vec!["FieldAlias".into()];
+            }
+            if public {
+                inputs[1].source.insert_str(0, "#define TAG OtherFields\n");
+            }
+            for _ in 0..2 {
+                if agrees {
+                    project(&inputs);
+                } else {
+                    let error = projection::generate_partial(&inputs, "Fixture").unwrap_err();
+                    assert!(
+                        error
+                            .to_string()
+                            .contains(if public { "incompatible" } else { "differ" }),
+                        "{error}"
+                    );
+                }
+                inputs.reverse();
+            }
+        }
+    }
+}
+
+#[test]
+fn field_buffer_residuals() {
+    helpers::ensure_libclang();
+    for (name, arguments) in [
+        ("_Field_size_", "42"),
+        ("_Field_size_", "capacity + 1"),
+        ("_Field_size_", "inner.capacity"),
+        ("_Field_size_", "*capacity"),
+        ("_Field_size_", ""),
+        ("_Field_size_part_", "capacity, 1"),
+        ("_Field_size_part_", "capacity, missing"),
+    ] {
+        let output = project(&[field_buffer_input(name, arguments)]);
+        let text: String = output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        assert!(text.contains("NativeSal("), "{text}");
+        assert!(!text.contains("NativeFieldBuffer("), "{text}");
+    }
+    for (change, reason) in [
+        ("#define COUNT_TYPE float\n", "requires an integer field"),
+        (
+            "#define COUNT_TYPE unsigned int*\n",
+            "requires an integer field",
+        ),
+        (
+            "#define BUFFER_FIELD unsigned short values\n",
+            "requires data pointer or array storage",
+        ),
+        (
+            "#define BUFFER_FIELD void (*values)()\n",
+            "requires data pointer or array storage",
+        ),
+    ] {
+        let mut input = field_buffer_input("_Field_size_", "capacity");
+        input.source.insert_str(0, change);
+        input.roots = vec!["FieldAlias".into()];
+        let output = projection::generate_partial(&[input], "Fixture").unwrap();
+        assert_eq!(output.output.records, 0);
+        assert!(
+            output.omissions.iter().any(|error| error.contains(reason)),
+            "{:?}",
+            output.omissions
+        );
+    }
+    let mut input = field_buffer_input("_Field_size_", "capacity");
+    input.source.insert_str(0, "#define VERSION \"1\"\n");
+    let output = project(&[input]);
+    assert!(
+        !output
+            .partitions
+            .values()
+            .any(|p| p.rdl.contains("NativeFieldBuffer("))
+    );
+    let mut input = field_buffer_input("_Field_size_", "capacity");
+    input.source = input
+        .source
+        .replace("COUNT_TYPE capacity;", "unsigned int capacity : 8;");
+    let output = project(&[input]);
+    assert!(
+        !output
+            .partitions
+            .values()
+            .any(|p| p.rdl.contains("NativeFieldBuffer("))
+    );
+    let mut input = field_buffer_input("_Field_size_", "capacity");
+    input.source = input.source.replace(
+        "CONTRACT BUFFER_FIELD",
+        "CONTRACT __attribute__((annotate(\"windows_clang:sal:2:_Field_size_opt_\\n(capacity)\\n(capacity)\"))) BUFFER_FIELD",
+    );
+    let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+    for snapshot in &snapshots {
+        let field = snapshot
+            .observations
+            .iter()
+            .filter_map(|observation| observation.definition.as_ref())
+            .flat_map(|definition| &definition.fields)
+            .find(|field| field.name == "values")
+            .unwrap();
+        assert_eq!(
+            field
+                .attributes
+                .iter()
+                .filter(|attribute| matches!(attribute.kind, AttributeKind::Sal(_)))
+                .count(),
+            2
+        );
+    }
+    let output = project(&[input]);
+    let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
+    assert!(text.contains("NativeSal("), "{text}");
+    assert!(!text.contains("NativeFieldBuffer("), "{text}");
+    let mut input = field_buffer_input("_Field_size_", "capacity");
+    input.source = input.source.replace("        COUNT_TYPE capacity;", "");
+    let output = project(&[input]);
+    let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
+    roundtrip_metadata("field_buffers_outer_count", &text, |index, _| {
+        let inner = index
+            .nested(index.expect("Fixture", "OuterFields"))
+            .next()
+            .unwrap();
+        let values = inner
+            .fields()
+            .find(|field| field.name() == "values")
+            .unwrap();
+        assert!(values.find_attribute("NativeSalAttribute").is_some());
+        assert!(
+            values
+                .find_attribute("NativeFieldBufferAttribute")
+                .is_none()
         );
     });
 }

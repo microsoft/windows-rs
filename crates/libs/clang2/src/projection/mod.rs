@@ -46,6 +46,8 @@ pub struct Imports {
     pub functions: BTreeMap<String, Import>,
     /// SDK mappings use exact compiler linker symbols within each target.
     pub symbols: BTreeMap<Target, BTreeMap<String, Import>>,
+    /// Approved compiler-derived alternatives, keyed by exact candidate linker symbol.
+    pub default_stdcall: BTreeMap<Target, BTreeMap<String, Import>>,
 }
 
 impl FromIterator<(String, Import)> for Imports {
@@ -1973,7 +1975,7 @@ impl Projector<'_, '_> {
             }
             size = size.max(offset + layout.size);
             alignment = alignment.max(field_alignment);
-            let attributes = annotations::write(&field.attributes);
+            let attributes = annotations::field(snapshot, field, &definition.fields)?;
             fields.push(quote! { #attributes #member_attributes #field_name: #ty #members, });
         }
         alignment = alignment.max(u64::from(forced.unwrap_or(1)));

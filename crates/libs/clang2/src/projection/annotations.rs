@@ -25,6 +25,61 @@ pub(super) fn write(attributes: &[Attribute]) -> TokenStream {
     write_owned(attributes, None)
 }
 
+pub(super) fn field(
+    snapshot: &Snapshot,
+    field: &Field,
+    fields: &[Field],
+) -> Result<TokenStream, Error> {
+    let normalized = sal::fields(&field.attributes, fields);
+    let mut result = write_with_sal(
+        &field.attributes,
+        None,
+        normalized.iter().filter_map(|value| match value {
+            sal::FieldAnnotation::Evidence(value) => Some(*value),
+            sal::FieldAnnotation::Contract(_) => None,
+        }),
+    );
+    for value in normalized {
+        let sal::FieldAnnotation::Contract(contract) = value else {
+            continue;
+        };
+        match snapshot.types[field.canonical.0].kind {
+            TypeKind::Pointer(inner)
+                if !matches!(snapshot.types[inner.0].kind, TypeKind::Function(_)) => {}
+            TypeKind::Array { .. } => {}
+            _ => {
+                return Err(Error(format!(
+                    "SAL field buffer `{}` requires data pointer or array storage",
+                    field.name
+                )));
+            }
+        }
+        for index in std::iter::once(contract.capacity).chain(contract.readable) {
+            if !matches!(&snapshot.types[fields[index].canonical.0].kind,
+                TypeKind::Scalar(scalar) if scalar.signed_integer().is_some())
+            {
+                return Err(Error(format!(
+                    "SAL field buffer count `{}` requires an integer field",
+                    fields[index].name
+                )));
+            }
+        }
+        let capacity = &fields[contract.capacity].name;
+        let readable = contract.readable.map(|index| {
+            let name = &fields[index].name;
+            quote! { , ReadableFieldName = #name }
+        });
+        let bytes = contract.units == sal::Units::Bytes;
+        let optional = contract.optional;
+        result.extend(quote! {
+            #[Windows::Win32::Metadata::NativeFieldBuffer(
+                CapacityFieldName = #capacity #readable, IsByteCount = #bytes, MayBeNull = #optional
+            )]
+        });
+    }
+    Ok(result)
+}
+
 pub(super) fn function(function: &Function, attributes: &[Attribute]) -> TokenStream {
     let noreturn = (function.noreturn
         || attributes

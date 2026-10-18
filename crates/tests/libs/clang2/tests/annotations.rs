@@ -209,9 +209,17 @@ fn annotation_roundtrip() {
                 .fields()
                 .find(|field| field.name() == "data")
                 .unwrap();
+            assert!(attributes(field).is_empty());
             assert_eq!(
-                attributes(field),
-                vec![annotation("_Field_size_", "count", "count")]
+                field
+                    .find_attribute("NativeFieldBufferAttribute")
+                    .unwrap()
+                    .value(),
+                [
+                    ("CapacityFieldName".into(), Value::Utf8("count".into())),
+                    ("IsByteCount".into(), Value::Bool(false)),
+                    ("MayBeNull".into(), Value::Bool(false)),
+                ]
             );
             let conditional = attributes(method("Conditional").params().next().unwrap());
             assert_eq!(conditional.len(), 1);

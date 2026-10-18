@@ -254,6 +254,10 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
                         "forward alignment request differs"
                     } else if default_type_visibility(&observation.attributes) && !visible {
                         "forward type visibility request differs"
+                    } else if no_trivial_auto_var_init(&observation.attributes)
+                        && !no_trivial_auto_var_init(attributes)
+                    {
+                        "forward auto-initialization policy differs"
                     } else if uuid(&observation.attributes)
                         .is_some_and(|value| Some(value) != uuid(attributes))
                     {
@@ -332,18 +336,18 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
                 Owner::Record(right),
             ));
         }
-        for (a, b) in a.fields.iter().zip(&b.fields) {
-            if a.name != b.name
-                || a.offset_bits != b.offset_bits
-                || a.bit_width != b.bit_width
-                || !attributes_equal(&a.attributes, &b.attributes)
+        for (x, y) in a.fields.iter().zip(&b.fields) {
+            if x.name != y.name
+                || x.offset_bits != y.offset_bits
+                || x.bit_width != y.bit_width
+                || !field_attributes_equal(x, &a.fields, y, &b.fields)
             {
                 return Err(conflict(
                     "field name, order, offset, bit width, or attributes differ",
                 ));
             }
             // Typedef names are retained as evidence, but do not create nominal native types.
-            let (a, b) = (a.canonical, b.canonical);
+            let (a, b) = (x.canonical, y.canonical);
             types.push((
                 (left.snapshot, a),
                 (right.snapshot, b),
@@ -659,6 +663,7 @@ pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
         && default_type_visibility(a) == default_type_visibility(b)
         && deprecations(a) == deprecations(b)
         && uuid(a) == uuid(b)
+        && no_trivial_auto_var_init(a) == no_trivial_auto_var_init(b)
         && a.iter().any(|value| value.kind == AttributeKind::NoVTable)
             == b.iter().any(|value| value.kind == AttributeKind::NoVTable)
         && a.iter().any(|value| value.kind == AttributeKind::DllImport)
@@ -675,6 +680,16 @@ pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
 
 pub(crate) fn attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
     abi_attributes_equal(a, b) && sal(a) == sal(b)
+}
+
+pub(crate) fn field_attributes_equal(
+    a: &Field,
+    left: &[Field],
+    b: &Field,
+    right: &[Field],
+) -> bool {
+    abi_attributes_equal(&a.attributes, &b.attributes)
+        && sal::fields(&a.attributes, left) == sal::fields(&b.attributes, right)
 }
 
 pub(crate) fn parameters_equal(a: &[Parameter], b: &[Parameter]) -> bool {
@@ -794,11 +809,13 @@ pub(crate) fn value_shape_equal(a: &ValueObservation, b: &ValueObservation, symb
                     parameters: a,
                     language: x,
                     mangling: xm,
+                    ..
                 },
                 ValueKind::Function {
                     parameters: b,
                     language: y,
                     mangling: ym,
+                    ..
                 },
             ) => x == y && (!symbol || xm == ym) && parameters_equal(a, b),
             (
@@ -833,6 +850,12 @@ fn value_attributes(
         }
     }
     Ok(())
+}
+
+fn no_trivial_auto_var_init(attributes: &[Attribute]) -> bool {
+    attributes
+        .iter()
+        .any(|value| value.kind == AttributeKind::NoTrivialAutoVarInit)
 }
 
 fn default_type_visibility(attributes: &[Attribute]) -> bool {

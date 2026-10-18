@@ -1,0 +1,248 @@
+#[win32]
+mod Fixture {
+    type BYTE = u8;
+    type DWORD = u32;
+    #[arch(X64 | Arm64)]
+    type DWORD64 = u64;
+    #[arch(X64 | Arm64)]
+    type LONGLONG = i64;
+    #[arch(X64 | Arm64)]
+    type ULONGLONG = u64;
+    #[arch(X64 | Arm64)]
+    type WORD = u16;
+}
+#[win32]
+mod Fixture {
+    #[arch(Arm64)]
+    type LPCONTEXT = *mut ARM64_NT_CONTEXT;
+    #[arch(X86 | X64)]
+    type LPCONTEXT = *mut CONTEXT;
+}
+#[win32]
+mod Fixture {
+    type BOOL = i32;
+}
+#[win32]
+mod Fixture {
+    #[library("kernel32.dll")]
+    extern fn GetThreadContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[out] lpContext: LPCONTEXT) -> BOOL;
+    #[library("kernel32.dll")]
+    extern fn SetThreadContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpContext: *const CONTEXT) -> BOOL;
+}
+#[win32]
+mod Fixture {
+    #[align(16)]
+    #[arch(Arm64)]
+    struct ARM64_NT_CONTEXT {
+        ContextFlags: DWORD,
+        Cpsr: DWORD,
+        Anonymous: union {
+            Anonymous: struct {
+                X0: DWORD64,
+                X1: DWORD64,
+                X2: DWORD64,
+                X3: DWORD64,
+                X4: DWORD64,
+                X5: DWORD64,
+                X6: DWORD64,
+                X7: DWORD64,
+                X8: DWORD64,
+                X9: DWORD64,
+                X10: DWORD64,
+                X11: DWORD64,
+                X12: DWORD64,
+                X13: DWORD64,
+                X14: DWORD64,
+                X15: DWORD64,
+                X16: DWORD64,
+                X17: DWORD64,
+                X18: DWORD64,
+                X19: DWORD64,
+                X20: DWORD64,
+                X21: DWORD64,
+                X22: DWORD64,
+                X23: DWORD64,
+                X24: DWORD64,
+                X25: DWORD64,
+                X26: DWORD64,
+                X27: DWORD64,
+                X28: DWORD64,
+                Fp: DWORD64,
+                Lr: DWORD64,
+            },
+            X: [DWORD64; 31],
+        },
+        Sp: DWORD64,
+        Pc: DWORD64,
+        V: [NEON128; 32],
+        Fpcr: DWORD,
+        Fpsr: DWORD,
+        Bcr: [DWORD; 8],
+        Bvr: [DWORD64; 8],
+        Wcr: [DWORD; 2],
+        Wvr: [DWORD64; 2],
+    }
+    #[arch(Arm64)]
+    union ARM64_NT_NEON128 {
+        Anonymous: struct {
+            Low: ULONGLONG,
+            High: LONGLONG,
+        },
+        D: [f64; 2],
+        S: [f32; 4],
+        H: [WORD; 8],
+        B: [BYTE; 16],
+    }
+    #[align(16)]
+    #[arch(X64)]
+    struct CONTEXT {
+        P1Home: DWORD64,
+        P2Home: DWORD64,
+        P3Home: DWORD64,
+        P4Home: DWORD64,
+        P5Home: DWORD64,
+        P6Home: DWORD64,
+        ContextFlags: DWORD,
+        MxCsr: DWORD,
+        SegCs: WORD,
+        SegDs: WORD,
+        SegEs: WORD,
+        SegFs: WORD,
+        SegGs: WORD,
+        SegSs: WORD,
+        EFlags: DWORD,
+        Dr0: DWORD64,
+        Dr1: DWORD64,
+        Dr2: DWORD64,
+        Dr3: DWORD64,
+        Dr6: DWORD64,
+        Dr7: DWORD64,
+        Rax: DWORD64,
+        Rcx: DWORD64,
+        Rdx: DWORD64,
+        Rbx: DWORD64,
+        Rsp: DWORD64,
+        Rbp: DWORD64,
+        Rsi: DWORD64,
+        Rdi: DWORD64,
+        R8: DWORD64,
+        R9: DWORD64,
+        R10: DWORD64,
+        R11: DWORD64,
+        R12: DWORD64,
+        R13: DWORD64,
+        R14: DWORD64,
+        R15: DWORD64,
+        Rip: DWORD64,
+        Anonymous: union {
+            FltSave: XMM_SAVE_AREA32,
+            Anonymous: struct {
+                Header: [M128A; 2],
+                Legacy: [M128A; 8],
+                Xmm0: M128A,
+                Xmm1: M128A,
+                Xmm2: M128A,
+                Xmm3: M128A,
+                Xmm4: M128A,
+                Xmm5: M128A,
+                Xmm6: M128A,
+                Xmm7: M128A,
+                Xmm8: M128A,
+                Xmm9: M128A,
+                Xmm10: M128A,
+                Xmm11: M128A,
+                Xmm12: M128A,
+                Xmm13: M128A,
+                Xmm14: M128A,
+                Xmm15: M128A,
+            },
+        },
+        VectorRegister: [M128A; 26],
+        VectorControl: DWORD64,
+        DebugControl: DWORD64,
+        LastBranchToRip: DWORD64,
+        LastBranchFromRip: DWORD64,
+        LastExceptionToRip: DWORD64,
+        LastExceptionFromRip: DWORD64,
+    }
+    #[arch(Arm64)]
+    type CONTEXT = ARM64_NT_CONTEXT;
+    #[packed(4)]
+    #[arch(X86)]
+    struct CONTEXT {
+        ContextFlags: DWORD,
+        Dr0: DWORD,
+        Dr1: DWORD,
+        Dr2: DWORD,
+        Dr3: DWORD,
+        Dr6: DWORD,
+        Dr7: DWORD,
+        FloatSave: FLOATING_SAVE_AREA,
+        SegGs: DWORD,
+        SegFs: DWORD,
+        SegEs: DWORD,
+        SegDs: DWORD,
+        Edi: DWORD,
+        Esi: DWORD,
+        Ebx: DWORD,
+        Edx: DWORD,
+        Ecx: DWORD,
+        Eax: DWORD,
+        Ebp: DWORD,
+        Eip: DWORD,
+        SegCs: DWORD,
+        EFlags: DWORD,
+        Esp: DWORD,
+        SegSs: DWORD,
+        ExtendedRegisters: [BYTE; 512],
+    }
+    #[arch(X86)]
+    struct FLOATING_SAVE_AREA {
+        ControlWord: DWORD,
+        StatusWord: DWORD,
+        TagWord: DWORD,
+        ErrorOffset: DWORD,
+        ErrorSelector: DWORD,
+        DataOffset: DWORD,
+        DataSelector: DWORD,
+        RegisterArea: [BYTE; 80],
+        Spare0: DWORD,
+    }
+    type HANDLE = *mut void;
+    #[align(16)]
+    #[arch(X64)]
+    struct M128A {
+        Low: ULONGLONG,
+        High: LONGLONG,
+    }
+    #[arch(Arm64)]
+    type NEON128 = ARM64_NT_NEON128;
+    #[arch(Arm64)]
+    type PCONTEXT = *mut ARM64_NT_CONTEXT;
+    #[arch(X86 | X64)]
+    type PCONTEXT = *mut CONTEXT;
+    #[library("kernel32.dll")]
+    extern fn RtlCaptureContext(#[out] ContextRecord: PCONTEXT);
+    #[arch(X64)]
+    type XMM_SAVE_AREA32 = XSAVE_FORMAT;
+    #[align(16)]
+    #[arch(X64)]
+    struct XSAVE_FORMAT {
+        ControlWord: WORD,
+        StatusWord: WORD,
+        TagWord: BYTE,
+        Reserved1: BYTE,
+        ErrorOpcode: WORD,
+        ErrorOffset: DWORD,
+        ErrorSelector: WORD,
+        Reserved2: WORD,
+        DataOffset: DWORD,
+        DataSelector: WORD,
+        Reserved3: WORD,
+        MxCsr: DWORD,
+        MxCsr_Mask: DWORD,
+        FloatRegisters: [M128A; 8],
+        XmmRegisters: [M128A; 16],
+        Reserved4: [BYTE; 96],
+    }
+}

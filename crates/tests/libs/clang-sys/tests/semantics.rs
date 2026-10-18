@@ -465,6 +465,16 @@ fn native_semantics() {
                 linkage_declarations.extend(children(cursor));
             }
         }
+        import_conventions(target, &|name| {
+            *linkage_declarations
+                .iter()
+                .find(|cursor| text(unsafe { clang_getCursorSpelling(**cursor) }) == name)
+                .unwrap()
+        });
+        assert_eq!(
+            children(unsafe { clang_getTranslationUnitCursor(session.unit) }).len(),
+            declarations.len()
+        );
         for (name, expected) in [
             ("NativeC", WindowsClangCLanguageLinkage),
             ("NativeCpp", WindowsClangCXXLanguageLinkage),
@@ -857,7 +867,7 @@ fn native_semantics() {
             let library = Arc::clone(&library);
             scope.spawn(move || {
                 let previous = set_library(Some(library));
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 16);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 17);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION
@@ -868,6 +878,111 @@ fn native_semantics() {
     });
     set_library(previous);
     assert!(load_from(std::path::Path::new("missing-native-clang-directory")).is_err());
+}
+
+fn import_conventions(target: &str, find: &impl Fn(&str) -> CXCursor) {
+    for (name, explicit, candidate) in [
+        ("NativeC", false, true),
+        ("NativeExplicitC", true, false),
+        ("NativeExplicitStdcall", true, false),
+        ("NativeExplicitAlias", true, false),
+        ("NativeDefaultAlias", false, true),
+        ("NativeImplicitComplex", false, true),
+        ("NativeReturnedCallback", false, true),
+        ("NativeVariadicImport", false, false),
+        ("NativeRegparmImport", false, false),
+        ("NativeAsmImport", false, false),
+        ("NativeCpp", false, false),
+    ] {
+        let cursor = find(name);
+        let original = unsafe { clang_getCursorType(cursor) };
+        let original_symbol = text(unsafe { clang_Cursor_getMangling(cursor) });
+        let mut info = WindowsClangImportConvention::default();
+        assert_eq!(
+            unsafe { windows_clang_getImportConvention(cursor, &raw mut info) },
+            WindowsClangSuccess,
+            "{target}: {name}"
+        );
+        assert_eq!(
+            info.origin,
+            if explicit {
+                WindowsClangConventionExplicit
+            } else {
+                WindowsClangConventionDefault
+            },
+            "{target}: {name}"
+        );
+        let symbol = text(info.stdcall_symbol);
+        if candidate && target.starts_with("i686") {
+            assert_eq!(
+                unsafe { clang_getFunctionTypeCallingConv(info.stdcall_type) },
+                CXCallingConv_X86StdCall
+            );
+            let bytes = if name == "NativeImplicitComplex" {
+                16
+            } else {
+                4
+            };
+            assert_eq!(symbol, format!("_{name}@{bytes}"));
+            assert_eq!(
+                unsafe { clang_getFunctionTypeCallingConv(original) },
+                CXCallingConv_C
+            );
+            assert_ne!(
+                unsafe {
+                    clang_equalTypes(
+                        clang_getResultType(original),
+                        clang_getResultType(info.stdcall_type),
+                    )
+                },
+                0
+            );
+            for index in 0..unsafe { clang_getNumArgTypes(original) } {
+                assert_ne!(
+                    unsafe {
+                        clang_equalTypes(
+                            clang_getArgType(original, index as u32),
+                            clang_getArgType(info.stdcall_type, index as u32),
+                        )
+                    },
+                    0
+                );
+            }
+            if name == "NativeImplicitComplex" {
+                assert_ne!(
+                    unsafe {
+                        clang_equalTypes(
+                            clang_getCanonicalType(info.stdcall_type),
+                            clang_getCanonicalType(clang_getCursorType(find(
+                                "NativeStdcallComplex",
+                            ))),
+                        )
+                    },
+                    0
+                );
+            }
+        } else {
+            assert_eq!(info.stdcall_type.kind, CXType_Invalid, "{target}: {name}");
+            assert!(symbol.is_empty());
+        }
+        assert_ne!(
+            unsafe { clang_equalTypes(original, clang_getCursorType(cursor)) },
+            0
+        );
+        assert_eq!(
+            original_symbol,
+            text(unsafe { clang_Cursor_getMangling(cursor) })
+        );
+    }
+    let mut info = WindowsClangImportConvention::default();
+    assert_eq!(
+        unsafe { windows_clang_getImportConvention(clang_getNullCursor(), &raw mut info) },
+        WindowsClangWrongKind
+    );
+    assert_eq!(
+        unsafe { windows_clang_getImportConvention(find("NativeC"), std::ptr::null_mut()) },
+        WindowsClangInvalidArgument
+    );
 }
 
 fn info(ty: CXType) -> WindowsClangFunctionInfo {
