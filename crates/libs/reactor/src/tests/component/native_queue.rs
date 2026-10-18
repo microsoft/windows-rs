@@ -229,6 +229,7 @@ fn native_queue_realization_and_recycling_previews_are_linear() {
             [component::<VirtualQueue>("rows", count)],
         )
         .unwrap();
+        assert_eq!(host.runtime().graph().full_reference_scan_count(), 0);
         let collection = host.reference(&Key::from("rows")).unwrap().get().unwrap();
         for recycle in [false, true] {
             for index in 0..count {
@@ -252,6 +253,7 @@ fn native_queue_realization_and_recycling_previews_are_linear() {
             host.runtime().adapter().visits.set(0);
             assert_eq!(host.drain(count + 1).unwrap().dropped, 0);
             assert_eq!(host.runtime().adapter().visits.get(), 2 * count);
+            assert_eq!(host.runtime().graph().full_reference_scan_count(), 0);
             let retained = if recycle { 0 } else { count };
             assert_eq!(host.test_state().virtual_rows, retained);
             assert_eq!(

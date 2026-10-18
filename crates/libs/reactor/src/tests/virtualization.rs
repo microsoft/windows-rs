@@ -775,4 +775,5 @@ fn recycle_before_dispatch_cancels_realization_and_allows_token_reuse() {
     assert_eq!(runtime.graph().object_count(), 2);
     assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
     assert!(runtime.update(ItemsRepeater::new()).is_ok());
+    assert_eq!(runtime.graph().full_reference_scan_count(), 0);
 }
