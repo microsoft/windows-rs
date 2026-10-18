@@ -11,6 +11,7 @@ mod image;
 mod keyboard;
 mod pointer;
 mod reference;
+mod retirement;
 mod selection;
 mod timer;
 mod tray;
@@ -276,6 +277,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "image" => App::run_component::<image::ImageFixture>(())?,
         "keyboard" => App::run_component::<keyboard::KeyboardFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
+        "retirement" => App::run_component::<retirement::RetirementFixture>(())?,
         "selection" => App::run_component::<selection::SelectionFixture>(())?,
         "timer" => App::run_component::<timer::TimerFixture>(())?,
         "menu" => App::run_component::<MenuFixture>(MenuSurface::Button)?,
