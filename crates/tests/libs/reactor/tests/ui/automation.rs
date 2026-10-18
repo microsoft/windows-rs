@@ -146,7 +146,7 @@ impl Automation {
         }
     }
 
-    fn wait<T: std::fmt::Debug>(
+    pub(super) fn wait<T: std::fmt::Debug>(
         &self,
         description: &str,
         mut sample: impl FnMut() -> windows_core::Result<T>,
@@ -497,7 +497,11 @@ impl Automation {
             let mut owner = 0;
             GetWindowThreadProcessId(GetForegroundWindow(), &mut owner);
             if owner != self.process {
-                return Err("refusing pointer input to another process".into());
+                return Err(format!(
+                    "refusing pointer input: foreground PID {owner}, expected PID {}",
+                    self.process
+                )
+                .into());
             }
             for key in [0x02, 0x04, 0x05, 0x06, 0x10, 0x11, 0x12, 0x5b, 0x5c] {
                 if GetAsyncKeyState(key) & i16::MIN != 0 {
@@ -535,7 +539,12 @@ impl Automation {
             let mut owner = 0;
             GetWindowThreadProcessId(WindowFromPoint(point), &mut owner);
             if owner != self.process {
-                return Err("pointer target is covered by another process".into());
+                return Err(format!(
+                    "pointer target {id:?} at ({}, {}) is covered by another process: \
+                     owner PID {owner}, expected PID {}",
+                    point.x, point.y, self.process
+                )
+                .into());
             }
             let x = GetSystemMetrics(SM_XVIRTUALSCREEN);
             let y = GetSystemMetrics(SM_YVIRTUALSCREEN);
@@ -576,7 +585,12 @@ impl Automation {
             let mut owner = 0;
             GetWindowThreadProcessId(WindowFromPoint(point), &mut owner);
             if owner != self.process {
-                return Err("pointer moved over another process; refusing button input".into());
+                return Err(format!(
+                    "pointer at ({}, {}) is over another process; refusing button input: \
+                     owner PID {owner}, expected PID {}",
+                    point.x, point.y, self.process
+                )
+                .into());
             }
         }
         self.pointer_ready()?;

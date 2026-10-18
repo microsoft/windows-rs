@@ -73,11 +73,17 @@ fn keyed_reorder_moves_only_displaced_children() -> Result<()> {
                 );
             }
         }
-        let tops = ["d", "a", "b", "c"]
-            .iter()
-            .map(|key| Ok(unsafe { ui.element(key)?.CurrentBoundingRectangle()?.top }))
-            .collect::<Result<Vec<_>>>()?;
-        assert!(tops.is_sorted(), "native order is not d a b c: {tops:?}");
+        let reordered = [&before[3], &before[0], &before[1], &before[2]];
+        ui.wait(
+            "native order becomes d a b c with distinct row positions",
+            || {
+                reordered
+                    .iter()
+                    .map(|element| Ok(unsafe { element.CurrentBoundingRectangle()?.top }))
+                    .collect::<windows_core::Result<Vec<_>>>()
+            },
+            |tops| tops.windows(2).all(|pair| pair[0] < pair[1]),
+        )?;
         // Removing and reinserting an element drops its focus, so b must not have been moved.
         ui.focused("b")
     })
