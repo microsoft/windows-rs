@@ -157,3 +157,107 @@ fn native_queue_observation_bursts_are_linear() {
         );
     }
 }
+
+#[test]
+fn native_queue_realization_previews_are_linear() {
+    for count in [1_000, 10_000] {
+        let mut runtime = Runtime::new(PreviewCountingAdapter::new());
+        runtime
+            .update(ItemsRepeater::new().virtual_source(VirtualSource::new(
+                0,
+                count,
+                Key::from,
+                |index| TextBlock::new().text(index.to_string()),
+            )))
+            .unwrap();
+        let collection = runtime.graph().root().unwrap();
+        for index in 0..count {
+            runtime
+                .adapter_mut()
+                .inner
+                .queue_realization(RealizationRequest::Realize {
+                    collection,
+                    container: RealizedContainer(index.try_into().unwrap()),
+                    index,
+                    source_revision: 0,
+                });
+        }
+        runtime.adapter().visits.set(0);
+        // Isolate preview scaling from the cost of constructing retained rows.
+        for expected in 0..count {
+            let Some(NativeWork::Virtual(VirtualWork::Realize { lease, index, .. })) =
+                runtime.next_native_work().unwrap()
+            else {
+                panic!("expected realization");
+            };
+            assert_eq!(index, expected);
+            assert_eq!(lease.collection, collection);
+            assert_eq!(
+                lease.container,
+                RealizedContainer(expected.try_into().unwrap())
+            );
+        }
+        assert!(runtime.next_native_work().unwrap().is_none());
+        assert_eq!(runtime.adapter().visits.get(), count);
+    }
+}
+
+struct VirtualQueue;
+
+impl Component for VirtualQueue {
+    type Input = usize;
+    type Message = ();
+
+    fn create(_: &usize, _: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, count: &usize, _: &mut ViewContext<Self>) -> View {
+        ItemsRepeater::new()
+            .virtual_source(VirtualSource::new(0, *count, Key::from, |index| {
+                TextBlock::new().text(index.to_string())
+            }))
+            .into()
+    }
+}
+
+#[test]
+fn native_queue_realization_and_recycling_previews_are_linear() {
+    for count in [64usize, 256] {
+        let mut host = ComponentHost::mount(
+            PreviewCountingAdapter::new(),
+            [component::<VirtualQueue>("rows", count)],
+        )
+        .unwrap();
+        let collection = host.reference(&Key::from("rows")).unwrap().get().unwrap();
+        for recycle in [false, true] {
+            for index in 0..count {
+                let container = RealizedContainer(index.try_into().unwrap());
+                let request = if recycle {
+                    RealizationRequest::Recycle {
+                        collection,
+                        container,
+                        source_revision: 0,
+                    }
+                } else {
+                    RealizationRequest::Realize {
+                        collection,
+                        container,
+                        index,
+                        source_revision: 0,
+                    }
+                };
+                host.test_adapter_mut().inner.queue_realization(request);
+            }
+            host.runtime().adapter().visits.set(0);
+            assert_eq!(host.drain(count + 1).unwrap().dropped, 0);
+            assert_eq!(host.runtime().adapter().visits.get(), 2 * count);
+            let retained = if recycle { 0 } else { count };
+            assert_eq!(host.test_state().virtual_rows, retained);
+            assert_eq!(
+                host.runtime().adapter().inner.realized_count(collection),
+                retained
+            );
+        }
+    }
+}

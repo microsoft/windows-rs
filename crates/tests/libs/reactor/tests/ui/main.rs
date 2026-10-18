@@ -27,6 +27,7 @@ mod menu;
 mod pointer;
 mod process;
 mod reference;
+mod repeater;
 mod retirement;
 mod selection;
 mod timer;
