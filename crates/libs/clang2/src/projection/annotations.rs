@@ -103,6 +103,7 @@ pub(super) fn callable(attributes: &[Attribute]) -> bool {
                 | AttributeKind::Deprecated(_)
                 | AttributeKind::NoThrow
                 | AttributeKind::Cxx11NoReturn
+                | AttributeKind::MSAllocator
         )
     })
 }

@@ -68,6 +68,17 @@ Changes to strategy, scope, deferrals, or acceptance gates require approval.
    per-function ABI candidates and exact SDK symbol/provider evidence. Preserve original
    observations; explicit conventions or changes to nested callback, parameter, layout, or
    annotation contracts must not be overridden. Do not enable the global stdcall experiment.
+   The maintainer also approved bounded attribute-based handling of inherited interface slots.
+   Preserve compiler-proven override relationships and their written contracts rather than
+   discarding redeclarations or adding vtable entries. Do not expand this into general C++ support
+   or infer that old declarations are buggy merely because their annotations differ.
+   The maintainer approved compiler-evidenced function aliases while retaining native public names.
+   Preserve the referenced declaration's ABI and DLL/export ownership; PSAPI aliases must not switch
+   to downlevel providers or depend on a `K32` spelling rule.
+   The maintainer approved target-local unresolved imports in partial publication: retain
+   independently validated target variants and report missing import evidence per target.
+   Strict publication still fails; native and unrelated contract failures retain their existing
+   rejection rules. Missing import evidence does not prove that a target is unavailable.
 4. **Make correctness reproducible and end-to-end.** Establish a clean-checkout reproduction path,
    reusable semantic comparisons, and selected SDK-backed CI coverage. Promote the review's
    consumer probes into repeatable acceptance checks. Complete the metadata compatibility gate

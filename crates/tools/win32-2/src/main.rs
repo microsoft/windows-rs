@@ -409,6 +409,7 @@ fn default_stdcall_imports(
             }
             for observation in &value.observations {
                 let windows_clang2::ValueKind::Function {
+                    alias: None,
                     mangling,
                     stdcall_candidate: Some(candidate),
                     ..
@@ -1047,6 +1048,149 @@ mod tests {
                 .unwrap()
                 .replace("\r\n", "\n")
         );
+    }
+
+    #[test]
+    #[ignore = "requires the pinned Windows SDK headers and import libraries"]
+    fn sdk_function_aliases() {
+        helpers::ensure_libclang();
+        let fixtures =
+            Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\tests\\libs\\clang2\\input");
+        let input = Input {
+            name: "sdk_psapi.h".into(),
+            source: std::fs::read_to_string(fixtures.join("sdk_psapi.h")).unwrap(),
+            arguments: sdk_test_arguments(),
+            roots: vec!["K32EnumProcesses".into()],
+            macro_headers: vec!["psapi.h".into()],
+            ..Default::default()
+        };
+        let captured =
+            windows_clang2::capture_partial(&[input], &[Target::X86, Target::X64, Target::Arm64])
+                .unwrap();
+        assert_eq!(captured.omissions.len(), 2, "{:?}", captured.omissions);
+        assert!(
+            captured.omissions.iter().all(|message| {
+                message.contains("Macro(\"_PSAPI_H_\")")
+                    || message.contains("Macro(\"PENUM_PAGE_FILE_CALLBACK\")")
+            }),
+            "{:?}",
+            captured.omissions
+        );
+        let snapshots = captured.snapshots;
+        let mut aliases = BTreeSet::new();
+        for snapshot in &snapshots {
+            let mut count = 0;
+            for value in &snapshot.values {
+                for observation in &value.observations {
+                    if let windows_clang2::ValueKind::Function {
+                        alias: Some(alias), ..
+                    } = &observation.kind
+                    {
+                        let native = snapshot
+                            .values
+                            .iter()
+                            .find(|value| value.name == alias.name)
+                            .unwrap();
+                        assert!(
+                            native
+                                .observations
+                                .iter()
+                                .any(|native| native.canonical == observation.canonical)
+                        );
+                        aliases.insert((value.name.clone(), alias.name.clone()));
+                        count += 1;
+                    }
+                }
+            }
+            assert_eq!(count, 34);
+        }
+        assert_eq!(aliases.len(), 34);
+        let evidence = named_exports::Evidence::load().unwrap();
+        let mut imports = projection::Imports::default();
+        for target in [Target::X86, Target::X64, Target::Arm64] {
+            let (arch, _) = import_target(target);
+            let directory =
+                helpers::nuget_package(&format!("microsoft.windows.sdk.cpp.{arch}"), SDK_VERSION)
+                    .join("c");
+            let discovered = read_sdk_imports(&directory, target, &mut String::new()).unwrap();
+            add_sdk_imports(&mut imports, target, discovered, &evidence, &snapshots).unwrap();
+        }
+        let output = projection::project_with_imports(
+            &windows_clang2::merge(&snapshots).unwrap(),
+            "Fixture",
+            &imports,
+        )
+        .unwrap();
+        assert_eq!(output.functions, 61);
+        let actual: String = output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        let golden = fixtures.join("sdk_psapi.rdl");
+        if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+            std::fs::write(&golden, &actual).unwrap();
+        }
+        assert_eq!(
+            actual,
+            std::fs::read_to_string(golden)
+                .unwrap()
+                .replace("\r\n", "\n")
+        );
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
+        let scratch = root.join("target\\test-clang2-sdk-psapi");
+        std::fs::create_dir_all(&scratch).unwrap();
+        let winmd = scratch.join("input.winmd");
+        let rdl = scratch.join("roundtrip.rdl");
+        let again = scratch.join("roundtrip.winmd");
+        windows_rdl::reader()
+            .input(root.join("metadata\\metadata.rdl"))
+            .input_texts([&actual])
+            .output(&winmd)
+            .write()
+            .unwrap();
+        windows_rdl::writer()
+            .input(&winmd)
+            .filter("Fixture")
+            .output(&rdl)
+            .write()
+            .unwrap();
+        windows_rdl::reader()
+            .input(root.join("metadata\\metadata.rdl"))
+            .input(&rdl)
+            .output(&again)
+            .write()
+            .unwrap();
+        for path in [&winmd, &again] {
+            for bit in [1, 2, 4] {
+                let index = windows_metadata::reader::Index::new_for_architecture(
+                    vec![windows_metadata::reader::File::read(path).unwrap()],
+                    bit,
+                );
+                let methods: BTreeMap<_, _> = index
+                    .expect("Fixture", "Apis")
+                    .methods()
+                    .map(|method| (method.name(), method))
+                    .collect();
+                assert_eq!(methods.len(), 61);
+                for (alias, native) in &aliases {
+                    let alias = methods[alias.as_str()];
+                    let target = methods[native.as_str()];
+                    assert_eq!(alias.signature(&[]), target.signature(&[]));
+                    for method in [alias, target] {
+                        let import = method.impl_map().unwrap();
+                        assert_eq!(import.import_name(), native);
+                        assert!(
+                            import
+                                .import_scope()
+                                .name()
+                                .eq_ignore_ascii_case("kernel32.dll")
+                        );
+                        assert_eq!(method.calling_convention(), "system");
+                    }
+                }
+            }
+        }
     }
 
     #[test]

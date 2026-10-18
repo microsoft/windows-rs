@@ -478,6 +478,7 @@ impl Plan {
                     || !x.methods.iter().zip(&y.methods).all(|(x, y)| {
                         x.name == y.name
                             && x.slot == y.slot
+                            && x.overrides == y.overrides
                             && resolve::value_shape_equal(&x.observation, &y.observation, false)
                             && self.same_type(
                                 resolution,

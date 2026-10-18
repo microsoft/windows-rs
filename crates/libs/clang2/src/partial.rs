@@ -6,7 +6,7 @@ pub(crate) enum Key {
     Tag(String),
     Alias(String),
     Value(String),
-    /// Failed constant probes exclude constants, not native functions with the same spelling.
+    /// Failed macro probes do not exclude native functions with the same spelling.
     Macro(String),
     Nested(Box<Self>, RecordMember),
 }
@@ -31,7 +31,7 @@ impl Key {
                         ValueKind::Constant {
                             origin: ConstantOrigin::Macro,
                             ..
-                        }
+                        } | ValueKind::Function { alias: Some(_), .. }
                     )
                 }) {
                     Self::Macro(value.name.clone())
@@ -82,6 +82,19 @@ impl Issues {
 pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
     let mut dependents: HashMap<Key, BTreeSet<Key>> = HashMap::new();
     for snapshot in snapshots.iter() {
+        for value in &snapshot.values {
+            for observation in &value.observations {
+                if let ValueKind::Function {
+                    alias: Some(alias), ..
+                } = &observation.kind
+                {
+                    dependents
+                        .entry(Key::Value(alias.name.clone()))
+                        .or_default()
+                        .insert(Key::Macro(value.name.clone()));
+                }
+            }
+        }
         for (id, record) in snapshot.records.iter().enumerate() {
             if let Some(owner) = record.owner {
                 dependents
@@ -255,10 +268,9 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
     let values = remap(snapshot.values.iter().map(|value| {
         !excluded.contains_key(&Key::Value(value.name.clone()))
             && (!excluded.contains_key(&Key::Macro(value.name.clone()))
-                || value
-                    .observations
-                    .iter()
-                    .any(|observation| matches!(observation.kind, ValueKind::Function { .. })))
+                || value.observations.iter().any(|observation| {
+                    matches!(observation.kind, ValueKind::Function { alias: None, .. })
+                }))
     }));
     let declaration = |id| match id {
         DeclarationId::Record(id) => records[id.0].map(|id| DeclarationId::Record(RecordId(id))),

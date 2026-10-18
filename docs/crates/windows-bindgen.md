@@ -62,6 +62,14 @@ return type. Select an interface or its members explicitly when you also need to
 Structural C/stdcall `FNPTR` signatures become `Option<unsafe extern "C"/"system" fn(...)>`.
 Their result and parameter dependencies are included without creating public callback names.
 
+Win32 `NativeOverrideSlotAttribute` methods redeclare inherited entries. Bindgen validates their
+slot, name, and resolved signature, preserving pointer depth and qualifiers. Rust exposes these
+calls through inherited methods and vtable fields, without additional `_Impl` requirements.
+For member-only filters, select the callable on its declaring base.
+The redeclaration's annotations remain in metadata. Out-of-range, duplicate, or incompatible
+overrides fail generation rather than shifting the vtable. Older generators that ignore the
+attribute must not consume metadata using this encoding.
+
 The bundled Win32 metadata places APIs in `Windows.Win32`. Bare names such as `GetTickCount` and
 qualified names such as `Windows.Win32.GetTickCount` both work. The subsystem paths used by
 `windows` and `windows-sys` package features, such as `Win32_System_Com`, are not metadata

@@ -86,6 +86,7 @@ fn native_semantics() {
         assert_eq!(pointer, 99);
         for (name, expected) in [
             ("NativeTypeOfWord", "NativeMacroWord"),
+            ("NativeTypeOfAlias", "NativeMacroWord"),
             ("NativeTypeOfText", "const char[7]"),
         ] {
             let mut expression = unsafe { clang_getNullCursor() };
@@ -98,6 +99,25 @@ fn native_semantics() {
                 expected
             );
         }
+        let mut expression = unsafe { clang_getNullCursor() };
+        assert_eq!(
+            unsafe {
+                windows_clang_getTypeOfOperand(find("NativeTypeOfFunction"), &raw mut expression)
+            },
+            WindowsClangSuccess
+        );
+        while expression.kind == CXCursor_ParenExpr {
+            let operands = children(expression);
+            assert_eq!(operands.len(), 1);
+            expression = operands[0];
+        }
+        assert_eq!(expression.kind, CXCursor_DeclRefExpr);
+        let referenced = unsafe { clang_getCursorReferenced(expression) };
+        assert_eq!(referenced.kind, CXCursor_FunctionDecl);
+        assert_eq!(
+            text(unsafe { clang_getCursorSpelling(referenced) }),
+            "NativeC"
+        );
         let mut size = unsafe { clang_getNullCursor() };
         assert_eq!(
             unsafe { windows_clang_getTypeOfOperand(find("NativeTypeOfSize"), &raw mut size) },
@@ -867,7 +887,7 @@ fn native_semantics() {
             let library = Arc::clone(&library);
             scope.spawn(move || {
                 let previous = set_library(Some(library));
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 17);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 18);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION

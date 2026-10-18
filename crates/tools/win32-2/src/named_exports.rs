@@ -112,6 +112,7 @@ pub fn native_symbols(
         for value in &snapshot.values {
             for observation in &value.observations {
                 if let ValueKind::Function {
+                    alias: None,
                     mangling,
                     stdcall_candidate,
                     ..

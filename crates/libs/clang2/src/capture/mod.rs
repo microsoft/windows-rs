@@ -13,6 +13,7 @@ pub(super) struct MacroProbe {
     pub start: u32,
     pub declaration: u32,
     pub expansion: u32,
+    pub function: bool,
 }
 
 pub(super) fn macro_definition(
@@ -80,6 +81,7 @@ pub(super) fn read(
             }
         }
     }
+    let mut function_probes = HashSet::new();
     let probes = macros
         .iter()
         .map(|probe| {
@@ -88,10 +90,11 @@ pub(super) fn read(
             let declaration = sites
                 .get(&(CXCursor_VarDecl, probe.declaration))
                 .ok_or_else(|| Error(format!("macro `{name}` has no evaluation declaration")))?;
-            Ok((
-                Cursor(unsafe { clang_getCanonicalCursor(*declaration) }),
-                (name.clone(), definition),
-            ))
+            let key = Cursor(unsafe { clang_getCanonicalCursor(*declaration) });
+            if probe.function {
+                function_probes.insert(key);
+            }
+            Ok((key, (name.clone(), definition)))
         })
         .collect::<Result<HashMap<_, _>, Error>>()?;
     let mut capture = Capture {
@@ -102,6 +105,7 @@ pub(super) fn read(
         enums: HashMap::new(),
         values: HashMap::new(),
         probes,
+        function_probes,
         types: HashMap::new(),
         files: HashMap::new(),
         partial,
@@ -320,6 +324,7 @@ struct Capture<'a> {
     pending: Vec<Cursor>,
     values: HashMap<Cursor, ValueId>,
     probes: HashMap<Cursor, (String, CXCursor)>,
+    function_probes: HashSet<Cursor>,
     records: HashMap<Cursor, RecordId>,
     aliases: HashMap<Cursor, AliasId>,
     enums: HashMap<Cursor, EnumId>,
@@ -647,14 +652,16 @@ impl Capture<'_> {
                     }
                     let mut overridden = std::ptr::null_mut();
                     let mut count = 0;
-                    unsafe {
+                    let inherited = unsafe {
                         clang_getOverriddenCursors(child, &raw mut overridden, &raw mut count);
+                        let inherited = (count == 1).then(|| *overridden);
                         clang_disposeOverriddenCursors(overridden);
-                    }
-                    if count != 0 {
+                        inherited
+                    };
+                    if count > 1 {
                         return Err(unsupported(
                             child,
-                            "overridden virtual methods are unsupported",
+                            "multiple overridden virtual methods are unsupported",
                         ));
                     }
                     let mut slot = 0;
@@ -666,9 +673,29 @@ impl Capture<'_> {
                             "primary virtual method slot unavailable",
                         ));
                     }
+                    if let Some(inherited) = inherited {
+                        let mut inherited_slot = 0;
+                        if unsafe {
+                            windows_clang_getVirtualMethodSlot(inherited, &raw mut inherited_slot)
+                        } != WindowsClangSuccess
+                            || inherited_slot != slot
+                            || unsafe {
+                                clang_equalTypes(
+                                    clang_getCanonicalType(clang_getCursorResultType(child)),
+                                    clang_getCanonicalType(clang_getCursorResultType(inherited)),
+                                )
+                            } == 0
+                        {
+                            return Err(unsupported(
+                                child,
+                                "adjusted or covariant virtual overrides are unsupported",
+                            ));
+                        }
+                    }
                     methods.push(Method {
                         name: text(unsafe { clang_getCursorSpelling(child) }),
                         slot,
+                        overrides: inherited.is_some(),
                         observation: self.function_observation(child)?,
                     });
                     continue;
@@ -772,6 +799,7 @@ impl Capture<'_> {
         let kind = match name.as_ref() {
             "Packed" => AttributeKind::Packed,
             "NoTrivialAutoVarInit" => AttributeKind::NoTrivialAutoVarInit,
+            "MSAllocator" => AttributeKind::MSAllocator,
             "MSNoVTable" => AttributeKind::NoVTable,
             "DLLImport" => AttributeKind::DllImport,
             "DLLExport" => AttributeKind::DllExport,

@@ -34,7 +34,7 @@ pub fn merge(snapshots: &[Snapshot]) -> Result<Merged<'_>, Error> {
     let mut records = BTreeMap::new();
     let mut aliases: BTreeMap<&str, BTreeMap<Target, usize>> = BTreeMap::new();
     let mut enums: BTreeMap<(&str, &str), BTreeMap<Target, usize>> = BTreeMap::new();
-    let mut values: BTreeMap<&str, BTreeMap<Target, usize>> = BTreeMap::new();
+    let mut values: BTreeMap<(bool, &str), BTreeMap<Target, usize>> = BTreeMap::new();
     for (&target, resolution) in &targets {
         for (id, group) in resolution.groups.iter().enumerate() {
             let reference = group.records[0];
@@ -49,7 +49,14 @@ pub fn merge(snapshots: &[Snapshot]) -> Result<Merged<'_>, Error> {
             aliases.entry(&alias.name).or_default().insert(target, id);
         }
         for (id, value) in resolution.values.iter().enumerate() {
-            values.entry(&value.name).or_default().insert(target, id);
+            let first = value.observations[0];
+            let observation = &resolution.snapshots[first.snapshot].values[first.value.0]
+                .observations[first.observation];
+            let alias = matches!(observation.kind, ValueKind::Function { alias: Some(_), .. });
+            values
+                .entry((alias, &value.name))
+                .or_default()
+                .insert(target, id);
         }
         for (id, group) in resolution.enums.iter().enumerate() {
             let reference = group.enums[0];
@@ -67,7 +74,7 @@ pub fn merge(snapshots: &[Snapshot]) -> Result<Merged<'_>, Error> {
         .collect();
     let aliases = variants(aliases.into_iter());
     let enums = variants(enums.into_iter().map(|((name, _), groups)| (name, groups)));
-    let values = variants(values.into_iter());
+    let values = variants(values.into_iter().map(|((_, name), groups)| (name, groups)));
     Ok(Merged {
         targets,
         records,

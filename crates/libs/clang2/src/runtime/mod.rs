@@ -86,7 +86,7 @@ fn capture_impl(
                     )));
                 }
             }
-            macro_source(input, &input.macros, "__windows_clang_macro")
+            macro_source(input, &input.macros, "__windows_clang_macro", None)
         })
         .collect::<Result<Vec<_>, Error>>()?;
     let _batch = BATCH.lock().map_err(|error| Error(error.to_string()))?;
@@ -167,7 +167,12 @@ struct Source {
     probes: Vec<capture::MacroProbe>,
 }
 
-fn macro_source(input: &Input, macros: &[String], prefix: &str) -> Result<Source, Error> {
+fn macro_source(
+    input: &Input,
+    macros: &[String],
+    prefix: &str,
+    functions: Option<&HashSet<String>>,
+) -> Result<Source, Error> {
     let mut source = input.source.clone();
     let mut probes = Vec::new();
     for (index, name) in macros.iter().enumerate() {
@@ -175,24 +180,36 @@ fn macro_source(input: &Input, macros: &[String], prefix: &str) -> Result<Source
             .len()
             .try_into()
             .map_err(|_| Error("source too large".into()))?;
-        source.push_str(&format!("\nstatic const __typeof__(({name})) "));
+        let function = functions.is_some_and(|functions| functions.contains(name));
+        if functions.is_none() {
+            source.push_str("\nusing ");
+        } else if function {
+            source.push_str(&format!("\nstatic __typeof__(({name})) &"));
+        } else {
+            source.push_str(&format!("\nstatic const __typeof__(({name})) "));
+        }
         let declaration = source
             .len()
             .try_into()
             .map_err(|_| Error("source too large".into()))?;
         // Parentheses would turn initializer fragments into comma expressions.
-        source.push_str(&format!("{prefix}_{index} = "));
+        if functions.is_none() {
+            source.push_str(&format!("{prefix}_type_{index} = __typeof__(("));
+        } else {
+            source.push_str(&format!("{prefix}_{index} = "));
+        }
         let expansion = source
             .len()
             .try_into()
             .map_err(|_| Error("source too large".into()))?;
         source.push_str(name);
-        source.push_str(";\n");
+        source.push_str(if functions.is_none() { "));\n" } else { ";\n" });
         probes.push(capture::MacroProbe {
             name: name.clone(),
             start,
             declaration,
             expansion,
+            function,
         });
     }
     Ok(Source {
@@ -385,11 +402,11 @@ fn parse(
         parsed.check()?;
         drop(initial);
         let mut issues = partial::Issues::default();
-        let generated = if input.macro_headers.is_empty() {
-            None
-        } else {
+        let mut functions = macros::function_probes(&parsed.unit, source)?;
+        let mut names = input.macros.clone();
+        if !input.macro_headers.is_empty() {
             let _phase = profile::phase("discovery");
-            let (discovered, rejected) = macros::discover(
+            let (discovered, aliases, rejected) = macros::discover(
                 indices,
                 &parsed.unit,
                 source,
@@ -402,12 +419,18 @@ fn parse(
                 return Err(Error(rejected.finish().join("\n")));
             }
             issues.extend(rejected);
-            if discovered.is_empty() {
-                None
-            } else {
-                let names: Vec<_> = input.macros.iter().cloned().chain(discovered).collect();
-                Some(macro_source(input, &names, "__windows_clang_macro")?)
-            }
+            names.extend(discovered);
+            functions.extend(aliases);
+        }
+        let generated = if names.is_empty() {
+            None
+        } else {
+            Some(macro_source(
+                input,
+                &names,
+                "__windows_clang_macro",
+                Some(&functions),
+            )?)
         };
         if let Some(source) = &generated {
             let _phase = profile::phase("final");

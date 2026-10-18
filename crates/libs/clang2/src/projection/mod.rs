@@ -66,7 +66,7 @@ pub struct PartialOutput {
 }
 
 /// Projects the supported subset with explicit omissions. Compiler and correspondence errors are fatal.
-/// A failed entity is omitted on all targets, so failure cannot masquerade as target availability.
+/// Contract failures omit an entity on all targets; unresolved imports are reported per target.
 pub fn generate_partial(inputs: &[Input], namespace: &str) -> Result<PartialOutput, Error> {
     let captured =
         capture_partial(inputs, &TARGETS).map_err(|error| Error(format!("capture: {error}")))?;
@@ -124,6 +124,7 @@ pub fn project_partial_with_imports(
         let output = project_impl(&merged, namespace, imports, Some(&mut rejected))
             .map_err(|error| Error(format!("projection: {error}")))?;
         if rejected.excluded.is_empty() {
+            issues.messages.extend(rejected.messages);
             return Ok(PartialOutput {
                 output,
                 omissions: issues.finish(),
@@ -242,6 +243,17 @@ fn project_impl(
         let mut published = HashSet::new();
         let mut constants = HashMap::new();
         let mut unpublished_values = HashSet::new();
+        let native_values: HashSet<_> = resolution
+            .values
+            .iter()
+            .filter_map(|value| {
+                let first = value.observations[0];
+                let observation = &resolution.snapshots[first.snapshot].values[first.value.0]
+                    .observations[first.observation];
+                (!matches!(observation.kind, ValueKind::Function { alias: Some(_), .. }))
+                    .then_some(value.name.as_str())
+            })
+            .collect();
         for value in &resolution.values {
             let keys: Vec<_> = value
                 .observations
@@ -256,6 +268,19 @@ fn project_impl(
             let first = value.observations[0];
             let snapshot = resolution.snapshots[first.snapshot];
             let observation = &snapshot.values[first.value.0].observations[first.observation];
+            if matches!(observation.kind, ValueKind::Function { alias: Some(_), .. })
+                && native_values.contains(value.name.as_str())
+            {
+                reject(
+                    &mut rejected,
+                    keys,
+                    Error(format!(
+                        "function alias `{}` collides with a native declaration",
+                        value.name
+                    )),
+                )?;
+                continue;
+            }
             let definition = match &observation.kind {
                 ValueKind::Constant { value, .. } => value.as_ref(),
                 ValueKind::Function { .. } => None,
@@ -283,26 +308,61 @@ fn project_impl(
                     let snapshot = resolution.snapshots[reference.snapshot];
                     let observation =
                         &snapshot.values[reference.value.0].observations[reference.observation];
-                    headers.insert(snapshot.files[observation.location.file.0].clone());
-                    projector.value(
-                        reference.snapshot,
-                        observation,
-                        &value.name,
-                        imports,
-                        definition,
-                    )
+                    projector.import(reference.snapshot, observation, &value.name, imports)
                 })
                 .collect::<Result<Vec<_>, _>>()
-                .and_then(|mut bodies| {
+                .and_then(|resolved| {
+                    let missing_import = matches!(kind, PublishedKind::Function)
+                        && resolved.iter().any(Option::is_none);
+                    let mut bodies = value
+                        .observations
+                        .iter()
+                        .zip(resolved)
+                        .map(|(reference, import)| {
+                            let snapshot = resolution.snapshots[reference.snapshot];
+                            let observation = &snapshot.values[reference.value.0].observations
+                                [reference.observation];
+                            let location = match &observation.kind {
+                                ValueKind::Function {
+                                    alias: Some(alias), ..
+                                } => &alias.location,
+                                _ => &observation.location,
+                            };
+                            headers.insert(snapshot.files[location.file.0].clone());
+                            projector.value(
+                                reference.snapshot,
+                                observation,
+                                &value.name,
+                                if missing_import { None } else { import },
+                                definition,
+                            )
+                        })
+                        .collect::<Result<Vec<_>, _>>()?;
                     if matches!(kind, PublishedKind::Function) {
                         projector.agree_functions(value, target, &mut bodies)?;
                     } else {
                         projector.agree_constants(value, target, definition, &mut bodies)?;
                     }
-                    Ok(bodies)
+                    Ok((bodies, missing_import))
                 });
             match bodies {
-                Ok(bodies) => {
+                Ok((_, true)) => {
+                    unpublished_values.insert(value.name.as_str());
+                    let error = format!(
+                        "function `{}` has no configured DLL/export ownership",
+                        value.name
+                    );
+                    if let Some(rejected) = rejected.as_deref_mut() {
+                        for key in keys {
+                            rejected
+                                .messages
+                                .insert(format!("{key:?}: {target:?}: projection: {error}"));
+                        }
+                    } else {
+                        return Err(Error(format!("{target:?}: {error}")));
+                    }
+                }
+                Ok((bodies, false)) => {
                     publish(
                         &mut declarations,
                         target,
@@ -1459,6 +1519,24 @@ impl Projector<'_, '_> {
                     && self.interface_record(snapshot_id, record)
                 {
                     checked_type(snapshot, *pointee)?;
+                    if snapshot.types[pointee.0].qualifiers.constant {
+                        let reference = self
+                            .resolution
+                            .group(RecordRef {
+                                snapshot: snapshot_id,
+                                record,
+                            })
+                            .definition
+                            .unwrap();
+                        let observation = &self.resolution.snapshots[reference.snapshot]
+                            .observations[reference.observation.0];
+                        if resolve::uuid(&observation.attributes).is_none() {
+                            return Err(Error(
+                                "const GUID-less interface pointers require const-preserving metadata"
+                                    .into(),
+                            ));
+                        }
+                    }
                     // COM references do not express C++ object constness. Outer pointer
                     // qualifiers still describe pointer storage and are projected normally.
                     return Ok(MetadataType::class_named(

@@ -1,0 +1,11 @@
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern fn Allocate(size: u32) -> *mut void;
+    #[guid(0x12345678_1234_1234_1234_123456789abc)]
+    interface Factory {
+        fn Allocate(&self, size: u32) -> *mut void;
+    }
+    #[library("fixture.dll")]
+    extern fn Reallocate(previous: *mut void, size: u32) -> *mut void;
+}

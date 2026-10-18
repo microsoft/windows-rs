@@ -30,7 +30,7 @@ does not inspect private cursor fields or depend on Clang C++ class layouts.
 | `windows_clang_getIntegerConstantInitializer` | Integer constant-expression initializer validity. |
 | `windows_clang_getConstantInitializer` | Checked static-initializer validity. |
 | `windows_clang_getConstantPointerInitializer` | Numeric data-pointer static initializer, without relocations. |
-| `windows_clang_getTypeOfOperand` | Original expression in a variable's `typeof` type. |
+| `windows_clang_getTypeOfOperand` | Original expression in a variable or typedef's `typeof` type. |
 | `windows_clang_getPredefinedType` | Underlying type of compiler-predefined sugar, not user typedefs. |
 | `windows_clang_getConstantIntegerElement` | Evaluated nonnegative integer leaf at a struct/array index path. |
 
@@ -56,7 +56,7 @@ The qualifier query includes qualifiers inherited through typedefs. After identi
 volatile, restrict, and unaligned, it checks the remaining native qualifier set, rather than
 assuming those four exhaust Clang's type qualifiers. Address spaces and other undecoded qualifiers
 set `WindowsClangOtherQualifiers`. Method qualifiers use the same decoding, independently of the
-function type's own qualifiers. The extension ABI version is 17.
+function type's own qualifiers. The extension ABI version is 18.
 
 The virtual-slot query reads `MicrosoftVTableContext::getMethodVFTableLocation`, rejecting
 locations that need virtual-base or secondary-vptr adjustment. Nonvirtual methods and non-Microsoft

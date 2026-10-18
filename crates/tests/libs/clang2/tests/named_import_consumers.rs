@@ -22,6 +22,31 @@ fn default_import_consumer() {
 }
 
 #[test]
+fn guidless_import_consumer() {
+    run(None, "sdk_guidless");
+}
+
+#[test]
+fn allocator_import_consumer() {
+    run(None, "sdk_allocator");
+}
+
+#[test]
+fn overrides_import_consumer() {
+    run(None, "sdk_overrides");
+}
+
+#[test]
+fn psapi_import_consumer() {
+    run(None, "sdk_psapi");
+}
+
+#[test]
+fn target_import_consumer() {
+    run(None, "sdk_unresolved_imports");
+}
+
+#[test]
 #[ignore = "requires three-target Rust/MSVC link toolchains and the pinned LLVM inspection tool"]
 fn named_import_consumers_cross_targets() {
     for target in [
@@ -33,6 +58,11 @@ fn named_import_consumers_cross_targets() {
         run(Some(target), "sdk_winsock");
         run(Some(target), "sdk_context");
         run(Some(target), "sdk_import_gaps");
+        run(Some(target), "sdk_guidless");
+        run(Some(target), "sdk_allocator");
+        run(Some(target), "sdk_overrides");
+        run(Some(target), "sdk_psapi");
+        run(Some(target), "sdk_unresolved_imports");
     }
 }
 
@@ -53,6 +83,11 @@ fn run(target: Option<&str>, fixture: &str) {
         "sdk_named_imports" => "named_import_consumer",
         "sdk_context" => "context_import_consumer",
         "sdk_import_gaps" => "default_import_consumer",
+        "sdk_guidless" => "guidless_import_consumer",
+        "sdk_allocator" => "allocator_import_consumer",
+        "sdk_overrides" => "overrides_import_consumer",
+        "sdk_psapi" => "psapi_import_consumer",
+        "sdk_unresolved_imports" => "target_import_consumer",
         _ => panic!("unknown import fixture {fixture}"),
     };
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
@@ -162,12 +197,38 @@ fn run(target: Option<&str>, fixture: &str) {
                 ("ws2_32.dll", "WSAStartup"),
             ],
             "sdk_context" => &[("kernel32.dll", "RtlCaptureContext")],
+            "sdk_guidless" => &[("d3dcompiler_47.dll", "D3DCompile")],
+            "sdk_allocator" => &[
+                ("kernel32.dll", "HeapAlloc"),
+                ("kernel32.dll", "HeapReAlloc"),
+                ("kernel32.dll", "GlobalAlloc"),
+                ("kernel32.dll", "GlobalReAlloc"),
+                ("kernel32.dll", "LocalAlloc"),
+                ("kernel32.dll", "LocalReAlloc"),
+            ],
+            "sdk_overrides" => &[
+                ("avifil32.dll", "AVIFileInit"),
+                ("avifil32.dll", "AVIFileExit"),
+                ("avifil32.dll", "CreateEditableStream"),
+                ("avifil32.dll", "EditStreamClone"),
+                ("avifil32.dll", "AVIStreamRelease"),
+            ],
+            "sdk_psapi" => &[("kernel32.dll", "K32EnumProcesses")],
+            "sdk_unresolved_imports" if target == Some("i686-pc-windows-msvc") => &[],
+            "sdk_unresolved_imports" => &[
+                ("oleaut32.dll", "BSTR_UserSize64"),
+                ("dnsapi.dll", "DnsValidateName_W"),
+            ],
             "sdk_import_gaps" => &[
                 ("dnsapi.dll", "DnsValidateName_W"),
                 ("dhcpsapi.dll", "DhcpAddServer"),
             ],
             _ => unreachable!(),
         };
+        if fixture == "sdk_unresolved_imports" && target == Some("i686-pc-windows-msvc") {
+            assert!(!imports.contains("BSTR_UserSize64"));
+            assert!(!imports.contains("DnsValidateName_W"));
+        }
         for &(library, name) in required {
             assert!(
                 imports.split("Import {").any(|block| {

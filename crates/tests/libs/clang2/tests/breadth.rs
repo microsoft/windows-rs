@@ -4521,7 +4521,8 @@ fn import_targets() {
         &imports,
     )
     .unwrap();
-    assert_eq!(partial.output.functions, 0);
+    assert_eq!(partial.output.functions, 1);
+    assert!(partial.omissions.iter().all(|line| line.contains("X86:")));
     assert!(
         partial
             .omissions
@@ -4737,10 +4738,30 @@ fn sdk_import_gaps() {
         &imports,
     )
     .unwrap();
-    assert_eq!(partial.output.functions, 0);
+    assert_eq!(partial.output.functions, 3);
+    assert!(partial.omissions.iter().all(|line| line.contains("X86:")));
     for name in ["DhcpAddServer", "DnsValidateName_W", "BSTR_UserSize64"] {
         assert!(partial.omissions.iter().any(|error| error.contains(name)));
     }
+    roundtrip("sdk_unresolved_imports", &partial.output, |index, bit| {
+        let methods: Vec<_> = index
+            .expect("Fixture", "Apis")
+            .methods()
+            .filter(|method| method.arches() == 0 || method.arches() & bit != 0)
+            .collect();
+        assert_eq!(methods.len(), if bit == 1 { 0 } else { 3 });
+        for method in methods {
+            let library = match method.name() {
+                "DhcpAddServer" => "dhcpsapi.dll",
+                "DnsValidateName_W" => "dnsapi.dll",
+                "BSTR_UserSize64" => "oleaut32.dll",
+                _ => unreachable!(),
+            };
+            let import = method.impl_map().unwrap();
+            assert_eq!(import.import_name(), method.name());
+            assert!(import.import_scope().name().eq_ignore_ascii_case(library));
+        }
+    });
 }
 
 #[test]
@@ -6836,12 +6857,6 @@ fn dependencies_and_unsupported_contracts() {
         "int Cxx(int value);",
         "int MUTABLE = 3;",
         r#"extern "C" int Next(); const int SIDE_EFFECT = (Next(), 3);"#,
-        r#"struct __declspec(uuid("11111111-1111-1111-1111-111111111111")) I {
-                        virtual void __stdcall Read() = 0;
-                    };
-                    struct __declspec(uuid("22222222-2222-2222-2222-222222222222")) J : I {
-                        virtual void __stdcall Read() = 0;
-                    };"#,
     ] {
         assert!(
             capture(

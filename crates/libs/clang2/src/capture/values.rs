@@ -40,34 +40,82 @@ impl Capture<'_> {
     }
 
     pub(super) fn value_observation(&mut self, id: ValueId, cursor: CXCursor) -> Result<(), Error> {
-        let observation = if unsafe { clang_getCursorKind(cursor) } == CXCursor_FunctionDecl {
-            if unsafe { clang_getCursorLinkage(cursor) } != CXLinkage_External
-                || unsafe { clang_isCursorDefinition(cursor) } != 0
+        let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
+        let observation = if self.function_probes.contains(&key) {
+            let mut expression = unsafe { clang_Cursor_getVarDeclInitializer(cursor) };
+            while expression.kind == CXCursor_ParenExpr {
+                let operands = children(expression);
+                let [operand] = operands.as_slice() else {
+                    return Err(unsupported(
+                        expression,
+                        "invalid parenthesized function alias",
+                    ));
+                };
+                expression = *operand;
+            }
+            let target = unsafe { clang_getCursorReferenced(expression) };
+            if expression.kind != CXCursor_DeclRefExpr || target.kind != CXCursor_FunctionDecl {
+                return Err(unsupported(
+                    cursor,
+                    "function macro must directly reference a function",
+                ));
+            }
+            let target_key = Cursor(unsafe { clang_getCanonicalCursor(target) });
+            if !self.values.contains_key(&target_key)
+                && !self.declarations.contains_key(&target_key)
             {
                 return Err(unsupported(
                     cursor,
-                    "only external function declarations are supported",
+                    "function alias target is not a captured global declaration",
                 ));
             }
-            let observation = self.function_observation(cursor)?;
-            if !matches!(
-                observation.kind,
-                ValueKind::Function {
-                    language: LanguageLinkage::C,
-                    ..
-                }
-            ) {
-                return Err(unsupported(
-                    cursor,
-                    "only C language linkage functions are supported",
-                ));
+            self.value(target)?;
+            let mut observation = self.free_function_observation(target)?;
+            let definition = self.probes[&key].1;
+            let origin = FunctionAlias {
+                name: text(unsafe { clang_getCursorSpelling(target) }),
+                usr: text(unsafe { clang_getCursorUSR(clang_getCanonicalCursor(target)) }),
+                location: self.location(definition),
+            };
+            let ValueKind::Function { alias, .. } = &mut observation.kind else {
+                unreachable!();
+            };
+            if self.snapshot.values[id.0].name != origin.name {
+                *alias = Some(Box::new(origin));
             }
             observation
+        } else if unsafe { clang_getCursorKind(cursor) } == CXCursor_FunctionDecl {
+            self.free_function_observation(cursor)?
         } else {
             self.constant_observation(cursor)?
         };
         self.snapshot.values[id.0].observations.push(observation);
         Ok(())
+    }
+
+    fn free_function_observation(&mut self, cursor: CXCursor) -> Result<ValueObservation, Error> {
+        if unsafe { clang_getCursorLinkage(cursor) } != CXLinkage_External
+            || unsafe { clang_isCursorDefinition(cursor) } != 0
+        {
+            return Err(unsupported(
+                cursor,
+                "only external function declarations are supported",
+            ));
+        }
+        let observation = self.function_observation(cursor)?;
+        if !matches!(
+            observation.kind,
+            ValueKind::Function {
+                language: LanguageLinkage::C,
+                ..
+            }
+        ) {
+            return Err(unsupported(
+                cursor,
+                "only C language linkage functions are supported",
+            ));
+        }
+        Ok(observation)
     }
 
     pub(super) fn function_observation(
@@ -99,6 +147,7 @@ impl Capture<'_> {
             canonical,
             attributes: self.attributes(cursor)?,
             kind: ValueKind::Function {
+                alias: None,
                 parameters,
                 mangling: text(unsafe { clang_Cursor_getMangling(cursor) }),
                 language,

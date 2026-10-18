@@ -1,5 +1,11 @@
 use super::*;
 
+#[derive(Clone, Copy)]
+pub(super) struct FunctionImport<'a> {
+    import: &'a Import,
+    written: TypeId,
+}
+
 pub(super) fn write_guid(value: u128) -> TokenStream {
     format!(
         "0x{:08x}_{:04x}_{:04x}_{:04x}_{:012x}",
@@ -31,20 +37,80 @@ pub(super) fn check_constant<'a>(
 }
 
 impl Projector<'_, '_> {
+    pub(super) fn import<'a>(
+        &self,
+        snapshot: usize,
+        observation: &ValueObservation,
+        name: &str,
+        imports: &'a Imports,
+    ) -> Result<Option<FunctionImport<'a>>, Error> {
+        let ValueKind::Function {
+            alias,
+            mangling,
+            stdcall_candidate,
+            ..
+        } = &observation.kind
+        else {
+            return Ok(None);
+        };
+        let native_name = alias.as_ref().map_or(name, |alias| alias.name.as_str());
+        let target = self.resolution.snapshots[snapshot].target;
+        let native_import = imports
+            .functions
+            .get(native_name)
+            .or_else(|| imports.symbols.get(&target)?.get(mangling));
+        let alternative = stdcall_candidate.as_ref().and_then(|candidate| {
+            Some((
+                imports
+                    .default_stdcall
+                    .get(&target)?
+                    .get(&candidate.mangling)?,
+                candidate.written,
+            ))
+        });
+        let Some((import, written)) = native_import
+            .map(|import| (import, observation.written))
+            .or(alternative)
+        else {
+            return Ok(None);
+        };
+        if alias.is_some()
+            && imports.functions.get(name).is_some_and(|explicit| {
+                !explicit.library.eq_ignore_ascii_case(&import.library)
+                    || explicit.name.as_deref().unwrap_or(name)
+                        != import.name.as_deref().unwrap_or(native_name)
+            })
+        {
+            return Err(Error(format!(
+                "function alias `{name}` changes native import ownership"
+            )));
+        }
+        if import.library.is_empty() || import.name.as_ref().is_some_and(String::is_empty) {
+            return Err(Error(format!("empty DLL/export ownership for `{name}`")));
+        }
+        if let Some(ordinal) = import
+            .name
+            .as_deref()
+            .and_then(|name| name.strip_prefix('#'))
+            && ordinal.parse::<u16>().is_err()
+        {
+            return Err(Error(format!("invalid import ordinal for `{name}`")));
+        }
+        Ok(Some(FunctionImport { import, written }))
+    }
+
+    // Without an import, a function body checks contracts but cannot be published.
     pub(super) fn value(
         &self,
         snapshot: usize,
         observation: &ValueObservation,
         name: &str,
-        imports: &Imports,
+        import: Option<FunctionImport<'_>>,
         definition: Option<&ConstantValue>,
     ) -> Result<Body, Error> {
         match &observation.kind {
             ValueKind::Function {
-                language,
-                mangling,
-                stdcall_candidate,
-                ..
+                alias, language, ..
             } => {
                 if *language != LanguageLinkage::C {
                     return Err(Error(format!(
@@ -60,60 +126,29 @@ impl Projector<'_, '_> {
                             | AttributeKind::Deprecated(_)
                             | AttributeKind::NoThrow
                             | AttributeKind::Cxx11NoReturn
+                            | AttributeKind::MSAllocator
                     )
                 }) {
                     return Err(Error(format!(
                         "unsupported function attributes on `{name}`"
                     )));
                 }
-                let native_import = imports.functions.get(name).or_else(|| {
-                    imports
-                        .symbols
-                        .get(&self.resolution.snapshots[snapshot].target)?
-                        .get(mangling)
+                let library = import.map(|resolved| {
+                    let native_name = alias.as_ref().map_or(name, |alias| alias.name.as_str());
+                    let library = &resolved.import.library;
+                    let export = resolved.import.name.as_deref().unwrap_or(native_name);
+                    let import_name = (export != name).then(|| quote! { , import = #export });
+                    quote! { #[library(#library #import_name)] }
                 });
-                let alternative = stdcall_candidate.as_ref().and_then(|candidate| {
-                    Some((
-                        imports
-                            .default_stdcall
-                            .get(&self.resolution.snapshots[snapshot].target)?
-                            .get(&candidate.mangling)?,
-                        candidate.written,
-                    ))
-                });
-                let (import, written) = native_import
-                    .map(|import| (import, observation.written))
-                    .or(alternative)
-                    .ok_or_else(|| {
-                        Error(format!(
-                            "function `{name}` has no configured DLL/export ownership"
-                        ))
-                    })?;
-                if import.library.is_empty() || import.name.as_ref().is_some_and(String::is_empty) {
-                    return Err(Error(format!("empty DLL/export ownership for `{name}`")));
-                }
-                if let Some(ordinal) = import
-                    .name
-                    .as_deref()
-                    .and_then(|name| name.strip_prefix('#'))
-                    && ordinal.parse::<u16>().is_err()
-                {
-                    return Err(Error(format!("invalid import ordinal for `{name}`")));
-                }
-                let library = &import.library;
-                let import_name = import
-                    .name
-                    .as_ref()
-                    .filter(|import| import.as_str() != name)
-                    .map(|name| quote! { , import = #name });
                 let (parameters, result) = self.callable(snapshot, observation, true)?;
+                let written = import.map_or(observation.written, |resolved| resolved.written);
                 let function = written_function(self.resolution.snapshots[snapshot], written)?;
                 let abi = callable_abi(function.convention);
                 let name = ident(name)?;
                 let native = annotations::write(&observation.attributes);
                 let contracts = annotations::function(function.prototype, &observation.attributes);
                 Ok(Body {
-                    attributes: quote! { #native #contracts #[library(#library #import_name)] },
+                    attributes: quote! { #native #contracts #library },
                     declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
                 })
             }
@@ -479,8 +514,11 @@ impl Projector<'_, '_> {
             let observation = &self.resolution.snapshots[reference.snapshot].observations
                 [reference.observation.0];
             let definition = observation.definition.as_ref().unwrap();
-            resolve::uuid(&observation.attributes).is_some()
-                && (!definition.methods.is_empty() || !definition.bases.is_empty())
+            !definition.methods.is_empty()
+                || definition
+                    .bases
+                    .iter()
+                    .any(|base| self.interface_record(reference.snapshot, base.record))
         })
     }
 
@@ -492,8 +530,7 @@ impl Projector<'_, '_> {
     ) -> Result<Body, Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
         let definition = observation.definition.as_ref().unwrap();
-        let uuid = resolve::uuid(&observation.attributes)
-            .ok_or_else(|| Error(format!("interface `{name}` has no native UUID")))?;
+        let uuid = resolve::uuid(&observation.attributes);
         let size = if snapshot.target == Target::X86 { 4 } else { 8 };
         if !definition.fields.is_empty()
             || definition.bases.len() > 1
@@ -519,6 +556,7 @@ impl Projector<'_, '_> {
             )));
         }
         let mut first_slot = 0;
+        let mut inherited_methods = BTreeMap::new();
         let mut base_alignment = None;
         let base = if let Some(&base) = definition.bases.first() {
             if base.offset_bits != 0 || !self.interface_record(snapshot_id, base.record) {
@@ -533,13 +571,16 @@ impl Projector<'_, '_> {
                     record,
                 });
                 let reference = group.definition.as_ref().unwrap();
-                let inherited = self.resolution.snapshots[reference.snapshot].observations
-                    [reference.observation.0]
-                    .definition
-                    .as_ref()
-                    .unwrap();
+                let inherited = &self.resolution.snapshots[reference.snapshot].observations
+                    [reference.observation.0];
+                let inherited = inherited.definition.as_ref().unwrap();
                 base_alignment.get_or_insert(inherited.layout.alignment);
-                first_slot += inherited.methods.len() as u64;
+                for method in &inherited.methods {
+                    inherited_methods.entry(method.slot).or_insert(method);
+                    if !method.overrides {
+                        first_slot += 1;
+                    }
+                }
                 let Some(base) = inherited.bases.first() else {
                     break;
                 };
@@ -563,12 +604,32 @@ impl Projector<'_, '_> {
         let mut methods = Vec::new();
         let mut names = HashSet::new();
         let mut overloads = HashMap::new();
-        for (index, method) in definition.methods.iter().enumerate() {
-            if method.slot != first_slot + index as u64 {
+        let mut next_slot = first_slot;
+        let mut slots = HashSet::new();
+        for method in &definition.methods {
+            let valid_slot = slots.insert(method.slot)
+                && if method.overrides {
+                    method.slot < first_slot
+                        && inherited_methods
+                            .get(&method.slot)
+                            .is_some_and(|inherited| inherited.name == method.name)
+                } else {
+                    method.slot == next_slot
+                };
+            if !valid_slot {
                 return Err(Error(format!(
                     "non-contiguous virtual method slots on `{name}`"
                 )));
             }
+            let override_slot = if method.overrides {
+                let slot = u32::try_from(method.slot).map_err(|_| {
+                    Error(format!("virtual method slot exceeds metadata on `{name}`"))
+                })?;
+                quote! { #[Windows::Win32::Metadata::NativeOverrideSlot(#slot)] }
+            } else {
+                next_slot += 1;
+                TokenStream::new()
+            };
             if !annotations::callable(&method.observation.attributes) {
                 return Err(Error(format!(
                     "attributed interface method `{name}.{}`",
@@ -623,13 +684,18 @@ impl Projector<'_, '_> {
                 quote! { #[Windows::Win32::Metadata::NativeConstMethod] }
             });
             methods.push(
-                quote! { #attributes #contracts #constant fn #method_name(&self #(, #parameters)*) #result; },
+                quote! { #override_slot #attributes #contracts #constant fn #method_name(&self #(, #parameters)*) #result; },
             );
         }
-        let uuid = write_guid(uuid);
+        let identity = if let Some(uuid) = uuid {
+            let uuid = write_guid(uuid);
+            quote! { #[guid(#uuid)] }
+        } else {
+            quote! { #[no_guid] }
+        };
         let native = annotations::write(&observation.attributes);
         Ok(Body {
-            attributes: quote! { #native #[guid(#uuid)] },
+            attributes: quote! { #native #identity },
             declaration: quote! { interface #name #base { #(#methods)* } },
         })
     }

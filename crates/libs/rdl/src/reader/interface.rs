@@ -260,6 +260,19 @@ impl Encoder<'_> {
                     }
 
                     let mut flags = base_flags;
+                    if method
+                        .attrs
+                        .iter()
+                        .any(|attr| self.is_native_override_slot_attribute(attr))
+                    {
+                        if item.winrt {
+                            return self.err(
+                                &method.sig.ident,
+                                "native slot overrides require a Win32 interface",
+                            );
+                        }
+                        flags &= !metadata::MethodAttributes::NewSlot;
+                    }
                     if is_special {
                         flags |= metadata::MethodAttributes::SpecialName;
                     }

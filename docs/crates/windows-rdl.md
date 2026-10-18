@@ -73,6 +73,13 @@ including deprecation payloads.
 GUID constants retain their declared type, architecture tags, and custom attributes in both
 directions. Property-key constants retain those attributes alongside their format GUID and ID.
 
+`Windows.Win32.Metadata.NativeOverrideSlotAttribute(slot: u32)` marks a Win32 method redeclaration
+at an absolute inherited vtable slot. The reader clears `MethodAttributes::NewSlot`; the writer
+preserves the attribute and all method/parameter contracts. It is not supported on WinRT methods.
+Bindgen validates the slot against the base hierarchy and reuses the inherited entry. Older
+generators can ignore the attribute and append a wrong vtable entry, so this encoding requires a
+paired reader/generator upgrade.
+
 RDL uses Rust tokens and module syntax, but it describes metadata rather than executable Rust.
 A top-level `mod` is a metadata namespace. Tag it `#[winrt]` or `#[win32]` to select the type
 system. Items include classes, interfaces, delegates, callbacks, enums, structs, unions, typedefs,

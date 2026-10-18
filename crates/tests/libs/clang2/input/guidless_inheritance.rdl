@@ -1,0 +1,11 @@
+#[win32]
+mod Fixture {
+    #[guid(0x11111111_2222_3333_4444_555555555555)]
+    interface Identified {
+        fn Read(&self) -> i32;
+    }
+    #[no_guid]
+    interface MissingIdentity: Identified {
+        fn Reset(&self);
+    }
+}

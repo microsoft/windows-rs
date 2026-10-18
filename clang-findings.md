@@ -9,12 +9,12 @@ requirement. Ranks order the remaining work; individual exclusions and cutover a
 | Control | Identity and status |
 | --- | --- |
 | Frozen comparison baseline | `6e68e56081340eaa932f4dbc92ec54c56ed51473` |
-| Working source checkpoint | `58ee55b4d3`, plus output/field contracts, named linkage, context, and per-function ABI repairs |
-| Working `metadata/win32` | Regenerated per-function ABI partial candidate; visible, uncommitted |
+| Working source checkpoint | `58ee55b4d3`, plus contracts, named linkage, context, per-function ABI, GUID-less interfaces, and allocator repairs |
+| Working `metadata/win32` | Regenerated GUID-less inheritance partial candidate; visible, uncommitted |
 | Reviewed metadata control | `breadth-noreturn-repeat`; not an accepted replacement |
 | Ordinal candidate | `breadth-ordinal-imports`; unresolved x86 import gaps |
 | Stdcall trial | `breadth-sdk-stdcall`; not accepted as the canonical configuration |
-| Scratch output | `target/win32-2/Windows.Win32.winmd` matches the per-function ABI run |
+| Scratch output | `target/win32-2/Windows.Win32.winmd` matches the GUID-less inheritance run |
 | Toolchain | LLVM 22.1.8, companion ABI 17, SDK 10.0.28000.2270; x86/x64/ARM64 |
 
 The configuration uses the existing 370 headers and seven translation units, with unchanged compiler
@@ -663,6 +663,257 @@ The exact selected commands pass locally with warnings denied: four driver cases
 the missing-import negative case, and the cross-target consumer matrix. The workflow still needs
 its first hosted run. Full-workload semantic comparison and acceptance controls remain separate
 reproducibility work.
+
+### GUID-less interface recovery
+
+Native vtable structure, not UUID presence, identifies an interface for projection.
+GUID-less hierarchies use the existing `#[no_guid]` representation; native layout, calling
+conventions, access, purity, and contiguous inherited slots remain checked. No IID or IUnknown
+ownership is invented. Const pointers whose qualification would be erased by the
+interface-reference encoding remain rejected.
+
+Dedicated native/header/RDL fixtures cover bare, extended, and inherited-only interfaces, aliases,
+pointer storage, and rejection boundaries. Metadata round trips preserve absent GUID attributes.
+Generated high-level consumers verify inherited calls, pointer-sized storage, and no AddRef/Release
+on clone/drop. The real `D3DCompile` consumer uses a supplied `ID3DInclude` object and verifies both
+Open and Close callbacks. All three targets compile/link; x86/x64 execute. The selected cases are
+wired into CI alongside the prior import consumers.
+
+The full run restores seven required shader functions on 21 target pairs, plus 20 interfaces,
+three records, four alias names, and two callbacks across eight partitions. Every retained
+declaration, owner, target, type, and attribute is identical. Constants and capture configuration
+are byte-identical. Ten already-omitted roots receive deeper diagnostics, including unsupported
+GUID-less COM inheritance, interface references, volatile parameters, and interface-valued numeric
+sentinels. There are no new lost declarations. Required losses fall to 325 names / 964 target pairs.
+
+This run reports 612.523 seconds capture/merge/project, 10.765 seconds compilation, 625.867 seconds
+driver wall time, and 7,789,744,128 sampled peak process bytes. It is substantially slower than the
+preceding uncontrolled run; no cause is established and no performance acceptance is claimed.
+The following allocation run records phase diagnostics to separate capture from projection. A
+matched benchmark still requires a quiet machine and the agreed legacy control.
+Artifacts are `guidless-before.zip`, `guidless-comparison.json`, `guidless-sdk.log`, and
+`guidless-resources.json` in the current session.
+
+### Allocation instrumentation
+
+Six required allocation imports are blocked by `MSAllocator`, not an unsupported calling ABI.
+Pinned LLVM 22.1.8's `MSAllocatorDocs` in `clang/include/clang/Basic/AttrDocs.td` explicitly
+distinguishes this CodeView profiling marker from GCC `malloc` optimization semantics.
+`clang/lib/CodeGen/CGCall.cpp` adds heap-allocation debug metadata only when debug information is
+enabled. Microsoft's [allocator documentation](https://learn.microsoft.com/cpp/cpp/allocator)
+describes its profiling purpose.
+
+Capture retains a typed `MSAllocator` marker and reconciliation compares its presence on functions
+and methods. Publication adds no ownership, no-alias, nullability, or deallocator attribute.
+The fixtures preserve allocation and reallocation signatures and reject conflicting observations
+in both input orders. SDK consumers exercise HeapAlloc/HeapReAlloc, GlobalAlloc/GlobalReAlloc, and
+LocalAlloc/LocalReAlloc with data-preservation and release checks on x86/x64; all targets compile
+and link with named imports. Global/local reallocation permits relocation rather than assuming
+an in-place resize must succeed. Existing SAL evidence remains independent.
+
+Full regeneration restores all six imports on 18 target pairs in `heapapi.rdl` and `winbase.rdl`.
+Every retained declaration, owner, target, type, and attribute is unchanged; constant accounting and
+capture configuration are byte-identical. Already-omitted CRT functions reach deeper `Restrict` or
+missing-import diagnostics, without adding lost declarations. Required losses fall to 319 names /
+946 target pairs. The candidate has 13,892 functions and 71,878 omission diagnostics.
+
+This profiled run reports 652.878 seconds capture/merge/project, 10.592 seconds compilation,
+666.109 seconds driver wall time, and 7,521,808,384 sampled peak process bytes. The phase log records
+528.237 seconds in workers and 106.874 seconds in projection. Both contribute to the elapsed time;
+these observations do not establish the cause of the regression against the earlier run or meet
+the controlled performance gate. Artifacts are `allocator-comparison.json`, `allocator-sdk.log`,
+`allocator-sdk.err`, and `allocator-resources.json` in the current session.
+
+### GUID-less inheritance and consumer identity
+
+The initial GUID-less repair added an unjustified rejection for a child without a UUID whose base
+has one. Native UUID presence and base identity are independent facts. Existing RDL can represent
+both with `#[no_guid] interface Child: Base`; no inherited or name-matched IID is needed.
+The synthetic inheritance fixture and SDK `IAVIPersistFile` case check that the child remains
+GUID-less through both metadata round trips while the base retains its UUID.
+
+`bindgen` `CppInterface::write` emits `define_interface!(..., 0)` for a GUID-less interface with an
+IUnknown base. This pre-existing consumer behavior is not a native IID and must not establish
+identity/cast correctness. Keep it as a separate consumer acceptance defect rather than rejecting
+representable native metadata. AVI's overridden methods remain a distinct capture/contract gap;
+preserving inheritance does not authorize dropping their annotations or inventing vtable slots.
+
+Full regeneration restores `IAVIPersistFile`, `IBaseVideoMixer`, `IRicheditUiaOverrides`, and
+`PAVIPERSISTFILE` on all three targets in three partitions. Every retained declaration is unchanged;
+there are no new omissions, and constants/configuration remain byte-identical. The native SDK
+fixture checks `IAVIPersistFile::Reserved1` at slot 9; generated raw consumers check the matching
+offset and ten-pointer vtable on all targets. The candidate has 4,039 interfaces, 13,293 aliases,
+and 71,874 omission diagnostics. Required function losses remain 319 names / 946 target pairs:
+89 ownership, 188 capture/dependency/projection, and 42 without a value-root diagnostic.
+
+The profiled run reports 312.501 seconds capture/merge/project, 5.142 seconds compilation,
+319.296 seconds driver wall time, and 7,412,654,080 sampled peak process bytes. Workers take
+253.267 seconds and projection 50.006 seconds. Timings returned to the earlier range, but these
+uncontrolled runs do not explain the variation or establish performance acceptance.
+`guidless-inheritance-comparison.json`, `guidless-inheritance-sdk.log`/`.err`,
+`guidless-inheritance-resources.json`, and `guidless-inheritance-regressions.log` retain the results.
+
+The AVI override boundary needs a metadata/consumer decision, not an IID naming rule.
+SDK `vfw.h` redeclares `IAVIStream::QueryInterface` with `_Outptr_` and the `STDMETHOD` nothrow
+contract. `unknwn.h` declares the inherited method with `_COM_Outptr_`, an `iid_is` comment, and no
+written nothrow contract. These are not identical declarations whose annotations can be discarded.
+`rdl` `Encoder::encode_interface` gives every declared method `MethodAttributes::NewSlot`;
+appending the overrides would shift the vtable. The maintainer approved bounded attribute-based
+handling, without general C++ expansion or an assumption that these old declarations are buggy.
+
+`Method::overrides` retains Clang's override result alongside the absolute slot. Capture requires
+one overridden method, the same slot, and an identical canonical return type; covariance and
+adjusting overrides remain rejected. Reconciliation and public families compare override evidence.
+`NativeOverrideSlotAttribute` preserves each redeclaration, including parameter names/defaults and
+output/exception annotations. RDL clears `NewSlot`; bindgen validates the inherited name/signature,
+including pointer depth and qualifiers, and reuses the inherited Rust callable and vtable field.
+It adds no duplicate `_Impl` requirement.
+
+Synthetic multi-level and UUID-bearing fixtures, conflicting native evidence, malformed slots,
+pointer-depth mismatches, and real AVI metadata pass. Consumers verify the physical vtable sizes
+and offsets on all three targets, execute inherited calls on x86/x64, and create/clone an empty
+editable AVI stream before releasing it. The prior procedural override-rejection case is ported
+to the positive fixture. Affected parser, RDL, and bindgen regressions pass.
+
+The frozen `6e68e56081` generator and metadata reader were built together for a compatibility probe.
+On x64 they silently emit `IAVIStream`/`IAVIFile`/`IAVIStreaming` vtables of 136/104/64 bytes instead
+of 112/80/40, and place stream `Info` at offset 56 instead of 32. This is a required paired-upgrade
+boundary, not a compatible annotation addition. The probe is in session `override-generator-baseline`.
+
+Full SDK regeneration restores 73 required functions / 219 target pairs, including AVI, Direct3D,
+DirectDraw, DirectSound, and XAudio2 entry points. It adds 221 interfaces, 246 aliases, and ten
+records across 24 partitions, without changing or losing retained declarations. Constant accounting
+is byte-identical. Twelve changed omission messages expose deeper failures on already omitted
+roots: variadic or non-pure methods, missing proxy imports, and an unsupported interface typedef.
+Required function losses are now 246 names / 727 target pairs: 89 ownership, 115 capture/dependency/
+projection, and 42 without a value-root diagnostic. The four Rtl provider differences remain open.
+
+The generic session comparison stopped on two assumptions, not a generation failure: a projection
+diagnostic prefixes its existing alias identity, and the configuration report includes derived
+import ownership. `verify-overrides-comparison.py` verifies all twelve prior omission roots and
+the exact configuration delta: six recovered DirectSound/XAudio2 names gain named ownership on
+three targets, replacing eighteen unresolved ordinal diagnostics. All other configuration lines
+are unchanged. The original comparison failure remains visible; no production rejection is relaxed.
+
+The candidate has 10,283 records, 4,532 enums, 13,539 aliases, 93,085 constants, 13,965 functions,
+4,260 interfaces, 789 partitions, and 71,216 omission diagnostics. The run reports 309.173 seconds
+capture/merge/project, 5.557 seconds compilation, 316.390 seconds driver wall time, and
+7,528,910,848 sampled peak process bytes. These are uncontrolled observations, not budget acceptance.
+`overrides-comparison.json`, `overrides-comparison-reviewed.json`, `overrides-resources.json`, and
+`overrides-sdk.log`/`.err` retain the evidence. The input control is `overrides-before.zip` (SHA-256
+`991C2F5C88DFAF8312BF5CA143D1CC926A4F85DBB371F86A20F8A6827AEC72C3`).
+
+Bindings and Reactor regeneration leave tracked Rust/manifests byte-identical. Final
+warnings-denied clippy and the parser's no-default-features check pass. On identical remapped
+metadata, both current bindgen and pre-change `ce6188b027` bindgen reach the same bitfield-storage
+failure in `CppStruct::write_bitfield_accessors`; all 554 generated `windows-sys` package files
+match byte-for-byte. This establishes the failure predates the override change, not that full
+high-level package generation passes. `override-package-comparison.json` and
+`override-package-head.log` retain the matched control result. The corrected frozen inputs and
+repository package outputs remain intact.
+
+### PSAPI public aliases
+
+Twenty-seven of the 42 missing names without value-root diagnostics are PSAPI public aliases
+(81 target pairs). Every corresponding `K32*` native function is already present with the baseline
+DLL and export. For example, the baseline's `EnumProcesses` imports `kernel32.dll!K32EnumProcesses`;
+the candidate publishes that import as `K32EnumProcesses`. All 27 native names are additions
+relative to the frozen baseline, so native capture completeness is not public-name compatibility.
+
+Pinned `psapi.h` selects these macro aliases under `PSAPI_VERSION > 1`. A separate version-1 input
+would instead declare the downlevel `psapi.dll` family and would not preserve the required linkage.
+The attempted version-1 input and its failing fixture were removed; production configuration and
+tracked RDL are unchanged. `psapi-alias-investigation.json` checks all 81 pairs against current
+function accounting. The maintainer approved compiler-evidenced aliases while retaining native
+public names and exact native linkage. Do not strip `K32` by spelling, copy baseline signatures,
+or change DLL providers to make the presence count pass.
+
+The compiler classifies macro expressions through `__typeof__` before value or reference probes.
+Only a direct function reference, with optional source parentheses, supplies an alias target.
+The target must have a captured global declaration and external C linkage. Capture retains its
+signature, parameter contracts, canonical identity and macro owner. Native companion ABI 18 extends
+the existing operand query to typedef/using declarations; LLVM remains pinned to 22.1.8.
+Calls, comma expressions, pointer relocations, unsupported scopes and failed ASTs supply no alias
+evidence. Import policy resolves the native target, not the public macro spelling.
+
+The full workload exposed `Shell_GetCachedImageIndex`: a native wide-string function and a macro
+alias to the ANSI function coexist. These are separate identities, not conflicting native
+redeclarations. Reconciliation and target association retain both; strict publication rejects their
+public collision, and partial publication omits the macro without replacing the native signature.
+The focused fixture also checks conflicting native declarations in both input orders, preserving
+fatal reconciliation before pruning. Seven alias regressions, native suites, the SDK fixture,
+warnings-denied clippy and both parser checks pass. Nine import-consumer tests include exact
+three-target linkage and real x86/x64 calls through both PSAPI spellings.
+
+Full tracked regeneration restores 42 required names / 126 target pairs: all 27 PSAPI aliases,
+ten CLFS LSN helpers, three `Rtl` aliases, `CM_WaitNoPendingInstallEvents`, and `UrlIs`. Every
+restored pair has baseline DLL/export ownership. All 6,412 added target declarations have another
+published declaration with identical linkage, signature and parameter attributes. No retained
+declaration, owner or target changes or disappears; constants and capture configuration are
+byte-identical. Existing four `Rtl` provider differences remain unchanged and unapproved.
+
+The generic line-based omission comparison rejects shifted probe locations and diagnostic framing.
+`verify-function-aliases.py` retains its assertions and separately checks structured root identities:
+no new omission root, with 2,159 removed. `function-alias-comparison-reviewed.json` records every
+added declaration's matching contract. The candidate adds 2,150 names on at least one target across
+96 partitions; these include target extensions of existing names, not just new public names.
+Totals are 10,283 records, 4,532 enums, 13,539 aliases, 93,085 constants, 16,085 functions,
+4,260 interfaces, 790 partitions and 69,057 omission diagnostics. Required losses are now
+204 names / 601 target pairs: 89 ownership and 115 capture/dependency/projection.
+
+Uncontrolled observations are 274.845 seconds capture/merge/project, 5.630 seconds compilation,
+281.889 seconds driver wall time and 8,015,290,368 sampled peak process bytes. These do not meet
+the matched process-tree budget measurement gate. `function-alias-after.zip` has SHA-256
+`9A7B349A9DEB6171A5D6E82B983708AF57816C31E82AB107850AC535B4468209`; matching configuration,
+coverage and omission files preserve the candidate independently of later scratch runs.
+
+### Target-local import evidence
+
+The alias candidate's 89 ownership roots omitted all 267 required target pairs, although its
+configuration contained matching baseline DLL/export evidence for 177 pairs: all 89 on x64 and
+88 on ARM64. Missing x86 ownership removed otherwise supported targets through global value pruning.
+`RtlCaptureContext2` also lacks ARM64 evidence. `sdk_import_gaps` reproduces this with
+`BSTR_UserSize64`: x86's pinned archive lacks that export, while x64 and ARM64 match the native
+symbol.
+
+This is an import-publication boundary, not permission to invent x86 linkage or infer target absence.
+The maintainer approved retaining independently validated targets and reporting unproven imports
+per target. Projection separates import resolution from callable-contract validation. An unmapped
+target's native and public contracts still undergo the same checks; only missing ownership is
+target-local. Invalid mappings, conflicting aliases, native disagreements and other unsupported
+contracts retain their global/fatal rules. Provisional missing-import messages are discarded if
+another contract failure removes the declaration, rather than reporting stale target outcomes.
+
+Four focused tests cover target-local functions and aliases, all-target missing evidence, invalid
+mappings and a volatile x86 parameter hidden behind missing ownership. The SDK fixture preserves
+x64/ARM64 `BSTR_UserSize64` in `sdk_unresolved_imports.rdl` and checks target masks through both
+WinMD round trips. The existing `sdk_import_gaps.rdl` remains the separate compiler-stdcall fixture.
+Ten consumer tests pass, including named 64-bit PE imports, their absence on x86, and real 64-bit
+DNS calls. BSTR marshaling is not executed. Bindgen's `#[in]` conversion still produces const raw
+pointers despite `NativeInput(ReadOnly = false)`; that input-contract refinement remains separate.
+
+Full regeneration restores all 177 required pairs without changing their baseline linkage.
+Nine other names gain eleven non-baseline target pairs, including x86 RPC helpers and
+compiler-proven aliases. Every added import has matching current SDK evidence. No retained RDL
+declaration, owner or target changes or disappears; constants and configuration are identical.
+The generic comparison passes. `verify-target-imports.py` also checks exact per-target coverage,
+all added DLL/export evidence, unchanged prior linkage differences and no new omission roots.
+
+Nine partitions gain 188 target declarations (91 x64, 89 ARM64, eight x86). Totals are 10,283
+records, 4,532 enums, 13,539 aliases, 93,085 constants, 16,183 functions, 4,260 interfaces and
+790 partitions. There are 73,012 diagnostics because unresolved imports now name each affected
+target; no omission-root identity is added. Required losses are 424 target pairs across 204 names:
+90 unresolved import pairs and 334 capture/dependency/projection pairs. Each of the 89 recovered
+ownership names still has at least one unresolved target, so the incomplete-name count is unchanged.
+Four existing `Rtl` provider differences and the other acceptance gates remain open.
+
+Uncontrolled observations are 300.565 seconds capture/merge/project, 6.056 seconds compilation,
+308.591 seconds driver wall and 7,600,218,112 sampled peak process bytes. SDK checks ran concurrently;
+this is not a controlled budget comparison. The preserved `target-import-after.zip` has SHA-256
+`1A532157EB60602A846ECFF9ADFBE3D046458240378DC1D90A5D435A92EFF1B9`, with matching configuration,
+omission and coverage controls. Final parser/driver suites, all five selected SDK driver tests,
+warnings-denied clippy, no-default-features checks and formatting pass. No source changes follow
+the full generation other than documentation.
 
 The maintainer supplied `D:\clang-ground.md` against `58ee55b4d3`. The field-buffer change above
 finishes the approved in-flight contract. Further annotation batches pause for the acceptance

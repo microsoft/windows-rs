@@ -150,7 +150,8 @@ fn every_observation_must_allow_resolution() {
             &imports("FetchImport", "_FetchImport@8"),
         )
         .unwrap();
-        assert_eq!(output.output.functions, 0);
+        assert_eq!(output.output.functions, 1);
+        assert!(output.omissions.iter().all(|line| line.contains("X86:")));
         assert!(
             output
                 .omissions

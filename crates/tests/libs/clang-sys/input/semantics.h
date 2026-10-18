@@ -31,6 +31,8 @@ typedef unsigned short NativeMacroWord;
 const __typeof__((NativeMacroWord)33) NativeTypeOfWord = (NativeMacroWord)33;
 const __typeof__(("backup")) NativeTypeOfText = ("backup");
 const __typeof__(sizeof(void*)) NativeTypeOfSize = sizeof(void*);
+using NativeTypeOfFunction = __typeof__((NativeC));
+typedef __typeof__((NativeMacroWord)33) NativeTypeOfAlias;
 void* const NativePointerNull = nullptr;
 unsigned char* const NativePointerSentinel = (unsigned char*)-1;
 void* const NativePointer32 = (void*)0xffffffffULL;

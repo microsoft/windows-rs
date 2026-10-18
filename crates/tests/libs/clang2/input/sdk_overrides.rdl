@@ -1,0 +1,179 @@
+#[win32]
+mod Fixture {
+    type DWORD = u32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    type HRESULT = i32;
+    type LONG = i32;
+    #[arch(X64 | Arm64)]
+    type LONG_PTR = i64;
+    #[arch(X86)]
+    type LONG_PTR = i32;
+    type ULONG = u32;
+    type WORD = u16;
+}
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type IID = GUID;
+}
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    type LPARAM = i64;
+    #[arch(X86)]
+    type LPARAM = i32;
+    type LPVOID = *mut void;
+}
+#[win32]
+mod Fixture {
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+}
+#[win32]
+mod Fixture {
+    #[packed(8)]
+    struct AVIFILEINFOW {
+        dwMaxBytesPerSec: DWORD,
+        dwFlags: DWORD,
+        dwCaps: DWORD,
+        dwStreams: DWORD,
+        dwSuggestedBufferSize: DWORD,
+        dwWidth: DWORD,
+        dwHeight: DWORD,
+        dwScale: DWORD,
+        dwRate: DWORD,
+        dwLength: DWORD,
+        dwEditCount: DWORD,
+        szFileType: [WCHAR; 64],
+    }
+    #[library("avifil32.dll")]
+    extern fn AVIFileExit();
+    #[library("avifil32.dll")]
+    extern fn AVIFileInit();
+    #[packed(8)]
+    struct AVISTREAMINFOW {
+        fccType: DWORD,
+        fccHandler: DWORD,
+        dwFlags: DWORD,
+        dwCaps: DWORD,
+        wPriority: WORD,
+        wLanguage: WORD,
+        dwScale: DWORD,
+        dwRate: DWORD,
+        dwStart: DWORD,
+        dwLength: DWORD,
+        dwInitialFrames: DWORD,
+        dwSuggestedBufferSize: DWORD,
+        dwQuality: DWORD,
+        dwSampleSize: DWORD,
+        rcFrame: RECT,
+        dwEditCount: DWORD,
+        dwFormatChangeCount: DWORD,
+        szName: [WCHAR; 64],
+    }
+    #[library("avifil32.dll")]
+    extern fn AVIStreamRelease(pavi: PAVISTREAM) -> ULONG;
+    #[library("avifil32.dll")]
+    extern fn CreateEditableStream(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppsEditable: *mut PAVISTREAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psSource: PAVISTREAM) -> HRESULT;
+    #[library("avifil32.dll")]
+    extern fn EditStreamClone(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pavi: PAVISTREAM, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResult: *mut PAVISTREAM) -> HRESULT;
+    #[no_guid]
+    interface IAVIFile: IUnknown {
+        #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObj: *mut LPVOID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn AddRef(&self) -> ULONG;
+        #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Release(&self) -> ULONG;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Info(&self, #[out] #[size_param(1)] pfi: *mut AVIFILEINFOW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lSize: LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn GetStream(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppStream: *mut PAVISTREAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fccType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn CreateStream(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppStream: *mut PAVISTREAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psi: *mut AVISTREAMINFOW) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn WriteData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ckid: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lpData: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn ReadData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ckid: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpcbData,*lpcbData", "*lpcbData,*lpcbData")] #[out] lpData: LPVOID, #[in] #[out] lpcbData: *mut LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn EndRecord(&self) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn DeleteStream(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fccType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG) -> HRESULT;
+    }
+    #[no_guid]
+    interface IAVIStream: IUnknown {
+        #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObj: *mut LPVOID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn AddRef(&self) -> ULONG;
+        #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Release(&self) -> ULONG;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Create(&self, lParam1: LPARAM, lParam2: LPARAM) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Info(&self, #[out] #[size_param(1)] psi: *mut AVISTREAMINFOW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lSize: LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn FindSample(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lPos: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lFlags: LONG) -> LONG;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn ReadFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lPos: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpcbFormat,*lpcbFormat", "*lpcbFormat,*lpcbFormat")] #[out] #[opt] lpFormat: LPVOID, #[in] #[out] lpcbFormat: *mut LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn SetFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lPos: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lpFormat: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbFormat: LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Read(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lStart: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lSamples: LONG, #[out] #[opt] #[size_param(3)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: LONG, #[out] #[opt] plBytes: *mut LONG, #[out] #[opt] plSamples: *mut LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Write(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lStart: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lSamples: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] #[opt] plSampWritten: *mut LONG, #[out] #[opt] plBytesWritten: *mut LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Delete(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lStart: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lSamples: LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn ReadData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fcc: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpcb,*lpcb", "*lpcb,*lpcb")] #[out] #[opt] lp: LPVOID, #[in] #[out] lpcb: *mut LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn WriteData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fcc: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lp: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn SetInfo(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] lpInfo: *mut AVISTREAMINFOW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInfo: LONG) -> HRESULT;
+    }
+    #[no_guid]
+    interface IAVIStreaming: IUnknown {
+        #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObj: *mut LPVOID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn AddRef(&self) -> ULONG;
+        #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Release(&self) -> ULONG;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Begin(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lStart: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lEnd: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lRate: LONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn End(&self) -> HRESULT;
+    }
+    type PAVISTREAM = IAVIStream;
+}
+#[win32]
+mod Fixture {
+    struct RECT {
+        left: LONG,
+        top: LONG,
+        right: LONG,
+        bottom: LONG,
+    }
+}
+#[win32]
+mod Fixture {
+    type WCHAR = u16;
+}

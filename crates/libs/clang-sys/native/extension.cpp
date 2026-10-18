@@ -21,7 +21,7 @@ static const char* attributeName(clang::attr::Kind kind) {
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 17;
+    return 18;
 }
 
 WindowsClangStatus windows_clang_getImportConvention(
@@ -119,11 +119,18 @@ WindowsClangStatus windows_clang_getTypeOfOperand(CXCursor cursor, CXCursor* exp
     if (!expression) {
         return WindowsClangInvalidArgument;
     }
-    if (cursor.kind != CXCursor_VarDecl) {
+    if (cursor.kind != CXCursor_VarDecl && cursor.kind != CXCursor_TypeAliasDecl &&
+        cursor.kind != CXCursor_TypedefDecl) {
         return WindowsClangWrongKind;
     }
-    auto declaration = llvm::dyn_cast<clang::VarDecl>(clang::cxcursor::getCursorDecl(cursor));
-    auto type = declaration ? declaration->getType()->getAs<clang::TypeOfExprType>() : nullptr;
+    auto declaration = clang::cxcursor::getCursorDecl(cursor);
+    clang::QualType declared;
+    if (auto variable = llvm::dyn_cast_or_null<clang::VarDecl>(declaration)) {
+        declared = variable->getType();
+    } else if (auto alias = llvm::dyn_cast_or_null<clang::TypedefNameDecl>(declaration)) {
+        declared = alias->getUnderlyingType();
+    }
+    auto type = declared.isNull() ? nullptr : declared->getAs<clang::TypeOfExprType>();
     if (!type) {
         return WindowsClangWrongKind;
     }

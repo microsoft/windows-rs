@@ -7,6 +7,35 @@ struct Candidate {
     origin: String,
 }
 
+pub(super) fn function_probes(unit: &Unit, source: &Source) -> Result<HashSet<String>, Error> {
+    let mut functions = HashSet::new();
+    if source.probes.is_empty() {
+        return Ok(functions);
+    }
+    let file = unsafe { clang_getFile(unit.0, source.name.as_ptr()) };
+    for probe in &source.probes {
+        let declaration = unsafe {
+            clang_getCursor(
+                unit.0,
+                clang_getLocationForOffset(unit.0, file, probe.declaration),
+            )
+        };
+        let mut expression = unsafe { clang_getNullCursor() };
+        let status = unsafe { windows_clang_getTypeOfOperand(declaration, &raw mut expression) };
+        if status != WindowsClangSuccess {
+            return Err(Error(format!(
+                "macro `{}` expression type unavailable: {status}",
+                probe.name
+            )));
+        }
+        let kind = unsafe { clang_getCanonicalType(clang_getCursorType(expression)) }.kind;
+        if matches!(kind, CXType_FunctionProto | CXType_FunctionNoProto) {
+            functions.insert(probe.name.clone());
+        }
+    }
+    Ok(functions)
+}
+
 fn selected_header(headers: &HashSet<String>, file: &str) -> bool {
     Path::new(file)
         .file_name()
@@ -40,7 +69,7 @@ pub(super) fn discover(
     arguments: &[String],
     target: Target,
     library: &Arc<SharedLibrary>,
-) -> Result<(Vec<String>, partial::Issues), Error> {
+) -> Result<(Vec<String>, HashSet<String>, partial::Issues), Error> {
     let headers = input
         .macro_headers
         .iter()
@@ -72,8 +101,9 @@ pub(super) fn discover(
     }
     let mut issues = partial::Issues::default();
     let mut accepted = Vec::new();
+    let mut functions = HashSet::new();
     if candidates.is_empty() {
-        return Ok((accepted, issues));
+        return Ok((accepted, functions, issues));
     }
     profile::count("candidates", candidates.len());
     let mut pch = {
@@ -115,7 +145,7 @@ pub(super) fn discover(
         probe.source.push_str("\n#endif\n");
         positions.push((candidate, offset));
     }
-    let control = macro_source(&probe, &[], "__windows_clang_probe")?;
+    let control = macro_source(&probe, &[], "__windows_clang_probe", None)?;
     probe.source.clear();
     let control_phase = profile::phase("control");
     let bindings = parse_unit(
@@ -192,13 +222,25 @@ pub(super) fn discover(
         let _phase = profile::phase("batch");
         profile::count("expressions", batch.len());
         let names: Vec<_> = batch.iter().map(|value| value.name.clone()).collect();
-        let probe_source = macro_source(&probe, &names, "__windows_clang_probe")?;
-        let parsed = parse_unit(
+        let mut probe_source = macro_source(&probe, &names, "__windows_clang_probe", None)?;
+        let mut parsed = parse_unit(
             &indices[0],
             &[&probe_source, source],
             &arguments,
             CXTranslationUnit_DetailedPreprocessingRecord,
         )?;
+        let mut aliases = HashSet::new();
+        if !parsed.failed {
+            aliases = function_probes(&parsed.unit, &probe_source)?;
+            drop(parsed);
+            probe_source = macro_source(&probe, &names, "__windows_clang_probe", Some(&aliases))?;
+            parsed = parse_unit(
+                &indices[0],
+                &[&probe_source, source],
+                &arguments,
+                CXTranslationUnit_DetailedPreprocessingRecord,
+            )?;
+        }
         if parsed.failed && batch.len() > 1 {
             let suspects = suspect_probes(&parsed, &probe_source);
             drop(parsed);
@@ -226,13 +268,30 @@ pub(super) fn discover(
                                 probe,
                                 std::slice::from_ref(&batch[position].name),
                                 "__windows_clang_probe",
+                                None,
                             )?;
-                            let checked = parse_unit(
+                            let mut checked = parse_unit(
                                 index,
                                 &[&isolated, source],
                                 arguments,
                                 CXTranslationUnit_DetailedPreprocessingRecord,
                             )?;
+                            if !checked.failed {
+                                let aliases = function_probes(&checked.unit, &isolated)?;
+                                drop(checked);
+                                let evaluated = macro_source(
+                                    probe,
+                                    std::slice::from_ref(&batch[position].name),
+                                    "__windows_clang_probe",
+                                    Some(&aliases),
+                                )?;
+                                checked = parse_unit(
+                                    index,
+                                    &[&evaluated, source],
+                                    arguments,
+                                    CXTranslationUnit_DetailedPreprocessingRecord,
+                                )?;
+                            }
                             if let Err(error) = checked.check() {
                                 profile::count("rejected", 1);
                                 failures.push((position, error));
@@ -277,7 +336,10 @@ pub(super) fn discover(
             })
         });
         match checked {
-            Ok(()) => accepted.extend(names),
+            Ok(()) => {
+                accepted.extend(names);
+                functions.extend(aliases);
+            }
             Err(_) if batch.len() > 1 => {
                 let right = batch.split_off(batch.len() / 2);
                 pending.push(right);
@@ -296,7 +358,7 @@ pub(super) fn discover(
         }
     }
     pch.remove()?;
-    Ok((accepted, issues))
+    Ok((accepted, functions, issues))
 }
 
 fn suspect_probes(parsed: &Parsed, source: &Source) -> HashSet<usize> {

@@ -215,6 +215,8 @@ pub enum AttributeKind {
     DefaultTypeVisibility,
     /// Compiler auto-initialization opt-out, not a layout or caller initialization contract.
     NoTrivialAutoVarInit,
+    /// CodeView heap-allocation profiling, not an ownership or optimizer guarantee.
+    MSAllocator,
     Uuid(u128),
     NoVTable,
     DllImport,
@@ -367,6 +369,7 @@ pub enum NonVTableMemberKind {
 pub struct Method {
     pub name: String,
     pub slot: u64,
+    pub overrides: bool,
     pub observation: ValueObservation,
 }
 
@@ -410,8 +413,16 @@ pub struct ValueObservation {
 }
 
 #[derive(Debug, Eq, PartialEq)]
+pub struct FunctionAlias {
+    pub name: String,
+    pub usr: String,
+    pub location: Location,
+}
+
+#[derive(Debug, Eq, PartialEq)]
 pub enum ValueKind {
     Function {
+        alias: Option<Box<FunctionAlias>>,
         parameters: Vec<Parameter>,
         mangling: String,
         language: LanguageLinkage,
@@ -605,6 +616,7 @@ impl Snapshot {
                         AttributeKind::Packed
                         | AttributeKind::DefaultTypeVisibility
                         | AttributeKind::NoTrivialAutoVarInit
+                        | AttributeKind::MSAllocator
                         | AttributeKind::Uuid(_)
                         | AttributeKind::NoVTable
                         | AttributeKind::DllImport
@@ -654,12 +666,18 @@ impl Snapshot {
             attributes_bytes(&value.attributes)
                 + match &value.kind {
                     ValueKind::Function {
+                        alias,
                         parameters,
                         mangling,
                         stdcall_candidate,
                         ..
                     } => {
                         mangling.capacity()
+                            + alias.as_ref().map_or(0, |alias| {
+                                size_of::<FunctionAlias>()
+                                    + alias.name.capacity()
+                                    + alias.usr.capacity()
+                            })
                             + parameters_bytes(parameters)
                             + stdcall_candidate.as_ref().map_or(0, |candidate| {
                                 size_of::<FunctionCandidate>() + candidate.mangling.capacity()

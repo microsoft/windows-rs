@@ -579,6 +579,12 @@ impl Encoder<'_> {
         })
     }
 
+    pub fn is_native_override_slot_attribute(&self, attr: &syn::Attribute) -> bool {
+        self.find_attribute_type(attr.path()).is_some_and(|info| {
+            &info.type_name == (METADATA_NAMESPACE, "NativeOverrideSlotAttribute")
+        })
+    }
+
     pub fn encode_guid_pseudo_attrs(
         &mut self,
         target: metadata::writer::HasAttribute,

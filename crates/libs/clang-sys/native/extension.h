@@ -140,7 +140,7 @@ WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getConstantInitializer(
 // The result is the pointer bit pattern sign-extended from the target pointer width.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getConstantPointerInitializer(
     CXCursor cursor, long long* value);
-// Original operand of a variable's typeof expression, before initializer conversions.
+// Original typeof operand in a variable or typedef declaration, before initializer conversions.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypeOfOperand(
     CXCursor cursor, CXCursor* expression);
 // Desugars only compiler-predefined types, such as the result type of sizeof, not user typedefs.

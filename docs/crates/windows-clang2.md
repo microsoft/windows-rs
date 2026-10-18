@@ -143,7 +143,7 @@ remain unsupported. All C observations still undergo native and public-contract 
 | Slice | Accepted contract | Publication |
 | --- | --- | --- |
 | Free function | External C-linkage declaration with a supported C/stdcall prototype | Explicit `Import` supplies DLL and optional export name |
-| Interface | UUID-bearing record, one vptr, no data, at most one public non-virtual base, ordered public pure virtual methods | GUID, interface inheritance, and platform COM methods |
+| Interface | One vptr, no data, at most one public non-virtual base, ordered public pure virtual methods | Native GUID or `no_guid`, interface inheritance, and platform COM methods |
 | Scalar constant | Const integer, enum, bool, or finite float/double with a checked static initializer | Compiler-evaluated value and declared type |
 | Aggregate constant | Constant-expression GUID or property key with checked native fields and layout | GUID literal or format GUID plus property ID |
 | String constant | Terminated ASCII `char` or valid UTF-16 `wchar_t`/`char16_t` array | `String` with explicit native encoding |
@@ -167,10 +167,45 @@ observations. Both can publish a callable import when its DLL/export ownership i
 `dllexport` does not identify that DLL. Exported records and constant objects remain unsupported.
 The SDK's ICU entry points exercise exported C declarations without overriding their header macros.
 
+`MSAllocator` preserves `__declspec(allocator)` as native function evidence. Clang uses it for
+CodeView heap-allocation call-site profiling, not `malloc` optimization semantics. Its presence must
+agree across observations, including virtual methods. It supplies no new metadata ownership,
+nullability, aliasing, or deallocator contract; other annotations remain independent.
+The `allocator` fixtures cover evidence and conflicts, while the SDK fixture and generated consumers
+cover heap/global/local allocation, reallocation, data preservation, and release.
+
 Interfaces remain native records until publication. Reconciliation checks UUIDs, base identities,
 base offsets, method slots, and canonical signatures. Native queries establish virtuality and
-access; overrides, multiple or virtual inheritance, non-pure virtual methods, and data-bearing
-interfaces are rejected.
+access; multiple or virtual inheritance, non-pure virtual methods, and data-bearing interfaces are
+rejected. Pure virtual redeclarations retain the compiler's override relationship and absolute slot.
+Only one overridden method with the same slot and canonical return type is accepted; covariance and
+adjusting overrides remain rejected. `NativeOverrideSlotAttribute` records an inherited entry rather
+than a new slot. Names, written types, parameters, defaults, and annotations remain on the method.
+GUID-less vtable interfaces use the existing `#[no_guid]` encoding. Their single-vptr layout,
+method conventions, and inherited slots receive the same checks; pointer uses become interface
+references, not pointers to value records. A GUID-less child retains its declared base without
+borrowing that base's UUID or receiving a guessed IID. Const pointers to GUID-less interfaces remain
+unsupported: COM object-constness normalization does not establish a const contract for these types.
+Outer pointer-storage qualifiers are preserved.
+
+RDL clears `NewSlot` for native overrides. Bindgen checks the inherited slot's name and resolved
+signature, including pointer depth and qualifiers, and exposes the call through the inherited Rust
+method and vtable field. It does not add a second implementation requirement. The `overrides`
+fixtures cover multiple inheritance levels, changed defaults/nothrow, malformed metadata, and
+conflicting native evidence. `sdk_overrides` covers AVI redeclarations; real consumers create and
+clone an empty editable stream and call its native vtable. Readers/generators that ignore the new
+attribute can append invalid vtable entries and must not consume this metadata without an upgrade.
+
+GUID-less COM metadata and consumer identity are separate: bindgen currently emits a zero IID for
+GUID-less IUnknown-derived interfaces. That is not their native identity. Such generated identity
+operations need a consumer correction before acceptance; the metadata preserves the absent GUID.
+
+`guidless_interfaces` covers bare and inherited vtables, aliases, pointer storage, metadata round
+trips, and rejection boundaries. Its high-level consumers check non-COM lifetime behavior without
+AddRef/Release on clone or drop. `sdk_guidless` recovers `ID3DInclude` and `D3DCompile`; the raw
+consumer supplies an include handler to the real shader compiler and verifies both callbacks.
+Consumers compile for all three targets and execute on supported host architectures.
+
 Methods retain compiler-owned absolute Microsoft vftable slots and are ordered by those slots,
 not declaration order. Publication verifies a contiguous extension of the inherited vtable.
 Overloads preserve their native names and signatures in metadata; bindgen supplies its existing
@@ -231,8 +266,17 @@ An interface pointer becomes a metadata interface reference; another native poin
 explicit. On x86, methods must use stdcall; on x64/ARM64, the native unified convention applies.
 RDL's non-WinRT interface contract supplies the COM convention without new method syntax.
 
-`Input::macros` selects object-like macros. Compiler-parsed `__typeof__` probes evaluate them after
-the input, with native preprocessing expansion/definition evidence identifying their real owner.
+`Input::macros` selects object-like macros. Compiler-parsed `__typeof__` probes classify their
+expressions after the input, with native preprocessing expansion/definition evidence identifying
+their real owner. Value probes then check the original initializer and its static validity.
+Function-typed expressions use reference probes; only direct references to external C function
+declarations, optionally parenthesized, become function aliases. Casts, pointer values, comma
+expressions, and calls are not function aliases.
+Native declarations and function aliases retain separate identities through reconciliation and
+target association. If both claim the same public name, strict publication rejects the collision;
+partial publication omits the macro alias and preserves the native declaration. An alias cannot
+replace the native function's parameter contract. Conflicting observations of either identity still
+fail before pruning.
 The initializer expansion and synthetic variable are matched by exact offsets in the input file.
 An earlier expansion elsewhere in the TU cannot supply evidence for an undefined macro at the probe.
 No token arithmetic is performed. Ordinary declarations and macro origins remain distinguishable.
@@ -257,8 +301,8 @@ probes cleanly. Original-source and native parse-status errors remain fatal.
 `macro_diagnostics`, `macro_recovery`, and `macro_empty` cover recovery, diagnostic limits, empty
 active definitions, redefinitions, and valid siblings across the three targets.
 
-Macro-constant exclusions are separate from native value exclusions. A rejected constant probe
-removes constants of that name across targets, including failed dependencies and publication,
+Macro exclusions are separate from native value exclusions. A rejected probe removes macro values
+of that name across targets, including failed dependencies and publication,
 but does not remove observed native functions. A native declaration failure still excludes the
 native value across targets. Known conflicts remain fatal before either kind of pruning.
 Synthetic macro storage does not impose linkage on a same-named native declaration. All actual
@@ -267,6 +311,21 @@ group; canonical types, attributes, and values remain checked. `macro_declaratio
 matching definitions and native linkage, type, and value conflicts in both input orders.
 `macro_function_aliases` covers each failure stage and preserves functions only on targets where
 they were declared. This matters for the SDK's x86 `*LongPtrA/W` aliases and 64-bit functions.
+
+`ValueKind::Function::alias` retains the target's native name and USR plus the macro definition
+location. The alias preserves the referenced function's signature, parameters, and attributes;
+the native declaration is also captured and reconciled. Publication keeps both public names,
+routes aliases by their macro owner, and uses the native target's DLL/export mapping. Conflicting
+explicit alias ownership fails. A failed native target removes its aliases, not the reverse.
+The alias payload is boxed so ordinary function and method observations do not carry its strings.
+`function_macros` covers direct/chained/parenthesized references, conflicting targets, reflexive
+aliases, unsupported expressions, and pruning without erasing same-named native functions.
+
+`tool-win32-2`'s `sdk_function_aliases` fixture discovers 34 PSAPI function aliases: the 27 baseline
+public names and seven active generic-name aliases. They refer to 27 native `K32*` declarations.
+Both metadata round trips retain exact signatures and `kernel32` exports. The PSAPI consumer calls
+both `EnumProcesses` and `K32EnumProcesses` and checks their named PE import on all three targets.
+There is no `K32` renaming rule or `PSAPI_VERSION` override.
 
 The native `typeof` operand retains cast typedefs without inheriting the synthetic initializer's
 type. Compiler-predefined types such as `sizeof` results are desugared through their native kind,
@@ -323,8 +382,9 @@ Selecting `wincrypt.h` recovers all 2,678 baseline constants with unchanged valu
 target availability; 173 retain written `LPCSTR` aliases instead of `PCSTR`. The 28 additional
 strings include 18 algorithm names, nine registry paths, and one multi-string. The fixture checks
 ANSI/UNICODE provider selection, pointer sentinels, concatenation, and embedded NULs through WinMD.
-The 28 rejected candidates are 17 function aliases, seven guards/type/import macros, and four
-`CERT_STRONG_{SIGN,KEY}_PARA_OS_*` brace initializers. Those initializers require a destination type;
+Function aliases use the referenced native declarations rather than constant evaluation.
+Guards/type/import macros and the four `CERT_STRONG_{SIGN,KEY}_PARA_OS_*` brace initializers are
+not supported constant expressions. Those initializers require a destination type;
 discovery does not infer one from tokens or naming. They remain unsupported outside this baseline
 closure, rather than being misclassified as missing captured values.
 
@@ -880,9 +940,12 @@ cargo run -p tool-clang -- path
 cargo test -p tool-win32-2 sdk_ -- --include-ignored
 cargo test -p test_clang2 --test initialization sdk_context -- --ignored
 cargo test -p test_clang2 --test breadth sdk_import_gaps -- --ignored
+cargo test -p test_clang2 --test guidless_interfaces sdk_ -- --ignored
+cargo test -p test_clang2 --test allocator sdk_allocator -- --ignored
 rustup target add i686-pc-windows-msvc aarch64-pc-windows-msvc
 cargo test -p test_clang2 --test named_import_consumers `
     named_import_consumers_cross_targets -- --ignored
+cargo test -p test_clang2 --test guidless_interfaces guidless_consumers -- --ignored
 ```
 
 The helpers provision pinned SDK packages and the matched Clang runtime; the consumers use
@@ -1069,6 +1132,16 @@ fails generation. Explicit `--import` entries take precedence over discovered en
 `projection::Imports` separates public-name overrides in `functions` from exact native linker symbols
 in the per-target `symbols` maps. Native lookup uses compiler mangling, with no public-name fallback.
 The checked missing SDK entry for `InitializeXamlDiagnosticsEx` is an explicit public mapping.
+In partial publication, an unresolved import omits only that function's target variant and reports
+the target explicitly. This does not establish target unavailability. Every observation's native
+and public contract is still checked, including on an unmapped target; other failures keep their
+all-target rejection behavior. Invalid mappings and aliases that change native ownership are not
+missing evidence. Strict publication fails on unresolved imports.
+`target_imports` checks target-local imports, alias propagation, and contract/invalid-mapping
+rejection. `sdk_import_gaps` verifies x86's missing `BSTR_UserSize64` import while retaining x64
+and ARM64 linkage in `sdk_unresolved_imports.rdl`. Both WinMD round trips preserve target masks.
+The consumer checks named PE imports on both 64-bit targets, their absence on x86, and a real DNS
+call on the executable 64-bit host.
 
 The COFF reader retains the machine and code/data/const kind alongside linker symbols and named or
 ordinal PE exports. Machine filtering precedes first-library-wins selection: ARM64 archives also
@@ -1443,7 +1516,7 @@ signature edges. Failed candidate comparisons do not share assumed type pairs wi
 Renaming or reordering TUs cannot change name availability. Signatures without a compatible named
 declaration use structural `extern "C" fn(...)` or `extern fn(...)` types, encoded as ECMA-335 `FNPTR`.
 Their written aliases, nested signatures, and native array/function parameter adjustments are
-preserved without inventing public names. Bare function aliases are not projected as values.
+preserved without inventing public names. Function-type typedefs are not callable value declarations.
 The output's alias count includes callback declarations.
 
 A failed value-alias or callback projection removes the declaration and its dependents. Removing

@@ -108,12 +108,25 @@ target's pinned import libraries in policy order, applies checked DLL correction
 named exports or ordinals. Ordinals survive RDL/WinMD; bindgen support remains a consumer gap.
 Native-compatible free-function redeclarations with ambiguous public names or aliases
 remain strict errors; partial mode reports and omits them on every target.
-UUID-bearing, single-vptr interfaces support a public non-virtual
-base and ordered public pure virtual methods with the platform COM convention. C++ lvalue
+Unresolved import ownership is target-local in partial mode: validated variants remain published,
+and omissions identify each target lacking evidence. Strict mode still fails. Missing imports do
+not prove target unavailability or excuse native and public contract conflicts.
+Single-vptr interfaces support a public non-virtual base and ordered public pure virtual methods
+with the platform COM convention. GUID-less hierarchies use `#[no_guid]`, including `ID3DInclude`,
+without adding COM identity or ownership. GUID-less children retain their native bases without
+inheriting a UUID. Bindgen's zero-IID handling for GUID-less COM interfaces remains a separate
+consumer issue. Const pointers to GUID-less interfaces remain unsupported. C++ lvalue
 reference parameters preserve constness through metadata byrefs. Nonvirtual helpers, member templates,
 and method `using` declarations remain provenance, not exported methods or a claim of full C++
 compatibility. Const methods and compiler-printed parameter defaults retain explicit metadata
 attributes; volatile/restrict and ref-qualified methods remain unsupported.
+`__declspec(allocator)` remains checked native profiling evidence, without an inferred ownership
+or optimizer contract. The allocator fixtures exercise the required Windows allocation APIs.
+
+Pure virtual redeclarations can reuse compiler-proven inherited slots. Their parameters, defaults,
+and annotations remain in metadata under `NativeOverrideSlotAttribute`; updated RDL and bindgen
+reuse the inherited entry instead of adding a vtable field. Covariant and adjusting overrides
+remain unsupported. Metadata containing these attributes requires matching readers/generators.
 
 Const integer, enum, boolean, and finite float/double declarations and selected `Input::macros`
 use compiler evaluation. Floating-point values retain exact bits, including signed zero.
@@ -303,8 +316,13 @@ dependents are removed across targets. Known conflicts remain fatal even in excl
 Failed observations are reported as omissions, not validated as compatible. A non-value typedef,
 such as `void`, can remain as native evidence and expand at use sites. A named value alias or callback
 that cannot be published is removed with its dependents rather than replaced by its canonical type.
-Failed macro-constant probes exclude constants across targets, not observed native functions with
+Failed macro probes exclude macro values across targets, not observed native functions with
 the same spelling. Native declaration failures and known-conflict checks retain their own scope.
+
+Selected object-like macros can also expose function aliases. A compiler-proven direct function
+reference preserves its native target, signature, parameters, and annotations. Both names remain
+public and use the native target's DLL/export mapping; publication does not infer targets from
+macro spelling or copy baseline signatures. Pointer expressions, casts, and calls are not aliases.
 
 Fixtures, inspection, and scaling live in `test_clang2`. See
 [crate notes](../../../docs/crates/windows-clang2.md) for commands.

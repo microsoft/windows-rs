@@ -325,6 +325,7 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
         for (a, b) in a.methods.iter().zip(&b.methods) {
             if a.name != b.name
                 || a.slot != b.slot
+                || a.overrides != b.overrides
                 || !value_shape_equal(&a.observation, &b.observation, false)
             {
                 return Err(conflict("native method names, slots, or attributes differ"));
@@ -390,12 +391,16 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
     // Record edges refer to groups whose definitions all have independent obligations above.
     // No recursive assumption is published unless the entire worklist succeeds.
     let (enums, enum_groups) = enums::resolve(&snapshots, &mut work)?;
-    let mut values: BTreeMap<String, Vec<ValueObservationRef>> = BTreeMap::new();
+    let mut values: BTreeMap<(bool, String), Vec<ValueObservationRef>> = BTreeMap::new();
     for (snapshot, source) in snapshots.iter().enumerate() {
         for (value, declaration) in source.values.iter().enumerate() {
             for observation in 0..declaration.observations.len() {
+                let alias = matches!(
+                    declaration.observations[observation].kind,
+                    ValueKind::Function { alias: Some(_), .. }
+                );
                 values
-                    .entry(declaration.name.clone())
+                    .entry((alias, declaration.name.clone()))
                     .or_default()
                     .push(ValueObservationRef {
                         snapshot,
@@ -463,7 +468,7 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
     }
     let values = values
         .into_iter()
-        .map(|(name, observations)| ValueGroup { name, observations })
+        .map(|((_, name), observations)| ValueGroup { name, observations })
         .collect();
     let mut seen = HashSet::new();
     while let Some((left, right, owner_left, owner_right)) = types.pop() {
@@ -664,6 +669,10 @@ pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
         && deprecations(a) == deprecations(b)
         && uuid(a) == uuid(b)
         && no_trivial_auto_var_init(a) == no_trivial_auto_var_init(b)
+        && a.iter()
+            .any(|value| value.kind == AttributeKind::MSAllocator)
+            == b.iter()
+                .any(|value| value.kind == AttributeKind::MSAllocator)
         && a.iter().any(|value| value.kind == AttributeKind::NoVTable)
             == b.iter().any(|value| value.kind == AttributeKind::NoVTable)
         && a.iter().any(|value| value.kind == AttributeKind::DllImport)
@@ -806,18 +815,26 @@ pub(crate) fn value_shape_equal(a: &ValueObservation, b: &ValueObservation, symb
         && match (&a.kind, &b.kind) {
             (
                 ValueKind::Function {
+                    alias: xa,
                     parameters: a,
                     language: x,
                     mangling: xm,
                     ..
                 },
                 ValueKind::Function {
+                    alias: ya,
                     parameters: b,
                     language: y,
                     mangling: ym,
                     ..
                 },
-            ) => x == y && (!symbol || xm == ym) && parameters_equal(a, b),
+            ) => {
+                x == y
+                    && (!symbol || xm == ym)
+                    && xa.as_ref().map(|alias| (&alias.name, &alias.usr))
+                        == ya.as_ref().map(|alias| (&alias.name, &alias.usr))
+                    && parameters_equal(a, b)
+            }
             (
                 ValueKind::Constant {
                     value: a,
