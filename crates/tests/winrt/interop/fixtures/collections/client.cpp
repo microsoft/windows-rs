@@ -1,21 +1,29 @@
-#include <winrt/Test.h>
+#include <winrt/Collections.h>
 #include <winrt/Windows.Foundation.Collections.h>
+#include "check.h"
 
 using namespace winrt;
-using namespace Test;
+using namespace Collections;
 using namespace Windows::Foundation::Collections;
 
-int32_t use(Widget const& widget)
+void test()
 {
+    Widget widget;
+
     IVector<int32_t> numbers = widget.Numbers();
-    numbers.Append(1);
+    check(numbers.Size() == 3);
+    numbers.Append(4);
+    check(numbers.Size() == 4);
+    check(numbers.GetAt(3) == 4);
 
-    int32_t total = widget.Lookup(single_threaded_map<hstring, int32_t>().GetView());
+    IMap<hstring, int32_t> map = single_threaded_map<hstring, int32_t>();
+    map.Insert(L"one", 1);
+    check(widget.Lookup(map.GetView(), L"one") == 1);
 
+    std::vector<hstring> values;
     for (hstring const& value : widget.Values())
     {
-        total += static_cast<int32_t>(value.size());
+        values.push_back(value);
     }
-
-    return total + static_cast<int32_t>(numbers.Size());
+    check((values == std::vector<hstring>{ L"one", L"two" }));
 }

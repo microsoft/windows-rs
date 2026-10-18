@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Built once per fixture by tests/cswinrt.rs, which passes FixtureNamespace, FixtureWinmd, and
+    FixtureClient. When the fixture has a component, it also passes FixtureComponent and the
+    project builds an executable that copies the component next to it as `<namespace>.dll`.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <CsWinRTIncludes>$(FixtureNamespace)</CsWinRTIncludes>
+    <CsWinRTWindowsMetadata>$(MSBuildThisFileDirectory)../../../../libs/default/Windows.winmd</CsWinRTWindowsMetadata>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(FixtureComponent)' != ''">
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.3.1" />
+    <CsWinRTInputs Include="$(FixtureWinmd)" />
+    <Compile Include="check.cs" />
+    <Compile Include="$(FixtureClient)" Condition="'$(FixtureClient)' != ''" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(FixtureComponent)' != ''">
+    <Compile Include="main.cs" />
+    <None Include="$(FixtureComponent)" Link="$(FixtureNamespace).dll" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
