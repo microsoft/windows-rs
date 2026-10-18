@@ -21,6 +21,7 @@ mod dialog;
 mod drag;
 mod flyout;
 mod image;
+mod keyboard;
 mod menu;
 mod pointer;
 mod process;

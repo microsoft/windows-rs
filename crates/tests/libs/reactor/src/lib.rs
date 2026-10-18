@@ -7,6 +7,7 @@ mod dialog;
 mod drag;
 mod flyout;
 mod image;
+mod keyboard;
 mod pointer;
 mod reference;
 mod selection;
@@ -271,6 +272,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "flyout" => App::run_component::<flyout::FlyoutFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
         "image" => App::run_component::<image::ImageFixture>(())?,
+        "keyboard" => App::run_component::<keyboard::KeyboardFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
         "selection" => App::run_component::<selection::SelectionFixture>(())?,
         "timer" => App::run_component::<timer::TimerFixture>(())?,
