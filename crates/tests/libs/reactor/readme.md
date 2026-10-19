@@ -4,6 +4,11 @@
 UI Automation tests live in `tests/ui/`. Keep deterministic unit tests in `windows-reactor` and
 performance benchmarks separate.
 
+| Benchmark | Purpose |
+| --- | --- |
+| [`test-reactor-bench`](../reactor_bench/readme.md) | Headless update, allocation, and memory measurements |
+| [`test_reactor_perf`](../reactor_perf/readme.md) | Live WinUI workload for the Rust/C# comparison harness |
+
 ## Running
 
 ```text

@@ -119,7 +119,7 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
 
-      - name: Run recording benchmarks
+      - name: Report performance measurements
         shell: pwsh
         env:
           RUSTFLAGS: "-D warnings"
@@ -127,6 +127,6 @@ jobs:
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
           cargo run -p test-reactor-bench --release --quiet -- `
-            --architecture-gate --gate-samples 6
+            --architecture-report --samples 6
           cargo run -p reactor-virtual --bin reactor-virtual-perf `
             --features perf --release --quiet
