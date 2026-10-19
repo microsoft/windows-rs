@@ -1920,6 +1920,30 @@ impl TextBlock {
         );
         self
     }
+    pub fn font_family(mut self, font_family: impl AsRef<str>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::FontFamily,
+            PropertyValue::String(Rc::from(font_family.as_ref())),
+        );
+        self
+    }
+    pub fn character_spacing(mut self, character_spacing: i32) -> Self {
+        self.0 = self.0.property(
+            PropertyId::CharacterSpacing,
+            PropertyValue::I32(character_spacing),
+        );
+        self
+    }
+    pub fn line_height(mut self, line_height: f64) -> Self {
+        assert!(
+            line_height.is_finite() && line_height >= 0.0,
+            "TextBlock.LineHeight requires finite_non_negative"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::LineHeight, PropertyValue::F64(line_height));
+        self
+    }
     pub fn foreground(mut self, foreground: impl Into<Brush>) -> Self {
         self.0 = self.0.property(
             PropertyId::Foreground,

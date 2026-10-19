@@ -170,6 +170,7 @@ enum PropertyAdapter {
     #[serde(rename = "datetime")]
     DateTime,
     DropPolicy,
+    FontFamily,
     GridColumns,
     GridRows,
     IconElement,
@@ -214,7 +215,11 @@ impl PropertyAdapter {
             | Self::ImplicitTranslationTransition => "Duration",
             Self::ImplicitScale => "F64",
             Self::ImplicitTranslation => "Vector2",
-            Self::InspectableString | Self::PathData | Self::RichEditText | Self::Uri => "String",
+            Self::FontFamily
+            | Self::InspectableString
+            | Self::PathData
+            | Self::RichEditText
+            | Self::Uri => "String",
             Self::InspectableStringList => "StringList",
             Self::KeyAccelerators => "KeyAccelerators",
             Self::NativeColor => "Color",
@@ -2466,7 +2471,15 @@ fn emit_native_property_arms(
     if adapter.is_some_and(PropertyAdapter::uses_framework_element) {
         return;
     }
-    if adapter == Some(PropertyAdapter::Uri) {
+    if matches!(
+        adapter,
+        Some(PropertyAdapter::Uri | PropertyAdapter::FontFamily)
+    ) {
+        let constructor = if adapter == Some(PropertyAdapter::Uri) {
+            "Uri::CreateUri"
+        } else {
+            "FontFamily::CreateInstanceWithName"
+        };
         let (declaring_class, _) = metadata
             .dependency_property(metadata_owner, native)
             .unwrap_or_else(|| {
@@ -2475,7 +2488,7 @@ fn emit_native_property_arms(
         let declaring_class = declaring_class.rsplit('.').next().unwrap();
         let set = native_interface_call(target, target_class, interface, metadata, |object| {
             format!(
-                "native::Uri::CreateUri(value.as_ref()).and_then(|value| \
+                "native::{constructor}(value.as_ref()).and_then(|value| \
                      {object}.Set{native}(&value)).map_err(Into::into)"
             )
         });

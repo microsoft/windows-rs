@@ -31,6 +31,7 @@ mod repeater;
 mod retirement;
 mod selection;
 mod timer;
+mod typography;
 mod window;
 
 use automation::*;
