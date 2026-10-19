@@ -19,6 +19,7 @@ mod automation;
 mod background;
 mod canvas;
 mod dialog;
+mod dialog_theme;
 mod drag;
 mod flyout;
 mod image;

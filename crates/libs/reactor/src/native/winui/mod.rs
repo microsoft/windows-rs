@@ -152,6 +152,7 @@ struct NativeContentDialogState {
     desired_open: bool,
     root: Option<native::XamlRoot>,
     loaded: Option<windows_core::EventRevoker>,
+    theme_changed: Option<windows_core::EventRevoker>,
     pending_generation: Option<u64>,
     suppress_generation: Option<u64>,
     queued: bool,
@@ -329,6 +330,7 @@ impl NativeContentDialogScheduler {
                 desired_open: false,
                 root: None,
                 loaded: None,
+                theme_changed: None,
                 pending_generation: None,
                 suppress_generation: None,
                 queued: false,
@@ -539,6 +541,7 @@ impl NativeContentDialogScheduler {
         state.retired = true;
         state.owner = None;
         state.loaded = None;
+        state.theme_changed = None;
         state.desired_open = false;
         let pending = state.pending_generation.is_some();
         let _ = state;
@@ -557,6 +560,7 @@ impl NativeContentDialogScheduler {
         for state in self.dialogs.values_mut() {
             state.desired_open = false;
             state.loaded = None;
+            state.theme_changed = None;
             if let Some(generation) = state.pending_generation {
                 state.suppress_generation = Some(generation);
                 hide.push(state.value.clone());

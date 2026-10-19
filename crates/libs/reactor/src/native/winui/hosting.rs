@@ -766,6 +766,31 @@ impl WinUiAdapter {
                 return Err(WinUiError::StillOwned(dialog));
             }
             let owner_element = self.ui_element(owner)?;
+            let framework = owner_element.cast::<native::IFrameworkElement>()?;
+            let value = self
+                .event_queue
+                .content_dialogs
+                .borrow()
+                .dialogs
+                .get(&dialog)
+                .ok_or(WinUiError::MissingObject(dialog))?
+                .value
+                .clone();
+            let dialog_element = value.cast::<native::IFrameworkElement>()?;
+            let themed_dialog = dialog_element.clone();
+            let event_queue = Rc::clone(&self.event_queue);
+            let theme_changed = framework.ActualThemeChanged(move |sender, _| {
+                let Some(sender) = sender.as_ref() else {
+                    return;
+                };
+                if let Err(error) = sender
+                    .ActualTheme()
+                    .and_then(|theme| themed_dialog.SetRequestedTheme(theme))
+                {
+                    event_queue.errors.borrow_mut().push_back(error.into());
+                }
+            })?;
+            dialog_element.SetRequestedTheme(framework.ActualTheme()?)?;
             {
                 let mut scheduler = self.event_queue.content_dialogs.borrow_mut();
                 let state = scheduler
@@ -773,6 +798,7 @@ impl WinUiAdapter {
                     .get_mut(&dialog)
                     .ok_or(WinUiError::MissingObject(dialog))?;
                 state.owner = Some(owner);
+                state.theme_changed = Some(theme_changed);
             }
             match owner_element.XamlRoot() {
                 Ok(root) => {
@@ -781,7 +807,6 @@ impl WinUiAdapter {
                     scheduler.start_next_for_dialog(dialog)?;
                 }
                 Err(error) if error.code().is_ok() => {
-                    let framework = owner_element.cast::<native::IFrameworkElement>()?;
                     let event_queue = Rc::clone(&self.event_queue);
                     let loaded_element = owner_element;
                     let loaded = framework.Loaded(move |_, _| {
@@ -831,6 +856,7 @@ impl WinUiAdapter {
             if let Some(state) = scheduler.dialogs.get_mut(&previous) {
                 state.owner = None;
                 state.loaded = None;
+                state.theme_changed = None;
                 if state.pending_generation.is_none() {
                     state.root = None;
                 }
