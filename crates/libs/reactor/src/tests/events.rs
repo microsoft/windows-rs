@@ -310,7 +310,7 @@ fn remove_child_consumes_pending_observation_before_planning() {
 }
 
 #[test]
-fn invalid_observation_batch_rolls_back_and_remains_queued() {
+fn invalid_observation_batch_preserves_graph_and_queue() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime.update(TextBox::new().text("Before")).unwrap();
     let root = runtime.graph().root().unwrap();
@@ -346,7 +346,7 @@ fn invalid_observation_batch_rolls_back_and_remains_queued() {
 }
 
 #[test]
-fn native_queue_invalid_callback_observation_rolls_back_prefix() {
+fn native_queue_invalid_callback_observation_preserves_prefix() {
     let callback = Callback::new(|_: Rc<str>| panic!("invalid prefix must not dispatch"));
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime
@@ -394,7 +394,7 @@ fn native_queue_invalid_callback_observation_rolls_back_prefix() {
 }
 
 #[test]
-fn native_queue_callback_boundary_preserves_later_observation_rollback() {
+fn native_queue_callback_boundary_rejects_later_invalid_observations() {
     let calls = Rc::new(Cell::new(0));
     let called = Rc::clone(&calls);
     let callback = Callback::new(move |_: Rc<str>| called.set(called.get() + 1));
@@ -547,7 +547,19 @@ fn ordered_native_events_hide_future_observations_from_earlier_callbacks() {
         );
     }
 
-    let mut first = runtime.next_native_event().unwrap().unwrap();
+    let before = runtime.graph().clone();
+    let queued = runtime.adapter().clone();
+    for _ in 0..2 {
+        assert_eq!(
+            runtime.prepare_update(),
+            Err(UpdateError::PendingNativeEvent)
+        );
+        assert_eq!(runtime.graph(), &before);
+        assert_eq!(runtime.adapter(), &queued);
+    }
+    let Some(NativeWork::Event(mut first)) = runtime.next_native_work().unwrap() else {
+        panic!("expected first text change");
+    };
     assert_eq!(
         runtime.graph().properties(object).unwrap()[0].value,
         PropertyValue::String(Rc::from("A"))
@@ -556,7 +568,15 @@ fn ordered_native_events_hide_future_observations_from_earlier_callbacks() {
     assert_eq!(&*values.borrow(), &[Rc::from("A")]);
     drop(first);
 
-    let mut second = runtime.next_native_event().unwrap().unwrap();
+    let before = runtime.graph().clone();
+    assert_eq!(
+        runtime.prepare_update(),
+        Err(UpdateError::PendingNativeEvent)
+    );
+    assert_eq!(runtime.graph(), &before);
+    let Some(NativeWork::Event(mut second)) = runtime.next_native_work().unwrap() else {
+        panic!("expected second text change");
+    };
     assert_eq!(
         runtime.graph().properties(object).unwrap()[0].value,
         PropertyValue::String(Rc::from("B"))

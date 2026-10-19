@@ -724,6 +724,85 @@ impl RetainedGraph {
         self.root
     }
 
+    fn validate_observation(&self, observation: &Observation) -> Result<bool, GraphError> {
+        match observation {
+            Observation::SetProperty { object, property } => {
+                let Some(retained) = self.get(*object) else {
+                    return Ok(false);
+                };
+                validate_property(retained.kind, property)?;
+                Ok(true)
+            }
+            Observation::SetSelection { object, selected } => {
+                let Some(owner) = self.get(*object) else {
+                    return Ok(false);
+                };
+                let Some(contract) = selection_contract(owner.kind) else {
+                    return Err(GraphError::InvalidSelection(owner.kind));
+                };
+                Ok(selected.is_none_or(|selected| {
+                    self.kind(selected) == Some(contract.item)
+                        && contract.relations.iter().any(|relation| {
+                            self.children(*object, *relation)
+                                .is_some_and(|children| children.contains(&selected))
+                        })
+                }))
+            }
+        }
+    }
+
+    fn apply_observation(&mut self, observation: Observation) -> Result<(), GraphError> {
+        if !self.validate_observation(&observation)? {
+            return Ok(());
+        }
+        match observation {
+            Observation::SetProperty { object, property } => {
+                let retained = self.get_mut(object);
+                let property_id = property.id;
+                // Observing a native value does not make the declaration own that property.
+                if retained
+                    .properties
+                    .iter()
+                    .any(|current| current.id == property_id)
+                {
+                    retained
+                        .properties
+                        .upsert(|current| current.id == property_id, property);
+                }
+            }
+            Observation::SetSelection { object, selected } => {
+                let contract = selection_contract(self.get(object).unwrap().kind).unwrap();
+                let children = contract
+                    .relations
+                    .iter()
+                    .flat_map(|relation| {
+                        self.children(object, *relation)
+                            .unwrap_or_default()
+                            .iter()
+                            .copied()
+                    })
+                    .collect::<Vec<_>>();
+                for child in children {
+                    let child_object = self.get_mut(child);
+                    if child_object
+                        .properties
+                        .iter()
+                        .any(|property| property.id == contract.selected_property)
+                    {
+                        child_object.properties.upsert(
+                            |property| property.id == contract.selected_property,
+                            Property {
+                                id: contract.selected_property,
+                                value: PropertyValue::Bool(Some(child) == selected),
+                            },
+                        );
+                    }
+                }
+            }
+        }
+        Ok(())
+    }
+
     pub(crate) fn virtual_realization(
         &self,
         collection: ObjectId,
@@ -1499,74 +1578,6 @@ impl<'a> GraphTransaction<'a> {
         }
     }
 
-    fn apply_observation(&mut self, observation: Observation) -> Result<(), GraphError> {
-        match observation {
-            Observation::SetProperty { object, property } => {
-                let Some(retained) = self.graph.get(object) else {
-                    return Ok(());
-                };
-                validate_property(retained.kind, &property)?;
-                let property_id = property.id;
-                // Observing a native value does not make the declaration own that property.
-                if retained
-                    .properties
-                    .iter()
-                    .any(|current| current.id == property_id)
-                {
-                    self.get_mut(object)
-                        .properties
-                        .upsert(|current| current.id == property_id, property);
-                }
-            }
-            Observation::SetSelection { object, selected } => {
-                let Some(owner) = self.graph.get(object) else {
-                    return Ok(());
-                };
-                let Some(contract) = selection_contract(owner.kind) else {
-                    return Err(GraphError::InvalidSelection(owner.kind));
-                };
-                if selected.is_some_and(|selected| {
-                    self.graph.kind(selected) != Some(contract.item)
-                        || !contract.relations.iter().any(|relation| {
-                            self.graph
-                                .children(object, *relation)
-                                .is_some_and(|children| children.contains(&selected))
-                        })
-                }) {
-                    return Ok(());
-                }
-                let children = contract
-                    .relations
-                    .iter()
-                    .flat_map(|relation| {
-                        self.graph
-                            .children(object, *relation)
-                            .unwrap_or_default()
-                            .iter()
-                            .copied()
-                    })
-                    .collect::<Vec<_>>();
-                for child in children {
-                    let child_object = self.get_mut(child);
-                    if child_object
-                        .properties
-                        .iter()
-                        .any(|property| property.id == contract.selected_property)
-                    {
-                        child_object.properties.upsert(
-                            |property| property.id == contract.selected_property,
-                            Property {
-                                id: contract.selected_property,
-                                value: PropertyValue::Bool(Some(child) == selected),
-                            },
-                        );
-                    }
-                }
-            }
-        }
-        Ok(())
-    }
-
     fn rollback_entries(&mut self) {
         for undo in self.undo.drain(..).rev() {
             match undo {
@@ -1783,27 +1794,21 @@ impl<A: Adapter> Runtime<A> {
         if self.native_events.is_empty() {
             return Ok(());
         }
-        let mut transaction = GraphTransaction::new(&mut self.graph);
+        // Observations do not change graph structure; retiring objects are already inaccessible.
         for event in &self.native_events {
             if let Some(observation) = &event.observation
-                && let Err(error) = transaction.apply_observation(observation.clone())
+                && let Err(error) = self.graph.validate_observation(observation)
             {
-                transaction.rollback();
                 self.poisoned = true;
                 return Err(UpdateError::InvalidNativeEvent(error));
             }
-            if let Some(completion) = event.retirement {
-                transaction.complete_retirement(completion.root);
-            }
             if let Some(realization) = event.realization
-                && let Err(error) = transaction.validate_realization_request(realization)
+                && let Err(error) = self.graph.validate_realization_request(realization)
             {
-                transaction.rollback();
                 self.poisoned = true;
                 return Err(UpdateError::InvalidNativeEvent(error));
             }
         }
-        transaction.rollback();
         Ok(())
     }
 
@@ -1811,14 +1816,11 @@ impl<A: Adapter> Runtime<A> {
         let Some(event) = self.adapter.pop_native_event() else {
             return Ok(None);
         };
-        if let Some(observation) = event.observation {
-            let mut transaction = GraphTransaction::new(&mut self.graph);
-            if let Err(error) = transaction.apply_observation(observation) {
-                transaction.rollback();
-                self.poisoned = true;
-                return Err(UpdateError::InvalidNativeEvent(error));
-            }
-            transaction.commit();
+        if let Some(observation) = event.observation
+            && let Err(error) = self.graph.apply_observation(observation)
+        {
+            self.poisoned = true;
+            return Err(UpdateError::InvalidNativeEvent(error));
         }
         if let Some(completion) = event.retirement {
             self.apply_retirement_completion(completion)?;
@@ -1843,14 +1845,11 @@ impl<A: Adapter> Runtime<A> {
         let Some(event) = self.adapter.pop_native_event() else {
             return Ok(None);
         };
-        if let Some(observation) = event.observation {
-            let mut transaction = GraphTransaction::new(&mut self.graph);
-            if let Err(error) = transaction.apply_observation(observation) {
-                transaction.rollback();
-                self.poisoned = true;
-                return Err(UpdateError::InvalidNativeEvent(error));
-            }
-            transaction.commit();
+        if let Some(observation) = event.observation
+            && let Err(error) = self.graph.apply_observation(observation)
+        {
+            self.poisoned = true;
+            return Err(UpdateError::InvalidNativeEvent(error));
         }
         if let Some(completion) = event.retirement {
             self.apply_retirement_completion(completion)?;
