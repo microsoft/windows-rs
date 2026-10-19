@@ -47,6 +47,85 @@ fn text_block_alignment_shares_the_text_box_contract_and_clears() {
 }
 
 #[test]
+fn text_block_typography_updates_and_clears_without_replacement() {
+    let first = || {
+        TextBlock::new()
+            .font_family("Consolas")
+            .character_spacing(-50)
+            .line_height(24.0)
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(first()).unwrap();
+    let root = runtime.graph().root().unwrap();
+    for (id, value) in [
+        (
+            PropertyId::FontFamily,
+            PropertyValue::String("Consolas".into()),
+        ),
+        (PropertyId::CharacterSpacing, PropertyValue::I32(-50)),
+        (PropertyId::LineHeight, PropertyValue::F64(24.0)),
+    ] {
+        assert!(
+            runtime
+                .graph()
+                .properties(root)
+                .unwrap()
+                .contains(&Property { id, value })
+        );
+    }
+    assert!(runtime.update(first()).unwrap().is_empty());
+    let mutations = runtime
+        .update(
+            TextBlock::new()
+                .font_family(String::from("Arial"))
+                .character_spacing(200)
+                .line_height(0.0),
+        )
+        .unwrap();
+    let [Mutation::SetProperties { object, set, clear }] = mutations.as_slice() else {
+        panic!("expected a retained property update");
+    };
+    assert_eq!(*object, root);
+    assert!(clear.is_empty());
+    assert_eq!(set.len(), 3);
+    for (id, value) in [
+        (
+            PropertyId::FontFamily,
+            PropertyValue::String("Arial".into()),
+        ),
+        (PropertyId::CharacterSpacing, PropertyValue::I32(200)),
+        (PropertyId::LineHeight, PropertyValue::F64(0.0)),
+    ] {
+        assert!(set.contains(&Property { id, value }));
+    }
+    let mutations = runtime.update(TextBlock::new()).unwrap();
+    let [Mutation::SetProperties { object, set, clear }] = mutations.as_slice() else {
+        panic!("expected a retained property clear");
+    };
+    assert_eq!(*object, root);
+    assert!(set.is_empty());
+    assert_eq!(clear.len(), 3);
+    for id in [
+        PropertyId::FontFamily,
+        PropertyId::CharacterSpacing,
+        PropertyId::LineHeight,
+    ] {
+        assert!(clear.contains(&id));
+    }
+    assert!(runtime.update(TextBlock::new()).unwrap().is_empty());
+}
+
+#[test]
+fn text_block_line_height_requires_finite_non_negative_values() {
+    for value in [-1.0, f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+        assert!(std::panic::catch_unwind(|| TextBlock::new().line_height(value)).is_err());
+    }
+    for value in [0.0, 0.5, 24.0] {
+        TextBlock::new().line_height(value);
+    }
+}
+
+#[test]
 fn number_box_small_change_requires_finite_values() {
     for value in [f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
         assert!(std::panic::catch_unwind(|| NumberBox::new().small_change(value)).is_err());
