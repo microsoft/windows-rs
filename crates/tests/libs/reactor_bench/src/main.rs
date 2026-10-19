@@ -1,7 +1,6 @@
 use std::hint::black_box;
 use std::rc::Rc;
-use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
-use std::sync::{Arc, Mutex};
+use std::sync::atomic::Ordering;
 use std::time::{Duration, Instant};
 
 use windows_reactor as reactor;
@@ -53,98 +52,6 @@ struct RecursiveRow {
 struct BenchComponent {
     active: bool,
     effect: bool,
-}
-
-#[derive(Default)]
-struct LifecycleServices {
-    background: Mutex<Vec<Box<dyn FnOnce() + Send>>>,
-    cancelled_timers: Arc<AtomicUsize>,
-}
-
-impl LifecycleServices {
-    fn run_background(&self) {
-        for work in std::mem::take(&mut *self.background.lock().unwrap()) {
-            work();
-        }
-    }
-}
-
-struct LifecycleTimerRegistration {
-    active: AtomicBool,
-    cancelled: Arc<AtomicUsize>,
-}
-
-impl reactor::ComponentTimerRegistration for LifecycleTimerRegistration {
-    fn cancel(&self) {
-        if self.active.swap(false, Ordering::AcqRel) {
-            self.cancelled.fetch_add(1, Ordering::Relaxed);
-        }
-    }
-}
-
-impl reactor::ComponentServices for LifecycleServices {
-    fn spawn_background(&self, work: Box<dyn FnOnce() + Send>) {
-        self.background.lock().unwrap().push(work);
-    }
-
-    fn set_timeout(
-        &self,
-        _delay: Duration,
-        _callback: Box<dyn FnOnce() + Send>,
-    ) -> Arc<dyn reactor::ComponentTimerRegistration> {
-        Arc::new(LifecycleTimerRegistration {
-            active: AtomicBool::new(true),
-            cancelled: Arc::clone(&self.cancelled_timers),
-        })
-    }
-}
-
-#[derive(Clone)]
-struct LifecycleInput {
-    cleanups: Arc<AtomicUsize>,
-    context: Rc<reactor::Context<usize>>,
-    task: Arc<Mutex<Option<reactor::ComponentTask>>>,
-}
-
-impl PartialEq for LifecycleInput {
-    fn eq(&self, other: &Self) -> bool {
-        Arc::ptr_eq(&self.cleanups, &other.cleanups) && Rc::ptr_eq(&self.context, &other.context)
-    }
-}
-
-struct LifecycleComponent {
-    _timer: reactor::ComponentTimer,
-}
-
-impl reactor::Component for LifecycleComponent {
-    type Input = LifecycleInput;
-    type Message = usize;
-
-    fn create(input: &Self::Input, context: &reactor::ComponentContext<Self>) -> Self {
-        let task = context.spawn_background(|cancel| usize::from(cancel.is_cancelled()));
-        *input.task.lock().unwrap() = Some(task);
-        Self {
-            _timer: context.set_timeout(Duration::from_secs(60), 1),
-        }
-    }
-
-    fn view(&self, input: &Self::Input, context: &mut reactor::ViewContext<Self>) -> reactor::View {
-        let value = context.use_context(&input.context);
-        let cleanups = Arc::clone(&input.cleanups);
-        context.use_effect("lifecycle", value, move || {
-            Some(Box::new(move || {
-                cleanups.fetch_add(1, Ordering::Relaxed);
-            }))
-        });
-        let sender = context.sender();
-        reactor::Button::new()
-            .automation_name(format!("lifecycle-{value}"))
-            .element_ref(&context.root())
-            .on_click(move || {
-                let _ = sender.send(value);
-            })
-            .into()
-    }
 }
 
 #[derive(Clone, PartialEq)]
@@ -1097,300 +1004,6 @@ fn print_retained_memory_shapes(rows: &[GraphMemoryRow]) {
     }
 }
 
-fn lifecycle_root_view(reference: &reactor::ElementRef, cycle: usize) -> reactor::View {
-    reactor::Grid::new()
-        .keyed_children([reactor::keyed(
-            "child",
-            reactor::Button::new()
-                .automation_name(format!("cycle-{cycle}"))
-                .element_ref(reference)
-                .on_click(|| {})
-                .content(reactor::TextBlock::new().text(format!("value-{cycle}"))),
-        )])
-        .into()
-}
-
-fn lifecycle_retirement_view(visible: bool) -> reactor::View {
-    reactor::Grid::new()
-        .keyed_children(
-            visible
-                .then(|| {
-                    [
-                        reactor::keyed(
-                            "first",
-                            reactor::Button::new().exit_fade(Duration::from_secs(1)),
-                        ),
-                        reactor::keyed(
-                            "second",
-                            reactor::Button::new().exit_fade(Duration::from_secs(1)),
-                        ),
-                    ]
-                })
-                .into_iter()
-                .flatten(),
-        )
-        .into()
-}
-
-fn print_lifecycle_checkpoint(
-    suite: &str,
-    iteration: usize,
-    baseline_bytes: u64,
-    baseline_allocations: u64,
-    state: reactor::ComponentHostState,
-) {
-    println!(
-        "{{\"benchmark\":\"reactor-lifecycle\",\"suite\":\"{suite}\",\
-         \"iteration\":{iteration},\"rust_live_delta\":{},\"allocations\":{},\
-         \"graph_objects\":{},\"scopes\":{},\"scope_slots\":{},\"free_scopes\":{},\
-         \"effects\":{},\"tasks\":{},\"contexts\":{},\"context_consumers\":{},\
-         \"virtual_rows\":{},\"queued_messages\":{},\"queue_closed\":{},\
-         \"retirements\":{}}}",
-        allocator::CURRENT_BYTES
-            .load(Ordering::Relaxed)
-            .saturating_sub(baseline_bytes),
-        allocator::ALLOCATIONS
-            .load(Ordering::Relaxed)
-            .saturating_sub(baseline_allocations),
-        state.graph_objects,
-        state.live_scopes,
-        state.scope_slots,
-        state.free_scopes,
-        state.effects,
-        state.tasks,
-        state.contexts,
-        state.context_consumers,
-        state.virtual_rows,
-        state.queued_messages,
-        state.queue_closed,
-        state.retirements,
-    );
-}
-
-fn run_recording_lifecycle_stress(iterations: usize, checkpoint: usize) {
-    let baseline_bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
-    let baseline_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-    let mut runtime = reactor_runtime();
-    runtime.update(reactor::Grid::new()).unwrap();
-    for iteration in 1..=iterations {
-        let reference = reactor::ElementRef::default();
-        runtime
-            .update(lifecycle_root_view(&reference, iteration))
-            .unwrap();
-        assert!(reference.get().is_some());
-        runtime.update(reactor::Grid::new()).unwrap();
-        assert_eq!(reference.get(), None);
-        assert_eq!(runtime.graph().object_count(), 1);
-        assert_eq!(runtime.graph().retired_count(), 0);
-        assert_eq!(runtime.adapter().object_count(), 1);
-        assert_eq!(runtime.adapter().retirement_count(), 0);
-        assert_eq!(runtime.adapter().realization_count(), 0);
-        assert_eq!(runtime.adapter().queued_native_event_count(), 0);
-        if iteration % checkpoint == 0 || iteration == iterations {
-            let memory = runtime.graph().retained_memory();
-            println!(
-                "{{\"benchmark\":\"reactor-lifecycle\",\"suite\":\"root\",\
-                 \"iteration\":{iteration},\"rust_live_delta\":{},\"allocations\":{},\
-                 \"graph_objects\":1,\"slot_len\":{},\"slot_capacity\":{},\
-                 \"free_slots\":{},\"retirements\":0,\"realized_rows\":0,\
-                 \"queued_events\":0}}",
-                allocator::CURRENT_BYTES
-                    .load(Ordering::Relaxed)
-                    .saturating_sub(baseline_bytes),
-                allocator::ALLOCATIONS
-                    .load(Ordering::Relaxed)
-                    .saturating_sub(baseline_allocations),
-                memory.slot_len,
-                memory.slot_capacity,
-                memory.free_len,
-            );
-        }
-    }
-    drop(runtime);
-    println!(
-        "{{\"benchmark\":\"reactor-lifecycle\",\"suite\":\"root_teardown\",\
-         \"iteration\":{iterations},\"rust_live_delta\":{}}}",
-        allocator::CURRENT_BYTES
-            .load(Ordering::Relaxed)
-            .saturating_sub(baseline_bytes)
-    );
-
-    let baseline_bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
-    let baseline_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-    let services = Arc::new(LifecycleServices::default());
-    let cleanups = Arc::new(AtomicUsize::new(0));
-    for iteration in 1..=iterations {
-        {
-            let context = Rc::new(reactor::Context::new(0usize));
-            let task = Arc::new(Mutex::new(None));
-            let input = LifecycleInput {
-                cleanups: Arc::clone(&cleanups),
-                context: Rc::clone(&context),
-                task: Arc::clone(&task),
-            };
-            let mut host = reactor::ComponentHost::mount_with_services(
-                reactor::RecordingAdapter::default(),
-                services.clone(),
-                [reactor::component::<LifecycleComponent>("lifecycle", input)],
-            )
-            .unwrap();
-            let sender = host
-                .sender::<LifecycleComponent>(&reactor::Key::from("lifecycle"))
-                .unwrap();
-            let completion = sender.completion();
-            let reference = host.reference(&reactor::Key::from("lifecycle")).unwrap();
-            let object = reference.get().unwrap();
-            let event = host.runtime().graph().events(object).unwrap()[0].clone();
-            assert!(sender.send(iteration));
-            host.drain(1).unwrap();
-            host.set_context(&context, iteration).unwrap();
-            let state = host.test_state();
-            assert_eq!(state.live_scopes, 1);
-            assert_eq!(state.effects, 1);
-            assert_eq!(state.tasks, 2);
-            assert_eq!(state.contexts, 1);
-            assert_eq!(state.context_consumers, 1);
-            assert_eq!(state.queued_messages, 0);
-            drop(host);
-            assert_eq!(reference.get(), None);
-            assert!(!sender.send(iteration));
-            assert!(!completion.complete(iteration));
-            let reactor::EventValue::Unit(callback) = event.value else {
-                unreachable!()
-            };
-            callback.call(());
-            assert_eq!(
-                task.lock().unwrap().as_ref().unwrap().status(),
-                reactor::ComponentTaskStatus::Cancelled
-            );
-        }
-        services.run_background();
-        if iteration % checkpoint == 0 || iteration == iterations {
-            print_lifecycle_checkpoint(
-                "component_teardown",
-                iteration,
-                baseline_bytes,
-                baseline_allocations,
-                reactor::ComponentHostState {
-                    queue_closed: true,
-                    ..Default::default()
-                },
-            );
-        }
-    }
-    assert_eq!(cleanups.load(Ordering::Relaxed), iterations * 2);
-    assert_eq!(
-        services.cancelled_timers.load(Ordering::Relaxed),
-        iterations
-    );
-
-    let baseline_bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
-    let baseline_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-    let mut runtime = reactor_runtime();
-    runtime.update(lifecycle_retirement_view(true)).unwrap();
-    for iteration in 1..=iterations {
-        let root = runtime.graph().root().unwrap();
-        let retiring = runtime
-            .graph()
-            .children(root, reactor::RelationId::Children)
-            .unwrap()
-            .to_vec();
-        runtime.update(lifecycle_retirement_view(false)).unwrap();
-        assert_eq!(runtime.graph().retired_count(), 2);
-        for object in retiring.iter().rev() {
-            assert!(runtime.complete_retirement(*object));
-        }
-        runtime.dispatch_native_events().unwrap();
-        for object in &retiring {
-            assert!(!runtime.complete_retirement(*object));
-        }
-        assert_eq!(runtime.graph().retired_count(), 0);
-        assert_eq!(runtime.adapter().retirement_count(), 0);
-        runtime.update(lifecycle_retirement_view(true)).unwrap();
-        if iteration % checkpoint == 0 || iteration == iterations {
-            let memory = runtime.graph().retained_memory();
-            println!(
-                "{{\"benchmark\":\"reactor-lifecycle\",\"suite\":\"retirement\",\
-                 \"iteration\":{iteration},\"rust_live_delta\":{},\"allocations\":{},\
-                 \"graph_objects\":{},\"slot_len\":{},\"slot_capacity\":{},\
-                 \"free_slots\":{},\"retirements\":0,\"queued_events\":0}}",
-                allocator::CURRENT_BYTES
-                    .load(Ordering::Relaxed)
-                    .saturating_sub(baseline_bytes),
-                allocator::ALLOCATIONS
-                    .load(Ordering::Relaxed)
-                    .saturating_sub(baseline_allocations),
-                runtime.graph().object_count(),
-                memory.slot_len,
-                memory.slot_capacity,
-                memory.free_len,
-            );
-        }
-    }
-    drop(runtime);
-
-    let baseline_bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
-    let baseline_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-    let mut runtime = reactor_runtime();
-    runtime.update(virtual_items_view(0)).unwrap();
-    let collection = runtime.graph().root().unwrap();
-    for iteration in 1..=iterations {
-        runtime
-            .update(virtual_items_view(u64::try_from(iteration).unwrap()))
-            .unwrap();
-        let source_revision = runtime.graph().virtual_source_revision(collection).unwrap();
-        runtime.queue_realization(reactor::RealizationRequest::Realize {
-            collection,
-            container: reactor::RealizedContainer(1),
-            index: iteration % 10_000,
-            source_revision,
-        });
-        runtime.dispatch_native_events().unwrap();
-        runtime.queue_realization(reactor::RealizationRequest::Recycle {
-            collection,
-            container: reactor::RealizedContainer(1),
-            source_revision,
-        });
-        runtime.dispatch_native_events().unwrap();
-        runtime.queue_realization(reactor::RealizationRequest::Realize {
-            collection,
-            container: reactor::RealizedContainer(1),
-            index: (iteration + 1) % 10_000,
-            source_revision,
-        });
-        runtime.queue_realization(reactor::RealizationRequest::Cancel {
-            collection,
-            container: reactor::RealizedContainer(1),
-            source_revision,
-        });
-        runtime.dispatch_native_events().unwrap();
-        runtime.update(reactor::ItemsRepeater::new()).unwrap();
-        runtime.dispatch_native_events().unwrap();
-        assert_eq!(runtime.graph().object_count(), 1);
-        assert_eq!(runtime.graph().retired_count(), 0);
-        assert_eq!(runtime.adapter().object_count(), 1);
-        assert_eq!(runtime.adapter().realization_count(), 0);
-        assert_eq!(runtime.adapter().queued_native_event_count(), 0);
-        runtime
-            .update(virtual_items_view(u64::try_from(iteration).unwrap()))
-            .unwrap();
-        if iteration % checkpoint == 0 || iteration == iterations {
-            println!(
-                "{{\"benchmark\":\"reactor-lifecycle\",\"suite\":\"virtual\",\
-                 \"iteration\":{iteration},\"rust_live_delta\":{},\"allocations\":{},\
-                 \"graph_objects\":1,\"retirements\":0,\"realized_rows\":0,\
-                 \"queued_events\":0}}",
-                allocator::CURRENT_BYTES
-                    .load(Ordering::Relaxed)
-                    .saturating_sub(baseline_bytes),
-                allocator::ALLOCATIONS
-                    .load(Ordering::Relaxed)
-                    .saturating_sub(baseline_allocations),
-            );
-        }
-    }
-}
-
 fn reactor_fixture_memory<A>(
     frontend: &'static str,
     workload: &'static str,
@@ -1650,25 +1263,90 @@ fn reactor_recursive(depth: usize, fanout: usize, samples: usize) -> RecursiveRo
     }
 }
 
-fn argument(name: &str, default: usize) -> usize {
-    let arguments = std::env::args().collect::<Vec<_>>();
-    arguments
-        .windows(2)
-        .find(|pair| pair[0] == name)
-        .and_then(|pair| pair[1].parse().ok())
-        .unwrap_or(default)
+#[derive(Debug, PartialEq)]
+enum Mode {
+    All,
+    Architecture,
+    RetainedMemory,
+    VirtualMemory,
+    VirtualItems,
+    KeyedScaling,
+    Profile(String),
 }
 
-fn has_argument(name: &str) -> bool {
-    std::env::args().any(|argument| argument == name)
+#[derive(Debug)]
+struct Options {
+    mode: Mode,
+    samples: usize,
+    batch: usize,
+    count: usize,
+    component_count: usize,
+    profile_iterations: Option<usize>,
 }
 
-fn argument_value(name: &str) -> Option<String> {
-    let arguments = std::env::args().collect::<Vec<_>>();
+impl Options {
+    fn parse(arguments: impl IntoIterator<Item = String>) -> Result<Self, String> {
+        let mut options = Self {
+            mode: Mode::All,
+            samples: 80,
+            batch: 8,
+            count: 512,
+            component_count: 16_384,
+            profile_iterations: None,
+        };
+        let mut samples = None;
+        let mut arguments = arguments.into_iter();
+        while let Some(argument) = arguments.next() {
+            match argument.as_str() {
+                "--samples" => samples = Some(positive_argument(&mut arguments, &argument)?),
+                "--batch" => options.batch = positive_argument(&mut arguments, &argument)?,
+                "--count" => options.count = positive_argument(&mut arguments, &argument)?,
+                "--component-count" => {
+                    options.component_count = positive_argument(&mut arguments, &argument)?;
+                }
+                "--profile-iterations" => {
+                    options.profile_iterations =
+                        Some(positive_argument(&mut arguments, &argument)?);
+                }
+                _ => {
+                    let mode = match argument.as_str() {
+                        "--architecture-report" => Mode::Architecture,
+                        "--retained-memory" => Mode::RetainedMemory,
+                        "--virtual-memory" => Mode::VirtualMemory,
+                        "--virtual-items" => Mode::VirtualItems,
+                        "--keyed-scaling" => Mode::KeyedScaling,
+                        "--profile-workload" => Mode::Profile(
+                            arguments
+                                .next()
+                                .ok_or("--profile-workload requires a workload name")?,
+                        ),
+                        _ => return Err(format!("unknown argument: {argument}")),
+                    };
+                    if options.mode != Mode::All {
+                        return Err("select only one benchmark mode".to_string());
+                    }
+                    options.mode = mode;
+                }
+            }
+        }
+        options.samples = samples.unwrap_or(if options.mode == Mode::Architecture {
+            6
+        } else {
+            80
+        });
+        Ok(options)
+    }
+}
+
+fn positive_argument(
+    arguments: &mut impl Iterator<Item = String>,
+    name: &str,
+) -> Result<usize, String> {
     arguments
-        .windows(2)
-        .find(|pair| pair[0] == name)
-        .map(|pair| pair[1].clone())
+        .next()
+        .and_then(|value| value.parse().ok())
+        .filter(|value| *value > 0)
+        .ok_or_else(|| format!("{name} requires a positive integer"))
 }
 
 fn profile_virtual_source_replace(iterations: usize) {
@@ -1700,10 +1378,11 @@ fn profile_virtual_source_replace(iterations: usize) {
     );
 }
 
-fn run_profile_workload(workload: &str, iterations: usize) -> Result<(), String> {
-    if iterations == 0 {
-        return Err("--profile-iterations must be greater than zero".to_string());
-    }
+fn run_profile_workload(
+    workload: &str,
+    iterations: usize,
+    component_count: usize,
+) -> Result<(), String> {
     match workload {
         "reactor-100k-no-change" => {
             print_perf_rows([bench_reactor_100k(false, iterations)]);
@@ -1712,11 +1391,7 @@ fn run_profile_workload(workload: &str, iterations: usize) -> Result<(), String>
             print_perf_rows([bench_reactor_100k(true, iterations)]);
         }
         "reactor-context-broad" => {
-            print_perf_rows([reactor_context(
-                argument("--component-count", 16_384),
-                true,
-                iterations,
-            )]);
+            print_perf_rows([reactor_context(component_count, true, iterations)]);
         }
         "reactor-virtual-source-replace" => profile_virtual_source_replace(iterations),
         _ => return Err(format!("unknown --profile-workload value: {workload}")),
@@ -1792,34 +1467,31 @@ fn print_memory_attribution(rows: &[MemoryRow]) {
 }
 
 fn main() {
-    let samples = argument("--samples", 80);
-    let batch = argument("--batch", 8);
-    if let Some(workload) = argument_value("--profile-workload") {
-        if let Err(error) =
-            run_profile_workload(&workload, argument("--profile-iterations", samples))
-        {
-            eprintln!("test-reactor-bench: {error}");
-            std::process::exit(2);
-        }
-        return;
+    if let Err(error) = Options::parse(std::env::args().skip(1)).and_then(run) {
+        eprintln!("test-reactor-bench: {error}");
+        std::process::exit(2);
     }
-    if has_argument("--virtual-memory") {
-        print_memory_rows(&[reactor_virtual_memory()]);
-        return;
-    }
-    if has_argument("--retained-memory") {
-        let count = argument("--count", 512);
-        print_retained_memory_shapes(&reactor_retained_memory_shapes(count));
-        return;
-    }
-    if has_argument("--lifecycle-stress") {
-        run_recording_lifecycle_stress(
-            argument("--iterations", 1_000),
-            argument("--checkpoint", 100).max(1),
+}
+
+fn run(options: Options) -> Result<(), String> {
+    let samples = options.samples;
+    let batch = options.batch;
+    if let Mode::Profile(workload) = &options.mode {
+        return run_profile_workload(
+            workload,
+            options.profile_iterations.unwrap_or(samples),
+            options.component_count,
         );
-        return;
     }
-    if has_argument("--virtual-items") {
+    if options.mode == Mode::VirtualMemory {
+        print_memory_rows(&[reactor_virtual_memory()]);
+        return Ok(());
+    }
+    if options.mode == Mode::RetainedMemory {
+        print_retained_memory_shapes(&reactor_retained_memory_shapes(options.count));
+        return Ok(());
+    }
+    if options.mode == Mode::VirtualItems {
         print_perf_rows([
             bench_reactor_virtual_create(samples, batch),
             bench_reactor_virtual_source_replace(samples, batch),
@@ -1833,30 +1505,29 @@ fn main() {
         for (workload, mutations, realized) in reactor_virtual_mutation_counts() {
             println!("{workload:<24} {mutations:>12} {realized:>15}");
         }
-        return;
+        return Ok(());
     }
-    if has_argument("--architecture-gate") {
-        let gate_samples = argument("--gate-samples", 6);
-        println!("architecture decision gate: 100k keyed updates (2 x 50k graphs)");
+    if options.mode == Mode::Architecture {
+        println!("architecture report: 100k keyed updates (2 x 50k graphs)");
         print_perf_rows([
-            bench_reactor_100k(false, gate_samples),
-            bench_reactor_100k(true, gate_samples),
+            bench_reactor_100k(false, samples),
+            bench_reactor_100k(true, samples),
         ]);
 
-        println!("\narchitecture decision gate: 513-node retained memory attribution");
+        println!("\narchitecture report: 513-node retained memory attribution");
         let memory_rows = reactor_memory_attribution(512);
         print_memory_rows(&memory_rows);
         print_memory_attribution(&memory_rows);
 
-        let component_count = argument("--component-count", 16_384);
-        println!("\narchitecture decision gate: large component graph operations");
+        let component_count = options.component_count;
+        println!("\narchitecture report: large component graph operations");
         print_perf_rows([
-            reactor_component_root_replace(component_count, gate_samples, 1),
-            reactor_component_remove(component_count, gate_samples),
+            reactor_component_root_replace(component_count, samples, 1),
+            reactor_component_remove(component_count, samples),
         ]);
-        return;
+        return Ok(());
     }
-    if has_argument("--keyed-scaling") {
+    if options.mode == Mode::KeyedScaling {
         let mut rows = Vec::new();
         for count in [512, 1_024, 10_000] {
             let order = (0..count).collect::<Vec<_>>();
@@ -1878,9 +1549,9 @@ fn main() {
             ));
         }
         print_perf_rows(rows);
-        return;
+        return Ok(());
     }
-    let count = argument("--count", 512);
+    let count = options.count;
     let order = (0..count).collect::<Vec<_>>();
     let mut rotated = order.clone();
     rotated.rotate_left(1);
@@ -2000,5 +1671,55 @@ fn main() {
             row.bytes,
             row.mutations
         );
+    }
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn parse(arguments: &[&str]) -> Result<Options, String> {
+        Options::parse(arguments.iter().map(|value| (*value).to_string()))
+    }
+
+    #[test]
+    fn sample_defaults_and_overrides() {
+        assert_eq!(parse(&[]).unwrap().samples, 80);
+        assert_eq!(parse(&["--architecture-report"]).unwrap().samples, 6);
+        for arguments in [
+            ["--architecture-report", "--samples", "3"],
+            ["--samples", "3", "--architecture-report"],
+        ] {
+            let options = parse(&arguments).unwrap();
+            assert_eq!(options.mode, Mode::Architecture);
+            assert_eq!(options.samples, 3);
+        }
+    }
+
+    #[test]
+    fn invalid_arguments_do_not_run_default_benchmarks() {
+        for arguments in [
+            vec!["--lifecycle-stress"],
+            vec!["--architecture-gate"],
+            vec!["--gate-samples", "6"],
+            vec!["--unknown"],
+            vec!["--virtual-memory", "--retained-memory"],
+            vec!["--profile-workload"],
+        ] {
+            assert!(parse(&arguments).is_err(), "{arguments:?}");
+        }
+        for name in [
+            "--count",
+            "--samples",
+            "--batch",
+            "--component-count",
+            "--profile-iterations",
+        ] {
+            assert!(parse(&[name]).is_err(), "{name}");
+            for value in ["0", "-1", "invalid", "--virtual-memory"] {
+                assert!(parse(&[name, value]).is_err(), "{name} {value}");
+            }
+        }
     }
 }
