@@ -1,6 +1,14 @@
 use super::*;
 
 #[test]
+fn dialog_open_during_window_shutdown() -> Result<()> {
+    process::run("dialog", |ui| {
+        ui.element("dialog-content")?;
+        Ok(())
+    })
+}
+
+#[test]
 fn dialog_requested_at_mount_closes_and_reopens() -> Result<()> {
     process::run("dialog", |ui| {
         ui.element("dialog-content")?;

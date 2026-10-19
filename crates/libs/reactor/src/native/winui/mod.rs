@@ -552,18 +552,20 @@ impl NativeContentDialogScheduler {
         }
     }
 
-    fn reset(&mut self) {
+    fn reset(&mut self) -> Vec<native::ContentDialog> {
+        let mut hide = Vec::new();
         for state in self.dialogs.values_mut() {
             state.desired_open = false;
             state.loaded = None;
             if let Some(generation) = state.pending_generation {
                 state.suppress_generation = Some(generation);
-                _ = state.value.Hide();
+                hide.push(state.value.clone());
             }
         }
         for root in &mut self.roots {
             root.schedule.queue.clear();
         }
+        hide
     }
 }
 
@@ -1703,7 +1705,10 @@ impl Drop for WinUiAdapter {
             _ = retirement.timer.Stop();
         }
         self.retirements.clear();
-        self.event_queue.content_dialogs.borrow_mut().reset();
+        let hide = self.event_queue.content_dialogs.borrow_mut().reset();
+        for dialog in hide {
+            _ = dialog.Hide();
+        }
         self.event_queue.events.borrow_mut().clear();
         self.observations.clear();
         for target in self.menus.keys().copied().collect::<Vec<_>>() {
