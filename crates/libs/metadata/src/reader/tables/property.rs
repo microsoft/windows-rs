@@ -11,14 +11,10 @@ impl<'a> Property<'a> {
         self.str(1)
     }
 
+    /// Returns the property type, ignoring any index parameters.
     pub fn ty(&self, generics: &[Type]) -> Type {
-        let mut blob = self.blob(2);
-        let prolog = blob.read_u8();
-        debug_assert_eq!(prolog & 0x08, 0x08);
-        let params = blob.read_compressed();
-        debug_assert_eq!(params, 0);
-
-        blob.read_type_signature(generics)
+        // A PropertySig has the same layout as a MethodDefSig (ECMA-335 II.23.2.5).
+        self.blob(2).read_method_signature(generics).return_type
     }
 
     pub fn semantics(&self) -> RowIterator<'a, MethodSemantics<'a>> {
