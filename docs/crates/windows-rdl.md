@@ -143,6 +143,9 @@ class SpriteVisual: Visual {
 }
 ```
 
+A class without interfaces, such as a static class, is marked abstract in metadata because it has no
+instances. C#/WinRT requires this flag.
+
 The `crates/tests/libs/rdl/input` directory has focused `.rdl` files for syntax examples. It covers
 structs, flags, delegates, generic interfaces, unions, and more.
 
