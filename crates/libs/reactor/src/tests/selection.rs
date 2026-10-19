@@ -94,6 +94,16 @@ fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
         )),
     );
 
+    let graph = runtime.graph().clone();
+    let queued = runtime.adapter().clone();
+    for _ in 0..2 {
+        assert_eq!(
+            runtime.prepare_update(),
+            Err(UpdateError::PendingNativeEvent)
+        );
+        assert_eq!(runtime.graph(), &graph);
+        assert_eq!(runtime.adapter(), &queued);
+    }
     assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
     assert_eq!(
         runtime.graph().properties(before[0]).unwrap(),
@@ -167,7 +177,7 @@ fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
         Some(EventDispatch::new(
             owner,
             EventId::SelectionChanged,
-            EventValue::Selection(callback),
+            EventValue::Selection(callback.clone()),
             EventPayload::Selection(SelectionChange {
                 item: Some(before[1]),
                 value: Some(Rc::from("stale")),
@@ -189,6 +199,27 @@ fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
             },
         ]
     );
+
+    runtime
+        .update(
+            ListBox::new()
+                .keyed_items([
+                    keyed("first", ListBoxItem::new().tag("first").is_selected(false)),
+                    keyed("replacement", ListBoxItem::new().is_selected(true)),
+                ])
+                .on_selected_tag_changed(callback),
+        )
+        .unwrap();
+    let replacement = runtime.graph().children(owner, RelationId::Items).unwrap()[1];
+    assert_eq!(replacement.index(), before[1].index());
+    assert_ne!(replacement.generation(), before[1].generation());
+    let graph = runtime.graph().clone();
+    runtime.adapter_mut().observe(Observation::SetSelection {
+        object: owner,
+        selected: Some(before[1]),
+    });
+    runtime.prepare_update().unwrap();
+    assert_eq!(runtime.graph(), &graph);
 }
 
 #[test]
