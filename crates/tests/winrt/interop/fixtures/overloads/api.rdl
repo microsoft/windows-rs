@@ -1,0 +1,35 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Overloads {
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+        IWidget2,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // MIDL-style names, numbered within each interface.
+        #[Overload("Sum")]
+        fn Sum(&self) -> i32;
+        #[Overload("Sum2")]
+        fn Sum(&self, a: i32) -> i32;
+
+        // Explicit names. Overloads with the same arity need a default.
+        #[DefaultOverload]
+        #[Overload("Format")]
+        fn Format(&self, value: i32) -> String;
+        #[Overload("FormatText")]
+        fn Format(&self, value: String) -> String;
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget2 {
+        // MIDL numbers each interface on its own, so these names repeat those in `IWidget`.
+        #[Overload("Sum")]
+        fn Sum(&self, a: i32, b: i32) -> i32;
+        #[Overload("Sum2")]
+        fn Sum(&self, a: i32, b: i32, c: i32) -> i32;
+    }
+}
