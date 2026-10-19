@@ -1,0 +1,35 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Noexcept {
+    // Members that cannot fail, so projections return values without an error path. Implemented
+    // by both the clients and the component, so each calls the other's objects.
+    interface IValue {
+        #[NoException]
+        Number: i32;
+        #[NoException]
+        Text: String;
+        #[NoException]
+        Next: IValue;
+        // Only the getter cannot fail, so the accessors are declared separately.
+        #[get]
+        #[NoException]
+        Limit: i32;
+        #[set]
+        Limit: i32;
+        #[NoException]
+        fn Clear(&self);
+    }
+
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+        IValue,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // Calls each member of the client's `value`, which must start empty.
+        fn Check(&self, value: IValue);
+    }
+}

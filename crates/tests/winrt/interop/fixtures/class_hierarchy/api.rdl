@@ -1,0 +1,54 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod ClassHierarchy {
+    #[Activatable(1)]
+    class Compositor {
+        ICompositor,
+    }
+
+    #[ExclusiveTo(Compositor)]
+    interface ICompositor {
+        fn CreateContainerVisual(&self, children: i32) -> ContainerVisual;
+        fn CreateSpriteVisual(&self, brush: i32) -> SpriteVisual;
+
+        // Returns `visual`, so clients pass a derived class as its base and recover it.
+        fn Echo(&self, visual: Visual) -> Visual;
+    }
+
+    // A closed hierarchy: the unsealed classes have no constructors, so only the component
+    // creates instances and clients cannot derive from them.
+    #[unsealed]
+    class Visual {
+        IVisual,
+    }
+
+    #[ExclusiveTo(Visual)]
+    interface IVisual {
+        #[get]
+        Compositor: Compositor;
+    }
+
+    #[unsealed]
+    class ContainerVisual: Visual {
+        IContainerVisual,
+    }
+
+    #[ExclusiveTo(ContainerVisual)]
+    interface IContainerVisual {
+        #[get]
+        #[NoException]
+        Children: i32;
+    }
+
+    class SpriteVisual: ContainerVisual {
+        ISpriteVisual,
+    }
+
+    #[ExclusiveTo(SpriteVisual)]
+    interface ISpriteVisual {
+        #[get]
+        #[NoException]
+        Brush: i32;
+    }
+}

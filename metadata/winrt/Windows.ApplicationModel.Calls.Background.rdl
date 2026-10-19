@@ -24,36 +24,36 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(PhoneCallOriginDataRequestTriggerDetails)]
                 #[Windows::Foundation::Metadata::PreviousContractVersion("Windows.ApplicationModel.Calls.CallsPhoneContract", 65536, 196608)]
                 interface IPhoneCallOriginDataRequestTriggerDetails {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginDataRequestTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 262144, "Windows.ApplicationModel.Calls.Background.CallsBackgroundContract")]
-                    fn get_RequestId(&self) -> GUID;
-                    #[special]
+                    RequestId: GUID;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginDataRequestTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 262144, "Windows.ApplicationModel.Calls.Background.CallsBackgroundContract")]
-                    fn get_PhoneNumber(&self) -> String;
+                    PhoneNumber: String;
                 }
                 #[guid(0xbad30276_83b6_5732_9c38_0c206546196a)]
                 #[Windows::Foundation::Metadata::ContractVersion(CallsBackgroundContract, 131072)]
                 #[Windows::Foundation::Metadata::Deprecated("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 262144, "Windows.ApplicationModel.Calls.Background.CallsBackgroundContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PhoneIncomingCallDismissedTriggerDetails)]
                 interface IPhoneIncomingCallDismissedTriggerDetails {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 262144, "Windows.ApplicationModel.Calls.Background.CallsBackgroundContract")]
-                    fn get_LineId(&self) -> GUID;
-                    #[special]
+                    LineId: GUID;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 262144, "Windows.ApplicationModel.Calls.Background.CallsBackgroundContract")]
-                    fn get_PhoneNumber(&self) -> String;
-                    #[special]
+                    PhoneNumber: String;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 262144, "Windows.ApplicationModel.Calls.Background.CallsBackgroundContract")]
-                    fn get_DisplayName(&self) -> String;
-                    #[special]
+                    DisplayName: String;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 262144, "Windows.ApplicationModel.Calls.Background.CallsBackgroundContract")]
-                    fn get_DismissalTime(&self) -> super::super::super::Foundation::DateTime;
-                    #[special]
+                    DismissalTime: super::super::super::Foundation::DateTime;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 262144, "Windows.ApplicationModel.Calls.Background.CallsBackgroundContract")]
-                    fn get_TextReplyMessage(&self) -> String;
-                    #[special]
+                    TextReplyMessage: String;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 262144, "Windows.ApplicationModel.Calls.Background.CallsBackgroundContract")]
-                    fn get_Reason(&self) -> PhoneIncomingCallDismissedReason;
+                    Reason: PhoneIncomingCallDismissedReason;
                 }
                 #[guid(0x2b0e6044_9b32_5d42_8222_d2812e39fb21)]
                 #[Windows::Foundation::Metadata::ContractVersion(CallsBackgroundContract, 196608)]

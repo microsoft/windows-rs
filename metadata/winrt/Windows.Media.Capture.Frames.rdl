@@ -215,8 +215,8 @@ mod Windows {
                 interface IMediaFrameSourceGetPropertyResult {
                     #[get]
                     Status: MediaFrameSourceGetPropertyStatus;
-                    #[get]
-                    Value: Object;
+                    #[special]
+                    fn get_Value(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
                 }
                 #[guid(0x7f605b87_4832_4b5f_ae3d_412faab37d34)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]

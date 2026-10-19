@@ -166,8 +166,8 @@ mod Windows {
             interface IRetailInfoStatics {
                 #[get]
                 IsDemoModeEnabled: bool;
-                #[get]
-                Properties: super::super::Foundation::Collections::IMapView<String, Object>;
+                #[special]
+                fn get_Properties(&self) -> #[Windows::Foundation::Metadata::HasVariant] super::super::Foundation::Collections::IMapView<String, Object>;
             }
             #[guid(0x893df40e_cad6_4d50_8c49_6fcfc03edb29)]
             #[Windows::Foundation::Metadata::ContractVersion(ProfileSharedModeContract, 65536)]

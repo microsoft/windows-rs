@@ -565,11 +565,11 @@ impl INDLicenseFetchDescriptor {
             (windows_core::Interface::vtable(self).LicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub fn SetLicenseFetchChallengeCustomData<P0>(&self, licensefetchchallengecustomdata: P0) -> windows_core::Result<()>
+    pub fn SetLicenseFetchChallengeCustomData<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<INDCustomData>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), licensefetchchallengecustomdata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeName for INDLicenseFetchDescriptor {
@@ -579,7 +579,7 @@ pub trait INDLicenseFetchDescriptor_Impl: windows_core::IUnknownImpl {
     fn ContentIDType(&self) -> windows_core::Result<NDContentIDType>;
     fn ContentID(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn LicenseFetchChallengeCustomData(&self) -> windows_core::Result<INDCustomData>;
-    fn SetLicenseFetchChallengeCustomData(&self, licenseFetchChallengeCustomData: windows_core::Ref<INDCustomData>) -> windows_core::Result<()>;
+    fn SetLicenseFetchChallengeCustomData(&self, value: windows_core::Ref<INDCustomData>) -> windows_core::Result<()>;
 }
 impl INDLicenseFetchDescriptor_Vtbl {
     pub const fn new<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>() -> Self {
@@ -622,10 +622,10 @@ impl INDLicenseFetchDescriptor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLicenseFetchChallengeCustomData<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchchallengecustomdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLicenseFetchChallengeCustomData<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDLicenseFetchDescriptor_Impl::SetLicenseFetchChallengeCustomData(this, core::mem::transmute_copy(&licensefetchchallengecustomdata)).into()
+                INDLicenseFetchDescriptor_Impl::SetLicenseFetchChallengeCustomData(this, core::mem::transmute_copy(&value)).into()
             }
         }
         Self {
@@ -900,8 +900,8 @@ impl INDRegistrationCompletedEventArgs {
             (windows_core::Interface::vtable(self).TransmitterCertificateAccepted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTransmitterCertificateAccepted(&self, accept: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetTransmitterCertificateAccepted)(windows_core::Interface::as_raw(self), accept).ok() }
+    pub fn SetTransmitterCertificateAccepted(&self, value: bool) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetTransmitterCertificateAccepted)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
 impl windows_core::RuntimeName for INDRegistrationCompletedEventArgs {
@@ -911,7 +911,7 @@ pub trait INDRegistrationCompletedEventArgs_Impl: windows_core::IUnknownImpl {
     fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
     fn TransmitterProperties(&self) -> windows_core::Result<INDTransmitterProperties>;
     fn TransmitterCertificateAccepted(&self) -> windows_core::Result<bool>;
-    fn SetTransmitterCertificateAccepted(&self, accept: bool) -> windows_core::Result<()>;
+    fn SetTransmitterCertificateAccepted(&self, value: bool) -> windows_core::Result<()>;
 }
 impl INDRegistrationCompletedEventArgs_Vtbl {
     pub const fn new<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>() -> Self {
@@ -953,10 +953,10 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetTransmitterCertificateAccepted<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accept: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransmitterCertificateAccepted<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDRegistrationCompletedEventArgs_Impl::SetTransmitterCertificateAccepted(this, accept).into()
+                INDRegistrationCompletedEventArgs_Impl::SetTransmitterCertificateAccepted(this, value).into()
             }
         }
         Self {
@@ -3356,11 +3356,11 @@ impl NDLicenseFetchDescriptor {
             (windows_core::Interface::vtable(self).LicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub fn SetLicenseFetchChallengeCustomData<P0>(&self, licensefetchchallengecustomdata: P0) -> windows_core::Result<()>
+    pub fn SetLicenseFetchChallengeCustomData<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<INDCustomData>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), licensefetchchallengecustomdata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     pub fn CreateInstance<P2>(contentidtype: NDContentIDType, contentidbytes: &[u8], licensefetchchallengecustomdata: P2) -> windows_core::Result<Self>
     where
@@ -4704,8 +4704,8 @@ impl PlayReadyMeteringReportServiceRequest {
             (windows_core::Interface::vtable(self).MeteringCertificate)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn SetMeteringCertificate(&self, value: &[u8]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMeteringCertificate)(windows_core::Interface::as_raw(self), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    pub fn SetMeteringCertificate(&self, meteringcertbytes: &[u8]) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetMeteringCertificate)(windows_core::Interface::as_raw(self), meteringcertbytes.len().try_into().unwrap(), meteringcertbytes.as_ptr()).ok() }
     }
     pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;

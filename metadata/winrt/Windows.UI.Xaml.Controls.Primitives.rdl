@@ -913,24 +913,12 @@ mod Windows {
                         DisabledOpacity: f64;
                         DragOpacity: f64;
                         ReorderHintOffset: f64;
-                        #[special]
                         #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.HorizontalContentAlignment instead of GridViewItemPresenterHorizontalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn get_GridViewItemPresenterHorizontalContentAlignment(&self) -> super::super::HorizontalAlignment;
-                        #[special]
-                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.HorizontalContentAlignment instead of GridViewItemPresenterHorizontalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn put_GridViewItemPresenterHorizontalContentAlignment(&self, value: super::super::HorizontalAlignment);
-                        #[special]
+                        GridViewItemPresenterHorizontalContentAlignment: super::super::HorizontalAlignment;
                         #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.VerticalContentAlignment instead of GridViewItemPresenterVerticalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn get_GridViewItemPresenterVerticalContentAlignment(&self) -> super::super::VerticalAlignment;
-                        #[special]
-                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.VerticalContentAlignment instead of GridViewItemPresenterVerticalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn put_GridViewItemPresenterVerticalContentAlignment(&self, value: super::super::VerticalAlignment);
-                        #[special]
+                        GridViewItemPresenterVerticalContentAlignment: super::super::VerticalAlignment;
                         #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.Padding instead of GridViewItemPresenterPadding. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn get_GridViewItemPresenterPadding(&self) -> super::super::Thickness;
-                        #[special]
-                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.Padding instead of GridViewItemPresenterPadding. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn put_GridViewItemPresenterPadding(&self, value: super::super::Thickness);
+                        GridViewItemPresenterPadding: super::super::Thickness;
                         PointerOverBackgroundMargin: super::super::Thickness;
                         ContentMargin: super::super::Thickness;
                     }
@@ -980,15 +968,15 @@ mod Windows {
                         DragOpacityProperty: super::super::DependencyProperty;
                         #[get]
                         ReorderHintOffsetProperty: super::super::DependencyProperty;
-                        #[special]
+                        #[get]
                         #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.HorizontalContentAlignment instead of GridViewItemPresenterHorizontalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn get_GridViewItemPresenterHorizontalContentAlignmentProperty(&self) -> super::super::DependencyProperty;
-                        #[special]
+                        GridViewItemPresenterHorizontalContentAlignmentProperty: super::super::DependencyProperty;
+                        #[get]
                         #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.VerticalContentAlignment instead of GridViewItemPresenterVerticalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn get_GridViewItemPresenterVerticalContentAlignmentProperty(&self) -> super::super::DependencyProperty;
-                        #[special]
+                        GridViewItemPresenterVerticalContentAlignmentProperty: super::super::DependencyProperty;
+                        #[get]
                         #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.Padding instead of GridViewItemPresenterPadding. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn get_GridViewItemPresenterPaddingProperty(&self) -> super::super::DependencyProperty;
+                        GridViewItemPresenterPaddingProperty: super::super::DependencyProperty;
                         #[get]
                         PointerOverBackgroundMarginProperty: super::super::DependencyProperty;
                         #[get]
@@ -1096,24 +1084,12 @@ mod Windows {
                         DisabledOpacity: f64;
                         DragOpacity: f64;
                         ReorderHintOffset: f64;
-                        #[special]
                         #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.HorizontalContentAlignment instead of ListViewItemPresenterHorizontalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn get_ListViewItemPresenterHorizontalContentAlignment(&self) -> super::super::HorizontalAlignment;
-                        #[special]
-                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.HorizontalContentAlignment instead of ListViewItemPresenterHorizontalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn put_ListViewItemPresenterHorizontalContentAlignment(&self, value: super::super::HorizontalAlignment);
-                        #[special]
+                        ListViewItemPresenterHorizontalContentAlignment: super::super::HorizontalAlignment;
                         #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.VerticalContentAlignment instead of ListViewItemPresenterVerticalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn get_ListViewItemPresenterVerticalContentAlignment(&self) -> super::super::VerticalAlignment;
-                        #[special]
-                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.VerticalContentAlignment instead of ListViewItemPresenterVerticalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn put_ListViewItemPresenterVerticalContentAlignment(&self, value: super::super::VerticalAlignment);
-                        #[special]
+                        ListViewItemPresenterVerticalContentAlignment: super::super::VerticalAlignment;
                         #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.Padding instead of GridViewItemPresenterPadding. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn get_ListViewItemPresenterPadding(&self) -> super::super::Thickness;
-                        #[special]
-                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.Padding instead of GridViewItemPresenterPadding. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn put_ListViewItemPresenterPadding(&self, value: super::super::Thickness);
+                        ListViewItemPresenterPadding: super::super::Thickness;
                         PointerOverBackgroundMargin: super::super::Thickness;
                         ContentMargin: super::super::Thickness;
                     }
@@ -1218,15 +1194,15 @@ mod Windows {
                         DragOpacityProperty: super::super::DependencyProperty;
                         #[get]
                         ReorderHintOffsetProperty: super::super::DependencyProperty;
-                        #[special]
+                        #[get]
                         #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.HorizontalContentAlignment instead of ListViewItemPresenterHorizontalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn get_ListViewItemPresenterHorizontalContentAlignmentProperty(&self) -> super::super::DependencyProperty;
-                        #[special]
+                        ListViewItemPresenterHorizontalContentAlignmentProperty: super::super::DependencyProperty;
+                        #[get]
                         #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.VerticalContentAlignment instead of ListViewItemPresenterVerticalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn get_ListViewItemPresenterVerticalContentAlignmentProperty(&self) -> super::super::DependencyProperty;
-                        #[special]
+                        ListViewItemPresenterVerticalContentAlignmentProperty: super::super::DependencyProperty;
+                        #[get]
                         #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.Padding instead of GridViewItemPresenterPadding. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn get_ListViewItemPresenterPaddingProperty(&self) -> super::super::DependencyProperty;
+                        ListViewItemPresenterPaddingProperty: super::super::DependencyProperty;
                         #[get]
                         PointerOverBackgroundMarginProperty: super::super::DependencyProperty;
                         #[get]

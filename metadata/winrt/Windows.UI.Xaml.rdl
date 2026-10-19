@@ -2040,18 +2040,18 @@ mod Windows {
                 DropEvent: RoutedEvent;
                 #[get]
                 AllowDropProperty: DependencyProperty;
-                #[special]
+                #[get]
                 #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                fn get_OpacityProperty(&self) -> DependencyProperty;
-                #[special]
+                OpacityProperty: DependencyProperty;
+                #[get]
                 #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                fn get_ClipProperty(&self) -> DependencyProperty;
-                #[special]
+                ClipProperty: DependencyProperty;
+                #[get]
                 #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                fn get_RenderTransformProperty(&self) -> DependencyProperty;
-                #[special]
+                RenderTransformProperty: DependencyProperty;
+                #[get]
                 #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                fn get_ProjectionProperty(&self) -> DependencyProperty;
+                ProjectionProperty: DependencyProperty;
                 #[get]
                 RenderTransformOriginProperty: DependencyProperty;
                 #[get]
@@ -2098,9 +2098,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(UIElement)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IUIElementStatics3 {
-                #[special]
+                #[get]
                 #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                fn get_Transform3DProperty(&self) -> DependencyProperty;
+                Transform3DProperty: DependencyProperty;
                 #[get]
                 CanDragProperty: DependencyProperty;
                 fn TryStartDirectManipulation(&self, value: Input::Pointer) -> bool;

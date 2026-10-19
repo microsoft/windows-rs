@@ -1,0 +1,26 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Callback {
+    // Implemented by both the clients and the component, so each calls the other's objects.
+    interface IValue {
+        Current: i32;
+
+        // Returns `Current + other.Current`, failing with `E_POINTER` if `other` is null.
+        fn Add(&self, other: IValue) -> i32;
+
+        // Returns a new object of the same implementation.
+        fn Create(&self, current: i32, result: &mut IValue);
+    }
+
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // Calls each method of the client's `value`, which must start at zero.
+        fn Check(&self, value: IValue);
+    }
+}

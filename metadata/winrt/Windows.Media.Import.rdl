@@ -194,15 +194,15 @@ mod Windows {
                 Stage: PhotoImportStage;
                 #[get]
                 Session: PhotoImportSession;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn get_ContinueFindingItemsAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>;
-                #[special]
+                ContinueFindingItemsAsync: super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>;
+                #[get]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn get_ContinueImportingItemsAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>;
-                #[special]
+                ContinueImportingItemsAsync: super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>;
+                #[get]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn get_ContinueDeletingImportedItemsFromSourceAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>;
+                ContinueDeletingImportedItemsFromSourceAsync: super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>;
             }
             #[guid(0x10461782_fa9d_4c30_8bc9_4d64911572d5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

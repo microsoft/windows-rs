@@ -176,8 +176,8 @@ mod Windows {
                 #[guid(0x9a2257bf_fe61_43d8_a24f_a3f6ab7320e7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface IPrintItemListOptionDetails: IPrintOptionDetails {
-                    #[get]
-                    Items: super::super::super::Foundation::Collections::IVectorView<Object>;
+                    #[special]
+                    fn get_Items(&self) -> #[Windows::Foundation::Metadata::HasVariant] super::super::super::Foundation::Collections::IVectorView<Object>;
                 }
                 #[guid(0x6c8d5bcf_c0bf_47c8_b84a_628e7d0d1a1d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -228,8 +228,8 @@ mod Windows {
                     State: PrintOptionStates;
                     #[get]
                     State: PrintOptionStates;
-                    #[get]
-                    Value: Object;
+                    #[special]
+                    fn get_Value(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
                     fn TrySetValue(&self, #[Windows::Foundation::Metadata::Variant] value: Object) -> bool;
                 }
                 #[guid(0x46c38879_66e0_4da0_87b4_d25457824eb7)]
@@ -288,8 +288,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptionChangedEventArgs)]
                 interface IPrintTaskOptionChangedEventArgs {
-                    #[get]
-                    OptionId: Object;
+                    #[special]
+                    fn get_OptionId(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
                 }
                 #[guid(0xf5720af1_a89e_42a6_81af_f8e010b38a68)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

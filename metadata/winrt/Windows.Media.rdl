@@ -79,105 +79,57 @@ mod Windows {
         #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
         #[Windows::Foundation::Metadata::ExclusiveTo(MediaControl)]
         interface IMediaControl {
-            #[special]
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn add_SoundLevelChanged(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
-            #[special]
+            event SoundLevelChanged: super::Foundation::EventHandler<Object>;
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn remove_SoundLevelChanged(&self, cookie: super::Foundation::EventRegistrationToken);
-            #[special]
+            event PlayPressed: super::Foundation::EventHandler<Object>;
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn add_PlayPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
-            #[special]
+            event PausePressed: super::Foundation::EventHandler<Object>;
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn remove_PlayPressed(&self, cookie: super::Foundation::EventRegistrationToken);
-            #[special]
+            event StopPressed: super::Foundation::EventHandler<Object>;
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn add_PausePressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
-            #[special]
+            event PlayPauseTogglePressed: super::Foundation::EventHandler<Object>;
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn remove_PausePressed(&self, cookie: super::Foundation::EventRegistrationToken);
-            #[special]
+            event RecordPressed: super::Foundation::EventHandler<Object>;
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn add_StopPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
-            #[special]
+            event NextTrackPressed: super::Foundation::EventHandler<Object>;
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn remove_StopPressed(&self, cookie: super::Foundation::EventRegistrationToken);
-            #[special]
+            event PreviousTrackPressed: super::Foundation::EventHandler<Object>;
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn add_PlayPauseTogglePressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
-            #[special]
+            event FastForwardPressed: super::Foundation::EventHandler<Object>;
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn remove_PlayPauseTogglePressed(&self, cookie: super::Foundation::EventRegistrationToken);
-            #[special]
+            event RewindPressed: super::Foundation::EventHandler<Object>;
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn add_RecordPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
-            #[special]
+            event ChannelUpPressed: super::Foundation::EventHandler<Object>;
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn remove_RecordPressed(&self, cookie: super::Foundation::EventRegistrationToken);
-            #[special]
+            event ChannelDownPressed: super::Foundation::EventHandler<Object>;
+            #[get]
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn add_NextTrackPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
-            #[special]
+            SoundLevel: SoundLevel;
+            #[set]
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn remove_NextTrackPressed(&self, cookie: super::Foundation::EventRegistrationToken);
-            #[special]
+            TrackName: String;
+            #[get]
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn add_PreviousTrackPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
-            #[special]
+            TrackName: String;
+            #[set]
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn remove_PreviousTrackPressed(&self, cookie: super::Foundation::EventRegistrationToken);
-            #[special]
+            ArtistName: String;
+            #[get]
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn add_FastForwardPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
-            #[special]
+            ArtistName: String;
+            #[set]
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn remove_FastForwardPressed(&self, cookie: super::Foundation::EventRegistrationToken);
-            #[special]
+            IsPlaying: bool;
+            #[get]
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn add_RewindPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
-            #[special]
+            IsPlaying: bool;
+            #[set]
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn remove_RewindPressed(&self, cookie: super::Foundation::EventRegistrationToken);
-            #[special]
+            AlbumArt: super::Foundation::Uri;
+            #[get]
             #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn add_ChannelUpPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
-            #[special]
-            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn remove_ChannelUpPressed(&self, cookie: super::Foundation::EventRegistrationToken);
-            #[special]
-            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn add_ChannelDownPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
-            #[special]
-            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn remove_ChannelDownPressed(&self, cookie: super::Foundation::EventRegistrationToken);
-            #[special]
-            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn get_SoundLevel(&self) -> SoundLevel;
-            #[special]
-            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn put_TrackName(&self, value: String);
-            #[special]
-            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn get_TrackName(&self) -> String;
-            #[special]
-            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn put_ArtistName(&self, value: String);
-            #[special]
-            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn get_ArtistName(&self) -> String;
-            #[special]
-            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn put_IsPlaying(&self, value: bool);
-            #[special]
-            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn get_IsPlaying(&self) -> bool;
-            #[special]
-            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn put_AlbumArt(&self, value: super::Foundation::Uri);
-            #[special]
-            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
-            fn get_AlbumArt(&self) -> super::Foundation::Uri;
+            AlbumArt: super::Foundation::Uri;
         }
         #[guid(0x07915118_45df_442b_8a3f_f7826a6370ab)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]

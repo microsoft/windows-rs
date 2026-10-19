@@ -132,30 +132,26 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SettingsPane)]
             interface ISettingsPane {
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
-                fn add_CommandsRequested(&self, handler: super::super::Foundation::TypedEventHandler<SettingsPane, SettingsPaneCommandsRequestedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
-                fn remove_CommandsRequested(&self, cookie: super::super::Foundation::EventRegistrationToken);
+                event CommandsRequested: super::super::Foundation::TypedEventHandler<SettingsPane, SettingsPaneCommandsRequestedEventArgs>;
             }
             #[guid(0x44df23ae_5d6e_4068_a168_f47643182114)]
             #[Windows::Foundation::Metadata::ContractVersion(ApplicationsSettingsContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("SettingsPaneCommandsRequest is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SettingsPaneCommandsRequest)]
             interface ISettingsPaneCommandsRequest {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SettingsPaneCommandsRequest is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
-                fn get_ApplicationCommands(&self) -> super::super::Foundation::Collections::IVector<SettingsCommand>;
+                ApplicationCommands: super::super::Foundation::Collections::IVector<SettingsCommand>;
             }
             #[guid(0x205f5d24_1b48_4629_a6ca_2fdfedafb75d)]
             #[Windows::Foundation::Metadata::ContractVersion(ApplicationsSettingsContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("SettingsPaneCommandsRequestedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SettingsPaneCommandsRequestedEventArgs)]
             interface ISettingsPaneCommandsRequestedEventArgs {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SettingsPaneCommandsRequestedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
-                fn get_Request(&self) -> SettingsPaneCommandsRequest;
+                Request: SettingsPaneCommandsRequest;
             }
             #[guid(0x1c6a52c5_ff19_471b_ba6b_f8f35694ad9a)]
             #[Windows::Foundation::Metadata::ContractVersion(ApplicationsSettingsContract, 65536)]
@@ -166,9 +162,9 @@ mod Windows {
                 fn GetForCurrentView(&self) -> SettingsPane;
                 #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
                 fn Show(&self);
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
-                fn get_Edge(&self) -> SettingsEdgeLocation;
+                Edge: SettingsEdgeLocation;
             }
             #[guid(0xcaa39398_9cfa_4246_b0c4_a913a3896541)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

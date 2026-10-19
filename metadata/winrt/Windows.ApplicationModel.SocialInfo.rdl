@@ -7,183 +7,103 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SocialFeedChildItem)]
             interface ISocialFeedChildItem {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_Author(&self) -> SocialUserInfo;
-                #[special]
+                Author: SocialUserInfo;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_PrimaryContent(&self) -> SocialFeedContent;
-                #[special]
+                PrimaryContent: SocialFeedContent;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_SecondaryContent(&self) -> SocialFeedContent;
-                #[special]
+                SecondaryContent: SocialFeedContent;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_Timestamp(&self) -> super::super::Foundation::DateTime;
-                #[special]
+                Timestamp: super::super::Foundation::DateTime;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_Timestamp(&self, value: super::super::Foundation::DateTime);
-                #[special]
+                TargetUri: super::super::Foundation::Uri;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_TargetUri(&self) -> super::super::Foundation::Uri;
-                #[special]
+                Thumbnails: super::super::Foundation::Collections::IVector<SocialItemThumbnail>;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_TargetUri(&self, value: super::super::Foundation::Uri);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_Thumbnails(&self) -> super::super::Foundation::Collections::IVector<SocialItemThumbnail>;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_SharedItem(&self) -> SocialFeedSharedItem;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_SharedItem(&self, value: SocialFeedSharedItem);
+                SharedItem: SocialFeedSharedItem;
             }
             #[guid(0xa234e429_3e39_494d_a37c_f462a2494514)]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISocialFeedContent is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SocialFeedContent)]
             interface ISocialFeedContent {
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedContent is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_Title(&self) -> String;
-                #[special]
+                Title: String;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedContent is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_Title(&self, value: String);
-                #[special]
+                Message: String;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedContent is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_Message(&self) -> String;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedContent is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_Message(&self, value: String);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedContent is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_TargetUri(&self) -> super::super::Foundation::Uri;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedContent is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_TargetUri(&self, value: super::super::Foundation::Uri);
+                TargetUri: super::super::Foundation::Uri;
             }
             #[guid(0x4f1392ab_1f72_4d33_b695_de3e1db60317)]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SocialFeedItem)]
             interface ISocialFeedItem {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_Author(&self) -> SocialUserInfo;
-                #[special]
+                Author: SocialUserInfo;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_PrimaryContent(&self) -> SocialFeedContent;
-                #[special]
+                PrimaryContent: SocialFeedContent;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_SecondaryContent(&self) -> SocialFeedContent;
-                #[special]
+                SecondaryContent: SocialFeedContent;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_Timestamp(&self) -> super::super::Foundation::DateTime;
-                #[special]
+                Timestamp: super::super::Foundation::DateTime;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_Timestamp(&self, value: super::super::Foundation::DateTime);
-                #[special]
+                TargetUri: super::super::Foundation::Uri;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_TargetUri(&self) -> super::super::Foundation::Uri;
-                #[special]
+                Thumbnails: super::super::Foundation::Collections::IVector<SocialItemThumbnail>;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_TargetUri(&self, value: super::super::Foundation::Uri);
-                #[special]
+                SharedItem: SocialFeedSharedItem;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_Thumbnails(&self) -> super::super::Foundation::Collections::IVector<SocialItemThumbnail>;
-                #[special]
+                BadgeStyle: SocialItemBadgeStyle;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_SharedItem(&self) -> SocialFeedSharedItem;
-                #[special]
+                BadgeCountValue: i32;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_SharedItem(&self, value: SocialFeedSharedItem);
-                #[special]
+                RemoteId: String;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_BadgeStyle(&self) -> SocialItemBadgeStyle;
-                #[special]
+                ChildItem: SocialFeedChildItem;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_BadgeStyle(&self, value: SocialItemBadgeStyle);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_BadgeCountValue(&self) -> i32;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_BadgeCountValue(&self, value: i32);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_RemoteId(&self) -> String;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_RemoteId(&self, value: String);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_ChildItem(&self) -> SocialFeedChildItem;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_ChildItem(&self, value: SocialFeedChildItem);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_Style(&self) -> SocialFeedItemStyle;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_Style(&self, value: SocialFeedItemStyle);
+                Style: SocialFeedItemStyle;
             }
             #[guid(0x7bfb9e40_a6aa_45a7_9ff6_54c42105dd1f)]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SocialFeedSharedItem)]
             interface ISocialFeedSharedItem {
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_OriginalSource(&self) -> super::super::Foundation::Uri;
-                #[special]
+                OriginalSource: super::super::Foundation::Uri;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_OriginalSource(&self, value: super::super::Foundation::Uri);
-                #[special]
+                Content: SocialFeedContent;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_Content(&self) -> SocialFeedContent;
-                #[special]
+                Timestamp: super::super::Foundation::DateTime;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_Timestamp(&self) -> super::super::Foundation::DateTime;
-                #[special]
+                TargetUri: super::super::Foundation::Uri;
+                #[set]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_Timestamp(&self, value: super::super::Foundation::DateTime);
-                #[special]
+                Thumbnail: SocialItemThumbnail;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_TargetUri(&self) -> super::super::Foundation::Uri;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_TargetUri(&self, value: super::super::Foundation::Uri);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_Thumbnail(&self, value: SocialItemThumbnail);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_Thumbnail(&self) -> SocialItemThumbnail;
+                Thumbnail: SocialItemThumbnail;
             }
             #[guid(0x5cbf831a_3f08_497f_917f_57e09d84b141)]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISocialItemThumbnail is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SocialItemThumbnail)]
             interface ISocialItemThumbnail {
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialItemThumbnail is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_TargetUri(&self) -> super::super::Foundation::Uri;
-                #[special]
+                TargetUri: super::super::Foundation::Uri;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialItemThumbnail is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_TargetUri(&self, value: super::super::Foundation::Uri);
-                #[special]
+                ImageUri: super::super::Foundation::Uri;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialItemThumbnail is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_ImageUri(&self) -> super::super::Foundation::Uri;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialItemThumbnail is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_ImageUri(&self, value: super::super::Foundation::Uri);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialItemThumbnail is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_BitmapSize(&self) -> super::super::Graphics::Imaging::BitmapSize;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialItemThumbnail is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_BitmapSize(&self, value: super::super::Graphics::Imaging::BitmapSize);
+                BitmapSize: super::super::Graphics::Imaging::BitmapSize;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialItemThumbnail is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SetImageAsync(&self, image: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncAction;
@@ -193,30 +113,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("ISocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SocialUserInfo)]
             interface ISocialUserInfo {
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_DisplayName(&self) -> String;
-                #[special]
+                DisplayName: String;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_DisplayName(&self, value: String);
-                #[special]
+                UserName: String;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_UserName(&self) -> String;
-                #[special]
+                RemoteId: String;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_UserName(&self, value: String);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_RemoteId(&self) -> String;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_RemoteId(&self, value: String);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn get_TargetUri(&self) -> super::super::Foundation::Uri;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ISocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                fn put_TargetUri(&self, value: super::super::Foundation::Uri);
+                TargetUri: super::super::Foundation::Uri;
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]

@@ -212,12 +212,8 @@ mod Windows {
                 ServerCredential: super::super::Security::Credentials::PasswordCredential;
                 ProxyCredential: super::super::Security::Credentials::PasswordCredential;
                 Method: String;
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("Group may be altered or unavailable for releases after Windows 8.1. Instead, use TransferGroup.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_Group(&self) -> String;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Group may be altered or unavailable for releases after Windows 8.1. Instead, use TransferGroup.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_Group(&self, value: String);
+                Group: String;
                 CostPolicy: BackgroundTransferCostPolicy;
             }
             #[guid(0x2d930225_986b_574d_7950_0add47f5d706)]
@@ -282,9 +278,9 @@ mod Windows {
                 RequestedUri: super::super::Foundation::Uri;
                 #[get]
                 Method: String;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Group may be altered or unavailable for releases after Windows 8.1. Instead, use TransferGroup.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_Group(&self) -> String;
+                Group: String;
                 CostPolicy: BackgroundTransferCostPolicy;
                 fn GetResultStreamAt(&self, position: u64) -> super::super::Storage::Streams::IInputStream;
                 fn GetResponseInformation(&self) -> ResponseInformation;
@@ -458,9 +454,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("IUnconstrainedTransferRequestResult is deprecated and may not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(UnconstrainedTransferRequestResult)]
             interface IUnconstrainedTransferRequestResult {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IsUnconstrained is deprecated and may not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn get_IsUnconstrained(&self) -> bool;
+                IsUnconstrained: bool;
             }
             #[guid(0x3e5624e0_7389_434c_8b35_427fd36bbdae)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

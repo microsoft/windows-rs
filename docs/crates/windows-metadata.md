@@ -27,7 +27,8 @@ focused type query.
    `Index::new`.
 2. Locate a type with `get` when duplicates are possible or `expect` when exactly one definition is
    an invariant.
-3. Inspect `category`, `extends`, fields, methods, signatures, attributes, and nested types.
+3. Inspect `category`, `extends`, fields, methods, properties, events, signatures, attributes, and
+   nested types.
 4. Keep rows borrowed from the index; use `leak` or `read_static` only when a tool requires
    process-lifetime rows.
 
@@ -60,6 +61,7 @@ use the writer directly when a tool is copying or synthesizing table rows.
 | Read bytes already in memory | `reader::File::new` |
 | Query several files together | `reader::Index::new` |
 | Select one architecture | `reader::Index::new_for_architecture` |
+| Find property and event accessors | `TypeDef::properties`, `TypeDef::events` |
 | Merge ordinary winmds | `merge().input(...).output(...).merge()` |
 | Merge per-architecture winmds | `merge().arch_input(path, bits)` |
 | Union compatible duplicate enums | `Merger::union_enums` |

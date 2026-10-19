@@ -45,9 +45,9 @@ mod Windows {
             interface ICurrencyFormatter: INumberFormatterOptions + INumberFormatter + INumberFormatter2 + INumberParser {
                 #[get]
                 Currency: String;
-                #[special]
+                #[set]
                 #[Windows::Foundation::Metadata::Deprecated("Currency may be read-only for releases after Windows 8.1. Instead, use a new CurrencyFormatter.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_Currency(&self, value: String);
+                Currency: String;
             }
             #[guid(0x072c2f1d_e7ba_4197_920e_247c92f7dea6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

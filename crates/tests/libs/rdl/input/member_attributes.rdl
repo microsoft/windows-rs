@@ -1,0 +1,39 @@
+#[winrt]
+mod Test {
+    attribute FirstAttribute {
+        fn();
+    }
+    delegate fn Handler();
+    interface IInterface {
+        #[First]
+        Both: i32;
+        #[get]
+        #[Second(1)]
+        Getter: String;
+        #[set]
+        #[First]
+        #[Second(2)]
+        Setter: i32;
+        #[get]
+        #[First]
+        Mismatched: i32;
+        #[set]
+        #[Second(3)]
+        Mismatched: i32;
+        #[First]
+        event Changed: Handler;
+        #[special]
+        fn get_Indexed(&self, index: i32) -> i32;
+        #[special]
+        fn get_Annotated(&self) -> #[Second(4)] i32;
+        #[special]
+        fn put_Annotated(&self, #[First] value: i32);
+        #[special]
+        fn add_Custom(&self, handler: Handler) -> i32;
+        #[special]
+        fn remove_Custom(&self, token: i32);
+    }
+    attribute SecondAttribute {
+        fn(value: i32);
+    }
+}

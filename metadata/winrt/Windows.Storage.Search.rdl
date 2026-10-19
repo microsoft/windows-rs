@@ -274,7 +274,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ValueAndLanguage)]
             interface IValueAndLanguage {
                 Language: String;
-                Value: Object;
+                #[special]
+                fn get_Value(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
+                #[special]
+                fn put_Value(&self, #[Windows::Foundation::Metadata::Variant] value: Object);
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

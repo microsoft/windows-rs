@@ -939,9 +939,9 @@ mod Windows {
                 IsWakeOnApproachSupported: bool;
                 #[get]
                 IsLockOnLeaveSupported: bool;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use IsAdaptiveDimmingSupported instead of IsAttentionAwareDimmingSupported.", Deprecate, 983040, "Windows.Foundation.UniversalApiContract")]
-                fn get_IsAttentionAwareDimmingSupported(&self) -> bool;
+                IsAttentionAwareDimmingSupported: bool;
             }
             #[guid(0x08a9cdda_d929_5ec2_81e2_940bafa089cf)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -1083,12 +1083,8 @@ mod Windows {
                 IsLockOnLeaveEnabled: bool;
                 LockOnLeaveDistanceInMillimeters: super::super::Foundation::IReference<u32>;
                 LockOnLeaveTimeout: super::super::Foundation::TimeSpan;
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("Use IsAdaptiveDimmingEnabled instead of IsAttentionAwareDimmingEnabled.", Deprecate, 983040, "Windows.Foundation.UniversalApiContract")]
-                fn get_IsAttentionAwareDimmingEnabled(&self) -> bool;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use IsAdaptiveDimmingEnabled instead of IsAttentionAwareDimmingEnabled.", Deprecate, 983040, "Windows.Foundation.UniversalApiContract")]
-                fn put_IsAttentionAwareDimmingEnabled(&self, value: bool);
+                IsAttentionAwareDimmingEnabled: bool;
             }
             #[guid(0xa26f705e_8696_5eb4_b9e1_26a508de1cd4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
