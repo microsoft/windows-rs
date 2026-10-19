@@ -147,6 +147,17 @@ name = "FontWeight"
 value = "FontWeight"
 
 [[objects.properties]]
+name = "FontFamily"
+adapter = "font_family"
+
+[[objects.properties]]
+name = "CharacterSpacing"
+
+[[objects.properties]]
+name = "LineHeight"
+validation = "finite_non_negative"
+
+[[objects.properties]]
 name = "Foreground"
 adapter = "theme_brush"
 

@@ -16,6 +16,7 @@ mod retirement;
 mod selection;
 mod timer;
 mod tray;
+mod typography;
 mod window;
 
 #[derive(Clone, Copy, PartialEq)]
@@ -295,6 +296,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
             WindowPolicy::new().client_size(480.0, 320.0),
         )?,
         "text" => App::run_component::<TextFixture>(())?,
+        "typography" => App::run_component::<typography::TypographyFixture>(())?,
         "keyed-reorder" => App::run_component::<ReorderFixture>(())?,
         "pointer-capture-mounted" => pointer::run(true, true)?,
         "pointer-capture-added" => pointer::run(true, false)?,

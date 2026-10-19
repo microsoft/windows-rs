@@ -3901,6 +3901,53 @@ impl GeneratedHandle {
                     })
                     .map_err(Into::into),
             ),
+            (Self::TextBlock(object), PropertyId::FontFamily, None) => Some(
+                object
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::TextBlock::FontFamilyProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (
+                Self::TextBlock(object),
+                PropertyId::FontFamily,
+                Some(PropertyValue::String(value)),
+            ) => Some(
+                native::FontFamily::CreateInstanceWithName(value.as_ref())
+                    .and_then(|value| object.SetFontFamily(&value))
+                    .map_err(Into::into),
+            ),
+            (Self::TextBlock(object), PropertyId::CharacterSpacing, None) => Some(
+                object
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::TextBlock::CharacterSpacingProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (
+                Self::TextBlock(object),
+                PropertyId::CharacterSpacing,
+                Some(PropertyValue::I32(value)),
+            ) => Some(object.SetCharacterSpacing(*value).map_err(Into::into)),
+            (Self::TextBlock(object), PropertyId::LineHeight, None) => Some(
+                object
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::TextBlock::LineHeightProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (Self::TextBlock(object), PropertyId::LineHeight, Some(PropertyValue::F64(value))) => {
+                Some(object.SetLineHeight(*value).map_err(Into::into))
+            }
             (Self::TextBlock(object), PropertyId::Foreground, None) => Some(
                 object
                     .cast::<native::IDependencyObject>()
