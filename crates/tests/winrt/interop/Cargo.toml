@@ -13,7 +13,6 @@ doctest = false
 test = false
 
 [dependencies]
-windows = { workspace = true, features = ["activation", "winerror"] }
 windows-core = { workspace = true, default-features = true }
 windows-collections = { workspace = true, features = ["std"] }
 
