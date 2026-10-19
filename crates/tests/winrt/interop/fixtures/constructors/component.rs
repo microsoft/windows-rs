@@ -1,5 +1,6 @@
 use super::*;
 use Constructors::*;
+use std::sync::atomic::{AtomicI32, Ordering};
 
 pub fn factory(name: &str) -> Option<IActivationFactory> {
     match name {
@@ -35,8 +36,23 @@ impl IWidgetFactory_Impl for WidgetFactory_Impl {
     }
 }
 
+static INSTANCES: AtomicI32 = AtomicI32::new(0);
+
 #[implement(Constructors::Base)]
 struct Base(i32);
+
+impl Base {
+    fn new(value: i32) -> Self {
+        INSTANCES.fetch_add(1, Ordering::Relaxed);
+        Self(value)
+    }
+}
+
+impl Drop for Base {
+    fn drop(&mut self) {
+        INSTANCES.fetch_sub(1, Ordering::Relaxed);
+    }
+}
 
 impl IBase_Impl for Base_Impl {
     fn Value(&self) -> Result<i32> {
@@ -45,8 +61,14 @@ impl IBase_Impl for Base_Impl {
 }
 
 /// All of a composable class's constructors use the factory interface.
-#[implement(IActivationFactory, IBaseFactory)]
+#[implement(IActivationFactory, IBaseFactory, IBaseStatics)]
 struct BaseFactory;
+
+impl IBaseStatics_Impl for BaseFactory_Impl {
+    fn Instances(&self) -> Result<i32> {
+        Ok(INSTANCES.load(Ordering::Relaxed))
+    }
+}
 
 impl IActivationFactory_Impl for BaseFactory_Impl {
     fn ActivateInstance(&self) -> Result<IInspectable> {
@@ -69,7 +91,7 @@ impl BaseFactory_Impl {
             return Err(CLASS_E_NOAGGREGATION.into());
         }
 
-        let base: Constructors::Base = Base(value).into();
+        let base: Constructors::Base = Base::new(value).into();
         inner.write(Some(base.clone().into()))?;
         Ok(base)
     }

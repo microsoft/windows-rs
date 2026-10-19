@@ -22,8 +22,16 @@ mod Constructors {
     // A composable class's constructors take the outer object of a derived class, if any.
     #[unsealed]
     #[Composable(IBaseFactory, Public, 1)]
+    #[Static(IBaseStatics, 1)]
     class Base {
         IBase,
+    }
+
+    // The number of live `Base` objects, so clients can check that constructors do not leak.
+    #[ExclusiveTo(Base)]
+    interface IBaseStatics {
+        #[get]
+        Instances: i32;
     }
 
     #[ExclusiveTo(Base)]
