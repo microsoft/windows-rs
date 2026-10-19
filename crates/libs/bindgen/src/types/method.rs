@@ -431,9 +431,10 @@ impl Method {
 
         let args = if kind == InterfaceKind::Composable {
             // Composable factories take `outer` and an out-pointer for `inner` as the last
-            // two parameters before the result. The non-aggregating entry passes nulls.
+            // two parameters before the result. Without an outer, factories still return the
+            // inner object, so pass a temporary that releases it after the call.
             quote! {
-                #(#typed_args,)* core::ptr::null_mut(), core::ptr::null_mut(), #return_arg
+                #(#typed_args,)* core::ptr::null_mut(), &mut None::<windows_core::IInspectable> as *mut _ as _, #return_arg
             }
         } else {
             quote! {

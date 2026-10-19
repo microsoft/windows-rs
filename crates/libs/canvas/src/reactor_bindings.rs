@@ -205,7 +205,7 @@ impl SurfaceImageSource {
                 pixelwidth,
                 pixelheight,
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
