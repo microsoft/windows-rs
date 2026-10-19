@@ -195,8 +195,7 @@ impl Encoder<'_> {
             | metadata::MethodAttributes::Virtual;
 
         let mut method_signatures: Vec<(String, Vec<metadata::Type>, metadata::Type)> = Vec::new();
-        let mut property_map_started = false;
-        let mut event_map_started = false;
+        let mut accessors: Vec<Accessor> = Vec::new();
 
         for member in &item.members {
             match member {
@@ -273,6 +272,29 @@ impl Encoder<'_> {
                         flags,
                         Default::default(),
                     );
+
+                    // Explicit WinRT accessors belong to their property or event just like the
+                    // shorthand ones, so the shorthand is only a spelling choice.
+                    if item.winrt
+                        && is_special
+                        && let Some((kind, name)) = accessor_kind(
+                            &method.sig.ident.to_string(),
+                            &signature.types,
+                            &signature.return_type,
+                        )
+                    {
+                        let ty = match kind {
+                            AccessorKind::Get => signature.return_type.clone(),
+                            _ => signature.types[0].clone(),
+                        };
+                        accessors.push(Accessor {
+                            kind,
+                            name: name.to_string(),
+                            ty,
+                            method: method_def,
+                            span: &method.sig.ident,
+                        });
+                    }
 
                     self.encode_attrs(
                         metadata::writer::HasAttribute::MethodDef(method_def),
@@ -365,34 +387,33 @@ impl Encoder<'_> {
                         put_method = Some(method);
                     }
 
-                    let property = self.output.Property(&prop.name.to_string(), &ty);
-
-                    if !property_map_started {
-                        self.output.PropertyMap(interface, property);
-                        property_map_started = true;
-                    }
-
                     if let Some(method) = get_method {
-                        self.output.MethodSemantics(
-                            0x0002, // Getter
+                        accessors.push(Accessor {
+                            kind: AccessorKind::Get,
+                            name: prop.name.to_string(),
+                            ty: ty.clone(),
                             method,
-                            metadata::writer::HasSemantics::Property(property),
-                        );
+                            span: &prop.name,
+                        });
                     }
 
                     if let Some(method) = put_method {
-                        self.output.MethodSemantics(
-                            0x0001, // Setter
+                        accessors.push(Accessor {
+                            kind: AccessorKind::Set,
+                            name: prop.name.to_string(),
+                            ty,
                             method,
-                            metadata::writer::HasSemantics::Property(property),
-                        );
+                            span: &prop.name,
+                        });
                     }
                 }
 
                 InterfaceMember::Event(evt) => {
                     let handler_ty = self.encode_type(&evt.handler_ty)?;
-                    let token_ty =
-                        metadata::Type::value_named("Windows.Foundation", "EventRegistrationToken");
+                    if !matches!(handler_ty, metadata::Type::ClassName(_)) {
+                        return self.err(&evt.handler_ty, "event handler must be a delegate type");
+                    }
+                    let token_ty = event_token();
                     let method_flags = base_flags | metadata::MethodAttributes::SpecialName;
 
                     let add_name = format!("add_{}", evt.name);
@@ -448,26 +469,25 @@ impl Encoder<'_> {
                     )?;
                     self.encode_simple_params(&[("token", &token_ty)])?;
 
-                    let event = self.output.Event(&evt.name.to_string(), &handler_ty);
-
-                    if !event_map_started {
-                        self.output.EventMap(interface, event);
-                        event_map_started = true;
-                    }
-
-                    self.output.MethodSemantics(
-                        0x0008, // AddOn
-                        add_method,
-                        metadata::writer::HasSemantics::Event(event),
-                    );
-                    self.output.MethodSemantics(
-                        0x0010, // RemoveOn
-                        remove_method,
-                        metadata::writer::HasSemantics::Event(event),
-                    );
+                    accessors.push(Accessor {
+                        kind: AccessorKind::Add,
+                        name: evt.name.to_string(),
+                        ty: handler_ty,
+                        method: add_method,
+                        span: &evt.name,
+                    });
+                    accessors.push(Accessor {
+                        kind: AccessorKind::Remove,
+                        name: evt.name.to_string(),
+                        ty: token_ty,
+                        method: remove_method,
+                        span: &evt.name,
+                    });
                 }
             }
         }
+
+        self.encode_accessors(interface, &accessors)?;
 
         if !already_has_guid {
             let methods: Vec<(&str, &[metadata::Type], &metadata::Type)> = method_signatures
@@ -486,4 +506,115 @@ impl Encoder<'_> {
 
         Ok(())
     }
+
+    /// Writes one Property row per (name, type) and one Event row per name, associating every
+    /// accessor through MethodSemantics. The rows are written after the interface's methods so
+    /// each type's property and event lists stay contiguous.
+    fn encode_accessors(
+        &mut self,
+        interface: metadata::writer::TypeDef,
+        accessors: &[Accessor],
+    ) -> Result<(), Error> {
+        let mut properties: Vec<(&str, &metadata::Type, Vec<&Accessor>)> = vec![];
+        let mut events: Vec<(&str, Vec<&Accessor>)> = vec![];
+
+        for accessor in accessors {
+            let group = match accessor.kind {
+                AccessorKind::Get | AccessorKind::Set => {
+                    let pos = properties
+                        .iter()
+                        .position(|(name, ty, _)| *name == accessor.name && **ty == accessor.ty)
+                        .unwrap_or_else(|| {
+                            properties.push((&accessor.name, &accessor.ty, vec![]));
+                            properties.len() - 1
+                        });
+                    &mut properties[pos].2
+                }
+                AccessorKind::Add | AccessorKind::Remove => {
+                    let pos = events
+                        .iter()
+                        .position(|(name, _)| *name == accessor.name)
+                        .unwrap_or_else(|| {
+                            events.push((&accessor.name, vec![]));
+                            events.len() - 1
+                        });
+                    &mut events[pos].1
+                }
+            };
+
+            if group.iter().any(|other| other.kind == accessor.kind) {
+                return self.err(accessor.span, "duplicate property or event accessor");
+            }
+
+            group.push(accessor);
+        }
+
+        let mut first = true;
+
+        for (name, ty, group) in properties {
+            let property = self.output.Property(name, ty);
+
+            if std::mem::take(&mut first) {
+                self.output.PropertyMap(interface, property);
+            }
+
+            for kind in [AccessorKind::Get, AccessorKind::Set] {
+                if let Some(accessor) = group.iter().find(|accessor| accessor.kind == kind) {
+                    self.output.MethodSemantics(
+                        if kind == AccessorKind::Get {
+                            metadata::MethodSemanticsAttributes::Getter.0
+                        } else {
+                            metadata::MethodSemanticsAttributes::Setter.0
+                        },
+                        accessor.method,
+                        metadata::writer::HasSemantics::Property(property),
+                    );
+                }
+            }
+        }
+
+        first = true;
+
+        for (name, group) in events {
+            // The handler type comes from `add`; a lone `remove` has no event to describe.
+            let Some(add) = group
+                .iter()
+                .find(|accessor| accessor.kind == AccessorKind::Add)
+            else {
+                continue;
+            };
+
+            let event = self.output.Event(name, &add.ty);
+
+            if std::mem::take(&mut first) {
+                self.output.EventMap(interface, event);
+            }
+
+            for kind in [AccessorKind::Add, AccessorKind::Remove] {
+                if let Some(accessor) = group.iter().find(|accessor| accessor.kind == kind) {
+                    self.output.MethodSemantics(
+                        if kind == AccessorKind::Add {
+                            metadata::MethodSemanticsAttributes::AddOn.0
+                        } else {
+                            metadata::MethodSemanticsAttributes::RemoveOn.0
+                        },
+                        accessor.method,
+                        metadata::writer::HasSemantics::Event(event),
+                    );
+                }
+            }
+        }
+
+        Ok(())
+    }
+}
+
+/// A property or event accessor method awaiting its Property/Event row.
+struct Accessor<'a> {
+    kind: AccessorKind,
+    name: String,
+    /// The property type, the event handler type, or the event token type.
+    ty: metadata::Type,
+    method: metadata::writer::MethodDef,
+    span: &'a syn::Ident,
 }

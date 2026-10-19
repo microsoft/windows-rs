@@ -73,71 +73,72 @@ fn write_members(
                 .flags()
                 .contains(metadata::MethodAttributes::SpecialName)
         {
-            let name = method.name();
             let sig = method.signature(generics);
 
             // The shorthand regenerates accessor signatures, so it only applies to methods with
-            // the accessor shape.
-            if let Some(prop_name) = name.strip_prefix("get_")
-                && is_getter(method, &sig)
-            {
-                let put_name = format!("put_{prop_name}");
-                let j = find_unconsumed(&methods, &consumed, i, &put_name);
-
-                let ty = write_type(namespace, &sig.return_type);
-                let prop_ident = write_ident(prop_name);
-                let attrs = write_accessor_attributes(namespace, method)?;
-
-                if let Some(j) = j {
-                    // Combine only adjacent get_/put_ pairs with matching types and attributes.
-                    let put_sig = methods[j].signature(generics);
-                    if is_setter(&methods[j], &put_sig)
-                        && put_sig.types[0] == sig.return_type
-                        && (i + 1..j).all(|k| consumed[k])
-                        && write_accessor_attributes(namespace, &methods[j])?.to_string()
-                            == attrs.to_string()
-                    {
-                        consumed[i] = true;
-                        consumed[j] = true;
-                        tokens.push(quote! { #attrs #prop_ident: #ty; });
-                        continue;
-                    }
-                }
-                consumed[i] = true;
-                tokens.push(quote! { #[get] #attrs #prop_ident: #ty; });
-                continue;
-            } else if let Some(prop_name) = name.strip_prefix("put_")
-                && is_setter(method, &sig)
-            {
-                let ty = write_type(namespace, &sig.types[0]);
-                let prop_ident = write_ident(prop_name);
-                let attrs = write_accessor_attributes(namespace, method)?;
-                consumed[i] = true;
-                tokens.push(quote! { #[set] #attrs #prop_ident: #ty; });
-                continue;
-            } else if let Some(event_name) = name.strip_prefix("add_")
-                && is_event_add(method, &sig)
-            {
-                let remove_name = format!("remove_{event_name}");
-                let j = find_unconsumed(&methods, &consumed, i, &remove_name);
-
-                if let Some(j) = j {
+            // the accessor shape and no parameter or return metadata.
+            match shorthand_kind(method, &sig) {
+                Some((AccessorKind::Get, prop_name)) => {
+                    let ty = write_type(namespace, &sig.return_type);
+                    let prop_ident = write_ident(prop_name);
                     let attrs = write_accessor_attributes(namespace, method)?;
+
+                    // Combine only adjacent get_/put_ pairs with matching types and attributes.
+                    if let Some(j) =
+                        find_unconsumed(&methods, &consumed, i, &format!("put_{prop_name}"))
+                    {
+                        let put_sig = methods[j].signature(generics);
+                        if matches!(
+                            shorthand_kind(&methods[j], &put_sig),
+                            Some((AccessorKind::Set, _))
+                        ) && put_sig.types[0] == sig.return_type
+                            && (i + 1..j).all(|k| consumed[k])
+                            && write_accessor_attributes(namespace, &methods[j])?.to_string()
+                                == attrs.to_string()
+                        {
+                            consumed[i] = true;
+                            consumed[j] = true;
+                            tokens.push(quote! { #attrs #prop_ident: #ty; });
+                            continue;
+                        }
+                    }
+                    consumed[i] = true;
+                    tokens.push(quote! { #[get] #attrs #prop_ident: #ty; });
+                    continue;
+                }
+                Some((AccessorKind::Set, prop_name)) => {
+                    let ty = write_type(namespace, &sig.types[0]);
+                    let prop_ident = write_ident(prop_name);
+                    let attrs = write_accessor_attributes(namespace, method)?;
+                    consumed[i] = true;
+                    tokens.push(quote! { #[set] #attrs #prop_ident: #ty; });
+                    continue;
+                }
+                Some((AccessorKind::Add, event_name)) => {
                     // Event shorthand requires adjacent add_/remove_ methods with matching
                     // attributes.
-                    if (i + 1..j).all(|k| consumed[k])
-                        && is_event_remove(&methods[j], &methods[j].signature(generics))
-                        && write_accessor_attributes(namespace, &methods[j])?.to_string()
-                            == attrs.to_string()
+                    if let Some(j) =
+                        find_unconsumed(&methods, &consumed, i, &format!("remove_{event_name}"))
                     {
-                        let handler_ty = write_type(namespace, &sig.types[0]);
-                        let event_ident = write_ident(event_name);
-                        consumed[i] = true;
-                        consumed[j] = true;
-                        tokens.push(quote! { #attrs #event_kw #event_ident: #handler_ty; });
-                        continue;
+                        let attrs = write_accessor_attributes(namespace, method)?;
+                        if (i + 1..j).all(|k| consumed[k])
+                            && matches!(
+                                shorthand_kind(&methods[j], &methods[j].signature(generics)),
+                                Some((AccessorKind::Remove, _))
+                            )
+                            && write_accessor_attributes(namespace, &methods[j])?.to_string()
+                                == attrs.to_string()
+                        {
+                            let handler_ty = write_type(namespace, &sig.types[0]);
+                            let event_ident = write_ident(event_name);
+                            consumed[i] = true;
+                            consumed[j] = true;
+                            tokens.push(quote! { #attrs #event_kw #event_ident: #handler_ty; });
+                            continue;
+                        }
                     }
                 }
+                _ => {}
             }
         }
 
@@ -148,26 +149,12 @@ fn write_members(
     Ok(tokens)
 }
 
-fn is_getter(method: &metadata::reader::MethodDef, sig: &metadata::Signature) -> bool {
-    sig.types.is_empty() && sig.return_type != metadata::Type::Void && has_plain_params(method, sig)
-}
-
-fn is_setter(method: &metadata::reader::MethodDef, sig: &metadata::Signature) -> bool {
-    sig.types.len() == 1 && sig.return_type == metadata::Type::Void && has_plain_params(method, sig)
-}
-
-fn is_event_add(method: &metadata::reader::MethodDef, sig: &metadata::Signature) -> bool {
-    sig.types.len() == 1 && sig.return_type == event_token() && has_plain_params(method, sig)
-}
-
-fn is_event_remove(method: &metadata::reader::MethodDef, sig: &metadata::Signature) -> bool {
-    sig.types == [event_token()]
-        && sig.return_type == metadata::Type::Void
-        && has_plain_params(method, sig)
-}
-
-fn event_token() -> metadata::Type {
-    metadata::Type::value_named("Windows.Foundation", "EventRegistrationToken")
+fn shorthand_kind<'a>(
+    method: &metadata::reader::MethodDef<'a>,
+    sig: &metadata::Signature,
+) -> Option<(AccessorKind, &'a str)> {
+    accessor_kind(method.name(), &sig.types, &sig.return_type)
+        .filter(|_| has_plain_params(method, sig))
 }
 
 // The reader regenerates shorthand accessors with input parameters and no parameter or return
@@ -188,10 +175,6 @@ fn has_plain_params(method: &metadata::reader::MethodDef, sig: &metadata::Signat
                         | metadata::reader::ParamDirection::Input
                 )
         })
-        && !sig
-            .types
-            .iter()
-            .any(|ty| matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..)))
 }
 
 fn write_accessor_attributes(

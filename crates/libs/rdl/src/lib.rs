@@ -1,5 +1,6 @@
 #![doc = include_str!("../readme.md")]
 
+mod accessor;
 /// RDL source-emission primitives shared with the `windows-clang` scraper.
 pub mod emit;
 mod error;
@@ -11,6 +12,7 @@ pub mod implib;
 mod reader;
 mod writer;
 
+use accessor::*;
 use emit::*;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::{Path, PathBuf};

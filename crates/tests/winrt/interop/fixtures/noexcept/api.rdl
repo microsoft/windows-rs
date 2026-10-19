@@ -11,6 +11,12 @@ mod Noexcept {
         Text: String;
         #[NoException]
         Next: IValue;
+        // Only the getter cannot fail, so the accessors are declared separately.
+        #[get]
+        #[NoException]
+        Limit: i32;
+        #[set]
+        Limit: i32;
         #[NoException]
         fn Clear(&self);
     }

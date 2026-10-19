@@ -141,7 +141,10 @@ interface IRobot {
 ```
 
 When the accessors carry different attributes, the writer emits each one on its own, such as a
-`#[get]` property followed by a `#[set]` property of the same name.
+`#[get]` property followed by a `#[set]` property of the same name. Accessors that the shorthand
+cannot represent, such as a getter with a return attribute, stay explicit `#[special] fn` methods.
+In a WinRT interface, the reader groups every accessor by name and shape, whether shorthand or
+explicit, so each property or event still gets one metadata row with all of its accessors.
 
 Classes are sealed unless marked `#[unsealed]`. A class can only extend an unsealed class, so a
 class hierarchy marks each base class:

@@ -42,6 +42,7 @@ fn main() {
         .filter("CLASS_E_CLASSNOTAVAILABLE")
         .filter("CLASS_E_NOAGGREGATION")
         .filter("E_FAIL")
+        .filter("E_INVALIDARG")
         .filter("E_NOINTERFACE")
         .filter("E_NOTIMPL")
         .filter("E_POINTER")
