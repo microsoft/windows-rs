@@ -314,6 +314,18 @@ fn declarations(cursor: CXCursor) -> Vec<CXCursor> {
             result.extend(declarations(child));
         } else {
             result.push(child);
+            if matches!(
+                unsafe { clang_getCursorKind(child) },
+                CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
+            ) {
+                // Elaborated tags can be lexically inside a record but semantically global.
+                result.extend(declarations(child).into_iter().filter(|nested| {
+                    matches!(
+                        unsafe { clang_getCursorKind(*nested) },
+                        CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
+                    )
+                }));
+            }
         }
     }
     result
@@ -1126,9 +1138,6 @@ impl Capture<'_> {
                             ),
                         ));
                     }
-                    if clang_isFunctionTypeVariadic(ty) != 0 {
-                        return Err(unsupported(cursor, "variadic function is unsupported"));
-                    }
                     let exceptions = match clang_getExceptionSpecificationType(ty) {
                         CXCursor_ExceptionSpecificationKind_None => ExceptionSpecification::None,
                         CXCursor_ExceptionSpecificationKind_DynamicNone => {
@@ -1172,6 +1181,7 @@ impl Capture<'_> {
                         convention,
                         exceptions,
                         noreturn: info.no_return != 0,
+                        variadic: clang_isFunctionTypeVariadic(ty) != 0,
                         method_qualifiers: Qualifiers {
                             constant: method_qualifiers & WindowsClangConst as u32 != 0,
                             volatile: method_qualifiers & WindowsClangVolatile as u32 != 0,

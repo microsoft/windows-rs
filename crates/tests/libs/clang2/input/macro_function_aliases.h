@@ -11,7 +11,7 @@ private:
 #define ProjectionAlias ((volatile int*)1)
 #define PARSE_BAD unsigned int
 #define EVAL_BAD (1 / 0)
-extern "C" int NativeBad(int value, ...);
+extern "C" int NativeBad(int value) noexcept(false);
 #else
 extern "C" int FunctionAlias(int value);
 extern "C" int AddressAlias(int value);

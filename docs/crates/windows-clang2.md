@@ -60,6 +60,12 @@ remain evidence, but filename/offset-dependent anonymous USRs do not control cor
 The same owner-relative identity is used for same-target resolution, cross-target association,
 public-family checks, and omission keys. Pruning an owner also removes its children.
 
+Declaration indexing descends record declarations as well as linkage blocks. An elaborated tag
+such as `struct Context*` in a member declaration can introduce a global type despite its lexical
+position inside a record. Semantic ownership controls its identity; later declarations and
+definitions stay in the same group. `elaborated_records` covers this distinction and direct root
+selection. The SDK thread-pool fixture checks the callback environment and its five dependent APIs.
+
 Stock `clang_Type_visitFields` exposes implicit anonymous aggregate fields and their offsets.
 Their type declarations carry the anonymous-record predicate; the field cursors do not.
 Capture retains an empty native field name for these fields. Projection uses `Anonymous`,
@@ -116,22 +122,22 @@ and expansion. Tokenizing that range is neither local evidence nor bounded diagn
 the same root selection, canonical type comparison, target association, reverse dependencies,
 and compaction as types. Callable observations retain parameter names and written types,
 attributes, native mangling, and language linkage. Same-target native conflicts are fatal even
-in partial mode. Imported function observations may differ in parameter names only when their
-published types, attributes, calling conventions, and return contracts agree. SAL references still
-bind against each observation's original names. Publication chooses one complete observed prototype:
+in partial mode. Imported function observations may differ in parameter names and transparent value
+typedefs when their resolved types, attributes, calling conventions, and return contracts agree.
+SAL references still bind against each observation's original names, and annotation lowering uses
+the written types before comparison normalization. Publication chooses one complete observed prototype:
 prefer more authored parameter names, then the lexically first rendered declaration. It does not
 combine names from different observations or choose by input order.
 
-Written aliases remain distinct public type identities. Native-compatible declarations whose
-published types or contracts differ fail strict projection and become explicit all-target omissions
-in partial mode. ABI equivalence does not establish public type equivalence: aliases can affect
-default parameter direction, and downstream built-in types can have distinct behavior.
-`function_redeclarations` checks name-only agreement and retained type conflicts on all targets.
-`function_names` checks anonymous and partially named prototypes, deterministic selection of a whole
-observed prototype, input/target order, metadata round trips, and pointer-alias rejection.
-The 370-header workload remains byte-identical under this policy, including canonical export and
-omissions. Four `HSTRING_User*` imports and `PerfStartProvider` still differ in written aliases,
-not just names. They remain omitted rather than treating matching native ABI as public type proof.
+Comparison expands only unannotated value aliases, including pointer and array aliases. It checks
+all alias observations, including contracts supplied by a TU that never uses the import. Nominal
+record and enum identities, qualifiers, named callbacks and typedef-owned annotations remain distinct.
+The output keeps the selected observation's typedef names rather than emitting the normalized
+comparison types. Downstream built-in type handling follows that selected signature; native type
+agreement alone does not establish consumer compatibility.
+`import_typedefs` checks alias chains, pointers, arrays, record/enum aliases, observed signatures,
+input/target order, metadata round trips and rejection boundaries. `sdk_public_redeclarations`
+covers the four `HSTRING_User*` imports, `PerfStartProvider` and `VerSetConditionMask`.
 
 When a selected name has an external C declaration, external C++ inline overloads with an observed
 definition remain in `Snapshot::inline_functions` as names, USRs, and locations rather than exported
@@ -1143,6 +1149,29 @@ and ARM64 linkage in `sdk_unresolved_imports.rdl`. Both WinMD round trips preser
 The consumer checks named PE imports on both 64-bit targets, their absence on x86, and a real DNS
 call on the executable 64-bit host.
 
+The driver's `sdk_import_availability` fixture captures and reconciles 89 functions on all three
+targets, then checks their exact compiler symbols, SDK providers, export names and machine kinds.
+Its 90 missing target imports record SDK evidence independently of acceptance decisions. ARM64 archive
+members for `RtlCaptureContext2` are ARM64EC-only and cannot establish native ARM64 linkage.
+Run the pinned SDK check with:
+
+```console
+cargo test -p tool-win32-2 sdk_import_availability -- --ignored
+```
+
+The `import_exports` diagnostic resolves the same names through the system loader without calling
+them, including API-set resolution in the process architecture:
+
+```console
+cargo run -p test_clang2 --bin import_exports --target i686-pc-windows-msvc
+cargo run -p test_clang2 --bin import_exports --target x86_64-pc-windows-msvc
+```
+
+Its CSV reports the requested provider, loaded module and observed export alongside SDK evidence.
+Record the host and DLL versions with each run. A missing export describes that Windows build,
+not all supported releases; an exported stub does not establish feature support. Native ARM64
+runtime observations require running the ARM64 executable on that architecture.
+
 The COFF reader retains the machine and code/data/const kind alongside linker symbols and named or
 ordinal PE exports. Machine filtering precedes first-library-wins selection: ARM64 archives also
 contain ARM64EC members, which cannot supply native ARM64 linkage. Non-code records remain excluded
@@ -1158,6 +1187,14 @@ RDL with its metadata definitions and external WinRT references, then reads the 
 It requires Git history and `tar`, not the working candidate. Normal generation uses the checked-in
 snapshot and does not require Git history. The scope excludes the separate WDK input directory;
 the combined default WinMD is a larger control.
+The `gen` workflow runs `tool-win32-2 --refresh-named-exports` with full Git history and rejects
+snapshot drift through its generated-file diff check. This job does not capture SDK headers or
+replace the working Win32 metadata.
+
+A name absent from the snapshot can use an exact named SDK import under the same target, machine,
+code-kind and provider rules. An ordinal-only import without baseline named evidence remains an
+explicit omission; no name is inferred from its ordinal or decoration. This linkage rule does not
+approve new public API names for the production surface.
 
 `named_exports.rs` joins captured function names and exact native or compiler-candidate linker
 symbols to the selected target's SDK records. Only code imports with matching baseline DLL/name
@@ -1184,6 +1221,8 @@ availability on every supported Windows release or package-wide acceptance.
 target-specific names and linkage with the frozen snapshot, writing
 `target/win32-2/function-coverage.csv`. It distinguishes missing, new, changed-linkage, and
 same-linkage entries. This is required-surface accounting, not signature or behavior parity.
+Raw missing entries include reviewed target-availability corrections; the comparison does not
+rewrite the frozen baseline or suppress those differences.
 
 Implicit x86 C imports can use a compiler-derived stdcall alternative. The native companion reads
 written convention provenance and constructs the alternative through Clang's type system and name
@@ -1492,15 +1531,26 @@ information that callers must handle or reject. The sys fixtures verify explicit
 versus absence, nonzero `regparm`, `noreturn`, and method-qualifier detection.
 Callback capture accepts plain C and stdcall prototypes only after the supplementary query returns
 no unsupported properties. Explicit `regparm(0)` is rejected as well as nonzero `regparm`;
-other extra properties, variadics, and exception specifications other than unconditional
+other extra properties and exception specifications other than unconditional
 `noexcept`, `nothrow`, and empty `throw()` remain unsupported.
 Known cdecl/stdcall attributed types retain their written and equivalent types.
 
-Owned function types retain result and parameter edges, calling convention, `noreturn`, and exception
+Owned function types retain result and parameter edges, calling convention, variadic status,
+`noreturn`, and exception
 specification. Native/public type
 comparison follows all signature edges, not just pointer size. Partial pruning likewise follows
 every result and parameter dependency, including nested callbacks. These edges can branch, unlike
 a pointer or array chain.
+
+Variadic C imports emit the existing RDL `...` syntax and metadata `VARARG` flag. The native
+prototype supplies the ABI, including when Clang retains a written stdcall attribute that it
+ignores for a variadic function. No stdcall alternative is constructed for variadics; fixed imports
+keep their existing convention rules. Callbacks and interface methods reject variadic prototypes
+without discarding the native evidence. `variadic_imports` checks native agreement and both metadata
+round trips, while `variadic_callbacks` checks rejection and dependent pruning.
+The SDK fixture covers formatting, RPC, tracing and SetupAPI imports. Raw Rust consumers execute
+integer/string formatting on x86 and x64 and check named PE imports on all three targets.
+High-level bindgen's explicit variadic rejection remains a separate consumer limitation.
 
 Projection preserves written value-typedef and callback names in fields and callback signatures,
 including pointers, arrays, results, and nested named callbacks. Reachable value aliases are

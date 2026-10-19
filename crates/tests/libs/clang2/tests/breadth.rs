@@ -6617,33 +6617,17 @@ fn function_redeclarations() {
     for _ in 0..2 {
         let snapshots = capture(&inputs, &TARGETS).unwrap();
         let merged = merge(&snapshots).unwrap();
-        assert!(
-            projection::project_with_imports(&merged, "Fixture", &imports())
-                .unwrap_err()
-                .to_string()
-                .contains("conflicting public names or contracts")
-        );
+        let output = projection::project_with_imports(&merged, "Fixture", &imports()).unwrap();
         let partial = projection::project_partial_with_imports(
             capture_partial(&inputs, &TARGETS).unwrap(),
             "Fixture",
             &imports(),
         )
         .unwrap();
-        assert_eq!(partial.output.functions, 1);
+        assert_eq!(partial.output, output);
+        assert_eq!(partial.output.functions, 2);
         assert_eq!(partial.output.constants, 1);
-        assert!(
-            partial
-                .omissions
-                .iter()
-                .any(|error| error.contains("ReadPayload")
-                    && error.contains("conflicting public names or contracts"))
-        );
-        assert!(
-            !partial
-                .omissions
-                .iter()
-                .any(|error| error.contains("NativeSum"))
-        );
+        assert!(partial.omissions.is_empty());
         if let Some(expected) = &expected {
             assert_eq!(&partial, expected);
         } else {
@@ -6704,15 +6688,10 @@ fn function_parameter_names() {
         .replace("INT* value", "POINTER value");
     for _ in 0..2 {
         let snapshots = capture(&inputs, &TARGETS).unwrap();
-        let error =
+        let output =
             projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports())
-                .unwrap_err();
-        assert!(
-            error
-                .to_string()
-                .contains("conflicting public names or contracts"),
-            "{error}"
-        );
+                .unwrap();
+        assert_eq!(output.functions, 1);
         inputs.reverse();
     }
 }
@@ -6853,7 +6832,6 @@ fn dependencies_and_unsupported_contracts() {
             .contains("DLL/export ownership")
     );
     for source in [
-        r#"extern "C" void Variadic(int first, ...);"#,
         "int Cxx(int value);",
         "int MUTABLE = 3;",
         r#"extern "C" int Next(); const int SIDE_EFFECT = (Next(), 3);"#,

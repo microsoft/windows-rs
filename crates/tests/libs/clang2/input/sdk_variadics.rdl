@@ -1,0 +1,581 @@
+#[win32]
+mod Fixture {
+    type TRACELOGGER_HANDLE = u64;
+    #[library("ADVAPI32.dll")]
+    extern "C" fn TraceMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LoggerHandle: TRACELOGGER_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageFlags: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageGuid: LPCGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageNumber: USHORT, ...) -> ULONG;
+}
+#[win32]
+mod Fixture {
+    type CHAR = i8;
+    type DWORD = u32;
+    type DWORDLONG = u64;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    type HRESULT = i32;
+    #[arch(X64 | Arm64)]
+    type INT_PTR = i64;
+    #[arch(X86)]
+    type INT_PTR = i32;
+    #[arch(X64 | Arm64)]
+    type LONG_PTR = i64;
+    #[arch(X86)]
+    type LONG_PTR = i32;
+    type ULONG = u32;
+    type ULONG64 = u64;
+    type ULONGLONG = u64;
+    #[arch(X64 | Arm64)]
+    type ULONG_PTR = u64;
+    #[arch(X86)]
+    type ULONG_PTR = u32;
+    type USHORT = u16;
+    #[arch(X64 | Arm64)]
+    type size_t = u64;
+    #[arch(X86)]
+    type size_t = u32;
+}
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type IID = GUID;
+    type LPCGUID = *const GUID;
+}
+#[win32]
+mod Fixture {
+    type UChar = u16;
+    #[repr(i32)]
+    enum UErrorCode {
+        U_USING_FALLBACK_WARNING = -128,
+        U_ERROR_WARNING_START = -128,
+        U_USING_DEFAULT_WARNING = -127,
+        U_SAFECLONE_ALLOCATED_WARNING = -126,
+        U_STATE_OLD_WARNING = -125,
+        U_STRING_NOT_TERMINATED_WARNING = -124,
+        U_SORT_KEY_TOO_SHORT_WARNING = -123,
+        U_AMBIGUOUS_ALIAS_WARNING = -122,
+        U_DIFFERENT_UCA_VERSION = -121,
+        U_PLUGIN_CHANGED_LEVEL_WARNING = -120,
+        U_ZERO_ERROR = 0,
+        U_ILLEGAL_ARGUMENT_ERROR = 1,
+        U_MISSING_RESOURCE_ERROR = 2,
+        U_INVALID_FORMAT_ERROR = 3,
+        U_FILE_ACCESS_ERROR = 4,
+        U_INTERNAL_PROGRAM_ERROR = 5,
+        U_MESSAGE_PARSE_ERROR = 6,
+        U_MEMORY_ALLOCATION_ERROR = 7,
+        U_INDEX_OUTOFBOUNDS_ERROR = 8,
+        U_PARSE_ERROR = 9,
+        U_INVALID_CHAR_FOUND = 10,
+        U_TRUNCATED_CHAR_FOUND = 11,
+        U_ILLEGAL_CHAR_FOUND = 12,
+        U_INVALID_TABLE_FORMAT = 13,
+        U_INVALID_TABLE_FILE = 14,
+        U_BUFFER_OVERFLOW_ERROR = 15,
+        U_UNSUPPORTED_ERROR = 16,
+        U_RESOURCE_TYPE_MISMATCH = 17,
+        U_ILLEGAL_ESCAPE_SEQUENCE = 18,
+        U_UNSUPPORTED_ESCAPE_SEQUENCE = 19,
+        U_NO_SPACE_AVAILABLE = 20,
+        U_CE_NOT_FOUND_ERROR = 21,
+        U_PRIMARY_TOO_LONG_ERROR = 22,
+        U_STATE_TOO_OLD_ERROR = 23,
+        U_TOO_MANY_ALIASES_ERROR = 24,
+        U_ENUM_OUT_OF_SYNC_ERROR = 25,
+        U_INVARIANT_CONVERSION_ERROR = 26,
+        U_INVALID_STATE_ERROR = 27,
+        U_COLLATOR_VERSION_MISMATCH = 28,
+        U_USELESS_COLLATOR_ERROR = 29,
+        U_NO_WRITE_PERMISSION = 30,
+        U_INPUT_TOO_LONG_ERROR = 31,
+        U_BAD_VARIABLE_DEFINITION = 65536,
+        U_PARSE_ERROR_START = 65536,
+        U_MALFORMED_RULE = 65537,
+        U_MALFORMED_SET = 65538,
+        U_MALFORMED_SYMBOL_REFERENCE = 65539,
+        U_MALFORMED_UNICODE_ESCAPE = 65540,
+        U_MALFORMED_VARIABLE_DEFINITION = 65541,
+        U_MALFORMED_VARIABLE_REFERENCE = 65542,
+        U_MISMATCHED_SEGMENT_DELIMITERS = 65543,
+        U_MISPLACED_ANCHOR_START = 65544,
+        U_MISPLACED_CURSOR_OFFSET = 65545,
+        U_MISPLACED_QUANTIFIER = 65546,
+        U_MISSING_OPERATOR = 65547,
+        U_MISSING_SEGMENT_CLOSE = 65548,
+        U_MULTIPLE_ANTE_CONTEXTS = 65549,
+        U_MULTIPLE_CURSORS = 65550,
+        U_MULTIPLE_POST_CONTEXTS = 65551,
+        U_TRAILING_BACKSLASH = 65552,
+        U_UNDEFINED_SEGMENT_REFERENCE = 65553,
+        U_UNDEFINED_VARIABLE = 65554,
+        U_UNQUOTED_SPECIAL = 65555,
+        U_UNTERMINATED_QUOTE = 65556,
+        U_RULE_MASK_ERROR = 65557,
+        U_MISPLACED_COMPOUND_FILTER = 65558,
+        U_MULTIPLE_COMPOUND_FILTERS = 65559,
+        U_INVALID_RBT_SYNTAX = 65560,
+        U_INVALID_PROPERTY_PATTERN = 65561,
+        U_MALFORMED_PRAGMA = 65562,
+        U_UNCLOSED_SEGMENT = 65563,
+        U_ILLEGAL_CHAR_IN_SEGMENT = 65564,
+        U_VARIABLE_RANGE_EXHAUSTED = 65565,
+        U_VARIABLE_RANGE_OVERLAP = 65566,
+        U_ILLEGAL_CHARACTER = 65567,
+        U_INTERNAL_TRANSLITERATOR_ERROR = 65568,
+        U_INVALID_ID = 65569,
+        U_INVALID_FUNCTION = 65570,
+        U_UNEXPECTED_TOKEN = 65792,
+        U_FMT_PARSE_ERROR_START = 65792,
+        U_MULTIPLE_DECIMAL_SEPARATORS = 65793,
+        U_MULTIPLE_DECIMAL_SEPERATORS = 65793,
+        U_MULTIPLE_EXPONENTIAL_SYMBOLS = 65794,
+        U_MALFORMED_EXPONENTIAL_PATTERN = 65795,
+        U_MULTIPLE_PERCENT_SYMBOLS = 65796,
+        U_MULTIPLE_PERMILL_SYMBOLS = 65797,
+        U_MULTIPLE_PAD_SPECIFIERS = 65798,
+        U_PATTERN_SYNTAX_ERROR = 65799,
+        U_ILLEGAL_PAD_POSITION = 65800,
+        U_UNMATCHED_BRACES = 65801,
+        U_UNSUPPORTED_PROPERTY = 65802,
+        U_UNSUPPORTED_ATTRIBUTE = 65803,
+        U_ARGUMENT_TYPE_MISMATCH = 65804,
+        U_DUPLICATE_KEYWORD = 65805,
+        U_UNDEFINED_KEYWORD = 65806,
+        U_DEFAULT_KEYWORD_MISSING = 65807,
+        U_DECIMAL_NUMBER_SYNTAX_ERROR = 65808,
+        U_FORMAT_INEXACT_ERROR = 65809,
+        U_NUMBER_ARG_OUTOFBOUNDS_ERROR = 65810,
+        U_NUMBER_SKELETON_SYNTAX_ERROR = 65811,
+        U_BRK_INTERNAL_ERROR = 66048,
+        U_BRK_ERROR_START = 66048,
+        U_BRK_HEX_DIGITS_EXPECTED = 66049,
+        U_BRK_SEMICOLON_EXPECTED = 66050,
+        U_BRK_RULE_SYNTAX = 66051,
+        U_BRK_UNCLOSED_SET = 66052,
+        U_BRK_ASSIGN_ERROR = 66053,
+        U_BRK_VARIABLE_REDFINITION = 66054,
+        U_BRK_MISMATCHED_PAREN = 66055,
+        U_BRK_NEW_LINE_IN_QUOTED_STRING = 66056,
+        U_BRK_UNDEFINED_VARIABLE = 66057,
+        U_BRK_INIT_ERROR = 66058,
+        U_BRK_RULE_EMPTY_SET = 66059,
+        U_BRK_UNRECOGNIZED_OPTION = 66060,
+        U_BRK_MALFORMED_RULE_TAG = 66061,
+        U_REGEX_INTERNAL_ERROR = 66304,
+        U_REGEX_ERROR_START = 66304,
+        U_REGEX_RULE_SYNTAX = 66305,
+        U_REGEX_INVALID_STATE = 66306,
+        U_REGEX_BAD_ESCAPE_SEQUENCE = 66307,
+        U_REGEX_PROPERTY_SYNTAX = 66308,
+        U_REGEX_UNIMPLEMENTED = 66309,
+        U_REGEX_MISMATCHED_PAREN = 66310,
+        U_REGEX_NUMBER_TOO_BIG = 66311,
+        U_REGEX_BAD_INTERVAL = 66312,
+        U_REGEX_MAX_LT_MIN = 66313,
+        U_REGEX_INVALID_BACK_REF = 66314,
+        U_REGEX_INVALID_FLAG = 66315,
+        U_REGEX_LOOK_BEHIND_LIMIT = 66316,
+        U_REGEX_SET_CONTAINS_STRING = 66317,
+        U_REGEX_MISSING_CLOSE_BRACKET = 66319,
+        U_REGEX_INVALID_RANGE = 66320,
+        U_REGEX_STACK_OVERFLOW = 66321,
+        U_REGEX_TIME_OUT = 66322,
+        U_REGEX_STOPPED_BY_CALLER = 66323,
+        U_REGEX_PATTERN_TOO_BIG = 66324,
+        U_REGEX_INVALID_CAPTURE_GROUP_NAME = 66325,
+        U_IDNA_PROHIBITED_ERROR = 66560,
+        U_IDNA_ERROR_START = 66560,
+        U_IDNA_UNASSIGNED_ERROR = 66561,
+        U_IDNA_CHECK_BIDI_ERROR = 66562,
+        U_IDNA_STD3_ASCII_RULES_ERROR = 66563,
+        U_IDNA_ACE_PREFIX_ERROR = 66564,
+        U_IDNA_VERIFICATION_ERROR = 66565,
+        U_IDNA_LABEL_TOO_LONG_ERROR = 66566,
+        U_IDNA_ZERO_LENGTH_LABEL_ERROR = 66567,
+        U_IDNA_DOMAIN_NAME_TOO_LONG_ERROR = 66568,
+        U_STRINGPREP_PROHIBITED_ERROR = 66560,
+        U_STRINGPREP_UNASSIGNED_ERROR = 66561,
+        U_STRINGPREP_CHECK_BIDI_ERROR = 66562,
+        U_PLUGIN_ERROR_START = 66816,
+        U_PLUGIN_TOO_HIGH = 66816,
+        U_PLUGIN_DIDNT_SET_LEVEL = 66817,
+    }
+    #[library("icuin.dll")]
+    extern "C" fn u_formatMessage(locale: *const i8, pattern: *const UChar, patternLength: int32_t, result: *mut UChar, resultLength: int32_t, status: *mut UErrorCode, ...) -> int32_t;
+}
+#[win32]
+mod Fixture {
+    #[guid(0xd5f56b60_593b_101a_b569_08002b2dbf7a)]
+    interface IRpcChannelBuffer: IUnknown {
+        fn GetBuffer(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID) -> HRESULT;
+        fn SendReceive(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE, #[out] #[opt] pStatus: *mut ULONG) -> HRESULT;
+        fn FreeBuffer(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE) -> HRESULT;
+        fn GetDestCtx(&self, #[out] pdwDestContext: *mut DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppvDestContext: *mut *mut void) -> HRESULT;
+        fn IsConnected(&self) -> HRESULT;
+    }
+    type RPCOLEDATAREP = u32;
+    #[packed(8)]
+    struct RPCOLEMESSAGE {
+        reserved1: *mut void,
+        dataRepresentation: RPCOLEDATAREP,
+        Buffer: *mut void,
+        cbBuffer: ULONG,
+        iMethod: ULONG,
+        reserved2: [*mut void; 5],
+        rpcFlags: ULONG,
+    }
+}
+#[win32]
+mod Fixture {
+    type I_RPC_HANDLE = *mut void;
+}
+#[win32]
+mod Fixture {
+    type RPC_BINDING_HANDLE = *mut void;
+    type handle_t = *mut void;
+}
+#[win32]
+mod Fixture {
+    type PRPC_MESSAGE = *mut _RPC_MESSAGE;
+    type PRPC_SYNTAX_IDENTIFIER = *mut _RPC_SYNTAX_IDENTIFIER;
+    #[arch(X86)]
+    struct RPC_VERSION {
+        MajorVersion: u16,
+        MinorVersion: u16,
+    }
+    #[packed(8)]
+    #[arch(X64 | Arm64)]
+    struct RPC_VERSION {
+        MajorVersion: u16,
+        MinorVersion: u16,
+    }
+    #[arch(X86)]
+    struct _RPC_MESSAGE {
+        Handle: RPC_BINDING_HANDLE,
+        DataRepresentation: u32,
+        Buffer: *mut void,
+        BufferLength: u32,
+        ProcNum: u32,
+        TransferSyntax: PRPC_SYNTAX_IDENTIFIER,
+        RpcInterfaceInformation: *mut void,
+        ReservedForRuntime: *mut void,
+        ManagerEpv: *mut void,
+        ImportContext: *mut void,
+        RpcFlags: u32,
+    }
+    #[packed(8)]
+    #[arch(X64 | Arm64)]
+    struct _RPC_MESSAGE {
+        Handle: RPC_BINDING_HANDLE,
+        DataRepresentation: u32,
+        Buffer: *mut void,
+        BufferLength: u32,
+        ProcNum: u32,
+        TransferSyntax: PRPC_SYNTAX_IDENTIFIER,
+        RpcInterfaceInformation: *mut void,
+        ReservedForRuntime: *mut void,
+        ManagerEpv: *mut void,
+        ImportContext: *mut void,
+        RpcFlags: u32,
+    }
+    #[arch(X86)]
+    struct _RPC_SYNTAX_IDENTIFIER {
+        SyntaxGUID: GUID,
+        SyntaxVersion: RPC_VERSION,
+    }
+    #[packed(8)]
+    #[arch(X64 | Arm64)]
+    struct _RPC_SYNTAX_IDENTIFIER {
+        SyntaxGUID: GUID,
+        SyntaxVersion: RPC_VERSION,
+    }
+}
+#[win32]
+mod Fixture {
+    #[packed(8)]
+    struct ARRAY_INFO {
+        Dimension: i32,
+        BufferConformanceMark: *mut u32,
+        BufferVarianceMark: *mut u32,
+        MaxCountArray: *mut u32,
+        OffsetArray: *mut u32,
+        ActualCountArray: *mut u32,
+    }
+    #[packed(8)]
+    union CLIENT_CALL_RETURN {
+        Pointer: *mut void,
+        Simple: LONG_PTR,
+    }
+    #[packed(8)]
+    struct COMM_FAULT_OFFSETS {
+        CommOffset: i16,
+        FaultOffset: i16,
+    }
+    extern fn CS_TAG_GETTING_ROUTINE(hBinding: RPC_BINDING_HANDLE, fServerSide: i32, pulSendingTag: *mut u32, pulDesiredReceivingTag: *mut u32, pulReceivingTag: *mut u32, pStatus: *mut error_status_t);
+    extern fn CS_TYPE_FROM_NETCS_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, pNetworkData: *mut byte, ulNetworkDataLength: u32, ulLocalBufferSize: u32, pLocalData: *mut void, pulLocalDataLength: *mut u32, pStatus: *mut error_status_t);
+    extern fn CS_TYPE_LOCAL_SIZE_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, ulNetworkBufferSize: u32, conversionType: *mut IDL_CS_CONVERT, pulLocalBufferSize: *mut u32, pStatus: *mut error_status_t);
+    extern fn CS_TYPE_NET_SIZE_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, ulLocalBufferSize: u32, conversionType: *mut IDL_CS_CONVERT, pulNetworkBufferSize: *mut u32, pStatus: *mut error_status_t);
+    extern fn CS_TYPE_TO_NETCS_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, pLocalData: *mut void, ulLocalDataLength: u32, pNetworkData: *mut byte, pulNetworkDataLength: *mut u32, pStatus: *mut error_status_t);
+    extern fn EXPR_EVAL(param0: *mut _MIDL_STUB_MESSAGE);
+    extern fn GENERIC_BINDING_ROUTINE(param0: *mut void) -> *mut void;
+    #[packed(8)]
+    struct GENERIC_BINDING_ROUTINE_PAIR {
+        pfnBind: GENERIC_BINDING_ROUTINE,
+        pfnUnbind: GENERIC_UNBIND_ROUTINE,
+    }
+    extern fn GENERIC_UNBIND_ROUTINE(param0: *mut void, param1: *mut u8);
+    #[repr(i32)]
+    enum IDL_CS_CONVERT {
+        IDL_CS_NO_CONVERT = 0,
+        IDL_CS_IN_PLACE_CONVERT = 1,
+        IDL_CS_NEW_BUFFER_CONVERT = 2,
+    }
+    #[packed(8)]
+    struct MALLOC_FREE_STRUCT {
+        pfnAllocate: extern fn(size_t) -> *mut void,
+        pfnFree: NDR_RUNDOWN,
+    }
+    #[packed(8)]
+    struct MIDL_STUB_DESC {
+        RpcInterfaceInformation: *mut void,
+        pfnAllocate: extern fn(size_t) -> *mut void,
+        pfnFree: NDR_RUNDOWN,
+        IMPLICIT_HANDLE_INFO: #[packed(8)] union {
+            pAutoHandle: *mut handle_t,
+            pPrimitiveHandle: *mut handle_t,
+            pGenericBindingInfo: PGENERIC_BINDING_INFO,
+        },
+        apfnNdrRundownRoutines: *const NDR_RUNDOWN,
+        aGenericBindingRoutinePairs: *const GENERIC_BINDING_ROUTINE_PAIR,
+        apfnExprEval: *const EXPR_EVAL,
+        aXmitQuintuple: *const XMIT_ROUTINE_QUINTUPLE,
+        pFormatTypes: *const u8,
+        fCheckBounds: i32,
+        Version: u32,
+        pMallocFreeStruct: *mut MALLOC_FREE_STRUCT,
+        MIDLVersion: i32,
+        CommFaultOffsets: *const COMM_FAULT_OFFSETS,
+        aUserMarshalQuadruple: *const USER_MARSHAL_ROUTINE_QUADRUPLE,
+        NotifyRoutineTable: *const NDR_NOTIFY_ROUTINE,
+        mFlags: ULONG_PTR,
+        CsRoutineTables: *const NDR_CS_ROUTINES,
+        ProxyServerInfo: *mut void,
+        pExprInfo: *const NDR_EXPR_DESC,
+    }
+    struct NDR_ALLOC_ALL_NODES_CONTEXT {}
+    #[packed(8)]
+    struct NDR_CS_ROUTINES {
+        pSizeConvertRoutines: *mut NDR_CS_SIZE_CONVERT_ROUTINES,
+        pTagGettingRoutines: *mut CS_TAG_GETTING_ROUTINE,
+    }
+    #[packed(8)]
+    struct NDR_CS_SIZE_CONVERT_ROUTINES {
+        pfnNetSize: CS_TYPE_NET_SIZE_ROUTINE,
+        pfnToNetCs: CS_TYPE_TO_NETCS_ROUTINE,
+        pfnLocalSize: CS_TYPE_LOCAL_SIZE_ROUTINE,
+        pfnFromNetCs: CS_TYPE_FROM_NETCS_ROUTINE,
+    }
+    #[packed(8)]
+    struct NDR_EXPR_DESC {
+        pOffset: *const u16,
+        pFormatExpr: PFORMAT_STRING,
+    }
+    extern fn NDR_NOTIFY_ROUTINE();
+    struct NDR_POINTER_QUEUE_STATE {}
+    extern fn NDR_RUNDOWN(context: *mut void);
+    type NDR_SCONTEXT = *mut _NDR_SCONTEXT;
+    #[library("RPCRT4.dll")]
+    extern "C" fn NdrClientCall2(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
+    type PARRAY_INFO = *mut ARRAY_INFO;
+    type PFORMAT_STRING = *const u8;
+    type PGENERIC_BINDING_INFO = *mut __GENERIC_BINDING_INFO;
+    type PMIDL_STUB_DESC = *const MIDL_STUB_DESC;
+    type PMIDL_STUB_MESSAGE = *mut _MIDL_STUB_MESSAGE;
+    type PNDR_ASYNC_MESSAGE = *mut _NDR_ASYNC_MESSAGE;
+    type PNDR_CORRELATION_INFO = *mut _NDR_CORRELATION_INFO;
+    extern fn USER_MARSHAL_FREEING_ROUTINE(param0: *mut u32, param1: *mut void);
+    extern fn USER_MARSHAL_MARSHALLING_ROUTINE(param0: *mut u32, param1: *mut u8, param2: *mut void) -> *mut u8;
+    #[packed(8)]
+    struct USER_MARSHAL_ROUTINE_QUADRUPLE {
+        pfnBufferSize: USER_MARSHAL_SIZING_ROUTINE,
+        pfnMarshall: USER_MARSHAL_MARSHALLING_ROUTINE,
+        pfnUnmarshall: USER_MARSHAL_UNMARSHALLING_ROUTINE,
+        pfnFree: USER_MARSHAL_FREEING_ROUTINE,
+    }
+    extern fn USER_MARSHAL_SIZING_ROUTINE(param0: *mut u32, param1: u32, param2: *mut void) -> u32;
+    extern fn USER_MARSHAL_UNMARSHALLING_ROUTINE(param0: *mut u32, param1: *mut u8, param2: *mut void) -> *mut u8;
+    #[repr(i32)]
+    enum XLAT_SIDE {
+        XLAT_SERVER = 1,
+        XLAT_CLIENT = 2,
+    }
+    extern fn XMIT_HELPER_ROUTINE(param0: PMIDL_STUB_MESSAGE);
+    #[packed(8)]
+    struct XMIT_ROUTINE_QUINTUPLE {
+        pfnTranslateToXmit: XMIT_HELPER_ROUTINE,
+        pfnTranslateFromXmit: XMIT_HELPER_ROUTINE,
+        pfnFreeXmit: XMIT_HELPER_ROUTINE,
+        pfnFreeInst: XMIT_HELPER_ROUTINE,
+    }
+    #[packed(8)]
+    struct _FULL_PTR_XLAT_TABLES {
+        RefIdToPointer: *mut void,
+        PointerToRefId: *mut void,
+        NextRefId: u32,
+        XlatSide: XLAT_SIDE,
+    }
+    #[packed(8)]
+    struct _MIDL_STUB_MESSAGE {
+        RpcMsg: PRPC_MESSAGE,
+        Buffer: *mut u8,
+        BufferStart: *mut u8,
+        BufferEnd: *mut u8,
+        BufferMark: *mut u8,
+        BufferLength: u32,
+        MemorySize: u32,
+        Memory: *mut u8,
+        IsClient: u8,
+        Pad: u8,
+        uFlags2: u16,
+        ReuseBuffer: i32,
+        pAllocAllNodesContext: *mut NDR_ALLOC_ALL_NODES_CONTEXT,
+        pPointerQueueState: *mut NDR_POINTER_QUEUE_STATE,
+        IgnoreEmbeddedPointers: i32,
+        PointerBufferMark: *mut u8,
+        CorrDespIncrement: u8,
+        uFlags: u8,
+        UniquePtrCount: u16,
+        MaxCount: ULONG_PTR,
+        Offset: u32,
+        ActualCount: u32,
+        pfnAllocate: extern fn(size_t) -> *mut void,
+        pfnFree: NDR_RUNDOWN,
+        StackTop: *mut u8,
+        pPresentedType: *mut u8,
+        pTransmitType: *mut u8,
+        SavedHandle: handle_t,
+        StubDesc: *const MIDL_STUB_DESC,
+        FullPtrXlatTables: *mut _FULL_PTR_XLAT_TABLES,
+        FullPtrRefId: u32,
+        PointerLength: u32,
+        #[Windows::Win32::Metadata::NativeBitfield("fBufferValid", 9, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fDontCallFreeInst", 1, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fHasExtensions", 4, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fHasMemoryValidateCallback", 10, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fHasNewCorrDesc", 5, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fHasReturn", 3, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fInDontFree", 0, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fInFree", 11, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fIsIn", 6, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fIsOicf", 8, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fIsOut", 7, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fNeedMCCP", 12, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fUnused1", 2, 1, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fUnused2", 13, 3, MemberType = u32)]
+        #[Windows::Win32::Metadata::NativeBitfield("fUnused3", 16, 16, MemberType = u32)]
+        _bitfield: u32,
+        dwDestContext: u32,
+        pvDestContext: *mut void,
+        SavedContextHandles: *mut NDR_SCONTEXT,
+        ParamNumber: i32,
+        pRpcChannelBuffer: IRpcChannelBuffer,
+        pArrayInfo: PARRAY_INFO,
+        SizePtrCountArray: *mut u32,
+        SizePtrOffsetArray: *mut u32,
+        SizePtrLengthArray: *mut u32,
+        pArgQueue: *mut void,
+        dwStubPhase: u32,
+        LowStackMark: *mut void,
+        pAsyncMsg: PNDR_ASYNC_MESSAGE,
+        pCorrInfo: PNDR_CORRELATION_INFO,
+        pCorrMemory: *mut u8,
+        pMemoryList: *mut void,
+        pCSInfo: INT_PTR,
+        ConformanceMark: *mut u8,
+        VarianceMark: *mut u8,
+        Unused: INT_PTR,
+        pContext: *mut _NDR_PROC_CONTEXT,
+        ContextHandleHash: *mut void,
+        pUserMarshalList: *mut void,
+        pFullPtrFormat: *mut u8,
+        Reserved51_4: INT_PTR,
+        Reserved51_5: INT_PTR,
+    }
+    struct _NDR_ASYNC_MESSAGE {}
+    struct _NDR_CORRELATION_INFO {}
+    struct _NDR_PROC_CONTEXT {}
+    #[packed(8)]
+    struct _NDR_SCONTEXT {
+        pad: [*mut void; 2],
+        userContext: *mut void,
+    }
+    #[packed(8)]
+    struct __GENERIC_BINDING_INFO {
+        pObj: *mut void,
+        Size: u32,
+        pfnBind: GENERIC_BINDING_ROUTINE,
+        pfnUnbind: GENERIC_UNBIND_ROUTINE,
+    }
+    type byte = u8;
+    type error_status_t = u32;
+}
+#[win32]
+mod Fixture {
+    #[library("SETUPAPI.dll")]
+    extern "C" fn SetupWriteTextLog(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LogToken: SP_LOG_TOKEN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Category: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageStr: PCSTR, ...);
+    #[library("SETUPAPI.dll")]
+    extern "C" fn SetupWriteTextLogError(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LogToken: SP_LOG_TOKEN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Category: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LogFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Error: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageStr: PCSTR, ...);
+}
+#[win32]
+mod Fixture {
+    #[library("SHLWAPI.dll")]
+    extern "C" fn wnsprintfA(#[out] #[len_param(1)] pszDest: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFmt: PCSTR, ...) -> i32;
+    #[library("SHLWAPI.dll")]
+    extern "C" fn wnsprintfW(#[out] #[len_param(1)] pszDest: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFmt: PCWSTR, ...) -> i32;
+}
+#[win32]
+mod Fixture {
+    type SP_LOG_TOKEN = u64;
+}
+#[win32]
+mod Fixture {
+    type int32_t = i32;
+}
+#[win32]
+mod Fixture {
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type LPCSTR = *const i8;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type LPCWSTR = *const u16;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type LPSTR = *mut i8;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type LPWSTR = *mut u16;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type PCSTR = *const i8;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type PCWSTR = *const u16;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type PSTR = *mut i8;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type PWSTR = *mut u16;
+    type WCHAR = u16;
+}
+#[win32]
+mod Fixture {
+    #[library("USER32.dll")]
+    extern "C" fn wsprintfA(#[out] param0: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, ...) -> i32;
+    #[library("USER32.dll")]
+    extern "C" fn wsprintfW(#[out] param0: LPWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR, ...) -> i32;
+}

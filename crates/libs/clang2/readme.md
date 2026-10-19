@@ -45,11 +45,13 @@ out-of-line definitions. RDL preserves their scope through inline fields or nest
 and references such as `Outer::Inner`. Nested enums and aliases declared inside records remain
 unsupported.
 Callback capture checks native function properties before accepting a prototype. Explicit
-`regparm`, variadic functions, other calling conventions, and unknown attributes remain
+`regparm`, other calling conventions, and unknown attributes remain
 unsupported rather than being normalized to ordinary C. Unconditional `noexcept`, `nothrow`,
 and empty `throw()` retain their native distinction and publish an explicit
 `NativeExceptionSpecificationAttribute`
 on functions, methods, and named callbacks. Other exception specifications remain unsupported.
+Variadic imports preserve the compiler's C ABI and emit `...`; reconciliation distinguishes
+variadic and fixed prototypes. Variadic callbacks and interface methods remain unsupported.
 Native `noreturn` function properties and declaration-owned `[[noreturn]]` remain distinct during
 reconciliation and emit `DoesNotReturnAttribute` on imports, methods, and named callbacks.
 An unnamed non-returning or non-throwing pointer needs a compatible named callback because a
@@ -106,8 +108,8 @@ Explicit public-name mappings in `functions` override target-specific native lin
 remain distinct native attributes; neither supplies the DLL identity. The SDK driver reads each
 target's pinned import libraries in policy order, applies checked DLL corrections, and preserves
 named exports or ordinals. Ordinals survive RDL/WinMD; bindgen support remains a consumer gap.
-Native-compatible free-function redeclarations with ambiguous public names or aliases
-remain strict errors; partial mode reports and omits them on every target.
+Native-compatible free-function redeclarations may use equivalent unannotated value typedefs.
+Conflicting public types or contracts remain strict errors and all-target partial omissions.
 Unresolved import ownership is target-local in partial mode: validated variants remain published,
 and omissions identify each target lacking evidence. Strict mode still fails. Missing imports do
 not prove target unavailability or excuse native and public contract conflicts.
@@ -204,10 +206,11 @@ Deprecation messages and replacement names retain explicit `NativeDeprecatedAttr
 Empty payloads and enum-member annotations survive metadata round trips. Relocated typedef
 annotations retain their original owner; conflicting deprecation payloads are rejected.
 
-Imported prototypes may differ in parameter names when their published types and annotations agree.
+Imported prototypes may differ in parameter names and transparent value typedefs when their resolved
+types and annotations agree. Comparison preserves nominal types, qualifiers, callbacks and
+typedef-owned annotations, including contracts from other translation units.
 Selection prefers a complete observed prototype with more authored names, then lexical declaration
-order. Native compatibility is checked first; different written type identities remain conflicts
-even when their ABI matches.
+order. The emitted prototype retains that observation's written typedef names.
 
 The SDK driver retains SAL source-hook evidence in native observations. Simple parameter direction
 and optionality contracts share semantic normalization across reconciliation and publication,

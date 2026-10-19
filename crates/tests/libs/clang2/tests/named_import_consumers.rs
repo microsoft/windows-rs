@@ -47,6 +47,23 @@ fn target_import_consumer() {
 }
 
 #[test]
+fn variadic_import_consumer() {
+    run(None, "sdk_variadics");
+}
+
+#[test]
+#[ignore = "requires three-target Rust/MSVC link toolchains and the pinned LLVM inspection tool"]
+fn variadic_import_consumers_cross_targets() {
+    for target in [
+        "i686-pc-windows-msvc",
+        "x86_64-pc-windows-msvc",
+        "aarch64-pc-windows-msvc",
+    ] {
+        run(Some(target), "sdk_variadics");
+    }
+}
+
+#[test]
 #[ignore = "requires three-target Rust/MSVC link toolchains and the pinned LLVM inspection tool"]
 fn named_import_consumers_cross_targets() {
     for target in [
@@ -88,6 +105,7 @@ fn run(target: Option<&str>, fixture: &str) {
         "sdk_overrides" => "overrides_import_consumer",
         "sdk_psapi" => "psapi_import_consumer",
         "sdk_unresolved_imports" => "target_import_consumer",
+        "sdk_variadics" => "variadic_import_consumer",
         _ => panic!("unknown import fixture {fixture}"),
     };
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
@@ -214,6 +232,13 @@ fn run(target: Option<&str>, fixture: &str) {
                 ("avifil32.dll", "AVIStreamRelease"),
             ],
             "sdk_psapi" => &[("kernel32.dll", "K32EnumProcesses")],
+            "sdk_variadics" => &[
+                ("user32.dll", "wsprintfA"),
+                ("user32.dll", "wsprintfW"),
+                ("shlwapi.dll", "wnsprintfA"),
+                ("shlwapi.dll", "wnsprintfW"),
+                ("icuin.dll", "u_formatMessage"),
+            ],
             "sdk_unresolved_imports" if target == Some("i686-pc-windows-msvc") => &[],
             "sdk_unresolved_imports" => &[
                 ("oleaut32.dll", "BSTR_UserSize64"),

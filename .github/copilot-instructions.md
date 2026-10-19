@@ -272,8 +272,9 @@ The stdcall trial recovers 94 functions but also changes 84 callbacks, the six I
 `UReplaceableCallbacks` fields, and `InitializeXamlDiagnosticsEx` on x86. Seventy-five named
 declarations matched baseline cdecl before the trial. Native import agreement does not validate
 these extra ABI changes; the blanket default is not accepted for canonical publication.
-Native ABI conflicts are fatal. Native-compatible value declarations whose public parameter names
-or aliases disagree are strict projection errors and explicit all-target partial omissions.
+Native ABI conflicts are fatal. Import redeclarations compare parameter labels positionally and
+expand only unannotated value typedefs for agreement. Keep the selected observed signature's aliases;
+nominal types, qualifiers, callback names and typedef-owned contracts must not be erased.
 Repeated GUID blocks also occur in the main TU (`winioctl.h`); enabling INITGUID before its prelude
 fails even with satellite definition mode disabled.
 `Input.macro_headers` and `--macro-header=header.h` discover object-like macros through compiler
@@ -464,7 +465,9 @@ attributed types makes every remaining function prototype plain C.
 The sys crate's `windows_clang_getFunctionInfo` recovers these hidden properties, including
 explicit `regparm(0)` versus absence, and flags additional prototype information for rejection
 or later decoding. `test_clang_sys` exercises these distinctions on all three parsing targets.
-Explicit regparm (including zero), variadics, and unknown properties remain rejected.
+Explicit regparm (including zero) and unknown properties remain rejected. Variadic imports retain
+the compiler's C ABI, including ignored written stdcall requests; variadic callbacks and methods
+remain rejected during publication. Native reconciliation compares the variadic flag.
 `Function::noreturn` retains the native function-type bit; `Cxx11NoReturn` retains declaration-owned
 standard attributes separately. Native/public comparison checks both. The shared callable writer
 emits one DoesNotReturn attribute for imports, methods, and named callbacks. Non-returning anonymous

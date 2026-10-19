@@ -201,6 +201,7 @@ impl Capture<'_> {
         if self.snapshot.target != Target::X86
             || origin != CallingConventionOrigin::Default
             || original.convention != CallingConvention::C
+            || original.variadic
             || expected != **candidate
             || mangling.is_empty()
         {

@@ -1,6 +1,8 @@
 mod coverage;
 #[path = "../../win32/src/headers.rs"]
 mod headers;
+#[cfg(test)]
+mod import_availability;
 #[path = "../../win32/src/imports.rs"]
 mod import_policy;
 mod named_exports;
@@ -852,6 +854,36 @@ mod tests {
             ),
             ("sdk_adshlp.h", "sdk_adshlp.rdl", adshlp),
             ("sdk_winsock.h", "sdk_winsock.rdl", winsock),
+            (
+                "sdk_variadics.h",
+                "sdk_variadics.rdl",
+                [
+                    "wsprintfA",
+                    "wsprintfW",
+                    "wnsprintfA",
+                    "wnsprintfW",
+                    "TraceMessage",
+                    "NdrClientCall2",
+                    "SetupWriteTextLog",
+                    "SetupWriteTextLogError",
+                    "u_formatMessage",
+                ]
+                .map(String::from)
+                .to_vec(),
+            ),
+            (
+                "sdk_threadpool.h",
+                "sdk_threadpool.rdl",
+                [
+                    "CreateThreadpoolIo",
+                    "CreateThreadpoolTimer",
+                    "CreateThreadpoolWait",
+                    "CreateThreadpoolWork",
+                    "TrySubmitThreadpoolCallback",
+                ]
+                .map(String::from)
+                .to_vec(),
+            ),
         ] {
             let expected_functions = roots.len();
             let input = Input {
@@ -978,7 +1010,7 @@ mod tests {
         assert!(sdk_macro_headers(&include.join("missing"), &[]).is_err());
     }
 
-    fn sdk_test_arguments() -> Vec<String> {
+    pub(super) fn sdk_test_arguments() -> Vec<String> {
         helpers::ensure_libclang();
         let include = helpers::nuget_package("microsoft.windows.sdk.cpp", SDK_VERSION)
             .join("c")
@@ -1191,6 +1223,92 @@ mod tests {
                 }
             }
         }
+    }
+
+    #[test]
+    #[ignore = "requires the pinned Windows SDK headers, import libraries, and native companion"]
+    fn sdk_public_redeclarations() {
+        helpers::ensure_libclang();
+        let names = [
+            "HSTRING_UserFree",
+            "HSTRING_UserMarshal",
+            "HSTRING_UserSize",
+            "HSTRING_UserUnmarshal",
+            "PerfStartProvider",
+            "VerSetConditionMask",
+        ];
+        let fixtures =
+            Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\tests\\libs\\clang2\\input");
+        let input = Input {
+            name: "sdk_public_redeclarations.h".into(),
+            source: std::fs::read_to_string(fixtures.join("sdk_public_redeclarations.h")).unwrap(),
+            arguments: sdk_test_arguments(),
+            roots: names.map(String::from).into(),
+            ..Default::default()
+        };
+        let snapshots =
+            windows_clang2::capture(&[input], &[Target::X86, Target::X64, Target::Arm64]).unwrap();
+        for snapshot in &snapshots {
+            for name in names {
+                let value = snapshot
+                    .values
+                    .iter()
+                    .find(|value| value.name == name)
+                    .unwrap();
+                assert!(value.observations.len() >= 2, "{name}");
+                let canonical = value.observations[0].canonical;
+                assert!(
+                    value
+                        .observations
+                        .iter()
+                        .all(|observation| observation.canonical == canonical),
+                    "{name}"
+                );
+            }
+        }
+        let evidence = named_exports::Evidence::load().unwrap();
+        let mut imports = projection::Imports::default();
+        for target in [Target::X86, Target::X64, Target::Arm64] {
+            let (arch, _) = import_target(target);
+            let directory =
+                helpers::nuget_package(&format!("microsoft.windows.sdk.cpp.{arch}"), SDK_VERSION)
+                    .join("c");
+            let discovered = read_sdk_imports(&directory, target, &mut String::new()).unwrap();
+            add_sdk_imports(&mut imports, target, discovered, &evidence, &snapshots).unwrap();
+        }
+        let output = projection::project_with_imports(
+            &windows_clang2::merge(&snapshots).unwrap(),
+            "Fixture",
+            &imports,
+        )
+        .unwrap();
+        assert_eq!(output.functions, names.len());
+        let actual: String = output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        let golden = fixtures.join("sdk_public_redeclarations.rdl");
+        if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+            std::fs::write(&golden, &actual).unwrap();
+        }
+        assert_eq!(
+            actual,
+            std::fs::read_to_string(golden)
+                .unwrap()
+                .replace("\r\n", "\n")
+        );
+        let partial = projection::project_partial_with_imports(
+            windows_clang2::PartialCapture {
+                snapshots,
+                omissions: Vec::new(),
+            },
+            "Fixture",
+            &imports,
+        )
+        .unwrap();
+        assert_eq!(partial.output, output);
+        assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
     }
 
     #[test]

@@ -2,6 +2,56 @@ use windows_clang2::*;
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
+#[test]
+fn elaborated_global_declarations() {
+    helpers::ensure_libclang();
+    let input = test_clang2::fixture("elaborated_records");
+    let snapshots = capture(&[input], &TARGETS).unwrap();
+    for snapshot in &snapshots {
+        for name in ["Context", "Shared", "AliasTarget", "Argument", "Defined"] {
+            let record = snapshot
+                .records
+                .iter()
+                .find(|record| record.name == name)
+                .unwrap();
+            assert!(record.owner.is_none(), "{name}");
+            if name == "Defined" {
+                assert_eq!(record.observations.len(), 2);
+            }
+        }
+        let child = snapshot
+            .records
+            .iter()
+            .find(|record| record.name == "Child")
+            .unwrap();
+        let owner = child.owner.unwrap();
+        assert_eq!(snapshot.records[owner.record.0].name, "Nested");
+    }
+    let imports = [(
+        "EchoArgument".into(),
+        projection::Import {
+            library: "fixture.dll".into(),
+            name: None,
+        },
+    )]
+    .into_iter()
+    .collect();
+    let output =
+        projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports).unwrap();
+    let rdl = &output.partitions["elaborated_records"].rdl;
+    let path = test_clang2::input_dir().join("elaborated_records.rdl");
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(&path, rdl).unwrap();
+    }
+    assert_eq!(
+        rdl,
+        &std::fs::read_to_string(path).unwrap().replace("\r\n", "\n")
+    );
+    let input = test_clang2::selected_fixture("elaborated_records", &["Context"]);
+    let selected = projection::generate(&[input], "Fixture").unwrap();
+    assert_eq!((selected.records, selected.functions), (1, 0));
+}
+
 fn input() -> Input {
     let mut input = test_clang2::fixture("opaque_records");
     input.macros = vec!["INVALID".into()];

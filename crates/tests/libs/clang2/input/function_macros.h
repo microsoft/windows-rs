@@ -1,6 +1,6 @@
 extern "C" int __stdcall Native(unsigned count, const unsigned* values);
 extern "C" int __stdcall Other(unsigned count, const unsigned* values);
-extern "C" int Unsupported(int value, ...);
+extern "C" int Unsupported(int value) noexcept(false);
 extern "C" int Self(int value);
 namespace Scoped { extern "C" int Hidden(int value); }
 extern "C" int Shadow(unsigned value);

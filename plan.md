@@ -79,6 +79,14 @@ Changes to strategy, scope, deferrals, or acceptance gates require approval.
    independently validated target variants and report missing import evidence per target.
    Strict publication still fails; native and unrelated contract failures retain their existing
    rejection rules. Missing import evidence does not prove that a target is unavailable.
+   The maintainer approved 88 x86 baseline availability corrections for the pinned SDK workload:
+   the mask-6 entries in `crates/tests/libs/clang2/input/sdk_import_availability.txt`. These are
+   acceptance corrections, not parser rules or claims about every Windows release. Preserve
+   captured declarations and missing-import diagnostics. Both missing `RtlCaptureContext2` target
+   pairs remain required pending stronger platform evidence.
+   The maintainer approved equivalent transparent value typedefs in import-redeclaration
+   comparisons after native agreement. Preserve every observation and emit an observed signature;
+   do not erase nominal identity, qualifiers, callback contracts or typedef-owned annotations.
 4. **Make correctness reproducible and end-to-end.** Establish a clean-checkout reproduction path,
    reusable semantic comparisons, and selected SDK-backed CI coverage. Promote the review's
    consumer probes into repeatable acceptance checks. Complete the metadata compatibility gate

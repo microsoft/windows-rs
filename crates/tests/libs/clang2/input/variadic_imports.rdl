@@ -1,0 +1,18 @@
+#[win32]
+mod Fixture {
+    type Count = u32;
+    #[library("fixture.dll")]
+    extern "C" fn Explicit(first: i32, ...) -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn Fixed(first: i32) -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn NoFixed(...) -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn Requested(first: i32, ...) -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn Sum(count: Count, ...) -> i32;
+    #[library("fixture.dll", import = "Sum")]
+    extern "C" fn SumAlias(count: Count, ...) -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn Variadic(first: i32, ...);
+}

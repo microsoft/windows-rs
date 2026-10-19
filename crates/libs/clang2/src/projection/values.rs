@@ -143,7 +143,7 @@ impl Projector<'_, '_> {
                 let (parameters, result) = self.callable(snapshot, observation, true)?;
                 let written = import.map_or(observation.written, |resolved| resolved.written);
                 let function = written_function(self.resolution.snapshots[snapshot], written)?;
-                let abi = callable_abi(function.convention);
+                let abi = callable_abi(function);
                 let name = ident(name)?;
                 let native = annotations::write(&observation.attributes);
                 let contracts = annotations::function(function.prototype, &observation.attributes);
@@ -303,7 +303,7 @@ impl Projector<'_, '_> {
             if !matches!(
                 snapshot.types[observation.canonical.0].kind,
                 TypeKind::Scalar(_)
-            ) || !self.unannotated_scalar(reference.snapshot, observation.written)
+            ) || !self.unannotated_value(reference.snapshot, observation.written)
             {
                 return Err(conflict);
             }
@@ -328,24 +328,28 @@ impl Projector<'_, '_> {
         Ok(())
     }
 
-    fn unannotated_scalar(&self, snapshot: usize, written: TypeId) -> bool {
+    fn unannotated_value(&self, snapshot: usize, written: TypeId) -> bool {
         let mut pending = vec![(snapshot, written)];
         let mut seen = HashSet::new();
         while let Some((snapshot, ty)) = pending.pop() {
             if !seen.insert((snapshot, ty)) {
                 continue;
             }
-            let snapshot = self.resolution.snapshots[snapshot];
-            match snapshot.types[ty.0].kind {
-                TypeKind::Scalar(_) => {}
+            let source = self.resolution.snapshots[snapshot];
+            match source.types[ty.0].kind {
+                TypeKind::Void | TypeKind::Scalar(_) | TypeKind::Enum(_) => {}
+                TypeKind::Record(record) if !self.interface_record(snapshot, record) => {}
+                TypeKind::Pointer(inner)
+                | TypeKind::LValueReference(inner)
+                | TypeKind::Array { element: inner, .. } => pending.push((snapshot, inner)),
                 TypeKind::Alias(id) => {
-                    let name = &snapshot.aliases[id.0].name;
+                    let name = &source.aliases[id.0].name;
                     let index = self
                         .resolution
                         .aliases
                         .binary_search_by(|group| group.name.cmp(name))
                         .unwrap();
-                    // Contracts may come from another TU with no use of this constant.
+                    // Contracts may come from another TU with no use of this value.
                     for reference in &self.resolution.aliases[index].observations {
                         let alias = &self.resolution.snapshots[reference.snapshot].aliases
                             [reference.alias.0]
@@ -362,6 +366,54 @@ impl Projector<'_, '_> {
         true
     }
 
+    fn comparison_type(&self, ty: MetadataType) -> Result<MetadataType, Error> {
+        Ok(match ty {
+            MetadataType::ValueName(ref name) if name.namespace == self.namespace => {
+                let Ok(index) = self
+                    .resolution
+                    .aliases
+                    .binary_search_by(|alias| alias.name.cmp(&name.name))
+                else {
+                    return Ok(ty);
+                };
+                let alias = &self.resolution.aliases[index];
+                let Some(reference) = alias_source(self.resolution, alias) else {
+                    return Ok(ty);
+                };
+                for reference in &alias.observations {
+                    let observation = &self.resolution.snapshots[reference.snapshot].aliases
+                        [reference.alias.0]
+                        .observations[reference.observation];
+                    if !observation.attributes.is_empty()
+                        || !self.unannotated_value(reference.snapshot, observation.underlying)
+                    {
+                        return Ok(ty);
+                    }
+                }
+                let observation = &self.resolution.snapshots[reference.snapshot].aliases
+                    [reference.alias.0]
+                    .observations[reference.observation];
+                self.ty(reference.snapshot, observation.canonical)?
+            }
+            MetadataType::PtrMut(inner, count) => {
+                MetadataType::PtrMut(Box::new(self.comparison_type(*inner)?), count)
+            }
+            MetadataType::PtrConst(inner, count) => {
+                MetadataType::PtrConst(Box::new(self.comparison_type(*inner)?), count)
+            }
+            MetadataType::RefMut(inner) => {
+                MetadataType::RefMut(Box::new(self.comparison_type(*inner)?))
+            }
+            MetadataType::RefConst(inner) => {
+                MetadataType::RefConst(Box::new(self.comparison_type(*inner)?))
+            }
+            MetadataType::ArrayFixed(inner, length) => {
+                MetadataType::ArrayFixed(Box::new(self.comparison_type(*inner)?), length)
+            }
+            _ => ty,
+        })
+    }
+
     fn callable(
         &self,
         snapshot_id: usize,
@@ -372,11 +424,27 @@ impl Projector<'_, '_> {
         let function = written_function(snapshot, observation.canonical)?.prototype;
         self.check_function_abi(snapshot_id, function)?;
         let written = written_function(snapshot, observation.written)?;
+        if function.variadic
+            && (function.convention != CallingConvention::C
+                || written.prototype.convention != CallingConvention::C)
+        {
+            return Err(Error(
+                "variadic imports require the native C convention".into(),
+            ));
+        }
         let ValueKind::Function { parameters, .. } = &observation.kind else {
             return Err(Error("expected a callable observation".into()));
         };
-        let parameters = self.parameter_list(snapshot_id, function, parameters, named)?;
+        let mut parameters = self.parameter_list(snapshot_id, function, parameters, named)?;
+        if function.variadic {
+            parameters.push(quote! { ... });
+        }
         let result = self.written_ty(snapshot_id, written.prototype.result, function.result)?;
+        let result = if named {
+            result
+        } else {
+            self.comparison_type(result)?
+        };
         let result = if result == MetadataType::Void {
             TokenStream::new()
         } else {
@@ -442,6 +510,7 @@ impl Projector<'_, '_> {
                     let expression = &value.expression;
                     quote! { #[Windows::Win32::Metadata::NativeDefaultArgument(#expression)] }
                 });
+                let ty = if named { ty } else { self.comparison_type(ty)? };
                 let ty = write_type(self.namespace, &ty);
                 Ok(quote! { #attributes #size #default #name: #ty })
             })
@@ -479,7 +548,7 @@ impl Projector<'_, '_> {
             }
             // SAL still binds against the original names; only comparison labels are positional.
             let (parameters, result) = self.callable(reference.snapshot, observation, false)?;
-            let abi = callable_abi(written_function(snapshot, observation.written)?.convention);
+            let abi = callable_abi(written_function(snapshot, observation.written)?);
             contracts.push(Body {
                 attributes: body.attributes.clone(),
                 declaration: quote! { extern #abi fn(#(#parameters),*) #result; },
@@ -649,6 +718,12 @@ impl Projector<'_, '_> {
                 )));
             }
             let function = written_function(snapshot, method.observation.canonical)?.prototype;
+            if function.variadic {
+                return Err(Error(format!(
+                    "variadic interface method `{name}.{}` is unsupported",
+                    method.name
+                )));
+            }
             if function.method_qualifiers.volatile || function.method_qualifiers.restrict {
                 return Err(Error(format!(
                     "unsupported volatile/restrict method `{name}.{}`",

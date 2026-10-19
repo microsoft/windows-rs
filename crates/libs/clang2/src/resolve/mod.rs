@@ -537,6 +537,7 @@ pub(crate) fn types_equal(
                 return x.convention == y.convention
                     && x.exceptions == y.exceptions
                     && x.noreturn == y.noreturn
+                    && x.variadic == y.variadic
                     && x.method_qualifiers == y.method_qualifiers
                     && x.parameters.len() == y.parameters.len()
                     && types_equal(

@@ -169,12 +169,13 @@ pub enum CallingConvention {
     Stdcall,
 }
 
-/// Decoded function prototypes; variadics and unknown function properties remain unsupported.
+/// Decoded native function prototypes; unknown function properties remain unsupported.
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub struct Function {
     pub convention: CallingConvention,
     pub exceptions: ExceptionSpecification,
     pub noreturn: bool,
+    pub variadic: bool,
     pub method_qualifiers: Qualifiers,
     pub result: TypeId,
     pub parameters: Vec<TypeId>,

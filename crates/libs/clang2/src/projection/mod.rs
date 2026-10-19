@@ -976,7 +976,13 @@ fn agree(name: &str, target: Target, bodies: &[Body]) -> Result<(), Error> {
     Ok(())
 }
 
-fn callable_abi(convention: CallingConvention) -> TokenStream {
+fn callable_abi(function: WrittenFunction<'_>) -> TokenStream {
+    // Clang can retain a written stdcall attribute that it ignores on a variadic prototype.
+    let convention = if function.prototype.variadic {
+        function.prototype.convention
+    } else {
+        function.convention
+    };
     match convention {
         CallingConvention::C => quote! { "C" },
         CallingConvention::Stdcall => TokenStream::new(),
@@ -1179,7 +1185,7 @@ impl Projector<'_, '_> {
         attributes: &[Attribute],
     ) -> Result<Body, Error> {
         let signature = self.signature(snapshot, function, Some(written))?;
-        let abi = callable_abi(written.convention);
+        let abi = callable_abi(written);
         let name = ident(name)?;
         let parameters = if let Some(declarations) = declarations {
             self.parameters(snapshot, function, declarations)?
@@ -1214,6 +1220,9 @@ impl Projector<'_, '_> {
         function: &Function,
         written: Option<WrittenFunction<'_>>,
     ) -> Result<windows_metadata::Signature, Error> {
+        if function.variadic {
+            return Err(Error("variadic callbacks are unsupported".into()));
+        }
         self.check_function_abi(snapshot, function)?;
         if function.method_qualifiers != Qualifiers::default() {
             return Err(Error(

@@ -1,0 +1,93 @@
+#[win32]
+mod Fixture {
+    type DWORD = u32;
+    type ULONG = u32;
+    #[arch(X64 | Arm64)]
+    type ULONG_PTR = u64;
+    #[arch(X86)]
+    type ULONG_PTR = u32;
+}
+#[win32]
+mod Fixture {
+    type BOOL = i32;
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("KERNEL32.dll")]
+    extern fn CreateThreadpoolIo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fl: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnio: PTP_WIN32_IO_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_IO;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("KERNEL32.dll")]
+    extern fn CreateThreadpoolTimer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnti: PTP_TIMER_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_TIMER;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("KERNEL32.dll")]
+    extern fn CreateThreadpoolWait(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnwa: PTP_WAIT_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_WAIT;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("KERNEL32.dll")]
+    extern fn CreateThreadpoolWork(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnwk: PTP_WORK_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_WORK;
+    extern fn PTP_WIN32_IO_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] #[opt] Overlapped: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IoResult: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumberOfBytesTransferred: ULONG_PTR, #[in] #[out] Io: PTP_IO);
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("KERNEL32.dll")]
+    extern fn TrySubmitThreadpoolCallback(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfns: PTP_SIMPLE_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> BOOL;
+}
+#[win32]
+mod Fixture {
+    type HANDLE = *mut void;
+    type PTP_CALLBACK_ENVIRON = *mut TP_CALLBACK_ENVIRON_V3;
+    type PTP_CALLBACK_INSTANCE = *mut _TP_CALLBACK_INSTANCE;
+    type PTP_CLEANUP_GROUP = *mut _TP_CLEANUP_GROUP;
+    extern fn PTP_CLEANUP_GROUP_CANCEL_CALLBACK(#[in] #[out] #[opt] ObjectContext: PVOID, #[in] #[out] #[opt] CleanupContext: PVOID);
+    type PTP_IO = *mut _TP_IO;
+    type PTP_POOL = *mut _TP_POOL;
+    extern fn PTP_SIMPLE_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID);
+    type PTP_TIMER = *mut _TP_TIMER;
+    extern fn PTP_TIMER_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] Timer: PTP_TIMER);
+    type PTP_WAIT = *mut _TP_WAIT;
+    extern fn PTP_WAIT_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] Wait: PTP_WAIT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] WaitResult: TP_WAIT_RESULT);
+    type PTP_WORK = *mut _TP_WORK;
+    extern fn PTP_WORK_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] Work: PTP_WORK);
+    type PVOID = *mut void;
+    struct TP_CALLBACK_ENVIRON_V3 {
+        Version: TP_VERSION,
+        Pool: PTP_POOL,
+        CleanupGroup: PTP_CLEANUP_GROUP,
+        CleanupGroupCancelCallback: PTP_CLEANUP_GROUP_CANCEL_CALLBACK,
+        RaceDll: PVOID,
+        ActivationContext: *mut _ACTIVATION_CONTEXT,
+        FinalizationCallback: PTP_SIMPLE_CALLBACK,
+        u: union {
+            Flags: DWORD,
+            s: struct {
+                #[Windows::Win32::Metadata::NativeBitfield("LongFunction", 0, 1, MemberType = DWORD)]
+                #[Windows::Win32::Metadata::NativeBitfield("Persistent", 1, 1, MemberType = DWORD)]
+                #[Windows::Win32::Metadata::NativeBitfield("Private", 2, 30, MemberType = DWORD)]
+                _bitfield: u32,
+            },
+        },
+        CallbackPriority: TP_CALLBACK_PRIORITY,
+        Size: DWORD,
+    }
+    #[repr(i32)]
+    enum TP_CALLBACK_PRIORITY {
+        TP_CALLBACK_PRIORITY_HIGH = 0,
+        TP_CALLBACK_PRIORITY_NORMAL = 1,
+        TP_CALLBACK_PRIORITY_LOW = 2,
+        TP_CALLBACK_PRIORITY_INVALID = 3,
+        TP_CALLBACK_PRIORITY_COUNT = 3,
+    }
+    extern fn TP_CLEANUP_GROUP_CANCEL_CALLBACK(#[in] #[out] #[opt] ObjectContext: PVOID, #[in] #[out] #[opt] CleanupContext: PVOID);
+    extern fn TP_SIMPLE_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID);
+    extern fn TP_TIMER_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] Timer: PTP_TIMER);
+    type TP_VERSION = u32;
+    extern fn TP_WAIT_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] Wait: PTP_WAIT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] WaitResult: TP_WAIT_RESULT);
+    type TP_WAIT_RESULT = u32;
+    extern fn TP_WORK_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] Work: PTP_WORK);
+    struct _ACTIVATION_CONTEXT {}
+    struct _TP_CALLBACK_INSTANCE {}
+    struct _TP_CLEANUP_GROUP {}
+    struct _TP_IO {}
+    struct _TP_POOL {}
+    struct _TP_TIMER {}
+    struct _TP_WAIT {}
+    struct _TP_WORK {}
+}
