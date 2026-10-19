@@ -5,6 +5,7 @@ mod application;
 mod background;
 mod canvas;
 mod dialog;
+mod dialog_theme;
 mod drag;
 mod flyout;
 mod image;
@@ -276,6 +277,15 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "canvas" => App::run_component::<canvas::CanvasFixture>(())?,
         "flyout" => App::run_component::<flyout::FlyoutFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
+        "dialog-theme-light" => {
+            App::run_component::<dialog_theme::DialogThemeFixture>((WindowTheme::Light, true))?;
+        }
+        "dialog-theme-dark" => {
+            App::run_component::<dialog_theme::DialogThemeFixture>((WindowTheme::Dark, true))?;
+        }
+        "dialog-theme-late" => {
+            App::run_component::<dialog_theme::DialogThemeFixture>((WindowTheme::Light, false))?;
+        }
         "image" => App::run_component::<image::ImageFixture>(())?,
         "keyboard" => App::run_component::<keyboard::KeyboardFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
