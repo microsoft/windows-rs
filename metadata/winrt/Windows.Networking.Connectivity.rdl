@@ -350,12 +350,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("IDataUsage may be altered or unavailable for releases after Windows 8.1. Instead, use INetworkUsage.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataUsage)]
             interface IDataUsage {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IDataUsage may be altered or unavailable for releases after Windows 8.1. Instead, use INetworkUsage.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_BytesSent(&self) -> u64;
-                #[special]
+                BytesSent: u64;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IDataUsage may be altered or unavailable for releases after Windows 8.1. Instead, use INetworkUsage.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_BytesReceived(&self) -> u64;
+                BytesReceived: u64;
             }
             #[guid(0xd85145e0_138f_47d7_9b3a_36bb488cef33)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

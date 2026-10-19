@@ -31,9 +31,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AutomationConnection)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAutomationConnection {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::NoException]
-                fn get_IsRemoteSystem(&self) -> bool;
+                IsRemoteSystem: bool;
                 #[get]
                 AppUserModelId: String;
                 #[get]
@@ -52,9 +52,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElement)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAutomationElement {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::NoException]
-                fn get_IsRemoteSystem(&self) -> bool;
+                IsRemoteSystem: bool;
                 #[get]
                 AppUserModelId: String;
                 #[get]

@@ -1,5 +1,4 @@
-// Minimal composable (aggregation) class, modeled on
-// crates/tests/fixtures/harness/data/bindgen/composable_class/input.rdl.
+// Minimal composable (aggregation) class.
 
 #[winrt]
 mod test_composable_aggregation {

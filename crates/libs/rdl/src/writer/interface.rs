@@ -74,67 +74,68 @@ fn write_members(
                 .contains(metadata::MethodAttributes::SpecialName)
         {
             let name = method.name();
+            let sig = method.signature(generics);
 
-            if let Some(prop_name) = name.strip_prefix("get_") {
+            // The shorthand regenerates accessor signatures, so it only applies to methods with
+            // the accessor shape.
+            if let Some(prop_name) = name.strip_prefix("get_")
+                && is_getter(&sig)
+            {
                 let put_name = format!("put_{prop_name}");
                 let j = find_unconsumed(&methods, &consumed, i, &put_name);
 
-                let sig = method.signature(generics);
-
-                let no_attrs = method.attributes().next().is_none();
+                let ty = write_type(namespace, &sig.return_type);
+                let prop_ident = write_ident(prop_name);
+                let attrs = write_accessor_attributes(namespace, method)?;
 
                 if let Some(j) = j {
-                    let put_no_attrs = methods[j].attributes().next().is_none();
-                    // Combine only adjacent get_/put_ pairs with matching types.
+                    // Combine only adjacent get_/put_ pairs with matching types and attributes.
                     let put_sig = methods[j].signature(generics);
-                    let types_match = put_sig.types.first() == Some(&sig.return_type);
-                    if no_attrs && put_no_attrs && types_match && (i + 1..j).all(|k| consumed[k]) {
-                        let ty = write_type(namespace, &sig.return_type);
-                        let prop_ident = write_ident(prop_name);
+                    if is_setter(&put_sig)
+                        && put_sig.types[0] == sig.return_type
+                        && (i + 1..j).all(|k| consumed[k])
+                        && write_accessor_attributes(namespace, &methods[j])?.to_string()
+                            == attrs.to_string()
+                    {
                         consumed[i] = true;
                         consumed[j] = true;
-                        tokens.push(quote! { #prop_ident: #ty; });
+                        tokens.push(quote! { #attrs #prop_ident: #ty; });
                         continue;
                     }
                 }
-                if no_attrs {
-                    let ty = write_type(namespace, &sig.return_type);
-                    let prop_ident = write_ident(prop_name);
-                    consumed[i] = true;
-                    tokens.push(quote! { #[get] #prop_ident: #ty; });
-                    continue;
-                }
-            } else if let Some(prop_name) = name.strip_prefix("put_") {
-                let no_attrs = method.attributes().next().is_none();
-                if no_attrs {
-                    let sig = method.signature(generics);
-                    if let Some(ty) = sig.types.first() {
-                        let ty = write_type(namespace, ty);
-                        let prop_ident = write_ident(prop_name);
-                        consumed[i] = true;
-                        tokens.push(quote! { #[set] #prop_ident: #ty; });
-                        continue;
-                    }
-                }
-            } else if let Some(event_name) = name.strip_prefix("add_") {
+                consumed[i] = true;
+                tokens.push(quote! { #[get] #attrs #prop_ident: #ty; });
+                continue;
+            } else if let Some(prop_name) = name.strip_prefix("put_")
+                && is_setter(&sig)
+            {
+                let ty = write_type(namespace, &sig.types[0]);
+                let prop_ident = write_ident(prop_name);
+                let attrs = write_accessor_attributes(namespace, method)?;
+                consumed[i] = true;
+                tokens.push(quote! { #[set] #attrs #prop_ident: #ty; });
+                continue;
+            } else if let Some(event_name) = name.strip_prefix("add_")
+                && let [handler_ty] = &sig.types[..]
+            {
                 let remove_name = format!("remove_{event_name}");
                 let j = find_unconsumed(&methods, &consumed, i, &remove_name);
 
-                let no_attrs = method.attributes().next().is_none();
-
                 if let Some(j) = j {
-                    let remove_no_attrs = methods[j].attributes().next().is_none();
-                    // Event shorthand requires adjacent add_/remove_ methods.
-                    if no_attrs && remove_no_attrs && (i + 1..j).all(|k| consumed[k]) {
-                        let sig = method.signature(generics);
-                        if let Some(handler_ty) = sig.types.first() {
-                            let handler_ty = write_type(namespace, handler_ty);
-                            let event_ident = write_ident(event_name);
-                            consumed[i] = true;
-                            consumed[j] = true;
-                            tokens.push(quote! { #event_kw #event_ident: #handler_ty; });
-                            continue;
-                        }
+                    let attrs = write_accessor_attributes(namespace, method)?;
+                    // Event shorthand requires adjacent add_/remove_ methods with matching
+                    // attributes.
+                    if (i + 1..j).all(|k| consumed[k])
+                        && is_setter(&methods[j].signature(generics))
+                        && write_accessor_attributes(namespace, &methods[j])?.to_string()
+                            == attrs.to_string()
+                    {
+                        let handler_ty = write_type(namespace, handler_ty);
+                        let event_ident = write_ident(event_name);
+                        consumed[i] = true;
+                        consumed[j] = true;
+                        tokens.push(quote! { #attrs #event_kw #event_ident: #handler_ty; });
+                        continue;
                     }
                 }
             }
@@ -145,6 +146,23 @@ fn write_members(
     }
 
     Ok(tokens)
+}
+
+fn is_getter(sig: &metadata::Signature) -> bool {
+    sig.types.is_empty() && sig.return_type != metadata::Type::Void
+}
+
+// Also the shape of an event's remove accessor.
+fn is_setter(sig: &metadata::Signature) -> bool {
+    sig.types.len() == 1 && sig.return_type == metadata::Type::Void
+}
+
+fn write_accessor_attributes(
+    namespace: &str,
+    item: &metadata::reader::MethodDef,
+) -> Result<TokenStream, Error> {
+    let attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    Ok(quote! { #(#attrs)* })
 }
 
 fn find_unconsumed(

@@ -198,12 +198,12 @@ mod Windows {
                 AbsoluteLinearVelocity: super::super::Foundation::Numerics::Vector3;
                 #[get]
                 AbsoluteLinearAcceleration: super::super::Foundation::Numerics::Vector3;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use AbsoluteAngularVelocityAxisAngle instead of AbsoluteAngularVelocity. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
-                fn get_AbsoluteAngularVelocity(&self) -> super::super::Foundation::Numerics::Quaternion;
-                #[special]
+                AbsoluteAngularVelocity: super::super::Foundation::Numerics::Quaternion;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use AbsoluteAngularAccelerationAxisAngle instead of AbsoluteAngularAcceleration. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
-                fn get_AbsoluteAngularAcceleration(&self) -> super::super::Foundation::Numerics::Quaternion;
+                AbsoluteAngularAcceleration: super::super::Foundation::Numerics::Quaternion;
             }
             #[guid(0x117f2416_38a7_4a18_b404_ab8fabe1d78b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]

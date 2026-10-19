@@ -62,12 +62,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(LegacySmsApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("SmsBinaryMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsAppMessage.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
             interface ISmsBinaryMessage: ISmsMessage {
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("SmsBinaryMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsAppMessage.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_Format(&self) -> SmsDataFormat;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("SmsBinaryMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsAppMessage.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn put_Format(&self, value: SmsDataFormat);
+                Format: SmsDataFormat;
                 #[Windows::Foundation::Metadata::Deprecated("SmsBinaryMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsAppMessage.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
                 fn GetData(&self) -> [u8];
                 #[Windows::Foundation::Metadata::Deprecated("SmsBinaryMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsAppMessage.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
@@ -106,30 +102,22 @@ mod Windows {
                 fn SendMessageAsync(&self, message: ISmsMessage) -> SendSmsMessageOperation;
                 #[Windows::Foundation::Metadata::Deprecated("SmsDevice may be altered or unavailable for releases after Windows 10. Instead, use SmsDevice2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
                 fn CalculateLength(&self, message: SmsTextMessage) -> SmsEncodedLength;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsDevice may be altered or unavailable for releases after Windows 10. Instead, use SmsDevice2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_AccountPhoneNumber(&self) -> String;
-                #[special]
+                AccountPhoneNumber: String;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsDevice may be altered or unavailable for releases after Windows 10. Instead, use SmsDevice2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_CellularClass(&self) -> CellularClass;
-                #[special]
+                CellularClass: CellularClass;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsDevice may be altered or unavailable for releases after Windows 10. Instead, use SmsDevice2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_MessageStore(&self) -> SmsDeviceMessageStore;
-                #[special]
+                MessageStore: SmsDeviceMessageStore;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsDevice may be altered or unavailable for releases after Windows 10. Instead, use SmsDevice2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_DeviceStatus(&self) -> SmsDeviceStatus;
-                #[special]
+                DeviceStatus: SmsDeviceStatus;
                 #[Windows::Foundation::Metadata::Deprecated("SmsDevice may be altered or unavailable for releases after Windows 10. Instead, use SmsDevice2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn add_SmsMessageReceived(&self, eventHandler: SmsMessageReceivedEventHandler) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
+                event SmsMessageReceived: SmsMessageReceivedEventHandler;
                 #[Windows::Foundation::Metadata::Deprecated("SmsDevice may be altered or unavailable for releases after Windows 10. Instead, use SmsDevice2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn remove_SmsMessageReceived(&self, eventCookie: super::super::Foundation::EventRegistrationToken);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("SmsDevice may be altered or unavailable for releases after Windows 10. Instead, use SmsDevice2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn add_SmsDeviceStatusChanged(&self, eventHandler: SmsDeviceStatusChangedEventHandler) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("SmsDevice may be altered or unavailable for releases after Windows 10. Instead, use SmsDevice2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn remove_SmsDeviceStatusChanged(&self, eventCookie: super::super::Foundation::EventRegistrationToken);
+                event SmsDeviceStatusChanged: SmsDeviceStatusChangedEventHandler;
             }
             #[guid(0xbd8a5c13_e522_46cb_b8d5_9ead30fb6c47)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -177,9 +165,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("SmsDeviceMessageStore may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetMessagesAsync(&self, messageFilter: SmsMessageFilter) -> super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsDeviceMessageStore may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_MaxMessages(&self) -> u32;
+                MaxMessages: u32;
             }
             #[guid(0xf88d07ea_d815_4dd1_a234_4520ce4604a4)]
             #[Windows::Foundation::Metadata::ContractVersion(LegacySmsApiContract, 65536)]
@@ -282,12 +270,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("SmsMessageReceivedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SmsMessageReceivedEventArgs)]
             interface ISmsMessageReceivedEventArgs {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsMessageReceivedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_TextMessage(&self) -> SmsTextMessage;
-                #[special]
+                TextMessage: SmsTextMessage;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsMessageReceivedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_BinaryMessage(&self) -> SmsBinaryMessage;
+                BinaryMessage: SmsBinaryMessage;
             }
             #[guid(0x2bcfcbd4_2657_4128_ad5f_e3877132bdb1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -332,24 +320,24 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("SmsReceivedEventDetails may be altered or unavailable for releases after Windows 10. Instead, use SmsMessageReceivedTriggerDetails.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SmsReceivedEventDetails)]
             interface ISmsReceivedEventDetails {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsReceivedEventDetails may be altered or unavailable for releases after Windows 10. Instead, use SmsMessageReceivedTriggerDetails.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_DeviceId(&self) -> String;
-                #[special]
+                DeviceId: String;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsReceivedEventDetails may be altered or unavailable for releases after Windows 10. Instead, use SmsMessageReceivedTriggerDetails.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_MessageIndex(&self) -> u32;
+                MessageIndex: u32;
             }
             #[guid(0x40e05c86_a7b4_4771_9ae7_0b5ffb12c03a)]
             #[Windows::Foundation::Metadata::ContractVersion(LegacySmsApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("SmsReceivedEventDetails may be altered or unavailable for releases after Windows 10. Instead, use SmsMessageReceivedTriggerDetails.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SmsReceivedEventDetails)]
             interface ISmsReceivedEventDetails2 {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsReceivedEventDetails may be altered or unavailable for releases after Windows 10. Instead, use SmsMessageReceivedTriggerDetails.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_MessageClass(&self) -> SmsMessageClass;
-                #[special]
+                MessageClass: SmsMessageClass;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsReceivedEventDetails may be altered or unavailable for releases after Windows 10. Instead, use SmsMessageReceivedTriggerDetails.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_BinaryMessage(&self) -> SmsBinaryMessage;
+                BinaryMessage: SmsBinaryMessage;
             }
             #[guid(0xdb139af2_78c9_4feb_9622_452328088d62)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -393,42 +381,26 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(LegacySmsApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
             interface ISmsTextMessage: ISmsMessage {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_Timestamp(&self) -> super::super::Foundation::DateTime;
-                #[special]
+                Timestamp: super::super::Foundation::DateTime;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_PartReferenceId(&self) -> u32;
-                #[special]
+                PartReferenceId: u32;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_PartNumber(&self) -> u32;
-                #[special]
+                PartNumber: u32;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_PartCount(&self) -> u32;
-                #[special]
+                PartCount: u32;
                 #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_To(&self) -> String;
-                #[special]
+                To: String;
                 #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn put_To(&self, value: String);
-                #[special]
+                From: String;
                 #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_From(&self) -> String;
-                #[special]
+                Body: String;
                 #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn put_From(&self, value: String);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_Body(&self) -> String;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn put_Body(&self, value: String);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn get_Encoding(&self) -> SmsEncoding;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
-                fn put_Encoding(&self, value: SmsEncoding);
+                Encoding: SmsEncoding;
                 #[Windows::Foundation::Metadata::Deprecated("SmsTextMessage may be altered or unavailable for releases after Windows 10. Instead, use SmsTextMessage2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
                 fn ToBinaryMessages(&self, format: SmsDataFormat) -> super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>;
             }

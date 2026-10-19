@@ -45,12 +45,28 @@ impl IActivationFactory_Impl for Activatable_Impl {
 /// Returns a factory that activates `T::default()` as the class `C`.
 ///
 /// The instance is returned through the class's default interface rather than a separate
-/// `IInspectable` tear-off. `IActivationFactory` does not require this, but CsWinRT 3 calls the
-/// returned pointer's default interface methods without a `QueryInterface`.
+/// `IInspectable` tear-off, matching C++/WinRT components. `IActivationFactory` does not require
+/// this, but a client may use the returned pointer as the default interface without calling
+/// `QueryInterface`.
 fn activatable<T: Default + Into<C>, C: Into<IInspectable>>() -> IActivationFactory {
     Activatable(|| {
         let instance: C = T::default().into();
         instance.into()
     })
     .into()
+}
+
+/// Fails the client's call with the component's file and line when `condition` is false. A panic
+/// cannot unwind across the ABI, so components that check their callers return this error instead.
+#[track_caller]
+fn check(condition: bool) -> Result<()> {
+    if condition {
+        Ok(())
+    } else {
+        let location = core::panic::Location::caller();
+        Err(Error::new(
+            E_FAIL,
+            format!("{}({}): check failed", location.file(), location.line()),
+        ))
+    }
 }

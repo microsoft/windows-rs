@@ -712,12 +712,12 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GattDeviceService)]
                 interface IGattDeviceService2: IGattDeviceService + super::super::super::Foundation::IClosable {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("Use Session instead of Device property.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Device(&self) -> super::BluetoothLEDevice;
-                    #[special]
+                    Device: super::BluetoothLEDevice;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("ParentServices may be altered or unavailable in future releases.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_ParentServices(&self) -> super::super::super::Foundation::Collections::IVectorView<GattDeviceService>;
+                    ParentServices: super::super::super::Foundation::Collections::IVectorView<GattDeviceService>;
                     #[Windows::Foundation::Metadata::Deprecated("Use GetCharacteristicsAsync instead of GetAllCharacteristics.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                     fn GetAllCharacteristics(&self) -> super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>;
                     #[Windows::Foundation::Metadata::Deprecated("Use GetIncludedServicesAsync instead of GetAllIncludedServices.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]

@@ -730,12 +730,12 @@ mod Windows {
             interface IIsoSpeedControl {
                 #[get]
                 Supported: bool;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SupportedPresets may not be available in future versions of Windows Phone. Starting with Windows Phone 8.1, use SetAutoAsync, Auto, SetValueAsync, and Value instead", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_SupportedPresets(&self) -> super::super::Foundation::Collections::IVectorView<IsoSpeedPreset>;
-                #[special]
+                SupportedPresets: super::super::Foundation::Collections::IVectorView<IsoSpeedPreset>;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Preset may not be available in future versions of Windows Phone. Starting with Windows Phone 8.1, use SetAutoAsync, Auto, SetValueAsync, and Value instead", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_Preset(&self) -> IsoSpeedPreset;
+                Preset: IsoSpeedPreset;
                 #[Windows::Foundation::Metadata::Deprecated("SetPresetAsync may not be available in future versions of Windows Phone. Starting with Windows Phone 8.1, use SetAutoAsync, Auto, SetValueAsync, and Value instead", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> super::super::Foundation::IAsyncAction;

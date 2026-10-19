@@ -2101,14 +2101,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(Canvas)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICanvasStatics {
-                    #[special]
+                    #[get]
                     #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                    fn get_LeftProperty(&self) -> super::DependencyProperty;
+                    LeftProperty: super::DependencyProperty;
                     fn GetLeft(&self, element: super::UIElement) -> f64;
                     fn SetLeft(&self, element: super::UIElement, length: f64);
-                    #[special]
+                    #[get]
                     #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                    fn get_TopProperty(&self) -> super::DependencyProperty;
+                    TopProperty: super::DependencyProperty;
                     fn GetTop(&self, element: super::UIElement) -> f64;
                     fn SetTop(&self, element: super::UIElement, length: f64);
                     #[get]
@@ -3973,18 +3973,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IGroupStyle {
                     Panel: ItemsPanelTemplate;
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("ContainerStyle may be altered or unavailable for releases after Windows 8.1, and is not supported for ItemsControl.GroupStyle.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_ContainerStyle(&self) -> super::Style;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("ContainerStyle may be altered or unavailable for releases after Windows 8.1, and is not supported for ItemsControl.GroupStyle.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn put_ContainerStyle(&self, value: super::Style);
-                    #[special]
+                    ContainerStyle: super::Style;
                     #[Windows::Foundation::Metadata::Deprecated("ContainerStyleSelector may be altered or unavailable for releases after Windows 8.1, and is not supported for ItemsControl.GroupStyle.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_ContainerStyleSelector(&self) -> StyleSelector;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("ContainerStyleSelector may be altered or unavailable for releases after Windows 8.1, and is not supported for ItemsControl.GroupStyle.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn put_ContainerStyleSelector(&self, value: StyleSelector);
+                    ContainerStyleSelector: StyleSelector;
                     HeaderTemplate: super::DataTemplate;
                     HeaderTemplateSelector: DataTemplateSelector;
                     HidesIfEmpty: bool;
@@ -4282,9 +4274,9 @@ mod Windows {
                     Source: super::Media::ImageSource;
                     Stretch: super::Media::Stretch;
                     NineGrid: super::Thickness;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_PlayToSource(&self) -> super::super::super::Media::PlayTo::PlayToSource;
+                    PlayToSource: super::super::super::Media::PlayTo::PlayToSource;
                     event ImageFailed: super::ExceptionRoutedEventHandler;
                     event ImageOpened: super::RoutedEventHandler;
                 }
@@ -4313,9 +4305,9 @@ mod Windows {
                     StretchProperty: super::DependencyProperty;
                     #[get]
                     NineGridProperty: super::DependencyProperty;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_PlayToSourceProperty(&self) -> super::DependencyProperty;
+                    PlayToSourceProperty: super::DependencyProperty;
                 }
                 #[guid(0x29443c28_8e48_4fc8_a473_35b0ba12acea)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -4348,12 +4340,8 @@ mod Windows {
                     event ActiveToolChanged: super::super::super::Foundation::TypedEventHandler<InkToolbar, Object>;
                     event InkDrawingAttributesChanged: super::super::super::Foundation::TypedEventHandler<InkToolbar, Object>;
                     event EraseAllClicked: super::super::super::Foundation::TypedEventHandler<InkToolbar, Object>;
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("InkToolbarRulerButton is replaced by InkToolbarStencilButton starting from Windows 10 Creators Update. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn add_IsRulerButtonCheckedChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<InkToolbar, Object>) -> super::super::super::Foundation::EventRegistrationToken;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("InkToolbarRulerButton is replaced by InkToolbarStencilButton starting from Windows 10 Creators Update. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn remove_IsRulerButtonCheckedChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    event IsRulerButtonCheckedChanged: super::super::super::Foundation::TypedEventHandler<InkToolbar, Object>;
                     fn GetToolButton(&self, tool: InkToolbarTool) -> InkToolbarToolButton;
                     fn GetToggleButton(&self, tool: InkToolbarToggle) -> InkToolbarToggleButton;
                 }
@@ -4649,9 +4637,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkToolbarRulerButton)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IInkToolbarRulerButton {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("InkToolbarRulerButton is deprecated starting from Windows 10 Creators Update. Please use InkToolbarStencilButton going forward. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Ruler(&self) -> super::super::Input::Inking::InkPresenterRuler;
+                    Ruler: super::super::Input::Inking::InkPresenterRuler;
                 }
                 #[guid(0xbb26d85f_cfd6_495f_93ab_b8566af9f8af)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -4668,9 +4656,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkToolbarRulerButton)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IInkToolbarRulerButtonStatics {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("InkToolbarRulerButton is deprecated starting from Windows 10 Creators Update. Please use InkToolbarStencilButton going forward. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_RulerProperty(&self) -> super::DependencyProperty;
+                    RulerProperty: super::DependencyProperty;
                 }
                 #[guid(0xa3b493bb_cb4f_4e6b_a33d_f11e7a295efa)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -5449,9 +5437,9 @@ mod Windows {
                     AudioStreamIndex: super::super::super::Foundation::IReference<i32>;
                     PlaybackRate: f64;
                     IsLooping: bool;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_PlayToSource(&self) -> super::super::super::Media::PlayTo::PlayToSource;
+                    PlayToSource: super::super::super::Media::PlayTo::PlayToSource;
                     DefaultPlaybackRate: f64;
                     #[get]
                     AspectRatioWidth: i32;
@@ -5496,12 +5484,8 @@ mod Windows {
                     Stretch: super::Media::Stretch;
                     IsFullWindow: bool;
                     fn SetMediaStreamSource(&self, source: super::super::super::Media::Core::IMediaSource);
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("PlayToPreferredSourceUri may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource().PreferredSourceUri.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_PlayToPreferredSourceUri(&self) -> super::super::super::Foundation::Uri;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("PlayToPreferredSourceUri may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource().PreferredSourceUri.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn put_PlayToPreferredSourceUri(&self, value: super::super::super::Foundation::Uri);
+                    PlayToPreferredSourceUri: super::super::super::Foundation::Uri;
                 }
                 #[guid(0x479f6f13_0fdb_4ed8_928a_4d39169c3cd2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -5560,9 +5544,9 @@ mod Windows {
                     PlaybackRateProperty: super::DependencyProperty;
                     #[get]
                     IsLoopingProperty: super::DependencyProperty;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_PlayToSourceProperty(&self) -> super::DependencyProperty;
+                    PlayToSourceProperty: super::DependencyProperty;
                     #[get]
                     DefaultPlaybackRateProperty: super::DependencyProperty;
                     #[get]
@@ -5597,9 +5581,9 @@ mod Windows {
                     StretchProperty: super::DependencyProperty;
                     #[get]
                     IsFullWindowProperty: super::DependencyProperty;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PlayToPreferredSourceUri may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource().PreferredSourceUri.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_PlayToPreferredSourceUriProperty(&self) -> super::DependencyProperty;
+                    PlayToPreferredSourceUriProperty: super::DependencyProperty;
                 }
                 #[guid(0x3b4ca526_2e25_4598_bc71_d491f8e8de39)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -6595,12 +6579,8 @@ mod Windows {
                 interface IPasswordBox {
                     Password: String;
                     PasswordChar: String;
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("IsPasswordRevealButtonEnabledProperty may be altered or unavailable for releases after Windows 10.0. Instead, use PasswordRevealModeProperty.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_IsPasswordRevealButtonEnabled(&self) -> bool;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("IsPasswordRevealButtonEnabledProperty may be altered or unavailable for releases after Windows 10.0. Instead, use PasswordRevealModeProperty.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn put_IsPasswordRevealButtonEnabled(&self, value: bool);
+                    IsPasswordRevealButtonEnabled: bool;
                     MaxLength: i32;
                     event PasswordChanged: super::RoutedEventHandler;
                     event ContextMenuOpening: ContextMenuOpeningEventHandler;
@@ -6662,9 +6642,9 @@ mod Windows {
                     PasswordProperty: super::DependencyProperty;
                     #[get]
                     PasswordCharProperty: super::DependencyProperty;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("IsPasswordRevealButtonEnabledProperty may be altered or unavailable for releases after Windows 10.0. Instead, use PasswordRevealModeProperty.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_IsPasswordRevealButtonEnabledProperty(&self) -> super::DependencyProperty;
+                    IsPasswordRevealButtonEnabledProperty: super::DependencyProperty;
                     #[get]
                     MaxLengthProperty: super::DependencyProperty;
                 }
@@ -10173,28 +10153,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IWebView {
                     Source: super::super::super::Foundation::Uri;
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("AllowedScriptNotifyUris is unavailable for releases beginning with Windows 8.1. Instead, list URIs under ApplicationContentUriRules in the package manifest. For more info, see the AllowedScriptNotifyUris documentation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_AllowedScriptNotifyUris(&self) -> super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Uri>;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("AllowedScriptNotifyUris is unavailable for releases beginning with Windows 8.1. Instead, list URIs under ApplicationContentUriRules in the package manifest. For more info, see the AllowedScriptNotifyUris documentation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn put_AllowedScriptNotifyUris(&self, value: super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Uri>);
-                    #[special]
+                    AllowedScriptNotifyUris: super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Uri>;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("Use CaptureSelectedContentToDataPackageAsync instead of DataTransferPackage. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_DataTransferPackage(&self) -> super::super::super::ApplicationModel::DataTransfer::DataPackage;
-                    #[special]
+                    DataTransferPackage: super::super::super::ApplicationModel::DataTransfer::DataPackage;
                     #[Windows::Foundation::Metadata::Deprecated("LoadCompleted may be altered or unavailable for releases after Windows 8.1. Instead, use NavigationCompleted.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn add_LoadCompleted(&self, handler: super::Navigation::LoadCompletedEventHandler) -> super::super::super::Foundation::EventRegistrationToken;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("LoadCompleted may be altered or unavailable for releases after Windows 8.1. Instead, use NavigationCompleted.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn remove_LoadCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    event LoadCompleted: super::Navigation::LoadCompletedEventHandler;
                     event ScriptNotify: NotifyEventHandler;
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("NavigationFailed may be altered or unavailable for releases after Windows 8.1. Instead, use NavigationCompleted.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn add_NavigationFailed(&self, handler: WebViewNavigationFailedEventHandler) -> super::super::super::Foundation::EventRegistrationToken;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("NavigationFailed may be altered or unavailable for releases after Windows 8.1. Instead, use NavigationCompleted.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn remove_NavigationFailed(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    event NavigationFailed: WebViewNavigationFailedEventHandler;
                     #[Windows::Foundation::Metadata::Deprecated("Use InvokeScriptAsync instead of InvokeScript. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                     fn InvokeScript(&self, scriptName: String, arguments: [String]) -> String;
                     fn Navigate(&self, source: super::super::super::Foundation::Uri);
@@ -10436,17 +10404,17 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebView)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IWebViewStatics {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("AnyScriptNotifyUri is unavailable for releases beginning with Windows 8.1. Instead, list URIs under ApplicationContentUriRules in the package manifest. For more info, see the AnyScriptNotifyUri documentation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_AnyScriptNotifyUri(&self) -> super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Uri>;
+                    AnyScriptNotifyUri: super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Uri>;
                     #[get]
                     SourceProperty: super::DependencyProperty;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("AllowedScriptNotifyUris is unavailable for releases beginning with Windows 8.1. Instead, list URIs under ApplicationContentUriRules in the package manifest. For more info, see the AllowedScriptNotifyUris documentation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_AllowedScriptNotifyUrisProperty(&self) -> super::DependencyProperty;
-                    #[special]
+                    AllowedScriptNotifyUrisProperty: super::DependencyProperty;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("Use CaptureSelectedContentToDataPackageAsync instead of DataTransferPackage. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_DataTransferPackageProperty(&self) -> super::DependencyProperty;
+                    DataTransferPackageProperty: super::DependencyProperty;
                 }
                 #[guid(0x322f8780_e812_466b_9e50_8e9fec24018a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

@@ -27,8 +27,8 @@ it after that shape.
 ### Component
 
 `component.rs` is a module of this crate's library and starts with `use super::*;`, which brings in
-`windows_core`, the generated bindings, and the `activatable` helper. It exports the fixture's
-activation factories:
+`windows_core`, the generated bindings, and the `activatable` and `check` helpers. It exports the
+fixture's activation factories:
 
 ```rust
 pub fn factory(name: &str) -> Option<IActivationFactory> {
@@ -40,6 +40,11 @@ The library exports `DllGetActivationFactory` and routes each class name to the 
 its namespace. `build.rs` generates the bindings for all fixtures at once with `implement_all`, so
 every fixture is also checked against the Rust projection. Bindgen only generates filtered types;
 add any other Windows types that fixtures reference to the filters in `build.rs`.
+
+To test calls in the other direction, a fixture declares a non-exclusive interface that each client
+implements and passes to a component method, which calls it back. A panic cannot unwind across the
+ABI, so the component checks the results with `check(condition)?`, which fails the client's call
+with an error naming the component's file and line.
 
 The component and Rust client modules are included through generated `#[path]` attributes, which
 `cargo fmt` does not follow. Format them with `rustfmt --edition 2024 fixtures/*/*.rs`.

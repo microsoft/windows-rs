@@ -27,9 +27,9 @@ mod Windows {
                     fn AddContact(&self, id: String, contact: super::Contact) -> AddContactResult;
                     fn RemoveContact(&self, id: String);
                     fn ContainsContact(&self, id: String) -> bool;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("DesiredFields may be altered or unavailable for releases after Windows 8.1. Instead, use DesiredFieldsWithContactFieldType.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_DesiredFields(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    DesiredFields: super::super::super::Foundation::Collections::IVectorView<String>;
                     #[get]
                     SelectionMode: super::ContactSelectionMode;
                     event ContactRemoved: super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>;

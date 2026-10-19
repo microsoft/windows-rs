@@ -152,12 +152,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("Not supported starting in windows 10", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioRenderEffectsManager)]
             interface IAudioRenderEffectsManager2 {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Not supported starting in windows 10", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_EffectsProviderThumbnail(&self) -> super::super::Storage::Streams::IRandomAccessStreamWithContentType;
-                #[special]
+                EffectsProviderThumbnail: super::super::Storage::Streams::IRandomAccessStreamWithContentType;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Not supported starting in windows 10", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_EffectsProviderSettingsLabel(&self) -> String;
+                EffectsProviderSettingsLabel: String;
                 #[Windows::Foundation::Metadata::Deprecated("Not supported starting in windows 10", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 fn ShowSettingsUI(&self);
             }

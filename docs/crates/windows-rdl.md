@@ -129,6 +129,20 @@ mod Robotics {
 }
 ```
 
+A property is read-write unless marked `#[get]` or `#[set]`. Other attributes on a property or
+`event` apply to each of its accessor methods, as in MIDL:
+
+```text
+interface IRobot {
+    #[get]
+    #[NoException]
+    Battery: i32;
+}
+```
+
+When the accessors carry different attributes, the writer emits each one on its own, such as a
+`#[get]` property followed by a `#[set]` property of the same name.
+
 Classes are sealed unless marked `#[unsealed]`. A class can only extend an unsealed class, so a
 class hierarchy marks each base class:
 
@@ -294,7 +308,7 @@ RDL stable.
 | Property setter parameter | `value` | Shorthand does not retain its original name. |
 | Event add parameter | `handler` | Shorthand stores the event shape. |
 | Event remove parameter names | `token` | The remove accessor takes an event token. |
-| Property and event accessors | Shorthand | The writer tracks consumed accessor methods. |
+| Property and event accessors | Shorthand | Accessor-shaped methods with matching attributes. |
 | Other interface methods | Full method form | Non-accessor methods stay explicit. |
 | Input direction | `#[in]` | The reader accepts `#[r#in]`; the formatter emits `#[in]`. |
 | Raw identifiers, GUIDs, delegate ABIs | Canonical output | Equivalent text has one spelling. |

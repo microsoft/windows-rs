@@ -37,21 +37,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of BackgroundMediaPlayer.  For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundMediaPlayer)]
             interface IBackgroundMediaPlayerStatics {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of BackgroundMediaPlayer.  For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn get_Current(&self) -> MediaPlayer;
-                #[special]
+                Current: MediaPlayer;
                 #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of BackgroundMediaPlayer.  For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn add_MessageReceivedFromBackground(&self, value: super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
+                event MessageReceivedFromBackground: super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>;
                 #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of BackgroundMediaPlayer.  For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn remove_MessageReceivedFromBackground(&self, token: super::super::Foundation::EventRegistrationToken);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of BackgroundMediaPlayer.  For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn add_MessageReceivedFromForeground(&self, value: super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of BackgroundMediaPlayer.  For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn remove_MessageReceivedFromForeground(&self, token: super::super::Foundation::EventRegistrationToken);
+                event MessageReceivedFromForeground: super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>;
                 #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of BackgroundMediaPlayer.  For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn SendMessageToBackground(&self, value: super::super::Foundation::Collections::ValueSet);
                 #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of BackgroundMediaPlayer.  For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
@@ -169,9 +161,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of MediaEngine. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
             interface IMediaEnginePlaybackSource {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of MediaEngine. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn get_CurrentItem(&self) -> MediaPlaybackItem;
+                CurrentItem: MediaPlaybackItem;
                 #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of MediaEngine. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                 fn SetPlaybackSource(&self, source: IMediaPlaybackSource);
             }
@@ -534,82 +526,50 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
             interface IMediaPlayer {
                 AutoPlay: bool;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.NaturalDuration instead of NaturalDuration.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn get_NaturalDuration(&self) -> super::super::Foundation::TimeSpan;
-                #[special]
+                NaturalDuration: super::super::Foundation::TimeSpan;
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.Position instead of Position.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn get_Position(&self) -> super::super::Foundation::TimeSpan;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.Position instead of Position.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn put_Position(&self, value: super::super::Foundation::TimeSpan);
-                #[special]
+                Position: super::super::Foundation::TimeSpan;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.BufferingProgress instead of BufferingProgress.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn get_BufferingProgress(&self) -> f64;
-                #[special]
+                BufferingProgress: f64;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.State instead of CurrentState.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn get_CurrentState(&self) -> MediaPlayerState;
-                #[special]
+                CurrentState: MediaPlayerState;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.CanSeek instead of CanSeek.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn get_CanSeek(&self) -> bool;
-                #[special]
+                CanSeek: bool;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.CanPause instead of CanPause.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn get_CanPause(&self) -> bool;
+                CanPause: bool;
                 IsLoopingEnabled: bool;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.IsProtected instead of IsProtected.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn get_IsProtected(&self) -> bool;
+                IsProtected: bool;
                 IsMuted: bool;
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.PlaybackRate instead of PlaybackRate.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn get_PlaybackRate(&self) -> f64;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.PlaybackRate instead of PlaybackRate.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn put_PlaybackRate(&self, value: f64);
+                PlaybackRate: f64;
                 Volume: f64;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use media tracks on MediaPlaybackItem instead of PlaybackMediaMarkers.  For more info, see MSDN.", Deprecate, 131072, "Windows.Foundation.UniversalApiContract")]
-                fn get_PlaybackMediaMarkers(&self) -> PlaybackMediaMarkerSequence;
+                PlaybackMediaMarkers: PlaybackMediaMarkerSequence;
                 event MediaOpened: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
                 event MediaEnded: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
                 event MediaFailed: super::super::Foundation::TypedEventHandler<MediaPlayer, MediaPlayerFailedEventArgs>;
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.PlaybackStateChanged instead of CurrentStateChanged.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn add_CurrentStateChanged(&self, value: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.PlaybackStateChanged instead of CurrentStateChanged.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn remove_CurrentStateChanged(&self, token: super::super::Foundation::EventRegistrationToken);
-                #[special]
+                event CurrentStateChanged: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
                 #[Windows::Foundation::Metadata::Deprecated("Use media tracks on MediaPlaybackItem instead of PlaybackMediaMarkers.  For more info, see MSDN.", Deprecate, 131072, "Windows.Foundation.UniversalApiContract")]
-                fn add_PlaybackMediaMarkerReached(&self, value: super::super::Foundation::TypedEventHandler<MediaPlayer, PlaybackMediaMarkerReachedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use media tracks on MediaPlaybackItem instead of PlaybackMediaMarkers.  For more info, see MSDN.", Deprecate, 131072, "Windows.Foundation.UniversalApiContract")]
-                fn remove_PlaybackMediaMarkerReached(&self, token: super::super::Foundation::EventRegistrationToken);
-                #[special]
+                event PlaybackMediaMarkerReached: super::super::Foundation::TypedEventHandler<MediaPlayer, PlaybackMediaMarkerReachedEventArgs>;
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.PlaybackRateChanged instead of MediaPlayerRateChanged.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn add_MediaPlayerRateChanged(&self, value: super::super::Foundation::TypedEventHandler<MediaPlayer, MediaPlayerRateChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.PlaybackRateChanged instead of MediaPlayerRateChanged.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn remove_MediaPlayerRateChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                event MediaPlayerRateChanged: super::super::Foundation::TypedEventHandler<MediaPlayer, MediaPlayerRateChangedEventArgs>;
                 event VolumeChanged: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.SeekCompleted instead of SeekCompleted.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn add_SeekCompleted(&self, value: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.SeekCompleted instead of SeekCompleted.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn remove_SeekCompleted(&self, token: super::super::Foundation::EventRegistrationToken);
-                #[special]
+                event SeekCompleted: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.BufferingStarted instead of BufferingStarted.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn add_BufferingStarted(&self, value: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.BufferingStarted instead of BufferingStarted.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn remove_BufferingStarted(&self, token: super::super::Foundation::EventRegistrationToken);
-                #[special]
+                event BufferingStarted: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.BufferingEnded instead of BufferingEnded.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn add_BufferingEnded(&self, value: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.BufferingEnded instead of BufferingEnded.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn remove_BufferingEnded(&self, token: super::super::Foundation::EventRegistrationToken);
+                event BufferingEnded: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
                 fn Play(&self);
                 fn Pause(&self);
                 #[Windows::Foundation::Metadata::Deprecated("Use Source instead of SetUriSource.  For more info, see MSDN.", Deprecate, 131072, "Windows.Foundation.UniversalApiContract")]

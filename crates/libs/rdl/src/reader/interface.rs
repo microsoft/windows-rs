@@ -24,6 +24,7 @@ pub struct Property {
 
 #[derive(Debug)]
 pub struct Event {
+    pub attrs: Vec<syn::Attribute>,
     pub name: syn::Ident,
     pub handler_ty: syn::Type,
 }
@@ -46,15 +47,17 @@ impl syn::parse::Parse for InterfaceMember {
         }
 
         if fork.peek(event) {
-            // Consume (and discard) any attributes before `event` - the event
-            // shorthand does not support per-member attributes.
-            input.call(syn::Attribute::parse_outer)?;
+            let attrs = input.call(syn::Attribute::parse_outer)?;
             let _event_token: event = input.parse()?;
             let name: syn::Ident = input.parse()?;
             input.parse::<syn::Token![:]>()?;
             let handler_ty: syn::Type = input.parse()?;
             input.parse::<syn::Token![;]>()?;
-            return Ok(Self::Event(Event { name, handler_ty }));
+            return Ok(Self::Event(Event {
+                attrs,
+                name,
+                handler_ty,
+            }));
         }
 
         // Property shorthand: `[#[get] | #[set]] Name: Type;`
@@ -293,13 +296,9 @@ impl Encoder<'_> {
                     }
 
                     for attr in &prop.attrs {
-                        if !attr.path().is_ident("get") && !attr.path().is_ident("set") {
-                            return self.err(
-                                attr,
-                                "only `#[get]` and `#[set]` attributes are supported on properties",
-                            );
-                        }
-                        if !matches!(attr.meta, syn::Meta::Path(_)) {
+                        if (attr.path().is_ident("get") || attr.path().is_ident("set"))
+                            && !matches!(attr.meta, syn::Meta::Path(_))
+                        {
                             return self
                                 .err(attr, "`get`/`set` attribute does not accept arguments");
                         }
@@ -321,13 +320,20 @@ impl Encoder<'_> {
                         if !already_has_guid {
                             method_signatures.push((get_name.clone(), vec![], ty.clone()));
                         }
-                        get_method = Some(self.output.MethodDef(
+                        let method = self.output.MethodDef(
                             &get_name,
                             &signature,
                             method_flags,
                             Default::default(),
-                        ));
+                        );
+                        // Other property attributes apply to each accessor, as in MIDL.
+                        self.encode_attrs(
+                            metadata::writer::HasAttribute::MethodDef(method),
+                            &prop.attrs,
+                            &["get", "set"],
+                        )?;
                         self.encode_simple_params(&[])?;
+                        get_method = Some(method);
                     }
 
                     if !is_get_only {
@@ -344,13 +350,19 @@ impl Encoder<'_> {
                                 metadata::Type::Void,
                             ));
                         }
-                        put_method = Some(self.output.MethodDef(
+                        let method = self.output.MethodDef(
                             &put_name,
                             &signature,
                             method_flags,
                             Default::default(),
-                        ));
+                        );
+                        self.encode_attrs(
+                            metadata::writer::HasAttribute::MethodDef(method),
+                            &prop.attrs,
+                            &["get", "set"],
+                        )?;
                         self.encode_simple_params(&[("value", &ty)])?;
+                        put_method = Some(method);
                     }
 
                     let property = self.output.Property(&prop.name.to_string(), &ty);
@@ -402,6 +414,12 @@ impl Encoder<'_> {
                         method_flags,
                         Default::default(),
                     );
+                    // Event attributes apply to both accessors, as in MIDL.
+                    self.encode_attrs(
+                        metadata::writer::HasAttribute::MethodDef(add_method),
+                        &evt.attrs,
+                        &[],
+                    )?;
                     self.encode_simple_params(&[("handler", &handler_ty)])?;
 
                     let remove_name = format!("remove_{}", evt.name);
@@ -423,6 +441,11 @@ impl Encoder<'_> {
                         method_flags,
                         Default::default(),
                     );
+                    self.encode_attrs(
+                        metadata::writer::HasAttribute::MethodDef(remove_method),
+                        &evt.attrs,
+                        &[],
+                    )?;
                     self.encode_simple_params(&[("token", &token_ty)])?;
 
                     let event = self.output.Event(&evt.name.to_string(), &handler_ty);
