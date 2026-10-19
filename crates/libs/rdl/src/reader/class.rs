@@ -82,6 +82,11 @@ impl Encoder<'_> {
             flags |= metadata::TypeAttributes::Sealed;
         }
 
+        // A class without interfaces, such as a static class, has no instances.
+        if item.interfaces.is_empty() {
+            flags |= metadata::TypeAttributes::Abstract;
+        }
+
         let class = self.output.TypeDef(
             self.namespace,
             self.name,
