@@ -82,7 +82,7 @@ impl AppBarButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -154,7 +154,7 @@ impl AppBarSeparator {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -778,7 +778,7 @@ impl BitmapIcon {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -854,7 +854,7 @@ impl BitmapIconSource {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -1104,7 +1104,7 @@ impl BreadcrumbBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -1226,7 +1226,7 @@ impl Button {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -1319,7 +1319,7 @@ impl CalendarDatePicker {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -1480,7 +1480,7 @@ impl CalendarView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -1589,7 +1589,7 @@ impl Canvas {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -1729,7 +1729,7 @@ impl CheckBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -1826,7 +1826,7 @@ impl ColorPicker {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -2018,7 +2018,7 @@ impl ComboBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -2102,7 +2102,7 @@ impl CommandBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -2151,7 +2151,7 @@ impl CommandBarFlyout {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -2334,7 +2334,7 @@ impl ContentControl {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -2390,7 +2390,7 @@ impl ContentDialog {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -2947,7 +2947,7 @@ impl DatePicker {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -3184,7 +3184,7 @@ impl DesktopAcrylicBackdrop {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -3292,7 +3292,7 @@ impl DesktopWindowXamlSource {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -3662,7 +3662,7 @@ impl DropDownButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -4075,7 +4075,7 @@ impl Expander {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -4149,7 +4149,7 @@ impl FlipView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -4194,7 +4194,7 @@ impl Flyout {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -4320,7 +4320,7 @@ impl FontIcon {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -4396,7 +4396,7 @@ impl FontIconSource {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -4734,7 +4734,7 @@ impl Grid {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -4940,7 +4940,7 @@ impl GridView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -4997,7 +4997,7 @@ impl GridViewItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -5143,7 +5143,7 @@ impl HyperlinkButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -23416,7 +23416,7 @@ impl ImageIcon {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -23465,7 +23465,7 @@ impl ImageIconSource {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -23596,7 +23596,7 @@ impl InfoBadge {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -23668,7 +23668,7 @@ impl InfoBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -24014,7 +24014,7 @@ impl ItemsRepeater {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -24142,7 +24142,7 @@ impl KeyboardAccelerator {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -24411,7 +24411,7 @@ impl ListBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -24468,7 +24468,7 @@ impl ListBoxItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -24526,7 +24526,7 @@ impl ListView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -24658,7 +24658,7 @@ impl ListViewItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -24741,7 +24741,7 @@ impl MenuBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -24796,7 +24796,7 @@ impl MenuBarItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -24862,7 +24862,7 @@ impl MenuFlyout {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -24918,7 +24918,7 @@ impl MenuFlyoutItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -25008,7 +25008,7 @@ impl MenuFlyoutSeparator {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -25114,7 +25114,7 @@ impl MicaBackdrop {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -25185,7 +25185,7 @@ impl NavigationView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -25422,7 +25422,7 @@ impl NavigationViewItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -25621,7 +25621,7 @@ impl NumberBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -26037,7 +26037,7 @@ impl PathIcon {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -26103,7 +26103,7 @@ impl PathIconSource {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -26172,7 +26172,7 @@ impl PersonPicture {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -26251,7 +26251,7 @@ impl Pivot {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -26334,7 +26334,7 @@ impl PivotItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -26599,7 +26599,7 @@ impl ProgressBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -26691,7 +26691,7 @@ impl ProgressRing {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -26816,7 +26816,7 @@ impl RadioButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -26888,7 +26888,7 @@ impl RadioButtons {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -27144,7 +27144,7 @@ impl RatingControl {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -27324,7 +27324,7 @@ impl RelativePanel {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -27685,7 +27685,7 @@ impl RichEditBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -28075,7 +28075,7 @@ impl ScalarTransition {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -28150,7 +28150,7 @@ impl ScrollView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -28469,7 +28469,7 @@ impl SelectorBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -28525,7 +28525,7 @@ impl SelectorBarItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -28851,7 +28851,7 @@ impl Slider {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -29003,7 +29003,7 @@ impl SplitButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -29085,7 +29085,7 @@ impl SplitView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -29204,7 +29204,7 @@ impl StackPanel {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -29293,7 +29293,7 @@ impl SvgImageSource {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -29416,7 +29416,7 @@ impl SwapChainPanel {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -29742,7 +29742,7 @@ impl SymbolIconSource {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -29828,7 +29828,7 @@ impl TabView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -29923,7 +29923,7 @@ impl TabViewItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -30034,7 +30034,7 @@ impl TeachingTip {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -30361,7 +30361,7 @@ impl TextBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -30734,7 +30734,7 @@ impl TimePicker {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -30846,7 +30846,7 @@ impl TitleBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -30971,7 +30971,7 @@ impl ToggleButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -31112,7 +31112,7 @@ impl ToolTip {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -31306,7 +31306,7 @@ impl TreeView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -31399,7 +31399,7 @@ impl TreeViewNode {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -31825,7 +31825,7 @@ impl Vector3Transition {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -32238,7 +32238,7 @@ impl WebView2 {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -32282,7 +32282,7 @@ impl Window {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))

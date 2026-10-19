@@ -10,10 +10,11 @@
 )]
 mod bindings {
     include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+    include!(concat!(env!("OUT_DIR"), "/win32.rs"));
 }
 
 use bindings::*;
-use windows::{Win32::*, core::*};
+use windows_core::*;
 
 include!(concat!(env!("OUT_DIR"), "/component.rs"));
 
