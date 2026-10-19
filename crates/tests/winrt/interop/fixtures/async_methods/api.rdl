@@ -1,0 +1,25 @@
+use Windows::Foundation::*;
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod AsyncMethods {
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // Complete before they are returned.
+        fn Action(&self) -> IAsyncAction;
+        fn Operation(&self, value: i32) -> IAsyncOperation<i32>;
+        fn StringOperation(&self, value: String) -> IAsyncOperation<String>;
+
+        // Completes with `E_BOUNDS`.
+        fn Fail(&self) -> IAsyncOperation<i32>;
+
+        // Waits on another thread for the client's `operation` and completes with its result plus
+        // one.
+        fn Increment(&self, operation: IAsyncOperation<i32>) -> IAsyncOperation<i32>;
+    }
+}

@@ -625,7 +625,7 @@ impl IGipGameControllerInputSink_Vtbl {
         unsafe extern "system" fn OnMessageReceived<Identity: IGipGameControllerInputSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer_array_size: u32, messagebuffer: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGipGameControllerInputSink_Impl::OnMessageReceived(this, timestamp, messageclass, messageid, sequenceid, core::slice::from_raw_parts(core::mem::transmute_copy(&messagebuffer), messagebuffer_array_size as usize)).into()
+                IGipGameControllerInputSink_Impl::OnMessageReceived(this, timestamp, messageclass, messageid, sequenceid, windows_core::imp::array_slice(core::mem::transmute_copy(&messagebuffer), messagebuffer_array_size)).into()
             }
         }
         Self {
@@ -692,7 +692,7 @@ impl IHidGameControllerInputSink_Vtbl {
         unsafe extern "system" fn OnInputReportReceived<Identity: IHidGameControllerInputSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timestamp: u64, reportid: u8, reportbuffer_array_size: u32, reportbuffer: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHidGameControllerInputSink_Impl::OnInputReportReceived(this, timestamp, reportid, core::slice::from_raw_parts(core::mem::transmute_copy(&reportbuffer), reportbuffer_array_size as usize)).into()
+                IHidGameControllerInputSink_Impl::OnInputReportReceived(this, timestamp, reportid, windows_core::imp::array_slice(core::mem::transmute_copy(&reportbuffer), reportbuffer_array_size)).into()
             }
         }
         Self {
@@ -756,7 +756,7 @@ impl IXusbGameControllerInputSink_Vtbl {
         unsafe extern "system" fn OnInputReceived<Identity: IXusbGameControllerInputSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timestamp: u64, reportid: u8, inputbuffer_array_size: u32, inputbuffer: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXusbGameControllerInputSink_Impl::OnInputReceived(this, timestamp, reportid, core::slice::from_raw_parts(core::mem::transmute_copy(&inputbuffer), inputbuffer_array_size as usize)).into()
+                IXusbGameControllerInputSink_Impl::OnInputReceived(this, timestamp, reportid, windows_core::imp::array_slice(core::mem::transmute_copy(&inputbuffer), inputbuffer_array_size)).into()
             }
         }
         Self {

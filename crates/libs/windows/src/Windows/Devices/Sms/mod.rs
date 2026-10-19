@@ -143,7 +143,7 @@ impl ISmsBinaryMessage_Vtbl {
         unsafe extern "system" fn SetData<Identity: ISmsBinaryMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value_array_size: u32, value: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmsBinaryMessage_Impl::SetData(this, core::slice::from_raw_parts(core::mem::transmute_copy(&value), value_array_size as usize)).into()
+                ISmsBinaryMessage_Impl::SetData(this, windows_core::imp::array_slice(core::mem::transmute_copy(&value), value_array_size)).into()
             }
         }
         Self {

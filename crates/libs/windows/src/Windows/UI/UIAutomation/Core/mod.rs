@@ -346,7 +346,7 @@ impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
         unsafe extern "system" fn CallExtension<Identity: ICoreAutomationRemoteOperationExtensionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extensionid: windows_core::GUID, context: *mut core::ffi::c_void, operandids_array_size: u32, operandids: *const AutomationRemoteOperationOperandId) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreAutomationRemoteOperationExtensionProvider_Impl::CallExtension(this, core::mem::transmute(&extensionid), core::mem::transmute_copy(&context), core::slice::from_raw_parts(core::mem::transmute_copy(&operandids), operandids_array_size as usize)).into()
+                ICoreAutomationRemoteOperationExtensionProvider_Impl::CallExtension(this, core::mem::transmute(&extensionid), core::mem::transmute_copy(&context), windows_core::imp::array_slice(core::mem::transmute_copy(&operandids), operandids_array_size)).into()
             }
         }
         unsafe extern "system" fn IsExtensionSupported<Identity: ICoreAutomationRemoteOperationExtensionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extensionid: windows_core::GUID, result__: *mut bool) -> windows_core::HRESULT {

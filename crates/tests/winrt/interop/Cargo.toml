@@ -15,6 +15,8 @@ test = false
 [dependencies]
 windows-core = { workspace = true, default-features = true }
 windows-collections = { workspace = true, features = ["std"] }
+windows-future = { workspace = true, features = ["std"] }
+windows-reference = { workspace = true, features = ["std"] }
 
 [dev-dependencies]
 cc = "1.0"

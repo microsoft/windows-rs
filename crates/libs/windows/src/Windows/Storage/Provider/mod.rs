@@ -1500,7 +1500,7 @@ impl IStorageProviderSuggestionsHandler_Vtbl {
         unsafe extern "system" fn GetDetails<Identity: IStorageProviderSuggestionsHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remotefileid: *mut core::ffi::c_void, propertiestofetch_array_size: u32, propertiestofetch: *const windows_core::HSTRING, queryid: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageProviderSuggestionsHandler_Impl::GetDetails(this, core::mem::transmute(&remotefileid), core::slice::from_raw_parts(core::mem::transmute_copy(&propertiestofetch), propertiestofetch_array_size as usize), core::mem::transmute(&queryid)) {
+                match IStorageProviderSuggestionsHandler_Impl::GetDetails(this, core::mem::transmute(&remotefileid), windows_core::imp::array_slice(core::mem::transmute_copy(&propertiestofetch), propertiestofetch_array_size), core::mem::transmute(&queryid)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

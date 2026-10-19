@@ -169,9 +169,9 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIterator_Impl::GetMany(
                     this,
-                    core::slice::from_raw_parts_mut(
+                    windows_core::imp::array_slice_mut(
                         core::mem::transmute_copy(&items),
-                        items_array_size as usize,
+                        items_array_size,
                     ),
                 ) {
                     Ok(ok__) => {

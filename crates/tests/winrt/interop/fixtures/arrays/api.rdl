@@ -1,0 +1,22 @@
+#[winrt]
+mod Arrays {
+    #[Windows::Foundation::Metadata::Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    interface IWidget {
+        // Pass: the component reads the client's array.
+        fn Sum(&self, values: [i32]) -> i32;
+        fn Join(&self, values: [String]) -> String;
+
+        // Fill: the client allocates the array and the component writes each element.
+        fn Fill(&self, #[out] values: [i32]);
+
+        // Receive: the component allocates the array and the client owns it.
+        fn Range(&self, count: i32) -> [i32];
+        fn Split(&self, value: String) -> [String];
+        fn RangeOut(&self, count: i32, values: &mut [i32]);
+    }
+}

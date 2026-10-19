@@ -17,9 +17,10 @@ directory in each test target, so adding a fixture needs no Rust code outside th
 | `client.cs` | no | Uses the API through the C#/WinRT projection. |
 | `client.rs` | no | Uses the API through the windows-rs projection. Requires `component.rs`. |
 
-Fixture names are lowercase snake_case so they can be test names. Each fixture declares its types
-in a namespace named after the fixture in PascalCase, so `event_generic` uses `mod EventGeneric`.
-The build fails with `type or namespace not found` if it does not.
+Fixture names are lowercase snake_case and not Rust keywords, so they can be module and test
+names, such as `async_methods` rather than `async`. Each fixture declares its types in a namespace
+named after the fixture in PascalCase, so `event_generic` uses `mod EventGeneric`. The build fails
+with `type or namespace not found` if it does not.
 
 Keep each fixture focused on one shape, such as a generic event or a collection parameter, and name
 it after that shape.

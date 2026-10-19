@@ -24,4 +24,13 @@ impl Collections::IWidget_Impl for Widget_Impl {
             HSTRING::from("two"),
         ]))
     }
+
+    fn Sum(&self, values: Ref<IIterable<i32>>) -> Result<i32> {
+        Ok(values.ok()?.into_iter().sum())
+    }
+
+    fn Index(&self, values: Ref<IVectorView<HSTRING>>) -> Result<IMap<HSTRING, i32>> {
+        let map: std::collections::BTreeMap<_, _> = values.ok()?.into_iter().zip(0..).collect();
+        Ok(IMap::from(map))
+    }
 }

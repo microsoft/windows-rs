@@ -41,6 +41,7 @@ fn main() {
         .filter("AddDllDirectory")
         .filter("CLASS_E_CLASSNOTAVAILABLE")
         .filter("CLASS_E_NOAGGREGATION")
+        .filter("E_BOUNDS")
         .filter("E_FAIL")
         .filter("E_INVALIDARG")
         .filter("E_NOINTERFACE")
