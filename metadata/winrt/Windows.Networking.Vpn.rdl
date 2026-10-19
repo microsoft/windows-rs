@@ -540,8 +540,8 @@ mod Windows {
                 Address: super::HostName;
                 #[get]
                 Address: super::HostName;
-                #[set]
-                PrefixSize: u8;
+                #[special]
+                fn put_PrefixSize(&self, #[Windows::Foundation::Metadata::Range(0, 128)] value: u8);
                 #[get]
                 PrefixSize: u8;
             }

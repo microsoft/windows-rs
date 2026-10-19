@@ -183,9 +183,9 @@ mod Windows {
                     #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionPropertyChangeRequest may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                     Name: String;
-                    #[get]
+                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionPropertyChangeRequest may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    Value: Object;
+                    fn get_Value(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionPropertyChangeRequest may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                     Status: super::PerceptionFrameSourcePropertyChangeStatus;
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionPropertyChangeRequest may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]

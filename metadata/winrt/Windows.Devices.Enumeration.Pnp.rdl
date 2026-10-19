@@ -11,8 +11,8 @@ mod Windows {
                     Type: PnpObjectType;
                     #[get]
                     Id: String;
-                    #[get]
-                    Properties: super::super::super::Foundation::Collections::IMapView<String, Object>;
+                    #[special]
+                    fn get_Properties(&self) -> #[Windows::Foundation::Metadata::HasVariant] super::super::super::Foundation::Collections::IMapView<String, Object>;
                     fn Update(&self, updateInfo: PnpObjectUpdate);
                 }
                 #[guid(0xb3c32a3d_d168_4660_bbf3_a733b14b6e01)]
@@ -37,8 +37,8 @@ mod Windows {
                     Type: PnpObjectType;
                     #[get]
                     Id: String;
-                    #[get]
-                    Properties: super::super::super::Foundation::Collections::IMapView<String, Object>;
+                    #[special]
+                    fn get_Properties(&self) -> #[Windows::Foundation::Metadata::HasVariant] super::super::super::Foundation::Collections::IMapView<String, Object>;
                 }
                 #[guid(0x83c95ca8_4772_4a7a_aca8_e48c42a89c44)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

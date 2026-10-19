@@ -980,8 +980,8 @@ mod Windows {
             interface IVideoDeviceControllerGetDevicePropertyResult {
                 #[get]
                 Status: VideoDeviceControllerGetDevicePropertyStatus;
-                #[get]
-                Value: Object;
+                #[special]
+                fn get_Value(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
             }
             #[guid(0x7ab34735_3e2a_4a32_baff_4358c4fbdd57)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]

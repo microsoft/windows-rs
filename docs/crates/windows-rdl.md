@@ -308,7 +308,7 @@ RDL stable.
 | Property setter parameter | `value` | Shorthand does not retain its original name. |
 | Event add parameter | `handler` | Shorthand stores the event shape. |
 | Event remove parameter names | `token` | The remove accessor takes an event token. |
-| Property and event accessors | Shorthand | Accessor-shaped methods with matching attributes. |
+| Property and event accessors | Shorthand | Only when the shorthand can represent all accessor metadata. |
 | Other interface methods | Full method form | Non-accessor methods stay explicit. |
 | Input direction | `#[in]` | The reader accepts `#[r#in]`; the formatter emits `#[in]`. |
 | Raw identifiers, GUIDs, delegate ABIs | Canonical output | Equivalent text has one spelling. |

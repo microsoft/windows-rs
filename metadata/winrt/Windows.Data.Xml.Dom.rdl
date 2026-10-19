@@ -23,21 +23,21 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DtdEntity)]
                 interface IDtdEntity: IXmlNode + IXmlNodeSelector + IXmlNodeSerializer {
-                    #[get]
-                    PublicId: Object;
-                    #[get]
-                    SystemId: Object;
-                    #[get]
-                    NotationName: Object;
+                    #[special]
+                    fn get_PublicId(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
+                    #[special]
+                    fn get_SystemId(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
+                    #[special]
+                    fn get_NotationName(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
                 }
                 #[guid(0x8cb4e04d_6d46_4edb_ab73_df83c51ad397)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DtdNotation)]
                 interface IDtdNotation: IXmlNode + IXmlNodeSelector + IXmlNodeSerializer {
-                    #[get]
-                    PublicId: Object;
-                    #[get]
-                    SystemId: Object;
+                    #[special]
+                    fn get_PublicId(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
+                    #[special]
+                    fn get_SystemId(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
                 }
                 #[guid(0xac144aa4_b4f1_4db6_b206_8a22c308db0a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -203,7 +203,10 @@ mod Windows {
                 #[guid(0x1c741d59_2122_47d5_a856_83f3d4214875)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface IXmlNode: IXmlNodeSelector + IXmlNodeSerializer {
-                    NodeValue: Object;
+                    #[special]
+                    fn get_NodeValue(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
+                    #[special]
+                    fn put_NodeValue(&self, #[Windows::Foundation::Metadata::Variant] value: Object);
                     #[get]
                     NodeType: NodeType;
                     #[get]
@@ -230,15 +233,15 @@ mod Windows {
                     fn RemoveChild(&self, childNode: IXmlNode) -> IXmlNode;
                     fn AppendChild(&self, newChild: IXmlNode) -> IXmlNode;
                     fn CloneNode(&self, deep: bool) -> IXmlNode;
-                    #[get]
-                    NamespaceUri: Object;
-                    #[get]
-                    LocalName: Object;
-                    #[get]
-                    Prefix: Object;
+                    #[special]
+                    fn get_NamespaceUri(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
+                    #[special]
+                    fn get_LocalName(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
+                    #[special]
+                    fn get_Prefix(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
                     fn Normalize(&self);
-                    #[set]
-                    Prefix: Object;
+                    #[special]
+                    fn put_Prefix(&self, #[Windows::Foundation::Metadata::Variant] value: Object);
                 }
                 #[guid(0x8c60ad77_83a4_4ec1_9c54_7ba429e13da6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

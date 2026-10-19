@@ -79,7 +79,7 @@ fn write_members(
             // The shorthand regenerates accessor signatures, so it only applies to methods with
             // the accessor shape.
             if let Some(prop_name) = name.strip_prefix("get_")
-                && is_getter(&sig)
+                && is_getter(method, &sig)
             {
                 let put_name = format!("put_{prop_name}");
                 let j = find_unconsumed(&methods, &consumed, i, &put_name);
@@ -91,7 +91,7 @@ fn write_members(
                 if let Some(j) = j {
                     // Combine only adjacent get_/put_ pairs with matching types and attributes.
                     let put_sig = methods[j].signature(generics);
-                    if is_setter(&put_sig)
+                    if is_setter(&methods[j], &put_sig)
                         && put_sig.types[0] == sig.return_type
                         && (i + 1..j).all(|k| consumed[k])
                         && write_accessor_attributes(namespace, &methods[j])?.to_string()
@@ -107,7 +107,7 @@ fn write_members(
                 tokens.push(quote! { #[get] #attrs #prop_ident: #ty; });
                 continue;
             } else if let Some(prop_name) = name.strip_prefix("put_")
-                && is_setter(&sig)
+                && is_setter(method, &sig)
             {
                 let ty = write_type(namespace, &sig.types[0]);
                 let prop_ident = write_ident(prop_name);
@@ -116,7 +116,7 @@ fn write_members(
                 tokens.push(quote! { #[set] #attrs #prop_ident: #ty; });
                 continue;
             } else if let Some(event_name) = name.strip_prefix("add_")
-                && let [handler_ty] = &sig.types[..]
+                && is_event_add(method, &sig)
             {
                 let remove_name = format!("remove_{event_name}");
                 let j = find_unconsumed(&methods, &consumed, i, &remove_name);
@@ -126,11 +126,11 @@ fn write_members(
                     // Event shorthand requires adjacent add_/remove_ methods with matching
                     // attributes.
                     if (i + 1..j).all(|k| consumed[k])
-                        && is_setter(&methods[j].signature(generics))
+                        && is_event_remove(&methods[j], &methods[j].signature(generics))
                         && write_accessor_attributes(namespace, &methods[j])?.to_string()
                             == attrs.to_string()
                     {
-                        let handler_ty = write_type(namespace, handler_ty);
+                        let handler_ty = write_type(namespace, &sig.types[0]);
                         let event_ident = write_ident(event_name);
                         consumed[i] = true;
                         consumed[j] = true;
@@ -148,13 +148,50 @@ fn write_members(
     Ok(tokens)
 }
 
-fn is_getter(sig: &metadata::Signature) -> bool {
-    sig.types.is_empty() && sig.return_type != metadata::Type::Void
+fn is_getter(method: &metadata::reader::MethodDef, sig: &metadata::Signature) -> bool {
+    sig.types.is_empty() && sig.return_type != metadata::Type::Void && has_plain_params(method, sig)
 }
 
-// Also the shape of an event's remove accessor.
-fn is_setter(sig: &metadata::Signature) -> bool {
-    sig.types.len() == 1 && sig.return_type == metadata::Type::Void
+fn is_setter(method: &metadata::reader::MethodDef, sig: &metadata::Signature) -> bool {
+    sig.types.len() == 1 && sig.return_type == metadata::Type::Void && has_plain_params(method, sig)
+}
+
+fn is_event_add(method: &metadata::reader::MethodDef, sig: &metadata::Signature) -> bool {
+    sig.types.len() == 1 && sig.return_type == event_token() && has_plain_params(method, sig)
+}
+
+fn is_event_remove(method: &metadata::reader::MethodDef, sig: &metadata::Signature) -> bool {
+    sig.types == [event_token()]
+        && sig.return_type == metadata::Type::Void
+        && has_plain_params(method, sig)
+}
+
+fn event_token() -> metadata::Type {
+    metadata::Type::value_named("Windows.Foundation", "EventRegistrationToken")
+}
+
+// The reader regenerates shorthand accessors with input parameters and no parameter or return
+// metadata, so methods with any of these stay explicit.
+fn has_plain_params(method: &metadata::reader::MethodDef, sig: &metadata::Signature) -> bool {
+    let Ok(params) = method.params_by_sequence(sig.types.len()) else {
+        return false;
+    };
+    params
+        .return_param()
+        .is_none_or(|param| param.attributes().next().is_none())
+        && params.params().iter().flatten().all(|param| {
+            param.attributes().next().is_none()
+                && !param.is_optional()
+                && matches!(
+                    param.direction(),
+                    metadata::reader::ParamDirection::Unspecified
+                        | metadata::reader::ParamDirection::Input
+                )
+        })
+        && !sig
+            .types
+            .iter()
+            .any(|ty| matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..)))
 }
 
 fn write_accessor_attributes(
