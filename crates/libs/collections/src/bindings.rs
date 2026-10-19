@@ -300,9 +300,9 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIterator_Impl::GetMany(
                     this,
-                    core::slice::from_raw_parts_mut(
+                    windows_core::imp::array_slice_mut(
                         core::mem::transmute_copy(&items),
-                        items_array_size as usize,
+                        items_array_size,
                     ),
                 ) {
                     Ok(ok__) => {
@@ -2353,9 +2353,9 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                 match IVector_Impl::GetMany(
                     this,
                     startindex,
-                    core::slice::from_raw_parts_mut(
+                    windows_core::imp::array_slice_mut(
                         core::mem::transmute_copy(&items),
-                        items_array_size as usize,
+                        items_array_size,
                     ),
                 ) {
                     Ok(ok__) => {
@@ -2380,9 +2380,9 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVector_Impl::ReplaceAll(
                     this,
-                    core::slice::from_raw_parts(
+                    windows_core::imp::array_slice(
                         core::mem::transmute_copy(&items),
-                        items_array_size as usize,
+                        items_array_size,
                     ),
                 )
                 .into()
@@ -2787,9 +2787,9 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
                 match IVectorView_Impl::GetMany(
                     this,
                     startindex,
-                    core::slice::from_raw_parts_mut(
+                    windows_core::imp::array_slice_mut(
                         core::mem::transmute_copy(&items),
-                        items_array_size as usize,
+                        items_array_size,
                     ),
                 ) {
                     Ok(ok__) => {

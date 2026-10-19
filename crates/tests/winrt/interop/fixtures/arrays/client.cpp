@@ -14,6 +14,7 @@ void test()
     std::array<int32_t, 3> values{};
     widget.Fill(values);
     check(values == std::array<int32_t, 3>{ 1, 2, 3 });
+    widget.Fill({});
 
     check(widget.Range(3) == com_array<int32_t>{ 1, 2, 3 });
     check(widget.Range(0).empty());

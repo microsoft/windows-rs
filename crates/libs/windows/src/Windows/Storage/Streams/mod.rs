@@ -1100,7 +1100,7 @@ impl IDataReader_Vtbl {
         unsafe extern "system" fn ReadBytes<Identity: IDataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value_array_size: u32, value: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataReader_Impl::ReadBytes(this, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&value), value_array_size as usize)).into()
+                IDataReader_Impl::ReadBytes(this, windows_core::imp::array_slice_mut(core::mem::transmute_copy(&value), value_array_size)).into()
             }
         }
         unsafe extern "system" fn ReadBuffer<Identity: IDataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1612,7 +1612,7 @@ impl IDataWriter_Vtbl {
         unsafe extern "system" fn WriteBytes<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value_array_size: u32, value: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataWriter_Impl::WriteBytes(this, core::slice::from_raw_parts(core::mem::transmute_copy(&value), value_array_size as usize)).into()
+                IDataWriter_Impl::WriteBytes(this, windows_core::imp::array_slice(core::mem::transmute_copy(&value), value_array_size)).into()
             }
         }
         unsafe extern "system" fn WriteBuffer<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut core::ffi::c_void) -> windows_core::HRESULT {

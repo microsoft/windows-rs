@@ -127,13 +127,13 @@ impl II2cDeviceProvider_Vtbl {
         unsafe extern "system" fn Write<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                II2cDeviceProvider_Impl::Write(this, core::slice::from_raw_parts(core::mem::transmute_copy(&buffer), buffer_array_size as usize)).into()
+                II2cDeviceProvider_Impl::Write(this, windows_core::imp::array_slice(core::mem::transmute_copy(&buffer), buffer_array_size)).into()
             }
         }
         unsafe extern "system" fn WritePartial<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *const u8, result__: *mut ProviderI2cTransferResult) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match II2cDeviceProvider_Impl::WritePartial(this, core::slice::from_raw_parts(core::mem::transmute_copy(&buffer), buffer_array_size as usize)) {
+                match II2cDeviceProvider_Impl::WritePartial(this, windows_core::imp::array_slice(core::mem::transmute_copy(&buffer), buffer_array_size)) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -145,13 +145,13 @@ impl II2cDeviceProvider_Vtbl {
         unsafe extern "system" fn Read<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                II2cDeviceProvider_Impl::Read(this, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&buffer), buffer_array_size as usize)).into()
+                II2cDeviceProvider_Impl::Read(this, windows_core::imp::array_slice_mut(core::mem::transmute_copy(&buffer), buffer_array_size)).into()
             }
         }
         unsafe extern "system" fn ReadPartial<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8, result__: *mut ProviderI2cTransferResult) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match II2cDeviceProvider_Impl::ReadPartial(this, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&buffer), buffer_array_size as usize)) {
+                match II2cDeviceProvider_Impl::ReadPartial(this, windows_core::imp::array_slice_mut(core::mem::transmute_copy(&buffer), buffer_array_size)) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -163,13 +163,13 @@ impl II2cDeviceProvider_Vtbl {
         unsafe extern "system" fn WriteRead<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                II2cDeviceProvider_Impl::WriteRead(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writebuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size as usize)).into()
+                II2cDeviceProvider_Impl::WriteRead(this, windows_core::imp::array_slice(core::mem::transmute_copy(&writebuffer), writebuffer_array_size), windows_core::imp::array_slice_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size)).into()
             }
         }
         unsafe extern "system" fn WriteReadPartial<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8, result__: *mut ProviderI2cTransferResult) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match II2cDeviceProvider_Impl::WriteReadPartial(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writebuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size as usize)) {
+                match II2cDeviceProvider_Impl::WriteReadPartial(this, windows_core::imp::array_slice(core::mem::transmute_copy(&writebuffer), writebuffer_array_size), windows_core::imp::array_slice_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size)) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)

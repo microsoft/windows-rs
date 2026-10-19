@@ -161,25 +161,25 @@ impl ISpiDeviceProvider_Vtbl {
         unsafe extern "system" fn Write<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpiDeviceProvider_Impl::Write(this, core::slice::from_raw_parts(core::mem::transmute_copy(&buffer), buffer_array_size as usize)).into()
+                ISpiDeviceProvider_Impl::Write(this, windows_core::imp::array_slice(core::mem::transmute_copy(&buffer), buffer_array_size)).into()
             }
         }
         unsafe extern "system" fn Read<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpiDeviceProvider_Impl::Read(this, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&buffer), buffer_array_size as usize)).into()
+                ISpiDeviceProvider_Impl::Read(this, windows_core::imp::array_slice_mut(core::mem::transmute_copy(&buffer), buffer_array_size)).into()
             }
         }
         unsafe extern "system" fn TransferSequential<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpiDeviceProvider_Impl::TransferSequential(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writebuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size as usize)).into()
+                ISpiDeviceProvider_Impl::TransferSequential(this, windows_core::imp::array_slice(core::mem::transmute_copy(&writebuffer), writebuffer_array_size), windows_core::imp::array_slice_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size)).into()
             }
         }
         unsafe extern "system" fn TransferFullDuplex<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpiDeviceProvider_Impl::TransferFullDuplex(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writebuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size as usize)).into()
+                ISpiDeviceProvider_Impl::TransferFullDuplex(this, windows_core::imp::array_slice(core::mem::transmute_copy(&writebuffer), writebuffer_array_size), windows_core::imp::array_slice_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size)).into()
             }
         }
         Self {

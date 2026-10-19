@@ -873,7 +873,7 @@ impl IVpnInterfaceIdFactory_Vtbl {
         unsafe extern "system" fn CreateVpnInterfaceId<Identity: IVpnInterfaceIdFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, address_array_size: u32, address: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVpnInterfaceIdFactory_Impl::CreateVpnInterfaceId(this, core::slice::from_raw_parts(core::mem::transmute_copy(&address), address_array_size as usize)) {
+                match IVpnInterfaceIdFactory_Impl::CreateVpnInterfaceId(this, windows_core::imp::array_slice(core::mem::transmute_copy(&address), address_array_size)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
