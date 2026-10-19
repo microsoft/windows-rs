@@ -90,6 +90,7 @@ fn annotation_roundtrip() {
     let merged = merge(&snapshots).unwrap();
     let output = projection::project_with_imports(&merged, "Fixture", &imports()).unwrap();
     let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
+    assert!(!text.contains("windows_clang:sal:"));
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
     let expected = test_clang2::input_dir().join("annotations.rdl");
     if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
@@ -227,6 +228,47 @@ fn annotation_roundtrip() {
             assert_eq!(
                 conditional[0][2],
                 Value::Utf8("capacity > 0,_Out_writes_(capacity)".into())
+            );
+            assert_eq!(
+                conditional[0][3],
+                Value::Utf8("capacity > 0, _Out_writes_(capacity)".into())
+            );
+            for (name, expanded) in [
+                (
+                    "Scoped",
+                    "capacity > 0, _At_(value, _Group_(_In_reads_(16) _Always_(_In_)))",
+                ),
+                (
+                    "ScopedBuffer",
+                    "value, index, capacity, _When_(index > 0, _Out_)",
+                ),
+            ] {
+                let param = index
+                    .expect("Fixture", name)
+                    .methods()
+                    .next()
+                    .unwrap()
+                    .params()
+                    .next()
+                    .unwrap();
+                let values = attributes(param);
+                assert_eq!(values.len(), 1);
+                assert_eq!(values[0][3], Value::Utf8(expanded.into()));
+                let plain = index
+                    .expect("Fixture", "Unscoped")
+                    .methods()
+                    .next()
+                    .unwrap()
+                    .params()
+                    .next()
+                    .unwrap();
+                assert_eq!(param.flags(), plain.flags());
+                assert!(param.find_attribute("NativeInputAttribute").is_none());
+                assert!(param.find_attribute("NativeArrayInfoAttribute").is_none());
+            }
+            assert_eq!(
+                attributes(index.expect("Fixture", "Failure"))[0][3],
+                Value::Utf8("_Unchanged_(*value)".into())
             );
             for name in ["AContract", "CopiedContract"] {
                 let callback = index.expect("Fixture", name);
@@ -604,6 +646,69 @@ fn invalid_annotation_transport() {
         .insert_str(0, "#define PAYLOAD \"unrecognized annotation\"\n");
     let snapshots = capture(&[input], &[Target::X64]).unwrap();
     assert!(merge(&snapshots).is_err());
+}
+
+#[test]
+fn nested_annotation_transport() {
+    helpers::ensure_libclang();
+    let nested = |arguments: &str| {
+        let payload = format!("windows_clang:sal:2:_In_reads_\n({arguments})\n(16)");
+        format!("__attribute__((annotate({payload:?})))")
+    };
+    let native = nested("LIMIT");
+    let input = |expanded: &str| {
+        let payload =
+            format!("windows_clang:sal:2:_When_\n(n > 0,_In_reads_(LIMIT))\n({expanded})");
+        let mut input = test_clang2::fixture("annotation_transport");
+        input
+            .source
+            .insert_str(0, &format!("#define PAYLOAD {payload:?}\n"));
+        input
+    };
+    let ordinary_literal = format!("{native:?}");
+    let raw_literal = format!("u8R\"scope({native})scope\"");
+    let expanded = format!("1'000, {ordinary_literal}, {raw_literal}, {native}");
+    let expected = format!("1'000, {ordinary_literal}, {raw_literal}, _In_reads_(16)");
+    let snapshots = capture(&[input(&expanded)], &TARGETS).unwrap();
+    let evidence = format!("{snapshots:?}");
+    let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
+    assert_eq!(format!("{snapshots:?}"), evidence);
+    let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+    let path = root.join("target\\test-clang2-nested-transport.winmd");
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input_text(&text)
+        .output(&path)
+        .write()
+        .unwrap();
+    let index = reader::Index::read(&path).unwrap();
+    assert_eq!(
+        attributes(index.expect("Fixture", "Annotated")),
+        vec![annotation("_When_", "n > 0,_In_reads_(LIMIT)", &expected)]
+    );
+    std::fs::remove_file(path).unwrap();
+
+    for malformed in [
+        native.replace("sal:2:", "sal:3:"),
+        native.trim_end_matches(')').into(),
+        native.replace("\\n", "\\t"),
+    ] {
+        let input = input(&malformed);
+        let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+        assert!(projection::project(&merge(&snapshots).unwrap(), "Fixture").is_err());
+        let partial = projection::generate_partial(&[input], "Fixture").unwrap();
+        assert_eq!(partial.output.records, 0);
+        assert!(partial.omissions.iter().any(|error| error.contains("SAL")));
+    }
+    let mut inputs = [input(&native), input(&nested("OTHER_LIMIT"))];
+    inputs[1].name = "other.h".into();
+    for _ in 0..2 {
+        let snapshots = capture(&inputs, &TARGETS).unwrap();
+        assert!(merge(&snapshots).is_err());
+        assert!(capture_partial(&inputs, &TARGETS).is_err());
+        inputs.reverse();
+    }
 }
 
 #[test]

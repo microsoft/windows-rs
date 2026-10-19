@@ -844,7 +844,7 @@ mod tests {
         assert_eq!(adshlp.len(), 22);
         let winsock = evidence.names(Target::X64, "ws2_32.dll");
         assert_eq!(winsock.len(), 125);
-        for (header, golden, roots) in [
+        for (header, golden, mut roots) in [
             (
                 "sdk_import_targets.h",
                 "sdk_named_imports.rdl",
@@ -854,6 +854,27 @@ mod tests {
             ),
             ("sdk_adshlp.h", "sdk_adshlp.rdl", adshlp),
             ("sdk_winsock.h", "sdk_winsock.rdl", winsock),
+            (
+                "sdk_stillimage.h",
+                "sdk_stillimage.rdl",
+                vec!["StiCreateInstanceW".into(), "StiCreateInstance".into()],
+            ),
+            ("sdk_xaudio_virtual.h", "sdk_xaudio_virtual.rdl", vec![]),
+            (
+                "sdk_file_segment.h",
+                "sdk_file_segment_imports.rdl",
+                ["ReadFileScatter", "WriteFileGather"]
+                    .map(String::from)
+                    .to_vec(),
+            ),
+            (
+                "sdk_vss_classes.h",
+                "sdk_vss_classes.rdl",
+                vec![
+                    "CreateVssExpressWriterInternal".into(),
+                    "CreateVssExamineWriterMetadataInternal".into(),
+                ],
+            ),
             (
                 "sdk_variadics.h",
                 "sdk_variadics.rdl",
@@ -886,16 +907,129 @@ mod tests {
             ),
         ] {
             let expected_functions = roots.len();
+            if header == "sdk_stillimage.h" {
+                roots.extend(["LPSTILLIMAGE", "LPSTILLIMAGEW", "PSTI", "PSTIW"].map(String::from));
+            } else if header == "sdk_xaudio_virtual.h" {
+                roots.push("IXAudio2Extension".into());
+            }
+            if header == "sdk_vss_classes.h" {
+                roots.extend(
+                    [
+                        "IVssComponentEx2",
+                        "IVssCreateWriterMetadata",
+                        "IVssExamineWriterMetadataEx2",
+                        "IVssWriterComponents",
+                    ]
+                    .map(String::from),
+                );
+            }
             let input = Input {
                 name: header.into(),
                 source: std::fs::read_to_string(fixtures.join(header)).unwrap(),
                 arguments: sdk_test_arguments(),
                 roots,
+                macros: if header == "sdk_stillimage.h" {
+                    vec!["StiCreateInstance".into()]
+                } else {
+                    vec![]
+                },
                 ..Default::default()
             };
             let snapshots =
                 windows_clang2::capture(&[input], &[Target::X86, Target::X64, Target::Arm64])
                     .unwrap();
+            if header == "sdk_stillimage.h" {
+                for snapshot in &snapshots {
+                    let record = snapshot
+                        .records
+                        .iter()
+                        .find(|record| record.name == "IStillImageW")
+                        .unwrap();
+                    let definition = record
+                        .observations
+                        .iter()
+                        .find_map(|id| snapshot.observations[id.0].definition.as_ref())
+                        .unwrap();
+                    let non_pure: Vec<_> = definition
+                        .methods
+                        .iter()
+                        .filter(|method| !method.pure)
+                        .map(|method| (method.name.as_str(), method.slot))
+                        .collect();
+                    assert_eq!(
+                        non_pure,
+                        [
+                            ("GetDeviceValue", 7),
+                            ("SetDeviceValue", 8),
+                            ("LaunchApplicationForDevice", 15),
+                            ("SetupDeviceParameters", 16),
+                        ]
+                    );
+                }
+            }
+            if header == "sdk_xaudio_virtual.h" {
+                for snapshot in &snapshots {
+                    let record = snapshot
+                        .records
+                        .iter()
+                        .find(|record| record.name == "IXAudio2Extension")
+                        .unwrap();
+                    let definition = record
+                        .observations
+                        .iter()
+                        .find_map(|id| snapshot.observations[id.0].definition.as_ref())
+                        .unwrap();
+                    assert_eq!(
+                        definition
+                            .methods
+                            .iter()
+                            .map(|method| {
+                                (
+                                    method.name.as_str(),
+                                    method.slot,
+                                    method.overrides,
+                                    method.pure,
+                                )
+                            })
+                            .collect::<Vec<_>>(),
+                        [
+                            ("QueryInterface", 0, true, true),
+                            ("AddRef", 1, true, true),
+                            ("Release", 2, true, true),
+                            ("GetProcessingQuantum", 3, false, false),
+                            ("GetProcessor", 4, false, false),
+                        ]
+                    );
+                }
+            }
+            if header == "sdk_vss_classes.h" {
+                for snapshot in &snapshots {
+                    for (name, count) in [
+                        ("IVssExpressWriter", 4),
+                        ("IVssCreateExpressWriterMetadata", 7),
+                    ] {
+                        let record = snapshot
+                            .records
+                            .iter()
+                            .find(|record| record.name == name)
+                            .unwrap();
+                        assert_eq!(record.kind, windows_clang2::RecordKind::Class);
+                        let definition = record
+                            .observations
+                            .iter()
+                            .find_map(|id| snapshot.observations[id.0].definition.as_ref())
+                            .unwrap();
+                        assert_eq!(
+                            definition
+                                .methods
+                                .iter()
+                                .map(|method| method.slot)
+                                .collect::<Vec<_>>(),
+                            (3..3 + count).collect::<Vec<_>>()
+                        );
+                    }
+                }
+            }
             if header == "sdk_winsock.h" {
                 let mut raw = discovered[&Target::X64]["htons"].clone();
                 raw.dll = "other.dll".into();

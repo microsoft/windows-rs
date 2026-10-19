@@ -1,0 +1,33 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[arch(X86)]
+    type Scalar = i32;
+    #[arch(X64 | Arm64)]
+    type Scalar = u64;
+    type Alias = Scalar;
+    struct Member {
+        #[Windows::Win32::Metadata::NativeBitfield("value", 0, 4, MemberType = Alias)]
+        storage: u64,
+    }
+    struct Storage {
+        _bitfield: Alias {
+            value: 4,
+            flag: 1,
+        },
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute NativeBitfieldAttribute {
+                fn(name: String, offset: i64, length: i64);
+                MemberType: Type,
+            }
+            attribute NativeTypedefAttribute {
+                fn();
+            }
+        }
+    }
+}

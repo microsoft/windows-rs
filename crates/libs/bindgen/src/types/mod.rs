@@ -51,6 +51,8 @@ pub enum Type {
     Generic(GenericParam),
     PtrMut(Box<Self>, usize),
     PtrConst(Box<Self>, usize),
+    Ptr64(Box<Self>, bool),
+    Pointer64Helper,
     ArrayFixed(Box<Self>, usize),
     Array(Box<Self>),
     ArrayRef(Box<Self>),
@@ -102,6 +104,9 @@ impl FunctionPointer {
     }
 
     fn write(&self, config: &Config) -> TokenStream {
+        for ty in self.types() {
+            ty.assert_callable_value(config.reader);
+        }
         let abi = match MethodCallAttributes(self.flags) {
             MethodCallAttributes::C => "C",
             MethodCallAttributes::STDCALL => "system",
@@ -141,11 +146,32 @@ pub enum Remap {
 }
 
 impl Type {
+    #[track_caller]
+    pub fn assert_callable_value(&self, reader: &Reader) {
+        match self {
+            Self::Ptr64(..) => panic!("fixed-width pointer values require a calling-ABI contract"),
+            Self::ArrayFixed(inner, _) => inner.assert_callable_value(reader),
+            Self::CppStruct(ty) => {
+                for field in ty.def.fields() {
+                    field
+                        .field_type(Some(ty), reader)
+                        .assert_callable_value(reader);
+                }
+            }
+            _ => {}
+        }
+    }
+
     /// Collects sys ABI dependencies without projected interfaces, which sys signatures erase to
     /// raw pointers.
     pub fn combine_sys(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        let ty = self.decay();
+        let ty = self.dependency_type();
 
+        if let Self::Ptr64(inner, _) = ty {
+            dependencies.insert(Self::Pointer64Helper);
+            inner.combine_sys(dependencies, reader);
+            return;
+        }
         if let Self::FnPtr(signature) = ty {
             for ty in signature.types() {
                 ty.combine_sys(dependencies, reader);
@@ -444,6 +470,10 @@ impl Type {
                 Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
                 *pointers,
             ),
+            windows_metadata::Type::Ptr64(inner, constant) => Self::Ptr64(
+                Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
+                *constant,
+            ),
             windows_metadata::Type::FnPtr(signature) => Self::FnPtr(Box::new(FunctionPointer {
                 flags: signature.flags.0,
                 result: Self::from_metadata_type(
@@ -477,6 +507,7 @@ impl Type {
         match self {
             Self::PtrMut(ty, pointers) => Self::PtrMut(Box::new(ty.to_const_type()), *pointers),
             Self::PtrConst(ty, pointers) => Self::PtrConst(Box::new(ty.to_const_type()), *pointers),
+            Self::Ptr64(ty, constant) => Self::Ptr64(Box::new(ty.to_const_type()), *constant),
             Self::PSTR => Self::PCSTR,
             Self::PWSTR => Self::PCWSTR,
             _ => self.clone(),
@@ -644,6 +675,23 @@ impl Type {
                 let ty = ty.write_default(config);
                 quote! { #pointers #ty }
             }
+            Self::Ptr64(ty, constant) => {
+                assert!(
+                    !matches!(
+                        ty.projection_type(config.reader),
+                        Self::FnPtr(_) | Self::CppDelegate(_)
+                    ) && !ty.is_interface_with_reader(config.reader),
+                    "fixed-width function and interface pointers are unsupported"
+                );
+                let helper = Self::Pointer64Helper.type_name().write(config, &[]);
+                let pointer = if *constant {
+                    Self::PtrConst(ty.clone(), 1)
+                } else {
+                    Self::PtrMut(ty.clone(), 1)
+                };
+                let pointer = pointer.write_name(config);
+                quote! { #helper<#pointer> }
+            }
             Self::ArrayFixed(ty, len) => {
                 let name = ty.write_default(config);
                 let len = Literal::usize_unsuffixed(*len);
@@ -777,6 +825,18 @@ impl Type {
                 (base, ty.generics.clone())
             }
             _ => (self.clone(), vec![]),
+        }
+    }
+
+    pub fn dependency_type(&self) -> &Self {
+        match self {
+            Self::PtrMut(ty, _)
+            | Self::PtrConst(ty, _)
+            | Self::Array(ty)
+            | Self::ArrayRef(ty)
+            | Self::ConstRef(ty)
+            | Self::ArrayFixed(ty, _) => ty.dependency_type(),
+            _ => self,
         }
     }
 
@@ -946,6 +1006,7 @@ impl Type {
             | Self::NTSTATUS
             | Self::RPC_STATUS
             | Self::PtrConst(_, _)
+            | Self::Ptr64(_, _)
             | Self::PtrMut(_, _) => true,
             _ => false,
         }
@@ -982,7 +1043,7 @@ impl Type {
         match self {
             Self::I8 | Self::U8 => 1,
             Self::I16 | Self::U16 => 2,
-            Self::I64 | Self::U64 | Self::F64 => 8,
+            Self::I64 | Self::U64 | Self::F64 | Self::Ptr64(..) => 8,
             Self::GUID => 16,
             Self::ArrayFixed(ty, len) => ty.size(reader) * len,
             Self::CppStruct(ty) => ty.size(reader),
@@ -996,7 +1057,7 @@ impl Type {
         match self {
             Self::I8 | Self::U8 => 1,
             Self::I16 | Self::U16 => 2,
-            Self::I64 | Self::U64 | Self::F64 => 8,
+            Self::I64 | Self::U64 | Self::F64 | Self::Ptr64(..) => 8,
             Self::ArrayFixed(ty, len) => ty.align(reader) * len,
             Self::CppStruct(ty) => ty.align(reader),
             Self::Struct(ty) => ty.align(reader),
@@ -1034,6 +1095,9 @@ impl Type {
             }
             Self::PtrConst(ty, pointers) => {
                 Self::PtrConst(Box::new(ty.projection_type(reader)), *pointers)
+            }
+            Self::Ptr64(ty, constant) => {
+                Self::Ptr64(Box::new(ty.projection_type(reader)), *constant)
             }
             Self::ArrayFixed(ty, len) => {
                 Self::ArrayFixed(Box::new(ty.projection_type(reader)), *len)
@@ -1115,6 +1179,39 @@ impl Type {
 
     pub fn write(&self, config: &Config) -> TokenStream {
         match self {
+            Self::Pointer64Helper => quote! {
+                /// A fixed 64-bit address, not a native Rust pointer.
+                #[doc(hidden)]
+                #[repr(C)]
+                pub struct __windows_bindgen_Pointer64<P> {
+                    address: u64,
+                    pointer: core::marker::PhantomData<fn() -> P>,
+                }
+                impl<P> __windows_bindgen_Pointer64<P> {
+                    pub const fn from_address(address: u64) -> Self {
+                        Self { address, pointer: core::marker::PhantomData }
+                    }
+                    pub const fn address(self) -> u64 {
+                        self.address
+                    }
+                }
+                impl<P> Copy for __windows_bindgen_Pointer64<P> {}
+                impl<P> Clone for __windows_bindgen_Pointer64<P> {
+                    fn clone(&self) -> Self { *self }
+                }
+                impl<P> Default for __windows_bindgen_Pointer64<P> {
+                    fn default() -> Self { Self::from_address(0) }
+                }
+                impl<P> PartialEq for __windows_bindgen_Pointer64<P> {
+                    fn eq(&self, other: &Self) -> bool { self.address == other.address }
+                }
+                impl<P> Eq for __windows_bindgen_Pointer64<P> {}
+                impl<P> core::fmt::Debug for __windows_bindgen_Pointer64<P> {
+                    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+                        f.debug_tuple("Pointer64").field(&self.address).finish()
+                    }
+                }
+            },
             Self::Struct(ty) => ty.write(config),
             Self::Enum(ty) => ty.write(config),
             Self::Interface(ty) => ty.write(config),
@@ -1166,6 +1263,7 @@ impl Type {
             Self::BSTR => TypeName("", "BSTR"),
             Self::String => TypeName("", "String"),
             Self::Object => TypeName("", "Object"),
+            Self::Pointer64Helper => TypeName("Windows.Win32", "__windows_bindgen_Pointer64"),
 
             _ => TypeName("", ""),
         }
@@ -1203,8 +1301,13 @@ impl Type {
 
 impl Dependencies for Type {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        let ty = self.decay();
+        let ty = self.dependency_type();
 
+        if let Self::Ptr64(inner, _) = ty {
+            dependencies.insert(Self::Pointer64Helper);
+            inner.combine(dependencies, reader);
+            return;
+        }
         if let Self::FnPtr(signature) = ty {
             for ty in signature.types() {
                 ty.combine(dependencies, reader);

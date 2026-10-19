@@ -370,7 +370,9 @@ impl Plan {
             let mut ty = observation.canonical;
             loop {
                 match snapshot.types[ty.0].kind {
-                    TypeKind::Pointer(child) | TypeKind::Array { element: child, .. } => ty = child,
+                    TypeKind::Pointer(child)
+                    | TypeKind::Pointer64(child)
+                    | TypeKind::Array { element: child, .. } => ty = child,
                     TypeKind::Record(record) => {
                         if self.definition_headers[self.groups[reference.snapshot][record.0]]
                             .contains(header)
@@ -479,6 +481,7 @@ impl Plan {
                         x.name == y.name
                             && x.slot == y.slot
                             && x.overrides == y.overrides
+                            && x.pure == y.pure
                             && resolve::value_shape_equal(&x.observation, &y.observation, false)
                             && self.same_type(
                                 resolution,

@@ -57,6 +57,12 @@ different metadata signatures and round-trip without flattening. Homogeneous cha
 existing binary encoding. Mixed chains use per-level modifiers and require an updated metadata
 reader; see [pointer constness](windows-metadata.md#pointer-constness).
 
+Win32 fixed 64-bit data-pointer storage uses `ptr64<*mut T>` or `ptr64<*const T>`, including on
+x86. It retains pointee type and constness rather than becoming an integer or native-width pointer.
+It requires updated paired metadata readers and generators. Rust bindings expose a typed address
+value, not pointer dereferencing. WinRT, fixed-width callable values, and fixed function/interface
+pointers are unsupported; see [fixed-width pointers](windows-metadata.md#fixed-width-pointers).
+
 Win32 inline function-pointer types use `extern "C" fn(T, ...) -> R` for C or
 `extern fn(T, ...) -> R` for system/stdcall. Omit `-> R` for void results. Parameters are positional
 types without names or attributes. Nested function pointers, pointers, arrays, and named record

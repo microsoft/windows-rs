@@ -6,7 +6,7 @@ pub struct Bits {
 }
 impl Bits {
     pub fn signed(&self) -> Alias {
-        Wrapped((((self.storage & 15) as i16) << 12) >> 12)
+        Wrapped(((((self.storage) & 15) as i16) << 12) >> 12)
     }
     pub fn set_signed(&mut self, value: Alias) {
         self.storage = (self.storage & !15) | ((value.0 as u16) & 15);

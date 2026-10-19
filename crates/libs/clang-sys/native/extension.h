@@ -36,6 +36,19 @@ enum WindowsClangTypeQualifiers {
     WindowsClangOtherQualifiers = 16
 };
 
+enum WindowsClangPointerRepresentation {
+    WindowsClangNativePointer = 0,
+    WindowsClangPointer64 = 1,
+    WindowsClangSignedPointer32 = 2,
+    WindowsClangUnsignedPointer32 = 3,
+    WindowsClangOtherPointer = 4
+};
+
+struct WindowsClangPointerInfo {
+    enum WindowsClangPointerRepresentation representation;
+    CXType pointee;
+};
+
 struct WindowsClangFunctionInfo {
     unsigned has_regparm;
     unsigned regparm;
@@ -85,6 +98,9 @@ WINDOWS_CLANG_API const char* windows_clang_getTypeAttributeKindName(CXType type
 // Includes qualifiers inherited through typedefs; OtherQualifiers requires further decoding.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypeQualifiers(
     CXType type, unsigned* qualifiers);
+// Removes only decoded pointer-size address spaces from the returned pointee.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getPointerInfo(
+    CXType type, struct WindowsClangPointerInfo* info);
 // Function prototype method qualifiers, distinct from qualifiers on the function type itself.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getMethodQualifiers(
     CXType type, unsigned* qualifiers);

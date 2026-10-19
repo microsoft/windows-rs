@@ -79,6 +79,14 @@ pub fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
 
             ty
         }
+        Ptr64(ty, constant) => {
+            let ty = write_type(namespace, ty);
+            if *constant {
+                quote! { ptr64<*const #ty> }
+            } else {
+                quote! { ptr64<*mut #ty> }
+            }
+        }
         PtrConst(ty, pointers) => {
             let mut ty = write_type(namespace, ty);
 

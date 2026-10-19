@@ -242,7 +242,7 @@ fn uuid_tags_are_not_types_or_object_definitions() {
         partial
             .omissions
             .iter()
-            .any(|error| error.contains("class definitions are unsupported"))
+            .any(|error| error.contains("unsupported ordinary record attributes"))
     );
 }
 

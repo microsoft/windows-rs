@@ -2,6 +2,7 @@
 #include "CXCursor.h"
 #include "CXString.h"
 #include "CXType.h"
+#include "CXTranslationUnit.h"
 #include <clang/AST/Attr.h>
 #include <clang/AST/ASTContext.h>
 #include <clang/AST/Expr.h>
@@ -10,6 +11,7 @@
 #include <clang/AST/TypeLoc.h>
 #include <clang/AST/VTableBuilder.h>
 #include <clang/Basic/TargetInfo.h>
+#include <clang/Frontend/ASTUnit.h>
 #include <llvm/Config/llvm-config.h>
 
 static const char* attributeName(clang::attr::Kind kind) {
@@ -21,7 +23,7 @@ static const char* attributeName(clang::attr::Kind kind) {
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 18;
+    return 19;
 }
 
 WindowsClangStatus windows_clang_getImportConvention(
@@ -405,6 +407,52 @@ WindowsClangStatus windows_clang_getTypeQualifiers(CXType type, unsigned* qualif
         return WindowsClangWrongKind;
     }
     *qualifiers = qualifierFlags(value.getQualifiers());
+    return WindowsClangSuccess;
+}
+
+WindowsClangStatus windows_clang_getPointerInfo(CXType type, WindowsClangPointerInfo* info) {
+    if (!info) {
+        return WindowsClangInvalidArgument;
+    }
+    auto value = GetQualType(type);
+    auto pointer = value.isNull() ? nullptr : value->getAs<clang::PointerType>();
+    if (!pointer) {
+        return WindowsClangWrongKind;
+    }
+    auto pointee = pointer->getPointeeType();
+    auto representation = WindowsClangNativePointer;
+    switch (pointee.getAddressSpace()) {
+    case clang::LangAS::Default: break;
+    case clang::LangAS::ptr64: representation = WindowsClangPointer64; break;
+    case clang::LangAS::ptr32_sptr: representation = WindowsClangSignedPointer32; break;
+    case clang::LangAS::ptr32_uptr: representation = WindowsClangUnsignedPointer32; break;
+    default: representation = WindowsClangOtherPointer; break;
+    }
+    auto unit = GetTypeTU(type);
+    auto& context = clang::cxtu::getASTUnit(unit)->getASTContext();
+    for (auto written = value;;) {
+        if (auto attributed = llvm::dyn_cast<clang::AttributedType>(written.getTypePtr())) {
+            auto kind = attributed->getAttrKind();
+            if (kind == clang::attr::Ptr64 || kind == clang::attr::Ptr32) {
+                if (representation == WindowsClangNativePointer) {
+                    representation = kind == clang::attr::Ptr64
+                        ? WindowsClangPointer64 : WindowsClangSignedPointer32;
+                }
+                break;
+            }
+            written = attributed->getModifiedType();
+            continue;
+        }
+        auto next = written.getSingleStepDesugaredType(context);
+        if (next == written) {
+            break;
+        }
+        written = next;
+    }
+    if (clang::isPtrSizeAddressSpace(pointee.getAddressSpace())) {
+        pointee = context.removeAddrSpaceQualType(pointee);
+    }
+    *info = { representation, clang::cxtype::MakeCXType(pointee, unit) };
     return WindowsClangSuccess;
 }
 

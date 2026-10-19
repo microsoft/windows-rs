@@ -4,7 +4,7 @@ struct ChangingKind { int value; };
 typedef int ChangingAlias;
 struct AliasConsumer { ChangingAlias value; };
 #else
-class ChangingKind { public: int value; };
+class ChangingKind { int value; };
 template<typename T> using ChangingAlias = T;
 struct AliasConsumer { ChangingAlias<int> value; };
 #endif

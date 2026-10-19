@@ -84,9 +84,15 @@ Changes to strategy, scope, deferrals, or acceptance gates require approval.
    acceptance corrections, not parser rules or claims about every Windows release. Preserve
    captured declarations and missing-import diagnostics. Both missing `RtlCaptureContext2` target
    pairs remain required pending stronger platform evidence.
+   `crates/tools/win32-2/src/approved-availability.txt` records that exact approved set for
+   `--compare-functions`; report raw and unapproved differences separately and reject stale entries.
    The maintainer approved equivalent transparent value typedefs in import-redeclaration
    comparisons after native agreement. Preserve every observation and emit an observed signature;
    do not erase nominal identity, qualifiers, callback contracts or typedef-owned annotations.
+   The maintainer approved fixed 64-bit data-pointer storage, including `PVOID64`. Retain native
+   pointer identity, pointee and qualifiers in metadata, and use typed address values in Rust.
+   Keep 32-bit extension variants and unqualified callable/function-pointer uses rejected.
+   Ordinary pointers to supported storage records and adjusted array parameters remain supported.
 4. **Make correctness reproducible and end-to-end.** Establish a clean-checkout reproduction path,
    reusable semantic comparisons, and selected SDK-backed CI coverage. Promote the review's
    consumer probes into repeatable acceptance checks. Complete the metadata compatibility gate
@@ -136,10 +142,12 @@ Preserve the compiler reproducer even if validated definition inputs supply the 
 Only a small companion adjustment is within the existing fix scope; libclang rebuilds, parser
 duplication, and per-failure full-source retries remain out of scope.
 
-**Metadata compatibility gate:** review bitfield `MemberType` and per-pointer-level `const`
-encoding separately. Specify their semantics and compatibility with current and supported older
-readers/generators, including silent misinterpretation. Require focused compatibility probes and
-maintainer approval of migration/version requirements before accepting either format change.
+**Metadata compatibility gate:** the maintainer approved requiring updated, paired readers and
+generators for the new metadata; older consumers are not a compatibility target. Qualify inherited
+override slots, bitfield `MemberType`, and per-pointer-level `const` separately, including silent
+misinterpretation by historical consumers. Use a matching validated source revision during
+development and record the paired release versions before production cutover. Do not strip
+contracts or reproduce older generator mistakes to preserve compatibility.
 
 Acceptance requires all of the following:
 

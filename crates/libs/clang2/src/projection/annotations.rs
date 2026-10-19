@@ -21,7 +21,7 @@ pub(super) fn covering<'a>(
     Ok(attributes)
 }
 
-pub(super) fn write(attributes: &[Attribute]) -> TokenStream {
+pub(super) fn write(attributes: &[Attribute]) -> Result<TokenStream, Error> {
     write_owned(attributes, None)
 }
 
@@ -38,7 +38,7 @@ pub(super) fn field(
             sal::FieldAnnotation::Evidence(value) => Some(*value),
             sal::FieldAnnotation::Contract(_) => None,
         }),
-    );
+    )?;
     for value in normalized {
         let sal::FieldAnnotation::Contract(contract) = value else {
             continue;
@@ -121,7 +121,7 @@ pub(super) fn write_typedef(
                 .as_slice()
         }),
     )?;
-    Ok(write_owned(attributes, Some(&alias.name)))
+    write_owned(attributes, Some(&alias.name))
 }
 
 pub(super) fn inherited_callback(
@@ -151,7 +151,7 @@ pub(super) fn inherited_callback(
     }
 }
 
-fn write_owned(attributes: &[Attribute], typedef: Option<&str>) -> TokenStream {
+fn write_owned(attributes: &[Attribute], typedef: Option<&str>) -> Result<TokenStream, Error> {
     write_with_sal(attributes, typedef, resolve::sal(attributes))
 }
 
@@ -159,7 +159,7 @@ fn write_with_sal<'a>(
     attributes: &[Attribute],
     typedef: Option<&str>,
     sal: impl IntoIterator<Item = &'a SalAnnotation>,
-) -> TokenStream {
+) -> Result<TokenStream, Error> {
     let owner = typedef.map(|name| quote! { , TypedefName = #name });
     let sal = sal.into_iter().map(|value| {
         let SalAnnotation {
@@ -168,8 +168,10 @@ fn write_with_sal<'a>(
             arguments,
             expanded,
         } = value;
-        quote! { #[Windows::Win32::Metadata::NativeSal(#version, #name, #arguments, #expanded #owner)] }
-    });
+        let arguments = sal::transport::expression(arguments)?;
+        let expanded = sal::transport::expression(expanded)?;
+        Ok(quote! { #[Windows::Win32::Metadata::NativeSal(#version, #name, #arguments, #expanded #owner)] })
+    }).collect::<Result<Vec<_>, Error>>()?;
     let deprecated = resolve::deprecations(attributes).into_iter().map(|value| {
         let Deprecation {
             message,
@@ -177,7 +179,7 @@ fn write_with_sal<'a>(
         } = value;
         quote! { #[Windows::Win32::Metadata::NativeDeprecated(#message, #replacement #owner)] }
     });
-    quote! { #(#sal)* #(#deprecated)* }
+    Ok(quote! { #(#sal)* #(#deprecated)* })
 }
 
 pub(super) fn only_contracts(attributes: &[Attribute]) -> bool {
@@ -237,7 +239,7 @@ pub(super) fn parameter(
                 sal::ParameterAnnotation::Contract(_) | sal::ParameterAnnotation::Reserved => None,
             }),
         )
-    };
+    }?;
     // A by-value interface reference supplies an existing object, not a replaceable pointer.
     if matches!(ty, MetadataType::ClassName(_)) {
         input |= output;

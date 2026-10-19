@@ -15,7 +15,7 @@ impl Cfg {
         let features: BTreeSet<&'static str> = dependencies
             .keys()
             .filter_map(|tn| {
-                if config.types.contains_key(tn) {
+                if *tn != Type::Pointer64Helper.type_name() && config.types.contains_key(tn) {
                     Some(tn.namespace())
                 } else {
                     None

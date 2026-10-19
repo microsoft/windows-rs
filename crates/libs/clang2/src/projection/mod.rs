@@ -413,7 +413,7 @@ fn project_impl(
                         let name = ident(name)?;
                         let guid = values::write_guid(uuid);
                         bodies.push(Body {
-                            attributes: annotations::write(&observation.attributes),
+                            attributes: annotations::write(&observation.attributes)?,
                             declaration: quote! { const #name: GUID = #guid; },
                         });
                     }
@@ -536,7 +536,9 @@ fn project_impl(
                 let snapshot = resolution.snapshots[reference.snapshot];
                 let observation =
                     &snapshot.enums[reference.enumeration.0].observations[reference.observation];
-                if !annotations::write(&observation.attributes).is_empty() {
+                if !resolve::sal(&observation.attributes).is_empty()
+                    || !resolve::deprecations(&observation.attributes).is_empty()
+                {
                     reject(
                         &mut rejected,
                         [key],
@@ -903,6 +905,42 @@ fn publishable_alias(snapshot: &Snapshot, observation: &AliasObservation) -> boo
         && (ty.layout.is_some() || matches!(ty.kind, TypeKind::Record(_) | TypeKind::Function(_)))
 }
 
+fn has_fixed_pointer(snapshot: &Snapshot, id: TypeId) -> bool {
+    let mut pending = vec![id];
+    let mut seen = HashSet::new();
+    while let Some(id) = pending.pop() {
+        if !seen.insert(id) {
+            continue;
+        }
+        match snapshot.types[id.0].kind {
+            TypeKind::Pointer64(_) => return true,
+            TypeKind::Alias(alias) => pending.extend(
+                snapshot.aliases[alias.0]
+                    .observations
+                    .iter()
+                    .map(|value| value.underlying),
+            ),
+            TypeKind::Pointer(inner)
+            | TypeKind::Array { element: inner, .. }
+            | TypeKind::Attributed {
+                modified: inner, ..
+            } => pending.push(inner),
+            _ => {}
+        }
+    }
+    false
+}
+
+fn written_type(snapshot: &Snapshot, mut id: TypeId) -> TypeId {
+    loop {
+        match snapshot.types[id.0].kind {
+            TypeKind::Alias(alias) => id = snapshot.aliases[alias.0].observations[0].underlying,
+            TypeKind::Attributed { modified, .. } => id = modified,
+            _ => return id,
+        }
+    }
+}
+
 fn alias_source(resolution: &Resolution<'_>, alias: &AliasGroup) -> Option<AliasObservationRef> {
     alias.observations.iter().copied().find(|reference| {
         !resolution.snapshots[reference.snapshot].aliases[reference.alias.0].observations
@@ -923,8 +961,12 @@ fn checked_type(snapshot: &Snapshot, id: TypeId) -> Result<&Type, Error> {
             "volatile/restrict type projection is not implemented".into(),
         ));
     }
-    if let TypeKind::Pointer(pointee) = ty.kind {
-        let size = if snapshot.target == Target::X86 { 4 } else { 8 };
+    if let TypeKind::Pointer(pointee) | TypeKind::Pointer64(pointee) = ty.kind {
+        let size = if matches!(ty.kind, TypeKind::Pointer64(_)) || snapshot.target != Target::X86 {
+            8
+        } else {
+            4
+        };
         if ty.layout
             != Some(Layout {
                 size,
@@ -1019,6 +1061,7 @@ impl WrittenFunction<'_> {
                     values,
                 )?,
                 TypeKind::Pointer(inner)
+                | TypeKind::Pointer64(inner)
                 | TypeKind::LValueReference(inner)
                 | TypeKind::Array { element: inner, .. } => append(snapshot, inner, values)?,
                 TypeKind::Function(_) | TypeKind::Attributed { .. } => {
@@ -1138,7 +1181,7 @@ impl Projector<'_, '_> {
                 callback_parameters(snapshot, observation),
                 attributes,
             )?;
-            body.attributes.extend(annotations::write(attributes));
+            body.attributes.extend(annotations::write(attributes)?);
             body.attributes.extend(annotations::inherited_callback(
                 self.resolution,
                 snapshot,
@@ -1163,14 +1206,16 @@ impl Projector<'_, '_> {
                 self.namespace,
                 &self.plan.names[self.plan.family(snapshot_id, record)],
             )
-        } else if callback_parameters(snapshot, observation).is_some() {
+        } else if callback_parameters(snapshot, observation).is_some()
+            || has_fixed_pointer(snapshot, observation.underlying)
+        {
             self.written_ty(snapshot_id, observation.underlying, observation.canonical)?
         } else {
             self.ty(snapshot_id, observation.canonical)?
         };
         let ty = write_type(self.namespace, &ty);
         Ok(Body {
-            attributes: annotations::write(attributes),
+            attributes: annotations::write(attributes)?,
             declaration: quote! { type #name = #ty; },
         })
     }
@@ -1223,7 +1268,7 @@ impl Projector<'_, '_> {
         if function.variadic {
             return Err(Error("variadic callbacks are unsupported".into()));
         }
-        self.check_function_abi(snapshot, function)?;
+        self.check_function_abi(snapshot, function, written.map(|value| value.prototype))?;
         if function.method_qualifiers != Qualifiers::default() {
             return Err(Error(
                 "method qualifiers are unsupported on callbacks".into(),
@@ -1262,13 +1307,35 @@ impl Projector<'_, '_> {
         })
     }
 
-    fn check_function_abi(&self, snapshot: usize, function: &Function) -> Result<(), Error> {
-        for &ty in function
-            .parameters
-            .iter()
-            .chain(std::iter::once(&function.result))
-        {
+    fn check_function_abi(
+        &self,
+        snapshot: usize,
+        function: &Function,
+        written: Option<&Function>,
+    ) -> Result<(), Error> {
+        if written.is_some_and(|written| written.parameters.len() != function.parameters.len()) {
+            return Err(Error("written and canonical callable arity differ".into()));
+        }
+        let source = self.resolution.snapshots[snapshot];
+        for (index, &ty) in function.parameters.iter().enumerate() {
             self.check_value_abi(snapshot, ty, &mut HashSet::new())?;
+            if let Some(written) = written {
+                let written = written_type(source, written.parameters[index]);
+                // Array and function parameters pass the compiler-adjusted pointer, not a value.
+                if matches!(source.types[ty.0].kind, TypeKind::Pointer(_))
+                    && matches!(
+                        source.types[written.0].kind,
+                        TypeKind::Array { .. } | TypeKind::Function(_)
+                    )
+                {
+                    continue;
+                }
+                self.check_value_abi(snapshot, written, &mut HashSet::new())?;
+            }
+        }
+        self.check_value_abi(snapshot, function.result, &mut HashSet::new())?;
+        if let Some(written) = written {
+            self.check_value_abi(snapshot, written.result, &mut HashSet::new())?;
         }
         Ok(())
     }
@@ -1277,15 +1344,27 @@ impl Projector<'_, '_> {
         &self,
         snapshot: usize,
         ty: TypeId,
-        seen: &mut HashSet<RecordRef>,
+        seen: &mut HashSet<(usize, TypeId)>,
     ) -> Result<(), Error> {
+        if !seen.insert((snapshot, ty)) {
+            return Ok(());
+        }
         match self.resolution.snapshots[snapshot].types[ty.0].kind {
+            TypeKind::Alias(alias) => {
+                for observation in
+                    &self.resolution.snapshots[snapshot].aliases[alias.0].observations
+                {
+                    self.check_value_abi(snapshot, observation.underlying, seen)?;
+                }
+                Ok(())
+            }
+            TypeKind::Attributed { modified, .. } => self.check_value_abi(snapshot, modified, seen),
+            TypeKind::Pointer64(_) => Err(Error(
+                "fixed-width pointer values require a calling-ABI contract".into(),
+            )),
             TypeKind::Array { element, .. } => self.check_value_abi(snapshot, element, seen),
             TypeKind::Record(record) => {
                 let record = RecordRef { snapshot, record };
-                if !seen.insert(record) {
-                    return Ok(());
-                }
                 let reference = self.resolution.group(record).definition.ok_or_else(|| {
                     Error(format!(
                         "incomplete record `{}` cannot be used by value",
@@ -1304,6 +1383,7 @@ impl Projector<'_, '_> {
                 }
                 for field in &definition.fields {
                     self.check_value_abi(reference.snapshot, field.canonical, seen)?;
+                    self.check_value_abi(reference.snapshot, field.written, seen)?;
                 }
                 Ok(())
             }
@@ -1318,16 +1398,7 @@ impl Projector<'_, '_> {
         canonical: TypeId,
     ) -> Result<MetadataType, Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
-        let mut source = written;
-        loop {
-            match snapshot.types[source.0].kind {
-                TypeKind::Alias(alias) => {
-                    source = snapshot.aliases[alias.0].observations[0].underlying;
-                }
-                TypeKind::Attributed { modified, .. } => source = modified,
-                _ => break,
-            }
-        }
+        let source = written_type(snapshot, written);
         if matches!(snapshot.types[source.0].kind, TypeKind::Function(_))
             && let Some(function) = callback(snapshot, canonical)
         {
@@ -1377,6 +1448,8 @@ impl Projector<'_, '_> {
     ) -> Result<MetadataType, Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
         let native = checked_type(snapshot, canonical)?;
+        let fixed = matches!(snapshot.types[written.0].kind, TypeKind::Pointer64(_))
+            || matches!(native.kind, TypeKind::Pointer64(_));
         Ok(match &snapshot.types[written.0].kind {
             TypeKind::Alias(id)
                 if snapshot.aliases[id.0]
@@ -1397,12 +1470,32 @@ impl Projector<'_, '_> {
                     MetadataType::value_named(self.namespace, name)
                 }
             }
-            TypeKind::Pointer(written) => {
-                let TypeKind::Pointer(pointee) = native.kind else {
+            TypeKind::Pointer(written) | TypeKind::Pointer64(written) => {
+                let (TypeKind::Pointer(pointee) | TypeKind::Pointer64(pointee)) = native.kind
+                else {
                     return Err(Error(
                         "written pointer has a non-pointer canonical type".into(),
                     ));
                 };
+                if fixed && matches!(snapshot.types[pointee.0].kind, TypeKind::Function(_)) {
+                    return Err(Error(
+                        "fixed-width function pointers are unsupported".into(),
+                    ));
+                }
+                if fixed {
+                    if let TypeKind::Record(record) = snapshot.types[pointee.0].kind
+                        && self.interface_record(snapshot_id, record)
+                    {
+                        return Err(Error(
+                            "fixed-width interface pointers are unsupported".into(),
+                        ));
+                    }
+                    let inner = Box::new(self.written_ty(snapshot_id, *written, pointee)?);
+                    return Ok(MetadataType::Ptr64(
+                        inner,
+                        snapshot.types[pointee.0].qualifiers.constant,
+                    ));
+                }
                 if let TypeKind::Record(record) = snapshot.types[pointee.0].kind
                     && self.interface_record(snapshot_id, record)
                 {
@@ -1520,6 +1613,17 @@ impl Projector<'_, '_> {
                 }
                 value
             }
+            TypeKind::Pointer64(pointee) => {
+                if matches!(snapshot.types[pointee.0].kind, TypeKind::Function(_)) {
+                    return Err(Error(
+                        "fixed-width function pointers are unsupported".into(),
+                    ));
+                }
+                MetadataType::Ptr64(
+                    Box::new(self.ty(snapshot_id, *pointee)?),
+                    snapshot.types[pointee.0].qualifiers.constant,
+                )
+            }
             TypeKind::Pointer(pointee) => {
                 if let TypeKind::Function(function) = &snapshot.types[pointee.0].kind {
                     return self.function_pointer(snapshot_id, id, function, None);
@@ -1630,7 +1734,7 @@ impl Projector<'_, '_> {
             .into_iter()
             .map(|(attributes, name, value)| quote! { #attributes #name = #value, });
         let scoped = observation.scoped.then(|| quote! { #[scoped] });
-        let native = annotations::write(&observation.attributes);
+        let native = annotations::write(&observation.attributes)?;
         Ok(Body {
             attributes: quote! { #native #[repr(#repr)] },
             declaration: quote! { #scoped enum #name { #(#fields)* } },
@@ -1684,7 +1788,7 @@ impl Projector<'_, '_> {
                 EnumValue::Unsigned(value) => windows_metadata::Value::U64(value),
             };
             let value = write_value(self.namespace, &value);
-            fields.push((annotations::write(&member.attributes), member_name, value));
+            fields.push((annotations::write(&member.attributes)?, member_name, value));
         }
         Ok(fields)
     }
@@ -1713,7 +1817,7 @@ impl Projector<'_, '_> {
             }
             // A nominal pointee marker carries no native storage or layout claim.
             return Ok(Body {
-                attributes: annotations::write(attributes),
+                attributes: annotations::write(attributes)?,
                 declaration: quote! { struct #name {} },
             });
         };
@@ -2079,7 +2183,7 @@ impl Projector<'_, '_> {
             RecordKind::Union => quote! { union },
         };
         let declaration_name = (!inline_record).then_some(name);
-        let native_attributes = annotations::write(attributes);
+        let native_attributes = annotations::write(attributes)?;
         let layout_attributes = if let Some(packing) = packing {
             let packing = proc_macro2::Literal::u64_unsuffixed(packing);
             quote! { #[packed(#packing)] }

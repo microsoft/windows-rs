@@ -204,6 +204,7 @@ fn type_dependencies(snapshot: &Snapshot) -> Vec<Vec<DeclarationId>> {
             TypeKind::Alias(id) => vec![DeclarationId::Alias(*id)],
             TypeKind::Enum(id) => vec![DeclarationId::Enum(*id)],
             TypeKind::Pointer(id)
+            | TypeKind::Pointer64(id)
             | TypeKind::LValueReference(id)
             | TypeKind::Array { element: id, .. } => result[id.0].clone(),
             TypeKind::Function(function) => std::iter::once(&function.result)
@@ -349,6 +350,7 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
             TypeKind::Alias(id) => id.0 = aliases[id.0].unwrap(),
             TypeKind::Enum(id) => id.0 = enums[id.0].unwrap(),
             TypeKind::Pointer(id)
+            | TypeKind::Pointer64(id)
             | TypeKind::LValueReference(id)
             | TypeKind::Array { element: id, .. } => {
                 id.0 = types[id.0].unwrap();

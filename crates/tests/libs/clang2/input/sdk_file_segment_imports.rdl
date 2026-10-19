@@ -1,0 +1,48 @@
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("KERNEL32.dll")]
+    extern fn ReadFileScatter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] aSegmentArray: *mut FILE_SEGMENT_ELEMENT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nNumberOfBytesToRead: DWORD, #[reserved] lpReserved: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+    #[library("KERNEL32.dll")]
+    extern fn WriteFileGather(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] aSegmentArray: *mut FILE_SEGMENT_ELEMENT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nNumberOfBytesToWrite: DWORD, #[reserved] lpReserved: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+}
+#[win32]
+mod Fixture {
+    type DWORD = u32;
+    type ULONGLONG = u64;
+    #[arch(X64 | Arm64)]
+    type ULONG_PTR = u64;
+    #[arch(X86)]
+    type ULONG_PTR = u32;
+}
+#[win32]
+mod Fixture {
+    type LPOVERLAPPED = *mut _OVERLAPPED;
+    struct _OVERLAPPED {
+        Internal: ULONG_PTR,
+        InternalHigh: ULONG_PTR,
+        Anonymous: union {
+            Anonymous: struct {
+                Offset: DWORD,
+                OffsetHigh: DWORD,
+            },
+            Pointer: PVOID,
+        },
+        hEvent: HANDLE,
+    }
+}
+#[win32]
+mod Fixture {
+    type BOOL = i32;
+    type LPDWORD = *mut u32;
+}
+#[win32]
+mod Fixture {
+    union FILE_SEGMENT_ELEMENT {
+        Buffer: PVOID64,
+        Alignment: ULONGLONG,
+    }
+    type HANDLE = *mut void;
+    type PVOID = *mut void;
+    type PVOID64 = ptr64<*mut void>;
+}

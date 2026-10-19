@@ -95,16 +95,20 @@ jobs:
         run: |
           cargo test -p tool-win32-2 sdk_ -- --include-ignored &&
           cargo test -p test_clang2 --test initialization sdk_context -- --ignored &&
+          cargo test -p test_clang2 --test annotations -- --include-ignored &&
           cargo test -p test_clang2 --test breadth sdk_import_gaps -- --ignored &&
           cargo test -p test_clang2 --test guidless_interfaces sdk_ -- --ignored &&
           cargo test -p test_clang2 --test allocator sdk_allocator -- --ignored
-      - name: Test Clang cross-target import consumers
+      - name: Test Clang cross-target consumers
         if: matrix.target == 'x86_64-pc-windows-msvc'
         shell: pwsh
         run: |
           rustup target add i686-pc-windows-msvc aarch64-pc-windows-msvc &&
           cargo test -p test_clang2 --test named_import_consumers named_import_consumers_cross_targets -- --ignored &&
-          cargo test -p test_clang2 --test guidless_interfaces guidless_consumers -- --ignored
+          cargo test -p test_clang2 --test guidless_interfaces guidless_consumers -- --ignored &&
+          cargo test -p test_clang2 --test bitfields -- --include-ignored &&
+          cargo test -p test_clang2 --test fixed_pointers -- --include-ignored &&
+          cargo test -p test_bindgen --test errors invalid_target_bitfield_width -- --ignored
       - name: Check diff
         shell: bash
         run: |

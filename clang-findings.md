@@ -121,7 +121,7 @@ need reviewed named-export evidence, not a larger consumer-linkage mechanism.
 all three targets; host execution exercises real imports. Classify the 94 ABI discrepancies
 and 88 missing-entry cases without public-name fallback or guessed target availability.
 
-## 2. Bitfields and mixed pointers: compatibility needs an explicit release policy
+## 2. Bitfields and mixed pointers: paired consumers required
 
 **Owners:** metadata/RDL for encoding; bindgen for semantics; maintainer for supported readers.
 
@@ -135,9 +135,9 @@ current-tool metadata checks and generated Rust checks. This is not older-reader
 qualification level. Reject unrepresentable layouts rather than inventing packing. Do not assume
 an older reader understands a new attribute or modifier merely because it accepts the file.
 
-**Resolution:** test each encoding against the frozen reader/generator and establish the minimum
-supported consumer versions. The maintainer permits an explicit paired tool upgrade rather than
-losing type semantics. Keep the two format approvals separate.
+**Resolution:** the maintainer approved "Require updated, paired readers and generators".
+Older consumers are not a compatibility target for the new metadata. Qualify each encoding
+separately and pin the validated tools together rather than losing type semantics.
 
 The reader probes now establish the following boundary:
 
@@ -154,12 +154,28 @@ cannot stand in for a pre-change pointer reader.
 
 Mixed-pointer decoding enters at `cf1806f01d`; typed MemberType reading and consumption enter at
 `b742a59a59`. Both libraries still identify as 0.100.0, so that version string alone cannot express
-the boundary. A paired reader/generator release requirement and explicit format approvals remain
-necessary. Historical generator probes and supported release numbers are still outstanding.
+the boundary. The paired-upgrade policy is approved; release numbers must still be recorded before
+production cutover.
 The sources, fixture WinMD, commands, and results are in the session's `files/compatibility`.
 
-**Completion:** current and supported older consumers have measured outcomes, including silent
-misinterpretation; minimum versions and migration requirements receive maintainer approval.
+Matched historical reader/generator builds also establish the rich-generation boundary:
+
+| Reader and generator revision | Mixed pointers | Typed bitfields |
+| --- | --- | --- |
+| `51eac0a953` | Rejects required modifier code 31 | Rejects attribute type code 80 |
+| Frozen `6e68e56081` | Emits byte-identical pointer bindings to current tools | Rejects attribute type code 80 |
+| Current | Preserves every pointer qualifier | Preserves member types and target-specific aliases |
+
+The release-mode probes use the same saved fixture WinMD as the reader probes, not regenerated
+historical input. The mixed-pointer fixture SHA-256 is
+`BDC8447791A249C447C5CC738795DC391CC202C98805D6B253CDF8A7AF137439`; the typed-bitfield fixture is
+`6A8F44E32856CFD7302DC48E6B5D42821541ABBBB383832D41C1EE04B6896E44`.
+The frozen generator's silent override-vtable corruption is a separate measured boundary below.
+Sys storage-only success does not prove typed accessor support.
+
+**Completion:** historical outcomes and the paired-upgrade policy are established. The production
+release pins and final consumer qualification remain part of cutover acceptance, not an assumption
+that every source revision reporting 0.100.0 is interchangeable.
 
 ## 3. Incomplete records and packed interfaces: parser and runtime contracts differ
 
@@ -1084,6 +1100,74 @@ acceptance measurements. Session `import-typedef-before-*`/`after-*` controls an
 `import-typedef-comparison-reviewed.json` preserve the evidence. The after archive has SHA-256
 `A1279FAF50437E94A7E98F4B4A33A32D5C013513DA139F029DA1241ABC3E3AE8`.
 
+### Class record contracts
+
+The capture gate rejected every `class` definition before checking its native members. Removing
+that spelling-based gate lets existing field, access, inheritance and virtual-method checks decide
+whether the declaration is representable. `RecordKind::Class` remains in native evidence. The
+compiler's default private access still rejects private fields, bases and virtual methods.
+Constructors, destructors, virtual method definitions and unsupported layouts remain rejected.
+
+`class_records.h/.rdl` compares class and struct spellings on all targets, including native kind,
+layout and slots, mixed-input order, native conflicts, metadata round trips and rejection cases.
+The partial-pruning fixture now uses a private class field rather than a supported public field
+to preserve its cross-target failure case. `sdk_vss_classes.h/.rdl` covers all 13 recovered
+interfaces and both recovered imports with SDK ownership and native slot/size checks.
+Complete nonignored parser/driver suites, seven selected SDK checks, warnings-denied clippy,
+no-default-features checks and formatting pass.
+
+Full regeneration adds 39 interface and six function target declarations in `vsbackup.rdl` and
+`vswriter.rdl`. The required functions are `CreateVssExamineWriterMetadataInternal` and
+`CreateVssExpressWriterInternal`, both with baseline linkage. Every added contract matches the SDK
+fixture. No retained declaration, owner or target changes; configuration, constants and unrelated
+function-coverage rows are identical. Twenty diagnostic texts identify more specific failures for
+already-omitted classes; no new omission-root identities appear. `IVssWriterComponentsExt` and
+`IVssCreateWriterMetadataEx` have multiple interface bases, while `IVssWriterImpl` and the text
+services interfaces use unsupported x86 `thiscall`. These are not repaired by relabeling their ABI.
+
+Raw missing coverage is 307 pairs across 167 names. After 88 approved corrections, 219 pairs
+across 79 names remain unapproved: five import pairs and 214 other pairs across 75 names.
+Four provider differences remain. Totals are 10,292 records, 4,532 enums, 13,545 aliases,
+93,085 constants, 16,232 functions, 4,273 interfaces, 790 partitions and 73,178 diagnostics.
+Uncontrolled observations are 227.165 seconds capture/merge/project, 3.015 seconds compilation,
+231.880 seconds driver wall and 7,669,080,064 sampled peak process bytes. These are not controlled
+budget measurements. Session `class-record-before-*`/`after-*` controls, comparison and regression
+logs preserve the evidence. The after archive has SHA-256
+`504B465B69316C813B1E1DA5B876423D41EE4D865239CE27E9BBBE399536A039`.
+
+The CLFS scan context requires explicit field alignment on `cIndex`; this is not a SAL failure.
+`FILE_SEGMENT_ELEMENT.Buffer` still requires fixed-width-pointer representation on x86. Neither
+case should be recovered by stripping its native contract.
+
+### Public virtual declarations
+
+Public non-pure virtual declarations use the same compiler-owned slot and calling-convention
+checks as pure declarations. `Method::pure` preserves purity, native reconciliation rejects
+disagreement, and public-family comparison includes it. Virtual method definitions remain
+unsupported. Caller-facing metadata does not encode implementation purity.
+
+`virtual_methods.h/.rdl` checks pure/non-pure dispatch equality, inherited slots, conflicting
+observations in both orders, two metadata round trips and definition rejection. The SDK driver
+checks the four non-pure `IStillImageW` slots and both `IXAudio2Extension` slots on every target.
+The still-image and XAudio SDK goldens cover every declaration added by the full generation,
+including the generic function macro and pointer aliases. Explicit C++ `override` attributes
+remain unsupported; compiler-proven override relationships do not require that spelling.
+
+Full regeneration restores `StiCreateInstanceW` on three targets, adds its generic macro alias,
+two interfaces and four type aliases. Only `sti.rdl` and `xaudio2.rdl` change. All added bodies
+match the SDK fixtures; retained declarations, owners and targets, constants, configuration and
+unrelated function-coverage rows remain unchanged. Five diagnostic texts refine existing roots.
+Parser/driver regressions, seven selected SDK checks, warnings-denied clippy and feature checks
+pass. SDK goldens also pass without update mode.
+
+Raw missing coverage is 304 pairs across 166 names; after the 88 approved corrections, 216 pairs
+across 78 names remain: five import pairs and 211 other pairs across 74 names. Totals are 10,292
+records, 4,532 enums, 13,549 aliases, 93,085 constants, 16,234 functions, 4,275 interfaces,
+790 partitions and 73,170 diagnostics. The uncontrolled capture/merge/project time is 218.625
+seconds and compilation is 3.239 seconds; these are not budget acceptance measurements.
+Session `virtual-purity-*` artifacts preserve the control, comparison and logs. The after archive
+has SHA-256 `61FCF74970ABD53D01770189A55ACAB41E3EEEA43A531CCA518BF606C8FAC80E`.
+
 ### Independent review at `094658ae01`
 
 The updated `D:\clang-ground.md` recognizes the named-linkage, frozen-baseline accounting,
@@ -1094,7 +1178,7 @@ acceptance obligations. The review's percentage estimate is not an acceptance me
 | Concern | Disposition |
 | --- | --- |
 | Reader/generator migration and core unaligned vtable loads | Explicit release/runtime decisions remain open. Frozen override consumers are demonstrably wrong. |
-| Required surface and provider differences | Five unapproved import pairs, 220 capture/dependency/projection pairs and four unapproved `Rtl` provider changes remain. The other 88 import pairs have reviewed availability corrections. |
+| Required surface and provider differences | Five unapproved import pairs, 214 capture/dependency/projection pairs and four unapproved `Rtl` provider changes remain. The other 88 import pairs have reviewed availability corrections. |
 | Consumer defects | High-level package bitfields and variadics, GUID-less COM identity and `NativeInput` interpretation remain separate from metadata capture success. |
 | WDK and external namespaces | `PVOID64` blocks `FILE_SEGMENT_ELEMENT`; authoritative WinRT references and namespace ownership are still missing. |
 | Snapshot maintenance | The `gen` matrix now regenerates named-export evidence from full history and rejects drift. The exact release command reproduces the snapshot without a native runtime; hosted execution is pending. |
@@ -1110,6 +1194,84 @@ The CI job only refreshes that evidence, not the experimental Win32 output. Exis
 cover named SDK entries without baseline evidence and rejection of unmatched ordinals.
 No parser rejection, metadata format, API exclusion or release gate is relaxed by this review.
 
+### Independent review at `dc866dc48c`
+
+The updated `D:\clang-ground.md` identifies landing risks rather than a reason for more breadth.
+Its 225 unapproved function pairs describe the reviewed commit. The current working candidate has
+304 raw missing pairs across 166 names, or 216 pairs across 78 names after the same 88 approvals.
+The class change accounts for six recovered pairs and the virtual-declaration change for
+three. This is presence/linkage accounting, not signature, behavior or replacement acceptance.
+The virtual change's added interfaces, aliases and generic import match the SDK goldens;
+its full comparison has no retained declaration changes or losses.
+
+The output audit confirms 712 occurrences of `windows_clang:sal` across 264 generated lines.
+`sal.h` expands nested annotations before stringifying structural SAL arguments, and
+`projection/annotations.rs::write_with_sal` publishes that transport-bearing expansion verbatim.
+The candidate also has 43,887 true and 5,186 false `NativeInput` attributes, and 12,169 `NativeSal`
+attributes. These counts identify publication work, not permission to discard native evidence.
+
+| Review concern | Landing disposition |
+| --- | --- |
+| SAL transport leakage | Fix the capture/publication boundary, not generated text. Preserve structural scope, source-hook arguments and reconciliation evidence; assert transport-free published metadata. |
+| `NativeInput` volume | Review semantics before removal. Both SAL `_In_` and RPC input emit `in`, but their extra evidence differs. Scalar redundancy does not prove every pointee contract redundant; false does not mean writable. |
+| Reader/generator compatibility | Treat silent old-generator vtable corruption as a release blocker. Approve minimum paired versions for overrides, typed bitfields and mixed pointers separately; round trips are insufficient. |
+| Shared core change | Review the unaligned object-vptr load independently. A packed declaration and synthetic object do not prove Windows returns unaligned COM objects; vtable alignment remains required. |
+| Consumer gaps | Track raw versus high-level support separately. High-level variadics reject explicitly; GUID-less COM still emits a zero IID. Required APIs need usable consumer contracts, not just metadata presence. |
+| Accounting | `--compare-functions` reports raw losses only. Add checked, target-specific approved-correction accounting without hiding raw rows or converting missing evidence into target absence. Reject stale or widened approvals. |
+| Scope decisions | Four provider changes, five import pairs, additions, GUID contexts/PCH losses, WDK and WinRT remain open. The review does not approve exclusions or make WDK integration unnecessary. |
+| CI and resources | ARM64 native tests are configured, but selected SDK/consumer steps run on x64. Cross-compilation is not ARM64 execution. Hosted results and quiet-machine legacy/candidate process-tree measurements remain required. |
+| Maintainability | Extract helpers around concrete responsibilities, not arbitrary function sizes. Make acceptance commands and evidence repository-owned before condensing docs and relocating iteration history. |
+
+Recommended order is to close the in-flight virtual change, repair transport publication, make
+approved accounting reproducible, and settle consumer/release contracts before another parser
+coverage slice. Input-contract changes need an explicit semantic decision, not a blanket deletion.
+Issue reproductions can supply bounded regression fixtures; adding `UIAutomationCoreApi.h` is
+breadth expansion and still needs approval. The review's percentage is not an acceptance measure.
+This records recommendations, not changes to `plan.md`, exclusions or release approvals.
+
+### Reproducible approved-correction accounting
+
+`cargo run -p tool-win32-2 --release -- --compare-functions` reports raw function losses, approved
+availability corrections and remaining unapproved pairs/names in one command. Its CSV preserves
+the original linkage columns and raw `Status`, adding `Acceptance` only to distinguish approved
+and unapproved missing rows. Changed providers and additions remain unapproved separate questions.
+
+The checked-in `approved-availability.txt` is pinned to the frozen baseline and SDK. It lists
+exactly the 88 reviewed x86 corrections; observed SDK availability remains a separate fixture.
+Tests check their exact correspondence, malformed entries, duplicate or widened targets, pin
+changes, missing baseline entries and stale approvals for functions that reappear with any linkage.
+The command reports 304 raw missing pairs, 88 approved corrections and 216 unapproved pairs across
+78 names. It does not infer new approvals from omission text or missing imports.
+
+### Transport-free SAL publication
+
+The SAL transport decoder is shared by capture and publication. Capture retains the original
+`SalAnnotation` strings and reconciliation compares that evidence unchanged. Publication decodes
+nested owned annotation serialization into SAL names and expanded arguments, preserving surrounding
+expression text and conditional scope. It does not interpret C++ expressions or promote nested
+contracts into unconditional flags. Quoted source text is preserved, including raw strings.
+Malformed nested transport produces an explicit publication error.
+
+The annotations fixtures cover nested `_When_`, `_At_`, `_Group_`, `_Always_`, `_At_buffer_` and
+`_On_failure_` scopes, macro expansion, quoted text, malformed payloads, metadata round trips and
+native conflicts whose published expressions would match. Native evidence remains unchanged after
+publication. The selected x64 SDK CI step includes these eight annotation tests; hosted execution
+remains unverified.
+
+Full regeneration changes 477 `NativeSal` attributes by decoding exactly 712 transport nodes.
+No internal transport occurrence remains in the SDK RDL. An independent decoder reproduces every
+changed byte; all other RDL text is unchanged. Configuration, omissions, constants and raw function
+coverage rows are identical to the virtual-declaration control. The 43,887 true and 5,186 false
+`NativeInput` attributes, all 12,169 `NativeSal` attributes, and required-surface counts are unchanged.
+This repairs publication representation, not annotation semantics or consumer support.
+
+Complete parser/driver regressions, the eight annotation tests, seven selected SDK checks,
+warnings-denied clippy and capture-only compilation pass without updating expected output.
+The uncontrolled capture/merge/project time is 220.143 seconds and compilation is 3.089 seconds;
+these are not acceptance budget measurements. Session `sal-publication-*` controls and the
+independent comparison preserve the evidence. The after archive has SHA-256
+`6E56D51501A52CD1029D010AC3F0E38A5A42DD3AC49F78CF40F4764AAFA50E9C`.
+
 ### Deferred input-contract refinement
 
 The maintainer requested revisiting `NativeInput(ReadOnly = true/false)`. The boolean distinguishes
@@ -1122,3 +1284,114 @@ existing input/optionality flags and native qualifiers, and identify the owners 
 contract is meaningful. Preserve original native evidence while deciding what belongs in canonical
 metadata. Do not equate fewer `NativeSal` payloads with improved consumer semantics or merely rename
 the boolean. This refinement is deferred behind import evidence and required API losses.
+
+### Bitfield consumer storage and target resolution
+
+The high-level package failure comes from integer-backed enums, scalar wrappers, `BOOL`, and
+pointer-sized storage that the accessor writer accepts only as fixed primitive integers.
+Storage and explicit member types now share scalar/constructor resolution. Getters unwrap the
+stored value; setters restore its wrappers and preserve neighboring bits. Legacy metadata still
+uses `bool` for one-bit fields and the backing integer for other fields; it does not acquire
+guessed nominal member types.
+
+Pointer-sized operations use the consumer target's integer width. Local constant assertions reject
+storage/member ranges that exceed that width during checking, not only code generation.
+Architecture-varying typedefs resolve separately for each target, including signedness and alias
+chains. Nested records inherit their owner's architecture. Equal accessor bodies share their
+architecture gates. This also repairs typed members whose emitted alias is `u32` on x86 while
+the first metadata definition is `u64`.
+
+The `struct_named_bitfield` and `struct_arch_bitfield` goldens cover wrapped, aliased, scoped-enum,
+unscoped-enum, union, `BOOL`, full-width, pointer-sized and mixed-width storage/member paths.
+Runtime checks on x86 and x64 verify signed extraction, wrapper reconstruction and neighboring
+bits. Minimal and sys consumers compile with their actual runtime dependency. Negative checks
+retain noninteger rejection and check both target storage and target member bounds.
+
+The existing full-package control now completes rich generation. Its 554 raw package files are
+byte-identical to generation with HEAD's bindgen source. `tool-bindings` and `tool-reactor` leave
+their tracked outputs unchanged. The package control is not the partial clang2 candidate:
+its `Windows.Win32.winmd` SHA-256 is
+`CBA687DF868F7B50B0A24E9447681DF9F78302C0DE0AE4A4116B0AB9083DBC18`.
+Twelve representative SDK/WDK storage types compile and retain rich/sys layout agreement on x64
+and ARM64. This is not a full-package compilation or native ARM64 execution claim.
+
+The control contains a separate x86 defect: `PSAPI_WORKING_SET_BLOCK.VirtualPage` has a 52-bit
+range even on x86. The bounds check rejects it rather than truncating the range. The clang2
+candidate already has distinct 20-bit/x86 and 52-bit/x64/ARM64 definitions with native offset 12.
+The SDK-backed `sdk_working_set` fixture verifies those compiler facts, exact RDL, metadata-to-Rust
+generation, pointer-sized layout and accessor behavior on x86/x64; ARM64 compilation also passes.
+No parser source or current `metadata/win32` output changed for this repair.
+
+The complete bindgen suite, all four clang2 bitfield checks, target-bound rejection and
+warnings-denied clippy pass. The selected cross-target CI step runs the SDK/bitfield and rejection
+checks; hosted execution remains unverified. Session `bitfield-*` controls preserve the isolated
+package and consumer evidence. Required API accounting, the old-generator metadata compatibility
+gates, GUID-less identity, high-level variadics and shared-core runtime approval remain open.
+
+### Fixed-width pointer storage blocks WDK integration
+
+The native semantics fixture now checks `__ptr64`, `__ptr32 __sptr`, and `__ptr32 __uptr` on
+x86, x64 and ARM64. Clang gives a 64-bit pointer size/alignment of 8/8 even on x86; the two
+32-bit forms have size/alignment 4/4 on every target. A compiler type assertion distinguishes
+the signed- and unsigned-extension forms despite their identical layout.
+
+Canonical types normalize native-width forms: x86's signed 32-bit pointer and x64/ARM64's
+64-bit pointer use the default address space. Nondefault width/extension forms use Clang's
+pointer-size address spaces, which the current qualifier query reports as `OtherQualifiers`.
+These are not CVR qualifiers and must not be erased. Numeric address-space identifiers are not
+a stable parser contract; the native companion must decode their meaning if support is added.
+
+The maintainer approved bounded 64-bit data-pointer storage. The companion ABI 19 query decodes
+pointer-size address spaces and written attributes without numeric address-space rules. It returns
+the pointee with only the pointer-size address space removed; CVR and unrelated address spaces
+remain. `Pointer64` retains this identity in native IR, while canonical native-width pointers keep
+their native equivalence. Written typedef chains retain explicit width during publication.
+
+RDL writes `ptr64<*mut T>` or `ptr64<*const T>`. WinMD places the required
+`NativePointer64Attribute` modifier after the corresponding `PTR`. Mixed-width chains use per-level
+constness throughout; unchanged homogeneous native chains keep their existing bytes. Remapping and
+nested-record rewriting visit the pointee. WinRT rejects the type.
+
+Bindgen emits a typed address helper with `from_address(u64)` and `address()`, not an integer alias
+or a target-sized raw pointer. It has size/alignment 8/8 on all three MSVC targets, preserves
+pointee type/constness, and needs no runtime dependency. Packed containing records also preserve
+their compiler layout. Exact-name and broad selection retain helper and pointee dependencies;
+rich, minimal, raw, module and package output compile. Fixed-width callable values, function and
+interface pointers, and the 32-bit extension variants remain explicit failures.
+
+Callable checks distinguish value storage from compiler-adjusted array parameters. The latter
+remain ordinary pointers to storage records. This is required by the actual `ReadFileScatter`
+and `WriteFileGather` declarations; rejecting their written array element as a by-value argument
+would incorrectly remove both functions.
+
+The SDK candidate adds `FILE_SEGMENT_ELEMENT`, `PVOID64`, `PFILE_SEGMENT_ELEMENT`, `HANDLE64`,
+`PHANDLE64`, `ReadFileScatter` and `WriteFileGather` on all three targets. Only `basetsd.rdl`,
+`fileapi.rdl` and `winnt.rdl` change relative to the SAL-publication control. All retained declaration
+bodies, owners and targets are identical; constants and capture configuration are unchanged.
+Eight omission roots disappear and no new roots appear. Required accounting is now 298 raw
+missing pairs, minus 88 approved corrections, leaving 210 unapproved pairs across 76 names.
+The five unresolved import pairs and four provider differences are unchanged.
+
+Combined current Win32 and WDK RDL compiles successfully with the existing WinRT reference.
+This closes the `FILE_SEGMENT_ELEMENT` compilation blocker, not authoritative WinRT ownership or
+full-package consumer acceptance. The header fixtures cover exact storage layout, aliases, nested
+pointees, packed records, arrays, native conflicts and rejected forms. SDK imports use the driver's
+actual target import evidence; x86/x64 address behavior and ARM64 consumer compilation are covered.
+
+The frozen reader/generator accepts the new modifier but emits `PVOID64 = *mut c_void`. Its x86
+size/alignment checks both fail, although the union's integer member can hide the storage-size
+error. The current paired tools preserve the pointer field's own width and behavior. This adds
+another silent-misprojection case to the required paired-tool upgrade policy.
+
+The metadata reader also rejects optional, duplicated and misplaced width modifiers. A dedicated
+deep-pointer-only selection verifies that helper and named-pointee dependencies do not depend on a
+second, directly selected field. All affected regressions, cross-target fixtures, SDK import
+goldens, warnings-denied clippy and formatting pass.
+
+Matched historical and current raw-package invocations produce the same 553 files, with identical
+file inventories and bytes. The earlier 554-file saved directory is not an equivalent invocation:
+both generators omit its extra `windowsfoundation` alias under the matched filters. This is not a
+new generator loss. `tool-bindings` and `tool-reactor` leave tracked library output unchanged.
+The final SDK source run reports 203.209 seconds capture/merge/project and 3.161 seconds compilation;
+the sampled peak process working set is 7,488,094,208 bytes. These are uncontrolled observations,
+not process-tree budget acceptance.

@@ -146,6 +146,47 @@ Setters truncate to that width without changing neighboring bits. Both dependenc
 member types. Typed union accessors contain the required unsafe storage reads.
 Untyped attributes keep the existing single-bit `bool` and backing-type behavior.
 
+Accessors preserve storage wrappers and aliases, including enum and `BOOL` backings.
+Pointer-sized operations use the consumer target's width; out-of-range fields fail compilation
+on that target. Architecture-varying storage and member typedefs resolve per target, including
+signedness. Nested records inherit their owner's architecture, and identical accessor
+implementations share their architecture gates.
+
+### Fixed-width addresses
+
+`ptr64<*mut T>` and `ptr64<*const T>` metadata project to a generated typed 64-bit address.
+The helper has size/alignment 8/8 on x86, x64 and ARM64, retains the pointee type and constness,
+and provides `from_address(u64)` and `address()`. It has no dereference or pointer-conversion
+operations. A native typedef such as `PVOID64` remains an alias to this address type.
+
+The helper is emitted with the bindings, without another runtime dependency. Flat output places
+it beside the declarations; module and package output place it in `Windows.Win32`. It does not
+require a Cargo feature. Both broad and exact-name dependency selection retain its pointee types.
+Ordinary native pointers retain their existing Rust representation.
+
+### Metadata compatibility
+
+Clang2 metadata requires updated, paired readers and generators. Build `windows-clang2`,
+`windows-rdl`, `windows-metadata`, and `windows-bindgen` from the same validated source revision
+during development. Upgrade regeneration tools together and regenerate the bindings.
+
+| Contract | Required reader behavior | Required generator behavior |
+| --- | --- | --- |
+| Inherited virtual overrides | Preserve `NativeOverrideSlotAttribute` and its slot. | Validate and reuse the inherited vtable entry rather than append one. |
+| Typed bitfields | Decode the `MemberType: System.Type` property. | Preserve each member's type, signedness and target-specific alias while retaining storage layout. |
+| Mixed pointer qualifiers | Decode each pointer's `IsConst` modifier without flattening the chain. | Preserve qualifier levels in the generated signature. |
+| Fixed 64-bit pointers | Decode `NativePointer64Attribute` at its pointer level. | Emit typed 8-byte, 8-aligned address storage, not a target-sized pointer. |
+
+Older consumers are unsupported for this output. Some reject a required encoding; others accept
+the file and emit an incorrect ABI. Sys storage-only generation does not prove support for typed
+bitfield accessors. Do not strip attributes or qualifiers to make an older generator accept new
+metadata.
+
+Record the paired release versions before production cutover. The development version `0.100.0`
+spans incompatible source revisions and is not a sufficient compatibility pin. Qualify the chosen
+pair with the override, typed/architecture-dependent bitfield and pointer fixtures, including
+generated signatures, vtable slots, storage layout and accessor behavior, not only metadata parsing.
+
 ## Common options
 
 The [builder reference] documents all methods, and [`bindgen`] lists the command-line-style

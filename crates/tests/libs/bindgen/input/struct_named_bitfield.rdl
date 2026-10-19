@@ -1,0 +1,103 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    struct Byte {
+        Value: u8,
+    }
+    type Alias = Byte;
+    struct Wrapped {
+        _bitfield: Alias {
+            Low: 3,
+            High: 4,
+            Flag: 1,
+        },
+    }
+    struct Full {
+        _bitfield: Alias {
+            Value: 8,
+        },
+    }
+    struct Pointer {
+        _bitfield: usize {
+            Low: 4,
+            High: 28,
+        },
+    }
+    struct SignedPointer {
+        _bitfield: isize {
+            Low: 4,
+            High: 28,
+        },
+    }
+    #[arch(X86)]
+    struct FullPointer {
+        unsigned: usize { Unsigned: 32 },
+        signed: isize { Signed: 32 },
+    }
+    #[arch(X64 | Arm64)]
+    struct FullPointer {
+        unsigned: usize { Unsigned: 64 },
+        signed: isize { Signed: 64 },
+    }
+    struct WideMember {
+        #[Windows::Win32::Metadata::NativeBitfield("Value", 0, 32, MemberType = u64)]
+        storage: usize,
+    }
+    struct PointerMember {
+        #[Windows::Win32::Metadata::NativeBitfield("Value", 16, 32, MemberType = isize)]
+        storage: u64,
+    }
+    struct Logical {
+        _bitfield: Windows::Win32::BOOL {
+            Signed: 5,
+            Flag: 1,
+        },
+    }
+    #[repr(i32)]
+    enum Kind {
+        Zero = 0,
+        One = 1,
+    }
+    struct Enumerated {
+        _bitfield: Kind {
+            Signed: 5,
+            Flag: 1,
+        },
+    }
+    #[scoped]
+    #[repr(i16)]
+    enum ScopedKind {
+        Zero = 0,
+        Negative = -1,
+    }
+    union ScopedUnion {
+        _bitfield: ScopedKind {
+            Signed: 5,
+            Flag: 1,
+        },
+        All: i16,
+    }
+    struct Typed {
+        #[Windows::Win32::Metadata::NativeBitfield("Signed", 0, 4, MemberType = i8)]
+        #[Windows::Win32::Metadata::NativeBitfield("Flag", 4, 1, MemberType = bool)]
+        storage: Alias,
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        type BOOL = i32;
+        mod Metadata {
+            attribute NativeBitfieldAttribute {
+                fn(name: String, offset: i64, length: i64);
+                MemberType: Type,
+            }
+            attribute NativeTypedefAttribute {
+                fn();
+            }
+            attribute ScopedEnumAttribute {
+                fn();
+            }
+        }
+    }
+}

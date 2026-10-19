@@ -1113,6 +1113,19 @@ impl Encoder<'_> {
     }
 
     fn encode_path(&self, ty: &syn::Path) -> Result<metadata::Type, Error> {
+        if ty.segments.len() == 1 && ty.segments[0].ident == "ptr64" {
+            if let syn::PathArguments::AngleBracketed(arguments) = &ty.segments[0].arguments
+                && arguments.args.len() == 1
+                && let Some(syn::GenericArgument::Type(syn::Type::Ptr(pointer))) =
+                    arguments.args.first()
+            {
+                return Ok(metadata::Type::Ptr64(
+                    Box::new(self.encode_type(&pointer.elem)?),
+                    pointer.const_token.is_some(),
+                ));
+            }
+            return self.err(ty, "ptr64 requires one explicit pointer type argument");
+        }
         let mut path = vec![];
 
         for segment in &ty.segments {
@@ -1329,6 +1342,9 @@ impl Encoder<'_> {
         ty: &metadata::Type,
     ) -> Result<(), Error> {
         match ty {
+            metadata::Type::Ptr64(..) => {
+                return self.err(span, "fixed-width pointers require Win32 metadata");
+            }
             metadata::Type::FnPtr(_) => {
                 return self.err(span, "function pointers require Win32 metadata");
             }

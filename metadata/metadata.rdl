@@ -22,6 +22,10 @@ mod Windows {
             attribute NativeTypedefAttribute {
                 fn();
             }
+            // Required modifier after PTR for fixed 64-bit data-pointer storage.
+            attribute NativePointer64Attribute {
+                fn();
+            }
             // Marks the return-value parameter of a COM method. RDL: `#[retval]`.
             attribute RetValAttribute {
                 fn();

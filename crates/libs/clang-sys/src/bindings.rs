@@ -1349,14 +1349,26 @@ pub struct WindowsClangImportConvention {
 pub const WindowsClangInvalidArgument: WindowsClangStatus = 1;
 pub type WindowsClangLanguageLinkage = i32;
 pub const WindowsClangMethodQualifiers: WindowsClangFunctionProperties = 16;
+pub const WindowsClangNativePointer: WindowsClangPointerRepresentation = 0;
 pub const WindowsClangNoLanguageLinkage: WindowsClangLanguageLinkage = 0;
+pub const WindowsClangOtherPointer: WindowsClangPointerRepresentation = 4;
 pub const WindowsClangOtherQualifiers: WindowsClangTypeQualifiers = 16;
+pub const WindowsClangPointer64: WindowsClangPointerRepresentation = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WindowsClangPointerInfo {
+    pub representation: WindowsClangPointerRepresentation,
+    pub pointee: CXType,
+}
+pub type WindowsClangPointerRepresentation = i32;
 pub const WindowsClangRefQualifier: WindowsClangFunctionProperties = 32;
 pub const WindowsClangRestrict: WindowsClangTypeQualifiers = 4;
+pub const WindowsClangSignedPointer32: WindowsClangPointerRepresentation = 2;
 pub type WindowsClangStatus = i32;
 pub const WindowsClangSuccess: WindowsClangStatus = 0;
 pub type WindowsClangTypeQualifiers = i32;
 pub const WindowsClangUnaligned: WindowsClangTypeQualifiers = 8;
+pub const WindowsClangUnsignedPointer32: WindowsClangPointerRepresentation = 3;
 pub const WindowsClangVolatile: WindowsClangTypeQualifiers = 2;
 pub const WindowsClangWrongKind: WindowsClangStatus = 2;
 #[repr(C)]
@@ -1587,6 +1599,10 @@ const _: () = {
     assert!(core::mem::offset_of!(WindowsClangImportConvention, origin) == 0usize);
     assert!(core::mem::offset_of!(WindowsClangImportConvention, stdcall_type) == 8usize);
     assert!(core::mem::offset_of!(WindowsClangImportConvention, stdcall_symbol) == 32usize);
+    assert!(size_of::<WindowsClangPointerInfo>() == 32usize);
+    assert!(align_of::<WindowsClangPointerInfo>() == 8usize);
+    assert!(core::mem::offset_of!(WindowsClangPointerInfo, representation) == 0usize);
+    assert!(core::mem::offset_of!(WindowsClangPointerInfo, pointee) == 8usize);
 };
 pub(crate) struct Functions {
     pub clang_CXCursorSet_contains:
@@ -2351,6 +2367,10 @@ pub(crate) struct Functions {
         parameter: CXCursor,
         expression: *mut CXCursor,
         spelling: *mut CXString,
+    ) -> WindowsClangStatus,
+    pub windows_clang_getPointerInfo: unsafe extern "C" fn(
+        r#type: CXType,
+        info: *mut WindowsClangPointerInfo,
     ) -> WindowsClangStatus,
     pub windows_clang_getPredefinedType:
         unsafe extern "C" fn(r#type: CXType, underlying: *mut CXType) -> WindowsClangStatus,
@@ -4927,6 +4947,13 @@ impl Functions {
                         )
                     })?
             },
+            windows_clang_getPointerInfo: unsafe {
+                *extension
+                    .get(b"windows_clang_getPointerInfo\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getPointerInfo))
+                    })?
+            },
             windows_clang_getPredefinedType: unsafe {
                 *extension
                     .get(b"windows_clang_getPredefinedType\0")
@@ -7165,6 +7192,14 @@ pub unsafe fn windows_clang_getParameterDefaultArgument(
         (library.functions.windows_clang_getParameterDefaultArgument)(
             parameter, expression, spelling,
         )
+    })
+}
+pub unsafe fn windows_clang_getPointerInfo(
+    r#type: CXType,
+    info: *mut WindowsClangPointerInfo,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_getPointerInfo)(r#type, info)
     })
 }
 pub unsafe fn windows_clang_getPredefinedType(

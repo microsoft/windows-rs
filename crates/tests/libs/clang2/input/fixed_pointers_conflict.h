@@ -1,0 +1,1 @@
+struct Conflict { POINTER value; };

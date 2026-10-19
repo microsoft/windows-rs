@@ -39,6 +39,117 @@ fn run(name: &str) {
 }
 
 #[test]
+fn fixed_pointer_styles() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("fixed_pointer_styles");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/struct_fixed_pointer.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    for style in ["default", "minimal", "sys"] {
+        for package in [false, true] {
+            for selection in ["fixture", "fixture.DeepOnly"] {
+                let output = scratch.join(format!("{style}-{package}-{selection}"));
+                std::fs::create_dir_all(output.join("src")).unwrap();
+                let manifest = output.join("Cargo.toml");
+                std::fs::write(
+                    &manifest,
+                    "[package]\nname = \"fixed-pointer-styles\"\nversion = \"0.0.0\"\n\
+                 edition = \"2024\"\n[workspace]\n\
+                 [lints.rust]\nwarnings = \"deny\"\nnonstandard_style = \"allow\"\n\
+                 [features]\n# generated features\n",
+                )
+                .unwrap();
+                let library = output.join("src\\lib.rs");
+                let mut builder = windows_bindgen::builder();
+                builder
+                    .input(&winmd)
+                    .filter(&format!("Windows.Win32.{selection}"));
+                match style {
+                    "minimal" => {
+                        builder.minimal();
+                    }
+                    "sys" => {
+                        builder.sys();
+                    }
+                    _ => {}
+                }
+                if package {
+                    builder.package().output(&output);
+                    std::fs::write(&library, "pub mod Windows;\n").unwrap();
+                } else {
+                    builder.output(&library);
+                }
+                builder.write();
+                let mut command = std::process::Command::new("cargo");
+                command
+                    .args(["check", "--quiet", "--manifest-path"])
+                    .arg(&manifest);
+                if package {
+                    command.args(["--no-default-features", "--features", "fixture"]);
+                }
+                let result = command.output().unwrap();
+                assert!(
+                    result.status.success(),
+                    "{style} {package} {selection}: {}",
+                    String::from_utf8_lossy(&result.stderr)
+                );
+            }
+        }
+    }
+}
+
+#[test]
+fn named_bitfield_styles() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("named_bitfield_styles");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/struct_named_bitfield.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\libs\\core");
+    let manifest = scratch.join("Cargo.toml");
+    for style in ["minimal", "sys"] {
+        let output = scratch.join(format!("{style}.rs"));
+        let mut builder = windows_bindgen::builder();
+        builder.input(&winmd).filter("Test").flat().output(&output);
+        if style == "minimal" {
+            builder.minimal();
+        } else {
+            builder.sys();
+        }
+        builder.write();
+        std::fs::write(
+            &manifest,
+            format!(
+                "[package]\nname = \"named-bitfield-styles\"\nversion = \"0.0.0\"\n\
+                 edition = \"2024\"\n[workspace]\n[lib]\npath = \"{style}.rs\"\n\
+                 [dependencies]\nwindows-core = {{ path = '{}' }}\n\
+                 [lints.rust]\nwarnings = \"deny\"\nnonstandard_style = \"allow\"\n",
+                core.display()
+            ),
+        )
+        .unwrap();
+        let result = std::process::Command::new("cargo")
+            .args(["check", "--quiet", "--manifest-path"])
+            .arg(&manifest)
+            .arg("--target-dir")
+            .arg(scratch.join("target"))
+            .output()
+            .unwrap();
+        assert!(
+            result.status.success(),
+            "{style}: {}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+    }
+}
+
+#[test]
 fn real_variadic_exports_are_raw_sys_only() {
     let rich =
         std::fs::read_to_string("../../../libs/windows/src/Windows/Win32/authz/mod.rs").unwrap();

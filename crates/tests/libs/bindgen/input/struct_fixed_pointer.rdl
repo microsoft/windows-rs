@@ -1,0 +1,22 @@
+//! --filter Windows.Win32.fixture --flat
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod dependency {
+            struct Point { value: i32, }
+        }
+        mod fixture {
+            type Address64 = ptr64<*mut u32>;
+            struct Addresses {
+                address: Address64,
+                point: ptr64<*const super::dependency::Point>,
+                array: [ptr64<*mut void>; 3],
+                mixed: *const ptr64<*mut u8>,
+                deep: *mut *const ptr64<*mut super::dependency::Point>,
+            }
+            struct DeepOnly {
+                deep: *mut *const ptr64<*mut super::dependency::Point>,
+            }
+        }
+    }
+}

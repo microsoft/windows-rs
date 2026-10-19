@@ -273,6 +273,10 @@ fn resolve_nested(
             Box::new(resolve_nested(inner, namespace, record_name, scoped_names)),
             *ptrs,
         ),
+        metadata::Type::Ptr64(inner, constant) => metadata::Type::Ptr64(
+            Box::new(resolve_nested(inner, namespace, record_name, scoped_names)),
+            *constant,
+        ),
         metadata::Type::FnPtr(signature) => metadata::Type::FnPtr(Box::new(metadata::Signature {
             flags: signature.flags,
             return_type: resolve_nested(

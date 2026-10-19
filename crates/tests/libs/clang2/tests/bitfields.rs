@@ -5,6 +5,97 @@ use windows_metadata::{HasAttributes, Value, reader};
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[test]
+#[ignore = "requires the pinned SDK, clang resource headers, and three MSVC Rust targets"]
+fn sdk_working_set() {
+    helpers::ensure_libclang();
+    let mut input = test_clang2::annotated_sdk_fixture();
+    let fixture = test_clang2::fixture("sdk_psapi");
+    input.name = fixture.name;
+    input.source = fixture.source;
+    input.roots = vec!["PSAPI_WORKING_SET_BLOCK".into()];
+    let snapshots = capture(&[input], &TARGETS).unwrap();
+    for snapshot in &snapshots {
+        let fields: Vec<_> = snapshot
+            .observations
+            .iter()
+            .filter_map(|observation| observation.definition.as_ref())
+            .flat_map(|definition| &definition.fields)
+            .filter(|field| field.name == "VirtualPage")
+            .collect();
+        assert_eq!(fields.len(), 1);
+        assert_eq!(fields[0].offset_bits, 12);
+        assert_eq!(
+            fields[0].bit_width,
+            Some(if snapshot.target == Target::X86 {
+                20
+            } else {
+                52
+            })
+        );
+    }
+    let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
+    let actual: String = output
+        .partitions
+        .values()
+        .map(|part| part.rdl.as_str())
+        .collect();
+    let expected = input_dir().join("sdk_working_set.rdl");
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(&expected, &actual).unwrap();
+    }
+    assert_eq!(
+        actual,
+        std::fs::read_to_string(expected)
+            .unwrap()
+            .replace("\r\n", "\n")
+    );
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+    let scratch = root.join("target\\test-clang2-sdk-working-set");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input_text(&actual)
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let bindings = scratch.join("bindings.rs");
+    windows_bindgen::builder()
+        .input(&winmd)
+        .filter("Fixture.PSAPI_WORKING_SET_BLOCK")
+        .flat()
+        .output(&bindings)
+        .write();
+    let mut rust = std::fs::read_to_string(&bindings).unwrap();
+    rust.push_str(include_str!("../input/sdk_working_set.rs"));
+    std::fs::write(&bindings, rust).unwrap();
+    for target in TARGETS {
+        compile(&bindings, &scratch.join("output.rmeta"), Some(target));
+    }
+    for target in [Target::X86, Target::X64] {
+        let executable = scratch.join(format!("{target:?}.exe"));
+        let result = std::process::Command::new("rustc")
+            .args(["--edition=2024", "--target", target.triple()])
+            .arg(&bindings)
+            .arg("-o")
+            .arg(&executable)
+            .output()
+            .unwrap();
+        assert!(
+            result.status.success(),
+            "{}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+        assert!(
+            std::process::Command::new(executable)
+                .status()
+                .unwrap()
+                .success()
+        );
+    }
+}
+
+#[test]
 fn bitfields() {
     helpers::ensure_libclang();
     roundtrip("bitfields", "bitfields", &[None]);

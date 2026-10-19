@@ -109,6 +109,76 @@ fn metadata(case: &str, text: &str) -> [std::path::PathBuf; 2] {
 }
 
 #[test]
+fn virtual_method_purity() {
+    helpers::ensure_libclang();
+    let input = |pure: bool| {
+        let mut input = test_clang2::selected_fixture("virtual_methods", &["Derived"]);
+        input.name = format!("pure_{pure}.h");
+        input.source = format!(
+            "#define PURE {}\n#include \"virtual_methods.h\"\n",
+            if pure { "= 0" } else { "" }
+        );
+        input
+    };
+    let mut expected = None;
+    for pure in [true, false] {
+        let snapshots = capture(&[input(pure)], &TARGETS).unwrap();
+        for snapshot in &snapshots {
+            for record in &snapshot.records {
+                let definition = snapshot.observations[record.observations[0].0]
+                    .definition
+                    .as_ref()
+                    .unwrap();
+                let methods: Vec<_> = definition
+                    .methods
+                    .iter()
+                    .map(|method| (method.slot, method.overrides, method.pure))
+                    .collect();
+                assert_eq!(
+                    methods,
+                    if record.name == "Base" {
+                        vec![(0, false, pure), (1, false, pure)]
+                    } else {
+                        vec![(0, true, pure), (2, false, false)]
+                    }
+                );
+            }
+        }
+        let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
+        if let Some(expected) = &expected {
+            assert_eq!(&output, expected);
+        }
+        expected = Some(output);
+    }
+    let text = golden("virtual_methods", &expected.unwrap());
+    for path in metadata("virtual_methods", &text) {
+        let index = windows_metadata::reader::Index::read(&path).unwrap();
+        assert_eq!(index.expect("Fixture", "Base").methods().count(), 2);
+        assert_eq!(index.expect("Fixture", "Derived").methods().count(), 2);
+    }
+    let mut inputs = [input(true), input(false)];
+    for _ in 0..2 {
+        let snapshots = capture(&inputs, &TARGETS).unwrap();
+        let error = merge(&snapshots).err().unwrap();
+        assert!(
+            error.to_string().contains("native method purity differs"),
+            "{error}"
+        );
+        assert!(capture_partial(&inputs, &TARGETS).is_err());
+        inputs.reverse();
+    }
+    let input = test_clang2::selected_fixture("virtual_methods", &["Defined"]);
+    let partial = projection::generate_partial(&[input], "Fixture").unwrap();
+    assert_eq!(partial.output.interfaces, 0);
+    assert!(
+        partial
+            .omissions
+            .iter()
+            .any(|message| { message.contains("virtual method definitions are unsupported") })
+    );
+}
+
+#[test]
 fn unsupported_interface_contracts() {
     helpers::ensure_libclang();
     for (name, message) in [

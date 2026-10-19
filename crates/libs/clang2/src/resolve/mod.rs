@@ -323,6 +323,9 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             }
         }
         for (a, b) in a.methods.iter().zip(&b.methods) {
+            if a.pure != b.pure {
+                return Err(conflict("native method purity differs"));
+            }
             if a.name != b.name
                 || a.slot != b.slot
                 || a.overrides != b.overrides
@@ -555,6 +558,7 @@ pub(crate) fn types_equal(
             (TypeKind::Void, TypeKind::Void) => return true,
             (TypeKind::Scalar(x), TypeKind::Scalar(y)) => return x == y,
             (TypeKind::Pointer(x), TypeKind::Pointer(y))
+            | (TypeKind::Pointer64(x), TypeKind::Pointer64(y))
             | (TypeKind::LValueReference(x), TypeKind::LValueReference(y)) => {
                 a.1 = *x;
                 b.1 = *y;

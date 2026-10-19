@@ -223,8 +223,54 @@ pub fn refresh() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+fn approved_corrections(text: &str) -> Result<BTreeSet<(Target, String)>, String> {
+    let mut lines = text.lines();
+    if lines.next() != Some(format!("# Baseline: {BASELINE}").as_str())
+        || lines.next() != Some(format!("# SDK: {SDK_VERSION}").as_str())
+    {
+        return Err("availability corrections do not identify the frozen baseline and SDK".into());
+    }
+    let mut corrections = BTreeSet::new();
+    for line in lines.filter(|line| !line.starts_with('#')) {
+        let columns: Vec<_> = line.split_whitespace().collect();
+        let ["X86", name] = columns.as_slice() else {
+            return Err(format!("invalid approved availability correction: {line}"));
+        };
+        if !corrections.insert((Target::X86, (*name).into())) {
+            return Err(format!(
+                "duplicate approved availability correction: {line}"
+            ));
+        }
+    }
+    if corrections.is_empty() {
+        return Err("approved availability corrections are empty".into());
+    }
+    Ok(corrections)
+}
+
+fn validate_corrections(
+    corrections: &BTreeSet<(Target, String)>,
+    baseline: &Evidence,
+    current: &BTreeMap<(Target, String), Export>,
+) -> Result<(), String> {
+    for key @ (target, name) in corrections {
+        if !baseline.0.contains_key(key) {
+            return Err(format!(
+                "approved correction `{name}` on {target:?} is absent from baseline"
+            ));
+        }
+        if current.contains_key(key) {
+            return Err(format!(
+                "stale approved correction `{name}` on {target:?}: function is present"
+            ));
+        }
+    }
+    Ok(())
+}
+
 pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
     let baseline = Evidence::load()?;
+    let corrections = approved_corrections(include_str!("approved-availability.txt"))?;
     let directory = Path::new("target\\win32-2");
     std::fs::create_dir_all(directory)?;
     let winmd = directory.join("function-coverage.winmd");
@@ -258,12 +304,15 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
     }
+    validate_corrections(&corrections, &baseline, &current)?;
     let keys: BTreeSet<_> = baseline.0.keys().chain(current.keys()).collect();
     let mut rows = String::from(
-        "Target,Name,Status,BaselineLibrary,BaselineExport,CurrentLibrary,CurrentExport\n",
+        "Target,Name,Status,BaselineLibrary,BaselineExport,CurrentLibrary,CurrentExport,Acceptance\n",
     );
     let mut totals = BTreeMap::<&str, usize>::new();
     let mut missing = BTreeSet::new();
+    let mut unapproved_names = BTreeSet::new();
+    let mut unapproved_pairs = 0;
     let current_names: BTreeSet<_> = current.keys().map(|key| &key.1).collect();
     for key in keys {
         let old = baseline.0.get(key);
@@ -278,6 +327,15 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
             (None, Some(_)) => "new",
             _ => unreachable!(),
         };
+        let acceptance = if status != "missing" {
+            ""
+        } else if corrections.contains(key) {
+            "approved-availability"
+        } else {
+            unapproved_pairs += 1;
+            unapproved_names.insert(&key.1);
+            "unapproved"
+        };
         *totals.entry(status).or_default() += 1;
         let row = [
             format!("{:?}", key.0),
@@ -287,6 +345,7 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
             old.map_or("", |v| &v.name).into(),
             new.map_or("", |v| &v.library).into(),
             new.map_or("", |v| &v.name).into(),
+            acceptance.into(),
         ];
         rows.push_str(
             &row.iter()
@@ -303,6 +362,11 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
         "{absent} names absent; {} names missing on at least one baseline target. Presence/linkage only, not signature or behavior parity. See target\\win32-2\\function-coverage.csv",
         missing.len()
     );
+    println!(
+        "{} approved availability corrections; {unapproved_pairs} unapproved missing target pairs across {} names. Changed linkage and additions are not approved by this accounting.",
+        corrections.len(),
+        unapproved_names.len()
+    );
     Ok(())
 }
 
@@ -310,6 +374,91 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
 mod tests {
     use super::*;
     use windows_rdl::implib::ImportName;
+
+    #[test]
+    fn reviewed_availability_corrections() {
+        let corrections = approved_corrections(include_str!("approved-availability.txt")).unwrap();
+        assert_eq!(corrections.len(), 88);
+        let fixtures = Path::new(env!("CARGO_MANIFEST_DIR"))
+            .join("..\\..\\tests\\libs\\clang2\\input\\sdk_import_availability.txt");
+        let observed = std::fs::read_to_string(fixtures).unwrap();
+        let expected: BTreeSet<_> = observed
+            .lines()
+            .filter_map(|line| {
+                let fields: Vec<_> = line.split_whitespace().collect();
+                match fields.as_slice() {
+                    ["6", name, _] => Some((Target::X86, (*name).into())),
+                    _ => None,
+                }
+            })
+            .collect();
+        assert_eq!(corrections, expected);
+        validate_corrections(&corrections, &Evidence::load().unwrap(), &BTreeMap::new()).unwrap();
+        for name in [
+            "RtlCaptureContext2",
+            "Ndr64AsyncClientCall",
+            "Ndr64DcomAsyncClientCall",
+            "NdrClientCall3",
+        ] {
+            assert!(!corrections.contains(&(Target::X86, name.into())));
+        }
+    }
+
+    #[test]
+    fn invalid_availability_corrections() {
+        let header = format!("# Baseline: {BASELINE}\n# SDK: {SDK_VERSION}\n");
+        for rows in [
+            "",
+            "X64 F\n",
+            "Arm64 F\n",
+            "X86\n",
+            "X86 F extra\n",
+            "X86 F\nX86 F\n",
+        ] {
+            assert!(approved_corrections(&format!("{header}{rows}")).is_err());
+        }
+        assert!(approved_corrections("# Baseline: other\n# SDK: other\nX86 F\n").is_err());
+        assert!(
+            approved_corrections(&format!("# Baseline: {BASELINE}\n# SDK: other\nX86 F\n"))
+                .is_err()
+        );
+        assert!(
+            approved_corrections(&format!("# Baseline: other\n# SDK: {SDK_VERSION}\nX86 F\n"))
+                .is_err()
+        );
+    }
+
+    #[test]
+    fn stale_availability_corrections() {
+        let baseline =
+            Evidence::parse(&format!("# {BASELINE}:{SOURCE}\n7\tF\texample.dll\tF\n")).unwrap();
+        let corrections = [(Target::X86, "F".into())].into();
+        let mut current = BTreeMap::from([(
+            (Target::X64, "F".into()),
+            Export {
+                library: "example.dll".into(),
+                name: "F".into(),
+            },
+        )]);
+        validate_corrections(&corrections, &baseline, &current).unwrap();
+        assert!(
+            validate_corrections(&[(Target::X86, "Other".into())].into(), &baseline, &current)
+                .unwrap_err()
+                .contains("absent from baseline")
+        );
+        current.insert(
+            (Target::X86, "F".into()),
+            Export {
+                library: "changed.dll".into(),
+                name: "Changed".into(),
+            },
+        );
+        assert!(
+            validate_corrections(&corrections, &baseline, &current)
+                .unwrap_err()
+                .contains("function is present")
+        );
+    }
 
     #[test]
     fn exact_evidence() {

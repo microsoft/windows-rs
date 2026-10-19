@@ -29,6 +29,7 @@ impl MethodDefExt for MethodDef {
         let meta_sig = self.signature(&Type::generic_placeholders(generics.len()));
         let call_flags = meta_sig.flags;
         let return_type = Type::from_metadata_type(&meta_sig.return_type, None, generics, reader);
+        return_type.assert_callable_value(reader);
         let param_map = match self.params_by_sequence(meta_sig.types.len()) {
             Ok(params) => Some(params),
             Err(error) => {
@@ -54,6 +55,7 @@ impl MethodDefExt for MethodDef {
                     | windows_metadata::reader::ParamDirection::Input
             );
             let mut ty = Type::from_metadata_type(meta_ty, None, generics, reader);
+            ty.assert_callable_value(reader);
 
             if param_is_input_only {
                 ty = ty.to_const_type();

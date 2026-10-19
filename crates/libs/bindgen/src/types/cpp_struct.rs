@@ -163,10 +163,10 @@ impl CppStruct {
 
         let arches = write_arches(self.def);
         let cfg = self.write_cfg(config);
-        self.write_with_cfg(config, &quote! { #arches #cfg })
+        self.write_with_cfg(config, &quote! { #arches #cfg }, self.def.arches())
     }
 
-    fn write_with_cfg(&self, config: &Config, cfg: &TokenStream) -> TokenStream {
+    fn write_with_cfg(&self, config: &Config, cfg: &TokenStream, arches: i32) -> TokenStream {
         let name = to_ident(self.name);
         let flags = self.def.flags();
         let is_union = flags.contains(TypeAttributes::ExplicitLayout);
@@ -323,7 +323,7 @@ impl CppStruct {
             constants
         };
 
-        let bitfields = self.write_bitfield_accessors(config, cfg);
+        let bitfields = self.write_bitfield_accessors(config, cfg, arches);
 
         let mut tokens = quote! {
             #repr
@@ -341,7 +341,7 @@ impl CppStruct {
         nested_sorted.sort_by_key(|s| s.name);
 
         for nested in nested_sorted {
-            tokens.combine(nested.write_with_cfg(config, cfg));
+            tokens.combine(nested.write_with_cfg(config, cfg, arches));
         }
 
         tokens
@@ -484,11 +484,50 @@ impl CppStruct {
     }
 
     /// Generates typed accessors for coalesced C bit-fields in non-sys projections.
-    fn write_bitfield_accessors(&self, config: &Config, cfg: &TokenStream) -> TokenStream {
-        if config.bindgen.style.is_sys() {
+    fn write_bitfield_accessors(
+        &self,
+        config: &Config,
+        cfg: &TokenStream,
+        arches: i32,
+    ) -> TokenStream {
+        if config.bindgen.style.is_sys()
+            || !self
+                .def
+                .fields()
+                .any(|field| field.has_attribute("NativeBitfieldAttribute"))
+        {
             return quote! {};
         }
 
+        let arches = if arches == 0 { 7 } else { arches };
+        let mut variants: Vec<(String, TokenStream, i32)> = Vec::new();
+        for arch in [1, 2, 4].into_iter().filter(|arch| arches & arch != 0) {
+            let tokens = self.write_bitfield_accessors_for_arch(config, arch);
+            if tokens.is_empty() {
+                continue;
+            }
+            let text = tokens.to_string();
+            if let Some((_, _, bits)) = variants.iter_mut().find(|(key, _, _)| *key == text) {
+                *bits |= arch;
+            } else {
+                variants.push((text, tokens, arch));
+            }
+        }
+        let name = to_ident(self.name);
+        let variants = variants.into_iter().map(|(_, tokens, bits)| {
+            let gate = (bits != arches).then(|| write_arch_bits(bits));
+            quote! {
+                #cfg
+                #gate
+                impl #name {
+                    #tokens
+                }
+            }
+        });
+        quote! { #(#variants)* }
+    }
+
+    fn write_bitfield_accessors_for_arch(&self, config: &Config, arch: i32) -> TokenStream {
         let mut accessors = Vec::new();
 
         for field in self.def.fields() {
@@ -502,13 +541,25 @@ impl CppStruct {
             }
 
             let field_ident = to_ident(field.name());
-            let backing = BitfieldBacking::from_type(&field.field_type(Some(self), config.reader))
-                .unwrap_or_else(|| panic!("bitfield storage `{}` is not an integer", field.name()));
-            let read = if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
+            let storage = field.field_type(Some(self), config.reader);
+            let (scalar, wrappers) = bitfield_scalar(&storage, config, arch);
+            let backing = BitfieldBacking::from_type(&scalar).unwrap_or_else(|| {
+                panic!(
+                    "bitfield storage `{}.{}.{}` is not an integer: {storage:?}",
+                    self.def.namespace(),
+                    self.def.full_name().name,
+                    field.name()
+                )
+            });
+            let is_union = self.def.flags().contains(TypeAttributes::ExplicitLayout);
+            let mut read = if is_union {
                 quote! { (unsafe { self.#field_ident }) }
             } else {
                 quote! { self.#field_ident }
             };
+            for _ in &wrappers {
+                read = quote! { #read.0 };
+            }
 
             for attr in bitfields {
                 let values = attr.value();
@@ -530,14 +581,22 @@ impl CppStruct {
                             .is_some_and(|end| end <= backing.bits),
                     "bitfield `{member}` exceeds its backing type"
                 );
-                if let Some(ty) = bitfield_member_type(&values, self, config.reader) {
+                let member_type = bitfield_member_type(&values, self, config.reader);
+                if member_type.is_some() || !wrappers.is_empty() || is_union || backing.pointer {
+                    let ty = member_type.unwrap_or_else(|| {
+                        if width == 1 {
+                            Type::Bool
+                        } else {
+                            scalar.clone()
+                        }
+                    });
                     accessors.push(backing.write_typed_accessor(
                         config,
                         &field_ident,
-                        &read,
-                        member,
+                        (&read, &wrappers),
+                        (member, &ty),
                         (offset, width),
-                        &ty,
+                        arch,
                     ));
                 } else {
                     accessors.push(backing.write_accessor(&field_ident, member, offset, width));
@@ -545,17 +604,7 @@ impl CppStruct {
             }
         }
 
-        if accessors.is_empty() {
-            return quote! {};
-        }
-
-        let name = to_ident(self.name);
-        quote! {
-            #cfg
-            impl #name {
-                #(#accessors)*
-            }
-        }
+        quote! { #(#accessors)* }
     }
 }
 
@@ -574,12 +623,67 @@ fn bitfield_member_type(
     Some(Type::from_metadata_type(&ty, Some(enclosing), &[], reader))
 }
 
+fn bitfield_scalar(ty: &Type, config: &Config, arch: i32) -> (Type, Vec<TokenStream>) {
+    let mut scalar = ty.clone();
+    let mut wrappers = Vec::new();
+    let mut seen = HashSet::new();
+    loop {
+        let def = match &scalar {
+            Type::CppEnum(ty) => Some(ty.def),
+            Type::CppStruct(ty) => Some(ty.def),
+            _ => None,
+        };
+        if let Some(def) = def {
+            let mut variants = config
+                .reader
+                .with_full_name(def.namespace(), def.name())
+                .filter(|candidate| {
+                    let bits = match candidate {
+                        Type::CppEnum(ty) => ty.def.arches(),
+                        Type::CppStruct(ty) => ty.def.arches(),
+                        _ => return false,
+                    };
+                    bits == 0 || bits & arch != 0
+                });
+            if let Some(variant) = variants.next() {
+                assert!(
+                    variants.next().is_none(),
+                    "ambiguous bitfield type for architecture {arch}: {scalar:?}"
+                );
+                scalar = variant;
+            } else {
+                assert!(
+                    def.arches() == 0 || def.arches() & arch != 0,
+                    "bitfield type unavailable for architecture {arch}: {scalar:?}"
+                );
+            }
+        }
+        assert!(seen.insert(scalar.clone()), "cyclic bitfield type");
+        let wrap = match &scalar {
+            Type::CppEnum(ty) => ty.def.has_attribute("ScopedEnumAttribute"),
+            Type::CppStruct(ty) if ty.is_handle(config.reader) || ty.is_native_typedef() => {
+                !config.typedef_emits_bare(ty.def)
+            }
+            Type::BOOL | Type::HRESULT | Type::NTSTATUS | Type::RPC_STATUS => {
+                !config.bindgen.uses_inline_core_types()
+            }
+            _ => return (scalar, wrappers),
+        };
+        if wrap {
+            wrappers.push(scalar.write_name(config));
+        }
+        scalar = scalar.underlying_type(config.reader);
+    }
+}
+
 /// Integer type backing a coalesced bit-field.
 struct BitfieldBacking {
     prim: TokenStream,
     uprim: TokenStream,
+    // Pointer widths are checked by generated code on the consumer target.
     bits: u32,
     signed: bool,
+    pointer: bool,
 }
 
 impl BitfieldBacking {
@@ -593,6 +697,8 @@ impl BitfieldBacking {
             Type::I32 => (quote! { i32 }, quote! { u32 }, 32, true),
             Type::U64 => (quote! { u64 }, quote! { u64 }, 64, false),
             Type::I64 => (quote! { i64 }, quote! { u64 }, 64, true),
+            Type::USize => (quote! { usize }, quote! { usize }, 64, false),
+            Type::ISize => (quote! { isize }, quote! { usize }, 64, true),
             _ => return None,
         };
         Some(Self {
@@ -600,7 +706,12 @@ impl BitfieldBacking {
             uprim,
             bits,
             signed,
+            pointer: matches!(ty, Type::USize | Type::ISize),
         })
+    }
+
+    fn same_width(&self, other: &Self) -> bool {
+        self.bits == other.bits && self.pointer == other.pointer
     }
 
     /// Emits the get/set pair for one logical bit-field member.
@@ -706,32 +817,15 @@ impl BitfieldBacking {
         &self,
         config: &Config,
         field: &TokenStream,
-        read: &TokenStream,
-        member: &str,
+        storage: (&TokenStream, &[TokenStream]),
+        member: (&str, &Type),
         range: (u32, u32),
-        ty: &Type,
+        arch: i32,
     ) -> TokenStream {
+        let (member, ty) = member;
         let (offset, width) = range;
-        let mut scalar = ty.clone();
-        let mut wrappers = Vec::new();
-        let mut seen = HashSet::new();
-        loop {
-            assert!(seen.insert(scalar.clone()), "cyclic bitfield member type");
-            let wrap = match &scalar {
-                Type::CppEnum(ty) => ty.def.has_attribute("ScopedEnumAttribute"),
-                Type::CppStruct(ty) if ty.is_handle(config.reader) || ty.is_native_typedef() => {
-                    !config.typedef_emits_bare(ty.def)
-                }
-                Type::BOOL | Type::HRESULT | Type::NTSTATUS | Type::RPC_STATUS => {
-                    !config.bindgen.uses_inline_core_types()
-                }
-                _ => break,
-            };
-            if wrap {
-                wrappers.push(scalar.write_name(config));
-            }
-            scalar = scalar.underlying_type(config.reader);
-        }
+        let (read, storage_wrappers) = storage;
+        let (scalar, wrappers) = bitfield_scalar(ty, config, arch);
         let prim = &self.prim;
         let uprim = &self.uprim;
         let shift_offset = Literal::u32_unsuffixed(offset);
@@ -744,10 +838,10 @@ impl BitfieldBacking {
         let mut bits = if offset == 0 {
             raw.clone()
         } else {
-            quote! { (#raw >> #shift_offset) }
+            quote! { #raw >> #shift_offset }
         };
         if offset + width < self.bits {
-            bits = quote! { (#bits & #mask) };
+            bits = quote! { (#bits) & #mask };
         }
         let member_backing = (scalar != Type::Bool).then(|| {
             let member_backing = Self::from_type(&scalar)
@@ -758,23 +852,38 @@ impl BitfieldBacking {
             );
             member_backing
         });
+        let bounds = self.pointer.then(|| {
+            let end = Literal::u32_unsuffixed(offset + width);
+            quote! { const _: () = assert!(#prim::BITS >= #end, "bitfield exceeds target storage width"); }
+        });
+        let member_bounds = member_backing.as_ref().filter(|member| member.pointer && !self.pointer).map(|member| {
+            let prim = &member.prim;
+            let width = Literal::u32_unsuffixed(width);
+            quote! { const _: () = assert!(#prim::BITS >= #width, "bitfield exceeds target member width"); }
+        });
         let mut get = if let Some(member_backing) = &member_backing {
             let member_prim = &member_backing.prim;
             if member_backing.signed && width < member_backing.bits {
-                let shift = Literal::u32_unsuffixed(member_backing.bits - width);
-                quote! { ((#bits as #member_prim) << #shift) >> #shift }
+                let shift = if member_backing.pointer {
+                    let width = Literal::u32_unsuffixed(width);
+                    quote! { (#member_prim::BITS - #width) }
+                } else {
+                    let shift = Literal::u32_unsuffixed(member_backing.bits - width);
+                    quote! { #shift }
+                };
+                quote! { (((#bits) as #member_prim) << #shift) >> #shift }
             } else if width == self.bits
-                && member_backing.bits == self.bits
+                && member_backing.same_width(self)
                 && member_backing.signed == self.signed
             {
                 read.clone()
-            } else if !member_backing.signed && member_backing.bits == self.bits {
+            } else if !member_backing.signed && member_backing.same_width(self) {
                 bits
             } else {
-                quote! { #bits as #member_prim }
+                quote! { (#bits) as #member_prim }
             }
         } else {
-            quote! { #bits != 0 }
+            quote! { (#bits) != 0 }
         };
         let mut value = quote! { value };
         for _ in &wrappers {
@@ -783,10 +892,10 @@ impl BitfieldBacking {
         for wrapper in wrappers.iter().rev() {
             get = quote! { #wrapper(#get) };
         }
-        let set = if width == self.bits {
+        let mut set = if width == self.bits {
             if member_backing
                 .as_ref()
-                .is_some_and(|member| member.bits == self.bits && member.signed == self.signed)
+                .is_some_and(|member| member.same_width(self) && member.signed == self.signed)
             {
                 value
             } else {
@@ -795,7 +904,7 @@ impl BitfieldBacking {
         } else {
             let value = if member_backing
                 .as_ref()
-                .is_some_and(|member| member.bits == self.bits && !member.signed)
+                .is_some_and(|member| member.same_width(self) && !member.signed)
             {
                 value
             } else {
@@ -816,14 +925,21 @@ impl BitfieldBacking {
                 merged
             }
         };
+        for wrapper in storage_wrappers.iter().rev() {
+            set = quote! { #wrapper(#set) };
+        }
         let getter = to_ident(member);
         let setter = to_ident(&format!("set_{member}"));
         let name = ty.write_name(config);
         quote! {
             pub fn #getter(&self) -> #name {
+                #bounds
+                #member_bounds
                 #get
             }
             pub fn #setter(&mut self, value: #name) {
+                #bounds
+                #member_bounds
                 self.#field = #set;
             }
         }

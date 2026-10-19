@@ -145,7 +145,7 @@ impl Projector<'_, '_> {
                 let function = written_function(self.resolution.snapshots[snapshot], written)?;
                 let abi = callable_abi(function);
                 let name = ident(name)?;
-                let native = annotations::write(&observation.attributes);
+                let native = annotations::write(&observation.attributes)?;
                 let contracts = annotations::function(function.prototype, &observation.attributes);
                 Ok(Body {
                     attributes: quote! { #native #contracts #library },
@@ -171,7 +171,7 @@ impl Projector<'_, '_> {
                 if let ConstantValue::String { value, wide } = value {
                     let encoding = if *wide { "utf-16" } else { "ansi" };
                     let name = ident(name)?;
-                    let native = annotations::write(&observation.attributes);
+                    let native = annotations::write(&observation.attributes)?;
                     return Ok(Body {
                         attributes: quote! { #native #[encoding(#encoding)] },
                         declaration: quote! { const #name: String = #value; },
@@ -196,7 +196,7 @@ impl Projector<'_, '_> {
                     let ty = write_type(self.namespace, &ty);
                     let guid = write_guid(*guid);
                     let name = ident(name)?;
-                    let native = annotations::write(&observation.attributes);
+                    let native = annotations::write(&observation.attributes)?;
                     return Ok(match value {
                         ConstantValue::Guid(_) => Body {
                             attributes: native,
@@ -280,7 +280,7 @@ impl Projector<'_, '_> {
         let value = write_value(self.namespace, &value);
         let name = ident(name)?;
         Ok(Body {
-            attributes: annotations::write(&observation.attributes),
+            attributes: annotations::write(&observation.attributes)?,
             declaration: quote! { const #name: #ty = #value; },
         })
     }
@@ -340,6 +340,7 @@ impl Projector<'_, '_> {
                 TypeKind::Void | TypeKind::Scalar(_) | TypeKind::Enum(_) => {}
                 TypeKind::Record(record) if !self.interface_record(snapshot, record) => {}
                 TypeKind::Pointer(inner)
+                | TypeKind::Pointer64(inner)
                 | TypeKind::LValueReference(inner)
                 | TypeKind::Array { element: inner, .. } => pending.push((snapshot, inner)),
                 TypeKind::Alias(id) => {
@@ -401,6 +402,9 @@ impl Projector<'_, '_> {
             MetadataType::PtrConst(inner, count) => {
                 MetadataType::PtrConst(Box::new(self.comparison_type(*inner)?), count)
             }
+            MetadataType::Ptr64(inner, constant) => {
+                MetadataType::Ptr64(Box::new(self.comparison_type(*inner)?), constant)
+            }
             MetadataType::RefMut(inner) => {
                 MetadataType::RefMut(Box::new(self.comparison_type(*inner)?))
             }
@@ -422,8 +426,8 @@ impl Projector<'_, '_> {
     ) -> Result<(Vec<TokenStream>, TokenStream), Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
         let function = written_function(snapshot, observation.canonical)?.prototype;
-        self.check_function_abi(snapshot_id, function)?;
         let written = written_function(snapshot, observation.written)?;
+        self.check_function_abi(snapshot_id, function, Some(written.prototype))?;
         if function.variadic
             && (function.convention != CallingConvention::C
                 || written.prototype.convention != CallingConvention::C)
@@ -750,7 +754,7 @@ impl Projector<'_, '_> {
                     ))
                 })?;
             let method_name = ident(&method.name)?;
-            let attributes = annotations::write(&method.observation.attributes);
+            let attributes = annotations::write(&method.observation.attributes)?;
             let contracts = annotations::function(
                 written_function(snapshot, method.observation.written)?.prototype,
                 &method.observation.attributes,
@@ -768,7 +772,7 @@ impl Projector<'_, '_> {
         } else {
             quote! { #[no_guid] }
         };
-        let native = annotations::write(&observation.attributes);
+        let native = annotations::write(&observation.attributes)?;
         Ok(Body {
             attributes: quote! { #native #identity },
             declaration: quote! { interface #name #base { #(#methods)* } },

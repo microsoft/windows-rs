@@ -868,6 +868,92 @@ fn native_semantics() {
             );
         }
         let mut qualifiers = 99;
+        let x86 = target.starts_with("i686");
+        for (name, size, nondefault) in [
+            ("NativeDefaultPointer", if x86 { 4 } else { 8 }, false),
+            ("NativePointer64", 8, x86),
+            ("NativeSignedPointer32", 4, !x86),
+            ("NativeUnsignedPointer32", 4, true),
+        ] {
+            let ty =
+                unsafe { clang_getCanonicalType(clang_getTypedefDeclUnderlyingType(find(name))) };
+            assert_eq!(ty.kind, CXType_Pointer, "{target}: {name}");
+            assert_eq!(
+                unsafe { clang_Type_getSizeOf(ty) },
+                size,
+                "{target}: {name}"
+            );
+            assert_eq!(
+                unsafe { clang_Type_getAlignOf(ty) },
+                size,
+                "{target}: {name}"
+            );
+            let pointee = unsafe { clang_getPointeeType(ty) };
+            assert_eq!(
+                unsafe { windows_clang_getTypeQualifiers(pointee, &raw mut qualifiers) },
+                WindowsClangSuccess
+            );
+            assert_eq!(
+                qualifiers,
+                if nondefault {
+                    WindowsClangOtherQualifiers as u32
+                } else {
+                    0
+                },
+                "{target}: {name}"
+            );
+            assert_eq!(
+                unsafe { clang_getAddressSpace(pointee) } != 0,
+                nondefault,
+                "{target}: {name}"
+            );
+        }
+        qualifiers = 99;
+        for (name, representation, expected_qualifiers) in [
+            ("NativeDefaultPointer", WindowsClangNativePointer, 0),
+            ("NativePointer64", WindowsClangPointer64, 0),
+            ("NativeSignedPointer32", WindowsClangSignedPointer32, 0),
+            ("NativeUnsignedPointer32", WindowsClangUnsignedPointer32, 0),
+            (
+                "NativeQualifiedPointer64",
+                WindowsClangPointer64,
+                WindowsClangConst | WindowsClangVolatile,
+            ),
+            (
+                "NativeInheritedPointer64",
+                WindowsClangPointer64,
+                WindowsClangConst | WindowsClangVolatile,
+            ),
+            (
+                "NativeOtherPointer",
+                WindowsClangOtherPointer,
+                WindowsClangOtherQualifiers,
+            ),
+        ] {
+            let ty = unsafe { clang_getTypedefDeclUnderlyingType(find(name)) };
+            let mut info = WindowsClangPointerInfo::default();
+            assert_eq!(
+                unsafe { windows_clang_getPointerInfo(ty, &raw mut info) },
+                WindowsClangSuccess,
+                "{target}: {name}"
+            );
+            assert_eq!(info.representation, representation, "{target}: {name}");
+            let mut actual = 99;
+            assert_eq!(
+                unsafe { windows_clang_getTypeQualifiers(info.pointee, &raw mut actual) },
+                WindowsClangSuccess
+            );
+            assert_eq!(actual, expected_qualifiers as u32, "{target}: {name}");
+        }
+        let mut pointer_info = WindowsClangPointerInfo::default();
+        assert_eq!(
+            unsafe { windows_clang_getPointerInfo(invalid, &raw mut pointer_info) },
+            WindowsClangWrongKind
+        );
+        assert_eq!(
+            unsafe { windows_clang_getPointerInfo(plain, std::ptr::null_mut()) },
+            WindowsClangInvalidArgument
+        );
         assert_eq!(
             unsafe { windows_clang_getTypeQualifiers(invalid, &raw mut qualifiers) },
             WindowsClangWrongKind
@@ -887,7 +973,7 @@ fn native_semantics() {
             let library = Arc::clone(&library);
             scope.spawn(move || {
                 let previous = set_library(Some(library));
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 18);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 19);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION

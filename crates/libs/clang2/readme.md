@@ -33,6 +33,8 @@ libclang callers must not create indices during a batch. Native hangs affect the
 Supported: named structs, unions, and integer-backed enums; typedefs, non-template `using` aliases,
 forwards, scalars, qualified pointers, arrays, pragma packing, explicit record alignment, and
 plain C/stdcall callback prototypes. Written aliases and attributed calling conventions are retained.
+Global class definitions use the same public-field and interface contracts as structs. Native
+access controls still apply; constructors, destructors and private fields remain unsupported.
 Fixed array extents are compiler-evaluated; fixed and unsized array parameters use native pointer
 adjustment, retaining element aliases, constness, and inner dimensions. An absent bound is distinct
 from zero length. Incomplete array storage remains unsupported.
@@ -113,7 +115,7 @@ Conflicting public types or contracts remain strict errors and all-target partia
 Unresolved import ownership is target-local in partial mode: validated variants remain published,
 and omissions identify each target lacking evidence. Strict mode still fails. Missing imports do
 not prove target unavailability or excuse native and public contract conflicts.
-Single-vptr interfaces support a public non-virtual base and ordered public pure virtual methods
+Single-vptr interfaces support a public non-virtual base and ordered public virtual declarations
 with the platform COM convention. GUID-less hierarchies use `#[no_guid]`, including `ID3DInclude`,
 without adding COM identity or ownership. GUID-less children retain their native bases without
 inheriting a UUID. Bindgen's zero-IID handling for GUID-less COM interfaces remains a separate
@@ -125,7 +127,8 @@ attributes; volatile/restrict and ref-qualified methods remain unsupported.
 `__declspec(allocator)` remains checked native profiling evidence, without an inferred ownership
 or optimizer contract. The allocator fixtures exercise the required Windows allocation APIs.
 
-Pure virtual redeclarations can reuse compiler-proven inherited slots. Their parameters, defaults,
+Purity remains checked native evidence; virtual method definitions remain unsupported.
+Virtual redeclarations can reuse compiler-proven inherited slots. Their parameters, defaults,
 and annotations remain in metadata under `NativeOverrideSlotAttribute`; updated RDL and bindgen
 reuse the inherited entry instead of adding a vtable field. Covariant and adjusting overrides
 remain unsupported. Metadata containing these attributes requires matching readers/generators.
@@ -256,6 +259,9 @@ Other conditional expressions remain explicit evidence.
 Full-output/update contracts use the same direct integer count for capacity and initialized length.
 Success predicates and count-pointer optionality remain separate contracts. This is not a complete
 SAL interpreter; unsupported expressions and nested contracts retain `NativeSalAttribute` evidence.
+Published nested evidence uses SAL names and expanded arguments, not internal annotation transport.
+Native observations retain the original strings for reconciliation; conditional scopes remain
+evidence rather than unconditional contracts.
 Direct integer sibling-field counts use `NativeFieldBufferAttribute`, preserving writable capacity,
 optional readable extent, byte/element units, and nullable storage. These describe a valid containing
 value, not call pre/postconditions. Expressions, bitfield counts, and member paths remain evidence.

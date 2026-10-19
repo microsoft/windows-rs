@@ -77,8 +77,15 @@ Shared, named, and indirectly referenced children use owner-scoped declarations 
 as `Outer::Inner`. Shared anonymous types get one scoped definition, not one copy per field.
 Out-of-line definitions, pointer/array uses, callback signatures, packing, and ordinary aliases
 to nested types retain their ownership. Source-dependent display spellings are not public names.
-Nested enums, aliases declared inside records, and general C++ classes remain unsupported.
-The interface slice below accepts a narrower base/virtual-method contract.
+Nested enums, nested classes and aliases declared inside records remain unsupported.
+Global `class` and `struct` definitions use the same public-field and interface checks.
+The compiler-reported access controls apply to fields, bases and virtual methods, including
+implicit private access in a class. Constructors, destructors, private fields and unsupported
+inheritance remain rejected. The interface slice below accepts a narrower base/virtual-method
+contract; a `class` keyword alone is neither an interface claim nor a rejection reason.
+`class_records.h/.rdl` checks spelling parity, native kind/access/layout/slot evidence, input order,
+native conflicts and metadata round trips. The SDK fixture covers `IVssExpressWriter`,
+`IVssCreateExpressWriterMetadata` and their creation import without invoking VSS operations.
 
 `nested_records.h` covers native offsets, shared identity, nested forward/out-of-line definitions,
 and RDL/WinMD round trips. Its tests check differing source offsets and input order, public owner
@@ -90,6 +97,18 @@ Records and typedef/using aliases retain written and canonical types, attributes
 Fixed array bounds use Clang's evaluated extents, including arithmetic, enum constants, `sizeof`,
 conditional expressions, and constexpr calls. The companion identifies the corresponding native
 type-location expressions rather than accepting expression cursor kinds indiscriminately.
+Fixed 64-bit data pointers retain `TypeKind::Pointer64` and their compiler layout. The native
+companion decodes pointer-size address spaces, removes only that address-space qualifier from the
+pointee, and preserves explicit `__ptr64` through written typedefs. Canonical native-width
+pointers remain native pointers for reconciliation. Publication retains written fixed-width
+contracts as `ptr64<*mut T>` or `ptr64<*const T>`, including nested pointee names.
+
+The initial slice is storage-only: 32-bit extension variants, fixed-width function pointers and
+fixed-width values passed by value remain unsupported. Ordinary pointers to storage records and
+compiler-adjusted array parameters remain supported. The `fixed_pointers` fixtures cover native
+conflicts, partial dependency removal, metadata round trips and typed address consumers. The SDK
+fixture checks `FILE_SEGMENT_ELEMENT` layout and address bits on all three targets.
+
 Array parameters decay only when the native canonical parameter type supplies the matching pointer;
 element constness and written element aliases remain intact. `TypeKind::Array.length` is `None`
 for an incomplete array and `Some(0)` for an explicit zero bound. Unsized parameters and typedefs
@@ -149,7 +168,7 @@ remain unsupported. All C observations still undergo native and public-contract 
 | Slice | Accepted contract | Publication |
 | --- | --- | --- |
 | Free function | External C-linkage declaration with a supported C/stdcall prototype | Explicit `Import` supplies DLL and optional export name |
-| Interface | One vptr, no data, at most one public non-virtual base, ordered public pure virtual methods | Native GUID or `no_guid`, interface inheritance, and platform COM methods |
+| Interface | One vptr, no data, at most one public non-virtual base, ordered public virtual declarations | Native GUID or `no_guid`, interface inheritance, and platform COM methods |
 | Scalar constant | Const integer, enum, bool, or finite float/double with a checked static initializer | Compiler-evaluated value and declared type |
 | Aggregate constant | Constant-expression GUID or property key with checked native fields and layout | GUID literal or format GUID plus property ID |
 | String constant | Terminated ASCII `char` or valid UTF-16 `wchar_t`/`char16_t` array | `String` with explicit native encoding |
@@ -181,9 +200,11 @@ The `allocator` fixtures cover evidence and conflicts, while the SDK fixture and
 cover heap/global/local allocation, reallocation, data preservation, and release.
 
 Interfaces remain native records until publication. Reconciliation checks UUIDs, base identities,
-base offsets, method slots, and canonical signatures. Native queries establish virtuality and
-access; multiple or virtual inheritance, non-pure virtual methods, and data-bearing interfaces are
-rejected. Pure virtual redeclarations retain the compiler's override relationship and absolute slot.
+base offsets, method slots, purity, and canonical signatures. Native queries establish virtuality
+and access; multiple or virtual inheritance, virtual method definitions, and data-bearing interfaces
+are rejected. Public virtual declarations need not be pure: purity remains native evidence but
+does not change caller-facing dispatch metadata. Virtual redeclarations retain the compiler's
+override relationship and absolute slot.
 Only one overridden method with the same slot and canonical return type is accepted; covariance and
 adjusting overrides remain rejected. `NativeOverrideSlotAttribute` records an inherited entry rather
 than a new slot. Names, written types, parameters, defaults, and annotations remain on the method.
@@ -608,12 +629,19 @@ Structural wrappers such as `_When_`, `_At_`, and `_On_failure_` have separate t
 they bypass those hooks. The header requires `__SPECSTRINGS_STRICT_LEVEL=0`; strict specstrings
 mode erases contracts such as `_COM_Outptr_`.
 
-The owned `SalAnnotation` and provisional `Windows.Win32.Metadata.NativeSalAttribute` retain the
-SAL version, contract name, source-hook arguments, and arguments after further macro expansion.
+The owned `SalAnnotation` retains the SAL version, contract name, source-hook arguments, and
+arguments after further macro expansion.
 Outer macros can substitute arguments before the source hook: these are not a verbatim copy of
 the original header invocation. Structural wrappers retain their nested source spelling and expanded
-annotation transport without flattening conditional contracts into unconditional ones. Expressions
-are preserved, not evaluated.
+annotation transport for reconciliation. Expressions are preserved, not evaluated.
+
+The provisional `Windows.Win32.Metadata.NativeSalAttribute` publishes source-level evidence.
+Its argument strings render nested transport as SAL names with expanded arguments, such as
+`capacity > 0, _Out_writes_(capacity)`. The decoder handles only the owned transport serialization,
+not C++ expression semantics, and preserves quoted text. It does not flatten conditional, targeted,
+buffer-iteration or failure scopes into unconditional attributes. Native observations are unchanged,
+including distinctions that produce the same published expression. Malformed nested transport is
+an explicit publication error; it is not stripped or replaced by an empty contract.
 
 Simple parameter direction and argument-optionality contracts normalize to typed values shared
 by reconciliation and publication. SAL2 `_In_`, `_Out_`, and `_Inout_`, their optional forms, and
@@ -1222,7 +1250,18 @@ target-specific names and linkage with the frozen snapshot, writing
 `target/win32-2/function-coverage.csv`. It distinguishes missing, new, changed-linkage, and
 same-linkage entries. This is required-surface accounting, not signature or behavior parity.
 Raw missing entries include reviewed target-availability corrections; the comparison does not
-rewrite the frozen baseline or suppress those differences.
+rewrite the frozen baseline or suppress those differences. An additional `Acceptance` column marks
+missing rows as `approved-availability` or `unapproved`; other rows have an empty acceptance field.
+The summary reports approved pairs and remaining unapproved pairs and names separately. Changed
+linkage and additions remain separate obligations, not implicit approvals.
+
+`crates/tools/win32-2/src/approved-availability.txt` owns the explicit approved x86 correction list,
+pinned to the frozen baseline and SDK. Comparison fails for mismatched pins, malformed or duplicate
+entries, corrections absent from the baseline, or corrected functions present in current output.
+The availability fixture independently checks SDK evidence; a unit test verifies that the approval
+list is exactly the 88 reviewed mask-6 entries. `RtlCaptureContext2` and the three remaining NDR
+import names are not approved. This accounting does not establish availability on other SDK or OS
+versions, nor does it change capture or publication policy.
 
 Implicit x86 C imports can use a compiler-derived stdcall alternative. The native companion reads
 written convention provenance and constructs the alternative through Clang's type system and name
@@ -1592,6 +1631,12 @@ consumer, compare its header names, RDL, WinMD, and
 generated Rust against an explicit output contract. A successful partial SDK run proves only the
 accepted subset; omissions and uncaptured macro constants remain outside that claim. New annotations
 need both capture and consuming projection support, not just a place to store them.
+
+Clang2 metadata requires
+[updated, paired readers and generators](windows-bindgen.md#metadata-compatibility).
+Older consumers are not a compatibility target for the new output. Qualify overrides, typed
+bitfields and mixed pointer qualifiers separately, and record the paired release versions before
+production cutover. A shared development version number is not a source-revision pin.
 
 Public ownership is resolved after compatibility checks. Declarations with one candidate header
 stay in its partition; declarations with multiple candidates go to `foundation.rdl`. Ownership

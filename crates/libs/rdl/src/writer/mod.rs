@@ -429,6 +429,12 @@ fn validate_type(ty: &metadata::Type, winrt: bool) -> Result<(), Error> {
             }
             validate_signature_types(signature, winrt)?;
         }
+        Ptr64(inner, _) => {
+            if winrt {
+                return Err(writer_err!("fixed-width pointers require Win32 metadata"));
+            }
+            validate_type(inner, winrt)?;
+        }
         PtrMut(inner, _)
         | PtrConst(inner, _)
         | ArrayFixed(inner, _)

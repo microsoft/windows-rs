@@ -147,6 +147,7 @@ pub enum TypeKind {
     Void,
     Scalar(Scalar),
     Pointer(TypeId),
+    Pointer64(TypeId),
     LValueReference(TypeId),
     Array {
         element: TypeId,
@@ -339,7 +340,7 @@ pub struct RecordDefinition {
     pub fields: Vec<Field>,
     /// Direct public, non-virtual bases, in declaration order.
     pub bases: Vec<Base>,
-    /// Direct public, pure virtual methods, in vtable order.
+    /// Direct public virtual methods, in vtable order.
     pub methods: Vec<Method>,
     /// Members without vtable slots. Retained as provenance, not ABI comparisons.
     pub non_vtable_members: Vec<NonVTableMember>,
@@ -371,6 +372,7 @@ pub struct Method {
     pub name: String,
     pub slot: u64,
     pub overrides: bool,
+    pub pure: bool,
     pub observation: ValueObservation,
 }
 

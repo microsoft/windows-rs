@@ -130,9 +130,26 @@ a mutable pointee. No leading modifier is emitted for a mixed chain.
 | `*mut *const i32` | `PTR PTR IsConst I4` |
 
 The file format is unchanged, but readers must support per-level modifiers to consume mixed chains.
+Clang2 output follows the
+[paired reader/generator requirement](windows-bindgen.md#metadata-compatibility);
+accepting a WinMD file alone does not establish that its required contracts are understood.
 `test_metadata` `pointer_constness` checks every constness combination through five pointer levels,
 signature modifier positions, references, and fixed arrays. `test_rdl` `mixed_pointers` checks
 canonical text round trips; `test_clang2` checks native headers through WinMD.
+
+### Fixed-width pointers
+
+`Type::Ptr64(Box<Type>, bool)` retains a fixed 64-bit data pointer; the boolean is pointee
+constness. RDL writes `ptr64<*mut T>` or `ptr64<*const T>`. The signature places the required
+`Windows.Win32.Metadata.NativePointer64Attribute` modifier after its `PTR`, before any `IsConst`
+modifier. The reader rejects optional, duplicate and non-pointer placement of the width modifier.
+Fixed-width levels can be nested with native pointers, references and arrays.
+WinRT metadata rejects this type.
+
+Chains containing a fixed-width level use per-level modifiers throughout. Namespace remapping and
+nested-record rewriting preserve the pointee. The pointer-constness tests check exact modifier
+placement, mixed widths/constness, wrappers and remapping. Older readers can ignore the width
+modifier and silently produce a 4-byte pointer on x86; use the paired reader/generator policy.
 
 ### Function pointers
 

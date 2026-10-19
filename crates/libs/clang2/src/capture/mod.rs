@@ -563,9 +563,6 @@ impl Capture<'_> {
     fn observation(&mut self, record: RecordId, cursor: CXCursor) -> Result<(), Error> {
         let mut attributes = Vec::new();
         let definition = if unsafe { clang_isCursorDefinition(cursor) } != 0 {
-            if unsafe { clang_getCursorKind(cursor) } == CXCursor_ClassDecl {
-                return Err(unsupported(cursor, "class definitions are unsupported"));
-            }
             let native_fields = record_fields(cursor);
             let mut fields = Vec::new();
             let mut bases = Vec::new();
@@ -654,12 +651,16 @@ impl Capture<'_> {
                     continue;
                 }
                 if kind == CXCursor_CXXMethod {
-                    if unsafe { clang_CXXMethod_isPureVirtual(child) } == 0
-                        || unsafe { clang_getCXXAccessSpecifier(child) } != CX_CXXPublic
-                    {
+                    if unsafe { clang_getCXXAccessSpecifier(child) } != CX_CXXPublic {
                         return Err(unsupported(
                             child,
-                            "only public pure virtual methods are supported",
+                            "only public virtual methods are supported",
+                        ));
+                    }
+                    if unsafe { clang_isCursorDefinition(child) } != 0 {
+                        return Err(unsupported(
+                            child,
+                            "virtual method definitions are unsupported",
                         ));
                     }
                     let mut overridden = std::ptr::null_mut();
@@ -708,6 +709,7 @@ impl Capture<'_> {
                         name: text(unsafe { clang_getCursorSpelling(child) }),
                         slot,
                         overrides: inherited.is_some(),
+                        pure: unsafe { clang_CXXMethod_isPureVirtual(child) } != 0,
                         observation: self.function_observation(child)?,
                     });
                     continue;
@@ -1000,6 +1002,44 @@ impl Capture<'_> {
         }
     }
 
+    fn pointer(&mut self, ty: CXType, cursor: CXCursor) -> Result<TypeKind, Error> {
+        let mut info = WindowsClangPointerInfo::default();
+        let status = unsafe { windows_clang_getPointerInfo(ty, &raw mut info) };
+        if status != WindowsClangSuccess {
+            return Err(unsupported(
+                cursor,
+                &format!("pointer representation query failed: {status}"),
+            ));
+        }
+        let fixed = match info.representation {
+            WindowsClangNativePointer => false,
+            WindowsClangPointer64 => true,
+            representation => {
+                return Err(unsupported(
+                    cursor,
+                    &format!("unsupported pointer representation: {representation}"),
+                ));
+            }
+        };
+        if fixed
+            && matches!(
+                unsafe { clang_getCanonicalType(info.pointee) }.kind,
+                CXType_FunctionProto | CXType_FunctionNoProto
+            )
+        {
+            return Err(unsupported(
+                cursor,
+                "fixed-width function pointers are unsupported",
+            ));
+        }
+        let pointee = self.ty(info.pointee, cursor)?;
+        Ok(if fixed {
+            TypeKind::Pointer64(pointee)
+        } else {
+            TypeKind::Pointer(pointee)
+        })
+    }
+
     fn ty(&mut self, mut ty: CXType, cursor: CXCursor) -> Result<TypeId, Error> {
         let mut qualifiers = 0;
         let status = unsafe { windows_clang_getTypeQualifiers(ty, &raw mut qualifiers) };
@@ -1067,7 +1107,7 @@ impl Capture<'_> {
                 CXType_Float => TypeKind::Scalar(Scalar::Float),
                 CXType_Double => TypeKind::Scalar(Scalar::Double),
                 CXType_LongDouble => TypeKind::Scalar(Scalar::LongDouble),
-                CXType_Pointer => TypeKind::Pointer(self.ty(clang_getPointeeType(ty), cursor)?),
+                CXType_Pointer => self.pointer(ty, cursor)?,
                 CXType_ConstantArray => TypeKind::Array {
                     element: self.ty(clang_getArrayElementType(ty), cursor)?,
                     length: Some(
@@ -1089,20 +1129,24 @@ impl Capture<'_> {
                         return Err(unsupported(cursor, "type attribute identity unavailable"));
                     }
                     let name = std::ffi::CStr::from_ptr(name).to_string_lossy();
-                    let convention = match name.as_ref() {
-                        "CDecl" => CallingConvention::C,
-                        "StdCall" => CallingConvention::Stdcall,
-                        _ => {
-                            return Err(unsupported(
-                                cursor,
-                                &format!("unsupported type attribute {name}"),
-                            ));
+                    if name == "Ptr64" {
+                        self.pointer(ty, cursor)?
+                    } else {
+                        let convention = match name.as_ref() {
+                            "CDecl" => CallingConvention::C,
+                            "StdCall" => CallingConvention::Stdcall,
+                            _ => {
+                                return Err(unsupported(
+                                    cursor,
+                                    &format!("unsupported type attribute {name}"),
+                                ));
+                            }
+                        };
+                        TypeKind::Attributed {
+                            convention,
+                            modified: self.ty(clang_Type_getModifiedType(ty), cursor)?,
+                            equivalent: self.ty(clang_getCanonicalType(ty), cursor)?,
                         }
-                    };
-                    TypeKind::Attributed {
-                        convention,
-                        modified: self.ty(clang_Type_getModifiedType(ty), cursor)?,
-                        equivalent: self.ty(clang_getCanonicalType(ty), cursor)?,
                     }
                 }
                 CXType_LValueReference => {

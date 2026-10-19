@@ -32,6 +32,14 @@ typedef Status (__stdcall *AContract)(
     _In_ unsigned int capacity,
     _Out_ unsigned int* written);
 typedef Status (__stdcall *ZPlain)(void*, unsigned int, unsigned int*);
+typedef void (*Scoped)(
+    _When_(capacity > 0, _At_(value, _Group_(_In_reads_(REVIEW_LIMIT) _Always_(_In_))))
+    int* value, unsigned int capacity);
+typedef void (*ScopedBuffer)(
+    _At_buffer_(value, index, capacity, _When_(index > 0, _Out_))
+    int* value, unsigned int capacity);
+typedef void (*Unscoped)(int* value, unsigned int capacity);
+typedef _On_failure_(_Unchanged_(*value)) void (*Failure)(int* value);
 typedef AContract CopiedContract;
 typedef AContract* ContractAddress;
 struct CallbackHolder {

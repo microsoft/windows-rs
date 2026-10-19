@@ -56,7 +56,13 @@ The qualifier query includes qualifiers inherited through typedefs. After identi
 volatile, restrict, and unaligned, it checks the remaining native qualifier set, rather than
 assuming those four exhaust Clang's type qualifiers. Address spaces and other undecoded qualifiers
 set `WindowsClangOtherQualifiers`. Method qualifiers use the same decoding, independently of the
-function type's own qualifiers. The extension ABI version is 18.
+function type's own qualifiers. The extension ABI version is 19.
+
+`windows_clang_getPointerInfo` decodes native, fixed 64-bit, signed 32-bit, unsigned 32-bit and
+other pointer representations. Written pointer-size attributes survive typedef desugaring.
+The returned pointee removes only pointer-size address spaces; CVR and unrelated address spaces
+remain available to the qualifier query. Canonical native-width forms may normalize to the native
+representation. The semantics fixture checks these distinctions on all three MSVC targets.
 
 The virtual-slot query reads `MicrosoftVTableContext::getMethodVFTableLocation`, rejecting
 locations that need virtual-base or secondary-vptr adjustment. Nonvirtual methods and non-Microsoft
