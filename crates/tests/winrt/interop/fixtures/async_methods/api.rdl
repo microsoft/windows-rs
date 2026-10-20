@@ -8,18 +8,24 @@ mod AsyncMethods {
         IWidget,
     }
 
+    // The same cases for each of the four async interfaces. Progress is best effort, so clients
+    // may assign progress handlers but the component never reports progress.
     #[ExclusiveTo(Widget)]
     interface IWidget {
-        // Complete before they are returned.
-        fn Action(&self) -> IAsyncAction;
+        // A negative `value` fails with `E_BOUNDS` before the method returns. Otherwise they
+        // complete on another thread, and operations complete with `value`.
+        fn Action(&self, value: i32) -> IAsyncAction;
+        fn ActionWithProgress(&self, value: i32) -> IAsyncActionWithProgress<u32>;
         fn Operation(&self, value: i32) -> IAsyncOperation<i32>;
-        fn StringOperation(&self, value: String) -> IAsyncOperation<String>;
+        fn OperationWithProgress(&self, value: i32) -> IAsyncOperationWithProgress<i32, u32>;
 
-        // Completes with `E_BOUNDS`.
-        fn Fail(&self) -> IAsyncOperation<i32>;
-
-        // Waits on another thread for the client's `operation` and completes with its result plus
-        // one.
-        fn Increment(&self, operation: IAsyncOperation<i32>) -> IAsyncOperation<i32>;
+        // Wait on another thread for the client's object, which may report progress. Operations
+        // complete with its result plus one.
+        fn AwaitAction(&self, action: IAsyncAction) -> IAsyncAction;
+        fn AwaitActionWithProgress(&self, action: IAsyncActionWithProgress<u32>)
+            -> IAsyncActionWithProgress<u32>;
+        fn AwaitOperation(&self, operation: IAsyncOperation<i32>) -> IAsyncOperation<i32>;
+        fn AwaitOperationWithProgress(&self, operation: IAsyncOperationWithProgress<i32, u32>)
+            -> IAsyncOperationWithProgress<i32, u32>;
     }
 }
