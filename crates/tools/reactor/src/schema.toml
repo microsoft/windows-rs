@@ -85,6 +85,23 @@ name = "AutomationHeadingLevel"
 owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
 native = "HeadingLevel"
 
+[[attached_properties]]
+name = "AutomationHelpText"
+owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
+native = "HelpText"
+default = ""
+
+[[attached_properties]]
+name = "AutomationFullDescription"
+owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
+native = "FullDescription"
+default = ""
+
+[[attached_properties]]
+name = "AutomationLiveSetting"
+owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
+native = "LiveSetting"
+
 [[visual_properties]]
 name = "Width"
 owner = "Microsoft.UI.Xaml.FrameworkElement"

@@ -1107,6 +1107,7 @@ impl Adapter for RecordingAdapter {
                 completion.call(Err(IntegrationError::Unavailable));
             }
             ImperativeRequest::RequestSwapChainPanelFrame { completion, .. }
+            | ImperativeRequest::Notify { completion, .. }
             | ImperativeRequest::SetSwapChain { completion, .. }
             | ImperativeRequest::SetNativeImageSource { completion, .. }
             | ImperativeRequest::SetCompositionChildVisual { completion, .. } => {

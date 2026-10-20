@@ -31,10 +31,14 @@ Microsoft::UI::Windowing::TitleBarHeightOption::{Standard, Tall}
 Microsoft::UI::Windowing::TitleBarTheme::{Dark, Light, UseDefaultAppMode}
 Microsoft::UI::Xaml::Application::{CreateInstance, Current, Exit, Start}
 Microsoft::UI::Xaml::ApplicationInitializationCallback
-Microsoft::UI::Xaml::Automation::AutomationProperties::{HeadingLevelProperty, SetAutomationId, SetHeadingLevel, SetName}
+Microsoft::UI::Xaml::Automation::AutomationProperties::{HeadingLevelProperty, LiveSettingProperty, SetAutomationId, SetFullDescription, SetHeadingLevel, SetHelpText, SetLiveSetting, SetName}
 Microsoft::UI::Xaml::Automation::ExpandCollapseState::Expanded
+Microsoft::UI::Xaml::Automation::Peers::AutomationEvents::LiveRegionChanged
+Microsoft::UI::Xaml::Automation::Peers::AutomationNotificationKind::{ActionAborted, ActionCompleted, ItemAdded, ItemRemoved, Other}
+Microsoft::UI::Xaml::Automation::Peers::AutomationNotificationProcessing::{All, CurrentThenMostRecent, ImportantAll, ImportantMostRecent, MostRecent}
+Microsoft::UI::Xaml::Automation::Peers::AutomationPeer::ListenerExists
 Microsoft::UI::Xaml::Automation::Peers::FrameworkElementAutomationPeer::CreatePeerForElement
-Microsoft::UI::Xaml::Automation::Peers::IAutomationPeer::GetPattern
+Microsoft::UI::Xaml::Automation::Peers::IAutomationPeer::{GetPattern, RaiseAutomationEvent, RaiseNotificationEvent}
 Microsoft::UI::Xaml::Automation::Peers::PatternInterface::ExpandCollapse
 Microsoft::UI::Xaml::Automation::Provider::IExpandCollapseProvider::{Collapse, get_ExpandCollapseState}
 Microsoft::UI::Xaml::Controls::AppBarButton::CreateInstance

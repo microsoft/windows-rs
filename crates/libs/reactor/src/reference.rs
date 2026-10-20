@@ -142,6 +142,32 @@ impl<T> ElementRef<T> {
         })
     }
 
+    /// Enqueues a UI Automation notification raised from the currently published element.
+    ///
+    /// Screen readers announce the text without moving focus. Use it to report the result of an
+    /// action, such as "Marked done" after focus has moved to the next row.
+    #[must_use]
+    pub fn request_notification(&self, notification: AutomationNotification) -> bool {
+        self.request_notification_result(notification, |_| {})
+    }
+
+    /// Enqueues a UI Automation notification and reports the native result asynchronously.
+    ///
+    /// Elements without an automation peer, such as `Grid`, report
+    /// [`IntegrationError::Native`].
+    #[must_use]
+    pub fn request_notification_result(
+        &self,
+        notification: AutomationNotification,
+        completion: impl Fn(Result<(), IntegrationError>) + 'static,
+    ) -> bool {
+        self.enqueue(move |object, binding, target| ImperativeRequest::Notify {
+            object,
+            notification,
+            completion: current_completion(target, binding, completion),
+        })
+    }
+
     fn enqueue(
         &self,
         request: impl FnOnce(ObjectId, u64, Weak<RefCell<ReferenceTarget>>) -> ImperativeRequest,
@@ -355,6 +381,72 @@ pub enum CompositionHostEvent {
 pub enum IntegrationError {
     Native(i32),
     Unavailable,
+}
+
+/// The kind of change an [`AutomationNotification`] reports.
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum AutomationNotificationKind {
+    ItemAdded,
+    ItemRemoved,
+    ActionCompleted,
+    ActionAborted,
+    #[default]
+    Other,
+}
+
+/// How a screen reader queues an [`AutomationNotification`] against other announcements.
+///
+/// The `Important` variants may interrupt current speech. The `MostRecent` variants discard
+/// pending notifications with the same activity ID.
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum AutomationNotificationProcessing {
+    ImportantAll,
+    ImportantMostRecent,
+    All,
+    #[default]
+    MostRecent,
+    CurrentThenMostRecent,
+}
+
+/// Text announced by screen readers through [`ElementRef::request_notification`].
+///
+/// The kind defaults to [`AutomationNotificationKind::Other`], processing to
+/// [`AutomationNotificationProcessing::MostRecent`], and the activity ID to an empty string.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AutomationNotification {
+    pub(crate) text: Rc<str>,
+    pub(crate) kind: AutomationNotificationKind,
+    pub(crate) processing: AutomationNotificationProcessing,
+    pub(crate) activity_id: Rc<str>,
+}
+
+impl AutomationNotification {
+    pub fn new(text: impl AsRef<str>) -> Self {
+        Self {
+            text: Rc::from(text.as_ref()),
+            kind: AutomationNotificationKind::default(),
+            processing: AutomationNotificationProcessing::default(),
+            activity_id: Rc::from(""),
+        }
+    }
+
+    pub fn kind(mut self, kind: AutomationNotificationKind) -> Self {
+        self.kind = kind;
+        self
+    }
+
+    pub fn processing(mut self, processing: AutomationNotificationProcessing) -> Self {
+        self.processing = processing;
+        self
+    }
+
+    /// Groups related notifications so `MostRecent` processing can replace earlier ones.
+    pub fn activity_id(mut self, activity_id: impl AsRef<str>) -> Self {
+        self.activity_id = Rc::from(activity_id.as_ref());
+        self
+    }
 }
 
 /// Identifies one binding of an [`ElementRef<SwapChainPanel>`] to a panel.
@@ -630,6 +722,11 @@ pub enum ImperativeRequest {
         object: ObjectId,
         completion: Callback<Result<bool, FocusError>>,
     },
+    Notify {
+        object: ObjectId,
+        notification: AutomationNotification,
+        completion: Callback<Result<(), IntegrationError>>,
+    },
     InitializeWebView2 {
         object: ObjectId,
         completion: Callback<Result<windows_core::IUnknown, IntegrationError>>,
@@ -711,6 +808,7 @@ impl ImperativeRequest {
             }
 
             Self::RequestSwapChainPanelFrame { completion, .. }
+            | Self::Notify { completion, .. }
             | Self::SetSwapChain { completion, .. }
             | Self::SetNativeImageSource { completion, .. }
             | Self::SetCompositionChildVisual { completion, .. } => {

@@ -14,6 +14,7 @@ mod bindings {
     include!(concat!(env!("OUT_DIR"), "\\bindings.rs"));
 }
 
+mod accessibility;
 mod application;
 mod automation;
 mod background;

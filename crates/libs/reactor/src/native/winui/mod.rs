@@ -1633,6 +1633,7 @@ pub struct WinUiAdapter {
     images: HashMap<ImageKey, Weak<NativeImageSource>>,
     released_images: Vec<Rc<NativeImageSource>>,
     owners: HashMap<ObjectId, (ObjectId, RelationId)>,
+    live_regions: HashSet<ObjectId>,
     tree_template: Option<native::DataTemplate>,
     list_template: Option<native::DataTemplate>,
     data_content_key: HSTRING,
@@ -1675,6 +1676,7 @@ impl Default for WinUiAdapter {
             images: HashMap::new(),
             released_images: Vec::new(),
             owners: HashMap::new(),
+            live_regions: HashSet::new(),
             tree_template: None,
             list_template: None,
             data_content_key: HSTRING::from("Content"),
@@ -2217,6 +2219,7 @@ include!("events.rs");
 include!("relations.rs");
 
 include!("adapter.rs");
+include!("automation.rs");
 
 fn relation_contract(
     kind: ObjectType,

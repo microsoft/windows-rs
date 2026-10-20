@@ -614,6 +614,20 @@ unsafe impl Send for AutoSuggestBoxTextChangedEventArgs {}
 unsafe impl Sync for AutoSuggestBoxTextChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AutomationEvents(pub i32);
+impl AutomationEvents {
+    pub const LiveRegionChanged: Self = Self(21);
+}
+impl windows_core::imp::TypeKind for AutomationEvents {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for AutomationEvents {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Automation.Peers.AutomationEvents;i4)",
+    );
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationHeadingLevel(pub i32);
 impl AutomationHeadingLevel {
     pub const None: Self = Self(0);
@@ -636,6 +650,58 @@ impl windows_core::RuntimeType for AutomationHeadingLevel {
     );
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AutomationLiveSetting(pub i32);
+impl AutomationLiveSetting {
+    pub const Off: Self = Self(0);
+    pub const Polite: Self = Self(1);
+    pub const Assertive: Self = Self(2);
+}
+impl windows_core::imp::TypeKind for AutomationLiveSetting {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for AutomationLiveSetting {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Automation.Peers.AutomationLiveSetting;i4)",
+    );
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AutomationNotificationKind(pub i32);
+impl AutomationNotificationKind {
+    pub const ItemAdded: Self = Self(0);
+    pub const ItemRemoved: Self = Self(1);
+    pub const ActionCompleted: Self = Self(2);
+    pub const ActionAborted: Self = Self(3);
+    pub const Other: Self = Self(4);
+}
+impl windows_core::imp::TypeKind for AutomationNotificationKind {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for AutomationNotificationKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Automation.Peers.AutomationNotificationKind;i4)",
+    );
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AutomationNotificationProcessing(pub i32);
+impl AutomationNotificationProcessing {
+    pub const ImportantAll: Self = Self(0);
+    pub const ImportantMostRecent: Self = Self(1);
+    pub const All: Self = Self(2);
+    pub const MostRecent: Self = Self(3);
+    pub const CurrentThenMostRecent: Self = Self(4);
+}
+impl windows_core::imp::TypeKind for AutomationNotificationProcessing {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for AutomationNotificationProcessing {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Automation.Peers.AutomationNotificationProcessing;i4)",
+    );
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AutomationPeer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
@@ -644,6 +710,26 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(AutomationPeer, DependencyObject);
+impl AutomationPeer {
+    pub(crate) fn ListenerExists(eventid: AutomationEvents) -> windows_core::Result<bool> {
+        Self::IAutomationPeerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ListenerExists)(
+                windows_core::Interface::as_raw(this),
+                eventid,
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    fn IAutomationPeerStatics<R, F: FnOnce(&IAutomationPeerStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<AutomationPeer, IAutomationPeerStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeType for AutomationPeer {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IAutomationPeer>();
@@ -685,12 +771,64 @@ impl AutomationProperties {
             .ok()
         })
     }
+    pub(crate) fn SetHelpText<P0>(element: P0, value: &str) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<DependencyObject>,
+    {
+        Self::IAutomationPropertiesStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetHelpText)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
+            )
+            .ok()
+        })
+    }
     pub(crate) fn SetName<P0>(element: P0, value: &str) -> windows_core::Result<()>
     where
         P0: windows_core::Param<DependencyObject>,
     {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             (windows_core::Interface::vtable(this).SetName)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn LiveSettingProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IAutomationPropertiesStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LiveSettingProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn SetLiveSetting<P0>(
+        element: P0,
+        value: AutomationLiveSetting,
+    ) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<DependencyObject>,
+    {
+        Self::IAutomationPropertiesStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetLiveSetting)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn SetFullDescription<P0>(element: P0, value: &str) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<DependencyObject>,
+    {
+        Self::IAutomationPropertiesStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetFullDescription)(
                 windows_core::Interface::as_raw(this),
                 element.param().abi(),
                 core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
@@ -6100,6 +6238,36 @@ impl IAutomationPeer {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    pub(crate) fn RaiseAutomationEvent(
+        &self,
+        eventid: AutomationEvents,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).RaiseAutomationEvent)(
+                windows_core::Interface::as_raw(self),
+                eventid,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn RaiseNotificationEvent(
+        &self,
+        notificationkind: AutomationNotificationKind,
+        notificationprocessing: AutomationNotificationProcessing,
+        displaystring: &str,
+        activityid: &str,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).RaiseNotificationEvent)(
+                windows_core::Interface::as_raw(self),
+                notificationkind,
+                notificationprocessing,
+                core::mem::transmute_copy(&windows_core::HSTRING::from(displaystring)),
+                core::mem::transmute_copy(&windows_core::HSTRING::from(activityid)),
+            )
+            .ok()
+        }
+    }
 }
 #[repr(C)]
 pub struct IAutomationPeer_Vtbl {
@@ -6110,6 +6278,82 @@ pub struct IAutomationPeer_Vtbl {
         *mut core::ffi::c_void,
         PatternInterface,
         *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub RaiseAutomationEvent: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        AutomationEvents,
+    ) -> windows_core::HRESULT,
+    RaisePropertyChangedEvent: usize,
+    GetAcceleratorKey: usize,
+    GetAccessKey: usize,
+    GetAutomationControlType: usize,
+    GetAutomationId: usize,
+    GetBoundingRectangle: usize,
+    GetChildren: usize,
+    Navigate: usize,
+    GetClassName: usize,
+    GetClickablePoint: usize,
+    GetHelpText: usize,
+    GetItemStatus: usize,
+    GetItemType: usize,
+    GetLabeledBy: usize,
+    GetLocalizedControlType: usize,
+    GetName: usize,
+    GetOrientation: usize,
+    HasKeyboardFocus: usize,
+    IsContentElement: usize,
+    IsControlElement: usize,
+    IsEnabled: usize,
+    IsKeyboardFocusable: usize,
+    IsOffscreen: usize,
+    IsPassword: usize,
+    IsRequiredForForm: usize,
+    SetFocus: usize,
+    GetParent: usize,
+    InvalidatePeer: usize,
+    GetPeerFromPoint: usize,
+    GetElementFromPoint: usize,
+    GetFocusedElement: usize,
+    GetLiveSetting: usize,
+    ShowContextMenu: usize,
+    GetControlledPeers: usize,
+    GetAnnotations: usize,
+    SetParent: usize,
+    RaiseTextEditTextChangedEvent: usize,
+    GetPositionInSet: usize,
+    GetSizeOfSet: usize,
+    GetLevel: usize,
+    RaiseStructureChangedEvent: usize,
+    GetLandmarkType: usize,
+    GetLocalizedLandmarkType: usize,
+    IsPeripheral: usize,
+    IsDataValidForForm: usize,
+    GetFullDescription: usize,
+    GetCulture: usize,
+    pub RaiseNotificationEvent: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        AutomationNotificationKind,
+        AutomationNotificationProcessing,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IAutomationPeerStatics,
+    IAutomationPeerStatics_Vtbl,
+    0x90b157ff_18d5_5623_850c_612ceae576bd
+);
+impl windows_core::RuntimeType for IAutomationPeerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IAutomationPeerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ListenerExists: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        AutomationEvents,
+        *mut bool,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -6152,7 +6396,11 @@ pub struct IAutomationPropertiesStatics_Vtbl {
     ) -> windows_core::HRESULT,
     HelpTextProperty: usize,
     GetHelpText: usize,
-    SetHelpText: usize,
+    pub SetHelpText: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     IsRequiredForFormProperty: usize,
     GetIsRequiredForForm: usize,
     SetIsRequiredForForm: usize,
@@ -6172,9 +6420,16 @@ pub struct IAutomationPropertiesStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    LiveSettingProperty: usize,
+    pub LiveSettingProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     GetLiveSetting: usize,
-    SetLiveSetting: usize,
+    pub SetLiveSetting: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        AutomationLiveSetting,
+    ) -> windows_core::HRESULT,
     AccessibilityViewProperty: usize,
     GetAccessibilityView: usize,
     SetAccessibilityView: usize,
@@ -6205,7 +6460,11 @@ pub struct IAutomationPropertiesStatics_Vtbl {
     SetIsDataValidForForm: usize,
     FullDescriptionProperty: usize,
     GetFullDescription: usize,
-    SetFullDescription: usize,
+    pub SetFullDescription: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     LocalizedControlTypeProperty: usize,
     GetLocalizedControlType: usize,
     SetLocalizedControlType: usize,
