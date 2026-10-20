@@ -1,0 +1,31 @@
+use Windows::Foundation::*;
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Threading {
+    delegate fn Handler(value: i32);
+
+    #[Activatable(1)]
+    #[MarshalingBehavior(Agile)]
+    class Widget {
+        IWidget,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // The OS thread that the call runs on. An agile object is called directly from any thread
+        // and apartment, so this is always the caller's thread.
+        fn CurrentThread(&self) -> u32;
+
+        // Atomically adds one to `Count` and returns the new count.
+        fn Increment(&self) -> i32;
+
+        #[get]
+        Count: i32;
+
+        // Calls `handler` with `value` on a thread pool thread. The action completes when the
+        // handler returns and fails with the handler's error. Fails with `E_FAIL` if `handler` is
+        // not agile.
+        fn InvokeOnBackground(&self, handler: Handler, value: i32) -> IAsyncAction;
+    }
+}
