@@ -2,8 +2,14 @@ use super::*;
 use core::marker::PhantomData;
 
 /// `Weak` holds a non-owning reference to an object.
-#[derive(Clone, PartialEq, Eq, Default)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct Weak<I: Interface>(Option<imp::IWeakReference>, PhantomData<I>);
+
+impl<I: Interface> Default for Weak<I> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
 
 impl<I: Interface> Weak<I> {
     /// Creates a new `Weak` object without any backing object.
