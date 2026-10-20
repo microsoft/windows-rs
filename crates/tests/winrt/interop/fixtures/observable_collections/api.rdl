@@ -1,0 +1,20 @@
+#[winrt]
+mod ObservableCollections {
+    #[Windows::Foundation::Metadata::Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    // Each client applies the same changes to the component's collections that the component
+    // applies to the client's, and checks the events they raise.
+    #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    interface IWidget {
+        // Returns a new empty collection.
+        fn Numbers(&self) -> Windows::Foundation::Collections::IObservableVector<i32>;
+        fn Names(&self) -> Windows::Foundation::Collections::IObservableMap<String, i32>;
+
+        // Changes an empty collection created by the client.
+        fn ChangeNumbers(&self, numbers: Windows::Foundation::Collections::IObservableVector<i32>);
+        fn ChangeNames(&self, names: Windows::Foundation::Collections::IObservableMap<String, i32>);
+    }
+}
