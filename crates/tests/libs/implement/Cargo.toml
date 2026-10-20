@@ -6,16 +6,15 @@ publish = false
 
 [lib]
 doc = false
-doctest = false
 
 [dev-dependencies.windows]
 workspace = true
 default-features = true
 features = [
-    "ApplicationModel_Activation",
-    "ApplicationModel_Background",
+    "Foundation",
     "Foundation_Collections",
     "Storage_Streams",
+    "combaseapi",
     "minwindef",
     "objidl",
     "oaidl",
@@ -38,13 +37,16 @@ features = [
     "wtypesbase",
 ]
 
-[dependencies.windows-core]
+[dev-dependencies.windows-core]
 workspace = true
 
-[dependencies.windows-collections]
+[dev-dependencies.windows-collections]
 workspace = true
 
-[dependencies.windows-future]
+[dev-dependencies.windows-future]
+workspace = true
+
+[dev-dependencies.windows-implement]
 workspace = true
 
 [lints]

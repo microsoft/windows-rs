@@ -10,6 +10,7 @@ doctest = false
 
 [dev-dependencies.windows-registry]
 workspace = true
+features = ["std"]
 
 [dependencies.windows-result]
 workspace = true

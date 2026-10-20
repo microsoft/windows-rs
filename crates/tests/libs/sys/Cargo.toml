@@ -6,22 +6,40 @@ publish = false
 
 [lib]
 doc = false
-doctest = false
 
 [dev-dependencies.windows-sys]
 workspace = true
 features = [
+    "basetsd",
     "bcrypt",
+    "commctrl",
+    "d3d12",
+    "errhandlingapi",
     "handleapi",
+    "lsalookup",
     "minwinbase",
     "minwindef",
+    "ntenclv",
+    "ntsecapi",
     "ntstatus",
+    "objidlbase",
+    "processthreadsapi",
+    "psapi",
+    "securitybaseapi",
     "synchapi",
+    "sysinfoapi",
+    "wdm",
     "windef",
     "winerror",
+    "wingdi",
+    "winldap",
     "winnt",
+    "winspool",
     "winuser",
 ]
+
+[dev-dependencies.windows-link]
+workspace = true
 
 [lints]
 workspace = true

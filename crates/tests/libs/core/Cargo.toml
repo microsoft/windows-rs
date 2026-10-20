@@ -20,6 +20,7 @@ features = [
     "oleauto",
     "ro",
     "winerror",
+    "weakreference",
 ]
 
 [dependencies.windows-core]

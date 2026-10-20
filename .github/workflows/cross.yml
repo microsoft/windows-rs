@@ -92,7 +92,7 @@ jobs:
         shell: pwsh
         if: contains(matrix.target, 'gnullvm') || endsWith(matrix.target, 'gnu')
         run: |
-          cargo test --no-run --target ${{ matrix.target }} -p test_win32
-          if (-Not (Resolve-Path "target/*/debug/deps/test_win32-*.exe" | Test-Path)) {
-            throw "Failed to find test_win32 executable."
+          cargo test --no-run --target ${{ matrix.target }} -p test_windows
+          if (-Not (Resolve-Path "target/*/debug/deps/test_windows-*.exe" | Test-Path)) {
+            throw "Failed to find test_windows executable."
           }
