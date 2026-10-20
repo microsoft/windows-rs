@@ -35,9 +35,8 @@ impl WinUiAdapter {
                     initializing.insert(*object);
                 }
                 Mutation::SetProperties { object, set, clear } => {
-                    let initial = initializing.remove(object);
-                    self.record_live_regions(&mut live_regions, *object, set, clear, initial);
-                    self.set_properties(*object, set, clear, initial)?;
+                    self.record_live_regions(&mut live_regions, *object, set, clear);
+                    self.set_properties(*object, set, clear, initializing.remove(object))?;
                 }
                 Mutation::SetEvents { object, set, clear } => {
                     self.set_events(*object, set, clear)?;
