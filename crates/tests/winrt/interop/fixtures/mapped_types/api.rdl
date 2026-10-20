@@ -1,0 +1,34 @@
+use Windows::Foundation::*;
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod MappedTypes {
+    // C# projects these Windows.Foundation types as .NET types: `DateTime` as `DateTimeOffset`,
+    // `TimeSpan` as `TimeSpan`, `Uri` as `System.Uri`, `IClosable` as `IDisposable`, and
+    // `IStringable` as `ToString`.
+    #[Activatable(1)]
+    #[Static(IWidgetStatics, 1)]
+    class Widget {
+        IWidget,
+        IClosable,
+        IStringable,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // The 100-nanosecond intervals since 1601-01-01 UTC, and since `TimeSpan` zero.
+        fn Ticks(&self, time: DateTime) -> i64;
+        fn Duration(&self, span: TimeSpan) -> i64;
+        fn Add(&self, time: DateTime, span: TimeSpan) -> DateTime;
+
+        fn Host(&self, uri: Uri) -> String;
+        fn CreateUri(&self, value: String) -> Uri;
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidgetStatics {
+        // The number of times `Close` was called on any widget.
+        #[get]
+        Closed: i32;
+    }
+}

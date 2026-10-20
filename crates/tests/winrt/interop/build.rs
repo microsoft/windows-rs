@@ -29,7 +29,10 @@ fn main() {
         .input_default()
         .output(out.join("bindings.rs"))
         .filter("Windows.Foundation.EventHandler")
+        .filter("Windows.Foundation.IClosable")
+        .filter("Windows.Foundation.IStringable")
         .filter("Windows.Foundation.TypedEventHandler")
+        .filter("Windows.Foundation.Uri")
         .implement_all();
 
     // The Win32 APIs that the component and the Rust consumer use.
