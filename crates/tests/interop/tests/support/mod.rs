@@ -89,7 +89,7 @@ impl Fixture {
 /// The Windows metadata that fixture metadata references.
 pub const WINDOWS_WINMD: &str = concat!(
     env!("CARGO_MANIFEST_DIR"),
-    "/../../../libs/default/Windows.winmd"
+    "/../../libs/default/Windows.winmd"
 );
 
 /// Returns the C++ compiler for the target, with the options and include paths shared by C++
@@ -136,7 +136,7 @@ fn component() -> &'static Path {
         target_dir
             .join(env!("TARGET"))
             .join("debug")
-            .join("test_winrt_interop.dll")
+            .join("test_interop.dll")
     })
 }
 

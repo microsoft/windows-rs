@@ -1,4 +1,4 @@
-# test_winrt_interop
+# test_interop
 
 Checks that metadata produced by `windows-rdl` works across languages: each fixture API is
 implemented by a Rust or C++/WinRT component and called from C++/WinRT, C#/WinRT, and windows-rs
@@ -115,10 +115,10 @@ use. The first build compiles the dependencies; later runs are up-to-date checks
 ## Running
 
 ```sh
-cargo test -p test_winrt_interop
-cargo test -p test_winrt_interop --test cppwinrt
-cargo test -p test_winrt_interop --test cswinrt event_generic
-cargo test -p test_winrt_interop --test rust
+cargo test -p test_interop
+cargo test -p test_interop --test cppwinrt
+cargo test -p test_interop --test cswinrt event_generic
+cargo test -p test_interop --test rust
 ```
 
 The C++ tests need the MSVC toolset. The C# tests need the .NET 10 SDK, a .NET 10 runtime for the

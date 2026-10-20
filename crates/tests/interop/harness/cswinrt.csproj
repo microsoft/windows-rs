@@ -10,7 +10,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <CsWinRTIncludes>$(FixtureNamespace)</CsWinRTIncludes>
-    <CsWinRTWindowsMetadata>$(MSBuildThisFileDirectory)../../../../libs/default/Windows.winmd</CsWinRTWindowsMetadata>
+    <CsWinRTWindowsMetadata>$(MSBuildThisFileDirectory)../../../libs/default/Windows.winmd</CsWinRTWindowsMetadata>
   </PropertyGroup>
   <PropertyGroup Condition="'$(FixtureComponent)' != ''">
     <OutputType>Exe</OutputType>

@@ -1,7 +1,7 @@
 use windows_metadata::reader::*;
 
 // Generic references must resolve through the referenced assembly like non-generic ones. The
-// CsWinRT side of this (#5140) is covered by `test_winrt_interop`.
+// CsWinRT side of this (#5140) is covered by `test_interop`.
 #[test]
 fn generic_type_refs_use_assembly_scope() {
     let winmd = std::path::Path::new(env!("OUT_DIR")).join("generic_references.winmd");
