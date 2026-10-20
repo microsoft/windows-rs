@@ -92,7 +92,9 @@ features = [
 [dev-dependencies]
 helpers = { workspace = true }
 windows-collections = { workspace = true }
+windows-core = { workspace = true }
 windows-future = { workspace = true }
+windows-numerics = { workspace = true }
 windows-reference = { workspace = true }
 
 [lints]
