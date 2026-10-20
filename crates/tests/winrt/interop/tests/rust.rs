@@ -37,7 +37,7 @@ fn run(name: &str, namespace: &str) {
     let fixture = Fixture::new("rust", name);
     let component = fixture
         .component()
-        .unwrap_or_else(|| panic!("fixture `{name}` has a `client.rs` but no `component.rs`"));
+        .unwrap_or_else(|| panic!("fixture `{name}` has a `client.rs` but no component"));
 
     // windows-core loads `<namespace>.dll` for an unregistered class, searching the default
     // directories, which include those added with `AddDllDirectory`.

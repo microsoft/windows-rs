@@ -8,6 +8,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class ContactDataProviderConnection {
                     IContactDataProviderConnection,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     IContactDataProviderConnection2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]

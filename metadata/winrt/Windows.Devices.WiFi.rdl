@@ -155,6 +155,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IWiFiAdapterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class WiFiAdapter {
                 IWiFiAdapter,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IWiFiAdapter2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

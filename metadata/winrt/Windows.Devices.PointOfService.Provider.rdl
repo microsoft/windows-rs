@@ -7,6 +7,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class BarcodeScannerDisableScannerRequest {
                     IBarcodeScannerDisableScannerRequest,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     IBarcodeScannerDisableScannerRequest2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -18,6 +19,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class BarcodeScannerEnableScannerRequest {
                     IBarcodeScannerEnableScannerRequest,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     IBarcodeScannerEnableScannerRequest2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -40,6 +42,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class BarcodeScannerGetSymbologyAttributesRequest {
                     IBarcodeScannerGetSymbologyAttributesRequest,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     IBarcodeScannerGetSymbologyAttributesRequest2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -51,6 +54,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class BarcodeScannerHideVideoPreviewRequest {
                     IBarcodeScannerHideVideoPreviewRequest,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     IBarcodeScannerHideVideoPreviewRequest2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -62,6 +66,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class BarcodeScannerProviderConnection {
                     IBarcodeScannerProviderConnection,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     IBarcodeScannerProviderConnection2,
                     super::super::super::Foundation::IClosable,
                 }
@@ -74,6 +79,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class BarcodeScannerSetActiveSymbologiesRequest {
                     IBarcodeScannerSetActiveSymbologiesRequest,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     IBarcodeScannerSetActiveSymbologiesRequest2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -85,6 +91,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class BarcodeScannerSetSymbologyAttributesRequest {
                     IBarcodeScannerSetSymbologyAttributesRequest,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     IBarcodeScannerSetSymbologyAttributesRequest2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -96,6 +103,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class BarcodeScannerStartSoftwareTriggerRequest {
                     IBarcodeScannerStartSoftwareTriggerRequest,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     IBarcodeScannerStartSoftwareTriggerRequest2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -107,6 +115,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class BarcodeScannerStopSoftwareTriggerRequest {
                     IBarcodeScannerStopSoftwareTriggerRequest,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     IBarcodeScannerStopSoftwareTriggerRequest2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]

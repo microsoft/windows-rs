@@ -70,7 +70,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisementPublisher {
                     IBluetoothLEAdvertisementPublisher,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                     IBluetoothLEAdvertisementPublisher2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     IBluetoothLEAdvertisementPublisher3,
                 }
                 #[repr(i32)]
@@ -89,6 +91,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
                     IBluetoothLEAdvertisementPublisherStatusChangedEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                     IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -97,7 +100,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisementReceivedEventArgs {
                     IBluetoothLEAdvertisementReceivedEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                     IBluetoothLEAdvertisementReceivedEventArgs2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     IBluetoothLEAdvertisementReceivedEventArgs3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
@@ -126,7 +131,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisementWatcher {
                     IBluetoothLEAdvertisementWatcher,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                     IBluetoothLEAdvertisementWatcher2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     IBluetoothLEAdvertisementWatcher3,
                 }
                 #[repr(i32)]

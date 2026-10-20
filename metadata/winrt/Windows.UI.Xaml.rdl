@@ -21,9 +21,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class Application {
                 IApplication,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IApplication2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IApplication3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                #[Windows::Foundation::Metadata::Overridable]
                 IApplicationOverrides,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
+                #[Windows::Foundation::Metadata::Overridable]
                 IApplicationOverrides2,
             }
             #[repr(u32)]
@@ -120,6 +126,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class BringIntoViewOptions {
                 IBringIntoViewOptions,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IBringIntoViewOptions2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -182,6 +189,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class DataTemplate: FrameworkTemplate {
                 IDataTemplate,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IElementFactory,
             }
             #[unsealed]
@@ -198,8 +206,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class DebugSettings {
                 IDebugSettings,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IDebugSettings2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IDebugSettings3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IDebugSettings4,
             }
             #[unsealed]
@@ -210,6 +221,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class DependencyObject {
                 IDependencyObject,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IDependencyObject2,
             }
             #[unsealed]
@@ -260,7 +272,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class DragEventArgs: RoutedEventArgs {
                 IDragEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IDragEventArgs2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IDragEventArgs3,
             }
             #[guid(0x2ab1a205_1e73_4bcf_aabc_57b97e21961d)]
@@ -279,6 +293,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class DragStartingEventArgs: RoutedEventArgs {
                 IDragStartingEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IDragStartingEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -544,13 +559,24 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class FrameworkElement: UIElement {
                 IFrameworkElement,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IFrameworkElement2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IFrameworkElement3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IFrameworkElement4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IFrameworkElement6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IFrameworkElement7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
+                #[Windows::Foundation::Metadata::Protected]
                 IFrameworkElementProtected7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                #[Windows::Foundation::Metadata::Overridable]
                 IFrameworkElementOverrides,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                #[Windows::Foundation::Metadata::Overridable]
                 IFrameworkElementOverrides2,
             }
             #[unsealed]
@@ -570,6 +596,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class FrameworkView {
                 IFrameworkView,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::super::ApplicationModel::Core::IFrameworkView,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -579,6 +606,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class FrameworkViewSource {
                 IFrameworkViewSource,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::super::ApplicationModel::Core::IFrameworkViewSource,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -2489,7 +2517,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class ResourceDictionary: DependencyObject {
                 IResourceDictionary,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::super::Foundation::Collections::IMap<Object, Object>,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<Object, Object>>,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -2528,6 +2558,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class Setter: SetterBase {
                 ISetter,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ISetter2,
             }
             #[unsealed]
@@ -2546,7 +2577,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class SetterBaseCollection {
                 ISetterBaseCollection,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::super::Foundation::Collections::IVector<SetterBase>,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::super::Foundation::Collections::IIterable<SetterBase>,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -2585,6 +2618,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class StateTriggerBase: DependencyObject {
                 IStateTriggerBase,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                #[Windows::Foundation::Metadata::Protected]
                 IStateTriggerBaseProtected,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -2754,19 +2789,37 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class UIElement: DependencyObject {
                 IUIElement,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IUIElement2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IUIElement3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IUIElement4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IUIElement5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IUIElement7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IUIElement8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IUIElement9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IUIElement10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                #[Windows::Foundation::Metadata::Overridable]
                 IUIElementOverrides,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
+                #[Windows::Foundation::Metadata::Overridable]
                 IUIElementOverrides7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
+                #[Windows::Foundation::Metadata::Overridable]
                 IUIElementOverrides8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
+                #[Windows::Foundation::Metadata::Overridable]
                 IUIElementOverrides9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 super::Composition::IAnimationObject,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 super::Composition::IVisualElement,
             }
             #[unsealed]
@@ -2777,7 +2830,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class UIElementWeakCollection {
                 IUIElementWeakCollection,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 super::super::Foundation::Collections::IVector<UIElement>,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 super::super::Foundation::Collections::IIterable<UIElement>,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -2832,6 +2887,7 @@ mod Windows {
             #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Storyboard")]
             class VisualState: DependencyObject {
                 IVisualState,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IVisualState2,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -2864,7 +2920,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class VisualStateManager: DependencyObject {
                 IVisualStateManager,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                #[Windows::Foundation::Metadata::Protected]
                 IVisualStateManagerProtected,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                #[Windows::Foundation::Metadata::Overridable]
                 IVisualStateManagerOverrides,
             }
             #[unsealed]
@@ -2884,8 +2944,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class Window {
                 IWindow,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IWindow2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IWindow3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IWindow4,
             }
             #[guid(0x18026348_8619_4c7b_b534_ced45d9de219)]

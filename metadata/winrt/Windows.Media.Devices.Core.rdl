@@ -10,6 +10,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class CameraIntrinsics {
                     ICameraIntrinsics,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     ICameraIntrinsics2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -26,6 +27,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(MTA)]
                 class FrameControlCapabilities {
                     IFrameControlCapabilities,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IFrameControlCapabilities2,
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -35,6 +37,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class FrameController {
                     IFrameController,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IFrameController2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

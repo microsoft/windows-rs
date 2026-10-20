@@ -32,6 +32,7 @@ mod Windows {
             class AudioDeviceController {
                 IAudioDeviceController,
                 IMediaDeviceController,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IAudioDeviceController2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -217,6 +218,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class FlashControl {
                 IFlashControl,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IFlashControl2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -225,6 +227,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class FocusControl {
                 IFocusControl,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IFocusControl2,
             }
             #[repr(i32)]
@@ -1063,6 +1066,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class IsoSpeedControl {
                 IIsoSpeedControl,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IIsoSpeedControl2,
             }
             #[repr(i32)]
@@ -1206,6 +1210,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class RegionOfInterest {
                 IRegionOfInterest,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IRegionOfInterest2,
             }
             #[repr(i32)]
@@ -1269,15 +1274,25 @@ mod Windows {
                 IVideoDeviceController,
                 IMediaDeviceController,
                 IAdvancedVideoCaptureDeviceController,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IAdvancedVideoCaptureDeviceController2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IAdvancedVideoCaptureDeviceController3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IAdvancedVideoCaptureDeviceController4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IAdvancedVideoCaptureDeviceController5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IAdvancedVideoCaptureDeviceController6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IAdvancedVideoCaptureDeviceController7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IAdvancedVideoCaptureDeviceController8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 IAdvancedVideoCaptureDeviceController9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                 IAdvancedVideoCaptureDeviceController10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 983040)]
                 IAdvancedVideoCaptureDeviceController11,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -1334,6 +1349,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class ZoomControl {
                 IZoomControl,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IZoomControl2,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]

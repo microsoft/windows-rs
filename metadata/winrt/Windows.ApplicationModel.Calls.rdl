@@ -25,6 +25,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CallAnswerEventArgs {
                 ICallAnswerEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsVoipContract", 327680)]
                 ICallAnswerEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(CallsVoipContract, 65536)]
@@ -973,7 +974,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PhoneLine {
                 IPhoneLine,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsPhoneContract", 327680)]
                 IPhoneLine2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsPhoneContract", 393216)]
                 IPhoneLine3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(CallsPhoneContract, 65536)]
@@ -1023,6 +1026,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PhoneLineTransportDevice {
                 IPhoneLineTransportDevice,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsPhoneContract", 393216)]
                 IPhoneLineTransportDevice2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(CallsPhoneContract, 65536)]
@@ -1103,9 +1107,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class VoipCallCoordinator {
                 IVoipCallCoordinator,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsVoipContract", 131072)]
                 IVoipCallCoordinator2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsVoipContract", 196608)]
                 IVoipCallCoordinator3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsVoipContract", 262144)]
                 IVoipCallCoordinator4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsVoipContract", 327680)]
                 IVoipCallCoordinator5,
             }
             #[Windows::Foundation::Metadata::ContractVersion(CallsVoipContract, 65536)]
@@ -1113,8 +1121,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class VoipPhoneCall {
                 IVoipPhoneCall,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsVoipContract", 131072)]
                 IVoipPhoneCall2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsVoipContract", 196608)]
                 IVoipPhoneCall3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsVoipContract", 327680)]
                 IVoipPhoneCall4,
             }
             #[repr(u32)]

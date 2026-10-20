@@ -26,6 +26,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class AppBarTemplateSettings: super::super::DependencyObject {
                         IAppBarTemplateSettings,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                         IAppBarTemplateSettings2,
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -68,6 +69,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class CarouselPanel: super::VirtualizingPanel {
                         ICarouselPanel,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         IScrollSnapPointsInfo,
                     }
                     #[unsealed]
@@ -96,6 +98,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class ComboBoxTemplateSettings: super::super::DependencyObject {
                         IComboBoxTemplateSettings,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         IComboBoxTemplateSettings2,
                     }
                     #[unsealed]
@@ -120,8 +123,11 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class CommandBarTemplateSettings: super::super::DependencyObject {
                         ICommandBarTemplateSettings,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         ICommandBarTemplateSettings2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         ICommandBarTemplateSettings3,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                         ICommandBarTemplateSettings4,
                     }
                     #[repr(i32)]
@@ -192,12 +198,21 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class FlyoutBase: super::super::DependencyObject {
                         IFlyoutBase,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         IFlyoutBase2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                         IFlyoutBase3,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                         IFlyoutBase4,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         IFlyoutBase5,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                         IFlyoutBase6,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                        #[Windows::Foundation::Metadata::Overridable]
                         IFlyoutBaseOverrides,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
+                        #[Windows::Foundation::Metadata::Overridable]
                         IFlyoutBaseOverrides4,
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -1929,6 +1944,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class JumpListItemBackgroundConverter: super::super::DependencyObject {
                         IJumpListItemBackgroundConverter,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         super::super::Data::IValueConverter,
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -1939,6 +1955,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class JumpListItemForegroundConverter: super::super::DependencyObject {
                         IJumpListItemForegroundConverter,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         super::super::Data::IValueConverter,
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1962,8 +1979,11 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class ListViewItemPresenter: super::ContentPresenter {
                         IListViewItemPresenter,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         IListViewItemPresenter2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                         IListViewItemPresenter3,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                         IListViewItemPresenter4,
                     }
                     #[repr(i32)]
@@ -2008,6 +2028,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class LoopingSelectorPanel: super::Canvas {
                         ILoopingSelectorPanel,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         IScrollSnapPointsInfo,
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -2042,7 +2063,9 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class OrientedVirtualizingPanel: super::VirtualizingPanel {
                         IOrientedVirtualizingPanel,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         IScrollSnapPointsInfo,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         super::IInsertionPanel,
                     }
                     #[unsealed]
@@ -2054,6 +2077,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class PickerFlyoutBase: FlyoutBase {
                         IPickerFlyoutBase,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                        #[Windows::Foundation::Metadata::Overridable]
                         IPickerFlyoutBaseOverrides,
                     }
                     #[unsealed]
@@ -2080,6 +2105,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class PivotPanel: super::Panel {
                         IPivotPanel,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         IScrollSnapPointsInfo,
                     }
                     #[repr(i32)]
@@ -2104,8 +2130,11 @@ mod Windows {
                     #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Child")]
                     class Popup: super::super::FrameworkElement {
                         IPopup,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         IPopup2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                         IPopup3,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 917504)]
                         IPopup4,
                     }
                     #[repr(i32)]
@@ -2149,6 +2178,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class RangeBase: super::Control {
                         IRangeBase,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                        #[Windows::Foundation::Metadata::Overridable]
                         IRangeBaseOverrides,
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -2300,6 +2331,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class ToggleButton: ButtonBase {
                         IToggleButton,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                        #[Windows::Foundation::Metadata::Overridable]
                         IToggleButtonOverrides,
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]

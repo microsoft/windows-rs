@@ -10,6 +10,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class CustomSensor {
                     ICustomSensor,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     ICustomSensor2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -18,6 +19,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class CustomSensorReading {
                     ICustomSensorReading,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     ICustomSensorReading2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

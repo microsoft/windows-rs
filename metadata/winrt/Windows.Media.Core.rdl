@@ -25,8 +25,11 @@ mod Windows {
             class AudioStreamDescriptor {
                 IAudioStreamDescriptor,
                 IMediaStreamDescriptor,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAudioStreamDescriptor2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IMediaStreamDescriptor2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IAudioStreamDescriptor3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -35,6 +38,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AudioTrack {
                 IMediaTrack,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAudioTrack,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -101,6 +105,7 @@ mod Windows {
             class DataCue {
                 IDataCue,
                 IMediaCue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IDataCue2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1351,7 +1356,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaBindingEventArgs {
                 IMediaBindingEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMediaBindingEventArgs2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IMediaBindingEventArgs3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1381,8 +1388,11 @@ mod Windows {
                 IMediaSource2,
                 super::super::Foundation::IClosable,
                 super::Playback::IMediaPlaybackSource,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IMediaSource3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMediaSource4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IMediaSource5,
             }
             #[Windows::Foundation::Metadata::Activatable(IMediaSourceAppServiceConnectionFactory, 327680, "Windows.Foundation.UniversalApiContract")]
@@ -1434,6 +1444,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaStreamSample {
                 IMediaStreamSample,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IMediaStreamSample2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1459,8 +1470,11 @@ mod Windows {
             class MediaStreamSource {
                 IMediaStreamSource,
                 IMediaSource,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IMediaStreamSource2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMediaStreamSource3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IMediaStreamSource4,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1627,6 +1641,7 @@ mod Windows {
             class MseStreamSource {
                 IMseStreamSource,
                 IMediaSource,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IMseStreamSource2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1658,6 +1673,7 @@ mod Windows {
                 ISceneAnalysisEffectFrame,
                 super::IMediaFrame,
                 super::super::Foundation::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 ISceneAnalysisEffectFrame2,
             }
             #[repr(i32)]
@@ -1712,6 +1728,7 @@ mod Windows {
             class TimedMetadataTrack {
                 ITimedMetadataTrack,
                 IMediaTrack,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ITimedMetadataTrack2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1899,7 +1916,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TimedTextStyle {
                 ITimedTextStyle,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 ITimedTextStyle2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 ITimedTextStyle3,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -1977,7 +1996,9 @@ mod Windows {
             class VideoStreamDescriptor {
                 IVideoStreamDescriptor,
                 IMediaStreamDescriptor,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IMediaStreamDescriptor2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IVideoStreamDescriptor2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1986,6 +2007,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class VideoTrack {
                 IMediaTrack,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IVideoTrack,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]

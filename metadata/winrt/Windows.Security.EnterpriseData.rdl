@@ -49,6 +49,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class FileProtectionInfo {
                 IFileProtectionInfo,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 327680)]
                 IFileProtectionInfo2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
@@ -496,6 +497,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ProtectionPolicyManager {
                 IProtectionPolicyManager,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 196608)]
                 IProtectionPolicyManager2,
             }
             #[repr(i32)]

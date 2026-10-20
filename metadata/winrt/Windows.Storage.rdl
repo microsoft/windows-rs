@@ -16,8 +16,11 @@ mod Windows {
         #[Windows::Foundation::Metadata::Threading(MTA)]
         class ApplicationData {
             IApplicationData,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             IApplicationData2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             IApplicationData3,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
             super::Foundation::IClosable,
         }
         #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -36,6 +39,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class ApplicationDataContainer {
             IApplicationDataContainer,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
             super::Foundation::IClosable,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -1062,10 +1066,15 @@ mod Windows {
             Streams::IRandomAccessStreamReference,
             IStorageItem,
             IStorageItemProperties,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             IStorageItemProperties2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             IStorageItem2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             IStorageItemPropertiesWithProvider,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             IStorageFilePropertiesWithAvailability,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             IStorageFile2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -1076,10 +1085,15 @@ mod Windows {
             IStorageItem,
             Search::IStorageFolderQueryOperations,
             IStorageItemProperties,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             IStorageItemProperties2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             IStorageItem2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             IStorageFolder2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             IStorageItemPropertiesWithProvider,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
             IStorageFolder3,
         }
         #[repr(u32)]
@@ -1095,7 +1109,9 @@ mod Windows {
         #[Windows::Foundation::Metadata::Static(IStorageLibraryStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
         class StorageLibrary {
             IStorageLibrary,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
             IStorageLibrary2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
             IStorageLibrary3,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
@@ -1109,6 +1125,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::Threading(Both)]
         class StorageLibraryChangeReader {
             IStorageLibraryChangeReader,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
             IStorageLibraryChangeReader2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
@@ -1116,6 +1133,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::Threading(Both)]
         class StorageLibraryChangeTracker {
             IStorageLibraryChangeTracker,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
             IStorageLibraryChangeTracker2,
         }
         #[Windows::Foundation::Metadata::Activatable(720896, "Windows.Foundation.UniversalApiContract")]
@@ -1159,6 +1177,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
         class StorageProvider {
             IStorageProvider,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
             IStorageProvider2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]

@@ -21,6 +21,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class AudioEffect {
                 IAudioEffect,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IAudioEffect2,
             }
             #[Windows::Foundation::Metadata::Activatable(IAudioEffectDefinitionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -70,6 +71,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class AudioRenderEffectsManager {
                 IAudioRenderEffectsManager,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IAudioRenderEffectsManager2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -340,6 +342,7 @@ mod Windows {
             class VideoTransformEffectDefinition {
                 IVideoEffectDefinition,
                 IVideoTransformEffectDefinition,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IVideoTransformEffectDefinition2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]

@@ -110,6 +110,7 @@ mod Windows {
                 IJsonValue,
                 super::super::Foundation::Collections::IVector<IJsonValue>,
                 super::super::Foundation::Collections::IIterable<IJsonValue>,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::super::Foundation::IStringable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -141,7 +142,9 @@ mod Windows {
                 IJsonValue,
                 super::super::Foundation::Collections::IMap<String, IJsonValue>,
                 super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, IJsonValue>>,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IJsonObjectWithDefaultValues,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::super::Foundation::IStringable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -153,6 +156,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class JsonValue {
                 IJsonValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::super::Foundation::IStringable,
             }
             #[repr(i32)]

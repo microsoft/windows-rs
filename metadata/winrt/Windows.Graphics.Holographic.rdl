@@ -12,10 +12,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class HolographicCamera {
                 IHolographicCamera,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IHolographicCamera2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IHolographicCamera3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IHolographicCamera4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IHolographicCamera5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IHolographicCamera6,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -23,6 +28,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class HolographicCameraPose {
                 IHolographicCameraPose,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IHolographicCameraPose2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -30,8 +36,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class HolographicCameraRenderingParameters {
                 IHolographicCameraRenderingParameters,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IHolographicCameraRenderingParameters2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IHolographicCameraRenderingParameters3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
                 IHolographicCameraRenderingParameters4,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -52,7 +61,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class HolographicDisplay {
                 IHolographicDisplay,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IHolographicDisplay2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IHolographicDisplay3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -60,7 +71,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class HolographicFrame {
                 IHolographicFrame,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IHolographicFrame2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IHolographicFrame3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
@@ -128,6 +141,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class HolographicQuadLayerUpdateParameters {
                 IHolographicQuadLayerUpdateParameters,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IHolographicQuadLayerUpdateParameters2,
             }
             #[repr(i32)]
@@ -145,7 +159,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class HolographicSpace {
                 IHolographicSpace,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IHolographicSpace2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IHolographicSpace3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -176,6 +192,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HolographicViewConfiguration {
                 IHolographicViewConfiguration,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
                 IHolographicViewConfiguration2,
             }
             #[repr(i32)]

@@ -8,7 +8,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class Direct3D11CaptureFrame {
                 IDirect3D11CaptureFrame,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IDirect3D11CaptureFrame2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IDirect3D11CaptureFrame3,
                 super::super::Foundation::IClosable,
             }
@@ -68,11 +70,17 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class GraphicsCaptureSession {
                 IGraphicsCaptureSession,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IGraphicsCaptureSession2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 IGraphicsCaptureSession3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IGraphicsCaptureSession4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IGraphicsCaptureSession5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IGraphicsCaptureSession6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IGraphicsCaptureSession7,
                 super::super::Foundation::IClosable,
             }

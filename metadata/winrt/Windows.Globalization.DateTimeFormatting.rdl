@@ -9,7 +9,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IDateTimeFormatterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DateTimeFormatter {
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IDateTimeFormatter,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IDateTimeFormatter2,
             }
             #[repr(i32)]

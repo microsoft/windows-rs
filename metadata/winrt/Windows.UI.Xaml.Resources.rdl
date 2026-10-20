@@ -12,6 +12,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class CustomXamlResourceLoader {
                     ICustomXamlResourceLoader,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                    #[Windows::Foundation::Metadata::Overridable]
                     ICustomXamlResourceLoaderOverrides,
                 }
                 #[guid(0x511a84ab_4a88_419f_852e_54083b90b078)]

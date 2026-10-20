@@ -22,6 +22,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class DepthMediaFrame {
                     IDepthMediaFrame,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IDepthMediaFrame2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -363,6 +364,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class MediaFrameFormat {
                     IMediaFrameFormat,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IMediaFrameFormat2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -372,6 +374,7 @@ mod Windows {
                 class MediaFrameReader {
                     IMediaFrameReader,
                     super::super::super::Foundation::IClosable,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     IMediaFrameReader2,
                 }
                 #[repr(i32)]
@@ -396,6 +399,7 @@ mod Windows {
                 class MediaFrameReference {
                     IMediaFrameReference,
                     super::super::super::Foundation::IClosable,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IMediaFrameReference2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -411,7 +415,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class MediaFrameSourceController {
                     IMediaFrameSourceController,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IMediaFrameSourceController2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IMediaFrameSourceController3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -445,8 +451,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class MediaFrameSourceInfo {
                     IMediaFrameSourceInfo,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IMediaFrameSourceInfo2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                     IMediaFrameSourceInfo3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 983040)]
                     IMediaFrameSourceInfo4,
                 }
                 #[repr(i32)]
@@ -484,6 +493,7 @@ mod Windows {
                 class MultiSourceMediaFrameReader {
                     IMultiSourceMediaFrameReader,
                     super::super::super::Foundation::IClosable,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     IMultiSourceMediaFrameReader2,
                 }
                 #[repr(i32)]

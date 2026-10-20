@@ -9,6 +9,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Static(IAppTaskContentStatics, 65536, "Windows.UI.Shell.Tasks.AppTaskContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class AppTaskContent {
+                    #[Windows::Foundation::Metadata::Experimental]
                     IAppTaskContent,
                 }
                 #[Windows::Foundation::Metadata::ApiContract]
@@ -20,7 +21,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Static(IAppTaskInfoStatics, 65536, "Windows.UI.Shell.Tasks.AppTaskContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class AppTaskInfo {
+                    #[Windows::Foundation::Metadata::Experimental]
                     IAppTaskInfo,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Shell.Tasks.AppTaskContract", 131072)]
+                    #[Windows::Foundation::Metadata::Experimental]
                     IAppTaskInfo2,
                 }
                 #[Windows::Foundation::Metadata::Activatable(IAppTaskResultAssetFactory, 65536, "Windows.UI.Shell.Tasks.AppTaskContract")]
@@ -29,6 +33,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class AppTaskResultAsset {
+                    #[Windows::Foundation::Metadata::Experimental]
                     IAppTaskResultAsset,
                 }
                 #[repr(i32)]

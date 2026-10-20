@@ -131,8 +131,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataAccount {
                 IUserDataAccount,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IUserDataAccount2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IUserDataAccount3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IUserDataAccount4,
             }
             #[repr(u32)]
@@ -166,7 +169,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataAccountStore {
                 IUserDataAccountStore,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IUserDataAccountStore2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IUserDataAccountStore3,
             }
             #[repr(i32)]

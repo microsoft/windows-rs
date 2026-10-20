@@ -18,6 +18,7 @@ mod Windows {
                 IFileOpenPicker,
                 IFileOpenPicker2,
                 IFileOpenPickerWithOperationId,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IFileOpenPicker3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -41,6 +42,7 @@ mod Windows {
                 IFileSavePicker,
                 IFileSavePicker2,
                 IFileSavePicker3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IFileSavePicker4,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -51,6 +53,7 @@ mod Windows {
             class FolderPicker {
                 IFolderPicker,
                 IFolderPicker2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IFolderPicker3,
             }
             #[guid(0x2ca8278a_12c5_4c5f_8977_94547793c241)]

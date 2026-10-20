@@ -1456,6 +1456,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class MapActualCameraChangedEventArgs {
                         IMapActualCameraChangedEventArgs,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         IMapActualCameraChangedEventArgs2,
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -1465,6 +1466,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class MapActualCameraChangingEventArgs {
                         IMapActualCameraChangingEventArgs,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         IMapActualCameraChangingEventArgs2,
                     }
                     #[repr(i32)]
@@ -1531,12 +1533,19 @@ mod Windows {
                     #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Children")]
                     class MapControl: super::Control {
                         IMapControl,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         IMapControl2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         IMapControl3,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         IMapControl4,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                         IMapControl5,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                         IMapControl6,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                         IMapControl7,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                         IMapControl8,
                     }
                     #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Services.Maps.LocalSearchContract")]
@@ -1579,6 +1588,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class MapControlDataHelper: super::super::DependencyObject {
                         IMapControlDataHelper,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Services.Maps.LocalSearchContract", 196608)]
                         IMapControlDataHelper2,
                     }
                     #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Services.Maps.LocalSearchContract")]
@@ -1642,8 +1652,11 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class MapElement: super::super::DependencyObject {
                         IMapElement,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         IMapElement2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                         IMapElement3,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                         IMapElement4,
                     }
                     #[Windows::Foundation::Metadata::Activatable(327680, "Windows.Foundation.UniversalApiContract")]
@@ -1736,6 +1749,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class MapIcon: MapElement {
                         IMapIcon,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         IMapIcon2,
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -1821,6 +1835,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class MapPolygon: MapElement {
                         IMapPolygon,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         IMapPolygon2,
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -1904,6 +1919,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class MapTargetCameraChangedEventArgs {
                         IMapTargetCameraChangedEventArgs,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         IMapTargetCameraChangedEventArgs2,
                     }
                     #[repr(i32)]
@@ -1937,6 +1953,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class MapTileBitmapRequestedEventArgs {
                         IMapTileBitmapRequestedEventArgs,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         IMapTileBitmapRequestedEventArgs2,
                     }
                     #[unsealed]
@@ -1968,6 +1985,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class MapTileSource: super::super::DependencyObject {
                         IMapTileSource,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         IMapTileSource2,
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -1993,6 +2011,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class MapTileUriRequestedEventArgs {
                         IMapTileUriRequestedEventArgs,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         IMapTileUriRequestedEventArgs2,
                     }
                     #[repr(i32)]

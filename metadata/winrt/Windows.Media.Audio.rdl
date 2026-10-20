@@ -11,6 +11,7 @@ mod Windows {
                 IAudioInputNode,
                 IAudioNode,
                 super::super::Foundation::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAudioInputNode2,
             }
             #[repr(i32)]
@@ -30,6 +31,7 @@ mod Windows {
                 IAudioDeviceOutputNode,
                 IAudioNode,
                 super::super::Foundation::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAudioNodeWithListener,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
@@ -56,6 +58,7 @@ mod Windows {
                 IAudioInputNode,
                 IAudioNode,
                 super::super::Foundation::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAudioInputNode2,
             }
             #[repr(i32)]
@@ -92,6 +95,7 @@ mod Windows {
                 IAudioInputNode,
                 IAudioNode,
                 super::super::Foundation::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAudioInputNode2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -111,7 +115,9 @@ mod Windows {
             class AudioGraph {
                 IAudioGraph,
                 super::super::Foundation::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAudioGraph2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IAudioGraph3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -143,6 +149,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AudioGraphSettings {
                 IAudioGraphSettings,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IAudioGraphSettings2,
             }
             #[repr(i32)]
@@ -270,6 +277,7 @@ mod Windows {
                 IAudioInputNode,
                 IAudioNode,
                 super::super::Foundation::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAudioInputNode2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -278,6 +286,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CreateAudioDeviceInputNodeResult {
                 ICreateAudioDeviceInputNodeResult,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ICreateAudioDeviceInputNodeResult2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -286,6 +295,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CreateAudioDeviceOutputNodeResult {
                 ICreateAudioDeviceOutputNodeResult,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ICreateAudioDeviceOutputNodeResult2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -294,6 +304,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CreateAudioFileInputNodeResult {
                 ICreateAudioFileInputNodeResult,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ICreateAudioFileInputNodeResult2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -302,6 +313,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CreateAudioFileOutputNodeResult {
                 ICreateAudioFileOutputNodeResult,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ICreateAudioFileOutputNodeResult2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -310,6 +322,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CreateAudioGraphResult {
                 ICreateAudioGraphResult,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ICreateAudioGraphResult2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -318,6 +331,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CreateMediaSourceAudioInputNodeResult {
                 ICreateMediaSourceAudioInputNodeResult,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ICreateMediaSourceAudioInputNodeResult2,
             }
             #[Windows::Foundation::Metadata::Activatable(IEchoEffectDefinitionFactory, 65536, "Windows.Foundation.UniversalApiContract")]

@@ -10,7 +10,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class GattCharacteristic {
                     IGattCharacteristic,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IGattCharacteristic2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IGattCharacteristic3,
                 }
                 #[repr(u32)]
@@ -55,6 +57,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class GattClientNotificationResult {
                     IGattClientNotificationResult,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     IGattClientNotificationResult2,
                 }
                 #[repr(i32)]
@@ -72,6 +75,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class GattDescriptor {
                     IGattDescriptor,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IGattDescriptor2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -96,7 +100,9 @@ mod Windows {
                 class GattDeviceService {
                     IGattDeviceService,
                     super::super::super::Foundation::IClosable,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IGattDeviceService2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IGattDeviceService3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -197,6 +203,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class GattReadClientCharacteristicConfigurationDescriptorResult {
                     IGattReadClientCharacteristicConfigurationDescriptorResult,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IGattReadClientCharacteristicConfigurationDescriptorResult2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -217,6 +224,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class GattReadResult {
                     IGattReadResult,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IGattReadResult2,
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -226,6 +234,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class GattReliableWriteTransaction {
                     IGattReliableWriteTransaction,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IGattReliableWriteTransaction2,
                 }
                 #[repr(i32)]
@@ -248,6 +257,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class GattServiceProvider {
                     IGattServiceProvider,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     IGattServiceProvider2,
                 }
                 #[repr(i32)]
@@ -272,7 +282,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class GattServiceProviderAdvertisingParameters {
                     IGattServiceProviderAdvertisingParameters,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                     IGattServiceProviderAdvertisingParameters2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     IGattServiceProviderAdvertisingParameters3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]

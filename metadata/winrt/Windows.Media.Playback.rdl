@@ -22,6 +22,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CurrentMediaPlaybackItemChangedEventArgs {
                 ICurrentMediaPlaybackItemChangedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 ICurrentMediaPlaybackItemChangedEventArgs2,
             }
             #[repr(i32)]
@@ -916,7 +917,9 @@ mod Windows {
             class MediaPlaybackItem {
                 IMediaPlaybackItem,
                 IMediaPlaybackSource,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IMediaPlaybackItem2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMediaPlaybackItem3,
             }
             #[repr(i32)]
@@ -966,7 +969,9 @@ mod Windows {
             class MediaPlaybackList {
                 IMediaPlaybackList,
                 IMediaPlaybackSource,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IMediaPlaybackList2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMediaPlaybackList3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -975,7 +980,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaPlaybackSession {
                 IMediaPlaybackSession,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMediaPlaybackSession2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IMediaPlaybackSession3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -1045,15 +1052,25 @@ mod Windows {
             class MediaPlayer {
                 IMediaPlayer,
                 IMediaPlayerSource,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMediaPlayerSource2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMediaPlayer2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IMediaPlayerEffects,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 super::super::Foundation::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IMediaPlayer3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IMediaPlayer4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IMediaPlayerEffects2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMediaPlayer5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IMediaPlayer6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IMediaPlayer7,
             }
             #[repr(i32)]

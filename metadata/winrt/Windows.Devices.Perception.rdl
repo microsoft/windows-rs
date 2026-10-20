@@ -820,6 +820,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PerceptionColorFrameSource {
                 IPerceptionColorFrameSource,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IPerceptionColorFrameSource2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -905,6 +906,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PerceptionDepthFrameSource {
                 IPerceptionDepthFrameSource,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IPerceptionDepthFrameSource2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1001,6 +1003,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PerceptionInfraredFrameSource {
                 IPerceptionInfraredFrameSource,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IPerceptionInfraredFrameSource2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

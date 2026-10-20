@@ -18,6 +18,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class Binding: BindingBase {
                     IBinding,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IBinding2,
                 }
                 #[unsealed]

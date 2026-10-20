@@ -46,9 +46,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class Geocoordinate {
                 IGeocoordinate,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IGeocoordinateWithPositionData,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IGeocoordinateWithPoint,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IGeocoordinateWithPositionSourceTimestamp,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 917504)]
                 IGeocoordinateWithRemoteSource,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -56,6 +60,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class GeocoordinateSatelliteData {
                 IGeocoordinateSatelliteData,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 IGeocoordinateSatelliteData2,
             }
             #[repr(i32)]
@@ -75,7 +80,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class Geolocator {
                 IGeolocator,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IGeolocatorWithScalarAccuracy,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IGeolocator2,
             }
             #[Windows::Foundation::Metadata::Activatable(IGeopathFactory, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -100,6 +107,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class Geoposition {
                 IGeoposition,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IGeoposition2,
             }
             #[repr(i32)]

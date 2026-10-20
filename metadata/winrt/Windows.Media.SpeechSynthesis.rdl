@@ -105,6 +105,7 @@ mod Windows {
                 super::super::Storage::Streams::IOutputStream,
                 super::super::Foundation::IClosable,
                 super::super::Storage::Streams::IInputStream,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 super::Core::ITimedMetadataTrackProvider,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -116,6 +117,7 @@ mod Windows {
             class SpeechSynthesizer {
                 ISpeechSynthesizer,
                 super::super::Foundation::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 ISpeechSynthesizer2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -123,7 +125,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpeechSynthesizerOptions {
                 ISpeechSynthesizerOptions,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 ISpeechSynthesizerOptions2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 ISpeechSynthesizerOptions3,
             }
             #[repr(i32)]

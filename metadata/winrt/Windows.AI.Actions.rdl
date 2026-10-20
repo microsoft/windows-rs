@@ -9,6 +9,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ActionEntity {
                 IActionEntity,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 131072)]
                 IActionEntity2,
                 super::super::Foundation::IClosable,
             }
@@ -25,10 +26,18 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ActionEntityFactory {
                 IActionEntityFactory2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 131072)]
                 IActionEntityFactory3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 196608)]
                 IActionEntityFactory4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 393216)]
+                #[Windows::Foundation::Metadata::Experimental]
                 IActionEntityFactory5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 458752)]
+                #[Windows::Foundation::Metadata::Experimental]
                 IActionEntityFactory6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 524288)]
+                #[Windows::Foundation::Metadata::Experimental]
                 IActionEntityFactory7,
                 super::super::Foundation::IClosable,
             }
@@ -72,6 +81,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ActionInvocationContext {
                 IActionInvocationContext,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 131072)]
                 IActionInvocationContext2,
                 super::super::Foundation::IClosable,
             }
@@ -79,6 +89,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ActionInvocationHelpDetails {
                 IActionInvocationHelpDetails,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 524288)]
+                #[Windows::Foundation::Metadata::Experimental]
                 IActionInvocationHelpDetails2,
                 super::super::Foundation::IClosable,
             }
@@ -105,9 +117,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ActionRuntime {
                 IActionRuntime,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 131072)]
                 IActionRuntime2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 196608)]
                 IActionRuntime3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 327680)]
                 IActionRuntime4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 524288)]
+                #[Windows::Foundation::Metadata::Experimental]
                 IActionRuntime5,
                 super::super::Foundation::IClosable,
             }
@@ -119,6 +136,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppointmentActionEntity: ActionEntity {
+                #[Windows::Foundation::Metadata::Experimental]
                 IAppointmentActionEntity,
             }
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 393216)]
@@ -126,7 +144,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ArrayActionEntity: ActionEntity {
+                #[Windows::Foundation::Metadata::Experimental]
                 IArrayActionEntity,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 524288)]
+                #[Windows::Foundation::Metadata::Experimental]
                 IArrayActionEntity2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 196608)]
@@ -142,6 +163,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CustomActionEntityStore {
+                #[Windows::Foundation::Metadata::Experimental]
                 ICustomActionEntityStore,
                 super::super::Foundation::IClosable,
             }
@@ -150,6 +172,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CustomTextActionEntity: ActionEntity {
+                #[Windows::Foundation::Metadata::Experimental]
                 ICustomTextActionEntity,
             }
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 458752)]
@@ -157,6 +180,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DateTimeActionEntity: ActionEntity {
+                #[Windows::Foundation::Metadata::Experimental]
                 IDateTimeActionEntity,
             }
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
@@ -561,6 +585,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class RemoteFileActionEntity: ActionEntity {
                 IRemoteFileActionEntity,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 458752)]
+                #[Windows::Foundation::Metadata::Experimental]
                 IRemoteFileActionEntity2,
             }
             #[repr(i32)]
@@ -598,6 +624,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TextActionEntity: ActionEntity {
                 ITextActionEntity,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 131072)]
                 ITextActionEntity2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 393216)]
@@ -605,6 +632,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UriActionEntity: ActionEntity {
+                #[Windows::Foundation::Metadata::Experimental]
                 IUriActionEntity,
             }
         }

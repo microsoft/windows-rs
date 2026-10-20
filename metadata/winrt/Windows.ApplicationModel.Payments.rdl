@@ -343,6 +343,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentMediator {
                 IPaymentMediator,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IPaymentMediator2,
             }
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
@@ -381,6 +382,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentRequest {
                 IPaymentRequest,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IPaymentRequest2,
             }
             #[repr(i32)]

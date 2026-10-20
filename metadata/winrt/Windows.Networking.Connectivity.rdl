@@ -21,6 +21,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class CellularApnContext {
                 ICellularApnContext,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 ICellularApnContext2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -28,6 +29,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ConnectionCost {
                 IConnectionCost,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IConnectionCost2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -35,10 +37,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ConnectionProfile {
                 IConnectionProfile,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IConnectionProfile2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IConnectionProfile3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IConnectionProfile4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IConnectionProfile5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                 IConnectionProfile6,
             }
             #[repr(i32)]
@@ -56,7 +63,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ConnectionProfileFilter {
                 IConnectionProfileFilter,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IConnectionProfileFilter2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IConnectionProfileFilter3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -638,6 +647,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class NetworkStateChangeEventDetails {
                 INetworkStateChangeEventDetails,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 INetworkStateChangeEventDetails2,
             }
             #[guid(0x71ba143f_598e_49d0_84eb_8febaedcc195)]
@@ -707,6 +717,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class WwanConnectionProfileDetails {
                 IWwanConnectionProfileDetails,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Networking.Connectivity.WwanContract", 131072)]
                 IWwanConnectionProfileDetails2,
             }
             #[Windows::Foundation::Metadata::ApiContract]

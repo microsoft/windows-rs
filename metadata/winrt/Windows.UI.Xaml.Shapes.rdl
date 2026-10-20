@@ -232,6 +232,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class Shape: super::FrameworkElement {
                     IShape,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     IShape2,
                 }
             }

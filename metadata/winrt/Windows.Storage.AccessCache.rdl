@@ -114,6 +114,7 @@ mod Windows {
             class StorageItemMostRecentlyUsedList {
                 IStorageItemMostRecentlyUsedList,
                 IStorageItemAccessList,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IStorageItemMostRecentlyUsedList2,
             }
         }

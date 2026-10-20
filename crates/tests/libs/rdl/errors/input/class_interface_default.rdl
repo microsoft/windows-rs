@@ -1,0 +1,10 @@
+#[winrt]
+mod Test {
+    interface IA {}
+    interface IB {}
+    class Widget {
+        IA,
+        #[Windows::Foundation::Metadata::Default]
+        IB,
+    }
+}

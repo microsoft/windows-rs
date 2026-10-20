@@ -8,6 +8,7 @@ mod Windows {
             class AcceleratorKeyEventArgs {
                 IAcceleratorKeyEventArgs,
                 ICoreWindowEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAcceleratorKeyEventArgs2,
             }
             #[repr(i32)]
@@ -73,8 +74,11 @@ mod Windows {
                 ICoreKeyboardInputSource,
                 ICoreComponentFocusable,
                 ICoreTouchHitTesting,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ICoreClosestInteractiveBoundsRequested,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ICoreKeyboardInputSource2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 ICorePointerInputSource2,
             }
             #[Windows::Foundation::Metadata::Activatable(ICoreCursorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -112,7 +116,9 @@ mod Windows {
             class CoreDispatcher {
                 ICoreDispatcher,
                 ICoreAcceleratorKeys,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ICoreDispatcherWithTaskPriority,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ICoreDispatcher2,
             }
             #[repr(i32)]
@@ -142,7 +148,9 @@ mod Windows {
             class CoreIndependentInputSource {
                 ICoreInputSourceBase,
                 ICorePointerInputSource,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 ICorePointerInputSource2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                 ICorePointerRedirector,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
@@ -210,11 +218,17 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CoreWindow {
                 ICoreWindow,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ICoreWindow2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 ICorePointerRedirector,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ICoreWindow3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 ICoreWindow4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 ICoreWindow5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 ICoreWindowWithContext,
             }
             #[repr(i32)]
@@ -279,6 +293,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CoreWindowResizeManager {
                 ICoreWindowResizeManager,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ICoreWindowResizeManagerLayoutCapability,
             }
             #[guid(0xd1f276c4_98d8_4636_bf49_eb79507548e9)]
@@ -814,6 +829,7 @@ mod Windows {
             class KeyEventArgs {
                 IKeyEventArgs,
                 ICoreWindowEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IKeyEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -827,6 +843,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(ISystemNavigationManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class SystemNavigationManager {
                 ISystemNavigationManager,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ISystemNavigationManager2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

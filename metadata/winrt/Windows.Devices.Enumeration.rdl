@@ -7,7 +7,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class DeviceAccessChangedEventArgs {
                 IDeviceAccessChangedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IDeviceAccessChangedEventArgs2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IDeviceAccessChangedEventArgs3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -16,6 +18,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DeviceAccessInformation {
                 IDeviceAccessInformation,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IDeviceAccessInformation2,
             }
             #[repr(i32)]
@@ -59,6 +62,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DeviceInformation {
                 IDeviceInformation,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IDeviceInformation2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -73,6 +77,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DeviceInformationCustomPairing {
                 IDeviceInformationCustomPairing,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IDeviceInformationCustomPairing2,
             }
             #[repr(i32)]
@@ -96,6 +101,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DeviceInformationPairing {
                 IDeviceInformationPairing,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IDeviceInformationPairing2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -103,6 +109,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class DeviceInformationUpdate {
                 IDeviceInformationUpdate,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IDeviceInformationUpdate2,
             }
             #[repr(i32)]
@@ -140,7 +147,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DevicePairingRequestedEventArgs {
                 IDevicePairingRequestedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IDevicePairingRequestedEventArgs2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IDevicePairingRequestedEventArgs3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -247,6 +256,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class DeviceWatcher {
                 IDeviceWatcher,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IDeviceWatcher2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -282,6 +292,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class EnclosureLocation {
                 IEnclosureLocation,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IEnclosureLocation2,
             }
             #[guid(0xdeda0bcc_4f9d_4f58_9dba_a9bc800408d5)]

@@ -9,6 +9,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Static(ICompanionWindowCoordinatorStatics, 65536, "Windows.UI.Shell.CompanionWindows.CompanionWindowsContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class CompanionWindowCoordinator {
+                    #[Windows::Foundation::Metadata::Experimental]
                     ICompanionWindowCoordinator,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(CompanionWindowsContract, 65536)]
@@ -17,12 +18,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Static(ICompanionWindowRequestStatics, 65536, "Windows.UI.Shell.CompanionWindows.CompanionWindowsContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class CompanionWindowRequest {
+                    #[Windows::Foundation::Metadata::Experimental]
                     ICompanionWindowRequest,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(CompanionWindowsContract, 65536)]
                 #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class CompanionWindowRequestResult {
+                    #[Windows::Foundation::Metadata::Experimental]
                     ICompanionWindowRequestResult,
                 }
                 #[repr(i32)]

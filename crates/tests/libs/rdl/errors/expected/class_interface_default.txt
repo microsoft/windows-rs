@@ -1,0 +1,2 @@
+error: the first class interface is the default interface
+ --> errors/input/class_interface_default.rdl:7:9

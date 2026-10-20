@@ -8,13 +8,16 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppExtension {
                 IAppExtension,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                 IAppExtension2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1114112)]
                 IAppExtension3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::Static(IAppExtensionCatalogStatics, 196608, "Windows.Foundation.UniversalApiContract")]
             class AppExtensionCatalog {
                 IAppExtensionCatalog,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1114112)]
                 IAppExtensionCatalog2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]

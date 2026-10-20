@@ -239,6 +239,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ServiceRequestedEventArgs {
                 IServiceRequestedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IServiceRequestedEventArgs2,
             }
             #[guid(0xd2d690ba_cac9_48e1_95c0_d38495a84055)]

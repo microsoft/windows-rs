@@ -9,8 +9,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BluetoothAdapter {
                 IBluetoothAdapter,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IBluetoothAdapter2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IBluetoothAdapter3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IBluetoothAdapter4,
             }
             #[repr(i32)]
@@ -48,9 +51,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BluetoothDevice {
                 IBluetoothDevice,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IBluetoothDevice2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IBluetoothDevice3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IBluetoothDevice4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IBluetoothDevice5,
                 super::super::Foundation::IClosable,
             }
@@ -122,10 +129,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BluetoothLEDevice {
                 IBluetoothLEDevice,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IBluetoothLEDevice2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IBluetoothLEDevice3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IBluetoothLEDevice4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IBluetoothLEDevice5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                 IBluetoothLEDevice6,
                 super::super::Foundation::IClosable,
             }

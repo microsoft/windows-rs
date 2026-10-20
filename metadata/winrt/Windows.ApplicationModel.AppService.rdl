@@ -29,6 +29,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppServiceConnection {
                 IAppServiceConnection,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAppServiceConnection2,
                 super::super::Foundation::IClosable,
             }
@@ -92,8 +93,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AppServiceTriggerDetails {
                 IAppServiceTriggerDetails,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAppServiceTriggerDetails2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IAppServiceTriggerDetails3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IAppServiceTriggerDetails4,
             }
             #[guid(0xef0d2507_d132_4c85_8395_3c31d5a1e941)]

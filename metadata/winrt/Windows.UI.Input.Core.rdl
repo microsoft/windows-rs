@@ -31,6 +31,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Static(IRadialControllerIndependentInputSourceStatics, 262144, "Windows.Foundation.UniversalApiContract")]
                 class RadialControllerIndependentInputSource {
                     IRadialControllerIndependentInputSource,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IRadialControllerIndependentInputSource2,
                 }
             }

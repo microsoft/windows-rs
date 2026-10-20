@@ -16,6 +16,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AlternateWordForm {
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IAlternateWordForm,
             }
             #[guid(0x47396c1e_51b9_4207_9146_248e636a1d1d)]
@@ -208,6 +209,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SelectableWordSegment {
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ISelectableWordSegment,
             }
             #[guid(0x3a3dfc9c_aede_4dc7_9e6c_41c044bd3592)]
@@ -219,6 +221,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SelectableWordsSegmenter {
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ISelectableWordsSegmenter,
             }
             #[Windows::Foundation::Metadata::Activatable(ISemanticTextQueryFactory, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -247,6 +250,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TextPredictionGenerator {
                 ITextPredictionGenerator,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ITextPredictionGenerator2,
             }
             #[repr(u32)]
@@ -263,6 +267,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TextReverseConversionGenerator {
                 ITextReverseConversionGenerator,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ITextReverseConversionGenerator2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -323,6 +328,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class WordSegment {
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IWordSegment,
             }
             #[guid(0xa5dd6357_bf2a_4c4f_a31f_29e71c6f8b35)]
@@ -334,6 +340,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class WordsSegmenter {
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IWordsSegmenter,
             }
         }

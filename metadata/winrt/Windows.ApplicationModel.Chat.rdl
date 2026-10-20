@@ -19,7 +19,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatConversation {
                 IChatConversation,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IChatConversation2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IChatItem,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -55,9 +57,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessage {
                 IChatMessage,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IChatMessage2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IChatMessage3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IChatMessage4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IChatItem,
             }
             #[Windows::Foundation::Metadata::Activatable(IChatMessageAttachmentFactory, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -66,6 +72,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageAttachment {
                 IChatMessageAttachment,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IChatMessageAttachment2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -134,6 +141,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageNotificationTriggerDetails {
                 IChatMessageNotificationTriggerDetails,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IChatMessageNotificationTriggerDetails2,
             }
             #[repr(i32)]
@@ -149,6 +157,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageReader {
                 IChatMessageReader,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IChatMessageReader2,
             }
             #[repr(i32)]
@@ -174,7 +183,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageStore {
                 IChatMessageStore,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IChatMessageStore2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IChatMessageStore3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -188,6 +199,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageTransport {
                 IChatMessageTransport,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IChatMessageTransport2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

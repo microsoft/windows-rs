@@ -298,6 +298,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SpatialAnchor {
                 ISpatialAnchor,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ISpatialAnchor2,
             }
             #[repr(i32)]
@@ -444,6 +445,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SpatialLocation {
                 ISpatialLocation,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ISpatialLocation2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]

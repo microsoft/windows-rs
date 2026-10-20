@@ -523,7 +523,9 @@ mod Windows {
             class LoggingActivity {
                 ILoggingActivity,
                 super::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ILoggingActivity2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ILoggingTarget,
             }
             #[Windows::Foundation::Metadata::Activatable(ILoggingChannelFactory, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -534,7 +536,9 @@ mod Windows {
             class LoggingChannel {
                 ILoggingChannel,
                 super::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ILoggingChannel2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ILoggingTarget,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]

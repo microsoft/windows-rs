@@ -214,6 +214,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class MarkupExtension {
                     IMarkupExtension,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
+                    #[Windows::Foundation::Metadata::Overridable]
                     IMarkupExtensionOverrides,
                 }
                 #[Windows::Foundation::Metadata::AttributeName("markupextensionreturntype")]

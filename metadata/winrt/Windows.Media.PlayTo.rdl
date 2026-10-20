@@ -327,6 +327,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PlayToSource {
                 IPlayToSource,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IPlayToSourceWithPreferredSourceUri,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

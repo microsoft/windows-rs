@@ -7,6 +7,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class EasClientDeviceInformation {
                 IEasClientDeviceInformation,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IEasClientDeviceInformation2,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
@@ -18,6 +19,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
             class EasComplianceResults {
                 IEasComplianceResults,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 IEasComplianceResults2,
             }
             #[Windows::Foundation::Metadata::ApiContract]

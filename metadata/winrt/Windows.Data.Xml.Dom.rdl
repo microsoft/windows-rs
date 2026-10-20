@@ -334,6 +334,7 @@ mod Windows {
                     IXmlNodeSerializer,
                     IXmlNodeSelector,
                     IXmlDocumentIO,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IXmlDocumentIO2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

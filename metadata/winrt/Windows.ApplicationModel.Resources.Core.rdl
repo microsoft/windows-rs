@@ -163,6 +163,7 @@ mod Windows {
                 class ResourceCandidate {
                     IResourceCandidate,
                     IResourceCandidate2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                     IResourceCandidate3,
                 }
                 #[repr(i32)]

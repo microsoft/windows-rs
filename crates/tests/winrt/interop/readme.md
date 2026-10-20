@@ -1,8 +1,8 @@
 # test_winrt_interop
 
 Checks that metadata produced by `windows-rdl` works across languages: each fixture API is
-implemented by a Rust component and called from C++/WinRT, C#/WinRT, and windows-rs clients that
-check the results at run time.
+implemented by a Rust or C++/WinRT component and called from C++/WinRT, C#/WinRT, and windows-rs
+clients that check the results at run time.
 
 ## Fixtures
 
@@ -13,9 +13,10 @@ directory in each test target, so adding a fixture needs no Rust code outside th
 | --- | --- | --- |
 | `api.rdl` | yes | The API under test. Compiled to `<name>.winmd`. |
 | `component.rs` | no | Implements the API in Rust. |
+| `component.cpp` | no | Implements the API in C++/WinRT, instead of `component.rs`. |
 | `client.cpp` | no | Uses the API through the C++/WinRT projection. |
 | `client.cs` | no | Uses the API through the C#/WinRT projection. |
-| `client.rs` | no | Uses the API through the windows-rs projection. Requires `component.rs`. |
+| `client.rs` | no | Uses the API through the windows-rs projection. Requires a component. |
 
 Fixture names are lowercase snake_case and not Rust keywords, so they can be module and test
 names, such as `async_methods` rather than `async`. Each fixture declares its types in a namespace
@@ -52,6 +53,26 @@ The component and Rust client modules are included through generated `#[path]` a
 
 The Win32 types that the component and Rust clients use are generated into a separate flat module.
 Add any others to the Win32 filters in `build.rs`.
+
+### C++ component
+
+Use `component.cpp` for an API that a Rust component cannot implement, such as a composable class
+that clients derive from. Each consumer runs `cppwinrt -component` on the fixture metadata and
+builds the component into a DLL with `harness/activation.cpp`, which exports
+`DllGetActivationFactory`. `component.cpp` includes the generated `<namespace>/<class>.g.h` for
+each class, implements it, and defines the factory lookup:
+
+```cpp
+void* __stdcall winrt_get_activation_factory(std::wstring_view const& name) {
+    if (name == L"Class.Widget") {
+        return winrt::detach_abi(winrt::make<winrt::Class::factory_implementation::Widget>());
+    }
+
+    return nullptr;
+}
+```
+
+A C++ component needs the MSVC toolset, like the C++ clients.
 
 ### Clients
 

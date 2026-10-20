@@ -11,8 +11,11 @@ mod Windows {
                 class AdaptiveMediaSource {
                     IAdaptiveMediaSource,
                     super::super::Core::IMediaSource,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                     IAdaptiveMediaSource2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IAdaptiveMediaSource3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     super::super::super::Foundation::IClosable,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -35,6 +38,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class AdaptiveMediaSourceCreationResult {
                     IAdaptiveMediaSourceCreationResult,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IAdaptiveMediaSourceCreationResult2,
                 }
                 #[repr(i32)]
@@ -54,7 +58,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class AdaptiveMediaSourceDiagnosticAvailableEventArgs {
                     IAdaptiveMediaSourceDiagnosticAvailableEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     IAdaptiveMediaSourceDiagnosticAvailableEventArgs2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IAdaptiveMediaSourceDiagnosticAvailableEventArgs3,
                 }
                 #[repr(i32)]
@@ -83,6 +89,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
                     IAdaptiveMediaSourceDownloadBitrateChangedEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2,
                 }
                 #[repr(i32)]
@@ -102,7 +109,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class AdaptiveMediaSourceDownloadCompletedEventArgs {
                     IAdaptiveMediaSourceDownloadCompletedEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IAdaptiveMediaSourceDownloadCompletedEventArgs2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IAdaptiveMediaSourceDownloadCompletedEventArgs3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -111,7 +120,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class AdaptiveMediaSourceDownloadFailedEventArgs {
                     IAdaptiveMediaSourceDownloadFailedEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IAdaptiveMediaSourceDownloadFailedEventArgs2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IAdaptiveMediaSourceDownloadFailedEventArgs3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -127,7 +138,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class AdaptiveMediaSourceDownloadRequestedEventArgs {
                     IAdaptiveMediaSourceDownloadRequestedEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IAdaptiveMediaSourceDownloadRequestedEventArgs2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IAdaptiveMediaSourceDownloadRequestedEventArgs3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -136,6 +149,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class AdaptiveMediaSourceDownloadResult {
                     IAdaptiveMediaSourceDownloadResult,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     IAdaptiveMediaSourceDownloadResult2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]

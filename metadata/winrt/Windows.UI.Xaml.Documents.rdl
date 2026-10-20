@@ -13,6 +13,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class Block: TextElement {
                     IBlock,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     IBlock2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -69,7 +70,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class ContentLinkProviderCollection {
                     IContentLinkProviderCollection,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     super::super::super::Foundation::Collections::IVector<ContentLinkProvider>,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     super::super::super::Foundation::Collections::IIterable<ContentLinkProvider>,
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -81,6 +84,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class Glyphs: super::FrameworkElement {
                     IGlyphs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IGlyphs2,
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -95,9 +99,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class Hyperlink: Span {
                     IHyperlink,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IHyperlink2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     IHyperlink3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IHyperlink4,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     IHyperlink5,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -970,10 +978,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class TextElement: super::DependencyObject {
                     ITextElement,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     ITextElement2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     ITextElement3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     ITextElement4,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                     ITextElement5,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                    #[Windows::Foundation::Metadata::Overridable]
                     ITextElementOverrides,
                 }
                 #[unsealed]

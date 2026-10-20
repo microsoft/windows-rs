@@ -11,6 +11,7 @@ mod Windows {
             class ArcadeStick {
                 IArcadeStick,
                 IGameController,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IGameControllerBatteryInfo,
             }
             #[repr(u32)]
@@ -166,7 +167,9 @@ mod Windows {
             class Gamepad {
                 IGamepad,
                 IGameController,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IGamepad2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IGameControllerBatteryInfo,
             }
             #[repr(u32)]
@@ -220,6 +223,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class Headset {
                 IHeadset,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IGameControllerBatteryInfo,
             }
             #[guid(0xb14a539d_befb_4c81_8051_15ecf3b13036)]
@@ -443,6 +447,7 @@ mod Windows {
             class RacingWheel {
                 IRacingWheel,
                 IGameController,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IGameControllerBatteryInfo,
             }
             #[repr(u32)]
@@ -493,6 +498,7 @@ mod Windows {
                 IRawGameController,
                 IGameController,
                 IGameControllerBatteryInfo,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IRawGameController2,
             }
             #[repr(u32)]
@@ -518,6 +524,7 @@ mod Windows {
             class UINavigationController {
                 IUINavigationController,
                 IGameController,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IGameControllerBatteryInfo,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]

@@ -160,6 +160,21 @@ class SpriteVisual: Visual {
 }
 ```
 
+The first interface is the default interface. Other attributes on a class interface, such as
+`Overridable` and `Protected` for a composable class, apply to that interface implementation:
+
+```text
+#[unsealed]
+#[Composable(IVisualFactory, Public, 1)]
+class Visual {
+    IVisual,
+    #[Overridable]
+    IVisualOverrides,
+    #[Protected]
+    IVisualProtected,
+}
+```
+
 A class without interfaces, such as a static class, is marked abstract in metadata because it has no
 instances. C#/WinRT requires this flag.
 

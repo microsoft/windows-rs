@@ -19,6 +19,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class CoreInkIndependentInputSource {
                         ICoreInkIndependentInputSource,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                         ICoreInkIndependentInputSource2,
                     }
                     #[Windows::Foundation::Metadata::Activatable(327680, "Windows.Foundation.UniversalApiContract")]
