@@ -1,0 +1,18 @@
+use Windows::Foundation::*;
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Statics {
+    // A class with only static members.
+    #[Static(IWidgetStatics, 1)]
+    class Widget {}
+
+    #[ExclusiveTo(Widget)]
+    interface IWidgetStatics {
+        fn Add(&self, a: i32, b: i32) -> i32;
+
+        // Setting `Value` raises `Changed` with the new value and a null sender.
+        Value: i32;
+        event Changed: EventHandler<i32>;
+    }
+}
