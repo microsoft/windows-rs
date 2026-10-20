@@ -304,6 +304,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ListingInformation {
                 IListingInformation,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IListingInformation2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -311,6 +312,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ProductLicense {
                 IProductLicense,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IProductLicenseWithFulfillment,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -318,7 +320,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ProductListing {
                 IProductListing,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IProductListingWithMetadata,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IProductListing2,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]

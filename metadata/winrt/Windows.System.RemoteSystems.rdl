@@ -575,10 +575,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class RemoteSystem {
                 IRemoteSystem,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IRemoteSystem2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IRemoteSystem3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IRemoteSystem4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IRemoteSystem5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IRemoteSystem6,
             }
             #[repr(i32)]
@@ -598,6 +603,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RemoteSystemApp {
                 IRemoteSystemApp,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IRemoteSystemApp2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -637,7 +643,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class RemoteSystemConnectionRequest {
                 IRemoteSystemConnectionRequest,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IRemoteSystemConnectionRequest2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IRemoteSystemConnectionRequest3,
             }
             #[repr(i32)]
@@ -890,7 +898,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RemoteSystemWatcher {
                 IRemoteSystemWatcher,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IRemoteSystemWatcher2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IRemoteSystemWatcher3,
             }
             #[repr(i32)]

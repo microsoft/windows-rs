@@ -44,6 +44,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DialDevice {
                 IDialDevice,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IDialDevice2,
             }
             #[repr(i32)]
@@ -91,6 +92,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DialReceiverApp {
                 IDialReceiverApp,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IDialReceiverApp2,
             }
             #[guid(0x555ffbd3_45b7_49f3_bbd7_302db6084646)]

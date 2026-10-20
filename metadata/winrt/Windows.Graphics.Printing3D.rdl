@@ -450,6 +450,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class Printing3D3MFPackage {
                 IPrinting3D3MFPackage,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Graphics.Printing3D.Printing3DContract", 262144)]
                 IPrinting3D3MFPackage2,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Graphics.Printing3D.Printing3DContract")]
@@ -492,6 +493,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class Printing3DColorMaterial {
                 IPrinting3DColorMaterial,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Graphics.Printing3D.Printing3DContract", 131072)]
                 IPrinting3DColorMaterial2,
             }
             #[Windows::Foundation::Metadata::Activatable(IPrinting3DColorMaterialGroupFactory, 65536, "Windows.Graphics.Printing3D.Printing3DContract")]
@@ -533,6 +535,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class Printing3DCompositeMaterialGroup {
                 IPrinting3DCompositeMaterialGroup,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Graphics.Printing3D.Printing3DContract", 196608)]
                 IPrinting3DCompositeMaterialGroup2,
             }
             #[Windows::Foundation::Metadata::ApiContract]
@@ -582,6 +585,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class Printing3DModel {
                 IPrinting3DModel,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Graphics.Printing3D.Printing3DContract", 196608)]
                 IPrinting3DModel2,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Graphics.Printing3D.Printing3DContract")]
@@ -647,6 +651,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class Printing3DTexture2CoordMaterialGroup {
                 IPrinting3DTexture2CoordMaterialGroup,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Graphics.Printing3D.Printing3DContract", 131072)]
                 IPrinting3DTexture2CoordMaterialGroup2,
             }
             #[repr(i32)]

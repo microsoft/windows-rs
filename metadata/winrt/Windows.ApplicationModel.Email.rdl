@@ -10,6 +10,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class EmailAttachment {
                 IEmailAttachment,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IEmailAttachment2,
             }
             #[repr(i32)]
@@ -109,8 +110,11 @@ mod Windows {
             class EmailMailbox {
                 IEmailMailbox,
                 IEmailMailbox2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IEmailMailbox3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IEmailMailbox4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IEmailMailbox5,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -165,7 +169,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class EmailMailboxCapabilities {
                 IEmailMailboxCapabilities,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IEmailMailboxCapabilities2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IEmailMailboxCapabilities3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -264,7 +270,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class EmailMailboxPolicies {
                 IEmailMailboxPolicies,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IEmailMailboxPolicies2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IEmailMailboxPolicies3,
             }
             #[repr(i32)]
@@ -289,6 +297,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class EmailMailboxSyncManager {
                 IEmailMailboxSyncManager,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IEmailMailboxSyncManager2,
             }
             #[repr(i32)]
@@ -320,6 +329,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class EmailMeetingInfo {
                 IEmailMeetingInfo,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IEmailMeetingInfo2,
             }
             #[repr(i32)]
@@ -335,8 +345,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class EmailMessage {
                 IEmailMessage,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IEmailMessage2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IEmailMessage3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IEmailMessage4,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -447,6 +460,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class EmailRecipientResolutionResult {
                 IEmailRecipientResolutionResult,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IEmailRecipientResolutionResult2,
             }
             #[repr(i32)]

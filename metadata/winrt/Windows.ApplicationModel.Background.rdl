@@ -99,10 +99,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class BackgroundTaskBuilder {
                 IBackgroundTaskBuilder,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBackgroundTaskBuilder2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBackgroundTaskBuilder3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IBackgroundTaskBuilder4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IBackgroundTaskBuilder5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 983040)]
                 IBackgroundTaskBuilder6,
             }
             #[guid(0xa6c4bac0_51f8_4c57_ac3f_156dd1680c4f)]
@@ -155,8 +160,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BackgroundTaskRegistration {
                 IBackgroundTaskRegistration,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBackgroundTaskRegistration2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IBackgroundTaskRegistration3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 983040)]
                 IBackgroundTaskRegistration4,
             }
             #[Windows::Foundation::Metadata::Activatable(IBackgroundTaskRegistrationGroupFactory, 262144, "Windows.Foundation.UniversalApiContract")]
@@ -194,7 +202,9 @@ mod Windows {
             class BluetoothLEAdvertisementPublisherTrigger {
                 IBluetoothLEAdvertisementPublisherTrigger,
                 IBackgroundTrigger,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IBluetoothLEAdvertisementPublisherTrigger2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IBluetoothLEAdvertisementPublisherTrigger3,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -204,7 +214,9 @@ mod Windows {
             class BluetoothLEAdvertisementWatcherTrigger {
                 IBluetoothLEAdvertisementWatcherTrigger,
                 IBackgroundTrigger,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IBluetoothLEAdvertisementWatcherTrigger2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IBluetoothLEAdvertisementWatcherTrigger3,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -352,6 +364,7 @@ mod Windows {
             class GattCharacteristicNotificationTrigger {
                 IGattCharacteristicNotificationTrigger,
                 IBackgroundTrigger,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IGattCharacteristicNotificationTrigger2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -1346,6 +1359,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SocketActivityTrigger {
                 IBackgroundTrigger,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ISocketActivityTrigger,
             }
             #[Windows::Foundation::Metadata::Activatable(IStorageLibraryChangeTrackerTriggerFactory, 393216, "Windows.Foundation.UniversalApiContract")]

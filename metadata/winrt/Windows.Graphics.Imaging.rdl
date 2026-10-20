@@ -45,6 +45,7 @@ mod Windows {
             class BitmapDecoder {
                 IBitmapDecoder,
                 IBitmapFrame,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBitmapFrameWithSoftwareBitmap,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -53,6 +54,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IBitmapEncoderStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
             class BitmapEncoder {
                 IBitmapEncoder,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBitmapEncoderWithSoftwareBitmap,
             }
             #[repr(i32)]
@@ -66,6 +68,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class BitmapFrame {
                 IBitmapFrame,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBitmapFrameWithSoftwareBitmap,
             }
             #[repr(i32)]

@@ -549,6 +549,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ImageFeatureDescriptor {
                 IImageFeatureDescriptor,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 327680)]
                 IImageFeatureDescriptor2,
                 ILearningModelFeatureDescriptor,
             }
@@ -636,7 +637,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class LearningModelSessionOptions {
                 ILearningModelSessionOptions,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 196608)]
                 ILearningModelSessionOptions2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 262144)]
                 ILearningModelSessionOptions3,
             }
             #[Windows::Foundation::Metadata::ApiContract]
@@ -666,7 +669,9 @@ mod Windows {
                 ITensorBoolean,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -679,7 +684,9 @@ mod Windows {
                 ITensorDouble,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -699,7 +706,9 @@ mod Windows {
                 ITensorFloat,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -712,7 +721,9 @@ mod Windows {
                 ITensorFloat16Bit,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -725,7 +736,9 @@ mod Windows {
                 ITensorInt16Bit,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -738,7 +751,9 @@ mod Windows {
                 ITensorInt32Bit,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -751,7 +766,9 @@ mod Windows {
                 ITensorInt64Bit,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -764,7 +781,9 @@ mod Windows {
                 ITensorInt8Bit,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
             #[repr(i32)]
@@ -797,7 +816,9 @@ mod Windows {
                 ITensorString,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -810,7 +831,9 @@ mod Windows {
                 ITensorUInt16Bit,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -823,7 +846,9 @@ mod Windows {
                 ITensorUInt32Bit,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -836,7 +861,9 @@ mod Windows {
                 ITensorUInt64Bit,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -849,7 +876,9 @@ mod Windows {
                 ITensorUInt8Bit,
                 ITensor,
                 ILearningModelFeatureValue,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IMemoryBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.MachineLearning.MachineLearningContract", 131072)]
                 super::super::Foundation::IClosable,
             }
         }

@@ -21,7 +21,9 @@ mod Windows {
             class BackgroundDownloader {
                 IBackgroundDownloader,
                 IBackgroundTransferBase,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBackgroundDownloader2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBackgroundDownloader3,
             }
             #[repr(i32)]
@@ -123,7 +125,9 @@ mod Windows {
             class BackgroundUploader {
                 IBackgroundUploader,
                 IBackgroundTransferBase,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBackgroundUploader2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBackgroundUploader3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -137,10 +141,15 @@ mod Windows {
             class DownloadOperation {
                 IDownloadOperation,
                 IBackgroundTransferOperation,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBackgroundTransferOperationPriority,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IDownloadOperation2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IDownloadOperation3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IDownloadOperation4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IDownloadOperation5,
             }
             #[guid(0xc1c79333_6649_4b1d_a826_a4b3dd234d0b)]
@@ -508,9 +517,13 @@ mod Windows {
             class UploadOperation {
                 IUploadOperation,
                 IBackgroundTransferOperation,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBackgroundTransferOperationPriority,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IUploadOperation2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IUploadOperation3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IUploadOperation4,
             }
         }

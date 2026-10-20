@@ -9,6 +9,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class DevicePortalConnection {
                     IDevicePortalConnection,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IDevicePortalWebSocketConnection,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -32,6 +33,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class DevicePortalConnectionRequestReceivedEventArgs {
                     IDevicePortalConnectionRequestReceivedEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IDevicePortalWebSocketConnectionRequestReceivedEventArgs,
                 }
                 #[guid(0x0f447f51_1198_4da1_8d54_bdef393e09b6)]

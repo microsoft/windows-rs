@@ -39,10 +39,76 @@ impl Fixture {
         path.is_file().then_some(path)
     }
 
-    /// Returns the component DLL if the fixture has a `component.rs`.
-    pub fn component(&self) -> Option<&'static Path> {
-        self.file("component.rs").map(|_| component())
+    /// Returns the component DLL if the fixture has a `component.rs` or `component.cpp`.
+    pub fn component(&self) -> Option<PathBuf> {
+        match (self.file("component.rs"), self.file("component.cpp")) {
+            (Some(_), None) => Some(component().to_path_buf()),
+            (None, Some(source)) => Some(self.cpp_component(&source)),
+            (None, None) => None,
+            (Some(_), Some(_)) => panic!("a fixture has either `component.rs` or `component.cpp`"),
+        }
     }
+
+    /// Builds the C++/WinRT component in the fixture's output directory and returns the DLL path.
+    ///
+    /// `cppwinrt -component` generates the `<namespace>/<class>.g.h` base templates that
+    /// `component.cpp` implements. `harness/activation.cpp` exports `DllGetActivationFactory`.
+    fn cpp_component(&self, source: &Path) -> PathBuf {
+        let out = self.out.join("component");
+        std::fs::create_dir_all(&out).unwrap();
+
+        cppwinrt::cppwinrt([
+            "-in".as_ref(),
+            self.winmd.as_os_str(),
+            "-ref".as_ref(),
+            WINDOWS_WINMD.as_ref(),
+            "-out".as_ref(),
+            out.as_os_str(),
+            "-component".as_ref(),
+        ]);
+
+        let mut cl = cl();
+        cl.current_dir(&out)
+            .arg("/I")
+            .arg(&out)
+            .arg(source)
+            .arg(format!("{HARNESS}/activation.cpp"))
+            .args([
+                "/LD",
+                "/Fecomponent.dll",
+                "/link",
+                "windowsapp.lib",
+                "/EXPORT:DllGetActivationFactory",
+            ]);
+
+        run_tool(cl);
+        out.join("component.dll")
+    }
+}
+
+/// The Windows metadata that fixture metadata references.
+pub const WINDOWS_WINMD: &str = concat!(
+    env!("CARGO_MANIFEST_DIR"),
+    "/../../../libs/default/Windows.winmd"
+);
+
+/// Returns the C++ compiler for the target, with the options and include paths shared by C++
+/// components and clients.
+pub fn cl() -> Command {
+    let mut cl = cc::windows_registry::find(env!("TARGET"), "cl.exe").expect("cl.exe not found");
+    cl.args([
+        "/nologo",
+        "/std:c++20",
+        "/EHsc",
+        "/permissive-",
+        "/W4",
+        "/WX",
+    ])
+    .arg("/I")
+    .arg(concat!(env!("OUT_DIR"), "/cppwinrt"))
+    .arg("/I")
+    .arg(HARNESS);
+    cl
 }
 
 /// Builds this crate's library, the component for all fixtures, and returns the DLL path.

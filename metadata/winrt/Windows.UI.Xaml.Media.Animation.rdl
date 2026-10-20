@@ -124,7 +124,9 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class ConnectedAnimation {
                         IConnectedAnimation,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                         IConnectedAnimation2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         IConnectedAnimation3,
                     }
                     #[repr(i32)]
@@ -434,6 +436,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class GravityConnectedAnimationConfiguration: ConnectedAnimationConfiguration {
                         IGravityConnectedAnimationConfiguration,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                         IGravityConnectedAnimationConfiguration2,
                     }
                     #[guid(0xadec852e_4424_4dab_99c1_3a04e36a3c48)]
@@ -1829,6 +1832,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class NavigationTransitionInfo: super::super::DependencyObject {
                         INavigationTransitionInfo,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                        #[Windows::Foundation::Metadata::Overridable]
                         INavigationTransitionInfoOverrides,
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -2033,6 +2038,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class RepositionThemeTransition: Transition {
                         IRepositionThemeTransition,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         IRepositionThemeTransition2,
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -2059,6 +2065,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class SlideNavigationTransitionInfo: NavigationTransitionInfo {
                         ISlideNavigationTransitionInfo,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         ISlideNavigationTransitionInfo2,
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]

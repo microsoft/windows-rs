@@ -13,6 +13,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AnalyticsVersionInfo {
                 IAnalyticsVersionInfo,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
                 IAnalyticsVersionInfo2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]

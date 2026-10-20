@@ -18,7 +18,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AddPackageOptions {
                 IAddPackageOptions,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 983040)]
                 IAddPackageOptions2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IAddPackageOptions3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
@@ -90,6 +92,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class DeploymentResult {
                 IDeploymentResult,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IDeploymentResult2,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Management.Deployment.SharedPackageContainerContract")]
@@ -690,6 +693,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PackageAllUserProvisioningOptions {
                 IPackageAllUserProvisioningOptions,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1114112)]
                 IPackageAllUserProvisioningOptions2,
             }
             #[repr(i32)]
@@ -708,16 +712,27 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class PackageManager {
                 IPackageManager,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IPackageManager2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IPackageManager3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IPackageManager4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IPackageManager5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IPackageManager6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IPackageManager7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IPackageManager8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IPackageManager9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                 IPackageManager10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1179648)]
                 IPackageManager11,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IPackageManager12,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -783,6 +798,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PackageVolume {
                 IPackageVolume,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IPackageVolume2,
             }
             #[Windows::Foundation::Metadata::Activatable(655360, "Windows.Foundation.UniversalApiContract")]
@@ -791,6 +807,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RegisterPackageOptions {
                 IRegisterPackageOptions,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 983040)]
                 IRegisterPackageOptions2,
             }
             #[repr(u32)]
@@ -809,6 +826,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RemovePackageOptions {
                 IRemovePackageOptions,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IRemovePackageOptions2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
@@ -856,7 +874,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class StagePackageOptions {
                 IStagePackageOptions,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 983040)]
                 IStagePackageOptions2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IStagePackageOptions3,
             }
             #[repr(i32)]

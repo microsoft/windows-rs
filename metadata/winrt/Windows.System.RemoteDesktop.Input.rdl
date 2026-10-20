@@ -47,6 +47,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class RemoteTextConnection {
                     IRemoteTextConnection,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1048576)]
                     IRemoteTextConnection2,
                     super::super::super::Foundation::IClosable,
                 }

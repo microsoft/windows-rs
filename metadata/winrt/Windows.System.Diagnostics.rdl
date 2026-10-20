@@ -25,6 +25,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DiagnosticInvoker {
                 IDiagnosticInvoker,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IDiagnosticInvoker2,
             }
             #[guid(0xc265a296_e73b_4097_b28f_3442f03dd831)]
@@ -251,6 +252,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ProcessDiagnosticInfo {
                 IProcessDiagnosticInfo,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IProcessDiagnosticInfo2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

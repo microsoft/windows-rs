@@ -481,7 +481,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialInteractionController {
                     ISpatialInteractionController,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     ISpatialInteractionController2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     ISpatialInteractionController3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -495,6 +497,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialInteractionDetectedEventArgs {
                     ISpatialInteractionDetectedEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     ISpatialInteractionDetectedEventArgs2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -520,8 +523,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialInteractionSource {
                     ISpatialInteractionSource,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     ISpatialInteractionSource2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     ISpatialInteractionSource3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                     ISpatialInteractionSource4,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -529,6 +535,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialInteractionSourceEventArgs {
                     ISpatialInteractionSourceEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     ISpatialInteractionSourceEventArgs2,
                 }
                 #[repr(i32)]
@@ -551,7 +558,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialInteractionSourceLocation {
                     ISpatialInteractionSourceLocation,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     ISpatialInteractionSourceLocation2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     ISpatialInteractionSourceLocation3,
                 }
                 #[repr(i32)]
@@ -571,7 +580,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialInteractionSourceState {
                     ISpatialInteractionSourceState,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     ISpatialInteractionSourceState2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                     ISpatialInteractionSourceState3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -633,6 +644,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialPointerInteractionSourcePose {
                     ISpatialPointerInteractionSourcePose,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     ISpatialPointerInteractionSourcePose2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -641,7 +653,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialPointerPose {
                     ISpatialPointerPose,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     ISpatialPointerPose2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                     ISpatialPointerPose3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]

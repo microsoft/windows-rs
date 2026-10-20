@@ -267,6 +267,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SearchPaneQuerySubmittedEventArgs {
                 ISearchPaneQuerySubmittedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Search.SearchContract", 65536)]
                 ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails,
             }
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]

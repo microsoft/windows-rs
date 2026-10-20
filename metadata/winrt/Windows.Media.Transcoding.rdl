@@ -62,6 +62,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaTranscoder {
                 IMediaTranscoder,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMediaTranscoder2,
             }
             #[repr(i32)]

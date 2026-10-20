@@ -695,6 +695,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SmsReceivedEventDetails {
                 ISmsReceivedEventDetails,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.Sms.LegacySmsApiContract", 65536)]
                 ISmsReceivedEventDetails2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

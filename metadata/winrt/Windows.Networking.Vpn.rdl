@@ -645,9 +645,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class VpnChannel {
                 IVpnChannel,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IVpnChannel2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IVpnChannel4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 IVpnChannel5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                 IVpnChannel6,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -676,6 +680,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class VpnChannelConfiguration {
                 IVpnChannelConfiguration,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IVpnChannelConfiguration2,
             }
             #[repr(u32)]
@@ -806,6 +811,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class VpnDomainNameInfo {
                 IVpnDomainNameInfo,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IVpnDomainNameInfo2,
             }
             #[repr(i32)]
@@ -909,6 +915,7 @@ mod Windows {
             class VpnNativeProfile {
                 IVpnNativeProfile,
                 IVpnProfile,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IVpnNativeProfile2,
             }
             #[repr(i32)]
@@ -925,7 +932,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class VpnPacketBuffer {
                 IVpnPacketBuffer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IVpnPacketBuffer2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IVpnPacketBuffer3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -957,6 +966,7 @@ mod Windows {
             class VpnPlugInProfile {
                 IVpnPlugInProfile,
                 IVpnProfile,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IVpnPlugInProfile2,
             }
             #[Windows::Foundation::Metadata::Activatable(IVpnRouteFactory, 65536, "Windows.Foundation.UniversalApiContract")]

@@ -451,6 +451,7 @@ mod Windows {
         class Uri {
             IUriRuntimeClass,
             IUriRuntimeClassWithAbsoluteCanonicalUri,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             IStringable,
         }
         #[Windows::Foundation::Metadata::Activatable(IWwwFormUrlDecoderRuntimeClassFactory, 65536, "Windows.Foundation.UniversalApiContract")]

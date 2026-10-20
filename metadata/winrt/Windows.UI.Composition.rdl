@@ -9,6 +9,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class AmbientLight: CompositionLight {
                 IAmbientLight,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IAmbientLight2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -66,6 +67,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class AnimationPropertyInfo: CompositionObject {
                 IAnimationPropertyInfo,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 IAnimationPropertyInfo2,
             }
             #[repr(i32)]
@@ -146,9 +148,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionAnimation: CompositionObject {
                 ICompositionAnimation,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ICompositionAnimation2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 ICompositionAnimation3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ICompositionAnimation4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ICompositionAnimationBase,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -247,6 +253,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionClip: CompositionObject {
                 ICompositionClip,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ICompositionClip2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -316,6 +323,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionDrawingSurface: CompositionObject {
                 ICompositionDrawingSurface,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 ICompositionDrawingSurface2,
                 ICompositionSurface,
             }
@@ -422,6 +430,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionGradientBrush: CompositionBrush {
                 ICompositionGradientBrush,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ICompositionGradientBrush2,
             }
             #[repr(i32)]
@@ -439,8 +448,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionGraphicsDevice: CompositionObject {
                 ICompositionGraphicsDevice,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 ICompositionGraphicsDevice2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 ICompositionGraphicsDevice3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 ICompositionGraphicsDevice4,
             }
             #[unsealed]
@@ -452,7 +464,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionLight: CompositionObject {
                 ICompositionLight,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 ICompositionLight2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 ICompositionLight3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -512,11 +526,16 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionObject {
                 ICompositionObject,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ICompositionObject2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 ICompositionObject3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 ICompositionObject4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 983040)]
                 ICompositionObject5,
                 super::super::Foundation::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IAnimationObject,
             }
             #[Windows::Foundation::Metadata::Activatable(ICompositionPathFactory, 393216, "Windows.Foundation.UniversalApiContract")]
@@ -582,6 +601,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionPropertySet: CompositionObject {
                 ICompositionPropertySet,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ICompositionPropertySet2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
@@ -695,7 +715,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionSurfaceBrush: CompositionBrush {
                 ICompositionSurfaceBrush,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ICompositionSurfaceBrush2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 ICompositionSurfaceBrush3,
             }
             #[unsealed]
@@ -763,16 +785,27 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class Compositor {
                 ICompositor,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ICompositor2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 ICompositor3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 ICompositor4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 ICompositor5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ICompositor6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 ICompositorWithProjectedShadow,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 ICompositorWithRadialGradient,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 ICompositorWithVisualSurface,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 ICompositor7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                 ICompositorWithBlurredWallpaperBackdropBrush,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 983040)]
                 ICompositor8,
                 super::super::Foundation::IClosable,
             }
@@ -809,6 +842,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class DistantLight: CompositionLight {
                 IDistantLight,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IDistantLight2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -818,6 +852,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class DropShadow: CompositionShadow {
                 IDropShadow,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IDropShadow2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
@@ -2550,7 +2585,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class KeyFrameAnimation: CompositionAnimation {
                 IKeyFrameAnimation,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IKeyFrameAnimation2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IKeyFrameAnimation3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -2560,6 +2597,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class LayerVisual: ContainerVisual {
                 ILayerVisual,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 ILayerVisual2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -2595,7 +2633,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class PointLight: CompositionLight {
                 IPointLight,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IPointLight2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IPointLight3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
@@ -2676,7 +2716,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class SpotLight: CompositionLight {
                 ISpotLight,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 ISpotLight2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 ISpotLight3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -2710,6 +2752,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class SpriteVisual: ContainerVisual {
                 ISpriteVisual,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ISpriteVisual2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -2773,8 +2816,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class Visual: CompositionObject {
                 IVisual,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IVisual2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
                 IVisual3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 IVisual4,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]

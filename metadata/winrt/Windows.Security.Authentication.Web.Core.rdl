@@ -258,6 +258,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     class WebAccountMonitor {
                         IWebAccountMonitor,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                         IWebAccountMonitor2,
                     }
                     #[Windows::Foundation::Metadata::Activatable(IWebAuthenticationAddAccountResponseFactory, 983040, "Windows.Foundation.UniversalApiContract")]
@@ -314,7 +315,9 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     class WebTokenRequest {
                         IWebTokenRequest,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         IWebTokenRequest2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                         IWebTokenRequest3,
                     }
                     #[repr(i32)]

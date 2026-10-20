@@ -192,6 +192,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PenDevice {
                 IPenDevice,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 917504)]
                 IPenDevice2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
@@ -238,6 +239,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IPointerDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class PointerDevice {
                 IPointerDevice,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IPointerDevice2,
             }
             #[repr(i32)]

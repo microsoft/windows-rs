@@ -10,7 +10,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class Certificate {
                     ICertificate,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     ICertificate2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     ICertificate3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -59,6 +61,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class CertificateQuery {
                     ICertificateQuery,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     ICertificateQuery2,
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -68,8 +71,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class CertificateRequestProperties {
                     ICertificateRequestProperties,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     ICertificateRequestProperties2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     ICertificateRequestProperties3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     ICertificateRequestProperties4,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -78,6 +84,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class CertificateStore {
                     ICertificateStore,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     ICertificateStore2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -721,6 +728,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class SubjectAlternativeNameInfo {
                     ISubjectAlternativeNameInfo,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     ISubjectAlternativeNameInfo2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -729,6 +737,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class UserCertificateEnrollmentManager {
                     IUserCertificateEnrollmentManager,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IUserCertificateEnrollmentManager2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]

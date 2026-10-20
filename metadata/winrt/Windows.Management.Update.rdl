@@ -957,6 +957,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class WindowsUpdateManager {
                 IWindowsUpdateManager,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Management.Update.WindowsUpdateContract", 131072)]
                 IWindowsUpdateManager2,
             }
             #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Management.Update.WindowsUpdateContract")]

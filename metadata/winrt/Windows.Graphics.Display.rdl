@@ -87,9 +87,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IDisplayInformationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class DisplayInformation {
                 IDisplayInformation,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IDisplayInformation2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IDisplayInformation3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IDisplayInformation4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IDisplayInformation5,
             }
             #[repr(u32)]

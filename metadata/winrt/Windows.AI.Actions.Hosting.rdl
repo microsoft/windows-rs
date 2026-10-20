@@ -7,7 +7,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class ActionCatalog {
                     IActionCatalog,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 262144)]
                     IActionCatalog2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 327680)]
                     IActionCatalog3,
                     super::super::super::Foundation::IClosable,
                 }
@@ -15,9 +17,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class ActionDefinition {
                     IActionDefinition,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 131072)]
                     IActionDefinition2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 196608)]
                     IActionDefinition3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 327680)]
                     IActionDefinition4,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 393216)]
+                    #[Windows::Foundation::Metadata::Experimental]
                     IActionDefinition5,
                     super::super::super::Foundation::IClosable,
                 }
@@ -41,6 +48,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class ActionOverload {
                     IActionOverload,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 196608)]
                     IActionOverload2,
                     super::super::super::Foundation::IClosable,
                 }

@@ -57,7 +57,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 class ShareOperation {
                     IShareOperation,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IShareOperation2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     IShareOperation3,
                 }
             }

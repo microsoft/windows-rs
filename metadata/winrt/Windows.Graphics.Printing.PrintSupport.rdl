@@ -262,6 +262,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Static(IPrintSupportAppInfoStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintSupportAppInfo {
+                    #[Windows::Foundation::Metadata::Experimental]
                     IPrintSupportAppInfo,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
@@ -280,7 +281,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintSupportExtensionSession {
                     IPrintSupportExtensionSession,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 983040)]
                     IPrintSupportExtensionSession2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1114112)]
                     IPrintSupportExtensionSession3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
@@ -307,9 +310,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
                     IPrintSupportPrintDeviceCapabilitiesChangedEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 983040)]
                     IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1114112)]
                     IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     IPrintSupportPrintDeviceCapabilitiesChangedEventArgs5,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
@@ -330,6 +337,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintSupportPrintTicketValidationRequestedEventArgs {
                     IPrintSupportPrintTicketValidationRequestedEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
+                    #[Windows::Foundation::Metadata::Experimental]
                     IPrintSupportPrintTicketValidationRequestedEventArgs2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
@@ -346,6 +355,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintSupportSettingsActivatedEventArgs {
                     IPrintSupportSettingsActivatedEventArgs,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     IPrintSupportSettingsActivatedEventArgs2,
                     super::super::super::ApplicationModel::Activation::IActivatedEventArgs,
                     super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser,

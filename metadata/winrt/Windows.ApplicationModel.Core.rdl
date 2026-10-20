@@ -8,8 +8,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppListEntry {
                 IAppListEntry,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IAppListEntry2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IAppListEntry3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
                 IAppListEntry4,
             }
             #[repr(i32)]
@@ -40,9 +43,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CoreApplicationView {
                 ICoreApplicationView,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ICoreApplicationView2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ICoreApplicationView3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 ICoreApplicationView5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 ICoreApplicationView6,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

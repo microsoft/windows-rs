@@ -669,7 +669,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
             class PrintTask {
                 IPrintTask,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IPrintTaskTargetDeviceSupport,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IPrintTask2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -692,7 +694,9 @@ mod Windows {
                 IPrintTaskOptionsCore,
                 IPrintTaskOptionsCoreProperties,
                 IPrintTaskOptionsCoreUIConfiguration,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IPrintTaskOptions,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IPrintTaskOptions2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

@@ -49,6 +49,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(MTA)]
                 class VariablePhotoSequenceCapture {
                     IVariablePhotoSequenceCapture,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IVariablePhotoSequenceCapture2,
                 }
             }

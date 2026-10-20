@@ -24,6 +24,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class CachedFileUpdaterUI {
                 ICachedFileUpdaterUI,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ICachedFileUpdaterUI2,
             }
             #[Windows::Foundation::Metadata::ApiContract]
@@ -32,6 +33,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class FileUpdateRequest {
                 IFileUpdateRequest,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IFileUpdateRequest2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -678,7 +680,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class StorageProviderSyncRootInfo {
                 IStorageProviderSyncRootInfo,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Storage.Provider.CloudFilesContract", 196608)]
                 IStorageProviderSyncRootInfo2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Storage.Provider.CloudFilesContract", 262144)]
                 IStorageProviderSyncRootInfo3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]

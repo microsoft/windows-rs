@@ -6,11 +6,6 @@
 mod support;
 use support::*;
 
-const WINDOWS_WINMD: &str = concat!(
-    env!("CARGO_MANIFEST_DIR"),
-    "/../../../libs/default/Windows.winmd"
-);
-
 include!(concat!(env!("OUT_DIR"), "/fixtures.rs"));
 
 fn run(name: &str, namespace: &str) {
@@ -25,22 +20,8 @@ fn run(name: &str, namespace: &str) {
         fixture.out.as_os_str(),
     ]);
 
-    let mut cl = cc::windows_registry::find(env!("TARGET"), "cl.exe").expect("cl.exe not found");
-    cl.current_dir(&fixture.out)
-        .args([
-            "/nologo",
-            "/std:c++20",
-            "/EHsc",
-            "/permissive-",
-            "/W4",
-            "/WX",
-        ])
-        .arg("/I")
-        .arg(&fixture.out)
-        .arg("/I")
-        .arg(concat!(env!("OUT_DIR"), "/cppwinrt"))
-        .arg("/I")
-        .arg(HARNESS);
+    let mut cl = cl();
+    cl.current_dir(&fixture.out).arg("/I").arg(&fixture.out);
 
     match (fixture.file("client.cpp"), fixture.component()) {
         (Some(client), Some(component)) => {

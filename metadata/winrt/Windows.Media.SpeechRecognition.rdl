@@ -347,6 +347,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpeechRecognitionResult {
                 ISpeechRecognitionResult,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ISpeechRecognitionResult2,
             }
             #[repr(i32)]
@@ -401,6 +402,7 @@ mod Windows {
             class SpeechRecognizer {
                 ISpeechRecognizer,
                 super::super::Foundation::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ISpeechRecognizer2,
             }
             #[repr(i32)]

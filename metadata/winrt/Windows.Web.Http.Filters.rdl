@@ -11,9 +11,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpBaseProtocolFilter {
                     IHttpBaseProtocolFilter,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IHttpBaseProtocolFilter2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                     IHttpBaseProtocolFilter3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     IHttpBaseProtocolFilter4,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                     IHttpBaseProtocolFilter5,
                     IHttpFilter,
                     super::super::super::Foundation::IClosable,

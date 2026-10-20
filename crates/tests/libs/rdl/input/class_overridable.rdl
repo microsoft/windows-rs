@@ -1,0 +1,33 @@
+#[winrt]
+mod Test {
+    interface IWidget {
+        fn Name(&self) -> String;
+    }
+    interface IWidgetOverrides {
+        fn OnName(&self) -> String;
+    }
+    interface IWidgetProtected {
+        fn Reset(&self);
+    }
+    #[unsealed]
+    class Widget {
+        IWidget,
+        #[Windows::Foundation::Metadata::Overridable]
+        IWidgetOverrides,
+        #[Windows::Foundation::Metadata::Protected]
+        IWidgetProtected,
+    }
+}
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Metadata {
+            attribute OverridableAttribute {
+                fn();
+            }
+            attribute ProtectedAttribute {
+                fn();
+            }
+        }
+    }
+}

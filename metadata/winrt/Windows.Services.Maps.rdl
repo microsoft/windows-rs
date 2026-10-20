@@ -488,6 +488,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class MapAddress {
                 IMapAddress,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMapAddress2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -551,8 +552,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class MapRoute {
                 IMapRoute,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMapRoute2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMapRoute3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IMapRoute4,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -562,6 +566,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class MapRouteDrivingOptions {
                 IMapRouteDrivingOptions,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IMapRouteDrivingOptions2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -578,6 +583,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class MapRouteFinderResult {
                 IMapRouteFinderResult,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMapRouteFinderResult2,
             }
             #[repr(i32)]
@@ -601,6 +607,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class MapRouteLeg {
                 IMapRouteLeg,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMapRouteLeg2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -609,7 +616,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class MapRouteManeuver {
                 IMapRouteManeuver,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMapRouteManeuver2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMapRouteManeuver3,
             }
             #[repr(i32)]

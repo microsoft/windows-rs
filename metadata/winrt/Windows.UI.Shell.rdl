@@ -278,6 +278,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TaskbarManager {
                 ITaskbarManager,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ITaskbarManager2,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.UI.Shell.WindowTabManagerContract")]

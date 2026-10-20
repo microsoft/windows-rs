@@ -23,6 +23,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class CrossSlidingEventArgs {
                 ICrossSlidingEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 ICrossSlidingEventArgs2,
             }
             #[repr(i32)]
@@ -40,6 +41,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class DraggingEventArgs {
                 IDraggingEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IDraggingEventArgs2,
             }
             #[repr(i32)]
@@ -83,6 +85,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class GestureRecognizer {
                 IGestureRecognizer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IGestureRecognizer2,
             }
             #[repr(u32)]
@@ -112,6 +115,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class HoldingEventArgs {
                 IHoldingEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IHoldingEventArgs2,
             }
             #[repr(i32)]
@@ -924,6 +928,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class ManipulationCompletedEventArgs {
                 IManipulationCompletedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IManipulationCompletedEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -937,18 +942,21 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class ManipulationInertiaStartingEventArgs {
                 IManipulationInertiaStartingEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IManipulationInertiaStartingEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class ManipulationStartedEventArgs {
                 IManipulationStartedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IManipulationStartedEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class ManipulationUpdatedEventArgs {
                 IManipulationUpdatedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IManipulationUpdatedEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -970,6 +978,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class PhysicalGestureRecognizer {
+                #[Windows::Foundation::Metadata::Experimental]
                 IPhysicalGestureRecognizer,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -977,12 +986,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IPointerPointStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class PointerPoint {
                 IPointerPoint,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
+                #[Windows::Foundation::Metadata::Experimental]
                 IPointerPointPhysicalPosition,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class PointerPointProperties {
                 IPointerPointProperties,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IPointerPointProperties2,
             }
             #[repr(i32)]
@@ -1012,6 +1024,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IRadialControllerStatics, 196608, "Windows.Foundation.UniversalApiContract")]
             class RadialController {
                 IRadialController,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IRadialController2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -1019,6 +1032,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerButtonClickedEventArgs {
                 IRadialControllerButtonClickedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IRadialControllerButtonClickedEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -1046,6 +1060,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IRadialControllerConfigurationStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
             class RadialControllerConfiguration {
                 IRadialControllerConfiguration,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IRadialControllerConfiguration2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -1053,6 +1068,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerControlAcquiredEventArgs {
                 IRadialControllerControlAcquiredEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IRadialControllerControlAcquiredEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -1087,6 +1103,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerRotationChangedEventArgs {
                 IRadialControllerRotationChangedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IRadialControllerRotationChangedEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -1100,6 +1117,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerScreenContactContinuedEventArgs {
                 IRadialControllerScreenContactContinuedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IRadialControllerScreenContactContinuedEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -1113,6 +1131,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerScreenContactStartedEventArgs {
                 IRadialControllerScreenContactStartedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IRadialControllerScreenContactStartedEventArgs2,
             }
             #[repr(i32)]
@@ -1128,6 +1147,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class RightTappedEventArgs {
                 IRightTappedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IRightTappedEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
@@ -1160,6 +1180,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class TappedEventArgs {
                 ITappedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 ITappedEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
@@ -1170,6 +1191,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class TouchpadGesturesController {
+                #[Windows::Foundation::Metadata::Experimental]
                 ITouchpadGesturesController,
             }
             #[repr(i32)]
@@ -1193,6 +1215,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class TouchpadGlobalActionEventArgs {
+                #[Windows::Foundation::Metadata::Experimental]
                 ITouchpadGlobalActionEventArgs,
             }
             #[repr(u32)]

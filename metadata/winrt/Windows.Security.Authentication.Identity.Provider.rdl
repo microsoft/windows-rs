@@ -330,6 +330,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     class SecondaryAuthenticationFactorInfo {
                         ISecondaryAuthenticationFactorInfo,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                         ISecondaryAuthenticationFactorInfo2,
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]

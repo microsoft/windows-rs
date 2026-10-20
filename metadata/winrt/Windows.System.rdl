@@ -16,7 +16,9 @@ mod Windows {
         #[Windows::Foundation::Metadata::Threading(Both)]
         class AppDiagnosticInfo {
             IAppDiagnosticInfo,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
             IAppDiagnosticInfo2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
             IAppDiagnosticInfo3,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
@@ -54,6 +56,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class AppMemoryReport {
             IAppMemoryReport,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
             IAppMemoryReport2,
         }
         #[repr(i32)]
@@ -98,6 +101,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::Threading(Both)]
         class AppResourceGroupInfo {
             IAppResourceGroupInfo,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
             IAppResourceGroupInfo2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
@@ -152,12 +156,14 @@ mod Windows {
         #[Windows::Foundation::Metadata::Threading(Both)]
         class AppUriHandlerHost {
             IAppUriHandlerHost,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
             IAppUriHandlerHost2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 458752)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class AppUriHandlerRegistration {
             IAppUriHandlerRegistration,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
             IAppUriHandlerRegistration2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 458752)]
@@ -167,6 +173,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::Threading(Both)]
         class AppUriHandlerRegistrationManager {
             IAppUriHandlerRegistrationManager,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
             IAppUriHandlerRegistrationManager2,
         }
         #[repr(i32)]
@@ -198,6 +205,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::WebHostHidden]
         class DispatcherQueue {
             IDispatcherQueue,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
             IDispatcherQueue2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
@@ -1083,7 +1091,9 @@ mod Windows {
         class LauncherOptions {
             ILauncherOptions,
             ILauncherOptions2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
             ILauncherOptions3,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
             ILauncherOptions4,
             ILauncherViewOptions,
         }
@@ -1198,6 +1208,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::Threading(Both)]
         class User {
             IUser,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 917504)]
             IUser2,
         }
         #[repr(i32)]
@@ -1240,6 +1251,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class UserChangedEventArgs {
             IUserChangedEventArgs,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
             IUserChangedEventArgs2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]

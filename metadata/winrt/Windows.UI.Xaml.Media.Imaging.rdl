@@ -23,7 +23,9 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class BitmapImage: BitmapSource {
                         IBitmapImage,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         IBitmapImage2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         IBitmapImage3,
                     }
                     #[unsealed]
@@ -323,6 +325,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class SoftwareBitmapSource: super::ImageSource {
                         ISoftwareBitmapSource,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         super::super::super::super::Foundation::IClosable,
                     }
                     #[unsealed]
@@ -389,6 +392,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class XamlRenderingBackgroundTask {
                         IXamlRenderingBackgroundTask,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                        #[Windows::Foundation::Metadata::Overridable]
                         IXamlRenderingBackgroundTaskOverrides,
                     }
                 }

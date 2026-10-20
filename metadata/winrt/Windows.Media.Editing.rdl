@@ -208,6 +208,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaComposition {
                 IMediaComposition,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMediaComposition2,
             }
             #[Windows::Foundation::Metadata::Activatable(IMediaOverlayFactory, 65536, "Windows.Foundation.UniversalApiContract")]

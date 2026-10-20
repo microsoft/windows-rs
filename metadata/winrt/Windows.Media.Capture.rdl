@@ -9,6 +9,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AdvancedCapturedPhoto {
                 IAdvancedCapturedPhoto,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAdvancedCapturedPhoto2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -22,18 +23,21 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppBroadcastBackgroundService {
                 IAppBroadcastBackgroundService,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Media.Capture.AppBroadcastContract", 131072)]
                 IAppBroadcastBackgroundService2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastContract, 65536)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppBroadcastBackgroundServiceSignInInfo {
                 IAppBroadcastBackgroundServiceSignInInfo,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Media.Capture.AppBroadcastContract", 131072)]
                 IAppBroadcastBackgroundServiceSignInInfo2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastContract, 65536)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppBroadcastBackgroundServiceStreamInfo {
                 IAppBroadcastBackgroundServiceStreamInfo,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Media.Capture.AppBroadcastContract", 131072)]
                 IAppBroadcastBackgroundServiceStreamInfo2,
             }
             #[repr(i32)]
@@ -306,7 +310,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppCaptureAlternateShortcutKeys {
                 IAppCaptureAlternateShortcutKeys,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Media.Capture.AppCaptureContract", 131072)]
                 IAppCaptureAlternateShortcutKeys2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Media.Capture.AppCaptureContract", 196608)]
                 IAppCaptureAlternateShortcutKeys3,
             }
             #[Windows::Foundation::Metadata::ApiContract]
@@ -395,8 +401,11 @@ mod Windows {
             class AppCaptureSettings {
                 IAppCaptureSettings,
                 IAppCaptureSettings2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Media.Capture.AppCaptureContract", 131072)]
                 IAppCaptureSettings3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Media.Capture.AppCaptureContract", 196608)]
                 IAppCaptureSettings4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Media.Capture.AppCaptureContract", 262144)]
                 IAppCaptureSettings5,
             }
             #[Windows::Foundation::Metadata::ContractVersion(AppCaptureContract, 262144)]
@@ -502,7 +511,9 @@ mod Windows {
                 super::super::Storage::Streams::IOutputStream,
                 super::super::Foundation::IClosable,
                 super::super::Storage::Streams::IInputStream,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ICapturedFrameWithSoftwareBitmap,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 ICapturedFrame2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -511,6 +522,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CapturedFrameControlValues {
                 ICapturedFrameControlValues,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ICapturedFrameControlValues2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -2106,7 +2118,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class LowLagMediaRecording {
                 ILowLagMediaRecording,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ILowLagMediaRecording2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ILowLagMediaRecording3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -2132,12 +2146,19 @@ mod Windows {
             class MediaCapture {
                 IMediaCapture,
                 IMediaCaptureVideoPreview,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMediaCapture2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::super::Foundation::IClosable,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMediaCapture3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMediaCapture4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IMediaCapture5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMediaCapture6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IMediaCapture7,
             }
             #[repr(i32)]
@@ -2182,11 +2203,17 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaCaptureInitializationSettings {
                 IMediaCaptureInitializationSettings,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMediaCaptureInitializationSettings2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMediaCaptureInitializationSettings3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMediaCaptureInitializationSettings4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IMediaCaptureInitializationSettings5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMediaCaptureInitializationSettings6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IMediaCaptureInitializationSettings7,
             }
             #[repr(i32)]
@@ -2217,7 +2244,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class MediaCaptureSettings {
                 IMediaCaptureSettings,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMediaCaptureSettings2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IMediaCaptureSettings3,
             }
             #[repr(i32)]
@@ -2247,6 +2276,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaCaptureVideoProfile {
                 IMediaCaptureVideoProfile,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IMediaCaptureVideoProfile2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -2255,6 +2285,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaCaptureVideoProfileMediaDescription {
                 IMediaCaptureVideoProfileMediaDescription,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IMediaCaptureVideoProfileMediaDescription2,
             }
             #[repr(i32)]

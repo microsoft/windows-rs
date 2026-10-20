@@ -307,7 +307,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class QueryOptions {
                 IQueryOptions,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IQueryOptionsWithProviderFilter,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
+                #[Windows::Foundation::Metadata::Experimental]
                 IQueryOptionsAdditionalSearchSources,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -324,6 +327,7 @@ mod Windows {
             class StorageFileQueryResult {
                 IStorageFileQueryResult,
                 IStorageQueryResultBase,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IStorageFileQueryResult2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

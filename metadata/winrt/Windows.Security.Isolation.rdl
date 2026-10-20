@@ -419,8 +419,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class IsolatedWindowsEnvironment {
                 IIsolatedWindowsEnvironment,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 131072)]
                 IIsolatedWindowsEnvironment2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 196608)]
                 IIsolatedWindowsEnvironment3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 262144)]
                 IIsolatedWindowsEnvironment4,
             }
             #[repr(i32)]
@@ -474,6 +477,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class IsolatedWindowsEnvironmentCreateResult {
                 IIsolatedWindowsEnvironmentCreateResult,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 262144)]
                 IIsolatedWindowsEnvironmentCreateResult2,
             }
             #[repr(i32)]
@@ -496,6 +500,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class IsolatedWindowsEnvironmentFile {
                 IIsolatedWindowsEnvironmentFile,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 196608)]
                 IIsolatedWindowsEnvironmentFile2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
@@ -538,7 +543,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class IsolatedWindowsEnvironmentOptions {
                 IIsolatedWindowsEnvironmentOptions,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 196608)]
                 IIsolatedWindowsEnvironmentOptions2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 262144)]
                 IIsolatedWindowsEnvironmentOptions3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
@@ -700,6 +707,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class IsolatedWindowsEnvironmentUserInfo {
                 IIsolatedWindowsEnvironmentUserInfo,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 262144)]
                 IIsolatedWindowsEnvironmentUserInfo2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]

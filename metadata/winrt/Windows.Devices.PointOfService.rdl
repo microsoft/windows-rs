@@ -9,14 +9,18 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BarcodeScanner {
                 IBarcodeScanner,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IBarcodeScanner2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class BarcodeScannerCapabilities {
                 IBarcodeScannerCapabilities,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBarcodeScannerCapabilities1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IBarcodeScannerCapabilities2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -82,6 +86,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CashDrawer {
                 ICashDrawer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -139,9 +144,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ClaimedBarcodeScanner {
                 IClaimedBarcodeScanner,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IClaimedBarcodeScanner1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IClaimedBarcodeScanner2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IClaimedBarcodeScanner3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IClaimedBarcodeScanner4,
                 super::super::Foundation::IClosable,
             }
@@ -155,6 +164,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ClaimedCashDrawer {
                 IClaimedCashDrawer,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IClaimedCashDrawer2,
                 super::super::Foundation::IClosable,
             }
@@ -177,7 +187,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ClaimedLineDisplay {
                 IClaimedLineDisplay,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IClaimedLineDisplay2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IClaimedLineDisplay3,
                 super::super::Foundation::IClosable,
             }
@@ -190,6 +202,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ClaimedMagneticStripeReader {
                 IClaimedMagneticStripeReader,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IClaimedMagneticStripeReader2,
                 super::super::Foundation::IClosable,
             }
@@ -203,6 +216,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ClaimedPosPrinter {
                 IClaimedPosPrinter,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 IClaimedPosPrinter2,
                 super::super::Foundation::IClosable,
             }
@@ -1882,6 +1896,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class JournalPrintJob {
                 IPosPrinterJob,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IJournalPrintJob,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1889,6 +1904,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class JournalPrinterCapabilities {
                 IJournalPrinterCapabilities,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IJournalPrinterCapabilities2,
                 ICommonPosPrintStationCapabilities,
             }
@@ -1900,6 +1916,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class LineDisplay {
                 ILineDisplay,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 ILineDisplay2,
                 super::super::Foundation::IClosable,
             }
@@ -2032,6 +2049,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LineDisplayWindow {
                 ILineDisplayWindow,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 ILineDisplayWindow2,
                 super::super::Foundation::IClosable,
             }
@@ -2042,6 +2060,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MagneticStripeReader {
                 IMagneticStripeReader,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -2156,7 +2175,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PosPrinter {
                 IPosPrinter,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IPosPrinter2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 super::super::Foundation::IClosable,
             }
             #[repr(i32)]
@@ -2336,6 +2357,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ReceiptPrintJob {
                 IReceiptPrintJob,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IReceiptPrintJob2,
                 IReceiptOrSlipJob,
                 IPosPrinterJob,
@@ -2345,6 +2367,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ReceiptPrinterCapabilities {
                 IReceiptPrinterCapabilities,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 IReceiptPrinterCapabilities2,
                 ICommonReceiptSlipCapabilities,
                 ICommonPosPrintStationCapabilities,
@@ -2359,6 +2382,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SlipPrintJob {
                 IReceiptOrSlipJob,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 ISlipPrintJob,
                 IPosPrinterJob,
             }
@@ -2367,6 +2391,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SlipPrinterCapabilities {
                 ISlipPrinterCapabilities,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 ISlipPrinterCapabilities2,
                 ICommonReceiptSlipCapabilities,
                 ICommonPosPrintStationCapabilities,

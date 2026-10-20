@@ -325,6 +325,7 @@ mod Windows {
                 class PrintBindingOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintBindingOptionDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -332,6 +333,7 @@ mod Windows {
                 class PrintBorderingOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintBorderingOptionDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -339,6 +341,7 @@ mod Windows {
                 class PrintCollationOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintCollationOptionDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -346,6 +349,7 @@ mod Windows {
                 class PrintColorModeOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintColorModeOptionDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -353,6 +357,7 @@ mod Windows {
                 class PrintCopiesOptionDetails {
                     IPrintOptionDetails,
                     IPrintNumberOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintCopiesOptionDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -368,7 +373,9 @@ mod Windows {
                     IPrintCustomOptionDetails,
                     IPrintItemListOptionDetails,
                     IPrintCustomItemListOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintCustomItemListOptionDetails2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintCustomItemListOptionDetails3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -377,6 +384,7 @@ mod Windows {
                     IPrintOptionDetails,
                     IPrintCustomOptionDetails,
                     IPrintCustomTextOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintCustomTextOptionDetails2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -391,6 +399,7 @@ mod Windows {
                 class PrintDuplexOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintDuplexOptionDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -398,6 +407,7 @@ mod Windows {
                 class PrintHolePunchOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintHolePunchOptionDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -405,6 +415,7 @@ mod Windows {
                 class PrintMediaSizeOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintMediaSizeOptionDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -412,6 +423,7 @@ mod Windows {
                 class PrintMediaTypeOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintMediaTypeOptionDetails,
                 }
                 #[repr(u32)]
@@ -436,6 +448,7 @@ mod Windows {
                 class PrintOrientationOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintOrientationOptionDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -449,6 +462,7 @@ mod Windows {
                 class PrintQualityOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintQualityOptionDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -456,6 +470,7 @@ mod Windows {
                 class PrintStapleOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintStapleOptionDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -471,6 +486,7 @@ mod Windows {
                     IPrintTaskOptionDetails,
                     super::IPrintTaskOptionsCore,
                     super::IPrintTaskOptionsCoreUIConfiguration,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintTaskOptionDetails2,
                 }
             }

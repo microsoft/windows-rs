@@ -133,6 +133,7 @@ mod Windows {
                     IRfcommDeviceService,
                     IRfcommDeviceService2,
                     super::super::super::Foundation::IClosable,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     IRfcommDeviceService3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -157,6 +158,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class RfcommServiceProvider {
                     IRfcommServiceProvider,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                     IRfcommServiceProvider2,
                 }
             }

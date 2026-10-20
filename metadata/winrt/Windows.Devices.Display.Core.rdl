@@ -9,6 +9,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class DisplayAdapter {
                     IDisplayAdapter,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     IDisplayAdapter2,
                 }
                 #[repr(u32)]
@@ -27,7 +28,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayDevice {
                     IDisplayDevice,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                     IDisplayDevice2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     IDisplayDeviceRenderAdapter,
                 }
                 #[repr(i32)]
@@ -46,7 +49,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class DisplayManager {
                     IDisplayManager,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     IDisplayManager2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     IDisplayManager3,
                     super::super::super::Foundation::IClosable,
                 }
@@ -96,6 +101,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayModeInfo {
                     IDisplayModeInfo,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                     IDisplayModeInfo2,
                 }
                 #[repr(u32)]
@@ -117,6 +123,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayPath {
                     IDisplayPath,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                     IDisplayPath2,
                 }
                 #[repr(i32)]
@@ -186,6 +193,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplaySource {
                     IDisplaySource,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                     IDisplaySource2,
                 }
                 #[repr(i32)]
@@ -258,12 +266,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayTask {
                     IDisplayTask,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                     IDisplayTask2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayTaskPool {
                     IDisplayTaskPool,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                     IDisplayTaskPool2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]

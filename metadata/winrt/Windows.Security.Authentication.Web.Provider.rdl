@@ -339,6 +339,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     class WebAccountProviderTriggerDetails {
                         IWebAccountProviderTokenObjects,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                         IWebAccountProviderTokenObjects2,
                     }
                     #[repr(i32)]
@@ -359,7 +360,9 @@ mod Windows {
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     class WebProviderTokenRequest {
                         IWebProviderTokenRequest,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         IWebProviderTokenRequest2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                         IWebProviderTokenRequest3,
                     }
                     #[Windows::Foundation::Metadata::Activatable(IWebProviderTokenResponseFactory, 65536, "Windows.Foundation.UniversalApiContract")]

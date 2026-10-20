@@ -1,0 +1,51 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Composition {
+    // A composable base class implemented in C++/WinRT, so that each client can derive from it.
+    #[unsealed]
+    #[Composable(IBaseFactory, Public, 1)]
+    #[Static(IBaseStatics, 1)]
+    class Base {
+        IBase,
+        #[Overridable]
+        IBaseOverrides,
+        #[Protected]
+        IBaseProtected,
+    }
+
+    #[ExclusiveTo(Base)]
+    interface IBase {
+        #[get]
+        Value: i32;
+
+        // Calls the overridable `Name` through the outer object, so a derived override wins.
+        fn Describe(&self) -> String;
+
+        // Queries the outer object for `IStringable`, which only a derived class implements.
+        fn Stringify(&self) -> String;
+    }
+
+    #[ExclusiveTo(Base)]
+    interface IBaseOverrides {
+        fn Name(&self) -> String;
+    }
+
+    #[ExclusiveTo(Base)]
+    interface IBaseProtected {
+        fn Doubled(&self) -> i32;
+    }
+
+    #[ExclusiveTo(Base)]
+    interface IBaseFactory {
+        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> Base;
+        fn WithValue(&self, value: i32, outer: Object, inner: &mut Object) -> Base;
+    }
+
+    // The number of live `Base` objects, so clients can check that derived objects are released.
+    #[ExclusiveTo(Base)]
+    interface IBaseStatics {
+        #[get]
+        Instances: i32;
+    }
+}

@@ -580,6 +580,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCard {
                 ISmartCard,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ISmartCardConnect,
             }
             #[repr(i32)]
@@ -596,6 +597,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCardAppletIdGroup {
                 ISmartCardAppletIdGroup,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 393216)]
                 ISmartCardAppletIdGroup2,
             }
             #[repr(i32)]
@@ -610,6 +612,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCardAppletIdGroupRegistration {
                 ISmartCardAppletIdGroupRegistration,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 393216)]
                 ISmartCardAppletIdGroupRegistration2,
             }
             #[Windows::Foundation::Metadata::Activatable(ISmartCardAutomaticResponseApduFactory, 65536, "Windows.Devices.SmartCards.SmartCardEmulatorContract")]
@@ -618,7 +621,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCardAutomaticResponseApdu {
                 ISmartCardAutomaticResponseApdu,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 131072)]
                 ISmartCardAutomaticResponseApdu2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 196608)]
                 ISmartCardAutomaticResponseApdu3,
             }
             #[repr(i32)]
@@ -665,6 +670,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCardCryptogramGenerator {
                 ISmartCardCryptogramGenerator,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 262144)]
                 ISmartCardCryptogramGenerator2,
             }
             #[repr(i32)]
@@ -794,6 +800,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCardCryptogramStorageKeyInfo {
                 ISmartCardCryptogramStorageKeyInfo,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 196608)]
                 ISmartCardCryptogramStorageKeyInfo2,
             }
             #[repr(i32)]
@@ -829,6 +836,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCardEmulator {
                 ISmartCardEmulator,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 131072)]
                 ISmartCardEmulator2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(SmartCardEmulatorContract, 65536)]
@@ -836,7 +844,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCardEmulatorApduReceivedEventArgs {
                 ISmartCardEmulatorApduReceivedEventArgs,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 131072)]
                 ISmartCardEmulatorApduReceivedEventArgsWithCryptograms,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 131072)]
                 ISmartCardEmulatorApduReceivedEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(SmartCardEmulatorContract, 65536)]
@@ -916,6 +926,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCardProvisioning {
                 ISmartCardProvisioning,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ISmartCardProvisioning2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -956,7 +967,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCardTriggerDetails {
                 ISmartCardTriggerDetails,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardBackgroundTriggerContract", 65536)]
                 ISmartCardTriggerDetails2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardBackgroundTriggerContract", 196608)]
                 ISmartCardTriggerDetails3,
             }
             #[repr(i32)]

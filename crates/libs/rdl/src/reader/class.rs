@@ -166,10 +166,19 @@ impl Encoder<'_> {
             );
         }
 
-        if let Some(attr) = interface.attrs.first() {
-            return self.err(attr, "class interface does not support attributes");
+        if let Some(attr) = interface.attrs.iter().find(|attr| {
+            attr.path()
+                .segments
+                .last()
+                .is_some_and(|s| s.ident == "Default" || s.ident == "DefaultAttribute")
+        }) {
+            return self.err(attr, "the first class interface is the default interface");
         }
 
-        Ok(())
+        self.encode_attrs(
+            metadata::writer::HasAttribute::InterfaceImpl(interface_impl),
+            &interface.attrs,
+            &[],
+        )
     }
 }

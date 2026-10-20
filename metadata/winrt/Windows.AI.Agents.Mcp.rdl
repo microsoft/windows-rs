@@ -46,6 +46,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class McpMessageFilterResponse {
+                    #[Windows::Foundation::Metadata::Experimental]
                     IMcpMessageFilterResponse,
                 }
             }

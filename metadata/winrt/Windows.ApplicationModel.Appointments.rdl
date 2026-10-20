@@ -7,7 +7,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class Appointment {
                 IAppointment,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IAppointment2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IAppointment3,
             }
             #[repr(i32)]
@@ -24,7 +26,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppointmentCalendar {
                 IAppointmentCalendar,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IAppointmentCalendar2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAppointmentCalendar3,
             }
             #[repr(i32)]
@@ -47,6 +51,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppointmentCalendarSyncManager {
                 IAppointmentCalendarSyncManager,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 IAppointmentCalendarSyncManager2,
             }
             #[repr(i32)]
@@ -149,7 +154,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AppointmentRecurrence {
                 IAppointmentRecurrence,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IAppointmentRecurrence2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IAppointmentRecurrence3,
             }
             #[repr(i32)]
@@ -173,7 +180,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppointmentStore {
                 IAppointmentStore,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IAppointmentStore2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IAppointmentStore3,
             }
             #[repr(i32)]
@@ -188,6 +197,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppointmentStoreChange {
                 IAppointmentStoreChange,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IAppointmentStoreChange2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -201,6 +211,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppointmentStoreChangeTracker {
                 IAppointmentStoreChangeTracker,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 IAppointmentStoreChangeTracker2,
             }
             #[repr(i32)]

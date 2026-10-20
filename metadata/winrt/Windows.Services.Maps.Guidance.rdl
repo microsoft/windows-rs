@@ -149,6 +149,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class GuidanceNavigator {
                     IGuidanceNavigator,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Services.Maps.GuidanceContract", 131072)]
                     IGuidanceNavigator2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
@@ -164,6 +165,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class GuidanceRoadSegment {
                     IGuidanceRoadSegment,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Services.Maps.GuidanceContract", 196608)]
                     IGuidanceRoadSegment2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]

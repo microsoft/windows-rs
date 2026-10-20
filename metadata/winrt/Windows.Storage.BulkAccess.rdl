@@ -10,9 +10,13 @@ mod Windows {
                 super::Streams::IRandomAccessStreamReference,
                 super::IStorageItem,
                 super::IStorageItemProperties,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::IStorageItem2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::IStorageItemPropertiesWithProvider,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::IStorageFilePropertiesWithAvailability,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::IStorageFile2,
             }
             #[Windows::Foundation::Metadata::Activatable(IFileInformationFactoryFactory, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -28,8 +32,11 @@ mod Windows {
                 super::IStorageItem,
                 super::IStorageItemProperties,
                 super::Search::IStorageFolderQueryOperations,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::IStorageItem2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::IStorageFolder2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::IStorageItemPropertiesWithProvider,
             }
             #[guid(0x401d88be_960f_4d6d_a7d0_1a3861e76c83)]

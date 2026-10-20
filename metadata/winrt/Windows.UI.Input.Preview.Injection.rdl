@@ -253,6 +253,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Static(IInputInjectorStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
                     class InputInjector {
                         IInputInjector,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                         IInputInjector2,
                     }
                 }

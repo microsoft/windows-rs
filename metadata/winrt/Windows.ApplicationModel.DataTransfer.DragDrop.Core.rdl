@@ -20,6 +20,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class CoreDragInfo {
                         ICoreDragInfo,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         ICoreDragInfo2,
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -30,6 +31,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class CoreDragOperation {
                         ICoreDragOperation,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         ICoreDragOperation2,
                     }
                     #[repr(u32)]
