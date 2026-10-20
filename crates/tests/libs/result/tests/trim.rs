@@ -1,4 +1,4 @@
-#![cfg(windows)]
+#![cfg(all(windows, not(windows_slim_errors)))]
 use windows::{Win32::*, core::*};
 
 #[test]

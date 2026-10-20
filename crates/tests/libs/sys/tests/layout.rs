@@ -1,4 +1,4 @@
-#![cfg(windows)]
+#![cfg(all(windows, any(target_arch = "x86", target_arch = "x86_64")))]
 use windows_sys::Win32::*;
 
 #[test]
