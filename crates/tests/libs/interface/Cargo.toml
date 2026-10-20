@@ -6,7 +6,6 @@ publish = false
 
 [lib]
 doc = false
-doctest = false
 
 [dev-dependencies.windows]
 workspace = true
@@ -26,7 +25,10 @@ features = [
     "xaudio2",
 ]
 
-[dependencies.windows-core]
+[dev-dependencies.windows-core]
+workspace = true
+
+[dev-dependencies.windows-interface]
 workspace = true
 
 [lints]

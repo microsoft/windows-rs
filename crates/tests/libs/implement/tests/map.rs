@@ -103,7 +103,8 @@ impl IIterable_Impl<IKeyValuePair<i32, f32>> for Map_Impl {
     }
 }
 
-fn main() -> Result<()> {
+#[test]
+fn test() -> Result<()> {
     let map: IMap<i32, f32> = Map().into();
     map.Clear()?;
     map.HasKey(0)?;

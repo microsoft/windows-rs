@@ -46,3 +46,19 @@ fn fn_ptr() {
         GET_TICK_COUNT();
     }
 }
+
+#[test]
+fn variadic() {
+    windows_link::link!("user32.dll" "C" fn wsprintfA(buffer: *mut u8, format: *const u8, ...) -> i32);
+
+    unsafe {
+        let mut buffer = [0u8; 1024];
+        let len = wsprintfA(
+            buffer.as_mut_ptr(),
+            c"test-%d-%d!".as_ptr().cast(),
+            123u32,
+            456u32,
+        );
+        assert_eq!(&buffer[..len as usize], b"test-123-456!");
+    }
+}
