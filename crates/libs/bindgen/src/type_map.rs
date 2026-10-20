@@ -1,7 +1,8 @@
 use super::*;
+use std::sync::Arc;
 
 #[derive(Default, Clone, Debug, PartialEq, Eq)]
-pub struct TypeMap(HashMap<TypeName, HashSet<Type>>);
+pub struct TypeMap(HashMap<TypeName, HashSet<Type>>, Arc<HashSet<TypeName>>);
 
 pub trait Dependencies {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader);
@@ -23,12 +24,16 @@ impl std::ops::Deref for TypeMap {
 
 impl TypeMap {
     pub fn new() -> Self {
-        Self(HashMap::new())
+        Self::default()
     }
 
     #[track_caller]
     pub fn filter(reader: &Reader, filter: &Filter, references: &References, sys: bool) -> Self {
         let mut dependencies = Self::new();
+
+        // The references provide these types along with their dependencies, so the walk below
+        // stops at them.
+        let referenced = Arc::new(references.type_names(reader));
 
         for namespace in reader.keys() {
             if filter.includes_namespace(namespace) {
@@ -45,7 +50,13 @@ impl TypeMap {
                             continue;
                         }
 
-                        let mut item_dependencies = Self::new();
+                        // A referenced type that is also generated needs its own dependencies.
+                        let mut item_dependencies =
+                            if referenced.contains(&TypeName(namespace, name)) {
+                                Self::new()
+                            } else {
+                                Self(HashMap::new(), referenced.clone())
+                            };
 
                         for ty in types {
                             if sys && let Type::CppFn(function) = ty {
@@ -72,8 +83,10 @@ impl TypeMap {
         dependencies
     }
 
+    /// Adds `ty` and returns whether its dependencies still need to be walked.
     pub fn insert(&mut self, ty: Type) -> bool {
-        self.0.entry(ty.type_name()).or_default().insert(ty)
+        let name = ty.type_name();
+        self.0.entry(name).or_default().insert(ty) && !self.1.contains(&name)
     }
 
     pub fn combine_references(&mut self, other: &Self, references: &References) {
