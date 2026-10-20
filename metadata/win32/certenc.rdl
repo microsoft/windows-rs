@@ -11,93 +11,93 @@ mod Windows {
         const EAN_NAMEOBJECTID: u32 = 2147483648;
         #[guid(0x1c9a8c70_1271_11d1_9bd4_00c04fb683fa)]
         interface ICertEncodeAltName: IDispatch {
-            fn Decode(&self, strBinary: BSTR) -> HRESULT;
-            fn GetNameCount(&self, #[retval] pNameCount: *mut i32) -> HRESULT;
-            fn GetNameChoice(&self, NameIndex: i32, #[retval] pNameChoice: *mut i32) -> HRESULT;
-            fn GetName(&self, NameIndex: i32, #[retval] pstrName: *mut BSTR) -> HRESULT;
-            fn Reset(&self, NameCount: i32) -> HRESULT;
-            fn SetNameEntry(&self, NameIndex: i32, NameChoice: i32, strName: BSTR) -> HRESULT;
-            fn Encode(&self, #[retval] pstrBinary: *mut BSTR) -> HRESULT;
+            fn Decode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strBinary: BSTR) -> HRESULT;
+            fn GetNameCount(&self, #[out] #[retval] pNameCount: *mut LONG) -> HRESULT;
+            fn GetNameChoice(&self, NameIndex: LONG, #[out] #[retval] pNameChoice: *mut LONG) -> HRESULT;
+            fn GetName(&self, NameIndex: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrName: *mut BSTR) -> HRESULT;
+            fn Reset(&self, NameCount: LONG) -> HRESULT;
+            fn SetNameEntry(&self, NameIndex: LONG, NameChoice: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strName: BSTR) -> HRESULT;
+            fn Encode(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0xf67fe177_5ef1_4535_b4ce_29df15e2e0c3)]
         interface ICertEncodeAltName2: ICertEncodeAltName {
-            fn DecodeBlob(&self, strEncodedData: BSTR, Encoding: EncodingType) -> HRESULT;
-            fn EncodeBlob(&self, Encoding: EncodingType, #[retval] pstrEncodedData: *mut BSTR) -> HRESULT;
-            fn GetNameBlob(&self, NameIndex: i32, Encoding: EncodingType, #[retval] pstrName: *mut BSTR) -> HRESULT;
-            fn SetNameEntryBlob(&self, NameIndex: i32, NameChoice: i32, strName: BSTR, Encoding: EncodingType) -> HRESULT;
+            fn DecodeBlob(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strEncodedData: BSTR, #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn EncodeBlob(&self, Encoding: EncodingType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrEncodedData: *mut BSTR) -> HRESULT;
+            fn GetNameBlob(&self, NameIndex: LONG, Encoding: EncodingType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrName: *mut BSTR) -> HRESULT;
+            fn SetNameEntryBlob(&self, NameIndex: LONG, NameChoice: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strName: BSTR, #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
         }
         #[guid(0x6db525be_1278_11d1_9bd4_00c04fb683fa)]
         interface ICertEncodeBitString: IDispatch {
-            fn Decode(&self, strBinary: BSTR) -> HRESULT;
-            fn GetBitCount(&self, #[retval] pBitCount: *mut i32) -> HRESULT;
-            fn GetBitString(&self, #[retval] pstrBitString: *mut BSTR) -> HRESULT;
-            fn Encode(&self, BitCount: i32, strBitString: BSTR, #[retval] pstrBinary: *mut BSTR) -> HRESULT;
+            fn Decode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strBinary: BSTR) -> HRESULT;
+            fn GetBitCount(&self, #[out] #[retval] pBitCount: *mut LONG) -> HRESULT;
+            fn GetBitString(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrBitString: *mut BSTR) -> HRESULT;
+            fn Encode(&self, BitCount: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strBitString: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0xe070d6e7_23ef_4dd2_8242_ebd9c928cb30)]
         interface ICertEncodeBitString2: ICertEncodeBitString {
-            fn DecodeBlob(&self, strEncodedData: BSTR, Encoding: EncodingType) -> HRESULT;
-            fn EncodeBlob(&self, BitCount: i32, strBitString: BSTR, EncodingIn: EncodingType, Encoding: EncodingType, #[retval] pstrEncodedData: *mut BSTR) -> HRESULT;
-            fn GetBitStringBlob(&self, Encoding: EncodingType, #[retval] pstrBitString: *mut BSTR) -> HRESULT;
+            fn DecodeBlob(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strEncodedData: BSTR, #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn EncodeBlob(&self, BitCount: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strBitString: BSTR, EncodingIn: EncodingType, Encoding: EncodingType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrEncodedData: *mut BSTR) -> HRESULT;
+            fn GetBitStringBlob(&self, Encoding: EncodingType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrBitString: *mut BSTR) -> HRESULT;
         }
         #[guid(0x01958640_bbff_11d0_8825_00a0c903b83c)]
         interface ICertEncodeCRLDistInfo: IDispatch {
-            fn Decode(&self, strBinary: BSTR) -> HRESULT;
-            fn GetDistPointCount(&self, #[retval] pDistPointCount: *mut i32) -> HRESULT;
-            fn GetNameCount(&self, DistPointIndex: i32, #[retval] pNameCount: *mut i32) -> HRESULT;
-            fn GetNameChoice(&self, DistPointIndex: i32, NameIndex: i32, #[retval] pNameChoice: *mut i32) -> HRESULT;
-            fn GetName(&self, DistPointIndex: i32, NameIndex: i32, #[retval] pstrName: *mut BSTR) -> HRESULT;
-            fn Reset(&self, DistPointCount: i32) -> HRESULT;
-            fn SetNameCount(&self, DistPointIndex: i32, NameCount: i32) -> HRESULT;
-            fn SetNameEntry(&self, DistPointIndex: i32, NameIndex: i32, NameChoice: i32, strName: BSTR) -> HRESULT;
-            fn Encode(&self, #[retval] pstrBinary: *mut BSTR) -> HRESULT;
+            fn Decode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strBinary: BSTR) -> HRESULT;
+            fn GetDistPointCount(&self, #[out] #[retval] pDistPointCount: *mut LONG) -> HRESULT;
+            fn GetNameCount(&self, DistPointIndex: LONG, #[out] #[retval] pNameCount: *mut LONG) -> HRESULT;
+            fn GetNameChoice(&self, DistPointIndex: LONG, NameIndex: LONG, #[out] #[retval] pNameChoice: *mut LONG) -> HRESULT;
+            fn GetName(&self, DistPointIndex: LONG, NameIndex: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrName: *mut BSTR) -> HRESULT;
+            fn Reset(&self, DistPointCount: LONG) -> HRESULT;
+            fn SetNameCount(&self, DistPointIndex: LONG, NameCount: LONG) -> HRESULT;
+            fn SetNameEntry(&self, DistPointIndex: LONG, NameIndex: LONG, NameChoice: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strName: BSTR) -> HRESULT;
+            fn Encode(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0xb4275d4b_3e30_446f_ad36_09d03120b078)]
         interface ICertEncodeCRLDistInfo2: ICertEncodeCRLDistInfo {
-            fn DecodeBlob(&self, strEncodedData: BSTR, Encoding: EncodingType) -> HRESULT;
-            fn EncodeBlob(&self, Encoding: EncodingType, #[retval] pstrEncodedData: *mut BSTR) -> HRESULT;
+            fn DecodeBlob(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strEncodedData: BSTR, #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn EncodeBlob(&self, Encoding: EncodingType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrEncodedData: *mut BSTR) -> HRESULT;
         }
         #[guid(0x2f9469a0_a470_11d0_8821_00a0c903b83c)]
         interface ICertEncodeDateArray: IDispatch {
-            fn Decode(&self, strBinary: BSTR) -> HRESULT;
-            fn GetCount(&self, #[retval] pCount: *mut i32) -> HRESULT;
-            fn GetValue(&self, Index: i32, #[retval] pValue: *mut DATE) -> HRESULT;
-            fn Reset(&self, Count: i32) -> HRESULT;
-            fn SetValue(&self, Index: i32, Value: DATE) -> HRESULT;
-            fn Encode(&self, #[retval] pstrBinary: *mut BSTR) -> HRESULT;
+            fn Decode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strBinary: BSTR) -> HRESULT;
+            fn GetCount(&self, #[out] #[retval] pCount: *mut LONG) -> HRESULT;
+            fn GetValue(&self, Index: LONG, #[out] #[retval] pValue: *mut DATE) -> HRESULT;
+            fn Reset(&self, Count: LONG) -> HRESULT;
+            fn SetValue(&self, Index: LONG, Value: DATE) -> HRESULT;
+            fn Encode(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0x99a4edb5_2b8e_448d_bf95_bba8d7789dc8)]
         interface ICertEncodeDateArray2: ICertEncodeDateArray {
-            fn DecodeBlob(&self, strEncodedData: BSTR, Encoding: EncodingType) -> HRESULT;
-            fn EncodeBlob(&self, Encoding: EncodingType, #[retval] pstrEncodedData: *mut BSTR) -> HRESULT;
+            fn DecodeBlob(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strEncodedData: BSTR, #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn EncodeBlob(&self, Encoding: EncodingType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrEncodedData: *mut BSTR) -> HRESULT;
         }
         #[guid(0x15e2f230_a0a2_11d0_8821_00a0c903b83c)]
         interface ICertEncodeLongArray: IDispatch {
-            fn Decode(&self, strBinary: BSTR) -> HRESULT;
-            fn GetCount(&self, #[retval] pCount: *mut i32) -> HRESULT;
-            fn GetValue(&self, Index: i32, #[retval] pValue: *mut i32) -> HRESULT;
-            fn Reset(&self, Count: i32) -> HRESULT;
-            fn SetValue(&self, Index: i32, Value: i32) -> HRESULT;
-            fn Encode(&self, #[retval] pstrBinary: *mut BSTR) -> HRESULT;
+            fn Decode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strBinary: BSTR) -> HRESULT;
+            fn GetCount(&self, #[out] #[retval] pCount: *mut LONG) -> HRESULT;
+            fn GetValue(&self, Index: LONG, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
+            fn Reset(&self, Count: LONG) -> HRESULT;
+            fn SetValue(&self, Index: LONG, Value: LONG) -> HRESULT;
+            fn Encode(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0x4efde84a_bd9b_4fc2_a108_c347d478840f)]
         interface ICertEncodeLongArray2: ICertEncodeLongArray {
-            fn DecodeBlob(&self, strEncodedData: BSTR, Encoding: EncodingType) -> HRESULT;
-            fn EncodeBlob(&self, Encoding: EncodingType, #[retval] pstrEncodedData: *mut BSTR) -> HRESULT;
+            fn DecodeBlob(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strEncodedData: BSTR, #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn EncodeBlob(&self, Encoding: EncodingType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrEncodedData: *mut BSTR) -> HRESULT;
         }
         #[guid(0x12a88820_7494_11d0_8816_00a0c903b83c)]
         interface ICertEncodeStringArray: IDispatch {
-            fn Decode(&self, strBinary: BSTR) -> HRESULT;
-            fn GetStringType(&self, #[retval] pStringType: *mut i32) -> HRESULT;
-            fn GetCount(&self, #[retval] pCount: *mut i32) -> HRESULT;
-            fn GetValue(&self, Index: i32, #[retval] pstr: *mut BSTR) -> HRESULT;
-            fn Reset(&self, Count: i32, StringType: i32) -> HRESULT;
-            fn SetValue(&self, Index: i32, str: BSTR) -> HRESULT;
-            fn Encode(&self, #[retval] pstrBinary: *mut BSTR) -> HRESULT;
+            fn Decode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strBinary: BSTR) -> HRESULT;
+            fn GetStringType(&self, #[out] #[retval] pStringType: *mut LONG) -> HRESULT;
+            fn GetCount(&self, #[out] #[retval] pCount: *mut LONG) -> HRESULT;
+            fn GetValue(&self, Index: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstr: *mut BSTR) -> HRESULT;
+            fn Reset(&self, Count: LONG, StringType: LONG) -> HRESULT;
+            fn SetValue(&self, Index: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] str: BSTR) -> HRESULT;
+            fn Encode(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0x9c680d93_9b7d_4e95_9018_4ffe10ba5ada)]
         interface ICertEncodeStringArray2: ICertEncodeStringArray {
-            fn DecodeBlob(&self, strEncodedData: BSTR, Encoding: EncodingType) -> HRESULT;
-            fn EncodeBlob(&self, Encoding: EncodingType, #[retval] pstrEncodedData: *mut BSTR) -> HRESULT;
+            fn DecodeBlob(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strEncodedData: BSTR, #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn EncodeBlob(&self, Encoding: EncodingType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrEncodedData: *mut BSTR) -> HRESULT;
         }
     }
 }

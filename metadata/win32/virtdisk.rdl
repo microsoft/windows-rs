@@ -1,8 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum APPLY_SNAPSHOT_VHDSET_FLAG {
             APPLY_SNAPSHOT_VHDSET_FLAG_NONE = 0,
             APPLY_SNAPSHOT_VHDSET_FLAG_WRITEABLE = 1,
@@ -21,8 +20,7 @@ mod Windows {
             APPLY_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED = 0,
             APPLY_SNAPSHOT_VHDSET_VERSION_1 = 1,
         }
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum ATTACH_VIRTUAL_DISK_FLAG {
             ATTACH_VIRTUAL_DISK_FLAG_NONE = 0,
             ATTACH_VIRTUAL_DISK_FLAG_READ_ONLY = 1,
@@ -41,11 +39,11 @@ mod Windows {
             Version: ATTACH_VIRTUAL_DISK_VERSION,
             Anonymous: union {
                 Version1: struct {
-                    Reserved: u32,
+                    Reserved: ULONG,
                 },
                 Version2: struct {
-                    RestrictedOffset: u64,
-                    RestrictedLength: u64,
+                    RestrictedOffset: ULONGLONG,
+                    RestrictedLength: ULONGLONG,
                 },
             },
         }
@@ -56,15 +54,14 @@ mod Windows {
             ATTACH_VIRTUAL_DISK_VERSION_2 = 2,
         }
         #[library("VirtDisk.dll")]
-        extern fn AddVirtualDiskParent(VirtualDiskHandle: HANDLE, ParentPath: PCWSTR) -> u32;
+        extern fn AddVirtualDiskParent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParentPath: PCWSTR) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn ApplySnapshotVhdSet(VirtualDiskHandle: HANDLE, Parameters: PAPPLY_SNAPSHOT_VHDSET_PARAMETERS, Flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> u32;
+        extern fn ApplySnapshotVhdSet(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PAPPLY_SNAPSHOT_VHDSET_PARAMETERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn AttachVirtualDisk(VirtualDiskHandle: HANDLE, #[opt] SecurityDescriptor: PSECURITY_DESCRIPTOR, Flags: ATTACH_VIRTUAL_DISK_FLAG, ProviderSpecificFlags: u32, #[opt] Parameters: PATTACH_VIRTUAL_DISK_PARAMETERS, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn AttachVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: ATTACH_VIRTUAL_DISK_FLAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProviderSpecificFlags: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PATTACH_VIRTUAL_DISK_PARAMETERS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Overlapped: LPOVERLAPPED) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn BreakMirrorVirtualDisk(VirtualDiskHandle: HANDLE) -> u32;
-        #[repr(u32)]
-        #[flags]
+        extern fn BreakMirrorVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE) -> DWORD;
+        #[repr(i32)]
         enum COMPACT_VIRTUAL_DISK_FLAG {
             COMPACT_VIRTUAL_DISK_FLAG_NONE = 0,
             COMPACT_VIRTUAL_DISK_FLAG_NO_ZERO_SCAN = 1,
@@ -74,7 +71,7 @@ mod Windows {
             Version: COMPACT_VIRTUAL_DISK_VERSION,
             Anonymous: union {
                 Version1: struct {
-                    Reserved: u32,
+                    Reserved: ULONG,
                 },
             },
         }
@@ -83,8 +80,7 @@ mod Windows {
             COMPACT_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
             COMPACT_VIRTUAL_DISK_VERSION_1 = 1,
         }
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum CREATE_VIRTUAL_DISK_FLAG {
             CREATE_VIRTUAL_DISK_FLAG_NONE = 0,
             CREATE_VIRTUAL_DISK_FLAG_FULL_PHYSICAL_ALLOCATION = 1,
@@ -105,18 +101,18 @@ mod Windows {
             Anonymous: union {
                 Version1: struct {
                     UniqueId: GUID,
-                    MaximumSize: u64,
-                    BlockSizeInBytes: u32,
-                    SectorSizeInBytes: u32,
+                    MaximumSize: ULONGLONG,
+                    BlockSizeInBytes: ULONG,
+                    SectorSizeInBytes: ULONG,
                     ParentPath: PCWSTR,
                     SourcePath: PCWSTR,
                 },
                 Version2: struct {
                     UniqueId: GUID,
-                    MaximumSize: u64,
-                    BlockSizeInBytes: u32,
-                    SectorSizeInBytes: u32,
-                    PhysicalSectorSizeInBytes: u32,
+                    MaximumSize: ULONGLONG,
+                    BlockSizeInBytes: ULONG,
+                    SectorSizeInBytes: ULONG,
+                    PhysicalSectorSizeInBytes: ULONG,
                     ParentPath: PCWSTR,
                     SourcePath: PCWSTR,
                     OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
@@ -126,10 +122,10 @@ mod Windows {
                 },
                 Version3: struct {
                     UniqueId: GUID,
-                    MaximumSize: u64,
-                    BlockSizeInBytes: u32,
-                    SectorSizeInBytes: u32,
-                    PhysicalSectorSizeInBytes: u32,
+                    MaximumSize: ULONGLONG,
+                    BlockSizeInBytes: ULONG,
+                    SectorSizeInBytes: ULONG,
+                    PhysicalSectorSizeInBytes: ULONG,
                     ParentPath: PCWSTR,
                     SourcePath: PCWSTR,
                     OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
@@ -141,10 +137,10 @@ mod Windows {
                 },
                 Version4: struct {
                     UniqueId: GUID,
-                    MaximumSize: u64,
-                    BlockSizeInBytes: u32,
-                    SectorSizeInBytes: u32,
-                    PhysicalSectorSizeInBytes: u32,
+                    MaximumSize: ULONGLONG,
+                    BlockSizeInBytes: ULONG,
+                    SectorSizeInBytes: ULONG,
+                    PhysicalSectorSizeInBytes: ULONG,
                     ParentPath: PCWSTR,
                     SourcePath: PCWSTR,
                     OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
@@ -154,7 +150,7 @@ mod Windows {
                     SourceLimitPath: PCWSTR,
                     BackingStorageType: VIRTUAL_STORAGE_TYPE,
                     PmemAddressAbstractionType: GUID,
-                    DataAlignment: u64,
+                    DataAlignment: ULONGLONG,
                 },
             },
         }
@@ -169,13 +165,12 @@ mod Windows {
             CREATE_VIRTUAL_DISK_VERSION_4 = 4,
         }
         #[library("VirtDisk.dll")]
-        extern fn CompactVirtualDisk(VirtualDiskHandle: HANDLE, Flags: COMPACT_VIRTUAL_DISK_FLAG, #[opt] Parameters: PCOMPACT_VIRTUAL_DISK_PARAMETERS, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn CompactVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: COMPACT_VIRTUAL_DISK_FLAG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PCOMPACT_VIRTUAL_DISK_PARAMETERS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Overlapped: LPOVERLAPPED) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn CompleteForkVirtualDisk(VirtualDiskHandle: HANDLE) -> u32;
+        extern fn CompleteForkVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn CreateVirtualDisk(VirtualStorageType: PVIRTUAL_STORAGE_TYPE, Path: PCWSTR, VirtualDiskAccessMask: VIRTUAL_DISK_ACCESS_MASK, #[opt] SecurityDescriptor: PSECURITY_DESCRIPTOR, Flags: CREATE_VIRTUAL_DISK_FLAG, ProviderSpecificFlags: u32, Parameters: PCREATE_VIRTUAL_DISK_PARAMETERS, #[opt] Overlapped: LPOVERLAPPED, #[out] Handle: PHANDLE) -> u32;
-        #[repr(u32)]
-        #[flags]
+        extern fn CreateVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualStorageType: PVIRTUAL_STORAGE_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Path: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskAccessMask: VIRTUAL_DISK_ACCESS_MASK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: CREATE_VIRTUAL_DISK_FLAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProviderSpecificFlags: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PCREATE_VIRTUAL_DISK_PARAMETERS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Overlapped: LPOVERLAPPED, #[out] Handle: PHANDLE) -> DWORD;
+        #[repr(i32)]
         enum DELETE_SNAPSHOT_VHDSET_FLAG {
             DELETE_SNAPSHOT_VHDSET_FLAG_NONE = 0,
             DELETE_SNAPSHOT_VHDSET_FLAG_PERSIST_RCT = 1,
@@ -193,8 +188,7 @@ mod Windows {
             DELETE_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED = 0,
             DELETE_SNAPSHOT_VHDSET_VERSION_1 = 1,
         }
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum DEPENDENT_DISK_FLAG {
             DEPENDENT_DISK_FLAG_NONE = 0,
             DEPENDENT_DISK_FLAG_MULT_BACKING_FILES = 1,
@@ -212,19 +206,17 @@ mod Windows {
             DEPENDENT_DISK_FLAG_ALWAYS_ALLOW_SPARSE = 4096,
             DEPENDENT_DISK_FLAG_SUPPORT_ENCRYPTED_FILES = 8192,
         }
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum DETACH_VIRTUAL_DISK_FLAG {
             DETACH_VIRTUAL_DISK_FLAG_NONE = 0,
         }
         #[library("VirtDisk.dll")]
-        extern fn DeleteSnapshotVhdSet(VirtualDiskHandle: HANDLE, Parameters: PDELETE_SNAPSHOT_VHDSET_PARAMETERS, Flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> u32;
+        extern fn DeleteSnapshotVhdSet(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PDELETE_SNAPSHOT_VHDSET_PARAMETERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn DeleteVirtualDiskMetadata(VirtualDiskHandle: HANDLE, Item: *const GUID) -> u32;
+        extern fn DeleteVirtualDiskMetadata(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Item: *const GUID) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn DetachVirtualDisk(VirtualDiskHandle: HANDLE, Flags: DETACH_VIRTUAL_DISK_FLAG, ProviderSpecificFlags: u32) -> u32;
-        #[repr(u32)]
-        #[flags]
+        extern fn DetachVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DETACH_VIRTUAL_DISK_FLAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProviderSpecificFlags: ULONG) -> DWORD;
+        #[repr(i32)]
         enum EXPAND_VIRTUAL_DISK_FLAG {
             EXPAND_VIRTUAL_DISK_FLAG_NONE = 0,
             EXPAND_VIRTUAL_DISK_FLAG_NOTIFY_CHANGE = 1,
@@ -233,7 +225,7 @@ mod Windows {
             Version: EXPAND_VIRTUAL_DISK_VERSION,
             Anonymous: union {
                 Version1: struct {
-                    NewSize: u64,
+                    NewSize: ULONGLONG,
                 },
             },
         }
@@ -243,11 +235,10 @@ mod Windows {
             EXPAND_VIRTUAL_DISK_VERSION_1 = 1,
         }
         #[library("VirtDisk.dll")]
-        extern fn EnumerateVirtualDiskMetadata(VirtualDiskHandle: HANDLE, #[in] #[out] NumberOfItems: PULONG, #[len_param(1)] Items: *mut GUID) -> u32;
+        extern fn EnumerateVirtualDiskMetadata(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[out] NumberOfItems: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*NumberOfItems", "*NumberOfItems")] #[out] Items: *mut GUID) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn ExpandVirtualDisk(VirtualDiskHandle: HANDLE, Flags: EXPAND_VIRTUAL_DISK_FLAG, Parameters: PEXPAND_VIRTUAL_DISK_PARAMETERS, #[opt] Overlapped: LPOVERLAPPED) -> u32;
-        #[repr(u32)]
-        #[flags]
+        extern fn ExpandVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: EXPAND_VIRTUAL_DISK_FLAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PEXPAND_VIRTUAL_DISK_PARAMETERS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Overlapped: LPOVERLAPPED) -> DWORD;
+        #[repr(i32)]
         enum FORK_VIRTUAL_DISK_FLAG {
             FORK_VIRTUAL_DISK_FLAG_NONE = 0,
             FORK_VIRTUAL_DISK_FLAG_EXISTING_FILE = 1,
@@ -266,9 +257,8 @@ mod Windows {
             FORK_VIRTUAL_DISK_VERSION_1 = 1,
         }
         #[library("VirtDisk.dll")]
-        extern fn ForkVirtualDisk(VirtualDiskHandle: HANDLE, Flags: FORK_VIRTUAL_DISK_FLAG, Parameters: *const FORK_VIRTUAL_DISK_PARAMETERS, #[in] #[out] Overlapped: LPOVERLAPPED) -> u32;
-        #[repr(u32)]
-        #[flags]
+        extern fn ForkVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: FORK_VIRTUAL_DISK_FLAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: *const FORK_VIRTUAL_DISK_PARAMETERS, #[in] #[out] Overlapped: LPOVERLAPPED) -> DWORD;
+        #[repr(i32)]
         enum GET_STORAGE_DEPENDENCY_FLAG {
             GET_STORAGE_DEPENDENCY_FLAG_NONE = 0,
             GET_STORAGE_DEPENDENCY_FLAG_HOST_VOLUMES = 1,
@@ -279,35 +269,35 @@ mod Windows {
             Version: GET_VIRTUAL_DISK_INFO_VERSION,
             Anonymous: union {
                 Size: struct {
-                    VirtualSize: u64,
-                    PhysicalSize: u64,
-                    BlockSize: u32,
-                    SectorSize: u32,
+                    VirtualSize: ULONGLONG,
+                    PhysicalSize: ULONGLONG,
+                    BlockSize: ULONG,
+                    SectorSize: ULONG,
                 },
                 Identifier: GUID,
                 ParentLocation: struct {
                     ParentResolved: BOOL,
-                    ParentLocationBuffer: [u16; 1],
+                    ParentLocationBuffer: [WCHAR; 1],
                 },
                 ParentIdentifier: GUID,
-                ParentTimestamp: u32,
+                ParentTimestamp: ULONG,
                 VirtualStorageType: VIRTUAL_STORAGE_TYPE,
-                ProviderSubtype: u32,
+                ProviderSubtype: ULONG,
                 Is4kAligned: BOOL,
                 IsLoaded: BOOL,
                 PhysicalDisk: struct {
-                    LogicalSectorSize: u32,
-                    PhysicalSectorSize: u32,
+                    LogicalSectorSize: ULONG,
+                    PhysicalSectorSize: ULONG,
                     IsRemote: BOOL,
                 },
-                VhdPhysicalSectorSize: u32,
-                SmallestSafeVirtualSize: u64,
-                FragmentationPercentage: u32,
+                VhdPhysicalSectorSize: ULONG,
+                SmallestSafeVirtualSize: ULONGLONG,
+                FragmentationPercentage: ULONG,
                 VirtualDiskId: GUID,
                 ChangeTrackingState: struct {
                     Enabled: BOOL,
                     NewerChanges: BOOL,
-                    MostRecentId: [u16; 1],
+                    MostRecentId: [WCHAR; 1],
                 },
             },
         }
@@ -331,20 +321,18 @@ mod Windows {
             GET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE = 15,
         }
         #[library("VirtDisk.dll")]
-        extern fn GetAllAttachedVirtualDiskPhysicalPaths(#[in] #[out] PathsBufferSizeInBytes: PULONG, #[size_param(0)] #[out] PathsBuffer: PWSTR) -> u32;
+        extern fn GetAllAttachedVirtualDiskPhysicalPaths(#[in] #[out] PathsBufferSizeInBytes: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*PathsBufferSizeInBytes", "*PathsBufferSizeInBytes")] #[out] PathsBuffer: PWSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
         #[library("VirtDisk.dll")]
-        extern fn GetStorageDependencyInformation(ObjectHandle: HANDLE, Flags: GET_STORAGE_DEPENDENCY_FLAG, StorageDependencyInfoSize: u32, #[in] #[out] StorageDependencyInfo: PSTORAGE_DEPENDENCY_INFO, #[in] #[out] #[opt] SizeUsed: PULONG) -> u32;
+        extern fn GetVirtualDiskInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[out] VirtualDiskInfoSize: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_to_", "*VirtualDiskInfoSize,*VirtualDiskInfoSize", "*VirtualDiskInfoSize,*VirtualDiskInfoSize")] #[in] #[out] VirtualDiskInfo: PGET_VIRTUAL_DISK_INFO, #[out] #[opt] SizeUsed: PULONG) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn GetVirtualDiskInformation(VirtualDiskHandle: HANDLE, #[in] #[out] VirtualDiskInfoSize: PULONG, #[size_param(1)] #[in] #[out] VirtualDiskInfo: PGET_VIRTUAL_DISK_INFO, #[out] #[opt] SizeUsed: PULONG) -> u32;
+        extern fn GetVirtualDiskMetadata(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Item: *const GUID, #[in] #[out] MetaDataSize: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*MetaDataSize", "*MetaDataSize")] #[out] MetaData: PVOID) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn GetVirtualDiskMetadata(VirtualDiskHandle: HANDLE, Item: *const GUID, #[in] #[out] MetaDataSize: PULONG, #[size_param(2)] MetaData: *mut void) -> u32;
+        extern fn GetVirtualDiskOperationProgress(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Overlapped: LPOVERLAPPED, #[out] Progress: PVIRTUAL_DISK_PROGRESS) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn GetVirtualDiskOperationProgress(VirtualDiskHandle: HANDLE, Overlapped: LPOVERLAPPED, #[out] Progress: PVIRTUAL_DISK_PROGRESS) -> u32;
-        #[library("VirtDisk.dll")]
-        extern fn GetVirtualDiskPhysicalPath(VirtualDiskHandle: HANDLE, #[in] #[out] DiskPathSizeInBytes: PULONG, #[size_param(1)] #[out] DiskPath: PWSTR) -> u32;
+        extern fn GetVirtualDiskPhysicalPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[out] DiskPathSizeInBytes: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*DiskPathSizeInBytes", "*DiskPathSizeInBytes")] #[out] DiskPath: PWSTR) -> DWORD;
         const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: i32 = 1;
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum MERGE_VIRTUAL_DISK_FLAG {
             MERGE_VIRTUAL_DISK_FLAG_NONE = 0,
         }
@@ -352,11 +340,11 @@ mod Windows {
             Version: MERGE_VIRTUAL_DISK_VERSION,
             Anonymous: union {
                 Version1: struct {
-                    MergeDepth: u32,
+                    MergeDepth: ULONG,
                 },
                 Version2: struct {
-                    MergeSourceDepth: u32,
-                    MergeTargetDepth: u32,
+                    MergeSourceDepth: ULONG,
+                    MergeTargetDepth: ULONG,
                 },
             },
         }
@@ -366,8 +354,7 @@ mod Windows {
             MERGE_VIRTUAL_DISK_VERSION_1 = 1,
             MERGE_VIRTUAL_DISK_VERSION_2 = 2,
         }
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum MIRROR_VIRTUAL_DISK_FLAG {
             MIRROR_VIRTUAL_DISK_FLAG_NONE = 0,
             MIRROR_VIRTUAL_DISK_FLAG_EXISTING_FILE = 1,
@@ -388,8 +375,7 @@ mod Windows {
             MIRROR_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
             MIRROR_VIRTUAL_DISK_VERSION_1 = 1,
         }
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum MODIFY_VHDSET_FLAG {
             MODIFY_VHDSET_FLAG_NONE = 0,
             MODIFY_VHDSET_FLAG_WRITEABLE_SNAPSHOT = 1,
@@ -413,13 +399,12 @@ mod Windows {
             MODIFY_VHDSET_DEFAULT_SNAPSHOT_PATH = 3,
         }
         #[library("VirtDisk.dll")]
-        extern fn MergeVirtualDisk(VirtualDiskHandle: HANDLE, Flags: MERGE_VIRTUAL_DISK_FLAG, Parameters: PMERGE_VIRTUAL_DISK_PARAMETERS, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn MergeVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: MERGE_VIRTUAL_DISK_FLAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PMERGE_VIRTUAL_DISK_PARAMETERS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Overlapped: LPOVERLAPPED) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn MirrorVirtualDisk(VirtualDiskHandle: HANDLE, Flags: MIRROR_VIRTUAL_DISK_FLAG, Parameters: PMIRROR_VIRTUAL_DISK_PARAMETERS, Overlapped: LPOVERLAPPED) -> u32;
+        extern fn MirrorVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: MIRROR_VIRTUAL_DISK_FLAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PMIRROR_VIRTUAL_DISK_PARAMETERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Overlapped: LPOVERLAPPED) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn ModifyVhdSet(VirtualDiskHandle: HANDLE, Parameters: PMODIFY_VHDSET_PARAMETERS, Flags: MODIFY_VHDSET_FLAG) -> u32;
-        #[repr(u32)]
-        #[flags]
+        extern fn ModifyVhdSet(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PMODIFY_VHDSET_PARAMETERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: MODIFY_VHDSET_FLAG) -> DWORD;
+        #[repr(i32)]
         enum OPEN_VIRTUAL_DISK_FLAG {
             OPEN_VIRTUAL_DISK_FLAG_NONE = 0,
             OPEN_VIRTUAL_DISK_FLAG_NO_PARENTS = 1,
@@ -439,7 +424,7 @@ mod Windows {
             Version: OPEN_VIRTUAL_DISK_VERSION,
             Anonymous: union {
                 Version1: struct {
-                    RWDepth: u32,
+                    RWDepth: ULONG,
                 },
                 Version2: struct {
                     GetInfoOnly: BOOL,
@@ -463,7 +448,7 @@ mod Windows {
             OPEN_VIRTUAL_DISK_VERSION_3 = 3,
         }
         #[library("VirtDisk.dll")]
-        extern fn OpenVirtualDisk(VirtualStorageType: PVIRTUAL_STORAGE_TYPE, Path: PCWSTR, VirtualDiskAccessMask: VIRTUAL_DISK_ACCESS_MASK, Flags: OPEN_VIRTUAL_DISK_FLAG, #[opt] Parameters: POPEN_VIRTUAL_DISK_PARAMETERS, #[out] Handle: PHANDLE) -> u32;
+        extern fn OpenVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualStorageType: PVIRTUAL_STORAGE_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Path: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskAccessMask: VIRTUAL_DISK_ACCESS_MASK, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: OPEN_VIRTUAL_DISK_FLAG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: POPEN_VIRTUAL_DISK_PARAMETERS, #[out] Handle: PHANDLE) -> DWORD;
         type PAPPLY_SNAPSHOT_VHDSET_FLAG = *mut APPLY_SNAPSHOT_VHDSET_FLAG;
         type PAPPLY_SNAPSHOT_VHDSET_PARAMETERS = *mut APPLY_SNAPSHOT_VHDSET_PARAMETERS;
         type PATTACH_VIRTUAL_DISK_PARAMETERS = *mut ATTACH_VIRTUAL_DISK_PARAMETERS;
@@ -486,26 +471,23 @@ mod Windows {
         type PRAW_SCSI_VIRTUAL_DISK_RESPONSE = *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE;
         type PRESIZE_VIRTUAL_DISK_PARAMETERS = *mut RESIZE_VIRTUAL_DISK_PARAMETERS;
         type PSET_VIRTUAL_DISK_INFO = *mut SET_VIRTUAL_DISK_INFO;
-        type PSTORAGE_DEPENDENCY_INFO = *mut STORAGE_DEPENDENCY_INFO;
         type PSTORAGE_DEPENDENCY_INFO_TYPE_1 = *mut STORAGE_DEPENDENCY_INFO_TYPE_1;
         type PSTORAGE_DEPENDENCY_INFO_TYPE_2 = *mut STORAGE_DEPENDENCY_INFO_TYPE_2;
         type PTAKE_SNAPSHOT_VHDSET_FLAG = *mut TAKE_SNAPSHOT_VHDSET_FLAG;
         type PTAKE_SNAPSHOT_VHDSET_PARAMETERS = *mut TAKE_SNAPSHOT_VHDSET_PARAMETERS;
         type PVIRTUAL_DISK_PROGRESS = *mut VIRTUAL_DISK_PROGRESS;
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum QUERY_CHANGES_VIRTUAL_DISK_FLAG {
             QUERY_CHANGES_VIRTUAL_DISK_FLAG_NONE = 0,
         }
         struct QUERY_CHANGES_VIRTUAL_DISK_RANGE {
-            ByteOffset: u64,
-            ByteLength: u64,
-            Reserved: u64,
+            ByteOffset: ULONG64,
+            ByteLength: ULONG64,
+            Reserved: ULONG64,
         }
         #[library("VirtDisk.dll")]
-        extern fn QueryChangesVirtualDisk(VirtualDiskHandle: HANDLE, ChangeTrackingId: PCWSTR, ByteOffset: u64, ByteLength: u64, Flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, #[len_param(6)] #[out] Ranges: PQUERY_CHANGES_VIRTUAL_DISK_RANGE, #[in] #[out] RangeCount: PULONG, #[out] ProcessedLength: PULONG64) -> u32;
-        #[repr(u32)]
-        #[flags]
+        extern fn QueryChangesVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ChangeTrackingId: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ByteOffset: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ByteLength: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*RangeCount,*RangeCount", "*RangeCount,*RangeCount")] #[out] Ranges: PQUERY_CHANGES_VIRTUAL_DISK_RANGE, #[in] #[out] RangeCount: PULONG, #[out] ProcessedLength: PULONG64) -> DWORD;
+        #[repr(i32)]
         enum RAW_SCSI_VIRTUAL_DISK_FLAG {
             RAW_SCSI_VIRTUAL_DISK_FLAG_NONE = 0,
         }
@@ -514,14 +496,17 @@ mod Windows {
             Anonymous: union {
                 Version1: struct {
                     RSVDHandle: BOOL,
-                    DataIn: u8,
-                    CdbLength: u8,
-                    SenseInfoLength: u8,
-                    SrbFlags: u32,
-                    DataTransferLength: u32,
-                    DataBuffer: *mut void,
-                    SenseInfo: *mut u8,
-                    Cdb: *mut u8,
+                    DataIn: UCHAR,
+                    CdbLength: UCHAR,
+                    SenseInfoLength: UCHAR,
+                    SrbFlags: ULONG,
+                    DataTransferLength: ULONG,
+                    #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DataTransferLength", ReadableFieldName = "DataTransferLength", IsByteCount = true, MayBeNull = false)]
+                    DataBuffer: PVOID,
+                    #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "SenseInfoLength", ReadableFieldName = "SenseInfoLength", IsByteCount = true, MayBeNull = false)]
+                    SenseInfo: *mut UCHAR,
+                    #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "CdbLength", ReadableFieldName = "CdbLength", IsByteCount = true, MayBeNull = false)]
+                    Cdb: *mut UCHAR,
                 },
             },
         }
@@ -529,9 +514,9 @@ mod Windows {
             Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
             Anonymous: union {
                 Version1: struct {
-                    ScsiStatus: u8,
-                    SenseInfoLength: u8,
-                    DataTransferLength: u32,
+                    ScsiStatus: UCHAR,
+                    SenseInfoLength: UCHAR,
+                    DataTransferLength: ULONG,
                 },
             },
         }
@@ -540,8 +525,7 @@ mod Windows {
             RAW_SCSI_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
             RAW_SCSI_VIRTUAL_DISK_VERSION_1 = 1,
         }
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum RESIZE_VIRTUAL_DISK_FLAG {
             RESIZE_VIRTUAL_DISK_FLAG_NONE = 0,
             RESIZE_VIRTUAL_DISK_FLAG_ALLOW_UNSAFE_VIRTUAL_SIZE = 1,
@@ -551,7 +535,7 @@ mod Windows {
             Version: RESIZE_VIRTUAL_DISK_VERSION,
             Anonymous: union {
                 Version1: struct {
-                    NewSize: u64,
+                    NewSize: ULONGLONG,
                 },
             },
         }
@@ -561,19 +545,19 @@ mod Windows {
             RESIZE_VIRTUAL_DISK_VERSION_1 = 1,
         }
         #[library("VirtDisk.dll")]
-        extern fn RawSCSIVirtualDisk(VirtualDiskHandle: HANDLE, Parameters: PRAW_SCSI_VIRTUAL_DISK_PARAMETERS, Flags: RAW_SCSI_VIRTUAL_DISK_FLAG, #[out] Response: PRAW_SCSI_VIRTUAL_DISK_RESPONSE) -> u32;
+        extern fn RawSCSIVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PRAW_SCSI_VIRTUAL_DISK_PARAMETERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: RAW_SCSI_VIRTUAL_DISK_FLAG, #[out] Response: PRAW_SCSI_VIRTUAL_DISK_RESPONSE) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn ResizeVirtualDisk(VirtualDiskHandle: HANDLE, Flags: RESIZE_VIRTUAL_DISK_FLAG, Parameters: PRESIZE_VIRTUAL_DISK_PARAMETERS, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn ResizeVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: RESIZE_VIRTUAL_DISK_FLAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PRESIZE_VIRTUAL_DISK_PARAMETERS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Overlapped: LPOVERLAPPED) -> DWORD;
         struct SET_VIRTUAL_DISK_INFO {
             Version: SET_VIRTUAL_DISK_INFO_VERSION,
             Anonymous: union {
                 ParentFilePath: PCWSTR,
                 UniqueIdentifier: GUID,
                 ParentPathWithDepthInfo: struct {
-                    ChildDepth: u32,
+                    ChildDepth: ULONG,
                     ParentFilePath: PCWSTR,
                 },
-                VhdPhysicalSectorSize: u32,
+                VhdPhysicalSectorSize: ULONG,
                 VirtualDiskId: GUID,
                 ChangeTrackingEnabled: BOOL,
                 ParentLocator: struct {
@@ -593,24 +577,16 @@ mod Windows {
             SET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE = 6,
             SET_VIRTUAL_DISK_INFO_PARENT_LOCATOR = 7,
         }
-        struct STORAGE_DEPENDENCY_INFO {
-            Version: STORAGE_DEPENDENCY_INFO_VERSION,
-            NumberEntries: u32,
-            Anonymous: union {
-                Version1Entries: [STORAGE_DEPENDENCY_INFO_TYPE_1; 0],
-                Version2Entries: [STORAGE_DEPENDENCY_INFO_TYPE_2; 0],
-            },
-        }
         struct STORAGE_DEPENDENCY_INFO_TYPE_1 {
             DependencyTypeFlags: DEPENDENT_DISK_FLAG,
-            ProviderSpecificFlags: u32,
+            ProviderSpecificFlags: ULONG,
             VirtualStorageType: VIRTUAL_STORAGE_TYPE,
         }
         struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
             DependencyTypeFlags: DEPENDENT_DISK_FLAG,
-            ProviderSpecificFlags: u32,
+            ProviderSpecificFlags: ULONG,
             VirtualStorageType: VIRTUAL_STORAGE_TYPE,
-            AncestorLevel: u32,
+            AncestorLevel: ULONG,
             DependencyDeviceName: PWSTR,
             HostVolumeName: PWSTR,
             DependentVolumeName: PWSTR,
@@ -632,11 +608,12 @@ mod Windows {
         const SURFACE_VIRTUAL_DISK_VERSION_1: ATTACH_VIRTUAL_DISK_VERSION = 1;
         const SURFACE_VIRTUAL_DISK_VERSION_UNSPECIFIED: ATTACH_VIRTUAL_DISK_VERSION = 0;
         #[library("VirtDisk.dll")]
-        extern fn SetVirtualDiskInformation(VirtualDiskHandle: HANDLE, VirtualDiskInfo: PSET_VIRTUAL_DISK_INFO) -> u32;
+        extern fn SetVirtualDiskInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskInfo: PSET_VIRTUAL_DISK_INFO) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn SetVirtualDiskMetadata(VirtualDiskHandle: HANDLE, Item: *const GUID, MetaDataSize: u32, #[size_param(2)] MetaData: *const void) -> u32;
-        #[repr(u32)]
-        #[flags]
+        extern fn SetVirtualDiskMetadata(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Item: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MetaDataSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] MetaData: *const void) -> DWORD;
+        #[library("VirtDisk.dll", import = "AttachVirtualDisk")]
+        extern fn SurfaceVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: ATTACH_VIRTUAL_DISK_FLAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProviderSpecificFlags: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PATTACH_VIRTUAL_DISK_PARAMETERS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Overlapped: LPOVERLAPPED) -> DWORD;
+        #[repr(i32)]
         enum TAKE_SNAPSHOT_VHDSET_FLAG {
             TAKE_SNAPSHOT_VHDSET_FLAG_NONE = 0,
             TAKE_SNAPSHOT_VHDSET_FLAG_WRITEABLE = 1,
@@ -655,10 +632,11 @@ mod Windows {
             TAKE_SNAPSHOT_VHDSET_VERSION_1 = 1,
         }
         #[library("VirtDisk.dll")]
-        extern fn TakeSnapshotVhdSet(VirtualDiskHandle: HANDLE, Parameters: PTAKE_SNAPSHOT_VHDSET_PARAMETERS, Flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> u32;
+        extern fn TakeSnapshotVhdSet(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameters: PTAKE_SNAPSHOT_VHDSET_PARAMETERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> DWORD;
         const UNSURFACE_VIRTUAL_DISK_FLAG_NONE: DETACH_VIRTUAL_DISK_FLAG = 0;
-        #[repr(u32)]
-        #[flags]
+        #[library("VirtDisk.dll", import = "DetachVirtualDisk")]
+        extern fn UnsurfaceVirtualDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualDiskHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DETACH_VIRTUAL_DISK_FLAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProviderSpecificFlags: ULONG) -> DWORD;
+        #[repr(i32)]
         enum VIRTUAL_DISK_ACCESS_MASK {
             VIRTUAL_DISK_ACCESS_NONE = 0,
             VIRTUAL_DISK_ACCESS_ATTACH_RO = 65536,
@@ -676,9 +654,9 @@ mod Windows {
         const VIRTUAL_DISK_ACCESS_UNSURFACE: VIRTUAL_DISK_ACCESS_MASK = 262144;
         const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: i32 = 256;
         struct VIRTUAL_DISK_PROGRESS {
-            OperationStatus: u32,
-            CurrentValue: u64,
-            CompletionValue: u64,
+            OperationStatus: DWORD,
+            CurrentValue: ULONGLONG,
+            CompletionValue: ULONGLONG,
         }
         const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: i32 = 1;
         const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: i32 = 0;

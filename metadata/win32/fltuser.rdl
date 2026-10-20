@@ -1,68 +1,92 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const FLT_MGR_AFTER_XPSP2: u32 = 1;
-        const FLT_MGR_BASELINE: u32 = 1;
-        const FLT_MGR_LONGHORN: u32 = 1;
-        const FLT_MGR_WIN7: u32 = 1;
-        const FLT_MGR_WIN8: u32 = 1;
-        const FLT_MGR_WINBLUE: u32 = 1;
+        const FLT_MGR_AFTER_XPSP2: bool = true;
+        const FLT_MGR_BASELINE: bool = true;
+        const FLT_MGR_LONGHORN: bool = true;
+        const FLT_MGR_WIN7: bool = true;
+        const FLT_MGR_WIN8: bool = true;
+        const FLT_MGR_WINBLUE: bool = true;
         const FLT_PORT_FLAG_SYNC_HANDLE: i32 = 1;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterAttach(lpFilterName: PCWSTR, lpVolumeName: PCWSTR, #[opt] lpInstanceName: PCWSTR, #[opt] dwCreatedInstanceNameLength: u32, #[size_param(3)] #[out] #[opt] lpCreatedInstanceName: PWSTR) -> HRESULT;
+        extern fn FilterAttach(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFilterName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpVolumeName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpInstanceName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreatedInstanceNameLength: DWORD, #[out] #[opt] #[size_param(3)] lpCreatedInstanceName: LPWSTR) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterAttachAtAltitude(lpFilterName: PCWSTR, lpVolumeName: PCWSTR, lpAltitude: PCWSTR, #[opt] lpInstanceName: PCWSTR, #[opt] dwCreatedInstanceNameLength: u32, #[size_param(4)] #[out] #[opt] lpCreatedInstanceName: PWSTR) -> HRESULT;
+        extern fn FilterAttachAtAltitude(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFilterName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpVolumeName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAltitude: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpInstanceName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreatedInstanceNameLength: DWORD, #[out] #[opt] #[size_param(4)] lpCreatedInstanceName: LPWSTR) -> HRESULT;
         #[library("FLTLIB.DLL")]
-        extern fn FilterClose(hFilter: HFILTER) -> HRESULT;
+        extern fn FilterClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFilter: HFILTER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterConnectCommunicationPort(lpPortName: PCWSTR, dwOptions: u32, #[size_param(3)] #[opt] lpContext: LPCVOID, wSizeOfContext: u16, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, hPort: *mut HANDLE) -> HRESULT;
+        extern fn FilterConnectCommunicationPort(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPortName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] lpContext: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wSizeOfContext: WORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] hPort: *mut HANDLE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterCreate(lpFilterName: PCWSTR, hFilter: *mut HFILTER) -> HRESULT;
+        extern fn FilterCreate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFilterName: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] hFilter: *mut HFILTER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterDetach(lpFilterName: PCWSTR, lpVolumeName: PCWSTR, #[opt] lpInstanceName: PCWSTR) -> HRESULT;
+        extern fn FilterDetach(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFilterName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpVolumeName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpInstanceName: LPCWSTR) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterFindClose(hFilterFind: HANDLE) -> HRESULT;
+        extern fn FilterFindClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFilterFind: HANDLE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterFindFirst(dwInformationClass: FILTER_INFORMATION_CLASS, #[size_param(2)] lpBuffer: *mut void, dwBufferSize: u32, #[out] lpBytesReturned: LPDWORD, #[out] lpFilterFind: LPHANDLE) -> HRESULT;
+        extern fn FilterFindFirst(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInformationClass: FILTER_INFORMATION_CLASS, #[out] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = true, Dereference = true)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD, #[out] lpFilterFind: LPHANDLE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterFindNext(hFilterFind: HANDLE, dwInformationClass: FILTER_INFORMATION_CLASS, #[size_param(3)] lpBuffer: *mut void, dwBufferSize: u32, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        extern fn FilterFindNext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFilterFind: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInformationClass: FILTER_INFORMATION_CLASS, #[out] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterGetDosName(lpVolumeName: PCWSTR, #[len_param(2)] #[out] lpDosName: PWSTR, dwDosNameBufferSize: u32) -> HRESULT;
+        extern fn FilterGetDosName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpVolumeName: LPCWSTR, #[out] #[len_param(2)] lpDosName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDosNameBufferSize: DWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterGetInformation(hFilter: HFILTER, dwInformationClass: FILTER_INFORMATION_CLASS, #[size_param(3)] lpBuffer: *mut void, dwBufferSize: u32, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        extern fn FilterGetInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFilter: HFILTER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInformationClass: FILTER_INFORMATION_CLASS, #[out] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterGetMessage(hPort: HANDLE, #[size_param(2)] #[out] lpMessageBuffer: PFILTER_MESSAGE_HEADER, dwMessageBufferSize: u32, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+        extern fn FilterGetMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hPort: HANDLE, #[out] #[size_param(2)] lpMessageBuffer: PFILTER_MESSAGE_HEADER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMessageBufferSize: DWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
         #[library("FLTLIB.DLL")]
-        extern fn FilterInstanceClose(hInstance: HFILTER_INSTANCE) -> HRESULT;
+        extern fn FilterInstanceClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hInstance: HFILTER_INSTANCE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterInstanceCreate(lpFilterName: PCWSTR, lpVolumeName: PCWSTR, #[opt] lpInstanceName: PCWSTR, hInstance: *mut HFILTER_INSTANCE) -> HRESULT;
+        extern fn FilterInstanceCreate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFilterName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpVolumeName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpInstanceName: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] hInstance: *mut HFILTER_INSTANCE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterInstanceFindClose(hFilterInstanceFind: HANDLE) -> HRESULT;
+        extern fn FilterInstanceFindClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFilterInstanceFind: HANDLE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterInstanceFindFirst(lpFilterName: PCWSTR, dwInformationClass: INSTANCE_INFORMATION_CLASS, #[size_param(3)] lpBuffer: *mut void, dwBufferSize: u32, #[out] lpBytesReturned: LPDWORD, #[out] lpFilterInstanceFind: LPHANDLE) -> HRESULT;
+        extern fn FilterInstanceFindFirst(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFilterName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD, #[out] lpFilterInstanceFind: LPHANDLE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterInstanceFindNext(hFilterInstanceFind: HANDLE, dwInformationClass: INSTANCE_INFORMATION_CLASS, #[size_param(3)] lpBuffer: *mut void, dwBufferSize: u32, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        extern fn FilterInstanceFindNext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFilterInstanceFind: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterInstanceGetInformation(hInstance: HFILTER_INSTANCE, dwInformationClass: INSTANCE_INFORMATION_CLASS, #[size_param(3)] lpBuffer: *mut void, dwBufferSize: u32, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        extern fn FilterInstanceGetInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hInstance: HFILTER_INSTANCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterLoad(lpFilterName: PCWSTR) -> HRESULT;
+        extern fn FilterLoad(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFilterName: LPCWSTR) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterReplyMessage(hPort: HANDLE, #[size_param(2)] lpReplyBuffer: PFILTER_REPLY_HEADER, dwReplyBufferSize: u32) -> HRESULT;
+        extern fn FilterReplyMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hPort: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lpReplyBuffer: PFILTER_REPLY_HEADER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReplyBufferSize: DWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterSendMessage(hPort: HANDLE, #[size_param(2)] #[in] lpInBuffer: *mut void, dwInBufferSize: u32, #[size_param(4)] #[opt] lpOutBuffer: *mut void, dwOutBufferSize: u32, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        extern fn FilterSendMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hPort: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lpInBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInBufferSize: DWORD, #[out] #[opt] #[size_param(4)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 5, IsByteCount = true, Dereference = true)] lpOutBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOutBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterUnload(lpFilterName: PCWSTR) -> HRESULT;
+        extern fn FilterUnload(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFilterName: LPCWSTR) -> HRESULT;
         #[library("FLTLIB.DLL")]
-        extern fn FilterVolumeFindClose(hVolumeFind: HANDLE) -> HRESULT;
+        extern fn FilterVolumeFindClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hVolumeFind: HANDLE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterVolumeFindFirst(dwInformationClass: FILTER_VOLUME_INFORMATION_CLASS, #[size_param(2)] lpBuffer: *mut void, dwBufferSize: u32, #[out] lpBytesReturned: LPDWORD, #[out] lpVolumeFind: PHANDLE) -> HRESULT;
+        extern fn FilterVolumeFindFirst(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInformationClass: FILTER_VOLUME_INFORMATION_CLASS, #[out] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = true, Dereference = true)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD, #[out] lpVolumeFind: PHANDLE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterVolumeFindNext(hVolumeFind: HANDLE, dwInformationClass: FILTER_VOLUME_INFORMATION_CLASS, #[size_param(3)] lpBuffer: *mut void, dwBufferSize: u32, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        extern fn FilterVolumeFindNext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hVolumeFind: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInformationClass: FILTER_VOLUME_INFORMATION_CLASS, #[out] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
         #[library("FLTLIB.DLL")]
-        extern fn FilterVolumeInstanceFindClose(hVolumeInstanceFind: HANDLE) -> HRESULT;
+        extern fn FilterVolumeInstanceFindClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hVolumeInstanceFind: HANDLE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterVolumeInstanceFindFirst(lpVolumeName: PCWSTR, dwInformationClass: INSTANCE_INFORMATION_CLASS, #[size_param(3)] lpBuffer: *mut void, dwBufferSize: u32, #[out] lpBytesReturned: LPDWORD, #[out] lpVolumeInstanceFind: LPHANDLE) -> HRESULT;
+        extern fn FilterVolumeInstanceFindFirst(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpVolumeName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD, #[out] lpVolumeInstanceFind: LPHANDLE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("FLTLIB.DLL")]
-        extern fn FilterVolumeInstanceFindNext(hVolumeInstanceFind: HANDLE, dwInformationClass: INSTANCE_INFORMATION_CLASS, #[size_param(3)] lpBuffer: *mut void, dwBufferSize: u32, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        extern fn FilterVolumeInstanceFindNext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hVolumeInstanceFind: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
     }
 }

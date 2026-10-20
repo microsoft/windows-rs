@@ -10,25 +10,28 @@ mod Windows {
         const TXFS_MINIVERSION_COMMITTED_VIEW: i32 = 0;
         const TXFS_MINIVERSION_DEFAULT_VIEW: i32 = 65534;
         const TXFS_MINIVERSION_DIRTY_VIEW: i32 = 65535;
+        #[packed(4)]
         struct TXF_ID {
             Anonymous: #[packed(4)] struct {
-                LowPart: i64,
-                HighPart: i64,
+                LowPart: LONGLONG,
+                HighPart: LONGLONG,
             },
         }
+        #[packed(4)]
         struct TXF_LOG_RECORD_AFFECTED_FILE {
-            Version: u16,
-            RecordLength: u32,
-            Flags: u32,
+            Version: USHORT,
+            RecordLength: ULONG,
+            Flags: ULONG,
             TxfFileId: TXF_ID,
             KtmGuid: GUID,
-            FileNameLength: u32,
-            FileNameByteOffsetInStructure: u32,
+            FileNameLength: ULONG,
+            FileNameByteOffsetInStructure: ULONG,
         }
+        #[packed(4)]
         struct TXF_LOG_RECORD_BASE {
-            Version: u16,
-            RecordType: u16,
-            RecordLength: u32,
+            Version: USHORT,
+            RecordType: USHORT,
+            RecordLength: ULONG,
         }
         const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: i32 = 2;
         const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: i32 = 1;
@@ -36,50 +39,50 @@ mod Windows {
         const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: i32 = 4;
         #[packed(4)]
         struct TXF_LOG_RECORD_TRUNCATE {
-            Version: u16,
-            RecordType: u16,
-            RecordLength: u32,
-            Flags: u32,
+            Version: USHORT,
+            RecordType: USHORT,
+            RecordLength: ULONG,
+            Flags: ULONG,
             TxfFileId: TXF_ID,
             KtmGuid: GUID,
-            NewFileSize: i64,
-            FileNameLength: u32,
-            FileNameByteOffsetInStructure: u32,
+            NewFileSize: LONGLONG,
+            FileNameLength: ULONG,
+            FileNameByteOffsetInStructure: ULONG,
         }
         const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: i32 = 4;
         const TXF_LOG_RECORD_TYPE_TRUNCATE: i32 = 2;
         const TXF_LOG_RECORD_TYPE_WRITE: i32 = 1;
         #[packed(4)]
         struct TXF_LOG_RECORD_WRITE {
-            Version: u16,
-            RecordType: u16,
-            RecordLength: u32,
-            Flags: u32,
+            Version: USHORT,
+            RecordType: USHORT,
+            RecordLength: ULONG,
+            Flags: ULONG,
             TxfFileId: TXF_ID,
             KtmGuid: GUID,
-            ByteOffsetInFile: i64,
-            NumBytesWritten: u32,
-            ByteOffsetInStructure: u32,
-            FileNameLength: u32,
-            FileNameByteOffsetInStructure: u32,
+            ByteOffsetInFile: LONGLONG,
+            NumBytesWritten: ULONG,
+            ByteOffsetInStructure: ULONG,
+            FileNameLength: ULONG,
+            FileNameByteOffsetInStructure: ULONG,
         }
         #[library("txfw32.dll")]
         extern fn TxfGetThreadMiniVersionForCreate(#[out] MiniVersion: PUSHORT);
         #[library("txfw32.dll")]
-        extern fn TxfLogCreateFileReadContext(LogPath: PCWSTR, BeginningLsn: CLFS_LSN, EndingLsn: CLFS_LSN, TxfFileId: PTXF_ID, TxfLogContext: *mut *mut void) -> BOOL;
+        extern fn TxfLogCreateFileReadContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LogPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BeginningLsn: CLFS_LSN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EndingLsn: CLFS_LSN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TxfFileId: PTXF_ID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] TxfLogContext: *mut PVOID) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogCreateRangeReadContext(LogPath: PCWSTR, BeginningLsn: CLFS_LSN, EndingLsn: CLFS_LSN, BeginningVirtualClock: PLARGE_INTEGER, EndingVirtualClock: PLARGE_INTEGER, RecordTypeMask: u32, TxfLogContext: *mut *mut void) -> BOOL;
+        extern fn TxfLogCreateRangeReadContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LogPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BeginningLsn: CLFS_LSN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EndingLsn: CLFS_LSN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BeginningVirtualClock: PLARGE_INTEGER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EndingVirtualClock: PLARGE_INTEGER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RecordTypeMask: ULONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] TxfLogContext: *mut PVOID) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogDestroyReadContext(#[in] TxfLogContext: *mut void) -> BOOL;
+        extern fn TxfLogDestroyReadContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TxfLogContext: PVOID) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogReadRecords(#[in] TxfLogContext: *mut void, BufferLength: u32, #[size_param(1)] Buffer: *mut void, #[out] BytesUsed: PULONG, #[out] RecordCount: PULONG) -> BOOL;
+        extern fn TxfLogReadRecords(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TxfLogContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferLength: ULONG, #[out] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = true, Dereference = true)] Buffer: PVOID, #[out] BytesUsed: PULONG, #[out] RecordCount: PULONG) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogRecordGetFileName(#[size_param(1)] #[in] RecordBuffer: *mut void, RecordBufferLengthInBytes: u32, #[size_param(3)] #[out] NameBuffer: PWSTR, #[in] #[out] NameBufferLengthInBytes: PULONG, #[out] #[opt] TxfId: PTXF_ID) -> BOOL;
+        extern fn TxfLogRecordGetFileName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] RecordBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RecordBufferLengthInBytes: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*NameBufferLengthInBytes", "*NameBufferLengthInBytes")] #[out] NameBuffer: PWSTR, #[in] #[out] NameBufferLengthInBytes: PULONG, #[out] #[opt] TxfId: PTXF_ID) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogRecordGetGenericType(#[in] RecordBuffer: *mut void, RecordBufferLengthInBytes: u32, #[out] GenericType: PULONG, #[out] #[opt] VirtualClock: PLARGE_INTEGER) -> BOOL;
+        extern fn TxfLogRecordGetGenericType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RecordBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RecordBufferLengthInBytes: ULONG, #[out] GenericType: PULONG, #[out] #[opt] VirtualClock: PLARGE_INTEGER) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfReadMetadataInfo(FileHandle: HANDLE, #[out] TxfFileId: PTXF_ID, #[out] LastLsn: PCLFS_LSN, #[out] TransactionState: PULONG, #[out] LockingTransaction: PGUID) -> BOOL;
+        extern fn TxfReadMetadataInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileHandle: HANDLE, #[out] TxfFileId: PTXF_ID, #[out] LastLsn: PCLFS_LSN, #[out] TransactionState: PULONG, #[out] LockingTransaction: PGUID) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfSetThreadMiniVersionForCreate(MiniVersion: u16);
+        extern fn TxfSetThreadMiniVersionForCreate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MiniVersion: USHORT);
     }
 }

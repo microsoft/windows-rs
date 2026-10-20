@@ -21,21 +21,21 @@ mod Windows {
         const ACCESS_FAIL_WRITE: i32 = 512;
         const ACCESS_GROUP: i32 = 32768;
         struct ACCESS_INFO_0 {
-            acc0_resource_name: PWSTR,
+            acc0_resource_name: LPWSTR,
         }
         struct ACCESS_INFO_1 {
-            acc1_resource_name: PWSTR,
-            acc1_attr: u32,
-            acc1_count: u32,
+            acc1_resource_name: LPWSTR,
+            acc1_attr: DWORD,
+            acc1_count: DWORD,
         }
         struct ACCESS_INFO_1002 {
-            acc1002_attr: u32,
+            acc1002_attr: DWORD,
         }
         #[encoding("ansi")]
         const ACCESS_LETTERS: String = "RWCXDAP         ";
         struct ACCESS_LIST {
-            acl_ugname: PWSTR,
-            acl_access: u32,
+            acl_ugname: LPWSTR,
+            acl_access: DWORD,
         }
         const ACCESS_NONE: i32 = 0;
         const ACCESS_PERM: i32 = 64;
@@ -60,6 +60,8 @@ mod Windows {
         const DEF_MIN_PWAGE: u32 = 0;
         const DEF_MIN_PWLEN: i32 = 6;
         const DEF_PWUNIQUENESS: i32 = 5;
+        #[encoding("ansi")]
+        const DELEGATED_MANAGED_SERVICE_ACCOUNT_PASSWORD: String = "_SA_{F8262F4C-499B-4770-88B4-A75C91D0D8E9}";
         const FILTER_INTERDOMAIN_TRUST_ACCOUNT: i32 = 8;
         const FILTER_NORMAL_ACCOUNT: i32 = 2;
         const FILTER_SERVER_TRUST_ACCOUNT: i32 = 32;
@@ -73,29 +75,29 @@ mod Windows {
         const GROUP_COMMENT_INFOLEVEL: i32 = 1002;
         const GROUP_COMMENT_PARMNUM: i32 = 2;
         struct GROUP_INFO_0 {
-            grpi0_name: PWSTR,
+            grpi0_name: LPWSTR,
         }
         struct GROUP_INFO_1 {
-            grpi1_name: PWSTR,
-            grpi1_comment: PWSTR,
+            grpi1_name: LPWSTR,
+            grpi1_comment: LPWSTR,
         }
         struct GROUP_INFO_1002 {
-            grpi1002_comment: PWSTR,
+            grpi1002_comment: LPWSTR,
         }
         struct GROUP_INFO_1005 {
-            grpi1005_attributes: u32,
+            grpi1005_attributes: DWORD,
         }
         struct GROUP_INFO_2 {
-            grpi2_name: PWSTR,
-            grpi2_comment: PWSTR,
-            grpi2_group_id: u32,
-            grpi2_attributes: u32,
+            grpi2_name: LPWSTR,
+            grpi2_comment: LPWSTR,
+            grpi2_group_id: DWORD,
+            grpi2_attributes: DWORD,
         }
         struct GROUP_INFO_3 {
-            grpi3_name: PWSTR,
-            grpi3_comment: PWSTR,
+            grpi3_name: LPWSTR,
+            grpi3_comment: LPWSTR,
             grpi3_group_sid: PSID,
-            grpi3_attributes: u32,
+            grpi3_attributes: DWORD,
         }
         const GROUP_NAME_INFOLEVEL: i32 = 1001;
         const GROUP_NAME_PARMNUM: i32 = 1;
@@ -108,25 +110,25 @@ mod Windows {
         #[encoding("utf-16")]
         const GROUP_SPECIALGRP_USERS: String = "USERS";
         struct GROUP_USERS_INFO_0 {
-            grui0_name: PWSTR,
+            grui0_name: LPWSTR,
         }
         struct GROUP_USERS_INFO_1 {
-            grui1_name: PWSTR,
-            grui1_attributes: u32,
+            grui1_name: LPWSTR,
+            grui1_attributes: DWORD,
         }
         #[library("NETAPI32.dll")]
-        extern fn I_NetLogonControl2(#[opt] ServerName: PCWSTR, FunctionCode: u32, QueryLevel: u32, Data: LPBYTE, Buffer: *mut LPBYTE) -> u32;
+        extern fn I_NetLogonControl2(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FunctionCode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QueryLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] Data: LPBYTE, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] Buffer: *mut LPBYTE) -> DWORD;
         const LG_INCLUDE_INDIRECT: i32 = 1;
         const LOCALGROUP_COMMENT_PARMNUM: i32 = 2;
         struct LOCALGROUP_INFO_0 {
-            lgrpi0_name: PWSTR,
+            lgrpi0_name: LPWSTR,
         }
         struct LOCALGROUP_INFO_1 {
-            lgrpi1_name: PWSTR,
-            lgrpi1_comment: PWSTR,
+            lgrpi1_name: LPWSTR,
+            lgrpi1_comment: LPWSTR,
         }
         struct LOCALGROUP_INFO_1002 {
-            lgrpi1002_comment: PWSTR,
+            lgrpi1002_comment: LPWSTR,
         }
         struct LOCALGROUP_MEMBERS_INFO_0 {
             lgrmi0_sid: PSID,
@@ -134,19 +136,19 @@ mod Windows {
         struct LOCALGROUP_MEMBERS_INFO_1 {
             lgrmi1_sid: PSID,
             lgrmi1_sidusage: SID_NAME_USE,
-            lgrmi1_name: PWSTR,
+            lgrmi1_name: LPWSTR,
         }
         struct LOCALGROUP_MEMBERS_INFO_2 {
             lgrmi2_sid: PSID,
             lgrmi2_sidusage: SID_NAME_USE,
-            lgrmi2_domainandname: PWSTR,
+            lgrmi2_domainandname: LPWSTR,
         }
         struct LOCALGROUP_MEMBERS_INFO_3 {
-            lgrmi3_domainandname: PWSTR,
+            lgrmi3_domainandname: LPWSTR,
         }
         const LOCALGROUP_NAME_PARMNUM: i32 = 1;
         struct LOCALGROUP_USERS_INFO_0 {
-            lgrui0_name: PWSTR,
+            lgrui0_name: LPWSTR,
         }
         type LPACCESS_INFO_0 = *mut ACCESS_INFO_0;
         type LPACCESS_INFO_1 = *mut ACCESS_INFO_1;
@@ -285,53 +287,53 @@ mod Windows {
         const NETLOGON_HAS_IP: i32 = 16;
         const NETLOGON_HAS_TIMESERV: i32 = 32;
         struct NETLOGON_INFO_1 {
-            netlog1_flags: u32,
-            netlog1_pdc_connection_status: u32,
+            netlog1_flags: DWORD,
+            netlog1_pdc_connection_status: DWORD,
         }
         struct NETLOGON_INFO_2 {
-            netlog2_flags: u32,
-            netlog2_pdc_connection_status: u32,
-            netlog2_trusted_dc_name: PWSTR,
-            netlog2_tc_connection_status: u32,
+            netlog2_flags: DWORD,
+            netlog2_pdc_connection_status: DWORD,
+            netlog2_trusted_dc_name: LPWSTR,
+            netlog2_tc_connection_status: DWORD,
         }
         struct NETLOGON_INFO_3 {
-            netlog3_flags: u32,
-            netlog3_logon_attempts: u32,
-            netlog3_reserved1: u32,
-            netlog3_reserved2: u32,
-            netlog3_reserved3: u32,
-            netlog3_reserved4: u32,
-            netlog3_reserved5: u32,
+            netlog3_flags: DWORD,
+            netlog3_logon_attempts: DWORD,
+            netlog3_reserved1: DWORD,
+            netlog3_reserved2: DWORD,
+            netlog3_reserved3: DWORD,
+            netlog3_reserved4: DWORD,
+            netlog3_reserved5: DWORD,
         }
         struct NETLOGON_INFO_4 {
-            netlog4_trusted_dc_name: PWSTR,
-            netlog4_trusted_domain_name: PWSTR,
+            netlog4_trusted_dc_name: LPWSTR,
+            netlog4_trusted_domain_name: LPWSTR,
         }
         const NETLOGON_REDO_NEEDED: i32 = 8;
         const NETLOGON_REPLICATION_IN_PROGRESS: i32 = 2;
         const NETLOGON_REPLICATION_NEEDED: i32 = 1;
         const NETLOGON_VERIFY_STATUS_RETURNED: i32 = 128;
         struct NET_DISPLAY_GROUP {
-            grpi3_name: PWSTR,
-            grpi3_comment: PWSTR,
-            grpi3_group_id: u32,
-            grpi3_attributes: u32,
-            grpi3_next_index: u32,
+            grpi3_name: LPWSTR,
+            grpi3_comment: LPWSTR,
+            grpi3_group_id: DWORD,
+            grpi3_attributes: DWORD,
+            grpi3_next_index: DWORD,
         }
         struct NET_DISPLAY_MACHINE {
-            usri2_name: PWSTR,
-            usri2_comment: PWSTR,
-            usri2_flags: u32,
-            usri2_user_id: u32,
-            usri2_next_index: u32,
+            usri2_name: LPWSTR,
+            usri2_comment: LPWSTR,
+            usri2_flags: DWORD,
+            usri2_user_id: DWORD,
+            usri2_next_index: DWORD,
         }
         struct NET_DISPLAY_USER {
-            usri1_name: PWSTR,
-            usri1_comment: PWSTR,
-            usri1_flags: u32,
-            usri1_full_name: PWSTR,
-            usri1_user_id: u32,
-            usri1_next_index: u32,
+            usri1_name: LPWSTR,
+            usri1_comment: LPWSTR,
+            usri1_flags: DWORD,
+            usri1_full_name: LPWSTR,
+            usri1_user_id: DWORD,
+            usri1_next_index: DWORD,
         }
         struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
             InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
@@ -342,17 +344,17 @@ mod Windows {
         const NET_VALIDATE_LOCKOUT_TIME: i32 = 4;
         struct NET_VALIDATE_OUTPUT_ARG {
             ChangedPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-            ValidationStatus: u32,
+            ValidationStatus: DWORD,
         }
         struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
             InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-            ClearPassword: PWSTR,
-            UserAccountName: PWSTR,
+            ClearPassword: LPWSTR,
+            UserAccountName: LPWSTR,
             HashedPassword: NET_VALIDATE_PASSWORD_HASH,
             PasswordMatch: BOOLEAN,
         }
         struct NET_VALIDATE_PASSWORD_HASH {
-            Length: u32,
+            Length: ULONG,
             Hash: LPBYTE,
         }
         const NET_VALIDATE_PASSWORD_HISTORY: i32 = 32;
@@ -360,8 +362,8 @@ mod Windows {
         const NET_VALIDATE_PASSWORD_LAST_SET: i32 = 1;
         struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
             InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-            ClearPassword: PWSTR,
-            UserAccountName: PWSTR,
+            ClearPassword: LPWSTR,
+            UserAccountName: LPWSTR,
             HashedPassword: NET_VALIDATE_PASSWORD_HASH,
             PasswordMustChangeAtNextLogon: BOOLEAN,
             ClearLockout: BOOLEAN,
@@ -373,115 +375,141 @@ mod Windows {
             NetValidatePasswordReset = 3,
         }
         struct NET_VALIDATE_PERSISTED_FIELDS {
-            PresentFields: u32,
+            PresentFields: ULONG,
             PasswordLastSet: FILETIME,
             BadPasswordTime: FILETIME,
             LockoutTime: FILETIME,
-            BadPasswordCount: u32,
-            PasswordHistoryLength: u32,
+            BadPasswordCount: ULONG,
+            PasswordHistoryLength: ULONG,
             PasswordHistory: PNET_VALIDATE_PASSWORD_HASH,
         }
         const NON_VALIDATED_LOGON: i32 = 3;
         #[encoding("ansi")]
         const NULL_USERSETINFO_PASSWD: String = "              ";
         #[library("NETAPI32.dll")]
-        extern fn NetAccessAdd(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
+        extern fn NetAccessAdd(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessDel(#[opt] servername: PCWSTR, resource: PCWSTR) -> u32;
+        extern fn NetAccessDel(servername: LPCWSTR, resource: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessEnum(#[opt] servername: PCWSTR, BasePath: PCWSTR, Recursive: u32, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
+        extern fn NetAccessEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BasePath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Recursive: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessGetInfo(#[opt] servername: PCWSTR, resource: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetAccessGetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] resource: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessGetUserPerms(#[opt] servername: PCWSTR, UGname: PCWSTR, resource: PCWSTR, #[out] Perms: LPDWORD) -> u32;
+        extern fn NetAccessGetUserPerms(servername: LPCWSTR, UGname: LPCWSTR, resource: LPCWSTR, Perms: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessSetInfo(#[opt] servername: PCWSTR, resource: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
+        extern fn NetAccessSetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] resource: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern "C" fn NetAddServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, Password: PCWSTR, Flags: u32) -> NTSTATUS;
+        #[arch(X64 | Arm64)]
+        extern "C" fn NetAddServiceAccount(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Password: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern "C" fn NetEnumerateServiceAccounts(#[opt] ServerName: PCWSTR, Flags: u32, AccountsCount: *mut u32, Accounts: *mut PZPWSTR) -> NTSTATUS;
+        #[arch(X86)]
+        extern fn NetAddServiceAccount(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Password: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetGetAnyDCName(#[opt] ServerName: PCWSTR, #[opt] DomainName: PCWSTR, Buffer: *mut LPBYTE) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn NetEnumerateServiceAccounts(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] AccountsCount: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*AccountsCount", "*AccountsCount")] #[out] Accounts: *mut PZPWSTR) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetGetDCName(#[opt] ServerName: PCWSTR, #[opt] DomainName: PCWSTR, Buffer: *mut LPBYTE) -> u32;
+        #[arch(X86)]
+        extern fn NetEnumerateServiceAccounts(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] AccountsCount: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*AccountsCount", "*AccountsCount")] #[out] Accounts: *mut PZPWSTR) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
         #[library("NETAPI32.dll")]
-        extern fn NetGetDisplayInformationIndex(#[opt] ServerName: PCWSTR, Level: u32, Prefix: PCWSTR, #[out] Index: LPDWORD) -> u32;
+        extern fn NetGetAnyDCName(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(LPWSTR *)Buffer,_Outptr_result_z_", "(LPWSTR *)Buffer, _Outptr_result_z_")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] Buffer: *mut LPBYTE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
         #[library("NETAPI32.dll")]
-        extern fn NetGroupAdd(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
+        extern fn NetGetDCName(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(LPWSTR *)Buffer,_Outptr_result_z_", "(LPWSTR *)Buffer, _Outptr_result_z_")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] Buffer: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupAddUser(#[opt] servername: PCWSTR, GroupName: PCWSTR, username: PCWSTR) -> u32;
+        extern fn NetGetDisplayInformationIndex(ServerName: LPCWSTR, Level: DWORD, Prefix: LPCWSTR, Index: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupDel(#[opt] servername: PCWSTR, groupname: PCWSTR) -> u32;
+        extern fn NetGroupAdd(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupDelUser(#[opt] servername: PCWSTR, GroupName: PCWSTR, Username: PCWSTR) -> u32;
+        extern fn NetGroupAddUser(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GroupName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] username: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: PDWORD_PTR) -> u32;
+        extern fn NetGroupDel(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupGetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetGroupDelUser(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GroupName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Username: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupGetUsers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] ResumeHandle: PDWORD_PTR) -> u32;
+        extern fn NetGroupEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: PDWORD_PTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupSetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
+        extern fn NetGroupGetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupSetUsers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: LPBYTE, totalentries: u32) -> u32;
+        extern fn NetGroupGetUsers(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] ResumeHandle: PDWORD_PTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern "C" fn NetIsServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, IsService: *mut BOOL) -> NTSTATUS;
+        extern fn NetGroupSetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern "C" fn NetIsServiceAccount2(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, IsService: *mut BOOL, AccountType: *mut MSA_INFO_ACCOUNT_TYPE) -> NTSTATUS;
+        extern fn NetGroupSetUsers(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] totalentries: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupAdd(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn NetIsServiceAccount(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountName: LPWSTR, #[out] IsService: *mut BOOL) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupAddMember(#[opt] servername: PCWSTR, groupname: PCWSTR, membersid: PSID) -> u32;
+        #[arch(X86)]
+        extern fn NetIsServiceAccount(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountName: LPWSTR, #[out] IsService: *mut BOOL) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupAddMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: LPBYTE, totalentries: u32) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn NetIsServiceAccount2(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountName: LPWSTR, #[out] IsService: *mut BOOL, #[out] AccountType: *mut MSA_INFO_ACCOUNT_TYPE) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupDel(#[opt] servername: PCWSTR, groupname: PCWSTR) -> u32;
+        #[arch(X86)]
+        extern fn NetIsServiceAccount2(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountName: LPWSTR, #[out] IsService: *mut BOOL, #[out] AccountType: *mut MSA_INFO_ACCOUNT_TYPE) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupDelMember(#[opt] servername: PCWSTR, groupname: PCWSTR, membersid: PSID) -> u32;
+        extern fn NetLocalGroupAdd(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupDelMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: LPBYTE, totalentries: u32) -> u32;
+        extern fn NetLocalGroupAddMember(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] membersid: PSID) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resumehandle: PDWORD_PTR) -> u32;
+        extern fn NetLocalGroupAddMembers(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] totalentries: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupGetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetLocalGroupDel(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupGetMembers(#[opt] servername: PCWSTR, localgroupname: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resumehandle: PDWORD_PTR) -> u32;
+        extern fn NetLocalGroupDelMember(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] membersid: PSID) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupSetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
+        extern fn NetLocalGroupDelMembers(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] totalentries: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupSetMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: LPBYTE, totalentries: u32) -> u32;
+        extern fn NetLocalGroupEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resumehandle: PDWORD_PTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetQueryDisplayInformation(#[opt] ServerName: PCWSTR, Level: u32, Index: u32, EntriesRequested: u32, PreferredMaximumLength: u32, #[out] ReturnedEntryCount: LPDWORD, SortedBuffer: *mut *mut void) -> u32;
+        extern fn NetLocalGroupGetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern "C" fn NetQueryServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, InfoLevel: u32, Buffer: *mut PBYTE) -> NTSTATUS;
+        extern fn NetLocalGroupGetMembers(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] localgroupname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resumehandle: PDWORD_PTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern "C" fn NetRemoveServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, Flags: u32) -> NTSTATUS;
+        extern fn NetLocalGroupSetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserAdd(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
+        extern fn NetLocalGroupSetMembers(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] groupname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] totalentries: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserChangePassword(#[opt] domainname: PCWSTR, #[opt] username: PCWSTR, oldpassword: PCWSTR, newpassword: PCWSTR) -> u32;
+        extern fn NetQueryDisplayInformation(ServerName: LPCWSTR, Level: DWORD, Index: DWORD, EntriesRequested: DWORD, PreferredMaximumLength: DWORD, ReturnedEntryCount: LPDWORD, SortedBuffer: *mut PVOID) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserDel(#[opt] servername: PCWSTR, username: PCWSTR) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn NetQueryServiceAccount(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfoLevel: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Buffer: *mut PBYTE) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetUserEnum(#[opt] servername: PCWSTR, level: u32, filter: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: PDWORD) -> u32;
+        #[arch(X86)]
+        extern fn NetQueryServiceAccount(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfoLevel: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Buffer: *mut PBYTE) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetUserGetGroups(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn NetRemoveServiceAccount(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetUserGetInfo(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[arch(X86)]
+        extern fn NetRemoveServiceAccount(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetUserGetLocalGroups(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, flags: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD) -> u32;
+        extern fn NetUserAdd(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_In_reads_bytes_(sizeof(USER_INFO_1))", "level == 1, _In_reads_bytes_(sizeof(USER_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_In_reads_bytes_(sizeof(USER_INFO_2))", "level == 2, _In_reads_bytes_(sizeof(USER_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 3,_In_reads_bytes_(sizeof(USER_INFO_3))", "level == 3, _In_reads_bytes_(sizeof(USER_INFO_3))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 4,_In_reads_bytes_(sizeof(USER_INFO_4))", "level == 4, _In_reads_bytes_(sizeof(USER_INFO_4))")] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserModalsGet(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetUserChangePassword(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] domainname: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] username: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] oldpassword: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newpassword: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserModalsSet(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
+        extern fn NetUserDel(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] username: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserSetGroups(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, buf: LPBYTE, num_entries: u32) -> u32;
+        extern fn NetUserEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] filter: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: PDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUserSetInfo(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
+        extern fn NetUserGetGroups(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] username: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetValidatePasswordPolicy(ServerName: PCWSTR, #[in] Qualifier: *mut void, ValidationType: NET_VALIDATE_PASSWORD_TYPE, #[in] InputArg: *mut void, OutputArg: *mut *mut void) -> u32;
+        extern fn NetUserGetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] username: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetValidatePasswordPolicyFree(#[in] OutputArg: *mut *mut void) -> u32;
+        extern fn NetUserGetLocalGroups(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] username: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD) -> DWORD;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserModalsGet(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE) -> DWORD;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserModalsSet(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserSetGroups(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] username: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] num_entries: DWORD) -> DWORD;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserSetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] username: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
+        #[library("NETAPI32.dll")]
+        extern fn NetValidatePasswordPolicy(ServerName: LPCWSTR, Qualifier: LPVOID, ValidationType: NET_VALIDATE_PASSWORD_TYPE, InputArg: LPVOID, OutputArg: *mut LPVOID) -> DWORD;
+        #[library("NETAPI32.dll")]
+        extern fn NetValidatePasswordPolicyFree(OutputArg: *mut LPVOID) -> DWORD;
         const ONE_DAY: u32 = 86400;
         type PACCESS_INFO_0 = *mut ACCESS_INFO_0;
         type PACCESS_INFO_1 = *mut ACCESS_INFO_1;
@@ -570,6 +598,10 @@ mod Windows {
         const SERVICE_ACCOUNT_FLAG_LINK_TO_HOST_ONLY: i32 = 1;
         const SERVICE_ACCOUNT_FLAG_REMOVE_OFFLINE: i32 = 2;
         const SERVICE_ACCOUNT_FLAG_UNLINK_FROM_HOST_ONLY: i32 = 1;
+        #[encoding("ansi")]
+        const SERVICE_ACCOUNT_PASSWORD: String = "_SA_{262E99C9-6160-4871-ACEC-4E61736B6F21}";
+        #[encoding("ansi")]
+        const SERVICE_ACCOUNT_SECRET_PREFIX: String = "_SC_{262E99C9-6160-4871-ACEC-4E61736B6F21}_";
         const ServiceAccountPasswordGUID: GUID = 0x262e99c9_6160_4871_acec_4e61736b6f21;
         const TIMEQ_FOREVER: u32 = 4294967295;
         const UAS_ROLE_BACKUP: i32 = 2;
@@ -624,244 +656,244 @@ mod Windows {
         const USER_HOME_DIR_INFOLEVEL: i32 = 1006;
         const USER_HOME_DIR_PARMNUM: i32 = 6;
         struct USER_INFO_0 {
-            usri0_name: PWSTR,
+            usri0_name: LPWSTR,
         }
         struct USER_INFO_1 {
-            usri1_name: PWSTR,
-            usri1_password: PWSTR,
-            usri1_password_age: u32,
-            usri1_priv: u32,
-            usri1_home_dir: PWSTR,
-            usri1_comment: PWSTR,
-            usri1_flags: u32,
-            usri1_script_path: PWSTR,
+            usri1_name: LPWSTR,
+            usri1_password: LPWSTR,
+            usri1_password_age: DWORD,
+            usri1_priv: DWORD,
+            usri1_home_dir: LPWSTR,
+            usri1_comment: LPWSTR,
+            usri1_flags: DWORD,
+            usri1_script_path: LPWSTR,
         }
         struct USER_INFO_10 {
-            usri10_name: PWSTR,
-            usri10_comment: PWSTR,
-            usri10_usr_comment: PWSTR,
-            usri10_full_name: PWSTR,
+            usri10_name: LPWSTR,
+            usri10_comment: LPWSTR,
+            usri10_usr_comment: LPWSTR,
+            usri10_full_name: LPWSTR,
         }
         struct USER_INFO_1003 {
-            usri1003_password: PWSTR,
+            usri1003_password: LPWSTR,
         }
         struct USER_INFO_1005 {
-            usri1005_priv: u32,
+            usri1005_priv: DWORD,
         }
         struct USER_INFO_1006 {
-            usri1006_home_dir: PWSTR,
+            usri1006_home_dir: LPWSTR,
         }
         struct USER_INFO_1007 {
-            usri1007_comment: PWSTR,
+            usri1007_comment: LPWSTR,
         }
         struct USER_INFO_1008 {
-            usri1008_flags: u32,
+            usri1008_flags: DWORD,
         }
         struct USER_INFO_1009 {
-            usri1009_script_path: PWSTR,
+            usri1009_script_path: LPWSTR,
         }
         struct USER_INFO_1010 {
-            usri1010_auth_flags: u32,
+            usri1010_auth_flags: DWORD,
         }
         struct USER_INFO_1011 {
-            usri1011_full_name: PWSTR,
+            usri1011_full_name: LPWSTR,
         }
         struct USER_INFO_1012 {
-            usri1012_usr_comment: PWSTR,
+            usri1012_usr_comment: LPWSTR,
         }
         struct USER_INFO_1013 {
-            usri1013_parms: PWSTR,
+            usri1013_parms: LPWSTR,
         }
         struct USER_INFO_1014 {
-            usri1014_workstations: PWSTR,
+            usri1014_workstations: LPWSTR,
         }
         struct USER_INFO_1017 {
-            usri1017_acct_expires: u32,
+            usri1017_acct_expires: DWORD,
         }
         struct USER_INFO_1018 {
-            usri1018_max_storage: u32,
+            usri1018_max_storage: DWORD,
         }
         struct USER_INFO_1020 {
-            usri1020_units_per_week: u32,
+            usri1020_units_per_week: DWORD,
             usri1020_logon_hours: LPBYTE,
         }
         struct USER_INFO_1023 {
-            usri1023_logon_server: PWSTR,
+            usri1023_logon_server: LPWSTR,
         }
         struct USER_INFO_1024 {
-            usri1024_country_code: u32,
+            usri1024_country_code: DWORD,
         }
         struct USER_INFO_1025 {
-            usri1025_code_page: u32,
+            usri1025_code_page: DWORD,
         }
         struct USER_INFO_1051 {
-            usri1051_primary_group_id: u32,
+            usri1051_primary_group_id: DWORD,
         }
         struct USER_INFO_1052 {
-            usri1052_profile: PWSTR,
+            usri1052_profile: LPWSTR,
         }
         struct USER_INFO_1053 {
-            usri1053_home_dir_drive: PWSTR,
+            usri1053_home_dir_drive: LPWSTR,
         }
         struct USER_INFO_11 {
-            usri11_name: PWSTR,
-            usri11_comment: PWSTR,
-            usri11_usr_comment: PWSTR,
-            usri11_full_name: PWSTR,
-            usri11_priv: u32,
-            usri11_auth_flags: u32,
-            usri11_password_age: u32,
-            usri11_home_dir: PWSTR,
-            usri11_parms: PWSTR,
-            usri11_last_logon: u32,
-            usri11_last_logoff: u32,
-            usri11_bad_pw_count: u32,
-            usri11_num_logons: u32,
-            usri11_logon_server: PWSTR,
-            usri11_country_code: u32,
-            usri11_workstations: PWSTR,
-            usri11_max_storage: u32,
-            usri11_units_per_week: u32,
+            usri11_name: LPWSTR,
+            usri11_comment: LPWSTR,
+            usri11_usr_comment: LPWSTR,
+            usri11_full_name: LPWSTR,
+            usri11_priv: DWORD,
+            usri11_auth_flags: DWORD,
+            usri11_password_age: DWORD,
+            usri11_home_dir: LPWSTR,
+            usri11_parms: LPWSTR,
+            usri11_last_logon: DWORD,
+            usri11_last_logoff: DWORD,
+            usri11_bad_pw_count: DWORD,
+            usri11_num_logons: DWORD,
+            usri11_logon_server: LPWSTR,
+            usri11_country_code: DWORD,
+            usri11_workstations: LPWSTR,
+            usri11_max_storage: DWORD,
+            usri11_units_per_week: DWORD,
             usri11_logon_hours: PBYTE,
-            usri11_code_page: u32,
+            usri11_code_page: DWORD,
         }
         struct USER_INFO_2 {
-            usri2_name: PWSTR,
-            usri2_password: PWSTR,
-            usri2_password_age: u32,
-            usri2_priv: u32,
-            usri2_home_dir: PWSTR,
-            usri2_comment: PWSTR,
-            usri2_flags: u32,
-            usri2_script_path: PWSTR,
-            usri2_auth_flags: u32,
-            usri2_full_name: PWSTR,
-            usri2_usr_comment: PWSTR,
-            usri2_parms: PWSTR,
-            usri2_workstations: PWSTR,
-            usri2_last_logon: u32,
-            usri2_last_logoff: u32,
-            usri2_acct_expires: u32,
-            usri2_max_storage: u32,
-            usri2_units_per_week: u32,
+            usri2_name: LPWSTR,
+            usri2_password: LPWSTR,
+            usri2_password_age: DWORD,
+            usri2_priv: DWORD,
+            usri2_home_dir: LPWSTR,
+            usri2_comment: LPWSTR,
+            usri2_flags: DWORD,
+            usri2_script_path: LPWSTR,
+            usri2_auth_flags: DWORD,
+            usri2_full_name: LPWSTR,
+            usri2_usr_comment: LPWSTR,
+            usri2_parms: LPWSTR,
+            usri2_workstations: LPWSTR,
+            usri2_last_logon: DWORD,
+            usri2_last_logoff: DWORD,
+            usri2_acct_expires: DWORD,
+            usri2_max_storage: DWORD,
+            usri2_units_per_week: DWORD,
             usri2_logon_hours: PBYTE,
-            usri2_bad_pw_count: u32,
-            usri2_num_logons: u32,
-            usri2_logon_server: PWSTR,
-            usri2_country_code: u32,
-            usri2_code_page: u32,
+            usri2_bad_pw_count: DWORD,
+            usri2_num_logons: DWORD,
+            usri2_logon_server: LPWSTR,
+            usri2_country_code: DWORD,
+            usri2_code_page: DWORD,
         }
         struct USER_INFO_20 {
-            usri20_name: PWSTR,
-            usri20_full_name: PWSTR,
-            usri20_comment: PWSTR,
-            usri20_flags: u32,
-            usri20_user_id: u32,
+            usri20_name: LPWSTR,
+            usri20_full_name: LPWSTR,
+            usri20_comment: LPWSTR,
+            usri20_flags: DWORD,
+            usri20_user_id: DWORD,
         }
         struct USER_INFO_21 {
-            usri21_password: [u8; 16],
+            usri21_password: [BYTE; 16],
         }
         struct USER_INFO_22 {
-            usri22_name: PWSTR,
-            usri22_password: [u8; 16],
-            usri22_password_age: u32,
-            usri22_priv: u32,
-            usri22_home_dir: PWSTR,
-            usri22_comment: PWSTR,
-            usri22_flags: u32,
-            usri22_script_path: PWSTR,
-            usri22_auth_flags: u32,
-            usri22_full_name: PWSTR,
-            usri22_usr_comment: PWSTR,
-            usri22_parms: PWSTR,
-            usri22_workstations: PWSTR,
-            usri22_last_logon: u32,
-            usri22_last_logoff: u32,
-            usri22_acct_expires: u32,
-            usri22_max_storage: u32,
-            usri22_units_per_week: u32,
+            usri22_name: LPWSTR,
+            usri22_password: [BYTE; 16],
+            usri22_password_age: DWORD,
+            usri22_priv: DWORD,
+            usri22_home_dir: LPWSTR,
+            usri22_comment: LPWSTR,
+            usri22_flags: DWORD,
+            usri22_script_path: LPWSTR,
+            usri22_auth_flags: DWORD,
+            usri22_full_name: LPWSTR,
+            usri22_usr_comment: LPWSTR,
+            usri22_parms: LPWSTR,
+            usri22_workstations: LPWSTR,
+            usri22_last_logon: DWORD,
+            usri22_last_logoff: DWORD,
+            usri22_acct_expires: DWORD,
+            usri22_max_storage: DWORD,
+            usri22_units_per_week: DWORD,
             usri22_logon_hours: PBYTE,
-            usri22_bad_pw_count: u32,
-            usri22_num_logons: u32,
-            usri22_logon_server: PWSTR,
-            usri22_country_code: u32,
-            usri22_code_page: u32,
+            usri22_bad_pw_count: DWORD,
+            usri22_num_logons: DWORD,
+            usri22_logon_server: LPWSTR,
+            usri22_country_code: DWORD,
+            usri22_code_page: DWORD,
         }
         struct USER_INFO_23 {
-            usri23_name: PWSTR,
-            usri23_full_name: PWSTR,
-            usri23_comment: PWSTR,
-            usri23_flags: u32,
+            usri23_name: LPWSTR,
+            usri23_full_name: LPWSTR,
+            usri23_comment: LPWSTR,
+            usri23_flags: DWORD,
             usri23_user_sid: PSID,
         }
         struct USER_INFO_24 {
             usri24_internet_identity: BOOL,
-            usri24_flags: u32,
-            usri24_internet_provider_name: PWSTR,
-            usri24_internet_principal_name: PWSTR,
+            usri24_flags: DWORD,
+            usri24_internet_provider_name: LPWSTR,
+            usri24_internet_principal_name: LPWSTR,
             usri24_user_sid: PSID,
         }
         struct USER_INFO_3 {
-            usri3_name: PWSTR,
-            usri3_password: PWSTR,
-            usri3_password_age: u32,
-            usri3_priv: u32,
-            usri3_home_dir: PWSTR,
-            usri3_comment: PWSTR,
-            usri3_flags: u32,
-            usri3_script_path: PWSTR,
-            usri3_auth_flags: u32,
-            usri3_full_name: PWSTR,
-            usri3_usr_comment: PWSTR,
-            usri3_parms: PWSTR,
-            usri3_workstations: PWSTR,
-            usri3_last_logon: u32,
-            usri3_last_logoff: u32,
-            usri3_acct_expires: u32,
-            usri3_max_storage: u32,
-            usri3_units_per_week: u32,
+            usri3_name: LPWSTR,
+            usri3_password: LPWSTR,
+            usri3_password_age: DWORD,
+            usri3_priv: DWORD,
+            usri3_home_dir: LPWSTR,
+            usri3_comment: LPWSTR,
+            usri3_flags: DWORD,
+            usri3_script_path: LPWSTR,
+            usri3_auth_flags: DWORD,
+            usri3_full_name: LPWSTR,
+            usri3_usr_comment: LPWSTR,
+            usri3_parms: LPWSTR,
+            usri3_workstations: LPWSTR,
+            usri3_last_logon: DWORD,
+            usri3_last_logoff: DWORD,
+            usri3_acct_expires: DWORD,
+            usri3_max_storage: DWORD,
+            usri3_units_per_week: DWORD,
             usri3_logon_hours: PBYTE,
-            usri3_bad_pw_count: u32,
-            usri3_num_logons: u32,
-            usri3_logon_server: PWSTR,
-            usri3_country_code: u32,
-            usri3_code_page: u32,
-            usri3_user_id: u32,
-            usri3_primary_group_id: u32,
-            usri3_profile: PWSTR,
-            usri3_home_dir_drive: PWSTR,
-            usri3_password_expired: u32,
+            usri3_bad_pw_count: DWORD,
+            usri3_num_logons: DWORD,
+            usri3_logon_server: LPWSTR,
+            usri3_country_code: DWORD,
+            usri3_code_page: DWORD,
+            usri3_user_id: DWORD,
+            usri3_primary_group_id: DWORD,
+            usri3_profile: LPWSTR,
+            usri3_home_dir_drive: LPWSTR,
+            usri3_password_expired: DWORD,
         }
         struct USER_INFO_4 {
-            usri4_name: PWSTR,
-            usri4_password: PWSTR,
-            usri4_password_age: u32,
-            usri4_priv: u32,
-            usri4_home_dir: PWSTR,
-            usri4_comment: PWSTR,
-            usri4_flags: u32,
-            usri4_script_path: PWSTR,
-            usri4_auth_flags: u32,
-            usri4_full_name: PWSTR,
-            usri4_usr_comment: PWSTR,
-            usri4_parms: PWSTR,
-            usri4_workstations: PWSTR,
-            usri4_last_logon: u32,
-            usri4_last_logoff: u32,
-            usri4_acct_expires: u32,
-            usri4_max_storage: u32,
-            usri4_units_per_week: u32,
+            usri4_name: LPWSTR,
+            usri4_password: LPWSTR,
+            usri4_password_age: DWORD,
+            usri4_priv: DWORD,
+            usri4_home_dir: LPWSTR,
+            usri4_comment: LPWSTR,
+            usri4_flags: DWORD,
+            usri4_script_path: LPWSTR,
+            usri4_auth_flags: DWORD,
+            usri4_full_name: LPWSTR,
+            usri4_usr_comment: LPWSTR,
+            usri4_parms: LPWSTR,
+            usri4_workstations: LPWSTR,
+            usri4_last_logon: DWORD,
+            usri4_last_logoff: DWORD,
+            usri4_acct_expires: DWORD,
+            usri4_max_storage: DWORD,
+            usri4_units_per_week: DWORD,
             usri4_logon_hours: PBYTE,
-            usri4_bad_pw_count: u32,
-            usri4_num_logons: u32,
-            usri4_logon_server: PWSTR,
-            usri4_country_code: u32,
-            usri4_code_page: u32,
+            usri4_bad_pw_count: DWORD,
+            usri4_num_logons: DWORD,
+            usri4_logon_server: LPWSTR,
+            usri4_country_code: DWORD,
+            usri4_code_page: DWORD,
             usri4_user_sid: PSID,
-            usri4_primary_group_id: u32,
-            usri4_profile: PWSTR,
-            usri4_home_dir_drive: PWSTR,
-            usri4_password_expired: u32,
+            usri4_primary_group_id: DWORD,
+            usri4_profile: LPWSTR,
+            usri4_home_dir_drive: LPWSTR,
+            usri4_password_expired: DWORD,
         }
         const USER_LAST_LOGOFF_INFOLEVEL: i32 = 1016;
         const USER_LAST_LOGOFF_PARMNUM: i32 = 16;
@@ -875,45 +907,45 @@ mod Windows {
         const USER_MAX_STORAGE_INFOLEVEL: i32 = 1018;
         const USER_MAX_STORAGE_PARMNUM: i32 = 18;
         struct USER_MODALS_INFO_0 {
-            usrmod0_min_passwd_len: u32,
-            usrmod0_max_passwd_age: u32,
-            usrmod0_min_passwd_age: u32,
-            usrmod0_force_logoff: u32,
-            usrmod0_password_hist_len: u32,
+            usrmod0_min_passwd_len: DWORD,
+            usrmod0_max_passwd_age: DWORD,
+            usrmod0_min_passwd_age: DWORD,
+            usrmod0_force_logoff: DWORD,
+            usrmod0_password_hist_len: DWORD,
         }
         struct USER_MODALS_INFO_1 {
-            usrmod1_role: u32,
-            usrmod1_primary: PWSTR,
+            usrmod1_role: DWORD,
+            usrmod1_primary: LPWSTR,
         }
         struct USER_MODALS_INFO_1001 {
-            usrmod1001_min_passwd_len: u32,
+            usrmod1001_min_passwd_len: DWORD,
         }
         struct USER_MODALS_INFO_1002 {
-            usrmod1002_max_passwd_age: u32,
+            usrmod1002_max_passwd_age: DWORD,
         }
         struct USER_MODALS_INFO_1003 {
-            usrmod1003_min_passwd_age: u32,
+            usrmod1003_min_passwd_age: DWORD,
         }
         struct USER_MODALS_INFO_1004 {
-            usrmod1004_force_logoff: u32,
+            usrmod1004_force_logoff: DWORD,
         }
         struct USER_MODALS_INFO_1005 {
-            usrmod1005_password_hist_len: u32,
+            usrmod1005_password_hist_len: DWORD,
         }
         struct USER_MODALS_INFO_1006 {
-            usrmod1006_role: u32,
+            usrmod1006_role: DWORD,
         }
         struct USER_MODALS_INFO_1007 {
-            usrmod1007_primary: PWSTR,
+            usrmod1007_primary: LPWSTR,
         }
         struct USER_MODALS_INFO_2 {
-            usrmod2_domain_name: PWSTR,
+            usrmod2_domain_name: LPWSTR,
             usrmod2_domain_id: PSID,
         }
         struct USER_MODALS_INFO_3 {
-            usrmod3_lockout_duration: u32,
-            usrmod3_lockout_observation_window: u32,
-            usrmod3_lockout_threshold: u32,
+            usrmod3_lockout_duration: DWORD,
+            usrmod3_lockout_observation_window: DWORD,
+            usrmod3_lockout_threshold: DWORD,
         }
         const USER_NAME_INFOLEVEL: i32 = 1001;
         const USER_NAME_PARMNUM: i32 = 1;

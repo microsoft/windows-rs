@@ -1,63 +1,91 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[packed(4)]
         struct HIDD_ATTRIBUTES {
-            Size: u32,
-            VendorID: u16,
-            ProductID: u16,
-            VersionNumber: u16,
-        }
-        #[arch(X86)]
-        struct HIDD_CONFIGURATION {
-            cookie: *mut void,
-            size: u32,
-            RingBufferSize: u32,
+            Size: ULONG,
+            VendorID: USHORT,
+            ProductID: USHORT,
+            VersionNumber: USHORT,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
         struct HIDD_CONFIGURATION {
-            cookie: *mut void,
-            size: u32,
-            RingBufferSize: u32,
+            cookie: PVOID,
+            size: ULONG,
+            RingBufferSize: ULONG,
         }
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_FlushQueue(HidDeviceObject: HANDLE) -> BOOLEAN;
+        extern fn HidD_FlushQueue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_FreePreparsedData(PreparsedData: PHIDP_PREPARSED_DATA) -> BOOLEAN;
+        extern fn HidD_FreePreparsedData(#[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PreparsedData: PHIDP_PREPARSED_DATA) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_GetAttributes(HidDeviceObject: HANDLE, #[out] Attributes: PHIDD_ATTRIBUTES) -> BOOLEAN;
+        extern fn HidD_GetAttributes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[out] Attributes: PHIDD_ATTRIBUTES) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_GetConfiguration(HidDeviceObject: HANDLE, #[size_param(2)] #[out] Configuration: PHIDD_CONFIGURATION, ConfigurationLength: u32) -> BOOLEAN;
+        extern fn HidD_GetConfiguration(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[out] #[size_param(2)] Configuration: PHIDD_CONFIGURATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ConfigurationLength: ULONG) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_GetFeature(HidDeviceObject: HANDLE, #[size_param(2)] ReportBuffer: *mut void, ReportBufferLength: u32) -> BOOLEAN;
+        extern fn HidD_GetFeature(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[out] #[size_param(2)] ReportBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ReportBufferLength: ULONG) -> BOOLEAN;
         #[library("HID.DLL")]
         extern fn HidD_GetHidGuid(#[out] HidGuid: LPGUID);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_GetIndexedString(HidDeviceObject: HANDLE, StringIndex: u32, #[size_param(3)] Buffer: *mut void, BufferLength: u32) -> BOOLEAN;
+        extern fn HidD_GetIndexedString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringIndex: ULONG, #[out] #[size_param(3)] Buffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferLength: ULONG) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_GetInputReport(HidDeviceObject: HANDLE, #[size_param(2)] ReportBuffer: *mut void, ReportBufferLength: u32) -> BOOLEAN;
+        extern fn HidD_GetInputReport(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[out] #[size_param(2)] ReportBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ReportBufferLength: ULONG) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_GetManufacturerString(HidDeviceObject: HANDLE, #[size_param(2)] Buffer: *mut void, BufferLength: u32) -> BOOLEAN;
+        extern fn HidD_GetManufacturerString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[out] #[size_param(2)] Buffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferLength: ULONG) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_GetMsGenreDescriptor(HidDeviceObject: HANDLE, #[size_param(2)] Buffer: *mut void, BufferLength: u32) -> BOOLEAN;
+        extern fn HidD_GetMsGenreDescriptor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[out] #[size_param(2)] Buffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferLength: ULONG) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_GetNumInputBuffers(HidDeviceObject: HANDLE, #[out] NumberBuffers: PULONG) -> BOOLEAN;
+        extern fn HidD_GetNumInputBuffers(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[out] NumberBuffers: PULONG) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_GetPhysicalDescriptor(HidDeviceObject: HANDLE, #[size_param(2)] Buffer: *mut void, BufferLength: u32) -> BOOLEAN;
+        extern fn HidD_GetPhysicalDescriptor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[out] #[size_param(2)] Buffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferLength: ULONG) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_GetPreparsedData(HidDeviceObject: HANDLE, PreparsedData: *mut PHIDP_PREPARSED_DATA) -> BOOLEAN;
+        extern fn HidD_GetPreparsedData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,__drv_allocatesMem(Mem)", "return!=0, __drv_allocatesMem(Mem)")] #[out] PreparsedData: *mut PHIDP_PREPARSED_DATA) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_GetProductString(HidDeviceObject: HANDLE, #[size_param(2)] Buffer: *mut void, BufferLength: u32) -> BOOLEAN;
+        extern fn HidD_GetProductString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[out] #[size_param(2)] Buffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferLength: ULONG) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_GetSerialNumberString(HidDeviceObject: HANDLE, #[size_param(2)] Buffer: *mut void, BufferLength: u32) -> BOOLEAN;
+        extern fn HidD_GetSerialNumberString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[out] #[size_param(2)] Buffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferLength: ULONG) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_SetConfiguration(HidDeviceObject: HANDLE, #[size_param(2)] Configuration: PHIDD_CONFIGURATION, ConfigurationLength: u32) -> BOOLEAN;
+        extern fn HidD_SetConfiguration(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] Configuration: PHIDD_CONFIGURATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ConfigurationLength: ULONG) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_SetFeature(HidDeviceObject: HANDLE, #[size_param(2)] #[in] ReportBuffer: *mut void, ReportBufferLength: u32) -> BOOLEAN;
+        extern fn HidD_SetFeature(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] ReportBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ReportBufferLength: ULONG) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_SetNumInputBuffers(HidDeviceObject: HANDLE, NumberBuffers: u32) -> BOOLEAN;
+        extern fn HidD_SetNumInputBuffers(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumberBuffers: ULONG) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return==1", "return==1")]
         #[library("HID.DLL")]
-        extern fn HidD_SetOutputReport(HidDeviceObject: HANDLE, #[size_param(2)] #[in] ReportBuffer: *mut void, ReportBufferLength: u32) -> BOOLEAN;
+        extern fn HidD_SetOutputReport(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidDeviceObject: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] ReportBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ReportBufferLength: ULONG) -> BOOLEAN;
         type PHIDD_ATTRIBUTES = *mut HIDD_ATTRIBUTES;
         type PHIDD_CONFIGURATION = *mut HIDD_CONFIGURATION;
     }

@@ -1,16 +1,15 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const EXCEPTION_RO_ORIGINATEERROR: u32 = 1074266625;
-        const EXCEPTION_RO_TRANSFORMERROR: u32 = 1074266626;
+        const EXCEPTION_RO_ORIGINATEERROR: DWORD = 1074266625;
+        const EXCEPTION_RO_TRANSFORMERROR: DWORD = 1074266626;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn GetRestrictedErrorInfo(ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
+        extern fn GetRestrictedErrorInfo(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
         extern fn IsErrorPropagationEnabled() -> BOOL;
         const MAX_ERROR_MESSAGE_CHARS: i32 = 512;
-        extern fn PINSPECT_MEMORY_CALLBACK(#[in] #[opt] context: *mut void, readAddress: usize, length: u32, #[len_param(2)] buffer: *mut u8) -> HRESULT;
-        #[repr(u32)]
-        #[flags]
+        extern fn PINSPECT_MEMORY_CALLBACK(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] context: *mut void, readAddress: UINT_PTR, length: UINT32, #[out] #[len_param(2)] buffer: *mut BYTE) -> HRESULT;
+        #[repr(i32)]
         enum RO_ERROR_REPORTING_FLAGS {
             RO_ERROR_REPORTING_NONE = 0,
             RO_ERROR_REPORTING_SUPPRESSEXCEPTIONS = 1,
@@ -22,44 +21,35 @@ mod Windows {
         extern fn RoCaptureErrorContext(hr: HRESULT) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
         extern fn RoClearError();
-        #[repr(u32)]
-        #[flags]
-        enum RoErrorReportingFlags {
-            None = 0,
-            SuppressExceptions = 1,
-            ForceExceptions = 2,
-            UseSetErrorInfo = 4,
-            SuppressSetErrorInfo = 8,
-        }
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
         extern fn RoFailFastWithErrorContext(hrError: HRESULT);
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn RoGetErrorReportingFlags(pflags: *mut u32) -> HRESULT;
+        extern fn RoGetErrorReportingFlags(#[out] pflags: *mut UINT32) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
-        extern fn RoGetMatchingRestrictedErrorInfo(hrIn: HRESULT, ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
+        extern fn RoGetMatchingRestrictedErrorInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hrIn: HRESULT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
-        extern fn RoInspectCapturedStackBackTrace(targetErrorInfoAddress: usize, machine: u16, readMemoryCallback: PINSPECT_MEMORY_CALLBACK, #[in] #[opt] context: *mut void, frameCount: *mut u32, targetBackTraceAddress: *mut usize) -> HRESULT;
+        extern fn RoInspectCapturedStackBackTrace(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetErrorInfoAddress: UINT_PTR, machine: USHORT, readMemoryCallback: PINSPECT_MEMORY_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] context: PVOID, #[out] frameCount: *mut UINT32, #[out] targetBackTraceAddress: *mut UINT_PTR) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
-        extern fn RoInspectThreadErrorInfo(targetTebAddress: usize, machine: u16, readMemoryCallback: PINSPECT_MEMORY_CALLBACK, #[in] #[opt] context: *mut void, targetErrorInfoAddress: *mut usize) -> HRESULT;
+        extern fn RoInspectThreadErrorInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetTebAddress: UINT_PTR, machine: USHORT, readMemoryCallback: PINSPECT_MEMORY_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] context: PVOID, #[out] targetErrorInfoAddress: *mut UINT_PTR) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn RoOriginateError(error: HRESULT, #[opt] message: HSTRING) -> BOOL;
+        extern fn RoOriginateError(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] error: HRESULT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] message: HSTRING) -> BOOL;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn RoOriginateErrorW(error: HRESULT, cchMax: u32, message: PCWSTR) -> BOOL;
+        extern fn RoOriginateErrorW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] error: HRESULT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMax: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cchMax == 0,_In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS)", "cchMax == 0, _In_reads_or_z_opt_(512)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cchMax > 0 && cchMax < MAX_ERROR_MESSAGE_CHARS,_In_reads_or_z_(cchMax)", "cchMax > 0 && cchMax < 512, _In_reads_or_z_(cchMax)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cchMax >= MAX_ERROR_MESSAGE_CHARS,_In_reads_or_z_(MAX_ERROR_MESSAGE_CHARS)", "cchMax >= 512, _In_reads_or_z_(512)")] message: PCWSTR) -> BOOL;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
-        extern fn RoOriginateLanguageException(error: HRESULT, #[opt] message: HSTRING, #[opt] languageException: IUnknown) -> BOOL;
+        extern fn RoOriginateLanguageException(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] error: HRESULT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] message: HSTRING, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] languageException: IUnknown) -> BOOL;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
-        extern fn RoReportFailedDelegate(punkDelegate: IUnknown, pRestrictedErrorInfo: IRestrictedErrorInfo) -> HRESULT;
+        extern fn RoReportFailedDelegate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkDelegate: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRestrictedErrorInfo: IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
-        extern fn RoReportUnhandledError(pRestrictedErrorInfo: IRestrictedErrorInfo) -> HRESULT;
+        extern fn RoReportUnhandledError(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRestrictedErrorInfo: IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn RoResolveRestrictedErrorInfoReference(reference: PCWSTR, ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
+        extern fn RoResolveRestrictedErrorInfoReference(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] reference: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn RoSetErrorReportingFlags(flags: u32) -> HRESULT;
+        extern fn RoSetErrorReportingFlags(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: UINT32) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn RoTransformError(oldError: HRESULT, newError: HRESULT, #[opt] message: HSTRING) -> BOOL;
+        extern fn RoTransformError(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] oldError: HRESULT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newError: HRESULT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] message: HSTRING) -> BOOL;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn RoTransformErrorW(oldError: HRESULT, newError: HRESULT, cchMax: u32, message: PCWSTR) -> BOOL;
+        extern fn RoTransformErrorW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] oldError: HRESULT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newError: HRESULT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMax: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cchMax == 0,_In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS)", "cchMax == 0, _In_reads_or_z_opt_(512)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cchMax > 0 && cchMax < MAX_ERROR_MESSAGE_CHARS,_In_reads_or_z_(cchMax)", "cchMax > 0 && cchMax < 512, _In_reads_or_z_(cchMax)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cchMax >= MAX_ERROR_MESSAGE_CHARS,_In_reads_or_z_(MAX_ERROR_MESSAGE_CHARS)", "cchMax >= 512, _In_reads_or_z_(512)")] message: PCWSTR) -> BOOL;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
-        extern fn SetRestrictedErrorInfo(#[opt] pRestrictedErrorInfo: IRestrictedErrorInfo) -> HRESULT;
+        extern fn SetRestrictedErrorInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRestrictedErrorInfo: IRestrictedErrorInfo) -> HRESULT;
     }
 }

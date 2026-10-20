@@ -4,6 +4,14 @@ mod Windows {
         struct BOID {
             rgb: [byte; 16],
         }
+        const IID_IKernelTransaction: GUID = 0x79427a2b_f895_40e0_be79_b57dc82ed231;
+        const IID_ITmNodeName: GUID = 0x30274f88_6ee4_474e_9b95_7807bc9ef8cf;
+        const IID_ITransaction: GUID = 0x0fb15084_af41_11ce_bd2b_204c4f4f5020;
+        const IID_ITransaction2: GUID = 0x34021548_0065_11d3_bac1_00c04f797be2;
+        const IID_ITransactionCloner: GUID = 0x02656950_2152_11d0_944c_00a0c905416e;
+        const IID_ITransactionDispenser: GUID = 0x3a6ad9e1_23b9_11cf_ad60_00aa00a74ccd;
+        const IID_ITransactionOptions: GUID = 0x3a6ad9e0_23b9_11cf_ad60_00aa00a74ccd;
+        const IID_ITransactionOutcomeEvents: GUID = 0x3a6ad9e2_23b9_11cf_ad60_00aa00a74ccd;
         #[guid(0x79427a2b_f895_40e0_be79_b57dc82ed231)]
         interface IKernelTransaction: IUnknown {
             fn GetHandle(&self, pHandle: *mut HANDLE) -> HRESULT;
@@ -37,38 +45,38 @@ mod Windows {
         type ISOLEVEL = i32;
         #[guid(0x30274f88_6ee4_474e_9b95_7807bc9ef8cf)]
         interface ITmNodeName: IUnknown {
-            fn GetNodeNameSize(&self, pcbNodeNameSize: *mut u32) -> HRESULT;
-            fn GetNodeName(&self, cbNodeNameBufferSize: u32, #[in] #[out] pNodeNameBuffer: PWSTR) -> HRESULT;
+            fn GetNodeNameSize(&self, #[out] pcbNodeNameSize: *mut ULONG) -> HRESULT;
+            fn GetNodeName(&self, cbNodeNameBufferSize: ULONG, #[in] #[out] pNodeNameBuffer: LPWSTR) -> HRESULT;
         }
         #[guid(0x0fb15084_af41_11ce_bd2b_204c4f4f5020)]
         interface ITransaction: IUnknown {
-            fn Commit(&self, fRetaining: BOOL, grfTC: u32, grfRM: u32) -> HRESULT;
-            fn Abort(&self, #[in] pboidReason: *mut BOID, fRetaining: BOOL, fAsync: BOOL) -> HRESULT;
-            fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> HRESULT;
+            fn Commit(&self, fRetaining: BOOL, grfTC: DWORD, grfRM: DWORD) -> HRESULT;
+            fn Abort(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pboidReason: *mut BOID, fRetaining: BOOL, fAsync: BOOL) -> HRESULT;
+            fn GetTransactionInfo(&self, #[out] pinfo: *mut XACTTRANSINFO) -> HRESULT;
         }
         #[guid(0x34021548_0065_11d3_bac1_00c04f797be2)]
         interface ITransaction2: ITransactionCloner {
-            fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> HRESULT;
+            fn GetTransactionInfo2(&self, #[out] pinfo: *mut XACTTRANSINFO) -> HRESULT;
         }
         #[guid(0x02656950_2152_11d0_944c_00a0c905416e)]
         interface ITransactionCloner: ITransaction {
-            fn CloneWithCommitDisabled(&self, ppITransaction: *mut ITransaction) -> HRESULT;
+            fn CloneWithCommitDisabled(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppITransaction: *mut ITransaction) -> HRESULT;
         }
         #[guid(0x3a6ad9e1_23b9_11cf_ad60_00aa00a74ccd)]
         interface ITransactionDispenser: IUnknown {
-            fn GetOptionsObject(&self, ppOptions: *mut ITransactionOptions) -> HRESULT;
-            fn BeginTransaction(&self, punkOuter: IUnknown, isoLevel: ISOLEVEL, isoFlags: u32, pOptions: ITransactionOptions, ppTransaction: *mut ITransaction) -> HRESULT;
+            fn GetOptionsObject(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppOptions: *mut ITransactionOptions) -> HRESULT;
+            fn BeginTransaction(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] punkOuter: IUnknown, isoLevel: ISOLEVEL, isoFlags: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pOptions: ITransactionOptions, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTransaction: *mut ITransaction) -> HRESULT;
         }
         #[guid(0x3a6ad9e0_23b9_11cf_ad60_00aa00a74ccd)]
         interface ITransactionOptions: IUnknown {
-            fn SetOptions(&self, #[in] pOptions: *mut XACTOPT) -> HRESULT;
+            fn SetOptions(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pOptions: *mut XACTOPT) -> HRESULT;
             fn GetOptions(&self, #[in] #[out] pOptions: *mut XACTOPT) -> HRESULT;
         }
         #[guid(0x3a6ad9e2_23b9_11cf_ad60_00aa00a74ccd)]
         interface ITransactionOutcomeEvents: IUnknown {
-            fn Committed(&self, fRetaining: BOOL, #[in] pNewUOW: *mut XACTUOW, hr: HRESULT) -> HRESULT;
-            fn Aborted(&self, #[in] pboidReason: *mut BOID, fRetaining: BOOL, #[in] pNewUOW: *mut XACTUOW, hr: HRESULT) -> HRESULT;
-            fn HeuristicDecision(&self, dwDecision: u32, #[in] pboidReason: *mut BOID, hr: HRESULT) -> HRESULT;
+            fn Committed(&self, fRetaining: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pNewUOW: *mut XACTUOW, hr: HRESULT) -> HRESULT;
+            fn Aborted(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pboidReason: *mut BOID, fRetaining: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pNewUOW: *mut XACTUOW, hr: HRESULT) -> HRESULT;
+            fn HeuristicDecision(&self, dwDecision: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pboidReason: *mut BOID, hr: HRESULT) -> HRESULT;
             fn Indoubt(&self) -> HRESULT;
         }
         #[repr(i32)]
@@ -87,7 +95,7 @@ mod Windows {
             XACTHEURISTIC_DANGER = 4,
         }
         struct XACTOPT {
-            ulTimeout: u32,
+            ulTimeout: ULONG,
             szDescription: [i8; 40],
         }
         #[repr(i32)]
@@ -122,13 +130,13 @@ mod Windows {
             XACTSTAT_ALL = 524287,
         }
         struct XACTSTATS {
-            cOpen: u32,
-            cCommitting: u32,
-            cCommitted: u32,
-            cAborting: u32,
-            cAborted: u32,
-            cInDoubt: u32,
-            cHeuristicDecision: u32,
+            cOpen: ULONG,
+            cCommitting: ULONG,
+            cCommitted: ULONG,
+            cAborting: ULONG,
+            cAborted: ULONG,
+            cInDoubt: ULONG,
+            cHeuristicDecision: ULONG,
             timeTransactionsUp: FILETIME,
         }
         #[repr(i32)]
@@ -143,11 +151,11 @@ mod Windows {
         struct XACTTRANSINFO {
             uow: XACTUOW,
             isoLevel: ISOLEVEL,
-            isoFlags: u32,
-            grfTCSupported: u32,
-            grfRMSupported: u32,
-            grfTCSupportedRetaining: u32,
-            grfRMSupportedRetaining: u32,
+            isoFlags: ULONG,
+            grfTCSupported: DWORD,
+            grfRMSupported: DWORD,
+            grfTCSupportedRetaining: DWORD,
+            grfRMSupportedRetaining: DWORD,
         }
         type XACTUOW = BOID;
     }

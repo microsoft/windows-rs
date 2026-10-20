@@ -9,18 +9,18 @@ mod Windows {
         const CONNDLG_USE_MRU: i32 = 4;
         type CONNECTDLGSTRUCT = CONNECTDLGSTRUCTA;
         struct CONNECTDLGSTRUCTA {
-            cbStructure: u32,
+            cbStructure: DWORD,
             hwndOwner: HWND,
             lpConnRes: LPNETRESOURCEA,
-            dwFlags: u32,
-            dwDevNum: u32,
+            dwFlags: DWORD,
+            dwDevNum: DWORD,
         }
         struct CONNECTDLGSTRUCTW {
-            cbStructure: u32,
+            cbStructure: DWORD,
             hwndOwner: HWND,
             lpConnRes: LPNETRESOURCEW,
-            dwFlags: u32,
-            dwDevNum: u32,
+            dwFlags: DWORD,
+            dwDevNum: DWORD,
         }
         const CONNECT_CMD_SAVECRED: i32 = 4096;
         const CONNECT_COMMANDLINE: i32 = 2048;
@@ -43,58 +43,63 @@ mod Windows {
         const CONNECT_WRITE_THROUGH_SEMANTICS: i32 = 65536;
         type DISCDLGSTRUCT = DISCDLGSTRUCTA;
         struct DISCDLGSTRUCTA {
-            cbStructure: u32,
+            cbStructure: DWORD,
             hwndOwner: HWND,
-            lpLocalName: PSTR,
-            lpRemoteName: PSTR,
-            dwFlags: u32,
+            lpLocalName: LPSTR,
+            lpRemoteName: LPSTR,
+            dwFlags: DWORD,
         }
         struct DISCDLGSTRUCTW {
-            cbStructure: u32,
+            cbStructure: DWORD,
             hwndOwner: HWND,
-            lpLocalName: PWSTR,
-            lpRemoteName: PWSTR,
-            dwFlags: u32,
+            lpLocalName: LPWSTR,
+            lpRemoteName: LPWSTR,
+            dwFlags: DWORD,
         }
         const DISC_NO_FORCE: i32 = 64;
         const DISC_UPDATE_PROFILE: i32 = 1;
-        type LPCONNECTDLGSTRUCT = LPCONNECTDLGSTRUCTA;
+        type LPCONNECTDLGSTRUCT = *mut CONNECTDLGSTRUCTA;
         type LPCONNECTDLGSTRUCTA = *mut CONNECTDLGSTRUCTA;
         type LPCONNECTDLGSTRUCTW = *mut CONNECTDLGSTRUCTW;
-        type LPDISCDLGSTRUCT = LPDISCDLGSTRUCTA;
+        type LPDISCDLGSTRUCT = *mut DISCDLGSTRUCTA;
         type LPDISCDLGSTRUCTA = *mut DISCDLGSTRUCTA;
         type LPDISCDLGSTRUCTW = *mut DISCDLGSTRUCTW;
         type LPNETCONNECTINFOSTRUCT = *mut NETCONNECTINFOSTRUCT;
         type LPNETINFOSTRUCT = *mut NETINFOSTRUCT;
-        type LPNETRESOURCE = LPNETRESOURCEA;
+        type LPNETRESOURCE = *mut NETRESOURCEA;
         type LPNETRESOURCEA = *mut NETRESOURCEA;
         type LPNETRESOURCEW = *mut NETRESOURCEW;
-        type LPREMOTE_NAME_INFO = LPREMOTE_NAME_INFOA;
+        type LPREMOTE_NAME_INFO = *mut REMOTE_NAME_INFOA;
         type LPREMOTE_NAME_INFOA = *mut REMOTE_NAME_INFOA;
         type LPREMOTE_NAME_INFOW = *mut REMOTE_NAME_INFOW;
-        type LPUNIVERSAL_NAME_INFO = LPUNIVERSAL_NAME_INFOA;
+        type LPUNIVERSAL_NAME_INFO = *mut UNIVERSAL_NAME_INFOA;
         type LPUNIVERSAL_NAME_INFOA = *mut UNIVERSAL_NAME_INFOA;
         type LPUNIVERSAL_NAME_INFOW = *mut UNIVERSAL_NAME_INFOW;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "MultinetGetConnectionPerformanceA")]
+        extern fn MultinetGetConnectionPerformance(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[out] lpNetConnectInfoStruct: LPNETCONNECTINFOSTRUCT) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn MultinetGetConnectionPerformanceA(lpNetResource: LPNETRESOURCEA, #[out] lpNetConnectInfoStruct: LPNETCONNECTINFOSTRUCT) -> u32;
+        extern fn MultinetGetConnectionPerformanceA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[out] lpNetConnectInfoStruct: LPNETCONNECTINFOSTRUCT) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn MultinetGetConnectionPerformanceW(lpNetResource: LPNETRESOURCEW, #[out] lpNetConnectInfoStruct: LPNETCONNECTINFOSTRUCT) -> u32;
+        extern fn MultinetGetConnectionPerformanceW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEW, #[out] lpNetConnectInfoStruct: LPNETCONNECTINFOSTRUCT) -> DWORD;
         struct NETCONNECTINFOSTRUCT {
-            cbStructure: u32,
-            dwFlags: u32,
-            dwSpeed: u32,
-            dwDelay: u32,
-            dwOptDataSize: u32,
+            cbStructure: DWORD,
+            dwFlags: DWORD,
+            dwSpeed: DWORD,
+            dwDelay: DWORD,
+            dwOptDataSize: DWORD,
         }
         struct NETINFOSTRUCT {
-            cbStructure: u32,
-            dwProviderVersion: u32,
-            dwStatus: u32,
-            dwCharacteristics: u32,
-            dwHandle: usize,
-            wNetType: u16,
-            dwPrinters: u32,
-            dwDrives: u32,
+            cbStructure: DWORD,
+            dwProviderVersion: DWORD,
+            dwStatus: DWORD,
+            dwCharacteristics: DWORD,
+            dwHandle: ULONG_PTR,
+            wNetType: WORD,
+            dwPrinters: DWORD,
+            dwDrives: DWORD,
         }
         const NETINFO_DISKRED: i32 = 4;
         const NETINFO_DLL16: i32 = 1;
@@ -102,35 +107,35 @@ mod Windows {
         const NETPROPERTY_PERSISTENT: i32 = 1;
         type NETRESOURCE = NETRESOURCEA;
         struct NETRESOURCEA {
-            dwScope: u32,
-            dwType: u32,
-            dwDisplayType: u32,
-            dwUsage: u32,
-            lpLocalName: PSTR,
-            lpRemoteName: PSTR,
-            lpComment: PSTR,
-            lpProvider: PSTR,
+            dwScope: DWORD,
+            dwType: DWORD,
+            dwDisplayType: DWORD,
+            dwUsage: DWORD,
+            lpLocalName: LPSTR,
+            lpRemoteName: LPSTR,
+            lpComment: LPSTR,
+            lpProvider: LPSTR,
         }
         struct NETRESOURCEW {
-            dwScope: u32,
-            dwType: u32,
-            dwDisplayType: u32,
-            dwUsage: u32,
-            lpLocalName: PWSTR,
-            lpRemoteName: PWSTR,
-            lpComment: PWSTR,
-            lpProvider: PWSTR,
+            dwScope: DWORD,
+            dwType: DWORD,
+            dwDisplayType: DWORD,
+            dwUsage: DWORD,
+            lpLocalName: LPWSTR,
+            lpRemoteName: LPWSTR,
+            lpComment: LPWSTR,
+            lpProvider: LPWSTR,
         }
         type REMOTE_NAME_INFO = REMOTE_NAME_INFOA;
         struct REMOTE_NAME_INFOA {
-            lpUniversalName: PSTR,
-            lpConnectionName: PSTR,
-            lpRemainingPath: PSTR,
+            lpUniversalName: LPSTR,
+            lpConnectionName: LPSTR,
+            lpRemainingPath: LPSTR,
         }
         struct REMOTE_NAME_INFOW {
-            lpUniversalName: PWSTR,
-            lpConnectionName: PWSTR,
-            lpRemainingPath: PWSTR,
+            lpUniversalName: LPWSTR,
+            lpConnectionName: LPWSTR,
+            lpRemainingPath: LPWSTR,
         }
         const REMOTE_NAME_INFO_LEVEL: i32 = 2;
         const RESOURCEDISPLAYTYPE_DIRECTORY: i32 = 9;
@@ -164,10 +169,10 @@ mod Windows {
         const RESOURCE_REMEMBERED: i32 = 3;
         type UNIVERSAL_NAME_INFO = UNIVERSAL_NAME_INFOA;
         struct UNIVERSAL_NAME_INFOA {
-            lpUniversalName: PSTR,
+            lpUniversalName: LPSTR,
         }
         struct UNIVERSAL_NAME_INFOW {
-            lpUniversalName: PWSTR,
+            lpUniversalName: LPWSTR,
         }
         const UNIVERSAL_NAME_INFO_LEVEL: i32 = 1;
         const WNCON_DYNAMIC: i32 = 8;
@@ -220,91 +225,194 @@ mod Windows {
         const WN_RETRY: i32 = 1237;
         const WN_SUCCESS: i32 = 0;
         const WN_WINDOWS_ERROR: i32 = 59;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetAddConnectionA")]
+        extern fn WNetAddConnection(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpRemoteName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPassword: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocalName: LPCSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetAddConnection2A")]
+        extern fn WNetAddConnection2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPassword: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUserName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetAddConnection2A(lpNetResource: LPNETRESOURCEA, #[opt] lpPassword: PCSTR, #[opt] lpUserName: PCSTR, dwFlags: u32) -> u32;
+        extern fn WNetAddConnection2A(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPassword: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUserName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetAddConnection2W(lpNetResource: LPNETRESOURCEW, #[opt] lpPassword: PCWSTR, #[opt] lpUserName: PCWSTR, dwFlags: u32) -> u32;
+        extern fn WNetAddConnection2W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPassword: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUserName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetAddConnection3A")]
+        extern fn WNetAddConnection3(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPassword: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUserName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetAddConnection3A(#[opt] hwndOwner: HWND, lpNetResource: LPNETRESOURCEA, #[opt] lpPassword: PCSTR, #[opt] lpUserName: PCSTR, dwFlags: u32) -> u32;
+        extern fn WNetAddConnection3A(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPassword: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUserName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetAddConnection3W(#[opt] hwndOwner: HWND, lpNetResource: LPNETRESOURCEW, #[opt] lpPassword: PCWSTR, #[opt] lpUserName: PCWSTR, dwFlags: u32) -> u32;
+        extern fn WNetAddConnection3W(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPassword: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUserName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetAddConnection4A")]
+        extern fn WNetAddConnection4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pAuthBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbAuthBuffer: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(6)] lpUseOptions: PBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbUseOptions: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetAddConnection4A(#[opt] hwndOwner: HWND, lpNetResource: LPNETRESOURCEA, #[size_param(3)] #[in] pAuthBuffer: *mut void, cbAuthBuffer: u32, dwFlags: u32, #[size_param(6)] lpUseOptions: PBYTE, cbUseOptions: u32) -> u32;
+        extern fn WNetAddConnection4A(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pAuthBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbAuthBuffer: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(6)] lpUseOptions: PBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbUseOptions: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetAddConnection4W(#[opt] hwndOwner: HWND, lpNetResource: LPNETRESOURCEW, #[size_param(3)] #[in] pAuthBuffer: *mut void, cbAuthBuffer: u32, dwFlags: u32, #[size_param(6)] lpUseOptions: PBYTE, cbUseOptions: u32) -> u32;
+        extern fn WNetAddConnection4W(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pAuthBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbAuthBuffer: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(6)] lpUseOptions: PBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbUseOptions: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetAddConnectionA(lpRemoteName: PCSTR, #[opt] lpPassword: PCSTR, #[opt] lpLocalName: PCSTR) -> u32;
+        extern fn WNetAddConnectionA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpRemoteName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPassword: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocalName: LPCSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetAddConnectionW(lpRemoteName: PCWSTR, #[opt] lpPassword: PCWSTR, #[opt] lpLocalName: PCWSTR) -> u32;
+        extern fn WNetAddConnectionW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpRemoteName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPassword: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocalName: LPCWSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetCancelConnectionA")]
+        extern fn WNetCancelConnection(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fForce: BOOL) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetCancelConnection2A")]
+        extern fn WNetCancelConnection2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fForce: BOOL) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetCancelConnection2A(lpName: PCSTR, dwFlags: u32, fForce: BOOL) -> u32;
+        extern fn WNetCancelConnection2A(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fForce: BOOL) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetCancelConnection2W(lpName: PCWSTR, dwFlags: u32, fForce: BOOL) -> u32;
+        extern fn WNetCancelConnection2W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fForce: BOOL) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetCancelConnectionA(lpName: PCSTR, fForce: BOOL) -> u32;
+        extern fn WNetCancelConnectionA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fForce: BOOL) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetCancelConnectionW(lpName: PCWSTR, fForce: BOOL) -> u32;
+        extern fn WNetCancelConnectionW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fForce: BOOL) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetCloseEnum(hEnum: HANDLE) -> u32;
+        extern fn WNetCloseEnum(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEnum: HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetConnectionDialog(hwnd: HWND, dwType: u32) -> u32;
+        extern fn WNetConnectionDialog(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetConnectionDialog1A")]
+        extern fn WNetConnectionDialog1(#[in] #[out] lpConnDlgStruct: LPCONNECTDLGSTRUCTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetConnectionDialog1A(#[in] #[out] lpConnDlgStruct: LPCONNECTDLGSTRUCTA) -> u32;
+        extern fn WNetConnectionDialog1A(#[in] #[out] lpConnDlgStruct: LPCONNECTDLGSTRUCTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetConnectionDialog1W(#[in] #[out] lpConnDlgStruct: LPCONNECTDLGSTRUCTW) -> u32;
+        extern fn WNetConnectionDialog1W(#[in] #[out] lpConnDlgStruct: LPCONNECTDLGSTRUCTW) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetDisconnectDialog(#[opt] hwnd: HWND, dwType: u32) -> u32;
+        extern fn WNetDisconnectDialog(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetDisconnectDialog1A")]
+        extern fn WNetDisconnectDialog1(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpConnDlgStruct: LPDISCDLGSTRUCTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetDisconnectDialog1A(lpConnDlgStruct: LPDISCDLGSTRUCTA) -> u32;
+        extern fn WNetDisconnectDialog1A(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpConnDlgStruct: LPDISCDLGSTRUCTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetDisconnectDialog1W(lpConnDlgStruct: LPDISCDLGSTRUCTW) -> u32;
+        extern fn WNetDisconnectDialog1W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpConnDlgStruct: LPDISCDLGSTRUCTW) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetEnumResourceA")]
+        extern fn WNetEnumResource(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEnum: HANDLE, #[in] #[out] lpcCount: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*lpBufferSize", "*lpBufferSize")] #[out] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetEnumResourceA(hEnum: HANDLE, #[in] #[out] lpcCount: LPDWORD, #[size_param(3)] lpBuffer: *mut void, #[in] #[out] lpBufferSize: LPDWORD) -> u32;
+        extern fn WNetEnumResourceA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEnum: HANDLE, #[in] #[out] lpcCount: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*lpBufferSize", "*lpBufferSize")] #[out] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetEnumResourceW(hEnum: HANDLE, #[in] #[out] lpcCount: LPDWORD, #[size_param(3)] lpBuffer: *mut void, #[in] #[out] lpBufferSize: LPDWORD) -> u32;
+        extern fn WNetEnumResourceW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEnum: HANDLE, #[in] #[out] lpcCount: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*lpBufferSize", "*lpBufferSize")] #[out] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetGetConnectionA")]
+        extern fn WNetGetConnection(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocalName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpnLength", "*lpnLength")] #[out] #[opt] lpRemoteName: LPSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetConnectionA(lpLocalName: PCSTR, #[len_param(2)] #[out] #[opt] lpRemoteName: PSTR, #[in] #[out] lpnLength: LPDWORD) -> u32;
+        extern fn WNetGetConnectionA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocalName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpnLength", "*lpnLength")] #[out] #[opt] lpRemoteName: LPSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetConnectionW(lpLocalName: PCWSTR, #[len_param(2)] #[out] #[opt] lpRemoteName: PWSTR, #[in] #[out] lpnLength: LPDWORD) -> u32;
+        extern fn WNetGetConnectionW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocalName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpnLength", "*lpnLength")] #[out] #[opt] lpRemoteName: LPWSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetGetLastErrorA")]
+        extern fn WNetGetLastError(#[out] lpError: LPDWORD, #[out] #[len_param(2)] lpErrorBuf: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nErrorBufSize: DWORD, #[out] #[len_param(4)] lpNameBuf: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nNameBufSize: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetLastErrorA(#[out] lpError: LPDWORD, #[len_param(2)] #[out] lpErrorBuf: PSTR, nErrorBufSize: u32, #[len_param(4)] #[out] lpNameBuf: PSTR, nNameBufSize: u32) -> u32;
+        extern fn WNetGetLastErrorA(#[out] lpError: LPDWORD, #[out] #[len_param(2)] lpErrorBuf: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nErrorBufSize: DWORD, #[out] #[len_param(4)] lpNameBuf: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nNameBufSize: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetLastErrorW(#[out] lpError: LPDWORD, #[len_param(2)] #[out] lpErrorBuf: PWSTR, nErrorBufSize: u32, #[len_param(4)] #[out] lpNameBuf: PWSTR, nNameBufSize: u32) -> u32;
+        extern fn WNetGetLastErrorW(#[out] lpError: LPDWORD, #[out] #[len_param(2)] lpErrorBuf: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nErrorBufSize: DWORD, #[out] #[len_param(4)] lpNameBuf: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nNameBufSize: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetGetNetworkInformationA")]
+        extern fn WNetGetNetworkInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProvider: LPCSTR, #[out] lpNetInfoStruct: LPNETINFOSTRUCT) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetNetworkInformationA(lpProvider: PCSTR, #[out] lpNetInfoStruct: LPNETINFOSTRUCT) -> u32;
+        extern fn WNetGetNetworkInformationA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProvider: LPCSTR, #[out] lpNetInfoStruct: LPNETINFOSTRUCT) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetNetworkInformationW(lpProvider: PCWSTR, #[out] lpNetInfoStruct: LPNETINFOSTRUCT) -> u32;
+        extern fn WNetGetNetworkInformationW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProvider: LPCWSTR, #[out] lpNetInfoStruct: LPNETINFOSTRUCT) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetGetProviderNameA")]
+        extern fn WNetGetProviderName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwNetType: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*lpBufferSize", "*lpBufferSize")] #[out] lpProviderName: LPSTR, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetProviderNameA(dwNetType: u32, #[len_param(2)] #[out] lpProviderName: PSTR, #[in] #[out] lpBufferSize: LPDWORD) -> u32;
+        extern fn WNetGetProviderNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwNetType: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*lpBufferSize", "*lpBufferSize")] #[out] lpProviderName: LPSTR, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetProviderNameW(dwNetType: u32, #[len_param(2)] #[out] lpProviderName: PWSTR, #[in] #[out] lpBufferSize: LPDWORD) -> u32;
+        extern fn WNetGetProviderNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwNetType: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*lpBufferSize", "*lpBufferSize")] #[out] lpProviderName: LPWSTR, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetGetResourceInformationA")]
+        extern fn WNetGetResourceInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*lpcbBuffer", "*lpcbBuffer")] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] lplpSystem: *mut LPSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetResourceInformationA(lpNetResource: LPNETRESOURCEA, #[size_param(2)] lpBuffer: *mut void, #[in] #[out] lpcbBuffer: LPDWORD, lplpSystem: *mut PSTR) -> u32;
+        extern fn WNetGetResourceInformationA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*lpcbBuffer", "*lpcbBuffer")] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] lplpSystem: *mut LPSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetResourceInformationW(lpNetResource: LPNETRESOURCEW, #[size_param(2)] lpBuffer: *mut void, #[in] #[out] lpcbBuffer: LPDWORD, lplpSystem: *mut PWSTR) -> u32;
+        extern fn WNetGetResourceInformationW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEW, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*lpcbBuffer", "*lpcbBuffer")] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] lplpSystem: *mut LPWSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetGetResourceParentA")]
+        extern fn WNetGetResourceParent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*lpcbBuffer", "*lpcbBuffer")] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetResourceParentA(lpNetResource: LPNETRESOURCEA, #[size_param(2)] lpBuffer: *mut void, #[in] #[out] lpcbBuffer: LPDWORD) -> u32;
+        extern fn WNetGetResourceParentA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*lpcbBuffer", "*lpcbBuffer")] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetResourceParentW(lpNetResource: LPNETRESOURCEW, #[size_param(2)] lpBuffer: *mut void, #[in] #[out] lpcbBuffer: LPDWORD) -> u32;
+        extern fn WNetGetResourceParentW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEW, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*lpcbBuffer", "*lpcbBuffer")] #[out] lpBuffer: LPVOID, #[in] #[out] lpcbBuffer: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetGetUniversalNameA")]
+        extern fn WNetGetUniversalName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocalPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInfoLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*lpBufferSize", "*lpBufferSize")] #[out] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetUniversalNameA(lpLocalPath: PCSTR, dwInfoLevel: u32, #[size_param(3)] lpBuffer: *mut void, #[in] #[out] lpBufferSize: LPDWORD) -> u32;
+        extern fn WNetGetUniversalNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocalPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInfoLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*lpBufferSize", "*lpBufferSize")] #[out] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetUniversalNameW(lpLocalPath: PCWSTR, dwInfoLevel: u32, #[size_param(3)] lpBuffer: *mut void, #[in] #[out] lpBufferSize: LPDWORD) -> u32;
+        extern fn WNetGetUniversalNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocalPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInfoLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*lpBufferSize", "*lpBufferSize")] #[out] lpBuffer: LPVOID, #[in] #[out] lpBufferSize: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetGetUserA")]
+        extern fn WNetGetUser(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*lpnLength", "*lpnLength")] #[out] lpUserName: LPSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetUserA(#[opt] lpName: PCSTR, #[len_param(2)] #[out] lpUserName: PSTR, #[in] #[out] lpnLength: LPDWORD) -> u32;
+        extern fn WNetGetUserA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*lpnLength", "*lpnLength")] #[out] lpUserName: LPSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetGetUserW(#[opt] lpName: PCWSTR, #[len_param(2)] #[out] lpUserName: PWSTR, #[in] #[out] lpnLength: LPDWORD) -> u32;
+        extern fn WNetGetUserW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*lpnLength", "*lpnLength")] #[out] lpUserName: LPWSTR, #[in] #[out] lpnLength: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetOpenEnumA")]
+        extern fn WNetOpenEnum(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwScope: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUsage: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[out] lphEnum: LPHANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetOpenEnumA(dwScope: u32, dwType: u32, dwUsage: u32, #[opt] lpNetResource: LPNETRESOURCEA, #[out] lphEnum: LPHANDLE) -> u32;
+        extern fn WNetOpenEnumA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwScope: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUsage: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[out] lphEnum: LPHANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetOpenEnumW(dwScope: u32, dwType: u32, dwUsage: u32, #[opt] lpNetResource: LPNETRESOURCEW, #[out] lphEnum: LPHANDLE) -> u32;
+        extern fn WNetOpenEnumW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwScope: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUsage: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEW, #[out] lphEnum: LPHANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetUseConnectionA")]
+        extern fn WNetUseConnection(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPassword: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUserId: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpBufferSize", "*lpBufferSize")] #[out] #[opt] lpAccessName: LPSTR, #[in] #[out] #[opt] lpBufferSize: LPDWORD, #[out] #[opt] lpResult: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("MPR.dll", import = "WNetUseConnection4A")]
+        extern fn WNetUseConnection4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pAuthBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbAuthBuffer: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(6)] lpUseOptions: PBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbUseOptions: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpBufferSize", "*lpBufferSize")] #[out] #[opt] lpAccessName: LPSTR, #[in] #[out] #[opt] lpBufferSize: LPDWORD, #[out] #[opt] lpResult: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetUseConnection4A(#[opt] hwndOwner: HWND, lpNetResource: LPNETRESOURCEA, #[size_param(3)] #[in] #[opt] pAuthBuffer: *mut void, cbAuthBuffer: u32, dwFlags: u32, #[size_param(6)] #[opt] lpUseOptions: PBYTE, cbUseOptions: u32, #[len_param(8)] #[out] #[opt] lpAccessName: PSTR, #[in] #[out] #[opt] lpBufferSize: LPDWORD, #[out] #[opt] lpResult: LPDWORD) -> u32;
+        extern fn WNetUseConnection4A(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pAuthBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbAuthBuffer: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(6)] lpUseOptions: PBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbUseOptions: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpBufferSize", "*lpBufferSize")] #[out] #[opt] lpAccessName: LPSTR, #[in] #[out] #[opt] lpBufferSize: LPDWORD, #[out] #[opt] lpResult: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetUseConnection4W(#[opt] hwndOwner: HWND, lpNetResource: LPNETRESOURCEW, #[size_param(3)] #[in] #[opt] pAuthBuffer: *mut void, cbAuthBuffer: u32, dwFlags: u32, #[size_param(6)] #[opt] lpUseOptions: PBYTE, cbUseOptions: u32, #[len_param(8)] #[out] #[opt] lpAccessName: PWSTR, #[in] #[out] #[opt] lpBufferSize: LPDWORD, #[out] #[opt] lpResult: LPDWORD) -> u32;
+        extern fn WNetUseConnection4W(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pAuthBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbAuthBuffer: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(6)] lpUseOptions: PBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbUseOptions: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpBufferSize", "*lpBufferSize")] #[out] #[opt] lpAccessName: LPWSTR, #[in] #[out] #[opt] lpBufferSize: LPDWORD, #[out] #[opt] lpResult: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetUseConnectionA(#[opt] hwndOwner: HWND, lpNetResource: LPNETRESOURCEA, #[opt] lpPassword: PCSTR, #[opt] lpUserId: PCSTR, dwFlags: u32, #[len_param(6)] #[out] #[opt] lpAccessName: PSTR, #[in] #[out] #[opt] lpBufferSize: LPDWORD, #[out] #[opt] lpResult: LPDWORD) -> u32;
+        extern fn WNetUseConnectionA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPassword: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUserId: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpBufferSize", "*lpBufferSize")] #[out] #[opt] lpAccessName: LPSTR, #[in] #[out] #[opt] lpBufferSize: LPDWORD, #[out] #[opt] lpResult: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("MPR.dll")]
-        extern fn WNetUseConnectionW(#[opt] hwndOwner: HWND, lpNetResource: LPNETRESOURCEW, #[opt] lpPassword: PCWSTR, #[opt] lpUserId: PCWSTR, dwFlags: u32, #[len_param(6)] #[out] #[opt] lpAccessName: PWSTR, #[in] #[out] #[opt] lpBufferSize: LPDWORD, #[out] #[opt] lpResult: LPDWORD) -> u32;
+        extern fn WNetUseConnectionW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNetResource: LPNETRESOURCEW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPassword: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUserId: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpBufferSize", "*lpBufferSize")] #[out] #[opt] lpAccessName: LPWSTR, #[in] #[out] #[opt] lpBufferSize: LPDWORD, #[out] #[opt] lpResult: LPDWORD) -> DWORD;
     }
 }

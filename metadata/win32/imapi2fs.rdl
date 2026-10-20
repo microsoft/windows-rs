@@ -6,11 +6,11 @@ mod Windows {
         const BootOptions: GUID = 0x2c941fce_975b_59be_a960_9a2a262853a5;
         #[guid(0x2c941fdf_975b_59be_a960_9a2a262853a5)]
         interface DFileSystemImageEvents: IDispatch {
-            fn Update(&self, object: IDispatch, currentFile: BSTR, copiedSectors: i32, totalSectors: i32) -> HRESULT;
+            fn Update(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] object: IDispatch, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] currentFile: BSTR, copiedSectors: LONG, totalSectors: LONG) -> HRESULT;
         }
         #[guid(0xd25c30f9_4087_4366_9e24_e55be286424b)]
         interface DFileSystemImageImportEvents: IDispatch {
-            fn UpdateImport(&self, object: IDispatch, fileSystem: FsiFileSystems, currentItem: BSTR, importedDirectoryItems: i32, totalDirectoryItems: i32, importedFileItems: i32, totalFileItems: i32) -> HRESULT;
+            fn UpdateImport(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] object: IDispatch, fileSystem: FsiFileSystems, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] currentItem: BSTR, importedDirectoryItems: LONG, totalDirectoryItems: LONG, importedFileItems: LONG, totalFileItems: LONG) -> HRESULT;
         }
         const DISPID_DFILESYSTEMIMAGEEVENTS_UPDATE: i32 = 256;
         const DISPID_DFILESYSTEMIMAGEIMPORTEVENTS_UPDATEIMPORT: i32 = 257;
@@ -45,251 +45,168 @@ mod Windows {
         const FsiStream: GUID = 0x2c941fcd_975b_59be_a960_9a2a262853a5;
         #[guid(0x2c941fd4_975b_59be_a960_9a2a262853a5)]
         interface IBootOptions: IDispatch {
-            #[special]
-            fn get_BootImage(&self, #[retval] pVal: *mut IStream) -> HRESULT;
-            #[special]
-            fn get_Manufacturer(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_Manufacturer(&self, newVal: BSTR) -> HRESULT;
-            #[special]
-            fn get_PlatformId(&self, #[retval] pVal: *mut PlatformId) -> HRESULT;
-            #[special]
+            fn get_BootImage(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut IStream) -> HRESULT;
+            fn get_Manufacturer(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
+            fn put_Manufacturer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] newVal: BSTR) -> HRESULT;
+            fn get_PlatformId(&self, #[out] #[retval] pVal: *mut PlatformId) -> HRESULT;
             fn put_PlatformId(&self, newVal: PlatformId) -> HRESULT;
-            #[special]
-            fn get_Emulation(&self, #[retval] pVal: *mut EmulationType) -> HRESULT;
-            #[special]
+            fn get_Emulation(&self, #[out] #[retval] pVal: *mut EmulationType) -> HRESULT;
             fn put_Emulation(&self, newVal: EmulationType) -> HRESULT;
-            #[special]
-            fn get_ImageSize(&self, #[retval] pVal: *mut u32) -> HRESULT;
-            fn AssignBootImage(&self, newVal: IStream) -> HRESULT;
+            fn get_ImageSize(&self, #[out] #[retval] pVal: *mut ULONG) -> HRESULT;
+            fn AssignBootImage(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] newVal: IStream) -> HRESULT;
         }
         #[guid(0x2c941fda_975b_59be_a960_9a2a262853a5)]
         interface IEnumFsiItems: IUnknown {
-            fn Next(&self, celt: u32, rgelt: *mut IFsiItem, pceltFetched: *mut u32) -> HRESULT;
-            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Next(&self, celt: ULONG, rgelt: *mut IFsiItem, pceltFetched: *mut ULONG) -> HRESULT;
+            fn Skip(&self, celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, ppEnum: *mut IEnumFsiItems) -> HRESULT;
+            fn Clone(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppEnum: *mut IEnumFsiItems) -> HRESULT;
         }
         #[guid(0x2c941fd6_975b_59be_a960_9a2a262853a5)]
         interface IEnumProgressItems: IUnknown {
-            fn Next(&self, celt: u32, rgelt: *mut IProgressItem, pceltFetched: *mut u32) -> HRESULT;
-            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Next(&self, celt: ULONG, rgelt: *mut IProgressItem, pceltFetched: *mut ULONG) -> HRESULT;
+            fn Skip(&self, celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, ppEnum: *mut IEnumProgressItems) -> HRESULT;
+            fn Clone(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppEnum: *mut IEnumProgressItems) -> HRESULT;
         }
         #[guid(0x2c941fe1_975b_59be_a960_9a2a262853a5)]
         interface IFileSystemImage: IDispatch {
-            #[special]
-            fn get_Root(&self, #[retval] pVal: *mut IFsiDirectoryItem) -> HRESULT;
-            #[special]
-            fn get_SessionStartBlock(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn put_SessionStartBlock(&self, newVal: i32) -> HRESULT;
-            #[special]
-            fn get_FreeMediaBlocks(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn put_FreeMediaBlocks(&self, newVal: i32) -> HRESULT;
-            fn SetMaxMediaBlocksFromDevice(&self, discRecorder: IDiscRecorder2) -> HRESULT;
-            #[special]
-            fn get_UsedBlocks(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn get_VolumeName(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_VolumeName(&self, newVal: BSTR) -> HRESULT;
-            #[special]
-            fn get_ImportedVolumeName(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_BootImageOptions(&self, #[retval] pVal: *mut IBootOptions) -> HRESULT;
-            #[special]
-            fn put_BootImageOptions(&self, newVal: IBootOptions) -> HRESULT;
-            #[special]
-            fn get_FileCount(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn get_DirectoryCount(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn get_WorkingDirectory(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_WorkingDirectory(&self, newVal: BSTR) -> HRESULT;
-            #[special]
-            fn get_ChangePoint(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn get_StrictFileSystemCompliance(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
+            fn get_Root(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut IFsiDirectoryItem) -> HRESULT;
+            fn get_SessionStartBlock(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn put_SessionStartBlock(&self, newVal: LONG) -> HRESULT;
+            fn get_FreeMediaBlocks(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn put_FreeMediaBlocks(&self, newVal: LONG) -> HRESULT;
+            fn SetMaxMediaBlocksFromDevice(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] discRecorder: IDiscRecorder2) -> HRESULT;
+            fn get_UsedBlocks(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn get_VolumeName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
+            fn put_VolumeName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] newVal: BSTR) -> HRESULT;
+            fn get_ImportedVolumeName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
+            fn get_BootImageOptions(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut IBootOptions) -> HRESULT;
+            fn put_BootImageOptions(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] newVal: IBootOptions) -> HRESULT;
+            fn get_FileCount(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn get_DirectoryCount(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn get_WorkingDirectory(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
+            fn put_WorkingDirectory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] newVal: BSTR) -> HRESULT;
+            fn get_ChangePoint(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn get_StrictFileSystemCompliance(&self, #[out] #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
             fn put_StrictFileSystemCompliance(&self, newVal: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_UseRestrictedCharacterSet(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
+            fn get_UseRestrictedCharacterSet(&self, #[out] #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
             fn put_UseRestrictedCharacterSet(&self, newVal: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_FileSystemsToCreate(&self, #[retval] pVal: *mut FsiFileSystems) -> HRESULT;
-            #[special]
+            fn get_FileSystemsToCreate(&self, #[out] #[retval] pVal: *mut FsiFileSystems) -> HRESULT;
             fn put_FileSystemsToCreate(&self, newVal: FsiFileSystems) -> HRESULT;
-            #[special]
-            fn get_FileSystemsSupported(&self, #[retval] pVal: *mut FsiFileSystems) -> HRESULT;
-            #[special]
-            fn put_UDFRevision(&self, newVal: i32) -> HRESULT;
-            #[special]
-            fn get_UDFRevision(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn get_UDFRevisionsSupported(&self, #[retval] pVal: *mut *mut SAFEARRAY) -> HRESULT;
-            fn ChooseImageDefaults(&self, discRecorder: IDiscRecorder2) -> HRESULT;
+            fn get_FileSystemsSupported(&self, #[out] #[retval] pVal: *mut FsiFileSystems) -> HRESULT;
+            fn put_UDFRevision(&self, newVal: LONG) -> HRESULT;
+            fn get_UDFRevision(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn get_UDFRevisionsSupported(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn ChooseImageDefaults(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] discRecorder: IDiscRecorder2) -> HRESULT;
             fn ChooseImageDefaultsForMediaType(&self, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
-            #[special]
-            fn put_ISO9660InterchangeLevel(&self, newVal: i32) -> HRESULT;
-            #[special]
-            fn get_ISO9660InterchangeLevel(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn get_ISO9660InterchangeLevelsSupported(&self, #[retval] pVal: *mut *mut SAFEARRAY) -> HRESULT;
-            fn CreateResultImage(&self, #[retval] resultStream: *mut IFileSystemImageResult) -> HRESULT;
-            fn Exists(&self, fullPath: BSTR, #[retval] itemType: *mut FsiItemType) -> HRESULT;
-            fn CalculateDiscIdentifier(&self, #[retval] discIdentifier: *mut BSTR) -> HRESULT;
-            fn IdentifyFileSystemsOnDisc(&self, discRecorder: IDiscRecorder2, #[retval] fileSystems: *mut FsiFileSystems) -> HRESULT;
-            fn GetDefaultFileSystemForImport(&self, fileSystems: FsiFileSystems, #[retval] importDefault: *mut FsiFileSystems) -> HRESULT;
-            fn ImportFileSystem(&self, #[retval] importedFileSystem: *mut FsiFileSystems) -> HRESULT;
+            fn put_ISO9660InterchangeLevel(&self, newVal: LONG) -> HRESULT;
+            fn get_ISO9660InterchangeLevel(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn get_ISO9660InterchangeLevelsSupported(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn CreateResultImage(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] resultStream: *mut IFileSystemImageResult) -> HRESULT;
+            fn Exists(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] fullPath: BSTR, #[out] #[retval] itemType: *mut FsiItemType) -> HRESULT;
+            fn CalculateDiscIdentifier(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] discIdentifier: *mut BSTR) -> HRESULT;
+            fn IdentifyFileSystemsOnDisc(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] discRecorder: IDiscRecorder2, #[out] #[retval] fileSystems: *mut FsiFileSystems) -> HRESULT;
+            fn GetDefaultFileSystemForImport(&self, fileSystems: FsiFileSystems, #[out] #[retval] importDefault: *mut FsiFileSystems) -> HRESULT;
+            fn ImportFileSystem(&self, #[out] #[retval] importedFileSystem: *mut FsiFileSystems) -> HRESULT;
             fn ImportSpecificFileSystem(&self, fileSystemToUse: FsiFileSystems) -> HRESULT;
-            fn RollbackToChangePoint(&self, changePoint: i32) -> HRESULT;
+            fn RollbackToChangePoint(&self, changePoint: LONG) -> HRESULT;
             fn LockInChangePoint(&self) -> HRESULT;
-            fn CreateDirectoryItem(&self, name: BSTR, #[retval] newItem: *mut IFsiDirectoryItem) -> HRESULT;
-            fn CreateFileItem(&self, name: BSTR, #[retval] newItem: *mut IFsiFileItem) -> HRESULT;
-            #[special]
-            fn get_VolumeNameUDF(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_VolumeNameJoliet(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_VolumeNameISO9660(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_StageFiles(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
+            fn CreateDirectoryItem(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] newItem: *mut IFsiDirectoryItem) -> HRESULT;
+            fn CreateFileItem(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] newItem: *mut IFsiFileItem) -> HRESULT;
+            fn get_VolumeNameUDF(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
+            fn get_VolumeNameJoliet(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
+            fn get_VolumeNameISO9660(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
+            fn get_StageFiles(&self, #[out] #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
             fn put_StageFiles(&self, newVal: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_MultisessionInterfaces(&self, #[retval] pVal: *mut *mut SAFEARRAY) -> HRESULT;
-            #[special]
-            fn put_MultisessionInterfaces(&self, #[in] newVal: *mut SAFEARRAY) -> HRESULT;
+            fn get_MultisessionInterfaces(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn put_MultisessionInterfaces(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] newVal: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xd7644b2c_1537_4767_b62f_f1387b02ddfd)]
         interface IFileSystemImage2: IFileSystemImage {
-            #[special]
-            fn get_BootImageOptionsArray(&self, #[retval] pVal: *mut *mut SAFEARRAY) -> HRESULT;
-            #[special]
-            fn put_BootImageOptionsArray(&self, #[in] newVal: *mut SAFEARRAY) -> HRESULT;
+            fn get_BootImageOptionsArray(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn put_BootImageOptionsArray(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] newVal: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x7cff842c_7e97_4807_8304_910dd8f7c051)]
         interface IFileSystemImage3: IFileSystemImage2 {
-            #[special]
-            fn get_CreateRedundantUdfMetadataFiles(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
+            fn get_CreateRedundantUdfMetadataFiles(&self, #[out] #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
             fn put_CreateRedundantUdfMetadataFiles(&self, newVal: VARIANT_BOOL) -> HRESULT;
-            fn ProbeSpecificFileSystem(&self, fileSystemToProbe: FsiFileSystems, #[retval] isAppendable: *mut VARIANT_BOOL) -> HRESULT;
+            fn ProbeSpecificFileSystem(&self, fileSystemToProbe: FsiFileSystems, #[out] #[retval] isAppendable: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x2c941fd8_975b_59be_a960_9a2a262853a5)]
         interface IFileSystemImageResult: IDispatch {
-            #[special]
-            fn get_ImageStream(&self, #[retval] pVal: *mut IStream) -> HRESULT;
-            #[special]
-            fn get_ProgressItems(&self, #[retval] pVal: *mut IProgressItems) -> HRESULT;
-            #[special]
-            fn get_TotalBlocks(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn get_BlockSize(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn get_DiscId(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            fn get_ImageStream(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut IStream) -> HRESULT;
+            fn get_ProgressItems(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut IProgressItems) -> HRESULT;
+            fn get_TotalBlocks(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn get_BlockSize(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn get_DiscId(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
         }
         #[guid(0xb507ca29_2204_11dd_966a_001aa01bbc58)]
         interface IFileSystemImageResult2: IFileSystemImageResult {
-            #[special]
-            fn get_ModifiedBlocks(&self, #[retval] pVal: *mut IBlockRangeList) -> HRESULT;
+            fn get_ModifiedBlocks(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut IBlockRangeList) -> HRESULT;
         }
         #[guid(0x2c941fdc_975b_59be_a960_9a2a262853a5)]
         interface IFsiDirectoryItem: IFsiItem {
-            #[special]
-            fn get__NewEnum(&self, #[retval] NewEnum: *mut IEnumVARIANT) -> HRESULT;
-            #[special]
-            fn get_Item(&self, path: BSTR, #[retval] item: *mut IFsiItem) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
-            #[special]
-            fn get_EnumFsiItems(&self, #[retval] NewEnum: *mut IEnumFsiItems) -> HRESULT;
-            fn AddDirectory(&self, path: BSTR) -> HRESULT;
-            fn AddFile(&self, path: BSTR, fileData: IStream) -> HRESULT;
-            fn AddTree(&self, sourceDirectory: BSTR, includeBaseDirectory: VARIANT_BOOL) -> HRESULT;
-            fn Add(&self, item: IFsiItem) -> HRESULT;
-            fn Remove(&self, path: BSTR) -> HRESULT;
-            fn RemoveTree(&self, path: BSTR) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NewEnum: *mut IEnumVARIANT) -> HRESULT;
+            fn get_Item(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] path: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] item: *mut IFsiItem) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] Count: *mut LONG) -> HRESULT;
+            fn get_EnumFsiItems(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NewEnum: *mut IEnumFsiItems) -> HRESULT;
+            fn AddDirectory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] path: BSTR) -> HRESULT;
+            fn AddFile(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] path: BSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] fileData: IStream) -> HRESULT;
+            fn AddTree(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] sourceDirectory: BSTR, includeBaseDirectory: VARIANT_BOOL) -> HRESULT;
+            fn Add(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] item: IFsiItem) -> HRESULT;
+            fn Remove(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] path: BSTR) -> HRESULT;
+            fn RemoveTree(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] path: BSTR) -> HRESULT;
         }
         #[guid(0xf7fb4b9b_6d96_4d7b_9115_201b144811ef)]
         interface IFsiDirectoryItem2: IFsiDirectoryItem {
-            fn AddTreeWithNamedStreams(&self, sourceDirectory: BSTR, includeBaseDirectory: VARIANT_BOOL) -> HRESULT;
+            fn AddTreeWithNamedStreams(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] sourceDirectory: BSTR, includeBaseDirectory: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x2c941fdb_975b_59be_a960_9a2a262853a5)]
         interface IFsiFileItem: IFsiItem {
-            #[special]
-            fn get_DataSize(&self, #[retval] pVal: *mut i64) -> HRESULT;
-            #[special]
-            fn get_DataSize32BitLow(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn get_DataSize32BitHigh(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn get_Data(&self, #[retval] pVal: *mut IStream) -> HRESULT;
-            #[special]
-            fn put_Data(&self, newVal: IStream) -> HRESULT;
+            fn get_DataSize(&self, #[out] #[retval] pVal: *mut LONGLONG) -> HRESULT;
+            fn get_DataSize32BitLow(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn get_DataSize32BitHigh(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn get_Data(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut IStream) -> HRESULT;
+            fn put_Data(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] newVal: IStream) -> HRESULT;
         }
         #[guid(0x199d0c19_11e1_40eb_8ec2_c8c822a07792)]
         interface IFsiFileItem2: IFsiFileItem {
-            #[special]
-            fn get_FsiNamedStreams(&self, #[retval] streams: *mut IFsiNamedStreams) -> HRESULT;
-            #[special]
-            fn get_IsNamedStream(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
-            fn AddStream(&self, name: BSTR, streamData: IStream) -> HRESULT;
-            fn RemoveStream(&self, name: BSTR) -> HRESULT;
-            #[special]
-            fn get_IsRealTime(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
+            fn get_FsiNamedStreams(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] streams: *mut IFsiNamedStreams) -> HRESULT;
+            fn get_IsNamedStream(&self, #[out] #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            fn AddStream(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] streamData: IStream) -> HRESULT;
+            fn RemoveStream(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR) -> HRESULT;
+            fn get_IsRealTime(&self, #[out] #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
             fn put_IsRealTime(&self, newVal: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x2c941fd9_975b_59be_a960_9a2a262853a5)]
         interface IFsiItem: IDispatch {
-            #[special]
-            fn get_Name(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_FullPath(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_CreationTime(&self, #[retval] pVal: *mut DATE) -> HRESULT;
-            #[special]
+            fn get_Name(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
+            fn get_FullPath(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
+            fn get_CreationTime(&self, #[out] #[retval] pVal: *mut DATE) -> HRESULT;
             fn put_CreationTime(&self, newVal: DATE) -> HRESULT;
-            #[special]
-            fn get_LastAccessedTime(&self, #[retval] pVal: *mut DATE) -> HRESULT;
-            #[special]
+            fn get_LastAccessedTime(&self, #[out] #[retval] pVal: *mut DATE) -> HRESULT;
             fn put_LastAccessedTime(&self, newVal: DATE) -> HRESULT;
-            #[special]
-            fn get_LastModifiedTime(&self, #[retval] pVal: *mut DATE) -> HRESULT;
-            #[special]
+            fn get_LastModifiedTime(&self, #[out] #[retval] pVal: *mut DATE) -> HRESULT;
             fn put_LastModifiedTime(&self, newVal: DATE) -> HRESULT;
-            #[special]
-            fn get_IsHidden(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
+            fn get_IsHidden(&self, #[out] #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
             fn put_IsHidden(&self, newVal: VARIANT_BOOL) -> HRESULT;
-            fn FileSystemName(&self, fileSystem: FsiFileSystems, #[retval] pVal: *mut BSTR) -> HRESULT;
-            fn FileSystemPath(&self, fileSystem: FsiFileSystems, #[retval] pVal: *mut BSTR) -> HRESULT;
+            fn FileSystemName(&self, fileSystem: FsiFileSystems, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
+            fn FileSystemPath(&self, fileSystem: FsiFileSystems, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
         }
         #[guid(0xed79ba56_5294_4250_8d46_f9aecee23459)]
         interface IFsiNamedStreams: IDispatch {
-            #[special]
-            fn get__NewEnum(&self, #[retval] NewEnum: *mut IEnumVARIANT) -> HRESULT;
-            #[special]
-            fn get_Item(&self, index: i32, #[retval] item: *mut IFsiFileItem2) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] count: *mut i32) -> HRESULT;
-            #[special]
-            fn get_EnumNamedStreams(&self, #[retval] NewEnum: *mut IEnumFsiItems) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NewEnum: *mut IEnumVARIANT) -> HRESULT;
+            fn get_Item(&self, index: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] item: *mut IFsiFileItem2) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] count: *mut LONG) -> HRESULT;
+            fn get_EnumNamedStreams(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NewEnum: *mut IEnumFsiItems) -> HRESULT;
         }
         #[guid(0x6ca38be5_fbbb_4800_95a1_a438865eb0d4)]
         interface IIsoImageManager: IDispatch {
-            #[special]
-            fn get_Path(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_Stream(&self, #[retval] data: *mut IStream) -> HRESULT;
-            fn SetPath(&self, Val: BSTR) -> HRESULT;
-            fn SetStream(&self, data: IStream) -> HRESULT;
+            fn get_Path(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
+            fn get_Stream(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] data: *mut IStream) -> HRESULT;
+            fn SetPath(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Val: BSTR) -> HRESULT;
+            fn SetStream(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] data: IStream) -> HRESULT;
             fn Validate(&self) -> HRESULT;
         }
         const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: i32 = 32;
@@ -301,27 +218,19 @@ mod Windows {
         const IMAPI2FS_MinorVersion: i32 = 0;
         #[guid(0x2c941fd5_975b_59be_a960_9a2a262853a5)]
         interface IProgressItem: IDispatch {
-            #[special]
-            fn get_Description(&self, #[retval] desc: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_FirstBlock(&self, #[retval] block: *mut u32) -> HRESULT;
-            #[special]
-            fn get_LastBlock(&self, #[retval] block: *mut u32) -> HRESULT;
-            #[special]
-            fn get_BlockCount(&self, #[retval] blocks: *mut u32) -> HRESULT;
+            fn get_Description(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] desc: *mut BSTR) -> HRESULT;
+            fn get_FirstBlock(&self, #[out] #[retval] block: *mut ULONG) -> HRESULT;
+            fn get_LastBlock(&self, #[out] #[retval] block: *mut ULONG) -> HRESULT;
+            fn get_BlockCount(&self, #[out] #[retval] blocks: *mut ULONG) -> HRESULT;
         }
         #[guid(0x2c941fd7_975b_59be_a960_9a2a262853a5)]
         interface IProgressItems: IDispatch {
-            #[special]
-            fn get__NewEnum(&self, #[retval] NewEnum: *mut IEnumVARIANT) -> HRESULT;
-            #[special]
-            fn get_Item(&self, Index: i32, #[retval] item: *mut IProgressItem) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
-            fn ProgressItemFromBlock(&self, block: u32, #[retval] item: *mut IProgressItem) -> HRESULT;
-            fn ProgressItemFromDescription(&self, description: BSTR, #[retval] item: *mut IProgressItem) -> HRESULT;
-            #[special]
-            fn get_EnumProgressItems(&self, #[retval] NewEnum: *mut IEnumProgressItems) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NewEnum: *mut IEnumVARIANT) -> HRESULT;
+            fn get_Item(&self, Index: i32, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] item: *mut IProgressItem) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
+            fn ProgressItemFromBlock(&self, block: ULONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] item: *mut IProgressItem) -> HRESULT;
+            fn ProgressItemFromDescription(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] description: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] item: *mut IProgressItem) -> HRESULT;
+            fn get_EnumProgressItems(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NewEnum: *mut IEnumProgressItems) -> HRESULT;
         }
         const MsftFileSystemImage: GUID = 0x2c941fc5_975b_59be_a960_9a2a262853a5;
         const MsftIsoImageManager: GUID = 0xceee3b62_8f56_4056_869b_ef16917e3efc;

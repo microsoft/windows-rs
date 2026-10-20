@@ -3,14 +3,14 @@ mod Windows {
     mod Win32 {
         #[guid(0x04b3486c_4687_4229_8d14_505ab584dd88)]
         interface IFindReferenceTargetsCallback: IUnknown {
-            fn FoundTrackerTarget(&self, target: IReferenceTrackerTarget) -> HRESULT;
+            fn FoundTrackerTarget(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] target: IReferenceTrackerTarget) -> HRESULT;
         }
         #[guid(0x11d3b13a_180e_4789_a8be_7712882893e6)]
         interface IReferenceTracker: IUnknown {
             fn ConnectFromTrackerSource(&self) -> HRESULT;
             fn DisconnectFromTrackerSource(&self) -> HRESULT;
-            fn FindTrackerTargets(&self, callback: IFindReferenceTargetsCallback) -> HRESULT;
-            fn GetReferenceTrackerManager(&self, value: *mut IReferenceTrackerManager) -> HRESULT;
+            fn FindTrackerTargets(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] callback: IFindReferenceTargetsCallback) -> HRESULT;
+            fn GetReferenceTrackerManager(&self, #[out] value: *mut IReferenceTrackerManager) -> HRESULT;
             fn AddRefFromTrackerSource(&self) -> HRESULT;
             fn ReleaseFromTrackerSource(&self) -> HRESULT;
             fn PegFromTrackerSource(&self) -> HRESULT;
@@ -23,30 +23,31 @@ mod Windows {
             fn ReleaseDisconnectedReferenceSources(&self) -> HRESULT;
             fn NotifyEndOfReferenceTrackingOnThread(&self) -> HRESULT;
             fn GetTrackerTarget(&self, unknown: IUnknown, newReference: *mut IReferenceTrackerTarget) -> HRESULT;
-            fn AddMemoryPressure(&self, bytesAllocated: u64) -> HRESULT;
-            fn RemoveMemoryPressure(&self, bytesAllocated: u64) -> HRESULT;
+            fn AddMemoryPressure(&self, bytesAllocated: UINT64) -> HRESULT;
+            fn RemoveMemoryPressure(&self, bytesAllocated: UINT64) -> HRESULT;
         }
         #[guid(0x3cf184b4_7ccb_4dda_8455_7e6ce99a3298)]
         interface IReferenceTrackerManager: IUnknown {
             fn ReferenceTrackingStarted(&self) -> HRESULT;
-            fn FindTrackerTargetsCompleted(&self, findFailed: u8) -> HRESULT;
+            fn FindTrackerTargetsCompleted(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] findFailed: boolean) -> HRESULT;
             fn ReferenceTrackingCompleted(&self) -> HRESULT;
-            fn SetReferenceTrackerHost(&self, value: IReferenceTrackerHost) -> HRESULT;
+            fn SetReferenceTrackerHost(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: IReferenceTrackerHost) -> HRESULT;
         }
         #[guid(0x64bd43f8_bfee_4ec4_b7eb_2935158dae21)]
         interface IReferenceTrackerTarget: IUnknown {
-            fn AddRefFromReferenceTracker(&self) -> u32;
-            fn ReleaseFromReferenceTracker(&self) -> u32;
+            fn AddRefFromReferenceTracker(&self) -> ULONG;
+            fn ReleaseFromReferenceTracker(&self) -> ULONG;
             fn Peg(&self) -> HRESULT;
             fn Unpeg(&self) -> HRESULT;
         }
         #[guid(0xeb24c20b_9816_4ac7_8cff_36f67a118f4e)]
         interface ITrackerOwner: IUnknown {
-            fn CreateTrackerHandle(&self, #[retval] returnValue: *mut TrackerHandle) -> HRESULT;
+            fn CreateTrackerHandle(&self, #[out] #[retval] returnValue: *mut TrackerHandle) -> HRESULT;
             fn DeleteTrackerHandle(&self, handle: TrackerHandle) -> HRESULT;
             fn SetTrackerValue(&self, handle: TrackerHandle, value: IUnknown) -> HRESULT;
-            fn TryGetSafeTrackerValue(&self, handle: TrackerHandle, #[retval] returnValue: *mut IUnknown) -> u8;
+            fn TryGetSafeTrackerValue(&self, handle: TrackerHandle, #[out] #[retval] returnValue: *mut IUnknown) -> boolean;
         }
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type TrackerHandle = *mut TrackerHandle__;
         struct TrackerHandle__ {
             unused: i32,

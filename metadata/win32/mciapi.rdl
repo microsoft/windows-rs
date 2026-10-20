@@ -1,60 +1,60 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        type LPMCI_ANIM_OPEN_PARMS = LPMCI_ANIM_OPEN_PARMSA;
+        type LPMCI_ANIM_OPEN_PARMS = *mut MCI_ANIM_OPEN_PARMSA;
         type LPMCI_ANIM_OPEN_PARMSA = *mut MCI_ANIM_OPEN_PARMSA;
         type LPMCI_ANIM_OPEN_PARMSW = *mut MCI_ANIM_OPEN_PARMSW;
         type LPMCI_ANIM_PLAY_PARMS = *mut MCI_ANIM_PLAY_PARMS;
         type LPMCI_ANIM_RECT_PARMS = *mut MCI_ANIM_RECT_PARMS;
         type LPMCI_ANIM_STEP_PARMS = *mut MCI_ANIM_STEP_PARMS;
         type LPMCI_ANIM_UPDATE_PARMS = *mut MCI_ANIM_UPDATE_PARMS;
-        type LPMCI_ANIM_WINDOW_PARMS = LPMCI_ANIM_WINDOW_PARMSA;
+        type LPMCI_ANIM_WINDOW_PARMS = *mut MCI_ANIM_WINDOW_PARMSA;
         type LPMCI_ANIM_WINDOW_PARMSA = *mut MCI_ANIM_WINDOW_PARMSA;
         type LPMCI_ANIM_WINDOW_PARMSW = *mut MCI_ANIM_WINDOW_PARMSW;
         type LPMCI_BREAK_PARMS = *mut MCI_BREAK_PARMS;
         type LPMCI_GENERIC_PARMS = *mut MCI_GENERIC_PARMS;
         type LPMCI_GETDEVCAPS_PARMS = *mut MCI_GETDEVCAPS_PARMS;
-        type LPMCI_INFO_PARMS = LPMCI_INFO_PARMSA;
+        type LPMCI_INFO_PARMS = *mut MCI_INFO_PARMSA;
         type LPMCI_INFO_PARMSA = *mut MCI_INFO_PARMSA;
         type LPMCI_INFO_PARMSW = *mut MCI_INFO_PARMSW;
-        type LPMCI_LOAD_PARMS = LPMCI_LOAD_PARMSA;
+        type LPMCI_LOAD_PARMS = *mut MCI_LOAD_PARMSA;
         type LPMCI_LOAD_PARMSA = *mut MCI_LOAD_PARMSA;
         type LPMCI_LOAD_PARMSW = *mut MCI_LOAD_PARMSW;
-        type LPMCI_OPEN_PARMS = LPMCI_OPEN_PARMSA;
+        type LPMCI_OPEN_PARMS = *mut MCI_OPEN_PARMSA;
         type LPMCI_OPEN_PARMSA = *mut MCI_OPEN_PARMSA;
         type LPMCI_OPEN_PARMSW = *mut MCI_OPEN_PARMSW;
-        type LPMCI_OVLY_LOAD_PARMS = LPMCI_OVLY_LOAD_PARMSA;
+        type LPMCI_OVLY_LOAD_PARMS = *mut MCI_OVLY_LOAD_PARMSA;
         type LPMCI_OVLY_LOAD_PARMSA = *mut MCI_OVLY_LOAD_PARMSA;
         type LPMCI_OVLY_LOAD_PARMSW = *mut MCI_OVLY_LOAD_PARMSW;
-        type LPMCI_OVLY_OPEN_PARMS = LPMCI_OVLY_OPEN_PARMSA;
+        type LPMCI_OVLY_OPEN_PARMS = *mut MCI_OVLY_OPEN_PARMSA;
         type LPMCI_OVLY_OPEN_PARMSA = *mut MCI_OVLY_OPEN_PARMSA;
         type LPMCI_OVLY_OPEN_PARMSW = *mut MCI_OVLY_OPEN_PARMSW;
         type LPMCI_OVLY_RECT_PARMS = *mut MCI_OVLY_RECT_PARMS;
-        type LPMCI_OVLY_SAVE_PARMS = LPMCI_OVLY_SAVE_PARMSA;
+        type LPMCI_OVLY_SAVE_PARMS = *mut MCI_OVLY_SAVE_PARMSA;
         type LPMCI_OVLY_SAVE_PARMSA = *mut MCI_OVLY_SAVE_PARMSA;
         type LPMCI_OVLY_SAVE_PARMSW = *mut MCI_OVLY_SAVE_PARMSW;
-        type LPMCI_OVLY_WINDOW_PARMS = LPMCI_OVLY_WINDOW_PARMSA;
+        type LPMCI_OVLY_WINDOW_PARMS = *mut MCI_OVLY_WINDOW_PARMSA;
         type LPMCI_OVLY_WINDOW_PARMSA = *mut MCI_OVLY_WINDOW_PARMSA;
         type LPMCI_OVLY_WINDOW_PARMSW = *mut MCI_OVLY_WINDOW_PARMSW;
         type LPMCI_PLAY_PARMS = *mut MCI_PLAY_PARMS;
         type LPMCI_RECORD_PARMS = *mut MCI_RECORD_PARMS;
-        type LPMCI_SAVE_PARMS = LPMCI_SAVE_PARMSA;
+        type LPMCI_SAVE_PARMS = *mut MCI_SAVE_PARMSA;
         type LPMCI_SAVE_PARMSA = *mut MCI_SAVE_PARMSA;
         type LPMCI_SAVE_PARMSW = *mut MCI_SAVE_PARMSW;
         type LPMCI_SEEK_PARMS = *mut MCI_SEEK_PARMS;
         type LPMCI_SEQ_SET_PARMS = *mut MCI_SEQ_SET_PARMS;
         type LPMCI_SET_PARMS = *mut MCI_SET_PARMS;
         type LPMCI_STATUS_PARMS = *mut MCI_STATUS_PARMS;
-        type LPMCI_SYSINFO_PARMS = LPMCI_SYSINFO_PARMSA;
+        type LPMCI_SYSINFO_PARMS = *mut MCI_SYSINFO_PARMSA;
         type LPMCI_SYSINFO_PARMSA = *mut MCI_SYSINFO_PARMSA;
         type LPMCI_SYSINFO_PARMSW = *mut MCI_SYSINFO_PARMSW;
-        type LPMCI_VD_ESCAPE_PARMS = LPMCI_VD_ESCAPE_PARMSA;
+        type LPMCI_VD_ESCAPE_PARMS = *mut MCI_VD_ESCAPE_PARMSA;
         type LPMCI_VD_ESCAPE_PARMSA = *mut MCI_VD_ESCAPE_PARMSA;
         type LPMCI_VD_ESCAPE_PARMSW = *mut MCI_VD_ESCAPE_PARMSW;
         type LPMCI_VD_PLAY_PARMS = *mut MCI_VD_PLAY_PARMS;
         type LPMCI_VD_STEP_PARMS = *mut MCI_VD_STEP_PARMS;
         type LPMCI_WAVE_DELETE_PARMS = *mut MCI_WAVE_DELETE_PARMS;
-        type LPMCI_WAVE_OPEN_PARMS = LPMCI_WAVE_OPEN_PARMSA;
+        type LPMCI_WAVE_OPEN_PARMS = *mut MCI_WAVE_OPEN_PARMSA;
         type LPMCI_WAVE_OPEN_PARMSA = *mut MCI_WAVE_OPEN_PARMSA;
         type LPMCI_WAVE_OPEN_PARMSW = *mut MCI_WAVE_OPEN_PARMSW;
         type LPMCI_WAVE_SET_PARMS = *mut MCI_WAVE_SET_PARMS;
@@ -150,32 +150,32 @@ mod Windows {
         type MCI_ANIM_OPEN_PARMS = MCI_ANIM_OPEN_PARMSA;
         #[packed(1)]
         struct MCI_ANIM_OPEN_PARMSA {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             wDeviceID: MCIDEVICEID,
-            lpstrDeviceType: PCSTR,
-            lpstrElementName: PCSTR,
-            lpstrAlias: PCSTR,
-            dwStyle: u32,
+            lpstrDeviceType: LPCSTR,
+            lpstrElementName: LPCSTR,
+            lpstrAlias: LPCSTR,
+            dwStyle: DWORD,
             hWndParent: HWND,
         }
         #[packed(1)]
         struct MCI_ANIM_OPEN_PARMSW {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             wDeviceID: MCIDEVICEID,
-            lpstrDeviceType: PCWSTR,
-            lpstrElementName: PCWSTR,
-            lpstrAlias: PCWSTR,
-            dwStyle: u32,
+            lpstrDeviceType: LPCWSTR,
+            lpstrElementName: LPCWSTR,
+            lpstrAlias: LPCWSTR,
+            dwStyle: DWORD,
             hWndParent: HWND,
         }
         const MCI_ANIM_OPEN_WS: i32 = 65536;
         const MCI_ANIM_PLAY_FAST: i32 = 262144;
         #[packed(1)]
         struct MCI_ANIM_PLAY_PARMS {
-            dwCallback: usize,
-            dwFrom: u32,
-            dwTo: u32,
-            dwSpeed: u32,
+            dwCallback: DWORD_PTR,
+            dwFrom: DWORD,
+            dwTo: DWORD,
+            dwSpeed: DWORD,
         }
         const MCI_ANIM_PLAY_REVERSE: i32 = 131072;
         const MCI_ANIM_PLAY_SCAN: i32 = 1048576;
@@ -188,7 +188,7 @@ mod Windows {
         const MCI_ANIM_RECT: i32 = 65536;
         #[packed(1)]
         struct MCI_ANIM_RECT_PARMS {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             rc: RECT,
         }
         const MCI_ANIM_STATUS_FORWARD: i32 = 16386;
@@ -199,14 +199,14 @@ mod Windows {
         const MCI_ANIM_STEP_FRAMES: i32 = 131072;
         #[packed(1)]
         struct MCI_ANIM_STEP_PARMS {
-            dwCallback: usize,
-            dwFrames: u32,
+            dwCallback: DWORD_PTR,
+            dwFrames: DWORD,
         }
         const MCI_ANIM_STEP_REVERSE: i32 = 65536;
         const MCI_ANIM_UPDATE_HDC: i32 = 131072;
         #[packed(1)]
         struct MCI_ANIM_UPDATE_PARMS {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             rc: RECT,
             hDC: HDC,
         }
@@ -219,17 +219,17 @@ mod Windows {
         type MCI_ANIM_WINDOW_PARMS = MCI_ANIM_WINDOW_PARMSA;
         #[packed(1)]
         struct MCI_ANIM_WINDOW_PARMSA {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             hWnd: HWND,
-            nCmdShow: u32,
-            lpstrText: PCSTR,
+            nCmdShow: UINT,
+            lpstrText: LPCSTR,
         }
         #[packed(1)]
         struct MCI_ANIM_WINDOW_PARMSW {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             hWnd: HWND,
-            nCmdShow: u32,
-            lpstrText: PCWSTR,
+            nCmdShow: UINT,
+            lpstrText: LPCWSTR,
         }
         const MCI_ANIM_WINDOW_STATE: i32 = 262144;
         const MCI_ANIM_WINDOW_TEXT: i32 = 524288;
@@ -239,7 +239,7 @@ mod Windows {
         const MCI_BREAK_OFF: i32 = 1024;
         #[packed(1)]
         struct MCI_BREAK_PARMS {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             nVirtKey: i32,
             hwndBreak: HWND,
         }
@@ -282,7 +282,7 @@ mod Windows {
         const MCI_FROM: i32 = 4;
         #[packed(1)]
         struct MCI_GENERIC_PARMS {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
         }
         const MCI_GETDEVCAPS: i32 = 2059;
         const MCI_GETDEVCAPS_CAN_EJECT: i32 = 7;
@@ -296,9 +296,9 @@ mod Windows {
         const MCI_GETDEVCAPS_ITEM: i32 = 256;
         #[packed(1)]
         struct MCI_GETDEVCAPS_PARMS {
-            dwCallback: usize,
-            dwReturn: u32,
-            dwItem: u32,
+            dwCallback: DWORD_PTR,
+            dwReturn: DWORD,
+            dwItem: DWORD,
         }
         const MCI_GETDEVCAPS_USES_FILES: i32 = 5;
         const MCI_INFO: i32 = 2058;
@@ -310,15 +310,15 @@ mod Windows {
         type MCI_INFO_PARMS = MCI_INFO_PARMSA;
         #[packed(1)]
         struct MCI_INFO_PARMSA {
-            dwCallback: usize,
-            lpstrReturn: PSTR,
-            dwRetSize: u32,
+            dwCallback: DWORD_PTR,
+            lpstrReturn: LPSTR,
+            dwRetSize: DWORD,
         }
         #[packed(1)]
         struct MCI_INFO_PARMSW {
-            dwCallback: usize,
-            lpstrReturn: PWSTR,
-            dwRetSize: u32,
+            dwCallback: DWORD_PTR,
+            lpstrReturn: LPWSTR,
+            dwRetSize: DWORD,
         }
         const MCI_INFO_PRODUCT: i32 = 256;
         const MCI_LAST: i32 = 4095;
@@ -327,13 +327,13 @@ mod Windows {
         type MCI_LOAD_PARMS = MCI_LOAD_PARMSA;
         #[packed(1)]
         struct MCI_LOAD_PARMSA {
-            dwCallback: usize,
-            lpfilename: PCSTR,
+            dwCallback: DWORD_PTR,
+            lpfilename: LPCSTR,
         }
         #[packed(1)]
         struct MCI_LOAD_PARMSW {
-            dwCallback: usize,
-            lpfilename: PCWSTR,
+            dwCallback: DWORD_PTR,
+            lpfilename: LPCWSTR,
         }
         const MCI_MODE_NOT_READY: i32 = 524;
         const MCI_MODE_OPEN: i32 = 530;
@@ -354,19 +354,19 @@ mod Windows {
         type MCI_OPEN_PARMS = MCI_OPEN_PARMSA;
         #[packed(1)]
         struct MCI_OPEN_PARMSA {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             wDeviceID: MCIDEVICEID,
-            lpstrDeviceType: PCSTR,
-            lpstrElementName: PCSTR,
-            lpstrAlias: PCSTR,
+            lpstrDeviceType: LPCSTR,
+            lpstrElementName: LPCSTR,
+            lpstrAlias: LPCSTR,
         }
         #[packed(1)]
         struct MCI_OPEN_PARMSW {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             wDeviceID: MCIDEVICEID,
-            lpstrDeviceType: PCWSTR,
-            lpstrElementName: PCWSTR,
-            lpstrAlias: PCWSTR,
+            lpstrDeviceType: LPCWSTR,
+            lpstrElementName: LPCWSTR,
+            lpstrAlias: LPCWSTR,
         }
         const MCI_OPEN_SHAREABLE: i32 = 256;
         const MCI_OPEN_TYPE: i32 = 8192;
@@ -378,36 +378,36 @@ mod Windows {
         type MCI_OVLY_LOAD_PARMS = MCI_OVLY_LOAD_PARMSA;
         #[packed(1)]
         struct MCI_OVLY_LOAD_PARMSA {
-            dwCallback: usize,
-            lpfilename: PCSTR,
+            dwCallback: DWORD_PTR,
+            lpfilename: LPCSTR,
             rc: RECT,
         }
         #[packed(1)]
         struct MCI_OVLY_LOAD_PARMSW {
-            dwCallback: usize,
-            lpfilename: PCWSTR,
+            dwCallback: DWORD_PTR,
+            lpfilename: LPCWSTR,
             rc: RECT,
         }
         const MCI_OVLY_OPEN_PARENT: i32 = 131072;
         type MCI_OVLY_OPEN_PARMS = MCI_OVLY_OPEN_PARMSA;
         #[packed(1)]
         struct MCI_OVLY_OPEN_PARMSA {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             wDeviceID: MCIDEVICEID,
-            lpstrDeviceType: PCSTR,
-            lpstrElementName: PCSTR,
-            lpstrAlias: PCSTR,
-            dwStyle: u32,
+            lpstrDeviceType: LPCSTR,
+            lpstrElementName: LPCSTR,
+            lpstrAlias: LPCSTR,
+            dwStyle: DWORD,
             hWndParent: HWND,
         }
         #[packed(1)]
         struct MCI_OVLY_OPEN_PARMSW {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             wDeviceID: MCIDEVICEID,
-            lpstrDeviceType: PCWSTR,
-            lpstrElementName: PCWSTR,
-            lpstrAlias: PCWSTR,
-            dwStyle: u32,
+            lpstrDeviceType: LPCWSTR,
+            lpstrElementName: LPCWSTR,
+            lpstrAlias: LPCWSTR,
+            dwStyle: DWORD,
             hWndParent: HWND,
         }
         const MCI_OVLY_OPEN_WS: i32 = 65536;
@@ -418,20 +418,20 @@ mod Windows {
         const MCI_OVLY_RECT: i32 = 65536;
         #[packed(1)]
         struct MCI_OVLY_RECT_PARMS {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             rc: RECT,
         }
         type MCI_OVLY_SAVE_PARMS = MCI_OVLY_SAVE_PARMSA;
         #[packed(1)]
         struct MCI_OVLY_SAVE_PARMSA {
-            dwCallback: usize,
-            lpfilename: PCSTR,
+            dwCallback: DWORD_PTR,
+            lpfilename: LPCSTR,
             rc: RECT,
         }
         #[packed(1)]
         struct MCI_OVLY_SAVE_PARMSW {
-            dwCallback: usize,
-            lpfilename: PCWSTR,
+            dwCallback: DWORD_PTR,
+            lpfilename: LPCWSTR,
             rc: RECT,
         }
         const MCI_OVLY_STATUS_HWND: i32 = 16385;
@@ -447,17 +447,17 @@ mod Windows {
         type MCI_OVLY_WINDOW_PARMS = MCI_OVLY_WINDOW_PARMSA;
         #[packed(1)]
         struct MCI_OVLY_WINDOW_PARMSA {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             hWnd: HWND,
-            nCmdShow: u32,
-            lpstrText: PCSTR,
+            nCmdShow: UINT,
+            lpstrText: LPCSTR,
         }
         #[packed(1)]
         struct MCI_OVLY_WINDOW_PARMSW {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             hWnd: HWND,
-            nCmdShow: u32,
-            lpstrText: PCWSTR,
+            nCmdShow: UINT,
+            lpstrText: LPCWSTR,
         }
         const MCI_OVLY_WINDOW_STATE: i32 = 262144;
         const MCI_OVLY_WINDOW_TEXT: i32 = 524288;
@@ -466,9 +466,9 @@ mod Windows {
         const MCI_PLAY: i32 = 2054;
         #[packed(1)]
         struct MCI_PLAY_PARMS {
-            dwCallback: usize,
-            dwFrom: u32,
-            dwTo: u32,
+            dwCallback: DWORD_PTR,
+            dwFrom: DWORD,
+            dwTo: DWORD,
         }
         const MCI_PUT: i32 = 2114;
         const MCI_REALIZE: i32 = 2112;
@@ -477,9 +477,9 @@ mod Windows {
         const MCI_RECORD_OVERWRITE: i32 = 512;
         #[packed(1)]
         struct MCI_RECORD_PARMS {
-            dwCallback: usize,
-            dwFrom: u32,
-            dwTo: u32,
+            dwCallback: DWORD_PTR,
+            dwFrom: DWORD,
+            dwTo: DWORD,
         }
         const MCI_RESUME: i32 = 2133;
         const MCI_SAVE: i32 = 2067;
@@ -487,19 +487,19 @@ mod Windows {
         type MCI_SAVE_PARMS = MCI_SAVE_PARMSA;
         #[packed(1)]
         struct MCI_SAVE_PARMSA {
-            dwCallback: usize,
-            lpfilename: PCSTR,
+            dwCallback: DWORD_PTR,
+            lpfilename: LPCSTR,
         }
         #[packed(1)]
         struct MCI_SAVE_PARMSW {
-            dwCallback: usize,
-            lpfilename: PCWSTR,
+            dwCallback: DWORD_PTR,
+            lpfilename: LPCWSTR,
         }
         const MCI_SEEK: i32 = 2055;
         #[packed(1)]
         struct MCI_SEEK_PARMS {
-            dwCallback: usize,
-            dwTo: u32,
+            dwCallback: DWORD_PTR,
+            dwTo: DWORD,
         }
         const MCI_SEEK_TO_END: i32 = 512;
         const MCI_SEEK_TO_START: i32 = 256;
@@ -517,14 +517,14 @@ mod Windows {
         const MCI_SEQ_SET_OFFSET: i32 = 16777216;
         #[packed(1)]
         struct MCI_SEQ_SET_PARMS {
-            dwCallback: usize,
-            dwTimeFormat: u32,
-            dwAudio: u32,
-            dwTempo: u32,
-            dwPort: u32,
-            dwSlave: u32,
-            dwMaster: u32,
-            dwOffset: u32,
+            dwCallback: DWORD_PTR,
+            dwTimeFormat: DWORD,
+            dwAudio: DWORD,
+            dwTempo: DWORD,
+            dwPort: DWORD,
+            dwSlave: DWORD,
+            dwMaster: DWORD,
+            dwOffset: DWORD,
         }
         const MCI_SEQ_SET_PORT: i32 = 131072;
         const MCI_SEQ_SET_SLAVE: i32 = 262144;
@@ -549,9 +549,9 @@ mod Windows {
         const MCI_SET_ON: i32 = 8192;
         #[packed(1)]
         struct MCI_SET_PARMS {
-            dwCallback: usize,
-            dwTimeFormat: u32,
-            dwAudio: u32,
+            dwCallback: DWORD_PTR,
+            dwTimeFormat: DWORD,
+            dwAudio: DWORD,
         }
         const MCI_SET_TIME_FORMAT: i32 = 1024;
         const MCI_SET_VIDEO: i32 = 4096;
@@ -565,10 +565,10 @@ mod Windows {
         const MCI_STATUS_NUMBER_OF_TRACKS: i32 = 3;
         #[packed(1)]
         struct MCI_STATUS_PARMS {
-            dwCallback: usize,
-            dwReturn: usize,
-            dwItem: u32,
-            dwTrack: u32,
+            dwCallback: DWORD_PTR,
+            dwReturn: DWORD_PTR,
+            dwItem: DWORD,
+            dwTrack: DWORD,
         }
         const MCI_STATUS_POSITION: i32 = 2;
         const MCI_STATUS_READY: i32 = 7;
@@ -583,19 +583,19 @@ mod Windows {
         type MCI_SYSINFO_PARMS = MCI_SYSINFO_PARMSA;
         #[packed(1)]
         struct MCI_SYSINFO_PARMSA {
-            dwCallback: usize,
-            lpstrReturn: PSTR,
-            dwRetSize: u32,
-            dwNumber: u32,
-            wDeviceType: u32,
+            dwCallback: DWORD_PTR,
+            lpstrReturn: LPSTR,
+            dwRetSize: DWORD,
+            dwNumber: DWORD,
+            wDeviceType: UINT,
         }
         #[packed(1)]
         struct MCI_SYSINFO_PARMSW {
-            dwCallback: usize,
-            lpstrReturn: PWSTR,
-            dwRetSize: u32,
-            dwNumber: u32,
-            wDeviceType: u32,
+            dwCallback: DWORD_PTR,
+            lpstrReturn: LPWSTR,
+            dwRetSize: DWORD,
+            dwNumber: DWORD,
+            wDeviceType: UINT,
         }
         const MCI_SYSINFO_QUANTITY: i32 = 256;
         const MCI_TO: i32 = 8;
@@ -606,13 +606,13 @@ mod Windows {
         type MCI_VD_ESCAPE_PARMS = MCI_VD_ESCAPE_PARMSA;
         #[packed(1)]
         struct MCI_VD_ESCAPE_PARMSA {
-            dwCallback: usize,
-            lpstrCommand: PCSTR,
+            dwCallback: DWORD_PTR,
+            lpstrCommand: LPCSTR,
         }
         #[packed(1)]
         struct MCI_VD_ESCAPE_PARMSW {
-            dwCallback: usize,
-            lpstrCommand: PCWSTR,
+            dwCallback: DWORD_PTR,
+            lpstrCommand: LPCWSTR,
         }
         const MCI_VD_ESCAPE_STRING: i32 = 256;
         const MCI_VD_FORMAT_TRACK: i32 = 16385;
@@ -629,10 +629,10 @@ mod Windows {
         const MCI_VD_PLAY_FAST: i32 = 131072;
         #[packed(1)]
         struct MCI_VD_PLAY_PARMS {
-            dwCallback: usize,
-            dwFrom: u32,
-            dwTo: u32,
-            dwSpeed: u32,
+            dwCallback: DWORD_PTR,
+            dwFrom: DWORD,
+            dwTo: DWORD,
+            dwSpeed: DWORD,
         }
         const MCI_VD_PLAY_REVERSE: i32 = 65536;
         const MCI_VD_PLAY_SCAN: i32 = 524288;
@@ -649,16 +649,16 @@ mod Windows {
         const MCI_VD_STEP_FRAMES: i32 = 65536;
         #[packed(1)]
         struct MCI_VD_STEP_PARMS {
-            dwCallback: usize,
-            dwFrames: u32,
+            dwCallback: DWORD_PTR,
+            dwFrames: DWORD,
         }
         const MCI_VD_STEP_REVERSE: i32 = 131072;
         const MCI_WAIT: i32 = 2;
         #[packed(1)]
         struct MCI_WAVE_DELETE_PARMS {
-            dwCallback: usize,
-            dwFrom: u32,
-            dwTo: u32,
+            dwCallback: DWORD_PTR,
+            dwFrom: DWORD,
+            dwTo: DWORD,
         }
         const MCI_WAVE_GETDEVCAPS_INPUTS: i32 = 16385;
         const MCI_WAVE_GETDEVCAPS_OUTPUTS: i32 = 16386;
@@ -668,21 +668,21 @@ mod Windows {
         type MCI_WAVE_OPEN_PARMS = MCI_WAVE_OPEN_PARMSA;
         #[packed(1)]
         struct MCI_WAVE_OPEN_PARMSA {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             wDeviceID: MCIDEVICEID,
-            lpstrDeviceType: PCSTR,
-            lpstrElementName: PCSTR,
-            lpstrAlias: PCSTR,
-            dwBufferSeconds: u32,
+            lpstrDeviceType: LPCSTR,
+            lpstrElementName: LPCSTR,
+            lpstrAlias: LPCSTR,
+            dwBufferSeconds: DWORD,
         }
         #[packed(1)]
         struct MCI_WAVE_OPEN_PARMSW {
-            dwCallback: usize,
+            dwCallback: DWORD_PTR,
             wDeviceID: MCIDEVICEID,
-            lpstrDeviceType: PCWSTR,
-            lpstrElementName: PCWSTR,
-            lpstrAlias: PCWSTR,
-            dwBufferSeconds: u32,
+            lpstrDeviceType: LPCWSTR,
+            lpstrElementName: LPCWSTR,
+            lpstrAlias: LPCWSTR,
+            dwBufferSeconds: DWORD,
         }
         const MCI_WAVE_OUTPUT: i32 = 8388608;
         const MCI_WAVE_PCM: i32 = 1152;
@@ -695,21 +695,21 @@ mod Windows {
         const MCI_WAVE_SET_FORMATTAG: i32 = 65536;
         #[packed(1)]
         struct MCI_WAVE_SET_PARMS {
-            dwCallback: usize,
-            dwTimeFormat: u32,
-            dwAudio: u32,
-            wInput: u32,
-            wOutput: u32,
-            wFormatTag: u16,
-            wReserved2: u16,
-            nChannels: u16,
-            wReserved3: u16,
-            nSamplesPerSec: u32,
-            nAvgBytesPerSec: u32,
-            nBlockAlign: u16,
-            wReserved4: u16,
-            wBitsPerSample: u16,
-            wReserved5: u16,
+            dwCallback: DWORD_PTR,
+            dwTimeFormat: DWORD,
+            dwAudio: DWORD,
+            wInput: UINT,
+            wOutput: UINT,
+            wFormatTag: WORD,
+            wReserved2: WORD,
+            nChannels: WORD,
+            wReserved3: WORD,
+            nSamplesPerSec: DWORD,
+            nAvgBytesPerSec: DWORD,
+            nBlockAlign: WORD,
+            wReserved4: WORD,
+            wBitsPerSample: WORD,
+            wReserved5: WORD,
         }
         const MCI_WAVE_SET_SAMPLESPERSEC: i32 = 262144;
         const MCI_WAVE_STATUS_AVGBYTESPERSEC: i32 = 16388;
@@ -721,97 +721,107 @@ mod Windows {
         const MCI_WAVE_STATUS_SAMPLESPERSEC: i32 = 16387;
         const MCI_WHERE: i32 = 2115;
         const MCI_WINDOW: i32 = 2113;
-        type PMCI_ANIM_OPEN_PARMS = PMCI_ANIM_OPEN_PARMSA;
+        type PMCI_ANIM_OPEN_PARMS = *mut MCI_ANIM_OPEN_PARMSA;
         type PMCI_ANIM_OPEN_PARMSA = *mut MCI_ANIM_OPEN_PARMSA;
         type PMCI_ANIM_OPEN_PARMSW = *mut MCI_ANIM_OPEN_PARMSW;
         type PMCI_ANIM_PLAY_PARMS = *mut MCI_ANIM_PLAY_PARMS;
         type PMCI_ANIM_RECT_PARMS = *mut MCI_ANIM_RECT_PARMS;
         type PMCI_ANIM_STEP_PARMS = *mut MCI_ANIM_STEP_PARMS;
         type PMCI_ANIM_UPDATE_PARMS = *mut MCI_ANIM_UPDATE_PARMS;
-        type PMCI_ANIM_WINDOW_PARMS = PMCI_ANIM_WINDOW_PARMSA;
+        type PMCI_ANIM_WINDOW_PARMS = *mut MCI_ANIM_WINDOW_PARMSA;
         type PMCI_ANIM_WINDOW_PARMSA = *mut MCI_ANIM_WINDOW_PARMSA;
         type PMCI_ANIM_WINDOW_PARMSW = *mut MCI_ANIM_WINDOW_PARMSW;
         type PMCI_BREAK_PARMS = *mut MCI_BREAK_PARMS;
         type PMCI_GENERIC_PARMS = *mut MCI_GENERIC_PARMS;
         type PMCI_GETDEVCAPS_PARMS = *mut MCI_GETDEVCAPS_PARMS;
-        type PMCI_LOAD_PARMS = PMCI_LOAD_PARMSA;
+        type PMCI_LOAD_PARMS = *mut MCI_LOAD_PARMSA;
         type PMCI_LOAD_PARMSA = *mut MCI_LOAD_PARMSA;
         type PMCI_LOAD_PARMSW = *mut MCI_LOAD_PARMSW;
-        type PMCI_OPEN_PARMS = PMCI_OPEN_PARMSA;
+        type PMCI_OPEN_PARMS = *mut MCI_OPEN_PARMSA;
         type PMCI_OPEN_PARMSA = *mut MCI_OPEN_PARMSA;
         type PMCI_OPEN_PARMSW = *mut MCI_OPEN_PARMSW;
-        type PMCI_OVLY_LOAD_PARMS = PMCI_OVLY_LOAD_PARMSA;
+        type PMCI_OVLY_LOAD_PARMS = *mut MCI_OVLY_LOAD_PARMSA;
         type PMCI_OVLY_LOAD_PARMSA = *mut MCI_OVLY_LOAD_PARMSA;
         type PMCI_OVLY_LOAD_PARMSW = *mut MCI_OVLY_LOAD_PARMSW;
-        type PMCI_OVLY_OPEN_PARMS = PMCI_OVLY_OPEN_PARMSA;
+        type PMCI_OVLY_OPEN_PARMS = *mut MCI_OVLY_OPEN_PARMSA;
         type PMCI_OVLY_OPEN_PARMSA = *mut MCI_OVLY_OPEN_PARMSA;
         type PMCI_OVLY_OPEN_PARMSW = *mut MCI_OVLY_OPEN_PARMSW;
         type PMCI_OVLY_RECT_PARMS = *mut MCI_OVLY_RECT_PARMS;
-        type PMCI_OVLY_SAVE_PARMS = PMCI_OVLY_SAVE_PARMSA;
+        type PMCI_OVLY_SAVE_PARMS = *mut MCI_OVLY_SAVE_PARMSA;
         type PMCI_OVLY_SAVE_PARMSA = *mut MCI_OVLY_SAVE_PARMSA;
         type PMCI_OVLY_SAVE_PARMSW = *mut MCI_OVLY_SAVE_PARMSW;
-        type PMCI_OVLY_WINDOW_PARMS = PMCI_OVLY_WINDOW_PARMSA;
+        type PMCI_OVLY_WINDOW_PARMS = *mut MCI_OVLY_WINDOW_PARMSA;
         type PMCI_OVLY_WINDOW_PARMSA = *mut MCI_OVLY_WINDOW_PARMSA;
         type PMCI_OVLY_WINDOW_PARMSW = *mut MCI_OVLY_WINDOW_PARMSW;
         type PMCI_PLAY_PARMS = *mut MCI_PLAY_PARMS;
-        type PMCI_SAVE_PARMS = PMCI_SAVE_PARMSA;
+        type PMCI_SAVE_PARMS = *mut MCI_SAVE_PARMSA;
         type PMCI_SAVE_PARMSA = *mut MCI_SAVE_PARMSA;
         type PMCI_SAVE_PARMSW = *mut MCI_SAVE_PARMSW;
         type PMCI_SEEK_PARMS = *mut MCI_SEEK_PARMS;
         type PMCI_SEQ_SET_PARMS = *mut MCI_SEQ_SET_PARMS;
         type PMCI_SET_PARMS = *mut MCI_SET_PARMS;
         type PMCI_STATUS_PARMS = *mut MCI_STATUS_PARMS;
-        type PMCI_SYSINFO_PARMS = PMCI_SYSINFO_PARMSA;
+        type PMCI_SYSINFO_PARMS = *mut MCI_SYSINFO_PARMSA;
         type PMCI_SYSINFO_PARMSA = *mut MCI_SYSINFO_PARMSA;
         type PMCI_SYSINFO_PARMSW = *mut MCI_SYSINFO_PARMSW;
-        type PMCI_VD_ESCAPE_PARMS = PMCI_VD_ESCAPE_PARMSA;
+        type PMCI_VD_ESCAPE_PARMS = *mut MCI_VD_ESCAPE_PARMSA;
         type PMCI_VD_ESCAPE_PARMSA = *mut MCI_VD_ESCAPE_PARMSA;
         type PMCI_VD_ESCAPE_PARMSW = *mut MCI_VD_ESCAPE_PARMSW;
         type PMCI_VD_PLAY_PARMS = *mut MCI_VD_PLAY_PARMS;
         type PMCI_VD_STEP_PARMS = *mut MCI_VD_STEP_PARMS;
         type PMCI_WAVE_DELETE_PARMS = *mut MCI_WAVE_DELETE_PARMS;
-        type PMCI_WAVE_OPEN_PARMS = PMCI_WAVE_OPEN_PARMSA;
+        type PMCI_WAVE_OPEN_PARMS = *mut MCI_WAVE_OPEN_PARMSA;
         type PMCI_WAVE_OPEN_PARMSA = *mut MCI_WAVE_OPEN_PARMSA;
         type PMCI_WAVE_OPEN_PARMSW = *mut MCI_WAVE_OPEN_PARMSW;
         type PMCI_WAVE_SET_PARMS = *mut MCI_WAVE_SET_PARMS;
-        extern fn YIELDPROC(mciId: MCIDEVICEID, dwYieldData: u32) -> u32;
+        extern fn YIELDPROC(mciId: MCIDEVICEID, dwYieldData: DWORD) -> UINT;
         #[library("WINMM.dll")]
-        extern fn mciDriverNotify(hwndCallback: HANDLE, wDeviceID: MCIDEVICEID, uStatus: u32) -> BOOL;
+        extern fn mciDriverNotify(hwndCallback: HANDLE, wDeviceID: MCIDEVICEID, uStatus: UINT) -> BOOL;
         #[library("WINMM.dll")]
-        extern fn mciDriverYield(wDeviceID: MCIDEVICEID) -> u32;
+        extern fn mciDriverYield(wDeviceID: MCIDEVICEID) -> UINT;
         #[library("WINMM.dll")]
-        extern fn mciFreeCommandResource(wTable: u32) -> BOOL;
+        extern fn mciFreeCommandResource(wTable: UINT) -> BOOL;
         #[library("WINMM.dll")]
-        extern fn mciGetCreatorTask(mciId: MCIDEVICEID) -> HTASK;
+        extern fn mciGetCreatorTask(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mciId: MCIDEVICEID) -> HTASK;
+        #[library("WINMM.dll", import = "mciGetDeviceIDA")]
+        extern fn mciGetDeviceID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDevice: LPCSTR) -> MCIDEVICEID;
         #[library("WINMM.dll")]
-        extern fn mciGetDeviceIDA(pszDevice: PCSTR) -> MCIDEVICEID;
+        extern fn mciGetDeviceIDA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDevice: LPCSTR) -> MCIDEVICEID;
+        #[library("WINMM.dll", import = "mciGetDeviceIDFromElementIDA")]
+        extern fn mciGetDeviceIDFromElementID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwElementID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpstrType: LPCSTR) -> MCIDEVICEID;
         #[library("WINMM.dll")]
-        extern fn mciGetDeviceIDFromElementIDA(dwElementID: u32, lpstrType: PCSTR) -> MCIDEVICEID;
+        extern fn mciGetDeviceIDFromElementIDA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwElementID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpstrType: LPCSTR) -> MCIDEVICEID;
         #[library("WINMM.dll")]
-        extern fn mciGetDeviceIDFromElementIDW(dwElementID: u32, lpstrType: PCWSTR) -> MCIDEVICEID;
+        extern fn mciGetDeviceIDFromElementIDW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwElementID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpstrType: LPCWSTR) -> MCIDEVICEID;
         #[library("WINMM.dll")]
-        extern fn mciGetDeviceIDW(pszDevice: PCWSTR) -> MCIDEVICEID;
+        extern fn mciGetDeviceIDW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDevice: LPCWSTR) -> MCIDEVICEID;
         #[library("WINMM.dll")]
-        extern fn mciGetDriverData(wDeviceID: MCIDEVICEID) -> usize;
+        extern fn mciGetDriverData(wDeviceID: MCIDEVICEID) -> DWORD_PTR;
+        #[library("WINMM.dll", import = "mciGetErrorStringA")]
+        extern fn mciGetErrorString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mcierr: MCIERROR, #[out] #[len_param(2)] pszText: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> BOOL;
         #[library("WINMM.dll")]
-        extern fn mciGetErrorStringA(mcierr: MCIERROR, #[len_param(2)] #[out] pszText: PSTR, cchText: u32) -> BOOL;
+        extern fn mciGetErrorStringA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mcierr: MCIERROR, #[out] #[len_param(2)] pszText: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> BOOL;
         #[library("WINMM.dll")]
-        extern fn mciGetErrorStringW(mcierr: MCIERROR, #[len_param(2)] #[out] pszText: PWSTR, cchText: u32) -> BOOL;
+        extern fn mciGetErrorStringW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mcierr: MCIERROR, #[out] #[len_param(2)] pszText: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> BOOL;
         #[library("WINMM.dll")]
-        extern fn mciGetYieldProc(mciId: MCIDEVICEID, pdwYieldData: LPDWORD) -> YIELDPROC;
+        extern fn mciGetYieldProc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mciId: MCIDEVICEID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pdwYieldData: LPDWORD) -> YIELDPROC;
         #[library("WINMM.dll")]
-        extern fn mciLoadCommandResource(hInstance: HANDLE, lpResName: PCWSTR, wType: u32) -> u32;
+        extern fn mciLoadCommandResource(hInstance: HANDLE, lpResName: LPCWSTR, wType: UINT) -> UINT;
+        #[library("WINMM.dll", import = "mciSendCommandA")]
+        extern fn mciSendCommand(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mciId: MCIDEVICEID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwParam1: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwParam2: DWORD_PTR) -> MCIERROR;
         #[library("WINMM.dll")]
-        extern fn mciSendCommandA(mciId: MCIDEVICEID, uMsg: u32, #[opt] dwParam1: usize, #[opt] dwParam2: usize) -> MCIERROR;
+        extern fn mciSendCommandA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mciId: MCIDEVICEID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwParam1: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwParam2: DWORD_PTR) -> MCIERROR;
         #[library("WINMM.dll")]
-        extern fn mciSendCommandW(mciId: MCIDEVICEID, uMsg: u32, #[opt] dwParam1: usize, #[opt] dwParam2: usize) -> MCIERROR;
+        extern fn mciSendCommandW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mciId: MCIDEVICEID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwParam1: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwParam2: DWORD_PTR) -> MCIERROR;
+        #[library("WINMM.dll", import = "mciSendStringA")]
+        extern fn mciSendString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpstrCommand: LPCSTR, #[out] #[opt] #[len_param(2)] lpstrReturnString: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uReturnLength: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndCallback: HWND) -> MCIERROR;
         #[library("WINMM.dll")]
-        extern fn mciSendStringA(lpstrCommand: PCSTR, #[len_param(2)] #[out] #[opt] lpstrReturnString: PSTR, uReturnLength: u32, #[opt] hwndCallback: HWND) -> MCIERROR;
+        extern fn mciSendStringA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpstrCommand: LPCSTR, #[out] #[opt] #[len_param(2)] lpstrReturnString: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uReturnLength: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndCallback: HWND) -> MCIERROR;
         #[library("WINMM.dll")]
-        extern fn mciSendStringW(lpstrCommand: PCWSTR, #[len_param(2)] #[out] #[opt] lpstrReturnString: PWSTR, uReturnLength: u32, #[opt] hwndCallback: HWND) -> MCIERROR;
+        extern fn mciSendStringW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpstrCommand: LPCWSTR, #[out] #[opt] #[len_param(2)] lpstrReturnString: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uReturnLength: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndCallback: HWND) -> MCIERROR;
         #[library("WINMM.dll")]
-        extern fn mciSetDriverData(wDeviceID: MCIDEVICEID, dwData: usize) -> BOOL;
+        extern fn mciSetDriverData(wDeviceID: MCIDEVICEID, dwData: DWORD_PTR) -> BOOL;
         #[library("WINMM.dll")]
-        extern fn mciSetYieldProc(mciId: MCIDEVICEID, #[opt] fpYieldProc: YIELDPROC, dwYieldData: u32) -> BOOL;
+        extern fn mciSetYieldProc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mciId: MCIDEVICEID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fpYieldProc: YIELDPROC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwYieldData: DWORD) -> BOOL;
     }
 }

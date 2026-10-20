@@ -62,60 +62,74 @@ mod Windows {
         const ASC_RET_USED_DCE_STYLE: i32 = 512;
         const ASC_RET_USE_SESSION_KEY: i32 = 32;
         #[library("Secur32.dll")]
-        extern fn AcceptSecurityContext(#[opt] phCredential: PCredHandle, #[opt] phContext: PCtxtHandle, #[opt] pInput: PSecBufferDesc, fContextReq: u32, TargetDataRep: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn AcceptSecurityContext(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInput: PSecBufferDesc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fContextReq: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetDataRep: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "AcquireCredentialsHandleA")]
+        extern fn AcquireCredentialsHandle(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrincipal: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackage: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCredentialUse: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvLogonId: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthData: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvGetKeyArgument: *mut void, #[out] phCredential: PCredHandle, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn AcquireCredentialsHandleA(#[opt] pszPrincipal: PCSTR, pszPackage: PCSTR, fCredentialUse: u32, #[in] #[opt] pvLogonId: *mut void, #[in] #[opt] pAuthData: *mut void, #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] pvGetKeyArgument: *mut void, #[out] phCredential: PCredHandle, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn AcquireCredentialsHandleA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrincipal: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackage: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCredentialUse: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvLogonId: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthData: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvGetKeyArgument: *mut void, #[out] phCredential: PCredHandle, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn AcquireCredentialsHandleW(#[opt] pszPrincipal: PCWSTR, pszPackage: PCWSTR, fCredentialUse: u32, #[in] #[opt] pvLogonId: *mut void, #[in] #[opt] pAuthData: *mut void, #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] pvGetKeyArgument: *mut void, #[out] phCredential: PCredHandle, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn AcquireCredentialsHandleW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrincipal: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackage: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCredentialUse: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvLogonId: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthData: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvGetKeyArgument: *mut void, #[out] phCredential: PCredHandle, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "AddCredentialsA")]
+        extern fn AddCredentials(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCredentials: PCredHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrincipal: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackage: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCredentialUse: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthData: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvGetKeyArgument: *mut void, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn AddCredentialsA(hCredentials: PCredHandle, #[opt] pszPrincipal: PCSTR, pszPackage: PCSTR, fCredentialUse: u32, #[in] #[opt] pAuthData: *mut void, #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] pvGetKeyArgument: *mut void, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn AddCredentialsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCredentials: PCredHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrincipal: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackage: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCredentialUse: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthData: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvGetKeyArgument: *mut void, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn AddCredentialsW(hCredentials: PCredHandle, #[opt] pszPrincipal: PCWSTR, pszPackage: PCWSTR, fCredentialUse: u32, #[in] #[opt] pAuthData: *mut void, #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] pvGetKeyArgument: *mut void, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn AddCredentialsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCredentials: PCredHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrincipal: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackage: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCredentialUse: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthData: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvGetKeyArgument: *mut void, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "AddSecurityPackageA")]
+        extern fn AddSecurityPackage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOptions: PSECURITY_PACKAGE_OPTIONS) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn AddSecurityPackageA(pszPackageName: PCSTR, #[opt] pOptions: PSECURITY_PACKAGE_OPTIONS) -> SECURITY_STATUS;
+        extern fn AddSecurityPackageA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOptions: PSECURITY_PACKAGE_OPTIONS) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn AddSecurityPackageW(pszPackageName: PCWSTR, #[opt] pOptions: PSECURITY_PACKAGE_OPTIONS) -> SECURITY_STATUS;
+        extern fn AddSecurityPackageW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOptions: PSECURITY_PACKAGE_OPTIONS) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn ApplyControlToken(phContext: PCtxtHandle, pInput: PSecBufferDesc) -> SECURITY_STATUS;
+        extern fn ApplyControlToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInput: PSecBufferDesc) -> SECURITY_STATUS;
         extern fn CHANGE_PASSWORD_FN_A(param0: *mut SEC_CHAR, param1: *mut SEC_CHAR, param2: *mut SEC_CHAR, param3: *mut SEC_CHAR, param4: *mut SEC_CHAR, param5: BOOLEAN, param6: u32, param7: PSecBufferDesc) -> SECURITY_STATUS;
         extern fn CHANGE_PASSWORD_FN_W(param0: *mut SEC_WCHAR, param1: *mut SEC_WCHAR, param2: *mut SEC_WCHAR, param3: *mut SEC_WCHAR, param4: *mut SEC_WCHAR, param5: BOOLEAN, param6: u32, param7: PSecBufferDesc) -> SECURITY_STATUS;
         extern fn COMPLETE_AUTH_TOKEN_FN(param0: PCtxtHandle, param1: PSecBufferDesc) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "ChangeAccountPasswordA")]
+        extern fn ChangeAccountPassword(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: *mut SEC_CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDomainName: *mut SEC_CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAccountName: *mut SEC_CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszOldPassword: *mut SEC_CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszNewPassword: *mut SEC_CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bImpersonating: BOOLEAN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReserved: u32, #[in] #[out] pOutput: PSecBufferDesc) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn ChangeAccountPasswordA(#[in] pszPackageName: *mut SEC_CHAR, #[in] pszDomainName: *mut SEC_CHAR, #[in] pszAccountName: *mut SEC_CHAR, #[in] pszOldPassword: *mut SEC_CHAR, #[in] pszNewPassword: *mut SEC_CHAR, bImpersonating: BOOLEAN, dwReserved: u32, #[in] #[out] pOutput: PSecBufferDesc) -> SECURITY_STATUS;
+        extern fn ChangeAccountPasswordA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: *mut SEC_CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDomainName: *mut SEC_CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAccountName: *mut SEC_CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszOldPassword: *mut SEC_CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszNewPassword: *mut SEC_CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bImpersonating: BOOLEAN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReserved: u32, #[in] #[out] pOutput: PSecBufferDesc) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn ChangeAccountPasswordW(#[in] pszPackageName: *mut SEC_WCHAR, #[in] pszDomainName: *mut SEC_WCHAR, #[in] pszAccountName: *mut SEC_WCHAR, #[in] pszOldPassword: *mut SEC_WCHAR, #[in] pszNewPassword: *mut SEC_WCHAR, bImpersonating: BOOLEAN, dwReserved: u32, #[in] #[out] pOutput: PSecBufferDesc) -> SECURITY_STATUS;
+        extern fn ChangeAccountPasswordW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: *mut SEC_WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDomainName: *mut SEC_WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAccountName: *mut SEC_WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszOldPassword: *mut SEC_WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszNewPassword: *mut SEC_WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bImpersonating: BOOLEAN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReserved: u32, #[in] #[out] pOutput: PSecBufferDesc) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn CompleteAuthToken(phContext: PCtxtHandle, pToken: PSecBufferDesc) -> SECURITY_STATUS;
+        extern fn CompleteAuthToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pToken: PSecBufferDesc) -> SECURITY_STATUS;
         type CredHandle = SecHandle;
         type CtxtHandle = SecHandle;
         extern fn DECRYPT_MESSAGE_FN(param0: PCtxtHandle, param1: PSecBufferDesc, param2: u32, param3: *mut u32) -> SECURITY_STATUS;
         extern fn DELETE_SECURITY_CONTEXT_FN(param0: PCtxtHandle) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn DecryptMessage(phContext: PCtxtHandle, pMessage: PSecBufferDesc, MessageSeqNo: u32, #[opt] pfQOP: *mut u32) -> SECURITY_STATUS;
+        extern fn DecryptMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMessage: PSecBufferDesc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageSeqNo: u32, #[out] #[opt] pfQOP: *mut u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn DeleteSecurityContext(phContext: PCtxtHandle) -> SECURITY_STATUS;
+        extern fn DeleteSecurityContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "DeleteSecurityPackageA")]
+        extern fn DeleteSecurityPackage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: LPSTR) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn DeleteSecurityPackageA(pszPackageName: PCSTR) -> SECURITY_STATUS;
+        extern fn DeleteSecurityPackageA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: LPSTR) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn DeleteSecurityPackageW(pszPackageName: PCWSTR) -> SECURITY_STATUS;
+        extern fn DeleteSecurityPackageW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: LPWSTR) -> SECURITY_STATUS;
         extern fn ENCRYPT_MESSAGE_FN(param0: PCtxtHandle, param1: u32, param2: PSecBufferDesc, param3: u32) -> SECURITY_STATUS;
         extern fn ENUMERATE_SECURITY_PACKAGES_FN_A(param0: *mut u32, param1: *mut PSecPkgInfoA) -> SECURITY_STATUS;
         extern fn ENUMERATE_SECURITY_PACKAGES_FN_W(param0: *mut u32, param1: *mut PSecPkgInfoW) -> SECURITY_STATUS;
-        extern fn EXPORT_SECURITY_CONTEXT_FN(param0: PCtxtHandle, param1: u32, param2: PSecBuffer, param3: *mut *mut void) -> SECURITY_STATUS;
+        extern fn EXPORT_SECURITY_CONTEXT_FN(param0: PCtxtHandle, param1: ULONG, param2: PSecBuffer, param3: *mut *mut void) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn EncryptMessage(phContext: PCtxtHandle, fQOP: u32, pMessage: PSecBufferDesc, MessageSeqNo: u32) -> SECURITY_STATUS;
+        extern fn EncryptMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fQOP: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMessage: PSecBufferDesc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageSeqNo: u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "EnumerateSecurityPackagesA")]
+        extern fn EnumerateSecurityPackages(#[out] pcPackages: *mut u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppPackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn EnumerateSecurityPackagesA(pcPackages: *mut u32, ppPackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
+        extern fn EnumerateSecurityPackagesA(#[out] pcPackages: *mut u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppPackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn EnumerateSecurityPackagesW(pcPackages: *mut u32, ppPackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        extern fn EnumerateSecurityPackagesW(#[out] pcPackages: *mut u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppPackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn ExportSecurityContext(phContext: PCtxtHandle, fFlags: u32, #[out] pPackedContext: PSecBuffer, pToken: *mut *mut void) -> SECURITY_STATUS;
-        extern fn FREE_CONTEXT_BUFFER_FN(#[in] #[out] param0: *mut void) -> SECURITY_STATUS;
+        extern fn ExportSecurityContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fFlags: ULONG, #[out] pPackedContext: PSecBuffer, #[out] pToken: *mut *mut void) -> SECURITY_STATUS;
+        extern fn FREE_CONTEXT_BUFFER_FN(#[in] #[out] param0: PVOID) -> SECURITY_STATUS;
         extern fn FREE_CREDENTIALS_HANDLE_FN(param0: PCredHandle) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn FreeContextBuffer(#[in] #[out] pvContextBuffer: *mut void) -> SECURITY_STATUS;
+        extern fn FreeContextBuffer(#[in] #[out] pvContextBuffer: PVOID) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "FreeCredentialsHandle")]
+        extern fn FreeCredentialHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn FreeCredentialsHandle(phCredential: PCredHandle) -> SECURITY_STATUS;
+        extern fn FreeCredentialsHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle) -> SECURITY_STATUS;
         extern fn IMPERSONATE_SECURITY_CONTEXT_FN(param0: PCtxtHandle) -> SECURITY_STATUS;
         extern fn IMPORT_SECURITY_CONTEXT_FN_A(param0: *mut SEC_CHAR, param1: PSecBuffer, param2: *mut void, param3: PCtxtHandle) -> SECURITY_STATUS;
         extern fn IMPORT_SECURITY_CONTEXT_FN_W(param0: *mut SEC_WCHAR, param1: PSecBuffer, param2: *mut void, param3: PCtxtHandle) -> SECURITY_STATUS;
@@ -189,20 +203,27 @@ mod Windows {
         const ISC_RET_USE_SESSION_KEY: i32 = 32;
         const ISSP_LEVEL: i32 = 32;
         const ISSP_MODE: i32 = 1;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("Secur32.dll")]
-        extern fn ImpersonateSecurityContext(phContext: PCtxtHandle) -> SECURITY_STATUS;
+        extern fn ImpersonateSecurityContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "ImportSecurityContextA")]
+        extern fn ImportSecurityContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackage: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPackedContext: PSecBuffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: *mut void, #[out] phContext: PCtxtHandle) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn ImportSecurityContextA(pszPackage: PCSTR, pPackedContext: PSecBuffer, #[in] Token: *mut void, #[out] phContext: PCtxtHandle) -> SECURITY_STATUS;
+        extern fn ImportSecurityContextA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackage: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPackedContext: PSecBuffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: *mut void, #[out] phContext: PCtxtHandle) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn ImportSecurityContextW(pszPackage: PCWSTR, pPackedContext: PSecBuffer, #[in] Token: *mut void, #[out] phContext: PCtxtHandle) -> SECURITY_STATUS;
+        extern fn ImportSecurityContextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackage: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPackedContext: PSecBuffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: *mut void, #[out] phContext: PCtxtHandle) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "InitSecurityInterfaceA")]
+        extern fn InitSecurityInterface() -> PSecurityFunctionTableA;
         #[library("Secur32.dll")]
         extern fn InitSecurityInterfaceA() -> PSecurityFunctionTableA;
         #[library("Secur32.dll")]
         extern fn InitSecurityInterfaceW() -> PSecurityFunctionTableW;
+        #[library("Secur32.dll", import = "InitializeSecurityContextA")]
+        extern fn InitializeSecurityContext(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: *mut SEC_CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fContextReq: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved1: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetDataRep: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInput: PSecBufferDesc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn InitializeSecurityContextA(#[opt] phCredential: PCredHandle, #[opt] phContext: PCtxtHandle, #[in] #[opt] pszTargetName: *mut SEC_CHAR, fContextReq: u32, Reserved1: u32, TargetDataRep: u32, #[opt] pInput: PSecBufferDesc, Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn InitializeSecurityContextA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: *mut SEC_CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fContextReq: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved1: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetDataRep: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInput: PSecBufferDesc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn InitializeSecurityContextW(#[opt] phCredential: PCredHandle, #[opt] phContext: PCtxtHandle, #[in] #[opt] pszTargetName: *mut SEC_WCHAR, fContextReq: u32, Reserved1: u32, TargetDataRep: u32, #[opt] pInput: PSecBufferDesc, Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn InitializeSecurityContextW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: *mut SEC_WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fContextReq: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved1: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetDataRep: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInput: PSecBufferDesc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         const KDC_NETWORK_DISCOVERY_FLAGS_DS13_REQUIRED: u32 = 2147483648;
         const KDC_NETWORK_SETTINGS_FLAGS_CONFIGURE_DISCOVERY: i32 = 1073741824;
         const KDC_NETWORK_SETTINGS_FLAGS_CONFIGURE_PROXY: u32 = 2147483648;
@@ -213,9 +234,9 @@ mod Windows {
         extern fn MAKE_SIGNATURE_FN(param0: PCtxtHandle, param1: u32, param2: PSecBufferDesc, param3: u32) -> SECURITY_STATUS;
         const MAX_PROTOCOL_ID_SIZE: i32 = 255;
         #[library("Secur32.dll")]
-        extern fn MakeSignature(phContext: PCtxtHandle, fQOP: u32, pMessage: PSecBufferDesc, MessageSeqNo: u32) -> SECURITY_STATUS;
-        type PCredHandle = PSecHandle;
-        type PCtxtHandle = PSecHandle;
+        extern fn MakeSignature(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fQOP: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMessage: PSecBufferDesc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageSeqNo: u32) -> SECURITY_STATUS;
+        type PCredHandle = *mut SecHandle;
+        type PCtxtHandle = *mut SecHandle;
         type PSECPKG_APP_MODE_INFO = *mut SECPKG_APP_MODE_INFO;
         type PSECPKG_ATTR_LCT_STATUS = *mut SECPKG_ATTR_LCT_STATUS;
         type PSECPKG_CRED_CLASS = *mut SECPKG_CRED_CLASS;
@@ -261,7 +282,7 @@ mod Windows {
         type PSecPkgContext_CredInfo = *mut SecPkgContext_CredInfo;
         type PSecPkgContext_CredentialNameA = *mut SecPkgContext_CredentialNameA;
         type PSecPkgContext_CredentialNameW = *mut SecPkgContext_CredentialNameW;
-        type PSecPkgContext_DatagramSizes = PSecPkgContext_StreamSizes;
+        type PSecPkgContext_DatagramSizes = *mut SecPkgContext_StreamSizes;
         type PSecPkgContext_DceInfo = *mut SecPkgContext_DceInfo;
         type PSecPkgContext_Flags = *mut SecPkgContext_Flags;
         type PSecPkgContext_KeyInfoA = *mut SecPkgContext_KeyInfoA;
@@ -302,7 +323,7 @@ mod Windows {
         type PSecPkgInfoW = *mut SecPkgInfoW;
         type PSecurityFunctionTableA = *mut SecurityFunctionTableA;
         type PSecurityFunctionTableW = *mut SecurityFunctionTableW;
-        type PTimeStamp = *mut SECURITY_INTEGER;
+        type PTimeStamp = *mut LARGE_INTEGER;
         extern fn QUERY_CONTEXT_ATTRIBUTES_EX_FN_A(param0: PCtxtHandle, param1: u32, param2: *mut void, param3: u32) -> SECURITY_STATUS;
         extern fn QUERY_CONTEXT_ATTRIBUTES_EX_FN_W(param0: PCtxtHandle, param1: u32, param2: *mut void, param3: u32) -> SECURITY_STATUS;
         extern fn QUERY_CONTEXT_ATTRIBUTES_FN_A(param0: PCtxtHandle, param1: u32, param2: *mut void) -> SECURITY_STATUS;
@@ -314,31 +335,41 @@ mod Windows {
         extern fn QUERY_SECURITY_CONTEXT_TOKEN_FN(param0: PCtxtHandle, param1: *mut *mut void) -> SECURITY_STATUS;
         extern fn QUERY_SECURITY_PACKAGE_INFO_FN_A(param0: *mut SEC_CHAR, param1: *mut PSecPkgInfoA) -> SECURITY_STATUS;
         extern fn QUERY_SECURITY_PACKAGE_INFO_FN_W(param0: *mut SEC_WCHAR, param1: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "QueryContextAttributesA")]
+        extern fn QueryContextAttributes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[out] pBuffer: *mut void) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn QueryContextAttributesA(phContext: PCtxtHandle, ulAttribute: u32, pBuffer: *mut void) -> SECURITY_STATUS;
+        extern fn QueryContextAttributesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[out] pBuffer: *mut void) -> SECURITY_STATUS;
+        #[library("SspiCli.dll", import = "QueryContextAttributesExA")]
+        extern fn QueryContextAttributesEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[out] #[size_param(3)] pBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: u32) -> SECURITY_STATUS;
         #[library("SspiCli.dll")]
-        extern fn QueryContextAttributesExA(phContext: PCtxtHandle, ulAttribute: u32, #[size_param(3)] pBuffer: *mut void, cbBuffer: u32) -> SECURITY_STATUS;
+        extern fn QueryContextAttributesExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[out] #[size_param(3)] pBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: u32) -> SECURITY_STATUS;
         #[library("SspiCli.dll")]
-        extern fn QueryContextAttributesExW(phContext: PCtxtHandle, ulAttribute: u32, #[size_param(3)] pBuffer: *mut void, cbBuffer: u32) -> SECURITY_STATUS;
+        extern fn QueryContextAttributesExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[out] #[size_param(3)] pBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn QueryContextAttributesW(phContext: PCtxtHandle, ulAttribute: u32, pBuffer: *mut void) -> SECURITY_STATUS;
+        extern fn QueryContextAttributesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[out] pBuffer: *mut void) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "QueryCredentialsAttributesA")]
+        extern fn QueryCredentialsAttributes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[in] #[out] pBuffer: *mut void) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn QueryCredentialsAttributesA(phCredential: PCredHandle, ulAttribute: u32, #[in] #[out] pBuffer: *mut void) -> SECURITY_STATUS;
+        extern fn QueryCredentialsAttributesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[in] #[out] pBuffer: *mut void) -> SECURITY_STATUS;
+        #[library("SspiCli.dll", import = "QueryCredentialsAttributesExA")]
+        extern fn QueryCredentialsAttributesEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[in] #[out] #[size_param(3)] pBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: u32) -> SECURITY_STATUS;
         #[library("SspiCli.dll")]
-        extern fn QueryCredentialsAttributesExA(phCredential: PCredHandle, ulAttribute: u32, #[size_param(3)] #[in] #[out] pBuffer: *mut void, cbBuffer: u32) -> SECURITY_STATUS;
+        extern fn QueryCredentialsAttributesExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[in] #[out] #[size_param(3)] pBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: u32) -> SECURITY_STATUS;
         #[library("SspiCli.dll")]
-        extern fn QueryCredentialsAttributesExW(phCredential: PCredHandle, ulAttribute: u32, #[size_param(3)] #[in] #[out] pBuffer: *mut void, cbBuffer: u32) -> SECURITY_STATUS;
+        extern fn QueryCredentialsAttributesExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[in] #[out] #[size_param(3)] pBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn QueryCredentialsAttributesW(phCredential: PCredHandle, ulAttribute: u32, #[in] #[out] pBuffer: *mut void) -> SECURITY_STATUS;
+        extern fn QueryCredentialsAttributesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[in] #[out] pBuffer: *mut void) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn QuerySecurityContextToken(phContext: PCtxtHandle, Token: *mut *mut void) -> SECURITY_STATUS;
+        extern fn QuerySecurityContextToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[out] Token: *mut *mut void) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "QuerySecurityPackageInfoA")]
+        extern fn QuerySecurityPackageInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: LPSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppPackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn QuerySecurityPackageInfoA(pszPackageName: PCSTR, ppPackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
+        extern fn QuerySecurityPackageInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: LPSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppPackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn QuerySecurityPackageInfoW(pszPackageName: PCWSTR, ppPackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        extern fn QuerySecurityPackageInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: LPWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppPackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
         extern fn REVERT_SECURITY_CONTEXT_FN(param0: PCtxtHandle) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn RevertSecurityContext(phContext: PCtxtHandle) -> SECURITY_STATUS;
+        extern fn RevertSecurityContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle) -> SECURITY_STATUS;
         #[repr(i32)]
         enum SASL_AUTHZID_STATE {
             Sasl_AuthZIDForbidden = 0,
@@ -387,9 +418,9 @@ mod Windows {
         const SECBUFFER_TRAFFIC_SECRETS: i32 = 28;
         const SECBUFFER_VERSION: i32 = 0;
         struct SECPKG_APP_MODE_INFO {
-            UserFunction: u32,
-            Argument1: usize,
-            Argument2: usize,
+            UserFunction: ULONG,
+            Argument1: ULONG_PTR,
+            Argument2: ULONG_PTR,
             UserData: SecBuffer,
             ReturnToLsa: BOOLEAN,
         }
@@ -506,7 +537,13 @@ mod Windows {
         const SECQOP_WRAP_NO_ENCRYPT: u32 = 2147483649;
         const SECQOP_WRAP_OOB_DATA: i32 = 1073741824;
         #[encoding("ansi")]
+        const SECURITY_ENTRYPOINT: String = "InitSecurityInterfaceA";
+        #[encoding("ansi")]
         const SECURITY_ENTRYPOINT16: String = "INITSECURITYINTERFACEA";
+        #[encoding("ansi")]
+        const SECURITY_ENTRYPOINTA: String = "InitSecurityInterfaceA";
+        #[encoding("ansi")]
+        const SECURITY_ENTRYPOINTW: String = "InitSecurityInterfaceW";
         #[encoding("ansi")]
         const SECURITY_ENTRYPOINT_ANSI: String = "InitSecurityInterfaceA";
         #[encoding("ansi")]
@@ -523,8 +560,8 @@ mod Windows {
             SignatureSize: u32,
             Signature: *mut void,
         }
-        type SECURITY_PCSTR = *const SEC_CHAR;
-        type SECURITY_PSTR = *mut SEC_CHAR;
+        type SECURITY_PCSTR = *const i8;
+        type SECURITY_PSTR = *mut i8;
         struct SECURITY_STRING {
             Length: u16,
             MaximumLength: u16,
@@ -605,9 +642,9 @@ mod Windows {
         const SEC_CHANNEL_BINDINGS_VALID_FLAGS: i32 = 1;
         type SEC_CHAR = i8;
         #[arch(X64 | Arm64)]
-        const SEC_DELETED_HANDLE: usize = 18446744073709551614;
+        const SEC_DELETED_HANDLE: ULONG_PTR = 18446744073709551614;
         #[arch(X86)]
-        const SEC_DELETED_HANDLE: usize = 4294967294;
+        const SEC_DELETED_HANDLE: ULONG_PTR = 4294967294;
         struct SEC_DTLS_MTU {
             PathMTU: u16,
         }
@@ -745,41 +782,50 @@ mod Windows {
         const SSPIPFC_SAVE_CRED_BY_CALLER: i32 = 1;
         const SSPIPFC_USE_CREDUIBROKER: i32 = 8;
         const SSPIPFC_VALID_FLAGS: i32 = 15;
-        const SZ_ALG_MAX_SIZE: i32 = 64;
         #[library("Secur32.dll")]
-        extern fn SaslAcceptSecurityContext(#[opt] phCredential: PCredHandle, #[opt] phContext: PCtxtHandle, #[opt] pInput: PSecBufferDesc, fContextReq: u32, TargetDataRep: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn SaslAcceptSecurityContext(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInput: PSecBufferDesc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fContextReq: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetDataRep: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "SaslEnumerateProfilesA")]
+        extern fn SaslEnumerateProfiles(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ProfileList: *mut LPSTR, #[out] ProfileCount: *mut ULONG) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslEnumerateProfilesA(ProfileList: *mut PSTR, ProfileCount: *mut u32) -> SECURITY_STATUS;
+        extern fn SaslEnumerateProfilesA(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ProfileList: *mut LPSTR, #[out] ProfileCount: *mut ULONG) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslEnumerateProfilesW(ProfileList: *mut PWSTR, ProfileCount: *mut u32) -> SECURITY_STATUS;
+        extern fn SaslEnumerateProfilesW(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ProfileList: *mut LPWSTR, #[out] ProfileCount: *mut ULONG) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslGetContextOption(ContextHandle: PCtxtHandle, Option: u32, Value: *mut void, Size: u32, #[out] #[opt] Needed: PULONG) -> SECURITY_STATUS;
+        extern fn SaslGetContextOption(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ContextHandle: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Option: ULONG, #[out] Value: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: ULONG, #[out] #[opt] Needed: PULONG) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "SaslGetProfilePackageA")]
+        extern fn SaslGetProfilePackage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProfileName: LPSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] PackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslGetProfilePackageA(ProfileName: PCSTR, PackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
+        extern fn SaslGetProfilePackageA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProfileName: LPSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] PackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslGetProfilePackageW(ProfileName: PCWSTR, PackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        extern fn SaslGetProfilePackageW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProfileName: LPWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] PackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "SaslIdentifyPackageA")]
+        extern fn SaslIdentifyPackage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInput: PSecBufferDesc, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] PackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslIdentifyPackageA(pInput: PSecBufferDesc, PackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
+        extern fn SaslIdentifyPackageA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInput: PSecBufferDesc, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] PackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslIdentifyPackageW(pInput: PSecBufferDesc, PackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        extern fn SaslIdentifyPackageW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInput: PSecBufferDesc, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] PackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "SaslInitializeSecurityContextA")]
+        extern fn SaslInitializeSecurityContext(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fContextReq: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved1: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetDataRep: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInput: PSecBufferDesc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslInitializeSecurityContextA(#[opt] phCredential: PCredHandle, #[opt] phContext: PCtxtHandle, #[opt] pszTargetName: PCSTR, fContextReq: u32, Reserved1: u32, TargetDataRep: u32, #[opt] pInput: PSecBufferDesc, Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn SaslInitializeSecurityContextA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fContextReq: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved1: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetDataRep: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInput: PSecBufferDesc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslInitializeSecurityContextW(#[opt] phCredential: PCredHandle, #[opt] phContext: PCtxtHandle, #[opt] pszTargetName: PCWSTR, fContextReq: u32, Reserved1: u32, TargetDataRep: u32, #[opt] pInput: PSecBufferDesc, Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn SaslInitializeSecurityContextW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fContextReq: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved1: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetDataRep: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInput: PSecBufferDesc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslSetContextOption(ContextHandle: PCtxtHandle, Option: u32, #[in] Value: *mut void, Size: u32) -> SECURITY_STATUS;
+        extern fn SaslSetContextOption(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ContextHandle: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Option: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Value: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: ULONG) -> SECURITY_STATUS;
         #[library("SspiCli.dll")]
-        extern fn SecAllocateAndSetCallTarget(#[size_param(1)] #[opt] lpIpAddress: PUCHAR, cchIpAddress: u32, #[opt] TargetName: PCWSTR, FreeCallContext: *mut i32) -> SECURITY_STATUS;
+        extern fn SecAllocateAndSetCallTarget(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] lpIpAddress: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchIpAddress: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPWSTR, #[out] FreeCallContext: *mut i32) -> SECURITY_STATUS;
         #[library("SspiCli.dll")]
-        extern fn SecAllocateAndSetIPAddress(#[size_param(1)] lpIpAddress: PUCHAR, cchIpAddress: u32, FreeCallContext: *mut i32) -> SECURITY_STATUS;
+        extern fn SecAllocateAndSetIPAddress(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] lpIpAddress: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchIpAddress: ULONG, #[out] FreeCallContext: *mut i32) -> SECURITY_STATUS;
         struct SecBuffer {
             cbBuffer: u32,
             BufferType: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbBuffer", IsByteCount = true, MayBeNull = false)]
             pvBuffer: *mut void,
         }
         struct SecBufferDesc {
             ulVersion: u32,
             cBuffers: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cBuffers", IsByteCount = false, MayBeNull = false)]
             pBuffers: PSecBuffer,
         }
         #[repr(i32)]
@@ -793,8 +839,8 @@ mod Windows {
         #[library("SspiCli.dll")]
         extern fn SecFreeCallContext();
         struct SecHandle {
-            dwLower: usize,
-            dwUpper: usize,
+            dwLower: ULONG_PTR,
+            dwUpper: ULONG_PTR,
         }
         struct SecPkgContext_AccessToken {
             AccessToken: *mut void,
@@ -817,6 +863,7 @@ mod Windows {
         }
         struct SecPkgContext_Bindings {
             BindingsLength: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "BindingsLength", IsByteCount = true, MayBeNull = false)]
             Bindings: *mut SEC_CHANNEL_BINDINGS,
         }
         struct SecPkgContext_ClientSpecifiedTarget {
@@ -883,9 +930,11 @@ mod Windows {
         struct SecPkgContext_NegoKeys {
             KeyType: u32,
             KeyLength: u16,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "KeyLength", IsByteCount = true, MayBeNull = false)]
             KeyValue: *mut u8,
             VerifyKeyType: u32,
             VerifyKeyLength: u16,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "VerifyKeyLength", IsByteCount = true, MayBeNull = false)]
             VerifyKeyValue: *mut u8,
         }
         struct SecPkgContext_NegoPackageInfo {
@@ -896,6 +945,7 @@ mod Windows {
         }
         struct SecPkgContext_NegotiatedTlsExtensions {
             ExtensionsCount: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ExtensionsCount", IsByteCount = false, MayBeNull = false)]
             Extensions: *mut u16,
         }
         struct SecPkgContext_NegotiationInfoA {
@@ -927,6 +977,7 @@ mod Windows {
         }
         struct SecPkgContext_SessionKey {
             SessionKeyLength: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "SessionKeyLength", IsByteCount = true, MayBeNull = false)]
             SessionKey: *mut u8,
         }
         struct SecPkgContext_Sizes {
@@ -961,21 +1012,21 @@ mod Windows {
             EncodedCert: *mut u8,
         }
         struct SecPkgCredentials_KdcNetworkSettingsW {
-            Version: u32,
-            Flags: u32,
-            ProxyServerOffset: u16,
-            ProxyServerLength: u16,
-            ClientTlsCredOffset: u16,
-            ClientTlsCredLength: u16,
-            DcDiscoveryFlags: u32,
+            Version: ULONG,
+            Flags: ULONG,
+            ProxyServerOffset: USHORT,
+            ProxyServerLength: USHORT,
+            ClientTlsCredOffset: USHORT,
+            ClientTlsCredLength: USHORT,
+            DcDiscoveryFlags: ULONG,
         }
         struct SecPkgCredentials_KdcProxySettingsW {
-            Version: u32,
-            Flags: u32,
-            ProxyServerOffset: u16,
-            ProxyServerLength: u16,
-            ClientTlsCredOffset: u16,
-            ClientTlsCredLength: u16,
+            Version: ULONG,
+            Flags: ULONG,
+            ProxyServerOffset: USHORT,
+            ProxyServerLength: USHORT,
+            ClientTlsCredOffset: USHORT,
+            ClientTlsCredLength: USHORT,
         }
         struct SecPkgCredentials_NamesA {
             sUserName: *mut SEC_CHAR,
@@ -1077,64 +1128,70 @@ mod Windows {
             QueryContextAttributesExW: QUERY_CONTEXT_ATTRIBUTES_EX_FN_W,
             QueryCredentialsAttributesExW: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W,
         }
+        #[library("Secur32.dll", import = "SetContextAttributesA")]
+        extern fn SetContextAttributes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SetContextAttributesA(phContext: PCtxtHandle, ulAttribute: u32, #[size_param(3)] #[in] pBuffer: *mut void, cbBuffer: u32) -> SECURITY_STATUS;
+        extern fn SetContextAttributesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SetContextAttributesW(phContext: PCtxtHandle, ulAttribute: u32, #[size_param(3)] #[in] pBuffer: *mut void, cbBuffer: u32) -> SECURITY_STATUS;
+        extern fn SetContextAttributesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll", import = "SetCredentialsAttributesA")]
+        extern fn SetCredentialsAttributes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SetCredentialsAttributesA(phCredential: PCredHandle, ulAttribute: u32, #[size_param(3)] #[in] pBuffer: *mut void, cbBuffer: u32) -> SECURITY_STATUS;
+        extern fn SetCredentialsAttributesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SetCredentialsAttributesW(phCredential: PCredHandle, ulAttribute: u32, #[size_param(3)] #[in] pBuffer: *mut void, cbBuffer: u32) -> SECURITY_STATUS;
+        extern fn SetCredentialsAttributesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phCredential: PCredHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulAttribute: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiCompareAuthIdentities(#[opt] AuthIdentity1: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[opt] AuthIdentity2: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[opt] SameSuppliedUser: PBOOLEAN, #[out] #[opt] SameSuppliedIdentity: PBOOLEAN) -> SECURITY_STATUS;
+        extern fn SspiCompareAuthIdentities(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity1: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity2: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[opt] SameSuppliedUser: PBOOLEAN, #[out] #[opt] SameSuppliedIdentity: PBOOLEAN) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiCopyAuthIdentity(AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, AuthDataCopy: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        extern fn SspiCopyAuthIdentity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] AuthDataCopy: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SspiDecryptAuthIdentity(#[in] #[out] EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("SspiCli.dll")]
-        extern fn SspiDecryptAuthIdentityEx(Options: u32, #[in] #[out] EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        extern fn SspiDecryptAuthIdentityEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: ULONG, #[in] #[out] EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiEncodeAuthIdentityAsStrings(pAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppszUserName: *mut PCWSTR, ppszDomainName: *mut PCWSTR, ppszPackedCredentialsString: *mut PCWSTR) -> SECURITY_STATUS;
+        extern fn SspiEncodeAuthIdentityAsStrings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppszUserName: *mut PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppszDomainName: *mut PCWSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppszPackedCredentialsString: *mut PCWSTR) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiEncodeStringsAsAuthIdentity(#[opt] pszUserName: PCWSTR, #[opt] pszDomainName: PCWSTR, #[opt] pszPackedCredentialsString: PCWSTR, ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        extern fn SspiEncodeStringsAsAuthIdentity(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUserName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDomainName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackedCredentialsString: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SspiEncryptAuthIdentity(#[in] #[out] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("SspiCli.dll")]
-        extern fn SspiEncryptAuthIdentityEx(Options: u32, #[in] #[out] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        extern fn SspiEncryptAuthIdentityEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: ULONG, #[in] #[out] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiExcludePackage(#[opt] AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pszPackageName: PCWSTR, ppNewAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        extern fn SspiExcludePackage(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackageName: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppNewAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiFreeAuthIdentity(#[opt] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE);
+        extern fn SspiFreeAuthIdentity(#[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE);
         #[library("Secur32.dll")]
-        extern fn SspiGetTargetHostName(pszTargetName: PCWSTR, pszHostName: *mut PWSTR) -> SECURITY_STATUS;
+        extern fn SspiGetTargetHostName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pszHostName: *mut PWSTR) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiIsAuthIdentityEncrypted(EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> BOOLEAN;
+        extern fn SspiIsAuthIdentityEncrypted(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> BOOLEAN;
         #[library("credui.dll")]
-        extern fn SspiIsPromptingNeeded(ErrorOrNtStatus: u32) -> BOOLEAN;
+        extern fn SspiIsPromptingNeeded(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ErrorOrNtStatus: u32) -> BOOLEAN;
         #[library("Secur32.dll")]
-        extern fn SspiLocalFree(#[in] #[opt] DataBuffer: *mut void);
+        extern fn SspiLocalFree(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataBuffer: PVOID);
         #[library("Secur32.dll")]
-        extern fn SspiMarshalAuthIdentity(AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, AuthIdentityLength: *mut u32, AuthIdentityByteArray: *mut *mut i8) -> SECURITY_STATUS;
+        extern fn SspiMarshalAuthIdentity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] AuthIdentityLength: *mut u32, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*AuthIdentityLength", "*AuthIdentityLength")] #[out] AuthIdentityByteArray: *mut *mut i8) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiPrepareForCredRead(AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pszTargetName: PCWSTR, #[out] pCredmanCredentialType: PULONG, ppszCredmanTargetName: *mut PCWSTR) -> SECURITY_STATUS;
+        extern fn SspiPrepareForCredRead(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCWSTR, #[out] pCredmanCredentialType: PULONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszCredmanTargetName: *mut PCWSTR) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiPrepareForCredWrite(AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[opt] pszTargetName: PCWSTR, #[out] pCredmanCredentialType: PULONG, ppszCredmanTargetName: *mut PCWSTR, ppszCredmanUserName: *mut PCWSTR, ppCredentialBlob: *mut PUCHAR, #[out] pCredentialBlobSize: PULONG) -> SECURITY_STATUS;
+        extern fn SspiPrepareForCredWrite(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCWSTR, #[out] pCredmanCredentialType: PULONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszCredmanTargetName: *mut PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszCredmanUserName: *mut PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pCredentialBlobSize", "*pCredentialBlobSize")] #[out] ppCredentialBlob: *mut PUCHAR, #[out] pCredentialBlobSize: PULONG) -> SECURITY_STATUS;
+        #[library("credui.dll", import = "SspiPromptForCredentialsA")]
+        extern fn SspiPromptForCredentials(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUiInfo: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthError: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackage: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[out] #[opt] pfSave: *mut i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: u32) -> u32;
         #[library("credui.dll")]
-        extern fn SspiPromptForCredentialsA(pszTargetName: PCSTR, #[in] #[opt] pUiInfo: *mut void, dwAuthError: u32, pszPackage: PCSTR, #[opt] pInputAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[out] #[opt] pfSave: *mut i32, dwFlags: u32) -> u32;
+        extern fn SspiPromptForCredentialsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUiInfo: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthError: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackage: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[out] #[opt] pfSave: *mut i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: u32) -> u32;
         #[library("credui.dll")]
-        extern fn SspiPromptForCredentialsW(pszTargetName: PCWSTR, #[in] #[opt] pUiInfo: *mut void, dwAuthError: u32, pszPackage: PCWSTR, #[opt] pInputAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[out] #[opt] pfSave: *mut i32, dwFlags: u32) -> u32;
+        extern fn SspiPromptForCredentialsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUiInfo: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthError: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPackage: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[out] #[opt] pfSave: *mut i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: u32) -> u32;
         #[library("SspiCli.dll")]
         extern fn SspiSetChannelBindingFlags(#[in] #[out] pBindings: *mut SecPkgContext_Bindings, flags: u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiUnmarshalAuthIdentity(AuthIdentityLength: u32, #[size_param(0)] #[in] AuthIdentityByteArray: *mut i8, ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        extern fn SspiUnmarshalAuthIdentity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentityLength: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(0)] AuthIdentityByteArray: *mut i8, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiValidateAuthIdentity(AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        extern fn SspiValidateAuthIdentity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiZeroAuthIdentity(#[opt] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE);
-        type TimeStamp = SECURITY_INTEGER;
+        extern fn SspiZeroAuthIdentity(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE);
+        type TimeStamp = LARGE_INTEGER;
         extern fn VERIFY_SIGNATURE_FN(param0: PCtxtHandle, param1: PSecBufferDesc, param2: u32, param3: *mut u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn VerifySignature(phContext: PCtxtHandle, pMessage: PSecBufferDesc, MessageSeqNo: u32, pfQOP: *mut u32) -> SECURITY_STATUS;
+        extern fn VerifySignature(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMessage: PSecBufferDesc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageSeqNo: u32, #[out] pfQOP: *mut u32) -> SECURITY_STATUS;
         type _SECURITY_INTEGER = LARGE_INTEGER;
     }
 }

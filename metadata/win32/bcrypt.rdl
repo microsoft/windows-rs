@@ -28,9 +28,9 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_AES_WRAP_KEY_BLOB: String = "Rfc3565KeyWrapBlob";
         struct BCRYPT_ALGORITHM_IDENTIFIER {
-            pszName: PWSTR,
-            dwClass: u32,
-            dwFlags: u32,
+            pszName: LPWSTR,
+            dwClass: ULONG,
+            dwFlags: ULONG,
         }
         #[encoding("utf-16")]
         const BCRYPT_ALGORITHM_NAME: String = "AlgorithmName";
@@ -39,19 +39,19 @@ mod Windows {
         const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: i32 = 3;
         const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: i32 = 4;
         struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
-            cbSize: u32,
-            dwInfoVersion: u32,
+            cbSize: ULONG,
+            dwInfoVersion: ULONG,
             pbNonce: PUCHAR,
-            cbNonce: u32,
+            cbNonce: ULONG,
             pbAuthData: PUCHAR,
-            cbAuthData: u32,
+            cbAuthData: ULONG,
             pbTag: PUCHAR,
-            cbTag: u32,
+            cbTag: ULONG,
             pbMacContext: PUCHAR,
-            cbMacContext: u32,
-            cbAAD: u32,
-            cbData: u64,
-            dwFlags: u32,
+            cbMacContext: ULONG,
+            cbAAD: ULONG,
+            cbData: ULONGLONG,
+            dwFlags: ULONG,
         }
         const BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION: i32 = 1;
         const BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG: i32 = 1;
@@ -110,16 +110,17 @@ mod Windows {
         const BCRYPT_DH_ALGORITHM: String = "DH";
         const BCRYPT_DH_ALG_HANDLE: BCRYPT_ALG_HANDLE = 641;
         struct BCRYPT_DH_KEY_BLOB {
-            dwMagic: u32,
-            cbKey: u32,
+            dwMagic: ULONG,
+            cbKey: ULONG,
         }
         #[encoding("utf-16")]
         const BCRYPT_DH_PARAMETERS: String = "DHParameters";
         const BCRYPT_DH_PARAMETERS_MAGIC: i32 = 1297107012;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "cbLength", "cbLength", TypedefName = "BCRYPT_DH_PARAMETER_HEADER")]
         struct BCRYPT_DH_PARAMETER_HEADER {
-            cbLength: u32,
-            dwMagic: u32,
-            cbKeyLength: u32,
+            cbLength: ULONG,
+            dwMagic: ULONG,
+            cbKeyLength: ULONG,
         }
         #[encoding("utf-16")]
         const BCRYPT_DH_PRIVATE_BLOB: String = "DHPRIVATEBLOB";
@@ -131,42 +132,42 @@ mod Windows {
         const BCRYPT_DSA_ALGORITHM: String = "DSA";
         const BCRYPT_DSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 721;
         struct BCRYPT_DSA_KEY_BLOB {
-            dwMagic: u32,
-            cbKey: u32,
-            Count: [u8; 4],
-            Seed: [u8; 20],
-            q: [u8; 20],
+            dwMagic: ULONG,
+            cbKey: ULONG,
+            Count: [UCHAR; 4],
+            Seed: [UCHAR; 20],
+            q: [UCHAR; 20],
         }
         struct BCRYPT_DSA_KEY_BLOB_V2 {
-            dwMagic: u32,
-            cbKey: u32,
+            dwMagic: ULONG,
+            cbKey: ULONG,
             hashAlgorithm: HASHALGORITHM_ENUM,
             standardVersion: DSAFIPSVERSION_ENUM,
-            cbSeedLength: u32,
-            cbGroupSize: u32,
-            Count: [u8; 4],
+            cbSeedLength: ULONG,
+            cbGroupSize: ULONG,
+            Count: [UCHAR; 4],
         }
         #[encoding("utf-16")]
         const BCRYPT_DSA_PARAMETERS: String = "DSAParameters";
         const BCRYPT_DSA_PARAMETERS_MAGIC: i32 = 1297109828;
         const BCRYPT_DSA_PARAMETERS_MAGIC_V2: i32 = 843927620;
         struct BCRYPT_DSA_PARAMETER_HEADER {
-            cbLength: u32,
-            dwMagic: u32,
-            cbKeyLength: u32,
-            Count: [u8; 4],
-            Seed: [u8; 20],
-            q: [u8; 20],
+            cbLength: ULONG,
+            dwMagic: ULONG,
+            cbKeyLength: ULONG,
+            Count: [UCHAR; 4],
+            Seed: [UCHAR; 20],
+            q: [UCHAR; 20],
         }
         struct BCRYPT_DSA_PARAMETER_HEADER_V2 {
-            cbLength: u32,
-            dwMagic: u32,
-            cbKeyLength: u32,
+            cbLength: ULONG,
+            dwMagic: ULONG,
+            cbKeyLength: ULONG,
             hashAlgorithm: HASHALGORITHM_ENUM,
             standardVersion: DSAFIPSVERSION_ENUM,
-            cbSeedLength: u32,
-            cbGroupSize: u32,
-            Count: [u8; 4],
+            cbSeedLength: ULONG,
+            cbGroupSize: ULONG,
+            Count: [UCHAR; 4],
         }
         #[encoding("utf-16")]
         const BCRYPT_DSA_PRIVATE_BLOB: String = "DSAPRIVATEBLOB";
@@ -177,22 +178,22 @@ mod Windows {
         const BCRYPT_DSA_PUBLIC_MAGIC: i32 = 1112560452;
         const BCRYPT_DSA_PUBLIC_MAGIC_V2: i32 = 843206724;
         struct BCRYPT_ECCFULLKEY_BLOB {
-            dwMagic: u32,
-            dwVersion: u32,
+            dwMagic: ULONG,
+            dwVersion: ULONG,
             dwCurveType: ECC_CURVE_TYPE_ENUM,
             dwCurveGenerationAlgId: ECC_CURVE_ALG_ID_ENUM,
-            cbFieldLength: u32,
-            cbSubgroupOrder: u32,
-            cbCofactor: u32,
-            cbSeed: u32,
+            cbFieldLength: ULONG,
+            cbSubgroupOrder: ULONG,
+            cbCofactor: ULONG,
+            cbSeed: ULONG,
         }
         #[encoding("utf-16")]
         const BCRYPT_ECCFULLPRIVATE_BLOB: String = "ECCFULLPRIVATEBLOB";
         #[encoding("utf-16")]
         const BCRYPT_ECCFULLPUBLIC_BLOB: String = "ECCFULLPUBLICBLOB";
         struct BCRYPT_ECCKEY_BLOB {
-            dwMagic: u32,
-            cbKey: u32,
+            dwMagic: ULONG,
+            cbKey: ULONG,
         }
         #[encoding("utf-16")]
         const BCRYPT_ECCPRIVATE_BLOB: String = "ECCPRIVATEBLOB";
@@ -233,8 +234,8 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_ECC_CURVE_NAME: String = "ECCCurveName";
         struct BCRYPT_ECC_CURVE_NAMES {
-            dwEccCurveNames: u32,
-            pEccCurveNames: *mut PWSTR,
+            dwEccCurveNames: ULONG,
+            pEccCurveNames: *mut LPWSTR,
         }
         #[encoding("utf-16")]
         const BCRYPT_ECC_CURVE_NAME_LIST: String = "ECCCurveNameList";
@@ -389,8 +390,8 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_INITIALIZATION_VECTOR: String = "IV";
         struct BCRYPT_INTERFACE_VERSION {
-            MajorVersion: u16,
-            MinorVersion: u16,
+            MajorVersion: USHORT,
+            MinorVersion: USHORT,
         }
         #[encoding("utf-16")]
         const BCRYPT_IS_IFX_TPM_WEAK_KEY: String = "IsIfxTpmWeakKey";
@@ -415,14 +416,14 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_KEM_SHARED_SECRET_LENGTH: String = "KEMSharedSecretLength";
         struct BCRYPT_KEY_BLOB {
-            Magic: u32,
+            Magic: ULONG,
         }
         #[encoding("utf-16")]
         const BCRYPT_KEY_DATA_BLOB: String = "KeyDataBlob";
         struct BCRYPT_KEY_DATA_BLOB_HEADER {
-            dwMagic: u32,
-            dwVersion: u32,
-            cbKeyData: u32,
+            dwMagic: ULONG,
+            dwVersion: ULONG,
+            cbKeyData: ULONG,
         }
         const BCRYPT_KEY_DATA_BLOB_MAGIC: i32 = 1296188491;
         const BCRYPT_KEY_DATA_BLOB_VERSION1: i32 = 1;
@@ -436,9 +437,9 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_KEY_LENGTHS: String = "KeyLengths";
         struct BCRYPT_KEY_LENGTHS_STRUCT {
-            dwMinLength: u32,
-            dwMaxLength: u32,
-            dwIncrement: u32,
+            dwMinLength: ULONG,
+            dwMaxLength: ULONG,
+            dwIncrement: ULONG,
         }
         #[encoding("utf-16")]
         const BCRYPT_KEY_OBJECT_LENGTH: String = "KeyObjectLength";
@@ -488,9 +489,9 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_MLKEM_ENCAPSULATION_BLOB: String = "MLKEMPUBLICBLOB";
         struct BCRYPT_MLKEM_KEY_BLOB {
-            dwMagic: u32,
-            cbParameterSet: u32,
-            cbKey: u32,
+            dwMagic: ULONG,
+            cbParameterSet: ULONG,
+            cbKey: ULONG,
         }
         #[encoding("utf-16")]
         const BCRYPT_MLKEM_PARAMETER_SET_1024: String = "1024";
@@ -509,16 +510,17 @@ mod Windows {
         const BCRYPT_MLKEM_PUBLIC_MAGIC: i32 = 1347112013;
         const BCRYPT_MULTI_FLAG: i32 = 64;
         struct BCRYPT_MULTI_HASH_OPERATION {
-            iHash: u32,
+            iHash: ULONG,
             hashOperation: BCRYPT_HASH_OPERATION_TYPE,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbBuffer", IsByteCount = false, MayBeNull = false)]
             pbBuffer: PUCHAR,
-            cbBuffer: u32,
+            cbBuffer: ULONG,
         }
         #[encoding("utf-16")]
         const BCRYPT_MULTI_OBJECT_LENGTH: String = "MultiObjectLength";
         struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
-            cbPerObject: u32,
-            cbPerElement: u32,
+            cbPerObject: ULONG,
+            cbPerElement: ULONG,
         }
         #[repr(i32)]
         enum BCRYPT_MULTI_OPERATION_TYPE {
@@ -526,19 +528,19 @@ mod Windows {
         }
         const BCRYPT_NO_KEY_VALIDATION: i32 = 8;
         struct BCRYPT_OAEP_PADDING_INFO {
-            pszAlgId: PCWSTR,
+            pszAlgId: LPCWSTR,
             pbLabel: PUCHAR,
-            cbLabel: u32,
+            cbLabel: ULONG,
         }
         const BCRYPT_OBJECT_ALIGNMENT: i32 = 16;
         #[encoding("utf-16")]
         const BCRYPT_OBJECT_LENGTH: String = "ObjectLength";
         struct BCRYPT_OID {
-            cbOID: u32,
+            cbOID: ULONG,
             pbOID: PUCHAR,
         }
         struct BCRYPT_OID_LIST {
-            dwOIDCount: u32,
+            dwOIDCount: ULONG,
             pOIDs: *mut BCRYPT_OID,
         }
         #[encoding("utf-16")]
@@ -561,26 +563,26 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_PCP_PROVIDER_VERSION_PROPERTY: String = "PCP_PROVIDER_VERSION";
         struct BCRYPT_PKCS11_RSA_AES_WRAP_BLOB {
-            dwMagic: u32,
-            cbKey: u32,
-            cbPaddingAlgId: u32,
-            cbPaddingLabel: u32,
+            dwMagic: ULONG,
+            cbKey: ULONG,
+            cbPaddingAlgId: ULONG,
+            cbPaddingLabel: ULONG,
         }
         const BCRYPT_PKCS11_RSA_AES_WRAP_BLOB_MAGIC: i32 = 1464877394;
         #[encoding("utf-16")]
         const BCRYPT_PKCS11_RSA_AES_WRAP_KEY_BLOB: String = "PKCS11RsaAesWrapBlob";
         struct BCRYPT_PKCS1_PADDING_INFO {
-            pszAlgId: PCWSTR,
+            pszAlgId: LPCWSTR,
         }
         struct BCRYPT_PQDSA_KEY_BLOB {
-            dwMagic: u32,
-            cbParameterSet: u32,
-            cbKey: u32,
+            dwMagic: ULONG,
+            cbParameterSet: ULONG,
+            cbKey: ULONG,
         }
         struct BCRYPT_PQDSA_PADDING_INFO {
             pbCtx: PUCHAR,
-            cbCtx: u32,
-            pszPrehashAlgId: PCWSTR,
+            cbCtx: ULONG,
+            pszPrehashAlgId: LPCWSTR,
         }
         #[encoding("utf-16")]
         const BCRYPT_PQDSA_PRIVATE_BLOB: String = "PQDSAPRIVATEBLOB";
@@ -598,12 +600,12 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_PROVIDER_HANDLE: String = "ProviderHandle";
         struct BCRYPT_PROVIDER_NAME {
-            pszProviderName: PWSTR,
+            pszProviderName: LPWSTR,
         }
         const BCRYPT_PROV_DISPATCH: i32 = 1;
         struct BCRYPT_PSS_PADDING_INFO {
-            pszAlgId: PCWSTR,
-            cbSalt: u32,
+            pszAlgId: LPCWSTR,
+            cbSalt: ULONG,
         }
         #[encoding("utf-16")]
         const BCRYPT_PUBLIC_KEY_BLOB: String = "PUBLICBLOB";
@@ -632,12 +634,12 @@ mod Windows {
         const BCRYPT_RSAFULLPRIVATE_BLOB: String = "RSAFULLPRIVATEBLOB";
         const BCRYPT_RSAFULLPRIVATE_MAGIC: i32 = 859919186;
         struct BCRYPT_RSAKEY_BLOB {
-            Magic: u32,
-            BitLength: u32,
-            cbPublicExp: u32,
-            cbModulus: u32,
-            cbPrime1: u32,
-            cbPrime2: u32,
+            Magic: ULONG,
+            BitLength: ULONG,
+            cbPublicExp: ULONG,
+            cbModulus: ULONG,
+            cbPrime1: ULONG,
+            cbPrime2: ULONG,
         }
         #[encoding("utf-16")]
         const BCRYPT_RSAPRIVATE_BLOB: String = "RSAPRIVATEBLOB";
@@ -738,147 +740,194 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_XTS_AES_ALGORITHM: String = "XTS-AES";
         const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = 897;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptAddContextFunction(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, dwPosition: u32) -> NTSTATUS;
+        extern fn BCryptAddContextFunction(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInterface: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszFunction: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPosition: ULONG) -> NTSTATUS;
         struct BCryptBuffer {
-            cbBuffer: u32,
-            BufferType: u32,
-            pvBuffer: *mut void,
+            cbBuffer: ULONG,
+            BufferType: ULONG,
+            pvBuffer: PVOID,
         }
         struct BCryptBufferDesc {
-            ulVersion: u32,
-            cBuffers: u32,
+            ulVersion: ULONG,
+            cBuffers: ULONG,
             pBuffers: PBCryptBuffer,
         }
         #[library("bcrypt.dll")]
-        extern fn BCryptCloseAlgorithmProvider(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptCloseAlgorithmProvider(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptConfigureContext(dwTable: u32, pszContext: PCWSTR, pConfig: PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        extern fn BCryptConfigureContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConfig: PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptConfigureContextFunction(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, pConfig: PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
+        extern fn BCryptConfigureContextFunction(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInterface: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszFunction: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConfig: PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptCreateContext(dwTable: u32, pszContext: PCWSTR, #[opt] pConfig: PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        extern fn BCryptCreateContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConfig: PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptCreateHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phHash: *mut BCRYPT_HASH_HANDLE, #[size_param(3)] #[out] #[opt] pbHashObject: PUCHAR, cbHashObject: u32, #[size_param(5)] #[opt] pbSecret: PUCHAR, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptCreateHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[out] phHash: *mut BCRYPT_HASH_HANDLE, #[out] #[opt] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = true, Dereference = false)] pbHashObject: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbHashObject: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] pbSecret: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSecret: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptCreateMultiHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phHash: *mut BCRYPT_HASH_HANDLE, nHashes: u32, #[size_param(4)] #[out] #[opt] pbHashObject: PUCHAR, cbHashObject: u32, #[size_param(6)] #[opt] pbSecret: PUCHAR, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptCreateMultiHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[out] phHash: *mut BCRYPT_HASH_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nHashes: ULONG, #[out] #[opt] #[size_param(4)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = false)] pbHashObject: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbHashObject: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(6)] pbSecret: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSecret: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptDecapsulate(hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] pbCipherText: PUCHAR, cbCipherText: u32, #[size_param(4)] #[out] #[opt] pbSecretKey: PUCHAR, cbSecretKey: u32, pcbSecretKey: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDecapsulate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: BCRYPT_KEY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pbCipherText: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbCipherText: ULONG, #[out] #[opt] #[size_param(4)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 5, IsByteCount = true, Dereference = true)] pbSecretKey: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSecretKey: ULONG, #[out] pcbSecretKey: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptDecrypt(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: PUCHAR, cbInput: u32, #[in] #[opt] pPaddingInfo: *mut void, #[size_param(5)] #[in] #[out] #[opt] pbIV: PUCHAR, cbIV: u32, #[size_param(7)] #[out] #[opt] pbOutput: PUCHAR, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDecrypt(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pbInput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInput: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPaddingInfo: *mut void, #[in] #[out] #[opt] #[size_param(5)] pbIV: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbIV: ULONG, #[out] #[opt] #[size_param(7)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 8, IsByteCount = true, Dereference = true)] pbOutput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbOutput: ULONG, #[out] pcbResult: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptDeleteContext(dwTable: u32, pszContext: PCWSTR) -> NTSTATUS;
+        extern fn BCryptDeleteContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptDeriveKey(hSharedSecret: BCRYPT_SECRET_HANDLE, pwszKDF: PCWSTR, #[in] #[opt] pParameterList: *mut BCryptBufferDesc, #[size_param(4)] #[out] #[opt] pbDerivedKey: PUCHAR, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDeriveKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSharedSecret: BCRYPT_SECRET_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszKDF: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pParameterList: *mut BCryptBufferDesc, #[out] #[opt] #[size_param(4)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 5, IsByteCount = true, Dereference = true)] pbDerivedKey: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbDerivedKey: ULONG, #[out] pcbResult: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptDeriveKeyCapi(hHash: BCRYPT_HASH_HANDLE, #[opt] hTargetAlg: BCRYPT_ALG_HANDLE, #[size_param(3)] #[out] pbDerivedKey: PUCHAR, cbDerivedKey: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDeriveKeyCapi(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHash: BCRYPT_HASH_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTargetAlg: BCRYPT_ALG_HANDLE, #[out] #[size_param(3)] pbDerivedKey: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbDerivedKey: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptDeriveKeyPBKDF2(hPrf: BCRYPT_ALG_HANDLE, #[size_param(2)] #[opt] pbPassword: PUCHAR, cbPassword: u32, #[size_param(4)] #[opt] pbSalt: PUCHAR, cbSalt: u32, cIterations: u64, #[size_param(7)] #[out] pbDerivedKey: PUCHAR, cbDerivedKey: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDeriveKeyPBKDF2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hPrf: BCRYPT_ALG_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pbPassword: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbPassword: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pbSalt: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSalt: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cIterations: ULONGLONG, #[out] #[size_param(7)] pbDerivedKey: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbDerivedKey: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptDestroyHash(#[in] #[out] hHash: BCRYPT_HASH_HANDLE) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptDestroyKey(#[in] #[out] hKey: BCRYPT_KEY_HANDLE) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptDestroySecret(#[in] #[out] hSecret: BCRYPT_SECRET_HANDLE) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptDuplicateHash(hHash: BCRYPT_HASH_HANDLE, phNewHash: *mut BCRYPT_HASH_HANDLE, #[size_param(3)] #[out] #[opt] pbHashObject: PUCHAR, cbHashObject: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDuplicateHash(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHash: BCRYPT_HASH_HANDLE, #[out] phNewHash: *mut BCRYPT_HASH_HANDLE, #[out] #[opt] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = true, Dereference = false)] pbHashObject: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbHashObject: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptDuplicateKey(hKey: BCRYPT_KEY_HANDLE, phNewKey: *mut BCRYPT_KEY_HANDLE, #[size_param(3)] #[out] #[opt] pbKeyObject: PUCHAR, cbKeyObject: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDuplicateKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: BCRYPT_KEY_HANDLE, #[out] phNewKey: *mut BCRYPT_KEY_HANDLE, #[out] #[opt] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = true, Dereference = false)] pbKeyObject: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbKeyObject: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptEncapsulate(hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] #[out] #[opt] pbSecretKey: PUCHAR, cbSecretKey: u32, pcbSecretKey: *mut u32, #[size_param(5)] #[out] #[opt] pbCipherText: PUCHAR, cbCipherText: u32, pcbCipherText: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptEncapsulate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: BCRYPT_KEY_HANDLE, #[out] #[opt] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = true, Dereference = true)] pbSecretKey: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSecretKey: ULONG, #[out] pcbSecretKey: *mut ULONG, #[out] #[opt] #[size_param(5)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 6, IsByteCount = true, Dereference = true)] pbCipherText: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbCipherText: ULONG, #[out] pcbCipherText: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptEncrypt(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: PUCHAR, cbInput: u32, #[in] #[opt] pPaddingInfo: *mut void, #[size_param(5)] #[in] #[out] #[opt] pbIV: PUCHAR, cbIV: u32, #[size_param(7)] #[out] #[opt] pbOutput: PUCHAR, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptEncrypt(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pbInput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInput: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPaddingInfo: *mut void, #[in] #[out] #[opt] #[size_param(5)] pbIV: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbIV: ULONG, #[out] #[opt] #[size_param(7)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 8, IsByteCount = true, Dereference = true)] pbOutput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbOutput: ULONG, #[out] pcbResult: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptEnumAlgorithms(dwAlgOperations: u32, pAlgCount: *mut u32, ppAlgList: *mut *mut BCRYPT_ALGORITHM_IDENTIFIER, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptEnumAlgorithms(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAlgOperations: ULONG, #[out] pAlgCount: *mut ULONG, #[out] ppAlgList: *mut *mut BCRYPT_ALGORITHM_IDENTIFIER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptEnumContextFunctionProviders(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_PROVIDERS) -> NTSTATUS;
+        extern fn BCryptEnumContextFunctionProviders(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInterface: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszFunction: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[out] #[opt] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_PROVIDERS) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptEnumContextFunctions(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_CONTEXT_FUNCTIONS) -> NTSTATUS;
+        extern fn BCryptEnumContextFunctions(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInterface: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[out] #[opt] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTIONS) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptEnumContexts(dwTable: u32, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_CONTEXTS) -> NTSTATUS;
+        extern fn BCryptEnumContexts(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[out] #[opt] ppBuffer: *mut PCRYPT_CONTEXTS) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptEnumProviders(pszAlgId: PCWSTR, pImplCount: *mut u32, ppImplList: *mut *mut BCRYPT_PROVIDER_NAME, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptEnumProviders(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszAlgId: LPCWSTR, #[out] pImplCount: *mut ULONG, #[out] ppImplList: *mut *mut BCRYPT_PROVIDER_NAME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptEnumRegisteredProviders(#[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_PROVIDERS) -> NTSTATUS;
+        extern fn BCryptEnumRegisteredProviders(#[in] #[out] pcbBuffer: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[out] #[opt] ppBuffer: *mut PCRYPT_PROVIDERS) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptExportKey(hKey: BCRYPT_KEY_HANDLE, #[opt] hExportKey: BCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, #[size_param(4)] #[out] #[opt] pbOutput: PUCHAR, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptExportKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hExportKey: BCRYPT_KEY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszBlobType: LPCWSTR, #[out] #[opt] #[size_param(4)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 5, IsByteCount = true, Dereference = true)] pbOutput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbOutput: ULONG, #[out] pcbResult: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptFinalizeKeyPair(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptFinalizeKeyPair(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptFinishHash(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[size_param(2)] #[out] pbOutput: PUCHAR, cbOutput: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptFinishHash(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[out] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = false)] pbOutput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbOutput: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptFreeBuffer(#[in] pvBuffer: *mut void);
+        extern fn BCryptFreeBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvBuffer: PVOID);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptGenRandom(#[opt] hAlgorithm: BCRYPT_ALG_HANDLE, #[size_param(2)] #[out] pbBuffer: PUCHAR, cbBuffer: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptGenRandom(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAlgorithm: BCRYPT_ALG_HANDLE, #[out] #[size_param(2)] pbBuffer: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptGenerateKeyPair(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phKey: *mut BCRYPT_KEY_HANDLE, dwLength: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptGenerateKeyPair(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[out] phKey: *mut BCRYPT_KEY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLength: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptGenerateSymmetricKey(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(3)] #[out] #[opt] pbKeyObject: PUCHAR, cbKeyObject: u32, #[size_param(5)] pbSecret: PUCHAR, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptGenerateSymmetricKey(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[out] phKey: *mut BCRYPT_KEY_HANDLE, #[out] #[opt] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = true, Dereference = false)] pbKeyObject: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbKeyObject: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] pbSecret: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSecret: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptGetFipsAlgorithmMode(pfEnabled: *mut BOOLEAN) -> NTSTATUS;
+        extern fn BCryptGetFipsAlgorithmMode(#[out] pfEnabled: *mut BOOLEAN) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptGetProperty(hObject: BCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] #[out] #[opt] pbOutput: PUCHAR, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptGetProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hObject: BCRYPT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszProperty: LPCWSTR, #[out] #[opt] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] pbOutput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbOutput: ULONG, #[out] pcbResult: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[size_param(2)] #[opt] pbSecret: PUCHAR, cbSecret: u32, #[size_param(4)] pbInput: PUCHAR, cbInput: u32, #[size_param(6)] #[out] pbOutput: PUCHAR, cbOutput: u32) -> NTSTATUS;
+        extern fn BCryptHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pbSecret: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSecret: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pbInput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInput: ULONG, #[out] #[size_param(6)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 6, IsByteCount = true, Dereference = false)] pbOutput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbOutput: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptHashData(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[size_param(2)] pbInput: PUCHAR, cbInput: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptHashData(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pbInput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInput: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptImportKey(hAlgorithm: BCRYPT_ALG_HANDLE, #[opt] hImportKey: BCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(5)] #[out] #[opt] pbKeyObject: PUCHAR, cbKeyObject: u32, #[size_param(7)] pbInput: PUCHAR, cbInput: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptImportKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAlgorithm: BCRYPT_ALG_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hImportKey: BCRYPT_KEY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszBlobType: LPCWSTR, #[out] phKey: *mut BCRYPT_KEY_HANDLE, #[out] #[opt] #[size_param(5)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 5, IsByteCount = true, Dereference = false)] pbKeyObject: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbKeyObject: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(7)] pbInput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInput: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptImportKeyPair(hAlgorithm: BCRYPT_ALG_HANDLE, #[opt] hImportKey: BCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(5)] pbInput: PUCHAR, cbInput: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptImportKeyPair(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAlgorithm: BCRYPT_ALG_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hImportKey: BCRYPT_KEY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszBlobType: LPCWSTR, #[out] phKey: *mut BCRYPT_KEY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] pbInput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInput: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptKeyDerivation(hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] pParameterList: *mut BCryptBufferDesc, #[size_param(3)] #[out] pbDerivedKey: PUCHAR, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptKeyDerivation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pParameterList: *mut BCryptBufferDesc, #[out] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] pbDerivedKey: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbDerivedKey: ULONG, #[out] pcbResult: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptOpenAlgorithmProvider(phAlgorithm: *mut BCRYPT_ALG_HANDLE, pszAlgId: PCWSTR, #[opt] pszImplementation: PCWSTR, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptOpenAlgorithmProvider(#[out] phAlgorithm: *mut BCRYPT_ALG_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszAlgId: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszImplementation: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptProcessMultiOperations(#[in] #[out] hObject: BCRYPT_HANDLE, operationType: BCRYPT_MULTI_OPERATION_TYPE, #[size_param(3)] #[in] pOperations: *mut void, cbOperations: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptProcessMultiOperations(#[in] #[out] hObject: BCRYPT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] operationType: BCRYPT_MULTI_OPERATION_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pOperations: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbOperations: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptQueryContextConfiguration(dwTable: u32, pszContext: PCWSTR, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        extern fn BCryptQueryContextConfiguration(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[out] #[opt] ppBuffer: *mut PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptQueryContextFunctionConfiguration(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
+        extern fn BCryptQueryContextFunctionConfiguration(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInterface: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszFunction: LPCWSTR, #[in] #[out] pcbBuffer: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[out] #[opt] ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptQueryContextFunctionProperty(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, pszProperty: PCWSTR, #[in] #[out] pcbValue: *mut u32, ppbValue: *mut PUCHAR) -> NTSTATUS;
+        extern fn BCryptQueryContextFunctionProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInterface: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszFunction: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszProperty: LPCWSTR, #[in] #[out] pcbValue: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[out] #[opt] ppbValue: *mut PUCHAR) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptQueryProviderRegistration(pszProvider: PCWSTR, dwMode: u32, dwInterface: u32, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_PROVIDER_REG) -> NTSTATUS;
+        extern fn BCryptQueryProviderRegistration(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszProvider: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMode: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInterface: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[out] #[opt] ppBuffer: *mut PCRYPT_PROVIDER_REG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptRegisterConfigChangeNotify(phEvent: *mut HANDLE) -> NTSTATUS;
+        extern fn BCryptRegisterConfigChangeNotify(#[out] phEvent: *mut HANDLE) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptRemoveContextFunction(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR) -> NTSTATUS;
+        extern fn BCryptRemoveContextFunction(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInterface: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszFunction: LPCWSTR) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptResolveProviders(#[opt] pszContext: PCWSTR, #[opt] dwInterface: u32, #[opt] pszFunction: PCWSTR, #[opt] pszProvider: PCWSTR, dwMode: u32, dwFlags: u32, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_PROVIDER_REFS) -> NTSTATUS;
+        extern fn BCryptResolveProviders(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInterface: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszFunction: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszProvider: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMode: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[out] #[opt] ppBuffer: *mut PCRYPT_PROVIDER_REFS) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptSecretAgreement(hPrivKey: BCRYPT_KEY_HANDLE, hPubKey: BCRYPT_KEY_HANDLE, phAgreedSecret: *mut BCRYPT_SECRET_HANDLE, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptSecretAgreement(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hPrivKey: BCRYPT_KEY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hPubKey: BCRYPT_KEY_HANDLE, #[out] phAgreedSecret: *mut BCRYPT_SECRET_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptSetContextFunctionProperty(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, pszProperty: PCWSTR, cbValue: u32, #[size_param(5)] #[opt] pbValue: PUCHAR) -> NTSTATUS;
+        extern fn BCryptSetContextFunctionProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInterface: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszFunction: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszProperty: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbValue: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] pbValue: PUCHAR) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptSetProperty(#[in] #[out] hObject: BCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] pbInput: PUCHAR, cbInput: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptSetProperty(#[in] #[out] hObject: BCRYPT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszProperty: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pbInput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInput: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptSignHash(hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] pPaddingInfo: *mut void, #[size_param(3)] pbInput: PUCHAR, cbInput: u32, #[size_param(5)] #[out] #[opt] pbOutput: PUCHAR, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptSignHash(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPaddingInfo: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pbInput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInput: ULONG, #[out] #[opt] #[size_param(5)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 6, IsByteCount = true, Dereference = true)] pbOutput: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbOutput: ULONG, #[out] pcbResult: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptUnregisterConfigChangeNotify(hEvent: HANDLE) -> NTSTATUS;
+        extern fn BCryptUnregisterConfigChangeNotify(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEvent: HANDLE) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("bcrypt.dll")]
-        extern fn BCryptVerifySignature(hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] pPaddingInfo: *mut void, #[size_param(3)] pbHash: PUCHAR, cbHash: u32, #[size_param(5)] pbSignature: PUCHAR, cbSignature: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptVerifySignature(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPaddingInfo: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pbHash: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbHash: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] pbSignature: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSignature: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG) -> NTSTATUS;
         const CRYPT_ALL_FUNCTIONS: i32 = 1;
         const CRYPT_ALL_PROVIDERS: i32 = 2;
         const CRYPT_ANY: i32 = 4;
         struct CRYPT_CONTEXTS {
-            cContexts: u32,
+            cContexts: ULONG,
             rgpszContexts: *mut PWSTR,
         }
         struct CRYPT_CONTEXT_CONFIG {
-            dwFlags: u32,
-            dwReserved: u32,
+            dwFlags: ULONG,
+            dwReserved: ULONG,
         }
         struct CRYPT_CONTEXT_FUNCTIONS {
-            cFunctions: u32,
+            cFunctions: ULONG,
             rgpszFunctions: *mut PWSTR,
         }
         struct CRYPT_CONTEXT_FUNCTION_CONFIG {
-            dwFlags: u32,
-            dwReserved: u32,
+            dwFlags: ULONG,
+            dwReserved: ULONG,
         }
         struct CRYPT_CONTEXT_FUNCTION_PROVIDERS {
-            cProviders: u32,
+            cProviders: ULONG,
             rgpszProviders: *mut PWSTR,
         }
         #[encoding("utf-16")]
@@ -887,17 +936,17 @@ mod Windows {
         const CRYPT_EXCLUSIVE: i32 = 1;
         struct CRYPT_IMAGE_REF {
             pszImage: PWSTR,
-            dwFlags: u32,
+            dwFlags: ULONG,
         }
         struct CRYPT_IMAGE_REG {
             pszImage: PWSTR,
-            cInterfaces: u32,
+            cInterfaces: ULONG,
             rgpInterfaces: *mut PCRYPT_INTERFACE_REG,
         }
         struct CRYPT_INTERFACE_REG {
-            dwInterface: u32,
-            dwFlags: u32,
-            cFunctions: u32,
+            dwInterface: ULONG,
+            dwFlags: ULONG,
+            cFunctions: ULONG,
             rgpszFunctions: *mut PWSTR,
         }
         const CRYPT_KM: i32 = 2;
@@ -911,28 +960,28 @@ mod Windows {
         const CRYPT_PROCESS_ISOLATE: i32 = 65536;
         struct CRYPT_PROPERTY_REF {
             pszProperty: PWSTR,
-            cbValue: u32,
+            cbValue: ULONG,
             pbValue: PUCHAR,
         }
         struct CRYPT_PROVIDERS {
-            cProviders: u32,
+            cProviders: ULONG,
             rgpszProviders: *mut PWSTR,
         }
         struct CRYPT_PROVIDER_REF {
-            dwInterface: u32,
+            dwInterface: ULONG,
             pszFunction: PWSTR,
             pszProvider: PWSTR,
-            cProperties: u32,
+            cProperties: ULONG,
             rgpProperties: *mut PCRYPT_PROPERTY_REF,
             pUM: PCRYPT_IMAGE_REF,
             pKM: PCRYPT_IMAGE_REF,
         }
         struct CRYPT_PROVIDER_REFS {
-            cProviders: u32,
+            cProviders: ULONG,
             rgpProviders: *mut PCRYPT_PROVIDER_REF,
         }
         struct CRYPT_PROVIDER_REG {
-            cAliases: u32,
+            cAliases: ULONG,
             rgpszAliases: *mut PWSTR,
             pUM: PCRYPT_IMAGE_REG,
             pKM: PCRYPT_IMAGE_REG,
@@ -1002,7 +1051,6 @@ mod Windows {
         const MS_PLATFORM_CRYPTO_PROVIDER: String = "Microsoft Platform Crypto Provider";
         #[encoding("utf-16")]
         const MS_PRIMITIVE_PROVIDER: String = "Microsoft Primitive Provider";
-        type NTSTATUS = i32;
         type PBCRYPT_AUTHENTICATED_CIPHER_MODE_INFO = *mut BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO;
         type PBCRYPT_DH_KEY_BLOB = *mut BCRYPT_DH_KEY_BLOB;
         type PBCRYPT_DSA_KEY_BLOB = *mut BCRYPT_DSA_KEY_BLOB;
@@ -1029,13 +1077,12 @@ mod Windows {
         type PCRYPT_PROVIDER_REF = *mut CRYPT_PROVIDER_REF;
         type PCRYPT_PROVIDER_REFS = *mut CRYPT_PROVIDER_REFS;
         type PCRYPT_PROVIDER_REG = *mut CRYPT_PROVIDER_REG;
-        type PNTSTATUS = *mut NTSTATUS;
         type PSSL_ECCKEY_BLOB = *mut SSL_ECCKEY_BLOB;
         type PTLS_HYBRID_KEYEXCHANGE_BLOB = *mut TLS_HYBRID_KEYEXCHANGE_BLOB;
         type PTLS_KEM_CIPHERTEXT_BLOB = *mut TLS_KEM_CIPHERTEXT_BLOB;
         struct SSL_ECCKEY_BLOB {
-            dwCurveType: u32,
-            cbKey: u32,
+            dwCurveType: ULONG,
+            cbKey: ULONG,
         }
         #[encoding("utf-16")]
         const SSL_ECCPUBLIC_BLOB: String = "SSLECCPUBLICBLOB";
@@ -1044,18 +1091,21 @@ mod Windows {
         #[encoding("utf-16")]
         const TLS_HYBRID_KEYEXCHANGE: String = "TLS_HYBRID_KEYEXCHANGE";
         struct TLS_HYBRID_KEYEXCHANGE_BLOB {
-            dwMagic: u32,
-            dwKeyType: u32,
-            NumBlobs: u8,
+            dwMagic: ULONG,
+            dwKeyType: ULONG,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "2,4", "2,4")]
+            NumBlobs: UCHAR,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_part_", "NumBlobs, 4", "NumBlobs, 4")]
             rgwszBlobTypes: [PCWSTR; 4],
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_part_", "NumBlobs, 4", "NumBlobs, 4")]
             rgbBlobs: [PUCHAR; 4],
         }
         const TLS_HYBRID_KEYEXCHANGE_MAGIC: i32 = 1213418580;
         #[encoding("utf-16")]
         const TLS_KEM_CIPHERTEXT: String = "TLS_KEM_CIPHER_TEXT";
         struct TLS_KEM_CIPHERTEXT_BLOB {
-            dwMagic: u32,
-            cbLength: u32,
+            dwMagic: ULONG,
+            cbLength: ULONG,
         }
         const TLS_KEM_CIPHERTEXT_MAGIC: i32 = 1129008205;
     }

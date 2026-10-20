@@ -12,12 +12,12 @@ mod Windows {
             Description: [i8; 512],
             DeviceName: [i8; 32],
             DriverVersion: LARGE_INTEGER,
-            VendorId: u32,
-            DeviceId: u32,
-            SubSysId: u32,
-            Revision: u32,
+            VendorId: DWORD,
+            DeviceId: DWORD,
+            SubSysId: DWORD,
+            Revision: DWORD,
             DeviceIdentifier: GUID,
-            WHQLLevel: u32,
+            WHQLLevel: DWORD,
         }
         #[packed(4)]
         #[arch(X86)]
@@ -26,23 +26,23 @@ mod Windows {
             Description: [i8; 512],
             DeviceName: [i8; 32],
             DriverVersion: LARGE_INTEGER,
-            VendorId: u32,
-            DeviceId: u32,
-            SubSysId: u32,
-            Revision: u32,
+            VendorId: DWORD,
+            DeviceId: DWORD,
+            SubSysId: DWORD,
+            Revision: DWORD,
             DeviceIdentifier: GUID,
-            WHQLLevel: u32,
+            WHQLLevel: DWORD,
         }
         #[arch(X64 | Arm64)]
         struct D3DAES_CTR_IV {
-            IV: u64,
-            Count: u64,
+            IV: UINT64,
+            Count: UINT64,
         }
         #[packed(4)]
         #[arch(X86)]
         struct D3DAES_CTR_IV {
-            IV: u64,
-            Count: u64,
+            IV: UINT64,
+            Count: UINT64,
         }
         #[repr(i32)]
         enum D3DAUTHENTICATEDCHANNELTYPE {
@@ -50,42 +50,101 @@ mod Windows {
             D3DAUTHENTICATEDCHANNEL_DRIVER_SOFTWARE = 2,
             D3DAUTHENTICATEDCHANNEL_DRIVER_HARDWARE = 3,
         }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
             Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
             DXVA2DecodeHandle: HANDLE,
             CryptoSessionHandle: HANDLE,
             DeviceHandle: HANDLE,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
+            Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+            DXVA2DecodeHandle: HANDLE,
+            CryptoSessionHandle: HANDLE,
+            DeviceHandle: HANDLE,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
             Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
-            StartSequenceQuery: u32,
-            StartSequenceConfigure: u32,
+            StartSequenceQuery: UINT,
+            StartSequenceConfigure: UINT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
+            Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+            StartSequenceQuery: UINT,
+            StartSequenceConfigure: UINT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
             Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
             Protections: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
+            Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+            Protections: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
             Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
             ProcessIdentiferType: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
             ProcessHandle: HANDLE,
             AllowAccess: BOOL,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
+            Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+            ProcessIdentiferType: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
+            ProcessHandle: HANDLE,
+            AllowAccess: BOOL,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
             Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
             EncryptionGuid: GUID,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
+            Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+            EncryptionGuid: GUID,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
             omac: D3D_OMAC,
             ConfigureType: GUID,
             hChannel: HANDLE,
-            SequenceNumber: u32,
+            SequenceNumber: UINT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
+            omac: D3D_OMAC,
+            ConfigureType: GUID,
+            hChannel: HANDLE,
+            SequenceNumber: UINT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
             omac: D3D_OMAC,
             ConfigureType: GUID,
             hChannel: HANDLE,
-            SequenceNumber: u32,
+            SequenceNumber: UINT,
+            ReturnCode: HRESULT,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
+            omac: D3D_OMAC,
+            ConfigureType: GUID,
+            hChannel: HANDLE,
+            SequenceNumber: UINT,
             ReturnCode: HRESULT,
         }
         #[repr(i32)]
@@ -94,79 +153,179 @@ mod Windows {
             PROCESSIDTYPE_DWM = 1,
             PROCESSIDTYPE_HANDLE = 2,
         }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        ProtectionEnabled: 1,
-                        OverlayOrFullscreenRequired: 1,
-                        Reserved: 30,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("OverlayOrFullscreenRequired", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("ProtectionEnabled", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
+            Anonymous: #[packed(4)] union {
+                Anonymous: #[packed(4)] struct {
+                    #[Windows::Win32::Metadata::NativeBitfield("OverlayOrFullscreenRequired", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("ProtectionEnabled", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = UINT)]
+                    _bitfield: u32,
+                },
+                Value: UINT,
+            },
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             ChannelType: D3DAUTHENTICATEDCHANNELTYPE,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            ChannelType: D3DAUTHENTICATEDCHANNELTYPE,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
             DXVA2DecodeHandle: HANDLE,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
+            Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+            DXVA2DecodeHandle: HANDLE,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             DXVA2DecodeHandle: HANDLE,
             CryptoSessionHandle: HANDLE,
             DeviceHandle: HANDLE,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            DXVA2DecodeHandle: HANDLE,
+            CryptoSessionHandle: HANDLE,
+            DeviceHandle: HANDLE,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             DeviceHandle: HANDLE,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            DeviceHandle: HANDLE,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
-            NumEncryptionGuids: u32,
+            NumEncryptionGuids: UINT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            NumEncryptionGuids: UINT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
-            EncryptionGuidIndex: u32,
+            EncryptionGuidIndex: UINT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
+            Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+            EncryptionGuidIndex: UINT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
-            EncryptionGuidIndex: u32,
+            EncryptionGuidIndex: UINT,
             EncryptionGuid: GUID,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            EncryptionGuidIndex: UINT,
+            EncryptionGuid: GUID,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             BusType: D3DBUSTYPE,
             bAccessibleInContiguousBlocks: BOOL,
             bAccessibleInNonContiguousBlocks: BOOL,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            BusType: D3DBUSTYPE,
+            bAccessibleInContiguousBlocks: BOOL,
+            bAccessibleInNonContiguousBlocks: BOOL,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
             DeviceHandle: HANDLE,
             CryptoSessionHandle: HANDLE,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
+            Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+            DeviceHandle: HANDLE,
+            CryptoSessionHandle: HANDLE,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             DeviceHandle: HANDLE,
             CryptoSessionHandle: HANDLE,
-            NumOutputIDs: u32,
+            NumOutputIDs: UINT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            DeviceHandle: HANDLE,
+            CryptoSessionHandle: HANDLE,
+            NumOutputIDs: UINT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
             DeviceHandle: HANDLE,
             CryptoSessionHandle: HANDLE,
-            OutputIDIndex: u32,
+            OutputIDIndex: UINT,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
+            Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+            DeviceHandle: HANDLE,
+            CryptoSessionHandle: HANDLE,
+            OutputIDIndex: UINT,
         }
         #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             DeviceHandle: HANDLE,
             CryptoSessionHandle: HANDLE,
-            OutputIDIndex: u32,
-            OutputID: u64,
+            OutputIDIndex: UINT,
+            OutputID: UINT64,
         }
         #[packed(4)]
         #[arch(X86)]
@@ -174,45 +333,107 @@ mod Windows {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             DeviceHandle: HANDLE,
             CryptoSessionHandle: HANDLE,
-            OutputIDIndex: u32,
-            OutputID: u64,
+            OutputIDIndex: UINT,
+            OutputID: UINT64,
         }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             ProtectionFlags: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            ProtectionFlags: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
-            NumRestrictedSharedResourceProcesses: u32,
+            NumRestrictedSharedResourceProcesses: UINT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            NumRestrictedSharedResourceProcesses: UINT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
-            ProcessIndex: u32,
+            ProcessIndex: UINT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
+            Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+            ProcessIndex: UINT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
-            ProcessIndex: u32,
+            ProcessIndex: UINT,
             ProcessIdentifer: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
             ProcessHandle: HANDLE,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            ProcessIndex: UINT,
+            ProcessIdentifer: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
+            ProcessHandle: HANDLE,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             EncryptionGuid: GUID,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            EncryptionGuid: GUID,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
-            NumUnrestrictedProtectedSharedResources: u32,
+            NumUnrestrictedProtectedSharedResources: UINT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            NumUnrestrictedProtectedSharedResources: UINT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
             QueryType: GUID,
             hChannel: HANDLE,
-            SequenceNumber: u32,
+            SequenceNumber: UINT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
+            QueryType: GUID,
+            hChannel: HANDLE,
+            SequenceNumber: UINT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
             omac: D3D_OMAC,
             QueryType: GUID,
             hChannel: HANDLE,
-            SequenceNumber: u32,
+            SequenceNumber: UINT,
+            ReturnCode: HRESULT,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
+            omac: D3D_OMAC,
+            QueryType: GUID,
+            hChannel: HANDLE,
+            SequenceNumber: UINT,
             ReturnCode: HRESULT,
         }
         const D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION: GUID = 0x6346cc54_2cfc_4ad4_8224_d15837de7700;
@@ -277,13 +498,24 @@ mod Windows {
             D3DBLENDOP_MAX = 5,
             D3DBLENDOP_FORCE_DWORD = 2147483647,
         }
+        #[arch(X64 | Arm64)]
         struct D3DBOX {
-            Left: u32,
-            Top: u32,
-            Right: u32,
-            Bottom: u32,
-            Front: u32,
-            Back: u32,
+            Left: UINT,
+            Top: UINT,
+            Right: UINT,
+            Bottom: UINT,
+            Front: UINT,
+            Back: UINT,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DBOX {
+            Left: UINT,
+            Top: UINT,
+            Right: UINT,
+            Bottom: UINT,
+            Front: UINT,
+            Back: UINT,
         }
         #[repr(i32)]
         enum D3DBUSTYPE {
@@ -308,9 +540,16 @@ mod Windows {
         const D3DCLIPPLANE3: i32 = 8;
         const D3DCLIPPLANE4: i32 = 16;
         const D3DCLIPPLANE5: i32 = 32;
+        #[arch(X64 | Arm64)]
         struct D3DCLIPSTATUS9 {
-            ClipUnion: u32,
-            ClipIntersection: u32,
+            ClipUnion: DWORD,
+            ClipIntersection: DWORD,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DCLIPSTATUS9 {
+            ClipUnion: DWORD,
+            ClipIntersection: DWORD,
         }
         #[repr(i32)]
         enum D3DCMPFUNC {
@@ -328,17 +567,35 @@ mod Windows {
         const D3DCOLORWRITEENABLE_BLUE: i32 = 4;
         const D3DCOLORWRITEENABLE_GREEN: i32 = 2;
         const D3DCOLORWRITEENABLE_RED: i32 = 1;
+        #[arch(X64 | Arm64)]
         struct D3DCOMPOSERECTDESC {
-            X: u16,
-            Y: u16,
-            Width: u16,
-            Height: u16,
+            X: USHORT,
+            Y: USHORT,
+            Width: USHORT,
+            Height: USHORT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DCOMPOSERECTDESC {
+            X: USHORT,
+            Y: USHORT,
+            Width: USHORT,
+            Height: USHORT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DCOMPOSERECTDESTINATION {
-            SrcRectIndex: u16,
-            Reserved: u16,
-            X: i16,
-            Y: i16,
+            SrcRectIndex: USHORT,
+            Reserved: USHORT,
+            X: SHORT,
+            Y: SHORT,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DCOMPOSERECTDESTINATION {
+            SrcRectIndex: USHORT,
+            Reserved: USHORT,
+            X: SHORT,
+            Y: SHORT,
         }
         #[repr(i32)]
         enum D3DCOMPOSERECTSOP {
@@ -443,52 +700,126 @@ mod Windows {
             D3DDEGREE_QUINTIC = 5,
             D3DDEGREE_FORCE_DWORD = 2147483647,
         }
+        #[arch(X64 | Arm64)]
         struct D3DDEVICE_CREATION_PARAMETERS {
-            AdapterOrdinal: u32,
+            AdapterOrdinal: UINT,
             DeviceType: D3DDEVTYPE,
             hFocusWindow: HWND,
-            BehaviorFlags: u32,
+            BehaviorFlags: DWORD,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DDEVICE_CREATION_PARAMETERS {
+            AdapterOrdinal: UINT,
+            DeviceType: D3DDEVTYPE,
+            hFocusWindow: HWND,
+            BehaviorFlags: DWORD,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
-            MaxBandwidthUtilized: f32,
-            FrontEndUploadMemoryUtilizedPercent: f32,
-            VertexRateUtilizedPercent: f32,
-            TriangleSetupRateUtilizedPercent: f32,
-            FillRateUtilizedPercent: f32,
+            MaxBandwidthUtilized: FLOAT,
+            FrontEndUploadMemoryUtilizedPercent: FLOAT,
+            VertexRateUtilizedPercent: FLOAT,
+            TriangleSetupRateUtilizedPercent: FLOAT,
+            FillRateUtilizedPercent: FLOAT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
+            MaxBandwidthUtilized: FLOAT,
+            FrontEndUploadMemoryUtilizedPercent: FLOAT,
+            VertexRateUtilizedPercent: FLOAT,
+            TriangleSetupRateUtilizedPercent: FLOAT,
+            FillRateUtilizedPercent: FLOAT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DDEVINFO_D3D9CACHEUTILIZATION {
-            TextureCacheHitRate: f32,
-            PostTransformVertexCacheHitRate: f32,
+            TextureCacheHitRate: FLOAT,
+            PostTransformVertexCacheHitRate: FLOAT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DDEVINFO_D3D9CACHEUTILIZATION {
+            TextureCacheHitRate: FLOAT,
+            PostTransformVertexCacheHitRate: FLOAT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DDEVINFO_D3D9INTERFACETIMINGS {
-            WaitingForGPUToUseApplicationResourceTimePercent: f32,
-            WaitingForGPUToAcceptMoreCommandsTimePercent: f32,
-            WaitingForGPUToStayWithinLatencyTimePercent: f32,
-            WaitingForGPUExclusiveResourceTimePercent: f32,
-            WaitingForGPUOtherTimePercent: f32,
+            WaitingForGPUToUseApplicationResourceTimePercent: FLOAT,
+            WaitingForGPUToAcceptMoreCommandsTimePercent: FLOAT,
+            WaitingForGPUToStayWithinLatencyTimePercent: FLOAT,
+            WaitingForGPUExclusiveResourceTimePercent: FLOAT,
+            WaitingForGPUOtherTimePercent: FLOAT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DDEVINFO_D3D9INTERFACETIMINGS {
+            WaitingForGPUToUseApplicationResourceTimePercent: FLOAT,
+            WaitingForGPUToAcceptMoreCommandsTimePercent: FLOAT,
+            WaitingForGPUToStayWithinLatencyTimePercent: FLOAT,
+            WaitingForGPUExclusiveResourceTimePercent: FLOAT,
+            WaitingForGPUOtherTimePercent: FLOAT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DDEVINFO_D3D9PIPELINETIMINGS {
-            VertexProcessingTimePercent: f32,
-            PixelProcessingTimePercent: f32,
-            OtherGPUProcessingTimePercent: f32,
-            GPUIdleTimePercent: f32,
+            VertexProcessingTimePercent: FLOAT,
+            PixelProcessingTimePercent: FLOAT,
+            OtherGPUProcessingTimePercent: FLOAT,
+            GPUIdleTimePercent: FLOAT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DDEVINFO_D3D9PIPELINETIMINGS {
+            VertexProcessingTimePercent: FLOAT,
+            PixelProcessingTimePercent: FLOAT,
+            OtherGPUProcessingTimePercent: FLOAT,
+            GPUIdleTimePercent: FLOAT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DDEVINFO_D3D9STAGETIMINGS {
-            MemoryProcessingPercent: f32,
-            ComputationProcessingPercent: f32,
+            MemoryProcessingPercent: FLOAT,
+            ComputationProcessingPercent: FLOAT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DDEVINFO_D3D9STAGETIMINGS {
+            MemoryProcessingPercent: FLOAT,
+            ComputationProcessingPercent: FLOAT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DDEVINFO_D3DVERTEXSTATS {
-            NumRenderedTriangles: u32,
-            NumExtraClippingTriangles: u32,
+            NumRenderedTriangles: DWORD,
+            NumExtraClippingTriangles: DWORD,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DDEVINFO_D3DVERTEXSTATS {
+            NumRenderedTriangles: DWORD,
+            NumExtraClippingTriangles: DWORD,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DDEVINFO_RESOURCEMANAGER {
             stats: [D3DRESOURCESTATS; 8],
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DDEVINFO_RESOURCEMANAGER {
+            stats: [D3DRESOURCESTATS; 8],
+        }
+        #[arch(X64 | Arm64)]
         struct D3DDEVINFO_VCACHE {
-            Pattern: u32,
-            OptMethod: u32,
-            CacheSize: u32,
-            MagicNumber: u32,
+            Pattern: DWORD,
+            OptMethod: DWORD,
+            CacheSize: DWORD,
+            MagicNumber: DWORD,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DDEVINFO_VCACHE {
+            Pattern: DWORD,
+            OptMethod: DWORD,
+            CacheSize: DWORD,
+            MagicNumber: DWORD,
         }
         #[repr(i32)]
         enum D3DDEVTYPE {
@@ -498,22 +829,50 @@ mod Windows {
             D3DDEVTYPE_NULLREF = 4,
             D3DDEVTYPE_FORCE_DWORD = 2147483647,
         }
+        #[arch(X64 | Arm64)]
         struct D3DDISPLAYMODE {
-            Width: u32,
-            Height: u32,
-            RefreshRate: u32,
+            Width: UINT,
+            Height: UINT,
+            RefreshRate: UINT,
             Format: D3DFORMAT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DDISPLAYMODE {
+            Width: UINT,
+            Height: UINT,
+            RefreshRate: UINT,
+            Format: D3DFORMAT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DDISPLAYMODEEX {
-            Size: u32,
-            Width: u32,
-            Height: u32,
-            RefreshRate: u32,
+            Size: UINT,
+            Width: UINT,
+            Height: UINT,
+            RefreshRate: UINT,
             Format: D3DFORMAT,
             ScanLineOrdering: D3DSCANLINEORDERING,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DDISPLAYMODEEX {
+            Size: UINT,
+            Width: UINT,
+            Height: UINT,
+            RefreshRate: UINT,
+            Format: D3DFORMAT,
+            ScanLineOrdering: D3DSCANLINEORDERING,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DDISPLAYMODEFILTER {
-            Size: u32,
+            Size: UINT,
+            Format: D3DFORMAT,
+            ScanLineOrdering: D3DSCANLINEORDERING,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DDISPLAYMODEFILTER {
+            Size: UINT,
             Format: D3DFORMAT,
             ScanLineOrdering: D3DSCANLINEORDERING,
         }
@@ -526,10 +885,18 @@ mod Windows {
         }
         const D3DDMAPSAMPLER: i32 = 256;
         const D3DDP_MAXTEXCOORD: i32 = 8;
+        #[arch(X64 | Arm64)]
         struct D3DENCRYPTED_BLOCK_INFO {
-            NumEncryptedBytesAtBeginning: u32,
-            NumBytesInSkipPattern: u32,
-            NumBytesInEncryptPattern: u32,
+            NumEncryptedBytesAtBeginning: UINT,
+            NumBytesInSkipPattern: UINT,
+            NumBytesInEncryptPattern: UINT,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DENCRYPTED_BLOCK_INFO {
+            NumEncryptedBytesAtBeginning: UINT,
+            NumBytesInSkipPattern: UINT,
+            NumBytesInEncryptPattern: UINT,
         }
         #[repr(i32)]
         enum D3DFILLMODE {
@@ -649,21 +1016,57 @@ mod Windows {
         const D3DFVF_XYZB5: i32 = 14;
         const D3DFVF_XYZRHW: i32 = 4;
         const D3DFVF_XYZW: i32 = 16386;
+        #[arch(X64 | Arm64)]
         struct D3DGAMMARAMP {
-            red: [u16; 256],
-            green: [u16; 256],
-            blue: [u16; 256],
+            red: [WORD; 256],
+            green: [WORD; 256],
+            blue: [WORD; 256],
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DGAMMARAMP {
+            red: [WORD; 256],
+            green: [WORD; 256],
+            blue: [WORD; 256],
         }
         const D3DGETDATA_FLUSH: i32 = 1;
+        #[arch(X64 | Arm64)]
         struct D3DINDEXBUFFER_DESC {
             Format: D3DFORMAT,
             Type: D3DRESOURCETYPE,
-            Usage: u32,
+            Usage: DWORD,
             Pool: D3DPOOL,
-            Size: u32,
+            Size: UINT,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DINDEXBUFFER_DESC {
+            Format: D3DFORMAT,
+            Type: D3DRESOURCETYPE,
+            Usage: DWORD,
+            Pool: D3DPOOL,
+            Size: UINT,
         }
         const D3DISSUE_BEGIN: i32 = 2;
         const D3DISSUE_END: i32 = 1;
+        #[arch(X64 | Arm64)]
+        struct D3DLIGHT9 {
+            Type: D3DLIGHTTYPE,
+            Diffuse: D3DCOLORVALUE,
+            Specular: D3DCOLORVALUE,
+            Ambient: D3DCOLORVALUE,
+            Position: D3DVECTOR,
+            Direction: D3DVECTOR,
+            Range: f32,
+            Falloff: f32,
+            Attenuation0: f32,
+            Attenuation1: f32,
+            Attenuation2: f32,
+            Theta: f32,
+            Phi: f32,
+        }
+        #[packed(4)]
+        #[arch(X86)]
         struct D3DLIGHT9 {
             Type: D3DLIGHTTYPE,
             Diffuse: D3DCOLORVALUE,
@@ -686,13 +1089,28 @@ mod Windows {
             D3DLIGHT_DIRECTIONAL = 3,
             D3DLIGHT_FORCE_DWORD = 2147483647,
         }
+        #[arch(X64 | Arm64)]
         struct D3DLOCKED_BOX {
-            RowPitch: i32,
-            SlicePitch: i32,
+            RowPitch: INT,
+            SlicePitch: INT,
             pBits: *mut void,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DLOCKED_BOX {
+            RowPitch: INT,
+            SlicePitch: INT,
+            pBits: *mut void,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DLOCKED_RECT {
-            Pitch: i32,
+            Pitch: INT,
+            pBits: *mut void,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DLOCKED_RECT {
+            Pitch: INT,
             pBits: *mut void,
         }
         const D3DLOCK_DISCARD: i32 = 8192;
@@ -701,6 +1119,16 @@ mod Windows {
         const D3DLOCK_NOSYSLOCK: i32 = 2048;
         const D3DLOCK_NO_DIRTY_UPDATE: i32 = 32768;
         const D3DLOCK_READONLY: i32 = 16;
+        #[arch(X64 | Arm64)]
+        struct D3DMATERIAL9 {
+            Diffuse: D3DCOLORVALUE,
+            Ambient: D3DCOLORVALUE,
+            Specular: D3DCOLORVALUE,
+            Emissive: D3DCOLORVALUE,
+            Power: f32,
+        }
+        #[packed(4)]
+        #[arch(X86)]
         struct D3DMATERIAL9 {
             Diffuse: D3DCOLORVALUE,
             Ambient: D3DCOLORVALUE,
@@ -715,6 +1143,7 @@ mod Windows {
             D3DMCS_COLOR2 = 2,
             D3DMCS_FORCE_DWORD = 2147483647,
         }
+        #[arch(X64 | Arm64)]
         struct D3DMATRIX {
             Anonymous: union {
                 Anonymous: struct {
@@ -738,19 +1167,44 @@ mod Windows {
                 m: [[f32; 4]; 4],
             },
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DMATRIX {
+            Anonymous: #[packed(4)] union {
+                Anonymous: #[packed(4)] struct {
+                    _11: f32,
+                    _12: f32,
+                    _13: f32,
+                    _14: f32,
+                    _21: f32,
+                    _22: f32,
+                    _23: f32,
+                    _24: f32,
+                    _31: f32,
+                    _32: f32,
+                    _33: f32,
+                    _34: f32,
+                    _41: f32,
+                    _42: f32,
+                    _43: f32,
+                    _44: f32,
+                },
+                m: [[f32; 4]; 4],
+            },
+        }
         const D3DMAXUSERCLIPPLANES: i32 = 32;
         #[arch(X64 | Arm64)]
         struct D3DMEMORYPRESSURE {
-            BytesEvictedFromProcess: u64,
-            SizeOfInefficientAllocation: u64,
-            LevelOfEfficiency: u32,
+            BytesEvictedFromProcess: UINT64,
+            SizeOfInefficientAllocation: UINT64,
+            LevelOfEfficiency: DWORD,
         }
         #[packed(4)]
         #[arch(X86)]
         struct D3DMEMORYPRESSURE {
-            BytesEvictedFromProcess: u64,
-            SizeOfInefficientAllocation: u64,
-            LevelOfEfficiency: u32,
+            BytesEvictedFromProcess: UINT64,
+            SizeOfInefficientAllocation: UINT64,
+            LevelOfEfficiency: DWORD,
         }
         #[repr(i32)]
         enum D3DMULTISAMPLE_TYPE {
@@ -800,36 +1254,55 @@ mod Windows {
         const D3DPRESENTFLAG_VIDEO: i32 = 16;
         #[arch(X64 | Arm64)]
         struct D3DPRESENTSTATS {
-            PresentCount: u32,
-            PresentRefreshCount: u32,
-            SyncRefreshCount: u32,
+            PresentCount: UINT,
+            PresentRefreshCount: UINT,
+            SyncRefreshCount: UINT,
             SyncQPCTime: LARGE_INTEGER,
             SyncGPUTime: LARGE_INTEGER,
         }
         #[packed(4)]
         #[arch(X86)]
         struct D3DPRESENTSTATS {
-            PresentCount: u32,
-            PresentRefreshCount: u32,
-            SyncRefreshCount: u32,
+            PresentCount: UINT,
+            PresentRefreshCount: UINT,
+            SyncRefreshCount: UINT,
             SyncQPCTime: LARGE_INTEGER,
             SyncGPUTime: LARGE_INTEGER,
         }
+        #[arch(X64 | Arm64)]
         struct D3DPRESENT_PARAMETERS {
-            BackBufferWidth: u32,
-            BackBufferHeight: u32,
+            BackBufferWidth: UINT,
+            BackBufferHeight: UINT,
             BackBufferFormat: D3DFORMAT,
-            BackBufferCount: u32,
+            BackBufferCount: UINT,
             MultiSampleType: D3DMULTISAMPLE_TYPE,
-            MultiSampleQuality: u32,
+            MultiSampleQuality: DWORD,
             SwapEffect: D3DSWAPEFFECT,
             hDeviceWindow: HWND,
             Windowed: BOOL,
             EnableAutoDepthStencil: BOOL,
             AutoDepthStencilFormat: D3DFORMAT,
-            Flags: u32,
-            FullScreen_RefreshRateInHz: u32,
-            PresentationInterval: u32,
+            Flags: DWORD,
+            FullScreen_RefreshRateInHz: UINT,
+            PresentationInterval: UINT,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DPRESENT_PARAMETERS {
+            BackBufferWidth: UINT,
+            BackBufferHeight: UINT,
+            BackBufferFormat: D3DFORMAT,
+            BackBufferCount: UINT,
+            MultiSampleType: D3DMULTISAMPLE_TYPE,
+            MultiSampleQuality: DWORD,
+            SwapEffect: D3DSWAPEFFECT,
+            hDeviceWindow: HWND,
+            Windowed: BOOL,
+            EnableAutoDepthStencil: BOOL,
+            AutoDepthStencilFormat: D3DFORMAT,
+            Flags: DWORD,
+            FullScreen_RefreshRateInHz: UINT,
+            PresentationInterval: UINT,
         }
         const D3DPRESENT_RATE_DEFAULT: i32 = 0;
         #[repr(i32)]
@@ -861,26 +1334,61 @@ mod Windows {
             D3DQUERYTYPE_CACHEUTILIZATION = 18,
             D3DQUERYTYPE_MEMORYPRESSURE = 19,
         }
+        #[arch(X64 | Arm64)]
         struct D3DRANGE {
-            Offset: u32,
-            Size: u32,
+            Offset: UINT,
+            Size: UINT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DRANGE {
+            Offset: UINT,
+            Size: UINT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DRASTER_STATUS {
             InVBlank: BOOL,
-            ScanLine: u32,
+            ScanLine: UINT,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DRASTER_STATUS {
+            InVBlank: BOOL,
+            ScanLine: UINT,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DRECT {
-            x1: i32,
-            y1: i32,
-            x2: i32,
-            y2: i32,
+            x1: LONG,
+            y1: LONG,
+            x2: LONG,
+            y2: LONG,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DRECT {
+            x1: LONG,
+            y1: LONG,
+            x2: LONG,
+            y2: LONG,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DRECTPATCH_INFO {
-            StartVertexOffsetWidth: u32,
-            StartVertexOffsetHeight: u32,
-            Width: u32,
-            Height: u32,
-            Stride: u32,
+            StartVertexOffsetWidth: UINT,
+            StartVertexOffsetHeight: UINT,
+            Width: UINT,
+            Height: UINT,
+            Stride: UINT,
+            Basis: D3DBASISTYPE,
+            Degree: D3DDEGREETYPE,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DRECTPATCH_INFO {
+            StartVertexOffsetWidth: UINT,
+            StartVertexOffsetHeight: UINT,
+            Width: UINT,
+            Height: UINT,
+            Stride: UINT,
             Basis: D3DBASISTYPE,
             Degree: D3DDEGREETYPE,
         }
@@ -992,18 +1500,34 @@ mod Windows {
             D3DRS_FORCE_DWORD = 2147483647,
         }
         const D3DRENDERSTATE_WRAPBIAS: u32 = 128;
+        #[arch(X64 | Arm64)]
         struct D3DRESOURCESTATS {
             bThrashing: BOOL,
-            ApproxBytesDownloaded: u32,
-            NumEvicts: u32,
-            NumVidCreates: u32,
-            LastPri: u32,
-            NumUsed: u32,
-            NumUsedInVidMem: u32,
-            WorkingSet: u32,
-            WorkingSetBytes: u32,
-            TotalManaged: u32,
-            TotalBytes: u32,
+            ApproxBytesDownloaded: DWORD,
+            NumEvicts: DWORD,
+            NumVidCreates: DWORD,
+            LastPri: DWORD,
+            NumUsed: DWORD,
+            NumUsedInVidMem: DWORD,
+            WorkingSet: DWORD,
+            WorkingSetBytes: DWORD,
+            TotalManaged: DWORD,
+            TotalBytes: DWORD,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DRESOURCESTATS {
+            bThrashing: BOOL,
+            ApproxBytesDownloaded: DWORD,
+            NumEvicts: DWORD,
+            NumVidCreates: DWORD,
+            LastPri: DWORD,
+            NumUsed: DWORD,
+            NumUsedInVidMem: DWORD,
+            WorkingSet: DWORD,
+            WorkingSetBytes: DWORD,
+            TotalManaged: DWORD,
+            TotalBytes: DWORD,
         }
         #[repr(i32)]
         enum D3DRESOURCETYPE {
@@ -1287,15 +1811,28 @@ mod Windows {
         }
         const D3DSTREAMSOURCE_INDEXEDDATA: i32 = 1073741824;
         const D3DSTREAMSOURCE_INSTANCEDATA: i32 = -2147483648;
+        #[arch(X64 | Arm64)]
         struct D3DSURFACE_DESC {
             Format: D3DFORMAT,
             Type: D3DRESOURCETYPE,
-            Usage: u32,
+            Usage: DWORD,
             Pool: D3DPOOL,
             MultiSampleType: D3DMULTISAMPLE_TYPE,
-            MultiSampleQuality: u32,
-            Width: u32,
-            Height: u32,
+            MultiSampleQuality: DWORD,
+            Width: UINT,
+            Height: UINT,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DSURFACE_DESC {
+            Format: D3DFORMAT,
+            Type: D3DRESOURCETYPE,
+            Usage: DWORD,
+            Pool: D3DPOOL,
+            MultiSampleType: D3DMULTISAMPLE_TYPE,
+            MultiSampleQuality: DWORD,
+            Width: UINT,
+            Height: UINT,
         }
         #[repr(i32)]
         enum D3DSWAPEFFECT {
@@ -1412,9 +1949,18 @@ mod Windows {
             D3DTS_TEXTURE7 = 23,
             D3DTS_FORCE_DWORD = 2147483647,
         }
+        #[arch(X64 | Arm64)]
         struct D3DTRIPATCH_INFO {
-            StartVertexOffset: u32,
-            NumVertices: u32,
+            StartVertexOffset: UINT,
+            NumVertices: UINT,
+            Basis: D3DBASISTYPE,
+            Degree: D3DDEGREETYPE,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DTRIPATCH_INFO {
+            StartVertexOffset: UINT,
+            NumVertices: UINT,
             Basis: D3DBASISTYPE,
             Degree: D3DDEGREETYPE,
         }
@@ -1460,42 +2006,87 @@ mod Windows {
             D3DVBF_0WEIGHTS = 256,
             D3DVBF_FORCE_DWORD = 2147483647,
         }
+        #[arch(X64 | Arm64)]
         struct D3DVERTEXBUFFER_DESC {
             Format: D3DFORMAT,
             Type: D3DRESOURCETYPE,
-            Usage: u32,
+            Usage: DWORD,
             Pool: D3DPOOL,
-            Size: u32,
-            FVF: u32,
+            Size: UINT,
+            FVF: DWORD,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DVERTEXBUFFER_DESC {
+            Format: D3DFORMAT,
+            Type: D3DRESOURCETYPE,
+            Usage: DWORD,
+            Pool: D3DPOOL,
+            Size: UINT,
+            FVF: DWORD,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DVERTEXELEMENT9 {
-            Stream: u16,
-            Offset: u16,
-            Type: u8,
-            Method: u8,
-            Usage: u8,
-            UsageIndex: u8,
+            Stream: WORD,
+            Offset: WORD,
+            Type: BYTE,
+            Method: BYTE,
+            Usage: BYTE,
+            UsageIndex: BYTE,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DVERTEXELEMENT9 {
+            Stream: WORD,
+            Offset: WORD,
+            Type: BYTE,
+            Method: BYTE,
+            Usage: BYTE,
+            UsageIndex: BYTE,
         }
         const D3DVERTEXTEXTURESAMPLER0: i32 = 257;
         const D3DVERTEXTEXTURESAMPLER1: i32 = 258;
         const D3DVERTEXTEXTURESAMPLER2: i32 = 259;
         const D3DVERTEXTEXTURESAMPLER3: i32 = 260;
+        #[arch(X64 | Arm64)]
         struct D3DVIEWPORT9 {
-            X: u32,
-            Y: u32,
-            Width: u32,
-            Height: u32,
+            X: DWORD,
+            Y: DWORD,
+            Width: DWORD,
+            Height: DWORD,
             MinZ: f32,
             MaxZ: f32,
         }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DVIEWPORT9 {
+            X: DWORD,
+            Y: DWORD,
+            Width: DWORD,
+            Height: DWORD,
+            MinZ: f32,
+            MaxZ: f32,
+        }
+        #[arch(X64 | Arm64)]
         struct D3DVOLUME_DESC {
             Format: D3DFORMAT,
             Type: D3DRESOURCETYPE,
-            Usage: u32,
+            Usage: DWORD,
             Pool: D3DPOOL,
-            Width: u32,
-            Height: u32,
-            Depth: u32,
+            Width: UINT,
+            Height: UINT,
+            Depth: UINT,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DVOLUME_DESC {
+            Format: D3DFORMAT,
+            Type: D3DRESOURCETYPE,
+            Usage: DWORD,
+            Pool: D3DPOOL,
+            Width: UINT,
+            Height: UINT,
+            Depth: UINT,
         }
         const D3DVS_ADDRESSMODE_MASK: i32 = 8192;
         const D3DVS_ADDRESSMODE_SHIFT: i32 = 13;
@@ -1546,8 +2137,14 @@ mod Windows {
             D3DZB_FORCE_DWORD = 2147483647,
         }
         const D3D_MAX_SIMULTANEOUS_RENDERTARGETS: i32 = 4;
+        #[arch(X64 | Arm64)]
         struct D3D_OMAC {
-            Omac: [u8; 16],
+            Omac: [BYTE; 16],
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3D_OMAC {
+            Omac: [BYTE; 16],
         }
         const D3D_OMAC_SIZE: i32 = 16;
         const DIRECT3D_VERSION: i32 = 2304;

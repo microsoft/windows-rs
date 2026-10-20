@@ -23,23 +23,23 @@ mod Windows {
             BG_AUTH_TARGET_PROXY = 2,
         }
         struct BG_BASIC_CREDENTIALS {
-            UserName: PWSTR,
-            Password: PWSTR,
+            UserName: LPWSTR,
+            Password: LPWSTR,
         }
         struct BG_JOB_REPLY_PROGRESS {
-            BytesTotal: u64,
-            BytesTransferred: u64,
+            BytesTotal: UINT64,
+            BytesTransferred: UINT64,
         }
         const BackgroundCopyManager1_5: GUID = 0xf087771f_d74f_4c1a_bb8a_e16aca9124ea;
         #[guid(0x54b50739_686f_45eb_9dff_d6a9a0faa9af)]
         interface IBackgroundCopyJob2: IBackgroundCopyJob {
-            fn SetNotifyCmdLine(&self, Program: PCWSTR, Parameters: PCWSTR) -> HRESULT;
-            fn GetNotifyCmdLine(&self, pProgram: *mut PWSTR, pParameters: *mut PWSTR) -> HRESULT;
+            fn SetNotifyCmdLine(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Program: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Parameters: LPCWSTR) -> HRESULT;
+            fn GetNotifyCmdLine(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pProgram: *mut LPWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pParameters: *mut LPWSTR) -> HRESULT;
             fn GetReplyProgress(&self, #[in] #[out] pProgress: *mut BG_JOB_REPLY_PROGRESS) -> HRESULT;
-            fn GetReplyData(&self, ppBuffer: *mut *mut byte, #[in] #[out] pLength: *mut u64) -> HRESULT;
-            fn SetReplyFileName(&self, ReplyFileName: PCWSTR) -> HRESULT;
-            fn GetReplyFileName(&self, pReplyFileName: *mut PWSTR) -> HRESULT;
-            fn SetCredentials(&self, credentials: *mut BG_AUTH_CREDENTIALS) -> HRESULT;
+            fn GetReplyData(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "( unsigned long )*pLength", "( unsigned long )*pLength")] ppBuffer: *mut *mut byte, #[in] #[out] #[opt] pLength: *mut UINT64) -> HRESULT;
+            fn SetReplyFileName(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ReplyFileName: LPCWSTR) -> HRESULT;
+            fn GetReplyFileName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pReplyFileName: *mut LPWSTR) -> HRESULT;
+            fn SetCredentials(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] credentials: *mut BG_AUTH_CREDENTIALS) -> HRESULT;
             fn RemoveCredentials(&self, Target: BG_AUTH_TARGET, Scheme: BG_AUTH_SCHEME) -> HRESULT;
         }
         type PBG_AUTH_CREDENTIALS = *mut BG_AUTH_CREDENTIALS;

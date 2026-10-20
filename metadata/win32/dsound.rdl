@@ -14,23 +14,24 @@ mod Windows {
             z: f32,
         }
         const DIRECTSOUND_VERSION: i32 = 2304;
+        const DS3DALG_DEFAULT: GUID = 0x00000000_0000_0000_0000_000000000000;
         const DS3DALG_HRTF_FULL: GUID = 0xc2413340_1c1b_11d2_94f5_00c04fc28aca;
         const DS3DALG_HRTF_LIGHT: GUID = 0xc2413342_1c1b_11d2_94f5_00c04fc28aca;
         const DS3DALG_NO_VIRTUALIZATION: GUID = 0xc241333f_1c1b_11d2_94f5_00c04fc28aca;
         struct DS3DBUFFER {
-            dwSize: u32,
+            dwSize: DWORD,
             vPosition: D3DVECTOR,
             vVelocity: D3DVECTOR,
-            dwInsideConeAngle: u32,
-            dwOutsideConeAngle: u32,
+            dwInsideConeAngle: DWORD,
+            dwOutsideConeAngle: DWORD,
             vConeOrientation: D3DVECTOR,
-            lConeOutsideVolume: i32,
+            lConeOutsideVolume: LONG,
             flMinDistance: D3DVALUE,
             flMaxDistance: D3DVALUE,
-            dwMode: u32,
+            dwMode: DWORD,
         }
         struct DS3DLISTENER {
-            dwSize: u32,
+            dwSize: DWORD,
             vPosition: D3DVECTOR,
             vVelocity: D3DVECTOR,
             vOrientFront: D3DVECTOR,
@@ -60,11 +61,11 @@ mod Windows {
         const DS3D_MINDOPPLERFACTOR: f32 = 0.0;
         const DS3D_MINROLLOFFFACTOR: f32 = 0.0;
         struct DSBCAPS {
-            dwSize: u32,
-            dwFlags: u32,
-            dwBufferBytes: u32,
-            dwUnlockTransferRate: u32,
-            dwPlayCpuOverhead: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwBufferBytes: DWORD,
+            dwUnlockTransferRate: DWORD,
+            dwPlayCpuOverhead: DWORD,
         }
         const DSBCAPS_CTRL3D: i32 = 16;
         const DSBCAPS_CTRLFREQUENCY: i32 = 32;
@@ -99,7 +100,7 @@ mod Windows {
         const DSBPLAY_TERMINATEBY_TIME: i32 = 8;
         const DSBPN_OFFSETSTOP: u32 = 4294967295;
         struct DSBPOSITIONNOTIFY {
-            dwOffset: u32,
+            dwOffset: DWORD,
             hEventNotify: HANDLE,
         }
         const DSBSIZE_FX_MIN: i32 = 150;
@@ -112,47 +113,47 @@ mod Windows {
         const DSBSTATUS_PLAYING: i32 = 1;
         const DSBSTATUS_TERMINATED: i32 = 32;
         struct DSBUFFERDESC {
-            dwSize: u32,
-            dwFlags: u32,
-            dwBufferBytes: u32,
-            dwReserved: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwBufferBytes: DWORD,
+            dwReserved: DWORD,
             lpwfxFormat: LPWAVEFORMATEX,
             guid3DAlgorithm: GUID,
         }
         struct DSBUFFERDESC1 {
-            dwSize: u32,
-            dwFlags: u32,
-            dwBufferBytes: u32,
-            dwReserved: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwBufferBytes: DWORD,
+            dwReserved: DWORD,
             lpwfxFormat: LPWAVEFORMATEX,
         }
         const DSBVOLUME_MAX: i32 = 0;
         const DSBVOLUME_MIN: i32 = -10000;
         struct DSCAPS {
-            dwSize: u32,
-            dwFlags: u32,
-            dwMinSecondarySampleRate: u32,
-            dwMaxSecondarySampleRate: u32,
-            dwPrimaryBuffers: u32,
-            dwMaxHwMixingAllBuffers: u32,
-            dwMaxHwMixingStaticBuffers: u32,
-            dwMaxHwMixingStreamingBuffers: u32,
-            dwFreeHwMixingAllBuffers: u32,
-            dwFreeHwMixingStaticBuffers: u32,
-            dwFreeHwMixingStreamingBuffers: u32,
-            dwMaxHw3DAllBuffers: u32,
-            dwMaxHw3DStaticBuffers: u32,
-            dwMaxHw3DStreamingBuffers: u32,
-            dwFreeHw3DAllBuffers: u32,
-            dwFreeHw3DStaticBuffers: u32,
-            dwFreeHw3DStreamingBuffers: u32,
-            dwTotalHwMemBytes: u32,
-            dwFreeHwMemBytes: u32,
-            dwMaxContigFreeHwMemBytes: u32,
-            dwUnlockTransferRateHwBuffers: u32,
-            dwPlayCpuOverheadSwBuffers: u32,
-            dwReserved1: u32,
-            dwReserved2: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwMinSecondarySampleRate: DWORD,
+            dwMaxSecondarySampleRate: DWORD,
+            dwPrimaryBuffers: DWORD,
+            dwMaxHwMixingAllBuffers: DWORD,
+            dwMaxHwMixingStaticBuffers: DWORD,
+            dwMaxHwMixingStreamingBuffers: DWORD,
+            dwFreeHwMixingAllBuffers: DWORD,
+            dwFreeHwMixingStaticBuffers: DWORD,
+            dwFreeHwMixingStreamingBuffers: DWORD,
+            dwMaxHw3DAllBuffers: DWORD,
+            dwMaxHw3DStaticBuffers: DWORD,
+            dwMaxHw3DStreamingBuffers: DWORD,
+            dwFreeHw3DAllBuffers: DWORD,
+            dwFreeHw3DStaticBuffers: DWORD,
+            dwFreeHw3DStreamingBuffers: DWORD,
+            dwTotalHwMemBytes: DWORD,
+            dwFreeHwMemBytes: DWORD,
+            dwMaxContigFreeHwMemBytes: DWORD,
+            dwUnlockTransferRateHwBuffers: DWORD,
+            dwPlayCpuOverheadSwBuffers: DWORD,
+            dwReserved1: DWORD,
+            dwReserved2: DWORD,
         }
         const DSCAPS_CERTIFIED: i32 = 64;
         const DSCAPS_CONTINUOUSRATE: i32 = 16;
@@ -166,10 +167,10 @@ mod Windows {
         const DSCAPS_SECONDARYMONO: i32 = 256;
         const DSCAPS_SECONDARYSTEREO: i32 = 512;
         struct DSCBCAPS {
-            dwSize: u32,
-            dwFlags: u32,
-            dwBufferBytes: u32,
-            dwReserved: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwBufferBytes: DWORD,
+            dwReserved: DWORD,
         }
         const DSCBCAPS_CTRLFX: i32 = 512;
         const DSCBCAPS_WAVEMAPPED: u32 = 2147483648;
@@ -178,42 +179,42 @@ mod Windows {
         const DSCBSTATUS_CAPTURING: i32 = 1;
         const DSCBSTATUS_LOOPING: i32 = 2;
         struct DSCBUFFERDESC {
-            dwSize: u32,
-            dwFlags: u32,
-            dwBufferBytes: u32,
-            dwReserved: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwBufferBytes: DWORD,
+            dwReserved: DWORD,
             lpwfxFormat: LPWAVEFORMATEX,
-            dwFXCount: u32,
+            dwFXCount: DWORD,
             lpDSCFXDesc: LPDSCEFFECTDESC,
         }
         struct DSCBUFFERDESC1 {
-            dwSize: u32,
-            dwFlags: u32,
-            dwBufferBytes: u32,
-            dwReserved: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwBufferBytes: DWORD,
+            dwReserved: DWORD,
             lpwfxFormat: LPWAVEFORMATEX,
         }
         struct DSCCAPS {
-            dwSize: u32,
-            dwFlags: u32,
-            dwFormats: u32,
-            dwChannels: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwFormats: DWORD,
+            dwChannels: DWORD,
         }
         const DSCCAPS_CERTIFIED: i32 = 64;
         const DSCCAPS_EMULDRIVER: i32 = 32;
         const DSCCAPS_MULTIPLECAPTURE: i32 = 1;
         struct DSCEFFECTDESC {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             guidDSCFXClass: GUID,
             guidDSCFXInstance: GUID,
-            dwReserved1: u32,
-            dwReserved2: u32,
+            dwReserved1: DWORD,
+            dwReserved2: DWORD,
         }
         struct DSCFXAec {
             fEnable: BOOL,
             fNoiseFill: BOOL,
-            dwMode: u32,
+            dwMode: DWORD,
         }
         struct DSCFXNoiseSuppress {
             fEnable: BOOL,
@@ -234,11 +235,11 @@ mod Windows {
         const DSDEVID_DefaultVoiceCapture: GUID = 0xdef00003_9c6d_47ed_aaf1_4dda8f2b5c03;
         const DSDEVID_DefaultVoicePlayback: GUID = 0xdef00002_9c6d_47ed_aaf1_4dda8f2b5c03;
         struct DSEFFECTDESC {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             guidDSFXClass: GUID,
-            dwReserved1: usize,
-            dwReserved2: usize,
+            dwReserved1: DWORD_PTR,
+            dwReserved2: DWORD_PTR,
         }
         const DSERR_ACCESSDENIED: HRESULT = -2147024891;
         const DSERR_ALLOCATED: HRESULT = -2005401590;
@@ -295,21 +296,21 @@ mod Windows {
         const DSFXCOMPRESSOR_THRESHOLD_MAX: f32 = 0.0;
         const DSFXCOMPRESSOR_THRESHOLD_MIN: f32 = -60.0;
         struct DSFXChorus {
-            fWetDryMix: f32,
-            fDepth: f32,
-            fFeedback: f32,
-            fFrequency: f32,
-            lWaveform: i32,
-            fDelay: f32,
-            lPhase: i32,
+            fWetDryMix: FLOAT,
+            fDepth: FLOAT,
+            fFeedback: FLOAT,
+            fFrequency: FLOAT,
+            lWaveform: LONG,
+            fDelay: FLOAT,
+            lPhase: LONG,
         }
         struct DSFXCompressor {
-            fGain: f32,
-            fAttack: f32,
-            fRelease: f32,
-            fThreshold: f32,
-            fRatio: f32,
-            fPredelay: f32,
+            fGain: FLOAT,
+            fAttack: FLOAT,
+            fRelease: FLOAT,
+            fThreshold: FLOAT,
+            fRatio: FLOAT,
+            fPredelay: FLOAT,
         }
         const DSFXDISTORTION_EDGE_MAX: f32 = 100.0;
         const DSFXDISTORTION_EDGE_MIN: f32 = 0.0;
@@ -322,11 +323,11 @@ mod Windows {
         const DSFXDISTORTION_PRELOWPASSCUTOFF_MAX: f32 = 8000.0;
         const DSFXDISTORTION_PRELOWPASSCUTOFF_MIN: f32 = 100.0;
         struct DSFXDistortion {
-            fGain: f32,
-            fEdge: f32,
-            fPostEQCenterFrequency: f32,
-            fPostEQBandwidth: f32,
-            fPreLowpassCutoff: f32,
+            fGain: FLOAT,
+            fEdge: FLOAT,
+            fPostEQCenterFrequency: FLOAT,
+            fPostEQBandwidth: FLOAT,
+            fPreLowpassCutoff: FLOAT,
         }
         const DSFXECHO_FEEDBACK_MAX: f32 = 100.0;
         const DSFXECHO_FEEDBACK_MIN: f32 = 0.0;
@@ -339,11 +340,11 @@ mod Windows {
         const DSFXECHO_WETDRYMIX_MAX: f32 = 100.0;
         const DSFXECHO_WETDRYMIX_MIN: f32 = 0.0;
         struct DSFXEcho {
-            fWetDryMix: f32,
-            fFeedback: f32,
-            fLeftDelay: f32,
-            fRightDelay: f32,
-            lPanDelay: i32,
+            fWetDryMix: FLOAT,
+            fFeedback: FLOAT,
+            fLeftDelay: FLOAT,
+            fRightDelay: FLOAT,
+            lPanDelay: LONG,
         }
         const DSFXFLANGER_DELAY_MAX: f32 = 4.0;
         const DSFXFLANGER_DELAY_MIN: f32 = 0.0;
@@ -365,35 +366,35 @@ mod Windows {
         const DSFXFLANGER_WETDRYMIX_MAX: f32 = 100.0;
         const DSFXFLANGER_WETDRYMIX_MIN: f32 = 0.0;
         struct DSFXFlanger {
-            fWetDryMix: f32,
-            fDepth: f32,
-            fFeedback: f32,
-            fFrequency: f32,
-            lWaveform: i32,
-            fDelay: f32,
-            lPhase: i32,
+            fWetDryMix: FLOAT,
+            fDepth: FLOAT,
+            fFeedback: FLOAT,
+            fFrequency: FLOAT,
+            lWaveform: LONG,
+            fDelay: FLOAT,
+            lPhase: LONG,
         }
         const DSFXGARGLE_RATEHZ_MAX: i32 = 1000;
         const DSFXGARGLE_RATEHZ_MIN: i32 = 1;
         const DSFXGARGLE_WAVE_SQUARE: i32 = 1;
         const DSFXGARGLE_WAVE_TRIANGLE: i32 = 0;
         struct DSFXGargle {
-            dwRateHz: u32,
-            dwWaveShape: u32,
+            dwRateHz: DWORD,
+            dwWaveShape: DWORD,
         }
         struct DSFXI3DL2Reverb {
-            lRoom: i32,
-            lRoomHF: i32,
-            flRoomRolloffFactor: f32,
-            flDecayTime: f32,
-            flDecayHFRatio: f32,
-            lReflections: i32,
-            flReflectionsDelay: f32,
-            lReverb: i32,
-            flReverbDelay: f32,
-            flDiffusion: f32,
-            flDensity: f32,
-            flHFReference: f32,
+            lRoom: LONG,
+            lRoomHF: LONG,
+            flRoomRolloffFactor: FLOAT,
+            flDecayTime: FLOAT,
+            flDecayHFRatio: FLOAT,
+            lReflections: LONG,
+            flReflectionsDelay: FLOAT,
+            lReverb: LONG,
+            flReverbDelay: FLOAT,
+            flDiffusion: FLOAT,
+            flDensity: FLOAT,
+            flHFReference: FLOAT,
         }
         const DSFXPARAMEQ_BANDWIDTH_MAX: f32 = 36.0;
         const DSFXPARAMEQ_BANDWIDTH_MIN: f32 = 1.0;
@@ -402,9 +403,9 @@ mod Windows {
         const DSFXPARAMEQ_GAIN_MAX: f32 = 15.0;
         const DSFXPARAMEQ_GAIN_MIN: f32 = -15.0;
         struct DSFXParamEq {
-            fCenter: f32,
-            fBandwidth: f32,
-            fGain: f32,
+            fCenter: FLOAT,
+            fBandwidth: FLOAT,
+            fGain: FLOAT,
         }
         const DSFXR_FAILED: i32 = 4;
         const DSFXR_LOCHARDWARE: i32 = 1;
@@ -414,10 +415,10 @@ mod Windows {
         const DSFXR_UNALLOCATED: i32 = 3;
         const DSFXR_UNKNOWN: i32 = 5;
         struct DSFXWavesReverb {
-            fInGain: f32,
-            fReverbMix: f32,
-            fReverbTime: f32,
-            fHighFreqRTRatio: f32,
+            fInGain: FLOAT,
+            fReverbMix: FLOAT,
+            fReverbTime: FLOAT,
+            fHighFreqRTRatio: FLOAT,
         }
         const DSFX_I3DL2REVERB_DECAYHFRATIO_DEFAULT: f32 = 0.83;
         const DSFX_I3DL2REVERB_DECAYHFRATIO_MAX: f32 = 2.0;
@@ -535,23 +536,30 @@ mod Windows {
         const DS_OK: HRESULT = 0;
         const DS_UNCERTIFIED: i32 = 1;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCaptureCreate(#[opt] pcGuidDevice: LPCGUID, ppDSC: *mut IDirectSoundCapture, pUnkOuter: IUnknown) -> HRESULT;
+        extern fn DirectSoundCaptureCreate(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcGuidDevice: LPCGUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDSC: *mut LPDIRECTSOUNDCAPTURE, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCaptureCreate8(#[opt] pcGuidDevice: LPCGUID, ppDSC8: *mut IDirectSoundCapture, pUnkOuter: IUnknown) -> HRESULT;
+        extern fn DirectSoundCaptureCreate8(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcGuidDevice: LPCGUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDSC8: *mut LPDIRECTSOUNDCAPTURE8, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        #[library("DSOUND.dll", import = "DirectSoundCaptureEnumerateA")]
+        extern fn DirectSoundCaptureEnumerate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCaptureEnumerateA(pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] pContext: *mut void) -> HRESULT;
+        extern fn DirectSoundCaptureEnumerateA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCaptureEnumerateW(pDSEnumCallback: LPDSENUMCALLBACKW, #[in] #[opt] pContext: *mut void) -> HRESULT;
+        extern fn DirectSoundCaptureEnumerateW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDSEnumCallback: LPDSENUMCALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContext: LPVOID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCreate(#[opt] pcGuidDevice: LPCGUID, ppDS: *mut IDirectSound, pUnkOuter: IUnknown) -> HRESULT;
+        extern fn DirectSoundCreate(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcGuidDevice: LPCGUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDS: *mut LPDIRECTSOUND, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCreate8(#[opt] pcGuidDevice: LPCGUID, ppDS8: *mut IDirectSound8, pUnkOuter: IUnknown) -> HRESULT;
+        extern fn DirectSoundCreate8(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcGuidDevice: LPCGUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDS8: *mut LPDIRECTSOUND8, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        #[library("DSOUND.dll", import = "DirectSoundEnumerateA")]
+        extern fn DirectSoundEnumerate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundEnumerateA(pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] pContext: *mut void) -> HRESULT;
+        extern fn DirectSoundEnumerateA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundEnumerateW(pDSEnumCallback: LPDSENUMCALLBACKW, #[in] #[opt] pContext: *mut void) -> HRESULT;
+        extern fn DirectSoundEnumerateW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDSEnumCallback: LPDSENUMCALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundFullDuplexCreate(#[opt] pcGuidCaptureDevice: LPCGUID, #[opt] pcGuidRenderDevice: LPCGUID, pcDSCBufferDesc: LPCDSCBUFFERDESC, pcDSBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: u32, ppDSFD: *mut IDirectSoundFullDuplex, ppDSCBuffer8: *mut IDirectSoundCaptureBuffer8, ppDSBuffer8: *mut IDirectSoundBuffer8, pUnkOuter: IUnknown) -> HRESULT;
+        extern fn DirectSoundFullDuplexCreate(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcGuidCaptureDevice: LPCGUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcGuidRenderDevice: LPCGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDSBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDSFD: *mut LPDIRECTSOUNDFULLDUPLEX, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDSCBuffer8: *mut LPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDSBuffer8: *mut LPDIRECTSOUNDBUFFER8, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+        #[library("DSOUND.dll", import = "DirectSoundFullDuplexCreate")]
+        extern fn DirectSoundFullDuplexCreate8(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcGuidCaptureDevice: LPCGUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcGuidRenderDevice: LPCGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDSBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDSFD: *mut LPDIRECTSOUNDFULLDUPLEX, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDSCBuffer8: *mut LPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDSBuffer8: *mut LPDIRECTSOUNDBUFFER8, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
         const GUID_All_Objects: GUID = 0xaa114de5_c262_4169_a1c8_23d698cc73b5;
         const GUID_DSCFX_CLASS_AEC: GUID = 0xbf963d80_c559_11d0_8a2b_00a0c9255ac1;
         const GUID_DSCFX_CLASS_NS: GUID = 0xe07f903f_62fd_4e60_8cdd_dea7236665b5;
@@ -569,193 +577,653 @@ mod Windows {
         const GUID_DSFX_STANDARD_PARAMEQ: GUID = 0x120ced89_3bf4_4173_a132_3cb406cf3231;
         const GUID_DSFX_WAVES_REVERB: GUID = 0x87fc0268_9a55_4360_95aa_004a1d9de26c;
         #[library("DSOUND.dll")]
-        extern fn GetDeviceID(#[opt] pGuidSrc: LPCGUID, #[out] pGuidDest: LPGUID) -> HRESULT;
-        #[guid(0x279afa83_4981_11ce_a521_0020af0be560)]
+        extern fn GetDeviceID(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidSrc: LPCGUID, #[out] pGuidDest: LPGUID) -> HRESULT;
+        #[no_guid]
         interface IDirectSound: IUnknown {
-            fn CreateSoundBuffer(&self, pcDSBufferDesc: LPCDSBUFFERDESC, ppDSBuffer: *mut IDirectSoundBuffer, pUnkOuter: IUnknown) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateSoundBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDSBufferDesc: LPCDSBUFFERDESC, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDSBuffer: *mut LPDIRECTSOUNDBUFFER, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetCaps(&self, #[out] pDSCaps: LPDSCAPS) -> HRESULT;
-            fn DuplicateSoundBuffer(&self, pDSBufferOriginal: IDirectSoundBuffer, ppDSBufferDuplicate: *mut IDirectSoundBuffer) -> HRESULT;
-            fn SetCooperativeLevel(&self, hwnd: HWND, dwLevel: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn DuplicateSoundBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDSBufferOriginal: LPDIRECTSOUNDBUFFER, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDSBufferDuplicate: *mut LPDIRECTSOUNDBUFFER) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCooperativeLevel(&self, hwnd: HWND, dwLevel: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Compact(&self) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetSpeakerConfig(&self, #[out] pdwSpeakerConfig: LPDWORD) -> HRESULT;
-            fn SetSpeakerConfig(&self, dwSpeakerConfig: u32) -> HRESULT;
-            fn Initialize(&self, #[opt] pcGuidDevice: LPCGUID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetSpeakerConfig(&self, dwSpeakerConfig: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Initialize(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcGuidDevice: LPCGUID) -> HRESULT;
         }
-        #[guid(0x279afa86_4981_11ce_a521_0020af0be560)]
+        #[no_guid]
         interface IDirectSound3DBuffer: IUnknown {
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAllParameters(&self, #[out] pDs3dBuffer: LPDS3DBUFFER) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetConeAngles(&self, #[out] pdwInsideConeAngle: LPDWORD, #[out] pdwOutsideConeAngle: LPDWORD) -> HRESULT;
-            fn GetConeOrientation(&self, pvOrientation: *mut D3DVECTOR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetConeOrientation(&self, #[out] pvOrientation: *mut D3DVECTOR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetConeOutsideVolume(&self, #[out] plConeOutsideVolume: LPLONG) -> HRESULT;
-            fn GetMaxDistance(&self, pflMaxDistance: *mut D3DVALUE) -> HRESULT;
-            fn GetMinDistance(&self, pflMinDistance: *mut D3DVALUE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMaxDistance(&self, #[out] pflMaxDistance: *mut D3DVALUE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMinDistance(&self, #[out] pflMinDistance: *mut D3DVALUE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetMode(&self, #[out] pdwMode: LPDWORD) -> HRESULT;
-            fn GetPosition(&self, pvPosition: *mut D3DVECTOR) -> HRESULT;
-            fn GetVelocity(&self, pvVelocity: *mut D3DVECTOR) -> HRESULT;
-            fn SetAllParameters(&self, pcDs3dBuffer: LPCDS3DBUFFER, dwApply: u32) -> HRESULT;
-            fn SetConeAngles(&self, dwInsideConeAngle: u32, dwOutsideConeAngle: u32, dwApply: u32) -> HRESULT;
-            fn SetConeOrientation(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: u32) -> HRESULT;
-            fn SetConeOutsideVolume(&self, lConeOutsideVolume: i32, dwApply: u32) -> HRESULT;
-            fn SetMaxDistance(&self, flMaxDistance: D3DVALUE, dwApply: u32) -> HRESULT;
-            fn SetMinDistance(&self, flMinDistance: D3DVALUE, dwApply: u32) -> HRESULT;
-            fn SetMode(&self, dwMode: u32, dwApply: u32) -> HRESULT;
-            fn SetPosition(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: u32) -> HRESULT;
-            fn SetVelocity(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetPosition(&self, #[out] pvPosition: *mut D3DVECTOR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetVelocity(&self, #[out] pvVelocity: *mut D3DVECTOR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDs3dBuffer: LPCDS3DBUFFER, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetConeAngles(&self, dwInsideConeAngle: DWORD, dwOutsideConeAngle: DWORD, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetConeOrientation(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetConeOutsideVolume(&self, lConeOutsideVolume: LONG, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetMaxDistance(&self, flMaxDistance: D3DVALUE, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetMinDistance(&self, flMinDistance: D3DVALUE, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetMode(&self, dwMode: DWORD, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetPosition(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetVelocity(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: DWORD) -> HRESULT;
         }
-        #[guid(0x279afa84_4981_11ce_a521_0020af0be560)]
+        #[no_guid]
         interface IDirectSound3DListener: IUnknown {
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAllParameters(&self, #[out] pListener: LPDS3DLISTENER) -> HRESULT;
-            fn GetDistanceFactor(&self, pflDistanceFactor: *mut D3DVALUE) -> HRESULT;
-            fn GetDopplerFactor(&self, pflDopplerFactor: *mut D3DVALUE) -> HRESULT;
-            fn GetOrientation(&self, pvOrientFront: *mut D3DVECTOR, pvOrientTop: *mut D3DVECTOR) -> HRESULT;
-            fn GetPosition(&self, pvPosition: *mut D3DVECTOR) -> HRESULT;
-            fn GetRolloffFactor(&self, pflRolloffFactor: *mut D3DVALUE) -> HRESULT;
-            fn GetVelocity(&self, pvVelocity: *mut D3DVECTOR) -> HRESULT;
-            fn SetAllParameters(&self, pcListener: LPCDS3DLISTENER, dwApply: u32) -> HRESULT;
-            fn SetDistanceFactor(&self, flDistanceFactor: D3DVALUE, dwApply: u32) -> HRESULT;
-            fn SetDopplerFactor(&self, flDopplerFactor: D3DVALUE, dwApply: u32) -> HRESULT;
-            fn SetOrientation(&self, xFront: D3DVALUE, yFront: D3DVALUE, zFront: D3DVALUE, xTop: D3DVALUE, yTop: D3DVALUE, zTop: D3DVALUE, dwApply: u32) -> HRESULT;
-            fn SetPosition(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: u32) -> HRESULT;
-            fn SetRolloffFactor(&self, flRolloffFactor: D3DVALUE, dwApply: u32) -> HRESULT;
-            fn SetVelocity(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDistanceFactor(&self, #[out] pflDistanceFactor: *mut D3DVALUE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDopplerFactor(&self, #[out] pflDopplerFactor: *mut D3DVALUE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetOrientation(&self, #[out] pvOrientFront: *mut D3DVECTOR, #[out] pvOrientTop: *mut D3DVECTOR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetPosition(&self, #[out] pvPosition: *mut D3DVECTOR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetRolloffFactor(&self, #[out] pflRolloffFactor: *mut D3DVALUE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetVelocity(&self, #[out] pvVelocity: *mut D3DVECTOR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcListener: LPCDS3DLISTENER, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetDistanceFactor(&self, flDistanceFactor: D3DVALUE, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetDopplerFactor(&self, flDopplerFactor: D3DVALUE, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetOrientation(&self, xFront: D3DVALUE, yFront: D3DVALUE, zFront: D3DVALUE, xTop: D3DVALUE, yTop: D3DVALUE, zTop: D3DVALUE, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetPosition(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetRolloffFactor(&self, flRolloffFactor: D3DVALUE, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetVelocity(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn CommitDeferredSettings(&self) -> HRESULT;
         }
-        #[guid(0xc50a7e93_f395_4834_9ef6_7fa99de50966)]
+        #[no_guid]
         interface IDirectSound8: IDirectSound {
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateSoundBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDSBufferDesc: LPCDSBUFFERDESC, #[out] ppDSBuffer: *mut LPDIRECTSOUNDBUFFER, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCaps(&self, #[out] pDSCaps: LPDSCAPS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn DuplicateSoundBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDSBufferOriginal: LPDIRECTSOUNDBUFFER, #[out] ppDSBufferDuplicate: *mut LPDIRECTSOUNDBUFFER) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCooperativeLevel(&self, hwnd: HWND, dwLevel: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Compact(&self) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetSpeakerConfig(&self, #[out] pdwSpeakerConfig: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetSpeakerConfig(&self, dwSpeakerConfig: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Initialize(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcGuidDevice: LPCGUID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn VerifyCertification(&self, #[out] pdwCertified: LPDWORD) -> HRESULT;
         }
-        #[guid(0x279afa85_4981_11ce_a521_0020af0be560)]
+        #[no_guid]
         interface IDirectSoundBuffer: IUnknown {
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetCaps(&self, #[out] pDSBufferCaps: LPDSBCAPS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetCurrentPosition(&self, #[out] #[opt] pdwCurrentPlayCursor: LPDWORD, #[out] #[opt] pdwCurrentWriteCursor: LPDWORD) -> HRESULT;
-            fn GetFormat(&self, #[size_param(1)] #[out] #[opt] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: u32, #[out] #[opt] pdwSizeWritten: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFormat(&self, #[out] #[opt] #[size_param(1)] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: DWORD, #[out] #[opt] pdwSizeWritten: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetVolume(&self, #[out] plVolume: LPLONG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetPan(&self, #[out] plPan: LPLONG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetFrequency(&self, #[out] pdwFrequency: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetStatus(&self, #[out] pdwStatus: LPDWORD) -> HRESULT;
-            fn Initialize(&self, pDirectSound: IDirectSound, pcDSBufferDesc: LPCDSBUFFERDESC) -> HRESULT;
-            fn Lock(&self, dwOffset: u32, dwBytes: u32, ppvAudioPtr1: *mut *mut void, #[out] pdwAudioBytes1: LPDWORD, ppvAudioPtr2: *mut *mut void, #[out] #[opt] pdwAudioBytes2: LPDWORD, dwFlags: u32) -> HRESULT;
-            fn Play(&self, dwReserved1: u32, dwPriority: u32, dwFlags: u32) -> HRESULT;
-            fn SetCurrentPosition(&self, dwNewPosition: u32) -> HRESULT;
-            fn SetFormat(&self, pcfxFormat: LPCWAVEFORMATEX) -> HRESULT;
-            fn SetVolume(&self, lVolume: i32) -> HRESULT;
-            fn SetPan(&self, lPan: i32) -> HRESULT;
-            fn SetFrequency(&self, dwFrequency: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Initialize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDirectSound: LPDIRECTSOUND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDSBufferDesc: LPCDSBUFFERDESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Lock(&self, dwOffset: DWORD, dwBytes: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pdwAudioBytes1", "*pdwAudioBytes1")] #[out] ppvAudioPtr1: *mut LPVOID, #[out] pdwAudioBytes1: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_", "*pdwAudioBytes2", "*pdwAudioBytes2")] #[out] #[opt] ppvAudioPtr2: *mut LPVOID, #[out] #[opt] pdwAudioBytes2: LPDWORD, dwFlags: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Play(&self, dwReserved1: DWORD, dwPriority: DWORD, dwFlags: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCurrentPosition(&self, dwNewPosition: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcfxFormat: LPCWAVEFORMATEX) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetVolume(&self, lVolume: LONG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetPan(&self, lPan: LONG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetFrequency(&self, dwFrequency: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Stop(&self) -> HRESULT;
-            fn Unlock(&self, #[size_param(1)] #[in] pvAudioPtr1: *mut void, dwAudioBytes1: u32, #[size_param(3)] #[in] #[opt] pvAudioPtr2: *mut void, dwAudioBytes2: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Unlock(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pvAudioPtr1: LPVOID, dwAudioBytes1: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pvAudioPtr2: LPVOID, dwAudioBytes2: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Restore(&self) -> HRESULT;
         }
-        #[guid(0x6825a449_7524_4d82_920f_50e36ab3ab1e)]
+        #[no_guid]
         interface IDirectSoundBuffer8: IDirectSoundBuffer {
-            fn SetFX(&self, dwEffectsCount: u32, #[len_param(0)] #[opt] pDSFXDesc: LPDSEFFECTDESC, #[len_param(0)] #[out] #[opt] pdwResultCodes: LPDWORD) -> HRESULT;
-            fn AcquireResources(&self, dwFlags: u32, dwEffectsCount: u32, #[len_param(1)] #[out] pdwResultCodes: LPDWORD) -> HRESULT;
-            fn GetObjectInPath(&self, rguidObject: *const GUID, dwIndex: u32, rguidInterface: *const GUID, ppObject: *mut *mut void) -> HRESULT;
-        }
-        #[guid(0xb0210781_89cd_11d0_af08_00a0c925cd16)]
-        interface IDirectSoundCapture: IUnknown {
-            fn CreateCaptureBuffer(&self, pcDSCBufferDesc: LPCDSCBUFFERDESC, ppDSCBuffer: *mut IDirectSoundCaptureBuffer, pUnkOuter: IUnknown) -> HRESULT;
-            fn GetCaps(&self, #[out] pDSCCaps: LPDSCCAPS) -> HRESULT;
-            fn Initialize(&self, #[opt] pcGuidDevice: LPCGUID) -> HRESULT;
-        }
-        #[guid(0xb0210782_89cd_11d0_af08_00a0c925cd16)]
-        interface IDirectSoundCaptureBuffer: IUnknown {
-            fn GetCaps(&self, #[out] pDSCBCaps: LPDSCBCAPS) -> HRESULT;
-            fn GetCurrentPosition(&self, #[out] #[opt] pdwCapturePosition: LPDWORD, #[out] #[opt] pdwReadPosition: LPDWORD) -> HRESULT;
-            fn GetFormat(&self, #[size_param(1)] #[out] #[opt] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: u32, #[out] #[opt] pdwSizeWritten: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCaps(&self, #[out] pDSBufferCaps: LPDSBCAPS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCurrentPosition(&self, #[out] #[opt] pdwCurrentPlayCursor: LPDWORD, #[out] #[opt] pdwCurrentWriteCursor: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFormat(&self, #[out] #[opt] #[size_param(1)] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: DWORD, #[out] #[opt] pdwSizeWritten: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetVolume(&self, #[out] plVolume: LPLONG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetPan(&self, #[out] plPan: LPLONG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFrequency(&self, #[out] pdwFrequency: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetStatus(&self, #[out] pdwStatus: LPDWORD) -> HRESULT;
-            fn Initialize(&self, pDirectSoundCapture: IDirectSoundCapture, pcDSCBufferDesc: LPCDSCBUFFERDESC) -> HRESULT;
-            fn Lock(&self, dwOffset: u32, dwBytes: u32, ppvAudioPtr1: *mut *mut void, #[out] pdwAudioBytes1: LPDWORD, ppvAudioPtr2: *mut *mut void, #[out] #[opt] pdwAudioBytes2: LPDWORD, dwFlags: u32) -> HRESULT;
-            fn Start(&self, dwFlags: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Initialize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDirectSound: LPDIRECTSOUND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDSBufferDesc: LPCDSBUFFERDESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(11u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Lock(&self, dwOffset: DWORD, dwBytes: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pdwAudioBytes1", "*pdwAudioBytes1")] #[out] ppvAudioPtr1: *mut LPVOID, #[out] pdwAudioBytes1: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_", "*pdwAudioBytes2", "*pdwAudioBytes2")] #[out] #[opt] ppvAudioPtr2: *mut LPVOID, #[out] #[opt] pdwAudioBytes2: LPDWORD, dwFlags: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(12u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Play(&self, dwReserved1: DWORD, dwPriority: DWORD, dwFlags: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(13u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCurrentPosition(&self, dwNewPosition: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(14u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcfxFormat: LPCWAVEFORMATEX) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(15u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetVolume(&self, lVolume: LONG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(16u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetPan(&self, lPan: LONG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(17u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetFrequency(&self, dwFrequency: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(18u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Stop(&self) -> HRESULT;
-            fn Unlock(&self, #[size_param(1)] #[in] pvAudioPtr1: *mut void, dwAudioBytes1: u32, #[size_param(3)] #[in] #[opt] pvAudioPtr2: *mut void, dwAudioBytes2: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(19u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Unlock(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pvAudioPtr1: LPVOID, dwAudioBytes1: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pvAudioPtr2: LPVOID, dwAudioBytes2: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(20u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Restore(&self) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetFX(&self, dwEffectsCount: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pDSFXDesc: LPDSEFFECTDESC, #[out] #[opt] #[len_param(0)] pdwResultCodes: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AcquireResources(&self, dwFlags: DWORD, dwEffectsCount: DWORD, #[out] #[len_param(1)] pdwResultCodes: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetObjectInPath(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rguidObject: &GUID, dwIndex: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rguidInterface: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppObject: *mut LPVOID) -> HRESULT;
         }
-        #[guid(0x00990df4_0dbb_4872_833e_6d303e80aeb6)]
-        interface IDirectSoundCaptureBuffer8: IDirectSoundCaptureBuffer {
-            fn GetObjectInPath(&self, rguidObject: *const GUID, dwIndex: u32, rguidInterface: *const GUID, ppObject: *mut *mut void) -> HRESULT;
-            fn GetFXStatus(&self, dwEffectsCount: u32, #[len_param(0)] #[out] pdwFXStatus: LPDWORD) -> HRESULT;
+        #[no_guid]
+        interface IDirectSoundCapture: IUnknown {
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateCaptureBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDSCBufferDesc: LPCDSCBUFFERDESC, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDSCBuffer: *mut LPDIRECTSOUNDCAPTUREBUFFER, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCaps(&self, #[out] pDSCCaps: LPDSCCAPS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Initialize(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcGuidDevice: LPCGUID) -> HRESULT;
         }
-        #[guid(0xad74143d_903d_4ab7_8066_28d363036d65)]
-        interface IDirectSoundCaptureFXAec: IUnknown {
-            fn SetAllParameters(&self, pDscFxAec: LPCDSCFXAec) -> HRESULT;
-            fn GetAllParameters(&self, #[out] pDscFxAec: LPDSCFXAec) -> HRESULT;
+        #[no_guid]
+        interface IDirectSoundCaptureBuffer: IUnknown {
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCaps(&self, #[out] pDSCBCaps: LPDSCBCAPS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCurrentPosition(&self, #[out] #[opt] pdwCapturePosition: LPDWORD, #[out] #[opt] pdwReadPosition: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFormat(&self, #[out] #[opt] #[size_param(1)] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: DWORD, #[out] #[opt] pdwSizeWritten: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetStatus(&self, #[out] pdwStatus: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Initialize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDirectSoundCapture: LPDIRECTSOUNDCAPTURE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDSCBufferDesc: LPCDSCBUFFERDESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Lock(&self, dwOffset: DWORD, dwBytes: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pdwAudioBytes1", "*pdwAudioBytes1")] #[out] ppvAudioPtr1: *mut LPVOID, #[out] pdwAudioBytes1: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_", "*pdwAudioBytes2", "*pdwAudioBytes2")] #[out] #[opt] ppvAudioPtr2: *mut LPVOID, #[out] #[opt] pdwAudioBytes2: LPDWORD, dwFlags: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Start(&self, dwFlags: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Stop(&self) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Unlock(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pvAudioPtr1: LPVOID, dwAudioBytes1: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pvAudioPtr2: LPVOID, dwAudioBytes2: DWORD) -> HRESULT;
+        }
+        #[no_guid]
+        interface IDirectSoundCaptureBuffer8: IDirectSoundCaptureBuffer {
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCaps(&self, #[out] pDSCBCaps: LPDSCBCAPS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCurrentPosition(&self, #[out] #[opt] pdwCapturePosition: LPDWORD, #[out] #[opt] pdwReadPosition: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFormat(&self, #[out] #[opt] #[size_param(1)] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: DWORD, #[out] #[opt] pdwSizeWritten: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetStatus(&self, #[out] pdwStatus: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Initialize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDirectSoundCapture: LPDIRECTSOUNDCAPTURE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDSCBufferDesc: LPCDSCBUFFERDESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Lock(&self, dwOffset: DWORD, dwBytes: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pdwAudioBytes1", "*pdwAudioBytes1")] #[out] ppvAudioPtr1: *mut LPVOID, #[out] pdwAudioBytes1: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_", "*pdwAudioBytes2", "*pdwAudioBytes2")] #[out] #[opt] ppvAudioPtr2: *mut LPVOID, #[out] #[opt] pdwAudioBytes2: LPDWORD, dwFlags: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Start(&self, dwFlags: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Stop(&self) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(11u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Unlock(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pvAudioPtr1: LPVOID, dwAudioBytes1: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pvAudioPtr2: LPVOID, dwAudioBytes2: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetObjectInPath(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rguidObject: &GUID, dwIndex: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rguidInterface: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppObject: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFXStatus(&self, dwEffectsCount: DWORD, #[out] #[len_param(0)] pdwFXStatus: LPDWORD) -> HRESULT;
+        }
+        #[no_guid]
+        interface IDirectSoundCaptureFXAec: IUnknown {
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDscFxAec: LPCDSCFXAec) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetAllParameters(&self, #[out] pDscFxAec: LPDSCFXAec) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetStatus(&self, #[out] pdwStatus: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Reset(&self) -> HRESULT;
         }
-        #[guid(0xed311e41_fbae_4175_9625_cd0854f693ca)]
+        #[no_guid]
         interface IDirectSoundCaptureFXNoiseSuppress: IUnknown {
-            fn SetAllParameters(&self, pcDscFxNoiseSuppress: LPCDSCFXNoiseSuppress) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDscFxNoiseSuppress: LPCDSCFXNoiseSuppress) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAllParameters(&self, #[out] pDscFxNoiseSuppress: LPDSCFXNoiseSuppress) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Reset(&self) -> HRESULT;
         }
-        #[guid(0x880842e3_145f_43e6_a934_a71806e50547)]
+        #[no_guid]
         interface IDirectSoundFXChorus: IUnknown {
-            fn SetAllParameters(&self, pcDsFxChorus: LPCDSFXChorus) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDsFxChorus: LPCDSFXChorus) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAllParameters(&self, #[out] pDsFxChorus: LPDSFXChorus) -> HRESULT;
         }
-        #[guid(0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0)]
+        #[no_guid]
         interface IDirectSoundFXCompressor: IUnknown {
-            fn SetAllParameters(&self, pcDsFxCompressor: LPCDSFXCompressor) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDsFxCompressor: LPCDSFXCompressor) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAllParameters(&self, #[out] pDsFxCompressor: LPDSFXCompressor) -> HRESULT;
         }
-        #[guid(0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b)]
+        #[no_guid]
         interface IDirectSoundFXDistortion: IUnknown {
-            fn SetAllParameters(&self, pcDsFxDistortion: LPCDSFXDistortion) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDsFxDistortion: LPCDSFXDistortion) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAllParameters(&self, #[out] pDsFxDistortion: LPDSFXDistortion) -> HRESULT;
         }
-        #[guid(0x8bd28edf_50db_4e92_a2bd_445488d1ed42)]
+        #[no_guid]
         interface IDirectSoundFXEcho: IUnknown {
-            fn SetAllParameters(&self, pcDsFxEcho: LPCDSFXEcho) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDsFxEcho: LPCDSFXEcho) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAllParameters(&self, #[out] pDsFxEcho: LPDSFXEcho) -> HRESULT;
         }
-        #[guid(0x903e9878_2c92_4072_9b2c_ea68f5396783)]
+        #[no_guid]
         interface IDirectSoundFXFlanger: IUnknown {
-            fn SetAllParameters(&self, pcDsFxFlanger: LPCDSFXFlanger) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDsFxFlanger: LPCDSFXFlanger) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAllParameters(&self, #[out] pDsFxFlanger: LPDSFXFlanger) -> HRESULT;
         }
-        #[guid(0xd616f352_d622_11ce_aac5_0020af0b99a3)]
+        #[no_guid]
         interface IDirectSoundFXGargle: IUnknown {
-            fn SetAllParameters(&self, pcDsFxGargle: LPCDSFXGargle) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDsFxGargle: LPCDSFXGargle) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAllParameters(&self, #[out] pDsFxGargle: LPDSFXGargle) -> HRESULT;
         }
-        #[guid(0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4)]
+        #[no_guid]
         interface IDirectSoundFXI3DL2Reverb: IUnknown {
-            fn SetAllParameters(&self, pcDsFxI3DL2Reverb: LPCDSFXI3DL2Reverb) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDsFxI3DL2Reverb: LPCDSFXI3DL2Reverb) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAllParameters(&self, #[out] pDsFxI3DL2Reverb: LPDSFXI3DL2Reverb) -> HRESULT;
-            fn SetPreset(&self, dwPreset: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetPreset(&self, dwPreset: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetPreset(&self, #[out] pdwPreset: LPDWORD) -> HRESULT;
-            fn SetQuality(&self, lQuality: i32) -> HRESULT;
-            fn GetQuality(&self, plQuality: *mut i32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetQuality(&self, lQuality: LONG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetQuality(&self, #[out] plQuality: *mut LONG) -> HRESULT;
         }
-        #[guid(0xc03ca9fe_fe90_4204_8078_82334cd177da)]
+        #[no_guid]
         interface IDirectSoundFXParamEq: IUnknown {
-            fn SetAllParameters(&self, pcDsFxParamEq: LPCDSFXParamEq) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDsFxParamEq: LPCDSFXParamEq) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAllParameters(&self, #[out] pDsFxParamEq: LPDSFXParamEq) -> HRESULT;
         }
-        #[guid(0x46858c3a_0dc6_45e3_b760_d4eef16cb325)]
+        #[no_guid]
         interface IDirectSoundFXWavesReverb: IUnknown {
-            fn SetAllParameters(&self, pcDsFxWavesReverb: LPCDSFXWavesReverb) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAllParameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcDsFxWavesReverb: LPCDSFXWavesReverb) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAllParameters(&self, #[out] pDsFxWavesReverb: LPDSFXWavesReverb) -> HRESULT;
         }
-        #[guid(0xedcb4c7a_daab_4216_a42e_6c50596ddc1d)]
+        #[no_guid]
         interface IDirectSoundFullDuplex: IUnknown {
-            fn Initialize(&self, pCaptureGuid: LPCGUID, pRenderGuid: LPCGUID, lpDscBufferDesc: LPCDSCBUFFERDESC, lpDsBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: u32, lplpDirectSoundCaptureBuffer8: LPLPDIRECTSOUNDCAPTUREBUFFER8, lplpDirectSoundBuffer8: LPLPDIRECTSOUNDBUFFER8) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Initialize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCaptureGuid: LPCGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRenderGuid: LPCGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDscBufferDesc: LPCDSCBUFFERDESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDsBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] lplpDirectSoundCaptureBuffer8: LPLPDIRECTSOUNDCAPTUREBUFFER8, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] lplpDirectSoundBuffer8: LPLPDIRECTSOUNDBUFFER8) -> HRESULT;
         }
-        #[guid(0xb0210783_89cd_11d0_af08_00a0c925cd16)]
+        #[no_guid]
         interface IDirectSoundNotify: IUnknown {
-            fn SetNotificationPositions(&self, dwPositionNotifies: u32, #[len_param(0)] pcPositionNotifies: LPCDSBPOSITIONNOTIFY) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetNotificationPositions(&self, dwPositionNotifies: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pcPositionNotifies: LPCDSBPOSITIONNOTIFY) -> HRESULT;
         }
-        #[guid(0x31efac30_515c_11d0_a9aa_00aa0061be93)]
+        const IID_IDirectSound: GUID = 0x279afa83_4981_11ce_a521_0020af0be560;
+        const IID_IDirectSound3DBuffer: GUID = 0x279afa86_4981_11ce_a521_0020af0be560;
+        const IID_IDirectSound3DListener: GUID = 0x279afa84_4981_11ce_a521_0020af0be560;
+        const IID_IDirectSound8: GUID = 0xc50a7e93_f395_4834_9ef6_7fa99de50966;
+        const IID_IDirectSoundBuffer: GUID = 0x279afa85_4981_11ce_a521_0020af0be560;
+        const IID_IDirectSoundBuffer8: GUID = 0x6825a449_7524_4d82_920f_50e36ab3ab1e;
+        const IID_IDirectSoundCapture: GUID = 0xb0210781_89cd_11d0_af08_00a0c925cd16;
+        const IID_IDirectSoundCaptureBuffer: GUID = 0xb0210782_89cd_11d0_af08_00a0c925cd16;
+        const IID_IDirectSoundCaptureBuffer8: GUID = 0x00990df4_0dbb_4872_833e_6d303e80aeb6;
+        const IID_IDirectSoundCaptureFXAec: GUID = 0xad74143d_903d_4ab7_8066_28d363036d65;
+        const IID_IDirectSoundCaptureFXNoiseSuppress: GUID = 0xed311e41_fbae_4175_9625_cd0854f693ca;
+        const IID_IDirectSoundFXChorus: GUID = 0x880842e3_145f_43e6_a934_a71806e50547;
+        const IID_IDirectSoundFXCompressor: GUID = 0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0;
+        const IID_IDirectSoundFXDistortion: GUID = 0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b;
+        const IID_IDirectSoundFXEcho: GUID = 0x8bd28edf_50db_4e92_a2bd_445488d1ed42;
+        const IID_IDirectSoundFXFlanger: GUID = 0x903e9878_2c92_4072_9b2c_ea68f5396783;
+        const IID_IDirectSoundFXGargle: GUID = 0xd616f352_d622_11ce_aac5_0020af0b99a3;
+        const IID_IDirectSoundFXI3DL2Reverb: GUID = 0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4;
+        const IID_IDirectSoundFXParamEq: GUID = 0xc03ca9fe_fe90_4204_8078_82334cd177da;
+        const IID_IDirectSoundFXWavesReverb: GUID = 0x46858c3a_0dc6_45e3_b760_d4eef16cb325;
+        const IID_IDirectSoundFullDuplex: GUID = 0xedcb4c7a_daab_4216_a42e_6c50596ddc1d;
+        const IID_IDirectSoundNotify: GUID = 0xb0210783_89cd_11d0_af08_00a0c925cd16;
+        const IID_IKsPropertySet: GUID = 0x31efac30_515c_11d0_a9aa_00aa0061be93;
+        const IID_IReferenceClock: GUID = 0x56a86897_0ad4_11ce_b03a_0020af0ba770;
+        #[no_guid]
         interface IKsPropertySet: IUnknown {
-            fn Get(&self, rguidPropSet: *const GUID, ulId: u32, #[size_param(3)] #[in] #[opt] pInstanceData: *mut void, ulInstanceLength: u32, #[size_param(5)] pPropertyData: *mut void, ulDataLength: u32, #[out] #[opt] pulBytesReturned: PULONG) -> HRESULT;
-            fn Set(&self, rguidPropSet: *const GUID, ulId: u32, #[size_param(3)] #[in] #[opt] pInstanceData: *mut void, ulInstanceLength: u32, #[size_param(5)] #[in] pPropertyData: *mut void, ulDataLength: u32) -> HRESULT;
-            fn QuerySupport(&self, rguidPropSet: *const GUID, ulId: u32, #[out] pulTypeSupport: PULONG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Get(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rguidPropSet: &GUID, ulId: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pInstanceData: LPVOID, ulInstanceLength: ULONG, #[out] #[size_param(5)] pPropertyData: LPVOID, ulDataLength: ULONG, #[out] #[opt] pulBytesReturned: PULONG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Set(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rguidPropSet: &GUID, ulId: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pInstanceData: LPVOID, ulInstanceLength: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] pPropertyData: LPVOID, ulDataLength: ULONG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QuerySupport(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rguidPropSet: &GUID, ulId: ULONG, #[out] pulTypeSupport: PULONG) -> HRESULT;
         }
-        #[guid(0x56a86897_0ad4_11ce_b03a_0020af0ba770)]
+        #[no_guid]
         interface IReferenceClock: IUnknown {
-            fn GetTime(&self, pTime: *mut REFERENCE_TIME) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] param1: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetTime(&self, #[out] pTime: *mut REFERENCE_TIME) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn AdviseTime(&self, rtBaseTime: REFERENCE_TIME, rtStreamTime: REFERENCE_TIME, hEvent: HANDLE, #[out] pdwAdviseCookie: LPDWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn AdvisePeriodic(&self, rtStartTime: REFERENCE_TIME, rtPeriodTime: REFERENCE_TIME, hSemaphore: HANDLE, #[out] pdwAdviseCookie: LPDWORD) -> HRESULT;
-            fn Unadvise(&self, dwAdviseCookie: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Unadvise(&self, dwAdviseCookie: DWORD) -> HRESULT;
         }
         const KSPROPERTY_SUPPORT_GET: i32 = 1;
         const KSPROPERTY_SUPPORT_SET: i32 = 2;
@@ -785,6 +1253,44 @@ mod Windows {
         type LPD3DCOLOR = *mut u32;
         type LPD3DVALUE = *mut f32;
         type LPD3DVECTOR = *mut D3DVECTOR;
+        type LPDIRECTSOUND = IDirectSound;
+        type LPDIRECTSOUND3DBUFFER = IDirectSound3DBuffer;
+        type LPDIRECTSOUND3DBUFFER8 = IDirectSound3DBuffer;
+        type LPDIRECTSOUND3DLISTENER = IDirectSound3DListener;
+        type LPDIRECTSOUND3DLISTENER8 = IDirectSound3DListener;
+        type LPDIRECTSOUND8 = IDirectSound8;
+        type LPDIRECTSOUNDBUFFER = IDirectSoundBuffer;
+        type LPDIRECTSOUNDBUFFER8 = IDirectSoundBuffer8;
+        type LPDIRECTSOUNDCAPTURE = IDirectSoundCapture;
+        type LPDIRECTSOUNDCAPTURE8 = IDirectSoundCapture;
+        type LPDIRECTSOUNDCAPTUREBUFFER = IDirectSoundCaptureBuffer;
+        type LPDIRECTSOUNDCAPTUREBUFFER8 = IDirectSoundCaptureBuffer8;
+        type LPDIRECTSOUNDCAPTUREFXAEC = IDirectSoundCaptureFXAec;
+        type LPDIRECTSOUNDCAPTUREFXAEC8 = IDirectSoundCaptureFXAec;
+        type LPDIRECTSOUNDCAPTUREFXNOISESUPPRESS = IDirectSoundCaptureFXNoiseSuppress;
+        type LPDIRECTSOUNDCAPTUREFXNOISESUPPRESS8 = IDirectSoundCaptureFXNoiseSuppress;
+        type LPDIRECTSOUNDFULLDUPLEX = IDirectSoundFullDuplex;
+        type LPDIRECTSOUNDFULLDUPLEX8 = IDirectSoundFullDuplex;
+        type LPDIRECTSOUNDFXCHORUS = IDirectSoundFXChorus;
+        type LPDIRECTSOUNDFXCHORUS8 = IDirectSoundFXChorus;
+        type LPDIRECTSOUNDFXCOMPRESSOR = IDirectSoundFXCompressor;
+        type LPDIRECTSOUNDFXCOMPRESSOR8 = IDirectSoundFXCompressor;
+        type LPDIRECTSOUNDFXDISTORTION = IDirectSoundFXDistortion;
+        type LPDIRECTSOUNDFXDISTORTION8 = IDirectSoundFXDistortion;
+        type LPDIRECTSOUNDFXECHO = IDirectSoundFXEcho;
+        type LPDIRECTSOUNDFXECHO8 = IDirectSoundFXEcho;
+        type LPDIRECTSOUNDFXFLANGER = IDirectSoundFXFlanger;
+        type LPDIRECTSOUNDFXFLANGER8 = IDirectSoundFXFlanger;
+        type LPDIRECTSOUNDFXGARGLE = IDirectSoundFXGargle;
+        type LPDIRECTSOUNDFXGARGLE8 = IDirectSoundFXGargle;
+        type LPDIRECTSOUNDFXI3DL2REVERB = IDirectSoundFXI3DL2Reverb;
+        type LPDIRECTSOUNDFXI3DL2REVERB8 = IDirectSoundFXI3DL2Reverb;
+        type LPDIRECTSOUNDFXPARAMEQ = IDirectSoundFXParamEq;
+        type LPDIRECTSOUNDFXPARAMEQ8 = IDirectSoundFXParamEq;
+        type LPDIRECTSOUNDFXWAVESREVERB = IDirectSoundFXWavesReverb;
+        type LPDIRECTSOUNDFXWAVESREVERB8 = IDirectSoundFXWavesReverb;
+        type LPDIRECTSOUNDNOTIFY = IDirectSoundNotify;
+        type LPDIRECTSOUNDNOTIFY8 = IDirectSoundNotify;
         type LPDS3DBUFFER = *mut DS3DBUFFER;
         type LPDS3DLISTENER = *mut DS3DLISTENER;
         type LPDSBCAPS = *mut DSBCAPS;
@@ -800,8 +1306,8 @@ mod Windows {
         type LPDSCFXAec = *mut DSCFXAec;
         type LPDSCFXNoiseSuppress = *mut DSCFXNoiseSuppress;
         type LPDSEFFECTDESC = *mut DSEFFECTDESC;
-        extern fn LPDSENUMCALLBACKA(param0: LPGUID, param1: PCSTR, param2: PCSTR, param3: *mut void) -> BOOL;
-        extern fn LPDSENUMCALLBACKW(param0: LPGUID, param1: PCWSTR, param2: PCWSTR, param3: *mut void) -> BOOL;
+        extern fn LPDSENUMCALLBACKA(param0: LPGUID, param1: LPCSTR, param2: LPCSTR, param3: LPVOID) -> BOOL;
+        extern fn LPDSENUMCALLBACKW(param0: LPGUID, param1: LPCWSTR, param2: LPCWSTR, param3: LPVOID) -> BOOL;
         type LPDSFXChorus = *mut DSFXChorus;
         type LPDSFXCompressor = *mut DSFXCompressor;
         type LPDSFXDistortion = *mut DSFXDistortion;
@@ -811,6 +1317,7 @@ mod Windows {
         type LPDSFXI3DL2Reverb = *mut DSFXI3DL2Reverb;
         type LPDSFXParamEq = *mut DSFXParamEq;
         type LPDSFXWavesReverb = *mut DSFXWavesReverb;
+        type LPKSPROPERTYSET = IKsPropertySet;
         type LPLPDIRECTSOUND = *mut IDirectSound;
         type LPLPDIRECTSOUND3DBUFFER = *mut IDirectSound3DBuffer;
         type LPLPDIRECTSOUND3DLISTENER = *mut IDirectSound3DListener;
@@ -822,7 +1329,7 @@ mod Windows {
         type LPLPDIRECTSOUNDCAPTUREBUFFER = *mut IDirectSoundCaptureBuffer;
         type LPLPDIRECTSOUNDCAPTUREBUFFER8 = *mut IDirectSoundCaptureBuffer8;
         type LPLPDIRECTSOUNDNOTIFY = *mut IDirectSoundNotify;
-        type LPREFERENCE_TIME = *mut REFERENCE_TIME;
+        type LPREFERENCE_TIME = *mut i64;
         const _FACDS: i32 = 2168;
     }
 }

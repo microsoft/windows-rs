@@ -1,27 +1,30 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[packed(8)]
         struct AASHELLMENUFILENAME {
-            cbTotal: i16,
-            rgbReserved: [u8; 12],
-            szFileName: [u16; 1],
+            cbTotal: SHORT,
+            rgbReserved: [BYTE; 12],
+            szFileName: [WCHAR; 1],
         }
+        #[packed(8)]
         struct AASHELLMENUITEM {
             lpReserved1: *mut void,
             iReserved: i32,
-            uiReserved: u32,
+            uiReserved: UINT,
             lpName: LPAASHELLMENUFILENAME,
-            psz: PWSTR,
+            psz: LPWSTR,
         }
+        #[packed(8)]
         struct BANDINFOSFB {
-            dwMask: u32,
-            dwStateMask: u32,
-            dwState: u32,
+            dwMask: DWORD,
+            dwStateMask: DWORD,
+            dwState: DWORD,
             crBkgnd: COLORREF,
             crBtnLt: COLORREF,
             crBtnDk: COLORREF,
-            wViewMode: u16,
-            wAlign: u16,
+            wViewMode: WORD,
+            wAlign: WORD,
             psf: IShellFolder,
             pidl: LPITEMIDLIST,
         }
@@ -47,97 +50,178 @@ mod Windows {
         const DWFRF_DELETECONFIGDATA: i32 = 1;
         const DWFRF_NORMAL: i32 = 0;
         #[library("SHDOCVW.dll")]
-        extern fn DoPrivacyDlg(#[opt] hwndOwner: HWND, pszUrl: PCWSTR, #[in] pPrivacyEnum: *mut IEnumPrivacyRecords, fReportAllSites: BOOL) -> HRESULT;
-        #[library("SHELL32.dll")]
-        extern fn DriveType(iDrive: i32) -> i32;
+        extern fn DoPrivacyDlg(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndOwner: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPrivacyEnum: *mut IEnumPrivacyRecords, fReportAllSites: BOOL) -> HRESULT;
         const FCIDM_STATUS: i32 = 40961;
         const FCIDM_TOOLBAR: i32 = 40960;
         const GADOF_DIRTY: i32 = 1;
         const GETPROPS_NONE: i32 = 0;
-        #[library("SHELL32.dll")]
-        extern fn GetFileNameFromBrowse(#[opt] hwnd: HWND, #[len_param(2)] #[in] #[out] pszFilePath: PWSTR, cchFilePath: u32, #[opt] pszWorkingDir: PCWSTR, pszDefExt: PCWSTR, #[opt] pszFilters: PCWSTR, #[opt] pszTitle: PCWSTR) -> BOOL;
         #[guid(0xb22754e2_4574_11d1_9888_006097deacf9)]
         interface IADesktopP2: IUnknown {
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn ReReadWallpaper(&self) -> HRESULT;
-            fn GetADObjectFlags(&self, pdwFlags: *mut u32, dwMask: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetADObjectFlags(&self, #[out] pdwFlags: *mut DWORD, dwMask: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn UpdateAllDesktopSubscriptions(&self) -> HRESULT;
-            fn MakeDynamicChanges(&self, pOleObj: IOleObject) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn MakeDynamicChanges(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOleObj: IOleObject) -> HRESULT;
         }
         #[guid(0x52502ee0_ec80_11d0_89ab_00c04fc2972d)]
         interface IActiveDesktopP: IUnknown {
-            fn SetSafeMode(&self, dwFlags: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetSafeMode(&self, dwFlags: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn EnsureUpdateHTML(&self) -> HRESULT;
-            fn SetScheme(&self, pwszSchemeName: PCWSTR, dwFlags: u32) -> HRESULT;
-            fn GetScheme(&self, #[len_param(1)] #[out] pwszSchemeName: PWSTR, #[in] #[out] pdwcchBuffer: *mut u32, dwFlags: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetScheme(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszSchemeName: PCWSTR, dwFlags: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetScheme(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pdwcchBuffer", "*pdwcchBuffer")] #[out] pwszSchemeName: PWSTR, #[in] #[out] pdwcchBuffer: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         }
         #[guid(0x596a9a94_013e_11d1_8d34_00a0c90f2719)]
         interface IBanneredBar: IUnknown {
-            fn SetIconSize(&self, iIcon: u32) -> HRESULT;
-            fn GetIconSize(&self, piIcon: *mut u32) -> HRESULT;
-            fn SetBitmap(&self, hBitmap: HBITMAP) -> HRESULT;
-            fn GetBitmap(&self, phBitmap: *mut HBITMAP) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetIconSize(&self, iIcon: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetIconSize(&self, #[out] piIcon: *mut DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetBitmap(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hBitmap: HBITMAP) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetBitmap(&self, #[out] phBitmap: *mut HBITMAP) -> HRESULT;
         }
         #[guid(0xe8025004_1c42_11d2_be2c_00a0c9a83da1)]
         interface IColumnProvider: IUnknown {
-            fn Initialize(&self, psci: LPCSHCOLUMNINIT) -> HRESULT;
-            fn GetColumnInfo(&self, dwIndex: u32, psci: *mut SHCOLUMNINFO) -> HRESULT;
-            fn GetItemData(&self, pscid: LPCSHCOLUMNID, pscd: LPCSHCOLUMNDATA, pvarData: *mut VARIANT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Initialize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psci: LPCSHCOLUMNINIT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetColumnInfo(&self, dwIndex: DWORD, #[out] psci: *mut SHCOLUMNINFO) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetItemData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pscid: LPCSHCOLUMNID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pscd: LPCSHCOLUMNDATA, #[out] pvarData: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x000214ef_0000_0000_c000_000000000046)]
         interface ICopyHookA: IUnknown {
-            fn CopyCallback(&self, #[opt] hwnd: HWND, wFunc: u32, wFlags: u32, pszSrcFile: PCSTR, dwSrcAttribs: u32, #[opt] pszDestFile: PCSTR, dwDestAttribs: u32) -> u32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CopyCallback(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, wFunc: UINT, wFlags: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrcFile: PCSTR, dwSrcAttribs: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDestFile: PCSTR, dwDestAttribs: DWORD) -> UINT;
         }
         #[guid(0x000214fc_0000_0000_c000_000000000046)]
         interface ICopyHookW: IUnknown {
-            fn CopyCallback(&self, #[opt] hwnd: HWND, wFunc: u32, wFlags: u32, pszSrcFile: PCWSTR, dwSrcAttribs: u32, #[opt] pszDestFile: PCWSTR, dwDestAttribs: u32) -> u32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CopyCallback(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, wFunc: UINT, wFlags: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrcFile: PCWSTR, dwSrcAttribs: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDestFile: PCWSTR, dwDestAttribs: DWORD) -> UINT;
         }
         #[guid(0x91956d21_9276_11d1_921a_006097df5bd4)]
         interface ICurrentWorkingDirectory: IUnknown {
-            fn GetDirectory(&self, #[len_param(1)] #[out] pwzPath: PWSTR, cchSize: u32) -> HRESULT;
-            fn SetDirectory(&self, pwzPath: PCWSTR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDirectory(&self, #[out] #[len_param(1)] pwzPath: PWSTR, cchSize: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetDirectory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzPath: PCWSTR) -> HRESULT;
         }
         const IDC_OFFLINE_HAND: i32 = 103;
         const IDC_PANTOOL_HAND_CLOSED: i32 = 105;
         const IDC_PANTOOL_HAND_OPEN: i32 = 104;
         #[guid(0xeb0fe175_1a3a_11d0_89b3_00a0c90a90ac)]
         interface IDeskBarClient: IOleWindow {
-            fn SetDeskBarSite(&self, #[opt] punkSite: IUnknown) -> HRESULT;
-            fn SetModeDBC(&self, dwMode: u32) -> HRESULT;
-            fn UIActivateDBC(&self, dwState: u32) -> HRESULT;
-            fn GetSize(&self, dwWhich: u32, #[out] prc: LPRECT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetDeskBarSite(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkSite: IUnknown) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetModeDBC(&self, dwMode: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn UIActivateDBC(&self, dwState: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetSize(&self, dwWhich: DWORD, #[out] prc: LPRECT) -> HRESULT;
         }
         #[guid(0x87d605e0_c511_11cf_89a9_00a0c9054129)]
         interface IDocViewSite: IUnknown {
-            fn OnSetTitle(&self, #[in] pvTitle: *mut VARIANTARG) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn OnSetTitle(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvTitle: *mut VARIANTARG) -> HRESULT;
         }
         #[guid(0x47d2657a_7b27_11d0_8ca9_00a0c92dbfe8)]
         interface IDockingWindowFrame: IOleWindow {
-            fn AddToolbar(&self, punkSrc: IUnknown, pwszItem: PCWSTR, dwAddFlags: u32) -> HRESULT;
-            fn RemoveToolbar(&self, punkSrc: IUnknown, dwRemoveFlags: u32) -> HRESULT;
-            fn FindToolbar(&self, pwszItem: PCWSTR, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddToolbar(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkSrc: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszItem: PCWSTR, dwAddFlags: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn RemoveToolbar(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkSrc: IUnknown, dwRemoveFlags: DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn FindToolbar(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszItem: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
         }
         struct IEnumPrivacyRecords {}
         #[guid(0x4622ad16_ff23_11d0_8d34_00a0c90f2719)]
         interface IInitializeObject: IUnknown {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Initialize(&self) -> HRESULT;
         }
         #[guid(0x000214e1_0000_0000_c000_000000000046)]
         interface INewShortcutHookA: IUnknown {
-            fn SetReferent(&self, pcszReferent: PCSTR, #[opt] hwnd: HWND) -> HRESULT;
-            fn GetReferent(&self, #[len_param(1)] #[out] pszReferent: PSTR, cchReferent: i32) -> HRESULT;
-            fn SetFolder(&self, pcszFolder: PCSTR) -> HRESULT;
-            fn GetFolder(&self, #[len_param(1)] #[out] pszFolder: PSTR, cchFolder: i32) -> HRESULT;
-            fn GetName(&self, #[len_param(1)] #[out] pszName: PSTR, cchName: i32) -> HRESULT;
-            fn GetExtension(&self, #[len_param(1)] #[out] pszExtension: PSTR, cchExtension: i32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetReferent(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszReferent: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetReferent(&self, #[out] #[len_param(1)] pszReferent: PSTR, cchReferent: i32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetFolder(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszFolder: PCSTR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFolder(&self, #[out] #[len_param(1)] pszFolder: PSTR, cchFolder: i32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetName(&self, #[out] #[len_param(1)] pszName: PSTR, cchName: i32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetExtension(&self, #[out] #[len_param(1)] pszExtension: PSTR, cchExtension: i32) -> HRESULT;
         }
         #[guid(0x000214f7_0000_0000_c000_000000000046)]
         interface INewShortcutHookW: IUnknown {
-            fn SetReferent(&self, pcszReferent: PCWSTR, #[opt] hwnd: HWND) -> HRESULT;
-            fn GetReferent(&self, #[len_param(1)] #[out] pszReferent: PWSTR, cchReferent: i32) -> HRESULT;
-            fn SetFolder(&self, pcszFolder: PCWSTR) -> HRESULT;
-            fn GetFolder(&self, #[len_param(1)] #[out] pszFolder: PWSTR, cchFolder: i32) -> HRESULT;
-            fn GetName(&self, #[len_param(1)] #[out] pszName: PWSTR, cchName: i32) -> HRESULT;
-            fn GetExtension(&self, #[len_param(1)] #[out] pszExtension: PWSTR, cchExtension: i32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetReferent(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszReferent: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetReferent(&self, #[out] #[len_param(1)] pszReferent: PWSTR, cchReferent: i32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetFolder(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszFolder: PCWSTR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFolder(&self, #[out] #[len_param(1)] pszFolder: PWSTR, cchFolder: i32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetName(&self, #[out] #[len_param(1)] pszName: PWSTR, cchName: i32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetExtension(&self, #[out] #[len_param(1)] pszExtension: PWSTR, cchExtension: i32) -> HRESULT;
         }
         const ISFBVIEWMODE_LARGEICONS: i32 = 2;
         const ISFBVIEWMODE_SMALLICONS: i32 = 1;
@@ -158,18 +242,26 @@ mod Windows {
         const ISFB_STATE_QLINKSMODE: i32 = 32;
         #[guid(0x7fe80cc8_c247_11d0_b93a_00a0c90312e1)]
         interface IShellFolderBand: IUnknown {
-            fn InitializeSFB(&self, #[opt] psf: IShellFolder, #[opt] pidl: LPCITEMIDLIST) -> HRESULT;
-            fn SetBandInfoSFB(&self, pbi: PBANDINFOSFB) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn InitializeSFB(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psf: IShellFolder, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPCITEMIDLIST) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetBandInfoSFB(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pbi: PBANDINFOSFB) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetBandInfoSFB(&self, #[in] #[out] pbi: PBANDINFOSFB) -> HRESULT;
         }
         #[guid(0x4ea39266_7211_409f_b622_f63dbd16c533)]
         interface IThumbnailCapture: IUnknown {
-            fn CaptureThumbnail(&self, pMaxSize: *const SIZE, pHTMLDoc2: IUnknown, phbmThumbnail: *mut HBITMAP) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CaptureThumbnail(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMaxSize: *const SIZE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pHTMLDoc2: IUnknown, #[out] phbmThumbnail: *mut HBITMAP) -> HRESULT;
         }
         #[library("SHDOCVW.dll")]
-        extern fn ImportPrivacySettings(pszFilename: PCWSTR, #[in] #[out] pfParsePrivacyPreferences: *mut BOOL, #[in] #[out] pfParsePerSiteRules: *mut BOOL) -> BOOL;
+        extern fn ImportPrivacySettings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFilename: PCWSTR, #[in] #[out] pfParsePrivacyPreferences: *mut BOOL, #[in] #[out] pfParsePerSiteRules: *mut BOOL) -> BOOL;
         type LPAASHELLMENUFILENAME = *mut AASHELLMENUFILENAME;
         type LPAASHELLMENUITEM = *mut AASHELLMENUITEM;
+        type LPACTIVEDESKTOPP = IActiveDesktopP;
+        type LPADESKTOPP2 = IADesktopP2;
+        type LPCOPYHOOKA = ICopyHookA;
+        type LPCOPYHOOKW = ICopyHookW;
         type LPCSHCOLUMNDATA = *const SHCOLUMNDATA;
         type LPCSHCOLUMNINFO = *const SHCOLUMNINFO;
         type LPCSHCOLUMNINIT = *const SHCOLUMNINIT;
@@ -179,10 +271,11 @@ mod Windows {
         type LPSHCOLUMNINIT = *mut SHCOLUMNINIT;
         type LPSHChangeProductKeyAsIDList = *mut SHChangeProductKeyAsIDList;
         type LPTBINFO = *mut TBINFO;
+        type LPTHUMBNAILCAPTURE = IThumbnailCapture;
         const OPENPROPS_INHIBITPIF: i32 = 32768;
         const OPENPROPS_NONE: i32 = 0;
         const PANE_NAVIGATION: i32 = 5;
-        const PANE_NONE: u32 = 4294967295;
+        const PANE_NONE: DWORD = 4294967295;
         const PANE_OFFLINE: i32 = 2;
         const PANE_PRINTER: i32 = 3;
         const PANE_PRIVACY: i32 = 7;
@@ -191,10 +284,12 @@ mod Windows {
         const PANE_ZONE: i32 = 1;
         type PBANDINFOSFB = *mut BANDINFOSFB;
         type PCSFV_SETITEMPOS = *const SFV_SETITEMPOS;
+        #[library("SHELL32.dll", import = "PathIsSlowA")]
+        extern fn PathIsSlow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCSTR, dwAttr: DWORD) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn PathIsSlowA(pszFile: PCSTR, dwAttr: u32) -> BOOL;
+        extern fn PathIsSlowA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCSTR, dwAttr: DWORD) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn PathIsSlowW(pszFile: PCWSTR, dwAttr: u32) -> BOOL;
+        extern fn PathIsSlowW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCWSTR, dwAttr: DWORD) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn PathQualify(#[in] #[out] psz: PWSTR);
         const SCHEME_CREATE: i32 = 128;
@@ -215,55 +310,58 @@ mod Windows {
         const SFVM_SETITEMPOS: i32 = 14;
         const SFVM_SETPOINTS: i32 = 23;
         const SFVM_UPDATEOBJECT: i32 = 7;
+        #[packed(8)]
         struct SFV_SETITEMPOS {
             pidl: LPCITEMIDLIST,
             pt: POINT,
         }
         const SHCDF_UPDATEITEM: i32 = 1;
+        #[packed(8)]
         struct SHCOLUMNDATA {
-            dwFlags: u32,
-            dwFileAttributes: u32,
-            dwReserved: u32,
-            pwszExt: *mut u16,
-            wszFile: [u16; 260],
+            dwFlags: ULONG,
+            dwFileAttributes: DWORD,
+            dwReserved: ULONG,
+            pwszExt: *mut WCHAR,
+            wszFile: [WCHAR; 260],
         }
         #[packed(1)]
         struct SHCOLUMNINFO {
             scid: SHCOLUMNID,
             vt: VARTYPE,
-            fmt: u32,
-            cChars: u32,
-            csFlags: u32,
-            wszTitle: [u16; 80],
-            wszDescription: [u16; 128],
+            fmt: DWORD,
+            cChars: UINT,
+            csFlags: DWORD,
+            wszTitle: [WCHAR; 80],
+            wszDescription: [WCHAR; 128],
         }
+        #[packed(8)]
         struct SHCOLUMNINIT {
-            dwFlags: u32,
-            dwReserved: u32,
-            wszFolder: [u16; 260],
+            dwFlags: ULONG,
+            dwReserved: ULONG,
+            wszFolder: [WCHAR; 260],
         }
         #[library("SHELL32.dll")]
         extern fn SHChangeNotifyRegisterThread(status: SCNRT_STATUS);
         #[packed(1)]
         struct SHChangeProductKeyAsIDList {
-            cb: u16,
-            wszProductKey: [u16; 39],
-            cbZero: u16,
+            cb: USHORT,
+            wszProductKey: [WCHAR; 39],
+            cbZero: USHORT,
         }
         #[library("SHELL32.dll")]
-        extern fn SHCreatePropSheetExtArray(hKey: HKEY, #[opt] pszSubKey: PCWSTR, max_iface: u32) -> HPSXA;
+        extern fn SHCreatePropSheetExtArray(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: PCWSTR, max_iface: UINT) -> HPSXA;
         #[library("SHELL32.dll")]
-        extern fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker: *mut IMoniker) -> HRESULT;
+        extern fn SHCreateQueryCancelAutoPlayMoniker(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmoniker: *mut IMoniker) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHMultiFileProperties(pdtobj: IDataObject, dwFlags: u32) -> HRESULT;
+        extern fn SHMultiFileProperties(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pdtobj: IDataObject, dwFlags: DWORD) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHOpenPropSheetW(#[opt] pszCaption: PCWSTR, #[len_param(2)] #[in] #[opt] ahkeys: *mut HKEY, ckeys: u32, #[opt] pclsidDefault: *const GUID, pdtobj: IDataObject, #[opt] psb: IShellBrowser, #[opt] pStartPage: PCWSTR) -> BOOL;
+        extern fn SHOpenPropSheetW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszCaption: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] ahkeys: *mut HKEY, ckeys: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pclsidDefault: *const CLSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pdtobj: IDataObject, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psb: IShellBrowser, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStartPage: LPCWSTR) -> BOOL;
         const SSM_CLEAR: i32 = 0;
         const SSM_REFRESH: i32 = 2;
         const SSM_SET: i32 = 1;
         const SSM_UPDATE: i32 = 4;
         #[library("SHDOCVW.dll")]
-        extern fn SoftwareUpdateMessageBox(#[opt] hWnd: HWND, pszDistUnit: PCWSTR, dwFlags: u32, #[out] #[opt] psdi: LPSOFTDISTINFO) -> u32;
+        extern fn SoftwareUpdateMessageBox(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDistUnit: PCWSTR, dwFlags: DWORD, #[out] #[opt] psdi: LPSOFTDISTINFO) -> DWORD;
         const TBIF_APPEND: i32 = 0;
         const TBIF_DEFAULT: i32 = 0;
         const TBIF_INTERNETBAR: i32 = 65536;
@@ -271,9 +369,10 @@ mod Windows {
         const TBIF_PREPEND: i32 = 1;
         const TBIF_REPLACE: i32 = 2;
         const TBIF_STANDARDTOOLBAR: i32 = 131072;
+        #[packed(8)]
         struct TBINFO {
-            cbuttons: u32,
-            uFlags: u32,
+            cbuttons: UINT,
+            uFlags: UINT,
         }
     }
 }

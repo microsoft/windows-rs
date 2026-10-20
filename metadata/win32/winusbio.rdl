@@ -20,16 +20,16 @@ mod Windows {
         const SUSPEND_DELAY: i32 = 131;
         struct WINUSB_PIPE_INFORMATION {
             PipeType: USBD_PIPE_TYPE,
-            PipeId: u8,
-            MaximumPacketSize: u16,
-            Interval: u8,
+            PipeId: UCHAR,
+            MaximumPacketSize: USHORT,
+            Interval: UCHAR,
         }
         struct WINUSB_PIPE_INFORMATION_EX {
             PipeType: USBD_PIPE_TYPE,
-            PipeId: u8,
-            MaximumPacketSize: u16,
-            Interval: u8,
-            MaximumBytesPerInterval: u32,
+            PipeId: UCHAR,
+            MaximumPacketSize: USHORT,
+            Interval: UCHAR,
+            MaximumBytesPerInterval: ULONG,
         }
         const WinUSB_TestGuid: GUID = 0xda812bff_12c3_46a2_8e2b_dbd3b7834c43;
     }

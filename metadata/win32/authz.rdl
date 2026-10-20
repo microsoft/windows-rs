@@ -7,17 +7,20 @@ mod Windows {
             unused: i32,
         }
         struct AUTHZ_ACCESS_REPLY {
-            ResultListLength: u32,
+            ResultListLength: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResultListLength", IsByteCount = false, MayBeNull = false)]
             GrantedAccessMask: PACCESS_MASK,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResultListLength", IsByteCount = false, MayBeNull = true)]
             SaclEvaluationResults: PDWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResultListLength", IsByteCount = false, MayBeNull = false)]
             Error: PDWORD,
         }
         struct AUTHZ_ACCESS_REQUEST {
             DesiredAccess: ACCESS_MASK,
             PrincipalSelfSid: PSID,
             ObjectTypeList: POBJECT_TYPE_LIST,
-            ObjectTypeListLength: u32,
-            OptionalArguments: *mut void,
+            ObjectTypeListLength: DWORD,
+            OptionalArguments: PVOID,
         }
         type AUTHZ_AUDIT_EVENT_HANDLE = *mut AUTHZ_AUDIT_EVENT_HANDLE__;
         struct AUTHZ_AUDIT_EVENT_HANDLE__ {
@@ -67,7 +70,7 @@ mod Windows {
         const AUTHZ_GENERATE_FAILURE_AUDIT: i32 = 2;
         const AUTHZ_GENERATE_SUCCESS_AUDIT: i32 = 1;
         struct AUTHZ_INIT_INFO {
-            version: u16,
+            version: USHORT,
             szResourceManagerName: PCWSTR,
             pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK,
             pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS,
@@ -81,7 +84,7 @@ mod Windows {
         const AUTHZ_NO_SUCCESS_AUDIT: i32 = 1;
         struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
             szObjectTypeName: PWSTR,
-            dwOffset: u32,
+            dwOffset: DWORD,
         }
         const AUTHZ_REQUIRE_S4U_LOGON: i32 = 4;
         type AUTHZ_RESOURCE_MANAGER_HANDLE = *mut AUTHZ_RESOURCE_MANAGER_HANDLE__;
@@ -92,7 +95,7 @@ mod Windows {
         const AUTHZ_RM_FLAG_NO_AUDIT: i32 = 1;
         const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: i32 = 4;
         struct AUTHZ_RPC_INIT_INFO_CLIENT {
-            version: u16,
+            version: USHORT,
             ObjectUuid: PWSTR,
             ProtSeq: PWSTR,
             NetworkAddr: PWSTR,
@@ -102,9 +105,9 @@ mod Windows {
         }
         const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: i32 = 1;
         struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-            Version: u16,
-            Reserved: u16,
-            AttributeCount: u32,
+            Version: USHORT,
+            Reserved: USHORT,
+            AttributeCount: ULONG,
             Attribute: union {
                 pAttributeV1: PAUTHZ_SECURITY_ATTRIBUTE_V1,
             },
@@ -112,13 +115,13 @@ mod Windows {
         const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: i32 = 1;
         const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: i32 = 1;
         struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-            Version: u64,
+            Version: ULONG64,
             pName: PWSTR,
         }
         const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: i32 = 1;
         struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-            pValue: *mut void,
-            ValueLength: u32,
+            pValue: PVOID,
+            ValueLength: ULONG,
         }
         #[repr(i32)]
         enum AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
@@ -138,10 +141,10 @@ mod Windows {
         const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: i32 = 2;
         struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
             pName: PWSTR,
-            ValueType: u16,
-            Reserved: u16,
-            Flags: u32,
-            ValueCount: u32,
+            ValueType: USHORT,
+            Reserved: USHORT,
+            Flags: ULONG,
+            ValueCount: ULONG,
             Values: union {
                 pInt64: PLONG64,
                 pUint64: PULONG64,
@@ -166,111 +169,112 @@ mod Windows {
         }
         const AUTHZ_SKIP_TOKEN_GROUPS: i32 = 2;
         struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
-            dwFlags: u32,
+            dwFlags: DWORD,
             szEventSourceName: PWSTR,
             szEventMessageFile: PWSTR,
             szEventSourceXmlSchemaFile: PWSTR,
             szEventAccessStringsFile: PWSTR,
             szExecutableImagePath: PWSTR,
             Anonymous: union {
-                pReserved: *mut void,
+                pReserved: PVOID,
                 pProviderGuid: *mut GUID,
             },
-            dwObjectTypeNameCount: u32,
+            dwObjectTypeNameCount: DWORD,
             ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
         }
         const AUTHZ_VALID_OBJECT_ACCESS_AUDIT_FLAGS: i32 = 23;
         const AUTHZ_VALID_RM_INIT_FLAGS: i32 = 7;
         const AUTHZ_WPD_CATEGORY_FLAG: i32 = 16;
         #[library("AUTHZ.dll")]
-        extern fn AuthzAccessCheck(Flags: u32, hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pRequest: PAUTHZ_ACCESS_REQUEST, #[opt] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[len_param(6)] #[in] #[opt] OptionalSecurityDescriptorArray: *mut PSECURITY_DESCRIPTOR, OptionalSecurityDescriptorCount: u32, #[in] #[out] pReply: PAUTHZ_ACCESS_REPLY, #[out] #[opt] phAccessCheckResults: PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> BOOL;
+        extern fn AuthzAccessCheck(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRequest: PAUTHZ_ACCESS_REQUEST, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] OptionalSecurityDescriptorArray: *mut PSECURITY_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OptionalSecurityDescriptorCount: DWORD, #[in] #[out] pReply: PAUTHZ_ACCESS_REPLY, #[out] #[opt] phAccessCheckResults: PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzAddSidsToContext(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[opt] Sids: PSID_AND_ATTRIBUTES, SidCount: u32, #[opt] RestrictedSids: PSID_AND_ATTRIBUTES, RestrictedSidCount: u32, #[out] phNewAuthzClientContext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        extern fn AuthzAddSidsToContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Sids: PSID_AND_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SidCount: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RestrictedSids: PSID_AND_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RestrictedSidCount: DWORD, #[out] phNewAuthzClientContext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzCachedAccessCheck(Flags: u32, hAccessCheckResults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, pRequest: PAUTHZ_ACCESS_REQUEST, #[opt] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] #[out] pReply: PAUTHZ_ACCESS_REPLY) -> BOOL;
+        extern fn AuthzCachedAccessCheck(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAccessCheckResults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRequest: PAUTHZ_ACCESS_REQUEST, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] #[out] pReply: PAUTHZ_ACCESS_REPLY) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzEnumerateSecurityEventSources(dwFlags: u32, #[out] Buffer: PAUTHZ_SOURCE_SCHEMA_REGISTRATION, #[out] pdwCount: PDWORD, #[in] #[out] pdwLength: PDWORD) -> BOOL;
+        extern fn AuthzEnumerateSecurityEventSources(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] Buffer: PAUTHZ_SOURCE_SCHEMA_REGISTRATION, #[out] pdwCount: PDWORD, #[in] #[out] pdwLength: PDWORD) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzEvaluateSacl(AuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pRequest: PAUTHZ_ACCESS_REQUEST, Sacl: PACL, GrantedAccess: ACCESS_MASK, AccessGranted: BOOL, #[out] pbGenerateAudit: PBOOL) -> BOOL;
+        extern fn AuthzEvaluateSacl(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRequest: PAUTHZ_ACCESS_REQUEST, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Sacl: PACL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GrantedAccess: ACCESS_MASK, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccessGranted: BOOL, #[out] pbGenerateAudit: PBOOL) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzFreeAuditEvent(hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE) -> BOOL;
+        extern fn AuthzFreeAuditEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
         extern fn AuthzFreeCentralAccessPolicyCache() -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzFreeContext(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        extern fn AuthzFreeContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
         extern fn AuthzFreeHandle(#[in] #[out] hAccessCheckResults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzFreeResourceManager(hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
+        extern fn AuthzFreeResourceManager(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzGetInformationFromContext(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, InfoClass: AUTHZ_CONTEXT_INFORMATION_CLASS, BufferSize: u32, #[out] pSizeRequired: PDWORD, Buffer: *mut void) -> BOOL;
+        extern fn AuthzGetInformationFromContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfoClass: AUTHZ_CONTEXT_INFORMATION_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferSize: DWORD, #[out] pSizeRequired: PDWORD, #[out] Buffer: PVOID) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInitializeCompoundContext(UserContext: AUTHZ_CLIENT_CONTEXT_HANDLE, DeviceContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[out] phCompoundContext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        extern fn AuthzInitializeCompoundContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DeviceContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[out] phCompoundContext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInitializeContextFromAuthzContext(Flags: u32, hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[opt] pExpirationTime: PLARGE_INTEGER, Identifier: LUID, #[in] DynamicGroupArgs: *mut void, #[out] phNewAuthzClientContext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        extern fn AuthzInitializeContextFromAuthzContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExpirationTime: PLARGE_INTEGER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Identifier: LUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DynamicGroupArgs: PVOID, #[out] phNewAuthzClientContext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInitializeContextFromSid(Flags: u32, UserSid: PSID, hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE, #[opt] pExpirationTime: PLARGE_INTEGER, Identifier: LUID, #[in] #[opt] DynamicGroupArgs: *mut void, #[out] phAuthzClientContext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        extern fn AuthzInitializeContextFromSid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExpirationTime: PLARGE_INTEGER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Identifier: LUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DynamicGroupArgs: PVOID, #[out] phAuthzClientContext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInitializeContextFromToken(Flags: u32, TokenHandle: HANDLE, hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE, #[opt] pExpirationTime: PLARGE_INTEGER, Identifier: LUID, #[in] #[opt] DynamicGroupArgs: *mut void, #[out] phAuthzClientContext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        extern fn AuthzInitializeContextFromToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TokenHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExpirationTime: PLARGE_INTEGER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Identifier: LUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DynamicGroupArgs: PVOID, #[out] phAuthzClientContext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern "C" fn AuthzInitializeObjectAccessAuditEvent(Flags: u32, hAuditEventType: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szOperationType: PWSTR, szObjectType: PWSTR, szObjectName: PWSTR, szAdditionalInfo: PWSTR, #[out] phAuditEvent: PAUTHZ_AUDIT_EVENT_HANDLE, dwAdditionalParameterCount: u32, ...) -> BOOL;
+        extern "C" fn AuthzInitializeObjectAccessAuditEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuditEventType: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szOperationType: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szObjectType: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szObjectName: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAdditionalInfo: PWSTR, #[out] phAuditEvent: PAUTHZ_AUDIT_EVENT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAdditionalParameterCount: DWORD, ...) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern "C" fn AuthzInitializeObjectAccessAuditEvent2(Flags: u32, hAuditEventType: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szOperationType: PWSTR, szObjectType: PWSTR, szObjectName: PWSTR, szAdditionalInfo: PWSTR, szAdditionalInfo2: PWSTR, #[out] phAuditEvent: PAUTHZ_AUDIT_EVENT_HANDLE, dwAdditionalParameterCount: u32, ...) -> BOOL;
+        extern "C" fn AuthzInitializeObjectAccessAuditEvent2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuditEventType: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szOperationType: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szObjectType: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szObjectName: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAdditionalInfo: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAdditionalInfo2: PWSTR, #[out] phAuditEvent: PAUTHZ_AUDIT_EVENT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAdditionalParameterCount: DWORD, ...) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInitializeRemoteResourceManager(pRpcInitInfo: PAUTHZ_RPC_INIT_INFO_CLIENT, #[out] phAuthzResourceManager: PAUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
+        extern fn AuthzInitializeRemoteResourceManager(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRpcInitInfo: PAUTHZ_RPC_INIT_INFO_CLIENT, #[out] phAuthzResourceManager: PAUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInitializeResourceManager(Flags: u32, #[opt] pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, #[opt] pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, #[opt] pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, #[opt] szResourceManagerName: PCWSTR, #[out] phAuthzResourceManager: PAUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
+        extern fn AuthzInitializeResourceManager(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szResourceManagerName: PCWSTR, #[out] phAuthzResourceManager: PAUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInitializeResourceManagerEx(#[opt] Flags: u32, #[opt] pAuthzInitInfo: PAUTHZ_INIT_INFO, #[out] phAuthzResourceManager: PAUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
+        extern fn AuthzInitializeResourceManagerEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthzInitInfo: PAUTHZ_INIT_INFO, #[out] phAuthzResourceManager: PAUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInstallSecurityEventSource(dwFlags: u32, pRegistration: PAUTHZ_SOURCE_SCHEMA_REGISTRATION) -> BOOL;
+        extern fn AuthzInstallSecurityEventSource(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRegistration: PAUTHZ_SOURCE_SCHEMA_REGISTRATION) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzModifyClaims(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, ClaimClass: AUTHZ_CONTEXT_INFORMATION_CLASS, pClaimOperations: PAUTHZ_SECURITY_ATTRIBUTE_OPERATION, #[opt] pClaims: PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> BOOL;
+        extern fn AuthzModifyClaims(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClaimClass: AUTHZ_CONTEXT_INFORMATION_CLASS, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "pClaims != NULL && *pClaimOperations != AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL,_In_reads_(pClaims->AttributeCount)", "pClaims != 0 && *pClaimOperations != AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL, _In_reads_(pClaims->AttributeCount)")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClaimOperations: PAUTHZ_SECURITY_ATTRIBUTE_OPERATION, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClaims: PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzModifySecurityAttributes(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pOperations: PAUTHZ_SECURITY_ATTRIBUTE_OPERATION, #[opt] pAttributes: PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> BOOL;
+        extern fn AuthzModifySecurityAttributes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "pAttributes != NULL && *pOperations != AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL,_In_reads_(pAttributes->AttributeCount)", "pAttributes != 0 && *pOperations != AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL, _In_reads_(pAttributes->AttributeCount)")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOperations: PAUTHZ_SECURITY_ATTRIBUTE_OPERATION, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAttributes: PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzModifySids(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, SidClass: AUTHZ_CONTEXT_INFORMATION_CLASS, pSidOperations: PAUTHZ_SID_OPERATION, #[opt] pSids: PTOKEN_GROUPS) -> BOOL;
+        extern fn AuthzModifySids(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SidClass: AUTHZ_CONTEXT_INFORMATION_CLASS, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "pSids != NULL && *pSidOperations != AUTHZ_SID_OPERATION_REPLACE_ALL,_In_reads_(pSids->GroupCount)", "pSids != 0 && *pSidOperations != AUTHZ_SID_OPERATION_REPLACE_ALL, _In_reads_(pSids->GroupCount)")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSidOperations: PAUTHZ_SID_OPERATION, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSids: PTOKEN_GROUPS) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzOpenObjectAudit(Flags: u32, hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pRequest: PAUTHZ_ACCESS_REQUEST, hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[len_param(6)] #[in] #[opt] OptionalSecurityDescriptorArray: *mut PSECURITY_DESCRIPTOR, OptionalSecurityDescriptorCount: u32, pReply: PAUTHZ_ACCESS_REPLY) -> BOOL;
+        extern fn AuthzOpenObjectAudit(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRequest: PAUTHZ_ACCESS_REQUEST, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] OptionalSecurityDescriptorArray: *mut PSECURITY_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OptionalSecurityDescriptorCount: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReply: PAUTHZ_ACCESS_REPLY) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("AUTHZ.dll")]
-        extern fn AuthzRegisterCapChangeNotification(#[out] phCapChangeSubscription: PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE, pfnCapChangeCallback: LPTHREAD_START_ROUTINE, #[in] #[opt] pCallbackContext: *mut void) -> BOOL;
+        extern fn AuthzRegisterCapChangeNotification(#[out] phCapChangeSubscription: PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnCapChangeCallback: LPTHREAD_START_ROUTINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCallbackContext: PVOID) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzRegisterSecurityEventSource(dwFlags: u32, szEventSourceName: PCWSTR, #[out] phEventProvider: PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> BOOL;
+        extern fn AuthzRegisterSecurityEventSource(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szEventSourceName: PCWSTR, #[out] phEventProvider: PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern "C" fn AuthzReportSecurityEvent(dwFlags: u32, #[in] #[out] hEventProvider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwAuditId: u32, #[opt] pUserSid: PSID, dwCount: u32, ...) -> BOOL;
+        extern "C" fn AuthzReportSecurityEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[out] hEventProvider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuditId: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUserSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCount: DWORD, ...) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzReportSecurityEventFromParams(dwFlags: u32, #[in] #[out] hEventProvider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwAuditId: u32, #[opt] pUserSid: PSID, pParams: PAUDIT_PARAMS) -> BOOL;
+        extern fn AuthzReportSecurityEventFromParams(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[out] hEventProvider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuditId: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUserSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pParams: PAUDIT_PARAMS) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzSetAppContainerInformation(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pAppContainerSid: PSID, CapabilityCount: u32, #[len_param(2)] #[opt] pCapabilitySids: PSID_AND_ATTRIBUTES) -> BOOL;
+        extern fn AuthzSetAppContainerInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAppContainerSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CapabilityCount: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pCapabilitySids: PSID_AND_ATTRIBUTES) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzUninstallSecurityEventSource(dwFlags: u32, szEventSourceName: PCWSTR) -> BOOL;
+        extern fn AuthzUninstallSecurityEventSource(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szEventSourceName: PCWSTR) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzUnregisterCapChangeNotification(hCapChangeSubscription: AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE) -> BOOL;
+        extern fn AuthzUnregisterCapChangeNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCapChangeSubscription: AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzUnregisterSecurityEventSource(dwFlags: u32, #[in] #[out] phEventProvider: PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> BOOL;
-        type PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE = *mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE;
+        extern fn AuthzUnregisterSecurityEventSource(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[out] phEventProvider: PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> BOOL;
+        type PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE = *mut *mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE__;
         type PAUTHZ_ACCESS_REPLY = *mut AUTHZ_ACCESS_REPLY;
         type PAUTHZ_ACCESS_REQUEST = *mut AUTHZ_ACCESS_REQUEST;
-        type PAUTHZ_AUDIT_EVENT_HANDLE = *mut AUTHZ_AUDIT_EVENT_HANDLE;
-        type PAUTHZ_AUDIT_EVENT_TYPE_HANDLE = *mut AUTHZ_AUDIT_EVENT_TYPE_HANDLE;
-        type PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE;
-        type PAUTHZ_CLIENT_CONTEXT_HANDLE = *mut AUTHZ_CLIENT_CONTEXT_HANDLE;
+        type PAUTHZ_AUDIT_EVENT_HANDLE = *mut *mut AUTHZ_AUDIT_EVENT_HANDLE__;
+        type PAUTHZ_AUDIT_EVENT_TYPE_HANDLE = *mut *mut AUTHZ_AUDIT_EVENT_TYPE_HANDLE__;
+        type PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = *mut *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__;
+        type PAUTHZ_CLIENT_CONTEXT_HANDLE = *mut *mut AUTHZ_CLIENT_CONTEXT_HANDLE__;
         type PAUTHZ_INIT_INFO = *mut AUTHZ_INIT_INFO;
         type PAUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET = *mut AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET;
-        type PAUTHZ_RESOURCE_MANAGER_HANDLE = *mut AUTHZ_RESOURCE_MANAGER_HANDLE;
+        type PAUTHZ_RESOURCE_MANAGER_HANDLE = *mut *mut AUTHZ_RESOURCE_MANAGER_HANDLE__;
         type PAUTHZ_RPC_INIT_INFO_CLIENT = *mut AUTHZ_RPC_INIT_INFO_CLIENT;
         type PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION = *mut AUTHZ_SECURITY_ATTRIBUTES_INFORMATION;
         type PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE = *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE;
         type PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE = *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE;
         type PAUTHZ_SECURITY_ATTRIBUTE_OPERATION = *mut AUTHZ_SECURITY_ATTRIBUTE_OPERATION;
         type PAUTHZ_SECURITY_ATTRIBUTE_V1 = *mut AUTHZ_SECURITY_ATTRIBUTE_V1;
-        type PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE;
+        type PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = *mut *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE__;
         type PAUTHZ_SID_OPERATION = *mut AUTHZ_SID_OPERATION;
         type PAUTHZ_SOURCE_SCHEMA_REGISTRATION = *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION;
-        extern fn PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] Args: *mut void, pSidAttrArray: *mut PSID_AND_ATTRIBUTES, #[out] pSidCount: PDWORD, pRestrictedSidAttrArray: *mut PSID_AND_ATTRIBUTES, #[out] pRestrictedSidCount: PDWORD) -> BOOL;
-        extern fn PFN_AUTHZ_DYNAMIC_ACCESS_CHECK(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pAce: PACE_HEADER, #[in] #[opt] pArgs: *mut void, #[in] #[out] pbAceApplicable: PBOOL) -> BOOL;
-        extern fn PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY(#[in] pCentralAccessPolicy: *mut void);
-        extern fn PFN_AUTHZ_FREE_DYNAMIC_GROUPS(pSidAttrArray: PSID_AND_ATTRIBUTES);
-        extern fn PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: PSID, #[in] #[opt] pArgs: *mut void, #[out] pCentralAccessPolicyApplicable: PBOOL, ppCentralAccessPolicy: *mut *mut void) -> BOOL;
+        extern fn PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Args: PVOID, #[out] pSidAttrArray: *mut PSID_AND_ATTRIBUTES, #[out] pSidCount: PDWORD, #[out] pRestrictedSidAttrArray: *mut PSID_AND_ATTRIBUTES, #[out] pRestrictedSidCount: PDWORD) -> BOOL;
+        extern fn PFN_AUTHZ_DYNAMIC_ACCESS_CHECK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAce: PACE_HEADER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pArgs: PVOID, #[in] #[out] pbAceApplicable: PBOOL) -> BOOL;
+        extern fn PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCentralAccessPolicy: PVOID);
+        extern fn PFN_AUTHZ_FREE_DYNAMIC_GROUPS(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSidAttrArray: PSID_AND_ATTRIBUTES);
+        extern fn PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] capid: PSID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pArgs: PVOID, #[out] pCentralAccessPolicyApplicable: PBOOL, #[out] ppCentralAccessPolicy: *mut PVOID) -> BOOL;
     }
 }

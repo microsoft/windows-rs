@@ -2,31 +2,35 @@
 mod Windows {
     mod Win32 {
         #[no_guid]
-        interface IRoMetaDataLocator {
-            fn Locate(&self, nameElement: PCWSTR, metaDataDestination: IRoSimpleMetaDataBuilder) -> HRESULT;
-        }
-        #[no_guid]
         interface IRoSimpleMetaDataBuilder {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetWinRtInterface(&self, iid: GUID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetDelegate(&self, iid: GUID) -> HRESULT;
-            fn SetInterfaceGroupSimpleDefault(&self, name: PCWSTR, defaultInterfaceName: PCWSTR, #[opt] defaultInterfaceIID: *const GUID) -> HRESULT;
-            fn SetInterfaceGroupParameterizedDefault(&self, name: PCWSTR, elementCount: u32, #[len_param(1)] #[in] defaultInterfaceNameElements: *mut PCWSTR) -> HRESULT;
-            fn SetRuntimeClassSimpleDefault(&self, name: PCWSTR, defaultInterfaceName: PCWSTR, #[opt] defaultInterfaceIID: *const GUID) -> HRESULT;
-            fn SetRuntimeClassParameterizedDefault(&self, name: PCWSTR, elementCount: u32, #[len_param(1)] defaultInterfaceNameElements: *const PCWSTR) -> HRESULT;
-            fn SetStruct(&self, name: PCWSTR, numFields: u32, #[len_param(1)] fieldTypeNames: *const PCWSTR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetInterfaceGroupSimpleDefault(&self, name: PCWSTR, defaultInterfaceName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] defaultInterfaceIID: *const GUID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetInterfaceGroupParameterizedDefault(&self, name: PCWSTR, elementCount: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] defaultInterfaceNameElements: *mut PCWSTR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetRuntimeClassSimpleDefault(&self, name: PCWSTR, defaultInterfaceName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] defaultInterfaceIID: *const GUID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetRuntimeClassParameterizedDefault(&self, name: PCWSTR, elementCount: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] defaultInterfaceNameElements: *const PCWSTR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetStruct(&self, name: PCWSTR, numFields: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] fieldTypeNames: *const PCWSTR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetEnum(&self, name: PCWSTR, baseType: PCWSTR) -> HRESULT;
-            fn SetParameterizedInterface(&self, piid: GUID, numArgs: u32) -> HRESULT;
-            fn SetParameterizedDelegate(&self, piid: GUID, numArgs: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetParameterizedInterface(&self, piid: GUID, numArgs: UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetParameterizedDelegate(&self, piid: GUID, numArgs: UINT32) -> HRESULT;
         }
         type ROPARAMIIDHANDLE = *mut ROPARAMIIDHANDLE__;
         struct ROPARAMIIDHANDLE__ {
             unused: i32,
         }
         #[library("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll")]
-        extern fn RoFreeParameterizedTypeExtra(extra: ROPARAMIIDHANDLE);
+        extern fn RoFreeParameterizedTypeExtra(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] extra: ROPARAMIIDHANDLE);
         #[library("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll")]
-        extern fn RoGetParameterizedTypeInstanceIID(nameElementCount: u32, #[len_param(0)] #[in] nameElements: *mut PCWSTR, metaDataLocator: IRoMetaDataLocator, iid: *mut GUID, pExtra: *mut ROPARAMIIDHANDLE) -> HRESULT;
-        #[library("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll")]
-        extern fn RoParameterizedTypeExtraGetTypeSignature(extra: ROPARAMIIDHANDLE) -> PCSTR;
+        extern fn RoParameterizedTypeExtraGetTypeSignature(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] extra: ROPARAMIIDHANDLE) -> PCSTR;
     }
 }

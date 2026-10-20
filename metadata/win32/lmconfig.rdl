@@ -2,16 +2,16 @@
 mod Windows {
     mod Win32 {
         struct CONFIG_INFO_0 {
-            cfgi0_key: PWSTR,
-            cfgi0_data: PWSTR,
+            cfgi0_key: LPWSTR,
+            cfgi0_data: LPWSTR,
         }
         type LPCONFIG_INFO_0 = *mut CONFIG_INFO_0;
         #[library("NETAPI32.dll")]
-        extern fn NetConfigGet(#[opt] server: PCWSTR, component: PCWSTR, parameter: PCWSTR, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetConfigGet(server: LPCWSTR, component: LPCWSTR, parameter: LPCWSTR, bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetConfigGetAll(#[opt] server: PCWSTR, component: PCWSTR, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetConfigGetAll(server: LPCWSTR, component: LPCWSTR, bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetConfigSet(#[opt] server: PCWSTR, #[opt] reserved1: PCWSTR, component: PCWSTR, level: u32, reserved2: u32, buf: LPBYTE, reserved3: u32) -> u32;
+        extern fn NetConfigSet(server: LPCWSTR, reserved1: LPCWSTR, component: LPCWSTR, level: DWORD, reserved2: DWORD, buf: LPBYTE, reserved3: DWORD) -> DWORD;
         type PCONFIG_INFO_0 = *mut CONFIG_INFO_0;
     }
 }

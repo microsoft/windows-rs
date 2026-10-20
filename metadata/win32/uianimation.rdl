@@ -3,301 +3,505 @@ mod Windows {
     mod Win32 {
         #[guid(0x7815cbba_ddf7_478c_a46c_7b6c738b7978)]
         interface IUIAnimationInterpolator: IUnknown {
-            fn SetInitialValueAndVelocity(&self, initialValue: f64, initialVelocity: f64) -> HRESULT;
-            fn SetDuration(&self, duration: UI_ANIMATION_SECONDS) -> HRESULT;
-            fn GetDuration(&self, #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
-            fn GetFinalValue(&self, #[retval] value: *mut f64) -> HRESULT;
-            fn InterpolateValue(&self, offset: UI_ANIMATION_SECONDS, #[retval] value: *mut f64) -> HRESULT;
-            fn InterpolateVelocity(&self, offset: UI_ANIMATION_SECONDS, #[retval] velocity: *mut f64) -> HRESULT;
-            fn GetDependencies(&self, initialValueDependencies: *mut UI_ANIMATION_DEPENDENCIES, initialVelocityDependencies: *mut UI_ANIMATION_DEPENDENCIES, durationDependencies: *mut UI_ANIMATION_DEPENDENCIES) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetInitialValueAndVelocity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] initialValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] initialVelocity: DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetDuration(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetDuration(&self, #[out] #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetFinalValue(&self, #[out] #[retval] value: *mut DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn InterpolateValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offset: UI_ANIMATION_SECONDS, #[out] #[retval] value: *mut DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn InterpolateVelocity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offset: UI_ANIMATION_SECONDS, #[out] #[retval] velocity: *mut DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetDependencies(&self, #[out] initialValueDependencies: *mut UI_ANIMATION_DEPENDENCIES, #[out] initialVelocityDependencies: *mut UI_ANIMATION_DEPENDENCIES, #[out] durationDependencies: *mut UI_ANIMATION_DEPENDENCIES) -> HRESULT;
         }
         #[guid(0xea76aff8_ea22_4a23_a0ef_a6a966703518)]
         interface IUIAnimationInterpolator2: IUnknown {
-            fn GetDimension(&self, #[retval] dimension: *mut u32) -> HRESULT;
-            fn SetInitialValueAndVelocity(&self, #[len_param(2)] #[in] initialValue: *mut f64, #[len_param(2)] #[in] initialVelocity: *mut f64, cDimension: u32) -> HRESULT;
-            fn SetDuration(&self, duration: UI_ANIMATION_SECONDS) -> HRESULT;
-            fn GetDuration(&self, #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
-            fn GetFinalValue(&self, #[len_param(1)] value: *mut f64, cDimension: u32) -> HRESULT;
-            fn InterpolateValue(&self, offset: UI_ANIMATION_SECONDS, #[len_param(2)] value: *mut f64, cDimension: u32) -> HRESULT;
-            fn InterpolateVelocity(&self, offset: UI_ANIMATION_SECONDS, #[len_param(2)] velocity: *mut f64, cDimension: u32) -> HRESULT;
-            fn GetPrimitiveInterpolation(&self, interpolation: IUIAnimationPrimitiveInterpolation, cDimension: u32) -> HRESULT;
-            fn GetDependencies(&self, initialValueDependencies: *mut UI_ANIMATION_DEPENDENCIES, initialVelocityDependencies: *mut UI_ANIMATION_DEPENDENCIES, durationDependencies: *mut UI_ANIMATION_DEPENDENCIES) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetDimension(&self, #[out] #[retval] dimension: *mut UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetInitialValueAndVelocity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] initialValue: *mut DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] initialVelocity: *mut DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetDuration(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetDuration(&self, #[out] #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetFinalValue(&self, #[out] #[len_param(1)] value: *mut DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn InterpolateValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offset: UI_ANIMATION_SECONDS, #[out] #[len_param(2)] value: *mut DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn InterpolateVelocity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offset: UI_ANIMATION_SECONDS, #[out] #[len_param(2)] velocity: *mut DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetPrimitiveInterpolation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] interpolation: IUIAnimationPrimitiveInterpolation, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetDependencies(&self, #[out] initialValueDependencies: *mut UI_ANIMATION_DEPENDENCIES, #[out] initialVelocityDependencies: *mut UI_ANIMATION_DEPENDENCIES, #[out] durationDependencies: *mut UI_ANIMATION_DEPENDENCIES) -> HRESULT;
         }
         #[guid(0x2d3b15a4_4762_47ab_a030_b23221df3ae0)]
         interface IUIAnimationLoopIterationChangeHandler2: IUnknown {
-            fn OnLoopIterationChanged(&self, storyboard: IUIAnimationStoryboard2, id: usize, newIterationCount: u32, oldIterationCount: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnLoopIterationChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] storyboard: IUIAnimationStoryboard2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: UINT_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newIterationCount: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] oldIterationCount: UINT32) -> HRESULT;
         }
         #[guid(0x9169896c_ac8d_4e7d_94e5_67fa4dc2f2e8)]
         interface IUIAnimationManager: IUnknown {
-            fn CreateAnimationVariable(&self, initialValue: f64, #[retval] variable: *mut IUIAnimationVariable) -> HRESULT;
-            fn ScheduleTransition(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition, timeNow: UI_ANIMATION_SECONDS) -> HRESULT;
-            fn CreateStoryboard(&self, #[retval] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
-            fn FinishAllStoryboards(&self, completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateAnimationVariable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] initialValue: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] variable: *mut IUIAnimationVariable) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn ScheduleTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transition: IUIAnimationTransition, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeNow: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateStoryboard(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn FinishAllStoryboards(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn AbandonAllStoryboards(&self) -> HRESULT;
-            fn Update(&self, timeNow: UI_ANIMATION_SECONDS, #[opt] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
-            fn GetVariableFromTag(&self, #[opt] object: IUnknown, id: u32, #[retval] variable: *mut IUIAnimationVariable) -> HRESULT;
-            fn GetStoryboardFromTag(&self, #[opt] object: IUnknown, id: u32, #[retval] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
-            fn GetStatus(&self, #[retval] status: *mut UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
-            fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn Update(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetVariableFromTag(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] object: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: UINT32, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] variable: *mut IUIAnimationVariable) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetStoryboardFromTag(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] object: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: UINT32, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetStatus(&self, #[out] #[retval] status: *mut UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetAnimationMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mode: UI_ANIMATION_MODE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn Pause(&self) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn Resume(&self) -> HRESULT;
-            fn SetManagerEventHandler(&self, #[opt] handler: IUIAnimationManagerEventHandler) -> HRESULT;
-            fn SetCancelPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison) -> HRESULT;
-            fn SetTrimPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison) -> HRESULT;
-            fn SetCompressPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison) -> HRESULT;
-            fn SetConcludePriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison) -> HRESULT;
-            fn SetDefaultLongestAcceptableDelay(&self, delay: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetManagerEventHandler(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handler: IUIAnimationManagerEventHandler) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetCancelPriorityComparison(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] comparison: IUIAnimationPriorityComparison) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetTrimPriorityComparison(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] comparison: IUIAnimationPriorityComparison) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetCompressPriorityComparison(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] comparison: IUIAnimationPriorityComparison) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetConcludePriorityComparison(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] comparison: IUIAnimationPriorityComparison) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetDefaultLongestAcceptableDelay(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delay: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn Shutdown(&self) -> HRESULT;
         }
         #[guid(0xd8b6f7d4_4109_4d3f_acee_879926968cb1)]
         interface IUIAnimationManager2: IUnknown {
-            fn CreateAnimationVectorVariable(&self, #[len_param(1)] initialValue: *const f64, cDimension: u32, #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
-            fn CreateAnimationVariable(&self, initialValue: f64, #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
-            fn ScheduleTransition(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2, timeNow: UI_ANIMATION_SECONDS) -> HRESULT;
-            fn CreateStoryboard(&self, #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
-            fn FinishAllStoryboards(&self, completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateAnimationVectorVariable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] initialValue: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] variable: *mut IUIAnimationVariable2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateAnimationVariable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] initialValue: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] variable: *mut IUIAnimationVariable2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn ScheduleTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transition: IUIAnimationTransition2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeNow: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateStoryboard(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn FinishAllStoryboards(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn AbandonAllStoryboards(&self) -> HRESULT;
-            fn Update(&self, timeNow: UI_ANIMATION_SECONDS, #[opt] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
-            fn GetVariableFromTag(&self, #[opt] object: IUnknown, id: u32, #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
-            fn GetStoryboardFromTag(&self, #[opt] object: IUnknown, id: u32, #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
-            fn EstimateNextEventTime(&self, #[retval] seconds: *mut UI_ANIMATION_SECONDS) -> HRESULT;
-            fn GetStatus(&self, #[retval] status: *mut UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
-            fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn Update(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetVariableFromTag(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] object: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: UINT32, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] variable: *mut IUIAnimationVariable2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetStoryboardFromTag(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] object: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: UINT32, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn EstimateNextEventTime(&self, #[out] #[retval] seconds: *mut UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetStatus(&self, #[out] #[retval] status: *mut UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetAnimationMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mode: UI_ANIMATION_MODE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn Pause(&self) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn Resume(&self) -> HRESULT;
-            fn SetManagerEventHandler(&self, #[opt] handler: IUIAnimationManagerEventHandler2, fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
-            fn SetCancelPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
-            fn SetTrimPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
-            fn SetCompressPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
-            fn SetConcludePriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
-            fn SetDefaultLongestAcceptableDelay(&self, delay: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetManagerEventHandler(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handler: IUIAnimationManagerEventHandler2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetCancelPriorityComparison(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetTrimPriorityComparison(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetCompressPriorityComparison(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetConcludePriorityComparison(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetDefaultLongestAcceptableDelay(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delay: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn Shutdown(&self) -> HRESULT;
         }
         #[guid(0x783321ed_78a3_4366_b574_6af607a64788)]
         interface IUIAnimationManagerEventHandler: IUnknown {
-            fn OnManagerStatusChanged(&self, newStatus: UI_ANIMATION_MANAGER_STATUS, previousStatus: UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnManagerStatusChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newStatus: UI_ANIMATION_MANAGER_STATUS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] previousStatus: UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
         }
         #[guid(0xf6e022ba_bff3_42ec_9033_e073f33e83c3)]
         interface IUIAnimationManagerEventHandler2: IUnknown {
-            fn OnManagerStatusChanged(&self, newStatus: UI_ANIMATION_MANAGER_STATUS, previousStatus: UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnManagerStatusChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newStatus: UI_ANIMATION_MANAGER_STATUS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] previousStatus: UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
         }
         #[guid(0xbab20d63_4361_45da_a24f_ab8508846b5b)]
         interface IUIAnimationPrimitiveInterpolation: IUnknown {
-            fn AddCubic(&self, dimension: u32, beginOffset: UI_ANIMATION_SECONDS, constantCoefficient: f32, linearCoefficient: f32, quadraticCoefficient: f32, cubicCoefficient: f32) -> HRESULT;
-            fn AddSinusoidal(&self, dimension: u32, beginOffset: UI_ANIMATION_SECONDS, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn AddCubic(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dimension: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] beginOffset: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] constantCoefficient: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] linearCoefficient: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] quadraticCoefficient: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cubicCoefficient: FLOAT) -> HRESULT;
+            fn AddSinusoidal(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dimension: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] beginOffset: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bias: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] amplitude: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] frequency: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phase: FLOAT) -> HRESULT;
         }
         #[guid(0x83fa9b74_5f86_4618_bc6a_a2fac19b3f44)]
         interface IUIAnimationPriorityComparison: IUnknown {
-            fn HasPriority(&self, scheduledStoryboard: IUIAnimationStoryboard, newStoryboard: IUIAnimationStoryboard, priorityEffect: UI_ANIMATION_PRIORITY_EFFECT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn HasPriority(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scheduledStoryboard: IUIAnimationStoryboard, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newStoryboard: IUIAnimationStoryboard, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] priorityEffect: UI_ANIMATION_PRIORITY_EFFECT) -> HRESULT;
         }
         #[guid(0x5b6d7a37_4621_467c_8b05_70131de62ddb)]
         interface IUIAnimationPriorityComparison2: IUnknown {
-            fn HasPriority(&self, scheduledStoryboard: IUIAnimationStoryboard2, newStoryboard: IUIAnimationStoryboard2, priorityEffect: UI_ANIMATION_PRIORITY_EFFECT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn HasPriority(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scheduledStoryboard: IUIAnimationStoryboard2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newStoryboard: IUIAnimationStoryboard2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] priorityEffect: UI_ANIMATION_PRIORITY_EFFECT) -> HRESULT;
         }
         #[guid(0xa8ff128f_9bf9_4af1_9e67_e5e410defb84)]
         interface IUIAnimationStoryboard: IUnknown {
-            fn AddTransition(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition) -> HRESULT;
-            fn AddKeyframeAtOffset(&self, existingKeyframe: UI_ANIMATION_KEYFRAME, offset: UI_ANIMATION_SECONDS, #[retval] keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
-            fn AddKeyframeAfterTransition(&self, transition: IUIAnimationTransition, #[retval] keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
-            fn AddTransitionAtKeyframe(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition, startKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
-            fn AddTransitionBetweenKeyframes(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
-            fn RepeatBetweenKeyframes(&self, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME, repetitionCount: i32) -> HRESULT;
-            fn HoldVariable(&self, variable: IUIAnimationVariable) -> HRESULT;
-            fn SetLongestAcceptableDelay(&self, delay: UI_ANIMATION_SECONDS) -> HRESULT;
-            fn Schedule(&self, timeNow: UI_ANIMATION_SECONDS, #[opt] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn AddTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transition: IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn AddKeyframeAtOffset(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] existingKeyframe: UI_ANIMATION_KEYFRAME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offset: UI_ANIMATION_SECONDS, #[out] #[retval] keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn AddKeyframeAfterTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transition: IUIAnimationTransition, #[out] #[retval] keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn AddTransitionAtKeyframe(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transition: IUIAnimationTransition, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] startKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn AddTransitionBetweenKeyframes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transition: IUIAnimationTransition, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] startKeyframe: UI_ANIMATION_KEYFRAME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] endKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn RepeatBetweenKeyframes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] startKeyframe: UI_ANIMATION_KEYFRAME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] endKeyframe: UI_ANIMATION_KEYFRAME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] repetitionCount: INT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn HoldVariable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetLongestAcceptableDelay(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delay: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn Schedule(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn Conclude(&self) -> HRESULT;
-            fn Finish(&self, completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn Finish(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn Abandon(&self) -> HRESULT;
-            fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
-            fn GetTag(&self, object: *mut IUnknown, #[opt] id: *mut u32) -> HRESULT;
-            fn GetStatus(&self, #[retval] status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
-            fn GetElapsedTime(&self, elapsedTime: *mut UI_ANIMATION_SECONDS) -> HRESULT;
-            fn SetStoryboardEventHandler(&self, #[opt] handler: IUIAnimationStoryboardEventHandler) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetTag(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] object: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetTag(&self, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] object: *mut IUnknown, #[out] #[opt] id: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetStatus(&self, #[out] #[retval] status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetElapsedTime(&self, #[out] elapsedTime: *mut UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetStoryboardEventHandler(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handler: IUIAnimationStoryboardEventHandler) -> HRESULT;
         }
         #[guid(0xae289cd2_12d4_4945_9419_9e41be034df2)]
         interface IUIAnimationStoryboard2: IUnknown {
-            fn AddTransition(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2) -> HRESULT;
-            fn AddKeyframeAtOffset(&self, existingKeyframe: UI_ANIMATION_KEYFRAME, offset: UI_ANIMATION_SECONDS, #[retval] keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
-            fn AddKeyframeAfterTransition(&self, transition: IUIAnimationTransition2, #[retval] keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
-            fn AddTransitionAtKeyframe(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2, startKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
-            fn AddTransitionBetweenKeyframes(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
-            fn RepeatBetweenKeyframes(&self, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME, cRepetition: f64, repeatMode: UI_ANIMATION_REPEAT_MODE, #[opt] pIterationChangeHandler: IUIAnimationLoopIterationChangeHandler2, id: usize, fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
-            fn HoldVariable(&self, variable: IUIAnimationVariable2) -> HRESULT;
-            fn SetLongestAcceptableDelay(&self, delay: UI_ANIMATION_SECONDS) -> HRESULT;
-            fn SetSkipDuration(&self, secondsDuration: UI_ANIMATION_SECONDS) -> HRESULT;
-            fn Schedule(&self, timeNow: UI_ANIMATION_SECONDS, #[opt] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn AddTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transition: IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn AddKeyframeAtOffset(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] existingKeyframe: UI_ANIMATION_KEYFRAME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offset: UI_ANIMATION_SECONDS, #[out] #[retval] keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn AddKeyframeAfterTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transition: IUIAnimationTransition2, #[out] #[retval] keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn AddTransitionAtKeyframe(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transition: IUIAnimationTransition2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] startKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn AddTransitionBetweenKeyframes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transition: IUIAnimationTransition2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] startKeyframe: UI_ANIMATION_KEYFRAME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] endKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn RepeatBetweenKeyframes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] startKeyframe: UI_ANIMATION_KEYFRAME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] endKeyframe: UI_ANIMATION_KEYFRAME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cRepetition: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] repeatMode: UI_ANIMATION_REPEAT_MODE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pIterationChangeHandler: IUIAnimationLoopIterationChangeHandler2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] id: UINT_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn HoldVariable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetLongestAcceptableDelay(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delay: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetSkipDuration(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] secondsDuration: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn Schedule(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn Conclude(&self) -> HRESULT;
-            fn Finish(&self, completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn Finish(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn Abandon(&self) -> HRESULT;
-            fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
-            fn GetTag(&self, object: *mut IUnknown, #[opt] id: *mut u32) -> HRESULT;
-            fn GetStatus(&self, #[retval] status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
-            fn GetElapsedTime(&self, elapsedTime: *mut UI_ANIMATION_SECONDS) -> HRESULT;
-            fn SetStoryboardEventHandler(&self, #[opt] handler: IUIAnimationStoryboardEventHandler2, fRegisterStatusChangeForNextAnimationEvent: BOOL, fRegisterUpdateForNextAnimationEvent: BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetTag(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] object: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetTag(&self, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] object: *mut IUnknown, #[out] #[opt] id: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetStatus(&self, #[out] #[retval] status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetElapsedTime(&self, #[out] elapsedTime: *mut UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetStoryboardEventHandler(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handler: IUIAnimationStoryboardEventHandler2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fRegisterStatusChangeForNextAnimationEvent: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fRegisterUpdateForNextAnimationEvent: BOOL) -> HRESULT;
         }
         #[guid(0x3d5c9008_ec7c_4364_9f8a_9af3c58cbae6)]
         interface IUIAnimationStoryboardEventHandler: IUnknown {
-            fn OnStoryboardStatusChanged(&self, storyboard: IUIAnimationStoryboard, newStatus: UI_ANIMATION_STORYBOARD_STATUS, previousStatus: UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
-            fn OnStoryboardUpdated(&self, storyboard: IUIAnimationStoryboard) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnStoryboardStatusChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] storyboard: IUIAnimationStoryboard, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newStatus: UI_ANIMATION_STORYBOARD_STATUS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] previousStatus: UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnStoryboardUpdated(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] storyboard: IUIAnimationStoryboard) -> HRESULT;
         }
         #[guid(0xbac5f55a_ba7c_414c_b599_fbf850f553c6)]
         interface IUIAnimationStoryboardEventHandler2: IUnknown {
-            fn OnStoryboardStatusChanged(&self, storyboard: IUIAnimationStoryboard2, newStatus: UI_ANIMATION_STORYBOARD_STATUS, previousStatus: UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
-            fn OnStoryboardUpdated(&self, storyboard: IUIAnimationStoryboard2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnStoryboardStatusChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] storyboard: IUIAnimationStoryboard2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newStatus: UI_ANIMATION_STORYBOARD_STATUS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] previousStatus: UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnStoryboardUpdated(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] storyboard: IUIAnimationStoryboard2) -> HRESULT;
         }
         #[guid(0x6b0efad1_a053_41d6_9085_33a689144665)]
         interface IUIAnimationTimer: IUnknown {
-            fn SetTimerUpdateHandler(&self, #[opt] updateHandler: IUIAnimationTimerUpdateHandler, idleBehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> HRESULT;
-            fn SetTimerEventHandler(&self, #[opt] handler: IUIAnimationTimerEventHandler) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetTimerUpdateHandler(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] updateHandler: IUIAnimationTimerUpdateHandler, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] idleBehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetTimerEventHandler(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handler: IUIAnimationTimerEventHandler) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn Enable(&self) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn Disable(&self) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn IsEnabled(&self) -> HRESULT;
-            fn GetTime(&self, seconds: *mut UI_ANIMATION_SECONDS) -> HRESULT;
-            fn SetFrameRateThreshold(&self, framesPerSecond: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetTime(&self, #[out] seconds: *mut UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetFrameRateThreshold(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] framesPerSecond: UINT32) -> HRESULT;
         }
         #[guid(0xbedb4db6_94fa_4bfb_a47f_ef2d9e408c25)]
         interface IUIAnimationTimerClientEventHandler: IUnknown {
-            fn OnTimerClientStatusChanged(&self, newStatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousStatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnTimerClientStatusChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newStatus: UI_ANIMATION_TIMER_CLIENT_STATUS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] previousStatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> HRESULT;
         }
         #[guid(0x274a7dea_d771_4095_abbd_8df7abd23ce3)]
         interface IUIAnimationTimerEventHandler: IUnknown {
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn OnPreUpdate(&self) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn OnPostUpdate(&self) -> HRESULT;
-            fn OnRenderingTooSlow(&self, framesPerSecond: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnRenderingTooSlow(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] framesPerSecond: UINT32) -> HRESULT;
         }
         #[guid(0x195509b7_5d5e_4e3e_b278_ee3759b367ad)]
         interface IUIAnimationTimerUpdateHandler: IUnknown {
-            fn OnUpdate(&self, timeNow: UI_ANIMATION_SECONDS, #[retval] result: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
-            fn SetTimerClientEventHandler(&self, handler: IUIAnimationTimerClientEventHandler) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnUpdate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeNow: UI_ANIMATION_SECONDS, #[out] #[retval] result: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetTimerClientEventHandler(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handler: IUIAnimationTimerClientEventHandler) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn ClearTimerClientEventHandler(&self) -> HRESULT;
         }
         #[guid(0xdc6ce252_f731_41cf_b610_614b6ca049ad)]
         interface IUIAnimationTransition: IUnknown {
-            fn SetInitialValue(&self, value: f64) -> HRESULT;
-            fn SetInitialVelocity(&self, velocity: f64) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetInitialValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetInitialVelocity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] velocity: DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn IsDurationKnown(&self) -> HRESULT;
-            fn GetDuration(&self, #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetDuration(&self, #[out] #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
         }
         #[guid(0x62ff9123_a85a_4e9b_a218_435a93e268fd)]
         interface IUIAnimationTransition2: IUnknown {
-            fn GetDimension(&self, #[retval] dimension: *mut u32) -> HRESULT;
-            fn SetInitialValue(&self, value: f64) -> HRESULT;
-            fn SetInitialVectorValue(&self, #[len_param(1)] value: *const f64, cDimension: u32) -> HRESULT;
-            fn SetInitialVelocity(&self, velocity: f64) -> HRESULT;
-            fn SetInitialVectorVelocity(&self, #[len_param(1)] velocity: *const f64, cDimension: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetDimension(&self, #[out] #[retval] dimension: *mut UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetInitialValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetInitialVectorValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] value: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetInitialVelocity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] velocity: DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetInitialVectorVelocity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] velocity: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
             fn IsDurationKnown(&self) -> HRESULT;
-            fn GetDuration(&self, #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetDuration(&self, #[out] #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
         }
         #[guid(0xfcd91e03_3e3b_45ad_bbb1_6dfc8153743d)]
         interface IUIAnimationTransitionFactory: IUnknown {
-            fn CreateTransition(&self, interpolator: IUIAnimationInterpolator, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] interpolator: IUIAnimationInterpolator, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
         }
         #[guid(0x937d4916_c1a6_42d5_88d8_30344d6efe31)]
         interface IUIAnimationTransitionFactory2: IUnknown {
-            fn CreateTransition(&self, interpolator: IUIAnimationInterpolator2, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] interpolator: IUIAnimationInterpolator2, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
         }
         #[guid(0xca5a14b1_d24f_48b8_8fe4_c78169ba954e)]
         interface IUIAnimationTransitionLibrary: IUnknown {
-            fn CreateInstantaneousTransition(&self, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateConstantTransition(&self, duration: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateDiscreteTransition(&self, delay: UI_ANIMATION_SECONDS, finalValue: f64, hold: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateLinearTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateLinearTransitionFromSpeed(&self, speed: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateSinusoidalTransitionFromVelocity(&self, duration: UI_ANIMATION_SECONDS, period: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateSinusoidalTransitionFromRange(&self, duration: UI_ANIMATION_SECONDS, minimumValue: f64, maximumValue: f64, period: UI_ANIMATION_SECONDS, slope: UI_ANIMATION_SLOPE, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateAccelerateDecelerateTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: f64, accelerationRatio: f64, decelerationRatio: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateReversalTransition(&self, duration: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateCubicTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: f64, finalVelocity: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateSmoothStopTransition(&self, maximumDuration: UI_ANIMATION_SECONDS, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateParabolicTransitionFromAcceleration(&self, finalValue: f64, finalVelocity: f64, acceleration: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateInstantaneousTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateConstantTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateDiscreteTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delay: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hold: UI_ANIMATION_SECONDS, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateLinearTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateLinearTransitionFromSpeed(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] speed: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateSinusoidalTransitionFromVelocity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] period: UI_ANIMATION_SECONDS, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateSinusoidalTransitionFromRange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] minimumValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] maximumValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] period: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] slope: UI_ANIMATION_SLOPE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateAccelerateDecelerateTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] accelerationRatio: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] decelerationRatio: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateReversalTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateCubicTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalVelocity: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateSmoothStopTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] maximumDuration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateParabolicTransitionFromAcceleration(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalVelocity: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] acceleration: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition) -> HRESULT;
         }
         #[guid(0x03cfae53_9580_4ee3_b363_2ece51b4af6a)]
         interface IUIAnimationTransitionLibrary2: IUnknown {
-            fn CreateInstantaneousTransition(&self, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateInstantaneousVectorTransition(&self, #[len_param(1)] finalValue: *const f64, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateConstantTransition(&self, duration: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateDiscreteTransition(&self, delay: UI_ANIMATION_SECONDS, finalValue: f64, hold: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateDiscreteVectorTransition(&self, delay: UI_ANIMATION_SECONDS, #[len_param(2)] finalValue: *const f64, cDimension: u32, hold: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateLinearTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateLinearVectorTransition(&self, duration: UI_ANIMATION_SECONDS, #[len_param(2)] finalValue: *const f64, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateLinearTransitionFromSpeed(&self, speed: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateLinearVectorTransitionFromSpeed(&self, speed: f64, #[len_param(2)] finalValue: *const f64, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateSinusoidalTransitionFromVelocity(&self, duration: UI_ANIMATION_SECONDS, period: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateSinusoidalTransitionFromRange(&self, duration: UI_ANIMATION_SECONDS, minimumValue: f64, maximumValue: f64, period: UI_ANIMATION_SECONDS, slope: UI_ANIMATION_SLOPE, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateAccelerateDecelerateTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: f64, accelerationRatio: f64, decelerationRatio: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateReversalTransition(&self, duration: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateCubicTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: f64, finalVelocity: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateCubicVectorTransition(&self, duration: UI_ANIMATION_SECONDS, #[len_param(3)] finalValue: *const f64, #[len_param(3)] finalVelocity: *const f64, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateSmoothStopTransition(&self, maximumDuration: UI_ANIMATION_SECONDS, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateParabolicTransitionFromAcceleration(&self, finalValue: f64, finalVelocity: f64, acceleration: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateCubicBezierLinearTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: f64, x1: f64, y1: f64, x2: f64, y2: f64, ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateCubicBezierLinearVectorTransition(&self, duration: UI_ANIMATION_SECONDS, #[len_param(2)] finalValue: *const f64, cDimension: u32, x1: f64, y1: f64, x2: f64, y2: f64, ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateInstantaneousTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateInstantaneousVectorTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] finalValue: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateConstantTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateDiscreteTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delay: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hold: UI_ANIMATION_SECONDS, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateDiscreteVectorTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delay: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] finalValue: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hold: UI_ANIMATION_SECONDS, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateLinearTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateLinearVectorTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] finalValue: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateLinearTransitionFromSpeed(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] speed: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateLinearVectorTransitionFromSpeed(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] speed: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] finalValue: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateSinusoidalTransitionFromVelocity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] period: UI_ANIMATION_SECONDS, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateSinusoidalTransitionFromRange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] minimumValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] maximumValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] period: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] slope: UI_ANIMATION_SLOPE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateAccelerateDecelerateTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] accelerationRatio: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] decelerationRatio: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateReversalTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateCubicTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalVelocity: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateCubicVectorTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] finalValue: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] finalVelocity: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateSmoothStopTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] maximumDuration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateParabolicTransitionFromAcceleration(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalVelocity: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] acceleration: DOUBLE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateCubicBezierLinearTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] finalValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] x1: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] y1: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] x2: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] y2: DOUBLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn CreateCubicBezierLinearVectorTransition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: UI_ANIMATION_SECONDS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] finalValue: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] x1: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] y1: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] x2: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] y2: DOUBLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
         }
         #[guid(0x8ceeb155_2849_4ce5_9448_91ff70e1e4d9)]
         interface IUIAnimationVariable: IUnknown {
-            fn GetValue(&self, #[retval] value: *mut f64) -> HRESULT;
-            fn GetFinalValue(&self, #[retval] finalValue: *mut f64) -> HRESULT;
-            fn GetPreviousValue(&self, #[retval] previousValue: *mut f64) -> HRESULT;
-            fn GetIntegerValue(&self, #[retval] value: *mut i32) -> HRESULT;
-            fn GetFinalIntegerValue(&self, #[retval] finalValue: *mut i32) -> HRESULT;
-            fn GetPreviousIntegerValue(&self, #[retval] previousValue: *mut i32) -> HRESULT;
-            fn GetCurrentStoryboard(&self, #[retval] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
-            fn SetLowerBound(&self, bound: f64) -> HRESULT;
-            fn SetUpperBound(&self, bound: f64) -> HRESULT;
-            fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> HRESULT;
-            fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
-            fn GetTag(&self, object: *mut IUnknown, #[opt] id: *mut u32) -> HRESULT;
-            fn SetVariableChangeHandler(&self, #[opt] handler: IUIAnimationVariableChangeHandler) -> HRESULT;
-            fn SetVariableIntegerChangeHandler(&self, #[opt] handler: IUIAnimationVariableIntegerChangeHandler) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetValue(&self, #[out] #[retval] value: *mut DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetFinalValue(&self, #[out] #[retval] finalValue: *mut DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetPreviousValue(&self, #[out] #[retval] previousValue: *mut DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetIntegerValue(&self, #[out] #[retval] value: *mut INT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetFinalIntegerValue(&self, #[out] #[retval] finalValue: *mut INT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetPreviousIntegerValue(&self, #[out] #[retval] previousValue: *mut INT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetCurrentStoryboard(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetLowerBound(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bound: DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetUpperBound(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bound: DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetRoundingMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mode: UI_ANIMATION_ROUNDING_MODE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetTag(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] object: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetTag(&self, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] object: *mut IUnknown, #[out] #[opt] id: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetVariableChangeHandler(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handler: IUIAnimationVariableChangeHandler) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetVariableIntegerChangeHandler(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handler: IUIAnimationVariableIntegerChangeHandler) -> HRESULT;
         }
         #[guid(0x4914b304_96ab_44d9_9e77_d5109b7e7466)]
         interface IUIAnimationVariable2: IUnknown {
-            fn GetDimension(&self, #[retval] dimension: *mut u32) -> HRESULT;
-            fn GetValue(&self, #[retval] value: *mut f64) -> HRESULT;
-            fn GetVectorValue(&self, #[len_param(1)] value: *mut f64, cDimension: u32) -> HRESULT;
-            fn GetCurve(&self, animation: IDCompositionAnimation) -> HRESULT;
-            fn GetVectorCurve(&self, #[len_param(1)] #[in] animation: *mut IDCompositionAnimation, cDimension: u32) -> HRESULT;
-            fn GetFinalValue(&self, #[retval] finalValue: *mut f64) -> HRESULT;
-            fn GetFinalVectorValue(&self, #[len_param(1)] finalValue: *mut f64, cDimension: u32) -> HRESULT;
-            fn GetPreviousValue(&self, #[retval] previousValue: *mut f64) -> HRESULT;
-            fn GetPreviousVectorValue(&self, #[len_param(1)] previousValue: *mut f64, cDimension: u32) -> HRESULT;
-            fn GetIntegerValue(&self, #[retval] value: *mut i32) -> HRESULT;
-            fn GetIntegerVectorValue(&self, #[len_param(1)] value: *mut i32, cDimension: u32) -> HRESULT;
-            fn GetFinalIntegerValue(&self, #[retval] finalValue: *mut i32) -> HRESULT;
-            fn GetFinalIntegerVectorValue(&self, #[len_param(1)] finalValue: *mut i32, cDimension: u32) -> HRESULT;
-            fn GetPreviousIntegerValue(&self, #[retval] previousValue: *mut i32) -> HRESULT;
-            fn GetPreviousIntegerVectorValue(&self, #[len_param(1)] previousValue: *mut i32, cDimension: u32) -> HRESULT;
-            fn GetCurrentStoryboard(&self, #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
-            fn SetLowerBound(&self, bound: f64) -> HRESULT;
-            fn SetLowerBoundVector(&self, #[len_param(1)] #[in] #[out] bound: *const f64, cDimension: u32) -> HRESULT;
-            fn SetUpperBound(&self, bound: f64) -> HRESULT;
-            fn SetUpperBoundVector(&self, #[len_param(1)] #[in] #[out] bound: *const f64, cDimension: u32) -> HRESULT;
-            fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> HRESULT;
-            fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
-            fn GetTag(&self, object: *mut IUnknown, #[opt] id: *mut u32) -> HRESULT;
-            fn SetVariableChangeHandler(&self, #[opt] handler: IUIAnimationVariableChangeHandler2, fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
-            fn SetVariableIntegerChangeHandler(&self, #[opt] handler: IUIAnimationVariableIntegerChangeHandler2, fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
-            fn SetVariableCurveChangeHandler(&self, #[opt] handler: IUIAnimationVariableCurveChangeHandler2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetDimension(&self, #[out] #[retval] dimension: *mut UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetValue(&self, #[out] #[retval] value: *mut DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetVectorValue(&self, #[out] #[len_param(1)] value: *mut DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetCurve(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetVectorCurve(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] animation: *mut IDCompositionAnimation, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetFinalValue(&self, #[out] #[retval] finalValue: *mut DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetFinalVectorValue(&self, #[out] #[len_param(1)] finalValue: *mut DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetPreviousValue(&self, #[out] #[retval] previousValue: *mut DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetPreviousVectorValue(&self, #[out] #[len_param(1)] previousValue: *mut DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetIntegerValue(&self, #[out] #[retval] value: *mut INT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetIntegerVectorValue(&self, #[out] #[len_param(1)] value: *mut INT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetFinalIntegerValue(&self, #[out] #[retval] finalValue: *mut INT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetFinalIntegerVectorValue(&self, #[out] #[len_param(1)] finalValue: *mut INT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetPreviousIntegerValue(&self, #[out] #[retval] previousValue: *mut INT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetPreviousIntegerVectorValue(&self, #[out] #[len_param(1)] previousValue: *mut INT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetCurrentStoryboard(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetLowerBound(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bound: DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetLowerBoundVector(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] bound: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetUpperBound(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bound: DOUBLE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetUpperBoundVector(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] bound: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetRoundingMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mode: UI_ANIMATION_ROUNDING_MODE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetTag(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] object: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn GetTag(&self, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] object: *mut IUnknown, #[out] #[opt] id: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetVariableChangeHandler(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handler: IUIAnimationVariableChangeHandler2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetVariableIntegerChangeHandler(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handler: IUIAnimationVariableIntegerChangeHandler2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn SetVariableCurveChangeHandler(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handler: IUIAnimationVariableCurveChangeHandler2) -> HRESULT;
         }
         #[guid(0x6358b7ba_87d2_42d5_bf71_82e919dd5862)]
         interface IUIAnimationVariableChangeHandler: IUnknown {
-            fn OnValueChanged(&self, storyboard: IUIAnimationStoryboard, variable: IUIAnimationVariable, newValue: f64, previousValue: f64) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnValueChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] storyboard: IUIAnimationStoryboard, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newValue: DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] previousValue: DOUBLE) -> HRESULT;
         }
         #[guid(0x63acc8d2_6eae_4bb0_b879_586dd8cfbe42)]
         interface IUIAnimationVariableChangeHandler2: IUnknown {
-            fn OnValueChanged(&self, storyboard: IUIAnimationStoryboard2, variable: IUIAnimationVariable2, #[len_param(4)] #[in] newValue: *mut f64, #[len_param(4)] #[in] previousValue: *mut f64, cDimension: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnValueChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] storyboard: IUIAnimationStoryboard2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] newValue: *mut DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] previousValue: *mut DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
         }
         #[guid(0x72895e91_0145_4c21_9192_5aab40eddf80)]
         interface IUIAnimationVariableCurveChangeHandler2: IUnknown {
-            fn OnCurveChanged(&self, variable: IUIAnimationVariable2) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnCurveChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable2) -> HRESULT;
         }
         #[guid(0xbb3e1550_356e_44b0_99da_85ac6017865e)]
         interface IUIAnimationVariableIntegerChangeHandler: IUnknown {
-            fn OnIntegerValueChanged(&self, storyboard: IUIAnimationStoryboard, variable: IUIAnimationVariable, newValue: i32, previousValue: i32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnIntegerValueChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] storyboard: IUIAnimationStoryboard, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] newValue: INT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] previousValue: INT32) -> HRESULT;
         }
         #[guid(0x829b6cf1_4f3a_4412_ae09_b243eb4c6b58)]
         interface IUIAnimationVariableIntegerChangeHandler2: IUnknown {
-            fn OnIntegerValueChanged(&self, storyboard: IUIAnimationStoryboard2, variable: IUIAnimationVariable2, #[len_param(4)] #[in] newValue: *mut i32, #[len_param(4)] #[in] previousValue: *mut i32, cDimension: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+            fn OnIntegerValueChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] storyboard: IUIAnimationStoryboard2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] variable: IUIAnimationVariable2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] newValue: *mut INT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] previousValue: *mut INT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDimension: UINT) -> HRESULT;
         }
         const UIAnimationManager: GUID = 0x4c1fc63a_695c_47e8_a339_1a194be3d0b8;
         const UIAnimationManager2: GUID = 0xd25d8842_8884_4a4a_b321_091314379bdd;
@@ -306,8 +510,7 @@ mod Windows {
         const UIAnimationTransitionFactory2: GUID = 0x84302f97_7f7b_4040_b190_72ac9d18e420;
         const UIAnimationTransitionLibrary: GUID = 0x1d6322ad_aa85_4ef5_a828_86d71067d145;
         const UIAnimationTransitionLibrary2: GUID = 0x812f944a_c5c8_4cd9_b0a6_b3da802f228d;
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum UI_ANIMATION_DEPENDENCIES {
             UI_ANIMATION_DEPENDENCY_NONE = 0,
             UI_ANIMATION_DEPENDENCY_INTERMEDIATE_VALUES = 1,
@@ -315,14 +518,14 @@ mod Windows {
             UI_ANIMATION_DEPENDENCY_FINAL_VELOCITY = 4,
             UI_ANIMATION_DEPENDENCY_DURATION = 8,
         }
-        const UI_ANIMATION_DIMENSION_UNKNOWN: u32 = 4294967295;
+        const UI_ANIMATION_DIMENSION_UNKNOWN: UINT = 4294967295;
         #[repr(i32)]
         enum UI_ANIMATION_IDLE_BEHAVIOR {
             UI_ANIMATION_IDLE_BEHAVIOR_CONTINUE = 0,
             UI_ANIMATION_IDLE_BEHAVIOR_DISABLE = 1,
         }
-        const UI_ANIMATION_ITERATION_NONE: u32 = 4294967295;
-        type UI_ANIMATION_KEYFRAME = *mut void;
+        const UI_ANIMATION_ITERATION_NONE: UINT32 = 4294967295;
+        type UI_ANIMATION_KEYFRAME = *mut __MIDL___MIDL_itf_UIAnimation_0000_0002_0003;
         const UI_ANIMATION_KEYFRAME_STORYBOARD_START: UI_ANIMATION_KEYFRAME = -1;
         #[repr(i32)]
         enum UI_ANIMATION_MANAGER_STATUS {
@@ -390,6 +593,9 @@ mod Windows {
         enum UI_ANIMATION_UPDATE_RESULT {
             UI_ANIMATION_UPDATE_NO_CHANGE = 0,
             UI_ANIMATION_UPDATE_VARIABLES_CHANGED = 1,
+        }
+        struct __MIDL___MIDL_itf_UIAnimation_0000_0002_0003 {
+            unused: i32,
         }
     }
 }

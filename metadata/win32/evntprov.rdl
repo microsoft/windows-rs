@@ -7,14 +7,14 @@ mod Windows {
         const EVENT_ACTIVITY_CTRL_GET_SET_ID: i32 = 4;
         const EVENT_ACTIVITY_CTRL_SET_ID: i32 = 2;
         struct EVENT_DATA_DESCRIPTOR {
-            Ptr: u64,
-            Size: u32,
+            Ptr: ULONGLONG,
+            Size: ULONG,
             Anonymous: union {
-                Reserved: u32,
+                Reserved: ULONG,
                 Anonymous: struct {
-                    Type: u8,
-                    Reserved1: u8,
-                    Reserved2: u16,
+                    Type: UCHAR,
+                    Reserved1: UCHAR,
+                    Reserved2: USHORT,
                 },
             },
         }
@@ -24,45 +24,45 @@ mod Windows {
         const EVENT_DATA_DESCRIPTOR_TYPE_RESERVED1: i32 = 4;
         const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: i32 = 3;
         struct EVENT_DESCRIPTOR {
-            Id: u16,
-            Version: u8,
-            Channel: u8,
-            Level: u8,
-            Opcode: u8,
-            Task: u16,
-            Keyword: u64,
+            Id: USHORT,
+            Version: UCHAR,
+            Channel: UCHAR,
+            Level: UCHAR,
+            Opcode: UCHAR,
+            Task: USHORT,
+            Keyword: ULONGLONG,
         }
         struct EVENT_FILTER_DESCRIPTOR {
-            Ptr: u64,
-            Size: u32,
-            Type: u32,
+            Ptr: ULONGLONG,
+            Size: ULONG,
+            Type: ULONG,
         }
         struct EVENT_FILTER_EVENT_ID {
             FilterIn: BOOLEAN,
-            Reserved: u8,
-            Count: u16,
-            Events: [u16; 1],
+            Reserved: UCHAR,
+            Count: USHORT,
+            Events: [USHORT; 1],
         }
         struct EVENT_FILTER_EVENT_NAME {
-            MatchAnyKeyword: u64,
-            MatchAllKeyword: u64,
-            Level: u8,
+            MatchAnyKeyword: ULONGLONG,
+            MatchAllKeyword: ULONGLONG,
+            Level: UCHAR,
             FilterIn: BOOLEAN,
-            NameCount: u16,
-            Names: [u8; 1],
+            NameCount: USHORT,
+            Names: [UCHAR; 1],
         }
         struct EVENT_FILTER_HEADER {
-            Id: u16,
-            Version: u8,
-            Reserved: [u8; 5],
-            InstanceId: u64,
-            Size: u32,
-            NextOffset: u32,
+            Id: USHORT,
+            Version: UCHAR,
+            Reserved: [UCHAR; 5],
+            InstanceId: ULONGLONG,
+            Size: ULONG,
+            NextOffset: ULONG,
         }
         struct EVENT_FILTER_LEVEL_KW {
-            MatchAnyKeyword: u64,
-            MatchAllKeyword: u64,
-            Level: u8,
+            MatchAnyKeyword: ULONGLONG,
+            MatchAllKeyword: ULONGLONG,
+            Level: UCHAR,
             FilterIn: BOOLEAN,
         }
         const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416;
@@ -94,25 +94,25 @@ mod Windows {
         const EVENT_WRITE_FLAG_INPRIVATE: i32 = 2;
         const EVENT_WRITE_FLAG_NO_FAULTING: i32 = 1;
         #[library("ADVAPI32.dll")]
-        extern fn EventActivityIdControl(ControlCode: u32, #[in] #[out] ActivityId: LPGUID) -> u32;
+        extern fn EventActivityIdControl(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ControlCode: ULONG, #[in] #[out] ActivityId: LPGUID) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventEnabled(RegHandle: REGHANDLE, EventDescriptor: PCEVENT_DESCRIPTOR) -> BOOLEAN;
+        extern fn EventEnabled(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RegHandle: REGHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventDescriptor: PCEVENT_DESCRIPTOR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn EventProviderEnabled(RegHandle: REGHANDLE, Level: u8, Keyword: u64) -> BOOLEAN;
+        extern fn EventProviderEnabled(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RegHandle: REGHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Level: UCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Keyword: ULONGLONG) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn EventRegister(ProviderId: LPCGUID, #[opt] EnableCallback: PENABLECALLBACK, #[in] #[opt] CallbackContext: *mut void, #[out] RegHandle: PREGHANDLE) -> u32;
+        extern fn EventRegister(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProviderId: LPCGUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnableCallback: PENABLECALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackContext: PVOID, #[out] RegHandle: PREGHANDLE) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventSetInformation(RegHandle: REGHANDLE, InformationClass: EVENT_INFO_CLASS, #[size_param(3)] #[in] EventInformation: *mut void, InformationLength: u32) -> u32;
+        extern fn EventSetInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RegHandle: REGHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationClass: EVENT_INFO_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] EventInformation: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationLength: ULONG) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventUnregister(RegHandle: REGHANDLE) -> u32;
+        extern fn EventUnregister(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RegHandle: REGHANDLE) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventWrite(RegHandle: REGHANDLE, EventDescriptor: PCEVENT_DESCRIPTOR, UserDataCount: u32, #[len_param(2)] #[opt] UserData: PEVENT_DATA_DESCRIPTOR) -> u32;
+        extern fn EventWrite(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RegHandle: REGHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventDescriptor: PCEVENT_DESCRIPTOR, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,(128)", "0,(128)")] UserDataCount: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventWriteEx(RegHandle: REGHANDLE, EventDescriptor: PCEVENT_DESCRIPTOR, Filter: u64, Flags: u32, #[opt] ActivityId: LPCGUID, #[opt] RelatedActivityId: LPCGUID, UserDataCount: u32, #[len_param(6)] #[opt] UserData: PEVENT_DATA_DESCRIPTOR) -> u32;
+        extern fn EventWriteEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RegHandle: REGHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Filter: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ActivityId: LPCGUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RelatedActivityId: LPCGUID, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,(128)", "0,(128)")] UserDataCount: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventWriteString(RegHandle: REGHANDLE, Level: u8, Keyword: u64, String: PCWSTR) -> u32;
+        extern fn EventWriteString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RegHandle: REGHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Level: UCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Keyword: ULONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] String: PCWSTR) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventWriteTransfer(RegHandle: REGHANDLE, EventDescriptor: PCEVENT_DESCRIPTOR, #[opt] ActivityId: LPCGUID, #[opt] RelatedActivityId: LPCGUID, UserDataCount: u32, #[len_param(4)] #[opt] UserData: PEVENT_DATA_DESCRIPTOR) -> u32;
+        extern fn EventWriteTransfer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RegHandle: REGHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ActivityId: LPCGUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RelatedActivityId: LPCGUID, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,(128)", "0,(128)")] UserDataCount: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] UserData: PEVENT_DATA_DESCRIPTOR) -> ULONG;
         const MAX_EVENT_DATA_DESCRIPTORS: i32 = 128;
         const MAX_EVENT_FILTERS_COUNT: i32 = 13;
         const MAX_EVENT_FILTER_DATA_SIZE: i32 = 1024;
@@ -121,9 +121,10 @@ mod Windows {
         const MAX_EVENT_FILTER_PAYLOAD_SIZE: i32 = 4096;
         const MAX_EVENT_FILTER_PID_COUNT: i32 = 8;
         type PCEVENT_DESCRIPTOR = *const EVENT_DESCRIPTOR;
-        extern fn PENABLECALLBACK(SourceId: LPCGUID, IsEnabled: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, #[opt] FilterData: PEVENT_FILTER_DESCRIPTOR, #[in] #[out] #[opt] CallbackContext: *mut void);
+        extern fn PENABLECALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceId: LPCGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IsEnabled: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Level: UCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MatchAnyKeyword: ULONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MatchAllKeyword: ULONGLONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FilterData: PEVENT_FILTER_DESCRIPTOR, #[in] #[out] #[opt] CallbackContext: PVOID);
         type PEVENT_DATA_DESCRIPTOR = *mut EVENT_DATA_DESCRIPTOR;
         type PEVENT_DESCRIPTOR = *mut EVENT_DESCRIPTOR;
+        type PEVENT_FILTER_DESCRIPTOR = *mut EVENT_FILTER_DESCRIPTOR;
         type PEVENT_FILTER_EVENT_ID = *mut EVENT_FILTER_EVENT_ID;
         type PEVENT_FILTER_EVENT_NAME = *mut EVENT_FILTER_EVENT_NAME;
         type PEVENT_FILTER_HEADER = *mut EVENT_FILTER_HEADER;

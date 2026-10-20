@@ -3,8 +3,9 @@ mod Windows {
     mod Win32 {
         const ASYNC_MODE_COMPATIBILITY: i32 = 1;
         const ASYNC_MODE_DEFAULT: i32 = 0;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn BindMoniker(pmk: IMoniker, grfOpt: u32, iidResult: *const GUID, ppvResult: *mut *mut void) -> HRESULT;
+        extern fn BindMoniker(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmk: LPMONIKER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfOpt: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iidResult: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvResult: *mut LPVOID) -> HRESULT;
         #[repr(i32)]
         enum COINIT {
             COINIT_APARTMENTTHREADED = 2,
@@ -20,93 +21,119 @@ mod Windows {
             SD_ACCESSRESTRICTIONS = 3,
         }
         #[library("ole32.dll")]
-        extern fn CoAllowSetForegroundWindow(pUnk: IUnknown, #[in] #[opt] lpvReserved: *mut void) -> HRESULT;
+        extern fn CoAllowSetForegroundWindow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnk: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpvReserved: LPVOID) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoBuildVersion() -> u32;
+        extern fn CoBuildVersion() -> DWORD;
         #[library("ole32.dll")]
-        extern fn CoDosDateTimeToFileTime(nDosDate: u16, nDosTime: u16, lpFileTime: *mut FILETIME) -> BOOL;
+        extern fn CoDosDateTimeToFileTime(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nDosDate: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nDosTime: WORD, #[out] lpFileTime: *mut FILETIME) -> BOOL;
         #[library("ole32.dll")]
-        extern fn CoFileTimeToDosDateTime(#[in] lpFileTime: *mut FILETIME, #[out] lpDosDate: LPWORD, #[out] lpDosTime: LPWORD) -> BOOL;
+        extern fn CoFileTimeToDosDateTime(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFileTime: *mut FILETIME, #[out] lpDosDate: LPWORD, #[out] lpDosTime: LPWORD) -> BOOL;
         #[library("ole32.dll")]
         extern fn CoFreeAllLibraries();
         #[library("ole32.dll")]
-        extern fn CoFreeLibrary(hInst: HINSTANCE);
+        extern fn CoFreeLibrary(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hInst: HINSTANCE);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetInstanceFromFile(#[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] #[opt] pClsid: *mut GUID, #[opt] punkOuter: IUnknown, dwClsCtx: u32, grfMode: u32, #[in] pwszName: *mut OLECHAR, dwCount: u32, #[len_param(6)] #[in] #[out] pResults: *mut MULTI_QI) -> HRESULT;
+        extern fn CoGetInstanceFromFile(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServerInfo: *mut COSERVERINFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClsid: *mut CLSID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkOuter: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwClsCtx: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszName: *mut OLECHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCount: DWORD, #[in] #[out] #[len_param(6)] pResults: *mut MULTI_QI) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetInstanceFromIStorage(#[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] #[opt] pClsid: *mut GUID, #[opt] punkOuter: IUnknown, dwClsCtx: u32, pstg: IStorage, dwCount: u32, #[len_param(5)] #[in] #[out] pResults: *mut MULTI_QI) -> HRESULT;
+        extern fn CoGetInstanceFromIStorage(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServerInfo: *mut COSERVERINFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClsid: *mut CLSID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkOuter: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwClsCtx: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstg: IStorage, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCount: DWORD, #[in] #[out] #[len_param(5)] pResults: *mut MULTI_QI) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetObject(pszName: PCWSTR, #[in] #[opt] pBindOptions: *mut BIND_OPTS, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn CoGetObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBindOptions: *mut BIND_OPTS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
         extern fn CoGetSystemSecurityPermissions(comSDType: COMSD, ppSD: *mut PSECURITY_DESCRIPTOR) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoInitialize(#[in] #[opt] pvReserved: *mut void) -> HRESULT;
+        extern fn CoInitialize(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvReserved: LPVOID) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoInstall(pbc: IBindCtx, dwFlags: u32, #[in] pClassSpec: *mut uCLSSPEC, #[in] pQuery: *mut QUERYCONTEXT, pszCodeBase: PCWSTR) -> HRESULT;
+        extern fn CoInstall(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pbc: IBindCtx, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassSpec: *mut uCLSSPEC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQuery: *mut QUERYCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszCodeBase: LPWSTR) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoIsOle1Class(rclsid: *const GUID) -> BOOL;
+        extern fn CoIsOle1Class(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rclsid: &IID) -> BOOL;
         #[library("ole32.dll")]
-        extern fn CoLoadLibrary(lpszLibName: LPOLESTR, bAutoFree: BOOL) -> HINSTANCE;
+        extern fn CoLoadLibrary(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpszLibName: LPOLESTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bAutoFree: BOOL) -> HINSTANCE;
         #[library("ole32.dll")]
-        extern fn CoRegisterChannelHook(ExtensionUuid: *const GUID, pChannelHook: IChannelHook) -> HRESULT;
+        extern fn CoRegisterChannelHook(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ExtensionUuid: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pChannelHook: IChannelHook) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoRegisterInitializeSpy(pSpy: IInitializeSpy, puliCookie: *mut ULARGE_INTEGER) -> HRESULT;
+        extern fn CoRegisterInitializeSpy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSpy: IInitializeSpy, #[out] puliCookie: *mut ULARGE_INTEGER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoRegisterMallocSpy(pMallocSpy: IMallocSpy) -> HRESULT;
+        extern fn CoRegisterMallocSpy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMallocSpy: LPMALLOCSPY) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoRegisterMessageFilter(#[opt] lpMessageFilter: IMessageFilter, lplpMessageFilter: *mut IMessageFilter) -> HRESULT;
+        extern fn CoRegisterMessageFilter(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpMessageFilter: LPMESSAGEFILTER, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] lplpMessageFilter: *mut LPMESSAGEFILTER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoRevokeInitializeSpy(uliCookie: ULARGE_INTEGER) -> HRESULT;
+        extern fn CoRevokeInitializeSpy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uliCookie: ULARGE_INTEGER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
         extern fn CoRevokeMallocSpy() -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoTreatAsClass(clsidOld: *const GUID, clsidNew: *const GUID) -> HRESULT;
+        extern fn CoTreatAsClass(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clsidOld: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clsidNew: &IID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CreateAntiMoniker(ppmk: *mut IMoniker) -> HRESULT;
+        extern fn CreateAntiMoniker(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmk: *mut LPMONIKER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CreateBindCtx(reserved: u32, ppbc: *mut IBindCtx) -> HRESULT;
+        extern fn CreateBindCtx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] reserved: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppbc: *mut LPBC) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CreateClassMoniker(rclsid: *const GUID, ppmk: *mut IMoniker) -> HRESULT;
+        extern fn CreateClassMoniker(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rclsid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmk: *mut LPMONIKER) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CreateDataAdviseHolder(ppDAHolder: *mut IDataAdviseHolder) -> HRESULT;
+        extern fn CreateDataCache(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: LPUNKNOWN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rclsid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] ppv: *mut LPVOID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CreateDataCache(#[opt] pUnkOuter: IUnknown, rclsid: *const GUID, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn CreateFileMoniker(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpszPathName: LPCOLESTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmk: *mut LPMONIKER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CreateFileMoniker(lpszPathName: LPCOLESTR, ppmk: *mut IMoniker) -> HRESULT;
+        extern fn CreateGenericComposite(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmkFirst: LPMONIKER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmkRest: LPMONIKER, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmkComposite: *mut LPMONIKER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CreateGenericComposite(#[opt] pmkFirst: IMoniker, #[opt] pmkRest: IMoniker, ppmkComposite: *mut IMoniker) -> HRESULT;
+        extern fn CreateItemMoniker(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpszDelim: LPCOLESTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpszItem: LPCOLESTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmk: *mut LPMONIKER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CreateItemMoniker(lpszDelim: LPCOLESTR, lpszItem: LPCOLESTR, ppmk: *mut IMoniker) -> HRESULT;
+        extern fn CreateObjrefMoniker(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punk: LPUNKNOWN, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmk: *mut LPMONIKER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CreateObjrefMoniker(#[opt] punk: IUnknown, ppmk: *mut IMoniker) -> HRESULT;
+        extern fn CreatePointerMoniker(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punk: LPUNKNOWN, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmk: *mut LPMONIKER) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CreatePointerMoniker(#[opt] punk: IUnknown, ppmk: *mut IMoniker) -> HRESULT;
+        extern fn CreateStdProgressIndicator(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTitle: LPCOLESTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIbscCaller: IBindStatusCallback, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppIbsc: *mut IBindStatusCallback) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CreateStdProgressIndicator(hwndParent: HWND, pszTitle: LPCOLESTR, pIbscCaller: IBindStatusCallback, ppIbsc: *mut IBindStatusCallback) -> HRESULT;
+        extern fn DcomChannelSetHResult(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvReserved: LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pulReserved: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] appsHR: HRESULT) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn DcomChannelSetHResult(#[in] #[opt] pvReserved: *mut void, #[in] #[opt] pulReserved: *mut u32, appsHR: HRESULT) -> HRESULT;
+        extern fn GetClassFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFilename: LPCOLESTR, #[out] pclsid: *mut CLSID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn GetClassFile(szFilename: LPCOLESTR, pclsid: *mut GUID) -> HRESULT;
-        #[library("ole32.dll")]
-        extern fn GetRunningObjectTable(reserved: u32, pprot: *mut IRunningObjectTable) -> HRESULT;
+        extern fn GetRunningObjectTable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] reserved: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pprot: *mut LPRUNNINGOBJECTTABLE) -> HRESULT;
         const MARSHALINTERFACE_MIN: i32 = 500;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn MkParseDisplayName(pbc: IBindCtx, szUserName: LPCOLESTR, pchEaten: *mut u32, ppmk: *mut IMoniker) -> HRESULT;
+        extern fn MkParseDisplayName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pbc: LPBC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserName: LPCOLESTR, #[out] pchEaten: *mut ULONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmk: *mut LPMONIKER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn MonikerCommonPrefixWith(pmkThis: IMoniker, pmkOther: IMoniker, ppmkCommon: *mut IMoniker) -> HRESULT;
+        extern fn MonikerCommonPrefixWith(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmkThis: LPMONIKER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmkOther: LPMONIKER, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmkCommon: *mut LPMONIKER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn MonikerRelativePathTo(pmkSrc: IMoniker, pmkDest: IMoniker, ppmkRelPath: *mut IMoniker, dwReserved: BOOL) -> HRESULT;
+        extern fn MonikerRelativePathTo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmkSrc: LPMONIKER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmkDest: LPMONIKER, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmkRelPath: *mut LPMONIKER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReserved: BOOL) -> HRESULT;
         const STGTY_REPEAT: i32 = 256;
         const STG_LAYOUT_INTERLEAVED: i32 = 1;
         const STG_LAYOUT_SEQUENTIAL: i32 = 0;
         const STG_TOEND: u32 = 4294967295;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn StgGetIFillLockBytesOnFile(pwcsName: *const OLECHAR, ppflb: *mut IFillLockBytes) -> HRESULT;
+        extern fn StgGetIFillLockBytesOnFile(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwcsName: *const OLECHAR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppflb: *mut IFillLockBytes) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn StgGetIFillLockBytesOnILockBytes(pilb: ILockBytes, ppflb: *mut IFillLockBytes) -> HRESULT;
+        extern fn StgGetIFillLockBytesOnILockBytes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pilb: ILockBytes, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppflb: *mut IFillLockBytes) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn StgOpenAsyncDocfileOnIFillLockBytes(pflb: IFillLockBytes, grfMode: u32, asyncFlags: u32, ppstgOpen: *mut IStorage) -> HRESULT;
+        extern fn StgOpenAsyncDocfileOnIFillLockBytes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pflb: IFillLockBytes, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] asyncFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppstgOpen: *mut IStorage) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("dflayout.dll")]
-        extern fn StgOpenLayoutDocfile(pwcsDfName: *const OLECHAR, grfMode: u32, reserved: u32, ppstgOpen: *mut IStorage) -> HRESULT;
+        extern fn StgOpenLayoutDocfile(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwcsDfName: *const OLECHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] reserved: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppstgOpen: *mut IStorage) -> HRESULT;
     }
 }

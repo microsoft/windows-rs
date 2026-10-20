@@ -5,11 +5,12 @@ mod Windows {
         const L2_NOTIFICATION_CODE_PUBLIC_BEGIN: i32 = 0;
         const L2_NOTIFICATION_CODE_V2_BEGIN: i32 = 4096;
         struct L2_NOTIFICATION_DATA {
-            NotificationSource: u32,
-            NotificationCode: u32,
+            NotificationSource: DWORD,
+            NotificationCode: DWORD,
             InterfaceGuid: GUID,
-            dwDataSize: u32,
-            pData: *mut void,
+            dwDataSize: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "dwDataSize", IsByteCount = true, MayBeNull = false)]
+            pData: PVOID,
         }
         const L2_NOTIFICATION_SOURCE_ALL: i32 = 65535;
         const L2_NOTIFICATION_SOURCE_DOT3_AUTO_CONFIG: i32 = 1;

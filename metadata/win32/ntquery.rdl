@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("query.dll")]
-        extern fn BindIFilterFromStorage(pStg: IStorage, pUnkOuter: IUnknown, ppIUnk: *mut *mut void) -> HRESULT;
+        extern fn BindIFilterFromStorage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStg: IStorage, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppIUnk: *mut *mut void) -> HRESULT;
         #[library("query.dll")]
-        extern fn BindIFilterFromStream(pStm: IStream, pUnkOuter: IUnknown, ppIUnk: *mut *mut void) -> HRESULT;
+        extern fn BindIFilterFromStream(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStm: IStream, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppIUnk: *mut *mut void) -> HRESULT;
         #[encoding("utf-16")]
         const CIADMIN: String = "::_nodocstore_::";
         const CICAT_ALL_OPENED: i32 = 32;
@@ -18,22 +18,23 @@ mod Windows {
         const CI_PROVIDER_ALL: u32 = 4294967295;
         const CI_PROVIDER_INDEXING_SERVICE: i32 = 2;
         const CI_PROVIDER_MSSEARCH: i32 = 1;
+        #[packed(4)]
         struct CI_STATE {
-            cbStruct: u32,
-            cWordList: u32,
-            cPersistentIndex: u32,
-            cQueries: u32,
-            cDocuments: u32,
-            cFreshTest: u32,
-            dwMergeProgress: u32,
-            eState: u32,
-            cFilteredDocuments: u32,
-            cTotalDocuments: u32,
-            cPendingScans: u32,
-            dwIndexSize: u32,
-            cUniqueKeys: u32,
-            cSecQDocuments: u32,
-            dwPropCacheSize: u32,
+            cbStruct: DWORD,
+            cWordList: DWORD,
+            cPersistentIndex: DWORD,
+            cQueries: DWORD,
+            cDocuments: DWORD,
+            cFreshTest: DWORD,
+            dwMergeProgress: DWORD,
+            eState: DWORD,
+            cFilteredDocuments: DWORD,
+            cTotalDocuments: DWORD,
+            cPendingScans: DWORD,
+            dwIndexSize: DWORD,
+            cUniqueKeys: DWORD,
+            cSecQDocuments: DWORD,
+            dwPropCacheSize: DWORD,
         }
         const CI_STATE_ANNEALING_MERGE: i32 = 8;
         const CI_STATE_BATTERY_POLICY: i32 = 262144;
@@ -91,9 +92,9 @@ mod Windows {
         const LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY: i32 = 2;
         const LIFF_LOAD_DEFINED_FILTER: i32 = 1;
         #[library("query.dll")]
-        extern fn LoadIFilter(pwcsPath: PCWSTR, pUnkOuter: IUnknown, ppIUnk: *mut *mut void) -> HRESULT;
+        extern fn LoadIFilter(pwcsPath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppIUnk: *mut *mut void) -> HRESULT;
         #[library("query.dll")]
-        extern fn LoadIFilterEx(pwcsPath: PCWSTR, dwFlags: u32, riid: *const GUID, ppIUnk: *mut *mut void) -> HRESULT;
+        extern fn LoadIFilterEx(pwcsPath: PCWSTR, dwFlags: DWORD, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppIUnk: *mut *mut void) -> HRESULT;
         const MSIDXSPROP_COMMAND_LOCALE_STRING: i32 = 3;
         const MSIDXSPROP_MAX_RANK: i32 = 6;
         const MSIDXSPROP_PARSE_TREE: i32 = 5;

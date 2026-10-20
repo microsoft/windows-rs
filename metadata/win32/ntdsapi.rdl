@@ -42,34 +42,34 @@ mod Windows {
         const DS_BEHAVIOR_WIN8: i32 = 5;
         const DS_BEHAVIOR_WINBLUE: i32 = 6;
         const DS_BEHAVIOR_WINTHRESHOLD: i32 = 7;
-        const DS_DEFAULT_LOCALE: u32 = 1033;
+        const DS_DEFAULT_LOCALE: DWORD = 1033;
         const DS_DEFAULT_LOCALE_COMPARE_FLAGS: i32 = 200707;
         struct DS_DOMAIN_CONTROLLER_INFO_1A {
-            NetbiosName: PSTR,
-            DnsHostName: PSTR,
-            SiteName: PSTR,
-            ComputerObjectName: PSTR,
-            ServerObjectName: PSTR,
+            NetbiosName: LPSTR,
+            DnsHostName: LPSTR,
+            SiteName: LPSTR,
+            ComputerObjectName: LPSTR,
+            ServerObjectName: LPSTR,
             fIsPdc: BOOL,
             fDsEnabled: BOOL,
         }
         struct DS_DOMAIN_CONTROLLER_INFO_1W {
-            NetbiosName: PWSTR,
-            DnsHostName: PWSTR,
-            SiteName: PWSTR,
-            ComputerObjectName: PWSTR,
-            ServerObjectName: PWSTR,
+            NetbiosName: LPWSTR,
+            DnsHostName: LPWSTR,
+            SiteName: LPWSTR,
+            ComputerObjectName: LPWSTR,
+            ServerObjectName: LPWSTR,
             fIsPdc: BOOL,
             fDsEnabled: BOOL,
         }
         struct DS_DOMAIN_CONTROLLER_INFO_2A {
-            NetbiosName: PSTR,
-            DnsHostName: PSTR,
-            SiteName: PSTR,
-            SiteObjectName: PSTR,
-            ComputerObjectName: PSTR,
-            ServerObjectName: PSTR,
-            NtdsDsaObjectName: PSTR,
+            NetbiosName: LPSTR,
+            DnsHostName: LPSTR,
+            SiteName: LPSTR,
+            SiteObjectName: LPSTR,
+            ComputerObjectName: LPSTR,
+            ServerObjectName: LPSTR,
+            NtdsDsaObjectName: LPSTR,
             fIsPdc: BOOL,
             fDsEnabled: BOOL,
             fIsGc: BOOL,
@@ -79,13 +79,13 @@ mod Windows {
             NtdsDsaObjectGuid: GUID,
         }
         struct DS_DOMAIN_CONTROLLER_INFO_2W {
-            NetbiosName: PWSTR,
-            DnsHostName: PWSTR,
-            SiteName: PWSTR,
-            SiteObjectName: PWSTR,
-            ComputerObjectName: PWSTR,
-            ServerObjectName: PWSTR,
-            NtdsDsaObjectName: PWSTR,
+            NetbiosName: LPWSTR,
+            DnsHostName: LPWSTR,
+            SiteName: LPWSTR,
+            SiteObjectName: LPWSTR,
+            ComputerObjectName: LPWSTR,
+            ServerObjectName: LPWSTR,
+            NtdsDsaObjectName: LPWSTR,
             fIsPdc: BOOL,
             fDsEnabled: BOOL,
             fIsGc: BOOL,
@@ -95,13 +95,13 @@ mod Windows {
             NtdsDsaObjectGuid: GUID,
         }
         struct DS_DOMAIN_CONTROLLER_INFO_3A {
-            NetbiosName: PSTR,
-            DnsHostName: PSTR,
-            SiteName: PSTR,
-            SiteObjectName: PSTR,
-            ComputerObjectName: PSTR,
-            ServerObjectName: PSTR,
-            NtdsDsaObjectName: PSTR,
+            NetbiosName: LPSTR,
+            DnsHostName: LPSTR,
+            SiteName: LPSTR,
+            SiteObjectName: LPSTR,
+            ComputerObjectName: LPSTR,
+            ServerObjectName: LPSTR,
+            NtdsDsaObjectName: LPSTR,
             fIsPdc: BOOL,
             fDsEnabled: BOOL,
             fIsGc: BOOL,
@@ -112,13 +112,13 @@ mod Windows {
             NtdsDsaObjectGuid: GUID,
         }
         struct DS_DOMAIN_CONTROLLER_INFO_3W {
-            NetbiosName: PWSTR,
-            DnsHostName: PWSTR,
-            SiteName: PWSTR,
-            SiteObjectName: PWSTR,
-            ComputerObjectName: PWSTR,
-            ServerObjectName: PWSTR,
-            NtdsDsaObjectName: PWSTR,
+            NetbiosName: LPWSTR,
+            DnsHostName: LPWSTR,
+            SiteName: LPWSTR,
+            SiteObjectName: LPWSTR,
+            ComputerObjectName: LPWSTR,
+            ServerObjectName: LPWSTR,
+            NtdsDsaObjectName: LPWSTR,
             fIsPdc: BOOL,
             fDsEnabled: BOOL,
             fIsGc: BOOL,
@@ -179,22 +179,22 @@ mod Windows {
         }
         const DS_NAME_LEGAL_FLAGS: DS_NAME_FLAGS = 1;
         struct DS_NAME_RESULTA {
-            cItems: u32,
+            cItems: DWORD,
             rItems: PDS_NAME_RESULT_ITEMA,
         }
         struct DS_NAME_RESULTW {
-            cItems: u32,
+            cItems: DWORD,
             rItems: PDS_NAME_RESULT_ITEMW,
         }
         struct DS_NAME_RESULT_ITEMA {
-            status: u32,
-            pDomain: PSTR,
-            pName: PSTR,
+            status: DWORD,
+            pDomain: LPSTR,
+            pName: LPSTR,
         }
         struct DS_NAME_RESULT_ITEMW {
-            status: u32,
-            pDomain: PWSTR,
-            pName: PWSTR,
+            status: DWORD,
+            pDomain: LPWSTR,
+            pName: LPWSTR,
         }
         const DS_REPADD_ASYNCHRONOUS_OPERATION: i32 = 1;
         const DS_REPADD_ASYNCHRONOUS_REPLICA: i32 = 32;
@@ -218,81 +218,81 @@ mod Windows {
         const DS_REPDEL_REF_OK: i32 = 64;
         const DS_REPDEL_WRITEABLE: i32 = 2;
         struct DS_REPL_ATTR_META_DATA {
-            pszAttributeName: PWSTR,
-            dwVersion: u32,
+            pszAttributeName: LPWSTR,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
         }
         struct DS_REPL_ATTR_META_DATA_2 {
-            pszAttributeName: PWSTR,
-            dwVersion: u32,
+            pszAttributeName: LPWSTR,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
-            pszLastOriginatingDsaDN: PWSTR,
+            pszLastOriginatingDsaDN: LPWSTR,
         }
         struct DS_REPL_ATTR_META_DATA_BLOB {
-            oszAttributeName: u32,
-            dwVersion: u32,
+            oszAttributeName: DWORD,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
-            oszLastOriginatingDsaDN: u32,
+            oszLastOriginatingDsaDN: DWORD,
         }
         struct DS_REPL_ATTR_VALUE_META_DATA {
-            cNumEntries: u32,
-            dwEnumerationContext: u32,
+            cNumEntries: DWORD,
+            dwEnumerationContext: DWORD,
             rgMetaData: [DS_REPL_VALUE_META_DATA; 1],
         }
         struct DS_REPL_ATTR_VALUE_META_DATA_2 {
-            cNumEntries: u32,
-            dwEnumerationContext: u32,
+            cNumEntries: DWORD,
+            dwEnumerationContext: DWORD,
             rgMetaData: [DS_REPL_VALUE_META_DATA_2; 1],
         }
         struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
-            cNumEntries: u32,
-            dwEnumerationContext: u32,
+            cNumEntries: DWORD,
+            dwEnumerationContext: DWORD,
             rgMetaData: [DS_REPL_VALUE_META_DATA_EXT; 1],
         }
         struct DS_REPL_CURSOR {
-            uuidSourceDsaInvocationID: GUID,
+            uuidSourceDsaInvocationID: UUID,
             usnAttributeFilter: USN,
         }
         struct DS_REPL_CURSORS {
-            cNumCursors: u32,
-            dwReserved: u32,
+            cNumCursors: DWORD,
+            dwReserved: DWORD,
             rgCursor: [DS_REPL_CURSOR; 1],
         }
         struct DS_REPL_CURSORS_2 {
-            cNumCursors: u32,
-            dwEnumerationContext: u32,
+            cNumCursors: DWORD,
+            dwEnumerationContext: DWORD,
             rgCursor: [DS_REPL_CURSOR_2; 1],
         }
         struct DS_REPL_CURSORS_3W {
-            cNumCursors: u32,
-            dwEnumerationContext: u32,
+            cNumCursors: DWORD,
+            dwEnumerationContext: DWORD,
             rgCursor: [DS_REPL_CURSOR_3W; 1],
         }
         struct DS_REPL_CURSOR_2 {
-            uuidSourceDsaInvocationID: GUID,
+            uuidSourceDsaInvocationID: UUID,
             usnAttributeFilter: USN,
             ftimeLastSyncSuccess: FILETIME,
         }
         struct DS_REPL_CURSOR_3W {
-            uuidSourceDsaInvocationID: GUID,
+            uuidSourceDsaInvocationID: UUID,
             usnAttributeFilter: USN,
             ftimeLastSyncSuccess: FILETIME,
-            pszSourceDsaDN: PWSTR,
+            pszSourceDsaDN: LPWSTR,
         }
         struct DS_REPL_CURSOR_BLOB {
-            uuidSourceDsaInvocationID: GUID,
+            uuidSourceDsaInvocationID: UUID,
             usnAttributeFilter: USN,
             ftimeLastSyncSuccess: FILETIME,
-            oszSourceDsaDN: u32,
+            oszSourceDsaDN: DWORD,
         }
         const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: i32 = 1;
         #[repr(i32)]
@@ -312,23 +312,23 @@ mod Windows {
             DS_REPL_INFO_TYPE_MAX = 12,
         }
         struct DS_REPL_KCC_DSA_FAILURESW {
-            cNumEntries: u32,
-            dwReserved: u32,
+            cNumEntries: DWORD,
+            dwReserved: DWORD,
             rgDsaFailure: [DS_REPL_KCC_DSA_FAILUREW; 1],
         }
         struct DS_REPL_KCC_DSA_FAILUREW {
-            pszDsaDN: PWSTR,
-            uuidDsaObjGuid: GUID,
+            pszDsaDN: LPWSTR,
+            uuidDsaObjGuid: UUID,
             ftimeFirstFailure: FILETIME,
-            cNumFailures: u32,
-            dwLastResult: u32,
+            cNumFailures: DWORD,
+            dwLastResult: DWORD,
         }
         struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
-            oszDsaDN: u32,
-            uuidDsaObjGuid: GUID,
+            oszDsaDN: DWORD,
+            uuidDsaObjGuid: UUID,
             ftimeFirstFailure: FILETIME,
-            cNumFailures: u32,
-            dwLastResult: u32,
+            cNumFailures: DWORD,
+            dwLastResult: DWORD,
         }
         const DS_REPL_NBR_COMPRESS_CHANGES: i32 = 268435456;
         const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: i32 = 134217728;
@@ -350,79 +350,79 @@ mod Windows {
         const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: i32 = 128;
         const DS_REPL_NBR_WRITEABLE: i32 = 16;
         struct DS_REPL_NEIGHBORSW {
-            cNumNeighbors: u32,
-            dwReserved: u32,
+            cNumNeighbors: DWORD,
+            dwReserved: DWORD,
             rgNeighbor: [DS_REPL_NEIGHBORW; 1],
         }
         struct DS_REPL_NEIGHBORW {
-            pszNamingContext: PWSTR,
-            pszSourceDsaDN: PWSTR,
-            pszSourceDsaAddress: PWSTR,
-            pszAsyncIntersiteTransportDN: PWSTR,
-            dwReplicaFlags: u32,
-            dwReserved: u32,
-            uuidNamingContextObjGuid: GUID,
-            uuidSourceDsaObjGuid: GUID,
-            uuidSourceDsaInvocationID: GUID,
-            uuidAsyncIntersiteTransportObjGuid: GUID,
+            pszNamingContext: LPWSTR,
+            pszSourceDsaDN: LPWSTR,
+            pszSourceDsaAddress: LPWSTR,
+            pszAsyncIntersiteTransportDN: LPWSTR,
+            dwReplicaFlags: DWORD,
+            dwReserved: DWORD,
+            uuidNamingContextObjGuid: UUID,
+            uuidSourceDsaObjGuid: UUID,
+            uuidSourceDsaInvocationID: UUID,
+            uuidAsyncIntersiteTransportObjGuid: UUID,
             usnLastObjChangeSynced: USN,
             usnAttributeFilter: USN,
             ftimeLastSyncSuccess: FILETIME,
             ftimeLastSyncAttempt: FILETIME,
-            dwLastSyncResult: u32,
-            cNumConsecutiveSyncFailures: u32,
+            dwLastSyncResult: DWORD,
+            cNumConsecutiveSyncFailures: DWORD,
         }
         struct DS_REPL_NEIGHBORW_BLOB {
-            oszNamingContext: u32,
-            oszSourceDsaDN: u32,
-            oszSourceDsaAddress: u32,
-            oszAsyncIntersiteTransportDN: u32,
-            dwReplicaFlags: u32,
-            dwReserved: u32,
-            uuidNamingContextObjGuid: GUID,
-            uuidSourceDsaObjGuid: GUID,
-            uuidSourceDsaInvocationID: GUID,
-            uuidAsyncIntersiteTransportObjGuid: GUID,
+            oszNamingContext: DWORD,
+            oszSourceDsaDN: DWORD,
+            oszSourceDsaAddress: DWORD,
+            oszAsyncIntersiteTransportDN: DWORD,
+            dwReplicaFlags: DWORD,
+            dwReserved: DWORD,
+            uuidNamingContextObjGuid: UUID,
+            uuidSourceDsaObjGuid: UUID,
+            uuidSourceDsaInvocationID: UUID,
+            uuidAsyncIntersiteTransportObjGuid: UUID,
             usnLastObjChangeSynced: USN,
             usnAttributeFilter: USN,
             ftimeLastSyncSuccess: FILETIME,
             ftimeLastSyncAttempt: FILETIME,
-            dwLastSyncResult: u32,
-            cNumConsecutiveSyncFailures: u32,
+            dwLastSyncResult: DWORD,
+            cNumConsecutiveSyncFailures: DWORD,
         }
         struct DS_REPL_OBJ_META_DATA {
-            cNumEntries: u32,
-            dwReserved: u32,
+            cNumEntries: DWORD,
+            dwReserved: DWORD,
             rgMetaData: [DS_REPL_ATTR_META_DATA; 1],
         }
         struct DS_REPL_OBJ_META_DATA_2 {
-            cNumEntries: u32,
-            dwReserved: u32,
+            cNumEntries: DWORD,
+            dwReserved: DWORD,
             rgMetaData: [DS_REPL_ATTR_META_DATA_2; 1],
         }
         struct DS_REPL_OPW {
             ftimeEnqueued: FILETIME,
-            ulSerialNumber: u32,
-            ulPriority: u32,
+            ulSerialNumber: ULONG,
+            ulPriority: ULONG,
             OpType: DS_REPL_OP_TYPE,
-            ulOptions: u32,
-            pszNamingContext: PWSTR,
-            pszDsaDN: PWSTR,
-            pszDsaAddress: PWSTR,
-            uuidNamingContextObjGuid: GUID,
-            uuidDsaObjGuid: GUID,
+            ulOptions: ULONG,
+            pszNamingContext: LPWSTR,
+            pszDsaDN: LPWSTR,
+            pszDsaAddress: LPWSTR,
+            uuidNamingContextObjGuid: UUID,
+            uuidDsaObjGuid: UUID,
         }
         struct DS_REPL_OPW_BLOB {
             ftimeEnqueued: FILETIME,
-            ulSerialNumber: u32,
-            ulPriority: u32,
+            ulSerialNumber: ULONG,
+            ulPriority: ULONG,
             OpType: DS_REPL_OP_TYPE,
-            ulOptions: u32,
-            oszNamingContext: u32,
-            oszDsaDN: u32,
-            oszDsaAddress: u32,
-            uuidNamingContextObjGuid: GUID,
-            uuidDsaObjGuid: GUID,
+            ulOptions: ULONG,
+            oszNamingContext: DWORD,
+            oszDsaDN: DWORD,
+            oszDsaAddress: DWORD,
+            uuidNamingContextObjGuid: UUID,
+            uuidDsaObjGuid: UUID,
         }
         #[repr(i32)]
         enum DS_REPL_OP_TYPE {
@@ -434,85 +434,93 @@ mod Windows {
         }
         struct DS_REPL_PENDING_OPSW {
             ftimeCurrentOpStarted: FILETIME,
-            cNumPendingOps: u32,
+            cNumPendingOps: DWORD,
             rgPendingOp: [DS_REPL_OPW; 1],
         }
-        type DS_REPL_QUEUE_STATISTICSW = _DS_REPL_QUEUE_STATISTICSW;
-        type DS_REPL_QUEUE_STATISTICSW_BLOB = _DS_REPL_QUEUE_STATISTICSW;
+        struct DS_REPL_QUEUE_STATISTICSW {
+            ftimeCurrentOpStarted: FILETIME,
+            cNumPendingOps: DWORD,
+            ftimeOldestSync: FILETIME,
+            ftimeOldestAdd: FILETIME,
+            ftimeOldestMod: FILETIME,
+            ftimeOldestDel: FILETIME,
+            ftimeOldestUpdRefs: FILETIME,
+        }
+        type DS_REPL_QUEUE_STATISTICSW_BLOB = DS_REPL_QUEUE_STATISTICSW;
         struct DS_REPL_VALUE_META_DATA {
-            pszAttributeName: PWSTR,
-            pszObjectDn: PWSTR,
-            cbData: u32,
-            pbData: *mut u8,
+            pszAttributeName: LPWSTR,
+            pszObjectDn: LPWSTR,
+            cbData: DWORD,
+            pbData: *mut BYTE,
             ftimeDeleted: FILETIME,
             ftimeCreated: FILETIME,
-            dwVersion: u32,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
         }
         struct DS_REPL_VALUE_META_DATA_2 {
-            pszAttributeName: PWSTR,
-            pszObjectDn: PWSTR,
-            cbData: u32,
-            pbData: *mut u8,
+            pszAttributeName: LPWSTR,
+            pszObjectDn: LPWSTR,
+            cbData: DWORD,
+            pbData: *mut BYTE,
             ftimeDeleted: FILETIME,
             ftimeCreated: FILETIME,
-            dwVersion: u32,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
-            pszLastOriginatingDsaDN: PWSTR,
+            pszLastOriginatingDsaDN: LPWSTR,
         }
         struct DS_REPL_VALUE_META_DATA_BLOB {
-            oszAttributeName: u32,
-            oszObjectDn: u32,
-            cbData: u32,
-            obData: u32,
+            oszAttributeName: DWORD,
+            oszObjectDn: DWORD,
+            cbData: DWORD,
+            obData: DWORD,
             ftimeDeleted: FILETIME,
             ftimeCreated: FILETIME,
-            dwVersion: u32,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
-            oszLastOriginatingDsaDN: u32,
+            oszLastOriginatingDsaDN: DWORD,
         }
         struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
-            oszAttributeName: u32,
-            oszObjectDn: u32,
-            cbData: u32,
-            obData: u32,
+            oszAttributeName: DWORD,
+            oszObjectDn: DWORD,
+            cbData: DWORD,
+            obData: DWORD,
             ftimeDeleted: FILETIME,
             ftimeCreated: FILETIME,
-            dwVersion: u32,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
-            oszLastOriginatingDsaDN: u32,
-            dwUserIdentifier: u32,
-            dwPriorLinkState: u32,
-            dwCurrentLinkState: u32,
+            oszLastOriginatingDsaDN: DWORD,
+            dwUserIdentifier: DWORD,
+            dwPriorLinkState: DWORD,
+            dwCurrentLinkState: DWORD,
         }
         struct DS_REPL_VALUE_META_DATA_EXT {
-            pszAttributeName: PWSTR,
-            pszObjectDn: PWSTR,
-            cbData: u32,
-            pbData: *mut u8,
+            pszAttributeName: LPWSTR,
+            pszObjectDn: LPWSTR,
+            cbData: DWORD,
+            pbData: *mut BYTE,
             ftimeDeleted: FILETIME,
             ftimeCreated: FILETIME,
-            dwVersion: u32,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
-            pszLastOriginatingDsaDN: PWSTR,
-            dwUserIdentifier: u32,
-            dwPriorLinkState: u32,
-            dwCurrentLinkState: u32,
+            pszLastOriginatingDsaDN: LPWSTR,
+            dwUserIdentifier: DWORD,
+            dwPriorLinkState: DWORD,
+            dwCurrentLinkState: DWORD,
         }
         const DS_REPMOD_ASYNCHRONOUS_OPERATION: i32 = 1;
         const DS_REPMOD_UPDATE_ADDRESS: i32 = 2;
@@ -526,16 +534,16 @@ mod Windows {
         const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: i32 = 64;
         const DS_REPSYNCALL_DO_NOT_SYNC: i32 = 8;
         struct DS_REPSYNCALL_ERRINFOA {
-            pszSvrId: PSTR,
+            pszSvrId: LPSTR,
             error: DS_REPSYNCALL_ERROR,
-            dwWin32Err: u32,
-            pszSrcId: PSTR,
+            dwWin32Err: DWORD,
+            pszSrcId: LPSTR,
         }
         struct DS_REPSYNCALL_ERRINFOW {
-            pszSvrId: PWSTR,
+            pszSvrId: LPWSTR,
             error: DS_REPSYNCALL_ERROR,
-            dwWin32Err: u32,
-            pszSrcId: PWSTR,
+            dwWin32Err: DWORD,
+            pszSrcId: LPWSTR,
         }
         #[repr(i32)]
         enum DS_REPSYNCALL_ERROR {
@@ -555,16 +563,16 @@ mod Windows {
         const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: i32 = 32;
         const DS_REPSYNCALL_SKIP_INITIAL_CHECK: i32 = 16;
         struct DS_REPSYNCALL_SYNCA {
-            pszSrcId: PSTR,
-            pszDstId: PSTR,
-            pszNC: PSTR,
+            pszSrcId: LPSTR,
+            pszDstId: LPSTR,
+            pszNC: LPSTR,
             pguidSrc: *mut GUID,
             pguidDst: *mut GUID,
         }
         struct DS_REPSYNCALL_SYNCW {
-            pszSrcId: PWSTR,
-            pszDstId: PWSTR,
-            pszNC: PWSTR,
+            pszSrcId: LPWSTR,
+            pszDstId: LPWSTR,
+            pszNC: LPWSTR,
             pguidSrc: *mut GUID,
             pguidDst: *mut GUID,
         }
@@ -620,18 +628,18 @@ mod Windows {
         const DS_SCHEMA_GUID_CONTROL_RIGHT: i32 = 4;
         struct DS_SCHEMA_GUID_MAPA {
             guid: GUID,
-            guidType: u32,
-            pName: PSTR,
+            guidType: DWORD,
+            pName: LPSTR,
         }
         struct DS_SCHEMA_GUID_MAPW {
             guid: GUID,
-            guidType: u32,
-            pName: PWSTR,
+            guidType: DWORD,
+            pName: LPWSTR,
         }
         const DS_SCHEMA_GUID_NOT_FOUND: i32 = 0;
         struct DS_SITE_COST_INFO {
-            errorCode: u32,
-            cost: u32,
+            errorCode: DWORD,
+            cost: DWORD,
         }
         #[repr(i32)]
         enum DS_SPN_NAME_TYPE {
@@ -652,168 +660,355 @@ mod Windows {
         const DS_SYNCED_EVENT_NAME: String = "NTDSInitialSyncsCompleted";
         #[encoding("utf-16")]
         const DS_SYNCED_EVENT_NAME_W: String = "NTDSInitialSyncsCompleted";
-        #[library("NTDSAPI.dll")]
-        extern fn DsAddSidHistoryA(hDS: HANDLE, #[reserved] Flags: u32, SrcDomain: PCSTR, SrcPrincipal: PCSTR, #[opt] SrcDomainController: PCSTR, #[opt] SrcDomainCreds: RPC_AUTH_IDENTITY_HANDLE, DstDomain: PCSTR, DstPrincipal: PCSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsAddSidHistoryW(hDS: HANDLE, #[reserved] Flags: u32, SrcDomain: PCWSTR, SrcPrincipal: PCWSTR, #[opt] SrcDomainController: PCWSTR, #[opt] SrcDomainCreds: RPC_AUTH_IDENTITY_HANDLE, DstDomain: PCWSTR, DstPrincipal: PCWSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindByInstanceA(#[opt] ServerName: PCSTR, #[opt] Annotation: PCSTR, #[in] #[opt] InstanceGuid: *mut GUID, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindByInstanceW(#[opt] ServerName: PCWSTR, #[opt] Annotation: PCWSTR, #[in] #[opt] InstanceGuid: *mut GUID, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCWSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindToISTGA(#[opt] SiteName: PCSTR, phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindToISTGW(#[opt] SiteName: PCWSTR, phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindW(#[opt] DomainControllerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindWithCredA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindWithCredW(#[opt] DomainControllerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindWithSpnA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCSTR, phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindWithSpnExA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindWithSpnExW(#[opt] DomainControllerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCWSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindWithSpnW(#[opt] DomainControllerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCWSTR, phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsBindingSetTimeout(hDS: HANDLE, cTimeoutSecs: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsClientMakeSpnForTargetServerA(ServiceClass: PCSTR, ServiceName: PCSTR, #[in] #[out] pcSpnLength: *mut u32, #[len_param(2)] #[out] pszSpn: PSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsClientMakeSpnForTargetServerW(ServiceClass: PCWSTR, ServiceName: PCWSTR, #[in] #[out] pcSpnLength: *mut u32, #[len_param(2)] #[out] pszSpn: PWSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsCrackNamesA(#[opt] hDS: HANDLE, flags: DS_NAME_FLAGS, formatOffered: DS_NAME_FORMAT, formatDesired: DS_NAME_FORMAT, cNames: u32, #[len_param(4)] rpNames: *const PCSTR, ppResult: *mut PDS_NAME_RESULTA) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsCrackNamesW(#[opt] hDS: HANDLE, flags: DS_NAME_FLAGS, formatOffered: DS_NAME_FORMAT, formatDesired: DS_NAME_FORMAT, cNames: u32, #[len_param(4)] rpNames: *const PCWSTR, ppResult: *mut PDS_NAME_RESULTW) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsFreeDomainControllerInfoA(InfoLevel: u32, cInfo: u32, #[len_param(1)] #[in] pInfo: *mut void);
-        #[library("NTDSAPI.dll")]
-        extern fn DsFreeDomainControllerInfoW(InfoLevel: u32, cInfo: u32, #[len_param(1)] #[in] pInfo: *mut void);
-        #[library("NTDSAPI.dll")]
-        extern fn DsFreeNameResultA(#[in] pResult: *mut DS_NAME_RESULTA);
-        #[library("NTDSAPI.dll")]
-        extern fn DsFreeNameResultW(#[in] pResult: *mut DS_NAME_RESULTW);
-        #[library("NTDSAPI.dll")]
-        extern fn DsFreePasswordCredentials(AuthIdentity: RPC_AUTH_IDENTITY_HANDLE);
-        #[library("NTDSAPI.dll")]
-        extern fn DsFreeSchemaGuidMapA(pGuidMap: PDS_SCHEMA_GUID_MAPA);
-        #[library("NTDSAPI.dll")]
-        extern fn DsFreeSchemaGuidMapW(pGuidMap: PDS_SCHEMA_GUID_MAPW);
-        #[library("NTDSAPI.dll")]
-        extern fn DsFreeSpnArrayA(cSpn: u32, #[len_param(0)] #[in] #[out] rpszSpn: *mut PSTR);
-        #[library("NTDSAPI.dll")]
-        extern fn DsFreeSpnArrayW(cSpn: u32, #[len_param(0)] #[in] #[out] rpszSpn: *mut PWSTR);
-        #[library("NTDSAPI.dll")]
-        extern fn DsGetDomainControllerInfoA(hDs: HANDLE, DomainName: PCSTR, InfoLevel: u32, pcOut: *mut u32, ppInfo: *mut *mut void) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsGetDomainControllerInfoW(hDs: HANDLE, DomainName: PCWSTR, InfoLevel: u32, pcOut: *mut u32, ppInfo: *mut *mut void) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsGetSpnA(ServiceType: DS_SPN_NAME_TYPE, ServiceClass: PCSTR, #[opt] ServiceName: PCSTR, InstancePort: u16, cInstanceNames: u16, #[len_param(4)] #[in] #[opt] pInstanceNames: *mut PCSTR, #[len_param(4)] #[opt] pInstancePorts: *const u16, pcSpn: *mut u32, prpszSpn: *mut *mut PSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsGetSpnW(ServiceType: DS_SPN_NAME_TYPE, ServiceClass: PCWSTR, #[opt] ServiceName: PCWSTR, InstancePort: u16, cInstanceNames: u16, #[len_param(4)] #[in] #[opt] pInstanceNames: *mut PCWSTR, #[len_param(4)] #[opt] pInstancePorts: *const u16, pcSpn: *mut u32, prpszSpn: *mut *mut PWSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsInheritSecurityIdentityA(hDS: HANDLE, #[reserved] Flags: u32, SrcPrincipal: PCSTR, DstPrincipal: PCSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsInheritSecurityIdentityW(hDS: HANDLE, #[reserved] Flags: u32, SrcPrincipal: PCWSTR, DstPrincipal: PCWSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsListDomainsInSiteA(hDs: HANDLE, site: PCSTR, ppDomains: *mut PDS_NAME_RESULTA) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsListDomainsInSiteW(hDs: HANDLE, site: PCWSTR, ppDomains: *mut PDS_NAME_RESULTW) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsListInfoForServerA(hDs: HANDLE, server: PCSTR, ppInfo: *mut PDS_NAME_RESULTA) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsListInfoForServerW(hDs: HANDLE, server: PCWSTR, ppInfo: *mut PDS_NAME_RESULTW) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsListRolesA(hDs: HANDLE, ppRoles: *mut PDS_NAME_RESULTA) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsListRolesW(hDs: HANDLE, ppRoles: *mut PDS_NAME_RESULTW) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsListServersForDomainInSiteA(hDs: HANDLE, domain: PCSTR, site: PCSTR, ppServers: *mut PDS_NAME_RESULTA) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsListServersForDomainInSiteW(hDs: HANDLE, domain: PCWSTR, site: PCWSTR, ppServers: *mut PDS_NAME_RESULTW) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsListServersInSiteA(hDs: HANDLE, site: PCSTR, ppServers: *mut PDS_NAME_RESULTA) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsListServersInSiteW(hDs: HANDLE, site: PCWSTR, ppServers: *mut PDS_NAME_RESULTW) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsListSitesA(hDs: HANDLE, ppSites: *mut PDS_NAME_RESULTA) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsListSitesW(hDs: HANDLE, ppSites: *mut PDS_NAME_RESULTW) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsMakePasswordCredentialsA(#[opt] User: PCSTR, #[opt] Domain: PCSTR, #[opt] Password: PCSTR, pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsMakePasswordCredentialsW(#[opt] User: PCWSTR, #[opt] Domain: PCWSTR, #[opt] Password: PCWSTR, pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsMapSchemaGuidsA(hDs: HANDLE, cGuids: u32, #[len_param(1)] #[in] rGuids: *mut GUID, ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsMapSchemaGuidsW(hDs: HANDLE, cGuids: u32, #[len_param(1)] #[in] rGuids: *mut GUID, ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsQuerySitesByCostA(hDS: HANDLE, pszFromSite: PCSTR, #[len_param(3)] #[in] rgszToSites: *mut PSTR, cToSites: u32, #[reserved] dwFlags: u32, prgSiteInfo: *mut PDS_SITE_COST_INFO) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsQuerySitesByCostW(hDS: HANDLE, pwszFromSite: PCWSTR, #[len_param(3)] #[in] rgwszToSites: *mut PWSTR, cToSites: u32, #[reserved] dwFlags: u32, prgSiteInfo: *mut PDS_SITE_COST_INFO) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsQuerySitesFree(rgSiteInfo: PDS_SITE_COST_INFO);
-        #[library("NTDSAPI.dll")]
-        extern fn DsRemoveDsDomainA(hDs: HANDLE, DomainDN: PCSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsRemoveDsDomainW(hDs: HANDLE, DomainDN: PCWSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsRemoveDsServerA(hDs: HANDLE, ServerDN: PCSTR, #[opt] DomainDN: PCSTR, #[opt] fLastDcInDomain: *mut BOOL, fCommit: BOOL) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsRemoveDsServerW(hDs: HANDLE, ServerDN: PCWSTR, #[opt] DomainDN: PCWSTR, #[opt] fLastDcInDomain: *mut BOOL, fCommit: BOOL) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaAddA(hDS: HANDLE, NameContext: PCSTR, SourceDsaDn: PCSTR, TransportDn: PCSTR, SourceDsaAddress: PCSTR, #[opt] pSchedule: PSCHEDULE, Options: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaAddW(hDS: HANDLE, NameContext: PCWSTR, SourceDsaDn: PCWSTR, TransportDn: PCWSTR, SourceDsaAddress: PCWSTR, #[opt] pSchedule: PSCHEDULE, Options: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaConsistencyCheck(hDS: HANDLE, TaskID: DS_KCC_TASKID, dwFlags: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaDelA(hDS: HANDLE, NameContext: PCSTR, DsaSrc: PCSTR, Options: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaDelW(hDS: HANDLE, NameContext: PCWSTR, DsaSrc: PCWSTR, Options: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaFreeInfo(InfoType: DS_REPL_INFO_TYPE, #[in] pInfo: *mut void);
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaGetInfo2W(hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[opt] pszObject: PCWSTR, #[in] #[opt] puuidForSourceDsaObjGuid: *mut GUID, #[opt] pszAttributeName: PCWSTR, #[opt] pszValue: PCWSTR, dwFlags: u32, dwEnumerationContext: u32, ppInfo: *mut *mut void) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaGetInfoW(hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[opt] pszObject: PCWSTR, #[in] #[opt] puuidForSourceDsaObjGuid: *mut GUID, ppInfo: *mut *mut void) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaModifyA(hDS: HANDLE, NameContext: PCSTR, #[opt] pUuidSourceDsa: *const GUID, #[reserved] TransportDn: PCSTR, SourceDsaAddress: PCSTR, #[opt] pSchedule: PSCHEDULE, #[reserved] ReplicaFlags: u32, ModifyFields: u32, Options: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaModifyW(hDS: HANDLE, NameContext: PCWSTR, #[opt] pUuidSourceDsa: *const GUID, #[reserved] TransportDn: PCWSTR, SourceDsaAddress: PCWSTR, #[opt] pSchedule: PSCHEDULE, ReplicaFlags: u32, ModifyFields: u32, Options: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaSyncA(hDS: HANDLE, NameContext: PCSTR, pUuidDsaSrc: *const GUID, Options: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaSyncAllA(hDS: HANDLE, pszNameContext: PCSTR, ulFlags: u32, pFnCallBack: *mut u8, #[in] #[opt] pCallbackData: *mut void, pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaSyncAllW(hDS: HANDLE, pszNameContext: PCWSTR, ulFlags: u32, pFnCallBack: *mut u8, #[in] #[opt] pCallbackData: *mut void, pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOW) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaSyncW(hDS: HANDLE, NameContext: PCWSTR, pUuidDsaSrc: *const GUID, Options: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaUpdateRefsA(hDS: HANDLE, NameContext: PCSTR, DsaDest: PCSTR, pUuidDsaDest: *const GUID, Options: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaUpdateRefsW(hDS: HANDLE, NameContext: PCWSTR, DsaDest: PCWSTR, pUuidDsaDest: *const GUID, Options: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaVerifyObjectsA(hDS: HANDLE, NameContext: PCSTR, pUuidDsaSrc: *const GUID, ulOptions: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsReplicaVerifyObjectsW(hDS: HANDLE, NameContext: PCWSTR, pUuidDsaSrc: *const GUID, ulOptions: u32) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsServerRegisterSpnA(Operation: DS_SPN_WRITE_OP, ServiceClass: PCSTR, #[opt] UserObjectDN: PCSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsServerRegisterSpnW(Operation: DS_SPN_WRITE_OP, ServiceClass: PCWSTR, #[opt] UserObjectDN: PCWSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsUnBindA(#[in] phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsUnBindW(#[in] phDS: *mut HANDLE) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsWriteAccountSpnA(hDS: HANDLE, Operation: DS_SPN_WRITE_OP, pszAccount: PCSTR, cSpn: u32, #[len_param(3)] #[in] rpszSpn: *mut PCSTR) -> u32;
-        #[library("NTDSAPI.dll")]
-        extern fn DsWriteAccountSpnW(hDS: HANDLE, Operation: DS_SPN_WRITE_OP, pszAccount: PCWSTR, cSpn: u32, #[len_param(3)] #[in] rpszSpn: *mut PCWSTR) -> u32;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsAddSidHistoryA")]
+        extern fn DsAddSidHistory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[reserved] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcDomain: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcPrincipal: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcDomainController: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcDomainCreds: RPC_AUTH_IDENTITY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstDomain: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstPrincipal: LPCSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsAddSidHistoryA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[reserved] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcDomain: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcPrincipal: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcDomainController: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcDomainCreds: RPC_AUTH_IDENTITY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstDomain: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstPrincipal: LPCSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsAddSidHistoryW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[reserved] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcDomain: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcPrincipal: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcDomainController: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcDomainCreds: RPC_AUTH_IDENTITY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstDomain: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstPrincipal: LPCWSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsBindA")]
+        extern fn DsBind(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainControllerName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainControllerName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsBindByInstanceA")]
+        extern fn DsBindByInstance(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Annotation: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InstanceGuid: *mut GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServicePrincipalName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindFlags: DWORD, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindByInstanceA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Annotation: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InstanceGuid: *mut GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServicePrincipalName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindFlags: DWORD, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindByInstanceW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Annotation: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InstanceGuid: *mut GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServicePrincipalName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindFlags: DWORD, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsBindToISTGA")]
+        extern fn DsBindToISTG(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SiteName: LPCSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindToISTGA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SiteName: LPCSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindToISTGW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SiteName: LPCWSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainControllerName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCWSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsBindWithCredA")]
+        extern fn DsBindWithCred(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainControllerName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindWithCredA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainControllerName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindWithCredW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainControllerName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsBindWithSpnA")]
+        extern fn DsBindWithSpn(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainControllerName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServicePrincipalName: LPCSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindWithSpnA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainControllerName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServicePrincipalName: LPCSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsBindWithSpnExA")]
+        extern fn DsBindWithSpnEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainControllerName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServicePrincipalName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindFlags: DWORD, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindWithSpnExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainControllerName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServicePrincipalName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindFlags: DWORD, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindWithSpnExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainControllerName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServicePrincipalName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindFlags: DWORD, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindWithSpnW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainControllerName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DnsDomainName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServicePrincipalName: LPCWSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindingSetTimeout(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cTimeoutSecs: ULONG) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsClientMakeSpnForTargetServerA")]
+        extern fn DsClientMakeSpnForTargetServer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceClass: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceName: LPCSTR, #[in] #[out] pcSpnLength: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcSpnLength,*pcSpnLength", "*pcSpnLength,*pcSpnLength")] #[out] pszSpn: LPSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsClientMakeSpnForTargetServerA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceClass: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceName: LPCSTR, #[in] #[out] pcSpnLength: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcSpnLength,*pcSpnLength", "*pcSpnLength,*pcSpnLength")] #[out] pszSpn: LPSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsClientMakeSpnForTargetServerW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceClass: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceName: LPCWSTR, #[in] #[out] pcSpnLength: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcSpnLength,*pcSpnLength", "*pcSpnLength,*pcSpnLength")] #[out] pszSpn: LPWSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsCrackNamesA")]
+        extern fn DsCrackNames(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: DS_NAME_FLAGS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] formatOffered: DS_NAME_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] formatDesired: DS_NAME_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cNames: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] rpNames: *const LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResult: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackNamesA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: DS_NAME_FLAGS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] formatOffered: DS_NAME_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] formatDesired: DS_NAME_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cNames: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] rpNames: *const LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResult: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackNamesW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: DS_NAME_FLAGS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] formatOffered: DS_NAME_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] formatDesired: DS_NAME_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cNames: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] rpNames: *const LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResult: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[library("NTDSAPI.dll", import = "DsFreeDomainControllerInfoA")]
+        extern fn DsFreeDomainControllerInfo(InfoLevel: DWORD, cInfo: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pInfo: *mut void);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeDomainControllerInfoA(InfoLevel: DWORD, cInfo: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pInfo: *mut void);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeDomainControllerInfoW(InfoLevel: DWORD, cInfo: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pInfo: *mut void);
+        #[library("NTDSAPI.dll", import = "DsFreeNameResultA")]
+        extern fn DsFreeNameResult(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResult: *mut DS_NAME_RESULTA);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeNameResultA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResult: *mut DS_NAME_RESULTA);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeNameResultW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResult: *mut DS_NAME_RESULTW);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreePasswordCredentials(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE);
+        #[library("NTDSAPI.dll", import = "DsFreePasswordCredentials")]
+        extern fn DsFreePasswordCredentialsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE);
+        #[library("NTDSAPI.dll", import = "DsFreePasswordCredentials")]
+        extern fn DsFreePasswordCredentialsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE);
+        #[library("NTDSAPI.dll", import = "DsFreeSchemaGuidMapA")]
+        extern fn DsFreeSchemaGuidMap(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidMap: PDS_SCHEMA_GUID_MAPA);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeSchemaGuidMapA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidMap: PDS_SCHEMA_GUID_MAPA);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeSchemaGuidMapW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidMap: PDS_SCHEMA_GUID_MAPW);
+        #[library("NTDSAPI.dll", import = "DsFreeSpnArrayA")]
+        extern fn DsFreeSpnArray(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cSpn: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_to_", "cSpn,0", "cSpn,0")] #[in] #[out] #[len_param(0)] rpszSpn: *mut LPSTR);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeSpnArrayA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cSpn: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_to_", "cSpn,0", "cSpn,0")] #[in] #[out] #[len_param(0)] rpszSpn: *mut LPSTR);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeSpnArrayW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cSpn: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_to_", "cSpn,0", "cSpn,0")] #[in] #[out] #[len_param(0)] rpszSpn: *mut LPWSTR);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 1,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1A)))", "InfoLevel == 1, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1A)))")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 2,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2A)))", "InfoLevel == 2, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2A)))")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 3,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3A)))", "InfoLevel == 3, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3A)))")]
+        #[library("NTDSAPI.dll", import = "DsGetDomainControllerInfoA")]
+        extern fn DsGetDomainControllerInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfoLevel: DWORD, #[out] pcOut: *mut DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppInfo: *mut *mut void) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 1,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1A)))", "InfoLevel == 1, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1A)))")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 2,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2A)))", "InfoLevel == 2, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2A)))")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 3,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3A)))", "InfoLevel == 3, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3A)))")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsGetDomainControllerInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfoLevel: DWORD, #[out] pcOut: *mut DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppInfo: *mut *mut void) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 1,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1W)))", "InfoLevel == 1, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1W)))")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 2,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2W)))", "InfoLevel == 2, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2W)))")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 3,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3W)))", "InfoLevel == 3, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3W)))")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsGetDomainControllerInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfoLevel: DWORD, #[out] pcOut: *mut DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppInfo: *mut *mut void) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsGetSpnA")]
+        extern fn DsGetSpn(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceType: DS_SPN_NAME_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceClass: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InstancePort: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cInstanceNames: USHORT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] pInstanceNames: *mut LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] pInstancePorts: *const USHORT, #[out] pcSpn: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcSpn", "*pcSpn")] #[out] prpszSpn: *mut *mut LPSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsGetSpnA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceType: DS_SPN_NAME_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceClass: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InstancePort: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cInstanceNames: USHORT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] pInstanceNames: *mut LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] pInstancePorts: *const USHORT, #[out] pcSpn: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcSpn", "*pcSpn")] #[out] prpszSpn: *mut *mut LPSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsGetSpnW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceType: DS_SPN_NAME_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceClass: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InstancePort: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cInstanceNames: USHORT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] pInstanceNames: *mut LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] pInstancePorts: *const USHORT, #[out] pcSpn: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcSpn", "*pcSpn")] #[out] prpszSpn: *mut *mut LPWSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsInheritSecurityIdentityA")]
+        extern fn DsInheritSecurityIdentity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[reserved] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcPrincipal: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstPrincipal: LPCSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsInheritSecurityIdentityA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[reserved] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcPrincipal: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstPrincipal: LPCSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsInheritSecurityIdentityW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[reserved] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcPrincipal: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstPrincipal: LPCWSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsListDomainsInSiteA")]
+        extern fn DsListDomainsInSite(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] site: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDomains: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsListDomainsInSiteA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] site: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDomains: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsListDomainsInSiteW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] site: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDomains: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsListInfoForServerA")]
+        extern fn DsListInfoForServer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] server: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppInfo: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsListInfoForServerA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] server: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppInfo: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsListInfoForServerW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] server: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppInfo: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsListRolesA")]
+        extern fn DsListRoles(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppRoles: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsListRolesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppRoles: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsListRolesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppRoles: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsListServersForDomainInSiteA")]
+        extern fn DsListServersForDomainInSite(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] domain: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] site: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppServers: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsListServersForDomainInSiteA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] domain: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] site: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppServers: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsListServersForDomainInSiteW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] domain: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] site: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppServers: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsListServersInSiteA")]
+        extern fn DsListServersInSite(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] site: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppServers: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsListServersInSiteA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] site: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppServers: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsListServersInSiteW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] site: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppServers: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsListSitesA")]
+        extern fn DsListSites(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSites: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsListSitesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSites: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsListSitesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSites: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsMakePasswordCredentialsA")]
+        extern fn DsMakePasswordCredentials(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] User: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Domain: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Password: LPCSTR, #[out] pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsMakePasswordCredentialsA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] User: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Domain: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Password: LPCSTR, #[out] pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsMakePasswordCredentialsW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] User: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Domain: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Password: LPCWSTR, #[out] pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsMapSchemaGuidsA")]
+        extern fn DsMapSchemaGuids(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, cGuids: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] rGuids: *mut GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsMapSchemaGuidsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, cGuids: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] rGuids: *mut GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsMapSchemaGuidsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, cGuids: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] rGuids: *mut GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPW) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsQuerySitesByCostA")]
+        extern fn DsQuerySitesByCost(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFromSite: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] rgszToSites: *mut LPSTR, cToSites: DWORD, #[reserved] dwFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] prgSiteInfo: *mut PDS_SITE_COST_INFO) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsQuerySitesByCostA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFromSite: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] rgszToSites: *mut LPSTR, cToSites: DWORD, #[reserved] dwFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] prgSiteInfo: *mut PDS_SITE_COST_INFO) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsQuerySitesByCostW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszFromSite: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] rgwszToSites: *mut LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cToSites: DWORD, #[reserved] dwFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] prgSiteInfo: *mut PDS_SITE_COST_INFO) -> DWORD;
+        #[library("NTDSAPI.dll")]
+        extern fn DsQuerySitesFree(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rgSiteInfo: PDS_SITE_COST_INFO);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsRemoveDsDomainA")]
+        extern fn DsRemoveDsDomain(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainDN: LPSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsRemoveDsDomainA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainDN: LPSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsRemoveDsDomainW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainDN: LPWSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsRemoveDsServerA")]
+        extern fn DsRemoveDsServer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerDN: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainDN: LPSTR, #[out] #[opt] fLastDcInDomain: *mut BOOL, fCommit: BOOL) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsRemoveDsServerA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerDN: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainDN: LPSTR, #[out] #[opt] fLastDcInDomain: *mut BOOL, fCommit: BOOL) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsRemoveDsServerW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDs: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerDN: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DomainDN: LPWSTR, #[out] #[opt] fLastDcInDomain: *mut BOOL, fCommit: BOOL) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsReplicaAddA")]
+        extern fn DsReplicaAdd(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceDsaDn: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TransportDn: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceDsaAddress: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSchedule: PSCHEDULE, Options: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaAddA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceDsaDn: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TransportDn: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceDsaAddress: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSchedule: PSCHEDULE, Options: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaAddW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceDsaDn: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TransportDn: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceDsaAddress: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSchedule: PSCHEDULE, Options: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaConsistencyCheck(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, TaskID: DS_KCC_TASKID, dwFlags: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsReplicaDelA")]
+        extern fn DsReplicaDel(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DsaSrc: LPCSTR, Options: ULONG) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaDelA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DsaSrc: LPCSTR, Options: ULONG) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaDelW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DsaSrc: LPCWSTR, Options: ULONG) -> DWORD;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaFreeInfo(InfoType: DS_REPL_INFO_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInfo: *mut void);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaGetInfo2W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszObject: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] puuidForSourceDsaObjGuid: *mut UUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAttributeName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCWSTR, dwFlags: DWORD, dwEnumerationContext: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppInfo: *mut *mut void) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaGetInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszObject: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] puuidForSourceDsaObjGuid: *mut UUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppInfo: *mut *mut void) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsReplicaModifyA")]
+        extern fn DsReplicaModify(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUuidSourceDsa: *const UUID, #[reserved] TransportDn: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceDsaAddress: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSchedule: PSCHEDULE, #[reserved] ReplicaFlags: DWORD, ModifyFields: DWORD, Options: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaModifyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUuidSourceDsa: *const UUID, #[reserved] TransportDn: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceDsaAddress: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSchedule: PSCHEDULE, #[reserved] ReplicaFlags: DWORD, ModifyFields: DWORD, Options: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaModifyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUuidSourceDsa: *const UUID, #[reserved] TransportDn: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceDsaAddress: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSchedule: PSCHEDULE, ReplicaFlags: DWORD, ModifyFields: DWORD, Options: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsReplicaSyncA")]
+        extern fn DsReplicaSync(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUuidDsaSrc: *const UUID, Options: ULONG) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaSyncA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUuidDsaSrc: *const UUID, Options: ULONG) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsReplicaSyncAllA")]
+        extern fn DsReplicaSyncAll(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszNameContext: LPCSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEA) -> BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCallbackData: LPVOID, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_z_", "", "")] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaSyncAllA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszNameContext: LPCSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEA) -> BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCallbackData: LPVOID, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_z_", "", "")] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaSyncAllW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszNameContext: LPCWSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEW) -> BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCallbackData: LPVOID, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_z_", "", "")] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOW) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaSyncW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUuidDsaSrc: *const UUID, Options: ULONG) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsReplicaUpdateRefsA")]
+        extern fn DsReplicaUpdateRefs(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DsaDest: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUuidDsaDest: *const UUID, Options: ULONG) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaUpdateRefsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DsaDest: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUuidDsaDest: *const UUID, Options: ULONG) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaUpdateRefsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DsaDest: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUuidDsaDest: *const UUID, Options: ULONG) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsReplicaVerifyObjectsA")]
+        extern fn DsReplicaVerifyObjects(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUuidDsaSrc: *const UUID, ulOptions: ULONG) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaVerifyObjectsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUuidDsaSrc: *const UUID, ulOptions: ULONG) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaVerifyObjectsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUuidDsaSrc: *const UUID, ulOptions: ULONG) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsServerRegisterSpnA")]
+        extern fn DsServerRegisterSpn(Operation: DS_SPN_WRITE_OP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceClass: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserObjectDN: LPCSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsServerRegisterSpnA(Operation: DS_SPN_WRITE_OP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceClass: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserObjectDN: LPCSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsServerRegisterSpnW(Operation: DS_SPN_WRITE_OP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceClass: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserObjectDN: LPCWSTR) -> DWORD;
+        #[library("NTDSAPI.dll", import = "DsUnBindA")]
+        extern fn DsUnBind(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phDS: *mut HANDLE) -> DWORD;
+        #[library("NTDSAPI.dll")]
+        extern fn DsUnBindA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phDS: *mut HANDLE) -> DWORD;
+        #[library("NTDSAPI.dll")]
+        extern fn DsUnBindW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phDS: *mut HANDLE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll", import = "DsWriteAccountSpnA")]
+        extern fn DsWriteAccountSpn(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Operation: DS_SPN_WRITE_OP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAccount: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cSpn: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] rpszSpn: *mut LPCSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsWriteAccountSpnA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Operation: DS_SPN_WRITE_OP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAccount: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cSpn: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] rpszSpn: *mut LPCSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[library("NTDSAPI.dll")]
+        extern fn DsWriteAccountSpnW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDS: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Operation: DS_SPN_WRITE_OP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAccount: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cSpn: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] rpszSpn: *mut LPCWSTR) -> DWORD;
         const FLAG_DISABLABLE_OPTIONAL_FEATURE: i32 = 4;
         const FLAG_DOMAIN_OPTIONAL_FEATURE: i32 = 2;
         const FLAG_FOREST_OPTIONAL_FEATURE: i32 = 1;
@@ -950,14 +1145,5 @@ mod Windows {
         type PDS_SCHEMA_GUID_MAPA = *mut DS_SCHEMA_GUID_MAPA;
         type PDS_SCHEMA_GUID_MAPW = *mut DS_SCHEMA_GUID_MAPW;
         type PDS_SITE_COST_INFO = *mut DS_SITE_COST_INFO;
-        struct _DS_REPL_QUEUE_STATISTICSW {
-            ftimeCurrentOpStarted: FILETIME,
-            cNumPendingOps: u32,
-            ftimeOldestSync: FILETIME,
-            ftimeOldestAdd: FILETIME,
-            ftimeOldestMod: FILETIME,
-            ftimeOldestDel: FILETIME,
-            ftimeOldestUpdRefs: FILETIME,
-        }
     }
 }

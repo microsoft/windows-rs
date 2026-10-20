@@ -7,21 +7,23 @@ mod Windows {
             ai_family: i32,
             ai_socktype: i32,
             ai_protocol: i32,
-            ai_addrlen: usize,
+            ai_addrlen: size_t,
             ai_canonname: *mut i8,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
             ai_addr: *mut SOCKADDR,
             ai_next: *mut ADDRINFOA,
         }
+        #[Windows::Win32::Metadata::NativeDeprecated("Use ADDRINFOEX2W instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
         struct ADDRINFOEX2A {
             ai_flags: i32,
             ai_family: i32,
             ai_socktype: i32,
             ai_protocol: i32,
-            ai_addrlen: usize,
+            ai_addrlen: size_t,
             ai_canonname: *mut i8,
             ai_addr: *mut SOCKADDR,
             ai_blob: *mut void,
-            ai_bloblen: usize,
+            ai_bloblen: size_t,
             ai_provider: LPGUID,
             ai_next: *mut ADDRINFOEX2A,
             ai_version: i32,
@@ -32,11 +34,13 @@ mod Windows {
             ai_family: i32,
             ai_socktype: i32,
             ai_protocol: i32,
-            ai_addrlen: usize,
+            ai_addrlen: size_t,
             ai_canonname: PWSTR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
             ai_addr: *mut SOCKADDR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_bloblen", IsByteCount = false, MayBeNull = false)]
             ai_blob: *mut void,
-            ai_bloblen: usize,
+            ai_bloblen: size_t,
             ai_provider: LPGUID,
             ai_next: *mut ADDRINFOEX2W,
             ai_version: i32,
@@ -47,11 +51,13 @@ mod Windows {
             ai_family: i32,
             ai_socktype: i32,
             ai_protocol: i32,
-            ai_addrlen: usize,
+            ai_addrlen: size_t,
             ai_canonname: PWSTR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
             ai_addr: *mut SOCKADDR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_bloblen", IsByteCount = false, MayBeNull = false)]
             ai_blob: *mut void,
-            ai_bloblen: usize,
+            ai_bloblen: size_t,
             ai_provider: LPGUID,
             ai_next: *mut ADDRINFOEX3,
             ai_version: i32,
@@ -63,11 +69,13 @@ mod Windows {
             ai_family: i32,
             ai_socktype: i32,
             ai_protocol: i32,
-            ai_addrlen: usize,
+            ai_addrlen: size_t,
             ai_canonname: PWSTR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
             ai_addr: *mut SOCKADDR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_bloblen", IsByteCount = false, MayBeNull = false)]
             ai_blob: *mut void,
-            ai_bloblen: usize,
+            ai_bloblen: size_t,
             ai_provider: *mut GUID,
             ai_next: *mut ADDRINFOEX4,
             ai_version: i32,
@@ -80,11 +88,13 @@ mod Windows {
             ai_family: i32,
             ai_socktype: i32,
             ai_protocol: i32,
-            ai_addrlen: usize,
+            ai_addrlen: size_t,
             ai_canonname: PWSTR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
             ai_addr: *mut SOCKADDR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_bloblen", IsByteCount = false, MayBeNull = false)]
             ai_blob: *mut void,
-            ai_bloblen: usize,
+            ai_bloblen: size_t,
             ai_provider: *mut GUID,
             ai_next: *mut ADDRINFOEX5,
             ai_version: i32,
@@ -98,11 +108,13 @@ mod Windows {
             ai_family: i32,
             ai_socktype: i32,
             ai_protocol: i32,
-            ai_addrlen: usize,
+            ai_addrlen: size_t,
             ai_canonname: PWSTR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
             ai_addr: *mut SOCKADDR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_bloblen", IsByteCount = false, MayBeNull = false)]
             ai_blob: *mut void,
-            ai_bloblen: usize,
+            ai_bloblen: size_t,
             ai_provider: *mut GUID,
             ai_next: *mut ADDRINFOEX5,
             ai_version: i32,
@@ -112,18 +124,20 @@ mod Windows {
             ai_ttl: u32,
             ai_numservers: u32,
             ai_servers: *mut ADDRINFO_DNS_SERVER,
-            ai_responseflags: u64,
+            ai_responseflags: ULONG64,
         }
         struct ADDRINFOEX7 {
             ai_flags: i32,
             ai_family: i32,
             ai_socktype: i32,
             ai_protocol: i32,
-            ai_addrlen: usize,
+            ai_addrlen: size_t,
             ai_canonname: PWSTR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
             ai_addr: *mut SOCKADDR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_bloblen", IsByteCount = false, MayBeNull = false)]
             ai_blob: *mut void,
-            ai_bloblen: usize,
+            ai_bloblen: size_t,
             ai_provider: *mut GUID,
             ai_next: *mut ADDRINFOEX7,
             ai_version: i32,
@@ -133,19 +147,20 @@ mod Windows {
             ai_ttl: u32,
             ai_numservers: u32,
             ai_servers: *mut ADDRINFO_DNS_SERVER,
-            ai_responseflags: u64,
-            ai_extraflags: u64,
+            ai_responseflags: ULONG64,
+            ai_extraflags: ULONG64,
         }
+        #[Windows::Win32::Metadata::NativeDeprecated("Use ADDRINFOEXW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
         struct ADDRINFOEXA {
             ai_flags: i32,
             ai_family: i32,
             ai_socktype: i32,
             ai_protocol: i32,
-            ai_addrlen: usize,
+            ai_addrlen: size_t,
             ai_canonname: *mut i8,
             ai_addr: *mut SOCKADDR,
             ai_blob: *mut void,
-            ai_bloblen: usize,
+            ai_bloblen: size_t,
             ai_provider: LPGUID,
             ai_next: *mut ADDRINFOEXA,
         }
@@ -154,11 +169,13 @@ mod Windows {
             ai_family: i32,
             ai_socktype: i32,
             ai_protocol: i32,
-            ai_addrlen: usize,
+            ai_addrlen: size_t,
             ai_canonname: PWSTR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
             ai_addr: *mut SOCKADDR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_bloblen", IsByteCount = false, MayBeNull = false)]
             ai_blob: *mut void,
-            ai_bloblen: usize,
+            ai_bloblen: size_t,
             ai_provider: LPGUID,
             ai_next: *mut ADDRINFOEXW,
         }
@@ -173,8 +190,9 @@ mod Windows {
             ai_family: i32,
             ai_socktype: i32,
             ai_protocol: i32,
-            ai_addrlen: usize,
+            ai_addrlen: size_t,
             ai_canonname: PWSTR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
             ai_addr: *mut SOCKADDR,
             ai_next: *mut ADDRINFOW,
         }
@@ -182,6 +200,7 @@ mod Windows {
             ai_servertype: u32,
             ai_flags: u64,
             ai_addrlen: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
             ai_addr: *mut SOCKADDR,
             Anonymous: union {
                 ai_template: PWSTR,
@@ -259,11 +278,11 @@ mod Windows {
         struct CSADDR_INFO {
             LocalAddr: SOCKET_ADDRESS,
             RemoteAddr: SOCKET_ADDRESS,
-            iSocketType: i32,
-            iProtocol: i32,
+            iSocketType: INT,
+            iProtocol: INT,
         }
-        const INADDR_ANY: u32 = 0;
-        const INADDR_BROADCAST: u32 = 4294967295;
+        const INADDR_ANY: ULONG = 0;
+        const INADDR_BROADCAST: ULONG = 4294967295;
         const INADDR_LOOPBACK: i32 = 2130706433;
         const INADDR_NONE: u32 = 4294967295;
         const IN_CLASSA_HOST: i32 = 16777215;
@@ -280,64 +299,34 @@ mod Windows {
         const IN_CLASSD_HOST: i32 = 268435455;
         const IN_CLASSD_NET: u32 = 4026531840;
         const IN_CLASSD_NSHIFT: i32 = 28;
-        const IOCPARM_MASK: i32 = 127;
-        const IOC_IN: u32 = 2147483648;
-        const IOC_INOUT: u32 = 3221225472;
-        const IOC_OUT: i32 = 1073741824;
         const IOC_PROTOCOL: i32 = 268435456;
         const IOC_UNIX: i32 = 0;
         const IOC_VENDOR: i32 = 402653184;
-        const IOC_VOID: i32 = 536870912;
         const IOC_WS2: i32 = 134217728;
         const IOC_WSK: i32 = 251658240;
         const IP6T_SO_ORIGINAL_DST: i32 = 12303;
-        const IPPORT_BIFFUDP: i32 = 512;
         const IPPORT_CHARGEN: i32 = 19;
-        const IPPORT_CMDSERVER: i32 = 514;
-        const IPPORT_DAYTIME: i32 = 13;
-        const IPPORT_DISCARD: i32 = 9;
         const IPPORT_DYNAMIC_MAX: i32 = 65535;
         const IPPORT_DYNAMIC_MIN: i32 = 49152;
-        const IPPORT_ECHO: i32 = 7;
-        const IPPORT_EFSSERVER: i32 = 520;
         const IPPORT_EPMAP: i32 = 135;
-        const IPPORT_EXECSERVER: i32 = 512;
-        const IPPORT_FINGER: i32 = 79;
-        const IPPORT_FTP: i32 = 21;
         const IPPORT_FTP_DATA: i32 = 20;
         const IPPORT_HTTPS: i32 = 443;
         const IPPORT_IMAP: i32 = 143;
         const IPPORT_IMAP3: i32 = 220;
         const IPPORT_LDAP: i32 = 389;
-        const IPPORT_LOGINSERVER: i32 = 513;
         const IPPORT_MICROSOFT_DS: i32 = 445;
         const IPPORT_MSP: i32 = 18;
-        const IPPORT_MTP: i32 = 57;
-        const IPPORT_NAMESERVER: i32 = 42;
         const IPPORT_NETBIOS_DGM: i32 = 138;
         const IPPORT_NETBIOS_NS: i32 = 137;
         const IPPORT_NETBIOS_SSN: i32 = 139;
-        const IPPORT_NETSTAT: i32 = 15;
         const IPPORT_NTP: i32 = 123;
         const IPPORT_POP3: i32 = 110;
         const IPPORT_QOTD: i32 = 17;
         const IPPORT_REGISTERED_MAX: i32 = 49151;
         const IPPORT_REGISTERED_MIN: i32 = 1024;
-        const IPPORT_RESERVED: i32 = 1024;
-        const IPPORT_RJE: i32 = 77;
-        const IPPORT_ROUTESERVER: i32 = 520;
-        const IPPORT_SMTP: i32 = 25;
         const IPPORT_SNMP: i32 = 161;
         const IPPORT_SNMP_TRAP: i32 = 162;
-        const IPPORT_SUPDUP: i32 = 95;
-        const IPPORT_SYSTAT: i32 = 11;
         const IPPORT_TCPMUX: i32 = 1;
-        const IPPORT_TELNET: i32 = 23;
-        const IPPORT_TFTP: i32 = 69;
-        const IPPORT_TIMESERVER: i32 = 37;
-        const IPPORT_TTYLINK: i32 = 87;
-        const IPPORT_WHOIS: i32 = 43;
-        const IPPORT_WHOSERVER: i32 = 513;
         #[repr(i32)]
         enum IPPROTO {
             IPPROTO_HOPOPTS = 0,
@@ -386,7 +375,7 @@ mod Windows {
         type LPADDRINFOEXW = *mut ADDRINFOEXW;
         type LPCSADDR_INFO = *mut CSADDR_INFO;
         type LPSOCKADDR = *mut SOCKADDR;
-        type LPSOCKADDR_STORAGE = *mut SOCKADDR_STORAGE;
+        type LPSOCKADDR_STORAGE = *mut SOCKADDR_STORAGE_LH;
         type LPSOCKADDR_STORAGE_LH = *mut SOCKADDR_STORAGE_LH;
         type LPSOCKADDR_STORAGE_XP = *mut SOCKADDR_STORAGE_XP;
         type LPSOCKET_ADDRESS = *mut SOCKET_ADDRESS;
@@ -406,31 +395,6 @@ mod Windows {
         const NI_NOFQDN: i32 = 1;
         const NI_NUMERICHOST: i32 = 2;
         const NI_NUMERICSERV: i32 = 8;
-        const NS_ALL: i32 = 0;
-        const NS_BTH: i32 = 16;
-        const NS_DHCP: i32 = 6;
-        const NS_DNS: i32 = 12;
-        const NS_EMAIL: i32 = 37;
-        const NS_MS: i32 = 30;
-        const NS_NBP: i32 = 20;
-        const NS_NDS: i32 = 2;
-        const NS_NETBT: i32 = 13;
-        const NS_NETDES: i32 = 60;
-        const NS_NIS: i32 = 41;
-        const NS_NISPLUS: i32 = 42;
-        const NS_NLA: i32 = 15;
-        const NS_NTDS: i32 = 32;
-        const NS_PEER_BROWSE: i32 = 3;
-        const NS_PNRPCLOUD: i32 = 39;
-        const NS_PNRPNAME: i32 = 38;
-        const NS_SAP: i32 = 1;
-        const NS_SLP: i32 = 5;
-        const NS_STDA: i32 = 31;
-        const NS_TCPIP_HOSTS: i32 = 11;
-        const NS_TCPIP_LOCAL: i32 = 10;
-        const NS_WINS: i32 = 14;
-        const NS_WRQ: i32 = 50;
-        const NS_X500: i32 = 40;
         type PADDRINFOA = *mut ADDRINFOA;
         type PADDRINFOEX2A = *mut ADDRINFOEX2A;
         type PADDRINFOEX2W = *mut ADDRINFOEX2W;
@@ -449,7 +413,7 @@ mod Windows {
         type PSOCKADDR = *mut SOCKADDR;
         type PSOCKADDR_DL = *mut SOCKADDR_DL;
         type PSOCKADDR_IN = *mut SOCKADDR_IN;
-        type PSOCKADDR_STORAGE = *mut SOCKADDR_STORAGE;
+        type PSOCKADDR_STORAGE = *mut SOCKADDR_STORAGE_LH;
         type PSOCKADDR_STORAGE_LH = *mut SOCKADDR_STORAGE_LH;
         type PSOCKADDR_STORAGE_XP = *mut SOCKADDR_STORAGE_XP;
         type PSOCKET_ADDRESS = *mut SOCKET_ADDRESS;
@@ -460,12 +424,11 @@ mod Windows {
         struct SCOPE_ID {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        Zone: 28,
-                        Level: 4,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Level", 28, 4, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Zone", 0, 28, MemberType = ULONG)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: ULONG,
             },
         }
         #[repr(i32)]
@@ -504,103 +467,77 @@ mod Windows {
         const SIO_TRANSLATE_HANDLE: u32 = 3355443213;
         struct SOCKADDR {
             sa_family: ADDRESS_FAMILY,
-            sa_data: [i8; 14],
+            sa_data: [CHAR; 14],
         }
         struct SOCKADDR_DL {
             sdl_family: ADDRESS_FAMILY,
-            sdl_data: [u8; 8],
-            sdl_zero: [u8; 4],
+            sdl_data: [UCHAR; 8],
+            sdl_zero: [UCHAR; 4],
         }
         struct SOCKADDR_IN {
             sin_family: ADDRESS_FAMILY,
-            sin_port: u16,
+            sin_port: USHORT,
             sin_addr: IN_ADDR,
-            sin_zero: [i8; 8],
+            sin_zero: [CHAR; 8],
         }
         type SOCKADDR_STORAGE = SOCKADDR_STORAGE_LH;
         struct SOCKADDR_STORAGE_LH {
             ss_family: ADDRESS_FAMILY,
-            __ss_pad1: [i8; 6],
+            __ss_pad1: [CHAR; 6],
             __ss_align: i64,
-            __ss_pad2: [i8; 112],
+            __ss_pad2: [CHAR; 112],
         }
         struct SOCKADDR_STORAGE_XP {
             ss_family: i16,
-            __ss_pad1: [i8; 6],
+            __ss_pad1: [CHAR; 6],
             __ss_align: i64,
-            __ss_pad2: [i8; 112],
+            __ss_pad2: [CHAR; 112],
         }
         struct SOCKET_ADDRESS {
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "iSockaddrLength", IsByteCount = true, MayBeNull = false)]
             lpSockaddr: LPSOCKADDR,
-            iSockaddrLength: i32,
+            iSockaddrLength: INT,
         }
         struct SOCKET_ADDRESS_LIST {
-            iAddressCount: i32,
+            iAddressCount: INT,
             Address: [SOCKET_ADDRESS; 1],
         }
         struct SOCKET_PROCESSOR_AFFINITY {
             Processor: PROCESSOR_NUMBER,
-            NumaNodeId: u16,
-            Reserved: u16,
+            NumaNodeId: USHORT,
+            Reserved: USHORT,
         }
-        const SOCK_DGRAM: i32 = 2;
-        const SOCK_RAW: i32 = 3;
-        const SOCK_RDM: i32 = 4;
-        const SOCK_SEQPACKET: i32 = 5;
-        const SOCK_STREAM: i32 = 1;
         const SOL_IP: i32 = 65531;
         const SOL_IPV6: i32 = 65530;
-        const SOL_SOCKET: i32 = 65535;
-        const SO_ACCEPTCONN: i32 = 2;
-        const SO_BROADCAST: i32 = 32;
         const SO_BSP_STATE: i32 = 4105;
         const SO_COMPARTMENT_ID: i32 = 12292;
-        const SO_CONDITIONAL_ACCEPT: i32 = 12290;
-        const SO_DEBUG: i32 = 1;
-        const SO_DONTLINGER: i32 = -129;
-        const SO_DONTROUTE: i32 = 16;
-        const SO_ERROR: i32 = 4103;
-        const SO_EXCLUSIVEADDRUSE: i32 = -5;
-        const SO_GROUP_ID: i32 = 8193;
-        const SO_GROUP_PRIORITY: i32 = 8194;
-        const SO_KEEPALIVE: i32 = 8;
-        const SO_LINGER: i32 = 128;
-        const SO_MAX_MSG_SIZE: i32 = 8195;
-        const SO_OOBINLINE: i32 = 256;
         const SO_ORIGINAL_DST: i32 = 12303;
         const SO_PAUSE_ACCEPT: i32 = 12291;
         const SO_PORT_SCALABILITY: i32 = 12294;
         const SO_RANDOMIZE_PORT: i32 = 12293;
-        const SO_RCVBUF: i32 = 4098;
-        const SO_RCVLOWAT: i32 = 4100;
-        const SO_RCVTIMEO: i32 = 4102;
         const SO_RECEIVED_HOPLIMIT: i32 = 12304;
         const SO_RECEIVED_PROCESSOR: i32 = 12305;
-        const SO_REUSEADDR: i32 = 4;
         const SO_REUSE_MULTICASTPORT: i32 = 12296;
         const SO_REUSE_UNICASTPORT: i32 = 12295;
-        const SO_SNDBUF: i32 = 4097;
-        const SO_SNDLOWAT: i32 = 4099;
-        const SO_SNDTIMEO: i32 = 4101;
-        const SO_TYPE: i32 = 4104;
-        const SO_USELOOPBACK: i32 = 64;
         const TCP_NODELAY: i32 = 1;
         struct WSABUF {
-            len: u32,
-            buf: *mut i8,
+            len: ULONG,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "len", IsByteCount = true, MayBeNull = false)]
+            buf: *mut CHAR,
         }
         struct WSACMSGHDR {
-            cmsg_len: usize,
-            cmsg_level: i32,
-            cmsg_type: i32,
+            cmsg_len: SIZE_T,
+            cmsg_level: INT,
+            cmsg_type: INT,
         }
         struct WSAMSG {
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "namelen", IsByteCount = true, MayBeNull = false)]
             name: LPSOCKADDR,
-            namelen: i32,
+            namelen: INT,
             lpBuffers: LPWSABUF,
-            dwBufferCount: u32,
+            dwBufferCount: ULONG,
             Control: WSABUF,
-            dwFlags: u32,
+            dwFlags: ULONG,
         }
         const WSK_SO_BASE: i32 = 16384;
         #[arch(X64 | Arm64)]

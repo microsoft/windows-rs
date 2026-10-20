@@ -1,10 +1,12 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[library("SensApi.dll", import = "IsDestinationReachableA")]
+        extern fn IsDestinationReachable(lpszDestination: LPCSTR, lpQOCInfo: LPQOCINFO) -> BOOL;
         #[library("SensApi.dll")]
-        extern fn IsDestinationReachableA(lpszDestination: PCSTR, lpQOCInfo: LPQOCINFO) -> BOOL;
+        extern fn IsDestinationReachableA(lpszDestination: LPCSTR, lpQOCInfo: LPQOCINFO) -> BOOL;
         #[library("SensApi.dll")]
-        extern fn IsDestinationReachableW(lpszDestination: PCWSTR, lpQOCInfo: LPQOCINFO) -> BOOL;
+        extern fn IsDestinationReachableW(lpszDestination: LPCWSTR, lpQOCInfo: LPQOCINFO) -> BOOL;
         #[library("SensApi.dll")]
         extern fn IsNetworkAlive(lpdwFlags: LPDWORD) -> BOOL;
         type LPQOCINFO = *mut QOCINFO;
@@ -13,10 +15,10 @@ mod Windows {
         const NETWORK_ALIVE_LAN: i32 = 1;
         const NETWORK_ALIVE_WAN: i32 = 2;
         struct QOCINFO {
-            dwSize: u32,
-            dwFlags: u32,
-            dwInSpeed: u32,
-            dwOutSpeed: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwInSpeed: DWORD,
+            dwOutSpeed: DWORD,
         }
     }
 }

@@ -6,21 +6,21 @@ mod Windows {
         type PTIMECAPS = *mut TIMECAPS;
         #[packed(1)]
         struct TIMECAPS {
-            wPeriodMin: u32,
-            wPeriodMax: u32,
+            wPeriodMin: UINT,
+            wPeriodMax: UINT,
         }
         const TIMERR_NOCANDO: i32 = 97;
         const TIMERR_NOERROR: i32 = 0;
         const TIMERR_STRUCT: i32 = 129;
         #[library("WINMM.dll")]
-        extern fn timeBeginPeriod(uPeriod: u32) -> MMRESULT;
+        extern fn timeBeginPeriod(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uPeriod: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn timeEndPeriod(uPeriod: u32) -> MMRESULT;
+        extern fn timeEndPeriod(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uPeriod: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn timeGetDevCaps(#[size_param(1)] #[out] ptc: LPTIMECAPS, cbtc: u32) -> MMRESULT;
+        extern fn timeGetDevCaps(#[out] #[size_param(1)] ptc: LPTIMECAPS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbtc: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn timeGetSystemTime(#[size_param(1)] #[out] pmmt: LPMMTIME, cbmmt: u32) -> MMRESULT;
+        extern fn timeGetSystemTime(#[out] #[size_param(1)] pmmt: LPMMTIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmmt: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn timeGetTime() -> u32;
+        extern fn timeGetTime() -> DWORD;
     }
 }

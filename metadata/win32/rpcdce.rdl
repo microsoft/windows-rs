@@ -2,10 +2,15 @@
 mod Windows {
     mod Win32 {
         const DCE_C_ERROR_STRING_LEN: i32 = 256;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "DceErrorInqTextA")]
+        extern fn DceErrorInqText(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RpcStatus: RPC_STATUS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "256", "256")] #[out] ErrorText: RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn DceErrorInqTextA(RpcStatus: RPC_STATUS, #[out] ErrorText: RPC_CSTR) -> RPC_STATUS;
+        extern fn DceErrorInqTextA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RpcStatus: RPC_STATUS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "256", "256")] #[out] ErrorText: RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn DceErrorInqTextW(RpcStatus: RPC_STATUS, #[out] ErrorText: RPC_WSTR) -> RPC_STATUS;
+        extern fn DceErrorInqTextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RpcStatus: RPC_STATUS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "256", "256")] #[out] ErrorText: RPC_WSTR) -> RPC_STATUS;
         type PRPC_BINDING_HANDLE_OPTIONS_V1 = *mut RPC_BINDING_HANDLE_OPTIONS_V1;
         type PRPC_BINDING_HANDLE_SECURITY_V1_A = *mut RPC_BINDING_HANDLE_SECURITY_V1_A;
         type PRPC_BINDING_HANDLE_SECURITY_V1_W = *mut RPC_BINDING_HANDLE_SECURITY_V1_W;
@@ -37,18 +42,28 @@ mod Windows {
         type PSEC_WINNT_AUTH_IDENTITY_W = *mut SEC_WINNT_AUTH_IDENTITY_W;
         type RPC_AUTHZ_HANDLE = *mut void;
         type RPC_AUTH_IDENTITY_HANDLE = *mut void;
-        extern fn RPC_AUTH_KEY_RETRIEVAL_FN(#[in] Arg: *mut void, ServerPrincName: RPC_WSTR, KeyVer: u32, Key: *mut *mut void, Status: *mut RPC_STATUS);
+        extern fn RPC_AUTH_KEY_RETRIEVAL_FN(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Arg: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerPrincName: RPC_WSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] KeyVer: u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Key: *mut *mut void, #[out] Status: *mut RPC_STATUS);
         const RPC_BHO_DONTLINGER: i32 = 2;
         const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: i32 = 4;
         const RPC_BHO_NONCAUSAL: i32 = 1;
         const RPC_BHT_OBJECT_UUID_VALID: i32 = 1;
-        type RPC_BINDING_HANDLE = I_RPC_HANDLE;
+        type RPC_BINDING_HANDLE = *mut void;
+        #[arch(X86)]
         struct RPC_BINDING_HANDLE_OPTIONS_V1 {
             Version: u32,
             Flags: u32,
             ComTimeout: u32,
             CallTimeout: u32,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_BINDING_HANDLE_OPTIONS_V1 {
+            Version: u32,
+            Flags: u32,
+            ComTimeout: u32,
+            CallTimeout: u32,
+        }
+        #[arch(X86)]
         struct RPC_BINDING_HANDLE_SECURITY_V1_A {
             Version: u32,
             ServerPrincName: *mut u8,
@@ -57,6 +72,17 @@ mod Windows {
             AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_A,
             SecurityQos: *mut RPC_SECURITY_QOS,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_BINDING_HANDLE_SECURITY_V1_A {
+            Version: u32,
+            ServerPrincName: *mut u8,
+            AuthnLevel: u32,
+            AuthnSvc: u32,
+            AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_A,
+            SecurityQos: *mut RPC_SECURITY_QOS,
+        }
+        #[arch(X86)]
         struct RPC_BINDING_HANDLE_SECURITY_V1_W {
             Version: u32,
             ServerPrincName: *mut u16,
@@ -65,6 +91,17 @@ mod Windows {
             AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_W,
             SecurityQos: *mut RPC_SECURITY_QOS,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_BINDING_HANDLE_SECURITY_V1_W {
+            Version: u32,
+            ServerPrincName: *mut u16,
+            AuthnLevel: u32,
+            AuthnSvc: u32,
+            AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_W,
+            SecurityQos: *mut RPC_SECURITY_QOS,
+        }
+        #[arch(X86)]
         struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
             Version: u32,
             Flags: u32,
@@ -74,8 +111,22 @@ mod Windows {
             u1: union {
                 Reserved: *mut u8,
             },
-            ObjectUuid: GUID,
+            ObjectUuid: UUID,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
+            Version: u32,
+            Flags: u32,
+            ProtocolSequence: u32,
+            NetworkAddress: *mut u8,
+            StringEndpoint: *mut u8,
+            u1: #[packed(8)] union {
+                Reserved: *mut u8,
+            },
+            ObjectUuid: UUID,
+        }
+        #[arch(X86)]
         struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
             Version: u32,
             Flags: u32,
@@ -85,19 +136,52 @@ mod Windows {
             u1: union {
                 Reserved: *mut u16,
             },
-            ObjectUuid: GUID,
+            ObjectUuid: UUID,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+            Version: u32,
+            Flags: u32,
+            ProtocolSequence: u32,
+            NetworkAddress: *mut u16,
+            StringEndpoint: *mut u16,
+            u1: #[packed(8)] union {
+                Reserved: *mut u16,
+            },
+            ObjectUuid: UUID,
+        }
+        #[arch(X86)]
         struct RPC_BINDING_VECTOR {
             Count: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "Count", IsByteCount = false, MayBeNull = false)]
             BindingH: [RPC_BINDING_HANDLE; 1],
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_BINDING_VECTOR {
+            Count: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "Count", IsByteCount = false, MayBeNull = false)]
+            BindingH: [RPC_BINDING_HANDLE; 1],
+        }
+        #[arch(X86)]
         struct RPC_CLIENT_INFORMATION1 {
             UserName: *mut u8,
             ComputerName: *mut u8,
             Privilege: u16,
             AuthFlags: u32,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_CLIENT_INFORMATION1 {
+            UserName: *mut u8,
+            ComputerName: *mut u8,
+            Privilege: u16,
+            AuthFlags: u32,
+        }
+        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type RPC_CSTR = *mut u8;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type RPC_CWSTR = *const u16;
         const RPC_C_AUTHN_CLOUD_AP: i32 = 36;
         const RPC_C_AUTHN_DCE_PRIVATE: i32 = 1;
@@ -215,6 +299,7 @@ mod Windows {
         const RPC_C_VERS_EXACT: i32 = 3;
         const RPC_C_VERS_MAJOR_ONLY: i32 = 4;
         const RPC_C_VERS_UPTO: i32 = 5;
+        #[arch(X86)]
         struct RPC_ENDPOINT_TEMPLATEA {
             Version: u32,
             ProtSeq: RPC_CSTR,
@@ -222,6 +307,16 @@ mod Windows {
             SecurityDescriptor: *mut void,
             Backlog: u32,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_ENDPOINT_TEMPLATEA {
+            Version: u32,
+            ProtSeq: RPC_CSTR,
+            Endpoint: RPC_CSTR,
+            SecurityDescriptor: *mut void,
+            Backlog: u32,
+        }
+        #[arch(X86)]
         struct RPC_ENDPOINT_TEMPLATEW {
             Version: u32,
             ProtSeq: RPC_WSTR,
@@ -229,9 +324,18 @@ mod Windows {
             SecurityDescriptor: *mut void,
             Backlog: u32,
         }
-        type RPC_EP_INQ_HANDLE = *mut I_RPC_HANDLE;
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_ENDPOINT_TEMPLATEW {
+            Version: u32,
+            ProtSeq: RPC_WSTR,
+            Endpoint: RPC_WSTR,
+            SecurityDescriptor: *mut void,
+            Backlog: u32,
+        }
+        type RPC_EP_INQ_HANDLE = *mut *mut void;
         const RPC_FW_IF_FLAG_DCOM: i32 = 1;
-        extern fn RPC_HTTP_PROXY_FREE_STRING(String: RPC_WSTR);
+        extern fn RPC_HTTP_PROXY_FREE_STRING(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] String: RPC_WSTR);
         #[repr(i32)]
         enum RPC_HTTP_REDIRECTOR_STAGE {
             RPCHTTP_RS_REDIRECT = 1,
@@ -240,6 +344,7 @@ mod Windows {
             RPCHTTP_RS_ACCESS_2 = 4,
             RPCHTTP_RS_INTERFACE = 5,
         }
+        #[arch(X86)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
             TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
             Flags: u32,
@@ -248,6 +353,17 @@ mod Windows {
             AuthnSchemes: *mut u32,
             ServerCertificateSubject: *mut u8,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
+            TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
+            Flags: u32,
+            AuthenticationTarget: u32,
+            NumberOfAuthnSchemes: u32,
+            AuthnSchemes: *mut u32,
+            ServerCertificateSubject: *mut u8,
+        }
+        #[arch(X86)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
             TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
             Flags: u32,
@@ -259,39 +375,117 @@ mod Windows {
             NumberOfProxyAuthnSchemes: u32,
             ProxyAuthnSchemes: *mut u32,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+            TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
+            Flags: u32,
+            AuthenticationTarget: u32,
+            NumberOfAuthnSchemes: u32,
+            AuthnSchemes: *mut u32,
+            ServerCertificateSubject: *mut u8,
+            ProxyCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
+            NumberOfProxyAuthnSchemes: u32,
+            ProxyAuthnSchemes: *mut u32,
+        }
+        #[arch(X86)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+            TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
+            Flags: u32,
+            AuthenticationTarget: u32,
+            NumberOfAuthnSchemes: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfAuthnSchemes", IsByteCount = false, MayBeNull = false)]
+            AuthnSchemes: *mut u32,
+            ServerCertificateSubject: *mut u16,
+            ProxyCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
+            NumberOfProxyAuthnSchemes: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfProxyAuthnSchemes", IsByteCount = false, MayBeNull = false)]
+            ProxyAuthnSchemes: *mut u32,
+        }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+            TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
+            Flags: u32,
+            AuthenticationTarget: u32,
+            NumberOfAuthnSchemes: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfAuthnSchemes", IsByteCount = false, MayBeNull = false)]
+            AuthnSchemes: *mut u32,
+            ServerCertificateSubject: *mut u16,
+            ProxyCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
+            NumberOfProxyAuthnSchemes: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfProxyAuthnSchemes", IsByteCount = false, MayBeNull = false)]
+            ProxyAuthnSchemes: *mut u32,
+        }
+        #[arch(X86)]
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+            TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
+            Flags: u32,
+            AuthenticationTarget: u32,
+            NumberOfAuthnSchemes: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfAuthnSchemes", IsByteCount = false, MayBeNull = false)]
+            AuthnSchemes: *mut u32,
+            ServerCertificateSubject: *mut u8,
+            ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
+            NumberOfProxyAuthnSchemes: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfProxyAuthnSchemes", IsByteCount = false, MayBeNull = false)]
+            ProxyAuthnSchemes: *mut u32,
+        }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+            TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
+            Flags: u32,
+            AuthenticationTarget: u32,
+            NumberOfAuthnSchemes: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfAuthnSchemes", IsByteCount = false, MayBeNull = false)]
+            AuthnSchemes: *mut u32,
+            ServerCertificateSubject: *mut u8,
+            ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
+            NumberOfProxyAuthnSchemes: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfProxyAuthnSchemes", IsByteCount = false, MayBeNull = false)]
+            ProxyAuthnSchemes: *mut u32,
+        }
+        #[arch(X86)]
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+            TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
+            Flags: u32,
+            AuthenticationTarget: u32,
+            NumberOfAuthnSchemes: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfAuthnSchemes", IsByteCount = false, MayBeNull = false)]
+            AuthnSchemes: *mut u32,
+            ServerCertificateSubject: *mut u16,
+            ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
+            NumberOfProxyAuthnSchemes: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfProxyAuthnSchemes", IsByteCount = false, MayBeNull = false)]
+            ProxyAuthnSchemes: *mut u32,
+        }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+            TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
+            Flags: u32,
+            AuthenticationTarget: u32,
+            NumberOfAuthnSchemes: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfAuthnSchemes", IsByteCount = false, MayBeNull = false)]
+            AuthnSchemes: *mut u32,
+            ServerCertificateSubject: *mut u16,
+            ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
+            NumberOfProxyAuthnSchemes: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfProxyAuthnSchemes", IsByteCount = false, MayBeNull = false)]
+            ProxyAuthnSchemes: *mut u32,
+        }
+        #[arch(X86)]
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
             TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
             Flags: u32,
             AuthenticationTarget: u32,
             NumberOfAuthnSchemes: u32,
             AuthnSchemes: *mut u32,
             ServerCertificateSubject: *mut u16,
-            ProxyCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
-            NumberOfProxyAuthnSchemes: u32,
-            ProxyAuthnSchemes: *mut u32,
         }
-        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
-            TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
-            Flags: u32,
-            AuthenticationTarget: u32,
-            NumberOfAuthnSchemes: u32,
-            AuthnSchemes: *mut u32,
-            ServerCertificateSubject: *mut u8,
-            ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
-            NumberOfProxyAuthnSchemes: u32,
-            ProxyAuthnSchemes: *mut u32,
-        }
-        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
-            TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
-            Flags: u32,
-            AuthenticationTarget: u32,
-            NumberOfAuthnSchemes: u32,
-            AuthnSchemes: *mut u32,
-            ServerCertificateSubject: *mut u16,
-            ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
-            NumberOfProxyAuthnSchemes: u32,
-            ProxyAuthnSchemes: *mut u32,
-        }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
             TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
             Flags: u32,
@@ -306,13 +500,29 @@ mod Windows {
         const RPC_IF_ALLOW_UNKNOWN_AUTHORITY: i32 = 4;
         const RPC_IF_ASYNC_CALLBACK: i32 = 256;
         const RPC_IF_AUTOLISTEN: i32 = 1;
-        extern fn RPC_IF_CALLBACK_FN(InterfaceUuid: RPC_IF_HANDLE, #[in] Context: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn RPC_IF_CALLBACK_FN(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceUuid: RPC_IF_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Context: *mut void) -> RPC_STATUS;
         type RPC_IF_HANDLE = *mut void;
+        #[arch(X86)]
         struct RPC_IF_ID {
-            Uuid: GUID,
+            Uuid: UUID,
             VersMajor: u16,
             VersMinor: u16,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_IF_ID {
+            Uuid: UUID,
+            VersMajor: u16,
+            VersMinor: u16,
+        }
+        #[arch(X86)]
+        struct RPC_IF_ID_VECTOR {
+            Count: u32,
+            IfId: [*mut RPC_IF_ID; 1],
+        }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
         struct RPC_IF_ID_VECTOR {
             Count: u32,
             IfId: [*mut RPC_IF_ID; 1],
@@ -321,11 +531,12 @@ mod Windows {
         const RPC_IF_SEC_CACHE_PER_PROC: i32 = 128;
         const RPC_IF_SEC_NO_CACHE: i32 = 64;
         type RPC_INTERFACE_GROUP = *mut void;
-        extern fn RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN(IfGroup: RPC_INTERFACE_GROUP, #[in] IdleCallbackContext: *mut void, IsGroupIdle: u32);
+        extern fn RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfGroup: RPC_INTERFACE_GROUP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IdleCallbackContext: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IsGroupIdle: u32);
+        #[arch(X86)]
         struct RPC_INTERFACE_TEMPLATEA {
             Version: u32,
             IfSpec: RPC_IF_HANDLE,
-            MgrTypeUuid: *mut GUID,
+            MgrTypeUuid: *mut UUID,
             MgrEpv: *mut void,
             Flags: u32,
             MaxCalls: u32,
@@ -335,10 +546,26 @@ mod Windows {
             Annotation: RPC_CSTR,
             SecurityDescriptor: *mut void,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_INTERFACE_TEMPLATEA {
+            Version: u32,
+            IfSpec: RPC_IF_HANDLE,
+            MgrTypeUuid: *mut UUID,
+            MgrEpv: *mut void,
+            Flags: u32,
+            MaxCalls: u32,
+            MaxRpcSize: u32,
+            IfCallback: RPC_IF_CALLBACK_FN,
+            UuidVector: *mut UUID_VECTOR,
+            Annotation: RPC_CSTR,
+            SecurityDescriptor: *mut void,
+        }
+        #[arch(X86)]
         struct RPC_INTERFACE_TEMPLATEW {
             Version: u32,
             IfSpec: RPC_IF_HANDLE,
-            MgrTypeUuid: *mut GUID,
+            MgrTypeUuid: *mut UUID,
             MgrEpv: *mut void,
             Flags: u32,
             MaxCalls: u32,
@@ -348,9 +575,32 @@ mod Windows {
             Annotation: RPC_WSTR,
             SecurityDescriptor: *mut void,
         }
-        extern fn RPC_MGMT_AUTHORIZATION_FN(ClientBinding: RPC_BINDING_HANDLE, RequestedMgmtOperation: u32, Status: *mut RPC_STATUS) -> i32;
-        extern fn RPC_NEW_HTTP_PROXY_CHANNEL(RedirectorStage: RPC_HTTP_REDIRECTOR_STAGE, ServerName: RPC_WSTR, ServerPort: RPC_WSTR, #[opt] RemoteUser: RPC_WSTR, #[opt] AuthType: RPC_WSTR, #[in] #[out] ResourceUuid: *mut void, #[in] #[out] SessionId: *mut void, #[in] #[opt] Interface: *mut void, #[in] #[opt] Reserved: *mut void, Flags: u32, NewServerName: *mut RPC_WSTR, NewServerPort: *mut RPC_WSTR) -> RPC_STATUS;
-        extern fn RPC_OBJECT_INQ_FN(#[in] ObjectUuid: *mut GUID, TypeUuid: *mut GUID, Status: *mut RPC_STATUS);
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_INTERFACE_TEMPLATEW {
+            Version: u32,
+            IfSpec: RPC_IF_HANDLE,
+            MgrTypeUuid: *mut UUID,
+            MgrEpv: *mut void,
+            Flags: u32,
+            MaxCalls: u32,
+            MaxRpcSize: u32,
+            IfCallback: RPC_IF_CALLBACK_FN,
+            UuidVector: *mut UUID_VECTOR,
+            Annotation: RPC_WSTR,
+            SecurityDescriptor: *mut void,
+        }
+        extern fn RPC_MGMT_AUTHORIZATION_FN(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientBinding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RequestedMgmtOperation: u32, #[out] Status: *mut RPC_STATUS) -> i32;
+        extern fn RPC_NEW_HTTP_PROXY_CHANNEL(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RedirectorStage: RPC_HTTP_REDIRECTOR_STAGE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: RPC_WSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerPort: RPC_WSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RemoteUser: RPC_WSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthType: RPC_WSTR, #[in] #[out] ResourceUuid: *mut void, #[in] #[out] SessionId: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Interface: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: u32, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NewServerName: *mut RPC_WSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NewServerPort: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn RPC_OBJECT_INQ_FN(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectUuid: *mut UUID, #[out] TypeUuid: *mut UUID, #[out] Status: *mut RPC_STATUS);
+        #[arch(X86)]
+        struct RPC_POLICY {
+            Length: u32,
+            EndpointFlags: u32,
+            NICFlags: u32,
+        }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
         struct RPC_POLICY {
             Length: u32,
             EndpointFlags: u32,
@@ -360,21 +610,45 @@ mod Windows {
         const RPC_PROTSEQ_LRPC: i32 = 3;
         const RPC_PROTSEQ_NMP: i32 = 2;
         const RPC_PROTSEQ_TCP: i32 = 1;
+        #[arch(X86)]
         struct RPC_PROTSEQ_VECTORA {
             Count: u32,
             Protseq: [*mut u8; 1],
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_PROTSEQ_VECTORA {
+            Count: u32,
+            Protseq: [*mut u8; 1],
+        }
+        #[arch(X86)]
         struct RPC_PROTSEQ_VECTORW {
             Count: u32,
             Protseq: [*mut u16; 1],
         }
-        extern fn RPC_SECURITY_CALLBACK_FN(#[in] Context: *mut void);
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_PROTSEQ_VECTORW {
+            Count: u32,
+            Protseq: [*mut u16; 1],
+        }
+        extern fn RPC_SECURITY_CALLBACK_FN(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Context: *mut void);
+        #[arch(X86)]
         struct RPC_SECURITY_QOS {
             Version: u32,
             Capabilities: u32,
             IdentityTracking: u32,
             ImpersonationType: u32,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_SECURITY_QOS {
+            Version: u32,
+            Capabilities: u32,
+            IdentityTracking: u32,
+            ImpersonationType: u32,
+        }
+        #[arch(X86)]
         struct RPC_SECURITY_QOS_V2_A {
             Version: u32,
             Capabilities: u32,
@@ -385,6 +659,19 @@ mod Windows {
                 HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
             },
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_SECURITY_QOS_V2_A {
+            Version: u32,
+            Capabilities: u32,
+            IdentityTracking: u32,
+            ImpersonationType: u32,
+            AdditionalSecurityInfoType: u32,
+            u: #[packed(8)] union {
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
+            },
+        }
+        #[arch(X86)]
         struct RPC_SECURITY_QOS_V2_W {
             Version: u32,
             Capabilities: u32,
@@ -395,6 +682,19 @@ mod Windows {
                 HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
             },
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_SECURITY_QOS_V2_W {
+            Version: u32,
+            Capabilities: u32,
+            IdentityTracking: u32,
+            ImpersonationType: u32,
+            AdditionalSecurityInfoType: u32,
+            u: #[packed(8)] union {
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+            },
+        }
+        #[arch(X86)]
         struct RPC_SECURITY_QOS_V3_A {
             Version: u32,
             Capabilities: u32,
@@ -406,6 +706,20 @@ mod Windows {
             },
             Sid: *mut void,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_SECURITY_QOS_V3_A {
+            Version: u32,
+            Capabilities: u32,
+            IdentityTracking: u32,
+            ImpersonationType: u32,
+            AdditionalSecurityInfoType: u32,
+            u: #[packed(8)] union {
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
+            },
+            Sid: *mut void,
+        }
+        #[arch(X86)]
         struct RPC_SECURITY_QOS_V3_W {
             Version: u32,
             Capabilities: u32,
@@ -417,6 +731,20 @@ mod Windows {
             },
             Sid: *mut void,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_SECURITY_QOS_V3_W {
+            Version: u32,
+            Capabilities: u32,
+            IdentityTracking: u32,
+            ImpersonationType: u32,
+            AdditionalSecurityInfoType: u32,
+            u: #[packed(8)] union {
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+            },
+            Sid: *mut void,
+        }
+        #[arch(X86)]
         struct RPC_SECURITY_QOS_V4_A {
             Version: u32,
             Capabilities: u32,
@@ -429,6 +757,21 @@ mod Windows {
             Sid: *mut void,
             EffectiveOnly: u32,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_SECURITY_QOS_V4_A {
+            Version: u32,
+            Capabilities: u32,
+            IdentityTracking: u32,
+            ImpersonationType: u32,
+            AdditionalSecurityInfoType: u32,
+            u: #[packed(8)] union {
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
+            },
+            Sid: *mut void,
+            EffectiveOnly: u32,
+        }
+        #[arch(X86)]
         struct RPC_SECURITY_QOS_V4_W {
             Version: u32,
             Capabilities: u32,
@@ -441,6 +784,21 @@ mod Windows {
             Sid: *mut void,
             EffectiveOnly: u32,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_SECURITY_QOS_V4_W {
+            Version: u32,
+            Capabilities: u32,
+            IdentityTracking: u32,
+            ImpersonationType: u32,
+            AdditionalSecurityInfoType: u32,
+            u: #[packed(8)] union {
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+            },
+            Sid: *mut void,
+            EffectiveOnly: u32,
+        }
+        #[arch(X86)]
         struct RPC_SECURITY_QOS_V5_A {
             Version: u32,
             Capabilities: u32,
@@ -454,6 +812,22 @@ mod Windows {
             EffectiveOnly: u32,
             ServerSecurityDescriptor: *mut void,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_SECURITY_QOS_V5_A {
+            Version: u32,
+            Capabilities: u32,
+            IdentityTracking: u32,
+            ImpersonationType: u32,
+            AdditionalSecurityInfoType: u32,
+            u: #[packed(8)] union {
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
+            },
+            Sid: *mut void,
+            EffectiveOnly: u32,
+            ServerSecurityDescriptor: *mut void,
+        }
+        #[arch(X86)]
         struct RPC_SECURITY_QOS_V5_W {
             Version: u32,
             Capabilities: u32,
@@ -467,310 +841,569 @@ mod Windows {
             EffectiveOnly: u32,
             ServerSecurityDescriptor: *mut void,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_SECURITY_QOS_V5_W {
+            Version: u32,
+            Capabilities: u32,
+            IdentityTracking: u32,
+            ImpersonationType: u32,
+            AdditionalSecurityInfoType: u32,
+            u: #[packed(8)] union {
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+            },
+            Sid: *mut void,
+            EffectiveOnly: u32,
+            ServerSecurityDescriptor: *mut void,
+        }
+        #[arch(X86)]
         struct RPC_STATS_VECTOR {
             Count: u32,
             Stats: [u32; 1],
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct RPC_STATS_VECTOR {
+            Count: u32,
+            Stats: [u32; 1],
+        }
+        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type RPC_WSTR = *mut u16;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingCopy(SourceBinding: RPC_BINDING_HANDLE, DestinationBinding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcBindingCopy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceBinding: RPC_BINDING_HANDLE, #[out] DestinationBinding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[library("RPCRT4.dll", import = "RpcBindingCreateA")]
+        extern fn RpcBindingCreate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Template: *mut RPC_BINDING_HANDLE_TEMPLATE_V1_A, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Security: *mut RPC_BINDING_HANDLE_SECURITY_V1_A, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: *mut RPC_BINDING_HANDLE_OPTIONS_V1, #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingCreateA(#[in] Template: *mut RPC_BINDING_HANDLE_TEMPLATE_V1_A, #[in] #[opt] Security: *mut RPC_BINDING_HANDLE_SECURITY_V1_A, #[in] #[opt] Options: *mut RPC_BINDING_HANDLE_OPTIONS_V1, Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcBindingCreateA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Template: *mut RPC_BINDING_HANDLE_TEMPLATE_V1_A, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Security: *mut RPC_BINDING_HANDLE_SECURITY_V1_A, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: *mut RPC_BINDING_HANDLE_OPTIONS_V1, #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingCreateW(#[in] Template: *mut RPC_BINDING_HANDLE_TEMPLATE_V1_W, #[in] #[opt] Security: *mut RPC_BINDING_HANDLE_SECURITY_V1_W, #[in] #[opt] Options: *mut RPC_BINDING_HANDLE_OPTIONS_V1, Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcBindingCreateW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Template: *mut RPC_BINDING_HANDLE_TEMPLATE_V1_W, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Security: *mut RPC_BINDING_HANDLE_SECURITY_V1_W, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: *mut RPC_BINDING_HANDLE_OPTIONS_V1, #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcBindingFree(#[in] #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcBindingFromStringBindingA")]
+        extern fn RpcBindingFromStringBinding(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringBinding: RPC_CSTR, #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingFromStringBindingA(StringBinding: RPC_CSTR, Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcBindingFromStringBindingA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringBinding: RPC_CSTR, #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingFromStringBindingW(StringBinding: RPC_WSTR, Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcBindingFromStringBindingW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringBinding: RPC_WSTR, #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcBindingInqAuthClientA")]
+        extern fn RpcBindingInqAuthClient(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_CSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthClientA(#[opt] ClientBinding: RPC_BINDING_HANDLE, Privs: *mut RPC_AUTHZ_HANDLE, ServerPrincName: *mut RPC_CSTR, #[opt] AuthnLevel: *mut u32, #[opt] AuthnSvc: *mut u32, #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
+        extern fn RpcBindingInqAuthClientA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_CSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
+        #[library("RPCRT4.dll", import = "RpcBindingInqAuthClientExA")]
+        extern fn RpcBindingInqAuthClientEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_CSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthzSvc: *mut u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthClientExA(#[opt] ClientBinding: RPC_BINDING_HANDLE, Privs: *mut RPC_AUTHZ_HANDLE, ServerPrincName: *mut RPC_CSTR, #[opt] AuthnLevel: *mut u32, #[opt] AuthnSvc: *mut u32, #[opt] AuthzSvc: *mut u32, Flags: u32) -> RPC_STATUS;
+        extern fn RpcBindingInqAuthClientExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_CSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthzSvc: *mut u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthClientExW(#[opt] ClientBinding: RPC_BINDING_HANDLE, Privs: *mut RPC_AUTHZ_HANDLE, ServerPrincName: *mut RPC_WSTR, #[opt] AuthnLevel: *mut u32, #[opt] AuthnSvc: *mut u32, #[opt] AuthzSvc: *mut u32, Flags: u32) -> RPC_STATUS;
+        extern fn RpcBindingInqAuthClientExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_WSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthzSvc: *mut u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthClientW(#[opt] ClientBinding: RPC_BINDING_HANDLE, Privs: *mut RPC_AUTHZ_HANDLE, ServerPrincName: *mut RPC_WSTR, #[opt] AuthnLevel: *mut u32, #[opt] AuthnSvc: *mut u32, #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
+        extern fn RpcBindingInqAuthClientW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_WSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcBindingInqAuthInfoA")]
+        extern fn RpcBindingInqAuthInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_CSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[out] #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthInfoA(Binding: RPC_BINDING_HANDLE, ServerPrincName: *mut RPC_CSTR, #[opt] AuthnLevel: *mut u32, #[opt] AuthnSvc: *mut u32, #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
+        extern fn RpcBindingInqAuthInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_CSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[out] #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcBindingInqAuthInfoExA")]
+        extern fn RpcBindingInqAuthInfoEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_CSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[out] #[opt] AuthzSvc: *mut u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RpcQosVersion: u32, #[out] #[opt] SecurityQOS: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthInfoExA(Binding: RPC_BINDING_HANDLE, ServerPrincName: *mut RPC_CSTR, #[opt] AuthnLevel: *mut u32, #[opt] AuthnSvc: *mut u32, #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] AuthzSvc: *mut u32, RpcQosVersion: u32, #[opt] SecurityQOS: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
+        extern fn RpcBindingInqAuthInfoExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_CSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[out] #[opt] AuthzSvc: *mut u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RpcQosVersion: u32, #[out] #[opt] SecurityQOS: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthInfoExW(Binding: RPC_BINDING_HANDLE, ServerPrincName: *mut RPC_WSTR, #[opt] AuthnLevel: *mut u32, #[opt] AuthnSvc: *mut u32, #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] AuthzSvc: *mut u32, RpcQosVersion: u32, #[opt] SecurityQOS: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
+        extern fn RpcBindingInqAuthInfoExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_WSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[out] #[opt] AuthzSvc: *mut u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RpcQosVersion: u32, #[out] #[opt] SecurityQOS: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthInfoW(Binding: RPC_BINDING_HANDLE, ServerPrincName: *mut RPC_WSTR, #[opt] AuthnLevel: *mut u32, #[opt] AuthnSvc: *mut u32, #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
+        extern fn RpcBindingInqAuthInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_WSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[out] #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqMaxCalls(Binding: RPC_BINDING_HANDLE, MaxCalls: *mut u32) -> RPC_STATUS;
+        extern fn RpcBindingInqMaxCalls(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] MaxCalls: *mut u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqObject(Binding: RPC_BINDING_HANDLE, ObjectUuid: *mut GUID) -> RPC_STATUS;
+        extern fn RpcBindingInqObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] ObjectUuid: *mut UUID) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqOption(hBinding: RPC_BINDING_HANDLE, option: u32, pOptionValue: *mut usize) -> RPC_STATUS;
+        extern fn RpcBindingInqOption(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hBinding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] option: u32, #[out] pOptionValue: *mut ULONG_PTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingReset(Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcBindingReset(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingServerFromClient(#[opt] ClientBinding: RPC_BINDING_HANDLE, ServerBinding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcBindingServerFromClient(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientBinding: RPC_BINDING_HANDLE, #[out] ServerBinding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcBindingSetAuthInfoA")]
+        extern fn RpcBindingSetAuthInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerPrincName: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnLevel: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthzSvc: u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingSetAuthInfoA(Binding: RPC_BINDING_HANDLE, #[opt] ServerPrincName: RPC_CSTR, AuthnLevel: u32, AuthnSvc: u32, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, AuthzSvc: u32) -> RPC_STATUS;
+        extern fn RpcBindingSetAuthInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerPrincName: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnLevel: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthzSvc: u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcBindingSetAuthInfoExA")]
+        extern fn RpcBindingSetAuthInfoEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerPrincName: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnLevel: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthzSvc: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityQos: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingSetAuthInfoExA(Binding: RPC_BINDING_HANDLE, #[opt] ServerPrincName: RPC_CSTR, AuthnLevel: u32, AuthnSvc: u32, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, AuthzSvc: u32, #[in] #[opt] SecurityQos: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
+        extern fn RpcBindingSetAuthInfoExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerPrincName: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnLevel: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthzSvc: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityQos: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingSetAuthInfoExW(Binding: RPC_BINDING_HANDLE, #[opt] ServerPrincName: RPC_WSTR, AuthnLevel: u32, AuthnSvc: u32, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, AuthzSvc: u32, #[in] #[opt] SecurityQOS: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
+        extern fn RpcBindingSetAuthInfoExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerPrincName: RPC_WSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnLevel: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthzSvc: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityQOS: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingSetAuthInfoW(Binding: RPC_BINDING_HANDLE, #[opt] ServerPrincName: RPC_WSTR, AuthnLevel: u32, AuthnSvc: u32, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, AuthzSvc: u32) -> RPC_STATUS;
+        extern fn RpcBindingSetAuthInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerPrincName: RPC_WSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnLevel: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthzSvc: u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingSetObject(Binding: RPC_BINDING_HANDLE, #[in] ObjectUuid: *mut GUID) -> RPC_STATUS;
+        extern fn RpcBindingSetObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectUuid: *mut UUID) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingSetOption(hBinding: RPC_BINDING_HANDLE, option: u32, optionValue: usize) -> RPC_STATUS;
+        extern fn RpcBindingSetOption(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hBinding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] option: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] optionValue: ULONG_PTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcBindingToStringBindingA")]
+        extern fn RpcBindingToStringBinding(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringBinding: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingToStringBindingA(Binding: RPC_BINDING_HANDLE, StringBinding: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn RpcBindingToStringBindingA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringBinding: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingToStringBindingW(Binding: RPC_BINDING_HANDLE, StringBinding: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn RpcBindingToStringBindingW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringBinding: *mut RPC_WSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcBindingVectorFree(#[in] #[out] BindingVector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcCancelThread(#[in] Thread: *mut void) -> RPC_STATUS;
+        extern fn RpcCancelThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Thread: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcCancelThreadEx(#[in] Thread: *mut void, Timeout: i32) -> RPC_STATUS;
+        extern fn RpcCancelThreadEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Thread: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Timeout: i32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcEpRegisterA")]
+        extern fn RpcEpRegister(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UuidVector: *mut UUID_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Annotation: RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcEpRegisterA(IfSpec: RPC_IF_HANDLE, #[in] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] UuidVector: *mut UUID_VECTOR, #[opt] Annotation: RPC_CSTR) -> RPC_STATUS;
+        extern fn RpcEpRegisterA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UuidVector: *mut UUID_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Annotation: RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcEpRegisterNoReplaceA")]
+        extern fn RpcEpRegisterNoReplace(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UuidVector: *mut UUID_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Annotation: RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcEpRegisterNoReplaceA(IfSpec: RPC_IF_HANDLE, #[in] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] UuidVector: *mut UUID_VECTOR, #[opt] Annotation: RPC_CSTR) -> RPC_STATUS;
+        extern fn RpcEpRegisterNoReplaceA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UuidVector: *mut UUID_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Annotation: RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcEpRegisterNoReplaceW(IfSpec: RPC_IF_HANDLE, #[in] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] UuidVector: *mut UUID_VECTOR, #[opt] Annotation: RPC_WSTR) -> RPC_STATUS;
+        extern fn RpcEpRegisterNoReplaceW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UuidVector: *mut UUID_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Annotation: RPC_WSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcEpRegisterW(IfSpec: RPC_IF_HANDLE, #[in] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] UuidVector: *mut UUID_VECTOR, #[opt] Annotation: RPC_WSTR) -> RPC_STATUS;
+        extern fn RpcEpRegisterW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UuidVector: *mut UUID_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Annotation: RPC_WSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcEpResolveBinding(Binding: RPC_BINDING_HANDLE, IfSpec: RPC_IF_HANDLE) -> RPC_STATUS;
+        extern fn RpcEpResolveBinding(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcEpUnregister(IfSpec: RPC_IF_HANDLE, #[in] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] UuidVector: *mut UUID_VECTOR) -> RPC_STATUS;
+        extern fn RpcEpUnregister(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UuidVector: *mut UUID_VECTOR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcExceptionFilter(ExceptionCode: u32) -> i32;
+        extern fn RpcExceptionFilter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ExceptionCode: u32) -> i32;
         #[library("RPCRT4.dll")]
         extern fn RpcIfIdVectorFree(#[in] #[out] IfIdVector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcIfInqId(RpcIfHandle: RPC_IF_HANDLE, RpcIfId: *mut RPC_IF_ID) -> RPC_STATUS;
+        extern fn RpcIfInqId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RpcIfHandle: RPC_IF_HANDLE, #[out] RpcIfId: *mut RPC_IF_ID) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcImpersonateClient(#[opt] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcImpersonateClient(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcImpersonateClient2(#[opt] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcImpersonateClient2(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcImpersonateClientContainer(#[opt] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcImpersonateClientContainer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
         extern fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtEpEltInqBegin(#[opt] EpBinding: RPC_BINDING_HANDLE, InquiryType: u32, #[in] #[opt] IfId: *mut RPC_IF_ID, #[opt] VersOption: u32, #[in] #[opt] ObjectUuid: *mut GUID, InquiryContext: *mut RPC_EP_INQ_HANDLE) -> RPC_STATUS;
+        extern fn RpcMgmtEpEltInqBegin(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EpBinding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InquiryType: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfId: *mut RPC_IF_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VersOption: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectUuid: *mut UUID, #[out] InquiryContext: *mut RPC_EP_INQ_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
         extern fn RpcMgmtEpEltInqDone(#[in] #[out] InquiryContext: *mut RPC_EP_INQ_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcMgmtEpEltInqNextA")]
+        extern fn RpcMgmtEpEltInqNext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InquiryContext: RPC_EP_INQ_HANDLE, #[out] IfId: *mut RPC_IF_ID, #[out] #[opt] Binding: *mut RPC_BINDING_HANDLE, #[out] #[opt] ObjectUuid: *mut UUID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Annotation: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtEpEltInqNextA(InquiryContext: RPC_EP_INQ_HANDLE, IfId: *mut RPC_IF_ID, #[opt] Binding: *mut RPC_BINDING_HANDLE, #[opt] ObjectUuid: *mut GUID, Annotation: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn RpcMgmtEpEltInqNextA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InquiryContext: RPC_EP_INQ_HANDLE, #[out] IfId: *mut RPC_IF_ID, #[out] #[opt] Binding: *mut RPC_BINDING_HANDLE, #[out] #[opt] ObjectUuid: *mut UUID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Annotation: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtEpEltInqNextW(InquiryContext: RPC_EP_INQ_HANDLE, IfId: *mut RPC_IF_ID, #[opt] Binding: *mut RPC_BINDING_HANDLE, #[opt] ObjectUuid: *mut GUID, Annotation: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn RpcMgmtEpEltInqNextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InquiryContext: RPC_EP_INQ_HANDLE, #[out] IfId: *mut RPC_IF_ID, #[out] #[opt] Binding: *mut RPC_BINDING_HANDLE, #[out] #[opt] ObjectUuid: *mut UUID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Annotation: *mut RPC_WSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtEpUnregister(#[opt] EpBinding: RPC_BINDING_HANDLE, #[in] IfId: *mut RPC_IF_ID, Binding: RPC_BINDING_HANDLE, #[in] #[opt] ObjectUuid: *mut GUID) -> RPC_STATUS;
+        extern fn RpcMgmtEpUnregister(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EpBinding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfId: *mut RPC_IF_ID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectUuid: *mut UUID) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtInqComTimeout(Binding: RPC_BINDING_HANDLE, Timeout: *mut u32) -> RPC_STATUS;
+        extern fn RpcMgmtInqComTimeout(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] Timeout: *mut u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtInqDefaultProtectLevel(AuthnSvc: u32, AuthnLevel: *mut u32) -> RPC_STATUS;
+        extern fn RpcMgmtInqDefaultProtectLevel(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[out] AuthnLevel: *mut u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtInqIfIds(#[opt] Binding: RPC_BINDING_HANDLE, IfIdVector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
+        extern fn RpcMgmtInqIfIds(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] IfIdVector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcMgmtInqServerPrincNameA")]
+        extern fn RpcMgmtInqServerPrincName(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtInqServerPrincNameA(#[opt] Binding: RPC_BINDING_HANDLE, AuthnSvc: u32, ServerPrincName: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn RpcMgmtInqServerPrincNameA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtInqServerPrincNameW(#[opt] Binding: RPC_BINDING_HANDLE, AuthnSvc: u32, ServerPrincName: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn RpcMgmtInqServerPrincNameW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ServerPrincName: *mut RPC_WSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtInqStats(#[opt] Binding: RPC_BINDING_HANDLE, Statistics: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS;
+        extern fn RpcMgmtInqStats(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Statistics: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtIsServerListening(#[opt] Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcMgmtIsServerListening(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtSetAuthorizationFn(AuthorizationFn: RPC_MGMT_AUTHORIZATION_FN) -> RPC_STATUS;
+        extern fn RpcMgmtSetAuthorizationFn(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthorizationFn: RPC_MGMT_AUTHORIZATION_FN) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtSetCancelTimeout(Timeout: i32) -> RPC_STATUS;
+        extern fn RpcMgmtSetCancelTimeout(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Timeout: i32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtSetComTimeout(Binding: RPC_BINDING_HANDLE, Timeout: u32) -> RPC_STATUS;
+        extern fn RpcMgmtSetComTimeout(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Timeout: u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtSetServerStackSize(ThreadStackSize: u32) -> RPC_STATUS;
+        extern fn RpcMgmtSetServerStackSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ThreadStackSize: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcMgmtStatsVectorFree(#[in] #[out] StatsVector: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtStopServerListening(#[opt] Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcMgmtStopServerListening(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
         extern fn RpcMgmtWaitServerListen() -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcNetworkInqProtseqsA")]
+        extern fn RpcNetworkInqProtseqs(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ProtseqVector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcNetworkInqProtseqsA(ProtseqVector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS;
+        extern fn RpcNetworkInqProtseqsA(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ProtseqVector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcNetworkInqProtseqsW(ProtseqVector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS;
+        extern fn RpcNetworkInqProtseqsW(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ProtseqVector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcNetworkIsProtseqValidA")]
+        extern fn RpcNetworkIsProtseqValid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcNetworkIsProtseqValidA(Protseq: RPC_CSTR) -> RPC_STATUS;
+        extern fn RpcNetworkIsProtseqValidA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcNetworkIsProtseqValidW(Protseq: RPC_WSTR) -> RPC_STATUS;
+        extern fn RpcNetworkIsProtseqValidW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_WSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcNsBindingInqEntryNameA")]
+        extern fn RpcNsBindingInqEntryName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EntryNameSyntax: u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] EntryName: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcNsBindingInqEntryNameA(Binding: RPC_BINDING_HANDLE, EntryNameSyntax: u32, EntryName: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn RpcNsBindingInqEntryNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EntryNameSyntax: u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] EntryName: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcNsBindingInqEntryNameW(Binding: RPC_BINDING_HANDLE, EntryNameSyntax: u32, EntryName: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn RpcNsBindingInqEntryNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EntryNameSyntax: u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] EntryName: *mut RPC_WSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcObjectInqType(#[in] ObjUuid: *mut GUID, #[opt] TypeUuid: *mut GUID) -> RPC_STATUS;
+        extern fn RpcObjectInqType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjUuid: *mut UUID, #[out] #[opt] TypeUuid: *mut UUID) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcObjectSetInqFn(InquiryFn: RPC_OBJECT_INQ_FN) -> RPC_STATUS;
+        extern fn RpcObjectSetInqFn(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InquiryFn: RPC_OBJECT_INQ_FN) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcObjectSetType(#[in] ObjUuid: *mut GUID, #[in] #[opt] TypeUuid: *mut GUID) -> RPC_STATUS;
+        extern fn RpcObjectSetType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjUuid: *mut UUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TypeUuid: *mut UUID) -> RPC_STATUS;
+        #[library("RPCRT4.dll", import = "RpcProtseqVectorFreeA")]
+        extern fn RpcProtseqVectorFree(#[in] #[out] ProtseqVector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcProtseqVectorFreeA(#[in] #[out] ProtseqVector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcProtseqVectorFreeW(#[in] #[out] ProtseqVector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS;
         #[noreturn]
         #[library("RPCRT4.dll")]
-        extern fn RpcRaiseException(exception: RPC_STATUS);
+        extern fn RpcRaiseException(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] exception: RPC_STATUS);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
         extern fn RpcRevertContainerImpersonation() -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
         extern fn RpcRevertToSelf() -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcRevertToSelfEx(#[opt] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcRevertToSelfEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerCompleteSecurityCallback(BindingHandle: RPC_BINDING_HANDLE, Status: RPC_STATUS) -> RPC_STATUS;
+        extern fn RpcServerCompleteSecurityCallback(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingHandle: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Status: RPC_STATUS) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInqBindingHandle(Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcServerInqBindingHandle(#[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInqBindings(BindingVector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+        extern fn RpcServerInqBindings(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] BindingVector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInqBindingsEx(#[in] #[opt] SecurityDescriptor: *mut void, BindingVector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+        extern fn RpcServerInqBindingsEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] BindingVector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcServerInqDefaultPrincNameA")]
+        extern fn RpcServerInqDefaultPrincName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] PrincName: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInqDefaultPrincNameA(AuthnSvc: u32, PrincName: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn RpcServerInqDefaultPrincNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] PrincName: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInqDefaultPrincNameW(AuthnSvc: u32, PrincName: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn RpcServerInqDefaultPrincNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] PrincName: *mut RPC_WSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInqIf(IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut GUID, MgrEpv: *mut *mut void) -> RPC_STATUS;
+        extern fn RpcServerInqIf(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MgrTypeUuid: *mut UUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] MgrEpv: *mut *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInterfaceGroupActivate(IfGroup: RPC_INTERFACE_GROUP) -> RPC_STATUS;
+        extern fn RpcServerInterfaceGroupActivate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfGroup: RPC_INTERFACE_GROUP) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInterfaceGroupClose(IfGroup: RPC_INTERFACE_GROUP) -> RPC_STATUS;
+        extern fn RpcServerInterfaceGroupClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfGroup: RPC_INTERFACE_GROUP) -> RPC_STATUS;
+        #[library("RPCRT4.dll", import = "RpcServerInterfaceGroupCreateA")]
+        extern fn RpcServerInterfaceGroupCreate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] Interfaces: *mut RPC_INTERFACE_TEMPLATEA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumIfs: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] Endpoints: *mut RPC_ENDPOINT_TEMPLATEA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumEndpoints: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IdlePeriod: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IdleCallbackFn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IdleCallbackContext: *mut void, #[out] IfGroup: PRPC_INTERFACE_GROUP) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInterfaceGroupCreateA(#[len_param(1)] #[in] Interfaces: *mut RPC_INTERFACE_TEMPLATEA, NumIfs: u32, #[len_param(3)] #[in] Endpoints: *mut RPC_ENDPOINT_TEMPLATEA, NumEndpoints: u32, IdlePeriod: u32, IdleCallbackFn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, #[in] IdleCallbackContext: *mut void, #[out] IfGroup: PRPC_INTERFACE_GROUP) -> RPC_STATUS;
+        extern fn RpcServerInterfaceGroupCreateA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] Interfaces: *mut RPC_INTERFACE_TEMPLATEA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumIfs: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] Endpoints: *mut RPC_ENDPOINT_TEMPLATEA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumEndpoints: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IdlePeriod: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IdleCallbackFn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IdleCallbackContext: *mut void, #[out] IfGroup: PRPC_INTERFACE_GROUP) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInterfaceGroupCreateW(#[len_param(1)] #[in] Interfaces: *mut RPC_INTERFACE_TEMPLATEW, NumIfs: u32, #[len_param(3)] #[in] Endpoints: *mut RPC_ENDPOINT_TEMPLATEW, NumEndpoints: u32, IdlePeriod: u32, IdleCallbackFn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, #[in] IdleCallbackContext: *mut void, #[out] IfGroup: PRPC_INTERFACE_GROUP) -> RPC_STATUS;
+        extern fn RpcServerInterfaceGroupCreateW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] Interfaces: *mut RPC_INTERFACE_TEMPLATEW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumIfs: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] Endpoints: *mut RPC_ENDPOINT_TEMPLATEW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumEndpoints: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IdlePeriod: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IdleCallbackFn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IdleCallbackContext: *mut void, #[out] IfGroup: PRPC_INTERFACE_GROUP) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInterfaceGroupDeactivate(IfGroup: RPC_INTERFACE_GROUP, ForceDeactivation: u32) -> RPC_STATUS;
+        extern fn RpcServerInterfaceGroupDeactivate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfGroup: RPC_INTERFACE_GROUP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ForceDeactivation: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInterfaceGroupInqBindings(IfGroup: RPC_INTERFACE_GROUP, BindingVector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+        extern fn RpcServerInterfaceGroupInqBindings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfGroup: RPC_INTERFACE_GROUP, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] BindingVector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerListen(MinimumCallThreads: u32, MaxCalls: u32, DontWait: u32) -> RPC_STATUS;
+        extern fn RpcServerListen(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MinimumCallThreads: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DontWait: u32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcServerRegisterAuthInfoA")]
+        extern fn RpcServerRegisterAuthInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerPrincName: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GetKeyFn: RPC_AUTH_KEY_RETRIEVAL_FN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Arg: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerRegisterAuthInfoA(#[opt] ServerPrincName: RPC_CSTR, AuthnSvc: u32, #[opt] GetKeyFn: RPC_AUTH_KEY_RETRIEVAL_FN, #[in] #[opt] Arg: *mut void) -> RPC_STATUS;
+        extern fn RpcServerRegisterAuthInfoA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerPrincName: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GetKeyFn: RPC_AUTH_KEY_RETRIEVAL_FN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Arg: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerRegisterAuthInfoW(#[opt] ServerPrincName: RPC_WSTR, AuthnSvc: u32, #[opt] GetKeyFn: RPC_AUTH_KEY_RETRIEVAL_FN, #[in] #[opt] Arg: *mut void) -> RPC_STATUS;
+        extern fn RpcServerRegisterAuthInfoW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerPrincName: RPC_WSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthnSvc: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GetKeyFn: RPC_AUTH_KEY_RETRIEVAL_FN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Arg: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerRegisterIf(IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut GUID, #[in] #[opt] MgrEpv: *mut void) -> RPC_STATUS;
+        extern fn RpcServerRegisterIf(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MgrTypeUuid: *mut UUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MgrEpv: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerRegisterIf2(IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut GUID, #[in] #[opt] MgrEpv: *mut void, Flags: u32, MaxCalls: u32, MaxRpcSize: u32, #[opt] IfCallbackFn: RPC_IF_CALLBACK_FN) -> RPC_STATUS;
+        extern fn RpcServerRegisterIf2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MgrTypeUuid: *mut UUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MgrEpv: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxRpcSize: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfCallbackFn: RPC_IF_CALLBACK_FN) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerRegisterIf3(IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut GUID, #[in] #[opt] MgrEpv: *mut void, Flags: u32, MaxCalls: u32, MaxRpcSize: u32, #[opt] IfCallback: RPC_IF_CALLBACK_FN, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        extern fn RpcServerRegisterIf3(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MgrTypeUuid: *mut UUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MgrEpv: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxRpcSize: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfCallback: RPC_IF_CALLBACK_FN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerRegisterIfEx(IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut GUID, #[in] #[opt] MgrEpv: *mut void, Flags: u32, MaxCalls: u32, #[opt] IfCallback: RPC_IF_CALLBACK_FN) -> RPC_STATUS;
+        extern fn RpcServerRegisterIfEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MgrTypeUuid: *mut UUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MgrEpv: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfCallback: RPC_IF_CALLBACK_FN) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerTestCancel(#[opt] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcServerTestCancel(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUnregisterIf(#[opt] IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut GUID, WaitForCallsToComplete: u32) -> RPC_STATUS;
+        extern fn RpcServerUnregisterIf(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MgrTypeUuid: *mut UUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] WaitForCallsToComplete: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUnregisterIfEx(#[opt] IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut GUID, RundownContextHandles: i32) -> RPC_STATUS;
+        extern fn RpcServerUnregisterIfEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MgrTypeUuid: *mut UUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RundownContextHandles: i32) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseAllProtseqs(MaxCalls: u32, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        extern fn RpcServerUseAllProtseqs(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseAllProtseqsEx(MaxCalls: u32, #[in] #[opt] SecurityDescriptor: *mut void, Policy: PRPC_POLICY) -> RPC_STATUS;
+        extern fn RpcServerUseAllProtseqsEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: PRPC_POLICY) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseAllProtseqsIf(MaxCalls: u32, IfSpec: RPC_IF_HANDLE, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        extern fn RpcServerUseAllProtseqsIf(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseAllProtseqsIfEx(MaxCalls: u32, IfSpec: RPC_IF_HANDLE, #[in] #[opt] SecurityDescriptor: *mut void, Policy: PRPC_POLICY) -> RPC_STATUS;
+        extern fn RpcServerUseAllProtseqsIfEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: PRPC_POLICY) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcServerUseProtseqA")]
+        extern fn RpcServerUseProtseq(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseProtseqA(Protseq: RPC_CSTR, MaxCalls: u32, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        extern fn RpcServerUseProtseqA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcServerUseProtseqEpA")]
+        extern fn RpcServerUseProtseqEp(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Endpoint: RPC_CSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseProtseqEpA(Protseq: RPC_CSTR, MaxCalls: u32, Endpoint: RPC_CSTR, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        extern fn RpcServerUseProtseqEpA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Endpoint: RPC_CSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcServerUseProtseqEpExA")]
+        extern fn RpcServerUseProtseqEpEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Endpoint: RPC_CSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: PRPC_POLICY) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseProtseqEpExA(Protseq: RPC_CSTR, MaxCalls: u32, Endpoint: RPC_CSTR, #[in] #[opt] SecurityDescriptor: *mut void, Policy: PRPC_POLICY) -> RPC_STATUS;
+        extern fn RpcServerUseProtseqEpExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Endpoint: RPC_CSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: PRPC_POLICY) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseProtseqEpExW(Protseq: RPC_WSTR, MaxCalls: u32, Endpoint: RPC_WSTR, #[in] #[opt] SecurityDescriptor: *mut void, Policy: PRPC_POLICY) -> RPC_STATUS;
+        extern fn RpcServerUseProtseqEpExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_WSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Endpoint: RPC_WSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: PRPC_POLICY) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseProtseqEpW(Protseq: RPC_WSTR, MaxCalls: u32, Endpoint: RPC_WSTR, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        extern fn RpcServerUseProtseqEpW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_WSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Endpoint: RPC_WSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcServerUseProtseqExA")]
+        extern fn RpcServerUseProtseqEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: PRPC_POLICY) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseProtseqExA(Protseq: RPC_CSTR, MaxCalls: u32, #[in] #[opt] SecurityDescriptor: *mut void, Policy: PRPC_POLICY) -> RPC_STATUS;
+        extern fn RpcServerUseProtseqExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: PRPC_POLICY) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseProtseqExW(Protseq: RPC_WSTR, MaxCalls: u32, #[in] #[opt] SecurityDescriptor: *mut void, Policy: PRPC_POLICY) -> RPC_STATUS;
+        extern fn RpcServerUseProtseqExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_WSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: PRPC_POLICY) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcServerUseProtseqIfA")]
+        extern fn RpcServerUseProtseqIf(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseProtseqIfA(Protseq: RPC_CSTR, MaxCalls: u32, IfSpec: RPC_IF_HANDLE, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        extern fn RpcServerUseProtseqIfA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcServerUseProtseqIfExA")]
+        extern fn RpcServerUseProtseqIfEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: PRPC_POLICY) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseProtseqIfExA(Protseq: RPC_CSTR, MaxCalls: u32, IfSpec: RPC_IF_HANDLE, #[in] #[opt] SecurityDescriptor: *mut void, Policy: PRPC_POLICY) -> RPC_STATUS;
+        extern fn RpcServerUseProtseqIfExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_CSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: PRPC_POLICY) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseProtseqIfExW(Protseq: RPC_WSTR, MaxCalls: u32, IfSpec: RPC_IF_HANDLE, #[in] #[opt] SecurityDescriptor: *mut void, Policy: PRPC_POLICY) -> RPC_STATUS;
+        extern fn RpcServerUseProtseqIfExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_WSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: PRPC_POLICY) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseProtseqIfW(Protseq: RPC_WSTR, MaxCalls: u32, IfSpec: RPC_IF_HANDLE, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        extern fn RpcServerUseProtseqIfW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_WSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUseProtseqW(Protseq: RPC_WSTR, MaxCalls: u32, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
+        extern fn RpcServerUseProtseqW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protseq: RPC_WSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxCalls: u32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcServerYield();
         #[library("RPCRT4.dll")]
         extern fn RpcSsDontSerializeContext();
         #[library("RPCRT4.dll")]
-        extern fn RpcSsGetContextBinding(#[in] ContextHandle: *mut void, Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcSsGetContextBinding(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ContextHandle: *mut void, #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcStringBindingComposeA")]
+        extern fn RpcStringBindingCompose(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjUuid: RPC_CSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProtSeq: RPC_CSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NetworkAddr: RPC_CSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Endpoint: RPC_CSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: RPC_CSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringBinding: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcStringBindingComposeA(#[opt] ObjUuid: RPC_CSTR, #[opt] ProtSeq: RPC_CSTR, #[opt] NetworkAddr: RPC_CSTR, #[opt] Endpoint: RPC_CSTR, #[opt] Options: RPC_CSTR, StringBinding: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn RpcStringBindingComposeA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjUuid: RPC_CSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProtSeq: RPC_CSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NetworkAddr: RPC_CSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Endpoint: RPC_CSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: RPC_CSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringBinding: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcStringBindingComposeW(#[opt] ObjUuid: RPC_WSTR, #[opt] ProtSeq: RPC_WSTR, #[opt] NetworkAddr: RPC_WSTR, #[opt] Endpoint: RPC_WSTR, #[opt] Options: RPC_WSTR, StringBinding: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn RpcStringBindingComposeW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjUuid: RPC_WSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProtSeq: RPC_WSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NetworkAddr: RPC_WSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Endpoint: RPC_WSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: RPC_WSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringBinding: *mut RPC_WSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "RpcStringBindingParseA")]
+        extern fn RpcStringBindingParse(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringBinding: RPC_CSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ObjUuid: *mut RPC_CSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Protseq: *mut RPC_CSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NetworkAddr: *mut RPC_CSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Endpoint: *mut RPC_CSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NetworkOptions: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcStringBindingParseA(StringBinding: RPC_CSTR, ObjUuid: *mut RPC_CSTR, Protseq: *mut RPC_CSTR, NetworkAddr: *mut RPC_CSTR, Endpoint: *mut RPC_CSTR, NetworkOptions: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn RpcStringBindingParseA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringBinding: RPC_CSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ObjUuid: *mut RPC_CSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Protseq: *mut RPC_CSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NetworkAddr: *mut RPC_CSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Endpoint: *mut RPC_CSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NetworkOptions: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcStringBindingParseW(StringBinding: RPC_WSTR, ObjUuid: *mut RPC_WSTR, Protseq: *mut RPC_WSTR, NetworkAddr: *mut RPC_WSTR, Endpoint: *mut RPC_WSTR, NetworkOptions: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn RpcStringBindingParseW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringBinding: RPC_WSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ObjUuid: *mut RPC_WSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Protseq: *mut RPC_WSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NetworkAddr: *mut RPC_WSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Endpoint: *mut RPC_WSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] NetworkOptions: *mut RPC_WSTR) -> RPC_STATUS;
+        #[library("RPCRT4.dll", import = "RpcStringFreeA")]
+        extern fn RpcStringFree(#[in] #[out] String: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcStringFreeA(#[in] #[out] String: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcStringFreeW(#[in] #[out] String: *mut RPC_WSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
         extern fn RpcTestCancel() -> RPC_STATUS;
+        #[arch(X86)]
         struct SEC_WINNT_AUTH_IDENTITY_A {
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "UserLength+1", "UserLength+1")]
             User: *mut u8,
             UserLength: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "DomainLength+1", "DomainLength+1")]
             Domain: *mut u8,
             DomainLength: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "PasswordLength+1", "PasswordLength+1")]
+            Password: *mut u8,
+            PasswordLength: u32,
+            Flags: u32,
+        }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct SEC_WINNT_AUTH_IDENTITY_A {
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "UserLength+1", "UserLength+1")]
+            User: *mut u8,
+            UserLength: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "DomainLength+1", "DomainLength+1")]
+            Domain: *mut u8,
+            DomainLength: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "PasswordLength+1", "PasswordLength+1")]
             Password: *mut u8,
             PasswordLength: u32,
             Flags: u32,
         }
         const SEC_WINNT_AUTH_IDENTITY_ANSI: i32 = 1;
         const SEC_WINNT_AUTH_IDENTITY_UNICODE: i32 = 2;
+        #[arch(X86)]
         struct SEC_WINNT_AUTH_IDENTITY_W {
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(UserLength+1)*sizeof(WCHAR)", "(UserLength+1)*sizeof(WCHAR)")]
             User: *mut u16,
             UserLength: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(DomainLength+1)*sizeof(WCHAR)", "(DomainLength+1)*sizeof(WCHAR)")]
             Domain: *mut u16,
             DomainLength: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(PasswordLength+1)*sizeof(WCHAR)", "(PasswordLength+1)*sizeof(WCHAR)")]
             Password: *mut u16,
             PasswordLength: u32,
             Flags: u32,
         }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct SEC_WINNT_AUTH_IDENTITY_W {
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(UserLength+1)*sizeof(WCHAR)", "(UserLength+1)*sizeof(WCHAR)")]
+            User: *mut u16,
+            UserLength: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(DomainLength+1)*sizeof(WCHAR)", "(DomainLength+1)*sizeof(WCHAR)")]
+            Domain: *mut u16,
+            DomainLength: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(PasswordLength+1)*sizeof(WCHAR)", "(PasswordLength+1)*sizeof(WCHAR)")]
+            Password: *mut u16,
+            PasswordLength: u32,
+            Flags: u32,
+        }
+        type UUID = GUID;
+        #[arch(X86)]
         struct UUID_VECTOR {
             Count: u32,
-            Uuid: [*mut GUID; 1],
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "Count", IsByteCount = false, MayBeNull = false)]
+            Uuid: [*mut UUID; 1],
+        }
+        #[packed(8)]
+        #[arch(X64 | Arm64)]
+        struct UUID_VECTOR {
+            Count: u32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "Count", IsByteCount = false, MayBeNull = false)]
+            Uuid: [*mut UUID; 1],
         }
         #[library("RPCRT4.dll")]
-        extern fn UuidCompare(#[in] Uuid1: *mut GUID, #[in] Uuid2: *mut GUID, Status: *mut RPC_STATUS) -> i32;
+        extern fn UuidCompare(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uuid1: *mut UUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uuid2: *mut UUID, #[out] Status: *mut RPC_STATUS) -> i32;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn UuidCreate(Uuid: *mut GUID) -> RPC_STATUS;
+        extern fn UuidCreate(#[out] Uuid: *mut UUID) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn UuidCreateNil(NilUuid: *mut GUID) -> RPC_STATUS;
+        extern fn UuidCreateNil(#[out] NilUuid: *mut UUID) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn UuidCreateSequential(Uuid: *mut GUID) -> RPC_STATUS;
+        extern fn UuidCreateSequential(#[out] Uuid: *mut UUID) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn UuidEqual(#[in] Uuid1: *mut GUID, #[in] Uuid2: *mut GUID, Status: *mut RPC_STATUS) -> i32;
+        extern fn UuidEqual(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uuid1: *mut UUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uuid2: *mut UUID, #[out] Status: *mut RPC_STATUS) -> i32;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "UuidFromStringA")]
+        extern fn UuidFromString(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringUuid: RPC_CSTR, #[out] Uuid: *mut UUID) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn UuidFromStringA(#[opt] StringUuid: RPC_CSTR, Uuid: *mut GUID) -> RPC_STATUS;
+        extern fn UuidFromStringA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringUuid: RPC_CSTR, #[out] Uuid: *mut UUID) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn UuidFromStringW(#[opt] StringUuid: RPC_WSTR, Uuid: *mut GUID) -> RPC_STATUS;
+        extern fn UuidFromStringW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringUuid: RPC_WSTR, #[out] Uuid: *mut UUID) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn UuidHash(#[in] Uuid: *mut GUID, Status: *mut RPC_STATUS) -> u16;
+        extern fn UuidHash(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uuid: *mut UUID, #[out] Status: *mut RPC_STATUS) -> u16;
         #[library("RPCRT4.dll")]
-        extern fn UuidIsNil(#[in] Uuid: *mut GUID, Status: *mut RPC_STATUS) -> i32;
+        extern fn UuidIsNil(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uuid: *mut UUID, #[out] Status: *mut RPC_STATUS) -> i32;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        #[library("RPCRT4.dll", import = "UuidToStringA")]
+        extern fn UuidToString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uuid: *const UUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringUuid: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn UuidToStringA(Uuid: *const GUID, StringUuid: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn UuidToStringA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uuid: *const UUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringUuid: *mut RPC_CSTR) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn UuidToStringW(Uuid: *const GUID, StringUuid: *mut RPC_WSTR) -> RPC_STATUS;
-        type handle_t = RPC_BINDING_HANDLE;
+        extern fn UuidToStringW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uuid: *const UUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringUuid: *mut RPC_WSTR) -> RPC_STATUS;
+        type handle_t = *mut void;
     }
 }

@@ -1,47 +1,47 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        extern fn PINSPECT_HSTRING_CALLBACK(#[in] context: *mut void, readAddress: usize, length: u32, #[len_param(2)] buffer: *mut u8) -> HRESULT;
-        extern fn PINSPECT_HSTRING_CALLBACK2(#[in] context: *mut void, readAddress: u64, length: u32, #[len_param(2)] buffer: *mut u8) -> HRESULT;
+        extern fn PINSPECT_HSTRING_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] context: *mut void, readAddress: UINT_PTR, length: UINT32, #[out] #[len_param(2)] buffer: *mut BYTE) -> HRESULT;
+        extern fn PINSPECT_HSTRING_CALLBACK2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] context: *mut void, readAddress: UINT64, length: UINT32, #[out] #[len_param(2)] buffer: *mut BYTE) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsCompareStringOrdinal(#[opt] string1: HSTRING, #[opt] string2: HSTRING, result: *mut i32) -> HRESULT;
+        extern fn WindowsCompareStringOrdinal(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string1: HSTRING, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string2: HSTRING, #[out] result: *mut INT32) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsConcatString(#[opt] string1: HSTRING, #[opt] string2: HSTRING, newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsConcatString(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string1: HSTRING, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string2: HSTRING, #[Windows::Win32::Metadata::NativeSal("2", "_Result_nullonfailure_", "", "")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsCreateString(#[len_param(1)] #[opt] sourceString: PCNZWCH, length: u32, string: *mut HSTRING) -> HRESULT;
+        extern fn WindowsCreateString(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] sourceString: PCNZWCH, length: UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Result_nullonfailure_", "", "")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] string: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsCreateStringReference(#[opt] sourceString: PCWSTR, length: u32, hstringHeader: *mut HSTRING_HEADER, string: *mut HSTRING) -> HRESULT;
+        extern fn WindowsCreateStringReference(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "length+1", "length+1")] #[in] #[opt] sourceString: PCWSTR, length: UINT32, #[out] hstringHeader: *mut HSTRING_HEADER, #[Windows::Win32::Metadata::NativeSal("2", "_Result_nullonfailure_", "", "")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] string: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsDeleteString(#[opt] string: HSTRING) -> HRESULT;
+        extern fn WindowsDeleteString(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsDeleteStringBuffer(#[opt] bufferHandle: HSTRING_BUFFER) -> HRESULT;
+        extern fn WindowsDeleteStringBuffer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bufferHandle: HSTRING_BUFFER) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsDuplicateString(#[opt] string: HSTRING, newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsDuplicateString(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: HSTRING, #[Windows::Win32::Metadata::NativeSal("2", "_Result_nullonfailure_", "", "")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsGetStringLen(#[opt] string: HSTRING) -> u32;
+        extern fn WindowsGetStringLen(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: HSTRING) -> UINT32;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsGetStringRawBuffer(#[opt] string: HSTRING, #[opt] length: *mut u32) -> PCWSTR;
+        extern fn WindowsGetStringRawBuffer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: HSTRING, #[out] #[opt] length: *mut UINT32) -> PCWSTR;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsInspectString(targetHString: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, #[in] #[opt] context: *mut void, length: *mut u32, targetStringAddress: *mut usize) -> HRESULT;
+        extern fn WindowsInspectString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetHString: UINT_PTR, machine: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] callback: PINSPECT_HSTRING_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] context: *mut void, #[out] length: *mut UINT32, #[out] targetStringAddress: *mut UINT_PTR) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-1.dll")]
-        extern fn WindowsInspectString2(targetHString: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, #[in] #[opt] context: *mut void, length: *mut u32, targetStringAddress: *mut u64) -> HRESULT;
+        extern fn WindowsInspectString2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetHString: UINT64, machine: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] callback: PINSPECT_HSTRING_CALLBACK2, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] context: *mut void, #[out] length: *mut UINT32, #[out] targetStringAddress: *mut UINT64) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsIsStringEmpty(#[opt] string: HSTRING) -> BOOL;
+        extern fn WindowsIsStringEmpty(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: HSTRING) -> BOOL;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsPreallocateStringBuffer(length: u32, charBuffer: *mut *mut u16, bufferHandle: *mut HSTRING_BUFFER) -> HRESULT;
+        extern fn WindowsPreallocateStringBuffer(length: UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "length+1", "length+1")] #[out] charBuffer: *mut *mut WCHAR, #[Windows::Win32::Metadata::NativeSal("2", "_Result_nullonfailure_", "", "")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] bufferHandle: *mut HSTRING_BUFFER) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsPromoteStringBuffer(bufferHandle: HSTRING_BUFFER, string: *mut HSTRING) -> HRESULT;
+        extern fn WindowsPromoteStringBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bufferHandle: HSTRING_BUFFER, #[Windows::Win32::Metadata::NativeSal("2", "_Result_nullonfailure_", "", "")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] string: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsReplaceString(#[opt] string: HSTRING, #[opt] stringReplaced: HSTRING, #[opt] stringReplaceWith: HSTRING, newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsReplaceString(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: HSTRING, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] stringReplaced: HSTRING, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] stringReplaceWith: HSTRING, #[Windows::Win32::Metadata::NativeSal("2", "_Result_nullonfailure_", "", "")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsStringHasEmbeddedNull(#[opt] string: HSTRING, hasEmbedNull: *mut BOOL) -> HRESULT;
+        extern fn WindowsStringHasEmbeddedNull(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: HSTRING, #[out] hasEmbedNull: *mut BOOL) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsSubstring(#[opt] string: HSTRING, startIndex: u32, newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsSubstring(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: HSTRING, startIndex: UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Result_nullonfailure_", "", "")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsSubstringWithSpecifiedLength(#[opt] string: HSTRING, startIndex: u32, length: u32, newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsSubstringWithSpecifiedLength(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: HSTRING, startIndex: UINT32, length: UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Result_nullonfailure_", "", "")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsTrimStringEnd(#[opt] string: HSTRING, #[opt] trimString: HSTRING, newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsTrimStringEnd(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: HSTRING, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] trimString: HSTRING, #[Windows::Win32::Metadata::NativeSal("2", "_Result_nullonfailure_", "", "")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsTrimStringStart(#[opt] string: HSTRING, #[opt] trimString: HSTRING, newString: *mut HSTRING) -> HRESULT;
+        extern fn WindowsTrimStringStart(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: HSTRING, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] trimString: HSTRING, #[Windows::Win32::Metadata::NativeSal("2", "_Result_nullonfailure_", "", "")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] newString: *mut HSTRING) -> HRESULT;
     }
 }

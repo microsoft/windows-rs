@@ -3,10 +3,12 @@ mod Windows {
     mod Win32 {
         const ATTRIB_MATTE: i32 = 2;
         const ATTRIB_TRANSPARENCY: i32 = 1;
+        #[library("mscms.dll", import = "AssociateColorProfileWithDeviceA")]
+        extern fn AssociateColorProfileWithDevice(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: PCSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn AssociateColorProfileWithDeviceA(#[opt] pMachineName: PCSTR, pProfileName: PCSTR, pDeviceName: PCSTR) -> BOOL;
+        extern fn AssociateColorProfileWithDeviceA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: PCSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn AssociateColorProfileWithDeviceW(#[opt] pMachineName: PCWSTR, pProfileName: PCWSTR, pDeviceName: PCWSTR) -> BOOL;
+        extern fn AssociateColorProfileWithDeviceW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: PCWSTR) -> BOOL;
         const BEST_MODE: i32 = 3;
         #[repr(i32)]
         enum BMFORMAT {
@@ -62,39 +64,39 @@ mod Windows {
         const CLASS_PRINTER: i32 = 1886549106;
         const CLASS_SCANNER: i32 = 1935896178;
         #[library("ICM32.dll")]
-        extern fn CMCheckColors(hcmTransform: HCMTRANSFORM, #[len_param(2)] lpaInputColors: LPCOLOR, nColors: u32, ctInput: COLORTYPE, #[len_param(2)] #[out] lpaResult: LPBYTE) -> BOOL;
+        extern fn CMCheckColors(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hcmTransform: HCMTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpaInputColors: LPCOLOR, nColors: DWORD, ctInput: COLORTYPE, #[out] #[len_param(2)] lpaResult: LPBYTE) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMCheckColorsInGamut(hcmTransform: HCMTRANSFORM, #[len_param(3)] #[in] lpaRGBTriple: *mut RGBTRIPLE, #[size_param(3)] #[out] lpaResult: LPBYTE, nCount: u32) -> BOOL;
+        extern fn CMCheckColorsInGamut(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hcmTransform: HCMTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpaRGBTriple: *mut RGBTRIPLE, #[out] #[size_param(3)] lpaResult: LPBYTE, nCount: UINT) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMCheckRGBs(hcmTransform: HCMTRANSFORM, #[in] lpSrcBits: *mut void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwStride: u32, #[out] lpaResult: LPBYTE, pfnCallback: PBMCALLBACKFN, ulCallbackData: LPARAM) -> BOOL;
+        extern fn CMCheckRGBs(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hcmTransform: HCMTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSrcBits: LPVOID, bmInput: BMFORMAT, dwWidth: DWORD, dwHeight: DWORD, dwStride: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "dwWidth * dwHeight", "dwWidth * dwHeight")] #[out] lpaResult: LPBYTE, pfnCallback: PBMCALLBACKFN, ulCallbackData: LPARAM) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMConvertColorNameToIndex(hProfile: HPROFILE, #[len_param(3)] paColorName: PCOLOR_NAME, #[len_param(3)] #[out] paIndex: PDWORD, dwCount: u32) -> BOOL;
+        extern fn CMConvertColorNameToIndex(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] paColorName: PCOLOR_NAME, #[out] #[len_param(3)] paIndex: PDWORD, dwCount: DWORD) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMConvertIndexToColorName(hProfile: HPROFILE, #[len_param(3)] paIndex: PDWORD, #[len_param(3)] #[out] paColorName: PCOLOR_NAME, dwCount: u32) -> BOOL;
+        extern fn CMConvertIndexToColorName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] paIndex: PDWORD, #[out] #[len_param(3)] paColorName: PCOLOR_NAME, dwCount: DWORD) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMCreateDeviceLinkProfile(#[len_param(1)] pahProfiles: PHPROFILE, nProfiles: u32, #[len_param(3)] padwIntents: PDWORD, nIntents: u32, dwFlags: u32, lpProfileData: *mut LPBYTE) -> BOOL;
+        extern fn CMCreateDeviceLinkProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pahProfiles: PHPROFILE, nProfiles: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] padwIntents: PDWORD, nIntents: DWORD, dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(GlobalSize(*lpProfileData))", "_Inexpressible_(GlobalSize(*lpProfileData))")] #[out] lpProfileData: *mut LPBYTE) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMCreateMultiProfileTransform(#[len_param(1)] pahProfiles: PHPROFILE, nProfiles: u32, #[len_param(3)] padwIntents: PDWORD, nIntents: u32, dwFlags: u32) -> HCMTRANSFORM;
+        extern fn CMCreateMultiProfileTransform(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pahProfiles: PHPROFILE, nProfiles: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] padwIntents: PDWORD, nIntents: DWORD, dwFlags: DWORD) -> HCMTRANSFORM;
         #[library("ICM32.dll")]
-        extern fn CMCreateProfile(#[in] #[out] lpColorSpace: LPLOGCOLORSPACEA, lpProfileData: *mut LPDEVCHARACTER) -> BOOL;
+        extern fn CMCreateProfile(#[in] #[out] lpColorSpace: LPLOGCOLORSPACEA, #[out] lpProfileData: *mut LPDEVCHARACTER) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMCreateProfileW(#[in] #[out] lpColorSpace: LPLOGCOLORSPACEW, lpProfileData: *mut LPDEVCHARACTER) -> BOOL;
+        extern fn CMCreateProfileW(#[in] #[out] lpColorSpace: LPLOGCOLORSPACEW, #[out] lpProfileData: *mut LPDEVCHARACTER) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMCreateTransform(lpColorSpace: LPLOGCOLORSPACEA, lpDevCharacter: LPDEVCHARACTER, lpTargetDevCharacter: LPDEVCHARACTER) -> HCMTRANSFORM;
+        extern fn CMCreateTransform(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpColorSpace: LPLOGCOLORSPACEA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDevCharacter: LPDEVCHARACTER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTargetDevCharacter: LPDEVCHARACTER) -> HCMTRANSFORM;
         #[library("ICM32.dll")]
-        extern fn CMCreateTransformExt(lpColorSpace: LPLOGCOLORSPACEA, lpDevCharacter: LPDEVCHARACTER, lpTargetDevCharacter: LPDEVCHARACTER, dwFlags: u32) -> HCMTRANSFORM;
+        extern fn CMCreateTransformExt(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpColorSpace: LPLOGCOLORSPACEA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDevCharacter: LPDEVCHARACTER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTargetDevCharacter: LPDEVCHARACTER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HCMTRANSFORM;
         #[library("ICM32.dll")]
-        extern fn CMCreateTransformExtW(lpColorSpace: LPLOGCOLORSPACEW, lpDevCharacter: LPDEVCHARACTER, lpTargetDevCharacter: LPDEVCHARACTER, dwFlags: u32) -> HCMTRANSFORM;
+        extern fn CMCreateTransformExtW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpColorSpace: LPLOGCOLORSPACEW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDevCharacter: LPDEVCHARACTER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTargetDevCharacter: LPDEVCHARACTER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HCMTRANSFORM;
         #[library("ICM32.dll")]
-        extern fn CMCreateTransformW(lpColorSpace: LPLOGCOLORSPACEW, lpDevCharacter: LPDEVCHARACTER, lpTargetDevCharacter: LPDEVCHARACTER) -> HCMTRANSFORM;
+        extern fn CMCreateTransformW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpColorSpace: LPLOGCOLORSPACEW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDevCharacter: LPDEVCHARACTER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTargetDevCharacter: LPDEVCHARACTER) -> HCMTRANSFORM;
         #[library("ICM32.dll")]
         extern fn CMDeleteTransform(#[in] #[out] hcmTransform: HCMTRANSFORM) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMGetInfo(dwInfo: u32) -> u32;
+        extern fn CMGetInfo(dwInfo: DWORD) -> DWORD;
         #[library("ICM32.dll")]
-        extern fn CMGetNamedProfileInfo(hProfile: HPROFILE, #[in] #[out] pNamedProfileInfo: PNAMED_PROFILE_INFO) -> BOOL;
+        extern fn CMGetNamedProfileInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, #[in] #[out] pNamedProfileInfo: PNAMED_PROFILE_INFO) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMIsProfileValid(hProfile: HPROFILE, #[out] lpbValid: LPBOOL) -> BOOL;
+        extern fn CMIsProfileValid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, #[out] lpbValid: LPBOOL) -> BOOL;
         const CMM_DESCRIPTION: i32 = 5;
         const CMM_DLL_VERSION: i32 = 3;
         const CMM_DRIVER_VERSION: i32 = 2;
@@ -122,18 +124,18 @@ mod Windows {
         const CMS_USEDESCRIPTION: i32 = 512;
         const CMS_USEHOOK: i32 = 128;
         #[library("ICM32.dll")]
-        extern fn CMTranslateColors(hcmTransform: HCMTRANSFORM, #[len_param(2)] lpaInputColors: LPCOLOR, nColors: u32, ctInput: COLORTYPE, #[len_param(2)] #[out] lpaOutputColors: LPCOLOR, ctOutput: COLORTYPE) -> BOOL;
+        extern fn CMTranslateColors(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hcmTransform: HCMTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpaInputColors: LPCOLOR, nColors: DWORD, ctInput: COLORTYPE, #[out] #[len_param(2)] lpaOutputColors: LPCOLOR, ctOutput: COLORTYPE) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMTranslateRGB(hcmTransform: HCMTRANSFORM, ColorRef: COLORREF, #[out] lpColorRef: LPCOLORREF, dwFlags: u32) -> BOOL;
+        extern fn CMTranslateRGB(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hcmTransform: HCMTRANSFORM, ColorRef: COLORREF, #[out] lpColorRef: LPCOLORREF, dwFlags: DWORD) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMTranslateRGBs(hcmTransform: HCMTRANSFORM, #[in] lpSrcBits: *mut void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwStride: u32, lpDestBits: *mut void, bmOutput: BMFORMAT, dwTranslateDirection: u32) -> BOOL;
+        extern fn CMTranslateRGBs(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hcmTransform: HCMTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSrcBits: LPVOID, bmInput: BMFORMAT, dwWidth: DWORD, dwHeight: DWORD, dwStride: DWORD, #[out] lpDestBits: LPVOID, bmOutput: BMFORMAT, dwTranslateDirection: DWORD) -> BOOL;
         #[library("ICM32.dll")]
-        extern fn CMTranslateRGBsExt(hcmTransform: HCMTRANSFORM, #[in] lpSrcBits: *mut void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwInputStride: u32, lpDestBits: *mut void, bmOutput: BMFORMAT, dwOutputStride: u32, lpfnCallback: LPBMCALLBACKFN, ulCallbackData: LPARAM) -> BOOL;
+        extern fn CMTranslateRGBsExt(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hcmTransform: HCMTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSrcBits: LPVOID, bmInput: BMFORMAT, dwWidth: DWORD, dwHeight: DWORD, dwInputStride: DWORD, #[out] lpDestBits: LPVOID, bmOutput: BMFORMAT, dwOutputStride: DWORD, lpfnCallback: LPBMCALLBACKFN, ulCallbackData: LPARAM) -> BOOL;
         struct CMYKCOLOR {
-            cyan: u16,
-            magenta: u16,
-            yellow: u16,
-            black: u16,
+            cyan: WORD,
+            magenta: WORD,
+            yellow: WORD,
+            black: WORD,
         }
         union COLOR {
             gray: GRAYCOLOR,
@@ -146,7 +148,7 @@ mod Windows {
             named: NAMEDCOLOR,
             hifi: HiFiCOLOR,
             Anonymous: struct {
-                reserved1: u32,
+                reserved1: DWORD,
                 reserved2: *mut void,
             },
         }
@@ -161,42 +163,42 @@ mod Windows {
             COLOR_FLOAT16 = 7,
         }
         struct COLORMATCHSETUPA {
-            dwSize: u32,
-            dwVersion: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwVersion: DWORD,
+            dwFlags: DWORD,
             hwndOwner: HWND,
             pSourceName: PCSTR,
             pDisplayName: PCSTR,
             pPrinterName: PCSTR,
-            dwRenderIntent: u32,
-            dwProofingIntent: u32,
+            dwRenderIntent: DWORD,
+            dwProofingIntent: DWORD,
             pMonitorProfile: PSTR,
-            ccMonitorProfile: u32,
+            ccMonitorProfile: DWORD,
             pPrinterProfile: PSTR,
-            ccPrinterProfile: u32,
+            ccPrinterProfile: DWORD,
             pTargetProfile: PSTR,
-            ccTargetProfile: u32,
+            ccTargetProfile: DWORD,
             lpfnHook: DLGPROC,
             lParam: LPARAM,
             lpfnApplyCallback: PCMSCALLBACKA,
             lParamApplyCallback: LPARAM,
         }
         struct COLORMATCHSETUPW {
-            dwSize: u32,
-            dwVersion: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwVersion: DWORD,
+            dwFlags: DWORD,
             hwndOwner: HWND,
             pSourceName: PCWSTR,
             pDisplayName: PCWSTR,
             pPrinterName: PCWSTR,
-            dwRenderIntent: u32,
-            dwProofingIntent: u32,
+            dwRenderIntent: DWORD,
+            dwProofingIntent: DWORD,
             pMonitorProfile: PWSTR,
-            ccMonitorProfile: u32,
+            ccMonitorProfile: DWORD,
             pPrinterProfile: PWSTR,
-            ccPrinterProfile: u32,
+            ccPrinterProfile: DWORD,
             pTargetProfile: PWSTR,
-            ccTargetProfile: u32,
+            ccTargetProfile: DWORD,
             lpfnHook: DLGPROC,
             lParam: LPARAM,
             lpfnApplyCallback: PCMSCALLBACKW,
@@ -247,92 +249,98 @@ mod Windows {
         const CSA_Lab: i32 = 8;
         const CSA_RGB: i32 = 6;
         #[library("mscms.dll")]
-        extern fn CheckBitmapBits(hColorTransform: HTRANSFORM, #[in] pSrcBits: *mut void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwStride: u32, #[out] paResult: PBYTE, #[opt] pfnCallback: PBMCALLBACKFN, #[opt] lpCallbackData: LPARAM) -> BOOL;
+        extern fn CheckBitmapBits(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hColorTransform: HTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcBits: PVOID, bmInput: BMFORMAT, dwWidth: DWORD, dwHeight: DWORD, dwStride: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "dwWidth * dwHeight", "dwWidth * dwHeight")] #[out] paResult: PBYTE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnCallback: PBMCALLBACKFN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCallbackData: LPARAM) -> BOOL;
         #[library("mscms.dll")]
-        extern fn CheckColors(hColorTransform: HTRANSFORM, #[len_param(2)] paInputColors: PCOLOR, nColors: u32, ctInput: COLORTYPE, #[len_param(2)] #[out] paResult: PBYTE) -> BOOL;
+        extern fn CheckColors(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hColorTransform: HTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] paInputColors: PCOLOR, nColors: DWORD, ctInput: COLORTYPE, #[out] #[len_param(2)] paResult: PBYTE) -> BOOL;
         #[library("mscms.dll")]
-        extern fn CloseColorProfile(#[opt] hProfile: HPROFILE) -> BOOL;
+        extern fn CloseColorProfile(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE) -> BOOL;
         #[library("mscms.dll")]
-        extern fn ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profileName: PCWSTR, targetAdapterID: LUID, sourceID: u32, setAsDefault: BOOL, associateAsAdvancedColor: BOOL) -> HRESULT;
+        extern fn ColorProfileAddDisplayAssociation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] profileName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetAdapterID: LUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sourceID: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] setAsDefault: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] associateAsAdvancedColor: BOOL) -> HRESULT;
         #[library("mscms.dll")]
-        extern fn ColorProfileGetDeviceCapabilities(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetAdapterID: LUID, sourceID: u32, capsType: WCS_DEVICE_CAPABILITIES_TYPE, outputCapabilities: *mut void) -> HRESULT;
+        extern fn ColorProfileGetDeviceCapabilities(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetAdapterID: LUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sourceID: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] capsType: WCS_DEVICE_CAPABILITIES_TYPE, #[out] outputCapabilities: PVOID) -> HRESULT;
         #[library("mscms.dll")]
-        extern fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetAdapterID: LUID, sourceID: u32, profileType: COLORPROFILETYPE, profileSubType: COLORPROFILESUBTYPE, profileName: *mut PWSTR) -> HRESULT;
+        extern fn ColorProfileGetDisplayDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetAdapterID: LUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sourceID: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] profileType: COLORPROFILETYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] profileSubType: COLORPROFILESUBTYPE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] profileName: *mut LPWSTR) -> HRESULT;
         #[library("mscms.dll")]
-        extern fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetAdapterID: LUID, sourceID: u32, profileList: *mut *mut PWSTR, #[out] profileCount: PDWORD) -> HRESULT;
+        extern fn ColorProfileGetDisplayList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetAdapterID: LUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sourceID: UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] profileList: *mut *mut LPWSTR, #[out] profileCount: PDWORD) -> HRESULT;
         #[library("mscms.dll")]
-        extern fn ColorProfileGetDisplayUserScope(targetAdapterID: LUID, sourceID: u32, scope: *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> HRESULT;
+        extern fn ColorProfileGetDisplayUserScope(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetAdapterID: LUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sourceID: UINT32, #[out] scope: *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> HRESULT;
         #[library("mscms.dll")]
-        extern fn ColorProfileRemoveDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profileName: PCWSTR, targetAdapterID: LUID, sourceID: u32, dissociateAdvancedColor: BOOL) -> HRESULT;
+        extern fn ColorProfileRemoveDisplayAssociation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] profileName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetAdapterID: LUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sourceID: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dissociateAdvancedColor: BOOL) -> HRESULT;
         #[library("mscms.dll")]
-        extern fn ColorProfileSetDisplayDefaultAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profileName: PCWSTR, profileType: COLORPROFILETYPE, profileSubType: COLORPROFILESUBTYPE, targetAdapterID: LUID, sourceID: u32) -> HRESULT;
+        extern fn ColorProfileSetDisplayDefaultAssociation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] profileName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] profileType: COLORPROFILETYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] profileSubType: COLORPROFILESUBTYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetAdapterID: LUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sourceID: UINT32) -> HRESULT;
         #[library("mscms.dll")]
-        extern fn ConvertColorNameToIndex(hProfile: HPROFILE, #[len_param(3)] paColorName: PCOLOR_NAME, #[len_param(3)] #[out] paIndex: PDWORD, dwCount: u32) -> BOOL;
+        extern fn ConvertColorNameToIndex(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] paColorName: PCOLOR_NAME, #[out] #[len_param(3)] paIndex: PDWORD, dwCount: DWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn ConvertIndexToColorName(hProfile: HPROFILE, #[len_param(3)] paIndex: PDWORD, #[len_param(3)] #[out] paColorName: PCOLOR_NAME, dwCount: u32) -> BOOL;
+        extern fn ConvertIndexToColorName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] paIndex: PDWORD, #[out] #[len_param(3)] paColorName: PCOLOR_NAME, dwCount: DWORD) -> BOOL;
+        #[library("mscms.dll", import = "CreateColorTransformA")]
+        extern fn CreateColorTransform(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLogColorSpace: LPLOGCOLORSPACEA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDestProfile: HPROFILE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTargetProfile: HPROFILE, dwFlags: DWORD) -> HTRANSFORM;
         #[library("mscms.dll")]
-        extern fn CreateColorTransformA(pLogColorSpace: LPLOGCOLORSPACEA, hDestProfile: HPROFILE, hTargetProfile: HPROFILE, dwFlags: u32) -> HTRANSFORM;
+        extern fn CreateColorTransformA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLogColorSpace: LPLOGCOLORSPACEA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDestProfile: HPROFILE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTargetProfile: HPROFILE, dwFlags: DWORD) -> HTRANSFORM;
         #[library("mscms.dll")]
-        extern fn CreateColorTransformW(pLogColorSpace: LPLOGCOLORSPACEW, hDestProfile: HPROFILE, hTargetProfile: HPROFILE, dwFlags: u32) -> HTRANSFORM;
+        extern fn CreateColorTransformW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLogColorSpace: LPLOGCOLORSPACEW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDestProfile: HPROFILE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTargetProfile: HPROFILE, dwFlags: DWORD) -> HTRANSFORM;
         #[library("mscms.dll")]
-        extern fn CreateDeviceLinkProfile(#[len_param(1)] hProfile: PHPROFILE, nProfiles: u32, #[len_param(3)] padwIntent: PDWORD, nIntents: u32, dwFlags: u32, pProfileData: *mut PBYTE, indexPreferredCMM: u32) -> BOOL;
+        extern fn CreateDeviceLinkProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] hProfile: PHPROFILE, nProfiles: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] padwIntent: PDWORD, nIntents: DWORD, dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(GlobalSize(*pProfileData))", "_Inexpressible_(GlobalSize(*pProfileData))")] #[out] pProfileData: *mut PBYTE, indexPreferredCMM: DWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn CreateMultiProfileTransform(#[len_param(1)] pahProfiles: PHPROFILE, nProfiles: u32, #[len_param(3)] padwIntent: PDWORD, nIntents: u32, dwFlags: u32, indexPreferredCMM: u32) -> HTRANSFORM;
+        extern fn CreateMultiProfileTransform(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pahProfiles: PHPROFILE, nProfiles: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] padwIntent: PDWORD, nIntents: DWORD, dwFlags: DWORD, indexPreferredCMM: DWORD) -> HTRANSFORM;
+        #[library("mscms.dll", import = "CreateProfileFromLogColorSpaceA")]
+        extern fn CreateProfileFromLogColorSpace(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLogColorSpace: LPLOGCOLORSPACEA, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(GlobalSize(*pProfile))", "_Inexpressible_(GlobalSize(*pProfile))")] #[out] pProfile: *mut PBYTE) -> BOOL;
         #[library("mscms.dll")]
-        extern fn CreateProfileFromLogColorSpaceA(pLogColorSpace: LPLOGCOLORSPACEA, pProfile: *mut PBYTE) -> BOOL;
+        extern fn CreateProfileFromLogColorSpaceA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLogColorSpace: LPLOGCOLORSPACEA, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(GlobalSize(*pProfile))", "_Inexpressible_(GlobalSize(*pProfile))")] #[out] pProfile: *mut PBYTE) -> BOOL;
         #[library("mscms.dll")]
-        extern fn CreateProfileFromLogColorSpaceW(pLogColorSpace: LPLOGCOLORSPACEW, pProfile: *mut PBYTE) -> BOOL;
+        extern fn CreateProfileFromLogColorSpaceW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLogColorSpace: LPLOGCOLORSPACEW, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(GlobalSize(*pProfile))", "_Inexpressible_(GlobalSize(*pProfile))")] #[out] pProfile: *mut PBYTE) -> BOOL;
         const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1;
         #[library("mscms.dll")]
         extern fn DeleteColorTransform(#[in] #[out] hxform: HTRANSFORM) -> BOOL;
+        #[library("mscms.dll", import = "DisassociateColorProfileFromDeviceA")]
+        extern fn DisassociateColorProfileFromDevice(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: PCSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn DisassociateColorProfileFromDeviceA(#[opt] pMachineName: PCSTR, pProfileName: PCSTR, pDeviceName: PCSTR) -> BOOL;
+        extern fn DisassociateColorProfileFromDeviceA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: PCSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn DisassociateColorProfileFromDeviceW(#[opt] pMachineName: PCWSTR, pProfileName: PCWSTR, pDeviceName: PCWSTR) -> BOOL;
+        extern fn DisassociateColorProfileFromDeviceW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: PCWSTR) -> BOOL;
         const ENABLE_GAMUT_CHECKING: i32 = 65536;
         struct ENUMTYPEA {
-            dwSize: u32,
-            dwVersion: u32,
-            dwFields: u32,
+            dwSize: DWORD,
+            dwVersion: DWORD,
+            dwFields: DWORD,
             pDeviceName: PCSTR,
-            dwMediaType: u32,
-            dwDitheringMode: u32,
-            dwResolution: [u32; 2],
-            dwCMMType: u32,
-            dwClass: u32,
-            dwDataColorSpace: u32,
-            dwConnectionSpace: u32,
-            dwSignature: u32,
-            dwPlatform: u32,
-            dwProfileFlags: u32,
-            dwManufacturer: u32,
-            dwModel: u32,
-            dwAttributes: [u32; 2],
-            dwRenderingIntent: u32,
-            dwCreator: u32,
-            dwDeviceClass: u32,
+            dwMediaType: DWORD,
+            dwDitheringMode: DWORD,
+            dwResolution: [DWORD; 2],
+            dwCMMType: DWORD,
+            dwClass: DWORD,
+            dwDataColorSpace: DWORD,
+            dwConnectionSpace: DWORD,
+            dwSignature: DWORD,
+            dwPlatform: DWORD,
+            dwProfileFlags: DWORD,
+            dwManufacturer: DWORD,
+            dwModel: DWORD,
+            dwAttributes: [DWORD; 2],
+            dwRenderingIntent: DWORD,
+            dwCreator: DWORD,
+            dwDeviceClass: DWORD,
         }
         struct ENUMTYPEW {
-            dwSize: u32,
-            dwVersion: u32,
-            dwFields: u32,
+            dwSize: DWORD,
+            dwVersion: DWORD,
+            dwFields: DWORD,
             pDeviceName: PCWSTR,
-            dwMediaType: u32,
-            dwDitheringMode: u32,
-            dwResolution: [u32; 2],
-            dwCMMType: u32,
-            dwClass: u32,
-            dwDataColorSpace: u32,
-            dwConnectionSpace: u32,
-            dwSignature: u32,
-            dwPlatform: u32,
-            dwProfileFlags: u32,
-            dwManufacturer: u32,
-            dwModel: u32,
-            dwAttributes: [u32; 2],
-            dwRenderingIntent: u32,
-            dwCreator: u32,
-            dwDeviceClass: u32,
+            dwMediaType: DWORD,
+            dwDitheringMode: DWORD,
+            dwResolution: [DWORD; 2],
+            dwCMMType: DWORD,
+            dwClass: DWORD,
+            dwDataColorSpace: DWORD,
+            dwConnectionSpace: DWORD,
+            dwSignature: DWORD,
+            dwPlatform: DWORD,
+            dwProfileFlags: DWORD,
+            dwManufacturer: DWORD,
+            dwModel: DWORD,
+            dwAttributes: [DWORD; 2],
+            dwRenderingIntent: DWORD,
+            dwCreator: DWORD,
+            dwDeviceClass: DWORD,
         }
         const ENUM_TYPE_VERSION: i32 = 768;
         const ET_ATTRIBUTES: i32 = 8192;
@@ -354,70 +362,84 @@ mod Windows {
         const ET_RESOLUTION: i32 = 8;
         const ET_SIGNATURE: i32 = 256;
         const ET_STANDARDDISPLAYCOLOR: i32 = 131072;
+        #[library("mscms.dll", import = "EnumColorProfilesA")]
+        extern fn EnumColorProfiles(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEnumRecord: PENUMTYPEA, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pdwSizeOfEnumerationBuffer", "*pdwSizeOfEnumerationBuffer")] #[out] #[opt] pEnumerationBuffer: PBYTE, #[in] #[out] pdwSizeOfEnumerationBuffer: PDWORD, #[out] #[opt] pnProfiles: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn EnumColorProfilesA(#[opt] pMachineName: PCSTR, pEnumRecord: PENUMTYPEA, #[size_param(3)] #[out] #[opt] pEnumerationBuffer: PBYTE, #[in] #[out] pdwSizeOfEnumerationBuffer: PDWORD, #[out] #[opt] pnProfiles: PDWORD) -> BOOL;
+        extern fn EnumColorProfilesA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEnumRecord: PENUMTYPEA, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pdwSizeOfEnumerationBuffer", "*pdwSizeOfEnumerationBuffer")] #[out] #[opt] pEnumerationBuffer: PBYTE, #[in] #[out] pdwSizeOfEnumerationBuffer: PDWORD, #[out] #[opt] pnProfiles: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn EnumColorProfilesW(#[opt] pMachineName: PCWSTR, pEnumRecord: PENUMTYPEW, #[size_param(3)] #[out] #[opt] pEnumerationBuffer: PBYTE, #[in] #[out] pdwSizeOfEnumerationBuffer: PDWORD, #[out] #[opt] pnProfiles: PDWORD) -> BOOL;
+        extern fn EnumColorProfilesW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEnumRecord: PENUMTYPEW, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pdwSizeOfEnumerationBuffer", "*pdwSizeOfEnumerationBuffer")] #[out] #[opt] pEnumerationBuffer: PBYTE, #[in] #[out] pdwSizeOfEnumerationBuffer: PDWORD, #[out] #[opt] pnProfiles: PDWORD) -> BOOL;
         const FAST_TRANSLATE: i32 = 262144;
         const FLAG_DEPENDENTONDATA: i32 = 2;
         const FLAG_EMBEDDEDPROFILE: i32 = 1;
         const FLAG_ENABLE_CHROMATIC_ADAPTATION: i32 = 33554432;
         struct GENERIC3CHANNEL {
-            ch1: u16,
-            ch2: u16,
-            ch3: u16,
+            ch1: WORD,
+            ch2: WORD,
+            ch3: WORD,
         }
         struct GRAYCOLOR {
-            gray: u16,
+            gray: WORD,
         }
         #[library("mscms.dll")]
-        extern fn GetCMMInfo(hColorTransform: HTRANSFORM, param1: u32) -> u32;
+        extern fn GetCMMInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hColorTransform: HTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeDeprecated("GetColorDirectoryW is deprecated and might not work on all platforms. For more info, see MSDN.", "")]
+        #[library("mscms.dll", import = "GetColorDirectoryA")]
+        extern fn GetColorDirectory(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pdwSize,*pdwSize", "*pdwSize,*pdwSize")] #[out] #[opt] pBuffer: PSTR, #[in] #[out] pdwSize: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("GetColorDirectoryW is deprecated and might not work on all platforms. For more info, see MSDN.", "")]
         #[library("mscms.dll")]
-        extern fn GetColorDirectoryA(#[opt] pMachineName: PCSTR, #[size_param(2)] #[out] #[opt] pBuffer: PSTR, #[in] #[out] pdwSize: PDWORD) -> BOOL;
+        extern fn GetColorDirectoryA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pdwSize,*pdwSize", "*pdwSize,*pdwSize")] #[out] #[opt] pBuffer: PSTR, #[in] #[out] pdwSize: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("GetColorDirectoryA is deprecated and might not work on all platforms. For more info, see MSDN.", "")]
         #[library("mscms.dll")]
-        extern fn GetColorDirectoryW(#[opt] pMachineName: PCWSTR, #[size_param(2)] #[out] #[opt] pBuffer: PWSTR, #[in] #[out] pdwSize: PDWORD) -> BOOL;
+        extern fn GetColorDirectoryW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pdwSize,*pdwSize", "*pdwSize,*pdwSize")] #[out] #[opt] pBuffer: PWSTR, #[in] #[out] pdwSize: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetColorProfileElement(hProfile: HPROFILE, tag: TAGTYPE, dwOffset: u32, #[in] #[out] pcbElement: PDWORD, #[size_param(3)] #[opt] pElement: *mut void, #[out] pbReference: PBOOL) -> BOOL;
+        extern fn GetColorProfileElement(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, tag: TAGTYPE, dwOffset: DWORD, #[in] #[out] pcbElement: PDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbElement", "*pcbElement")] #[out] #[opt] pElement: PVOID, #[out] pbReference: PBOOL) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetColorProfileElementTag(hProfile: HPROFILE, dwIndex: u32, #[out] pTag: PTAGTYPE) -> BOOL;
+        extern fn GetColorProfileElementTag(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, dwIndex: DWORD, #[out] pTag: PTAGTYPE) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetColorProfileFromHandle(hProfile: HPROFILE, #[size_param(2)] #[out] #[opt] pProfile: PBYTE, #[in] #[out] pcbProfile: PDWORD) -> BOOL;
+        extern fn GetColorProfileFromHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbProfile", "*pcbProfile")] #[out] #[opt] pProfile: PBYTE, #[in] #[out] pcbProfile: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetColorProfileHeader(hProfile: HPROFILE, #[out] pHeader: PPROFILEHEADER) -> BOOL;
+        extern fn GetColorProfileHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, #[out] pHeader: PPROFILEHEADER) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetCountColorProfileElements(hProfile: HPROFILE, #[out] pnElementCount: PDWORD) -> BOOL;
+        extern fn GetCountColorProfileElements(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, #[out] pnElementCount: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetNamedProfileInfo(hProfile: HPROFILE, #[in] #[out] pNamedProfileInfo: PNAMED_PROFILE_INFO) -> BOOL;
+        extern fn GetNamedProfileInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "sizeof(NAMED_PROFILE_INFO)", "sizeof(NAMED_PROFILE_INFO)")] #[in] #[out] pNamedProfileInfo: PNAMED_PROFILE_INFO) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetPS2ColorRenderingDictionary(hProfile: HPROFILE, dwIntent: u32, #[size_param(3)] #[out] #[opt] pPS2ColorRenderingDictionary: PBYTE, #[in] #[out] pcbPS2ColorRenderingDictionary: PDWORD, #[in] #[out] pbBinary: PBOOL) -> BOOL;
+        extern fn GetPS2ColorRenderingDictionary(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, dwIntent: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbPS2ColorRenderingDictionary", "*pcbPS2ColorRenderingDictionary")] #[out] #[opt] pPS2ColorRenderingDictionary: PBYTE, #[in] #[out] pcbPS2ColorRenderingDictionary: PDWORD, #[in] #[out] pbBinary: PBOOL) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetPS2ColorRenderingIntent(hProfile: HPROFILE, dwIntent: u32, #[size_param(3)] #[out] #[opt] pBuffer: PBYTE, #[in] #[out] pcbPS2ColorRenderingIntent: PDWORD) -> BOOL;
+        extern fn GetPS2ColorRenderingIntent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, dwIntent: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbPS2ColorRenderingIntent", "*pcbPS2ColorRenderingIntent")] #[out] #[opt] pBuffer: PBYTE, #[in] #[out] pcbPS2ColorRenderingIntent: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetPS2ColorSpaceArray(hProfile: HPROFILE, dwIntent: u32, dwCSAType: u32, #[size_param(4)] #[out] #[opt] pPS2ColorSpaceArray: PBYTE, #[in] #[out] pcbPS2ColorSpaceArray: PDWORD, #[out] pbBinary: PBOOL) -> BOOL;
+        extern fn GetPS2ColorSpaceArray(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, dwIntent: DWORD, dwCSAType: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbPS2ColorSpaceArray", "*pcbPS2ColorSpaceArray")] #[out] #[opt] pPS2ColorSpaceArray: PBYTE, #[in] #[out] pcbPS2ColorSpaceArray: PDWORD, #[out] pbBinary: PBOOL) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        #[library("mscms.dll", import = "GetStandardColorSpaceProfileA")]
+        extern fn GetStandardColorSpaceProfile(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSCS: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbSize,*pcbSize", "*pcbSize,*pcbSize")] #[out] #[opt] pBuffer: PSTR, #[in] #[out] pcbSize: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("mscms.dll")]
-        extern fn GetStandardColorSpaceProfileA(#[opt] pMachineName: PCSTR, dwSCS: u32, #[size_param(3)] #[out] #[opt] pBuffer: PSTR, #[in] #[out] pcbSize: PDWORD) -> BOOL;
+        extern fn GetStandardColorSpaceProfileA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSCS: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbSize,*pcbSize", "*pcbSize,*pcbSize")] #[out] #[opt] pBuffer: PSTR, #[in] #[out] pcbSize: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("mscms.dll")]
-        extern fn GetStandardColorSpaceProfileW(#[opt] pMachineName: PCWSTR, dwSCS: u32, #[size_param(3)] #[out] #[opt] pBuffer: PWSTR, #[in] #[out] pcbSize: PDWORD) -> BOOL;
-        type HCMTRANSFORM = HANDLE;
-        type HPROFILE = HANDLE;
-        type HTRANSFORM = HANDLE;
+        extern fn GetStandardColorSpaceProfileW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSCS: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbSize,*pcbSize", "*pcbSize,*pcbSize")] #[out] #[opt] pBuffer: PWSTR, #[in] #[out] pcbSize: PDWORD) -> BOOL;
+        type HCMTRANSFORM = *mut void;
+        type HPROFILE = *mut void;
+        type HTRANSFORM = *mut void;
         struct HiFiCOLOR {
-            channel: [u8; 8],
+            channel: [BYTE; 8],
         }
         const INDEX_DONT_CARE: i32 = 0;
         const INTENT_ABSOLUTE_COLORIMETRIC: i32 = 3;
         const INTENT_PERCEPTUAL: i32 = 0;
         const INTENT_RELATIVE_COLORIMETRIC: i32 = 1;
         const INTENT_SATURATION: i32 = 2;
+        #[library("mscms.dll", import = "InstallColorProfileA")]
+        extern fn InstallColorProfile(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn InstallColorProfileA(#[opt] pMachineName: PCSTR, pProfileName: PCSTR) -> BOOL;
+        extern fn InstallColorProfileA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn InstallColorProfileW(#[opt] pMachineName: PCWSTR, pProfileName: PCWSTR) -> BOOL;
+        extern fn InstallColorProfileW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCWSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn IsColorProfileTagPresent(hProfile: HPROFILE, tag: TAGTYPE, #[out] pbPresent: PBOOL) -> BOOL;
+        extern fn IsColorProfileTagPresent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, tag: TAGTYPE, #[out] pbPresent: PBOOL) -> BOOL;
         #[library("mscms.dll")]
-        extern fn IsColorProfileValid(hProfile: HPROFILE, #[out] pbValid: PBOOL) -> BOOL;
-        type LPBMCALLBACKFN = PBMCALLBACKFN;
+        extern fn IsColorProfileValid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, #[out] pbValid: PBOOL) -> BOOL;
+        extern fn LPBMCALLBACKFN(param0: ULONG, param1: ULONG, param2: LPARAM) -> BOOL;
         type LPBMFORMAT = *mut BMFORMAT;
         type LPCOLOR = *mut COLOR;
         type LPCOLORDATATYPE = *mut COLORDATATYPE;
@@ -426,36 +448,38 @@ mod Windows {
         type LPCOLORPROFILESUBTYPE = *mut COLORPROFILESUBTYPE;
         type LPCOLORPROFILETYPE = *mut COLORPROFILETYPE;
         type LPCOLORTYPE = *mut COLORTYPE;
-        type LPCOLOR_NAME = *mut COLOR_NAME;
+        type LPCOLOR_NAME = *mut [i8; 32];
         type LPDEVCHARACTER = *mut void;
         type LPENUMTYPEA = *mut ENUMTYPEA;
         type LPENUMTYPEW = *mut ENUMTYPEW;
         type LPNAMED_PROFILE_INFO = *mut NAMED_PROFILE_INFO;
         type LPPROFILE = *mut PROFILE;
         type LPPROFILEHEADER = *mut PROFILEHEADER;
-        type LPTAGTYPE = *mut TAGTYPE;
+        type LPTAGTYPE = *mut u32;
         struct LabCOLOR {
-            L: u16,
-            a: u16,
-            b: u16,
+            L: WORD,
+            a: WORD,
+            b: WORD,
         }
         const MAX_COLOR_CHANNELS: i32 = 8;
         struct NAMEDCOLOR {
-            dwIndex: u32,
+            dwIndex: DWORD,
         }
         struct NAMED_PROFILE_INFO {
-            dwFlags: u32,
-            dwCount: u32,
-            dwCountDevCoordinates: u32,
+            dwFlags: DWORD,
+            dwCount: DWORD,
+            dwCountDevCoordinates: DWORD,
             szPrefix: COLOR_NAME,
             szSuffix: COLOR_NAME,
         }
         const NORMAL_MODE: i32 = 2;
+        #[library("mscms.dll", import = "OpenColorProfileA")]
+        extern fn OpenColorProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfile: PPROFILE, dwDesiredAccess: DWORD, dwShareMode: DWORD, dwCreationMode: DWORD) -> HPROFILE;
         #[library("mscms.dll")]
-        extern fn OpenColorProfileA(pProfile: PPROFILE, dwDesiredAccess: u32, dwShareMode: u32, dwCreationMode: u32) -> HPROFILE;
+        extern fn OpenColorProfileA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfile: PPROFILE, dwDesiredAccess: DWORD, dwShareMode: DWORD, dwCreationMode: DWORD) -> HPROFILE;
         #[library("mscms.dll")]
-        extern fn OpenColorProfileW(pProfile: PPROFILE, dwDesiredAccess: u32, dwShareMode: u32, dwCreationMode: u32) -> HPROFILE;
-        extern fn PBMCALLBACKFN(param0: u32, param1: u32, param2: LPARAM) -> BOOL;
+        extern fn OpenColorProfileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfile: PPROFILE, dwDesiredAccess: DWORD, dwShareMode: DWORD, dwCreationMode: DWORD) -> HPROFILE;
+        extern fn PBMCALLBACKFN(param0: ULONG, param1: ULONG, param2: LPARAM) -> BOOL;
         type PBMFORMAT = *mut BMFORMAT;
         extern fn PCMSCALLBACKA(param0: *mut COLORMATCHSETUPA, param1: LPARAM) -> BOOL;
         extern fn PCMSCALLBACKW(param0: *mut COLORMATCHSETUPW, param1: LPARAM) -> BOOL;
@@ -466,54 +490,56 @@ mod Windows {
         type PCOLORPROFILESUBTYPE = *mut COLORPROFILESUBTYPE;
         type PCOLORPROFILETYPE = *mut COLORPROFILETYPE;
         type PCOLORTYPE = *mut COLORTYPE;
-        type PCOLOR_NAME = *mut COLOR_NAME;
+        type PCOLOR_NAME = *mut [i8; 32];
         type PENUMTYPEA = *mut ENUMTYPEA;
         type PENUMTYPEW = *mut ENUMTYPEW;
-        type PHPROFILE = *mut HPROFILE;
+        type PHPROFILE = *mut *mut void;
         type PNAMED_PROFILE_INFO = *mut NAMED_PROFILE_INFO;
         type PPROFILE = *mut PROFILE;
         type PPROFILEHEADER = *mut PROFILEHEADER;
         const PRESERVEBLACK: i32 = 1048576;
         struct PROFILE {
-            dwType: u32,
-            pProfileData: *mut void,
-            cbDataSize: u32,
+            dwType: DWORD,
+            pProfileData: PVOID,
+            cbDataSize: DWORD,
         }
         struct PROFILEHEADER {
-            phSize: u32,
-            phCMMType: u32,
-            phVersion: u32,
-            phClass: u32,
-            phDataColorSpace: u32,
-            phConnectionSpace: u32,
-            phDateTime: [u32; 3],
-            phSignature: u32,
-            phPlatform: u32,
-            phProfileFlags: u32,
-            phManufacturer: u32,
-            phModel: u32,
-            phAttributes: [u32; 2],
-            phRenderingIntent: u32,
+            phSize: DWORD,
+            phCMMType: DWORD,
+            phVersion: DWORD,
+            phClass: DWORD,
+            phDataColorSpace: DWORD,
+            phConnectionSpace: DWORD,
+            phDateTime: [DWORD; 3],
+            phSignature: DWORD,
+            phPlatform: DWORD,
+            phProfileFlags: DWORD,
+            phManufacturer: DWORD,
+            phModel: DWORD,
+            phAttributes: [DWORD; 2],
+            phRenderingIntent: DWORD,
             phIlluminant: CIEXYZ,
-            phCreator: u32,
-            phReserved: [u8; 44],
+            phCreator: DWORD,
+            phReserved: [BYTE; 44],
         }
         const PROFILE_FILENAME: i32 = 1;
         const PROFILE_MEMBUFFER: i32 = 2;
         const PROFILE_READ: i32 = 1;
         const PROFILE_READWRITE: i32 = 2;
         const PROOF_MODE: i32 = 1;
-        type PTAGTYPE = *mut TAGTYPE;
+        type PTAGTYPE = *mut u32;
         const RESERVED: u32 = 2147483648;
         struct RGBCOLOR {
-            red: u16,
-            green: u16,
-            blue: u16,
+            red: WORD,
+            green: WORD,
+            blue: WORD,
         }
+        #[library("mscms.dll", import = "RegisterCMMA")]
+        extern fn RegisterCMM(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cmmID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCMMdll: PCSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn RegisterCMMA(#[opt] pMachineName: PCSTR, cmmID: u32, pCMMdll: PCSTR) -> BOOL;
+        extern fn RegisterCMMA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cmmID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCMMdll: PCSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn RegisterCMMW(#[opt] pMachineName: PCWSTR, cmmID: u32, pCMMdll: PCWSTR) -> BOOL;
+        extern fn RegisterCMMW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cmmID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCMMdll: PCWSTR) -> BOOL;
         const SEQUENTIAL_TRANSFORM: u32 = 2155872256;
         const SPACE_2_CHANNEL: i32 = 843271250;
         const SPACE_3_CHANNEL: i32 = 860048466;
@@ -534,37 +560,45 @@ mod Windows {
         const SPACE_YCbCr: i32 = 1497588338;
         const SPACE_Yxy: i32 = 1501067552;
         #[library("mscms.dll")]
-        extern fn SelectCMM(dwCMMType: u32) -> BOOL;
+        extern fn SelectCMM(dwCMMType: DWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn SetColorProfileElement(hProfile: HPROFILE, tag: TAGTYPE, dwOffset: u32, pcbElement: PDWORD, #[len_param(3)] #[in] pElement: *mut void) -> BOOL;
+        extern fn SetColorProfileElement(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, tag: TAGTYPE, dwOffset: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbElement: PDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "*pcbElement", "*pcbElement")] #[in] pElement: PVOID) -> BOOL;
         #[library("mscms.dll")]
-        extern fn SetColorProfileElementReference(hProfile: HPROFILE, newTag: TAGTYPE, refTag: TAGTYPE) -> BOOL;
+        extern fn SetColorProfileElementReference(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, newTag: TAGTYPE, refTag: TAGTYPE) -> BOOL;
         #[library("mscms.dll")]
-        extern fn SetColorProfileElementSize(hProfile: HPROFILE, tagType: TAGTYPE, pcbElement: u32) -> BOOL;
+        extern fn SetColorProfileElementSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, tagType: TAGTYPE, pcbElement: DWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn SetColorProfileHeader(hProfile: HPROFILE, pHeader: PPROFILEHEADER) -> BOOL;
+        extern fn SetColorProfileHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HPROFILE, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "sizeof(PROFILEHEADER)", "sizeof(PROFILEHEADER)")] #[in] pHeader: PPROFILEHEADER) -> BOOL;
+        #[library("mscms.dll", import = "SetStandardColorSpaceProfileA")]
+        extern fn SetStandardColorSpaceProfile(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, dwProfileID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfilename: PCSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn SetStandardColorSpaceProfileA(#[opt] pMachineName: PCSTR, dwProfileID: u32, pProfilename: PCSTR) -> BOOL;
+        extern fn SetStandardColorSpaceProfileA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, dwProfileID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfilename: PCSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn SetStandardColorSpaceProfileW(#[opt] pMachineName: PCWSTR, dwProfileID: u32, pProfileName: PCWSTR) -> BOOL;
+        extern fn SetStandardColorSpaceProfileW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCWSTR, dwProfileID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCWSTR) -> BOOL;
+        #[library("ICMUI.DLL", import = "SetupColorMatchingA")]
+        extern fn SetupColorMatching(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "sizeof(COLORMATCHSETUPA)", "sizeof(COLORMATCHSETUPA)")] #[in] #[out] pcms: PCOLORMATCHSETUPA) -> BOOL;
         #[library("ICMUI.DLL")]
-        extern fn SetupColorMatchingA(#[in] #[out] pcms: PCOLORMATCHSETUPA) -> BOOL;
+        extern fn SetupColorMatchingA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "sizeof(COLORMATCHSETUPA)", "sizeof(COLORMATCHSETUPA)")] #[in] #[out] pcms: PCOLORMATCHSETUPA) -> BOOL;
         #[library("ICMUI.DLL")]
-        extern fn SetupColorMatchingW(#[in] #[out] pcms: PCOLORMATCHSETUPW) -> BOOL;
+        extern fn SetupColorMatchingW(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "sizeof(COLORMATCHSETUPW)", "sizeof(COLORMATCHSETUPW)")] #[in] #[out] pcms: PCOLORMATCHSETUPW) -> BOOL;
         type TAGTYPE = u32;
         #[library("mscms.dll")]
-        extern fn TranslateBitmapBits(hColorTransform: HTRANSFORM, #[in] pSrcBits: *mut void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwInputStride: u32, pDestBits: *mut void, bmOutput: BMFORMAT, dwOutputStride: u32, #[opt] pfnCallBack: PBMCALLBACKFN, #[opt] ulCallbackData: LPARAM) -> BOOL;
+        extern fn TranslateBitmapBits(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hColorTransform: HTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcBits: PVOID, bmInput: BMFORMAT, dwWidth: DWORD, dwHeight: DWORD, dwInputStride: DWORD, #[out] pDestBits: PVOID, bmOutput: BMFORMAT, dwOutputStride: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnCallBack: PBMCALLBACKFN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulCallbackData: LPARAM) -> BOOL;
         #[library("mscms.dll")]
-        extern fn TranslateColors(hColorTransform: HTRANSFORM, #[len_param(2)] paInputColors: PCOLOR, nColors: u32, ctInput: COLORTYPE, #[len_param(2)] #[out] paOutputColors: PCOLOR, ctOutput: COLORTYPE) -> BOOL;
+        extern fn TranslateColors(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hColorTransform: HTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] paInputColors: PCOLOR, nColors: DWORD, ctInput: COLORTYPE, #[out] #[len_param(2)] paOutputColors: PCOLOR, ctOutput: COLORTYPE) -> BOOL;
         const USE_RELATIVE_COLORIMETRIC: i32 = 131072;
+        #[library("mscms.dll", import = "UninstallColorProfileA")]
+        extern fn UninstallColorProfile(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCSTR, bDelete: BOOL) -> BOOL;
         #[library("mscms.dll")]
-        extern fn UninstallColorProfileA(#[opt] pMachineName: PCSTR, pProfileName: PCSTR, bDelete: BOOL) -> BOOL;
+        extern fn UninstallColorProfileA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCSTR, bDelete: BOOL) -> BOOL;
         #[library("mscms.dll")]
-        extern fn UninstallColorProfileW(#[opt] pMachineName: PCWSTR, pProfileName: PCWSTR, bDelete: BOOL) -> BOOL;
+        extern fn UninstallColorProfileW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCWSTR, bDelete: BOOL) -> BOOL;
+        #[library("mscms.dll", import = "UnregisterCMMA")]
+        extern fn UnregisterCMM(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cmmID: DWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn UnregisterCMMA(#[opt] pMachineName: PCSTR, cmmID: u32) -> BOOL;
+        extern fn UnregisterCMMA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cmmID: DWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn UnregisterCMMW(#[opt] pMachineName: PCWSTR, cmmID: u32) -> BOOL;
+        extern fn UnregisterCMMW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cmmID: DWORD) -> BOOL;
         const WCS_ALWAYS: i32 = 2097152;
         const WCS_DEFAULT: i32 = 0;
         #[repr(i32)]
@@ -573,14 +607,14 @@ mod Windows {
             MicrosoftHardwareColorV2 = 2,
         }
         struct WCS_DEVICE_MHC2_CAPABILITIES {
-            Size: u32,
+            Size: UINT,
             SupportsMhc2: BOOL,
-            RegammaLutEntryCount: u32,
-            CscXyzMatrixRows: u32,
-            CscXyzMatrixColumns: u32,
+            RegammaLutEntryCount: UINT,
+            CscXyzMatrixRows: UINT,
+            CscXyzMatrixColumns: UINT,
         }
         struct WCS_DEVICE_VCGT_CAPABILITIES {
-            Size: u32,
+            Size: UINT,
             SupportsVcgt: BOOL,
         }
         const WCS_EMBEDDED_TAG_SIGNATURE: i32 = 1297297456;
@@ -592,50 +626,52 @@ mod Windows {
             WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER = 1,
         }
         #[library("mscms.dll")]
-        extern fn WcsAssociateColorProfileWithDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pProfileName: PCWSTR, pDeviceName: PCWSTR) -> BOOL;
+        extern fn WcsAssociateColorProfileWithDevice(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: PCWSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsCheckColors(hColorTransform: HTRANSFORM, nColors: u32, nInputChannels: u32, cdtInput: COLORDATATYPE, cbInput: u32, #[size_param(4)] #[in] pInputData: *mut void, #[len_param(1)] #[out] paResult: PBYTE) -> BOOL;
+        extern fn WcsCheckColors(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hColorTransform: HTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nColors: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nInputChannels: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cdtInput: COLORDATATYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInput: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pInputData: PVOID, #[out] #[len_param(1)] paResult: PBYTE) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsCreateIccProfile(hWcsProfile: HPROFILE, dwOptions: u32) -> HPROFILE;
+        extern fn WcsCreateIccProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWcsProfile: HPROFILE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD) -> HPROFILE;
         #[library("mscms.dll")]
-        extern fn WcsDisassociateColorProfileFromDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pProfileName: PCWSTR, pDeviceName: PCWSTR) -> BOOL;
+        extern fn WcsDisassociateColorProfileFromDevice(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: PCWSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pEnumRecord: PENUMTYPEW, #[size_param(3)] #[out] pBuffer: PBYTE, dwSize: u32, #[out] #[opt] pnProfiles: PDWORD) -> BOOL;
+        extern fn WcsEnumColorProfiles(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEnumRecord: PENUMTYPEW, #[out] #[size_param(3)] pBuffer: PBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: DWORD, #[out] #[opt] pnProfiles: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pEnumRecord: PENUMTYPEW, #[out] pdwSize: PDWORD) -> BOOL;
+        extern fn WcsEnumColorProfilesSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEnumRecord: PENUMTYPEW, #[out] pdwSize: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsGetCalibrationManagementState(pbIsEnabled: *mut BOOL) -> BOOL;
+        extern fn WcsGetCalibrationManagementState(#[out] pbIsEnabled: *mut BOOL) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsGetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[opt] pDeviceName: PCWSTR, cptColorProfileType: COLORPROFILETYPE, cpstColorProfileSubType: COLORPROFILESUBTYPE, dwProfileID: u32, cbProfileName: u32, #[size_param(5)] #[out] pProfileName: PWSTR) -> BOOL;
+        extern fn WcsGetDefaultColorProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cptColorProfileType: COLORPROFILETYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cpstColorProfileSubType: COLORPROFILESUBTYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProfileID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbProfileName: DWORD, #[out] #[size_param(5)] pProfileName: LPWSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsGetDefaultColorProfileSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[opt] pDeviceName: PCWSTR, cptColorProfileType: COLORPROFILETYPE, cpstColorProfileSubType: COLORPROFILESUBTYPE, dwProfileID: u32, #[out] pcbProfileName: PDWORD) -> BOOL;
+        extern fn WcsGetDefaultColorProfileSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cptColorProfileType: COLORPROFILETYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cpstColorProfileSubType: COLORPROFILESUBTYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProfileID: DWORD, #[out] pcbProfileName: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[out] pdwRenderingIntent: PDWORD) -> BOOL;
+        extern fn WcsGetDefaultRenderingIntent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[out] pdwRenderingIntent: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsGetUsePerUserProfiles(pDeviceName: PCWSTR, dwDeviceClass: u32, #[out] pUsePerUserProfiles: PBOOL) -> BOOL;
+        extern fn WcsGetUsePerUserProfiles(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDeviceClass: DWORD, #[out] pUsePerUserProfiles: PBOOL) -> BOOL;
+        #[library("mscms.dll", import = "WcsOpenColorProfileA")]
+        extern fn WcsOpenColorProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCDMPProfile: PPROFILE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCAMPProfile: PPROFILE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGMMPProfile: PPROFILE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesireAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwShareMode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreationMode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HPROFILE;
         #[library("mscms.dll")]
-        extern fn WcsOpenColorProfileA(pCDMPProfile: PPROFILE, #[opt] pCAMPProfile: PPROFILE, #[opt] pGMMPProfile: PPROFILE, dwDesireAccess: u32, dwShareMode: u32, dwCreationMode: u32, dwFlags: u32) -> HPROFILE;
+        extern fn WcsOpenColorProfileA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCDMPProfile: PPROFILE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCAMPProfile: PPROFILE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGMMPProfile: PPROFILE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesireAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwShareMode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreationMode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HPROFILE;
         #[library("mscms.dll")]
-        extern fn WcsOpenColorProfileW(pCDMPProfile: PPROFILE, #[opt] pCAMPProfile: PPROFILE, #[opt] pGMMPProfile: PPROFILE, dwDesireAccess: u32, dwShareMode: u32, dwCreationMode: u32, dwFlags: u32) -> HPROFILE;
+        extern fn WcsOpenColorProfileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCDMPProfile: PPROFILE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCAMPProfile: PPROFILE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGMMPProfile: PPROFILE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesireAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwShareMode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreationMode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HPROFILE;
         #[library("mscms.dll")]
-        extern fn WcsSetCalibrationManagementState(bIsEnabled: BOOL) -> BOOL;
+        extern fn WcsSetCalibrationManagementState(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bIsEnabled: BOOL) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsSetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[opt] pDeviceName: PCWSTR, cptColorProfileType: COLORPROFILETYPE, cpstColorProfileSubType: COLORPROFILESUBTYPE, dwProfileID: u32, #[opt] pProfileName: PCWSTR) -> BOOL;
+        extern fn WcsSetDefaultColorProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cptColorProfileType: COLORPROFILETYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cpstColorProfileSubType: COLORPROFILESUBTYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProfileID: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileName: LPCWSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, dwRenderingIntent: u32) -> BOOL;
+        extern fn WcsSetDefaultRenderingIntent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwRenderingIntent: DWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsSetUsePerUserProfiles(pDeviceName: PCWSTR, dwDeviceClass: u32, usePerUserProfiles: BOOL) -> BOOL;
+        extern fn WcsSetUsePerUserProfiles(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDeviceClass: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] usePerUserProfiles: BOOL) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsTranslateColors(hColorTransform: HTRANSFORM, nColors: u32, nInputChannels: u32, cdtInput: COLORDATATYPE, cbInput: u32, #[size_param(4)] #[in] pInputData: *mut void, nOutputChannels: u32, cdtOutput: COLORDATATYPE, cbOutput: u32, #[size_param(8)] pOutputData: *mut void) -> BOOL;
+        extern fn WcsTranslateColors(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hColorTransform: HTRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nColors: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nInputChannels: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cdtInput: COLORDATATYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInput: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pInputData: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nOutputChannels: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cdtOutput: COLORDATATYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbOutput: DWORD, #[out] #[size_param(8)] pOutputData: PVOID) -> BOOL;
         struct XYZCOLOR {
-            X: u16,
-            Y: u16,
-            Z: u16,
+            X: WORD,
+            Y: WORD,
+            Z: WORD,
         }
         struct YxyCOLOR {
-            Y: u16,
-            x: u16,
-            y: u16,
+            Y: WORD,
+            x: WORD,
+            y: WORD,
         }
     }
 }

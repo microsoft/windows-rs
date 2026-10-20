@@ -10,16 +10,15 @@ mod Windows {
             DWRITE_BREAK_CONDITION_MUST_BREAK = 3,
         }
         struct DWRITE_CLUSTER_METRICS {
-            width: f32,
-            length: u16,
-            _bitfield: u16 {
-                canWrapLineAfter: 1,
-                isWhitespace: 1,
-                isNewline: 1,
-                isSoftHyphen: 1,
-                isRightToLeft: 1,
-                padding: 11,
-            },
+            width: FLOAT,
+            length: UINT16,
+            #[Windows::Win32::Metadata::NativeBitfield("canWrapLineAfter", 0, 1, MemberType = UINT16)]
+            #[Windows::Win32::Metadata::NativeBitfield("isNewline", 2, 1, MemberType = UINT16)]
+            #[Windows::Win32::Metadata::NativeBitfield("isRightToLeft", 4, 1, MemberType = UINT16)]
+            #[Windows::Win32::Metadata::NativeBitfield("isSoftHyphen", 3, 1, MemberType = UINT16)]
+            #[Windows::Win32::Metadata::NativeBitfield("isWhitespace", 1, 1, MemberType = UINT16)]
+            #[Windows::Win32::Metadata::NativeBitfield("padding", 5, 11, MemberType = UINT16)]
+            _bitfield: u16,
         }
         const DWRITE_ERR_BASE: i32 = 20480;
         #[repr(i32)]
@@ -48,7 +47,7 @@ mod Windows {
         }
         struct DWRITE_FONT_FEATURE {
             nameTag: DWRITE_FONT_FEATURE_TAG,
-            parameter: u32,
+            parameter: UINT32,
         }
         #[repr(i32)]
         enum DWRITE_FONT_FEATURE_TAG {
@@ -147,19 +146,18 @@ mod Windows {
             DWRITE_FONT_FILE_TYPE_TRUETYPE_COLLECTION = 3,
         }
         struct DWRITE_FONT_METRICS {
-            designUnitsPerEm: u16,
-            ascent: u16,
-            descent: u16,
-            lineGap: i16,
-            capHeight: u16,
-            xHeight: u16,
-            underlinePosition: i16,
-            underlineThickness: u16,
-            strikethroughPosition: i16,
-            strikethroughThickness: u16,
+            designUnitsPerEm: UINT16,
+            ascent: UINT16,
+            descent: UINT16,
+            lineGap: INT16,
+            capHeight: UINT16,
+            xHeight: UINT16,
+            underlinePosition: INT16,
+            underlineThickness: UINT16,
+            strikethroughPosition: INT16,
+            strikethroughThickness: UINT16,
         }
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum DWRITE_FONT_SIMULATIONS {
             DWRITE_FONT_SIMULATIONS_NONE = 0,
             DWRITE_FONT_SIMULATIONS_BOLD = 1,
@@ -206,43 +204,50 @@ mod Windows {
             DWRITE_FONT_WEIGHT_ULTRA_BLACK = 950,
         }
         struct DWRITE_GLYPH_METRICS {
-            leftSideBearing: i32,
-            advanceWidth: u32,
-            rightSideBearing: i32,
-            topSideBearing: i32,
-            advanceHeight: u32,
-            bottomSideBearing: i32,
-            verticalOriginY: i32,
+            leftSideBearing: INT32,
+            advanceWidth: UINT32,
+            rightSideBearing: INT32,
+            topSideBearing: INT32,
+            advanceHeight: UINT32,
+            bottomSideBearing: INT32,
+            verticalOriginY: INT32,
         }
         struct DWRITE_GLYPH_OFFSET {
-            advanceOffset: f32,
-            ascenderOffset: f32,
+            advanceOffset: FLOAT,
+            ascenderOffset: FLOAT,
         }
         struct DWRITE_GLYPH_RUN {
+            #[Windows::Win32::Metadata::NativeSal("2", "_Notnull_", "", "")]
             fontFace: IDWriteFontFace,
-            fontEmSize: f32,
-            glyphCount: u32,
-            glyphIndices: *const u16,
-            glyphAdvances: *const f32,
+            fontEmSize: FLOAT,
+            glyphCount: UINT32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "glyphCount", IsByteCount = false, MayBeNull = false)]
+            glyphIndices: *const UINT16,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "glyphCount", IsByteCount = false, MayBeNull = true)]
+            glyphAdvances: *const FLOAT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "glyphCount", IsByteCount = false, MayBeNull = true)]
             glyphOffsets: *const DWRITE_GLYPH_OFFSET,
             isSideways: BOOL,
-            bidiLevel: u32,
+            bidiLevel: UINT32,
         }
         struct DWRITE_GLYPH_RUN_DESCRIPTION {
-            localeName: *const u16,
-            string: *const u16,
-            stringLength: u32,
-            clusterMap: *const u16,
-            textPosition: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
+            localeName: *const WCHAR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "stringLength", IsByteCount = false, MayBeNull = false)]
+            string: *const WCHAR,
+            stringLength: UINT32,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "stringLength", IsByteCount = false, MayBeNull = true)]
+            clusterMap: *const UINT16,
+            textPosition: UINT32,
         }
         struct DWRITE_HIT_TEST_METRICS {
-            textPosition: u32,
-            length: u32,
-            left: f32,
-            top: f32,
-            width: f32,
-            height: f32,
-            bidiLevel: u32,
+            textPosition: UINT32,
+            length: UINT32,
+            left: FLOAT,
+            top: FLOAT,
+            width: FLOAT,
+            height: FLOAT,
+            bidiLevel: UINT32,
             isText: BOOL,
             isTrimmed: BOOL,
         }
@@ -275,26 +280,25 @@ mod Windows {
             DWRITE_INFORMATIONAL_STRING_WWS_FAMILY_NAME = 19,
         }
         struct DWRITE_INLINE_OBJECT_METRICS {
-            width: f32,
-            height: f32,
-            baseline: f32,
+            width: FLOAT,
+            height: FLOAT,
+            baseline: FLOAT,
             supportsSideways: BOOL,
         }
         struct DWRITE_LINE_BREAKPOINT {
-            _bitfield: u8 {
-                breakConditionBefore: 2,
-                breakConditionAfter: 2,
-                isWhitespace: 1,
-                isSoftHyphen: 1,
-                padding: 2,
-            },
+            #[Windows::Win32::Metadata::NativeBitfield("breakConditionAfter", 2, 2, MemberType = UINT8)]
+            #[Windows::Win32::Metadata::NativeBitfield("breakConditionBefore", 0, 2, MemberType = UINT8)]
+            #[Windows::Win32::Metadata::NativeBitfield("isSoftHyphen", 5, 1, MemberType = UINT8)]
+            #[Windows::Win32::Metadata::NativeBitfield("isWhitespace", 4, 1, MemberType = UINT8)]
+            #[Windows::Win32::Metadata::NativeBitfield("padding", 6, 2, MemberType = UINT8)]
+            _bitfield: u8,
         }
         struct DWRITE_LINE_METRICS {
-            length: u32,
-            trailingWhitespaceLength: u32,
-            newlineLength: u32,
-            height: f32,
-            baseline: f32,
+            length: UINT32,
+            trailingWhitespaceLength: UINT32,
+            newlineLength: UINT32,
+            height: FLOAT,
+            baseline: FLOAT,
             isTrimmed: BOOL,
         }
         #[repr(i32)]
@@ -304,12 +308,12 @@ mod Windows {
             DWRITE_LINE_SPACING_METHOD_PROPORTIONAL = 2,
         }
         struct DWRITE_MATRIX {
-            m11: f32,
-            m12: f32,
-            m21: f32,
-            m22: f32,
-            dx: f32,
-            dy: f32,
+            m11: FLOAT,
+            m12: FLOAT,
+            m21: FLOAT,
+            m22: FLOAT,
+            dx: FLOAT,
+            dy: FLOAT,
         }
         #[repr(i32)]
         enum DWRITE_NUMBER_SUBSTITUTION_METHOD {
@@ -320,10 +324,10 @@ mod Windows {
             DWRITE_NUMBER_SUBSTITUTION_METHOD_TRADITIONAL = 4,
         }
         struct DWRITE_OVERHANG_METRICS {
-            left: f32,
-            top: f32,
-            right: f32,
-            bottom: f32,
+            left: FLOAT,
+            top: FLOAT,
+            right: FLOAT,
+            bottom: FLOAT,
         }
         #[repr(i32)]
         enum DWRITE_PARAGRAPH_ALIGNMENT {
@@ -359,39 +363,37 @@ mod Windows {
             DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC = 5,
         }
         struct DWRITE_SCRIPT_ANALYSIS {
-            script: u16,
+            script: UINT16,
             shapes: DWRITE_SCRIPT_SHAPES,
         }
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum DWRITE_SCRIPT_SHAPES {
             DWRITE_SCRIPT_SHAPES_DEFAULT = 0,
             DWRITE_SCRIPT_SHAPES_NO_VISUAL = 1,
         }
         struct DWRITE_SHAPING_GLYPH_PROPERTIES {
-            _bitfield: u16 {
-                justification: 4,
-                isClusterStart: 1,
-                isDiacritic: 1,
-                isZeroWidthSpace: 1,
-                reserved: 9,
-            },
+            #[Windows::Win32::Metadata::NativeBitfield("isClusterStart", 4, 1, MemberType = UINT16)]
+            #[Windows::Win32::Metadata::NativeBitfield("isDiacritic", 5, 1, MemberType = UINT16)]
+            #[Windows::Win32::Metadata::NativeBitfield("isZeroWidthSpace", 6, 1, MemberType = UINT16)]
+            #[Windows::Win32::Metadata::NativeBitfield("justification", 0, 4, MemberType = UINT16)]
+            #[Windows::Win32::Metadata::NativeBitfield("reserved", 7, 9, MemberType = UINT16)]
+            _bitfield: u16,
         }
         struct DWRITE_SHAPING_TEXT_PROPERTIES {
-            _bitfield: u16 {
-                isShapedAlone: 1,
-                reserved1: 1,
-                canBreakShapingAfter: 1,
-                reserved: 13,
-            },
+            #[Windows::Win32::Metadata::NativeBitfield("canBreakShapingAfter", 2, 1, MemberType = UINT16)]
+            #[Windows::Win32::Metadata::NativeBitfield("isShapedAlone", 0, 1, MemberType = UINT16)]
+            #[Windows::Win32::Metadata::NativeBitfield("reserved", 3, 13, MemberType = UINT16)]
+            #[Windows::Win32::Metadata::NativeBitfield("reserved1", 1, 1, MemberType = UINT16)]
+            _bitfield: u16,
         }
         struct DWRITE_STRIKETHROUGH {
-            width: f32,
-            thickness: f32,
-            offset: f32,
+            width: FLOAT,
+            thickness: FLOAT,
+            offset: FLOAT,
             readingDirection: DWRITE_READING_DIRECTION,
             flowDirection: DWRITE_FLOW_DIRECTION,
-            localeName: *const u16,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
+            localeName: *const WCHAR,
             measuringMode: DWRITE_MEASURING_MODE,
         }
         #[repr(i32)]
@@ -407,24 +409,24 @@ mod Windows {
             DWRITE_TEXT_ALIGNMENT_JUSTIFIED = 3,
         }
         struct DWRITE_TEXT_METRICS {
-            left: f32,
-            top: f32,
-            width: f32,
-            widthIncludingTrailingWhitespace: f32,
-            height: f32,
-            layoutWidth: f32,
-            layoutHeight: f32,
-            maxBidiReorderingDepth: u32,
-            lineCount: u32,
+            left: FLOAT,
+            top: FLOAT,
+            width: FLOAT,
+            widthIncludingTrailingWhitespace: FLOAT,
+            height: FLOAT,
+            layoutWidth: FLOAT,
+            layoutHeight: FLOAT,
+            maxBidiReorderingDepth: UINT32,
+            lineCount: UINT32,
         }
         struct DWRITE_TEXT_RANGE {
-            startPosition: u32,
-            length: u32,
+            startPosition: UINT32,
+            length: UINT32,
         }
         struct DWRITE_TRIMMING {
             granularity: DWRITE_TRIMMING_GRANULARITY,
-            delimiter: u32,
-            delimiterCount: u32,
+            delimiter: UINT32,
+            delimiterCount: UINT32,
         }
         #[repr(i32)]
         enum DWRITE_TRIMMING_GRANULARITY {
@@ -433,17 +435,19 @@ mod Windows {
             DWRITE_TRIMMING_GRANULARITY_WORD = 2,
         }
         struct DWRITE_TYPOGRAPHIC_FEATURES {
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "featureCount", IsByteCount = false, MayBeNull = false)]
             features: *mut DWRITE_FONT_FEATURE,
-            featureCount: u32,
+            featureCount: UINT32,
         }
         struct DWRITE_UNDERLINE {
-            width: f32,
-            thickness: f32,
-            offset: f32,
-            runHeight: f32,
+            width: FLOAT,
+            thickness: FLOAT,
+            offset: FLOAT,
+            runHeight: FLOAT,
             readingDirection: DWRITE_READING_DIRECTION,
             flowDirection: DWRITE_FLOW_DIRECTION,
-            localeName: *const u16,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
+            localeName: *const WCHAR,
             measuringMode: DWRITE_MEASURING_MODE,
         }
         #[repr(i32)]
@@ -454,281 +458,474 @@ mod Windows {
             DWRITE_WORD_WRAPPING_WHOLE_WORD = 3,
             DWRITE_WORD_WRAPPING_CHARACTER = 4,
         }
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
         #[library("DWrite.dll")]
-        extern fn DWriteCreateFactory(factoryType: DWRITE_FACTORY_TYPE, iid: *const GUID, factory: *mut IUnknown) -> HRESULT;
+        extern fn DWriteCreateFactory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] factoryType: DWRITE_FACTORY_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] factory: *mut IUnknown) -> HRESULT;
         const FACILITY_DWRITE: i32 = 2200;
         #[guid(0x5e5a32a3_8dff_4773_9ff6_0696eab77267)]
         interface IDWriteBitmapRenderTarget: IUnknown {
-            fn DrawGlyphRun(&self, baselineOriginX: f32, baselineOriginY: f32, measuringMode: DWRITE_MEASURING_MODE, glyphRun: *const DWRITE_GLYPH_RUN, renderingParams: IDWriteRenderingParams, textColor: COLORREF, #[opt] blackBoxRect: *mut RECT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn DrawGlyphRun(&self, baselineOriginX: FLOAT, baselineOriginY: FLOAT, measuringMode: DWRITE_MEASURING_MODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] glyphRun: *const DWRITE_GLYPH_RUN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] renderingParams: IDWriteRenderingParams, textColor: COLORREF, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] blackBoxRect: *mut RECT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetMemoryDC(&self) -> HDC;
-            fn GetPixelsPerDip(&self) -> f32;
-            fn SetPixelsPerDip(&self, pixelsPerDip: f32) -> HRESULT;
-            fn GetCurrentTransform(&self, transform: *mut DWRITE_MATRIX) -> HRESULT;
-            fn SetCurrentTransform(&self, #[opt] transform: *const DWRITE_MATRIX) -> HRESULT;
-            fn GetSize(&self, size: *mut SIZE) -> HRESULT;
-            fn Resize(&self, width: u32, height: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetPixelsPerDip(&self) -> FLOAT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetPixelsPerDip(&self, pixelsPerDip: FLOAT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCurrentTransform(&self, #[out] transform: *mut DWRITE_MATRIX) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCurrentTransform(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transform: *const DWRITE_MATRIX) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetSize(&self, #[out] size: *mut SIZE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Resize(&self, width: UINT32, height: UINT32) -> HRESULT;
         }
         #[guid(0xb859ee5a_d838_4b5b_a2e8_1adc7d93db48)]
         interface IDWriteFactory: IUnknown {
-            fn GetSystemFontCollection(&self, fontCollection: *mut IDWriteFontCollection, checkForUpdates: BOOL) -> HRESULT;
-            fn CreateCustomFontCollection(&self, collectionLoader: IDWriteFontCollectionLoader, #[size_param(2)] collectionKey: *const void, collectionKeySize: u32, fontCollection: *mut IDWriteFontCollection) -> HRESULT;
-            fn RegisterFontCollectionLoader(&self, fontCollectionLoader: IDWriteFontCollectionLoader) -> HRESULT;
-            fn UnregisterFontCollectionLoader(&self, fontCollectionLoader: IDWriteFontCollectionLoader) -> HRESULT;
-            fn CreateFontFileReference(&self, filePath: *const u16, #[opt] lastWriteTime: *const FILETIME, fontFile: *mut IDWriteFontFile) -> HRESULT;
-            fn CreateCustomFontFileReference(&self, #[size_param(1)] fontFileReferenceKey: *const void, fontFileReferenceKeySize: u32, fontFileLoader: IDWriteFontFileLoader, fontFile: *mut IDWriteFontFile) -> HRESULT;
-            fn CreateFontFace(&self, fontFaceType: DWRITE_FONT_FACE_TYPE, numberOfFiles: u32, #[len_param(1)] fontFiles: *const IDWriteFontFile, faceIndex: u32, fontFaceSimulationFlags: DWRITE_FONT_SIMULATIONS, fontFace: *mut IDWriteFontFace) -> HRESULT;
-            fn CreateRenderingParams(&self, renderingParams: *mut IDWriteRenderingParams) -> HRESULT;
-            fn CreateMonitorRenderingParams(&self, monitor: HMONITOR, renderingParams: *mut IDWriteRenderingParams) -> HRESULT;
-            fn CreateCustomRenderingParams(&self, gamma: f32, enhancedContrast: f32, clearTypeLevel: f32, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, renderingParams: *mut IDWriteRenderingParams) -> HRESULT;
-            fn RegisterFontFileLoader(&self, fontFileLoader: IDWriteFontFileLoader) -> HRESULT;
-            fn UnregisterFontFileLoader(&self, fontFileLoader: IDWriteFontFileLoader) -> HRESULT;
-            fn CreateTextFormat(&self, fontFamilyName: *const u16, #[opt] fontCollection: IDWriteFontCollection, fontWeight: DWRITE_FONT_WEIGHT, fontStyle: DWRITE_FONT_STYLE, fontStretch: DWRITE_FONT_STRETCH, fontSize: f32, localeName: *const u16, textFormat: *mut IDWriteTextFormat) -> HRESULT;
-            fn CreateTypography(&self, typography: *mut IDWriteTypography) -> HRESULT;
-            fn GetGdiInterop(&self, gdiInterop: *mut IDWriteGdiInterop) -> HRESULT;
-            fn CreateTextLayout(&self, #[len_param(1)] string: *const u16, stringLength: u32, textFormat: IDWriteTextFormat, maxWidth: f32, maxHeight: f32, textLayout: *mut IDWriteTextLayout) -> HRESULT;
-            fn CreateGdiCompatibleTextLayout(&self, #[len_param(1)] string: *const u16, stringLength: u32, textFormat: IDWriteTextFormat, layoutWidth: f32, layoutHeight: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, textLayout: *mut IDWriteTextLayout) -> HRESULT;
-            fn CreateEllipsisTrimmingSign(&self, textFormat: IDWriteTextFormat, trimmingSign: *mut IDWriteInlineObject) -> HRESULT;
-            fn CreateTextAnalyzer(&self, textAnalyzer: *mut IDWriteTextAnalyzer) -> HRESULT;
-            fn CreateNumberSubstitution(&self, substitutionMethod: DWRITE_NUMBER_SUBSTITUTION_METHOD, localeName: *const u16, ignoreUserOverride: BOOL, numberSubstitution: *mut IDWriteNumberSubstitution) -> HRESULT;
-            fn CreateGlyphRunAnalysis(&self, glyphRun: *const DWRITE_GLYPH_RUN, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, renderingMode: DWRITE_RENDERING_MODE, measuringMode: DWRITE_MEASURING_MODE, baselineOriginX: f32, baselineOriginY: f32, glyphRunAnalysis: *mut IDWriteGlyphRunAnalysis) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetSystemFontCollection(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontCollection: *mut IDWriteFontCollection, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] checkForUpdates: BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateCustomFontCollection(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] collectionLoader: IDWriteFontCollectionLoader, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] collectionKey: *const void, collectionKeySize: UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontCollection: *mut IDWriteFontCollection) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn RegisterFontCollectionLoader(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontCollectionLoader: IDWriteFontCollectionLoader) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn UnregisterFontCollectionLoader(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontCollectionLoader: IDWriteFontCollectionLoader) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateFontFileReference(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] filePath: *const WCHAR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lastWriteTime: *const FILETIME, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontFile: *mut IDWriteFontFile) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateCustomFontFileReference(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] fontFileReferenceKey: *const void, fontFileReferenceKeySize: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontFileLoader: IDWriteFontFileLoader, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontFile: *mut IDWriteFontFile) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateFontFace(&self, fontFaceType: DWRITE_FONT_FACE_TYPE, numberOfFiles: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] fontFiles: *const IDWriteFontFile, faceIndex: UINT32, fontFaceSimulationFlags: DWRITE_FONT_SIMULATIONS, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontFace: *mut IDWriteFontFace) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateRenderingParams(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] renderingParams: *mut IDWriteRenderingParams) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateMonitorRenderingParams(&self, monitor: HMONITOR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] renderingParams: *mut IDWriteRenderingParams) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateCustomRenderingParams(&self, gamma: FLOAT, enhancedContrast: FLOAT, clearTypeLevel: FLOAT, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] renderingParams: *mut IDWriteRenderingParams) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn RegisterFontFileLoader(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontFileLoader: IDWriteFontFileLoader) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn UnregisterFontFileLoader(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontFileLoader: IDWriteFontFileLoader) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateTextFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] fontFamilyName: *const WCHAR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontCollection: IDWriteFontCollection, fontWeight: DWRITE_FONT_WEIGHT, fontStyle: DWRITE_FONT_STYLE, fontStretch: DWRITE_FONT_STRETCH, fontSize: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] localeName: *const WCHAR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] textFormat: *mut IDWriteTextFormat) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateTypography(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] typography: *mut IDWriteTypography) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGdiInterop(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] gdiInterop: *mut IDWriteGdiInterop) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateTextLayout(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] string: *const WCHAR, stringLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] textFormat: IDWriteTextFormat, maxWidth: FLOAT, maxHeight: FLOAT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] textLayout: *mut IDWriteTextLayout) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateGdiCompatibleTextLayout(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] string: *const WCHAR, stringLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] textFormat: IDWriteTextFormat, layoutWidth: FLOAT, layoutHeight: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] textLayout: *mut IDWriteTextLayout) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateEllipsisTrimmingSign(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] textFormat: IDWriteTextFormat, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] trimmingSign: *mut IDWriteInlineObject) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateTextAnalyzer(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] textAnalyzer: *mut IDWriteTextAnalyzer) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateNumberSubstitution(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] substitutionMethod: DWRITE_NUMBER_SUBSTITUTION_METHOD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] localeName: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ignoreUserOverride: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] numberSubstitution: *mut IDWriteNumberSubstitution) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateGlyphRunAnalysis(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] glyphRun: *const DWRITE_GLYPH_RUN, pixelsPerDip: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transform: *const DWRITE_MATRIX, renderingMode: DWRITE_RENDERING_MODE, measuringMode: DWRITE_MEASURING_MODE, baselineOriginX: FLOAT, baselineOriginY: FLOAT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] glyphRunAnalysis: *mut IDWriteGlyphRunAnalysis) -> HRESULT;
         }
         #[guid(0xacd16696_8c14_4f5d_877e_fe3fc1d32737)]
         interface IDWriteFont: IUnknown {
-            fn GetFontFamily(&self, fontFamily: *mut IDWriteFontFamily) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontFamily(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontFamily: *mut IDWriteFontFamily) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetWeight(&self) -> DWRITE_FONT_WEIGHT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetStretch(&self) -> DWRITE_FONT_STRETCH;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetStyle(&self) -> DWRITE_FONT_STYLE;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn IsSymbolFont(&self) -> BOOL;
-            fn GetFaceNames(&self, names: *mut IDWriteLocalizedStrings) -> HRESULT;
-            fn GetInformationalStrings(&self, informationalStringID: DWRITE_INFORMATIONAL_STRING_ID, informationalStrings: *mut IDWriteLocalizedStrings, exists: *mut BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFaceNames(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] names: *mut IDWriteLocalizedStrings) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetInformationalStrings(&self, informationalStringID: DWRITE_INFORMATIONAL_STRING_ID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = true)] informationalStrings: *mut IDWriteLocalizedStrings, #[out] exists: *mut BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetSimulations(&self) -> DWRITE_FONT_SIMULATIONS;
-            fn GetMetrics(&self, fontMetrics: *mut DWRITE_FONT_METRICS);
-            fn HasCharacter(&self, unicodeValue: u32, exists: *mut BOOL) -> HRESULT;
-            fn CreateFontFace(&self, fontFace: *mut IDWriteFontFace) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMetrics(&self, #[out] fontMetrics: *mut DWRITE_FONT_METRICS);
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn HasCharacter(&self, unicodeValue: UINT32, #[out] exists: *mut BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateFontFace(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontFace: *mut IDWriteFontFace) -> HRESULT;
         }
         #[guid(0xa84cee02_3eea_4eee_a827_87c1a02a0fcc)]
         interface IDWriteFontCollection: IUnknown {
-            fn GetFontFamilyCount(&self) -> u32;
-            fn GetFontFamily(&self, index: u32, fontFamily: *mut IDWriteFontFamily) -> HRESULT;
-            fn FindFamilyName(&self, familyName: *const u16, index: *mut u32, exists: *mut BOOL) -> HRESULT;
-            fn GetFontFromFontFace(&self, fontFace: IDWriteFontFace, font: *mut IDWriteFont) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontFamilyCount(&self) -> UINT32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontFamily(&self, index: UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontFamily: *mut IDWriteFontFamily) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn FindFamilyName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] familyName: *const WCHAR, #[out] index: *mut UINT32, #[out] exists: *mut BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontFromFontFace(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontFace: IDWriteFontFace, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] font: *mut IDWriteFont) -> HRESULT;
         }
         #[guid(0xcca920e4_52f0_492b_bfa8_29c72ee0a468)]
         interface IDWriteFontCollectionLoader: IUnknown {
-            fn CreateEnumeratorFromKey(&self, factory: IDWriteFactory, #[size_param(2)] collectionKey: *const void, collectionKeySize: u32, fontFileEnumerator: *mut IDWriteFontFileEnumerator) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateEnumeratorFromKey(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] factory: IDWriteFactory, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] collectionKey: *const void, collectionKeySize: UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontFileEnumerator: *mut IDWriteFontFileEnumerator) -> HRESULT;
         }
         #[guid(0x5f49804d_7024_4d43_bfa9_d25984f53849)]
         interface IDWriteFontFace: IUnknown {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetType(&self) -> DWRITE_FONT_FACE_TYPE;
-            fn GetFiles(&self, #[in] #[out] numberOfFiles: *mut u32, #[len_param(0)] #[opt] fontFiles: *mut IDWriteFontFile) -> HRESULT;
-            fn GetIndex(&self) -> u32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFiles(&self, #[in] #[out] numberOfFiles: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*numberOfFiles", "*numberOfFiles")] #[out] #[opt] fontFiles: *mut IDWriteFontFile) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetIndex(&self) -> UINT32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetSimulations(&self) -> DWRITE_FONT_SIMULATIONS;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn IsSymbolFont(&self) -> BOOL;
-            fn GetMetrics(&self, fontFaceMetrics: *mut DWRITE_FONT_METRICS);
-            fn GetGlyphCount(&self) -> u16;
-            fn GetDesignGlyphMetrics(&self, #[len_param(1)] glyphIndices: *const u16, glyphCount: u32, #[len_param(1)] glyphMetrics: *mut DWRITE_GLYPH_METRICS, isSideways: BOOL) -> HRESULT;
-            fn GetGlyphIndices(&self, #[len_param(1)] codePoints: *const u32, codePointCount: u32, #[len_param(1)] glyphIndices: *mut u16) -> HRESULT;
-            fn TryGetFontTable(&self, openTypeTableTag: u32, tableData: *const *const void, tableSize: *mut u32, tableContext: *mut *mut void, exists: *mut BOOL) -> HRESULT;
-            fn ReleaseFontTable(&self, #[in] tableContext: *mut void);
-            fn GetGlyphRunOutline(&self, emSize: f32, #[len_param(4)] glyphIndices: *const u16, #[len_param(4)] #[opt] glyphAdvances: *const f32, #[len_param(4)] #[opt] glyphOffsets: *const DWRITE_GLYPH_OFFSET, glyphCount: u32, isSideways: BOOL, isRightToLeft: BOOL, geometrySink: IDWriteGeometrySink) -> HRESULT;
-            fn GetRecommendedRenderingMode(&self, emSize: f32, pixelsPerDip: f32, measuringMode: DWRITE_MEASURING_MODE, renderingParams: IDWriteRenderingParams, renderingMode: *mut DWRITE_RENDERING_MODE) -> HRESULT;
-            fn GetGdiCompatibleMetrics(&self, emSize: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, fontFaceMetrics: *mut DWRITE_FONT_METRICS) -> HRESULT;
-            fn GetGdiCompatibleGlyphMetrics(&self, emSize: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, #[len_param(5)] glyphIndices: *const u16, glyphCount: u32, #[len_param(5)] glyphMetrics: *mut DWRITE_GLYPH_METRICS, isSideways: BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMetrics(&self, #[out] fontFaceMetrics: *mut DWRITE_FONT_METRICS);
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGlyphCount(&self) -> UINT16;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDesignGlyphMetrics(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] glyphIndices: *const UINT16, glyphCount: UINT32, #[out] #[len_param(1)] glyphMetrics: *mut DWRITE_GLYPH_METRICS, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] isSideways: BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGlyphIndicesA(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] codePoints: *const UINT32, codePointCount: UINT32, #[out] #[len_param(1)] glyphIndices: *mut UINT16) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn TryGetFontTable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] openTypeTableTag: UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*tableSize", "*tableSize")] #[out] tableData: *mut *const void, #[out] tableSize: *mut UINT32, #[out] tableContext: *mut *mut void, #[out] exists: *mut BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn ReleaseFontTable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] tableContext: *mut void);
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGlyphRunOutline(&self, emSize: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] glyphIndices: *const UINT16, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] glyphAdvances: *const FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] glyphOffsets: *const DWRITE_GLYPH_OFFSET, glyphCount: UINT32, isSideways: BOOL, isRightToLeft: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetRecommendedRenderingMode(&self, emSize: FLOAT, pixelsPerDip: FLOAT, measuringMode: DWRITE_MEASURING_MODE, renderingParams: IDWriteRenderingParams, #[out] renderingMode: *mut DWRITE_RENDERING_MODE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGdiCompatibleMetrics(&self, emSize: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transform: *const DWRITE_MATRIX, #[out] fontFaceMetrics: *mut DWRITE_FONT_METRICS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGdiCompatibleGlyphMetrics(&self, emSize: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] glyphIndices: *const UINT16, glyphCount: UINT32, #[out] #[len_param(5)] glyphMetrics: *mut DWRITE_GLYPH_METRICS, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] isSideways: BOOL) -> HRESULT;
         }
         #[guid(0xda20d8ef_812a_4c43_9802_62ec4abd7add)]
         interface IDWriteFontFamily: IDWriteFontList {
-            fn GetFamilyNames(&self, names: *mut IDWriteLocalizedStrings) -> HRESULT;
-            fn GetFirstMatchingFont(&self, weight: DWRITE_FONT_WEIGHT, stretch: DWRITE_FONT_STRETCH, style: DWRITE_FONT_STYLE, matchingFont: *mut IDWriteFont) -> HRESULT;
-            fn GetMatchingFonts(&self, weight: DWRITE_FONT_WEIGHT, stretch: DWRITE_FONT_STRETCH, style: DWRITE_FONT_STYLE, matchingFonts: *mut IDWriteFontList) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFamilyNames(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] names: *mut IDWriteLocalizedStrings) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFirstMatchingFont(&self, weight: DWRITE_FONT_WEIGHT, stretch: DWRITE_FONT_STRETCH, style: DWRITE_FONT_STYLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] matchingFont: *mut IDWriteFont) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMatchingFonts(&self, weight: DWRITE_FONT_WEIGHT, stretch: DWRITE_FONT_STRETCH, style: DWRITE_FONT_STYLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] matchingFonts: *mut IDWriteFontList) -> HRESULT;
         }
         #[guid(0x739d886a_cef5_47dc_8769_1a8b41bebbb0)]
         interface IDWriteFontFile: IUnknown {
-            fn GetReferenceKey(&self, fontFileReferenceKey: *const *const void, fontFileReferenceKeySize: *mut u32) -> HRESULT;
-            fn GetLoader(&self, fontFileLoader: *mut IDWriteFontFileLoader) -> HRESULT;
-            fn Analyze(&self, isSupportedFontType: *mut BOOL, fontFileType: *mut DWRITE_FONT_FILE_TYPE, #[opt] fontFaceType: *mut DWRITE_FONT_FACE_TYPE, numberOfFaces: *mut u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetReferenceKey(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*fontFileReferenceKeySize", "*fontFileReferenceKeySize")] #[out] fontFileReferenceKey: *mut *const void, #[out] fontFileReferenceKeySize: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLoader(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontFileLoader: *mut IDWriteFontFileLoader) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Analyze(&self, #[out] isSupportedFontType: *mut BOOL, #[out] fontFileType: *mut DWRITE_FONT_FILE_TYPE, #[out] #[opt] fontFaceType: *mut DWRITE_FONT_FACE_TYPE, #[out] numberOfFaces: *mut UINT32) -> HRESULT;
         }
         #[guid(0x72755049_5ff7_435d_8348_4be97cfa6c7c)]
         interface IDWriteFontFileEnumerator: IUnknown {
-            fn MoveNext(&self, hasCurrentFile: *mut BOOL) -> HRESULT;
-            fn GetCurrentFontFile(&self, fontFile: *mut IDWriteFontFile) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn MoveNext(&self, #[out] hasCurrentFile: *mut BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCurrentFontFile(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontFile: *mut IDWriteFontFile) -> HRESULT;
         }
         #[guid(0x727cad4e_d6af_4c9e_8a08_d695b11caa49)]
         interface IDWriteFontFileLoader: IUnknown {
-            fn CreateStreamFromKey(&self, #[size_param(1)] fontFileReferenceKey: *const void, fontFileReferenceKeySize: u32, fontFileStream: *mut IDWriteFontFileStream) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateStreamFromKey(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] fontFileReferenceKey: *const void, fontFileReferenceKeySize: UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontFileStream: *mut IDWriteFontFileStream) -> HRESULT;
         }
         #[guid(0x6d4865fe_0ab8_4d91_8f62_5dd6be34a3e0)]
         interface IDWriteFontFileStream: IUnknown {
-            fn ReadFileFragment(&self, fragmentStart: *const *const void, fileOffset: u64, fragmentSize: u64, fragmentContext: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn ReadFileFragment(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "fragmentSize", "fragmentSize")] #[out] fragmentStart: *mut *const void, fileOffset: UINT64, fragmentSize: UINT64, #[out] fragmentContext: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn ReleaseFileFragment(&self, fragmentContext: *mut void);
-            fn GetFileSize(&self, fileSize: *mut u64) -> HRESULT;
-            fn GetLastWriteTime(&self, lastWriteTime: *mut u64) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFileSize(&self, #[out] fileSize: *mut UINT64) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLastWriteTime(&self, #[out] lastWriteTime: *mut UINT64) -> HRESULT;
         }
         #[guid(0x1a0d8438_1d97_4ec1_aef9_a2fb86ed6acb)]
         interface IDWriteFontList: IUnknown {
-            fn GetFontCollection(&self, fontCollection: *mut IDWriteFontCollection) -> HRESULT;
-            fn GetFontCount(&self) -> u32;
-            fn GetFont(&self, index: u32, font: *mut IDWriteFont) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontCollection(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontCollection: *mut IDWriteFontCollection) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontCount(&self) -> UINT32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFont(&self, index: UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] font: *mut IDWriteFont) -> HRESULT;
         }
         #[guid(0x1edd9491_9853_4299_898f_6432983b6f3a)]
         interface IDWriteGdiInterop: IUnknown {
-            fn CreateFontFromLOGFONT(&self, logFont: *const LOGFONTW, font: *mut IDWriteFont) -> HRESULT;
-            fn ConvertFontToLOGFONT(&self, font: IDWriteFont, logFont: *mut LOGFONTW, isSystemFont: *mut BOOL) -> HRESULT;
-            fn ConvertFontFaceToLOGFONT(&self, font: IDWriteFontFace, logFont: *mut LOGFONTW) -> HRESULT;
-            fn CreateFontFaceFromHdc(&self, hdc: HDC, fontFace: *mut IDWriteFontFace) -> HRESULT;
-            fn CreateBitmapRenderTarget(&self, #[opt] hdc: HDC, width: u32, height: u32, renderTarget: *mut IDWriteBitmapRenderTarget) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateFontFromLOGFONT(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] logFont: *const LOGFONTW, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] font: *mut IDWriteFont) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn ConvertFontToLOGFONT(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] font: IDWriteFont, #[out] logFont: *mut LOGFONTW, #[out] isSystemFont: *mut BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn ConvertFontFaceToLOGFONT(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] font: IDWriteFontFace, #[out] logFont: *mut LOGFONTW) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateFontFaceFromHdc(&self, hdc: HDC, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontFace: *mut IDWriteFontFace) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateBitmapRenderTarget(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, width: UINT32, height: UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] renderTarget: *mut IDWriteBitmapRenderTarget) -> HRESULT;
         }
         type IDWriteGeometrySink = ID2D1SimplifiedGeometrySink;
         #[guid(0x7d97dbf7_e085_42d4_81e3_6a883bded118)]
         interface IDWriteGlyphRunAnalysis: IUnknown {
-            fn GetAlphaTextureBounds(&self, textureType: DWRITE_TEXTURE_TYPE, textureBounds: *mut RECT) -> HRESULT;
-            fn CreateAlphaTexture(&self, textureType: DWRITE_TEXTURE_TYPE, textureBounds: *const RECT, #[size_param(3)] alphaValues: *mut u8, bufferSize: u32) -> HRESULT;
-            fn GetAlphaBlendParams(&self, renderingParams: IDWriteRenderingParams, blendGamma: *mut f32, blendEnhancedContrast: *mut f32, blendClearTypeLevel: *mut f32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetAlphaTextureBounds(&self, textureType: DWRITE_TEXTURE_TYPE, #[out] textureBounds: *mut RECT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateAlphaTexture(&self, textureType: DWRITE_TEXTURE_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] textureBounds: *const RECT, #[out] #[size_param(3)] alphaValues: *mut BYTE, bufferSize: UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetAlphaBlendParams(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] renderingParams: IDWriteRenderingParams, #[out] blendGamma: *mut FLOAT, #[out] blendEnhancedContrast: *mut FLOAT, #[out] blendClearTypeLevel: *mut FLOAT) -> HRESULT;
         }
         #[guid(0x8339fde3_106f_47ab_8373_1c6295eb10b3)]
         interface IDWriteInlineObject: IUnknown {
-            fn Draw(&self, #[in] #[opt] clientDrawingContext: *mut void, renderer: IDWriteTextRenderer, originX: f32, originY: f32, isSideways: BOOL, isRightToLeft: BOOL, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
-            fn GetMetrics(&self, metrics: *mut DWRITE_INLINE_OBJECT_METRICS) -> HRESULT;
-            fn GetOverhangMetrics(&self, overhangs: *mut DWRITE_OVERHANG_METRICS) -> HRESULT;
-            fn GetBreakConditions(&self, breakConditionBefore: *mut DWRITE_BREAK_CONDITION, breakConditionAfter: *mut DWRITE_BREAK_CONDITION) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Draw(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingContext: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] renderer: IDWriteTextRenderer, originX: FLOAT, originY: FLOAT, isSideways: BOOL, isRightToLeft: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingEffect: IUnknown) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMetrics(&self, #[out] metrics: *mut DWRITE_INLINE_OBJECT_METRICS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetOverhangMetrics(&self, #[out] overhangs: *mut DWRITE_OVERHANG_METRICS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetBreakConditions(&self, #[out] breakConditionBefore: *mut DWRITE_BREAK_CONDITION, #[out] breakConditionAfter: *mut DWRITE_BREAK_CONDITION) -> HRESULT;
         }
         #[guid(0xb2d9f3ec_c9fe_4a11_a2ec_d86208f7c0a2)]
         interface IDWriteLocalFontFileLoader: IDWriteFontFileLoader {
-            fn GetFilePathLengthFromKey(&self, #[size_param(1)] fontFileReferenceKey: *const void, fontFileReferenceKeySize: u32, filePathLength: *mut u32) -> HRESULT;
-            fn GetFilePathFromKey(&self, #[size_param(1)] fontFileReferenceKey: *const void, fontFileReferenceKeySize: u32, #[len_param(3)] filePath: *mut u16, filePathSize: u32) -> HRESULT;
-            fn GetLastWriteTimeFromKey(&self, #[size_param(1)] fontFileReferenceKey: *const void, fontFileReferenceKeySize: u32, lastWriteTime: *mut FILETIME) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFilePathLengthFromKey(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] fontFileReferenceKey: *const void, fontFileReferenceKeySize: UINT32, #[out] filePathLength: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFilePathFromKey(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] fontFileReferenceKey: *const void, fontFileReferenceKeySize: UINT32, #[out] #[len_param(3)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true)] filePath: *mut WCHAR, filePathSize: UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLastWriteTimeFromKey(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] fontFileReferenceKey: *const void, fontFileReferenceKeySize: UINT32, #[out] lastWriteTime: *mut FILETIME) -> HRESULT;
         }
         #[guid(0x08256209_099a_4b34_b86d_c22b110e7771)]
         interface IDWriteLocalizedStrings: IUnknown {
-            fn GetCount(&self) -> u32;
-            fn FindLocaleName(&self, localeName: *const u16, index: *mut u32, exists: *mut BOOL) -> HRESULT;
-            fn GetLocaleNameLength(&self, index: u32, length: *mut u32) -> HRESULT;
-            fn GetLocaleName(&self, index: u32, #[len_param(2)] localeName: *mut u16, size: u32) -> HRESULT;
-            fn GetStringLength(&self, index: u32, length: *mut u32) -> HRESULT;
-            fn GetString(&self, index: u32, #[len_param(2)] stringBuffer: *mut u16, size: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCount(&self) -> UINT32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn FindLocaleName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] localeName: *const WCHAR, #[out] index: *mut UINT32, #[out] exists: *mut BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLocaleNameLength(&self, index: UINT32, #[out] length: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLocaleName(&self, index: UINT32, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true)] localeName: *mut WCHAR, size: UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetStringLength(&self, index: UINT32, #[out] length: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetString(&self, index: UINT32, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true)] stringBuffer: *mut WCHAR, size: UINT32) -> HRESULT;
         }
         #[guid(0x14885cc9_bab0_4f90_b6ed_5c366a2cd03d)]
         interface IDWriteNumberSubstitution: IUnknown {}
         #[guid(0xeaf3a2da_ecf4_4d24_b644_b34f6842024b)]
         interface IDWritePixelSnapping: IUnknown {
-            fn IsPixelSnappingDisabled(&self, #[in] #[opt] clientDrawingContext: *mut void, isDisabled: *mut BOOL) -> HRESULT;
-            fn GetCurrentTransform(&self, #[in] #[opt] clientDrawingContext: *mut void, transform: *mut DWRITE_MATRIX) -> HRESULT;
-            fn GetPixelsPerDip(&self, #[in] #[opt] clientDrawingContext: *mut void, pixelsPerDip: *mut f32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn IsPixelSnappingDisabled(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingContext: *mut void, #[out] isDisabled: *mut BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCurrentTransform(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingContext: *mut void, #[out] transform: *mut DWRITE_MATRIX) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetPixelsPerDip(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingContext: *mut void, #[out] pixelsPerDip: *mut FLOAT) -> HRESULT;
         }
         #[guid(0x2f0da53a_2add_47cd_82ee_d9ec34688e75)]
         interface IDWriteRenderingParams: IUnknown {
-            fn GetGamma(&self) -> f32;
-            fn GetEnhancedContrast(&self) -> f32;
-            fn GetClearTypeLevel(&self) -> f32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGamma(&self) -> FLOAT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetEnhancedContrast(&self) -> FLOAT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetClearTypeLevel(&self) -> FLOAT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetPixelGeometry(&self) -> DWRITE_PIXEL_GEOMETRY;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetRenderingMode(&self) -> DWRITE_RENDERING_MODE;
         }
         #[guid(0x5810cd44_0ca0_4701_b3fa_bec5182ae4f6)]
         interface IDWriteTextAnalysisSink: IUnknown {
-            fn SetScriptAnalysis(&self, textPosition: u32, textLength: u32, scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS) -> HRESULT;
-            fn SetLineBreakpoints(&self, textPosition: u32, textLength: u32, #[len_param(1)] lineBreakpoints: *const DWRITE_LINE_BREAKPOINT) -> HRESULT;
-            fn SetBidiLevel(&self, textPosition: u32, textLength: u32, explicitLevel: u8, resolvedLevel: u8) -> HRESULT;
-            fn SetNumberSubstitution(&self, textPosition: u32, textLength: u32, numberSubstitution: IDWriteNumberSubstitution) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetScriptAnalysis(&self, textPosition: UINT32, textLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetLineBreakpoints(&self, textPosition: UINT32, textLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] lineBreakpoints: *const DWRITE_LINE_BREAKPOINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetBidiLevel(&self, textPosition: UINT32, textLength: UINT32, explicitLevel: UINT8, resolvedLevel: UINT8) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetNumberSubstitution(&self, textPosition: UINT32, textLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] numberSubstitution: IDWriteNumberSubstitution) -> HRESULT;
         }
         #[guid(0x688e1a58_5094_47c8_adc8_fbcea60ae92b)]
         interface IDWriteTextAnalysisSource: IUnknown {
-            fn GetTextAtPosition(&self, textPosition: u32, textString: *const *const u16, textLength: *mut u32) -> HRESULT;
-            fn GetTextBeforePosition(&self, textPosition: u32, textString: *const *const u16, textLength: *mut u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetTextAtPosition(&self, textPosition: UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*textLength", "*textLength")] #[out] textString: *mut *const WCHAR, #[out] textLength: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetTextBeforePosition(&self, textPosition: UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*textLength", "*textLength")] #[out] textString: *mut *const WCHAR, #[out] textLength: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetParagraphReadingDirection(&self) -> DWRITE_READING_DIRECTION;
-            fn GetLocaleName(&self, textPosition: u32, textLength: *mut u32, localeName: *const *const u16) -> HRESULT;
-            fn GetNumberSubstitution(&self, textPosition: u32, textLength: *mut u32, numberSubstitution: *mut IDWriteNumberSubstitution) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLocaleName(&self, textPosition: UINT32, #[out] textLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_z_", "", "")] localeName: *mut *const WCHAR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetNumberSubstitution(&self, textPosition: UINT32, #[out] textLength: *mut UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] numberSubstitution: *mut IDWriteNumberSubstitution) -> HRESULT;
         }
         #[guid(0xb7e6163e_7f46_43b4_84b3_e4e6249c365d)]
         interface IDWriteTextAnalyzer: IUnknown {
-            fn AnalyzeScript(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: u32, textLength: u32, analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
-            fn AnalyzeBidi(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: u32, textLength: u32, analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
-            fn AnalyzeNumberSubstitution(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: u32, textLength: u32, analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
-            fn AnalyzeLineBreakpoints(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: u32, textLength: u32, analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
-            fn GetGlyphs(&self, #[len_param(1)] textString: *const u16, textLength: u32, fontFace: IDWriteFontFace, isSideways: BOOL, isRightToLeft: BOOL, scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: *const u16, #[opt] numberSubstitution: IDWriteNumberSubstitution, #[len_param(10)] #[opt] features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, #[len_param(10)] #[opt] featureRangeLengths: *const u32, featureRanges: u32, maxGlyphCount: u32, #[len_param(1)] clusterMap: *mut u16, #[len_param(1)] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, #[len_param(11)] glyphIndices: *mut u16, #[len_param(11)] glyphProps: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, actualGlyphCount: *mut u32) -> HRESULT;
-            fn GetGlyphPlacements(&self, #[len_param(3)] textString: *const u16, #[len_param(3)] clusterMap: *const u16, #[len_param(3)] #[in] #[out] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textLength: u32, #[len_param(6)] glyphIndices: *const u16, #[len_param(6)] glyphProps: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphCount: u32, fontFace: IDWriteFontFace, fontEmSize: f32, isSideways: BOOL, isRightToLeft: BOOL, scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: *const u16, #[len_param(15)] #[opt] features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, #[len_param(15)] #[opt] featureRangeLengths: *const u32, featureRanges: u32, #[len_param(6)] glyphAdvances: *mut f32, #[len_param(6)] glyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
-            fn GetGdiCompatibleGlyphPlacements(&self, #[len_param(3)] textString: *const u16, #[len_param(3)] clusterMap: *const u16, #[len_param(3)] #[in] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textLength: u32, #[len_param(6)] glyphIndices: *const u16, #[len_param(6)] glyphProps: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphCount: u32, fontFace: IDWriteFontFace, fontEmSize: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, isSideways: BOOL, isRightToLeft: BOOL, scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: *const u16, #[len_param(18)] #[opt] features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, #[len_param(18)] #[opt] featureRangeLengths: *const u32, featureRanges: u32, #[len_param(6)] glyphAdvances: *mut f32, #[len_param(6)] glyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AnalyzeScript(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AnalyzeBidi(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AnalyzeNumberSubstitution(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AnalyzeLineBreakpoints(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGlyphs(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] textString: *const WCHAR, textLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontFace: IDWriteFontFace, isSideways: BOOL, isRightToLeft: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] localeName: *const WCHAR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] numberSubstitution: IDWriteNumberSubstitution, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(10)] features: *mut *const DWRITE_TYPOGRAPHIC_FEATURES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(10)] featureRangeLengths: *const UINT32, featureRanges: UINT32, maxGlyphCount: UINT32, #[out] #[len_param(1)] clusterMap: *mut UINT16, #[out] #[len_param(1)] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, #[out] #[len_param(11)] glyphIndices: *mut UINT16, #[out] #[len_param(11)] glyphProps: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, #[out] actualGlyphCount: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGlyphPlacements(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] textString: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] clusterMap: *const UINT16, #[in] #[out] #[len_param(3)] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] glyphIndices: *const UINT16, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] glyphProps: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphCount: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontFace: IDWriteFontFace, fontEmSize: FLOAT, isSideways: BOOL, isRightToLeft: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] localeName: *const WCHAR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(15)] features: *mut *const DWRITE_TYPOGRAPHIC_FEATURES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(15)] featureRangeLengths: *const UINT32, featureRanges: UINT32, #[out] #[len_param(6)] glyphAdvances: *mut FLOAT, #[out] #[len_param(6)] glyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGdiCompatibleGlyphPlacements(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] textString: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] clusterMap: *const UINT16, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] glyphIndices: *const UINT16, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] glyphProps: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphCount: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontFace: IDWriteFontFace, fontEmSize: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, isSideways: BOOL, isRightToLeft: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] localeName: *const WCHAR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(18)] features: *mut *const DWRITE_TYPOGRAPHIC_FEATURES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(18)] featureRangeLengths: *const UINT32, featureRanges: UINT32, #[out] #[len_param(6)] glyphAdvances: *mut FLOAT, #[out] #[len_param(6)] glyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
         }
         #[guid(0x9c906818_31d7_4fd3_a151_7c5e225db55a)]
         interface IDWriteTextFormat: IUnknown {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetTextAlignment(&self, textAlignment: DWRITE_TEXT_ALIGNMENT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetParagraphAlignment(&self, paragraphAlignment: DWRITE_PARAGRAPH_ALIGNMENT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetWordWrapping(&self, wordWrapping: DWRITE_WORD_WRAPPING) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetReadingDirection(&self, readingDirection: DWRITE_READING_DIRECTION) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetFlowDirection(&self, flowDirection: DWRITE_FLOW_DIRECTION) -> HRESULT;
-            fn SetIncrementalTabStop(&self, incrementalTabStop: f32) -> HRESULT;
-            fn SetTrimming(&self, trimmingOptions: *const DWRITE_TRIMMING, #[opt] trimmingSign: IDWriteInlineObject) -> HRESULT;
-            fn SetLineSpacing(&self, lineSpacingMethod: DWRITE_LINE_SPACING_METHOD, lineSpacing: f32, baseline: f32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetIncrementalTabStop(&self, incrementalTabStop: FLOAT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetTrimming(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] trimmingOptions: *const DWRITE_TRIMMING, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] trimmingSign: IDWriteInlineObject) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetLineSpacing(&self, lineSpacingMethod: DWRITE_LINE_SPACING_METHOD, lineSpacing: FLOAT, baseline: FLOAT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetTextAlignment(&self) -> DWRITE_TEXT_ALIGNMENT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetParagraphAlignment(&self) -> DWRITE_PARAGRAPH_ALIGNMENT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetWordWrapping(&self) -> DWRITE_WORD_WRAPPING;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetReadingDirection(&self) -> DWRITE_READING_DIRECTION;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetFlowDirection(&self) -> DWRITE_FLOW_DIRECTION;
-            fn GetIncrementalTabStop(&self) -> f32;
-            fn GetTrimming(&self, trimmingOptions: *mut DWRITE_TRIMMING, trimmingSign: *mut IDWriteInlineObject) -> HRESULT;
-            fn GetLineSpacing(&self, lineSpacingMethod: *mut DWRITE_LINE_SPACING_METHOD, lineSpacing: *mut f32, baseline: *mut f32) -> HRESULT;
-            fn GetFontCollection(&self, fontCollection: *mut IDWriteFontCollection) -> HRESULT;
-            fn GetFontFamilyNameLength(&self) -> u32;
-            fn GetFontFamilyName(&self, #[len_param(1)] fontFamilyName: *mut u16, nameSize: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetIncrementalTabStop(&self) -> FLOAT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetTrimming(&self, #[out] trimmingOptions: *mut DWRITE_TRIMMING, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] trimmingSign: *mut IDWriteInlineObject) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLineSpacing(&self, #[out] lineSpacingMethod: *mut DWRITE_LINE_SPACING_METHOD, #[out] lineSpacing: *mut FLOAT, #[out] baseline: *mut FLOAT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontCollection(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontCollection: *mut IDWriteFontCollection) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontFamilyNameLength(&self) -> UINT32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontFamilyName(&self, #[out] #[len_param(1)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true)] fontFamilyName: *mut WCHAR, nameSize: UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetFontWeight(&self) -> DWRITE_FONT_WEIGHT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetFontStyle(&self) -> DWRITE_FONT_STYLE;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetFontStretch(&self) -> DWRITE_FONT_STRETCH;
-            fn GetFontSize(&self) -> f32;
-            fn GetLocaleNameLength(&self) -> u32;
-            fn GetLocaleName(&self, #[len_param(1)] localeName: *mut u16, nameSize: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontSize(&self) -> FLOAT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLocaleNameLength(&self) -> UINT32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLocaleName(&self, #[out] #[len_param(1)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true)] localeName: *mut WCHAR, nameSize: UINT32) -> HRESULT;
         }
         #[guid(0x53737037_6d14_410b_9bfe_0b182bb70961)]
         interface IDWriteTextLayout: IDWriteTextFormat {
-            fn SetMaxWidth(&self, maxWidth: f32) -> HRESULT;
-            fn SetMaxHeight(&self, maxHeight: f32) -> HRESULT;
-            fn SetFontCollection(&self, fontCollection: IDWriteFontCollection, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn SetFontFamilyName(&self, fontFamilyName: *const u16, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetMaxWidth(&self, maxWidth: FLOAT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetMaxHeight(&self, maxHeight: FLOAT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetFontCollection(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontCollection: IDWriteFontCollection, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetFontFamilyName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] fontFamilyName: *const WCHAR, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetFontWeight(&self, fontWeight: DWRITE_FONT_WEIGHT, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetFontStyle(&self, fontStyle: DWRITE_FONT_STYLE, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetFontStretch(&self, fontStretch: DWRITE_FONT_STRETCH, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn SetFontSize(&self, fontSize: f32, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetFontSize(&self, fontSize: FLOAT, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetUnderline(&self, hasUnderline: BOOL, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetStrikethrough(&self, hasStrikethrough: BOOL, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetDrawingEffect(&self, drawingEffect: IUnknown, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn SetInlineObject(&self, inlineObject: IDWriteInlineObject, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn SetTypography(&self, typography: IDWriteTypography, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn SetLocaleName(&self, localeName: *const u16, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetMaxWidth(&self) -> f32;
-            fn GetMaxHeight(&self) -> f32;
-            fn GetFontCollection(&self, currentPosition: u32, fontCollection: *mut IDWriteFontCollection, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontFamilyNameLength(&self, currentPosition: u32, nameLength: *mut u32, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontFamilyName(&self, currentPosition: u32, #[len_param(2)] fontFamilyName: *mut u16, nameSize: u32, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontWeight(&self, currentPosition: u32, fontWeight: *mut DWRITE_FONT_WEIGHT, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontStyle(&self, currentPosition: u32, fontStyle: *mut DWRITE_FONT_STYLE, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontStretch(&self, currentPosition: u32, fontStretch: *mut DWRITE_FONT_STRETCH, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontSize(&self, currentPosition: u32, fontSize: *mut f32, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetUnderline(&self, currentPosition: u32, hasUnderline: *mut BOOL, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetStrikethrough(&self, currentPosition: u32, hasStrikethrough: *mut BOOL, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetDrawingEffect(&self, currentPosition: u32, drawingEffect: *mut IUnknown, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetInlineObject(&self, currentPosition: u32, inlineObject: *mut IDWriteInlineObject, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetTypography(&self, currentPosition: u32, typography: *mut IDWriteTypography, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetLocaleNameLength(&self, currentPosition: u32, nameLength: *mut u32, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetLocaleName(&self, currentPosition: u32, #[len_param(2)] localeName: *mut u16, nameSize: u32, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn Draw(&self, #[in] #[opt] clientDrawingContext: *mut void, renderer: IDWriteTextRenderer, originX: f32, originY: f32) -> HRESULT;
-            fn GetLineMetrics(&self, #[len_param(1)] #[opt] lineMetrics: *mut DWRITE_LINE_METRICS, maxLineCount: u32, actualLineCount: *mut u32) -> HRESULT;
-            fn GetMetrics(&self, textMetrics: *mut DWRITE_TEXT_METRICS) -> HRESULT;
-            fn GetOverhangMetrics(&self, overhangs: *mut DWRITE_OVERHANG_METRICS) -> HRESULT;
-            fn GetClusterMetrics(&self, #[len_param(1)] #[opt] clusterMetrics: *mut DWRITE_CLUSTER_METRICS, maxClusterCount: u32, actualClusterCount: *mut u32) -> HRESULT;
-            fn DetermineMinWidth(&self, minWidth: *mut f32) -> HRESULT;
-            fn HitTestPoint(&self, pointX: f32, pointY: f32, isTrailingHit: *mut BOOL, isInside: *mut BOOL, hitTestMetrics: *mut DWRITE_HIT_TEST_METRICS) -> HRESULT;
-            fn HitTestTextPosition(&self, textPosition: u32, isTrailingHit: BOOL, pointX: *mut f32, pointY: *mut f32, hitTestMetrics: *mut DWRITE_HIT_TEST_METRICS) -> HRESULT;
-            fn HitTestTextRange(&self, textPosition: u32, textLength: u32, originX: f32, originY: f32, #[len_param(5)] #[opt] hitTestMetrics: *mut DWRITE_HIT_TEST_METRICS, maxHitTestMetricsCount: u32, actualHitTestMetricsCount: *mut u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetInlineObject(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] inlineObject: IDWriteInlineObject, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetTypography(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] typography: IDWriteTypography, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetLocaleName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] localeName: *const WCHAR, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMaxWidth(&self) -> FLOAT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMaxHeight(&self) -> FLOAT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontCollection(&self, currentPosition: UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontCollection: *mut IDWriteFontCollection, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontFamilyNameLength(&self, currentPosition: UINT32, #[out] nameLength: *mut UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontFamilyName(&self, currentPosition: UINT32, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true)] fontFamilyName: *mut WCHAR, nameSize: UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontWeight(&self, currentPosition: UINT32, #[out] fontWeight: *mut DWRITE_FONT_WEIGHT, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontStyle(&self, currentPosition: UINT32, #[out] fontStyle: *mut DWRITE_FONT_STYLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontStretch(&self, currentPosition: UINT32, #[out] fontStretch: *mut DWRITE_FONT_STRETCH, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontSize(&self, currentPosition: UINT32, #[out] fontSize: *mut FLOAT, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetUnderline(&self, currentPosition: UINT32, #[out] hasUnderline: *mut BOOL, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetStrikethrough(&self, currentPosition: UINT32, #[out] hasStrikethrough: *mut BOOL, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDrawingEffect(&self, currentPosition: UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] drawingEffect: *mut IUnknown, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetInlineObject(&self, currentPosition: UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] inlineObject: *mut IDWriteInlineObject, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetTypography(&self, currentPosition: UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] typography: *mut IDWriteTypography, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLocaleNameLength(&self, currentPosition: UINT32, #[out] nameLength: *mut UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLocaleName(&self, currentPosition: UINT32, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true)] localeName: *mut WCHAR, nameSize: UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Draw(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingContext: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] renderer: IDWriteTextRenderer, originX: FLOAT, originY: FLOAT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLineMetrics(&self, #[out] #[opt] #[len_param(1)] lineMetrics: *mut DWRITE_LINE_METRICS, maxLineCount: UINT32, #[out] actualLineCount: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMetrics(&self, #[out] textMetrics: *mut DWRITE_TEXT_METRICS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetOverhangMetrics(&self, #[out] overhangs: *mut DWRITE_OVERHANG_METRICS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetClusterMetrics(&self, #[out] #[opt] #[len_param(1)] clusterMetrics: *mut DWRITE_CLUSTER_METRICS, maxClusterCount: UINT32, #[out] actualClusterCount: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn DetermineMinWidth(&self, #[out] minWidth: *mut FLOAT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn HitTestPoint(&self, pointX: FLOAT, pointY: FLOAT, #[out] isTrailingHit: *mut BOOL, #[out] isInside: *mut BOOL, #[out] hitTestMetrics: *mut DWRITE_HIT_TEST_METRICS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn HitTestTextPosition(&self, textPosition: UINT32, isTrailingHit: BOOL, #[out] pointX: *mut FLOAT, #[out] pointY: *mut FLOAT, #[out] hitTestMetrics: *mut DWRITE_HIT_TEST_METRICS) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn HitTestTextRange(&self, textPosition: UINT32, textLength: UINT32, originX: FLOAT, originY: FLOAT, #[out] #[opt] #[len_param(5)] hitTestMetrics: *mut DWRITE_HIT_TEST_METRICS, maxHitTestMetricsCount: UINT32, #[out] actualHitTestMetricsCount: *mut UINT32) -> HRESULT;
         }
         #[guid(0xef8a8135_5cc6_45fe_8825_c5a0724eb819)]
         interface IDWriteTextRenderer: IDWritePixelSnapping {
-            fn DrawGlyphRun(&self, #[in] #[opt] clientDrawingContext: *mut void, baselineOriginX: f32, baselineOriginY: f32, measuringMode: DWRITE_MEASURING_MODE, glyphRun: *const DWRITE_GLYPH_RUN, glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
-            fn DrawUnderline(&self, #[in] #[opt] clientDrawingContext: *mut void, baselineOriginX: f32, baselineOriginY: f32, underline: *const DWRITE_UNDERLINE, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
-            fn DrawStrikethrough(&self, #[in] #[opt] clientDrawingContext: *mut void, baselineOriginX: f32, baselineOriginY: f32, strikethrough: *const DWRITE_STRIKETHROUGH, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
-            fn DrawInlineObject(&self, #[in] #[opt] clientDrawingContext: *mut void, originX: f32, originY: f32, inlineObject: IDWriteInlineObject, isSideways: BOOL, isRightToLeft: BOOL, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn DrawGlyphRun(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingContext: *mut void, baselineOriginX: FLOAT, baselineOriginY: FLOAT, measuringMode: DWRITE_MEASURING_MODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] glyphRun: *const DWRITE_GLYPH_RUN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingEffect: IUnknown) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn DrawUnderline(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingContext: *mut void, baselineOriginX: FLOAT, baselineOriginY: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] underline: *const DWRITE_UNDERLINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingEffect: IUnknown) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn DrawStrikethrough(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingContext: *mut void, baselineOriginX: FLOAT, baselineOriginY: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strikethrough: *const DWRITE_STRIKETHROUGH, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingEffect: IUnknown) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn DrawInlineObject(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingContext: *mut void, originX: FLOAT, originY: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] inlineObject: IDWriteInlineObject, isSideways: BOOL, isRightToLeft: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clientDrawingEffect: IUnknown) -> HRESULT;
         }
         #[guid(0x55f1112b_1dc2_4b3c_9541_f46894ed85b6)]
         interface IDWriteTypography: IUnknown {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn AddFontFeature(&self, fontFeature: DWRITE_FONT_FEATURE) -> HRESULT;
-            fn GetFontFeatureCount(&self) -> u32;
-            fn GetFontFeature(&self, fontFeatureIndex: u32, fontFeature: *mut DWRITE_FONT_FEATURE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontFeatureCount(&self) -> UINT32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFontFeature(&self, fontFeatureIndex: UINT32, #[out] fontFeature: *mut DWRITE_FONT_FEATURE) -> HRESULT;
         }
     }
 }

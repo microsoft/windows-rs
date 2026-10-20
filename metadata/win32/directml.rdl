@@ -2,18 +2,18 @@
 mod Windows {
     mod Win32 {
         #[library("DirectML.dll")]
-        extern fn DMLCreateDevice(d3d12Device: ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, riid: *const GUID, #[iid_is] #[opt] ppv: *mut *mut void) -> HRESULT;
+        extern fn DMLCreateDevice(d3d12Device: ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("DirectML.dll")]
-        extern fn DMLCreateDevice1(d3d12Device: ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, minimumFeatureLevel: DML_FEATURE_LEVEL, riid: *const GUID, #[iid_is] #[opt] ppv: *mut *mut void) -> HRESULT;
+        extern fn DMLCreateDevice1(d3d12Device: ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, minimumFeatureLevel: DML_FEATURE_LEVEL, riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
         struct DML_ACTIVATION_CELU_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
+            Alpha: FLOAT,
         }
         struct DML_ACTIVATION_ELU_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
+            Alpha: FLOAT,
         }
         struct DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -22,8 +22,8 @@ mod Windows {
         struct DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
-            Beta: f32,
+            Alpha: FLOAT,
+            Beta: FLOAT,
         }
         struct DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -32,13 +32,13 @@ mod Windows {
         struct DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
+            Alpha: FLOAT,
         }
         struct DML_ACTIVATION_LINEAR_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
-            Beta: f32,
+            Alpha: FLOAT,
+            Beta: FLOAT,
         }
         struct DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -52,8 +52,8 @@ mod Windows {
         struct DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
-            Beta: f32,
+            Alpha: FLOAT,
+            Beta: FLOAT,
         }
         struct DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -67,20 +67,20 @@ mod Windows {
         struct DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
-            Gamma: f32,
+            Alpha: FLOAT,
+            Gamma: FLOAT,
         }
         struct DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
-            Beta: f32,
+            Alpha: FLOAT,
+            Beta: FLOAT,
         }
         struct DML_ACTIVATION_SHRINK_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Bias: f32,
-            Threshold: f32,
+            Bias: FLOAT,
+            Threshold: FLOAT,
         }
         struct DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -93,7 +93,7 @@ mod Windows {
         struct DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Steepness: f32,
+            Steepness: FLOAT,
         }
         struct DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -106,7 +106,7 @@ mod Windows {
         struct DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
+            Alpha: FLOAT,
         }
         struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
             InputParametersTensor: *const DML_TENSOR_DESC,
@@ -117,43 +117,53 @@ mod Windows {
             OutputParametersTensor: *const DML_TENSOR_DESC,
             OutputFirstMomentTensor: *const DML_TENSOR_DESC,
             OutputSecondMomentTensor: *const DML_TENSOR_DESC,
-            LearningRate: f32,
-            Beta1: f32,
-            Beta2: f32,
-            Epsilon: f32,
+            LearningRate: FLOAT,
+            Beta1: FLOAT,
+            Beta2: FLOAT,
+            Epsilon: FLOAT,
         }
         struct DML_ARGMAX_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            AxisCount: u32,
-            Axes: *const u32,
+            AxisCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "AxisCount", IsByteCount = false, MayBeNull = false)]
+            Axes: *const UINT,
             AxisDirection: DML_AXIS_DIRECTION,
         }
         struct DML_ARGMIN_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            AxisCount: u32,
-            Axes: *const u32,
+            AxisCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "AxisCount", IsByteCount = false, MayBeNull = false)]
+            Axes: *const UINT,
             AxisDirection: DML_AXIS_DIRECTION,
         }
         struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
             InputGradientTensor: *const DML_TENSOR_DESC,
             OutputGradientTensor: *const DML_TENSOR_DESC,
-            DimensionCount: u32,
-            Strides: *const u32,
-            WindowSize: *const u32,
-            StartPadding: *const u32,
-            EndPadding: *const u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Strides: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            WindowSize: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            StartPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            EndPadding: *const UINT,
             IncludePadding: BOOL,
         }
         struct DML_AVERAGE_POOLING_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            DimensionCount: u32,
-            Strides: *const u32,
-            WindowSize: *const u32,
-            StartPadding: *const u32,
-            EndPadding: *const u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Strides: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            WindowSize: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            StartPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            EndPadding: *const UINT,
             IncludePadding: BOOL,
         }
         #[repr(i32)]
@@ -170,7 +180,7 @@ mod Windows {
             OutputGradientTensor: *const DML_TENSOR_DESC,
             OutputScaleGradientTensor: *const DML_TENSOR_DESC,
             OutputBiasGradientTensor: *const DML_TENSOR_DESC,
-            Epsilon: f32,
+            Epsilon: FLOAT,
         }
         struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -180,7 +190,8 @@ mod Windows {
             BiasTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             Spatial: BOOL,
-            Epsilon: f32,
+            Epsilon: FLOAT,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             FusedActivation: *const DML_OPERATOR_DESC,
         }
         struct DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC {
@@ -192,33 +203,36 @@ mod Windows {
             OutputGradientTensor: *const DML_TENSOR_DESC,
             OutputScaleGradientTensor: *const DML_TENSOR_DESC,
             OutputBiasGradientTensor: *const DML_TENSOR_DESC,
-            Epsilon: f32,
+            Epsilon: FLOAT,
         }
         struct DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             ScaleTensor: *const DML_TENSOR_DESC,
             BiasTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             FusedAddTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             OutputMeanTensor: *const DML_TENSOR_DESC,
             OutputVarianceTensor: *const DML_TENSOR_DESC,
-            Epsilon: f32,
+            Epsilon: FLOAT,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             FusedActivation: *const DML_OPERATOR_DESC,
         }
         struct DML_BINDING_DESC {
             Type: DML_BINDING_TYPE,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_opt_", "_Inexpressible_(\"Dependent on binding type\")", "_Inexpressible_(\"Dependent on binding type\")")]
             Desc: *const void,
         }
         struct DML_BINDING_PROPERTIES {
-            RequiredDescriptorCount: u32,
-            TemporaryResourceSize: u64,
-            PersistentResourceSize: u64,
+            RequiredDescriptorCount: UINT,
+            TemporaryResourceSize: UINT64,
+            PersistentResourceSize: UINT64,
         }
         struct DML_BINDING_TABLE_DESC {
             Dispatchable: IDMLDispatchable,
             CPUDescriptorHandle: D3D12_CPU_DESCRIPTOR_HANDLE,
             GPUDescriptorHandle: D3D12_GPU_DESCRIPTOR_HANDLE,
-            SizeInDescriptors: u32,
+            SizeInDescriptors: UINT,
         }
         #[repr(i32)]
         enum DML_BINDING_TYPE {
@@ -227,22 +241,26 @@ mod Windows {
             DML_BINDING_TYPE_BUFFER_ARRAY = 2,
         }
         struct DML_BUFFER_ARRAY_BINDING {
-            BindingCount: u32,
+            BindingCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "BindingCount", IsByteCount = false, MayBeNull = false)]
             Bindings: *const DML_BUFFER_BINDING,
         }
         struct DML_BUFFER_BINDING {
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             Buffer: ID3D12Resource,
-            Offset: u64,
-            SizeInBytes: u64,
+            Offset: UINT64,
+            SizeInBytes: UINT64,
         }
         struct DML_BUFFER_TENSOR_DESC {
             DataType: DML_TENSOR_DATA_TYPE,
             Flags: DML_TENSOR_FLAGS,
-            DimensionCount: u32,
-            Sizes: *const u32,
-            Strides: *const u32,
-            TotalTensorSizeInBytes: u64,
-            GuaranteedBaseOffsetAlignment: u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Sizes: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = true)]
+            Strides: *const UINT,
+            TotalTensorSizeInBytes: UINT64,
+            GuaranteedBaseOffsetAlignment: UINT,
         }
         struct DML_CAST_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -255,16 +273,22 @@ mod Windows {
         }
         struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             InputZeroPointTensor: *const DML_TENSOR_DESC,
             FilterTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             FilterZeroPointTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            DimensionCount: u32,
-            Strides: *const u32,
-            Dilations: *const u32,
-            StartPadding: *const u32,
-            EndPadding: *const u32,
-            GroupCount: u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Strides: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Dilations: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            StartPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            EndPadding: *const UINT,
+            GroupCount: UINT,
         }
         #[repr(i32)]
         enum DML_CONVOLUTION_MODE {
@@ -274,21 +298,27 @@ mod Windows {
         struct DML_CONVOLUTION_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             FilterTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             BiasTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             Mode: DML_CONVOLUTION_MODE,
             Direction: DML_CONVOLUTION_DIRECTION,
-            DimensionCount: u32,
-            Strides: *const u32,
-            Dilations: *const u32,
-            StartPadding: *const u32,
-            EndPadding: *const u32,
-            OutputPadding: *const u32,
-            GroupCount: u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Strides: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Dilations: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            StartPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            EndPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            OutputPadding: *const UINT,
+            GroupCount: UINT,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             FusedActivation: *const DML_OPERATOR_DESC,
         }
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum DML_CREATE_DEVICE_FLAGS {
             DML_CREATE_DEVICE_FLAG_NONE = 0,
             DML_CREATE_DEVICE_FLAG_DEBUG = 1,
@@ -296,14 +326,14 @@ mod Windows {
         struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Axis: u32,
+            Axis: UINT,
             AxisDirection: DML_AXIS_DIRECTION,
             HasExclusiveProduct: BOOL,
         }
         struct DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Axis: u32,
+            Axis: UINT,
             AxisDirection: DML_AXIS_DIRECTION,
             HasExclusiveSum: BOOL,
         }
@@ -315,18 +345,18 @@ mod Windows {
         struct DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            BlockSize: u32,
+            BlockSize: UINT,
             Order: DML_DEPTH_SPACE_ORDER,
         }
         struct DML_DEPTH_TO_SPACE_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            BlockSize: u32,
+            BlockSize: UINT,
         }
         struct DML_DIAGONAL_MATRIX_OPERATOR_DESC {
             OutputTensor: *const DML_TENSOR_DESC,
-            Offset: i32,
-            Value: f32,
+            Offset: INT,
+            Value: FLOAT,
         }
         struct DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -337,22 +367,26 @@ mod Windows {
         struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
             ATensor: *const DML_TENSOR_DESC,
             BTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             FusedActivation: *const DML_OPERATOR_DESC,
         }
         struct DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
@@ -363,21 +397,25 @@ mod Windows {
         struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
@@ -421,11 +459,13 @@ mod Windows {
         struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_CLIP1_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
             MinMaxDataType: DML_TENSOR_DATA_TYPE,
             Min: DML_SCALAR_UNION,
@@ -443,35 +483,40 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             InputGradientTensor: *const DML_TENSOR_DESC,
             OutputGradientTensor: *const DML_TENSOR_DESC,
-            Min: f32,
-            Max: f32,
+            Min: FLOAT,
+            Max: FLOAT,
         }
         struct DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
-            Min: f32,
-            Max: f32,
+            Min: FLOAT,
+            Max: FLOAT,
         }
         struct DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
-            Exponent: f32,
+            Exponent: FLOAT,
         }
         struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_COS_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             ScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ZeroPointTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
         }
@@ -488,21 +533,25 @@ mod Windows {
         struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_IF_OPERATOR_DESC {
@@ -567,6 +616,7 @@ mod Windows {
         struct DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
@@ -607,28 +657,34 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             ExponentTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
             ATensor: *const DML_TENSOR_DESC,
             AScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             AZeroPointTensor: *const DML_TENSOR_DESC,
             BTensor: *const DML_TENSOR_DESC,
             BScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             BZeroPointTensor: *const DML_TENSOR_DESC,
             OutputScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputZeroPointTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
         }
         struct DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             ScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ZeroPointTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
         }
         struct DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
@@ -643,16 +699,19 @@ mod Windows {
         struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
@@ -663,21 +722,23 @@ mod Windows {
         struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
         }
         struct DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleBias: *const DML_SCALE_BIAS,
-            Min: f32,
+            Min: FLOAT,
         }
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum DML_EXECUTION_FLAGS {
             DML_EXECUTION_FLAG_NONE = 0,
             DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION = 1,
@@ -714,7 +775,8 @@ mod Windows {
             DML_FEATURE_LEVEL_6_4 = 25600,
         }
         struct DML_FEATURE_QUERY_FEATURE_LEVELS {
-            RequestedFeatureLevelCount: u32,
+            RequestedFeatureLevelCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "RequestedFeatureLevelCount", IsByteCount = false, MayBeNull = false)]
             RequestedFeatureLevels: *const DML_FEATURE_LEVEL,
         }
         struct DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
@@ -735,55 +797,62 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             IndicesTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Axis: u32,
+            Axis: UINT,
         }
         struct DML_GATHER_ND1_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             IndicesTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            InputDimensionCount: u32,
-            IndicesDimensionCount: u32,
-            BatchDimensionCount: u32,
+            InputDimensionCount: UINT,
+            IndicesDimensionCount: UINT,
+            BatchDimensionCount: UINT,
         }
         struct DML_GATHER_ND_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             IndicesTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            InputDimensionCount: u32,
-            IndicesDimensionCount: u32,
+            InputDimensionCount: UINT,
+            IndicesDimensionCount: UINT,
         }
         struct DML_GATHER_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             IndicesTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Axis: u32,
-            IndexDimensions: u32,
+            Axis: UINT,
+            IndexDimensions: UINT,
         }
         struct DML_GEMM_OPERATOR_DESC {
             ATensor: *const DML_TENSOR_DESC,
             BTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             CTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             TransA: DML_MATRIX_TRANSFORM,
             TransB: DML_MATRIX_TRANSFORM,
-            Alpha: f32,
-            Beta: f32,
+            Alpha: FLOAT,
+            Beta: FLOAT,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             FusedActivation: *const DML_OPERATOR_DESC,
         }
         struct DML_GRAPH_DESC {
-            InputCount: u32,
-            OutputCount: u32,
-            NodeCount: u32,
+            InputCount: UINT,
+            OutputCount: UINT,
+            NodeCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NodeCount", IsByteCount = false, MayBeNull = false)]
             Nodes: *const DML_GRAPH_NODE_DESC,
-            InputEdgeCount: u32,
+            InputEdgeCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "InputEdgeCount", IsByteCount = false, MayBeNull = true)]
             InputEdges: *const DML_GRAPH_EDGE_DESC,
-            OutputEdgeCount: u32,
+            OutputEdgeCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "OutputEdgeCount", IsByteCount = false, MayBeNull = false)]
             OutputEdges: *const DML_GRAPH_EDGE_DESC,
-            IntermediateEdgeCount: u32,
+            IntermediateEdgeCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "IntermediateEdgeCount", IsByteCount = false, MayBeNull = true)]
             IntermediateEdges: *const DML_GRAPH_EDGE_DESC,
         }
         struct DML_GRAPH_EDGE_DESC {
             Type: DML_GRAPH_EDGE_TYPE,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "_Inexpressible_(\"Dependent on edge type\")", "_Inexpressible_(\"Dependent on edge type\")")]
             Desc: *const void,
         }
         #[repr(i32)]
@@ -795,6 +864,7 @@ mod Windows {
         }
         struct DML_GRAPH_NODE_DESC {
             Type: DML_GRAPH_NODE_TYPE,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "_Inexpressible_(\"Dependent on node type\")", "_Inexpressible_(\"Dependent on node type\")")]
             Desc: *const void,
         }
         #[repr(i32)]
@@ -806,27 +876,37 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             WeightTensor: *const DML_TENSOR_DESC,
             RecurrenceTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             BiasTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             HiddenInitTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             SequenceLengthsTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputSequenceTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputSingleTensor: *const DML_TENSOR_DESC,
-            ActivationDescCount: u32,
+            ActivationDescCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ActivationDescCount", IsByteCount = false, MayBeNull = false)]
             ActivationDescs: *const DML_OPERATOR_DESC,
             Direction: DML_RECURRENT_NETWORK_DIRECTION,
             LinearBeforeReset: BOOL,
         }
         struct DML_INPUT_GRAPH_EDGE_DESC {
-            GraphInputIndex: u32,
-            ToNodeIndex: u32,
-            ToNodeInputIndex: u32,
+            GraphInputIndex: UINT,
+            ToNodeIndex: UINT,
+            ToNodeInputIndex: UINT,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             Name: *const i8,
         }
         struct DML_INTERMEDIATE_GRAPH_EDGE_DESC {
-            FromNodeIndex: u32,
-            FromNodeOutputIndex: u32,
-            ToNodeIndex: u32,
-            ToNodeInputIndex: u32,
+            FromNodeIndex: UINT,
+            FromNodeOutputIndex: UINT,
+            ToNodeIndex: UINT,
+            ToNodeInputIndex: UINT,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             Name: *const i8,
         }
         #[repr(i32)]
@@ -841,60 +921,74 @@ mod Windows {
             DML_IS_INFINITY_MODE_NEGATIVE = 2,
         }
         struct DML_JOIN_OPERATOR_DESC {
-            InputCount: u32,
+            InputCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "InputCount", IsByteCount = false, MayBeNull = false)]
             InputTensors: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Axis: u32,
+            Axis: UINT,
         }
         struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             InputGradientTensor: *const DML_TENSOR_DESC,
             OutputGradientTensor: *const DML_TENSOR_DESC,
             CrossChannel: BOOL,
-            LocalSize: u32,
-            Alpha: f32,
-            Beta: f32,
-            Bias: f32,
+            LocalSize: UINT,
+            Alpha: FLOAT,
+            Beta: FLOAT,
+            Bias: FLOAT,
         }
         struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             CrossChannel: BOOL,
-            LocalSize: u32,
-            Alpha: f32,
-            Beta: f32,
-            Bias: f32,
+            LocalSize: UINT,
+            Alpha: FLOAT,
+            Beta: FLOAT,
+            Bias: FLOAT,
         }
         struct DML_LP_NORMALIZATION_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Axis: u32,
-            Epsilon: f32,
-            P: u32,
+            Axis: UINT,
+            Epsilon: FLOAT,
+            P: UINT,
         }
         struct DML_LP_POOLING_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            DimensionCount: u32,
-            Strides: *const u32,
-            WindowSize: *const u32,
-            StartPadding: *const u32,
-            EndPadding: *const u32,
-            P: u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Strides: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            WindowSize: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            StartPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            EndPadding: *const UINT,
+            P: UINT,
         }
         struct DML_LSTM_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             WeightTensor: *const DML_TENSOR_DESC,
             RecurrenceTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             BiasTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             HiddenInitTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             CellMemInitTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             SequenceLengthsTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             PeepholeTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputSequenceTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputSingleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputCellSingleTensor: *const DML_TENSOR_DESC,
-            ActivationDescCount: u32,
+            ActivationDescCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ActivationDescCount", IsByteCount = false, MayBeNull = false)]
             ActivationDescs: *const DML_OPERATOR_DESC,
             Direction: DML_RECURRENT_NETWORK_DIRECTION,
             ClipThreshold: f32,
@@ -903,8 +997,10 @@ mod Windows {
         }
         struct DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
             ATensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             AZeroPointTensor: *const DML_TENSOR_DESC,
             BTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             BZeroPointTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
         }
@@ -916,43 +1012,63 @@ mod Windows {
         struct DML_MAX_POOLING1_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputIndicesTensor: *const DML_TENSOR_DESC,
-            DimensionCount: u32,
-            Strides: *const u32,
-            WindowSize: *const u32,
-            StartPadding: *const u32,
-            EndPadding: *const u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Strides: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            WindowSize: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            StartPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            EndPadding: *const UINT,
         }
         struct DML_MAX_POOLING2_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputIndicesTensor: *const DML_TENSOR_DESC,
-            DimensionCount: u32,
-            Strides: *const u32,
-            WindowSize: *const u32,
-            StartPadding: *const u32,
-            EndPadding: *const u32,
-            Dilations: *const u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Strides: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            WindowSize: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            StartPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            EndPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Dilations: *const UINT,
         }
         struct DML_MAX_POOLING_GRAD_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             InputGradientTensor: *const DML_TENSOR_DESC,
             OutputGradientTensor: *const DML_TENSOR_DESC,
-            DimensionCount: u32,
-            Strides: *const u32,
-            WindowSize: *const u32,
-            StartPadding: *const u32,
-            EndPadding: *const u32,
-            Dilations: *const u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Strides: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            WindowSize: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            StartPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            EndPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Dilations: *const UINT,
         }
         struct DML_MAX_POOLING_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            DimensionCount: u32,
-            Strides: *const u32,
-            WindowSize: *const u32,
-            StartPadding: *const u32,
-            EndPadding: *const u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Strides: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            WindowSize: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            StartPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            EndPadding: *const UINT,
         }
         struct DML_MAX_UNPOOLING_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -961,25 +1077,33 @@ mod Windows {
         }
         struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             BiasTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            AxisCount: u32,
-            Axes: *const u32,
+            AxisCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "AxisCount", IsByteCount = false, MayBeNull = false)]
+            Axes: *const UINT,
             NormalizeVariance: BOOL,
-            Epsilon: f32,
+            Epsilon: FLOAT,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             FusedActivation: *const DML_OPERATOR_DESC,
         }
         struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             ScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             BiasTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             CrossChannel: BOOL,
             NormalizeVariance: BOOL,
-            Epsilon: f32,
+            Epsilon: FLOAT,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             FusedActivation: *const DML_OPERATOR_DESC,
         }
+        const DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT: UINT = 16;
         struct DML_NONZERO_COORDINATES_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputCountTensor: *const DML_TENSOR_DESC,
@@ -989,14 +1113,17 @@ mod Windows {
             IndicesTensor: *const DML_TENSOR_DESC,
             ValuesTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Axis: u32,
+            Axis: UINT,
         }
         struct DML_OPERATOR_DESC {
             Type: DML_OPERATOR_TYPE,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "_Inexpressible_(\"Dependent on operator type\")", "_Inexpressible_(\"Dependent on operator type\")")]
             Desc: *const void,
         }
         struct DML_OPERATOR_GRAPH_NODE_DESC {
             Operator: IDMLOperator,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             Name: *const i8,
         }
         #[repr(i32)]
@@ -1161,9 +1288,11 @@ mod Windows {
             DML_OPERATOR_ELEMENT_WISE_NEGATE = 156,
         }
         struct DML_OUTPUT_GRAPH_EDGE_DESC {
-            FromNodeIndex: u32,
-            FromNodeOutputIndex: u32,
-            GraphOutputIndex: u32,
+            FromNodeIndex: UINT,
+            FromNodeOutputIndex: UINT,
+            GraphOutputIndex: UINT,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             Name: *const i8,
         }
         struct DML_PADDING1_OPERATOR_DESC {
@@ -1172,9 +1301,11 @@ mod Windows {
             PaddingMode: DML_PADDING_MODE,
             PaddingValueDataType: DML_TENSOR_DATA_TYPE,
             PaddingValue: DML_SCALAR_UNION,
-            DimensionCount: u32,
-            StartPadding: *const u32,
-            EndPadding: *const u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            StartPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            EndPadding: *const UINT,
         }
         #[repr(i32)]
         enum DML_PADDING_MODE {
@@ -1187,43 +1318,58 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             PaddingMode: DML_PADDING_MODE,
-            PaddingValue: f32,
-            DimensionCount: u32,
-            StartPadding: *const u32,
-            EndPadding: *const u32,
+            PaddingValue: FLOAT,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            StartPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            EndPadding: *const UINT,
         }
+        const DML_PERSISTENT_BUFFER_ALIGNMENT: UINT = 256;
         struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             InputScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             InputZeroPointTensor: *const DML_TENSOR_DESC,
             FilterTensor: *const DML_TENSOR_DESC,
             FilterScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             FilterZeroPointTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             BiasTensor: *const DML_TENSOR_DESC,
             OutputScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputZeroPointTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            DimensionCount: u32,
-            Strides: *const u32,
-            Dilations: *const u32,
-            StartPadding: *const u32,
-            EndPadding: *const u32,
-            GroupCount: u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Strides: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Dilations: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            StartPadding: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            EndPadding: *const UINT,
+            GroupCount: UINT,
         }
         struct DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
             ATensor: *const DML_TENSOR_DESC,
             AScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             AZeroPointTensor: *const DML_TENSOR_DESC,
             BTensor: *const DML_TENSOR_DESC,
             BScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             BZeroPointTensor: *const DML_TENSOR_DESC,
             OutputScaleTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputZeroPointTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
         }
         struct DML_RANDOM_GENERATOR_OPERATOR_DESC {
             InputStateTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputStateTensor: *const DML_TENSOR_DESC,
             Type: DML_RANDOM_GENERATOR_TYPE,
         }
@@ -1256,50 +1402,64 @@ mod Windows {
             Function: DML_REDUCE_FUNCTION,
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            AxisCount: u32,
-            Axes: *const u32,
+            AxisCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "AxisCount", IsByteCount = false, MayBeNull = false)]
+            Axes: *const UINT,
         }
         struct DML_RESAMPLE1_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             InterpolationMode: DML_INTERPOLATION_MODE,
-            DimensionCount: u32,
-            Scales: *const f32,
-            InputPixelOffsets: *const f32,
-            OutputPixelOffsets: *const f32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Scales: *const FLOAT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            InputPixelOffsets: *const FLOAT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            OutputPixelOffsets: *const FLOAT,
         }
         struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
             InputGradientTensor: *const DML_TENSOR_DESC,
             OutputGradientTensor: *const DML_TENSOR_DESC,
             InterpolationMode: DML_INTERPOLATION_MODE,
-            DimensionCount: u32,
-            Scales: *const f32,
-            InputPixelOffsets: *const f32,
-            OutputPixelOffsets: *const f32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Scales: *const FLOAT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            InputPixelOffsets: *const FLOAT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            OutputPixelOffsets: *const FLOAT,
         }
         struct DML_RESAMPLE_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             InterpolationMode: DML_INTERPOLATION_MODE,
-            ScaleCount: u32,
-            Scales: *const f32,
+            ScaleCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ScaleCount", IsByteCount = false, MayBeNull = false)]
+            Scales: *const FLOAT,
         }
         struct DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             SequenceLengthsTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Axis: u32,
+            Axis: UINT,
         }
         struct DML_RNN_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             WeightTensor: *const DML_TENSOR_DESC,
             RecurrenceTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             BiasTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             HiddenInitTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             SequenceLengthsTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputSequenceTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputSingleTensor: *const DML_TENSOR_DESC,
-            ActivationDescCount: u32,
+            ActivationDescCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ActivationDescCount", IsByteCount = false, MayBeNull = false)]
             ActivationDescs: *const DML_OPERATOR_DESC,
             Direction: DML_RECURRENT_NETWORK_DIRECTION,
         }
@@ -1310,30 +1470,33 @@ mod Windows {
             OutputTensor: *const DML_TENSOR_DESC,
             ReductionFunction: DML_REDUCE_FUNCTION,
             InterpolationMode: DML_INTERPOLATION_MODE,
-            SpatialScaleX: f32,
-            SpatialScaleY: f32,
-            InputPixelOffset: f32,
-            OutputPixelOffset: f32,
-            OutOfBoundsInputValue: f32,
-            MinimumSamplesPerOutput: u32,
-            MaximumSamplesPerOutput: u32,
+            SpatialScaleX: FLOAT,
+            SpatialScaleY: FLOAT,
+            InputPixelOffset: FLOAT,
+            OutputPixelOffset: FLOAT,
+            OutOfBoundsInputValue: FLOAT,
+            MinimumSamplesPerOutput: UINT,
+            MaximumSamplesPerOutput: UINT,
             AlignRegionsToCorners: BOOL,
         }
         struct DML_ROI_ALIGN_GRAD_OPERATOR_DESC {
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             InputTensor: *const DML_TENSOR_DESC,
             InputGradientTensor: *const DML_TENSOR_DESC,
             ROITensor: *const DML_TENSOR_DESC,
             BatchIndicesTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputGradientTensor: *const DML_TENSOR_DESC,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")]
             OutputROIGradientTensor: *const DML_TENSOR_DESC,
             ReductionFunction: DML_REDUCE_FUNCTION,
             InterpolationMode: DML_INTERPOLATION_MODE,
-            SpatialScaleX: f32,
-            SpatialScaleY: f32,
-            InputPixelOffset: f32,
-            OutputPixelOffset: f32,
-            MinimumSamplesPerOutput: u32,
-            MaximumSamplesPerOutput: u32,
+            SpatialScaleX: FLOAT,
+            SpatialScaleY: FLOAT,
+            InputPixelOffset: FLOAT,
+            OutputPixelOffset: FLOAT,
+            MinimumSamplesPerOutput: UINT,
+            MaximumSamplesPerOutput: UINT,
             AlignRegionsToCorners: BOOL,
         }
         struct DML_ROI_ALIGN_OPERATOR_DESC {
@@ -1343,17 +1506,17 @@ mod Windows {
             OutputTensor: *const DML_TENSOR_DESC,
             ReductionFunction: DML_REDUCE_FUNCTION,
             InterpolationMode: DML_INTERPOLATION_MODE,
-            SpatialScaleX: f32,
-            SpatialScaleY: f32,
-            OutOfBoundsInputValue: f32,
-            MinimumSamplesPerOutput: u32,
-            MaximumSamplesPerOutput: u32,
+            SpatialScaleX: FLOAT,
+            SpatialScaleY: FLOAT,
+            OutOfBoundsInputValue: FLOAT,
+            MinimumSamplesPerOutput: UINT,
+            MaximumSamplesPerOutput: UINT,
         }
         struct DML_ROI_POOLING_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             ROITensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            SpatialScale: f32,
+            SpatialScale: FLOAT,
             PooledSize: DML_SIZE_2D,
         }
         #[repr(i32)]
@@ -1363,83 +1526,95 @@ mod Windows {
             DML_ROUNDING_MODE_TOWARD_INFINITY = 2,
         }
         union DML_SCALAR_UNION {
-            Bytes: [u8; 8],
-            Int8: i8,
-            UInt8: u8,
-            Int16: i16,
-            UInt16: u16,
-            Int32: i32,
-            UInt32: u32,
-            Int64: i64,
-            UInt64: u64,
-            Float32: f32,
-            Float64: f64,
+            Bytes: [BYTE; 8],
+            Int8: INT8,
+            UInt8: UINT8,
+            Int16: INT16,
+            UInt16: UINT16,
+            Int32: INT32,
+            UInt32: UINT32,
+            Int64: INT64,
+            UInt64: UINT64,
+            Float32: FLOAT,
+            Float64: DOUBLE,
         }
         struct DML_SCALE_BIAS {
-            Scale: f32,
-            Bias: f32,
+            Scale: FLOAT,
+            Bias: FLOAT,
         }
+        type DML_SCATTER_ELEMENTS_OPERATOR_DESC = DML_SCATTER_OPERATOR_DESC;
         struct DML_SCATTER_ND_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             IndicesTensor: *const DML_TENSOR_DESC,
             UpdatesTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            InputDimensionCount: u32,
-            IndicesDimensionCount: u32,
+            InputDimensionCount: UINT,
+            IndicesDimensionCount: UINT,
         }
         struct DML_SCATTER_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             IndicesTensor: *const DML_TENSOR_DESC,
             UpdatesTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Axis: u32,
+            Axis: UINT,
         }
         struct DML_SIZE_2D {
-            Width: u32,
-            Height: u32,
+            Width: UINT,
+            Height: UINT,
         }
         struct DML_SLICE1_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            DimensionCount: u32,
-            InputWindowOffsets: *const u32,
-            InputWindowSizes: *const u32,
-            InputWindowStrides: *const i32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            InputWindowOffsets: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            InputWindowSizes: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            InputWindowStrides: *const INT,
         }
         struct DML_SLICE_GRAD_OPERATOR_DESC {
             InputGradientTensor: *const DML_TENSOR_DESC,
             OutputGradientTensor: *const DML_TENSOR_DESC,
-            DimensionCount: u32,
-            InputWindowOffsets: *const u32,
-            InputWindowSizes: *const u32,
-            InputWindowStrides: *const i32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            InputWindowOffsets: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            InputWindowSizes: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            InputWindowStrides: *const INT,
         }
         struct DML_SLICE_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            DimensionCount: u32,
-            Offsets: *const u32,
-            Sizes: *const u32,
-            Strides: *const u32,
+            DimensionCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Offsets: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Sizes: *const UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DimensionCount", IsByteCount = false, MayBeNull = false)]
+            Strides: *const UINT,
         }
         struct DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            BlockSize: u32,
+            BlockSize: UINT,
             Order: DML_DEPTH_SPACE_ORDER,
         }
         struct DML_SPACE_TO_DEPTH_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            BlockSize: u32,
+            BlockSize: UINT,
         }
         struct DML_SPLIT_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
-            OutputCount: u32,
+            OutputCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "OutputCount", IsByteCount = false, MayBeNull = false)]
             OutputTensors: *const DML_TENSOR_DESC,
-            Axis: u32,
+            Axis: UINT,
         }
         const DML_TARGET_VERSION: i32 = 20480;
+        const DML_TEMPORARY_BUFFER_ALIGNMENT: UINT = 256;
         #[repr(i32)]
         enum DML_TENSOR_DATA_TYPE {
             DML_TENSOR_DATA_TYPE_UNKNOWN = 0,
@@ -1457,10 +1632,12 @@ mod Windows {
         }
         struct DML_TENSOR_DESC {
             Type: DML_TENSOR_TYPE,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "_Inexpressible_(\"Dependent on tensor type\")", "_Inexpressible_(\"Dependent on tensor type\")")]
             Desc: *const void,
         }
-        #[repr(u32)]
-        #[flags]
+        const DML_TENSOR_DIMENSION_COUNT_MAX: UINT = 5;
+        const DML_TENSOR_DIMENSION_COUNT_MAX1: UINT = 8;
+        #[repr(i32)]
         enum DML_TENSOR_FLAGS {
             DML_TENSOR_FLAG_NONE = 0,
             DML_TENSOR_FLAG_OWNED_BY_DML = 1,
@@ -1473,23 +1650,24 @@ mod Windows {
         struct DML_TILE_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            RepeatsCount: u32,
-            Repeats: *const u32,
+            RepeatsCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "RepeatsCount", IsByteCount = false, MayBeNull = false)]
+            Repeats: *const UINT,
         }
         struct DML_TOP_K1_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputValueTensor: *const DML_TENSOR_DESC,
             OutputIndexTensor: *const DML_TENSOR_DESC,
-            Axis: u32,
-            K: u32,
+            Axis: UINT,
+            K: UINT,
             AxisDirection: DML_AXIS_DIRECTION,
         }
         struct DML_TOP_K_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputValueTensor: *const DML_TENSOR_DESC,
             OutputIndexTensor: *const DML_TENSOR_DESC,
-            Axis: u32,
-            K: u32,
+            Axis: UINT,
+            K: UINT,
         }
         struct DML_UPSAMPLE_2D_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -1500,65 +1678,91 @@ mod Windows {
         struct DML_VALUE_SCALE_2D_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Scale: f32,
-            ChannelCount: u32,
-            Bias: *const f32,
+            Scale: FLOAT,
+            ChannelCount: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ChannelCount", IsByteCount = false, MayBeNull = false)]
+            Bias: *const FLOAT,
         }
         #[guid(0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc)]
         interface IDMLBindingTable: IDMLDeviceChild {
-            fn BindInputs(&self, bindingCount: u32, #[len_param(0)] #[opt] bindings: *const DML_BINDING_DESC);
-            fn BindOutputs(&self, bindingCount: u32, #[len_param(0)] #[opt] bindings: *const DML_BINDING_DESC);
-            fn BindTemporaryResource(&self, #[opt] binding: *const DML_BINDING_DESC);
-            fn BindPersistentResource(&self, #[opt] binding: *const DML_BINDING_DESC);
-            fn Reset(&self, #[opt] desc: *const DML_BINDING_TABLE_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindInputs(&self, bindingCount: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] bindings: *const DML_BINDING_DESC);
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindOutputs(&self, bindingCount: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] bindings: *const DML_BINDING_DESC);
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindTemporaryResource(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] binding: *const DML_BINDING_DESC);
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindPersistentResource(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] binding: *const DML_BINDING_DESC);
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Reset(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] desc: *const DML_BINDING_TABLE_DESC) -> HRESULT;
         }
         #[guid(0xe6857a76_2e3e_4fdd_bff4_5d2ba10fb453)]
         interface IDMLCommandRecorder: IDMLDeviceChild {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn RecordDispatch(&self, commandList: ID3D12CommandList, dispatchable: IDMLDispatchable, bindings: IDMLBindingTable);
         }
         #[guid(0x6b15e56a_bf5c_4902_92d8_da3a650afea4)]
         interface IDMLCompiledOperator: IDMLDispatchable {}
         #[guid(0x7d6f3ac9_394a_4ac3_92a7_390cc57a8217)]
         interface IDMLDebugDevice: IUnknown {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetMuteDebugOutput(&self, mute: BOOL);
         }
         #[guid(0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f)]
         interface IDMLDevice: IDMLObject {
-            fn CheckFeatureSupport(&self, feature: DML_FEATURE, featureQueryDataSize: u32, #[size_param(1)] #[opt] featureQueryData: *const void, featureSupportDataSize: u32, #[size_param(3)] featureSupportData: *mut void) -> HRESULT;
-            fn CreateOperator(&self, desc: *const DML_OPERATOR_DESC, riid: *const GUID, #[iid_is] #[opt] ppv: *mut *mut void) -> HRESULT;
-            fn CompileOperator(&self, op: IDMLOperator, flags: DML_EXECUTION_FLAGS, riid: *const GUID, #[iid_is] #[opt] ppv: *mut *mut void) -> HRESULT;
-            fn CreateOperatorInitializer(&self, operatorCount: u32, #[len_param(0)] #[opt] operators: *const IDMLCompiledOperator, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateCommandRecorder(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateBindingTable(&self, #[opt] desc: *const DML_BINDING_TABLE_DESC, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn Evict(&self, count: u32, #[len_param(0)] ppObjects: *const IDMLPageable) -> HRESULT;
-            fn MakeResident(&self, count: u32, #[len_param(0)] ppObjects: *const IDMLPageable) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CheckFeatureSupport(&self, feature: DML_FEATURE, featureQueryDataSize: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] featureQueryData: *const void, featureSupportDataSize: UINT, #[out] #[size_param(3)] featureSupportData: *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateOperator(&self, desc: *const DML_OPERATOR_DESC, riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CompileOperator(&self, op: IDMLOperator, flags: DML_EXECUTION_FLAGS, riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateOperatorInitializer(&self, operatorCount: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] operators: *const IDMLCompiledOperator, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateCommandRecorder(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateBindingTable(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] desc: *const DML_BINDING_TABLE_DESC, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Evict(&self, count: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] ppObjects: *const IDMLPageable) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn MakeResident(&self, count: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] ppObjects: *const IDMLPageable) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDeviceRemovedReason(&self) -> HRESULT;
-            fn GetParentDevice(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetParentDevice(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0xa0884f9a_d2be_4355_aa5d_5901281ad1d2)]
         interface IDMLDevice1: IDMLDevice {
-            fn CompileGraph(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const GUID, #[iid_is] #[opt] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CompileGraph(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x27e83142_8165_49e3_974e_2fd66e4cb69d)]
         interface IDMLDeviceChild: IDMLObject {
-            fn GetDevice(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDevice(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0xdcb821a8_1039_441e_9f1c_b1759c2f3cec)]
         interface IDMLDispatchable: IDMLPageable {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES;
         }
         #[guid(0xc8263aac_9e0c_4a2d_9b8e_007521a3317c)]
         interface IDMLObject: IUnknown {
-            fn GetPrivateData(&self, guid: *const GUID, #[in] #[out] dataSize: *mut u32, #[size_param(1)] #[opt] data: *mut void) -> HRESULT;
-            fn SetPrivateData(&self, guid: *const GUID, dataSize: u32, #[size_param(1)] #[opt] data: *const void) -> HRESULT;
-            fn SetPrivateDataInterface(&self, guid: *const GUID, #[opt] data: IUnknown) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetPrivateData(&self, guid: &GUID, #[in] #[out] dataSize: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*dataSize", "*dataSize")] #[out] #[opt] data: *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetPrivateData(&self, guid: &GUID, dataSize: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] data: *const void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetPrivateDataInterface(&self, guid: &GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] data: IUnknown) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetName(&self, name: PCWSTR) -> HRESULT;
         }
         #[guid(0x26caae7a_3081_4633_9581_226fbe57695d)]
         interface IDMLOperator: IDMLDeviceChild {}
         #[guid(0x427c1113_435c_469c_8676_4d5dd072f813)]
         interface IDMLOperatorInitializer: IDMLDispatchable {
-            fn Reset(&self, operatorCount: u32, #[len_param(0)] #[opt] operators: *const IDMLCompiledOperator) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Reset(&self, operatorCount: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] operators: *const IDMLCompiledOperator) -> HRESULT;
         }
         #[guid(0xb1ab0825_4542_4a4b_8617_6dde6e8f6201)]
         interface IDMLPageable: IDMLDeviceChild {}

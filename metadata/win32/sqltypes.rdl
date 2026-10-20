@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[arch(X64 | Arm64)]
-        type BOOKMARK = SQLULEN;
+        type BOOKMARK = u64;
         #[arch(X86)]
-        type BOOKMARK = SQLUINTEGER;
+        type BOOKMARK = u32;
         struct DATE_STRUCT {
             year: SQLSMALLINT,
             month: SQLUSMALLINT,
@@ -29,11 +29,11 @@ mod Windows {
         type SQLFLOAT = f64;
         type SQLGUID = GUID;
         type SQLHANDLE = *mut void;
-        type SQLHDBC = SQLHANDLE;
-        type SQLHDESC = SQLHANDLE;
-        type SQLHENV = SQLHANDLE;
-        type SQLHSTMT = SQLHANDLE;
-        type SQLHWND = HWND;
+        type SQLHDBC = *mut void;
+        type SQLHDESC = *mut void;
+        type SQLHENV = *mut void;
+        type SQLHSTMT = *mut void;
+        type SQLHWND = *mut HWND__;
         type SQLINTEGER = i32;
         #[repr(i32)]
         enum SQLINTERVAL {
@@ -56,30 +56,30 @@ mod Windows {
         type SQLNUMERIC = u8;
         type SQLPOINTER = *mut void;
         type SQLREAL = f32;
-        type SQLRETURN = SQLSMALLINT;
+        type SQLRETURN = i16;
         #[arch(X64 | Arm64)]
-        type SQLROWCOUNT = SQLULEN;
+        type SQLROWCOUNT = u64;
         #[arch(X86)]
-        type SQLROWCOUNT = SQLUINTEGER;
+        type SQLROWCOUNT = u32;
         #[arch(X64 | Arm64)]
-        type SQLROWOFFSET = SQLLEN;
+        type SQLROWOFFSET = i64;
         #[arch(X86)]
-        type SQLROWOFFSET = SQLINTEGER;
+        type SQLROWOFFSET = i32;
         #[arch(X64 | Arm64)]
-        type SQLROWSETSIZE = SQLULEN;
+        type SQLROWSETSIZE = u64;
         #[arch(X86)]
-        type SQLROWSETSIZE = SQLUINTEGER;
+        type SQLROWSETSIZE = u32;
         type SQLSCHAR = i8;
         #[arch(X64 | Arm64)]
         type SQLSETPOSIROW = u64;
         type SQLSMALLINT = i16;
-        type SQLTCHAR = SQLCHAR;
+        type SQLTCHAR = u8;
         type SQLTIME = u8;
         type SQLTIMESTAMP = u8;
         #[arch(X64 | Arm64)]
-        type SQLTRANSID = SQLULEN;
+        type SQLTRANSID = u64;
         #[arch(X86)]
-        type SQLTRANSID = SQLUINTEGER;
+        type SQLTRANSID = u32;
         type SQLUBIGINT = u64;
         type SQLUINTEGER = u32;
         #[arch(X64 | Arm64)]

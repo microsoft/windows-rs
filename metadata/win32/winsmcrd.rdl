@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const GUID_DEVINTERFACE_SMARTCARD_READER: GUID = 0x50dd5230_ba8a_11d1_bf5d_0000f805f530;
+        const FILE_DEVICE_SMARTCARD: i32 = 49;
         const IOCTL_SMARTCARD_CONFISCATE: i32 = 3211280;
         const IOCTL_SMARTCARD_EJECT: i32 = 3211288;
         const IOCTL_SMARTCARD_GET_ATTRIBUTE: i32 = 3211272;
@@ -28,52 +28,52 @@ mod Windows {
         type PSCARD_T1_REQUEST = *mut SCARD_T1_REQUEST;
         const SCARD_ABSENT: i32 = 1;
         const SCARD_ATR_LENGTH: i32 = 33;
-        const SCARD_ATTR_ATR_STRING: u32 = 590595;
-        const SCARD_ATTR_CHANNEL_ID: u32 = 131344;
-        const SCARD_ATTR_CHARACTERISTICS: u32 = 393552;
-        const SCARD_ATTR_CURRENT_BWT: u32 = 524809;
-        const SCARD_ATTR_CURRENT_CLK: u32 = 524802;
-        const SCARD_ATTR_CURRENT_CWT: u32 = 524810;
-        const SCARD_ATTR_CURRENT_D: u32 = 524804;
-        const SCARD_ATTR_CURRENT_EBC_ENCODING: u32 = 524811;
-        const SCARD_ATTR_CURRENT_F: u32 = 524803;
-        const SCARD_ATTR_CURRENT_IFSC: u32 = 524807;
-        const SCARD_ATTR_CURRENT_IFSD: u32 = 524808;
-        const SCARD_ATTR_CURRENT_IO_STATE: u32 = 590594;
-        const SCARD_ATTR_CURRENT_N: u32 = 524805;
-        const SCARD_ATTR_CURRENT_PROTOCOL_TYPE: u32 = 524801;
-        const SCARD_ATTR_CURRENT_W: u32 = 524806;
-        const SCARD_ATTR_DEFAULT_CLK: u32 = 196897;
-        const SCARD_ATTR_DEFAULT_DATA_RATE: u32 = 196899;
-        const SCARD_ATTR_DEVICE_FRIENDLY_NAME: u32 = 2147418115;
-        const SCARD_ATTR_DEVICE_FRIENDLY_NAME_A: u32 = 2147418115;
-        const SCARD_ATTR_DEVICE_FRIENDLY_NAME_W: u32 = 2147418117;
-        const SCARD_ATTR_DEVICE_IN_USE: u32 = 2147418114;
-        const SCARD_ATTR_DEVICE_SYSTEM_NAME: u32 = 2147418116;
-        const SCARD_ATTR_DEVICE_SYSTEM_NAME_A: u32 = 2147418116;
-        const SCARD_ATTR_DEVICE_SYSTEM_NAME_W: u32 = 2147418118;
-        const SCARD_ATTR_DEVICE_UNIT: u32 = 2147418113;
-        const SCARD_ATTR_ESC_AUTHREQUEST: u32 = 499717;
-        const SCARD_ATTR_ESC_CANCEL: u32 = 499715;
-        const SCARD_ATTR_ESC_RESET: u32 = 499712;
-        const SCARD_ATTR_EXTENDED_BWT: u32 = 524812;
-        const SCARD_ATTR_ICC_INTERFACE_STATUS: u32 = 590593;
-        const SCARD_ATTR_ICC_PRESENCE: u32 = 590592;
-        const SCARD_ATTR_ICC_TYPE_PER_ATR: u32 = 590596;
-        const SCARD_ATTR_MAXINPUT: u32 = 499719;
-        const SCARD_ATTR_MAX_CLK: u32 = 196898;
-        const SCARD_ATTR_MAX_DATA_RATE: u32 = 196900;
-        const SCARD_ATTR_MAX_IFSD: u32 = 196901;
-        const SCARD_ATTR_POWER_MGMT_SUPPORT: u32 = 262449;
-        const SCARD_ATTR_PROTOCOL_TYPES: u32 = 196896;
-        const SCARD_ATTR_SUPRESS_T1_IFS_REQUEST: u32 = 2147418119;
-        const SCARD_ATTR_USER_AUTH_INPUT_DEVICE: u32 = 328002;
-        const SCARD_ATTR_USER_TO_CARD_AUTH_DEVICE: u32 = 328000;
-        const SCARD_ATTR_VENDOR_IFD_SERIAL_NO: u32 = 65795;
-        const SCARD_ATTR_VENDOR_IFD_TYPE: u32 = 65793;
-        const SCARD_ATTR_VENDOR_IFD_VERSION: u32 = 65794;
-        const SCARD_ATTR_VENDOR_NAME: u32 = 65792;
-        const SCARD_ATTR_VENDOR_SPECIFIC_INFO: u32 = 499720;
+        const SCARD_ATTR_ATR_STRING: ULONG = 590595;
+        const SCARD_ATTR_CHANNEL_ID: ULONG = 131344;
+        const SCARD_ATTR_CHARACTERISTICS: ULONG = 393552;
+        const SCARD_ATTR_CURRENT_BWT: ULONG = 524809;
+        const SCARD_ATTR_CURRENT_CLK: ULONG = 524802;
+        const SCARD_ATTR_CURRENT_CWT: ULONG = 524810;
+        const SCARD_ATTR_CURRENT_D: ULONG = 524804;
+        const SCARD_ATTR_CURRENT_EBC_ENCODING: ULONG = 524811;
+        const SCARD_ATTR_CURRENT_F: ULONG = 524803;
+        const SCARD_ATTR_CURRENT_IFSC: ULONG = 524807;
+        const SCARD_ATTR_CURRENT_IFSD: ULONG = 524808;
+        const SCARD_ATTR_CURRENT_IO_STATE: ULONG = 590594;
+        const SCARD_ATTR_CURRENT_N: ULONG = 524805;
+        const SCARD_ATTR_CURRENT_PROTOCOL_TYPE: ULONG = 524801;
+        const SCARD_ATTR_CURRENT_W: ULONG = 524806;
+        const SCARD_ATTR_DEFAULT_CLK: ULONG = 196897;
+        const SCARD_ATTR_DEFAULT_DATA_RATE: ULONG = 196899;
+        const SCARD_ATTR_DEVICE_FRIENDLY_NAME: ULONG = 2147418115;
+        const SCARD_ATTR_DEVICE_FRIENDLY_NAME_A: ULONG = 2147418115;
+        const SCARD_ATTR_DEVICE_FRIENDLY_NAME_W: ULONG = 2147418117;
+        const SCARD_ATTR_DEVICE_IN_USE: ULONG = 2147418114;
+        const SCARD_ATTR_DEVICE_SYSTEM_NAME: ULONG = 2147418116;
+        const SCARD_ATTR_DEVICE_SYSTEM_NAME_A: ULONG = 2147418116;
+        const SCARD_ATTR_DEVICE_SYSTEM_NAME_W: ULONG = 2147418118;
+        const SCARD_ATTR_DEVICE_UNIT: ULONG = 2147418113;
+        const SCARD_ATTR_ESC_AUTHREQUEST: ULONG = 499717;
+        const SCARD_ATTR_ESC_CANCEL: ULONG = 499715;
+        const SCARD_ATTR_ESC_RESET: ULONG = 499712;
+        const SCARD_ATTR_EXTENDED_BWT: ULONG = 524812;
+        const SCARD_ATTR_ICC_INTERFACE_STATUS: ULONG = 590593;
+        const SCARD_ATTR_ICC_PRESENCE: ULONG = 590592;
+        const SCARD_ATTR_ICC_TYPE_PER_ATR: ULONG = 590596;
+        const SCARD_ATTR_MAXINPUT: ULONG = 499719;
+        const SCARD_ATTR_MAX_CLK: ULONG = 196898;
+        const SCARD_ATTR_MAX_DATA_RATE: ULONG = 196900;
+        const SCARD_ATTR_MAX_IFSD: ULONG = 196901;
+        const SCARD_ATTR_POWER_MGMT_SUPPORT: ULONG = 262449;
+        const SCARD_ATTR_PROTOCOL_TYPES: ULONG = 196896;
+        const SCARD_ATTR_SUPRESS_T1_IFS_REQUEST: ULONG = 2147418119;
+        const SCARD_ATTR_USER_AUTH_INPUT_DEVICE: ULONG = 328002;
+        const SCARD_ATTR_USER_TO_CARD_AUTH_DEVICE: ULONG = 328000;
+        const SCARD_ATTR_VENDOR_IFD_SERIAL_NO: ULONG = 65795;
+        const SCARD_ATTR_VENDOR_IFD_TYPE: ULONG = 65793;
+        const SCARD_ATTR_VENDOR_IFD_VERSION: ULONG = 65794;
+        const SCARD_ATTR_VENDOR_NAME: ULONG = 65792;
+        const SCARD_ATTR_VENDOR_SPECIFIC_INFO: ULONG = 499720;
         const SCARD_CLASS_COMMUNICATIONS: i32 = 2;
         const SCARD_CLASS_ICC_STATE: i32 = 9;
         const SCARD_CLASS_IFD_PROTOCOL: i32 = 8;
@@ -87,13 +87,13 @@ mod Windows {
         const SCARD_CLASS_VENDOR_INFO: i32 = 1;
         const SCARD_COLD_RESET: i32 = 1;
         struct SCARD_IO_REQUEST {
-            dwProtocol: u32,
-            cbPciLength: u32,
+            dwProtocol: DWORD,
+            cbPciLength: DWORD,
         }
         const SCARD_NEGOTIABLE: i32 = 5;
-        const SCARD_PERF_BYTES_TRANSMITTED: u32 = 2147352578;
-        const SCARD_PERF_NUM_TRANSMISSIONS: u32 = 2147352577;
-        const SCARD_PERF_TRANSMISSION_TIME: u32 = 2147352579;
+        const SCARD_PERF_BYTES_TRANSMITTED: ULONG = 2147352578;
+        const SCARD_PERF_NUM_TRANSMISSIONS: ULONG = 2147352577;
+        const SCARD_PERF_TRANSMISSION_TIME: ULONG = 2147352579;
         const SCARD_POWERED: i32 = 4;
         const SCARD_POWER_DOWN: i32 = 0;
         const SCARD_PRESENT: i32 = 2;
@@ -125,20 +125,20 @@ mod Windows {
         const SCARD_SWALLOWED: i32 = 3;
         const SCARD_T0_CMD_LENGTH: i32 = 5;
         struct SCARD_T0_COMMAND {
-            bCla: u8,
-            bIns: u8,
-            bP1: u8,
-            bP2: u8,
-            bP3: u8,
+            bCla: BYTE,
+            bIns: BYTE,
+            bP1: BYTE,
+            bP2: BYTE,
+            bP3: BYTE,
         }
         const SCARD_T0_HEADER_LENGTH: i32 = 7;
         struct SCARD_T0_REQUEST {
             ioRequest: SCARD_IO_REQUEST,
-            bSw1: u8,
-            bSw2: u8,
+            bSw1: BYTE,
+            bSw2: BYTE,
             Anonymous: union {
                 CmdBytes: SCARD_T0_COMMAND,
-                rgbHeader: [u8; 5],
+                rgbHeader: [BYTE; 5],
             },
         }
         const SCARD_T1_EPILOGUE_LENGTH: i32 = 2;
@@ -150,6 +150,5 @@ mod Windows {
         }
         const SCARD_UNKNOWN: i32 = 0;
         const SCARD_WARM_RESET: i32 = 2;
-        type UWORD = u16;
     }
 }

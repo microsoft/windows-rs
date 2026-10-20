@@ -3,58 +3,58 @@ mod Windows {
     mod Win32 {
         #[guid(0x777d4a3b_f6ff_4a26_85dc_68d7cdeda1d4)]
         interface ISpatialAudioMetadataClient: IUnknown {
-            fn ActivateSpatialAudioMetadataItems(&self, maxItemCount: u16, frameCount: u16, metadataItemsBuffer: *mut ISpatialAudioMetadataItemsBuffer, metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
-            fn GetSpatialAudioMetadataItemsBufferLength(&self, maxItemCount: u16, bufferLength: *mut u32) -> HRESULT;
-            fn ActivateSpatialAudioMetadataWriter(&self, overflowMode: SpatialAudioMetadataWriterOverflowMode, metadataWriter: *mut ISpatialAudioMetadataWriter) -> HRESULT;
-            fn ActivateSpatialAudioMetadataCopier(&self, metadataCopier: *mut ISpatialAudioMetadataCopier) -> HRESULT;
-            fn ActivateSpatialAudioMetadataReader(&self, metadataReader: *mut ISpatialAudioMetadataReader) -> HRESULT;
+            fn ActivateSpatialAudioMetadataItems(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] maxItemCount: UINT16, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] frameCount: UINT16, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] metadataItemsBuffer: *mut ISpatialAudioMetadataItemsBuffer, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
+            fn GetSpatialAudioMetadataItemsBufferLength(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] maxItemCount: UINT16, #[out] bufferLength: *mut UINT32) -> HRESULT;
+            fn ActivateSpatialAudioMetadataWriter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] overflowMode: SpatialAudioMetadataWriterOverflowMode, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] metadataWriter: *mut ISpatialAudioMetadataWriter) -> HRESULT;
+            fn ActivateSpatialAudioMetadataCopier(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] metadataCopier: *mut ISpatialAudioMetadataCopier) -> HRESULT;
+            fn ActivateSpatialAudioMetadataReader(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] metadataReader: *mut ISpatialAudioMetadataReader) -> HRESULT;
         }
         #[guid(0xd224b233_e251_4fd0_9ca2_d5ecf9a68404)]
         interface ISpatialAudioMetadataCopier: IUnknown {
-            fn Open(&self, metadataItems: ISpatialAudioMetadataItems) -> HRESULT;
-            fn CopyMetadataForFrames(&self, copyFrameCount: u16, copyMode: SpatialAudioMetadataCopyMode, dstMetadataItems: ISpatialAudioMetadataItems, itemsCopied: *mut u16) -> HRESULT;
+            fn Open(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] metadataItems: ISpatialAudioMetadataItems) -> HRESULT;
+            fn CopyMetadataForFrames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] copyFrameCount: UINT16, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] copyMode: SpatialAudioMetadataCopyMode, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dstMetadataItems: ISpatialAudioMetadataItems, #[out] itemsCopied: *mut UINT16) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xbcd7c78f_3098_4f22_b547_a2f25a381269)]
         interface ISpatialAudioMetadataItems: IUnknown {
-            fn GetFrameCount(&self, frameCount: *mut u16) -> HRESULT;
-            fn GetItemCount(&self, itemCount: *mut u16) -> HRESULT;
-            fn GetMaxItemCount(&self, maxItemCount: *mut u16) -> HRESULT;
-            fn GetMaxValueBufferLength(&self, maxValueBufferLength: *mut u32) -> HRESULT;
-            fn GetInfo(&self, info: *mut SpatialAudioMetadataItemsInfo) -> HRESULT;
+            fn GetFrameCount(&self, #[out] frameCount: *mut UINT16) -> HRESULT;
+            fn GetItemCount(&self, #[out] itemCount: *mut UINT16) -> HRESULT;
+            fn GetMaxItemCount(&self, #[out] maxItemCount: *mut UINT16) -> HRESULT;
+            fn GetMaxValueBufferLength(&self, #[out] maxValueBufferLength: *mut UINT32) -> HRESULT;
+            fn GetInfo(&self, #[out] info: *mut SpatialAudioMetadataItemsInfo) -> HRESULT;
         }
         #[guid(0x42640a16_e1bd_42d9_9ff6_031ab71a2dba)]
         interface ISpatialAudioMetadataItemsBuffer: IUnknown {
-            fn AttachToBuffer(&self, #[size_param(1)] #[in] #[out] buffer: *mut u8, bufferLength: u32) -> HRESULT;
-            fn AttachToPopulatedBuffer(&self, #[size_param(1)] #[in] #[out] buffer: *mut u8, bufferLength: u32) -> HRESULT;
+            fn AttachToBuffer(&self, #[out] #[size_param(1)] buffer: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bufferLength: UINT32) -> HRESULT;
+            fn AttachToPopulatedBuffer(&self, #[out] #[size_param(1)] buffer: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bufferLength: UINT32) -> HRESULT;
             fn DetachBuffer(&self) -> HRESULT;
         }
         #[guid(0xb78e86a2_31d9_4c32_94d2_7df40fc7ebec)]
         interface ISpatialAudioMetadataReader: IUnknown {
-            fn Open(&self, metadataItems: ISpatialAudioMetadataItems) -> HRESULT;
-            fn ReadNextItem(&self, commandCount: *mut u8, frameOffset: *mut u16) -> HRESULT;
-            fn ReadNextItemCommand(&self, commandID: *mut u8, #[size_param(2)] #[in] #[out] valueBuffer: *mut void, maxValueBufferLength: u32, valueBufferLength: *mut u32) -> HRESULT;
+            fn Open(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] metadataItems: ISpatialAudioMetadataItems) -> HRESULT;
+            fn ReadNextItem(&self, #[out] commandCount: *mut UINT8, #[out] frameOffset: *mut UINT16) -> HRESULT;
+            fn ReadNextItemCommand(&self, #[out] commandID: *mut BYTE, #[out] #[size_param(2)] valueBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] maxValueBufferLength: UINT32, #[out] valueBufferLength: *mut UINT32) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0x1b17ca01_2955_444d_a430_537dc589a844)]
         interface ISpatialAudioMetadataWriter: IUnknown {
-            fn Open(&self, metadataItems: ISpatialAudioMetadataItems) -> HRESULT;
-            fn WriteNextItem(&self, frameOffset: u16) -> HRESULT;
-            fn WriteNextItemCommand(&self, commandID: u8, #[size_param(2)] #[opt] valueBuffer: *const void, valueBufferLength: u32) -> HRESULT;
+            fn Open(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] metadataItems: ISpatialAudioMetadataItems) -> HRESULT;
+            fn WriteNextItem(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] frameOffset: UINT16) -> HRESULT;
+            fn WriteNextItemCommand(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] commandID: BYTE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] valueBuffer: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] valueBufferLength: UINT32) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0x0df2c94b_f5f9_472d_af6b_c46e0ac9cd05)]
         interface ISpatialAudioObjectForMetadataCommands: ISpatialAudioObjectBase {
-            fn WriteNextMetadataCommand(&self, commandID: u8, #[size_param(2)] #[in] #[opt] valueBuffer: *mut void, valueBufferLength: u32) -> HRESULT;
+            fn WriteNextMetadataCommand(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] commandID: BYTE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] valueBuffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] valueBufferLength: UINT32) -> HRESULT;
         }
         #[guid(0xddea49ff_3bc0_4377_8aad_9fbcfd808566)]
         interface ISpatialAudioObjectForMetadataItems: ISpatialAudioObjectBase {
-            fn GetSpatialAudioMetadataItems(&self, metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
+            fn GetSpatialAudioMetadataItems(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
         }
         #[guid(0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1)]
         interface ISpatialAudioObjectRenderStreamForMetadata: ISpatialAudioObjectRenderStreamBase {
-            fn ActivateSpatialAudioObjectForMetadataCommands(&self, r#type: AudioObjectType, audioObject: *mut ISpatialAudioObjectForMetadataCommands) -> HRESULT;
-            fn ActivateSpatialAudioObjectForMetadataItems(&self, r#type: AudioObjectType, audioObject: *mut ISpatialAudioObjectForMetadataItems) -> HRESULT;
+            fn ActivateSpatialAudioObjectForMetadataCommands(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#type: AudioObjectType, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] audioObject: *mut ISpatialAudioObjectForMetadataCommands) -> HRESULT;
+            fn ActivateSpatialAudioObjectForMetadataItems(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#type: AudioObjectType, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] audioObject: *mut ISpatialAudioObjectForMetadataItems) -> HRESULT;
         }
         const SPATIAL_AUDIO_POSITION: i32 = 200;
         #[arch(X64 | Arm64)]
@@ -97,10 +97,10 @@ mod Windows {
         }
         #[packed(1)]
         struct SpatialAudioMetadataItemsInfo {
-            FrameCount: u16,
-            ItemCount: u16,
-            MaxItemCount: u16,
-            MaxValueBufferLength: u32,
+            FrameCount: UINT16,
+            ItemCount: UINT16,
+            MaxItemCount: UINT16,
+            MaxValueBufferLength: UINT32,
         }
         #[repr(i32)]
         enum SpatialAudioMetadataWriterOverflowMode {
@@ -112,12 +112,12 @@ mod Windows {
         struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
             ObjectFormat: *const WAVEFORMATEX,
             StaticObjectTypeMask: AudioObjectType,
-            MinDynamicObjectCount: u32,
-            MaxDynamicObjectCount: u32,
+            MinDynamicObjectCount: UINT32,
+            MaxDynamicObjectCount: UINT32,
             Category: AUDIO_STREAM_CATEGORY,
             EventHandle: HANDLE,
             MetadataFormatId: GUID,
-            MaxMetadataItemCount: u16,
+            MaxMetadataItemCount: UINT16,
             MetadataActivationParams: *const PROPVARIANT,
             NotifyObject: ISpatialAudioObjectRenderStreamNotify,
         }
@@ -125,12 +125,12 @@ mod Windows {
         struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
             ObjectFormat: *const WAVEFORMATEX,
             StaticObjectTypeMask: AudioObjectType,
-            MinDynamicObjectCount: u32,
-            MaxDynamicObjectCount: u32,
+            MinDynamicObjectCount: UINT32,
+            MaxDynamicObjectCount: UINT32,
             Category: AUDIO_STREAM_CATEGORY,
             EventHandle: HANDLE,
             MetadataFormatId: GUID,
-            MaxMetadataItemCount: u32,
+            MaxMetadataItemCount: UINT32,
             MetadataActivationParams: *const PROPVARIANT,
             NotifyObject: ISpatialAudioObjectRenderStreamNotify,
             Options: SPATIAL_AUDIO_STREAM_OPTIONS,

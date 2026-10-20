@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("PROPSYS.dll")]
-        extern fn ClearPropVariantArray(#[len_param(1)] #[in] #[out] rgPropVar: *mut PROPVARIANT, cVars: u32);
+        extern fn ClearPropVariantArray(#[in] #[out] #[len_param(1)] rgPropVar: *mut PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cVars: UINT);
         #[library("PROPSYS.dll")]
-        extern fn ClearVariantArray(#[len_param(1)] #[in] #[out] pvars: *mut VARIANT, cvars: u32);
+        extern fn ClearVariantArray(#[in] #[out] #[len_param(1)] pvars: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cvars: UINT);
         #[repr(i32)]
         enum DRAWPROGRESSFLAGS {
             DPF_NONE = 0,
@@ -15,75 +15,75 @@ mod Windows {
             DPF_STOPPED = 16,
         }
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromBooleanVector(#[len_param(1)] #[opt] prgf: *const BOOL, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromBooleanVector(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgf: *const BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromBuffer(#[size_param(1)] pv: *const void, cb: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pv: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: UINT, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromCLSID(clsid: *const GUID, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromCLSID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clsid: &IID, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromDoubleVector(#[len_param(1)] #[opt] prgn: *const f64, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromDoubleVector(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromFileTime(pftIn: *const FILETIME, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromFileTime(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pftIn: *const FILETIME, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromFileTimeVector(#[len_param(1)] #[opt] prgft: *const FILETIME, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromFileTimeVector(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgft: *const FILETIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromGUIDAsString(guid: *const GUID, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromGUIDAsString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guid: &GUID, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromInt16Vector(#[len_param(1)] #[opt] prgn: *const i16, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromInt16Vector(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const SHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromInt32Vector(#[len_param(1)] #[opt] prgn: *const i32, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromInt32Vector(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromInt64Vector(#[len_param(1)] #[opt] prgn: *const i64, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromInt64Vector(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const LONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromPropVariantVectorElem(propvarIn: *const PROPVARIANT, iElem: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromPropVariantVectorElem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromResource(hinst: HINSTANCE, id: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromResource(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hinst: HINSTANCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: UINT, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromStrRet(#[in] #[out] pstrret: *mut STRRET, #[opt] pidl: LPCITEMIDLIST, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromStrRet(#[in] #[out] pstrret: *mut STRRET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPCITEMIDLIST, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromStringAsVector(#[opt] psz: PCWSTR, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromStringAsVector(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz: PCWSTR, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromStringVector(#[len_param(1)] #[in] #[opt] prgsz: *mut PCWSTR, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromStringVector(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgsz: *mut PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromUInt16Vector(#[len_param(1)] #[opt] prgn: *const u16, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromUInt16Vector(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromUInt32Vector(#[len_param(1)] #[opt] prgn: *const u32, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromUInt32Vector(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromUInt64Vector(#[len_param(1)] #[opt] prgn: *const u64, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromUInt64Vector(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const ULONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantVectorFromPropVariant(propvarSingle: *const PROPVARIANT, ppropvarVector: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantVectorFromPropVariant(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarSingle: &PROPVARIANT, #[out] ppropvarVector: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromBooleanArray(#[len_param(1)] prgf: *const BOOL, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromBooleanArray(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgf: *const BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromBuffer(#[size_param(1)] pv: *const void, cb: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pv: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: UINT, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromDoubleArray(#[len_param(1)] prgn: *const f64, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromDoubleArray(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromFileTime(pft: *const FILETIME, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromFileTime(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pft: *const FILETIME, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromFileTimeArray(#[len_param(1)] #[opt] prgft: *const FILETIME, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromFileTimeArray(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgft: *const FILETIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromGUIDAsString(guid: *const GUID, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromGUIDAsString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guid: &GUID, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromInt16Array(#[len_param(1)] prgn: *const i16, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromInt16Array(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const SHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromInt32Array(#[len_param(1)] prgn: *const i32, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromInt32Array(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromInt64Array(#[len_param(1)] prgn: *const i64, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromInt64Array(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const LONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromResource(hinst: HINSTANCE, id: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromResource(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hinst: HINSTANCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: UINT, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromStrRet(#[in] pstrret: *mut STRRET, pidl: LPCITEMIDLIST, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromStrRet(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstrret: *mut STRRET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPCITEMIDLIST, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromStringArray(#[len_param(1)] #[in] prgsz: *mut PCWSTR, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromStringArray(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgsz: *mut PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromUInt16Array(#[len_param(1)] prgn: *const u16, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromUInt16Array(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromUInt32Array(#[len_param(1)] prgn: *const u32, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromUInt32Array(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromUInt64Array(#[len_param(1)] prgn: *const u64, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromUInt64Array(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] prgn: *const ULONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cElems: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromVariantArrayElem(varIn: *const VARIANT, iElem: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromVariantArrayElem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         type PROPVAR_CHANGE_FLAGS = i32;
         type PROPVAR_COMPARE_FLAGS = i32;
         #[repr(i32)]
@@ -98,233 +98,262 @@ mod Windows {
         }
         type PSTIME_FLAGS = i32;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantChangeType(ppropvarDest: *mut PROPVARIANT, propvarSrc: *const PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: VARTYPE) -> HRESULT;
+        extern fn PropVariantChangeType(#[out] ppropvarDest: *mut PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarSrc: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: PROPVAR_CHANGE_FLAGS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] vt: VARTYPE) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantCompareEx(propvar1: *const PROPVARIANT, propvar2: *const PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32;
+        extern fn PropVariantCompareEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar1: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar2: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] unit: PROPVAR_COMPARE_UNIT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: PROPVAR_COMPARE_FLAGS) -> i32;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantGetBooleanElem(propvar: *const PROPVARIANT, iElem: u32, pfVal: *mut BOOL) -> HRESULT;
+        extern fn PropVariantGetBooleanElem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pfVal: *mut BOOL) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantGetDoubleElem(propvar: *const PROPVARIANT, iElem: u32, pnVal: *mut f64) -> HRESULT;
+        extern fn PropVariantGetDoubleElem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut DOUBLE) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantGetElementCount(propvar: *const PROPVARIANT) -> u32;
+        extern fn PropVariantGetElementCount(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT) -> ULONG;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantGetFileTimeElem(propvar: *const PROPVARIANT, iElem: u32, pftVal: *mut FILETIME) -> HRESULT;
+        extern fn PropVariantGetFileTimeElem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pftVal: *mut FILETIME) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantGetInt16Elem(propvar: *const PROPVARIANT, iElem: u32, pnVal: *mut i16) -> HRESULT;
+        extern fn PropVariantGetInt16Elem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut SHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantGetInt32Elem(propvar: *const PROPVARIANT, iElem: u32, pnVal: *mut i32) -> HRESULT;
+        extern fn PropVariantGetInt32Elem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut LONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantGetInt64Elem(propvar: *const PROPVARIANT, iElem: u32, pnVal: *mut i64) -> HRESULT;
+        extern fn PropVariantGetInt64Elem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut LONGLONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantGetStringElem(propvar: *const PROPVARIANT, iElem: u32, ppszVal: *mut PWSTR) -> HRESULT;
+        extern fn PropVariantGetStringElem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszVal: *mut PWSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantGetUInt16Elem(propvar: *const PROPVARIANT, iElem: u32, pnVal: *mut u16) -> HRESULT;
+        extern fn PropVariantGetUInt16Elem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut USHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantGetUInt32Elem(propvar: *const PROPVARIANT, iElem: u32, pnVal: *mut u32) -> HRESULT;
+        extern fn PropVariantGetUInt32Elem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantGetUInt64Elem(propvar: *const PROPVARIANT, iElem: u32, pnVal: *mut u64) -> HRESULT;
+        extern fn PropVariantGetUInt64Elem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut ULONGLONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToBSTR(propvar: *const PROPVARIANT, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn PropVariantToBSTR(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToBoolean(propvarIn: *const PROPVARIANT, pfRet: *mut BOOL) -> HRESULT;
+        extern fn PropVariantToBoolean(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[out] pfRet: *mut BOOL) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToBooleanVector(propvar: *const PROPVARIANT, #[len_param(2)] prgf: *mut BOOL, crgf: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToBooleanVector(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgf: *mut BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgf: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToBooleanVectorAlloc(propvar: *const PROPVARIANT, pprgf: *mut *mut BOOL, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToBooleanVectorAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgf: *mut *mut BOOL, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToBooleanWithDefault(propvarIn: *const PROPVARIANT, fDefault: BOOL) -> BOOL;
+        extern fn PropVariantToBooleanWithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fDefault: BOOL) -> BOOL;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToBuffer(propvar: *const PROPVARIANT, #[size_param(2)] pv: *mut void, cb: u32) -> HRESULT;
+        extern fn PropVariantToBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[size_param(2)] pv: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: UINT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToDouble(propvarIn: *const PROPVARIANT, pdblRet: *mut f64) -> HRESULT;
+        extern fn PropVariantToDouble(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[out] pdblRet: *mut DOUBLE) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToDoubleVector(propvar: *const PROPVARIANT, #[len_param(2)] prgn: *mut f64, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToDoubleVector(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToDoubleVectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut f64, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToDoubleVectorAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut DOUBLE, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToDoubleWithDefault(propvarIn: *const PROPVARIANT, dblDefault: f64) -> f64;
+        extern fn PropVariantToDoubleWithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dblDefault: DOUBLE) -> DOUBLE;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToFileTime(propvar: *const PROPVARIANT, pstfOut: PSTIME_FLAGS, pftOut: *mut FILETIME) -> HRESULT;
+        extern fn PropVariantToFileTime(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstfOut: PSTIME_FLAGS, #[out] pftOut: *mut FILETIME) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToFileTimeVector(propvar: *const PROPVARIANT, #[len_param(2)] prgft: *mut FILETIME, crgft: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToFileTimeVector(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgft: *mut FILETIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgft: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToFileTimeVectorAlloc(propvar: *const PROPVARIANT, pprgft: *mut *mut FILETIME, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToFileTimeVectorAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgft: *mut *mut FILETIME, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToGUID(propvar: *const PROPVARIANT, pguid: *mut GUID) -> HRESULT;
+        extern fn PropVariantToGUID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] pguid: *mut GUID) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt16(propvarIn: *const PROPVARIANT, piRet: *mut i16) -> HRESULT;
+        extern fn PropVariantToInt16(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[out] piRet: *mut SHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt16Vector(propvar: *const PROPVARIANT, #[len_param(2)] prgn: *mut i16, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToInt16Vector(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut SHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt16VectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut i16, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToInt16VectorAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut SHORT, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt16WithDefault(propvarIn: *const PROPVARIANT, iDefault: i16) -> i16;
+        extern fn PropVariantToInt16WithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iDefault: SHORT) -> SHORT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt32(propvarIn: *const PROPVARIANT, plRet: *mut i32) -> HRESULT;
+        extern fn PropVariantToInt32(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[out] plRet: *mut LONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt32Vector(propvar: *const PROPVARIANT, #[len_param(2)] prgn: *mut i32, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToInt32Vector(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt32VectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut i32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToInt32VectorAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut LONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt32WithDefault(propvarIn: *const PROPVARIANT, lDefault: i32) -> i32;
+        extern fn PropVariantToInt32WithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lDefault: LONG) -> LONG;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt64(propvarIn: *const PROPVARIANT, pllRet: *mut i64) -> HRESULT;
+        extern fn PropVariantToInt64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[out] pllRet: *mut LONGLONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt64Vector(propvar: *const PROPVARIANT, #[len_param(2)] prgn: *mut i64, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToInt64Vector(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut LONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt64VectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut i64, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToInt64VectorAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut LONGLONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt64WithDefault(propvarIn: *const PROPVARIANT, llDefault: i64) -> i64;
+        extern fn PropVariantToInt64WithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] llDefault: LONGLONG) -> LONGLONG;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToStrRet(propvar: *const PROPVARIANT, pstrret: *mut STRRET) -> HRESULT;
+        extern fn PropVariantToStrRet(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] pstrret: *mut STRRET) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToString(propvar: *const PROPVARIANT, #[len_param(2)] #[out] psz: PWSTR, cch: u32) -> HRESULT;
+        extern fn PropVariantToString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[len_param(2)] psz: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cch: UINT) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToStringAlloc(propvar: *const PROPVARIANT, ppszOut: *mut PWSTR) -> HRESULT;
+        extern fn PropVariantToStringAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppszOut: *mut PWSTR) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToStringVector(propvar: *const PROPVARIANT, #[len_param(2)] prgsz: *mut PWSTR, crgsz: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToStringVector(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgsz: *mut PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgsz: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToStringVectorAlloc(propvar: *const PROPVARIANT, pprgsz: *mut *mut PWSTR, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToStringVectorAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgsz: *mut *mut PWSTR, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToStringWithDefault(propvarIn: *const PROPVARIANT, #[opt] pszDefault: PCWSTR) -> PCWSTR;
+        extern fn PropVariantToStringWithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDefault: LPCWSTR) -> PCWSTR;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt16(propvarIn: *const PROPVARIANT, puiRet: *mut u16) -> HRESULT;
+        extern fn PropVariantToUInt16(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[out] puiRet: *mut USHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt16Vector(propvar: *const PROPVARIANT, #[len_param(2)] prgn: *mut u16, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToUInt16Vector(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt16VectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut u16, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToUInt16VectorAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut USHORT, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt16WithDefault(propvarIn: *const PROPVARIANT, uiDefault: u16) -> u16;
+        extern fn PropVariantToUInt16WithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uiDefault: USHORT) -> USHORT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt32(propvarIn: *const PROPVARIANT, pulRet: *mut u32) -> HRESULT;
+        extern fn PropVariantToUInt32(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[out] pulRet: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt32Vector(propvar: *const PROPVARIANT, #[len_param(2)] prgn: *mut u32, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToUInt32Vector(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt32VectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut u32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToUInt32VectorAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt32WithDefault(propvarIn: *const PROPVARIANT, ulDefault: u32) -> u32;
+        extern fn PropVariantToUInt32WithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulDefault: ULONG) -> ULONG;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt64(propvarIn: *const PROPVARIANT, pullRet: *mut u64) -> HRESULT;
+        extern fn PropVariantToUInt64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[out] pullRet: *mut ULONGLONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt64Vector(propvar: *const PROPVARIANT, #[len_param(2)] prgn: *mut u64, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToUInt64Vector(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut ULONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt64VectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut u64, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToUInt64VectorAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvar: &PROPVARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut ULONGLONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt64WithDefault(propvarIn: *const PROPVARIANT, ullDefault: u64) -> u64;
+        extern fn PropVariantToUInt64WithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] propvarIn: &PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ullDefault: ULONGLONG) -> ULONGLONG;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToVariant(pPropVar: *const PROPVARIANT, pVar: *mut VARIANT) -> HRESULT;
+        extern fn PropVariantToVariant(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPropVar: *const PROPVARIANT, #[out] pVar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbMax: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn StgDeserializePropVariant(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pprop: *const SERIALIZEDPROPERTYVALUE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbMax: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppProp: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> HRESULT;
+        extern fn StgSerializePropVariant(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ppropvar: *const PROPVARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pcb", "*pcb")] #[out] ppProp: *mut *mut SERIALIZEDPROPERTYVALUE, #[out] pcb: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantCompare(var1: *const VARIANT, var2: *const VARIANT) -> i32;
+        extern fn VariantCompare(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var1: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var2: &VARIANT) -> i32;
         #[library("PROPSYS.dll")]
-        extern fn VariantGetBooleanElem(var: *const VARIANT, iElem: u32, pfVal: *mut BOOL) -> HRESULT;
+        extern fn VariantGetBooleanElem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pfVal: *mut BOOL) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantGetDoubleElem(var: *const VARIANT, iElem: u32, pnVal: *mut f64) -> HRESULT;
+        extern fn VariantGetDoubleElem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut DOUBLE) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantGetElementCount(varIn: *const VARIANT) -> u32;
+        extern fn VariantGetElementCount(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT) -> ULONG;
         #[library("PROPSYS.dll")]
-        extern fn VariantGetInt16Elem(var: *const VARIANT, iElem: u32, pnVal: *mut i16) -> HRESULT;
+        extern fn VariantGetInt16Elem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut SHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantGetInt32Elem(var: *const VARIANT, iElem: u32, pnVal: *mut i32) -> HRESULT;
+        extern fn VariantGetInt32Elem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut LONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantGetInt64Elem(var: *const VARIANT, iElem: u32, pnVal: *mut i64) -> HRESULT;
+        extern fn VariantGetInt64Elem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut LONGLONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantGetStringElem(var: *const VARIANT, iElem: u32, ppszVal: *mut PWSTR) -> HRESULT;
+        extern fn VariantGetStringElem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszVal: *mut PWSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantGetUInt16Elem(var: *const VARIANT, iElem: u32, pnVal: *mut u16) -> HRESULT;
+        extern fn VariantGetUInt16Elem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut USHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantGetUInt32Elem(var: *const VARIANT, iElem: u32, pnVal: *mut u32) -> HRESULT;
+        extern fn VariantGetUInt32Elem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantGetUInt64Elem(var: *const VARIANT, iElem: u32, pnVal: *mut u64) -> HRESULT;
+        extern fn VariantGetUInt64Elem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iElem: ULONG, #[out] pnVal: *mut ULONGLONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToBoolean(varIn: *const VARIANT, pfRet: *mut BOOL) -> HRESULT;
+        extern fn VariantToBoolean(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] pfRet: *mut BOOL) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToBooleanArray(var: *const VARIANT, #[len_param(2)] prgf: *mut BOOL, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToBooleanArray(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgf: *mut BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantToBooleanArrayAlloc(var: *const VARIANT, pprgf: *mut *mut BOOL, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToBooleanArrayAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgf: *mut *mut BOOL, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToBooleanWithDefault(varIn: *const VARIANT, fDefault: BOOL) -> BOOL;
+        extern fn VariantToBooleanWithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fDefault: BOOL) -> BOOL;
         #[library("PROPSYS.dll")]
-        extern fn VariantToBuffer(varIn: *const VARIANT, #[size_param(2)] pv: *mut void, cb: u32) -> HRESULT;
+        extern fn VariantToBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] #[size_param(2)] pv: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: UINT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToDosDateTime(varIn: *const VARIANT, pwDate: *mut u16, pwTime: *mut u16) -> HRESULT;
+        extern fn VariantToDosDateTime(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] pwDate: *mut WORD, #[out] pwTime: *mut WORD) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToDouble(varIn: *const VARIANT, pdblRet: *mut f64) -> HRESULT;
+        extern fn VariantToDouble(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] pdblRet: *mut DOUBLE) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToDoubleArray(var: *const VARIANT, #[len_param(2)] prgn: *mut f64, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToDoubleArray(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut DOUBLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantToDoubleArrayAlloc(var: *const VARIANT, pprgn: *mut *mut f64, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToDoubleArrayAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut DOUBLE, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToDoubleWithDefault(varIn: *const VARIANT, dblDefault: f64) -> f64;
+        extern fn VariantToDoubleWithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dblDefault: DOUBLE) -> DOUBLE;
         #[library("PROPSYS.dll")]
-        extern fn VariantToFileTime(varIn: *const VARIANT, stfOut: PSTIME_FLAGS, pftOut: *mut FILETIME) -> HRESULT;
+        extern fn VariantToFileTime(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] stfOut: PSTIME_FLAGS, #[out] pftOut: *mut FILETIME) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToGUID(varIn: *const VARIANT, pguid: *mut GUID) -> HRESULT;
+        extern fn VariantToGUID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] pguid: *mut GUID) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt16(varIn: *const VARIANT, piRet: *mut i16) -> HRESULT;
+        extern fn VariantToInt16(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] piRet: *mut SHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt16Array(var: *const VARIANT, #[len_param(2)] prgn: *mut i16, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToInt16Array(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut SHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt16ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut i16, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToInt16ArrayAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut SHORT, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt16WithDefault(varIn: *const VARIANT, iDefault: i16) -> i16;
+        extern fn VariantToInt16WithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iDefault: SHORT) -> SHORT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt32(varIn: *const VARIANT, plRet: *mut i32) -> HRESULT;
+        extern fn VariantToInt32(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] plRet: *mut LONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt32Array(var: *const VARIANT, #[len_param(2)] prgn: *mut i32, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToInt32Array(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt32ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut i32, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToInt32ArrayAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut LONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt32WithDefault(varIn: *const VARIANT, lDefault: i32) -> i32;
+        extern fn VariantToInt32WithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lDefault: LONG) -> LONG;
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt64(varIn: *const VARIANT, pllRet: *mut i64) -> HRESULT;
+        extern fn VariantToInt64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] pllRet: *mut LONGLONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt64Array(var: *const VARIANT, #[len_param(2)] prgn: *mut i64, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToInt64Array(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut LONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt64ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut i64, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToInt64ArrayAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut LONGLONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt64WithDefault(varIn: *const VARIANT, llDefault: i64) -> i64;
+        extern fn VariantToInt64WithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] llDefault: LONGLONG) -> LONGLONG;
         #[library("PROPSYS.dll")]
-        extern fn VariantToPropVariant(pVar: *const VARIANT, pPropVar: *mut PROPVARIANT) -> HRESULT;
+        extern fn VariantToPropVariant(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVar: *const VARIANT, #[out] pPropVar: *mut PROPVARIANT) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantToStrRet(varIn: *const VARIANT, pstrret: *mut STRRET) -> HRESULT;
+        extern fn VariantToStrRet(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] pstrret: *mut STRRET) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToString(varIn: *const VARIANT, #[len_param(2)] #[out] pszBuf: PWSTR, cchBuf: u32) -> HRESULT;
+        extern fn VariantToString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] #[len_param(2)] pszBuf: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchBuf: UINT) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantToStringAlloc(varIn: *const VARIANT, ppszBuf: *mut PWSTR) -> HRESULT;
+        extern fn VariantToStringAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppszBuf: *mut PWSTR) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantToStringArray(var: *const VARIANT, #[len_param(2)] prgsz: *mut PWSTR, crgsz: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToStringArray(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgsz: *mut PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgsz: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantToStringArrayAlloc(var: *const VARIANT, pprgsz: *mut *mut PWSTR, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToStringArrayAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgsz: *mut *mut PWSTR, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToStringWithDefault(varIn: *const VARIANT, #[opt] pszDefault: PCWSTR) -> PCWSTR;
+        extern fn VariantToStringWithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDefault: LPCWSTR) -> PCWSTR;
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt16(varIn: *const VARIANT, puiRet: *mut u16) -> HRESULT;
+        extern fn VariantToUInt16(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] puiRet: *mut USHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt16Array(var: *const VARIANT, #[len_param(2)] prgn: *mut u16, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToUInt16Array(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt16ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut u16, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToUInt16ArrayAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut USHORT, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt16WithDefault(varIn: *const VARIANT, uiDefault: u16) -> u16;
+        extern fn VariantToUInt16WithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uiDefault: USHORT) -> USHORT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt32(varIn: *const VARIANT, pulRet: *mut u32) -> HRESULT;
+        extern fn VariantToUInt32(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] pulRet: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt32Array(var: *const VARIANT, #[len_param(2)] prgn: *mut u32, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToUInt32Array(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt32ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut u32, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToUInt32ArrayAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt32WithDefault(varIn: *const VARIANT, ulDefault: u32) -> u32;
+        extern fn VariantToUInt32WithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulDefault: ULONG) -> ULONG;
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt64(varIn: *const VARIANT, pullRet: *mut u64) -> HRESULT;
+        extern fn VariantToUInt64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[out] pullRet: *mut ULONGLONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt64Array(var: *const VARIANT, #[len_param(2)] prgn: *mut u64, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToUInt64Array(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] prgn: *mut ULONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt64ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut u64, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToUInt64ArrayAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] var: &VARIANT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcElem", "*pcElem")] #[out] pprgn: *mut *mut ULONGLONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt64WithDefault(varIn: *const VARIANT, ullDefault: u64) -> u64;
+        extern fn VariantToUInt64WithDefault(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] varIn: &VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ullDefault: ULONGLONG) -> ULONGLONG;
         #[repr(i32)]
         enum tagPROPVAR_CHANGE_FLAGS {
             PVCHF_DEFAULT = 0,

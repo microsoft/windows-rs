@@ -1,33 +1,47 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        extern "C" fn EVT_VHF_ASYNC_OPERATION(#[in] VhfClientContext: *mut void, VhfOperationHandle: VHFOPERATIONHANDLE, #[in] #[opt] VhfOperationContext: *mut void, HidTransferPacket: PHID_XFER_PACKET);
-        extern "C" fn EVT_VHF_CLEANUP(#[in] VhfClientContext: *mut void);
-        extern "C" fn EVT_VHF_READY_FOR_NEXT_READ_REPORT(#[in] VhfClientContext: *mut void);
-        struct HID_XFER_PACKET {
-            reportBuffer: PUCHAR,
-            reportBufferLen: u32,
-            reportId: u8,
-        }
-        type PEVT_VHF_ASYNC_OPERATION = *mut u8;
-        type PEVT_VHF_CLEANUP = *mut u8;
-        type PEVT_VHF_READY_FOR_NEXT_READ_REPORT = *mut u8;
-        type PHID_XFER_PACKET = *mut HID_XFER_PACKET;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "EVT_VHF_ASYNC_OPERATION", "EVT_VHF_ASYNC_OPERATION")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
+        extern "C" fn EVT_VHF_ASYNC_OPERATION(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VhfClientContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VhfOperationHandle: VHFOPERATIONHANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VhfOperationContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidTransferPacket: PHID_XFER_PACKET);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "EVT_VHF_CLEANUP", "EVT_VHF_CLEANUP")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
+        extern "C" fn EVT_VHF_CLEANUP(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VhfClientContext: PVOID);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "EVT_VHF_READY_FOR_NEXT_READ_REPORT", "EVT_VHF_READY_FOR_NEXT_READ_REPORT")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
+        extern "C" fn EVT_VHF_READY_FOR_NEXT_READ_REPORT(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VhfClientContext: PVOID);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "EVT_VHF_ASYNC_OPERATION", "EVT_VHF_ASYNC_OPERATION", TypedefName = "EVT_VHF_ASYNC_OPERATION")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2", TypedefName = "EVT_VHF_ASYNC_OPERATION")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "EVT_VHF_ASYNC_OPERATION")]
+        extern "C" fn PEVT_VHF_ASYNC_OPERATION(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VhfClientContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VhfOperationHandle: VHFOPERATIONHANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VhfOperationContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HidTransferPacket: PHID_XFER_PACKET);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "EVT_VHF_CLEANUP", "EVT_VHF_CLEANUP", TypedefName = "EVT_VHF_CLEANUP")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2", TypedefName = "EVT_VHF_CLEANUP")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "EVT_VHF_CLEANUP")]
+        extern "C" fn PEVT_VHF_CLEANUP(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VhfClientContext: PVOID);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "EVT_VHF_READY_FOR_NEXT_READ_REPORT", "EVT_VHF_READY_FOR_NEXT_READ_REPORT", TypedefName = "EVT_VHF_READY_FOR_NEXT_READ_REPORT")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2", TypedefName = "EVT_VHF_READY_FOR_NEXT_READ_REPORT")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "EVT_VHF_READY_FOR_NEXT_READ_REPORT")]
+        extern "C" fn PEVT_VHF_READY_FOR_NEXT_READ_REPORT(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VhfClientContext: PVOID);
         type PVHF_CONFIG = *mut VHF_CONFIG;
         type VHFHANDLE = *mut void;
         type VHFOPERATIONHANDLE = *mut void;
         struct VHF_CONFIG {
-            Size: u32,
-            VhfClientContext: *mut void,
-            OperationContextSize: u32,
+            Size: ULONG,
+            VhfClientContext: PVOID,
+            OperationContextSize: ULONG,
             FileHandle: HANDLE,
-            VendorID: u16,
-            ProductID: u16,
-            VersionNumber: u16,
+            VendorID: USHORT,
+            ProductID: USHORT,
+            VersionNumber: USHORT,
             ContainerID: GUID,
-            InstanceIDLength: u16,
+            InstanceIDLength: USHORT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "InstanceIDLength", ReadableFieldName = "InstanceIDLength", IsByteCount = true, MayBeNull = false)]
             InstanceID: PWSTR,
-            ReportDescriptorLength: u16,
+            ReportDescriptorLength: USHORT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ReportDescriptorLength", ReadableFieldName = "ReportDescriptorLength", IsByteCount = false, MayBeNull = false)]
             ReportDescriptor: PUCHAR,
             EvtVhfReadyForNextReadReport: PEVT_VHF_READY_FOR_NEXT_READ_REPORT,
             EvtVhfAsyncOperationGetFeature: PEVT_VHF_ASYNC_OPERATION,
@@ -35,7 +49,8 @@ mod Windows {
             EvtVhfAsyncOperationWriteReport: PEVT_VHF_ASYNC_OPERATION,
             EvtVhfAsyncOperationGetInputReport: PEVT_VHF_ASYNC_OPERATION,
             EvtVhfCleanup: PEVT_VHF_CLEANUP,
-            HardwareIDsLength: u16,
+            HardwareIDsLength: USHORT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "HardwareIDsLength", ReadableFieldName = "HardwareIDsLength", IsByteCount = true, MayBeNull = false)]
             HardwareIDs: PWSTR,
         }
     }

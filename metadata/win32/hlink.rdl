@@ -1,6 +1,8 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[encoding("ansi")]
+        const CFSTR_HYPERLINK: String = "Hyperlink";
         const HLBWIF_DOCWNDMAXIMIZED: i32 = 8;
         const HLBWIF_FRAMEWNDMAXIMIZED: i32 = 4;
         const HLBWIF_HASDOCWNDINFO: i32 = 2;
@@ -8,8 +10,8 @@ mod Windows {
         const HLBWIF_HASWEBTOOLBARINFO: i32 = 16;
         const HLBWIF_WEBTOOLBARHIDDEN: i32 = 32;
         struct HLBWINFO {
-            cbSize: u32,
-            grfHLBWIF: u32,
+            cbSize: ULONG,
+            grfHLBWIF: DWORD,
             rcFramePos: RECT,
             rcDocPos: RECT,
             hltbinfo: HLTBINFO,
@@ -52,8 +54,8 @@ mod Windows {
         const HLINK_S_DONTHIDE: HRESULT = 262400;
         const HLINK_S_FIRST: HRESULT = 262400;
         struct HLITEM {
-            uHLID: u32,
-            pwzFriendlyName: PWSTR,
+            uHLID: ULONG,
+            pwzFriendlyName: LPWSTR,
         }
         #[repr(i32)]
         enum HLNF {
@@ -81,7 +83,7 @@ mod Windows {
             HLSR_HISTORYFOLDER = 2,
         }
         struct HLTBINFO {
-            uDockType: u32,
+            uDockType: ULONG,
             rcTbPos: RECT,
         }
         const HLTB_DOCKEDBOTTOM: i32 = 3;
@@ -95,129 +97,140 @@ mod Windows {
             HLTRANSLATEF_DONTAPPLYDEFAULTPREFIX = 1,
         }
         #[library("hlink.dll")]
-        extern fn HlinkClone(pihl: IHlink, riid: *const GUID, pihlsiteForClone: IHlinkSite, dwSiteData: u32, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkClone(pihl: IHlink, riid: &IID, pihlsiteForClone: IHlinkSite, dwSiteData: DWORD, ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateBrowseContext(piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkCreateBrowseContext(piunkOuter: IUnknown, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateExtensionServices(pwzAdditionalHeaders: PCWSTR, phwnd: HWND, pszUsername: PCWSTR, pszPassword: PCWSTR, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkCreateExtensionServices(pwzAdditionalHeaders: LPCWSTR, phwnd: HWND, pszUsername: LPCWSTR, pszPassword: LPCWSTR, piunkOuter: IUnknown, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateFromData(piDataObj: IDataObject, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkCreateFromData(piDataObj: IDataObject, pihlsite: IHlinkSite, dwSiteData: DWORD, piunkOuter: IUnknown, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateFromMoniker(pimkTrgt: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkCreateFromMoniker(pimkTrgt: IMoniker, pwzLocation: LPCWSTR, pwzFriendlyName: LPCWSTR, pihlsite: IHlinkSite, dwSiteData: DWORD, piunkOuter: IUnknown, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateFromString(pwzTarget: PCWSTR, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkCreateFromString(pwzTarget: LPCWSTR, pwzLocation: LPCWSTR, pwzFriendlyName: LPCWSTR, pihlsite: IHlinkSite, dwSiteData: DWORD, piunkOuter: IUnknown, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateShortcut(grfHLSHORTCUTF: u32, pihl: IHlink, pwzDir: PCWSTR, pwzFileName: PCWSTR, ppwzShortcutFile: *mut PWSTR, dwReserved: u32) -> HRESULT;
+        extern fn HlinkCreateShortcut(grfHLSHORTCUTF: DWORD, pihl: IHlink, pwzDir: LPCWSTR, pwzFileName: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzShortcutFile: *mut LPWSTR, dwReserved: DWORD) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateShortcutFromMoniker(grfHLSHORTCUTF: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzDir: PCWSTR, pwzFileName: PCWSTR, ppwzShortcutFile: *mut PWSTR, dwReserved: u32) -> HRESULT;
+        extern fn HlinkCreateShortcutFromMoniker(grfHLSHORTCUTF: DWORD, pimkTarget: IMoniker, pwzLocation: LPCWSTR, pwzDir: LPCWSTR, pwzFileName: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzShortcutFile: *mut LPWSTR, dwReserved: DWORD) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateShortcutFromString(grfHLSHORTCUTF: u32, pwzTarget: PCWSTR, pwzLocation: PCWSTR, pwzDir: PCWSTR, pwzFileName: PCWSTR, ppwzShortcutFile: *mut PWSTR, dwReserved: u32) -> HRESULT;
+        extern fn HlinkCreateShortcutFromString(grfHLSHORTCUTF: DWORD, pwzTarget: LPCWSTR, pwzLocation: LPCWSTR, pwzDir: LPCWSTR, pwzFileName: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzShortcutFile: *mut LPWSTR, dwReserved: DWORD) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkGetSpecialReference(uReference: u32, ppwzReference: *mut PWSTR) -> HRESULT;
+        extern fn HlinkGetSpecialReference(uReference: ULONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzReference: *mut LPWSTR) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkGetValueFromParams(pwzParams: PCWSTR, pwzName: PCWSTR, ppwzValue: *mut PWSTR) -> HRESULT;
+        extern fn HlinkGetValueFromParams(pwzParams: LPCWSTR, pwzName: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzValue: *mut LPWSTR) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkIsShortcut(pwzFileName: PCWSTR) -> HRESULT;
+        extern fn HlinkIsShortcut(pwzFileName: LPCWSTR) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkNavigate(pihl: IHlink, pihlframe: IHlinkFrame, grfHLNF: u32, pbc: IBindCtx, pibsc: IBindStatusCallback, pihlbc: IHlinkBrowseContext) -> HRESULT;
+        extern fn HlinkNavigate(pihl: IHlink, pihlframe: IHlinkFrame, grfHLNF: DWORD, pbc: LPBC, pibsc: IBindStatusCallback, pihlbc: IHlinkBrowseContext) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkNavigateToStringReference(pwzTarget: PCWSTR, pwzLocation: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, pihlframe: IHlinkFrame, grfHLNF: u32, pibc: IBindCtx, pibsc: IBindStatusCallback, pihlbc: IHlinkBrowseContext) -> HRESULT;
+        extern fn HlinkNavigateToStringReference(pwzTarget: LPCWSTR, pwzLocation: LPCWSTR, pihlsite: IHlinkSite, dwSiteData: DWORD, pihlframe: IHlinkFrame, grfHLNF: DWORD, pibc: LPBC, pibsc: IBindStatusCallback, pihlbc: IHlinkBrowseContext) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkOnNavigate(pihlframe: IHlinkFrame, pihlbc: IHlinkBrowseContext, grfHLNF: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, puHLID: *mut u32) -> HRESULT;
+        extern fn HlinkOnNavigate(pihlframe: IHlinkFrame, pihlbc: IHlinkBrowseContext, grfHLNF: DWORD, pimkTarget: IMoniker, pwzLocation: LPCWSTR, pwzFriendlyName: LPCWSTR, puHLID: *mut ULONG) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkOnRenameDocument(dwReserved: u32, pihlbc: IHlinkBrowseContext, pimkOld: IMoniker, pimkNew: IMoniker) -> HRESULT;
+        extern fn HlinkOnRenameDocument(dwReserved: DWORD, pihlbc: IHlinkBrowseContext, pimkOld: IMoniker, pimkNew: IMoniker) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkParseDisplayName(pibc: IBindCtx, pwzDisplayName: PCWSTR, fNoForceAbs: BOOL, pcchEaten: *mut u32, ppimk: *mut IMoniker) -> HRESULT;
+        extern fn HlinkParseDisplayName(pibc: LPBC, pwzDisplayName: LPCWSTR, fNoForceAbs: BOOL, pcchEaten: *mut ULONG, ppimk: *mut IMoniker) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkPreprocessMoniker(pibc: IBindCtx, pimkIn: IMoniker, ppimkOut: *mut IMoniker) -> HRESULT;
+        extern fn HlinkPreprocessMoniker(pibc: LPBC, pimkIn: IMoniker, ppimkOut: *mut IMoniker) -> HRESULT;
         #[library("hlink.dll")]
         extern fn HlinkQueryCreateFromData(piDataObj: IDataObject) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkResolveMonikerForData(pimkReference: IMoniker, reserved: u32, pibc: IBindCtx, cFmtetc: u32, rgFmtetc: *mut FORMATETC, pibsc: IBindStatusCallback, pimkBase: IMoniker) -> HRESULT;
+        extern fn HlinkResolveMonikerForData(pimkReference: LPMONIKER, reserved: DWORD, pibc: LPBC, cFmtetc: ULONG, rgFmtetc: *mut FORMATETC, pibsc: IBindStatusCallback, pimkBase: LPMONIKER) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkResolveShortcut(pwzShortcutFileName: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkResolveShortcut(pwzShortcutFileName: LPCWSTR, pihlsite: IHlinkSite, dwSiteData: DWORD, piunkOuter: IUnknown, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkResolveShortcutToMoniker(pwzShortcutFileName: PCWSTR, ppimkTarget: *mut IMoniker, ppwzLocation: *mut PWSTR) -> HRESULT;
+        extern fn HlinkResolveShortcutToMoniker(pwzShortcutFileName: LPCWSTR, ppimkTarget: *mut IMoniker, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzLocation: *mut LPWSTR) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkResolveShortcutToString(pwzShortcutFileName: PCWSTR, ppwzTarget: *mut PWSTR, ppwzLocation: *mut PWSTR) -> HRESULT;
+        extern fn HlinkResolveShortcutToString(pwzShortcutFileName: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzTarget: *mut LPWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzLocation: *mut LPWSTR) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkResolveStringForData(pwzReference: PCWSTR, reserved: u32, pibc: IBindCtx, cFmtetc: u32, rgFmtetc: *mut FORMATETC, pibsc: IBindStatusCallback, pimkBase: IMoniker) -> HRESULT;
+        extern fn HlinkResolveStringForData(pwzReference: LPCWSTR, reserved: DWORD, pibc: LPBC, cFmtetc: ULONG, rgFmtetc: *mut FORMATETC, pibsc: IBindStatusCallback, pimkBase: LPMONIKER) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkSetSpecialReference(uReference: u32, pwzReference: PCWSTR) -> HRESULT;
+        extern fn HlinkSetSpecialReference(uReference: ULONG, pwzReference: LPCWSTR) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkTranslateURL(pwzURL: PCWSTR, grfFlags: u32, ppwzTranslatedURL: *mut PWSTR) -> HRESULT;
+        extern fn HlinkTranslateURL(pwzURL: LPCWSTR, grfFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzTranslatedURL: *mut LPWSTR) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkUpdateStackItem(pihlframe: IHlinkFrame, pihlbc: IHlinkBrowseContext, uHLID: u32, pimkTrgt: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR) -> HRESULT;
+        extern fn HlinkUpdateStackItem(pihlframe: IHlinkFrame, pihlbc: IHlinkBrowseContext, uHLID: ULONG, pimkTrgt: IMoniker, pwzLocation: LPCWSTR, pwzFriendlyName: LPCWSTR) -> HRESULT;
         #[guid(0x79eac9c6_baf9_11ce_8c82_00aa004ba90b)]
         interface IEnumHLITEM: IUnknown {
-            fn Next(&self, celt: u32, rgelt: *mut HLITEM, pceltFetched: *mut u32) -> HRESULT;
-            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Next(&self, celt: ULONG, rgelt: *mut HLITEM, pceltFetched: *mut ULONG) -> HRESULT;
+            fn Skip(&self, celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, ppienumhlitem: *mut IEnumHLITEM) -> HRESULT;
         }
         #[guid(0x79eac9cb_baf9_11ce_8c82_00aa004ba90b)]
         interface IExtensionServices: IUnknown {
-            fn SetAdditionalHeaders(&self, pwzAdditionalHeaders: PCWSTR) -> HRESULT;
-            fn SetAuthenticateData(&self, phwnd: HWND, pwzUsername: PCWSTR, pwzPassword: PCWSTR) -> HRESULT;
+            fn SetAdditionalHeaders(&self, pwzAdditionalHeaders: LPCWSTR) -> HRESULT;
+            fn SetAuthenticateData(&self, phwnd: HWND, pwzUsername: LPCWSTR, pwzPassword: LPCWSTR) -> HRESULT;
         }
         #[guid(0x79eac9c3_baf9_11ce_8c82_00aa004ba90b)]
         interface IHlink: IUnknown {
-            fn SetHlinkSite(&self, pihlSite: IHlinkSite, dwSiteData: u32) -> HRESULT;
-            fn GetHlinkSite(&self, ppihlSite: *mut IHlinkSite, pdwSiteData: *mut u32) -> HRESULT;
-            fn SetMonikerReference(&self, grfHLSETF: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR) -> HRESULT;
-            fn GetMonikerReference(&self, dwWhichRef: u32, ppimkTarget: *mut IMoniker, ppwzLocation: *mut PWSTR) -> HRESULT;
-            fn SetStringReference(&self, grfHLSETF: u32, pwzTarget: PCWSTR, pwzLocation: PCWSTR) -> HRESULT;
-            fn GetStringReference(&self, dwWhichRef: u32, ppwzTarget: *mut PWSTR, ppwzLocation: *mut PWSTR) -> HRESULT;
-            fn SetFriendlyName(&self, pwzFriendlyName: PCWSTR) -> HRESULT;
-            fn GetFriendlyName(&self, grfHLFNAMEF: u32, ppwzFriendlyName: *mut PWSTR) -> HRESULT;
-            fn SetTargetFrameName(&self, pwzTargetFrameName: PCWSTR) -> HRESULT;
-            fn GetTargetFrameName(&self, ppwzTargetFrameName: *mut PWSTR) -> HRESULT;
-            fn GetMiscStatus(&self, pdwStatus: *mut u32) -> HRESULT;
-            fn Navigate(&self, grfHLNF: u32, pibc: IBindCtx, pibsc: IBindStatusCallback, pihlbc: IHlinkBrowseContext) -> HRESULT;
-            fn SetAdditionalParams(&self, pwzAdditionalParams: PCWSTR) -> HRESULT;
-            fn GetAdditionalParams(&self, ppwzAdditionalParams: *mut PWSTR) -> HRESULT;
+            fn SetHlinkSite(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pihlSite: IHlinkSite, dwSiteData: DWORD) -> HRESULT;
+            fn GetHlinkSite(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppihlSite: *mut IHlinkSite, #[out] pdwSiteData: *mut DWORD) -> HRESULT;
+            fn SetMonikerReference(&self, grfHLSETF: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pimkTarget: IMoniker, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzLocation: LPCWSTR) -> HRESULT;
+            fn GetMonikerReference(&self, dwWhichRef: DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppimkTarget: *mut IMoniker, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppwzLocation: *mut LPWSTR) -> HRESULT;
+            fn SetStringReference(&self, grfHLSETF: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzTarget: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzLocation: LPCWSTR) -> HRESULT;
+            fn GetStringReference(&self, dwWhichRef: DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzTarget: *mut LPWSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppwzLocation: *mut LPWSTR) -> HRESULT;
+            fn SetFriendlyName(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzFriendlyName: LPCWSTR) -> HRESULT;
+            fn GetFriendlyName(&self, grfHLFNAMEF: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzFriendlyName: *mut LPWSTR) -> HRESULT;
+            fn SetTargetFrameName(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzTargetFrameName: LPCWSTR) -> HRESULT;
+            fn GetTargetFrameName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzTargetFrameName: *mut LPWSTR) -> HRESULT;
+            fn GetMiscStatus(&self, #[out] pdwStatus: *mut DWORD) -> HRESULT;
+            fn Navigate(&self, grfHLNF: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pibc: LPBC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pibsc: IBindStatusCallback, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pihlbc: IHlinkBrowseContext) -> HRESULT;
+            fn SetAdditionalParams(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzAdditionalParams: LPCWSTR) -> HRESULT;
+            fn GetAdditionalParams(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzAdditionalParams: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x79eac9c7_baf9_11ce_8c82_00aa004ba90b)]
         interface IHlinkBrowseContext: IUnknown {
-            fn Register(&self, reserved: u32, piunk: IUnknown, pimk: IMoniker, pdwRegister: *mut u32) -> HRESULT;
-            fn GetObject(&self, pimk: IMoniker, fBindIfRootRegistered: BOOL, ppiunk: *mut IUnknown) -> HRESULT;
-            fn Revoke(&self, dwRegister: u32) -> HRESULT;
-            fn SetBrowseWindowInfo(&self, #[in] phlbwi: *mut HLBWINFO) -> HRESULT;
+            fn Register(&self, reserved: DWORD, piunk: IUnknown, pimk: IMoniker, pdwRegister: *mut DWORD) -> HRESULT;
+            fn GetObjectA(&self, pimk: IMoniker, fBindIfRootRegistered: BOOL, ppiunk: *mut IUnknown) -> HRESULT;
+            fn Revoke(&self, dwRegister: DWORD) -> HRESULT;
+            fn SetBrowseWindowInfo(&self, phlbwi: *mut HLBWINFO) -> HRESULT;
             fn GetBrowseWindowInfo(&self, phlbwi: *mut HLBWINFO) -> HRESULT;
-            fn SetInitialHlink(&self, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR) -> HRESULT;
-            fn OnNavigateHlink(&self, grfHLNF: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, puHLID: *mut u32) -> HRESULT;
-            fn UpdateHlink(&self, uHLID: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR) -> HRESULT;
-            fn EnumNavigationStack(&self, dwReserved: u32, grfHLFNAMEF: u32, ppienumhlitem: *mut IEnumHLITEM) -> HRESULT;
-            fn QueryHlink(&self, grfHLQF: u32, uHLID: u32) -> HRESULT;
-            fn GetHlink(&self, uHLID: u32, ppihl: *mut IHlink) -> HRESULT;
-            fn SetCurrentHlink(&self, uHLID: u32) -> HRESULT;
-            fn Clone(&self, piunkOuter: IUnknown, riid: *const GUID, #[iid_is] ppiunkObj: *mut *mut void) -> HRESULT;
-            fn Close(&self, reserved: u32) -> HRESULT;
+            fn SetInitialHlink(&self, pimkTarget: IMoniker, pwzLocation: LPCWSTR, pwzFriendlyName: LPCWSTR) -> HRESULT;
+            fn OnNavigateHlink(&self, grfHLNF: DWORD, pimkTarget: IMoniker, pwzLocation: LPCWSTR, pwzFriendlyName: LPCWSTR, puHLID: *mut ULONG) -> HRESULT;
+            fn UpdateHlink(&self, uHLID: ULONG, pimkTarget: IMoniker, pwzLocation: LPCWSTR, pwzFriendlyName: LPCWSTR) -> HRESULT;
+            fn EnumNavigationStack(&self, dwReserved: DWORD, grfHLFNAMEF: DWORD, ppienumhlitem: *mut IEnumHLITEM) -> HRESULT;
+            fn QueryHlink(&self, grfHLQF: DWORD, uHLID: ULONG) -> HRESULT;
+            fn GetHlink(&self, uHLID: ULONG, ppihl: *mut IHlink) -> HRESULT;
+            fn SetCurrentHlink(&self, uHLID: ULONG) -> HRESULT;
+            fn Clone(&self, piunkOuter: IUnknown, riid: &IID, #[out] #[iid_is] ppiunkObj: *mut IUnknown) -> HRESULT;
+            fn Close(&self, reserved: DWORD) -> HRESULT;
         }
         #[guid(0x79eac9c5_baf9_11ce_8c82_00aa004ba90b)]
         interface IHlinkFrame: IUnknown {
-            fn SetBrowseContext(&self, pihlbc: IHlinkBrowseContext) -> HRESULT;
-            fn GetBrowseContext(&self, ppihlbc: *mut IHlinkBrowseContext) -> HRESULT;
-            fn Navigate(&self, grfHLNF: u32, pbc: IBindCtx, pibsc: IBindStatusCallback, pihlNavigate: IHlink) -> HRESULT;
-            fn OnNavigate(&self, grfHLNF: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, dwreserved: u32) -> HRESULT;
-            fn UpdateHlink(&self, uHLID: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR) -> HRESULT;
+            fn SetBrowseContext(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pihlbc: IHlinkBrowseContext) -> HRESULT;
+            fn GetBrowseContext(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppihlbc: *mut IHlinkBrowseContext) -> HRESULT;
+            fn Navigate(&self, grfHLNF: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pbc: LPBC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pibsc: IBindStatusCallback, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pihlNavigate: IHlink) -> HRESULT;
+            fn OnNavigate(&self, grfHLNF: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pimkTarget: IMoniker, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzLocation: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzFriendlyName: LPCWSTR, dwreserved: DWORD) -> HRESULT;
+            fn UpdateHlink(&self, uHLID: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pimkTarget: IMoniker, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzLocation: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzFriendlyName: LPCWSTR) -> HRESULT;
         }
         #[guid(0x79eac9c2_baf9_11ce_8c82_00aa004ba90b)]
         interface IHlinkSite: IUnknown {
-            fn QueryService(&self, dwSiteData: u32, guidService: *const GUID, riid: *const GUID, #[iid_is] ppiunk: *mut *mut void) -> HRESULT;
-            fn GetMoniker(&self, dwSiteData: u32, dwAssign: u32, dwWhich: u32, ppimk: *mut IMoniker) -> HRESULT;
-            fn ReadyToNavigate(&self, dwSiteData: u32, dwReserved: u32) -> HRESULT;
-            fn OnNavigationComplete(&self, dwSiteData: u32, dwreserved: u32, hrError: HRESULT, pwzError: PCWSTR) -> HRESULT;
+            fn QueryService(&self, dwSiteData: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidService: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppiunk: *mut IUnknown) -> HRESULT;
+            fn GetMoniker(&self, dwSiteData: DWORD, dwAssign: DWORD, dwWhich: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppimk: *mut IMoniker) -> HRESULT;
+            fn ReadyToNavigate(&self, dwSiteData: DWORD, dwReserved: DWORD) -> HRESULT;
+            fn OnNavigationComplete(&self, dwSiteData: DWORD, dwreserved: DWORD, hrError: HRESULT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzError: LPCWSTR) -> HRESULT;
         }
         #[guid(0x79eac9c4_baf9_11ce_8c82_00aa004ba90b)]
         interface IHlinkTarget: IUnknown {
-            fn SetBrowseContext(&self, pihlbc: IHlinkBrowseContext) -> HRESULT;
-            fn GetBrowseContext(&self, ppihlbc: *mut IHlinkBrowseContext) -> HRESULT;
-            fn Navigate(&self, grfHLNF: u32, pwzJumpLocation: PCWSTR) -> HRESULT;
-            fn GetMoniker(&self, pwzLocation: PCWSTR, dwAssign: u32, ppimkLocation: *mut IMoniker) -> HRESULT;
-            fn GetFriendlyName(&self, pwzLocation: PCWSTR, ppwzFriendlyName: *mut PWSTR) -> HRESULT;
+            fn SetBrowseContext(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pihlbc: IHlinkBrowseContext) -> HRESULT;
+            fn GetBrowseContext(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppihlbc: *mut IHlinkBrowseContext) -> HRESULT;
+            fn Navigate(&self, grfHLNF: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzJumpLocation: LPCWSTR) -> HRESULT;
+            fn GetMoniker(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzLocation: LPCWSTR, dwAssign: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppimkLocation: *mut IMoniker) -> HRESULT;
+            fn GetFriendlyName(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwzLocation: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwzFriendlyName: *mut LPWSTR) -> HRESULT;
         }
+        type LPENUMHLITEM = IEnumHLITEM;
+        type LPEXTENSIONSERVICES = IExtensionServices;
         type LPHLBWINFO = *mut HLBWINFO;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPHLINK = IHlink;
+        type LPHLINKBROWSECONTEXT = IHlinkBrowseContext;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPHLINKFRAME = IHlinkFrame;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPHLINKSITE = IHlinkSite;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPHLINKTARGET = IHlinkTarget;
         type LPHLITEM = *mut HLITEM;
         #[library("hlink.dll")]
         extern fn OleSaveToStreamEx(piunk: IUnknown, pistm: IStream, fClearDirty: BOOL) -> HRESULT;

@@ -2,14 +2,14 @@
 mod Windows {
     mod Win32 {
         #[library("POWRPROF.dll")]
-        extern fn CallNtPowerInformation(InformationLevel: POWER_INFORMATION_LEVEL, #[size_param(2)] #[in] #[opt] InputBuffer: *mut void, InputBufferLength: u32, #[size_param(4)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> i32;
+        extern fn CallNtPowerInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationLevel: POWER_INFORMATION_LEVEL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] InputBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InputBufferLength: ULONG, #[out] #[opt] #[size_param(4)] OutputBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OutputBufferLength: ULONG) -> LONG;
         #[library("POWRPROF.dll")]
         extern fn GetPwrCapabilities(#[out] lpspc: PSYSTEM_POWER_CAPABILITIES) -> BOOLEAN;
         #[library("POWRPROF.dll")]
-        extern fn PowerDeterminePlatformRoleEx(Version: u32) -> POWER_PLATFORM_ROLE;
+        extern fn PowerDeterminePlatformRoleEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Version: ULONG) -> POWER_PLATFORM_ROLE;
         #[library("POWRPROF.dll")]
-        extern fn PowerRegisterSuspendResumeNotification(Flags: u32, Recipient: HANDLE, #[out] RegistrationHandle: PHPOWERNOTIFY) -> u32;
+        extern fn PowerRegisterSuspendResumeNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Recipient: HANDLE, #[out] RegistrationHandle: PHPOWERNOTIFY) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerUnregisterSuspendResumeNotification(#[in] #[out] RegistrationHandle: HPOWERNOTIFY) -> u32;
+        extern fn PowerUnregisterSuspendResumeNotification(#[in] #[out] RegistrationHandle: HPOWERNOTIFY) -> DWORD;
     }
 }

@@ -11,95 +11,96 @@ mod Windows {
         const CLIENT_TYPE_RESERVATION_FLAG: i32 = 4;
         const CLIENT_TYPE_UNSPECIFIED: i32 = 0;
         struct DATE_TIME {
-            dwLowDateTime: u32,
-            dwHighDateTime: u32,
+            dwLowDateTime: DWORD,
+            dwHighDateTime: DWORD,
         }
         struct DHCPDS_SERVER {
-            Version: u32,
-            ServerName: PWSTR,
-            ServerAddress: u32,
-            Flags: u32,
-            State: u32,
-            DsLocation: PWSTR,
-            DsLocType: u32,
+            Version: DWORD,
+            ServerName: LPWSTR,
+            ServerAddress: DWORD,
+            Flags: DWORD,
+            State: DWORD,
+            DsLocation: LPWSTR,
+            DsLocType: DWORD,
         }
         struct DHCPDS_SERVERS {
-            Flags: u32,
-            NumElements: u32,
+            Flags: DWORD,
+            NumElements: DWORD,
             Servers: LPDHCPDS_SERVER,
         }
         struct DHCPV4_FAILOVER_CLIENT_INFO {
             ClientIpAddress: DHCP_IP_ADDRESS,
             SubnetMask: DHCP_IP_MASK,
             ClientHardwareAddress: DHCP_CLIENT_UID,
-            ClientName: PWSTR,
-            ClientComment: PWSTR,
+            ClientName: LPWSTR,
+            ClientComment: LPWSTR,
             ClientLeaseExpires: DATE_TIME,
             OwnerHost: DHCP_HOST_INFO,
-            bClientType: u8,
-            AddressState: u8,
+            bClientType: BYTE,
+            AddressState: BYTE,
             Status: QuarantineStatus,
             ProbationEnds: DATE_TIME,
             QuarantineCapable: BOOL,
-            SentPotExpTime: u32,
-            AckPotExpTime: u32,
-            RecvPotExpTime: u32,
-            StartTime: u32,
-            CltLastTransTime: u32,
-            LastBndUpdTime: u32,
-            BndMsgStatus: u32,
-            PolicyName: PWSTR,
-            Flags: u8,
+            SentPotExpTime: DWORD,
+            AckPotExpTime: DWORD,
+            RecvPotExpTime: DWORD,
+            StartTime: DWORD,
+            CltLastTransTime: DWORD,
+            LastBndUpdTime: DWORD,
+            BndMsgStatus: DWORD,
+            PolicyName: LPWSTR,
+            Flags: BYTE,
         }
         struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumElements", IsByteCount = false, MayBeNull = false)]
             Clients: *mut LPDHCPV4_FAILOVER_CLIENT_INFO,
         }
         struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
             ClientIpAddress: DHCP_IP_ADDRESS,
             SubnetMask: DHCP_IP_MASK,
             ClientHardwareAddress: DHCP_CLIENT_UID,
-            ClientName: PWSTR,
-            ClientComment: PWSTR,
+            ClientName: LPWSTR,
+            ClientComment: LPWSTR,
             ClientLeaseExpires: DATE_TIME,
             OwnerHost: DHCP_HOST_INFO,
-            bClientType: u8,
-            AddressState: u8,
+            bClientType: BYTE,
+            AddressState: BYTE,
             Status: QuarantineStatus,
             ProbationEnds: DATE_TIME,
             QuarantineCapable: BOOL,
-            SentPotExpTime: u32,
-            AckPotExpTime: u32,
-            RecvPotExpTime: u32,
-            StartTime: u32,
-            CltLastTransTime: u32,
-            LastBndUpdTime: u32,
-            BndMsgStatus: u32,
-            PolicyName: PWSTR,
-            Flags: u8,
-            AddressStateEx: u32,
+            SentPotExpTime: DWORD,
+            AckPotExpTime: DWORD,
+            RecvPotExpTime: DWORD,
+            StartTime: DWORD,
+            CltLastTransTime: DWORD,
+            LastBndUpdTime: DWORD,
+            BndMsgStatus: DWORD,
+            PolicyName: LPWSTR,
+            Flags: BYTE,
+            AddressStateEx: DWORD,
         }
         struct DHCPV6_BIND_ELEMENT {
-            Flags: u32,
+            Flags: ULONG,
             fBoundToDHCPServer: BOOL,
             AdapterPrimaryAddress: DHCP_IPV6_ADDRESS,
             AdapterSubnetAddress: DHCP_IPV6_ADDRESS,
-            IfDescription: PWSTR,
-            IpV6IfIndex: u32,
-            IfIdSize: u32,
+            IfDescription: LPWSTR,
+            IpV6IfIndex: DWORD,
+            IfIdSize: ULONG,
             IfId: LPBYTE,
         }
         struct DHCPV6_BIND_ELEMENT_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
             Elements: LPDHCPV6_BIND_ELEMENT,
         }
         struct DHCPV6_IP_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
             Elements: LPDHCP_IPV6_ADDRESS,
         }
         struct DHCPV6_STATELESS_PARAMS {
             Status: BOOL,
-            PurgeInterval: u32,
+            PurgeInterval: DWORD,
         }
         #[repr(i32)]
         enum DHCPV6_STATELESS_PARAM_TYPE {
@@ -108,63 +109,65 @@ mod Windows {
         }
         struct DHCPV6_STATELESS_SCOPE_STATS {
             SubnetAddress: DHCP_IPV6_ADDRESS,
-            NumStatelessClientsAdded: u64,
-            NumStatelessClientsRemoved: u64,
+            NumStatelessClientsAdded: ULONGLONG,
+            NumStatelessClientsRemoved: ULONGLONG,
         }
         struct DHCPV6_STATELESS_STATS {
-            NumScopes: u32,
+            NumScopes: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumScopes", IsByteCount = false, MayBeNull = false)]
             ScopeStats: LPDHCPV6_STATELESS_SCOPE_STATS,
         }
         struct DHCP_ADDR_PATTERN {
             MatchHWType: BOOL,
-            HWType: u8,
+            HWType: BYTE,
             IsWildcard: BOOL,
-            Length: u8,
-            Pattern: [u8; 255],
+            Length: BYTE,
+            Pattern: [BYTE; 255],
         }
         struct DHCP_ALL_OPTIONS {
-            Flags: u32,
+            struct DHCP_ALL_OPTIONS_3 {
+                Option: DHCP_OPTION,
+                VendorName: LPWSTR,
+                ClassName: LPWSTR,
+            }
+            Flags: DWORD,
             NonVendorOptions: LPDHCP_OPTION_ARRAY,
-            NumVendorOptions: u32,
-            VendorOptions: *mut DHCP_ALL_OPTIONS_0,
-        }
-        struct DHCP_ALL_OPTIONS_0 {
-            Option: DHCP_OPTION,
-            VendorName: PWSTR,
-            ClassName: PWSTR,
+            NumVendorOptions: DWORD,
+            VendorOptions: *mut DHCP_ALL_OPTIONS::DHCP_ALL_OPTIONS_3,
         }
         struct DHCP_ALL_OPTION_VALUES {
-            Flags: u32,
-            NumElements: u32,
-            Options: *mut DHCP_ALL_OPTION_VALUES_0,
-        }
-        struct DHCP_ALL_OPTION_VALUES_0 {
-            ClassName: PWSTR,
-            VendorName: PWSTR,
-            IsVendor: BOOL,
-            OptionsArray: LPDHCP_OPTION_VALUE_ARRAY,
+            struct DHCP_ALL_OPTION_VALUES_2 {
+                ClassName: LPWSTR,
+                VendorName: LPWSTR,
+                IsVendor: BOOL,
+                OptionsArray: LPDHCP_OPTION_VALUE_ARRAY,
+            }
+            Flags: DWORD,
+            NumElements: DWORD,
+            Options: *mut DHCP_ALL_OPTION_VALUES::DHCP_ALL_OPTION_VALUES_2,
         }
         struct DHCP_ALL_OPTION_VALUES_PB {
-            Flags: u32,
-            NumElements: u32,
-            Options: *mut DHCP_ALL_OPTION_VALUES_PB_0,
-        }
-        struct DHCP_ALL_OPTION_VALUES_PB_0 {
-            PolicyName: PWSTR,
-            VendorName: PWSTR,
-            IsVendor: BOOL,
-            OptionsArray: LPDHCP_OPTION_VALUE_ARRAY,
+            struct DHCP_ALL_OPTION_VALUES_PB_2 {
+                PolicyName: LPWSTR,
+                VendorName: LPWSTR,
+                IsVendor: BOOL,
+                OptionsArray: LPDHCP_OPTION_VALUE_ARRAY,
+            }
+            Flags: DWORD,
+            NumElements: DWORD,
+            Options: *mut DHCP_ALL_OPTION_VALUES_PB::DHCP_ALL_OPTION_VALUES_PB_2,
         }
         struct DHCP_ATTRIB {
             DhcpAttribId: DHCP_ATTRIB_ID,
-            DhcpAttribType: u32,
+            DhcpAttribType: ULONG,
             Anonymous: union {
                 DhcpAttribBool: BOOL,
-                DhcpAttribUlong: u32,
+                DhcpAttribUlong: ULONG,
             },
         }
         struct DHCP_ATTRIB_ARRAY {
-            NumElements: u32,
+            NumElements: ULONG,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumElements", IsByteCount = false, MayBeNull = false)]
             DhcpAttribs: LPDHCP_ATTRIB,
         }
         const DHCP_ATTRIB_BOOL_IS_ADMIN: i32 = 5;
@@ -177,170 +180,174 @@ mod Windows {
         const DHCP_ATTRIB_TYPE_ULONG: i32 = 2;
         const DHCP_ATTRIB_ULONG_RESTORE_STATUS: i32 = 6;
         struct DHCP_BINARY_DATA {
-            DataLength: u32,
-            Data: *mut u8,
+            DataLength: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DataLength", IsByteCount = true, MayBeNull = false)]
+            Data: *mut BYTE,
         }
         struct DHCP_BIND_ELEMENT {
-            Flags: u32,
+            Flags: ULONG,
             fBoundToDHCPServer: BOOL,
             AdapterPrimaryAddress: DHCP_IP_ADDRESS,
             AdapterSubnetAddress: DHCP_IP_ADDRESS,
-            IfDescription: PWSTR,
-            IfIdSize: u32,
+            IfDescription: LPWSTR,
+            IfIdSize: ULONG,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "IfIdSize", IsByteCount = true, MayBeNull = false)]
             IfId: LPBYTE,
         }
         struct DHCP_BIND_ELEMENT_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
             Elements: LPDHCP_BIND_ELEMENT,
         }
         struct DHCP_BOOTP_IP_RANGE {
             StartAddress: DHCP_IP_ADDRESS,
             EndAddress: DHCP_IP_ADDRESS,
-            BootpAllocated: u32,
-            MaxBootpAllowed: u32,
+            BootpAllocated: ULONG,
+            MaxBootpAllowed: ULONG,
         }
         struct DHCP_CLASS_INFO {
-            ClassName: PWSTR,
-            ClassComment: PWSTR,
-            ClassDataLength: u32,
+            ClassName: LPWSTR,
+            ClassComment: LPWSTR,
+            ClassDataLength: DWORD,
             IsVendor: BOOL,
-            Flags: u32,
+            Flags: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ClassDataLength", IsByteCount = true, MayBeNull = false)]
             ClassData: LPBYTE,
         }
         struct DHCP_CLASS_INFO_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
             Classes: LPDHCP_CLASS_INFO,
         }
         struct DHCP_CLASS_INFO_ARRAY_V6 {
-            NumElements: u32,
+            NumElements: DWORD,
             Classes: LPDHCP_CLASS_INFO_V6,
         }
         struct DHCP_CLASS_INFO_V6 {
-            ClassName: PWSTR,
-            ClassComment: PWSTR,
-            ClassDataLength: u32,
+            ClassName: LPWSTR,
+            ClassComment: LPWSTR,
+            ClassDataLength: DWORD,
             IsVendor: BOOL,
-            EnterpriseNumber: u32,
-            Flags: u32,
+            EnterpriseNumber: DWORD,
+            Flags: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ClassDataLength", IsByteCount = true, MayBeNull = false)]
             ClassData: LPBYTE,
         }
         struct DHCP_CLIENT_FILTER_STATUS_INFO {
             ClientIpAddress: DHCP_IP_ADDRESS,
             SubnetMask: DHCP_IP_MASK,
             ClientHardwareAddress: DHCP_CLIENT_UID,
-            ClientName: PWSTR,
-            ClientComment: PWSTR,
+            ClientName: LPWSTR,
+            ClientComment: LPWSTR,
             ClientLeaseExpires: DATE_TIME,
             OwnerHost: DHCP_HOST_INFO,
-            bClientType: u8,
-            AddressState: u8,
+            bClientType: BYTE,
+            AddressState: BYTE,
             Status: QuarantineStatus,
             ProbationEnds: DATE_TIME,
             QuarantineCapable: BOOL,
-            FilterStatus: u32,
+            FilterStatus: DWORD,
         }
         struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
             Clients: *mut LPDHCP_CLIENT_FILTER_STATUS_INFO,
         }
         struct DHCP_CLIENT_INFO {
             ClientIpAddress: DHCP_IP_ADDRESS,
             SubnetMask: DHCP_IP_MASK,
             ClientHardwareAddress: DHCP_CLIENT_UID,
-            ClientName: PWSTR,
-            ClientComment: PWSTR,
+            ClientName: LPWSTR,
+            ClientComment: LPWSTR,
             ClientLeaseExpires: DATE_TIME,
             OwnerHost: DHCP_HOST_INFO,
         }
         struct DHCP_CLIENT_INFO_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
             Clients: *mut LPDHCP_CLIENT_INFO,
         }
         struct DHCP_CLIENT_INFO_ARRAY_V4 {
-            NumElements: u32,
+            NumElements: DWORD,
             Clients: *mut LPDHCP_CLIENT_INFO_V4,
         }
         struct DHCP_CLIENT_INFO_ARRAY_V5 {
-            NumElements: u32,
+            NumElements: DWORD,
             Clients: *mut LPDHCP_CLIENT_INFO_V5,
         }
         struct DHCP_CLIENT_INFO_ARRAY_V6 {
-            NumElements: u32,
+            NumElements: DWORD,
             Clients: *mut LPDHCP_CLIENT_INFO_V6,
         }
         struct DHCP_CLIENT_INFO_ARRAY_VQ {
-            NumElements: u32,
+            NumElements: DWORD,
             Clients: *mut LPDHCP_CLIENT_INFO_VQ,
         }
         struct DHCP_CLIENT_INFO_EX {
             ClientIpAddress: DHCP_IP_ADDRESS,
             SubnetMask: DHCP_IP_MASK,
             ClientHardwareAddress: DHCP_CLIENT_UID,
-            ClientName: PWSTR,
-            ClientComment: PWSTR,
+            ClientName: LPWSTR,
+            ClientComment: LPWSTR,
             ClientLeaseExpires: DATE_TIME,
             OwnerHost: DHCP_HOST_INFO,
-            bClientType: u8,
-            AddressState: u8,
+            bClientType: BYTE,
+            AddressState: BYTE,
             Status: QuarantineStatus,
             ProbationEnds: DATE_TIME,
             QuarantineCapable: BOOL,
-            FilterStatus: u32,
-            PolicyName: PWSTR,
+            FilterStatus: DWORD,
+            PolicyName: LPWSTR,
             Properties: LPDHCP_PROPERTY_ARRAY,
         }
         struct DHCP_CLIENT_INFO_EX_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
             Clients: *mut LPDHCP_CLIENT_INFO_EX,
         }
         struct DHCP_CLIENT_INFO_PB {
             ClientIpAddress: DHCP_IP_ADDRESS,
             SubnetMask: DHCP_IP_MASK,
             ClientHardwareAddress: DHCP_CLIENT_UID,
-            ClientName: PWSTR,
-            ClientComment: PWSTR,
+            ClientName: LPWSTR,
+            ClientComment: LPWSTR,
             ClientLeaseExpires: DATE_TIME,
             OwnerHost: DHCP_HOST_INFO,
-            bClientType: u8,
-            AddressState: u8,
+            bClientType: BYTE,
+            AddressState: BYTE,
             Status: QuarantineStatus,
             ProbationEnds: DATE_TIME,
             QuarantineCapable: BOOL,
-            FilterStatus: u32,
-            PolicyName: PWSTR,
+            FilterStatus: DWORD,
+            PolicyName: LPWSTR,
         }
         struct DHCP_CLIENT_INFO_PB_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
             Clients: *mut LPDHCP_CLIENT_INFO_PB,
         }
         struct DHCP_CLIENT_INFO_V4 {
             ClientIpAddress: DHCP_IP_ADDRESS,
             SubnetMask: DHCP_IP_MASK,
             ClientHardwareAddress: DHCP_CLIENT_UID,
-            ClientName: PWSTR,
-            ClientComment: PWSTR,
+            ClientName: LPWSTR,
+            ClientComment: LPWSTR,
             ClientLeaseExpires: DATE_TIME,
             OwnerHost: DHCP_HOST_INFO,
-            bClientType: u8,
+            bClientType: BYTE,
         }
         struct DHCP_CLIENT_INFO_V5 {
             ClientIpAddress: DHCP_IP_ADDRESS,
             SubnetMask: DHCP_IP_MASK,
             ClientHardwareAddress: DHCP_CLIENT_UID,
-            ClientName: PWSTR,
-            ClientComment: PWSTR,
+            ClientName: LPWSTR,
+            ClientComment: LPWSTR,
             ClientLeaseExpires: DATE_TIME,
             OwnerHost: DHCP_HOST_INFO,
-            bClientType: u8,
-            AddressState: u8,
+            bClientType: BYTE,
+            AddressState: BYTE,
         }
         struct DHCP_CLIENT_INFO_V6 {
             ClientIpAddress: DHCP_IPV6_ADDRESS,
             ClientDUID: DHCP_CLIENT_UID,
-            AddressType: u32,
-            IAID: u32,
-            ClientName: PWSTR,
-            ClientComment: PWSTR,
+            AddressType: DWORD,
+            IAID: DWORD,
+            ClientName: LPWSTR,
+            ClientComment: LPWSTR,
             ClientValidLeaseExpires: DATE_TIME,
             ClientPrefLeaseExpires: DATE_TIME,
             OwnerHost: DHCP_HOST_INFO_V6,
@@ -349,17 +356,16 @@ mod Windows {
             ClientIpAddress: DHCP_IP_ADDRESS,
             SubnetMask: DHCP_IP_MASK,
             ClientHardwareAddress: DHCP_CLIENT_UID,
-            ClientName: PWSTR,
-            ClientComment: PWSTR,
+            ClientName: LPWSTR,
+            ClientComment: LPWSTR,
             ClientLeaseExpires: DATE_TIME,
             OwnerHost: DHCP_HOST_INFO,
-            bClientType: u8,
-            AddressState: u8,
+            bClientType: BYTE,
+            AddressState: BYTE,
             Status: QuarantineStatus,
             ProbationEnds: DATE_TIME,
             QuarantineCapable: BOOL,
         }
-        type DHCP_CLIENT_SEARCH_UNION = _DHCP_CLIENT_SEARCH_UNION;
         type DHCP_CLIENT_UID = DHCP_BINARY_DATA;
         const DHCP_ENDPOINT_FLAG_CANT_MODIFY: i32 = 1;
         const DHCP_FAILOVER_DELETE_SCOPES: i32 = 1;
@@ -377,17 +383,18 @@ mod Windows {
             ServerType: DHCP_FAILOVER_SERVER,
             State: FSM_STATE,
             PrevState: FSM_STATE,
-            Mclt: u32,
-            SafePeriod: u32,
-            RelationshipName: PWSTR,
-            PrimaryServerName: PWSTR,
-            SecondaryServerName: PWSTR,
+            Mclt: DWORD,
+            SafePeriod: DWORD,
+            RelationshipName: LPWSTR,
+            PrimaryServerName: LPWSTR,
+            SecondaryServerName: LPWSTR,
             pScopes: LPDHCP_IP_ARRAY,
-            Percentage: u8,
-            SharedSecret: PWSTR,
+            Percentage: BYTE,
+            SharedSecret: LPWSTR,
         }
         struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumElements", IsByteCount = false, MayBeNull = false)]
             pRelationships: LPDHCP_FAILOVER_RELATIONSHIP,
         }
         #[repr(i32)]
@@ -396,21 +403,22 @@ mod Windows {
             SecondaryServer = 1,
         }
         struct DHCP_FAILOVER_STATISTICS {
-            NumAddr: u32,
-            AddrFree: u32,
-            AddrInUse: u32,
-            PartnerAddrFree: u32,
-            ThisAddrFree: u32,
-            PartnerAddrInUse: u32,
-            ThisAddrInUse: u32,
+            NumAddr: DWORD,
+            AddrFree: DWORD,
+            AddrInUse: DWORD,
+            PartnerAddrFree: DWORD,
+            ThisAddrFree: DWORD,
+            PartnerAddrInUse: DWORD,
+            ThisAddrInUse: DWORD,
         }
         struct DHCP_FILTER_ADD_INFO {
             AddrPatt: DHCP_ADDR_PATTERN,
-            Comment: PWSTR,
+            Comment: LPWSTR,
             ListType: DHCP_FILTER_LIST_TYPE,
         }
         struct DHCP_FILTER_ENUM_INFO {
-            NumElements: u32,
+            NumElements: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumElements", IsByteCount = false, MayBeNull = false)]
             pEnumRecords: LPDHCP_FILTER_RECORD,
         }
         struct DHCP_FILTER_GLOBAL_INFO {
@@ -424,7 +432,7 @@ mod Windows {
         }
         struct DHCP_FILTER_RECORD {
             AddrPatt: DHCP_ADDR_PATTERN,
-            Comment: PWSTR,
+            Comment: LPWSTR,
         }
         const DHCP_FLAGS_DONT_ACCESS_DS: i32 = 1;
         const DHCP_FLAGS_DONT_DO_RPC: i32 = 2;
@@ -437,26 +445,27 @@ mod Windows {
         }
         struct DHCP_HOST_INFO {
             IpAddress: DHCP_IP_ADDRESS,
-            NetBiosName: PWSTR,
-            HostName: PWSTR,
+            NetBiosName: LPWSTR,
+            HostName: LPWSTR,
         }
         struct DHCP_HOST_INFO_V6 {
             IpAddress: DHCP_IPV6_ADDRESS,
-            NetBiosName: PWSTR,
-            HostName: PWSTR,
+            NetBiosName: LPWSTR,
+            HostName: LPWSTR,
         }
         struct DHCP_IPV6_ADDRESS {
-            HighOrderBits: u64,
-            LowOrderBits: u64,
+            HighOrderBits: ULONGLONG,
+            LowOrderBits: ULONGLONG,
         }
         type DHCP_IP_ADDRESS = u32;
         struct DHCP_IP_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumElements", IsByteCount = false, MayBeNull = false)]
             Elements: LPDHCP_IP_ADDRESS,
         }
         struct DHCP_IP_CLUSTER {
             ClusterAddress: DHCP_IP_ADDRESS,
-            ClusterMask: u32,
+            ClusterMask: DWORD,
         }
         type DHCP_IP_MASK = u32;
         struct DHCP_IP_RANGE {
@@ -464,7 +473,8 @@ mod Windows {
             EndAddress: DHCP_IP_ADDRESS,
         }
         struct DHCP_IP_RANGE_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumElements", IsByteCount = false, MayBeNull = false)]
             Elements: LPDHCP_IP_RANGE,
         }
         struct DHCP_IP_RANGE_V6 {
@@ -478,108 +488,122 @@ mod Windows {
         struct DHCP_IP_RESERVATION_INFO {
             ReservedIpAddress: DHCP_IP_ADDRESS,
             ReservedForClient: DHCP_CLIENT_UID,
-            ReservedClientName: PWSTR,
-            ReservedClientDesc: PWSTR,
-            bAllowedClientTypes: u8,
-            fOptionsPresent: u8,
+            ReservedClientName: LPWSTR,
+            ReservedClientDesc: LPWSTR,
+            bAllowedClientTypes: BYTE,
+            fOptionsPresent: BYTE,
         }
         struct DHCP_IP_RESERVATION_V4 {
             ReservedIpAddress: DHCP_IP_ADDRESS,
             ReservedForClient: *mut DHCP_CLIENT_UID,
-            bAllowedClientTypes: u8,
+            bAllowedClientTypes: BYTE,
         }
         struct DHCP_IP_RESERVATION_V6 {
             ReservedIpAddress: DHCP_IPV6_ADDRESS,
             ReservedForClient: *mut DHCP_CLIENT_UID,
-            InterfaceId: u32,
+            InterfaceId: DWORD,
         }
         const DHCP_MAX_DELAY: i32 = 1000;
         struct DHCP_MIB_INFO {
-            Discovers: u32,
-            Offers: u32,
-            Requests: u32,
-            Acks: u32,
-            Naks: u32,
-            Declines: u32,
-            Releases: u32,
+            Discovers: DWORD,
+            Offers: DWORD,
+            Requests: DWORD,
+            Acks: DWORD,
+            Naks: DWORD,
+            Declines: DWORD,
+            Releases: DWORD,
             ServerStartTime: DATE_TIME,
-            Scopes: u32,
+            Scopes: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "Scopes", IsByteCount = false, MayBeNull = false)]
             ScopeInfo: LPSCOPE_MIB_INFO,
         }
         struct DHCP_MIB_INFO_V5 {
-            Discovers: u32,
-            Offers: u32,
-            Requests: u32,
-            Acks: u32,
-            Naks: u32,
-            Declines: u32,
-            Releases: u32,
+            Discovers: DWORD,
+            Offers: DWORD,
+            Requests: DWORD,
+            Acks: DWORD,
+            Naks: DWORD,
+            Declines: DWORD,
+            Releases: DWORD,
             ServerStartTime: DATE_TIME,
-            QtnNumLeases: u32,
-            QtnPctQtnLeases: u32,
-            QtnProbationLeases: u32,
-            QtnNonQtnLeases: u32,
-            QtnExemptLeases: u32,
-            QtnCapableClients: u32,
-            QtnIASErrors: u32,
-            DelayedOffers: u32,
-            ScopesWithDelayedOffers: u32,
-            Scopes: u32,
+            QtnNumLeases: DWORD,
+            QtnPctQtnLeases: DWORD,
+            QtnProbationLeases: DWORD,
+            QtnNonQtnLeases: DWORD,
+            QtnExemptLeases: DWORD,
+            QtnCapableClients: DWORD,
+            QtnIASErrors: DWORD,
+            DelayedOffers: DWORD,
+            ScopesWithDelayedOffers: DWORD,
+            Scopes: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "Scopes", IsByteCount = false, MayBeNull = false)]
             ScopeInfo: LPSCOPE_MIB_INFO_V5,
         }
         struct DHCP_MIB_INFO_V6 {
-            Solicits: u32,
-            Advertises: u32,
-            Requests: u32,
-            Renews: u32,
-            Rebinds: u32,
-            Replies: u32,
-            Confirms: u32,
-            Declines: u32,
-            Releases: u32,
-            Informs: u32,
+            Solicits: DWORD,
+            Advertises: DWORD,
+            Requests: DWORD,
+            Renews: DWORD,
+            Rebinds: DWORD,
+            Replies: DWORD,
+            Confirms: DWORD,
+            Declines: DWORD,
+            Releases: DWORD,
+            Informs: DWORD,
             ServerStartTime: DATE_TIME,
-            Scopes: u32,
+            Scopes: DWORD,
             ScopeInfo: LPSCOPE_MIB_INFO_V6,
         }
         struct DHCP_MIB_INFO_VQ {
-            Discovers: u32,
-            Offers: u32,
-            Requests: u32,
-            Acks: u32,
-            Naks: u32,
-            Declines: u32,
-            Releases: u32,
+            Discovers: DWORD,
+            Offers: DWORD,
+            Requests: DWORD,
+            Acks: DWORD,
+            Naks: DWORD,
+            Declines: DWORD,
+            Releases: DWORD,
             ServerStartTime: DATE_TIME,
-            QtnNumLeases: u32,
-            QtnPctQtnLeases: u32,
-            QtnProbationLeases: u32,
-            QtnNonQtnLeases: u32,
-            QtnExemptLeases: u32,
-            QtnCapableClients: u32,
-            QtnIASErrors: u32,
-            Scopes: u32,
+            QtnNumLeases: DWORD,
+            QtnPctQtnLeases: DWORD,
+            QtnProbationLeases: DWORD,
+            QtnNonQtnLeases: DWORD,
+            QtnExemptLeases: DWORD,
+            QtnCapableClients: DWORD,
+            QtnIASErrors: DWORD,
+            Scopes: DWORD,
             ScopeInfo: LPSCOPE_MIB_INFO_VQ,
         }
         const DHCP_MIN_DELAY: i32 = 0;
         struct DHCP_OPTION {
             OptionID: DHCP_OPTION_ID,
-            OptionName: PWSTR,
-            OptionComment: PWSTR,
+            OptionName: LPWSTR,
+            OptionComment: LPWSTR,
             DefaultValue: DHCP_OPTION_DATA,
             OptionType: DHCP_OPTION_TYPE,
         }
         struct DHCP_OPTION_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
             Options: LPDHCP_OPTION,
         }
         struct DHCP_OPTION_DATA {
-            NumElements: u32,
+            NumElements: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumElements", IsByteCount = false, MayBeNull = false)]
             Elements: LPDHCP_OPTION_DATA_ELEMENT,
         }
         struct DHCP_OPTION_DATA_ELEMENT {
+            union _DHCP_OPTION_ELEMENT_UNION {
+                ByteOption: BYTE,
+                WordOption: WORD,
+                DWordOption: DWORD,
+                DWordDWordOption: DWORD_DWORD,
+                IpAddressOption: DHCP_IP_ADDRESS,
+                StringDataOption: LPWSTR,
+                BinaryDataOption: DHCP_BINARY_DATA,
+                EncapsulatedDataOption: DHCP_BINARY_DATA,
+                Ipv6AddressDataOption: LPWSTR,
+            }
             OptionType: DHCP_OPTION_DATA_TYPE,
-            Element: _DHCP_OPTION_ELEMENT_UNION,
+            Element: DHCP_OPTION_DATA_ELEMENT::_DHCP_OPTION_ELEMENT_UNION,
         }
         #[repr(i32)]
         enum DHCP_OPTION_DATA_TYPE {
@@ -593,19 +617,30 @@ mod Windows {
             DhcpEncapsulatedDataOption = 7,
             DhcpIpv6AddressOption = 8,
         }
-        type DHCP_OPTION_ELEMENT_UNION = _DHCP_OPTION_ELEMENT_UNION;
         type DHCP_OPTION_ID = u32;
         struct DHCP_OPTION_LIST {
-            NumOptions: u32,
+            NumOptions: DWORD,
             Options: *mut DHCP_OPTION_VALUE,
         }
         struct DHCP_OPTION_SCOPE_INFO {
+            union _DHCP_OPTION_SCOPE_UNION {
+                DefaultScopeInfo: PVOID,
+                GlobalScopeInfo: PVOID,
+                SubnetScopeInfo: DHCP_IP_ADDRESS,
+                ReservedScopeInfo: DHCP_RESERVED_SCOPE,
+                MScopeInfo: LPWSTR,
+            }
             ScopeType: DHCP_OPTION_SCOPE_TYPE,
-            ScopeInfo: _DHCP_OPTION_SCOPE_UNION,
+            ScopeInfo: DHCP_OPTION_SCOPE_INFO::_DHCP_OPTION_SCOPE_UNION,
         }
         struct DHCP_OPTION_SCOPE_INFO6 {
+            union _DHCP_OPTION_SCOPE_UNION6 {
+                DefaultScopeInfo: PVOID,
+                SubnetScopeInfo: DHCP_IPV6_ADDRESS,
+                ReservedScopeInfo: DHCP_RESERVED_SCOPE6,
+            }
             ScopeType: DHCP_OPTION_SCOPE_TYPE6,
-            ScopeInfo: _DHCP_OPTION_SCOPE_UNION6,
+            ScopeInfo: DHCP_OPTION_SCOPE_INFO6::_DHCP_OPTION_SCOPE_UNION6,
         }
         #[repr(i32)]
         enum DHCP_OPTION_SCOPE_TYPE {
@@ -622,7 +657,6 @@ mod Windows {
             DhcpReservedOptions6 = 2,
             DhcpGlobalOptions6 = 3,
         }
-        type DHCP_OPTION_SCOPE_UNION6 = _DHCP_OPTION_SCOPE_UNION6;
         #[repr(i32)]
         enum DHCP_OPTION_TYPE {
             DhcpUnaryElementTypeOption = 0,
@@ -633,61 +667,64 @@ mod Windows {
             Value: DHCP_OPTION_DATA,
         }
         struct DHCP_OPTION_VALUE_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
             Values: LPDHCP_OPTION_VALUE,
         }
         const DHCP_OPT_ENUM_IGNORE_VENDOR: i32 = 1;
         const DHCP_OPT_ENUM_USE_CLASSNAME: i32 = 2;
+        #[packed(4)]
         struct DHCP_PERF_STATS {
-            dwNumPacketsReceived: u32,
-            dwNumPacketsDuplicate: u32,
-            dwNumPacketsExpired: u32,
-            dwNumMilliSecondsProcessed: u32,
-            dwNumPacketsInActiveQueue: u32,
-            dwNumPacketsInPingQueue: u32,
-            dwNumDiscoversReceived: u32,
-            dwNumOffersSent: u32,
-            dwNumRequestsReceived: u32,
-            dwNumInformsReceived: u32,
-            dwNumAcksSent: u32,
-            dwNumNacksSent: u32,
-            dwNumDeclinesReceived: u32,
-            dwNumReleasesReceived: u32,
-            dwNumDelayedOfferInQueue: u32,
-            dwNumPacketsProcessed: u32,
-            dwNumPacketsInQuarWaitingQueue: u32,
-            dwNumPacketsInQuarReadyQueue: u32,
-            dwNumPacketsInQuarDecisionQueue: u32,
+            dwNumPacketsReceived: ULONG,
+            dwNumPacketsDuplicate: ULONG,
+            dwNumPacketsExpired: ULONG,
+            dwNumMilliSecondsProcessed: ULONG,
+            dwNumPacketsInActiveQueue: ULONG,
+            dwNumPacketsInPingQueue: ULONG,
+            dwNumDiscoversReceived: ULONG,
+            dwNumOffersSent: ULONG,
+            dwNumRequestsReceived: ULONG,
+            dwNumInformsReceived: ULONG,
+            dwNumAcksSent: ULONG,
+            dwNumNacksSent: ULONG,
+            dwNumDeclinesReceived: ULONG,
+            dwNumReleasesReceived: ULONG,
+            dwNumDelayedOfferInQueue: ULONG,
+            dwNumPacketsProcessed: ULONG,
+            dwNumPacketsInQuarWaitingQueue: ULONG,
+            dwNumPacketsInQuarReadyQueue: ULONG,
+            dwNumPacketsInQuarDecisionQueue: ULONG,
         }
         struct DHCP_POLICY {
-            PolicyName: PWSTR,
+            PolicyName: LPWSTR,
             IsGlobalPolicy: BOOL,
             Subnet: DHCP_IP_ADDRESS,
-            ProcessingOrder: u32,
+            ProcessingOrder: DWORD,
             Conditions: LPDHCP_POL_COND_ARRAY,
             Expressions: LPDHCP_POL_EXPR_ARRAY,
             Ranges: LPDHCP_IP_RANGE_ARRAY,
-            Description: PWSTR,
+            Description: LPWSTR,
             Enabled: BOOL,
         }
         struct DHCP_POLICY_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumElements", IsByteCount = false, MayBeNull = false)]
             Elements: LPDHCP_POLICY,
         }
         struct DHCP_POLICY_EX {
-            PolicyName: PWSTR,
+            PolicyName: LPWSTR,
             IsGlobalPolicy: BOOL,
             Subnet: DHCP_IP_ADDRESS,
-            ProcessingOrder: u32,
+            ProcessingOrder: DWORD,
             Conditions: LPDHCP_POL_COND_ARRAY,
             Expressions: LPDHCP_POL_EXPR_ARRAY,
             Ranges: LPDHCP_IP_RANGE_ARRAY,
-            Description: PWSTR,
+            Description: LPWSTR,
             Enabled: BOOL,
             Properties: LPDHCP_PROPERTY_ARRAY,
         }
         struct DHCP_POLICY_EX_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumElements", IsByteCount = false, MayBeNull = false)]
             Elements: LPDHCP_POLICY_EX,
         }
         #[repr(i32)]
@@ -718,25 +755,28 @@ mod Windows {
             DhcpCompNotEndWith = 5,
         }
         struct DHCP_POL_COND {
-            ParentExpr: u32,
+            ParentExpr: DWORD,
             Type: DHCP_POL_ATTR_TYPE,
-            OptionID: u32,
-            SubOptionID: u32,
-            VendorName: PWSTR,
+            OptionID: DWORD,
+            SubOptionID: DWORD,
+            VendorName: LPWSTR,
             Operator: DHCP_POL_COMPARATOR,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ValueLength", IsByteCount = true, MayBeNull = false)]
             Value: LPBYTE,
-            ValueLength: u32,
+            ValueLength: DWORD,
         }
         struct DHCP_POL_COND_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumElements", IsByteCount = false, MayBeNull = false)]
             Elements: LPDHCP_POL_COND,
         }
         struct DHCP_POL_EXPR {
-            ParentExpr: u32,
+            ParentExpr: DWORD,
             Operator: DHCP_POL_LOGIC_OPER,
         }
         struct DHCP_POL_EXPR_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumElements", IsByteCount = false, MayBeNull = false)]
             Elements: LPDHCP_POL_EXPR,
         }
         #[repr(i32)]
@@ -745,12 +785,20 @@ mod Windows {
             DhcpLogicalAnd = 1,
         }
         struct DHCP_PROPERTY {
+            union _DHCP_PROPERTY_VALUE_UNION {
+                ByteValue: BYTE,
+                WordValue: WORD,
+                DWordValue: DWORD,
+                StringValue: LPWSTR,
+                BinaryValue: DHCP_BINARY_DATA,
+            }
             ID: DHCP_PROPERTY_ID,
             Type: DHCP_PROPERTY_TYPE,
-            Value: _DHCP_PROPERTY_VALUE_UNION,
+            Value: DHCP_PROPERTY::_DHCP_PROPERTY_VALUE_UNION,
         }
         struct DHCP_PROPERTY_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumElements", IsByteCount = false, MayBeNull = false)]
             Elements: LPDHCP_PROPERTY,
         }
         #[repr(i32)]
@@ -767,7 +815,7 @@ mod Windows {
             DhcpPropTypeBinary = 4,
         }
         struct DHCP_RESERVATION_INFO_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
             Elements: *mut LPDHCP_IP_RESERVATION_INFO,
         }
         struct DHCP_RESERVED_SCOPE {
@@ -790,12 +838,18 @@ mod Windows {
             ScanFlag: DHCP_SCAN_FLAG,
         }
         struct DHCP_SCAN_LIST {
-            NumScanItems: u32,
+            NumScanItems: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumScanItems", IsByteCount = false, MayBeNull = false)]
             ScanItems: *mut DHCP_SCAN_ITEM,
         }
         struct DHCP_SEARCH_INFO {
+            union _DHCP_CLIENT_SEARCH_UNION {
+                ClientIpAddress: DHCP_IP_ADDRESS,
+                ClientHardwareAddress: DHCP_CLIENT_UID,
+                ClientName: LPWSTR,
+            }
             SearchType: DHCP_SEARCH_INFO_TYPE,
-            SearchInfo: _DHCP_CLIENT_SEARCH_UNION,
+            SearchInfo: DHCP_SEARCH_INFO::_DHCP_CLIENT_SEARCH_UNION,
         }
         #[repr(i32)]
         enum DHCP_SEARCH_INFO_TYPE {
@@ -810,100 +864,133 @@ mod Windows {
             Dhcpv6ClientName = 2,
         }
         struct DHCP_SEARCH_INFO_V6 {
+            union _DHCP_CLIENT_SEARCH_UNION_V6 {
+                ClientIpAddress: DHCP_IPV6_ADDRESS,
+                ClientDUID: DHCP_CLIENT_UID,
+                ClientName: LPWSTR,
+            }
             SearchType: DHCP_SEARCH_INFO_TYPE_V6,
-            SearchInfo: _DHCP_CLIENT_SEARCH_UNION_V6,
+            SearchInfo: DHCP_SEARCH_INFO_V6::_DHCP_CLIENT_SEARCH_UNION_V6,
         }
         struct DHCP_SERVER_CONFIG_INFO {
-            APIProtocolSupport: u32,
-            DatabaseName: PWSTR,
-            DatabasePath: PWSTR,
-            BackupPath: PWSTR,
-            BackupInterval: u32,
-            DatabaseLoggingFlag: u32,
-            RestoreFlag: u32,
-            DatabaseCleanupInterval: u32,
-            DebugFlag: u32,
+            APIProtocolSupport: DWORD,
+            DatabaseName: LPWSTR,
+            DatabasePath: LPWSTR,
+            BackupPath: LPWSTR,
+            BackupInterval: DWORD,
+            DatabaseLoggingFlag: DWORD,
+            RestoreFlag: DWORD,
+            DatabaseCleanupInterval: DWORD,
+            DebugFlag: DWORD,
         }
         struct DHCP_SERVER_CONFIG_INFO_V4 {
-            APIProtocolSupport: u32,
-            DatabaseName: PWSTR,
-            DatabasePath: PWSTR,
-            BackupPath: PWSTR,
-            BackupInterval: u32,
-            DatabaseLoggingFlag: u32,
-            RestoreFlag: u32,
-            DatabaseCleanupInterval: u32,
-            DebugFlag: u32,
-            dwPingRetries: u32,
-            cbBootTableString: u32,
-            wszBootTableString: *mut u16,
+            APIProtocolSupport: DWORD,
+            DatabaseName: LPWSTR,
+            DatabasePath: LPWSTR,
+            BackupPath: LPWSTR,
+            BackupInterval: DWORD,
+            DatabaseLoggingFlag: DWORD,
+            RestoreFlag: DWORD,
+            DatabaseCleanupInterval: DWORD,
+            DebugFlag: DWORD,
+            dwPingRetries: DWORD,
+            cbBootTableString: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbBootTableString", IsByteCount = true, MayBeNull = false)]
+            wszBootTableString: *mut WCHAR,
             fAuditLog: BOOL,
         }
         struct DHCP_SERVER_CONFIG_INFO_V6 {
             UnicastFlag: BOOL,
             RapidCommitFlag: BOOL,
-            PreferredLifetime: u32,
-            ValidLifetime: u32,
-            T1: u32,
-            T2: u32,
-            PreferredLifetimeIATA: u32,
-            ValidLifetimeIATA: u32,
+            PreferredLifetime: DWORD,
+            ValidLifetime: DWORD,
+            T1: DWORD,
+            T2: DWORD,
+            PreferredLifetimeIATA: DWORD,
+            ValidLifetimeIATA: DWORD,
             fAuditLog: BOOL,
         }
         struct DHCP_SERVER_CONFIG_INFO_VQ {
-            APIProtocolSupport: u32,
-            DatabaseName: PWSTR,
-            DatabasePath: PWSTR,
-            BackupPath: PWSTR,
-            BackupInterval: u32,
-            DatabaseLoggingFlag: u32,
-            RestoreFlag: u32,
-            DatabaseCleanupInterval: u32,
-            DebugFlag: u32,
-            dwPingRetries: u32,
-            cbBootTableString: u32,
-            wszBootTableString: *mut u16,
+            APIProtocolSupport: DWORD,
+            DatabaseName: LPWSTR,
+            DatabasePath: LPWSTR,
+            BackupPath: LPWSTR,
+            BackupInterval: DWORD,
+            DatabaseLoggingFlag: DWORD,
+            RestoreFlag: DWORD,
+            DatabaseCleanupInterval: DWORD,
+            DebugFlag: DWORD,
+            dwPingRetries: DWORD,
+            cbBootTableString: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbBootTableString", IsByteCount = true, MayBeNull = false)]
+            wszBootTableString: *mut WCHAR,
             fAuditLog: BOOL,
             QuarantineOn: BOOL,
-            QuarDefFail: u32,
+            QuarDefFail: DWORD,
             QuarRuntimeStatus: BOOL,
         }
         type DHCP_SERVER_INFO = DHCPDS_SERVER;
         type DHCP_SERVER_INFO_ARRAY = DHCPDS_SERVERS;
         struct DHCP_SERVER_SPECIFIC_STRINGS {
-            DefaultVendorClassName: PWSTR,
-            DefaultUserClassName: PWSTR,
+            DefaultVendorClassName: LPWSTR,
+            DefaultUserClassName: LPWSTR,
         }
         struct DHCP_SUBNET_ELEMENT_DATA {
+            union _DHCP_SUBNET_ELEMENT_UNION {
+                IpRange: *mut DHCP_IP_RANGE,
+                SecondaryHost: *mut DHCP_HOST_INFO,
+                ReservedIp: *mut DHCP_IP_RESERVATION,
+                ExcludeIpRange: *mut DHCP_IP_RANGE,
+                IpUsedCluster: *mut DHCP_IP_CLUSTER,
+            }
             ElementType: DHCP_SUBNET_ELEMENT_TYPE,
-            Element: _DHCP_SUBNET_ELEMENT_UNION,
+            Element: DHCP_SUBNET_ELEMENT_DATA::_DHCP_SUBNET_ELEMENT_UNION,
         }
         struct DHCP_SUBNET_ELEMENT_DATA_V4 {
+            union _DHCP_SUBNET_ELEMENT_UNION_V4 {
+                IpRange: *mut DHCP_IP_RANGE,
+                SecondaryHost: *mut DHCP_HOST_INFO,
+                ReservedIp: *mut DHCP_IP_RESERVATION_V4,
+                ExcludeIpRange: *mut DHCP_IP_RANGE,
+                IpUsedCluster: *mut DHCP_IP_CLUSTER,
+            }
             ElementType: DHCP_SUBNET_ELEMENT_TYPE,
-            Element: _DHCP_SUBNET_ELEMENT_UNION_V4,
+            Element: DHCP_SUBNET_ELEMENT_DATA_V4::_DHCP_SUBNET_ELEMENT_UNION_V4,
         }
         struct DHCP_SUBNET_ELEMENT_DATA_V5 {
+            union _DHCP_SUBNET_ELEMENT_UNION_V5 {
+                IpRange: *mut DHCP_BOOTP_IP_RANGE,
+                SecondaryHost: *mut DHCP_HOST_INFO,
+                ReservedIp: *mut DHCP_IP_RESERVATION_V4,
+                ExcludeIpRange: *mut DHCP_IP_RANGE,
+                IpUsedCluster: *mut DHCP_IP_CLUSTER,
+            }
             ElementType: DHCP_SUBNET_ELEMENT_TYPE,
-            Element: _DHCP_SUBNET_ELEMENT_UNION_V5,
+            Element: DHCP_SUBNET_ELEMENT_DATA_V5::_DHCP_SUBNET_ELEMENT_UNION_V5,
         }
         struct DHCP_SUBNET_ELEMENT_DATA_V6 {
+            union _DHCP_SUBNET_ELEMENT_UNION_V6 {
+                IpRange: *mut DHCP_IP_RANGE_V6,
+                ReservedIp: *mut DHCP_IP_RESERVATION_V6,
+                ExcludeIpRange: *mut DHCP_IP_RANGE_V6,
+            }
             ElementType: DHCP_SUBNET_ELEMENT_TYPE_V6,
-            Element: _DHCP_SUBNET_ELEMENT_UNION_V6,
+            Element: DHCP_SUBNET_ELEMENT_DATA_V6::_DHCP_SUBNET_ELEMENT_UNION_V6,
         }
         struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
-            NumElements: u32,
+            NumElements: DWORD,
             Elements: LPDHCP_SUBNET_ELEMENT_DATA,
         }
         struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
-            NumElements: u32,
+            NumElements: DWORD,
             Elements: LPDHCP_SUBNET_ELEMENT_DATA_V4,
         }
         struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
-            NumElements: u32,
+            NumElements: DWORD,
             Elements: LPDHCP_SUBNET_ELEMENT_DATA_V5,
         }
         struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
-            NumElements: u32,
+            NumElements: DWORD,
             Elements: LPDHCP_SUBNET_ELEMENT_DATA_V6,
         }
         #[repr(i32)]
@@ -923,38 +1010,35 @@ mod Windows {
             Dhcpv6ReservedIps = 1,
             Dhcpv6ExcludedIpRanges = 2,
         }
-        type DHCP_SUBNET_ELEMENT_UNION = _DHCP_SUBNET_ELEMENT_UNION;
-        type DHCP_SUBNET_ELEMENT_UNION_V4 = _DHCP_SUBNET_ELEMENT_UNION_V4;
-        type DHCP_SUBNET_ELEMENT_UNION_V6 = _DHCP_SUBNET_ELEMENT_UNION_V6;
         struct DHCP_SUBNET_INFO {
             SubnetAddress: DHCP_IP_ADDRESS,
             SubnetMask: DHCP_IP_MASK,
-            SubnetName: PWSTR,
-            SubnetComment: PWSTR,
+            SubnetName: LPWSTR,
+            SubnetComment: LPWSTR,
             PrimaryHost: DHCP_HOST_INFO,
             SubnetState: DHCP_SUBNET_STATE,
         }
         struct DHCP_SUBNET_INFO_V6 {
             SubnetAddress: DHCP_IPV6_ADDRESS,
-            Prefix: u32,
-            Preference: u16,
-            SubnetName: PWSTR,
-            SubnetComment: PWSTR,
-            State: u32,
-            ScopeId: u32,
+            Prefix: ULONG,
+            Preference: USHORT,
+            SubnetName: LPWSTR,
+            SubnetComment: LPWSTR,
+            State: DWORD,
+            ScopeId: DWORD,
         }
         struct DHCP_SUBNET_INFO_VQ {
             SubnetAddress: DHCP_IP_ADDRESS,
             SubnetMask: DHCP_IP_MASK,
-            SubnetName: PWSTR,
-            SubnetComment: PWSTR,
+            SubnetName: LPWSTR,
+            SubnetComment: LPWSTR,
             PrimaryHost: DHCP_HOST_INFO,
             SubnetState: DHCP_SUBNET_STATE,
-            QuarantineOn: u32,
-            Reserved1: u32,
-            Reserved2: u32,
-            Reserved3: i64,
-            Reserved4: i64,
+            QuarantineOn: DWORD,
+            Reserved1: DWORD,
+            Reserved2: DWORD,
+            Reserved3: INT64,
+            Reserved4: INT64,
         }
         const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: i32 = 1;
         #[repr(i32)]
@@ -966,14 +1050,14 @@ mod Windows {
             DhcpSubnetInvalidState = 4,
         }
         struct DHCP_SUPER_SCOPE_TABLE {
-            cEntries: u32,
+            cEntries: DWORD,
             pEntries: *mut DHCP_SUPER_SCOPE_TABLE_ENTRY,
         }
         struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
             SubnetAddress: DHCP_IP_ADDRESS,
-            SuperScopeNumber: u32,
-            NextInSuperScope: u32,
-            SuperScopeName: PWSTR,
+            SuperScopeNumber: DWORD,
+            NextInSuperScope: DWORD,
+            SuperScopeName: LPWSTR,
         }
         const DNS_FLAG_CLEANUP_EXPIRED: i32 = 4;
         const DNS_FLAG_DISABLE_PTR_UPDATE: i32 = 64;
@@ -983,187 +1067,283 @@ mod Windows {
         const DNS_FLAG_UPDATE_DHCID: i32 = 32;
         const DNS_FLAG_UPDATE_DOWNLEVEL: i32 = 2;
         struct DWORD_DWORD {
-            DWord1: u32,
-            DWord2: u32,
+            DWord1: DWORD,
+            DWord2: DWORD,
         }
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpAddFilterV4(#[opt] ServerIpAddress: *const u16, #[in] AddFilterInfo: *mut DHCP_FILTER_ADD_INFO, ForceFlag: BOOL) -> u32;
+        extern fn DhcpAddFilterV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddFilterInfo: *mut DHCP_FILTER_ADD_INFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ForceFlag: BOOL) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpAddSecurityGroup(#[opt] pServer: PCWSTR) -> u32;
+        extern fn DhcpAddSecurityGroup(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServer: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpAddServer(Flags: u32, #[in] IdInfo: *mut void, NewServer: LPDHCP_SERVER_INFO, #[in] CallbackFn: *mut void, #[in] CallbackData: *mut void) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpAddServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpAddSubnetElement(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA) -> u32;
+        #[arch(X86)]
+        extern fn DhcpAddServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpAddSubnetElementV4(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V4) -> u32;
+        extern fn DhcpAddSubnetElement(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpAddSubnetElementV5(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V5) -> u32;
+        extern fn DhcpAddSubnetElementV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V4) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpAddSubnetElementV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, AddElementInfo: LPDHCP_SUBNET_ELEMENT_DATA_V6) -> u32;
+        extern fn DhcpAddSubnetElementV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V5) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpAuditLogGetParams(#[opt] ServerIpAddress: PCWSTR, Flags: u32, AuditLogDir: *mut PWSTR, DiskCheckInterval: *mut u32, MaxLogFilesSize: *mut u32, MinSpaceOnDisk: *mut u32) -> u32;
+        extern fn DhcpAddSubnetElementV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, AddElementInfo: LPDHCP_SUBNET_ELEMENT_DATA_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpAuditLogSetParams(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] AuditLogDir: PCWSTR, DiskCheckInterval: u32, MaxLogFilesSize: u32, MinSpaceOnDisk: u32) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpAuditLogGetParams(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] AuditLogDir: *mut LPWSTR, DiskCheckInterval: *mut DWORD, MaxLogFilesSize: *mut DWORD, MinSpaceOnDisk: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpCreateClass(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ClassInfo: LPDHCP_CLASS_INFO) -> u32;
+        #[arch(X86)]
+        extern fn DhcpAuditLogGetParams(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] AuditLogDir: *mut LPWSTR, DiskCheckInterval: *mut DWORD, MaxLogFilesSize: *mut DWORD, MinSpaceOnDisk: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateClassV6(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ClassInfo: LPDHCP_CLASS_INFO_V6) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpAuditLogSetParams(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuditLogDir: LPWSTR, DiskCheckInterval: DWORD, MaxLogFilesSize: DWORD, MinSpaceOnDisk: DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateClientInfo(#[opt] ServerIpAddress: *const u16, ClientInfo: *const DHCP_CLIENT_INFO) -> u32;
+        #[arch(X86)]
+        extern fn DhcpAuditLogSetParams(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuditLogDir: LPWSTR, DiskCheckInterval: DWORD, MaxLogFilesSize: DWORD, MinSpaceOnDisk: DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateClientInfoV4(#[opt] ServerIpAddress: *const u16, ClientInfo: *const DHCP_CLIENT_INFO_V4) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpCreateClass(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateClientInfoVQ(#[opt] ServerIpAddress: *const u16, ClientInfo: *const DHCP_CLIENT_INFO_VQ) -> u32;
+        #[arch(X86)]
+        extern fn DhcpCreateClass(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateOption(#[opt] ServerIpAddress: *const u16, OptionID: DHCP_OPTION_ID, OptionInfo: *const DHCP_OPTION) -> u32;
+        extern fn DhcpCreateClassV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpCreateOptionV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionId: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, OptionInfo: LPDHCP_OPTION) -> u32;
+        extern fn DhcpCreateClientInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateOptionV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionId: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, OptionInfo: LPDHCP_OPTION) -> u32;
+        extern fn DhcpCreateClientInfoV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_V4) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateSubnet(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO) -> u32;
+        extern fn DhcpCreateClientInfoVQ(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_VQ) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateSubnetV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: LPDHCP_SUBNET_INFO_V6) -> u32;
+        extern fn DhcpCreateOption(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, OptionInfo: *const DHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateSubnetVQ(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO_VQ) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpCreateOptionV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpDeleteClass(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ClassName: PCWSTR) -> u32;
+        #[arch(X86)]
+        extern fn DhcpCreateOptionV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpDeleteClassV6(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ClassName: PCWSTR) -> u32;
+        extern fn DhcpCreateOptionV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpDeleteClientInfo(#[opt] ServerIpAddress: *const u16, ClientInfo: *const DHCP_SEARCH_INFO) -> u32;
+        extern fn DhcpCreateSubnet(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpDeleteClientInfoV6(#[opt] ServerIpAddress: *const u16, ClientInfo: *const DHCP_SEARCH_INFO_V6) -> u32;
+        extern fn DhcpCreateSubnetV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: LPDHCP_SUBNET_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpDeleteFilterV4(#[opt] ServerIpAddress: *const u16, #[in] DeleteFilterInfo: *mut DHCP_ADDR_PATTERN) -> u32;
+        extern fn DhcpCreateSubnetVQ(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetInfo: *const DHCP_SUBNET_INFO_VQ) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpDeleteServer(Flags: u32, #[in] IdInfo: *mut void, NewServer: LPDHCP_SERVER_INFO, #[in] CallbackFn: *mut void, #[in] CallbackData: *mut void) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpDeleteClass(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpDeleteSubnet(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+        #[arch(X86)]
+        extern fn DhcpDeleteClass(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpDeleteSubnetV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+        extern fn DhcpDeleteClassV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpDeleteSuperScopeV4(#[opt] ServerIpAddress: *const u16, SuperScopeName: PCWSTR) -> u32;
+        extern fn DhcpDeleteClientInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_SEARCH_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern fn DhcpDeleteClientInfoV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_SEARCH_INFO_V6) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpDeleteFilterV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DeleteFilterInfo: *mut DHCP_ADDR_PATTERN) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpDeleteServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        #[arch(X86)]
+        extern fn DhcpDeleteServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpDeleteSubnet(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpDeleteSubnetV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpDeleteSuperScopeV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SuperScopeName: LPWSTR) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        #[arch(X86)]
+        extern fn DhcpDeleteSuperScopeV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SuperScopeName: LPWSTR) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        #[arch(X64 | Arm64)]
         extern "C" fn DhcpDsCleanup();
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpDsInit() -> u32;
+        #[arch(X86)]
+        extern fn DhcpDsCleanup();
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpEnumClasses(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClassInfoArray: *mut LPDHCP_CLASS_INFO_ARRAY, nRead: *mut u32, nTotal: *mut u32) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpDsInit() -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumClassesV6(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClassInfoArray: *mut LPDHCP_CLASS_INFO_ARRAY_V6, nRead: *mut u32, nTotal: *mut u32) -> u32;
+        #[arch(X86)]
+        extern fn DhcpDsInit() -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumFilterV4(#[opt] ServerIpAddress: *const u16, #[in] #[out] ResumeHandle: LPDHCP_ADDR_PATTERN, PreferredMaximum: u32, ListType: DHCP_FILTER_LIST_TYPE, EnumFilterInfo: *mut LPDHCP_FILTER_ENUM_INFO, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpEnumClasses(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClassInfoArray: *mut LPDHCP_CLASS_INFO_ARRAY, nRead: *mut DWORD, nTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumOptionValues(#[opt] ServerIpAddress: *const u16, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+        #[arch(X86)]
+        extern fn DhcpEnumClasses(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClassInfoArray: *mut LPDHCP_CLASS_INFO_ARRAY, nRead: *mut DWORD, nTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpEnumOptionValuesV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, #[in] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+        extern fn DhcpEnumClassesV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClassInfoArray: *mut LPDHCP_CLASS_INFO_ARRAY_V6, nRead: *mut DWORD, nTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumOptionValuesV6(#[opt] ServerIpAddress: *const u16, Flags: u32, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+        extern fn DhcpEnumFilterV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[out] ResumeHandle: LPDHCP_ADDR_PATTERN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PreferredMaximum: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ListType: DHCP_FILTER_LIST_TYPE, #[out] EnumFilterInfo: *mut LPDHCP_FILTER_ENUM_INFO, #[out] ElementsRead: *mut DWORD, #[out] ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumOptions(#[opt] ServerIpAddress: *const u16, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+        extern fn DhcpEnumOptionValues(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpEnumOptionsV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpEnumOptionValuesV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumOptionsV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+        #[arch(X86)]
+        extern fn DhcpEnumOptionValuesV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpEnumServers(Flags: u32, #[in] IdInfo: *mut void, Servers: *mut LPDHCP_SERVER_INFO_ARRAY, #[in] CallbackFn: *mut void, #[in] CallbackData: *mut void) -> u32;
+        extern fn DhcpEnumOptionValuesV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetClients(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        extern fn DhcpEnumOptions(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetClientsFilterStatusInfo(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpEnumOptionsV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetClientsV4(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V4, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[arch(X86)]
+        extern fn DhcpEnumOptionsV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetClientsV5(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V5, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        extern fn DhcpEnumOptionsV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetClientsV6(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IPV6_ADDRESS, ResumeHandle: *mut DHCP_RESUME_IPV6_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V6, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpEnumServers(Flags: DWORD, IdInfo: LPVOID, Servers: *mut LPDHCP_SERVER_INFO_ARRAY, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetClientsVQ(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_VQ, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[arch(X86)]
+        extern fn DhcpEnumServers(Flags: DWORD, IdInfo: LPVOID, Servers: *mut LPDHCP_SERVER_INFO_ARRAY, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetElements(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        extern fn DhcpEnumSubnetClients(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetElementsV4(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        extern fn DhcpEnumSubnetClientsFilterStatusInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetElementsV5(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        extern fn DhcpEnumSubnetClientsV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V4, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetElementsV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE_V6, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        extern fn DhcpEnumSubnetClientsV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V5, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnets(#[opt] ServerIpAddress: *const u16, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, #[in] #[out] EnumInfo: *mut LPDHCP_IP_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        extern fn DhcpEnumSubnetClientsV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IPV6_ADDRESS, ResumeHandle: *mut DHCP_RESUME_IPV6_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V6, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetsV6(#[opt] ServerIpAddress: *const u16, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, EnumInfo: *mut LPDHCPV6_IP_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        extern fn DhcpEnumSubnetClientsVQ(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_VQ, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpGetAllOptionValues(#[opt] ServerIpAddress: PCWSTR, Flags: u32, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, Values: *mut LPDHCP_ALL_OPTION_VALUES) -> u32;
+        extern fn DhcpEnumSubnetElements(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetAllOptionValuesV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, Values: *mut LPDHCP_ALL_OPTION_VALUES) -> u32;
+        extern fn DhcpEnumSubnetElementsV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpGetAllOptions(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionStruct: *mut LPDHCP_ALL_OPTIONS) -> u32;
+        extern fn DhcpEnumSubnetElementsV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetAllOptionsV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionStruct: *mut LPDHCP_ALL_OPTIONS) -> u32;
+        extern fn DhcpEnumSubnetElementsV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE_V6, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpGetClassInfo(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, PartialClassInfo: LPDHCP_CLASS_INFO, FilledClassInfo: *mut LPDHCP_CLASS_INFO) -> u32;
+        extern fn DhcpEnumSubnets(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PreferredMaximum: DWORD, #[in] #[out] EnumInfo: *mut LPDHCP_IP_ARRAY, #[out] ElementsRead: *mut DWORD, #[out] ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetClientInfo(#[opt] ServerIpAddress: *const u16, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO) -> u32;
+        extern fn DhcpEnumSubnetsV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumInfo: *mut LPDHCPV6_IP_ARRAY, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetClientInfoV4(#[opt] ServerIpAddress: *const u16, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_V4) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpGetAllOptionValues(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, Values: *mut LPDHCP_ALL_OPTION_VALUES) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetClientInfoV6(#[opt] ServerIpAddress: *const u16, SearchInfo: *const DHCP_SEARCH_INFO_V6, ClientInfo: *mut LPDHCP_CLIENT_INFO_V6) -> u32;
+        #[arch(X86)]
+        extern fn DhcpGetAllOptionValues(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, Values: *mut LPDHCP_ALL_OPTION_VALUES) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetClientInfoVQ(#[opt] ServerIpAddress: *const u16, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_VQ) -> u32;
+        extern fn DhcpGetAllOptionValuesV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, Values: *mut LPDHCP_ALL_OPTION_VALUES) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetClientOptions(#[opt] ServerIpAddress: *const u16, ClientIpAddress: DHCP_IP_ADDRESS, ClientSubnetMask: DHCP_IP_MASK, ClientOptions: *mut LPDHCP_OPTION_LIST) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpGetAllOptions(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionStruct: *mut LPDHCP_ALL_OPTIONS) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetFilterV4(#[opt] ServerIpAddress: *const u16, GlobalFilterInfo: *mut DHCP_FILTER_GLOBAL_INFO) -> u32;
+        #[arch(X86)]
+        extern fn DhcpGetAllOptions(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionStruct: *mut LPDHCP_ALL_OPTIONS) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetMibInfo(#[opt] ServerIpAddress: *const u16, MibInfo: *mut LPDHCP_MIB_INFO) -> u32;
+        extern fn DhcpGetAllOptionsV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionStruct: *mut LPDHCP_ALL_OPTIONS) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetMibInfoV5(#[opt] ServerIpAddress: *const u16, MibInfo: *mut LPDHCP_MIB_INFO_V5) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpGetClassInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, PartialClassInfo: LPDHCP_CLASS_INFO, FilledClassInfo: *mut LPDHCP_CLASS_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpGetMibInfoV6(#[opt] ServerIpAddress: *const u16, MibInfo: *mut LPDHCP_MIB_INFO_V6) -> u32;
+        #[arch(X86)]
+        extern fn DhcpGetClassInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, PartialClassInfo: LPDHCP_CLASS_INFO, FilledClassInfo: *mut LPDHCP_CLASS_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetOptionInfo(#[opt] ServerIpAddress: *const u16, OptionID: DHCP_OPTION_ID, OptionInfo: *mut LPDHCP_OPTION) -> u32;
+        extern fn DhcpGetClientInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpGetOptionInfoV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, OptionInfo: *mut LPDHCP_OPTION) -> u32;
+        extern fn DhcpGetClientInfoV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_V4) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetOptionInfoV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, OptionInfo: *mut LPDHCP_OPTION) -> u32;
+        extern fn DhcpGetClientInfoV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SearchInfo: *const DHCP_SEARCH_INFO_V6, ClientInfo: *mut LPDHCP_CLIENT_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetOptionValue(#[opt] ServerIpAddress: *const u16, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> u32;
+        extern fn DhcpGetClientInfoVQ(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_VQ) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpGetOptionValueV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> u32;
+        extern fn DhcpGetClientOptions(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ClientIpAddress: DHCP_IP_ADDRESS, ClientSubnetMask: DHCP_IP_MASK, ClientOptions: *mut LPDHCP_OPTION_LIST) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpGetOptionValueV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, OptionValue: *mut LPDHCP_OPTION_VALUE) -> u32;
+        extern fn DhcpGetFilterV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[out] GlobalFilterInfo: *mut DHCP_FILTER_GLOBAL_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetServerBindingInfo(#[opt] ServerIpAddress: *const u16, Flags: u32, BindElementsInfo: *mut LPDHCP_BIND_ELEMENT_ARRAY) -> u32;
+        extern fn DhcpGetMibInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, MibInfo: *mut LPDHCP_MIB_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetServerBindingInfoV6(#[opt] ServerIpAddress: *const u16, Flags: u32, BindElementsInfo: *mut LPDHCPV6_BIND_ELEMENT_ARRAY) -> u32;
+        extern fn DhcpGetMibInfoV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, MibInfo: *mut LPDHCP_MIB_INFO_V5) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetServerSpecificStrings(#[opt] ServerIpAddress: *const u16, ServerSpecificStrings: *mut LPDHCP_SERVER_SPECIFIC_STRINGS) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpGetMibInfoV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, MibInfo: *mut LPDHCP_MIB_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetSubnetDelayOffer(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, #[in] TimeDelayInMilliseconds: *mut u16) -> u32;
+        #[arch(X86)]
+        extern fn DhcpGetMibInfoV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, MibInfo: *mut LPDHCP_MIB_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetSubnetInfo(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *mut LPDHCP_SUBNET_INFO) -> u32;
+        extern fn DhcpGetOptionInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, OptionInfo: *mut LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetSubnetInfoV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: *mut LPDHCP_SUBNET_INFO_V6) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpGetOptionInfoV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, OptionInfo: *mut LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetSubnetInfoVQ(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *mut LPDHCP_SUBNET_INFO_VQ) -> u32;
+        #[arch(X86)]
+        extern fn DhcpGetOptionInfoV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, OptionInfo: *mut LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpGetSuperScopeInfoV4(#[opt] ServerIpAddress: *const u16, SuperScopeTable: *mut LPDHCP_SUPER_SCOPE_TABLE) -> u32;
+        extern fn DhcpGetOptionInfoV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, OptionInfo: *mut LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpGetThreadOptions(#[out] pFlags: LPDWORD, #[in] #[out] Reserved: *mut void) -> u32;
+        extern fn DhcpGetOptionValue(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetVersion(#[opt] ServerIpAddress: PCWSTR, MajorVersion: LPDWORD, MinorVersion: LPDWORD) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpGetOptionValueV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpHlprAddV4PolicyCondition(#[in] #[out] Policy: LPDHCP_POLICY, ParentExpr: u32, Type: DHCP_POL_ATTR_TYPE, OptionID: u32, SubOptionID: u32, #[opt] VendorName: PCWSTR, Operator: DHCP_POL_COMPARATOR, #[size_param(8)] Value: LPBYTE, ValueLength: u32, ConditionIndex: *mut u32) -> u32;
+        #[arch(X86)]
+        extern fn DhcpGetOptionValueV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpHlprAddV4PolicyExpr(#[in] #[out] Policy: LPDHCP_POLICY, ParentExpr: u32, Operator: DHCP_POL_LOGIC_OPER, ExprIndex: *mut u32) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpGetOptionValueV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpHlprAddV4PolicyRange(#[in] #[out] Policy: LPDHCP_POLICY, Range: LPDHCP_IP_RANGE) -> u32;
+        #[arch(X86)]
+        extern fn DhcpGetOptionValueV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpHlprCreateV4Policy(PolicyName: PCWSTR, fGlobalPolicy: BOOL, Subnet: DHCP_IP_ADDRESS, ProcessingOrder: u32, RootOperator: DHCP_POL_LOGIC_OPER, Description: PCWSTR, Enabled: BOOL, Policy: *mut LPDHCP_POLICY) -> u32;
+        extern fn DhcpGetServerBindingInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, Flags: ULONG, BindElementsInfo: *mut LPDHCP_BIND_ELEMENT_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpHlprCreateV4PolicyEx(PolicyName: PCWSTR, fGlobalPolicy: BOOL, Subnet: DHCP_IP_ADDRESS, ProcessingOrder: u32, RootOperator: DHCP_POL_LOGIC_OPER, Description: PCWSTR, Enabled: BOOL, Policy: *mut LPDHCP_POLICY_EX) -> u32;
+        extern fn DhcpGetServerBindingInfoV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, Flags: ULONG, BindElementsInfo: *mut LPDHCPV6_BIND_ELEMENT_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpHlprFindV4DhcpProperty(PropertyArray: LPDHCP_PROPERTY_ARRAY, ID: DHCP_PROPERTY_ID, Type: DHCP_PROPERTY_TYPE) -> LPDHCP_PROPERTY;
+        extern fn DhcpGetServerSpecificStrings(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ServerSpecificStrings: *mut LPDHCP_SERVER_SPECIFIC_STRINGS) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetSubnetDelayOffer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IP_ADDRESS, TimeDelayInMilliseconds: *mut USHORT) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetSubnetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *mut LPDHCP_SUBNET_INFO) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetSubnetInfoV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: *mut LPDHCP_SUBNET_INFO_V6) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetSubnetInfoVQ(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[out] SubnetInfo: *mut LPDHCP_SUBNET_INFO_VQ) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpGetSuperScopeInfoV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SuperScopeTable: *mut LPDHCP_SUPER_SCOPE_TABLE) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        #[arch(X86)]
+        extern fn DhcpGetSuperScopeInfoV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SuperScopeTable: *mut LPDHCP_SUPER_SCOPE_TABLE) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpGetThreadOptions(pFlags: LPDWORD, Reserved: LPVOID) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        #[arch(X86)]
+        extern fn DhcpGetThreadOptions(pFlags: LPDWORD, Reserved: LPVOID) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetVersion(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, MajorVersion: LPDWORD, MinorVersion: LPDWORD) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprAddV4PolicyCondition(#[in] #[out] Policy: LPDHCP_POLICY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParentExpr: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DHCP_POL_ATTR_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OptionID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubOptionID: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Operator: DHCP_POL_COMPARATOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(8)] Value: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ValueLength: DWORD, #[out] ConditionIndex: *mut DWORD) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprAddV4PolicyExpr(#[in] #[out] Policy: LPDHCP_POLICY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParentExpr: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Operator: DHCP_POL_LOGIC_OPER, #[out] ExprIndex: *mut DWORD) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprAddV4PolicyRange(#[in] #[out] Policy: LPDHCP_POLICY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Range: LPDHCP_IP_RANGE) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprCreateV4Policy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fGlobalPolicy: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Subnet: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessingOrder: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RootOperator: DHCP_POL_LOGIC_OPER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Description: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enabled: BOOL, #[out] Policy: *mut LPDHCP_POLICY) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprCreateV4PolicyEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fGlobalPolicy: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Subnet: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessingOrder: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RootOperator: DHCP_POL_LOGIC_OPER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Description: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enabled: BOOL, #[out] Policy: *mut LPDHCP_POLICY_EX) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpHlprFindV4DhcpProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PropertyArray: LPDHCP_PROPERTY_ARRAY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ID: DHCP_PROPERTY_ID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DHCP_PROPERTY_TYPE) -> LPDHCP_PROPERTY;
+        #[library("DHCPSAPI.DLL")]
+        #[arch(X86)]
+        extern fn DhcpHlprFindV4DhcpProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PropertyArray: LPDHCP_PROPERTY_ARRAY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ID: DHCP_PROPERTY_ID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DHCP_PROPERTY_TYPE) -> LPDHCP_PROPERTY;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpHlprFreeV4DhcpProperty(#[in] #[out] Property: LPDHCP_PROPERTY);
         #[library("DHCPSAPI.DLL")]
@@ -1177,207 +1357,275 @@ mod Windows {
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpHlprFreeV4PolicyExArray(#[in] #[out] PolicyExArray: LPDHCP_POLICY_EX_ARRAY);
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpHlprIsV4PolicySingleUC(Policy: LPDHCP_POLICY) -> BOOL;
+        extern fn DhcpHlprIsV4PolicySingleUC(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: LPDHCP_POLICY) -> BOOL;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpHlprIsV4PolicyValid(pPolicy: LPDHCP_POLICY) -> u32;
+        extern fn DhcpHlprIsV4PolicyValid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPolicy: LPDHCP_POLICY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpHlprIsV4PolicyWellFormed(pPolicy: LPDHCP_POLICY) -> BOOL;
+        extern fn DhcpHlprIsV4PolicyWellFormed(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPolicy: LPDHCP_POLICY) -> BOOL;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpHlprModifyV4PolicyExpr(#[in] #[out] Policy: LPDHCP_POLICY, Operator: DHCP_POL_LOGIC_OPER) -> u32;
+        extern fn DhcpHlprModifyV4PolicyExpr(#[in] #[out] Policy: LPDHCP_POLICY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Operator: DHCP_POL_LOGIC_OPER) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpHlprResetV4PolicyExpr(#[in] #[out] Policy: LPDHCP_POLICY) -> u32;
+        extern fn DhcpHlprResetV4PolicyExpr(#[in] #[out] Policy: LPDHCP_POLICY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpModifyClass(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ClassInfo: LPDHCP_CLASS_INFO) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpModifyClass(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpModifyClassV6(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ClassInfo: LPDHCP_CLASS_INFO_V6) -> u32;
+        #[arch(X86)]
+        extern fn DhcpModifyClass(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveOption(#[opt] ServerIpAddress: *const u16, OptionID: DHCP_OPTION_ID) -> u32;
+        extern fn DhcpModifyClassV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpRemoveOptionV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR) -> u32;
+        extern fn DhcpRemoveOption(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveOptionV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpRemoveOptionV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveOptionValue(#[opt] ServerIpAddress: *const u16, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO) -> u32;
+        #[arch(X86)]
+        extern fn DhcpRemoveOptionV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpRemoveOptionValueV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO) -> u32;
+        extern fn DhcpRemoveOptionV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveOptionValueV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6) -> u32;
+        extern fn DhcpRemoveOptionValue(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveSubnetElement(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpRemoveOptionValueV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveSubnetElementV4(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V4, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+        #[arch(X86)]
+        extern fn DhcpRemoveOptionValueV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveSubnetElementV5(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V5, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+        extern fn DhcpRemoveOptionValueV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveSubnetElementV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, RemoveElementInfo: LPDHCP_SUBNET_ELEMENT_DATA_V6, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+        extern fn DhcpRemoveSubnetElement(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRpcFreeMemory(BufferPointer: *mut void);
+        extern fn DhcpRemoveSubnetElementV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V4, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpScanDatabase(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, FixFlag: u32, ScanList: *mut LPDHCP_SCAN_LIST) -> u32;
+        extern fn DhcpRemoveSubnetElementV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V5, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRemoveSubnetElementV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, RemoveElementInfo: LPDHCP_SUBNET_ELEMENT_DATA_V6, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRpcFreeMemory(BufferPointer: PVOID);
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpScanDatabase(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, FixFlag: DWORD, ScanList: *mut LPDHCP_SCAN_LIST) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpServerAuditlogParamsFree(ConfigInfo: *mut DHCP_SERVER_CONFIG_INFO_VQ);
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpServerBackupDatabase(#[opt] ServerIpAddress: PCWSTR, Path: PCWSTR) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpServerBackupDatabase(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Path: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerGetConfig(#[opt] ServerIpAddress: *const u16, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO) -> u32;
+        #[arch(X86)]
+        extern fn DhcpServerBackupDatabase(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Path: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerGetConfigV4(#[opt] ServerIpAddress: *const u16, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_V4) -> u32;
+        extern fn DhcpServerGetConfig(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerGetConfigV6(#[opt] ServerIpAddress: *const u16, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_V6) -> u32;
+        extern fn DhcpServerGetConfigV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_V4) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerGetConfigVQ(#[opt] ServerIpAddress: *const u16, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_VQ) -> u32;
+        extern fn DhcpServerGetConfigV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpServerQueryAttribute(#[opt] ServerIpAddr: PCWSTR, dwReserved: u32, DhcpAttribId: DHCP_ATTRIB_ID, pDhcpAttrib: *mut LPDHCP_ATTRIB) -> u32;
+        extern fn DhcpServerGetConfigVQ(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_VQ) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpServerQueryAttributes(#[opt] ServerIpAddr: PCWSTR, dwReserved: u32, dwAttribCount: u32, #[in] pDhcpAttribs: *mut DHCP_ATTRIB_ID, pDhcpAttribArr: *mut LPDHCP_ATTRIB_ARRAY) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpServerQueryAttribute(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddr: LPWSTR, dwReserved: ULONG, DhcpAttribId: DHCP_ATTRIB_ID, pDhcpAttrib: *mut LPDHCP_ATTRIB) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpServerQueryDnsRegCredentials(#[opt] ServerIpAddress: PCWSTR, UnameSize: u32, #[len_param(1)] #[out] Uname: PWSTR, DomainSize: u32, #[len_param(3)] #[out] Domain: PWSTR) -> u32;
+        #[arch(X86)]
+        extern fn DhcpServerQueryAttribute(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddr: LPWSTR, dwReserved: ULONG, DhcpAttribId: DHCP_ATTRIB_ID, pDhcpAttrib: *mut LPDHCP_ATTRIB) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpServerRedoAuthorization(#[opt] ServerIpAddr: PCWSTR, dwReserved: u32) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpServerQueryAttributes(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddr: LPWSTR, dwReserved: ULONG, dwAttribCount: ULONG, pDhcpAttribs: *mut DHCP_ATTRIB_ID, pDhcpAttribArr: *mut LPDHCP_ATTRIB_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpServerRestoreDatabase(#[opt] ServerIpAddress: PCWSTR, Path: PCWSTR) -> u32;
+        #[arch(X86)]
+        extern fn DhcpServerQueryAttributes(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddr: LPWSTR, dwReserved: ULONG, dwAttribCount: ULONG, pDhcpAttribs: *mut DHCP_ATTRIB_ID, pDhcpAttribArr: *mut LPDHCP_ATTRIB_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerSetConfig(#[opt] ServerIpAddress: *const u16, FieldsToSet: u32, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpServerQueryDnsRegCredentials(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, UnameSize: ULONG, #[out] #[len_param(1)] Uname: LPWSTR, DomainSize: ULONG, #[out] #[len_param(3)] Domain: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerSetConfigV4(#[opt] ServerIpAddress: *const u16, FieldsToSet: u32, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO_V4) -> u32;
+        #[arch(X86)]
+        extern fn DhcpServerQueryDnsRegCredentials(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, UnameSize: ULONG, #[out] #[len_param(1)] Uname: LPWSTR, DomainSize: ULONG, #[out] #[len_param(3)] Domain: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerSetConfigV6(#[opt] ServerIpAddress: *const u16, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, FieldsToSet: u32, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO_V6) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpServerRedoAuthorization(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddr: LPWSTR, dwReserved: ULONG) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerSetConfigVQ(#[opt] ServerIpAddress: *const u16, FieldsToSet: u32, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO_VQ) -> u32;
+        #[arch(X86)]
+        extern fn DhcpServerRedoAuthorization(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddr: LPWSTR, dwReserved: ULONG) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpServerSetDnsRegCredentials(#[opt] ServerIpAddress: PCWSTR, #[opt] Uname: PCWSTR, #[opt] Domain: PCWSTR, #[opt] Passwd: PCWSTR) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpServerRestoreDatabase(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Path: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpServerSetDnsRegCredentialsV5(#[opt] ServerIpAddress: PCWSTR, #[opt] Uname: PCWSTR, #[opt] Domain: PCWSTR, #[opt] Passwd: PCWSTR) -> u32;
+        #[arch(X86)]
+        extern fn DhcpServerRestoreDatabase(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Path: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetClientInfo(#[opt] ServerIpAddress: *const u16, ClientInfo: *const DHCP_CLIENT_INFO) -> u32;
+        extern fn DhcpServerSetConfig(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, FieldsToSet: DWORD, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetClientInfoV4(#[opt] ServerIpAddress: *const u16, ClientInfo: *const DHCP_CLIENT_INFO_V4) -> u32;
+        extern fn DhcpServerSetConfigV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, FieldsToSet: DWORD, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO_V4) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetClientInfoV6(#[opt] ServerIpAddress: *const u16, ClientInfo: *const DHCP_CLIENT_INFO_V6) -> u32;
+        extern fn DhcpServerSetConfigV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, FieldsToSet: DWORD, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetClientInfoVQ(#[opt] ServerIpAddress: *const u16, ClientInfo: *const DHCP_CLIENT_INFO_VQ) -> u32;
+        extern fn DhcpServerSetConfigVQ(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, FieldsToSet: DWORD, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO_VQ) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetFilterV4(#[opt] ServerIpAddress: *const u16, #[in] GlobalFilterInfo: *mut DHCP_FILTER_GLOBAL_INFO) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpServerSetDnsRegCredentials(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uname: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Domain: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Passwd: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetOptionInfo(#[opt] ServerIpAddress: *const u16, OptionID: DHCP_OPTION_ID, OptionInfo: *const DHCP_OPTION) -> u32;
+        #[arch(X86)]
+        extern fn DhcpServerSetDnsRegCredentials(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uname: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Domain: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Passwd: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpSetOptionInfoV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, OptionInfo: LPDHCP_OPTION) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpServerSetDnsRegCredentialsV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uname: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Domain: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Passwd: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetOptionInfoV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, OptionInfo: LPDHCP_OPTION) -> u32;
+        #[arch(X86)]
+        extern fn DhcpServerSetDnsRegCredentialsV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Uname: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Domain: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Passwd: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetOptionValue(#[opt] ServerIpAddress: *const u16, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValue: *const DHCP_OPTION_DATA) -> u32;
+        extern fn DhcpSetClientInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpSetOptionValueV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionId: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: LPDHCP_OPTION_DATA) -> u32;
+        extern fn DhcpSetClientInfoV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_V4) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetOptionValueV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionId: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, OptionValue: LPDHCP_OPTION_DATA) -> u32;
+        extern fn DhcpSetClientInfoV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetOptionValues(#[opt] ServerIpAddress: *const u16, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValues: *const DHCP_OPTION_VALUE_ARRAY) -> u32;
+        extern fn DhcpSetClientInfoVQ(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_VQ) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpSetOptionValuesV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValues: LPDHCP_OPTION_VALUE_ARRAY) -> u32;
+        extern fn DhcpSetFilterV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GlobalFilterInfo: *mut DHCP_FILTER_GLOBAL_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetServerBindingInfo(#[opt] ServerIpAddress: *const u16, Flags: u32, BindElementInfo: LPDHCP_BIND_ELEMENT_ARRAY) -> u32;
+        extern fn DhcpSetOptionInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, OptionInfo: *const DHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetServerBindingInfoV6(#[opt] ServerIpAddress: *const u16, Flags: u32, BindElementInfo: LPDHCPV6_BIND_ELEMENT_ARRAY) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpSetOptionInfoV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetSubnetDelayOffer(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, TimeDelayInMilliseconds: u16) -> u32;
+        #[arch(X86)]
+        extern fn DhcpSetOptionInfoV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetSubnetInfo(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO) -> u32;
+        extern fn DhcpSetOptionInfoV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpSetSubnetInfoV6(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: LPDHCP_SUBNET_INFO_V6) -> u32;
+        extern fn DhcpSetOptionValue(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValue: *const DHCP_OPTION_DATA) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetSubnetInfoVQ(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO_VQ) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpSetOptionValueV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: LPDHCP_OPTION_DATA) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpSetSuperScopeV4(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, #[opt] SuperScopeName: PCWSTR, ChangeExisting: BOOL) -> u32;
+        #[arch(X86)]
+        extern fn DhcpSetOptionValueV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: LPDHCP_OPTION_DATA) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpSetThreadOptions(Flags: u32, #[in] Reserved: *mut void) -> u32;
+        extern fn DhcpSetOptionValueV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, OptionValue: LPDHCP_OPTION_DATA) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4AddPolicyRange(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR, Range: LPDHCP_IP_RANGE) -> u32;
+        extern fn DhcpSetOptionValues(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValues: *const DHCP_OPTION_VALUE_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4CreateClientInfo(#[opt] ServerIpAddress: *const u16, ClientInfo: LPDHCP_CLIENT_INFO_PB) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpSetOptionValuesV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValues: LPDHCP_OPTION_VALUE_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4CreateClientInfoEx(#[opt] ServerIpAddress: *const u16, ClientInfo: LPDHCP_CLIENT_INFO_EX) -> u32;
+        #[arch(X86)]
+        extern fn DhcpSetOptionValuesV5(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClassName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValues: LPDHCP_OPTION_VALUE_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4CreatePolicy(#[opt] ServerIpAddress: PCWSTR, pPolicy: LPDHCP_POLICY) -> u32;
+        extern fn DhcpSetServerBindingInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, Flags: ULONG, BindElementInfo: LPDHCP_BIND_ELEMENT_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4CreatePolicyEx(#[opt] ServerIpAddress: PCWSTR, PolicyEx: LPDHCP_POLICY_EX) -> u32;
+        extern fn DhcpSetServerBindingInfoV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, Flags: ULONG, BindElementInfo: LPDHCPV6_BIND_ELEMENT_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4DeletePolicy(#[opt] ServerIpAddress: PCWSTR, fGlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR) -> u32;
+        extern fn DhcpSetSubnetDelayOffer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IP_ADDRESS, TimeDelayInMilliseconds: USHORT) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4EnumPolicies(#[opt] ServerIpAddress: PCWSTR, #[in] #[out] ResumeHandle: LPDWORD, PreferredMaximum: u32, fGlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, EnumInfo: *mut LPDHCP_POLICY_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        extern fn DhcpSetSubnetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4EnumPoliciesEx(#[opt] ServerIpAddress: PCWSTR, #[in] #[out] ResumeHandle: LPDWORD, PreferredMaximum: u32, GlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, EnumInfo: *mut LPDHCP_POLICY_EX_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpSetSubnetInfoV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: LPDHCP_SUBNET_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4EnumSubnetClients(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_PB_ARRAY, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[arch(X86)]
+        extern fn DhcpSetSubnetInfoV6(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: LPDHCP_SUBNET_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4EnumSubnetClientsEx(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_EX_ARRAY, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        extern fn DhcpSetSubnetInfoVQ(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetInfo: *const DHCP_SUBNET_INFO_VQ) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4EnumSubnetReservations(#[opt] ServerIpAddress: *const u16, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, EnumElementInfo: *mut LPDHCP_RESERVATION_INFO_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpSetSuperScopeV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SuperScopeName: LPWSTR, ChangeExisting: BOOL) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverAddScopeToRelationship(#[opt] ServerIpAddress: PCWSTR, pRelationship: LPDHCP_FAILOVER_RELATIONSHIP) -> u32;
+        #[arch(X86)]
+        extern fn DhcpSetSuperScopeV4(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SuperScopeName: LPWSTR, ChangeExisting: BOOL) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverCreateRelationship(#[opt] ServerIpAddress: PCWSTR, pRelationship: LPDHCP_FAILOVER_RELATIONSHIP) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DhcpSetThreadOptions(Flags: DWORD, Reserved: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverDeleteRelationship(#[opt] ServerIpAddress: PCWSTR, pRelationshipName: PCWSTR) -> u32;
+        #[arch(X86)]
+        extern fn DhcpSetThreadOptions(Flags: DWORD, Reserved: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverDeleteScopeFromRelationship(#[opt] ServerIpAddress: PCWSTR, pRelationship: LPDHCP_FAILOVER_RELATIONSHIP) -> u32;
+        extern fn DhcpV4AddPolicyRange(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Range: LPDHCP_IP_RANGE) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverEnumRelationship(#[opt] ServerIpAddress: PCWSTR, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, pRelationship: *mut LPDHCP_FAILOVER_RELATIONSHIP_ARRAY, #[out] RelationshipRead: LPDWORD, #[out] RelationshipTotal: LPDWORD) -> u32;
+        extern fn DhcpV4CreateClientInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientInfo: LPDHCP_CLIENT_INFO_PB) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverGetAddressStatus(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] pStatus: LPDWORD) -> u32;
+        extern fn DhcpV4CreateClientInfoEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientInfo: LPDHCP_CLIENT_INFO_EX) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverGetClientInfo(#[opt] ServerIpAddress: PCWSTR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCPV4_FAILOVER_CLIENT_INFO) -> u32;
+        extern fn DhcpV4CreatePolicy(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPolicy: LPDHCP_POLICY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverGetRelationship(#[opt] ServerIpAddress: PCWSTR, pRelationshipName: PCWSTR, pRelationship: *mut LPDHCP_FAILOVER_RELATIONSHIP) -> u32;
+        extern fn DhcpV4CreatePolicyEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyEx: LPDHCP_POLICY_EX) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverGetScopeRelationship(#[opt] ServerIpAddress: PCWSTR, ScopeId: DHCP_IP_ADDRESS, pRelationship: *mut LPDHCP_FAILOVER_RELATIONSHIP) -> u32;
+        extern fn DhcpV4DeletePolicy(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fGlobalPolicy: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverGetScopeStatistics(#[opt] ServerIpAddress: PCWSTR, ScopeId: DHCP_IP_ADDRESS, pStats: *mut LPDHCP_FAILOVER_STATISTICS) -> u32;
+        extern fn DhcpV4EnumPolicies(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[out] ResumeHandle: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PreferredMaximum: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fGlobalPolicy: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[out] EnumInfo: *mut LPDHCP_POLICY_ARRAY, #[out] ElementsRead: *mut DWORD, #[out] ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverGetSystemTime(#[opt] ServerIpAddress: PCWSTR, #[out] pTime: LPDWORD, #[out] pMaxAllowedDeltaTime: LPDWORD) -> u32;
+        extern fn DhcpV4EnumPoliciesEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[out] ResumeHandle: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PreferredMaximum: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GlobalPolicy: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[out] EnumInfo: *mut LPDHCP_POLICY_EX_ARRAY, #[out] ElementsRead: *mut DWORD, #[out] ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverSetRelationship(#[opt] ServerIpAddress: PCWSTR, Flags: u32, pRelationship: LPDHCP_FAILOVER_RELATIONSHIP) -> u32;
+        extern fn DhcpV4EnumSubnetClients(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PreferredMaximum: DWORD, #[out] ClientInfo: *mut LPDHCP_CLIENT_INFO_PB_ARRAY, #[out] ClientsRead: *mut DWORD, #[out] ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4FailoverTriggerAddrAllocation(#[opt] ServerIpAddress: PCWSTR, pFailRelName: PCWSTR) -> u32;
+        extern fn DhcpV4EnumSubnetClientsEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PreferredMaximum: DWORD, #[out] ClientInfo: *mut LPDHCP_CLIENT_INFO_EX_ARRAY, #[out] ClientsRead: *mut DWORD, #[out] ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4GetAllOptionValues(#[opt] ServerIpAddress: PCWSTR, Flags: u32, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, Values: *mut LPDHCP_ALL_OPTION_VALUES_PB) -> u32;
+        extern fn DhcpV4EnumSubnetReservations(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PreferredMaximum: DWORD, #[out] EnumElementInfo: *mut LPDHCP_RESERVATION_INFO_ARRAY, #[out] ElementsRead: *mut DWORD, #[out] ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4GetClientInfo(#[opt] ServerIpAddress: *const u16, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_PB) -> u32;
+        extern fn DhcpV4FailoverAddScopeToRelationship(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRelationship: LPDHCP_FAILOVER_RELATIONSHIP) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4GetClientInfoEx(#[opt] ServerIpAddress: *const u16, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_EX) -> u32;
+        extern fn DhcpV4FailoverCreateRelationship(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRelationship: LPDHCP_FAILOVER_RELATIONSHIP) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4GetFreeIPAddress(#[opt] ServerIpAddress: PCWSTR, ScopeId: DHCP_IP_ADDRESS, StartIP: DHCP_IP_ADDRESS, EndIP: DHCP_IP_ADDRESS, NumFreeAddrReq: u32, IPAddrList: *mut LPDHCP_IP_ARRAY) -> u32;
+        extern fn DhcpV4FailoverDeleteRelationship(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRelationshipName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4GetOptionValue(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] PolicyName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> u32;
+        extern fn DhcpV4FailoverDeleteScopeFromRelationship(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRelationship: LPDHCP_FAILOVER_RELATIONSHIP) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4GetPolicy(#[opt] ServerIpAddress: PCWSTR, fGlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR, Policy: *mut LPDHCP_POLICY) -> u32;
+        extern fn DhcpV4FailoverEnumRelationship(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PreferredMaximum: DWORD, #[out] pRelationship: *mut LPDHCP_FAILOVER_RELATIONSHIP_ARRAY, #[out] RelationshipRead: LPDWORD, #[out] RelationshipTotal: LPDWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4GetPolicyEx(#[opt] ServerIpAddress: PCWSTR, GlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR, Policy: *mut LPDHCP_POLICY_EX) -> u32;
+        extern fn DhcpV4FailoverGetAddressStatus(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] pStatus: LPDWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4QueryPolicyEnforcement(#[opt] ServerIpAddress: PCWSTR, fGlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, Enabled: *mut BOOL) -> u32;
+        extern fn DhcpV4FailoverGetClientInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SearchInfo: *const DHCP_SEARCH_INFO, #[out] ClientInfo: *mut LPDHCPV4_FAILOVER_CLIENT_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4RemoveOptionValue(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] PolicyName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO) -> u32;
+        extern fn DhcpV4FailoverGetRelationship(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRelationshipName: LPWSTR, #[out] pRelationship: *mut LPDHCP_FAILOVER_RELATIONSHIP) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4RemovePolicyRange(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR, Range: LPDHCP_IP_RANGE) -> u32;
+        extern fn DhcpV4FailoverGetScopeRelationship(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ScopeId: DHCP_IP_ADDRESS, #[out] pRelationship: *mut LPDHCP_FAILOVER_RELATIONSHIP) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4SetOptionValue(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionId: DHCP_OPTION_ID, #[opt] PolicyName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: LPDHCP_OPTION_DATA) -> u32;
+        extern fn DhcpV4FailoverGetScopeStatistics(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ScopeId: DHCP_IP_ADDRESS, #[out] pStats: *mut LPDHCP_FAILOVER_STATISTICS) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4SetOptionValues(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] PolicyName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValues: LPDHCP_OPTION_VALUE_ARRAY) -> u32;
+        extern fn DhcpV4FailoverGetSystemTime(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[out] pTime: LPDWORD, #[out] pMaxAllowedDeltaTime: LPDWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4SetPolicy(#[opt] ServerIpAddress: PCWSTR, FieldsModified: u32, fGlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR, Policy: LPDHCP_POLICY) -> u32;
+        extern fn DhcpV4FailoverSetRelationship(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRelationship: LPDHCP_FAILOVER_RELATIONSHIP) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4SetPolicyEnforcement(#[opt] ServerIpAddress: PCWSTR, fGlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, Enable: BOOL) -> u32;
+        extern fn DhcpV4FailoverTriggerAddrAllocation(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFailRelName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4SetPolicyEx(#[opt] ServerIpAddress: PCWSTR, FieldsModified: u32, GlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR, Policy: LPDHCP_POLICY_EX) -> u32;
+        extern fn DhcpV4GetAllOptionValues(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, Values: *mut LPDHCP_ALL_OPTION_VALUES_PB) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV6CreateClientInfo(#[opt] ServerIpAddress: *const u16, ClientInfo: LPDHCP_CLIENT_INFO_V6) -> u32;
+        extern fn DhcpV4GetClientInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SearchInfo: *const DHCP_SEARCH_INFO, #[out] ClientInfo: *mut LPDHCP_CLIENT_INFO_PB) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV6GetFreeIPAddress(#[opt] ServerIpAddress: PCWSTR, ScopeId: DHCP_IPV6_ADDRESS, StartIP: DHCP_IPV6_ADDRESS, EndIP: DHCP_IPV6_ADDRESS, NumFreeAddrReq: u32, IPAddrList: *mut LPDHCPV6_IP_ARRAY) -> u32;
+        extern fn DhcpV4GetClientInfoEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SearchInfo: *const DHCP_SEARCH_INFO, #[out] ClientInfo: *mut LPDHCP_CLIENT_INFO_EX) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV6GetStatelessStatistics(#[opt] ServerIpAddress: PCWSTR, StatelessStats: *mut LPDHCPV6_STATELESS_STATS) -> u32;
+        extern fn DhcpV4GetFreeIPAddress(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ScopeId: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartIP: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EndIP: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumFreeAddrReq: DWORD, #[out] IPAddrList: *mut LPDHCP_IP_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV6GetStatelessStoreParams(#[opt] ServerIpAddress: PCWSTR, fServerLevel: BOOL, SubnetAddress: DHCP_IPV6_ADDRESS, Params: *mut LPDHCPV6_STATELESS_PARAMS) -> u32;
+        extern fn DhcpV4GetOptionValue(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV6SetStatelessStoreParams(#[opt] ServerIpAddress: PCWSTR, fServerLevel: BOOL, SubnetAddress: DHCP_IPV6_ADDRESS, FieldModified: u32, Params: LPDHCPV6_STATELESS_PARAMS) -> u32;
+        extern fn DhcpV4GetPolicy(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fGlobalPolicy: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR, #[out] Policy: *mut LPDHCP_POLICY) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4GetPolicyEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GlobalPolicy: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR, #[out] Policy: *mut LPDHCP_POLICY_EX) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4QueryPolicyEnforcement(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fGlobalPolicy: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[out] Enabled: *mut BOOL) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4RemoveOptionValue(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4RemovePolicyRange(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Range: LPDHCP_IP_RANGE) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4SetOptionValue(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: LPDHCP_OPTION_DATA) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4SetOptionValues(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValues: LPDHCP_OPTION_VALUE_ARRAY) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4SetPolicy(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FieldsModified: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fGlobalPolicy: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: LPDHCP_POLICY) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4SetPolicyEnforcement(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fGlobalPolicy: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4SetPolicyEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FieldsModified: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GlobalPolicy: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Policy: LPDHCP_POLICY_EX) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV6CreateClientInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ServerIpAddress: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientInfo: LPDHCP_CLIENT_INFO_V6) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV6GetFreeIPAddress(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ScopeId: DHCP_IPV6_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartIP: DHCP_IPV6_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EndIP: DHCP_IPV6_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumFreeAddrReq: DWORD, #[out] IPAddrList: *mut LPDHCPV6_IP_ARRAY) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV6GetStatelessStatistics(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[out] StatelessStats: *mut LPDHCPV6_STATELESS_STATS) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV6GetStatelessStoreParams(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fServerLevel: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IPV6_ADDRESS, #[out] Params: *mut LPDHCPV6_STATELESS_PARAMS) -> DWORD;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV6SetStatelessStoreParams(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerIpAddress: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fServerLevel: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubnetAddress: DHCP_IPV6_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FieldModified: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Params: LPDHCPV6_STATELESS_PARAMS) -> DWORD;
         const ERROR_DDS_CLASS_DOES_NOT_EXIST: i32 = 20078;
         const ERROR_DDS_CLASS_EXISTS: i32 = 20077;
         const ERROR_DDS_DHCP_SERVER_NOT_FOUND: i32 = 20074;
@@ -1562,7 +1810,6 @@ mod Windows {
         type LPDHCP_CLIENT_INFO_V5 = *mut DHCP_CLIENT_INFO_V5;
         type LPDHCP_CLIENT_INFO_V6 = *mut DHCP_CLIENT_INFO_V6;
         type LPDHCP_CLIENT_INFO_VQ = *mut DHCP_CLIENT_INFO_VQ;
-        type LPDHCP_CLIENT_SEARCH_UNION = *mut _DHCP_CLIENT_SEARCH_UNION;
         type LPDHCP_FAILOVER_MODE = *mut DHCP_FAILOVER_MODE;
         type LPDHCP_FAILOVER_RELATIONSHIP = *mut DHCP_FAILOVER_RELATIONSHIP;
         type LPDHCP_FAILOVER_RELATIONSHIP_ARRAY = *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY;
@@ -1596,13 +1843,11 @@ mod Windows {
         type LPDHCP_OPTION_DATA = *mut DHCP_OPTION_DATA;
         type LPDHCP_OPTION_DATA_ELEMENT = *mut DHCP_OPTION_DATA_ELEMENT;
         type LPDHCP_OPTION_DATA_TYPE = *mut DHCP_OPTION_DATA_TYPE;
-        type LPDHCP_OPTION_ELEMENT_UNION = *mut _DHCP_OPTION_ELEMENT_UNION;
         type LPDHCP_OPTION_LIST = *mut DHCP_OPTION_LIST;
         type LPDHCP_OPTION_SCOPE_INFO = *mut DHCP_OPTION_SCOPE_INFO;
         type LPDHCP_OPTION_SCOPE_INFO6 = *mut DHCP_OPTION_SCOPE_INFO6;
         type LPDHCP_OPTION_SCOPE_TYPE = *mut DHCP_OPTION_SCOPE_TYPE;
         type LPDHCP_OPTION_SCOPE_TYPE6 = *mut DHCP_OPTION_SCOPE_TYPE6;
-        type LPDHCP_OPTION_SCOPE_UNION6 = *mut _DHCP_OPTION_SCOPE_UNION6;
         type LPDHCP_OPTION_TYPE = *mut DHCP_OPTION_TYPE;
         type LPDHCP_OPTION_VALUE = *mut DHCP_OPTION_VALUE;
         type LPDHCP_OPTION_VALUE_ARRAY = *mut DHCP_OPTION_VALUE_ARRAY;
@@ -1631,8 +1876,8 @@ mod Windows {
         type LPDHCP_SERVER_CONFIG_INFO_V4 = *mut DHCP_SERVER_CONFIG_INFO_V4;
         type LPDHCP_SERVER_CONFIG_INFO_V6 = *mut DHCP_SERVER_CONFIG_INFO_V6;
         type LPDHCP_SERVER_CONFIG_INFO_VQ = *mut DHCP_SERVER_CONFIG_INFO_VQ;
-        type LPDHCP_SERVER_INFO = LPDHCPDS_SERVER;
-        type LPDHCP_SERVER_INFO_ARRAY = LPDHCPDS_SERVERS;
+        type LPDHCP_SERVER_INFO = *mut DHCPDS_SERVER;
+        type LPDHCP_SERVER_INFO_ARRAY = *mut DHCPDS_SERVERS;
         type LPDHCP_SERVER_SPECIFIC_STRINGS = *mut DHCP_SERVER_SPECIFIC_STRINGS;
         type LPDHCP_SUBNET_ELEMENT_DATA = *mut DHCP_SUBNET_ELEMENT_DATA;
         type LPDHCP_SUBNET_ELEMENT_DATA_V4 = *mut DHCP_SUBNET_ELEMENT_DATA_V4;
@@ -1644,9 +1889,6 @@ mod Windows {
         type LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 = *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6;
         type LPDHCP_SUBNET_ELEMENT_TYPE = *mut DHCP_SUBNET_ELEMENT_TYPE;
         type LPDHCP_SUBNET_ELEMENT_TYPE_V6 = *mut DHCP_SUBNET_ELEMENT_TYPE_V6;
-        type LPDHCP_SUBNET_ELEMENT_UNION = *mut _DHCP_SUBNET_ELEMENT_UNION;
-        type LPDHCP_SUBNET_ELEMENT_UNION_V4 = *mut _DHCP_SUBNET_ELEMENT_UNION_V4;
-        type LPDHCP_SUBNET_ELEMENT_UNION_V6 = *mut _DHCP_SUBNET_ELEMENT_UNION_V6;
         type LPDHCP_SUBNET_INFO = *mut DHCP_SUBNET_INFO;
         type LPDHCP_SUBNET_INFO_V6 = *mut DHCP_SUBNET_INFO_V6;
         type LPDHCP_SUBNET_INFO_VQ = *mut DHCP_SUBNET_INFO_VQ;
@@ -1684,8 +1926,8 @@ mod Windows {
         type PDHCP_POL_EXPR_ARRAY = *mut DHCP_POL_EXPR_ARRAY;
         type PDHCP_PROPERTY = *mut DHCP_PROPERTY;
         type PDHCP_PROPERTY_ARRAY = *mut DHCP_PROPERTY_ARRAY;
-        type PDHCP_SERVER_INFO = PDHCPDS_SERVER;
-        type PDHCP_SERVER_INFO_ARRAY = PDHCPDS_SERVERS;
+        type PDHCP_SERVER_INFO = *mut DHCPDS_SERVER;
+        type PDHCP_SERVER_INFO_ARRAY = *mut DHCPDS_SERVERS;
         type PDHCP_SUBNET_INFO_V6 = *mut DHCP_SUBNET_INFO_V6;
         const PERCENTAGE: i32 = 8;
         const PREVSTATE: i32 = 32;
@@ -1705,33 +1947,33 @@ mod Windows {
         const SAFEPERIOD: i32 = 2;
         struct SCOPE_MIB_INFO {
             Subnet: DHCP_IP_ADDRESS,
-            NumAddressesInuse: u32,
-            NumAddressesFree: u32,
-            NumPendingOffers: u32,
+            NumAddressesInuse: DWORD,
+            NumAddressesFree: DWORD,
+            NumPendingOffers: DWORD,
         }
         struct SCOPE_MIB_INFO_V5 {
             Subnet: DHCP_IP_ADDRESS,
-            NumAddressesInuse: u32,
-            NumAddressesFree: u32,
-            NumPendingOffers: u32,
+            NumAddressesInuse: DWORD,
+            NumAddressesFree: DWORD,
+            NumPendingOffers: DWORD,
         }
         struct SCOPE_MIB_INFO_V6 {
             Subnet: DHCP_IPV6_ADDRESS,
-            NumAddressesInuse: u64,
-            NumAddressesFree: u64,
-            NumPendingAdvertises: u64,
+            NumAddressesInuse: ULONGLONG,
+            NumAddressesFree: ULONGLONG,
+            NumPendingAdvertises: ULONGLONG,
         }
         struct SCOPE_MIB_INFO_VQ {
             Subnet: DHCP_IP_ADDRESS,
-            NumAddressesInuse: u32,
-            NumAddressesFree: u32,
-            NumPendingOffers: u32,
-            QtnNumLeases: u32,
-            QtnPctQtnLeases: u32,
-            QtnProbationLeases: u32,
-            QtnNonQtnLeases: u32,
-            QtnExemptLeases: u32,
-            QtnCapableClients: u32,
+            NumAddressesInuse: DWORD,
+            NumAddressesFree: DWORD,
+            NumPendingOffers: DWORD,
+            QtnNumLeases: DWORD,
+            QtnPctQtnLeases: DWORD,
+            QtnProbationLeases: DWORD,
+            QtnNonQtnLeases: DWORD,
+            QtnExemptLeases: DWORD,
+            QtnCapableClients: DWORD,
         }
         const SCOPE_STATE_DISABLED: DHCP_SUBNET_STATE = 1;
         const SCOPE_STATE_ENABLED: DHCP_SUBNET_STATE = 0;
@@ -1767,71 +2009,5 @@ mod Windows {
         const V5_ADDRESS_STATE_DOOM: i32 = 3;
         const V5_ADDRESS_STATE_OFFERED: i32 = 0;
         const WARNING_EXTENDED_LESS: i32 = 20026;
-        union _DHCP_CLIENT_SEARCH_UNION {
-            ClientIpAddress: DHCP_IP_ADDRESS,
-            ClientHardwareAddress: DHCP_CLIENT_UID,
-            ClientName: PWSTR,
-        }
-        union _DHCP_CLIENT_SEARCH_UNION_V6 {
-            ClientIpAddress: DHCP_IPV6_ADDRESS,
-            ClientDUID: DHCP_CLIENT_UID,
-            ClientName: PWSTR,
-        }
-        union _DHCP_OPTION_ELEMENT_UNION {
-            ByteOption: u8,
-            WordOption: u16,
-            DWordOption: u32,
-            DWordDWordOption: DWORD_DWORD,
-            IpAddressOption: DHCP_IP_ADDRESS,
-            StringDataOption: PWSTR,
-            BinaryDataOption: DHCP_BINARY_DATA,
-            EncapsulatedDataOption: DHCP_BINARY_DATA,
-            Ipv6AddressDataOption: PWSTR,
-        }
-        union _DHCP_OPTION_SCOPE_UNION {
-            DefaultScopeInfo: *mut void,
-            GlobalScopeInfo: *mut void,
-            SubnetScopeInfo: DHCP_IP_ADDRESS,
-            ReservedScopeInfo: DHCP_RESERVED_SCOPE,
-            MScopeInfo: PWSTR,
-        }
-        union _DHCP_OPTION_SCOPE_UNION6 {
-            DefaultScopeInfo: *mut void,
-            SubnetScopeInfo: DHCP_IPV6_ADDRESS,
-            ReservedScopeInfo: DHCP_RESERVED_SCOPE6,
-        }
-        union _DHCP_PROPERTY_VALUE_UNION {
-            ByteValue: u8,
-            WordValue: u16,
-            DWordValue: u32,
-            StringValue: PWSTR,
-            BinaryValue: DHCP_BINARY_DATA,
-        }
-        union _DHCP_SUBNET_ELEMENT_UNION {
-            IpRange: *mut DHCP_IP_RANGE,
-            SecondaryHost: *mut DHCP_HOST_INFO,
-            ReservedIp: *mut DHCP_IP_RESERVATION,
-            ExcludeIpRange: *mut DHCP_IP_RANGE,
-            IpUsedCluster: *mut DHCP_IP_CLUSTER,
-        }
-        union _DHCP_SUBNET_ELEMENT_UNION_V4 {
-            IpRange: *mut DHCP_IP_RANGE,
-            SecondaryHost: *mut DHCP_HOST_INFO,
-            ReservedIp: *mut DHCP_IP_RESERVATION_V4,
-            ExcludeIpRange: *mut DHCP_IP_RANGE,
-            IpUsedCluster: *mut DHCP_IP_CLUSTER,
-        }
-        union _DHCP_SUBNET_ELEMENT_UNION_V5 {
-            IpRange: *mut DHCP_BOOTP_IP_RANGE,
-            SecondaryHost: *mut DHCP_HOST_INFO,
-            ReservedIp: *mut DHCP_IP_RESERVATION_V4,
-            ExcludeIpRange: *mut DHCP_IP_RANGE,
-            IpUsedCluster: *mut DHCP_IP_CLUSTER,
-        }
-        union _DHCP_SUBNET_ELEMENT_UNION_V6 {
-            IpRange: *mut DHCP_IP_RANGE_V6,
-            ReservedIp: *mut DHCP_IP_RESERVATION_V6,
-            ExcludeIpRange: *mut DHCP_IP_RANGE_V6,
-        }
     }
 }

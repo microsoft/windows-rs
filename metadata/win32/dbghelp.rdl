@@ -1,15 +1,17 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[packed(8)]
         #[arch(X86)]
         struct ADDRESS {
-            Offset: u32,
-            Segment: u16,
+            Offset: DWORD,
+            Segment: WORD,
             Mode: ADDRESS_MODE,
         }
+        #[packed(8)]
         struct ADDRESS64 {
-            Offset: u64,
-            Segment: u16,
+            Offset: DWORD64,
+            Segment: WORD,
             Mode: ADDRESS_MODE,
         }
         #[repr(i32)]
@@ -19,11 +21,12 @@ mod Windows {
             AddrModeReal = 2,
             AddrModeFlat = 3,
         }
+        #[packed(8)]
         struct API_VERSION {
-            MajorVersion: u16,
-            MinorVersion: u16,
-            Revision: u16,
-            Reserved: u16,
+            MajorVersion: USHORT,
+            MinorVersion: USHORT,
+            Revision: USHORT,
+            Reserved: USHORT,
         }
         const API_VERSION_NUMBER: i32 = 12;
         const CBA_CHECK_ARM_MACHINE_THUMB_TYPE_OVERRIDE: u32 = 2147483648;
@@ -46,6 +49,7 @@ mod Windows {
         const CBA_SYMBOLS_UNLOADED: i32 = 4;
         const CBA_UPDATE_STATUS_BAR: i32 = 1342177280;
         const CBA_XML_LOG: u32 = 2415919104;
+        #[packed(8)]
         struct DBGHELP_DATA_REPORT_STRUCT {
             pBinPathNonExist: PCWSTR,
             pSymbolPathNonExist: PCWSTR,
@@ -53,16 +57,17 @@ mod Windows {
         const DBHHEADER_CVMISC: i32 = 2;
         const DBHHEADER_DEBUGDIRS: i32 = 1;
         const DBHHEADER_PDBGUID: i32 = 3;
+        #[packed(8)]
         struct DISCRIMINATEDUNION_TAG_VALUE {
-            value: [u8; 16],
-            valueSizeBytes: u8,
+            value: [BYTE; 16],
+            valueSizeBytes: BYTE,
         }
         const DSLFLAG_MISMATCHED_DBG: i32 = 2;
         const DSLFLAG_MISMATCHED_PDB: i32 = 1;
         #[library("dbghelp.dll")]
-        extern fn DbgHelpCreateUserDump(#[opt] FileName: PCSTR, Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, #[in] #[opt] UserData: *mut void) -> BOOL;
+        extern fn DbgHelpCreateUserDump(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserData: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn DbgHelpCreateUserDumpW(#[opt] FileName: PCWSTR, Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, #[in] #[opt] UserData: *mut void) -> BOOL;
+        extern fn DbgHelpCreateUserDumpW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserData: PVOID) -> BOOL;
         const ERROR_IMAGE_NOT_STRIPPED: i32 = 34816;
         const ERROR_NO_DBG_POINTER: i32 = 34817;
         const ERROR_NO_PDB_POINTER: i32 = 34818;
@@ -76,104 +81,116 @@ mod Windows {
         const EVENT_SRCSPEW_START: i32 = 100;
         const EXT_OUTPUT_VER: i32 = 1;
         #[library("dbghelp.dll")]
-        extern fn EnumDirTree(#[opt] hProcess: HANDLE, RootPath: PCSTR, InputPathName: PCSTR, #[out] #[opt] OutputPathBuffer: PSTR, #[opt] cb: PENUMDIRTREE_CALLBACK, #[in] #[opt] data: *mut void) -> BOOL;
+        extern fn EnumDirTree(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RootPath: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InputPathName: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "260 + 1", "260 + 1")] #[out] #[opt] OutputPathBuffer: PSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: PENUMDIRTREE_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] data: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn EnumDirTreeW(#[opt] hProcess: HANDLE, RootPath: PCWSTR, InputPathName: PCWSTR, #[out] #[opt] OutputPathBuffer: PWSTR, #[opt] cb: PENUMDIRTREE_CALLBACKW, #[in] #[opt] data: *mut void) -> BOOL;
+        extern fn EnumDirTreeW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RootPath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InputPathName: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "260 + 1", "260 + 1")] #[out] #[opt] OutputPathBuffer: PWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: PENUMDIRTREE_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] data: PVOID) -> BOOL;
+        #[library("dbghelp.dll", import = "EnumerateLoadedModules64")]
+        #[arch(X64 | Arm64)]
+        extern fn EnumerateLoadedModules(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        #[library("dbghelp.dll")]
         #[arch(X86)]
+        extern fn EnumerateLoadedModules(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn EnumerateLoadedModules(hProcess: HANDLE, EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn EnumerateLoadedModules64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn EnumerateLoadedModules64(hProcess: HANDLE, EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK64, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn EnumerateLoadedModulesEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn EnumerateLoadedModulesEx(hProcess: HANDLE, EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK64, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn EnumerateLoadedModulesExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACKW64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn EnumerateLoadedModulesExW(hProcess: HANDLE, EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACKW64, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        #[library("dbghelp.dll")]
-        extern fn EnumerateLoadedModulesW64(hProcess: HANDLE, EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACKW64, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn EnumerateLoadedModulesW64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACKW64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         const FLAG_ENGINE_PRESENT: i32 = 4;
         const FLAG_ENGOPT_DISALLOW_NETWORK_PATHS: i32 = 8;
         const FLAG_OVERRIDE_ARM_MACHINE_TYPE: i32 = 16;
         #[library("dbghelp.dll")]
-        extern fn FindDebugInfoFile(FileName: PCSTR, SymbolPath: PCSTR, #[out] DebugFilePath: PSTR) -> HANDLE;
+        extern fn FindDebugInfoFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolPath: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] DebugFilePath: PSTR) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindDebugInfoFileEx(FileName: PCSTR, SymbolPath: PCSTR, #[out] DebugFilePath: PSTR, #[opt] Callback: PFIND_DEBUG_FILE_CALLBACK, #[in] #[opt] CallerData: *mut void) -> HANDLE;
+        extern fn FindDebugInfoFileEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolPath: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] DebugFilePath: PSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PFIND_DEBUG_FILE_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindDebugInfoFileExW(FileName: PCWSTR, SymbolPath: PCWSTR, #[out] DebugFilePath: PWSTR, #[opt] Callback: PFIND_DEBUG_FILE_CALLBACKW, #[in] #[opt] CallerData: *mut void) -> HANDLE;
+        extern fn FindDebugInfoFileExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolPath: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] DebugFilePath: PWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PFIND_DEBUG_FILE_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindExecutableImage(FileName: PCSTR, SymbolPath: PCSTR, #[out] ImageFilePath: PSTR) -> HANDLE;
+        extern fn FindExecutableImage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolPath: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] ImageFilePath: PSTR) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindExecutableImageEx(FileName: PCSTR, SymbolPath: PCSTR, #[out] ImageFilePath: PSTR, #[opt] Callback: PFIND_EXE_FILE_CALLBACK, #[in] #[opt] CallerData: *mut void) -> HANDLE;
+        extern fn FindExecutableImageEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolPath: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] ImageFilePath: PSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PFIND_EXE_FILE_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindExecutableImageExW(FileName: PCWSTR, SymbolPath: PCWSTR, #[out] ImageFilePath: PWSTR, #[opt] Callback: PFIND_EXE_FILE_CALLBACKW, #[in] CallerData: *mut void) -> HANDLE;
+        extern fn FindExecutableImageExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolPath: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] ImageFilePath: PWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PFIND_EXE_FILE_CALLBACKW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> HANDLE;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[library("dbghelp.dll")]
-        extern fn FindFileInPath(hprocess: HANDLE, SearchPathA: PCSTR, FileName: PCSTR, #[in] id: *mut void, two: u32, three: u32, flags: u32, #[out] FilePath: PSTR) -> BOOL;
+        extern fn FindFileInPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hprocess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SearchPathA: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] two: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] three: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] FilePath: PSTR) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[library("dbghelp.dll")]
-        extern fn FindFileInSearchPath(hprocess: HANDLE, SearchPathA: PCSTR, FileName: PCSTR, one: u32, two: u32, three: u32, #[out] FilePath: PSTR) -> BOOL;
+        extern fn FindFileInSearchPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hprocess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SearchPathA: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] one: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] two: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] three: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] FilePath: PSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn GetSymLoadError() -> u32;
+        extern fn GetSymLoadError() -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn GetTimestampForLoadedLibrary(Module: HMODULE) -> u32;
+        extern fn GetTimestampForLoadedLibrary(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Module: HMODULE) -> DWORD;
+        #[packed(8)]
         struct IMAGEHLP_CBA_EVENT {
-            severity: u32,
-            code: u32,
+            severity: DWORD,
+            code: DWORD,
             desc: PCHAR,
-            object: *mut void,
+            object: PVOID,
         }
+        #[packed(8)]
         struct IMAGEHLP_CBA_EVENTW {
-            severity: u32,
-            code: u32,
+            severity: DWORD,
+            code: DWORD,
             desc: PCWSTR,
-            object: *mut void,
+            object: PVOID,
         }
+        #[packed(8)]
         struct IMAGEHLP_CBA_READ_MEMORY {
-            addr: u64,
-            buf: *mut void,
-            bytes: u32,
-            bytesread: *mut u32,
+            addr: DWORD64,
+            buf: PVOID,
+            bytes: DWORD,
+            bytesread: *mut DWORD,
         }
-        type IMAGEHLP_CONTEXT = void;
+        #[packed(8)]
         #[arch(X86)]
         struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
-            SizeOfStruct: u32,
-            BaseOfImage: u32,
-            CheckSum: u32,
-            TimeDateStamp: u32,
-            FileName: [i8; 260],
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD,
+            CheckSum: DWORD,
+            TimeDateStamp: DWORD,
+            FileName: [CHAR; 260],
             Reparse: BOOLEAN,
             hFile: HANDLE,
         }
+        #[packed(8)]
         struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
-            SizeOfStruct: u32,
-            BaseOfImage: u64,
-            CheckSum: u32,
-            TimeDateStamp: u32,
-            FileName: [i8; 260],
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD64,
+            CheckSum: DWORD,
+            TimeDateStamp: DWORD,
+            FileName: [CHAR; 260],
             Reparse: BOOLEAN,
             hFile: HANDLE,
-            Flags: u32,
+            Flags: DWORD,
         }
+        #[packed(8)]
         struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
-            SizeOfStruct: u32,
-            BaseOfImage: u64,
-            CheckSum: u32,
-            TimeDateStamp: u32,
-            FileName: [u16; 261],
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD64,
+            CheckSum: DWORD,
+            TimeDateStamp: DWORD,
+            FileName: [WCHAR; 261],
             Reparse: BOOLEAN,
             hFile: HANDLE,
-            Flags: u32,
+            Flags: DWORD,
         }
+        #[packed(8)]
         #[arch(X86)]
         struct IMAGEHLP_DUPLICATE_SYMBOL {
-            SizeOfStruct: u32,
-            NumberOfDups: u32,
+            SizeOfStruct: DWORD,
+            NumberOfDups: DWORD,
             Symbol: PIMAGEHLP_SYMBOL,
-            SelectedSymbol: u32,
+            SelectedSymbol: DWORD,
         }
+        #[packed(8)]
         struct IMAGEHLP_DUPLICATE_SYMBOL64 {
-            SizeOfStruct: u32,
-            NumberOfDups: u32,
+            SizeOfStruct: DWORD,
+            NumberOfDups: DWORD,
             Symbol: PIMAGEHLP_SYMBOL64,
-            SelectedSymbol: u32,
+            SelectedSymbol: DWORD,
         }
         #[repr(i32)]
         enum IMAGEHLP_EXTENDED_OPTIONS {
@@ -185,24 +202,25 @@ mod Windows {
             SYMOPT_EX_MAX = 5,
         }
         const IMAGEHLP_GET_TYPE_INFO_CHILDREN: i32 = 2;
+        #[packed(8)]
         struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
-            SizeOfStruct: u32,
-            Flags: u32,
-            NumIds: u32,
+            SizeOfStruct: ULONG,
+            Flags: ULONG,
+            NumIds: ULONG,
             TypeIds: PULONG,
-            TagFilter: u64,
-            NumReqs: u32,
+            TagFilter: ULONG64,
+            NumReqs: ULONG,
             ReqKinds: *mut IMAGEHLP_SYMBOL_TYPE_INFO,
             ReqOffsets: PULONG_PTR,
             ReqSizes: PULONG,
-            ReqStride: usize,
-            BufferSize: usize,
-            Buffer: *mut void,
-            EntriesMatched: u32,
-            EntriesFilled: u32,
-            TagsFound: u64,
-            AllReqsValid: u64,
-            NumReqsValid: u32,
+            ReqStride: ULONG_PTR,
+            BufferSize: ULONG_PTR,
+            Buffer: PVOID,
+            EntriesMatched: ULONG,
+            EntriesFilled: ULONG,
+            TagsFound: ULONG64,
+            AllReqsValid: ULONG64,
+            NumReqsValid: ULONG,
             ReqsValid: PULONG64,
         }
         const IMAGEHLP_GET_TYPE_INFO_UNCACHED: i32 = 1;
@@ -213,71 +231,78 @@ mod Windows {
             hdSrc = 2,
             hdMax = 3,
         }
+        #[packed(8)]
         struct IMAGEHLP_JIT_SYMBOLMAP {
-            SizeOfStruct: u32,
-            Address: u64,
-            BaseOfImage: u64,
+            SizeOfStruct: DWORD,
+            Address: DWORD64,
+            BaseOfImage: DWORD64,
         }
+        #[packed(8)]
         #[arch(X86)]
         struct IMAGEHLP_LINE {
-            SizeOfStruct: u32,
-            Key: *mut void,
-            LineNumber: u32,
+            SizeOfStruct: DWORD,
+            Key: PVOID,
+            LineNumber: DWORD,
             FileName: PCHAR,
-            Address: u32,
+            Address: DWORD,
         }
+        #[packed(8)]
         struct IMAGEHLP_LINE64 {
-            SizeOfStruct: u32,
-            Key: *mut void,
-            LineNumber: u32,
+            SizeOfStruct: DWORD,
+            Key: PVOID,
+            LineNumber: DWORD,
             FileName: PCHAR,
-            Address: u64,
+            Address: DWORD64,
         }
+        #[packed(8)]
         #[arch(X86)]
         struct IMAGEHLP_LINEW {
-            SizeOfStruct: u32,
-            Key: *mut void,
-            LineNumber: u32,
+            SizeOfStruct: DWORD,
+            Key: PVOID,
+            LineNumber: DWORD,
             FileName: PCHAR,
-            Address: u64,
+            Address: DWORD64,
         }
+        #[packed(8)]
         struct IMAGEHLP_LINEW64 {
-            SizeOfStruct: u32,
-            Key: *mut void,
-            LineNumber: u32,
+            SizeOfStruct: DWORD,
+            Key: PVOID,
+            LineNumber: DWORD,
             FileName: PWSTR,
-            Address: u64,
+            Address: DWORD64,
         }
+        #[packed(8)]
         #[arch(X86)]
         struct IMAGEHLP_MODULE {
-            SizeOfStruct: u32,
-            BaseOfImage: u32,
-            ImageSize: u32,
-            TimeDateStamp: u32,
-            CheckSum: u32,
-            NumSyms: u32,
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD,
+            ImageSize: DWORD,
+            TimeDateStamp: DWORD,
+            CheckSum: DWORD,
+            NumSyms: DWORD,
             SymType: SYM_TYPE,
-            ModuleName: [i8; 32],
-            ImageName: [i8; 256],
-            LoadedImageName: [i8; 256],
+            ModuleName: [CHAR; 32],
+            ImageName: [CHAR; 256],
+            LoadedImageName: [CHAR; 256],
         }
+        #[packed(8)]
         struct IMAGEHLP_MODULE64 {
-            SizeOfStruct: u32,
-            BaseOfImage: u64,
-            ImageSize: u32,
-            TimeDateStamp: u32,
-            CheckSum: u32,
-            NumSyms: u32,
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD64,
+            ImageSize: DWORD,
+            TimeDateStamp: DWORD,
+            CheckSum: DWORD,
+            NumSyms: DWORD,
             SymType: SYM_TYPE,
-            ModuleName: [i8; 32],
-            ImageName: [i8; 256],
-            LoadedImageName: [i8; 256],
-            LoadedPdbName: [i8; 256],
-            CVSig: u32,
-            CVData: [i8; 780],
-            PdbSig: u32,
+            ModuleName: [CHAR; 32],
+            ImageName: [CHAR; 256],
+            LoadedImageName: [CHAR; 256],
+            LoadedPdbName: [CHAR; 256],
+            CVSig: DWORD,
+            CVData: [CHAR; 780],
+            PdbSig: DWORD,
             PdbSig70: GUID,
-            PdbAge: u32,
+            PdbAge: DWORD,
             PdbUnmatched: BOOL,
             DbgUnmatched: BOOL,
             LineNumbers: BOOL,
@@ -285,43 +310,46 @@ mod Windows {
             TypeInfo: BOOL,
             SourceIndexed: BOOL,
             Publics: BOOL,
-            MachineType: u32,
-            Reserved: u32,
+            MachineType: DWORD,
+            Reserved: DWORD,
         }
+        #[packed(8)]
         struct IMAGEHLP_MODULE64_EX {
             Module: IMAGEHLP_MODULE64,
-            RegionFlags: u32,
+            RegionFlags: DWORD,
         }
+        #[packed(8)]
         #[arch(X86)]
         struct IMAGEHLP_MODULEW {
-            SizeOfStruct: u32,
-            BaseOfImage: u32,
-            ImageSize: u32,
-            TimeDateStamp: u32,
-            CheckSum: u32,
-            NumSyms: u32,
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD,
+            ImageSize: DWORD,
+            TimeDateStamp: DWORD,
+            CheckSum: DWORD,
+            NumSyms: DWORD,
             SymType: SYM_TYPE,
-            ModuleName: [u16; 32],
-            ImageName: [u16; 256],
-            LoadedImageName: [u16; 256],
+            ModuleName: [WCHAR; 32],
+            ImageName: [WCHAR; 256],
+            LoadedImageName: [WCHAR; 256],
         }
+        #[packed(8)]
         struct IMAGEHLP_MODULEW64 {
-            SizeOfStruct: u32,
-            BaseOfImage: u64,
-            ImageSize: u32,
-            TimeDateStamp: u32,
-            CheckSum: u32,
-            NumSyms: u32,
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD64,
+            ImageSize: DWORD,
+            TimeDateStamp: DWORD,
+            CheckSum: DWORD,
+            NumSyms: DWORD,
             SymType: SYM_TYPE,
-            ModuleName: [u16; 32],
-            ImageName: [u16; 256],
-            LoadedImageName: [u16; 256],
-            LoadedPdbName: [u16; 256],
-            CVSig: u32,
-            CVData: [u16; 780],
-            PdbSig: u32,
+            ModuleName: [WCHAR; 32],
+            ImageName: [WCHAR; 256],
+            LoadedImageName: [WCHAR; 256],
+            LoadedPdbName: [WCHAR; 256],
+            CVSig: DWORD,
+            CVData: [WCHAR; 780],
+            PdbSig: DWORD,
             PdbSig70: GUID,
-            PdbAge: u32,
+            PdbAge: DWORD,
             PdbUnmatched: BOOL,
             DbgUnmatched: BOOL,
             LineNumbers: BOOL,
@@ -329,12 +357,13 @@ mod Windows {
             TypeInfo: BOOL,
             SourceIndexed: BOOL,
             Publics: BOOL,
-            MachineType: u32,
-            Reserved: u32,
+            MachineType: DWORD,
+            Reserved: DWORD,
         }
+        #[packed(8)]
         struct IMAGEHLP_MODULEW64_EX {
             Module: IMAGEHLP_MODULEW64,
-            RegionFlags: u32,
+            RegionFlags: DWORD,
         }
         const IMAGEHLP_MODULE_REGION_ADDITIONAL: i32 = 4;
         const IMAGEHLP_MODULE_REGION_ALL: i32 = 255;
@@ -357,64 +386,72 @@ mod Windows {
             sfMpd = 3,
             sfMax = 4,
         }
+        #[packed(8)]
         struct IMAGEHLP_STACK_FRAME {
-            InstructionOffset: u64,
-            ReturnOffset: u64,
-            FrameOffset: u64,
-            StackOffset: u64,
-            BackingStoreOffset: u64,
-            FuncTableEntry: u64,
-            Params: [u64; 4],
-            Reserved: [u64; 5],
+            InstructionOffset: ULONG64,
+            ReturnOffset: ULONG64,
+            FrameOffset: ULONG64,
+            StackOffset: ULONG64,
+            BackingStoreOffset: ULONG64,
+            FuncTableEntry: ULONG64,
+            Params: [ULONG64; 4],
+            Reserved: [ULONG64; 5],
             Virtual: BOOL,
-            Reserved2: u32,
+            Reserved2: ULONG,
         }
+        #[packed(8)]
         #[arch(X86)]
         struct IMAGEHLP_SYMBOL {
-            SizeOfStruct: u32,
-            Address: u32,
-            Size: u32,
-            Flags: u32,
-            MaxNameLength: u32,
-            Name: [i8; 1],
+            SizeOfStruct: DWORD,
+            Address: DWORD,
+            Size: DWORD,
+            Flags: DWORD,
+            MaxNameLength: DWORD,
+            Name: [CHAR; 1],
         }
+        #[packed(8)]
         struct IMAGEHLP_SYMBOL64 {
-            SizeOfStruct: u32,
-            Address: u64,
-            Size: u32,
-            Flags: u32,
-            MaxNameLength: u32,
-            Name: [i8; 1],
+            SizeOfStruct: DWORD,
+            Address: DWORD64,
+            Size: DWORD,
+            Flags: DWORD,
+            MaxNameLength: DWORD,
+            Name: [CHAR; 1],
         }
+        #[packed(8)]
         struct IMAGEHLP_SYMBOL64_PACKAGE {
             sym: IMAGEHLP_SYMBOL64,
-            name: [i8; 2001],
+            name: [CHAR; 2001],
         }
+        #[packed(8)]
         #[arch(X86)]
         struct IMAGEHLP_SYMBOLW {
-            SizeOfStruct: u32,
-            Address: u32,
-            Size: u32,
-            Flags: u32,
-            MaxNameLength: u32,
-            Name: [u16; 1],
+            SizeOfStruct: DWORD,
+            Address: DWORD,
+            Size: DWORD,
+            Flags: DWORD,
+            MaxNameLength: DWORD,
+            Name: [WCHAR; 1],
         }
+        #[packed(8)]
         struct IMAGEHLP_SYMBOLW64 {
-            SizeOfStruct: u32,
-            Address: u64,
-            Size: u32,
-            Flags: u32,
-            MaxNameLength: u32,
-            Name: [u16; 1],
+            SizeOfStruct: DWORD,
+            Address: DWORD64,
+            Size: DWORD,
+            Flags: DWORD,
+            MaxNameLength: DWORD,
+            Name: [WCHAR; 1],
         }
+        #[packed(8)]
         struct IMAGEHLP_SYMBOLW64_PACKAGE {
             sym: IMAGEHLP_SYMBOLW64,
-            name: [u16; 2001],
+            name: [WCHAR; 2001],
         }
+        #[packed(8)]
         #[arch(X86)]
         struct IMAGEHLP_SYMBOLW_PACKAGE {
             sym: IMAGEHLP_SYMBOLW,
-            name: [u16; 2001],
+            name: [WCHAR; 2001],
         }
         const IMAGEHLP_SYMBOL_FUNCTION: i32 = 2048;
         const IMAGEHLP_SYMBOL_INFO_CONSTANT: i32 = 256;
@@ -425,14 +462,16 @@ mod Windows {
         const IMAGEHLP_SYMBOL_INFO_REGRELATIVE: i32 = 16;
         const IMAGEHLP_SYMBOL_INFO_TLSRELATIVE: i32 = 16384;
         const IMAGEHLP_SYMBOL_INFO_VALUEPRESENT: i32 = 1;
+        #[packed(8)]
         #[arch(X86)]
         struct IMAGEHLP_SYMBOL_PACKAGE {
             sym: IMAGEHLP_SYMBOL,
-            name: [i8; 2001],
+            name: [CHAR; 2001],
         }
+        #[packed(8)]
         struct IMAGEHLP_SYMBOL_SRC {
-            sizeofstruct: u32,
-            r#type: u32,
+            sizeofstruct: DWORD,
+            r#type: DWORD,
             file: [i8; 260],
         }
         const IMAGEHLP_SYMBOL_THUNK: i32 = 8192;
@@ -480,91 +519,95 @@ mod Windows {
             IMAGEHLP_SYMBOL_TYPE_INFO_MAX = 39,
         }
         const IMAGEHLP_SYMBOL_VIRTUAL: i32 = 4096;
+        #[packed(8)]
         #[arch(X86)]
         struct IMAGE_DEBUG_INFORMATION {
             List: LIST_ENTRY,
-            ReservedSize: u32,
-            ReservedMappedBase: *mut void,
-            ReservedMachine: u16,
-            ReservedCharacteristics: u16,
-            ReservedCheckSum: u32,
-            ImageBase: u32,
-            SizeOfImage: u32,
-            ReservedNumberOfSections: u32,
+            ReservedSize: DWORD,
+            ReservedMappedBase: PVOID,
+            ReservedMachine: USHORT,
+            ReservedCharacteristics: USHORT,
+            ReservedCheckSum: DWORD,
+            ImageBase: DWORD,
+            SizeOfImage: DWORD,
+            ReservedNumberOfSections: DWORD,
             ReservedSections: PIMAGE_SECTION_HEADER,
-            ReservedExportedNamesSize: u32,
+            ReservedExportedNamesSize: DWORD,
             ReservedExportedNames: PSTR,
-            ReservedNumberOfFunctionTableEntries: u32,
+            ReservedNumberOfFunctionTableEntries: DWORD,
             ReservedFunctionTableEntries: PIMAGE_FUNCTION_ENTRY,
-            ReservedLowestFunctionStartingAddress: u32,
-            ReservedHighestFunctionEndingAddress: u32,
-            ReservedNumberOfFpoTableEntries: u32,
+            ReservedLowestFunctionStartingAddress: DWORD,
+            ReservedHighestFunctionEndingAddress: DWORD,
+            ReservedNumberOfFpoTableEntries: DWORD,
             ReservedFpoTableEntries: PFPO_DATA,
-            SizeOfCoffSymbols: u32,
+            SizeOfCoffSymbols: DWORD,
             CoffSymbols: PIMAGE_COFF_SYMBOLS_HEADER,
-            ReservedSizeOfCodeViewSymbols: u32,
-            ReservedCodeViewSymbols: *mut void,
+            ReservedSizeOfCodeViewSymbols: DWORD,
+            ReservedCodeViewSymbols: PVOID,
             ImageFilePath: PSTR,
             ImageFileName: PSTR,
             ReservedDebugFilePath: PSTR,
-            ReservedTimeDateStamp: u32,
+            ReservedTimeDateStamp: DWORD,
             ReservedRomImage: BOOL,
             ReservedDebugDirectory: PIMAGE_DEBUG_DIRECTORY,
-            ReservedNumberOfDebugDirectories: u32,
-            ReservedOriginalFunctionTableBaseAddress: u32,
-            Reserved: [u32; 2],
+            ReservedNumberOfDebugDirectories: DWORD,
+            ReservedOriginalFunctionTableBaseAddress: DWORD,
+            Reserved: [DWORD; 2],
         }
         const IMAGE_SEPARATION: i32 = 65536;
         const INLINE_FRAME_CONTEXT_IGNORE: u32 = 4294967295;
         const INLINE_FRAME_CONTEXT_INIT: i32 = 0;
         #[library("dbghelp.dll")]
-        extern fn ImageDirectoryEntryToData(#[in] Base: *mut void, MappedAsImage: BOOLEAN, DirectoryEntry: u16, #[out] Size: PULONG) -> *mut void;
+        extern fn ImageDirectoryEntryToData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MappedAsImage: BOOLEAN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DirectoryEntry: USHORT, #[out] Size: PULONG) -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn ImageDirectoryEntryToDataEx(#[in] Base: *mut void, MappedAsImage: BOOLEAN, DirectoryEntry: u16, #[out] Size: PULONG, #[opt] FoundHeader: *mut PIMAGE_SECTION_HEADER) -> *mut void;
+        extern fn ImageDirectoryEntryToDataEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MappedAsImage: BOOLEAN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DirectoryEntry: USHORT, #[out] Size: PULONG, #[out] #[opt] FoundHeader: *mut PIMAGE_SECTION_HEADER) -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn ImageNtHeader(#[in] Base: *mut void) -> PIMAGE_NT_HEADERS;
+        extern fn ImageNtHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: PVOID) -> PIMAGE_NT_HEADERS;
         #[library("dbghelp.dll")]
-        extern fn ImageRvaToSection(NtHeaders: PIMAGE_NT_HEADERS, #[in] Base: *mut void, Rva: u32) -> PIMAGE_SECTION_HEADER;
+        extern fn ImageRvaToSection(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NtHeaders: PIMAGE_NT_HEADERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Rva: ULONG) -> PIMAGE_SECTION_HEADER;
         #[library("dbghelp.dll")]
-        extern fn ImageRvaToVa(NtHeaders: PIMAGE_NT_HEADERS, #[in] Base: *mut void, Rva: u32, #[in] #[out] #[opt] LastRvaSection: *mut PIMAGE_SECTION_HEADER) -> *mut void;
+        extern fn ImageRvaToVa(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NtHeaders: PIMAGE_NT_HEADERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Rva: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LastRvaSection: *mut PIMAGE_SECTION_HEADER) -> PVOID;
         #[library("dbghelp.dll")]
         extern fn ImagehlpApiVersion() -> LPAPI_VERSION;
         #[library("dbghelp.dll")]
-        extern fn ImagehlpApiVersionEx(AppVersion: LPAPI_VERSION) -> LPAPI_VERSION;
+        extern fn ImagehlpApiVersionEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AppVersion: LPAPI_VERSION) -> LPAPI_VERSION;
+        #[packed(8)]
         #[arch(X86)]
         struct KDHELP {
-            Thread: u32,
-            ThCallbackStack: u32,
-            NextCallback: u32,
-            FramePointer: u32,
-            KiCallUserMode: u32,
-            KeUserCallbackDispatcher: u32,
-            SystemRangeStart: u32,
-            ThCallbackBStore: u32,
-            KiUserExceptionDispatcher: u32,
-            StackBase: u32,
-            StackLimit: u32,
-            Reserved: [u32; 5],
+            Thread: DWORD,
+            ThCallbackStack: DWORD,
+            NextCallback: DWORD,
+            FramePointer: DWORD,
+            KiCallUserMode: DWORD,
+            KeUserCallbackDispatcher: DWORD,
+            SystemRangeStart: DWORD,
+            ThCallbackBStore: DWORD,
+            KiUserExceptionDispatcher: DWORD,
+            StackBase: DWORD,
+            StackLimit: DWORD,
+            Reserved: [DWORD; 5],
         }
+        #[packed(8)]
         struct KDHELP64 {
-            Thread: u64,
-            ThCallbackStack: u32,
-            ThCallbackBStore: u32,
-            NextCallback: u32,
-            FramePointer: u32,
-            KiCallUserMode: u64,
-            KeUserCallbackDispatcher: u64,
-            SystemRangeStart: u64,
-            KiUserExceptionDispatcher: u64,
-            StackBase: u64,
-            StackLimit: u64,
-            BuildVersion: u32,
-            RetpolineStubFunctionTableSize: u32,
-            RetpolineStubFunctionTable: u64,
-            RetpolineStubOffset: u32,
-            RetpolineStubSize: u32,
-            Reserved0: [u64; 2],
+            Thread: DWORD64,
+            ThCallbackStack: DWORD,
+            ThCallbackBStore: DWORD,
+            NextCallback: DWORD,
+            FramePointer: DWORD,
+            KiCallUserMode: DWORD64,
+            KeUserCallbackDispatcher: DWORD64,
+            SystemRangeStart: DWORD64,
+            KiUserExceptionDispatcher: DWORD64,
+            StackBase: DWORD64,
+            StackLimit: DWORD64,
+            BuildVersion: DWORD,
+            RetpolineStubFunctionTableSize: DWORD,
+            RetpolineStubFunctionTable: DWORD64,
+            RetpolineStubOffset: DWORD,
+            RetpolineStubSize: DWORD,
+            Reserved0: [DWORD64; 2],
         }
+        #[packed(8)]
         #[arch(X64 | Arm64)]
         struct LOADED_IMAGE {
             ModuleName: PSTR,
@@ -572,16 +615,17 @@ mod Windows {
             MappedAddress: PUCHAR,
             FileHeader: PIMAGE_NT_HEADERS64,
             LastRvaSection: PIMAGE_SECTION_HEADER,
-            NumberOfSections: u32,
+            NumberOfSections: ULONG,
             Sections: PIMAGE_SECTION_HEADER,
-            Characteristics: u32,
+            Characteristics: ULONG,
             fSystemImage: BOOLEAN,
             fDOSImage: BOOLEAN,
             fReadOnly: BOOLEAN,
-            Version: u8,
+            Version: UCHAR,
             Links: LIST_ENTRY,
-            SizeOfImage: u32,
+            SizeOfImage: ULONG,
         }
+        #[packed(8)]
         #[arch(X86)]
         struct LOADED_IMAGE {
             ModuleName: PSTR,
@@ -589,80 +633,88 @@ mod Windows {
             MappedAddress: PUCHAR,
             FileHeader: PIMAGE_NT_HEADERS32,
             LastRvaSection: PIMAGE_SECTION_HEADER,
-            NumberOfSections: u32,
+            NumberOfSections: ULONG,
             Sections: PIMAGE_SECTION_HEADER,
-            Characteristics: u32,
+            Characteristics: ULONG,
             fSystemImage: BOOLEAN,
             fDOSImage: BOOLEAN,
             fReadOnly: BOOLEAN,
-            Version: u8,
+            Version: UCHAR,
             Links: LIST_ENTRY,
-            SizeOfImage: u32,
+            SizeOfImage: ULONG,
         }
         #[arch(X86)]
         type LPADDRESS = *mut ADDRESS;
         type LPADDRESS64 = *mut ADDRESS64;
         type LPAPI_VERSION = *mut API_VERSION;
-        extern fn LPCALL_BACK_USER_INTERRUPT_ROUTINE() -> u32;
+        extern fn LPCALL_BACK_USER_INTERRUPT_ROUTINE() -> ULONG;
         #[arch(X86)]
         type LPSTACKFRAME = *mut STACKFRAME;
         type LPSTACKFRAME64 = *mut STACKFRAME64;
         type LPSTACKFRAME_EX = *mut STACKFRAME_EX;
         const MAX_SYM_NAME: i32 = 2000;
+        #[packed(8)]
         struct MODLOAD_CVMISC {
-            oCV: u32,
-            cCV: usize,
-            oMisc: u32,
-            cMisc: usize,
-            dtImage: u32,
-            cImage: u32,
+            oCV: DWORD,
+            cCV: size_t,
+            oMisc: DWORD,
+            cMisc: size_t,
+            dtImage: DWORD,
+            cImage: DWORD,
         }
+        #[packed(8)]
         struct MODLOAD_DATA {
-            ssize: u32,
-            ssig: u32,
-            data: *mut void,
-            size: u32,
-            flags: u32,
+            ssize: DWORD,
+            ssig: DWORD,
+            data: PVOID,
+            size: DWORD,
+            flags: DWORD,
         }
+        #[packed(8)]
         struct MODLOAD_PDBGUID_PDBAGE {
             PdbGuid: GUID,
-            PdbAge: u32,
+            PdbAge: DWORD,
         }
+        #[packed(8)]
         struct MODULE_TYPE_INFO {
-            dataLength: u16,
-            leaf: u16,
-            data: [u8; 1],
+            dataLength: USHORT,
+            leaf: USHORT,
+            data: [BYTE; 1],
         }
         #[library("dbghelp.dll")]
-        extern fn MakeSureDirectoryPathExists(DirPath: PCSTR) -> BOOL;
+        extern fn MakeSureDirectoryPathExists(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DirPath: PCSTR) -> BOOL;
+        #[library("dbghelp.dll")]
+        #[arch(X86)]
+        extern fn MapDebugInformation(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolPath: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageBase: ULONG) -> PIMAGE_DEBUG_INFORMATION;
         const NONGAMESPARTITIONS: i32 = 1;
         const NUM_SSRVOPTS: i32 = 32;
+        #[packed(8)]
         struct OMAP {
-            rva: u32,
-            rvaTo: u32,
+            rva: ULONG,
+            rvaTo: ULONG,
         }
-        extern fn PDBGHELP_CREATE_USER_DUMP_CALLBACK(DataType: u32, #[in] Data: *mut *mut void, #[out] DataLength: LPDWORD, #[in] #[opt] UserData: *mut void) -> BOOL;
+        extern fn PDBGHELP_CREATE_USER_DUMP_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Data: *mut PVOID, #[out] DataLength: LPDWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserData: PVOID) -> BOOL;
         type PDBGHELP_DATA_REPORT_STRUCT = *mut DBGHELP_DATA_REPORT_STRUCT;
-        extern fn PENUMDIRTREE_CALLBACK(FilePath: PCSTR, #[in] #[opt] CallerData: *mut void) -> BOOL;
-        extern fn PENUMDIRTREE_CALLBACKW(FilePath: PCWSTR, #[in] #[opt] CallerData: *mut void) -> BOOL;
+        extern fn PENUMDIRTREE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FilePath: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> BOOL;
+        extern fn PENUMDIRTREE_CALLBACKW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FilePath: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> BOOL;
         #[arch(X86)]
-        extern fn PENUMLOADED_MODULES_CALLBACK(ModuleName: PCSTR, ModuleBase: u32, ModuleSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PENUMLOADED_MODULES_CALLBACK64(ModuleName: PCSTR, ModuleBase: u64, ModuleSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PENUMLOADED_MODULES_CALLBACKW64(ModuleName: PCWSTR, ModuleBase: u64, ModuleSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PENUMSOURCEFILETOKENSCALLBACK(#[in] token: *mut void, size: usize) -> BOOL;
-        extern fn PFINDFILEINPATHCALLBACK(filename: PCSTR, #[in] context: *mut void) -> BOOL;
-        extern fn PFINDFILEINPATHCALLBACKW(filename: PCWSTR, #[in] context: *mut void) -> BOOL;
-        extern fn PFIND_DEBUG_FILE_CALLBACK(FileHandle: HANDLE, FileName: PCSTR, #[in] CallerData: *mut void) -> BOOL;
-        extern fn PFIND_DEBUG_FILE_CALLBACKW(FileHandle: HANDLE, FileName: PCWSTR, #[in] CallerData: *mut void) -> BOOL;
-        extern fn PFIND_EXE_FILE_CALLBACK(FileHandle: HANDLE, FileName: PCSTR, #[in] #[opt] CallerData: *mut void) -> BOOL;
-        extern fn PFIND_EXE_FILE_CALLBACKW(FileHandle: HANDLE, FileName: PCWSTR, #[in] #[opt] CallerData: *mut void) -> BOOL;
+        extern fn PENUMLOADED_MODULES_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleBase: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleSize: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PENUMLOADED_MODULES_CALLBACK64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleBase: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleSize: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PENUMLOADED_MODULES_CALLBACKW64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleBase: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleSize: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PENUMSOURCEFILETOKENSCALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] token: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] size: size_t) -> BOOL;
+        extern fn PFINDFILEINPATHCALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] filename: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] context: PVOID) -> BOOL;
+        extern fn PFINDFILEINPATHCALLBACKW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] filename: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] context: PVOID) -> BOOL;
+        extern fn PFIND_DEBUG_FILE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> BOOL;
+        extern fn PFIND_DEBUG_FILE_CALLBACKW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> BOOL;
+        extern fn PFIND_EXE_FILE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> BOOL;
+        extern fn PFIND_EXE_FILE_CALLBACKW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> BOOL;
         #[arch(X86)]
-        extern fn PFUNCTION_TABLE_ACCESS_ROUTINE(hProcess: HANDLE, AddrBase: u32) -> *mut void;
-        extern fn PFUNCTION_TABLE_ACCESS_ROUTINE64(ahProcess: HANDLE, AddrBase: u64) -> *mut void;
+        extern fn PFUNCTION_TABLE_ACCESS_ROUTINE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddrBase: DWORD) -> PVOID;
+        extern fn PFUNCTION_TABLE_ACCESS_ROUTINE64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ahProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddrBase: DWORD64) -> PVOID;
         #[arch(X86)]
-        extern fn PGET_MODULE_BASE_ROUTINE(hProcess: HANDLE, Address: u32) -> u32;
-        extern fn PGET_MODULE_BASE_ROUTINE64(hProcess: HANDLE, Address: u64) -> u64;
-        extern fn PGET_TARGET_ATTRIBUTE_VALUE64(hProcess: HANDLE, Attribute: u32, AttributeData: u64, AttributeValue: *mut u64) -> BOOL;
+        extern fn PGET_MODULE_BASE_ROUTINE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD) -> DWORD;
+        extern fn PGET_MODULE_BASE_ROUTINE64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64) -> DWORD64;
+        extern fn PGET_TARGET_ATTRIBUTE_VALUE64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Attribute: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AttributeData: DWORD64, #[out] AttributeValue: *mut DWORD64) -> BOOL;
         type PIMAGEHLP_CBA_EVENT = *mut IMAGEHLP_CBA_EVENT;
         type PIMAGEHLP_CBA_EVENTW = *mut IMAGEHLP_CBA_EVENTW;
         type PIMAGEHLP_CBA_READ_MEMORY = *mut IMAGEHLP_CBA_READ_MEMORY;
@@ -716,8 +768,8 @@ mod Windows {
         type PMODULE_TYPE_INFO = *mut MODULE_TYPE_INFO;
         type POMAP = *mut OMAP;
         #[arch(X86)]
-        extern fn PREAD_PROCESS_MEMORY_ROUTINE(hProcess: HANDLE, lpBaseAddress: u32, #[size_param(3)] lpBuffer: *mut void, nSize: u32, #[out] lpNumberOfBytesRead: PDWORD) -> BOOL;
-        extern fn PREAD_PROCESS_MEMORY_ROUTINE64(hProcess: HANDLE, qwBaseAddress: u64, #[size_param(3)] lpBuffer: *mut void, nSize: u32, #[out] lpNumberOfBytesRead: LPDWORD) -> BOOL;
+        extern fn PREAD_PROCESS_MEMORY_ROUTINE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBaseAddress: DWORD, #[out] #[size_param(3)] lpBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD, #[out] lpNumberOfBytesRead: PDWORD) -> BOOL;
+        extern fn PREAD_PROCESS_MEMORY_ROUTINE64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwBaseAddress: DWORD64, #[out] #[size_param(3)] lpBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD, #[out] lpNumberOfBytesRead: LPDWORD) -> BOOL;
         type PSOURCEFILE = *mut SOURCEFILE;
         type PSOURCEFILEW = *mut SOURCEFILEW;
         type PSRCCODEINFO = *mut SRCCODEINFO;
@@ -725,113 +777,117 @@ mod Windows {
         extern fn PSYMBOLSERVERBYINDEXPROC(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PSTR) -> BOOL;
         extern fn PSYMBOLSERVERBYINDEXPROCA(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PSTR) -> BOOL;
         extern fn PSYMBOLSERVERBYINDEXPROCW(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PWSTR) -> BOOL;
-        extern fn PSYMBOLSERVERCALLBACKPROC(action: usize, data: u64, context: u64) -> BOOL;
+        extern fn PSYMBOLSERVERCALLBACKPROC(action: UINT_PTR, data: ULONG64, context: ULONG64) -> BOOL;
         extern fn PSYMBOLSERVERCLOSEPROC() -> BOOL;
-        extern fn PSYMBOLSERVERDELTANAME(param0: PCSTR, param1: *mut void, param2: u32, param3: u32, param4: *mut void, param5: u32, param6: u32, param7: PSTR, param8: usize) -> BOOL;
-        extern fn PSYMBOLSERVERDELTANAMEW(param0: PCWSTR, param1: *mut void, param2: u32, param3: u32, param4: *mut void, param5: u32, param6: u32, param7: PWSTR, param8: usize) -> BOOL;
-        extern fn PSYMBOLSERVERGETINDEXSTRING(param0: *mut void, param1: u32, param2: u32, param3: PSTR, param4: usize) -> BOOL;
-        extern fn PSYMBOLSERVERGETINDEXSTRINGW(param0: *mut void, param1: u32, param2: u32, param3: PWSTR, param4: usize) -> BOOL;
-        extern fn PSYMBOLSERVERGETOPTIONDATAPROC(param0: usize, param1: PULONG64) -> BOOL;
-        extern fn PSYMBOLSERVERGETOPTIONSPROC() -> usize;
-        extern fn PSYMBOLSERVERGETSUPPLEMENT(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PSTR, param4: usize) -> BOOL;
-        extern fn PSYMBOLSERVERGETSUPPLEMENTW(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PWSTR, param4: usize) -> BOOL;
+        extern fn PSYMBOLSERVERDELTANAME(param0: PCSTR, param1: PVOID, param2: DWORD, param3: DWORD, param4: PVOID, param5: DWORD, param6: DWORD, param7: PSTR, param8: size_t) -> BOOL;
+        extern fn PSYMBOLSERVERDELTANAMEW(param0: PCWSTR, param1: PVOID, param2: DWORD, param3: DWORD, param4: PVOID, param5: DWORD, param6: DWORD, param7: PWSTR, param8: size_t) -> BOOL;
+        extern fn PSYMBOLSERVERGETINDEXSTRING(param0: PVOID, param1: DWORD, param2: DWORD, param3: PSTR, param4: size_t) -> BOOL;
+        extern fn PSYMBOLSERVERGETINDEXSTRINGW(param0: PVOID, param1: DWORD, param2: DWORD, param3: PWSTR, param4: size_t) -> BOOL;
+        extern fn PSYMBOLSERVERGETOPTIONDATAPROC(param0: UINT_PTR, param1: PULONG64) -> BOOL;
+        extern fn PSYMBOLSERVERGETOPTIONSPROC() -> UINT_PTR;
+        extern fn PSYMBOLSERVERGETSUPPLEMENT(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PSTR, param4: size_t) -> BOOL;
+        extern fn PSYMBOLSERVERGETSUPPLEMENTW(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PWSTR, param4: size_t) -> BOOL;
         extern fn PSYMBOLSERVERGETVERSION(param0: LPAPI_VERSION) -> BOOL;
         extern fn PSYMBOLSERVERISSTORE(param0: PCSTR) -> BOOL;
         extern fn PSYMBOLSERVERISSTOREW(param0: PCWSTR) -> BOOL;
-        extern fn PSYMBOLSERVERMESSAGEPROC(action: usize, data: u64, context: u64) -> BOOL;
+        extern fn PSYMBOLSERVERMESSAGEPROC(action: UINT_PTR, data: ULONG64, context: ULONG64) -> BOOL;
         extern fn PSYMBOLSERVEROPENPROC() -> BOOL;
         extern fn PSYMBOLSERVERPINGPROC(param0: PCSTR) -> BOOL;
         extern fn PSYMBOLSERVERPINGPROCA(param0: PCSTR) -> BOOL;
         extern fn PSYMBOLSERVERPINGPROCW(param0: PCWSTR) -> BOOL;
         extern fn PSYMBOLSERVERPINGPROCWEX(param0: PCWSTR) -> BOOL;
-        extern fn PSYMBOLSERVERPROC(param0: PCSTR, param1: PCSTR, param2: *mut void, param3: u32, param4: u32, param5: PSTR) -> BOOL;
-        extern fn PSYMBOLSERVERPROCA(param0: PCSTR, param1: PCSTR, param2: *mut void, param3: u32, param4: u32, param5: PSTR) -> BOOL;
-        extern fn PSYMBOLSERVERPROCW(param0: PCWSTR, param1: PCWSTR, param2: *mut void, param3: u32, param4: u32, param5: PWSTR) -> BOOL;
-        extern fn PSYMBOLSERVERSETHTTPAUTHHEADER(pszAuthHeader: PCWSTR) -> BOOL;
-        extern fn PSYMBOLSERVERSETOPTIONSPROC(param0: usize, param1: u64) -> BOOL;
-        extern fn PSYMBOLSERVERSETOPTIONSWPROC(param0: usize, param1: u64) -> BOOL;
-        extern fn PSYMBOLSERVERSTOREFILE(param0: PCSTR, param1: PCSTR, param2: *mut void, param3: u32, param4: u32, param5: PSTR, param6: usize, param7: u32) -> BOOL;
-        extern fn PSYMBOLSERVERSTOREFILEW(param0: PCWSTR, param1: PCWSTR, param2: *mut void, param3: u32, param4: u32, param5: PWSTR, param6: usize, param7: u32) -> BOOL;
-        extern fn PSYMBOLSERVERSTORESUPPLEMENT(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PSTR, param4: usize, param5: u32) -> BOOL;
-        extern fn PSYMBOLSERVERSTORESUPPLEMENTW(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PWSTR, param4: usize, param5: u32) -> BOOL;
-        extern fn PSYMBOLSERVERVERSION() -> u32;
-        extern fn PSYMBOLSERVERWEXPROC(param0: PCWSTR, param1: PCWSTR, param2: *mut void, param3: u32, param4: u32, param5: PWSTR, param6: PSYMSRV_EXTENDED_OUTPUT_DATA) -> BOOL;
-        extern fn PSYMBOL_FUNCENTRY_CALLBACK(hProcess: HANDLE, AddrBase: u32, #[in] #[opt] UserContext: *mut void) -> *mut void;
-        extern fn PSYMBOL_FUNCENTRY_CALLBACK64(hProcess: HANDLE, AddrBase: u64, UserContext: u64) -> *mut void;
+        extern fn PSYMBOLSERVERPROC(param0: PCSTR, param1: PCSTR, param2: PVOID, param3: DWORD, param4: DWORD, param5: PSTR) -> BOOL;
+        extern fn PSYMBOLSERVERPROCA(param0: PCSTR, param1: PCSTR, param2: PVOID, param3: DWORD, param4: DWORD, param5: PSTR) -> BOOL;
+        extern fn PSYMBOLSERVERPROCW(param0: PCWSTR, param1: PCWSTR, param2: PVOID, param3: DWORD, param4: DWORD, param5: PWSTR) -> BOOL;
+        extern fn PSYMBOLSERVERSETHTTPAUTHHEADER(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAuthHeader: PCWSTR) -> BOOL;
+        extern fn PSYMBOLSERVERSETOPTIONSPROC(param0: UINT_PTR, param1: ULONG64) -> BOOL;
+        extern fn PSYMBOLSERVERSETOPTIONSWPROC(param0: UINT_PTR, param1: ULONG64) -> BOOL;
+        extern fn PSYMBOLSERVERSTOREFILE(param0: PCSTR, param1: PCSTR, param2: PVOID, param3: DWORD, param4: DWORD, param5: PSTR, param6: size_t, param7: DWORD) -> BOOL;
+        extern fn PSYMBOLSERVERSTOREFILEW(param0: PCWSTR, param1: PCWSTR, param2: PVOID, param3: DWORD, param4: DWORD, param5: PWSTR, param6: size_t, param7: DWORD) -> BOOL;
+        extern fn PSYMBOLSERVERSTORESUPPLEMENT(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PSTR, param4: size_t, param5: DWORD) -> BOOL;
+        extern fn PSYMBOLSERVERSTORESUPPLEMENTW(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PWSTR, param4: size_t, param5: DWORD) -> BOOL;
+        extern fn PSYMBOLSERVERVERSION() -> DWORD;
+        extern fn PSYMBOLSERVERWEXPROC(param0: PCWSTR, param1: PCWSTR, param2: PVOID, param3: DWORD, param4: DWORD, param5: PWSTR, param6: PSYMSRV_EXTENDED_OUTPUT_DATA) -> BOOL;
+        extern fn PSYMBOL_FUNCENTRY_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddrBase: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> PVOID;
+        extern fn PSYMBOL_FUNCENTRY_CALLBACK64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddrBase: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: ULONG64) -> PVOID;
         type PSYMBOL_INFO = *mut SYMBOL_INFO;
         type PSYMBOL_INFOW = *mut SYMBOL_INFOW;
         type PSYMBOL_INFO_PACKAGE = *mut SYMBOL_INFO_PACKAGE;
         type PSYMBOL_INFO_PACKAGEW = *mut SYMBOL_INFO_PACKAGEW;
         #[arch(X86)]
-        extern fn PSYMBOL_REGISTERED_CALLBACK(hProcess: HANDLE, ActionCode: u32, #[in] #[opt] CallbackData: *mut void, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYMBOL_REGISTERED_CALLBACK64(hProcess: HANDLE, ActionCode: u32, #[opt] CallbackData: u64, #[opt] UserContext: u64) -> BOOL;
+        extern fn PSYMBOL_REGISTERED_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ActionCode: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackData: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PSYMBOL_REGISTERED_CALLBACK64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ActionCode: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackData: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: ULONG64) -> BOOL;
         type PSYMSRV_EXTENDED_OUTPUT_DATA = *mut SYMSRV_EXTENDED_OUTPUT_DATA;
         type PSYMSRV_INDEX_INFO = *mut SYMSRV_INDEX_INFO;
         type PSYMSRV_INDEX_INFOW = *mut SYMSRV_INDEX_INFOW;
-        extern fn PSYM_ENUMERATESYMBOLS_CALLBACK(pSymInfo: PSYMBOL_INFO, SymbolSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMERATESYMBOLS_CALLBACKW(pSymInfo: PSYMBOL_INFOW, SymbolSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMLINES_CALLBACK(LineInfo: PSRCCODEINFO, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMLINES_CALLBACKW(LineInfo: PSRCCODEINFOW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn PSYM_ENUMERATESYMBOLS_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSymInfo: PSYMBOL_INFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolSize: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMERATESYMBOLS_CALLBACKW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSymInfo: PSYMBOL_INFOW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolSize: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMLINES_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LineInfo: PSRCCODEINFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMLINES_CALLBACKW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LineInfo: PSRCCODEINFOW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[arch(X86)]
-        extern fn PSYM_ENUMMODULES_CALLBACK(ModuleName: PCSTR, BaseOfDll: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMMODULES_CALLBACK64(ModuleName: PCSTR, BaseOfDll: u64, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMMODULES_CALLBACKW64(ModuleName: PCWSTR, BaseOfDll: u64, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMPROCESSES_CALLBACK(hProcess: HANDLE, #[in] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMSOURCEFILES_CALLBACK(pSourceFile: PSOURCEFILE, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMSOURCEFILES_CALLBACKW(pSourceFile: PSOURCEFILEW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn PSYM_ENUMMODULES_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMMODULES_CALLBACK64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: DWORD64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMMODULES_CALLBACKW64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: DWORD64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMPROCESSES_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMSOURCEFILES_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSourceFile: PSOURCEFILE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMSOURCEFILES_CALLBACKW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSourceFile: PSOURCEFILEW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[arch(X86)]
-        extern fn PSYM_ENUMSYMBOLS_CALLBACK(SymbolName: PCSTR, SymbolAddress: u32, SymbolSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMSYMBOLS_CALLBACK64(SymbolName: PCSTR, SymbolAddress: u64, SymbolSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMSYMBOLS_CALLBACK64W(SymbolName: PCWSTR, SymbolAddress: u64, SymbolSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn PSYM_ENUMSYMBOLS_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolAddress: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolSize: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMSYMBOLS_CALLBACK64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolAddress: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolSize: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMSYMBOLS_CALLBACK64W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolAddress: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolSize: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[arch(X86)]
-        extern fn PSYM_ENUMSYMBOLS_CALLBACKW(SymbolName: PCWSTR, SymbolAddress: u32, SymbolSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn PSYM_ENUMSYMBOLS_CALLBACKW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolAddress: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymbolSize: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[arch(X86)]
-        extern fn PTRANSLATE_ADDRESS_ROUTINE(hProcess: HANDLE, hThread: HANDLE, #[out] lpaddr: LPADDRESS) -> u32;
-        extern fn PTRANSLATE_ADDRESS_ROUTINE64(hProcess: HANDLE, hThread: HANDLE, lpaddr: LPADDRESS64) -> u64;
+        extern fn PTRANSLATE_ADDRESS_ROUTINE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[out] lpaddr: LPADDRESS) -> DWORD;
+        extern fn PTRANSLATE_ADDRESS_ROUTINE64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpaddr: LPADDRESS64) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn RangeMapAddPeImageSections(#[in] RmapHandle: *mut void, #[opt] ImageName: PCWSTR, #[size_param(3)] #[in] MappedImage: *mut void, MappingBytes: u32, ImageBase: u64, UserTag: u64, MappingFlags: u32) -> BOOL;
+        extern fn RangeMapAddPeImageSections(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RmapHandle: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] MappedImage: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MappingBytes: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageBase: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserTag: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MappingFlags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn RangeMapCreate() -> *mut void;
+        extern fn RangeMapCreate() -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn RangeMapFree(#[in] #[opt] RmapHandle: *mut void);
+        extern fn RangeMapFree(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RmapHandle: PVOID);
         #[library("dbghelp.dll")]
-        extern fn RangeMapRead(#[in] RmapHandle: *mut void, Offset: u64, #[size_param(3)] Buffer: *mut void, RequestBytes: u32, Flags: u32, #[out] #[opt] DoneBytes: PDWORD) -> BOOL;
+        extern fn RangeMapRead(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RmapHandle: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Offset: DWORD64, #[out] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 5, IsByteCount = true, Dereference = true)] Buffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RequestBytes: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] DoneBytes: PDWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn RangeMapRemove(#[in] RmapHandle: *mut void, UserTag: u64) -> BOOL;
+        extern fn RangeMapRemove(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RmapHandle: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserTag: DWORD64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn RangeMapWrite(#[in] RmapHandle: *mut void, Offset: u64, #[size_param(3)] #[in] Buffer: *mut void, RequestBytes: u32, Flags: u32, #[out] #[opt] DoneBytes: PDWORD) -> BOOL;
+        extern fn RangeMapWrite(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RmapHandle: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Offset: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] Buffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RequestBytes: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] DoneBytes: PDWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn RemoveInvalidModuleList(hProcess: HANDLE);
+        extern fn RemoveInvalidModuleList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE);
         #[library("dbghelp.dll")]
-        extern fn ReportSymbolLoadSummary(hProcess: HANDLE, #[opt] pLoadModule: PCWSTR, pSymbolData: PDBGHELP_DATA_REPORT_STRUCT) -> BOOL;
+        extern fn ReportSymbolLoadSummary(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLoadModule: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSymbolData: PDBGHELP_DATA_REPORT_STRUCT) -> BOOL;
         const SLMFLAG_ALT_INDEX: i32 = 2;
         const SLMFLAG_NO_SYMBOLS: i32 = 4;
         const SLMFLAG_VIRTUAL: i32 = 1;
+        #[packed(8)]
         struct SOURCEFILE {
-            ModBase: u64,
+            ModBase: DWORD64,
             FileName: PCHAR,
         }
+        #[packed(8)]
         struct SOURCEFILEW {
-            ModBase: u64,
+            ModBase: DWORD64,
             FileName: PWSTR,
         }
+        #[packed(8)]
         struct SRCCODEINFO {
-            SizeOfStruct: u32,
-            Key: *mut void,
-            ModBase: u64,
-            Obj: [i8; 261],
-            FileName: [i8; 261],
-            LineNumber: u32,
-            Address: u64,
+            SizeOfStruct: DWORD,
+            Key: PVOID,
+            ModBase: DWORD64,
+            Obj: [CHAR; 261],
+            FileName: [CHAR; 261],
+            LineNumber: DWORD,
+            Address: DWORD64,
         }
+        #[packed(8)]
         struct SRCCODEINFOW {
-            SizeOfStruct: u32,
-            Key: *mut void,
-            ModBase: u64,
-            Obj: [u16; 261],
-            FileName: [u16; 261],
-            LineNumber: u32,
-            Address: u64,
+            SizeOfStruct: DWORD,
+            Key: PVOID,
+            ModBase: DWORD64,
+            Obj: [WCHAR; 261],
+            FileName: [WCHAR; 261],
+            LineNumber: DWORD,
+            Address: DWORD64,
         }
         const SSRVACTION_CHECKSUMSTATUS: i32 = 8;
         const SSRVACTION_EVENT: i32 = 3;
@@ -865,9 +921,9 @@ mod Windows {
         const SSRVOPT_PROXY: i32 = 4096;
         const SSRVOPT_PROXYW: i32 = 262144;
         #[arch(X64 | Arm64)]
-        const SSRVOPT_RESET: usize = 18446744073709551615;
+        const SSRVOPT_RESET: ULONG_PTR = 18446744073709551615;
         #[arch(X86)]
-        const SSRVOPT_RESET: usize = 4294967295;
+        const SSRVOPT_RESET: ULONG_PTR = 4294967295;
         const SSRVOPT_RESETTOU: i32 = 32768;
         const SSRVOPT_RETRY_APP_HANG: u32 = 2147483648;
         const SSRVOPT_SECURE: i32 = 512;
@@ -894,91 +950,98 @@ mod Windows {
         const SSRVURI_UNC_MASK: i32 = 240;
         const SSRVURI_UNC_MSFZ0: i32 = 128;
         const SSRVURI_UNC_NORMAL: i32 = 16;
+        #[packed(8)]
         #[arch(X86)]
         struct STACKFRAME {
             AddrPC: ADDRESS,
             AddrReturn: ADDRESS,
             AddrFrame: ADDRESS,
             AddrStack: ADDRESS,
-            FuncTableEntry: *mut void,
-            Params: [u32; 4],
+            FuncTableEntry: PVOID,
+            Params: [DWORD; 4],
             Far: BOOL,
             Virtual: BOOL,
-            Reserved: [u32; 3],
+            Reserved: [DWORD; 3],
             KdHelp: KDHELP,
             AddrBStore: ADDRESS,
         }
+        #[packed(8)]
         struct STACKFRAME64 {
             AddrPC: ADDRESS64,
             AddrReturn: ADDRESS64,
             AddrFrame: ADDRESS64,
             AddrStack: ADDRESS64,
             AddrBStore: ADDRESS64,
-            FuncTableEntry: *mut void,
-            Params: [u64; 4],
+            FuncTableEntry: PVOID,
+            Params: [DWORD64; 4],
             Far: BOOL,
             Virtual: BOOL,
-            Reserved: [u64; 3],
+            Reserved: [DWORD64; 3],
             KdHelp: KDHELP64,
         }
+        #[packed(8)]
         struct STACKFRAME_EX {
             AddrPC: ADDRESS64,
             AddrReturn: ADDRESS64,
             AddrFrame: ADDRESS64,
             AddrStack: ADDRESS64,
             AddrBStore: ADDRESS64,
-            FuncTableEntry: *mut void,
-            Params: [u64; 4],
+            FuncTableEntry: PVOID,
+            Params: [DWORD64; 4],
             Far: BOOL,
             Virtual: BOOL,
-            Reserved: [u64; 3],
+            Reserved: [DWORD64; 3],
             KdHelp: KDHELP64,
-            StackFrameSize: u32,
-            InlineFrameContext: u32,
+            StackFrameSize: DWORD,
+            InlineFrameContext: DWORD,
         }
-        extern fn SYMADDSOURCESTREAM(param0: HANDLE, param1: u64, param2: PCSTR, param3: PBYTE, param4: usize) -> BOOL;
-        extern fn SYMADDSOURCESTREAMA(param0: HANDLE, param1: u64, param2: PCSTR, param3: PBYTE, param4: usize) -> BOOL;
+        extern fn SYMADDSOURCESTREAM(param0: HANDLE, param1: ULONG64, param2: PCSTR, param3: PBYTE, param4: size_t) -> BOOL;
+        extern fn SYMADDSOURCESTREAMA(param0: HANDLE, param1: ULONG64, param2: PCSTR, param3: PBYTE, param4: size_t) -> BOOL;
+        #[packed(8)]
         struct SYMBOL_INFO {
-            SizeOfStruct: u32,
-            TypeIndex: u32,
-            Reserved: [u64; 2],
-            Index: u32,
-            Size: u32,
-            ModBase: u64,
-            Flags: u32,
-            Value: u64,
-            Address: u64,
-            Register: u32,
-            Scope: u32,
-            Tag: u32,
-            NameLen: u32,
-            MaxNameLen: u32,
-            Name: [i8; 1],
+            SizeOfStruct: ULONG,
+            TypeIndex: ULONG,
+            Reserved: [ULONG64; 2],
+            Index: ULONG,
+            Size: ULONG,
+            ModBase: ULONG64,
+            Flags: ULONG,
+            Value: ULONG64,
+            Address: ULONG64,
+            Register: ULONG,
+            Scope: ULONG,
+            Tag: ULONG,
+            NameLen: ULONG,
+            MaxNameLen: ULONG,
+            Name: [CHAR; 1],
         }
+        #[packed(8)]
         struct SYMBOL_INFOW {
-            SizeOfStruct: u32,
-            TypeIndex: u32,
-            Reserved: [u64; 2],
-            Index: u32,
-            Size: u32,
-            ModBase: u64,
-            Flags: u32,
-            Value: u64,
-            Address: u64,
-            Register: u32,
-            Scope: u32,
-            Tag: u32,
-            NameLen: u32,
-            MaxNameLen: u32,
-            Name: [u16; 1],
+            SizeOfStruct: ULONG,
+            TypeIndex: ULONG,
+            Reserved: [ULONG64; 2],
+            Index: ULONG,
+            Size: ULONG,
+            ModBase: ULONG64,
+            Flags: ULONG,
+            Value: ULONG64,
+            Address: ULONG64,
+            Register: ULONG,
+            Scope: ULONG,
+            Tag: ULONG,
+            NameLen: ULONG,
+            MaxNameLen: ULONG,
+            Name: [WCHAR; 1],
         }
+        #[packed(8)]
         struct SYMBOL_INFO_PACKAGE {
             si: SYMBOL_INFO,
-            name: [i8; 2001],
+            name: [CHAR; 2001],
         }
+        #[packed(8)]
         struct SYMBOL_INFO_PACKAGEW {
             si: SYMBOL_INFOW,
-            name: [u16; 2001],
+            name: [WCHAR; 2001],
         }
         const SYMENUM_OPTIONS_DEFAULT: i32 = 1;
         const SYMENUM_OPTIONS_INLINE: i32 = 2;
@@ -1058,34 +1121,37 @@ mod Windows {
         const SYMSEARCH_GLOBALSONLY: i32 = 4;
         const SYMSEARCH_MASKOBJS: i32 = 1;
         const SYMSEARCH_RECURSE: i32 = 2;
+        #[packed(8)]
         struct SYMSRV_EXTENDED_OUTPUT_DATA {
-            sizeOfStruct: u32,
-            version: u32,
-            filePtrMsg: [u16; 261],
+            sizeOfStruct: DWORD,
+            version: DWORD,
+            filePtrMsg: [WCHAR; 261],
         }
+        #[packed(8)]
         struct SYMSRV_INDEX_INFO {
-            sizeofstruct: u32,
+            sizeofstruct: DWORD,
             file: [i8; 261],
             stripped: BOOL,
-            timestamp: u32,
-            size: u32,
+            timestamp: DWORD,
+            size: DWORD,
             dbgfile: [i8; 261],
             pdbfile: [i8; 261],
             guid: GUID,
-            sig: u32,
-            age: u32,
+            sig: DWORD,
+            age: DWORD,
         }
+        #[packed(8)]
         struct SYMSRV_INDEX_INFOW {
-            sizeofstruct: u32,
-            file: [u16; 261],
+            sizeofstruct: DWORD,
+            file: [WCHAR; 261],
             stripped: BOOL,
-            timestamp: u32,
-            size: u32,
-            dbgfile: [u16; 261],
-            pdbfile: [u16; 261],
+            timestamp: DWORD,
+            size: DWORD,
+            dbgfile: [WCHAR; 261],
+            pdbfile: [WCHAR; 261],
             guid: GUID,
-            sig: u32,
-            age: u32,
+            sig: DWORD,
+            age: DWORD,
         }
         const SYMSRV_VERSION: i32 = 2;
         const SYMSTOREOPT_ALT_INDEX: i32 = 16;
@@ -1118,392 +1184,467 @@ mod Windows {
             NumSymTypes = 9,
         }
         #[library("dbghelp.dll")]
-        extern fn SearchTreeForFile(RootPath: PCSTR, InputPathName: PCSTR, #[out] OutputPathBuffer: PSTR) -> BOOL;
+        extern fn SearchTreeForFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RootPath: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InputPathName: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] OutputPathBuffer: PSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SearchTreeForFileW(RootPath: PCWSTR, InputPathName: PCWSTR, #[out] OutputPathBuffer: PWSTR) -> BOOL;
+        extern fn SearchTreeForFileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RootPath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InputPathName: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] OutputPathBuffer: PWSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SetCheckUserInterruptShared(lpStartAddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE);
+        extern fn SetCheckUserInterruptShared(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpStartAddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE);
         #[library("dbghelp.dll")]
-        extern fn SetSymLoadError(error: u32);
+        extern fn SetSymLoadError(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] error: DWORD);
+        #[library("dbghelp.dll", import = "StackWalk64")]
+        #[arch(X64 | Arm64)]
+        extern fn StackWalk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MachineType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME64, #[in] #[out] ContextRecord: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64) -> BOOL;
+        #[library("dbghelp.dll")]
         #[arch(X86)]
+        extern fn StackWalk(MachineType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME, #[in] #[out] ContextRecord: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn StackWalk(MachineType: u32, hProcess: HANDLE, hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME, #[in] #[out] ContextRecord: *mut void, #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE, #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE, #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE, #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE) -> BOOL;
+        extern fn StackWalk2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MachineType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME_EX, #[in] #[out] ContextRecord: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GetTargetAttributeValue: PGET_TARGET_ATTRIBUTE_VALUE64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn StackWalk2(MachineType: u32, hProcess: HANDLE, hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME_EX, #[in] #[out] ContextRecord: *mut void, #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64, #[opt] GetTargetAttributeValue: PGET_TARGET_ATTRIBUTE_VALUE64, Flags: u32) -> BOOL;
+        extern fn StackWalk64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MachineType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME64, #[in] #[out] ContextRecord: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn StackWalk64(MachineType: u32, hProcess: HANDLE, hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME64, #[in] #[out] ContextRecord: *mut void, #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64) -> BOOL;
+        extern fn StackWalkEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MachineType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME_EX, #[in] #[out] ContextRecord: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn StackWalkEx(MachineType: u32, hProcess: HANDLE, hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME_EX, #[in] #[out] ContextRecord: *mut void, #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64, Flags: u32) -> BOOL;
+        extern fn SymAddSourceStream(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamFile: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] Buffer: PBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSourceStream(hProcess: HANDLE, Base: u64, #[opt] StreamFile: PCSTR, #[size_param(4)] #[opt] Buffer: PBYTE, Size: usize) -> BOOL;
+        extern fn SymAddSourceStreamA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamFile: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] Buffer: PBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSourceStreamA(hProcess: HANDLE, Base: u64, #[opt] StreamFile: PCSTR, #[size_param(4)] #[opt] Buffer: PBYTE, Size: usize) -> BOOL;
+        extern fn SymAddSourceStreamW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileSpec: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] Buffer: PBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSourceStreamW(hProcess: HANDLE, Base: u64, #[opt] FileSpec: PCWSTR, #[size_param(4)] #[opt] Buffer: PBYTE, Size: usize) -> BOOL;
+        extern fn SymAddSymbol(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSymbol(hProcess: HANDLE, BaseOfDll: u64, Name: PCSTR, Address: u64, Size: u32, Flags: u32) -> BOOL;
+        extern fn SymAddSymbolW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSymbolW(hProcess: HANDLE, BaseOfDll: u64, Name: PCWSTR, Address: u64, Size: u32, Flags: u32) -> BOOL;
+        extern fn SymAddrIncludeInlineTrace(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn SymAddrIncludeInlineTrace(hProcess: HANDLE, Address: u64) -> u32;
+        extern fn SymCleanup(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymCleanup(hProcess: HANDLE) -> BOOL;
+        extern fn SymCompareInlineTrace(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address1: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InlineContext1: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RetAddress1: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address2: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RetAddress2: DWORD64) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn SymCompareInlineTrace(hProcess: HANDLE, Address1: u64, InlineContext1: u32, RetAddress1: u64, Address2: u64, RetAddress2: u64) -> u32;
+        extern fn SymDeleteSymbol(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymDeleteSymbol(hProcess: HANDLE, BaseOfDll: u64, #[opt] Name: PCSTR, Address: u64, Flags: u32) -> BOOL;
+        extern fn SymDeleteSymbolW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymDeleteSymbolW(hProcess: HANDLE, BaseOfDll: u64, #[opt] Name: PCWSTR, Address: u64, Flags: u32) -> BOOL;
+        extern fn SymEnumLines(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Obj: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumLines(hProcess: HANDLE, Base: u64, #[opt] Obj: PCSTR, #[opt] File: PCSTR, EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumLinesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Obj: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumLinesW(hProcess: HANDLE, Base: u64, #[opt] Obj: PCWSTR, #[opt] File: PCWSTR, EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumProcesses(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumProcessesCallback: PSYM_ENUMPROCESSES_CALLBACK, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumProcesses(EnumProcessesCallback: PSYM_ENUMPROCESSES_CALLBACK, #[in] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSourceFileTokens(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PENUMSOURCEFILETOKENSCALLBACK) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSourceFileTokens(hProcess: HANDLE, Base: u64, Callback: PENUMSOURCEFILETOKENSCALLBACK) -> BOOL;
+        extern fn SymEnumSourceFiles(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModBase: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Mask: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSrcFiles: PSYM_ENUMSOURCEFILES_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSourceFiles(hProcess: HANDLE, ModBase: u64, #[opt] Mask: PCSTR, cbSrcFiles: PSYM_ENUMSOURCEFILES_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSourceFilesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModBase: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Mask: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSrcFiles: PSYM_ENUMSOURCEFILES_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSourceFilesW(hProcess: HANDLE, ModBase: u64, #[opt] Mask: PCWSTR, cbSrcFiles: PSYM_ENUMSOURCEFILES_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSourceLines(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Obj: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Line: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSourceLines(hProcess: HANDLE, Base: u64, #[opt] Obj: PCSTR, #[opt] File: PCSTR, #[opt] Line: u32, Flags: u32, EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSourceLinesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Obj: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Line: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[library("dbghelp.dll")]
-        extern fn SymEnumSourceLinesW(hProcess: HANDLE, Base: u64, #[opt] Obj: PCWSTR, #[opt] File: PCWSTR, #[opt] Line: u32, Flags: u32, EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSym(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSym(hProcess: HANDLE, BaseOfDll: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSymbols(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Mask: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSymbols(hProcess: HANDLE, BaseOfDll: u64, #[opt] Mask: PCSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSymbolsEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Mask: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSymbolsEx(hProcess: HANDLE, BaseOfDll: u64, #[opt] Mask: PCSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void, Options: u32) -> BOOL;
+        extern fn SymEnumSymbolsExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Mask: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSymbolsExW(hProcess: HANDLE, BaseOfDll: u64, #[opt] Mask: PCWSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void, Options: u32) -> BOOL;
+        extern fn SymEnumSymbolsForAddr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSymbolsForAddr(hProcess: HANDLE, Address: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSymbolsForAddrW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSymbolsForAddrW(hProcess: HANDLE, Address: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSymbolsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Mask: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSymbolsW(hProcess: HANDLE, BaseOfDll: u64, #[opt] Mask: PCWSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumTypes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumTypes(hProcess: HANDLE, BaseOfDll: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumTypesByName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mask: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumTypesByName(hProcess: HANDLE, BaseOfDll: u64, #[opt] mask: PCSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumTypesByNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mask: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumTypesByNameW(hProcess: HANDLE, BaseOfDll: u64, #[opt] mask: PCWSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumTypesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        #[library("dbghelp.dll", import = "SymEnumerateModules64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymEnumerateModules(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumModulesCallback: PSYM_ENUMMODULES_CALLBACK64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumTypesW(hProcess: HANDLE, BaseOfDll: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
         #[arch(X86)]
+        extern fn SymEnumerateModules(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumModulesCallback: PSYM_ENUMMODULES_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateModules(hProcess: HANDLE, EnumModulesCallback: PSYM_ENUMMODULES_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumerateModules64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumModulesCallback: PSYM_ENUMMODULES_CALLBACK64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateModules64(hProcess: HANDLE, EnumModulesCallback: PSYM_ENUMMODULES_CALLBACK64, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumerateModulesW64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumModulesCallback: PSYM_ENUMMODULES_CALLBACKW64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+        #[library("dbghelp.dll", import = "SymEnumerateSymbols64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymEnumerateSymbols(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateModulesW64(hProcess: HANDLE, EnumModulesCallback: PSYM_ENUMMODULES_CALLBACKW64, #[in] #[opt] UserContext: *mut void) -> BOOL;
         #[arch(X86)]
+        extern fn SymEnumerateSymbols(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateSymbols(hProcess: HANDLE, BaseOfDll: u32, EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumerateSymbols64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+        #[library("dbghelp.dll", import = "SymEnumerateSymbolsW64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymEnumerateSymbolsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64W, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateSymbols64(hProcess: HANDLE, BaseOfDll: u64, EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64, #[in] #[opt] UserContext: *mut void) -> BOOL;
         #[arch(X86)]
+        extern fn SymEnumerateSymbolsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateSymbolsW(hProcess: HANDLE, BaseOfDll: u32, EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumerateSymbolsW64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64W, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateSymbolsW64(hProcess: HANDLE, BaseOfDll: u64, EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64W, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymFindDebugInfoFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] DebugFilePath: PSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PFIND_DEBUG_FILE_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn SymFindDebugInfoFile(hProcess: HANDLE, FileName: PCSTR, #[out] DebugFilePath: PSTR, #[opt] Callback: PFIND_DEBUG_FILE_CALLBACK, #[in] #[opt] CallerData: *mut void) -> HANDLE;
+        extern fn SymFindDebugInfoFileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] DebugFilePath: PWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PFIND_DEBUG_FILE_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn SymFindDebugInfoFileW(hProcess: HANDLE, FileName: PCWSTR, #[out] DebugFilePath: PWSTR, #[opt] Callback: PFIND_DEBUG_FILE_CALLBACKW, #[in] #[opt] CallerData: *mut void) -> HANDLE;
+        extern fn SymFindExecutableImage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] ImageFilePath: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PFIND_EXE_FILE_CALLBACK, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn SymFindExecutableImage(hProcess: HANDLE, FileName: PCSTR, #[out] ImageFilePath: PSTR, Callback: PFIND_EXE_FILE_CALLBACK, #[in] CallerData: *mut void) -> HANDLE;
+        extern fn SymFindExecutableImageW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] ImageFilePath: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PFIND_EXE_FILE_CALLBACKW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn SymFindExecutableImageW(hProcess: HANDLE, FileName: PCWSTR, #[out] ImageFilePath: PWSTR, Callback: PFIND_EXE_FILE_CALLBACKW, #[in] CallerData: *mut void) -> HANDLE;
+        extern fn SymFindFileInPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hprocess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SearchPathA: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] two: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] three: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] FoundFile: PSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] callback: PFINDFILEINPATHCALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] context: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFindFileInPath(hprocess: HANDLE, #[opt] SearchPathA: PCSTR, FileName: PCSTR, #[in] #[opt] id: *mut void, two: u32, three: u32, flags: u32, #[out] FoundFile: PSTR, #[opt] callback: PFINDFILEINPATHCALLBACK, #[in] #[opt] context: *mut void) -> BOOL;
+        extern fn SymFindFileInPathW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hprocess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SearchPathA: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] two: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] three: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260 + 1", "260 + 1")] #[out] FoundFile: PWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] callback: PFINDFILEINPATHCALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] context: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFindFileInPathW(hprocess: HANDLE, #[opt] SearchPathA: PCWSTR, FileName: PCWSTR, #[in] #[opt] id: *mut void, two: u32, three: u32, flags: u32, #[out] FoundFile: PWSTR, #[opt] callback: PFINDFILEINPATHCALLBACKW, #[in] #[opt] context: *mut void) -> BOOL;
+        extern fn SymFromAddr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[out] #[opt] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromAddr(hProcess: HANDLE, Address: u64, #[out] #[opt] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymFromAddrW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[out] #[opt] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromAddrW(hProcess: HANDLE, Address: u64, #[out] #[opt] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymFromIndex(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: DWORD, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromIndex(hProcess: HANDLE, BaseOfDll: u64, Index: u32, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymFromIndexW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: DWORD, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromIndexW(hProcess: HANDLE, BaseOfDll: u64, Index: u32, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymFromInlineContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InlineContext: ULONG, #[out] #[opt] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromInlineContext(hProcess: HANDLE, Address: u64, InlineContext: u32, #[out] #[opt] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymFromInlineContextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InlineContext: ULONG, #[out] #[opt] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromInlineContextW(hProcess: HANDLE, Address: u64, InlineContext: u32, #[out] #[opt] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymFromName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCSTR, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromName(hProcess: HANDLE, Name: PCSTR, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymFromNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCWSTR, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromNameW(hProcess: HANDLE, Name: PCWSTR, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymFromToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: DWORD, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromToken(hProcess: HANDLE, Base: u64, Token: u32, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymFromTokenW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: DWORD, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        #[library("dbghelp.dll", import = "SymFunctionTableAccess64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymFunctionTableAccess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddrBase: DWORD64) -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn SymFromTokenW(hProcess: HANDLE, Base: u64, Token: u32, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[arch(X86)]
+        extern fn SymFunctionTableAccess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddrBase: DWORD) -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn SymFunctionTableAccess(hProcess: HANDLE, AddrBase: u32) -> *mut void;
+        extern fn SymFunctionTableAccess64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddrBase: DWORD64) -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn SymFunctionTableAccess64(hProcess: HANDLE, AddrBase: u64) -> *mut void;
+        extern fn SymFunctionTableAccess64AccessRoutines(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddrBase: DWORD64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64) -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn SymFunctionTableAccess64AccessRoutines(hProcess: HANDLE, AddrBase: u64, #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64) -> *mut void;
+        extern fn SymGetExtendedOption(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] option: IMAGEHLP_EXTENDED_OPTIONS) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> BOOL;
+        extern fn SymGetFileLineOffsets64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[out] #[len_param(4)] Buffer: PDWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferLines: ULONG) -> ULONG;
         #[library("dbghelp.dll")]
-        extern fn SymGetFileLineOffsets64(hProcess: HANDLE, #[opt] ModuleName: PCSTR, FileName: PCSTR, #[len_param(4)] #[out] Buffer: PDWORD64, BufferLines: u32) -> u32;
+        extern fn SymGetHomeDirectory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#type: DWORD, #[out] #[len_param(2)] dir: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] size: size_t) -> PCHAR;
         #[library("dbghelp.dll")]
-        extern fn SymGetHomeDirectory(r#type: u32, #[len_param(2)] #[out] dir: PSTR, size: usize) -> PCHAR;
+        extern fn SymGetHomeDirectoryW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#type: DWORD, #[out] #[len_param(2)] dir: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] size: size_t) -> PWSTR;
+        #[library("dbghelp.dll", import = "SymGetLineFromAddr64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymGetLineFromAddr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwAddr: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line64: PIMAGEHLP_LINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetHomeDirectoryW(r#type: u32, #[len_param(2)] #[out] dir: PWSTR, size: usize) -> PWSTR;
         #[arch(X86)]
+        extern fn SymGetLineFromAddr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAddr: DWORD, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromAddr(hProcess: HANDLE, dwAddr: u32, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINE) -> BOOL;
+        extern fn SymGetLineFromAddr64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwAddr: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line64: PIMAGEHLP_LINE64) -> BOOL;
+        #[library("dbghelp.dll", import = "SymGetLineFromAddrW64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymGetLineFromAddrW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAddr: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromAddr64(hProcess: HANDLE, qwAddr: u64, #[out] pdwDisplacement: PDWORD, #[out] Line64: PIMAGEHLP_LINE64) -> BOOL;
+        extern fn SymGetLineFromAddrW64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAddr: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromAddrW64(hProcess: HANDLE, dwAddr: u64, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        extern fn SymGetLineFromInlineContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwAddr: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InlineContext: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwModuleBaseAddress: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line64: PIMAGEHLP_LINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromInlineContext(hProcess: HANDLE, qwAddr: u64, InlineContext: u32, #[opt] qwModuleBaseAddress: u64, #[out] pdwDisplacement: PDWORD, #[out] Line64: PIMAGEHLP_LINE64) -> BOOL;
+        extern fn SymGetLineFromInlineContextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAddr: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InlineContext: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwModuleBaseAddress: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        #[library("dbghelp.dll", import = "SymGetLineFromName64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymGetLineFromName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLineNumber: DWORD, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromInlineContextW(hProcess: HANDLE, dwAddr: u64, InlineContext: u32, #[opt] qwModuleBaseAddress: u64, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
         #[arch(X86)]
+        extern fn SymGetLineFromName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLineNumber: DWORD, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromName(hProcess: HANDLE, #[opt] ModuleName: PCSTR, #[opt] FileName: PCSTR, dwLineNumber: u32, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINE) -> BOOL;
+        extern fn SymGetLineFromName64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLineNumber: DWORD, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromName64(hProcess: HANDLE, #[opt] ModuleName: PCSTR, #[opt] FileName: PCSTR, dwLineNumber: u32, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
+        extern fn SymGetLineFromNameW64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLineNumber: DWORD, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        #[library("dbghelp.dll", import = "SymGetLineNext64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymGetLineNext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromNameW64(hProcess: HANDLE, #[opt] ModuleName: PCWSTR, #[opt] FileName: PCWSTR, dwLineNumber: u32, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
         #[arch(X86)]
+        extern fn SymGetLineNext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineNext(hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE) -> BOOL;
+        extern fn SymGetLineNext64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineNext64(hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
+        extern fn SymGetLineNextW64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        #[library("dbghelp.dll", import = "SymGetLinePrev64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymGetLinePrev(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineNextW64(hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
         #[arch(X86)]
+        extern fn SymGetLinePrev(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLinePrev(hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE) -> BOOL;
+        extern fn SymGetLinePrev64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLinePrev64(hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
+        extern fn SymGetLinePrevW64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        #[library("dbghelp.dll", import = "SymGetModuleBase64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymGetModuleBase(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwAddr: DWORD64) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn SymGetLinePrevW64(hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
         #[arch(X86)]
+        extern fn SymGetModuleBase(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAddr: DWORD) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn SymGetModuleBase(hProcess: HANDLE, dwAddr: u32) -> u32;
+        extern fn SymGetModuleBase64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwAddr: DWORD64) -> DWORD64;
+        #[library("dbghelp.dll", import = "SymGetModuleInfo64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymGetModuleInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwAddr: DWORD64, #[out] ModuleInfo: PIMAGEHLP_MODULE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetModuleBase64(hProcess: HANDLE, qwAddr: u64) -> u64;
         #[arch(X86)]
+        extern fn SymGetModuleInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAddr: DWORD, #[out] ModuleInfo: PIMAGEHLP_MODULE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetModuleInfo(hProcess: HANDLE, dwAddr: u32, #[out] ModuleInfo: PIMAGEHLP_MODULE) -> BOOL;
+        extern fn SymGetModuleInfo64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwAddr: DWORD64, #[out] ModuleInfo: PIMAGEHLP_MODULE64) -> BOOL;
+        #[library("dbghelp.dll", import = "SymGetModuleInfoW64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymGetModuleInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwAddr: DWORD64, #[out] ModuleInfo: PIMAGEHLP_MODULEW64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetModuleInfo64(hProcess: HANDLE, qwAddr: u64, #[out] ModuleInfo: PIMAGEHLP_MODULE64) -> BOOL;
         #[arch(X86)]
+        extern fn SymGetModuleInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAddr: DWORD, #[out] ModuleInfo: PIMAGEHLP_MODULEW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetModuleInfoW(hProcess: HANDLE, dwAddr: u32, #[out] ModuleInfo: PIMAGEHLP_MODULEW) -> BOOL;
+        extern fn SymGetModuleInfoW64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwAddr: DWORD64, #[out] ModuleInfo: PIMAGEHLP_MODULEW64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetModuleInfoW64(hProcess: HANDLE, qwAddr: u64, #[out] ModuleInfo: PIMAGEHLP_MODULEW64) -> BOOL;
+        extern fn SymGetOmaps(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: DWORD64, #[out] OmapTo: *mut POMAP, #[out] cOmapTo: PDWORD64, #[out] OmapFrom: *mut POMAP, #[out] cOmapFrom: PDWORD64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetOmaps(hProcess: HANDLE, BaseOfDll: u64, OmapTo: *mut POMAP, #[out] cOmapTo: PDWORD64, OmapFrom: *mut POMAP, #[out] cOmapFrom: PDWORD64) -> BOOL;
+        extern fn SymGetOptions() -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn SymGetOptions() -> u32;
+        extern fn SymGetParentWindow(#[out] pHwnd: *mut HWND) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetParentWindow(pHwnd: *mut HWND) -> BOOL;
+        extern fn SymGetScope(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: DWORD, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetScope(hProcess: HANDLE, BaseOfDll: u64, Index: u32, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymGetScopeW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: DWORD, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetScopeW(hProcess: HANDLE, BaseOfDll: u64, Index: u32, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymGetSearchPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[len_param(2)] SearchPathA: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SearchPathLength: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSearchPath(hProcess: HANDLE, #[len_param(2)] #[out] SearchPathA: PSTR, SearchPathLength: u32) -> BOOL;
+        extern fn SymGetSearchPathW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[len_param(2)] SearchPathA: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SearchPathLength: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSearchPathW(hProcess: HANDLE, #[len_param(2)] #[out] SearchPathA: PWSTR, SearchPathLength: u32) -> BOOL;
+        extern fn SymGetSourceFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Params: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileSpec: PCSTR, #[out] #[len_param(5)] FilePath: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFile(hProcess: HANDLE, Base: u64, #[opt] Params: PCSTR, FileSpec: PCSTR, #[len_param(5)] #[out] FilePath: PSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceFileChecksum(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileSpec: PCSTR, #[out] pCheckSumType: *mut DWORD, #[out] #[len_param(5)] pChecksum: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] checksumSize: DWORD, #[out] pActualBytesWritten: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileChecksum(hProcess: HANDLE, Base: u64, FileSpec: PCSTR, pCheckSumType: *mut u32, #[len_param(5)] pChecksum: *mut u8, checksumSize: u32, pActualBytesWritten: *mut u32) -> BOOL;
+        extern fn SymGetSourceFileChecksumW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileSpec: PCWSTR, #[out] pCheckSumType: *mut DWORD, #[out] #[len_param(5)] pChecksum: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] checksumSize: DWORD, #[out] pActualBytesWritten: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileChecksumW(hProcess: HANDLE, Base: u64, FileSpec: PCWSTR, pCheckSumType: *mut u32, #[len_param(5)] pChecksum: *mut u8, checksumSize: u32, pActualBytesWritten: *mut u32) -> BOOL;
+        extern fn SymGetSourceFileFromToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Params: PCSTR, #[out] #[len_param(4)] FilePath: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileFromToken(hProcess: HANDLE, #[in] Token: *mut void, #[opt] Params: PCSTR, #[len_param(4)] #[out] FilePath: PSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceFileFromTokenByTokenName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TokenName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Params: PCSTR, #[out] #[len_param(5)] FilePath: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileFromTokenByTokenName(hProcess: HANDLE, #[in] Token: *mut void, #[opt] TokenName: PCSTR, #[opt] Params: PCSTR, #[len_param(5)] #[out] FilePath: PSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceFileFromTokenByTokenNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TokenName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Params: PCWSTR, #[out] #[len_param(5)] FilePath: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileFromTokenByTokenNameW(hProcess: HANDLE, #[in] Token: *mut void, #[opt] TokenName: PCWSTR, #[opt] Params: PCWSTR, #[len_param(5)] #[out] FilePath: PWSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceFileFromTokenW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Params: PCWSTR, #[out] #[len_param(4)] FilePath: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileFromTokenW(hProcess: HANDLE, #[in] Token: *mut void, #[opt] Params: PCWSTR, #[len_param(4)] #[out] FilePath: PWSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceFileToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileSpec: PCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileToken(hProcess: HANDLE, Base: u64, FileSpec: PCSTR, Token: *mut *mut void, Size: *mut u32) -> BOOL;
+        extern fn SymGetSourceFileTokenByTokenName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileSpec: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TokenName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TokenParameters: PCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileTokenByTokenName(hProcess: HANDLE, Base: u64, FileSpec: PCSTR, TokenName: PCSTR, #[opt] TokenParameters: PCSTR, Token: *mut *mut void, Size: *mut u32) -> BOOL;
+        extern fn SymGetSourceFileTokenByTokenNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileSpec: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TokenName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TokenParameters: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileTokenByTokenNameW(hProcess: HANDLE, Base: u64, FileSpec: PCWSTR, TokenName: PCWSTR, #[opt] TokenParameters: PCWSTR, Token: *mut *mut void, Size: *mut u32) -> BOOL;
+        extern fn SymGetSourceFileTokenW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileSpec: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileTokenW(hProcess: HANDLE, Base: u64, FileSpec: PCWSTR, Token: *mut *mut void, Size: *mut u32) -> BOOL;
+        extern fn SymGetSourceFileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Base: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Params: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileSpec: PCWSTR, #[out] #[len_param(5)] FilePath: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileW(hProcess: HANDLE, Base: u64, #[opt] Params: PCWSTR, FileSpec: PCWSTR, #[len_param(5)] #[out] FilePath: PWSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceVarFromToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Params: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VarName: PCSTR, #[out] #[len_param(5)] Value: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceVarFromToken(hProcess: HANDLE, #[in] Token: *mut void, #[opt] Params: PCSTR, VarName: PCSTR, #[len_param(5)] #[out] Value: PSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceVarFromTokenW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Params: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VarName: PCWSTR, #[out] #[len_param(5)] Value: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: DWORD) -> BOOL;
+        #[library("dbghelp.dll", import = "SymGetSymFromAddr64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymGetSymFromAddr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwAddr: DWORD64, #[out] #[opt] pdwDisplacement: PDWORD64, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceVarFromTokenW(hProcess: HANDLE, #[in] Token: *mut void, #[opt] Params: PCWSTR, VarName: PCWSTR, #[len_param(5)] #[out] Value: PWSTR, Size: u32) -> BOOL;
         #[arch(X86)]
+        extern fn SymGetSymFromAddr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAddr: DWORD, #[out] #[opt] pdwDisplacement: PDWORD, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymFromAddr(hProcess: HANDLE, dwAddr: u32, #[out] #[opt] pdwDisplacement: PDWORD, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
+        extern fn SymGetSymFromAddr64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qwAddr: DWORD64, #[out] #[opt] pdwDisplacement: PDWORD64, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
+        #[library("dbghelp.dll", import = "SymGetSymFromName64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymGetSymFromName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCSTR, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymFromAddr64(hProcess: HANDLE, qwAddr: u64, #[out] #[opt] pdwDisplacement: PDWORD64, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[arch(X86)]
+        extern fn SymGetSymFromName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCSTR, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymFromName(hProcess: HANDLE, Name: PCSTR, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
+        extern fn SymGetSymFromName64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCSTR, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
+        #[library("dbghelp.dll", import = "SymGetSymNext64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymGetSymNext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymFromName64(hProcess: HANDLE, Name: PCSTR, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[arch(X86)]
+        extern fn SymGetSymNext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymNext(hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
+        extern fn SymGetSymNext64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
+        #[library("dbghelp.dll", import = "SymGetSymPrev64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymGetSymPrev(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymNext64(hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[arch(X86)]
+        extern fn SymGetSymPrev(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymPrev(hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
+        extern fn SymGetSymPrev64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymPrev64(hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
+        extern fn SymGetSymbolFile(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymPath: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageFile: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[out] #[len_param(5)] SymbolFile: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cSymbolFile: size_t, #[out] #[len_param(7)] DbgFile: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDbgFile: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymbolFile(#[opt] hProcess: HANDLE, #[opt] SymPath: PCSTR, ImageFile: PCSTR, Type: u32, #[len_param(5)] #[out] SymbolFile: PSTR, cSymbolFile: usize, #[len_param(7)] #[out] DbgFile: PSTR, cDbgFile: usize) -> BOOL;
+        extern fn SymGetSymbolFileW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymPath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageFile: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[out] #[len_param(5)] SymbolFile: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cSymbolFile: size_t, #[out] #[len_param(7)] DbgFile: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cDbgFile: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymbolFileW(#[opt] hProcess: HANDLE, #[opt] SymPath: PCWSTR, ImageFile: PCWSTR, Type: u32, #[len_param(5)] #[out] SymbolFile: PWSTR, cSymbolFile: usize, #[len_param(7)] #[out] DbgFile: PWSTR, cDbgFile: usize) -> BOOL;
+        extern fn SymGetTypeFromName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCSTR, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetTypeFromName(hProcess: HANDLE, BaseOfDll: u64, Name: PCSTR, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymGetTypeFromNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCWSTR, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetTypeFromNameW(hProcess: HANDLE, BaseOfDll: u64, Name: PCWSTR, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymGetTypeInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModBase: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TypeId: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GetType: IMAGEHLP_SYMBOL_TYPE_INFO, #[out] pInfo: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetTypeInfo(hProcess: HANDLE, ModBase: u64, TypeId: u32, GetType: IMAGEHLP_SYMBOL_TYPE_INFO, pInfo: *mut void) -> BOOL;
+        extern fn SymGetTypeInfoEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModBase: DWORD64, #[in] #[out] Params: PIMAGEHLP_GET_TYPE_INFO_PARAMS) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetTypeInfoEx(hProcess: HANDLE, ModBase: u64, #[in] #[out] Params: PIMAGEHLP_GET_TYPE_INFO_PARAMS) -> BOOL;
+        extern fn SymGetUnwindInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*Size", "*Size")] #[out] #[opt] Buffer: PVOID, #[in] #[out] Size: PULONG) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetUnwindInfo(hProcess: HANDLE, Address: u64, #[size_param(3)] #[opt] Buffer: *mut void, #[in] #[out] Size: PULONG) -> BOOL;
+        extern fn SymInitialize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserSearchPath: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fInvadeProcess: BOOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymInitialize(hProcess: HANDLE, #[opt] UserSearchPath: PCSTR, fInvadeProcess: BOOL) -> BOOL;
+        extern fn SymInitializeW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserSearchPath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fInvadeProcess: BOOL) -> BOOL;
+        #[library("dbghelp.dll", import = "SymLoadModule64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymLoadModule(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SizeOfDll: DWORD) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn SymInitializeW(hProcess: HANDLE, #[opt] UserSearchPath: PCWSTR, fInvadeProcess: BOOL) -> BOOL;
         #[arch(X86)]
+        extern fn SymLoadModule(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SizeOfDll: DWORD) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn SymLoadModule(hProcess: HANDLE, #[opt] hFile: HANDLE, #[opt] ImageName: PCSTR, #[opt] ModuleName: PCSTR, BaseOfDll: u32, SizeOfDll: u32) -> u32;
+        extern fn SymLoadModule64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SizeOfDll: DWORD) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn SymLoadModule64(hProcess: HANDLE, #[opt] hFile: HANDLE, #[opt] ImageName: PCSTR, #[opt] ModuleName: PCSTR, BaseOfDll: u64, SizeOfDll: u32) -> u64;
+        extern fn SymLoadModuleEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DllSize: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Data: PMODLOAD_DATA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn SymLoadModuleEx(hProcess: HANDLE, #[opt] hFile: HANDLE, #[opt] ImageName: PCSTR, #[opt] ModuleName: PCSTR, BaseOfDll: u64, DllSize: u32, #[opt] Data: PMODLOAD_DATA, #[opt] Flags: u32) -> u64;
+        extern fn SymLoadModuleExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ModuleName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DllSize: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Data: PMODLOAD_DATA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn SymLoadModuleExW(hProcess: HANDLE, #[opt] hFile: HANDLE, #[opt] ImageName: PCWSTR, #[opt] ModuleName: PCWSTR, BaseOfDll: u64, DllSize: u32, #[opt] Data: PMODLOAD_DATA, #[opt] Flags: u32) -> u64;
+        extern fn SymMatchFileName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Match: PCSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] FileNameStop: *mut PSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] MatchStop: *mut PSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymMatchFileName(FileName: PCSTR, Match: PCSTR, FileNameStop: *mut PSTR, MatchStop: *mut PSTR) -> BOOL;
+        extern fn SymMatchFileNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Match: PCWSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] FileNameStop: *mut PWSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] MatchStop: *mut PWSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymMatchFileNameW(FileName: PCWSTR, Match: PCWSTR, FileNameStop: *mut PWSTR, MatchStop: *mut PWSTR) -> BOOL;
+        extern fn SymMatchString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] expression: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCase: BOOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymMatchString(string: PCSTR, expression: PCSTR, fCase: BOOL) -> BOOL;
+        extern fn SymMatchStringA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] expression: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCase: BOOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymMatchStringA(string: PCSTR, expression: PCSTR, fCase: BOOL) -> BOOL;
+        extern fn SymMatchStringW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] string: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] expression: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCase: BOOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymMatchStringW(string: PCWSTR, expression: PCWSTR, fCase: BOOL) -> BOOL;
+        extern fn SymNext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] si: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymNext(hProcess: HANDLE, #[in] #[out] si: PSYMBOL_INFO) -> BOOL;
+        extern fn SymNextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] siw: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymNextW(hProcess: HANDLE, #[in] #[out] siw: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymPrev(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] si: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymPrev(hProcess: HANDLE, #[in] #[out] si: PSYMBOL_INFO) -> BOOL;
+        extern fn SymPrevW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] siw: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymPrevW(hProcess: HANDLE, #[in] #[out] siw: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymQueryInlineTrace(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartAddress: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartRetAddress: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CurAddress: DWORD64, #[out] CurContext: LPDWORD, #[out] CurFrameIndex: LPDWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymQueryInlineTrace(hProcess: HANDLE, StartAddress: u64, StartContext: u32, StartRetAddress: u64, CurAddress: u64, #[out] CurContext: LPDWORD, #[out] CurFrameIndex: LPDWORD) -> BOOL;
+        extern fn SymRefreshModuleList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE) -> BOOL;
+        #[library("dbghelp.dll", import = "SymRegisterCallback64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymRegisterCallback(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackFunction: PSYMBOL_REGISTERED_CALLBACK64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: ULONG64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymRefreshModuleList(hProcess: HANDLE) -> BOOL;
         #[arch(X86)]
+        extern fn SymRegisterCallback(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackFunction: PSYMBOL_REGISTERED_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymRegisterCallback(hProcess: HANDLE, CallbackFunction: PSYMBOL_REGISTERED_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymRegisterCallback64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackFunction: PSYMBOL_REGISTERED_CALLBACK64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: ULONG64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymRegisterCallback64(hProcess: HANDLE, CallbackFunction: PSYMBOL_REGISTERED_CALLBACK64, UserContext: u64) -> BOOL;
+        extern fn SymRegisterCallbackW64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackFunction: PSYMBOL_REGISTERED_CALLBACK64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: ULONG64) -> BOOL;
+        #[library("dbghelp.dll", import = "SymRegisterFunctionEntryCallback64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymRegisterFunctionEntryCallback(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackFunction: PSYMBOL_FUNCENTRY_CALLBACK64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: ULONG64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymRegisterCallbackW64(hProcess: HANDLE, CallbackFunction: PSYMBOL_REGISTERED_CALLBACK64, UserContext: u64) -> BOOL;
         #[arch(X86)]
+        extern fn SymRegisterFunctionEntryCallback(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackFunction: PSYMBOL_FUNCENTRY_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymRegisterFunctionEntryCallback(hProcess: HANDLE, CallbackFunction: PSYMBOL_FUNCENTRY_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymRegisterFunctionEntryCallback64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackFunction: PSYMBOL_FUNCENTRY_CALLBACK64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: ULONG64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymRegisterFunctionEntryCallback64(hProcess: HANDLE, CallbackFunction: PSYMBOL_FUNCENTRY_CALLBACK64, UserContext: u64) -> BOOL;
+        extern fn SymSearch(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymTag: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Mask: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSearch(hProcess: HANDLE, BaseOfDll: u64, #[opt] Index: u32, #[opt] SymTag: u32, #[opt] Mask: PCSTR, #[opt] Address: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void, Options: u32) -> BOOL;
+        extern fn SymSearchW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymTag: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Mask: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: DWORD64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSearchW(hProcess: HANDLE, BaseOfDll: u64, #[opt] Index: u32, #[opt] SymTag: u32, #[opt] Mask: PCWSTR, #[opt] Address: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void, Options: u32) -> BOOL;
+        extern fn SymSetContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StackFrame: PIMAGEHLP_STACK_FRAME, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Context: PIMAGEHLP_CONTEXT) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetContext(hProcess: HANDLE, StackFrame: PIMAGEHLP_STACK_FRAME, #[opt] Context: PIMAGEHLP_CONTEXT) -> BOOL;
+        extern fn SymSetExtendedOption(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] option: IMAGEHLP_EXTENDED_OPTIONS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: BOOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS, value: BOOL) -> BOOL;
+        extern fn SymSetHomeDirectory(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dir: PCSTR) -> PCHAR;
         #[library("dbghelp.dll")]
-        extern fn SymSetHomeDirectory(#[opt] hProcess: HANDLE, #[opt] dir: PCSTR) -> PCHAR;
+        extern fn SymSetHomeDirectoryW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dir: PCWSTR) -> PWSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSetHomeDirectoryW(#[opt] hProcess: HANDLE, #[opt] dir: PCWSTR) -> PWSTR;
+        extern fn SymSetOptions(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymOptions: DWORD) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn SymSetOptions(SymOptions: u32) -> u32;
+        extern fn SymSetParentWindow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetParentWindow(hwnd: HWND) -> BOOL;
+        extern fn SymSetScopeFromAddr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: ULONG64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetScopeFromAddr(hProcess: HANDLE, Address: u64) -> BOOL;
+        extern fn SymSetScopeFromIndex(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetScopeFromIndex(hProcess: HANDLE, BaseOfDll: u64, Index: u32) -> BOOL;
+        extern fn SymSetScopeFromInlineContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InlineContext: ULONG) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetScopeFromInlineContext(hProcess: HANDLE, Address: u64, InlineContext: u32) -> BOOL;
+        extern fn SymSetSearchPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SearchPathA: PCSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetSearchPath(hProcess: HANDLE, #[opt] SearchPathA: PCSTR) -> BOOL;
+        extern fn SymSetSearchPathW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SearchPathA: PCWSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetSearchPathW(hProcess: HANDLE, #[opt] SearchPathA: PCWSTR) -> BOOL;
+        extern fn SymSrvDeltaName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymPath: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File1: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File2: PCSTR) -> PCSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvDeltaName(hProcess: HANDLE, #[opt] SymPath: PCSTR, Type: PCSTR, File1: PCSTR, File2: PCSTR) -> PCSTR;
+        extern fn SymSrvDeltaNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymPath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File1: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File2: PCWSTR) -> PCWSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvDeltaNameW(hProcess: HANDLE, #[opt] SymPath: PCWSTR, Type: PCWSTR, File1: PCWSTR, File2: PCWSTR) -> PCWSTR;
+        extern fn SymSrvGetFileIndexInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCSTR, #[out] Info: PSYMSRV_INDEX_INFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexInfo(File: PCSTR, #[out] Info: PSYMSRV_INDEX_INFO, Flags: u32) -> BOOL;
+        extern fn SymSrvGetFileIndexInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCWSTR, #[out] Info: PSYMSRV_INDEX_INFOW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexInfoW(File: PCWSTR, #[out] Info: PSYMSRV_INDEX_INFOW, Flags: u32) -> BOOL;
+        extern fn SymSrvGetFileIndexString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrvPath: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCSTR, #[out] #[len_param(4)] Index: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: size_t, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexString(hProcess: HANDLE, #[opt] SrvPath: PCSTR, File: PCSTR, #[len_param(4)] #[out] Index: PSTR, Size: usize, Flags: u32) -> BOOL;
+        extern fn SymSrvGetFileIndexStringW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrvPath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCWSTR, #[out] #[len_param(4)] Index: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: size_t, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexStringW(hProcess: HANDLE, #[opt] SrvPath: PCWSTR, File: PCWSTR, #[len_param(4)] #[out] Index: PWSTR, Size: usize, Flags: u32) -> BOOL;
+        extern fn SymSrvGetFileIndexes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCSTR, #[out] Id: *mut GUID, #[out] Val1: PDWORD, #[out] #[opt] Val2: PDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexes(File: PCSTR, Id: *mut GUID, #[out] Val1: PDWORD, #[out] #[opt] Val2: PDWORD, Flags: u32) -> BOOL;
+        extern fn SymSrvGetFileIndexesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCWSTR, #[out] Id: *mut GUID, #[out] Val1: PDWORD, #[out] #[opt] Val2: PDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexesW(File: PCWSTR, Id: *mut GUID, #[out] Val1: PDWORD, #[out] #[opt] Val2: PDWORD, Flags: u32) -> BOOL;
+        extern fn SymSrvGetSupplement(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymPath: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Node: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCSTR) -> PCSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetSupplement(hProcess: HANDLE, #[opt] SymPath: PCSTR, Node: PCSTR, File: PCSTR) -> PCSTR;
+        extern fn SymSrvGetSupplementW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymPath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Node: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCWSTR) -> PCWSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetSupplementW(hProcess: HANDLE, #[opt] SymPath: PCWSTR, Node: PCWSTR, File: PCWSTR) -> PCWSTR;
+        extern fn SymSrvIsStore(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] path: PCSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvIsStore(#[opt] hProcess: HANDLE, path: PCSTR) -> BOOL;
+        extern fn SymSrvIsStoreW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] path: PCWSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvIsStoreW(#[opt] hProcess: HANDLE, path: PCWSTR) -> BOOL;
+        extern fn SymSrvStoreFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrvPath: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> PCSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvStoreFile(hProcess: HANDLE, #[opt] SrvPath: PCSTR, File: PCSTR, Flags: u32) -> PCSTR;
+        extern fn SymSrvStoreFileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrvPath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> PCWSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvStoreFileW(hProcess: HANDLE, #[opt] SrvPath: PCWSTR, File: PCWSTR, Flags: u32) -> PCWSTR;
+        extern fn SymSrvStoreSupplement(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrvPath: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Node: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> PCSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvStoreSupplement(hProcess: HANDLE, #[opt] SrvPath: PCSTR, Node: PCSTR, File: PCSTR, Flags: u32) -> PCSTR;
+        extern fn SymSrvStoreSupplementW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SymPath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Node: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> PCWSTR;
+        #[library("dbghelp.dll", import = "SymUnDName64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymUnDName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sym: PIMAGEHLP_SYMBOL64, #[out] #[len_param(2)] UnDecName: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UnDecNameLength: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvStoreSupplementW(hProcess: HANDLE, #[opt] SymPath: PCWSTR, Node: PCWSTR, File: PCWSTR, Flags: u32) -> PCWSTR;
         #[arch(X86)]
+        extern fn SymUnDName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sym: PIMAGEHLP_SYMBOL, #[out] #[len_param(2)] UnDecName: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UnDecNameLength: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymUnDName(sym: PIMAGEHLP_SYMBOL, #[len_param(2)] #[out] UnDecName: PSTR, UnDecNameLength: u32) -> BOOL;
+        extern fn SymUnDName64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sym: PIMAGEHLP_SYMBOL64, #[out] #[len_param(2)] UnDecName: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UnDecNameLength: DWORD) -> BOOL;
+        #[library("dbghelp.dll", import = "SymUnloadModule64")]
+        #[arch(X64 | Arm64)]
+        extern fn SymUnloadModule(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: DWORD64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymUnDName64(sym: PIMAGEHLP_SYMBOL64, #[len_param(2)] #[out] UnDecName: PSTR, UnDecNameLength: u32) -> BOOL;
         #[arch(X86)]
+        extern fn SymUnloadModule(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymUnloadModule(hProcess: HANDLE, BaseOfDll: u32) -> BOOL;
-        #[library("dbghelp.dll")]
-        extern fn SymUnloadModule64(hProcess: HANDLE, BaseOfDll: u64) -> BOOL;
+        extern fn SymUnloadModule64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseOfDll: DWORD64) -> BOOL;
         const TARGET_ATTRIBUTE_PACMASK: i32 = 1;
         const TARGET_ATTRIBUTE_PACMASK_LIVETARGET: u64 = 18446744073709551615;
+        #[packed(8)]
         struct TI_FINDCHILDREN_PARAMS {
-            Count: u32,
-            Start: u32,
-            ChildId: [u32; 1],
+            Count: ULONG,
+            Start: ULONG,
+            ChildId: [ULONG; 1],
         }
+        #[packed(8)]
         struct TI_GET_DISCRIMINATEDUNION_TAG_RANGES_PARAMS {
-            Count: u32,
-            Start: u32,
+            Count: ULONG,
+            Start: ULONG,
             Range: [DISCRIMINATEDUNION_TAG_VALUE; 1],
         }
         const UNDNAME_32_BIT_DECODE: i32 = 2048;
@@ -1524,9 +1665,12 @@ mod Windows {
         const UNDNAME_NO_THISTYPE: i32 = 96;
         const UNDNAME_NO_THROW_SIGNATURES: i32 = 256;
         #[library("dbghelp.dll")]
-        extern fn UnDecorateSymbolName(name: PCSTR, #[len_param(2)] #[out] outputString: PSTR, maxStringLength: u32, flags: u32) -> u32;
+        extern fn UnDecorateSymbolName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] name: PCSTR, #[out] #[len_param(2)] outputString: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] maxStringLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: DWORD) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn UnDecorateSymbolNameW(name: PCWSTR, #[len_param(2)] #[out] outputString: PWSTR, maxStringLength: u32, flags: u32) -> u32;
+        extern fn UnDecorateSymbolNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] name: PCWSTR, #[out] #[len_param(2)] outputString: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] maxStringLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: DWORD) -> DWORD;
+        #[library("dbghelp.dll")]
+        #[arch(X86)]
+        extern fn UnmapDebugInformation(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_Inexpressible_(unknown)", "_Inexpressible_(unknown)")] #[out] DebugInfo: PIMAGE_DEBUG_INFORMATION) -> BOOL;
         const sevAttn: i32 = 2;
         const sevFatal: i32 = 3;
         const sevInfo: i32 = 0;

@@ -3,10 +3,10 @@ mod Windows {
     mod Win32 {
         struct VDS_INTERCONNECT {
             m_addressType: VDS_INTERCONNECT_ADDRESS_TYPE,
-            m_cbPort: u32,
-            m_pbPort: *mut u8,
-            m_cbAddress: u32,
-            m_pbAddress: *mut u8,
+            m_cbPort: ULONG,
+            m_pbPort: *mut BYTE,
+            m_cbAddress: ULONG,
+            m_pbAddress: *mut BYTE,
         }
         #[repr(i32)]
         enum VDS_INTERCONNECT_ADDRESS_TYPE {
@@ -18,9 +18,9 @@ mod Windows {
             VDS_IA_SCSI = 5,
         }
         struct VDS_LUN_INFORMATION {
-            m_version: u32,
-            m_DeviceType: u8,
-            m_DeviceTypeModifier: u8,
+            m_version: ULONG,
+            m_DeviceType: BYTE,
+            m_DeviceTypeModifier: BYTE,
             m_bCommandQueueing: BOOL,
             m_BusType: VDS_STORAGE_BUS_TYPE,
             m_szVendorId: *mut i8,
@@ -29,7 +29,7 @@ mod Windows {
             m_szSerialNumber: *mut i8,
             m_diskSignature: GUID,
             m_deviceIdDescriptor: VDS_STORAGE_DEVICE_ID_DESCRIPTOR,
-            m_cInterconnects: u32,
+            m_cInterconnects: ULONG,
             m_rgInterconnects: *mut VDS_INTERCONNECT,
         }
         #[repr(i32)]
@@ -58,15 +58,15 @@ mod Windows {
             VDSBusTypeMaxReserved = 127,
         }
         struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
-            m_version: u32,
-            m_cIdentifiers: u32,
+            m_version: ULONG,
+            m_cIdentifiers: ULONG,
             m_rgIdentifiers: *mut VDS_STORAGE_IDENTIFIER,
         }
         struct VDS_STORAGE_IDENTIFIER {
             m_CodeSet: VDS_STORAGE_IDENTIFIER_CODE_SET,
             m_Type: VDS_STORAGE_IDENTIFIER_TYPE,
-            m_cbIdentifier: u32,
-            m_rgbIdentifier: *mut u8,
+            m_cbIdentifier: ULONG,
+            m_rgbIdentifier: *mut BYTE,
         }
         #[repr(i32)]
         enum VDS_STORAGE_IDENTIFIER_CODE_SET {

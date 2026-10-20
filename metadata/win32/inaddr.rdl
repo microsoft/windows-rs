@@ -4,16 +4,16 @@ mod Windows {
         struct IN_ADDR {
             S_un: union {
                 S_un_b: struct {
-                    s_b1: u8,
-                    s_b2: u8,
-                    s_b3: u8,
-                    s_b4: u8,
+                    s_b1: UCHAR,
+                    s_b2: UCHAR,
+                    s_b3: UCHAR,
+                    s_b4: UCHAR,
                 },
                 S_un_w: struct {
-                    s_w1: u16,
-                    s_w2: u16,
+                    s_w1: USHORT,
+                    s_w2: USHORT,
                 },
-                S_addr: u32,
+                S_addr: ULONG,
             },
         }
         type LPIN_ADDR = *mut IN_ADDR;

@@ -10,16 +10,25 @@ mod Windows {
         const BMREQUEST_TO_INTERFACE: i32 = 1;
         const BMREQUEST_TO_OTHER: i32 = 3;
         const BMREQUEST_VENDOR: i32 = 2;
+        #[packed(1)]
         union BM_REQUEST_TYPE {
-            s: _BM,
-            B: u8,
+            #[packed(1)]
+            struct _BM {
+                #[Windows::Win32::Metadata::NativeBitfield("Dir", 7, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Recipient", 0, 2, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 3, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Type", 5, 2, MemberType = UCHAR)]
+                _bitfield: u8,
+            }
+            s: BM_REQUEST_TYPE::_BM,
+            B: UCHAR,
         }
         #[packed(1)]
         struct EUSB2_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            wMaxPacketSize: u16,
-            dwBytesPerInterval: u32,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            wMaxPacketSize: USHORT,
+            dwBytesPerInterval: ULONG,
         }
         const EUSB2_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: i32 = 18;
         const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: GUID = 0xd8dd60df_4589_4cc7_9cd2_659d9e648a9f;
@@ -88,37 +97,35 @@ mod Windows {
         const USB_20_HUB_DESCRIPTOR_TYPE: i32 = 41;
         #[packed(1)]
         union USB_20_PORT_CHANGE {
-            AsUshort16: u16,
+            AsUshort16: USHORT,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16 {
-                    ConnectStatusChange: 1,
-                    PortEnableDisableChange: 1,
-                    SuspendChange: 1,
-                    OverCurrentIndicatorChange: 1,
-                    ResetChange: 1,
-                    Reserved2: 11,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("ConnectStatusChange", 0, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("OverCurrentIndicatorChange", 3, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("PortEnableDisableChange", 1, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 5, 11, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("ResetChange", 4, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("SuspendChange", 2, 1, MemberType = USHORT)]
+                _bitfield: u16,
             },
         }
         #[packed(1)]
         union USB_20_PORT_STATUS {
-            AsUshort16: u16,
+            AsUshort16: USHORT,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16 {
-                    CurrentConnectStatus: 1,
-                    PortEnabledDisabled: 1,
-                    Suspend: 1,
-                    OverCurrent: 1,
-                    Reset: 1,
-                    L1: 1,
-                    Reserved0: 2,
-                    PortPower: 1,
-                    LowSpeedDeviceAttached: 1,
-                    HighSpeedDeviceAttached: 1,
-                    PortTestMode: 1,
-                    PortIndicatorControl: 1,
-                    Reserved1: 3,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("CurrentConnectStatus", 0, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("HighSpeedDeviceAttached", 10, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("L1", 5, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("LowSpeedDeviceAttached", 9, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("OverCurrent", 3, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("PortEnabledDisabled", 1, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("PortIndicatorControl", 12, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("PortPower", 8, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("PortTestMode", 11, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 6, 2, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 13, 3, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reset", 4, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Suspend", 2, 1, MemberType = USHORT)]
+                _bitfield: u16,
             },
         }
         const USB_30_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: i32 = 204;
@@ -129,94 +136,93 @@ mod Windows {
         const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED11: i32 = 48;
         #[packed(1)]
         struct USB_30_HUB_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bNumberOfPorts: u8,
-            wHubCharacteristics: u16,
-            bPowerOnToPowerGood: u8,
-            bHubControlCurrent: u8,
-            bHubHdrDecLat: u8,
-            wHubDelay: u16,
-            DeviceRemovable: u16,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bNumberOfPorts: UCHAR,
+            wHubCharacteristics: USHORT,
+            bPowerOnToPowerGood: UCHAR,
+            bHubControlCurrent: UCHAR,
+            bHubHdrDecLat: UCHAR,
+            wHubDelay: USHORT,
+            DeviceRemovable: USHORT,
         }
         const USB_30_HUB_DESCRIPTOR_TYPE: i32 = 42;
         #[packed(1)]
         union USB_30_PORT_CHANGE {
-            AsUshort16: u16,
+            AsUshort16: USHORT,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16 {
-                    ConnectStatusChange: 1,
-                    Reserved2: 2,
-                    OverCurrentIndicatorChange: 1,
-                    ResetChange: 1,
-                    BHResetChange: 1,
-                    PortLinkStateChange: 1,
-                    PortConfigErrorChange: 1,
-                    Reserved3: 8,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("BHResetChange", 5, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("ConnectStatusChange", 0, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("OverCurrentIndicatorChange", 3, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("PortConfigErrorChange", 7, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("PortLinkStateChange", 6, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 1, 2, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved3", 8, 8, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("ResetChange", 4, 1, MemberType = USHORT)]
+                _bitfield: u16,
             },
         }
         #[packed(1)]
         union USB_30_PORT_STATUS {
-            AsUshort16: u16,
+            AsUshort16: USHORT,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16 {
-                    CurrentConnectStatus: 1,
-                    PortEnabledDisabled: 1,
-                    Reserved0: 1,
-                    OverCurrent: 1,
-                    Reset: 1,
-                    PortLinkState: 4,
-                    PortPower: 1,
-                    NegotiatedDeviceSpeed: 3,
-                    Reserved1: 3,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("CurrentConnectStatus", 0, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("NegotiatedDeviceSpeed", 10, 3, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("OverCurrent", 3, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("PortEnabledDisabled", 1, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("PortLinkState", 5, 4, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("PortPower", 9, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 2, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 13, 3, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reset", 4, 1, MemberType = USHORT)]
+                _bitfield: u16,
             },
         }
         const USB_ALLOW_FIRMWARE_UPDATE: i32 = 1;
         #[packed(1)]
         struct USB_BOS_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            wTotalLength: u16,
-            bNumDeviceCaps: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            wTotalLength: USHORT,
+            bNumDeviceCaps: UCHAR,
         }
         const USB_BOS_DESCRIPTOR_TYPE: i32 = 15;
         const USB_CHARGING_POLICY_DEFAULT: i32 = 0;
         const USB_CHARGING_POLICY_ICCHPF: i32 = 1;
         const USB_CHARGING_POLICY_ICCLPF: i32 = 2;
         const USB_CHARGING_POLICY_NO_POWER: i32 = 3;
+        #[packed(1)]
         struct USB_COMMON_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
         }
         #[packed(1)]
         struct USB_CONFIGURATION_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            wTotalLength: u16,
-            bNumInterfaces: u8,
-            bConfigurationValue: u8,
-            iConfiguration: u8,
-            bmAttributes: u8,
-            MaxPower: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            wTotalLength: USHORT,
+            bNumInterfaces: UCHAR,
+            bConfigurationValue: UCHAR,
+            iConfiguration: UCHAR,
+            bmAttributes: UCHAR,
+            MaxPower: UCHAR,
         }
         const USB_CONFIGURATION_DESCRIPTOR_TYPE: i32 = 2;
         #[packed(1)]
         struct USB_CONFIGURATION_POWER_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            SelfPowerConsumedD0: [u8; 3],
-            bPowerSummaryId: u8,
-            bBusPowerSavingD1: u8,
-            bSelfPowerSavingD1: u8,
-            bBusPowerSavingD2: u8,
-            bSelfPowerSavingD2: u8,
-            bBusPowerSavingD3: u8,
-            bSelfPowerSavingD3: u8,
-            TransitionTimeFromD1: u16,
-            TransitionTimeFromD2: u16,
-            TransitionTimeFromD3: u16,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            SelfPowerConsumedD0: [UCHAR; 3],
+            bPowerSummaryId: UCHAR,
+            bBusPowerSavingD1: UCHAR,
+            bSelfPowerSavingD1: UCHAR,
+            bBusPowerSavingD2: UCHAR,
+            bSelfPowerSavingD2: UCHAR,
+            bBusPowerSavingD3: UCHAR,
+            bSelfPowerSavingD3: UCHAR,
+            TransitionTimeFromD1: USHORT,
+            TransitionTimeFromD2: USHORT,
+            TransitionTimeFromD3: USHORT,
         }
         const USB_CONFIG_BUS_POWERED: i32 = 128;
         const USB_CONFIG_POWERED_MASK: i32 = 192;
@@ -227,70 +233,87 @@ mod Windows {
         const USB_DEBUG_DESCRIPTOR_TYPE: i32 = 10;
         #[packed(1)]
         struct USB_DEFAULT_PIPE_SETUP_PACKET {
+            #[packed(1)]
+            union _wIndex {
+                Anonymous: #[packed(1)] struct {
+                    LowByte: UCHAR,
+                    HiByte: UCHAR,
+                },
+                W: USHORT,
+            }
+            #[packed(1)]
+            union _wValue {
+                Anonymous: #[packed(1)] struct {
+                    LowByte: UCHAR,
+                    HiByte: UCHAR,
+                },
+                W: USHORT,
+            }
             bmRequestType: BM_REQUEST_TYPE,
-            bRequest: u8,
-            wValue: _wValue,
-            wIndex: _wIndex,
-            wLength: u16,
+            bRequest: UCHAR,
+            wValue: USB_DEFAULT_PIPE_SETUP_PACKET::_wValue,
+            wIndex: USB_DEFAULT_PIPE_SETUP_PACKET::_wIndex,
+            wLength: USHORT,
         }
         const USB_DEVICE_CAPABILITY_BATTERY_INFO: i32 = 7;
         const USB_DEVICE_CAPABILITY_BILLBOARD: i32 = 13;
         #[packed(1)]
         struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bDevCapabilityType: u8,
-            iAddtionalInfoURL: u8,
-            bNumberOfAlternateModes: u8,
-            bPreferredAlternateMode: u8,
+            #[packed(1)]
+            struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_9 {
+                wSVID: USHORT,
+                bAlternateMode: UCHAR,
+                iAlternateModeSetting: UCHAR,
+            }
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bDevCapabilityType: UCHAR,
+            iAddtionalInfoURL: UCHAR,
+            bNumberOfAlternateModes: UCHAR,
+            bPreferredAlternateMode: UCHAR,
             VconnPower: #[packed(1)] union {
-                AsUshort: u16,
+                AsUshort: USHORT,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u16 {
-                        VConnPowerNeededForFullFunctionality: 3,
-                        Reserved: 12,
-                        NoVconnPowerRequired: 1,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("NoVconnPowerRequired", 15, 1, MemberType = USHORT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 3, 12, MemberType = USHORT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("VConnPowerNeededForFullFunctionality", 0, 3, MemberType = USHORT)]
+                    _bitfield: u16,
                 },
             },
-            bmConfigured: [u8; 32],
-            bReserved: u32,
-            AlternateMode: [USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1; 1],
-        }
-        #[packed(1)]
-        struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
-            wSVID: u16,
-            bAlternateMode: u8,
-            iAlternateModeSetting: u8,
+            bmConfigured: [UCHAR; 32],
+            bReserved: ULONG,
+            AlternateMode: [USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR::USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_9; 1],
         }
         const USB_DEVICE_CAPABILITY_CONTAINER_ID: i32 = 4;
+        #[packed(1)]
         struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bDevCapabilityType: u8,
-            bReserved: u8,
-            ContainerID: [u8; 16],
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bDevCapabilityType: UCHAR,
+            bReserved: UCHAR,
+            ContainerID: [UCHAR; 16],
         }
+        #[packed(1)]
         struct USB_DEVICE_CAPABILITY_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bDevCapabilityType: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bDevCapabilityType: UCHAR,
         }
         const USB_DEVICE_CAPABILITY_DESCRIPTOR_TYPE: i32 = 16;
         const USB_DEVICE_CAPABILITY_FIRMWARE_STATUS: i32 = 17;
+        #[packed(1)]
         struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bDevCapabilityType: u8,
-            bcdDescriptorVersion: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bDevCapabilityType: UCHAR,
+            bcdDescriptorVersion: UCHAR,
             bmAttributes: #[packed(1)] union {
-                AsUlong: u32,
+                AsUlong: ULONG,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32 {
-                        GetFirmwareImageHashSupport: 1,
-                        DisallowFirmwareUpdateSupport: 1,
-                        Reserved: 30,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("DisallowFirmwareUpdateSupport", 1, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("GetFirmwareImageHashSupport", 0, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = ULONG)]
+                    _bitfield: u32,
                 },
             },
         }
@@ -299,87 +322,84 @@ mod Windows {
         const USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT: i32 = 8;
         #[packed(1)]
         struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bDevCapabilityType: u8,
-            bReserved: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bDevCapabilityType: UCHAR,
+            bReserved: UCHAR,
             bmCapabilities: #[packed(1)] union {
-                AsUshort: u16,
+                AsUshort: USHORT,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u16 {
-                        BatteryCharging: 1,
-                        USBPowerDelivery: 1,
-                        USBTypeCCurrent: 1,
-                        Reserved: 13,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("BatteryCharging", 0, 1, MemberType = USHORT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 3, 13, MemberType = USHORT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("USBPowerDelivery", 1, 1, MemberType = USHORT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("USBTypeCCurrent", 2, 1, MemberType = USHORT)]
+                    _bitfield: u16,
                 },
             },
-            wMinVoltage: u16,
-            wMaxVoltage: u16,
-            wReserved: u16,
-            dwMaxOperatingPower: u32,
-            dwMaxPeakPower: u32,
-            dwMaxPeakPowerTime: u32,
+            wMinVoltage: USHORT,
+            wMaxVoltage: USHORT,
+            wReserved: USHORT,
+            dwMaxOperatingPower: ULONG,
+            dwMaxPeakPower: ULONG,
+            dwMaxPeakPowerTime: ULONG,
         }
         const USB_DEVICE_CAPABILITY_PD_PROVIDER_PORT: i32 = 9;
         const USB_DEVICE_CAPABILITY_PLATFORM: i32 = 5;
         #[packed(1)]
         struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bDevCapabilityType: u8,
-            bReserved: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bDevCapabilityType: UCHAR,
+            bReserved: UCHAR,
             PlatformCapabilityUuid: GUID,
-            CapabililityData: [u8; 1],
+            CapabililityData: [UCHAR; 1],
         }
         const USB_DEVICE_CAPABILITY_POWER_DELIVERY: i32 = 6;
         #[packed(1)]
         struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bDevCapabilityType: u8,
-            bReserved: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bDevCapabilityType: UCHAR,
+            bReserved: UCHAR,
             bmAttributes: #[packed(1)] union {
-                AsUlong: u32,
+                AsUlong: ULONG,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32 {
-                        Reserved1: 1,
-                        BatteryCharging: 1,
-                        USBPowerDelivery: 1,
-                        Provider: 1,
-                        Consumer: 1,
-                        ChargingPolicy: 1,
-                        TypeCCurrent: 1,
-                        Reserved2: 1,
-                        ACSupply: 1,
-                        Battery: 1,
-                        Other: 1,
-                        NumBatteries: 3,
-                        UsesVbus: 1,
-                        Reserved3: 17,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("ACSupply", 8, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Battery", 9, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("BatteryCharging", 1, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("ChargingPolicy", 5, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Consumer", 4, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NumBatteries", 11, 3, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Other", 10, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Provider", 3, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 0, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 7, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved3", 15, 17, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("TypeCCurrent", 6, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("USBPowerDelivery", 2, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("UsesVbus", 14, 1, MemberType = ULONG)]
+                    _bitfield: u32,
                 },
             },
-            bmProviderPorts: u16,
-            bmConsumerPorts: u16,
-            bcdBCVersion: u16,
-            bcdPDVersion: u16,
-            bcdUSBTypeCVersion: u16,
+            bmProviderPorts: USHORT,
+            bmConsumerPorts: USHORT,
+            bcdBCVersion: USHORT,
+            bcdPDVersion: USHORT,
+            bcdUSBTypeCVersion: USHORT,
         }
         const USB_DEVICE_CAPABILITY_PRECISION_TIME_MEASUREMENT: i32 = 11;
         #[packed(1)]
         union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
-            AsUlong32: u32,
+            AsUlong32: ULONG,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32 {
-                    SublinkSpeedAttrID: 4,
-                    LaneSpeedExponent: 2,
-                    SublinkTypeMode: 1,
-                    SublinkTypeDir: 1,
-                    Reserved: 6,
-                    LinkProtocol: 2,
-                    LaneSpeedMantissa: 16,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("LaneSpeedExponent", 4, 2, MemberType = ULONG)]
+                #[Windows::Win32::Metadata::NativeBitfield("LaneSpeedMantissa", 16, 16, MemberType = ULONG)]
+                #[Windows::Win32::Metadata::NativeBitfield("LinkProtocol", 14, 2, MemberType = ULONG)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 8, 6, MemberType = ULONG)]
+                #[Windows::Win32::Metadata::NativeBitfield("SublinkSpeedAttrID", 0, 4, MemberType = ULONG)]
+                #[Windows::Win32::Metadata::NativeBitfield("SublinkTypeDir", 7, 1, MemberType = ULONG)]
+                #[Windows::Win32::Metadata::NativeBitfield("SublinkTypeMode", 6, 1, MemberType = ULONG)]
+                _bitfield: u32,
             },
         }
         const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_RX: i32 = 0;
@@ -395,32 +415,30 @@ mod Windows {
         const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB: i32 = 10;
         #[packed(1)]
         struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bDevCapabilityType: u8,
-            bReserved: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bDevCapabilityType: UCHAR,
+            bReserved: UCHAR,
             bmAttributes: #[packed(1)] union {
-                AsUlong: u32,
+                AsUlong: ULONG,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32 {
-                        SublinkSpeedAttrCount: 5,
-                        SublinkSpeedIDCount: 4,
-                        Reserved: 23,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 9, 23, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SublinkSpeedAttrCount", 0, 5, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SublinkSpeedIDCount", 5, 4, MemberType = ULONG)]
+                    _bitfield: u32,
                 },
             },
             wFunctionalitySupport: #[packed(1)] union {
-                AsUshort: u16,
+                AsUshort: USHORT,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u16 {
-                        SublinkSpeedAttrID: 4,
-                        Reserved: 4,
-                        MinRxLaneCount: 4,
-                        MinTxLaneCount: 4,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("MinRxLaneCount", 8, 4, MemberType = USHORT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("MinTxLaneCount", 12, 4, MemberType = USHORT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 4, 4, MemberType = USHORT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SublinkSpeedAttrID", 0, 4, MemberType = USHORT)]
+                    _bitfield: u16,
                 },
             },
-            wReserved: u16,
+            wReserved: USHORT,
             bmSublinkSpeedAttr: [USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED; 1],
         }
         const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_LTM_CAPABLE: i32 = 2;
@@ -435,35 +453,35 @@ mod Windows {
         const USB_DEVICE_CAPABILITY_SUPERSPEED_USB: i32 = 3;
         #[packed(1)]
         struct USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bDevCapabilityType: u8,
-            bmAttributes: u8,
-            wSpeedsSupported: u16,
-            bFunctionalitySupport: u8,
-            bU1DevExitLat: u8,
-            wU2DevExitLat: u16,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bDevCapabilityType: UCHAR,
+            bmAttributes: UCHAR,
+            wSpeedsSupported: USHORT,
+            bFunctionalitySupport: UCHAR,
+            bU1DevExitLat: UCHAR,
+            wU2DevExitLat: USHORT,
         }
         const USB_DEVICE_CAPABILITY_USB20_EXTENSION: i32 = 2;
         const USB_DEVICE_CAPABILITY_USB20_EXTENSION_BMATTRIBUTES_RESERVED_MASK: u32 = 4294901985;
+        #[packed(1)]
         struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bDevCapabilityType: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bDevCapabilityType: UCHAR,
             bmAttributes: #[packed(1)] union {
-                AsUlong: u32,
+                AsUlong: ULONG,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32 {
-                        Reserved: 1,
-                        LPMCapable: 1,
-                        BESLAndAlternateHIRDSupported: 1,
-                        BaselineBESLValid: 1,
-                        DeepBESLValid: 1,
-                        Reserved1: 3,
-                        BaselineBESL: 4,
-                        DeepBESL: 4,
-                        Reserved2: 16,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("BESLAndAlternateHIRDSupported", 2, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("BaselineBESL", 8, 4, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("BaselineBESLValid", 3, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DeepBESL", 12, 4, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DeepBESLValid", 4, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("LPMCapable", 1, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 0, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 5, 3, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 16, 16, MemberType = ULONG)]
+                    _bitfield: u32,
                 },
             },
         }
@@ -493,34 +511,34 @@ mod Windows {
         const USB_DEVICE_CLASS_WIRELESS_CONTROLLER: i32 = 224;
         #[packed(1)]
         struct USB_DEVICE_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bcdUSB: u16,
-            bDeviceClass: u8,
-            bDeviceSubClass: u8,
-            bDeviceProtocol: u8,
-            bMaxPacketSize0: u8,
-            idVendor: u16,
-            idProduct: u16,
-            bcdDevice: u16,
-            iManufacturer: u8,
-            iProduct: u8,
-            iSerialNumber: u8,
-            bNumConfigurations: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bcdUSB: USHORT,
+            bDeviceClass: UCHAR,
+            bDeviceSubClass: UCHAR,
+            bDeviceProtocol: UCHAR,
+            bMaxPacketSize0: UCHAR,
+            idVendor: USHORT,
+            idProduct: USHORT,
+            bcdDevice: USHORT,
+            iManufacturer: UCHAR,
+            iProduct: UCHAR,
+            iSerialNumber: UCHAR,
+            bNumConfigurations: UCHAR,
         }
         const USB_DEVICE_DESCRIPTOR_TYPE: i32 = 1;
         const USB_DEVICE_FIRMWARE_HASH_LENGTH: i32 = 32;
         #[packed(1)]
         struct USB_DEVICE_QUALIFIER_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bcdUSB: u16,
-            bDeviceClass: u8,
-            bDeviceSubClass: u8,
-            bDeviceProtocol: u8,
-            bMaxPacketSize0: u8,
-            bNumConfigurations: u8,
-            bReserved: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bcdUSB: USHORT,
+            bDeviceClass: UCHAR,
+            bDeviceSubClass: UCHAR,
+            bDeviceProtocol: UCHAR,
+            bMaxPacketSize0: UCHAR,
+            bNumConfigurations: UCHAR,
+            bReserved: UCHAR,
         }
         const USB_DEVICE_QUALIFIER_DESCRIPTOR_TYPE: i32 = 6;
         #[repr(i32)]
@@ -532,16 +550,15 @@ mod Windows {
         }
         #[packed(1)]
         union USB_DEVICE_STATUS {
-            AsUshort16: u16,
+            AsUshort16: USHORT,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16 {
-                    SelfPowered: 1,
-                    RemoteWakeup: 1,
-                    U1Enable: 1,
-                    U2Enable: 1,
-                    LtmEnable: 1,
-                    Reserved: 11,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("LtmEnable", 4, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("RemoteWakeup", 1, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 5, 11, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("SelfPowered", 0, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("U1Enable", 2, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("U2Enable", 3, 1, MemberType = USHORT)]
+                _bitfield: u16,
             },
         }
         #[repr(i32)]
@@ -553,23 +570,22 @@ mod Windows {
         const USB_ENDPOINT_ADDRESS_MASK: i32 = 15;
         #[packed(1)]
         struct USB_ENDPOINT_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bEndpointAddress: u8,
-            bmAttributes: u8,
-            wMaxPacketSize: u16,
-            bInterval: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bEndpointAddress: UCHAR,
+            bmAttributes: UCHAR,
+            wMaxPacketSize: USHORT,
+            bInterval: UCHAR,
         }
         const USB_ENDPOINT_DESCRIPTOR_TYPE: i32 = 5;
         const USB_ENDPOINT_DIRECTION_MASK: i32 = 128;
         #[packed(1)]
         union USB_ENDPOINT_STATUS {
-            AsUshort16: u16,
+            AsUshort16: USHORT,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16 {
-                    Halt: 1,
-                    Reserved: 15,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("Halt", 0, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 1, 15, MemberType = USHORT)]
+                _bitfield: u16,
             },
         }
         const USB_ENDPOINT_SUPERSPEED_BULK_MAX_PACKET_SIZE: i32 = 1024;
@@ -610,14 +626,14 @@ mod Windows {
         const USB_FEATURE_TEST_MODE: i32 = 2;
         const USB_FEATURE_U1_ENABLE: i32 = 48;
         const USB_FEATURE_U2_ENABLE: i32 = 49;
+        #[packed(1)]
         union USB_FUNCTION_SUSPEND_OPTIONS {
-            AsUchar: u8,
-            Anonymous: struct {
-                _bitfield: u8 {
-                    PowerState: 1,
-                    RemoteWakeEnabled: 1,
-                    Reserved: 6,
-                },
+            AsUchar: UCHAR,
+            Anonymous: #[packed(1)] struct {
+                #[Windows::Win32::Metadata::NativeBitfield("PowerState", 0, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("RemoteWakeEnabled", 1, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 6, MemberType = UCHAR)]
+                _bitfield: u8,
             },
         }
         const USB_GETSTATUS_LTM_ENABLE: i32 = 16;
@@ -631,148 +647,153 @@ mod Windows {
         const USB_HIGHSPEED_EUSB2_ISOCHRONOUS_MIN_BYTESPERINTERVAL: i32 = 3073;
         #[packed(1)]
         union USB_HIGH_SPEED_MAXPACKET {
-            us: u16,
+            #[packed(1)]
+            struct _MP {
+                #[Windows::Win32::Metadata::NativeBitfield("HSmux", 11, 2, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("MaxPacket", 0, 11, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 13, 3, MemberType = USHORT)]
+                _bitfield: u16,
+            }
+            us: USHORT,
         }
+        #[packed(1)]
         union USB_HUB_30_PORT_REMOTE_WAKE_MASK {
-            AsUchar8: u8,
-            Anonymous: struct {
-                _bitfield: u8 {
-                    ConnectRemoteWakeEnable: 1,
-                    DisconnectRemoteWakeEnable: 1,
-                    OverCurrentRemoteWakeEnable: 1,
-                    Reserved0: 5,
-                },
+            AsUchar8: UCHAR,
+            Anonymous: #[packed(1)] struct {
+                #[Windows::Win32::Metadata::NativeBitfield("ConnectRemoteWakeEnable", 0, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("DisconnectRemoteWakeEnable", 1, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("OverCurrentRemoteWakeEnable", 2, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 3, 5, MemberType = UCHAR)]
+                _bitfield: u8,
             },
         }
         #[packed(1)]
         union USB_HUB_CHANGE {
-            AsUshort16: u16,
+            AsUshort16: USHORT,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16 {
-                    LocalPowerChange: 1,
-                    OverCurrentChange: 1,
-                    Reserved: 14,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("LocalPowerChange", 0, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("OverCurrentChange", 1, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 14, MemberType = USHORT)]
+                _bitfield: u16,
             },
         }
         #[packed(1)]
         struct USB_HUB_DESCRIPTOR {
-            bDescriptorLength: u8,
-            bDescriptorType: u8,
-            bNumberOfPorts: u8,
-            wHubCharacteristics: u16,
-            bPowerOnToPowerGood: u8,
-            bHubControlCurrent: u8,
-            bRemoveAndPowerMask: [u8; 64],
+            bDescriptorLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bNumberOfPorts: UCHAR,
+            wHubCharacteristics: USHORT,
+            bPowerOnToPowerGood: UCHAR,
+            bHubControlCurrent: UCHAR,
+            bRemoveAndPowerMask: [UCHAR; 64],
         }
         #[packed(1)]
         union USB_HUB_STATUS {
-            AsUshort16: u16,
+            AsUshort16: USHORT,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16 {
-                    LocalPowerLost: 1,
-                    OverCurrent: 1,
-                    Reserved: 14,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("LocalPowerLost", 0, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("OverCurrent", 1, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 14, MemberType = USHORT)]
+                _bitfield: u16,
             },
         }
         #[packed(1)]
         union USB_HUB_STATUS_AND_CHANGE {
-            AsUlong32: u32,
-            Anonymous: struct {
+            AsUlong32: ULONG,
+            Anonymous: #[packed(1)] struct {
                 HubStatus: USB_HUB_STATUS,
                 HubChange: USB_HUB_CHANGE,
             },
         }
+        #[packed(1)]
         struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bFirstInterface: u8,
-            bInterfaceCount: u8,
-            bFunctionClass: u8,
-            bFunctionSubClass: u8,
-            bFunctionProtocol: u8,
-            iFunction: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bFirstInterface: UCHAR,
+            bInterfaceCount: UCHAR,
+            bFunctionClass: UCHAR,
+            bFunctionSubClass: UCHAR,
+            bFunctionProtocol: UCHAR,
+            iFunction: UCHAR,
         }
         const USB_INTERFACE_ASSOCIATION_DESCRIPTOR_TYPE: i32 = 11;
+        #[packed(1)]
         struct USB_INTERFACE_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bInterfaceNumber: u8,
-            bAlternateSetting: u8,
-            bNumEndpoints: u8,
-            bInterfaceClass: u8,
-            bInterfaceSubClass: u8,
-            bInterfaceProtocol: u8,
-            iInterface: u8,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bInterfaceNumber: UCHAR,
+            bAlternateSetting: UCHAR,
+            bNumEndpoints: UCHAR,
+            bInterfaceClass: UCHAR,
+            bInterfaceSubClass: UCHAR,
+            bInterfaceProtocol: UCHAR,
+            iInterface: UCHAR,
         }
         const USB_INTERFACE_DESCRIPTOR_TYPE: i32 = 4;
         #[packed(1)]
         struct USB_INTERFACE_POWER_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bmCapabilitiesFlags: u8,
-            bBusPowerSavingD1: u8,
-            bSelfPowerSavingD1: u8,
-            bBusPowerSavingD2: u8,
-            bSelfPowerSavingD2: u8,
-            bBusPowerSavingD3: u8,
-            bSelfPowerSavingD3: u8,
-            TransitionTimeFromD1: u16,
-            TransitionTimeFromD2: u16,
-            TransitionTimeFromD3: u16,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bmCapabilitiesFlags: UCHAR,
+            bBusPowerSavingD1: UCHAR,
+            bSelfPowerSavingD1: UCHAR,
+            bBusPowerSavingD2: UCHAR,
+            bSelfPowerSavingD2: UCHAR,
+            bBusPowerSavingD3: UCHAR,
+            bSelfPowerSavingD3: UCHAR,
+            TransitionTimeFromD1: USHORT,
+            TransitionTimeFromD2: USHORT,
+            TransitionTimeFromD3: USHORT,
         }
         const USB_INTERFACE_POWER_DESCRIPTOR_TYPE: i32 = 8;
         #[packed(1)]
         union USB_INTERFACE_STATUS {
-            AsUshort16: u16,
+            AsUshort16: USHORT,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16 {
-                    RemoteWakeupCapable: 1,
-                    RemoteWakeupEnabled: 1,
-                    Reserved: 14,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("RemoteWakeupCapable", 0, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("RemoteWakeupEnabled", 1, 1, MemberType = USHORT)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 14, MemberType = USHORT)]
+                _bitfield: u16,
             },
         }
         const USB_OTG_DESCRIPTOR_TYPE: i32 = 9;
         const USB_OTHER_SPEED_CONFIGURATION_DESCRIPTOR_TYPE: i32 = 7;
         #[packed(1)]
         union USB_PORT_CHANGE {
-            AsUshort16: u16,
+            AsUshort16: USHORT,
             Usb20PortChange: USB_20_PORT_CHANGE,
             Usb30PortChange: USB_30_PORT_CHANGE,
         }
         #[packed(1)]
         union USB_PORT_EXT_STATUS {
-            AsUlong32: u32,
+            AsUlong32: ULONG,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32 {
-                    RxSublinkSpeedID: 4,
-                    TxSublinkSpeedID: 4,
-                    RxLaneCount: 4,
-                    TxLaneCount: 4,
-                    Reserved: 16,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 16, 16, MemberType = ULONG)]
+                #[Windows::Win32::Metadata::NativeBitfield("RxLaneCount", 8, 4, MemberType = ULONG)]
+                #[Windows::Win32::Metadata::NativeBitfield("RxSublinkSpeedID", 0, 4, MemberType = ULONG)]
+                #[Windows::Win32::Metadata::NativeBitfield("TxLaneCount", 12, 4, MemberType = ULONG)]
+                #[Windows::Win32::Metadata::NativeBitfield("TxSublinkSpeedID", 4, 4, MemberType = ULONG)]
+                _bitfield: u32,
             },
         }
         #[packed(1)]
         union USB_PORT_EXT_STATUS_AND_CHANGE {
-            AsUlong64: u64,
-            Anonymous: struct {
+            AsUlong64: ULONG64,
+            Anonymous: #[packed(1)] struct {
                 PortStatusChange: USB_PORT_STATUS_AND_CHANGE,
                 PortExtStatus: USB_PORT_EXT_STATUS,
             },
         }
         #[packed(1)]
         union USB_PORT_STATUS {
-            AsUshort16: u16,
+            AsUshort16: USHORT,
             Usb20PortStatus: USB_20_PORT_STATUS,
             Usb30PortStatus: USB_30_PORT_STATUS,
         }
         #[packed(1)]
         union USB_PORT_STATUS_AND_CHANGE {
-            AsUlong32: u32,
-            Anonymous: struct {
+            AsUlong32: ULONG,
+            Anonymous: #[packed(1)] struct {
                 PortStatus: USB_PORT_STATUS,
                 PortChange: USB_PORT_CHANGE,
             },
@@ -813,43 +834,41 @@ mod Windows {
         const USB_STATUS_PORT_STATUS: i32 = 0;
         #[packed(1)]
         struct USB_STRING_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bString: [u16; 1],
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bString: [WCHAR; 1],
         }
         const USB_STRING_DESCRIPTOR_TYPE: i32 = 3;
         const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MAX_BYTESPERINTERVAL: i32 = 16777215;
         const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MIN_BYTESPERINTERVAL: i32 = 49153;
         #[packed(1)]
         struct USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            wReserved: u16,
-            dwBytesPerInterval: u32,
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            wReserved: USHORT,
+            dwBytesPerInterval: ULONG,
         }
         const USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: i32 = 49;
         #[packed(1)]
         struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
-            bLength: u8,
-            bDescriptorType: u8,
-            bMaxBurst: u8,
-            bmAttributes: union {
-                AsUchar: u8,
-                Bulk: struct {
-                    _bitfield: u8 {
-                        MaxStreams: 5,
-                        Reserved1: 3,
-                    },
+            bLength: UCHAR,
+            bDescriptorType: UCHAR,
+            bMaxBurst: UCHAR,
+            bmAttributes: #[packed(1)] union {
+                AsUchar: UCHAR,
+                Bulk: #[packed(1)] struct {
+                    #[Windows::Win32::Metadata::NativeBitfield("MaxStreams", 0, 5, MemberType = UCHAR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 5, 3, MemberType = UCHAR)]
+                    _bitfield: u8,
                 },
-                Isochronous: struct {
-                    _bitfield: u8 {
-                        Mult: 2,
-                        Reserved2: 5,
-                        SspCompanion: 1,
-                    },
+                Isochronous: #[packed(1)] struct {
+                    #[Windows::Win32::Metadata::NativeBitfield("Mult", 0, 2, MemberType = UCHAR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 2, 5, MemberType = UCHAR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SspCompanion", 7, 1, MemberType = UCHAR)]
+                    _bitfield: u8,
                 },
             },
-            wBytesPerInterval: u16,
+            wBytesPerInterval: USHORT,
         }
         const USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: i32 = 48;
         const USB_SUPERSPEED_ISOCHRONOUS_MAX_MULTIPLIER: i32 = 2;
@@ -859,29 +878,5 @@ mod Windows {
         const USB_SUPPORT_D2_COMMAND: i32 = 4;
         const USB_SUPPORT_D2_WAKEUP: i32 = 32;
         const USB_SUPPORT_D3_COMMAND: i32 = 8;
-        struct _BM {
-            _bitfield: u8 {
-                Recipient: 2,
-                Reserved: 3,
-                Type: 2,
-                Dir: 1,
-            },
-        }
-        #[packed(1)]
-        union _wIndex {
-            Anonymous: struct {
-                LowByte: u8,
-                HiByte: u8,
-            },
-            W: u16,
-        }
-        #[packed(1)]
-        union _wValue {
-            Anonymous: struct {
-                LowByte: u8,
-                HiByte: u8,
-            },
-            W: u16,
-        }
     }
 }

@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const NET_IF_CURRENT_SESSION: u32 = 4294967295;
+        const NET_IF_CURRENT_SESSION: ULONG = 4294967295;
         #[repr(i32)]
         enum NL_ADDRESS_TYPE {
             NlatUnspecified = 0,
@@ -18,8 +18,8 @@ mod Windows {
             NlbwUnchanged = -1,
         }
         struct NL_BANDWIDTH_INFORMATION {
-            Bandwidth: u64,
-            Instability: u64,
+            Bandwidth: ULONG64,
+            Instability: ULONG64,
             BandwidthPeaked: BOOLEAN,
         }
         #[repr(i32)]
@@ -44,16 +44,15 @@ mod Windows {
             NlincCategoryStateMax = 4,
         }
         struct NL_INTERFACE_OFFLOAD_ROD {
-            _bitfield: BOOLEAN {
-                NlChecksumSupported: 1,
-                NlOptionsSupported: 1,
-                TlDatagramChecksumSupported: 1,
-                TlStreamChecksumSupported: 1,
-                TlStreamOptionsSupported: 1,
-                FastPathCompatible: 1,
-                TlLargeSendOffloadSupported: 1,
-                TlGiantSendOffloadSupported: 1,
-            },
+            #[Windows::Win32::Metadata::NativeBitfield("FastPathCompatible", 5, 1, MemberType = BOOLEAN)]
+            #[Windows::Win32::Metadata::NativeBitfield("NlChecksumSupported", 0, 1, MemberType = BOOLEAN)]
+            #[Windows::Win32::Metadata::NativeBitfield("NlOptionsSupported", 1, 1, MemberType = BOOLEAN)]
+            #[Windows::Win32::Metadata::NativeBitfield("TlDatagramChecksumSupported", 2, 1, MemberType = BOOLEAN)]
+            #[Windows::Win32::Metadata::NativeBitfield("TlGiantSendOffloadSupported", 7, 1, MemberType = BOOLEAN)]
+            #[Windows::Win32::Metadata::NativeBitfield("TlLargeSendOffloadSupported", 6, 1, MemberType = BOOLEAN)]
+            #[Windows::Win32::Metadata::NativeBitfield("TlStreamChecksumSupported", 3, 1, MemberType = BOOLEAN)]
+            #[Windows::Win32::Metadata::NativeBitfield("TlStreamOptionsSupported", 4, 1, MemberType = BOOLEAN)]
+            _bitfield: u8,
         }
         #[repr(i32)]
         enum NL_LINK_LOCAL_ADDRESS_BEHAVIOR {
@@ -62,7 +61,7 @@ mod Windows {
             LinkLocalAlwaysOn = 2,
             LinkLocalUnchanged = -1,
         }
-        const NL_MAX_METRIC_COMPONENT: u32 = 2147483647;
+        const NL_MAX_METRIC_COMPONENT: ULONG = 2147483647;
         #[repr(i32)]
         enum NL_NEIGHBOR_STATE {
             NlnsUnreachable = 0,
@@ -106,8 +105,8 @@ mod Windows {
             NetworkConnectivityLevelHintHidden = 5,
         }
         struct NL_PATH_BANDWIDTH_ROD {
-            Bandwidth: u64,
-            Instability: u64,
+            Bandwidth: ULONG64,
+            Instability: ULONG64,
             BandwidthPeaked: BOOLEAN,
         }
         #[repr(i32)]

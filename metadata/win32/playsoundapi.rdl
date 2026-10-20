@@ -1,21 +1,23 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[library("WINMM.dll", import = "PlaySoundA")]
+        extern fn PlaySound(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSound: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmod: HMODULE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwSound: DWORD) -> BOOL;
         #[library("WINMM.dll")]
-        extern fn PlaySoundA(#[opt] pszSound: PCSTR, #[opt] hmod: HMODULE, fdwSound: u32) -> BOOL;
+        extern fn PlaySoundA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSound: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmod: HMODULE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwSound: DWORD) -> BOOL;
         #[library("WINMM.dll")]
-        extern fn PlaySoundW(#[opt] pszSound: PCWSTR, #[opt] hmod: HMODULE, fdwSound: u32) -> BOOL;
+        extern fn PlaySoundW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSound: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmod: HMODULE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwSound: DWORD) -> BOOL;
         const SND_ALIAS: i32 = 65536;
         const SND_ALIAS_ID: i32 = 1114112;
         const SND_ALIAS_START: i32 = 0;
-        const SND_ALIAS_SYSTEMASTERISK: u32 = 10835;
-        const SND_ALIAS_SYSTEMDEFAULT: u32 = 17491;
-        const SND_ALIAS_SYSTEMEXCLAMATION: u32 = 8531;
-        const SND_ALIAS_SYSTEMEXIT: u32 = 17747;
-        const SND_ALIAS_SYSTEMHAND: u32 = 18515;
-        const SND_ALIAS_SYSTEMQUESTION: u32 = 16211;
-        const SND_ALIAS_SYSTEMSTART: u32 = 21331;
-        const SND_ALIAS_SYSTEMWELCOME: u32 = 22355;
+        const SND_ALIAS_SYSTEMASTERISK: DWORD = 10835;
+        const SND_ALIAS_SYSTEMDEFAULT: DWORD = 17491;
+        const SND_ALIAS_SYSTEMEXCLAMATION: DWORD = 8531;
+        const SND_ALIAS_SYSTEMEXIT: DWORD = 17747;
+        const SND_ALIAS_SYSTEMHAND: DWORD = 18515;
+        const SND_ALIAS_SYSTEMQUESTION: DWORD = 16211;
+        const SND_ALIAS_SYSTEMSTART: DWORD = 21331;
+        const SND_ALIAS_SYSTEMWELCOME: DWORD = 22355;
         const SND_APPLICATION: i32 = 128;
         const SND_ASYNC: i32 = 1;
         const SND_FILENAME: i32 = 131072;
@@ -30,9 +32,11 @@ mod Windows {
         const SND_SENTRY: i32 = 524288;
         const SND_SYNC: i32 = 0;
         const SND_SYSTEM: i32 = 2097152;
+        #[library("WINMM.dll", import = "sndPlaySoundA")]
+        extern fn sndPlaySound(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSound: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuSound: UINT) -> BOOL;
         #[library("WINMM.dll")]
-        extern fn sndPlaySoundA(#[opt] pszSound: PCSTR, fuSound: u32) -> BOOL;
+        extern fn sndPlaySoundA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSound: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuSound: UINT) -> BOOL;
         #[library("WINMM.dll")]
-        extern fn sndPlaySoundW(#[opt] pszSound: PCWSTR, fuSound: u32) -> BOOL;
+        extern fn sndPlaySoundW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSound: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuSound: UINT) -> BOOL;
     }
 }

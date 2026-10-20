@@ -3,9 +3,10 @@ mod Windows {
     mod Win32 {
         #[guid(0x905a0fef_bc53_11df_8c49_001e4fc686da)]
         interface IBufferByteAccess: IUnknown {
-            fn Buffer(&self, value: *mut *mut byte) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Buffer(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"size given by different API\")", "_Inexpressible_(\"size given by different API\")")] #[out] value: *mut *mut byte) -> HRESULT;
         }
         #[library("api-ms-win-core-winrt-robuffer-l1-1-0.dll")]
-        extern fn RoGetBufferMarshaler(bufferMarshaler: *mut IMarshal) -> HRESULT;
+        extern fn RoGetBufferMarshaler(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] bufferMarshaler: *mut IMarshal) -> HRESULT;
     }
 }

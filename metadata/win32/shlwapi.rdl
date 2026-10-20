@@ -71,23 +71,29 @@ mod Windows {
             ASSOCSTR_MAX = 24,
         }
         #[library("SHLWAPI.dll")]
-        extern fn AssocCreate(clsid: GUID, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn AssocCreate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clsid: CLSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn AssocGetPerceivedType(pszExt: PCWSTR, ptype: *mut PERCEIVED, pflag: *mut PERCEIVEDFLAG, ppszType: *mut PWSTR) -> HRESULT;
+        extern fn AssocGetPerceivedType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExt: PCWSTR, #[out] ptype: *mut PERCEIVED, #[out] pflag: *mut PERCEIVEDFLAG, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszType: *mut PWSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn AssocIsDangerous(pszAssoc: PCWSTR) -> BOOL;
+        extern fn AssocIsDangerous(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAssoc: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "AssocQueryKeyA")]
+        extern fn AssocQueryKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] key: ASSOCKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAssoc: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCSTR, #[out] phkeyOut: *mut HKEY) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn AssocQueryKeyA(flags: ASSOCF, key: ASSOCKEY, pszAssoc: PCSTR, #[opt] pszExtra: PCSTR, phkeyOut: *mut HKEY) -> HRESULT;
+        extern fn AssocQueryKeyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] key: ASSOCKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAssoc: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCSTR, #[out] phkeyOut: *mut HKEY) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn AssocQueryKeyW(flags: ASSOCF, key: ASSOCKEY, pszAssoc: PCWSTR, #[opt] pszExtra: PCWSTR, phkeyOut: *mut HKEY) -> HRESULT;
+        extern fn AssocQueryKeyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] key: ASSOCKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAssoc: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCWSTR, #[out] phkeyOut: *mut HKEY) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "AssocQueryStringA")]
+        extern fn AssocQueryString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] str: ASSOCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAssoc: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOut", "*pcchOut")] #[out] #[opt] pszOut: LPSTR, #[in] #[out] pcchOut: *mut DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn AssocQueryStringA(flags: ASSOCF, str: ASSOCSTR, pszAssoc: PCSTR, #[opt] pszExtra: PCSTR, #[len_param(5)] #[out] #[opt] pszOut: PSTR, #[in] #[out] pcchOut: *mut u32) -> HRESULT;
+        extern fn AssocQueryStringA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] str: ASSOCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAssoc: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOut", "*pcchOut")] #[out] #[opt] pszOut: LPSTR, #[in] #[out] pcchOut: *mut DWORD) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "AssocQueryStringByKeyA")]
+        extern fn AssocQueryStringByKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] str: ASSOCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkAssoc: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOut", "*pcchOut")] #[out] #[opt] pszOut: LPSTR, #[in] #[out] pcchOut: *mut DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn AssocQueryStringByKeyA(flags: ASSOCF, str: ASSOCSTR, hkAssoc: HKEY, #[opt] pszExtra: PCSTR, #[len_param(5)] #[out] #[opt] pszOut: PSTR, #[in] #[out] pcchOut: *mut u32) -> HRESULT;
+        extern fn AssocQueryStringByKeyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] str: ASSOCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkAssoc: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOut", "*pcchOut")] #[out] #[opt] pszOut: LPSTR, #[in] #[out] pcchOut: *mut DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn AssocQueryStringByKeyW(flags: ASSOCF, str: ASSOCSTR, hkAssoc: HKEY, #[opt] pszExtra: PCWSTR, #[len_param(5)] #[out] #[opt] pszOut: PWSTR, #[in] #[out] pcchOut: *mut u32) -> HRESULT;
+        extern fn AssocQueryStringByKeyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] str: ASSOCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkAssoc: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOut", "*pcchOut")] #[out] #[opt] pszOut: LPWSTR, #[in] #[out] pcchOut: *mut DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn AssocQueryStringW(flags: ASSOCF, str: ASSOCSTR, pszAssoc: PCWSTR, #[opt] pszExtra: PCWSTR, #[len_param(5)] #[out] #[opt] pszOut: PWSTR, #[in] #[out] pcchOut: *mut u32) -> HRESULT;
+        extern fn AssocQueryStringW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] str: ASSOCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAssoc: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOut", "*pcchOut")] #[out] #[opt] pszOut: LPWSTR, #[in] #[out] pcchOut: *mut DWORD) -> HRESULT;
         const CTF_COINIT: i32 = 8;
         const CTF_COINIT_MTA: i32 = 4096;
         const CTF_COINIT_STA: i32 = 8;
@@ -103,30 +109,34 @@ mod Windows {
         const CTF_UNUSED: i32 = 128;
         const CTF_WAIT_ALLOWCOM: i32 = 64;
         const CTF_WAIT_NO_REENTRANCY: i32 = 512;
+        #[library("SHLWAPI.dll", import = "ChrCmpIA")]
+        extern fn ChrCmpI(w1: WORD, w2: WORD) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn ChrCmpIA(w1: u16, w2: u16) -> BOOL;
+        extern fn ChrCmpIA(w1: WORD, w2: WORD) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn ChrCmpIW(w1: u16, w2: u16) -> BOOL;
+        extern fn ChrCmpIW(w1: WCHAR, w2: WCHAR) -> BOOL;
         #[library("SHLWAPI.dll")]
         extern fn ColorAdjustLuma(clrRGB: COLORREF, n: i32, fScale: BOOL) -> COLORREF;
         #[library("SHLWAPI.dll")]
-        extern fn ColorHLSToRGB(wHue: u16, wLuminance: u16, wSaturation: u16) -> COLORREF;
+        extern fn ColorHLSToRGB(wHue: WORD, wLuminance: WORD, wSaturation: WORD) -> COLORREF;
         #[library("SHLWAPI.dll")]
-        extern fn ColorRGBToHLS(clrRGB: COLORREF, pwHue: *mut u16, pwLuminance: *mut u16, pwSaturation: *mut u16);
+        extern fn ColorRGBToHLS(clrRGB: COLORREF, #[out] pwHue: *mut WORD, #[out] pwLuminance: *mut WORD, #[out] pwSaturation: *mut WORD);
         #[library("SHLWAPI.dll")]
-        extern fn ConnectToConnectionPoint(#[opt] punk: IUnknown, riidEvent: *const GUID, fConnect: BOOL, punkTarget: IUnknown, pdwCookie: *mut u32, ppcpOut: *mut IConnectionPoint) -> HRESULT;
+        extern fn ConnectToConnectionPoint(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punk: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riidEvent: &IID, fConnect: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkTarget: IUnknown, #[out] pdwCookie: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppcpOut: *mut IConnectionPoint) -> HRESULT;
         extern fn DLLGETVERSIONPROC(param0: *mut DLLVERSIONINFO) -> HRESULT;
+        #[packed(8)]
         struct DLLVERSIONINFO {
-            cbSize: u32,
-            dwMajorVersion: u32,
-            dwMinorVersion: u32,
-            dwBuildNumber: u32,
-            dwPlatformID: u32,
+            cbSize: DWORD,
+            dwMajorVersion: DWORD,
+            dwMinorVersion: DWORD,
+            dwBuildNumber: DWORD,
+            dwPlatformID: DWORD,
         }
+        #[packed(8)]
         struct DLLVERSIONINFO2 {
             info1: DLLVERSIONINFO,
-            dwFlags: u32,
-            ullVersion: u64,
+            dwFlags: DWORD,
+            ullVersion: ULONGLONG,
         }
         const DLLVER_BUILD_MASK: u32 = 4294901760;
         const DLLVER_MAJOR_MASK: u64 = 18446462598732840960;
@@ -143,8 +153,7 @@ mod Windows {
         const FDTF_RTLDATE: i32 = 512;
         const FDTF_SHORTDATE: i32 = 2;
         const FDTF_SHORTTIME: i32 = 1;
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum FILETYPEATTRIBUTEFLAGS {
             FTA_None = 0,
             FTA_Exclude = 1,
@@ -173,66 +182,75 @@ mod Windows {
         const GCT_SEPARATOR: i32 = 8;
         const GCT_SHORTCHAR: i32 = 2;
         const GCT_WILD: i32 = 4;
+        #[library("SHLWAPI.dll", import = "GetAcceptLanguagesA")]
+        extern fn GetAcceptLanguages(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchLanguages,*pcchLanguages", "*pcchLanguages,*pcchLanguages")] #[out] pszLanguages: LPSTR, #[in] #[out] pcchLanguages: *mut DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn GetAcceptLanguagesA(#[len_param(1)] #[out] pszLanguages: PSTR, #[in] #[out] pcchLanguages: *mut u32) -> HRESULT;
+        extern fn GetAcceptLanguagesA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchLanguages,*pcchLanguages", "*pcchLanguages,*pcchLanguages")] #[out] pszLanguages: LPSTR, #[in] #[out] pcchLanguages: *mut DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn GetAcceptLanguagesW(#[len_param(1)] #[out] pszLanguages: PWSTR, #[in] #[out] pcchLanguages: *mut u32) -> HRESULT;
+        extern fn GetAcceptLanguagesW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchLanguages,*pcchLanguages", "*pcchLanguages,*pcchLanguages")] #[out] pszLanguages: LPWSTR, #[in] #[out] pcchLanguages: *mut DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn GetMenuPosFromID(hmenu: HMENU, id: u32) -> i32;
-        type HUSKEY = HANDLE;
+        extern fn GetMenuPosFromID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmenu: HMENU, id: UINT) -> i32;
+        type HUSKEY = *mut void;
         #[library("SHLWAPI.dll")]
-        extern fn HashData(#[size_param(1)] #[in] pbData: *mut u8, cbData: u32, #[size_param(3)] pbHash: *mut u8, cbHash: u32) -> HRESULT;
+        extern fn HashData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pbData: *mut BYTE, cbData: DWORD, #[out] #[size_param(3)] pbHash: *mut BYTE, cbHash: DWORD) -> HRESULT;
         const ILMM_IE4: i32 = 0;
         #[guid(0xc46ca590_3c3f_11d2_bee6_0000f805ca57)]
         interface IQueryAssociations: IUnknown {
-            fn Init(&self, flags: ASSOCF, #[opt] pszAssoc: PCWSTR, #[opt] hkProgid: HKEY, #[opt] hwnd: HWND) -> HRESULT;
-            fn GetString(&self, flags: ASSOCF, str: ASSOCSTR, #[opt] pszExtra: PCWSTR, #[len_param(4)] #[out] #[opt] pszOut: PWSTR, #[in] #[out] pcchOut: *mut u32) -> HRESULT;
-            fn GetKey(&self, flags: ASSOCF, key: ASSOCKEY, #[opt] pszExtra: PCWSTR, phkeyOut: *mut HKEY) -> HRESULT;
-            fn GetData(&self, flags: ASSOCF, data: ASSOCDATA, #[opt] pszExtra: PCWSTR, #[size_param(4)] #[opt] pvOut: *mut void, #[in] #[out] #[opt] pcbOut: *mut u32) -> HRESULT;
-            fn GetEnum(&self, flags: ASSOCF, assocenum: ASSOCENUM, #[opt] pszExtra: PCWSTR, riid: *const GUID, ppvOut: *mut *mut void) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Init(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAssoc: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkProgid: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetString(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] str: ASSOCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOut", "*pcchOut")] #[out] #[opt] pszOut: LPWSTR, #[in] #[out] pcchOut: *mut DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetKey(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] key: ASSOCKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCWSTR, #[out] phkeyOut: *mut HKEY) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] data: ASSOCDATA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbOut", "*pcbOut")] #[out] #[opt] pvOut: *mut void, #[in] #[out] #[opt] pcbOut: *mut DWORD) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetEnum(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ASSOCF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] assocenum: ASSOCENUM, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExtra: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvOut: *mut *mut void) -> HRESULT;
         }
         #[library("SHLWAPI.dll")]
-        extern fn IStream_Copy(pstmFrom: IStream, pstmTo: IStream, cb: u32) -> HRESULT;
+        extern fn IStream_Copy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstmFrom: IStream, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstmTo: IStream, cb: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IStream_Read(pstm: IStream, #[size_param(2)] pv: *mut void, cb: u32) -> HRESULT;
+        extern fn IStream_Read(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstm: IStream, #[out] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = false)] pv: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: ULONG) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IStream_ReadPidl(pstm: IStream, ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
+        extern fn IStream_ReadPidl(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstm: IStream, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IStream_ReadStr(pstm: IStream, ppsz: *mut PWSTR) -> HRESULT;
+        extern fn IStream_ReadStr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstm: IStream, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppsz: *mut PWSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IStream_Reset(pstm: IStream) -> HRESULT;
+        extern fn IStream_Reset(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstm: IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IStream_Size(pstm: IStream, pui: *mut ULARGE_INTEGER) -> HRESULT;
+        extern fn IStream_Size(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstm: IStream, #[out] pui: *mut ULARGE_INTEGER) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IStream_Write(pstm: IStream, #[size_param(2)] pv: *const void, cb: u32) -> HRESULT;
+        extern fn IStream_Write(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstm: IStream, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pv: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: ULONG) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IStream_WritePidl(pstm: IStream, pidlWrite: LPCITEMIDLIST) -> HRESULT;
+        extern fn IStream_WritePidl(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstm: IStream, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidlWrite: LPCITEMIDLIST) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IStream_WriteStr(pstm: IStream, psz: PCWSTR) -> HRESULT;
+        extern fn IStream_WriteStr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstm: IStream, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz: PCWSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn IUnknown_AtomicRelease(#[in] #[out] #[opt] ppunk: *mut *mut void);
         #[library("SHLWAPI.dll")]
-        extern fn IUnknown_GetSite(punk: IUnknown, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn IUnknown_GetSite(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punk: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IUnknown_GetWindow(punk: IUnknown, phwnd: *mut HWND) -> HRESULT;
+        extern fn IUnknown_GetWindow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punk: IUnknown, #[out] phwnd: *mut HWND) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IUnknown_QueryService(#[opt] punk: IUnknown, guidService: *const GUID, riid: *const GUID, #[iid_is] ppvOut: *mut *mut void) -> HRESULT;
+        extern fn IUnknown_QueryService(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punk: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidService: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvOut: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IUnknown_Set(#[in] #[out] ppunk: *mut IUnknown, #[opt] punk: IUnknown);
+        extern fn IUnknown_Set(#[in] #[out] ppunk: *mut IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punk: IUnknown);
         #[library("SHLWAPI.dll")]
-        extern fn IUnknown_SetSite(punk: IUnknown, #[opt] punkSite: IUnknown) -> HRESULT;
+        extern fn IUnknown_SetSite(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punk: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkSite: IUnknown) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IntlStrEqWorkerA(fCaseSens: BOOL, #[len_param(3)] lpString1: PCSTR, #[len_param(3)] lpString2: PCSTR, nChar: i32) -> BOOL;
+        extern fn IntlStrEqWorkerA(fCaseSens: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpString1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpString2: LPCSTR, nChar: i32) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn IntlStrEqWorkerW(fCaseSens: BOOL, #[len_param(3)] lpString1: PCWSTR, #[len_param(3)] lpString2: PCWSTR, nChar: i32) -> BOOL;
+        extern fn IntlStrEqWorkerW(fCaseSens: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpString1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpString2: LPCWSTR, nChar: i32) -> BOOL;
+        #[library("SHLWAPI.dll", import = "IsCharSpaceA")]
+        extern fn IsCharSpace(wch: CHAR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn IsCharSpaceA(wch: i8) -> BOOL;
+        extern fn IsCharSpaceA(wch: CHAR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn IsCharSpaceW(wch: u16) -> BOOL;
+        extern fn IsCharSpaceW(wch: WCHAR) -> BOOL;
         #[library("SHLWAPI.dll")]
         extern fn IsInternetESCEnabled() -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn IsOS(dwOS: u32) -> BOOL;
+        extern fn IsOS(dwOS: DWORD) -> BOOL;
         type LPCQITAB = *const QITAB;
         type LPQITAB = *mut QITAB;
         const OS_ADVSERVER: i32 = 22;
@@ -272,23 +290,25 @@ mod Windows {
         const OS_WOW6432: i32 = 30;
         const OS_XPORGREATER: i32 = 18;
         type PARSEDURL = PARSEDURLA;
+        #[packed(8)]
         struct PARSEDURLA {
-            cbSize: u32,
-            pszProtocol: PCSTR,
-            cchProtocol: u32,
-            pszSuffix: PCSTR,
-            cchSuffix: u32,
-            nScheme: u32,
+            cbSize: DWORD,
+            pszProtocol: LPCSTR,
+            cchProtocol: UINT,
+            pszSuffix: LPCSTR,
+            cchSuffix: UINT,
+            nScheme: UINT,
         }
+        #[packed(8)]
         struct PARSEDURLW {
-            cbSize: u32,
-            pszProtocol: PCWSTR,
-            cchProtocol: u32,
-            pszSuffix: PCWSTR,
-            cchSuffix: u32,
-            nScheme: u32,
+            cbSize: DWORD,
+            pszProtocol: LPCWSTR,
+            cchProtocol: UINT,
+            pszSuffix: LPCWSTR,
+            cchSuffix: UINT,
+            nScheme: UINT,
         }
-        type PHUSKEY = *mut HUSKEY;
+        type PHUSKEY = *mut *mut void;
         const PLATFORM_BROWSERONLY: i32 = 1;
         const PLATFORM_IE3: i32 = 1;
         const PLATFORM_INTEGRATED: i32 = 2;
@@ -296,244 +316,357 @@ mod Windows {
         const PMSF_DONT_STRIP_SPACES: i32 = 65536;
         const PMSF_MULTIPLE: i32 = 1;
         const PMSF_NORMAL: i32 = 0;
-        type PPARSEDURL = PPARSEDURLA;
+        type PPARSEDURL = *mut PARSEDURLA;
         type PPARSEDURLA = *mut PARSEDURLA;
         type PPARSEDURLW = *mut PARSEDURLW;
         #[library("SHLWAPI.dll")]
-        extern fn ParseURLA(pcszURL: PCSTR, #[in] #[out] ppu: *mut PARSEDURLA) -> HRESULT;
+        extern fn ParseURLA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszURL: LPCSTR, #[in] #[out] ppu: *mut PARSEDURLA) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn ParseURLW(pcszURL: PCWSTR, #[in] #[out] ppu: *mut PARSEDURLW) -> HRESULT;
+        extern fn ParseURLW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszURL: LPCWSTR, #[in] #[out] ppu: *mut PARSEDURLW) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "PathAddBackslashA")]
+        extern fn PathAddBackslash(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathAddBackslashA(#[in] #[out] pszPath: PSTR) -> PSTR;
+        extern fn PathAddBackslashA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathAddBackslashW(#[in] #[out] pszPath: PWSTR) -> PWSTR;
+        extern fn PathAddBackslashW(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPWSTR) -> LPWSTR;
+        #[library("SHLWAPI.dll", import = "PathAddExtensionA")]
+        extern fn PathAddExtension(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExt: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathAddExtensionA(#[in] #[out] pszPath: PSTR, #[opt] pszExt: PCSTR) -> BOOL;
+        extern fn PathAddExtensionA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExt: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathAddExtensionW(#[in] #[out] pszPath: PWSTR, #[opt] pszExt: PCWSTR) -> BOOL;
+        extern fn PathAddExtensionW(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExt: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathAppendA")]
+        extern fn PathAppend(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszMore: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathAppendA(#[in] #[out] pszPath: PSTR, pszMore: PCSTR) -> BOOL;
+        extern fn PathAppendA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszMore: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathAppendW(#[in] #[out] pszPath: PWSTR, pszMore: PCWSTR) -> BOOL;
+        extern fn PathAppendW(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszMore: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathBuildRootA")]
+        extern fn PathBuildRoot(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "4", "4")] #[out] pszRoot: LPSTR, iDrive: i32) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathBuildRootA(#[len_const(4)] #[out] pszRoot: PSTR, iDrive: i32) -> PSTR;
+        extern fn PathBuildRootA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "4", "4")] #[out] pszRoot: LPSTR, iDrive: i32) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathBuildRootW(#[len_const(4)] #[out] pszRoot: PWSTR, iDrive: i32) -> PWSTR;
+        extern fn PathBuildRootW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "4", "4")] #[out] pszRoot: LPWSTR, iDrive: i32) -> LPWSTR;
+        #[library("SHLWAPI.dll", import = "PathCanonicalizeA")]
+        extern fn PathCanonicalize(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszBuf: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathCanonicalizeA(#[out] pszBuf: PSTR, pszPath: PCSTR) -> BOOL;
+        extern fn PathCanonicalizeA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszBuf: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathCanonicalizeW(#[out] pszBuf: PWSTR, pszPath: PCWSTR) -> BOOL;
+        extern fn PathCanonicalizeW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszBuf: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathCombineA")]
+        extern fn PathCombine(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszDest: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDir: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathCombineA(#[out] pszDest: PSTR, #[opt] pszDir: PCSTR, #[opt] pszFile: PCSTR) -> PSTR;
+        extern fn PathCombineA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszDest: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDir: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathCombineW(#[out] pszDest: PWSTR, #[opt] pszDir: PCWSTR, #[opt] pszFile: PCWSTR) -> PWSTR;
+        extern fn PathCombineW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszDest: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDir: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCWSTR) -> LPWSTR;
+        #[library("SHLWAPI.dll", import = "PathCommonPrefixA")]
+        extern fn PathCommonPrefix(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile2: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "260", "260")] #[out] #[opt] achPath: LPSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn PathCommonPrefixA(pszFile1: PCSTR, pszFile2: PCSTR, #[out] #[opt] achPath: PSTR) -> i32;
+        extern fn PathCommonPrefixA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile2: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "260", "260")] #[out] #[opt] achPath: LPSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn PathCommonPrefixW(pszFile1: PCWSTR, pszFile2: PCWSTR, #[out] #[opt] achPath: PWSTR) -> i32;
+        extern fn PathCommonPrefixW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile2: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "260", "260")] #[out] #[opt] achPath: LPWSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "PathCompactPathA")]
+        extern fn PathCompactPath(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDC: HDC, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dx: UINT) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathCompactPathA(#[opt] hDC: HDC, #[in] #[out] pszPath: PSTR, dx: u32) -> BOOL;
+        extern fn PathCompactPathA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDC: HDC, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dx: UINT) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathCompactPathExA")]
+        extern fn PathCompactPathEx(#[out] #[len_param(2)] pszOut: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMax: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathCompactPathExA(#[len_param(2)] #[out] pszOut: PSTR, pszSrc: PCSTR, cchMax: u32, dwFlags: u32) -> BOOL;
+        extern fn PathCompactPathExA(#[out] #[len_param(2)] pszOut: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMax: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathCompactPathExW(#[len_param(2)] #[out] pszOut: PWSTR, pszSrc: PCWSTR, cchMax: u32, dwFlags: u32) -> BOOL;
+        extern fn PathCompactPathExW(#[out] #[len_param(2)] pszOut: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMax: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathCompactPathW(#[opt] hDC: HDC, #[in] #[out] pszPath: PWSTR, dx: u32) -> BOOL;
+        extern fn PathCompactPathW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDC: HDC, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dx: UINT) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathCreateFromUrlA")]
+        extern fn PathCreateFromUrl(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchPath,*pcchPath", "*pcchPath,*pcchPath")] #[out] pszPath: PSTR, #[in] #[out] pcchPath: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn PathCreateFromUrlA(pszUrl: PCSTR, #[len_param(2)] #[out] pszPath: PSTR, #[in] #[out] pcchPath: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn PathCreateFromUrlA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchPath,*pcchPath", "*pcchPath,*pcchPath")] #[out] pszPath: PSTR, #[in] #[out] pcchPath: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn PathCreateFromUrlAlloc(pszIn: PCWSTR, ppszOut: *mut PWSTR, dwFlags: u32) -> HRESULT;
+        extern fn PathCreateFromUrlAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszIn: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszOut: *mut PWSTR, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn PathCreateFromUrlW(pszUrl: PCWSTR, #[len_param(2)] #[out] pszPath: PWSTR, #[in] #[out] pcchPath: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn PathCreateFromUrlW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchPath,*pcchPath", "*pcchPath,*pcchPath")] #[out] pszPath: PWSTR, #[in] #[out] pcchPath: *mut DWORD, dwFlags: DWORD) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "PathFileExistsA")]
+        extern fn PathFileExists(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathFileExistsA(pszPath: PCSTR) -> BOOL;
+        extern fn PathFileExistsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathFileExistsW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathFileExistsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathFindExtensionA")]
+        extern fn PathFindExtension(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathFindExtensionA(pszPath: PCSTR) -> PSTR;
+        extern fn PathFindExtensionA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathFindExtensionW(pszPath: PCWSTR) -> PWSTR;
+        extern fn PathFindExtensionW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> LPWSTR;
+        #[library("SHLWAPI.dll", import = "PathFindFileNameA")]
+        extern fn PathFindFileName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathFindFileNameA(pszPath: PCSTR) -> PSTR;
+        extern fn PathFindFileNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathFindFileNameW(pszPath: PCWSTR) -> PWSTR;
+        extern fn PathFindFileNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> LPWSTR;
+        #[library("SHLWAPI.dll", import = "PathFindNextComponentA")]
+        extern fn PathFindNextComponent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathFindNextComponentA(pszPath: PCSTR) -> PSTR;
+        extern fn PathFindNextComponentA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathFindNextComponentW(pszPath: PCWSTR) -> PWSTR;
+        extern fn PathFindNextComponentW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> LPWSTR;
+        #[library("SHLWAPI.dll", import = "PathFindOnPathA")]
+        extern fn PathFindOnPath(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ppszOtherDirs: PZPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathFindOnPathA(#[in] #[out] pszPath: PSTR, #[opt] ppszOtherDirs: PZPCSTR) -> BOOL;
+        extern fn PathFindOnPathA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ppszOtherDirs: PZPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathFindOnPathW(#[in] #[out] pszPath: PWSTR, #[opt] ppszOtherDirs: PZPCWSTR) -> BOOL;
+        extern fn PathFindOnPathW(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ppszOtherDirs: PZPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathFindSuffixArrayA")]
+        extern fn PathFindSuffixArray(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] apszSuffix: *const LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iArraySize: i32) -> LPCSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathFindSuffixArrayA(pszPath: PCSTR, #[len_param(2)] apszSuffix: *const PCSTR, iArraySize: i32) -> PCSTR;
+        extern fn PathFindSuffixArrayA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] apszSuffix: *const LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iArraySize: i32) -> LPCSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathFindSuffixArrayW(pszPath: PCWSTR, #[len_param(2)] apszSuffix: *const PCWSTR, iArraySize: i32) -> PCWSTR;
+        extern fn PathFindSuffixArrayW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] apszSuffix: *const LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iArraySize: i32) -> LPCWSTR;
+        #[library("SHLWAPI.dll", import = "PathGetArgsA")]
+        extern fn PathGetArgs(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathGetArgsA(pszPath: PCSTR) -> PSTR;
+        extern fn PathGetArgsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathGetArgsW(pszPath: PCWSTR) -> PWSTR;
+        extern fn PathGetArgsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> LPWSTR;
+        #[library("SHLWAPI.dll", import = "PathGetCharTypeA")]
+        extern fn PathGetCharType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ch: UCHAR) -> UINT;
         #[library("SHLWAPI.dll")]
-        extern fn PathGetCharTypeA(ch: u8) -> u32;
+        extern fn PathGetCharTypeA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ch: UCHAR) -> UINT;
         #[library("SHLWAPI.dll")]
-        extern fn PathGetCharTypeW(ch: u16) -> u32;
+        extern fn PathGetCharTypeW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ch: WCHAR) -> UINT;
+        #[library("SHLWAPI.dll", import = "PathGetDriveNumberA")]
+        extern fn PathGetDriveNumber(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn PathGetDriveNumberA(pszPath: PCSTR) -> i32;
+        extern fn PathGetDriveNumberA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn PathGetDriveNumberW(pszPath: PCWSTR) -> i32;
+        extern fn PathGetDriveNumberW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "PathIsContentTypeA")]
+        extern fn PathIsContentType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszContentType: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsContentTypeA(pszPath: PCSTR, pszContentType: PCSTR) -> BOOL;
+        extern fn PathIsContentTypeA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszContentType: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsContentTypeW(pszPath: PCWSTR, pszContentType: PCWSTR) -> BOOL;
+        extern fn PathIsContentTypeW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszContentType: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsDirectoryA")]
+        extern fn PathIsDirectory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsDirectoryA(pszPath: PCSTR) -> BOOL;
+        extern fn PathIsDirectoryA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsDirectoryEmptyA")]
+        extern fn PathIsDirectoryEmpty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsDirectoryEmptyA(pszPath: PCSTR) -> BOOL;
+        extern fn PathIsDirectoryEmptyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsDirectoryEmptyW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathIsDirectoryEmptyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsDirectoryW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathIsDirectoryW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsFileSpecA")]
+        extern fn PathIsFileSpec(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsFileSpecA(pszPath: PCSTR) -> BOOL;
+        extern fn PathIsFileSpecA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsFileSpecW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathIsFileSpecW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsLFNFileSpecA")]
+        extern fn PathIsLFNFileSpec(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsLFNFileSpecA(pszName: PCSTR) -> BOOL;
+        extern fn PathIsLFNFileSpecA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsLFNFileSpecW(pszName: PCWSTR) -> BOOL;
+        extern fn PathIsLFNFileSpecW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsNetworkPathA")]
+        extern fn PathIsNetworkPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsNetworkPathA(pszPath: PCSTR) -> BOOL;
+        extern fn PathIsNetworkPathA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsNetworkPathW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathIsNetworkPathW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsPrefixA")]
+        extern fn PathIsPrefix(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrefix: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsPrefixA(pszPrefix: PCSTR, pszPath: PCSTR) -> BOOL;
+        extern fn PathIsPrefixA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrefix: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsPrefixW(pszPrefix: PCWSTR, pszPath: PCWSTR) -> BOOL;
+        extern fn PathIsPrefixW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrefix: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsRelativeA")]
+        extern fn PathIsRelative(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsRelativeA(pszPath: PCSTR) -> BOOL;
+        extern fn PathIsRelativeA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsRelativeW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathIsRelativeW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsRootA")]
+        extern fn PathIsRoot(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsRootA(pszPath: PCSTR) -> BOOL;
+        extern fn PathIsRootA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsRootW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathIsRootW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsSameRootA")]
+        extern fn PathIsSameRoot(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath2: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsSameRootA(pszPath1: PCSTR, pszPath2: PCSTR) -> BOOL;
+        extern fn PathIsSameRootA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath2: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsSameRootW(pszPath1: PCWSTR, pszPath2: PCWSTR) -> BOOL;
+        extern fn PathIsSameRootW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath2: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsSystemFolderA")]
+        extern fn PathIsSystemFolder(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAttrb: DWORD) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsSystemFolderA(#[opt] pszPath: PCSTR, dwAttrb: u32) -> BOOL;
+        extern fn PathIsSystemFolderA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAttrb: DWORD) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsSystemFolderW(#[opt] pszPath: PCWSTR, dwAttrb: u32) -> BOOL;
+        extern fn PathIsSystemFolderW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAttrb: DWORD) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsUNCA")]
+        extern fn PathIsUNC(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsUNCA(pszPath: PCSTR) -> BOOL;
+        extern fn PathIsUNCA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsUNCServerA")]
+        extern fn PathIsUNCServer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsUNCServerA(pszPath: PCSTR) -> BOOL;
+        extern fn PathIsUNCServerA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsUNCServerShareA")]
+        extern fn PathIsUNCServerShare(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsUNCServerShareA(pszPath: PCSTR) -> BOOL;
+        extern fn PathIsUNCServerShareA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsUNCServerShareW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathIsUNCServerShareW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsUNCServerW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathIsUNCServerW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsUNCW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathIsUNCW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathIsURLA")]
+        extern fn PathIsURL(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsURLA(pszPath: PCSTR) -> BOOL;
+        extern fn PathIsURLA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathIsURLW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathIsURLW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathMakePrettyA")]
+        extern fn PathMakePretty(#[in] #[out] pszPath: LPSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathMakePrettyA(#[in] #[out] pszPath: PSTR) -> BOOL;
+        extern fn PathMakePrettyA(#[in] #[out] pszPath: LPSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathMakePrettyW(#[in] #[out] pszPath: PWSTR) -> BOOL;
+        extern fn PathMakePrettyW(#[in] #[out] pszPath: LPWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathMakeSystemFolderA")]
+        extern fn PathMakeSystemFolder(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathMakeSystemFolderA(pszPath: PCSTR) -> BOOL;
+        extern fn PathMakeSystemFolderA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathMakeSystemFolderW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathMakeSystemFolderW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathMatchSpecA")]
+        extern fn PathMatchSpec(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSpec: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathMatchSpecA(pszFile: PCSTR, pszSpec: PCSTR) -> BOOL;
+        extern fn PathMatchSpecA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSpec: LPCSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathMatchSpecExA")]
+        extern fn PathMatchSpecEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSpec: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn PathMatchSpecExA(pszFile: PCSTR, pszSpec: PCSTR, dwFlags: u32) -> HRESULT;
+        extern fn PathMatchSpecExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSpec: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn PathMatchSpecExW(pszFile: PCWSTR, pszSpec: PCWSTR, dwFlags: u32) -> HRESULT;
+        extern fn PathMatchSpecExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSpec: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn PathMatchSpecW(pszFile: PCWSTR, pszSpec: PCWSTR) -> BOOL;
+        extern fn PathMatchSpecW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSpec: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathParseIconLocationA")]
+        extern fn PathParseIconLocation(#[in] #[out] pszIconFile: LPSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn PathParseIconLocationA(#[in] #[out] pszIconFile: PSTR) -> i32;
+        extern fn PathParseIconLocationA(#[in] #[out] pszIconFile: LPSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn PathParseIconLocationW(#[in] #[out] pszIconFile: PWSTR) -> i32;
+        extern fn PathParseIconLocationW(#[in] #[out] pszIconFile: LPWSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "PathQuoteSpacesA")]
+        extern fn PathQuoteSpaces(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] lpsz: LPSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathQuoteSpacesA(#[in] #[out] lpsz: PSTR) -> BOOL;
+        extern fn PathQuoteSpacesA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] lpsz: LPSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathQuoteSpacesW(#[in] #[out] lpsz: PWSTR) -> BOOL;
+        extern fn PathQuoteSpacesW(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] lpsz: LPWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathRelativePathToA")]
+        extern fn PathRelativePathTo(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszPath: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFrom: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAttrFrom: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTo: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAttrTo: DWORD) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathRelativePathToA(#[out] pszPath: PSTR, pszFrom: PCSTR, dwAttrFrom: u32, pszTo: PCSTR, dwAttrTo: u32) -> BOOL;
+        extern fn PathRelativePathToA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszPath: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFrom: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAttrFrom: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTo: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAttrTo: DWORD) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathRelativePathToW(#[out] pszPath: PWSTR, pszFrom: PCWSTR, dwAttrFrom: u32, pszTo: PCWSTR, dwAttrTo: u32) -> BOOL;
+        extern fn PathRelativePathToW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszPath: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFrom: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAttrFrom: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTo: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAttrTo: DWORD) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathRemoveArgsA")]
+        extern fn PathRemoveArgs(#[in] #[out] pszPath: LPSTR);
         #[library("SHLWAPI.dll")]
-        extern fn PathRemoveArgsA(#[in] #[out] pszPath: PSTR);
+        extern fn PathRemoveArgsA(#[in] #[out] pszPath: LPSTR);
         #[library("SHLWAPI.dll")]
-        extern fn PathRemoveArgsW(#[in] #[out] pszPath: PWSTR);
+        extern fn PathRemoveArgsW(#[in] #[out] pszPath: LPWSTR);
+        #[library("SHLWAPI.dll", import = "PathRemoveBackslashA")]
+        extern fn PathRemoveBackslash(#[in] #[out] pszPath: LPSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathRemoveBackslashA(#[in] #[out] pszPath: PSTR) -> PSTR;
+        extern fn PathRemoveBackslashA(#[in] #[out] pszPath: LPSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathRemoveBackslashW(#[in] #[out] pszPath: PWSTR) -> PWSTR;
+        extern fn PathRemoveBackslashW(#[in] #[out] pszPath: LPWSTR) -> LPWSTR;
+        #[library("SHLWAPI.dll", import = "PathRemoveBlanksA")]
+        extern fn PathRemoveBlanks(#[in] #[out] pszPath: LPSTR);
         #[library("SHLWAPI.dll")]
-        extern fn PathRemoveBlanksA(#[in] #[out] pszPath: PSTR);
+        extern fn PathRemoveBlanksA(#[in] #[out] pszPath: LPSTR);
         #[library("SHLWAPI.dll")]
-        extern fn PathRemoveBlanksW(#[in] #[out] pszPath: PWSTR);
+        extern fn PathRemoveBlanksW(#[in] #[out] pszPath: LPWSTR);
+        #[library("SHLWAPI.dll", import = "PathRemoveExtensionA")]
+        extern fn PathRemoveExtension(#[in] #[out] pszPath: LPSTR);
         #[library("SHLWAPI.dll")]
-        extern fn PathRemoveExtensionA(#[in] #[out] pszPath: PSTR);
+        extern fn PathRemoveExtensionA(#[in] #[out] pszPath: LPSTR);
         #[library("SHLWAPI.dll")]
-        extern fn PathRemoveExtensionW(#[in] #[out] pszPath: PWSTR);
+        extern fn PathRemoveExtensionW(#[in] #[out] pszPath: LPWSTR);
+        #[library("SHLWAPI.dll", import = "PathRemoveFileSpecA")]
+        extern fn PathRemoveFileSpec(#[in] #[out] pszPath: LPSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathRemoveFileSpecA(#[in] #[out] pszPath: PSTR) -> BOOL;
+        extern fn PathRemoveFileSpecA(#[in] #[out] pszPath: LPSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathRemoveFileSpecW(#[in] #[out] pszPath: PWSTR) -> BOOL;
+        extern fn PathRemoveFileSpecW(#[in] #[out] pszPath: LPWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathRenameExtensionA")]
+        extern fn PathRenameExtension(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExt: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathRenameExtensionA(#[in] #[out] pszPath: PSTR, pszExt: PCSTR) -> BOOL;
+        extern fn PathRenameExtensionA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExt: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathRenameExtensionW(#[in] #[out] pszPath: PWSTR, pszExt: PCWSTR) -> BOOL;
+        extern fn PathRenameExtensionW(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "260", "260")] #[in] #[out] pszPath: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExt: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathSearchAndQualifyA")]
+        extern fn PathSearchAndQualify(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[out] #[len_param(2)] pszBuf: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchBuf: UINT) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathSearchAndQualifyA(pszPath: PCSTR, #[len_param(2)] #[out] pszBuf: PSTR, cchBuf: u32) -> BOOL;
+        extern fn PathSearchAndQualifyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[out] #[len_param(2)] pszBuf: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchBuf: UINT) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathSearchAndQualifyW(pszPath: PCWSTR, #[len_param(2)] #[out] pszBuf: PWSTR, cchBuf: u32) -> BOOL;
+        extern fn PathSearchAndQualifyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR, #[out] #[len_param(2)] pszBuf: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchBuf: UINT) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathSetDlgItemPathA")]
+        extern fn PathSetDlgItemPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDlg: HWND, id: i32, pszPath: LPCSTR);
         #[library("SHLWAPI.dll")]
-        extern fn PathSetDlgItemPathA(hDlg: HWND, id: i32, pszPath: PCSTR);
+        extern fn PathSetDlgItemPathA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDlg: HWND, id: i32, pszPath: LPCSTR);
         #[library("SHLWAPI.dll")]
-        extern fn PathSetDlgItemPathW(hDlg: HWND, id: i32, pszPath: PCWSTR);
+        extern fn PathSetDlgItemPathW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDlg: HWND, id: i32, pszPath: LPCWSTR);
+        #[library("SHLWAPI.dll", import = "PathSkipRootA")]
+        extern fn PathSkipRoot(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathSkipRootA(pszPath: PCSTR) -> PSTR;
+        extern fn PathSkipRootA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn PathSkipRootW(pszPath: PCWSTR) -> PWSTR;
+        extern fn PathSkipRootW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> LPWSTR;
+        #[library("SHLWAPI.dll", import = "PathStripPathA")]
+        extern fn PathStripPath(#[in] #[out] pszPath: LPSTR);
         #[library("SHLWAPI.dll")]
-        extern fn PathStripPathA(#[in] #[out] pszPath: PSTR);
+        extern fn PathStripPathA(#[in] #[out] pszPath: LPSTR);
         #[library("SHLWAPI.dll")]
-        extern fn PathStripPathW(#[in] #[out] pszPath: PWSTR);
+        extern fn PathStripPathW(#[in] #[out] pszPath: LPWSTR);
+        #[library("SHLWAPI.dll", import = "PathStripToRootA")]
+        extern fn PathStripToRoot(#[in] #[out] pszPath: LPSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathStripToRootA(#[in] #[out] pszPath: PSTR) -> BOOL;
+        extern fn PathStripToRootA(#[in] #[out] pszPath: LPSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathStripToRootW(#[in] #[out] pszPath: PWSTR) -> BOOL;
+        extern fn PathStripToRootW(#[in] #[out] pszPath: LPWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathUnExpandEnvStringsA")]
+        extern fn PathUnExpandEnvStrings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[out] #[len_param(2)] pszBuf: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchBuf: UINT) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathUnExpandEnvStringsA(pszPath: PCSTR, #[len_param(2)] #[out] pszBuf: PSTR, cchBuf: u32) -> BOOL;
+        extern fn PathUnExpandEnvStringsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[out] #[len_param(2)] pszBuf: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchBuf: UINT) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathUnExpandEnvStringsW(pszPath: PCWSTR, #[len_param(2)] #[out] pszBuf: PWSTR, cchBuf: u32) -> BOOL;
+        extern fn PathUnExpandEnvStringsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR, #[out] #[len_param(2)] pszBuf: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchBuf: UINT) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathUndecorateA")]
+        extern fn PathUndecorate(#[in] #[out] pszPath: LPSTR);
         #[library("SHLWAPI.dll")]
-        extern fn PathUndecorateA(#[in] #[out] pszPath: PSTR);
+        extern fn PathUndecorateA(#[in] #[out] pszPath: LPSTR);
         #[library("SHLWAPI.dll")]
-        extern fn PathUndecorateW(#[in] #[out] pszPath: PWSTR);
+        extern fn PathUndecorateW(#[in] #[out] pszPath: LPWSTR);
+        #[library("SHLWAPI.dll", import = "PathUnmakeSystemFolderA")]
+        extern fn PathUnmakeSystemFolder(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathUnmakeSystemFolderA(pszPath: PCSTR) -> BOOL;
+        extern fn PathUnmakeSystemFolderA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathUnmakeSystemFolderW(pszPath: PCWSTR) -> BOOL;
+        extern fn PathUnmakeSystemFolderW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "PathUnquoteSpacesA")]
+        extern fn PathUnquoteSpaces(#[in] #[out] lpsz: LPSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathUnquoteSpacesA(#[in] #[out] lpsz: PSTR) -> BOOL;
+        extern fn PathUnquoteSpacesA(#[in] #[out] lpsz: LPSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn PathUnquoteSpacesW(#[in] #[out] lpsz: PWSTR) -> BOOL;
+        extern fn PathUnquoteSpacesW(#[in] #[out] lpsz: LPWSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn QISearch(#[in] #[out] that: *mut void, pqit: LPCQITAB, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn QISearch(#[in] #[out] that: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pqit: LPCQITAB, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        #[packed(8)]
         struct QITAB {
-            piid: *const GUID,
-            dwOffset: u32,
+            piid: *const IID,
+            dwOffset: DWORD,
         }
         type SFBS_FLAGS = i32;
         const SHACF_AUTOAPPEND_FORCE_OFF: u32 = 2147483648;
@@ -550,60 +683,72 @@ mod Windows {
         const SHACF_USETAB: i32 = 8;
         const SHACF_VIRTUAL_NAMESPACE: i32 = 64;
         #[library("SHLWAPI.dll")]
-        extern fn SHAllocShared(#[size_param(1)] #[opt] pvData: *const void, dwSize: u32, dwProcessId: u32) -> HANDLE;
+        extern fn SHAllocShared(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pvData: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProcessId: DWORD) -> HANDLE;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return > 0", "return > 0")]
         #[library("SHLWAPI.dll")]
-        extern fn SHAnsiToAnsi(pszSrc: PCSTR, #[len_param(2)] #[out] pszDst: PSTR, cchBuf: i32) -> i32;
+        extern fn SHAnsiToAnsi(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: PCSTR, #[out] #[len_param(2)] pszDst: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchBuf: i32) -> i32;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return > 0", "return > 0")]
         #[library("SHLWAPI.dll")]
-        extern fn SHAnsiToUnicode(pszSrc: PCSTR, #[len_param(2)] #[out] pwszDst: PWSTR, cwchBuf: i32) -> i32;
+        extern fn SHAnsiToUnicode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: PCSTR, #[out] #[len_param(2)] pwszDst: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cwchBuf: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn SHAutoComplete(hwndEdit: HWND, dwFlags: u32) -> HRESULT;
+        extern fn SHAutoComplete(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndEdit: HWND, dwFlags: DWORD) -> HRESULT;
         type SHCT_FLAGS = u32;
+        #[library("SHLWAPI.dll", import = "SHCopyKeyA")]
+        extern fn SHCopyKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkeySrc: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrcSubKey: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkeyDest: HKEY, #[reserved] fReserved: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHCopyKeyA(hkeySrc: HKEY, #[opt] pszSrcSubKey: PCSTR, hkeyDest: HKEY, #[reserved] fReserved: u32) -> LSTATUS;
+        extern fn SHCopyKeyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkeySrc: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrcSubKey: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkeyDest: HKEY, #[reserved] fReserved: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHCopyKeyW(hkeySrc: HKEY, #[opt] pszSrcSubKey: PCWSTR, hkeyDest: HKEY, #[reserved] fReserved: u32) -> LSTATUS;
+        extern fn SHCopyKeyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkeySrc: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrcSubKey: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkeyDest: HKEY, #[reserved] fReserved: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateMemStream(#[size_param(1)] #[opt] pInit: *const u8, cbInit: u32) -> IStream;
+        extern fn SHCreateMemStream(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pInit: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInit: UINT) -> IStream;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateShellPalette(#[opt] hdc: HDC) -> HPALETTE;
+        extern fn SHCreateShellPalette(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC) -> HPALETTE;
+        #[library("SHLWAPI.dll", import = "SHCreateStreamOnFileA")]
+        extern fn SHCreateStreamOnFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppstm: *mut IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateStreamOnFileA(pszFile: PCSTR, grfMode: u32, ppstm: *mut IStream) -> HRESULT;
+        extern fn SHCreateStreamOnFileA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppstm: *mut IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateStreamOnFileEx(pszFile: PCWSTR, grfMode: u32, dwAttributes: u32, fCreate: BOOL, #[opt] pstmTemplate: IStream, ppstm: *mut IStream) -> HRESULT;
+        extern fn SHCreateStreamOnFileEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAttributes: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCreate: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstmTemplate: IStream, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppstm: *mut IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateStreamOnFileW(pszFile: PCWSTR, grfMode: u32, ppstm: *mut IStream) -> HRESULT;
+        extern fn SHCreateStreamOnFileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppstm: *mut IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateThread(pfnThreadProc: LPTHREAD_START_ROUTINE, #[in] #[opt] pData: *mut void, flags: SHCT_FLAGS, #[opt] pfnCallback: LPTHREAD_START_ROUTINE) -> BOOL;
+        extern fn SHCreateThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnThreadProc: LPTHREAD_START_ROUTINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pData: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: SHCT_FLAGS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnCallback: LPTHREAD_START_ROUTINE) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateThreadRef(#[in] #[out] pcRef: *mut i32, ppunk: *mut IUnknown) -> HRESULT;
+        extern fn SHCreateThreadRef(#[in] #[out] pcRef: *mut LONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppunk: *mut IUnknown) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHCreateThreadWithHandle(pfnThreadProc: LPTHREAD_START_ROUTINE, #[in] #[opt] pData: *mut void, flags: SHCT_FLAGS, #[opt] pfnCallback: LPTHREAD_START_ROUTINE, #[opt] pHandle: *mut HANDLE) -> BOOL;
+        extern fn SHCreateThreadWithHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnThreadProc: LPTHREAD_START_ROUTINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pData: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: SHCT_FLAGS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnCallback: LPTHREAD_START_ROUTINE, #[out] #[opt] pHandle: *mut HANDLE) -> BOOL;
+        #[library("SHLWAPI.dll", import = "SHDeleteEmptyKeyA")]
+        extern fn SHDeleteEmptyKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHDeleteEmptyKeyA(hkey: HKEY, #[opt] pszSubKey: PCSTR) -> LSTATUS;
+        extern fn SHDeleteEmptyKeyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHDeleteEmptyKeyW(hkey: HKEY, #[opt] pszSubKey: PCWSTR) -> LSTATUS;
+        extern fn SHDeleteEmptyKeyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCWSTR) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHDeleteKeyA")]
+        extern fn SHDeleteKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHDeleteKeyA(hkey: HKEY, #[opt] pszSubKey: PCSTR) -> LSTATUS;
+        extern fn SHDeleteKeyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHDeleteKeyW(hkey: HKEY, #[opt] pszSubKey: PCWSTR) -> LSTATUS;
+        extern fn SHDeleteKeyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCWSTR) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHDeleteValueA")]
+        extern fn SHDeleteValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHDeleteValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, pszValue: PCSTR) -> LSTATUS;
+        extern fn SHDeleteValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHDeleteValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, pszValue: PCWSTR) -> LSTATUS;
+        extern fn SHDeleteValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCWSTR) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHEnumKeyExA")]
+        extern fn SHEnumKeyEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchName", "*pcchName")] #[out] pszName: LPSTR, #[in] #[out] pcchName: LPDWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHEnumKeyExA(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] pszName: PSTR, #[in] #[out] pcchName: LPDWORD) -> LSTATUS;
+        extern fn SHEnumKeyExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchName", "*pcchName")] #[out] pszName: LPSTR, #[in] #[out] pcchName: LPDWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHEnumKeyExW(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] pszName: PWSTR, #[in] #[out] pcchName: LPDWORD) -> LSTATUS;
+        extern fn SHEnumKeyExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchName", "*pcchName")] #[out] pszName: LPWSTR, #[in] #[out] pcchName: LPDWORD) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHEnumValueA")]
+        extern fn SHEnumValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValueName", "*pcchValueName")] #[out] #[opt] pszValueName: PSTR, #[in] #[out] #[opt] pcchValueName: LPDWORD, #[out] #[opt] pdwType: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: LPDWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHEnumValueA(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] pszValueName: PSTR, #[in] #[out] #[opt] pcchValueName: LPDWORD, #[out] #[opt] pdwType: LPDWORD, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: LPDWORD) -> LSTATUS;
+        extern fn SHEnumValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValueName", "*pcchValueName")] #[out] #[opt] pszValueName: PSTR, #[in] #[out] #[opt] pcchValueName: LPDWORD, #[out] #[opt] pdwType: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: LPDWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHEnumValueW(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] pszValueName: PWSTR, #[in] #[out] #[opt] pcchValueName: LPDWORD, #[out] #[opt] pdwType: LPDWORD, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: LPDWORD) -> LSTATUS;
+        extern fn SHEnumValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValueName", "*pcchValueName")] #[out] #[opt] pszValueName: PWSTR, #[in] #[out] #[opt] pcchValueName: LPDWORD, #[out] #[opt] pdwType: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: LPDWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHFormatDateTimeA(pft: *const FILETIME, #[in] #[out] #[opt] pdwFlags: *mut u32, #[len_param(3)] #[out] pszBuf: PSTR, cchBuf: u32) -> i32;
-        #[library("SHLWAPI.dll")]
-        extern fn SHFormatDateTimeW(pft: *const FILETIME, #[in] #[out] #[opt] pdwFlags: *mut u32, #[len_param(3)] #[out] pszBuf: PWSTR, cchBuf: u32) -> i32;
-        #[library("SHLWAPI.dll")]
-        extern fn SHFreeShared(hData: HANDLE, dwProcessId: u32) -> BOOL;
+        extern fn SHFreeShared(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hData: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProcessId: DWORD) -> BOOL;
         #[repr(i32)]
         enum SHGLOBALCOUNTER {
             GLOBALCOUNTER_SEARCHMANAGER = 0,
@@ -679,15 +824,17 @@ mod Windows {
         const SHGVSPB_ROAM: i32 = 32;
         const SHGVSPB_USERDEFAULTS: i32 = 9;
         #[library("SHLWAPI.dll")]
-        extern fn SHGetInverseCMAP(#[size_param(1)] pbMap: *mut u8, cbMap: u32) -> HRESULT;
+        extern fn SHGetInverseCMAP(#[out] #[size_param(1)] pbMap: *mut BYTE, cbMap: ULONG) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHGetThreadRef(ppunk: *mut IUnknown) -> HRESULT;
+        extern fn SHGetThreadRef(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppunk: *mut IUnknown) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "SHGetValueA")]
+        extern fn SHGetValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbData", "*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHGetValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, #[opt] pszValue: PCSTR, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
+        extern fn SHGetValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbData", "*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHGetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
+        extern fn SHGetValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCWSTR, #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbData", "*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHGetViewStatePropertyBag(#[opt] pidl: LPCITEMIDLIST, #[opt] pszBagName: PCWSTR, dwFlags: u32, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetViewStatePropertyBag(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPCITEMIDLIST, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszBagName: PCWSTR, dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn SHGlobalCounterDecrement(id: SHGLOBALCOUNTER) -> i32;
         #[library("SHLWAPI.dll")]
@@ -695,31 +842,41 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHGlobalCounterIncrement(id: SHGLOBALCOUNTER) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn SHIsLowMemoryMachine(dwType: u32) -> BOOL;
+        extern fn SHIsLowMemoryMachine(dwType: DWORD) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn SHLoadIndirectString(pszSource: PCWSTR, #[len_param(2)] #[out] pszOutBuf: PWSTR, cchOutBuf: u32, #[reserved] ppvReserved: *mut *mut void) -> HRESULT;
+        extern fn SHLoadIndirectString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSource: PCWSTR, #[out] #[len_param(2)] pszOutBuf: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchOutBuf: UINT, #[reserved] ppvReserved: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHLockShared(hData: HANDLE, dwProcessId: u32) -> *mut void;
+        extern fn SHLockShared(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hData: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProcessId: DWORD) -> *mut void;
+        #[library("SHLWAPI.dll", import = "SHMessageBoxCheckA")]
+        extern fn SHMessageBoxCheck(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszText: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszCaption: LPCSTR, uType: UINT, iDefault: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRegVal: LPCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn SHMessageBoxCheckA(#[opt] hwnd: HWND, pszText: PCSTR, pszCaption: PCSTR, uType: u32, iDefault: i32, pszRegVal: PCSTR) -> i32;
+        extern fn SHMessageBoxCheckA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszText: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszCaption: LPCSTR, uType: UINT, iDefault: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRegVal: LPCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn SHMessageBoxCheckW(#[opt] hwnd: HWND, pszText: PCWSTR, pszCaption: PCWSTR, uType: u32, iDefault: i32, pszRegVal: PCWSTR) -> i32;
+        extern fn SHMessageBoxCheckW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszText: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszCaption: LPCWSTR, uType: UINT, iDefault: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRegVal: LPCWSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "SHOpenRegStream2A")]
+        extern fn SHOpenRegStream(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubkey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD) -> IStream;
+        #[library("SHLWAPI.dll", import = "SHOpenRegStream2A")]
+        extern fn SHOpenRegStream2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubkey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD) -> IStream;
         #[library("SHLWAPI.dll")]
-        extern fn SHOpenRegStream2A(hkey: HKEY, #[opt] pszSubkey: PCSTR, #[opt] pszValue: PCSTR, grfMode: u32) -> IStream;
+        extern fn SHOpenRegStream2A(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubkey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD) -> IStream;
         #[library("SHLWAPI.dll")]
-        extern fn SHOpenRegStream2W(hkey: HKEY, #[opt] pszSubkey: PCWSTR, #[opt] pszValue: PCWSTR, grfMode: u32) -> IStream;
+        extern fn SHOpenRegStream2W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubkey: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD) -> IStream;
         #[library("SHLWAPI.dll")]
-        extern fn SHOpenRegStreamA(hkey: HKEY, #[opt] pszSubkey: PCSTR, #[opt] pszValue: PCSTR, grfMode: u32) -> IStream;
+        extern fn SHOpenRegStreamA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubkey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD) -> IStream;
         #[library("SHLWAPI.dll")]
-        extern fn SHOpenRegStreamW(hkey: HKEY, #[opt] pszSubkey: PCWSTR, #[opt] pszValue: PCWSTR, grfMode: u32) -> IStream;
+        extern fn SHOpenRegStreamW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubkey: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] grfMode: DWORD) -> IStream;
+        #[library("SHLWAPI.dll", import = "SHQueryInfoKeyA")]
+        extern fn SHQueryInfoKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[out] #[opt] pcSubKeys: LPDWORD, #[out] #[opt] pcchMaxSubKeyLen: LPDWORD, #[out] #[opt] pcValues: LPDWORD, #[out] #[opt] pcchMaxValueNameLen: LPDWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHQueryInfoKeyA(hkey: HKEY, #[out] #[opt] pcSubKeys: LPDWORD, #[out] #[opt] pcchMaxSubKeyLen: LPDWORD, #[out] #[opt] pcValues: LPDWORD, #[out] #[opt] pcchMaxValueNameLen: LPDWORD) -> LSTATUS;
+        extern fn SHQueryInfoKeyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[out] #[opt] pcSubKeys: LPDWORD, #[out] #[opt] pcchMaxSubKeyLen: LPDWORD, #[out] #[opt] pcValues: LPDWORD, #[out] #[opt] pcchMaxValueNameLen: LPDWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHQueryInfoKeyW(hkey: HKEY, #[out] #[opt] pcSubKeys: LPDWORD, #[out] #[opt] pcchMaxSubKeyLen: LPDWORD, #[out] #[opt] pcValues: LPDWORD, #[out] #[opt] pcchMaxValueNameLen: LPDWORD) -> LSTATUS;
+        extern fn SHQueryInfoKeyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[out] #[opt] pcSubKeys: LPDWORD, #[out] #[opt] pcchMaxSubKeyLen: LPDWORD, #[out] #[opt] pcValues: LPDWORD, #[out] #[opt] pcchMaxValueNameLen: LPDWORD) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHQueryValueExA")]
+        extern fn SHQueryValueEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[reserved] pdwReserved: *mut DWORD, #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHQueryValueExA(hkey: HKEY, #[opt] pszValue: PCSTR, #[reserved] pdwReserved: *mut u32, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
+        extern fn SHQueryValueExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[reserved] pdwReserved: *mut DWORD, #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHQueryValueExW(hkey: HKEY, #[opt] pszValue: PCWSTR, #[reserved] pdwReserved: *mut u32, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
+        extern fn SHQueryValueExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCWSTR, #[reserved] pdwReserved: *mut DWORD, #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD) -> LSTATUS;
         #[repr(i32)]
         enum SHREGDEL_FLAGS {
             SHREGDEL_DEFAULT = 0,
@@ -740,101 +897,141 @@ mod Windows {
         const SHREGSET_HKCU: i32 = 1;
         const SHREGSET_HKLM: i32 = 4;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegCloseUSKey(hUSKey: HUSKEY) -> LSTATUS;
+        extern fn SHRegCloseUSKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegCreateUSKeyA")]
+        extern fn SHRegCreateUSKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] samDesired: REGSAM, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRelativeUSKey: HUSKEY, #[out] phNewUSKey: PHUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegCreateUSKeyA(pszPath: PCSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, #[out] phNewUSKey: PHUSKEY, dwFlags: u32) -> LSTATUS;
+        extern fn SHRegCreateUSKeyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] samDesired: REGSAM, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRelativeUSKey: HUSKEY, #[out] phNewUSKey: PHUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegCreateUSKeyW(pwzPath: PCWSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, #[out] phNewUSKey: PHUSKEY, dwFlags: u32) -> LSTATUS;
+        extern fn SHRegCreateUSKeyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] samDesired: REGSAM, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRelativeUSKey: HUSKEY, #[out] phNewUSKey: PHUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegDeleteEmptyUSKeyA")]
+        extern fn SHRegDeleteEmptyUSKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegDeleteEmptyUSKeyA(hUSKey: HUSKEY, pszSubKey: PCSTR, delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
+        extern fn SHRegDeleteEmptyUSKeyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegDeleteEmptyUSKeyW(hUSKey: HUSKEY, pwzSubKey: PCWSTR, delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
+        extern fn SHRegDeleteEmptyUSKeyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzSubKey: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegDeleteUSValueA")]
+        extern fn SHRegDeleteUSValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegDeleteUSValueA(hUSKey: HUSKEY, pszValue: PCSTR, delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
+        extern fn SHRegDeleteUSValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegDeleteUSValueW(hUSKey: HUSKEY, pwzValue: PCWSTR, delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
+        extern fn SHRegDeleteUSValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzValue: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegDuplicateHKey(hkey: HKEY) -> HKEY;
+        extern fn SHRegDuplicateHKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY) -> HKEY;
+        #[library("SHLWAPI.dll", import = "SHRegEnumUSKeyA")]
+        extern fn SHRegEnumUSKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchName,*pcchName", "*pcchName,*pcchName")] #[out] pszName: LPSTR, #[in] #[out] pcchName: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegEnumUSKeyA(hUSKey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pszName: PSTR, #[in] #[out] pcchName: LPDWORD, enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
+        extern fn SHRegEnumUSKeyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchName,*pcchName", "*pcchName,*pcchName")] #[out] pszName: LPSTR, #[in] #[out] pcchName: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegEnumUSKeyW(hUSKey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pwzName: PWSTR, #[in] #[out] pcchName: LPDWORD, enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
+        extern fn SHRegEnumUSKeyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchName,*pcchName", "*pcchName,*pcchName")] #[out] pwzName: LPWSTR, #[in] #[out] pcchName: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegEnumUSValueA")]
+        extern fn SHRegEnumUSValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSkey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchValueName,*pcchValueName", "*pcchValueName,*pcchValueName")] #[out] pszValueName: LPSTR, #[in] #[out] pcchValueName: LPDWORD, #[out] #[opt] pdwType: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegEnumUSValueA(hUSkey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pszValueName: PSTR, #[in] #[out] pcchValueName: LPDWORD, #[out] #[opt] pdwType: LPDWORD, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: LPDWORD, enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
+        extern fn SHRegEnumUSValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSkey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchValueName,*pcchValueName", "*pcchValueName,*pcchValueName")] #[out] pszValueName: LPSTR, #[in] #[out] pcchValueName: LPDWORD, #[out] #[opt] pdwType: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegEnumUSValueW(hUSkey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pszValueName: PWSTR, #[in] #[out] pcchValueName: LPDWORD, #[out] #[opt] pdwType: LPDWORD, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: LPDWORD, enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
+        extern fn SHRegEnumUSValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSkey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchValueName,*pcchValueName", "*pcchValueName,*pcchValueName")] #[out] pszValueName: LPWSTR, #[in] #[out] pcchValueName: LPDWORD, #[out] #[opt] pdwType: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegGetBoolUSValueA")]
+        extern fn SHRegGetBoolUSValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreHKCU: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fDefault: BOOL) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetBoolUSValueA(pszSubKey: PCSTR, #[opt] pszValue: PCSTR, fIgnoreHKCU: BOOL, fDefault: BOOL) -> BOOL;
+        extern fn SHRegGetBoolUSValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreHKCU: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fDefault: BOOL) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetBoolUSValueW(pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, fIgnoreHKCU: BOOL, fDefault: BOOL) -> BOOL;
+        extern fn SHRegGetBoolUSValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreHKCU: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fDefault: BOOL) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetIntW(hk: HKEY, #[opt] pwzKey: PCWSTR, iDefault: i32) -> i32;
+        extern fn SHRegGetIntW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hk: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzKey: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iDefault: i32) -> i32;
+        #[library("SHLWAPI.dll", import = "SHRegGetPathA")]
+        extern fn SHRegGetPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszValue: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszPath: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetPathA(hKey: HKEY, #[opt] pcszSubKey: PCSTR, #[opt] pcszValue: PCSTR, #[out] pszPath: PSTR, dwFlags: u32) -> LSTATUS;
+        extern fn SHRegGetPathA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszValue: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszPath: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetPathW(hKey: HKEY, #[opt] pcszSubKey: PCWSTR, #[opt] pcszValue: PCWSTR, #[out] pszPath: PWSTR, dwFlags: u32) -> LSTATUS;
+        extern fn SHRegGetPathW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszSubKey: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszValue: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszPath: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegGetUSValueA")]
+        extern fn SHRegGetUSValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreHKCU: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(7)] pvDefaultData: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDefaultDataSize: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetUSValueA(pszSubKey: PCSTR, #[opt] pszValue: PCSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[in] #[opt] pvDefaultData: *mut void, dwDefaultDataSize: u32) -> LSTATUS;
+        extern fn SHRegGetUSValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreHKCU: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(7)] pvDefaultData: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDefaultDataSize: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetUSValueW(pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[in] #[opt] pvDefaultData: *mut void, dwDefaultDataSize: u32) -> LSTATUS;
+        extern fn SHRegGetUSValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCWSTR, #[in] #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreHKCU: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(7)] pvDefaultData: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDefaultDataSize: DWORD) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegGetValueA")]
+        extern fn SHRegGetValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] srrfFlags: SRRF, #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, #[opt] pszValue: PCSTR, srrfFlags: SRRF, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
+        extern fn SHRegGetValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] srrfFlags: SRRF, #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetValueFromHKCUHKLM(pwszKey: PCWSTR, #[opt] pwszValue: PCWSTR, srrfFlags: SRRF, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
+        extern fn SHRegGetValueFromHKCUHKLM(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszKey: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszValue: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] srrfFlags: SRRF, #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "pvData != 0,_Pre_notnull_", "pvData != 0, _Pre_notnull_")] #[in] #[out] #[opt] pcbData: *mut DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, srrfFlags: SRRF, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
+        extern fn SHRegGetValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] srrfFlags: SRRF, #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegOpenUSKeyA")]
+        extern fn SHRegOpenUSKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] samDesired: REGSAM, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRelativeUSKey: HUSKEY, #[out] phNewUSKey: PHUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreHKCU: BOOL) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegOpenUSKeyA(pszPath: PCSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, #[out] phNewUSKey: PHUSKEY, fIgnoreHKCU: BOOL) -> LSTATUS;
+        extern fn SHRegOpenUSKeyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] samDesired: REGSAM, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRelativeUSKey: HUSKEY, #[out] phNewUSKey: PHUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreHKCU: BOOL) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegOpenUSKeyW(pwzPath: PCWSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, #[out] phNewUSKey: PHUSKEY, fIgnoreHKCU: BOOL) -> LSTATUS;
+        extern fn SHRegOpenUSKeyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] samDesired: REGSAM, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRelativeUSKey: HUSKEY, #[out] phNewUSKey: PHUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreHKCU: BOOL) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegQueryInfoUSKeyA")]
+        extern fn SHRegQueryInfoUSKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[out] #[opt] pcSubKeys: LPDWORD, #[out] #[opt] pcchMaxSubKeyLen: LPDWORD, #[out] #[opt] pcValues: LPDWORD, #[out] #[opt] pcchMaxValueNameLen: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegQueryInfoUSKeyA(hUSKey: HUSKEY, #[out] #[opt] pcSubKeys: LPDWORD, #[out] #[opt] pcchMaxSubKeyLen: LPDWORD, #[out] #[opt] pcValues: LPDWORD, #[out] #[opt] pcchMaxValueNameLen: LPDWORD, enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
+        extern fn SHRegQueryInfoUSKeyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[out] #[opt] pcSubKeys: LPDWORD, #[out] #[opt] pcchMaxSubKeyLen: LPDWORD, #[out] #[opt] pcValues: LPDWORD, #[out] #[opt] pcchMaxValueNameLen: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegQueryInfoUSKeyW(hUSKey: HUSKEY, #[out] #[opt] pcSubKeys: LPDWORD, #[out] #[opt] pcchMaxSubKeyLen: LPDWORD, #[out] #[opt] pcValues: LPDWORD, #[out] #[opt] pcchMaxValueNameLen: LPDWORD, enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
+        extern fn SHRegQueryInfoUSKeyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[out] #[opt] pcSubKeys: LPDWORD, #[out] #[opt] pcchMaxSubKeyLen: LPDWORD, #[out] #[opt] pcValues: LPDWORD, #[out] #[opt] pcchMaxValueNameLen: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegQueryUSValueA")]
+        extern fn SHRegQueryUSValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreHKCU: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(7)] pvDefaultData: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDefaultDataSize: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegQueryUSValueA(hUSKey: HUSKEY, #[opt] pszValue: PCSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[in] #[opt] pvDefaultData: *mut void, #[opt] dwDefaultDataSize: u32) -> LSTATUS;
+        extern fn SHRegQueryUSValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreHKCU: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(7)] pvDefaultData: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDefaultDataSize: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegQueryUSValueW(hUSKey: HUSKEY, #[opt] pszValue: PCWSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[in] #[opt] pvDefaultData: *mut void, #[opt] dwDefaultDataSize: u32) -> LSTATUS;
+        extern fn SHRegQueryUSValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCWSTR, #[in] #[out] #[opt] pdwType: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbData,*pcbData", "*pcbData,*pcbData")] #[out] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreHKCU: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(7)] pvDefaultData: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDefaultDataSize: DWORD) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegSetPathA")]
+        extern fn SHRegSetPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegSetPathA(hKey: HKEY, #[opt] pcszSubKey: PCSTR, #[opt] pcszValue: PCSTR, pcszPath: PCSTR, dwFlags: u32) -> LSTATUS;
+        extern fn SHRegSetPathA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegSetPathW(hKey: HKEY, #[opt] pcszSubKey: PCWSTR, #[opt] pcszValue: PCWSTR, pcszPath: PCWSTR, dwFlags: u32) -> LSTATUS;
+        extern fn SHRegSetPathW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszSubKey: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszValue: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegSetUSValueA")]
+        extern fn SHRegSetUSValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pvData: *const void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegSetUSValueA(pszSubKey: PCSTR, pszValue: PCSTR, dwType: u32, #[size_param(4)] #[opt] pvData: *const void, #[opt] cbData: u32, #[opt] dwFlags: u32) -> LSTATUS;
+        extern fn SHRegSetUSValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pvData: *const void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegSetUSValueW(pwzSubKey: PCWSTR, pwzValue: PCWSTR, dwType: u32, #[size_param(4)] #[opt] pvData: *const void, #[opt] cbData: u32, #[opt] dwFlags: u32) -> LSTATUS;
+        extern fn SHRegSetUSValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzSubKey: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzValue: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pvData: *const void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
+        #[library("SHLWAPI.dll", import = "SHRegWriteUSValueA")]
+        extern fn SHRegWriteUSValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pvData: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegWriteUSValueA(hUSKey: HUSKEY, pszValue: PCSTR, dwType: u32, #[size_param(4)] pvData: *const void, cbData: u32, dwFlags: u32) -> LSTATUS;
+        extern fn SHRegWriteUSValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pvData: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegWriteUSValueW(hUSKey: HUSKEY, pwzValue: PCWSTR, dwType: u32, #[size_param(4)] pvData: *const void, cbData: u32, dwFlags: u32) -> LSTATUS;
+        extern fn SHRegWriteUSValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hUSKey: HUSKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzValue: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pvData: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
         extern fn SHReleaseThreadRef() -> HRESULT;
+        #[library("SHLWAPI.dll", import = "SHSendMessageBroadcastA")]
+        extern fn SHSendMessageBroadcast(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wParam: WPARAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LPARAM) -> LRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHSendMessageBroadcastA(uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
+        extern fn SHSendMessageBroadcastA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wParam: WPARAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LPARAM) -> LRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHSendMessageBroadcastW(uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
+        extern fn SHSendMessageBroadcastW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wParam: WPARAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LPARAM) -> LRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHSetThreadRef(#[opt] punk: IUnknown) -> HRESULT;
+        extern fn SHSetThreadRef(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punk: IUnknown) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "SHSetValueA")]
+        extern fn SHSetValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] pvData: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHSetValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, #[opt] pszValue: PCSTR, dwType: u32, #[size_param(5)] #[opt] pvData: LPCVOID, cbData: u32) -> LSTATUS;
+        extern fn SHSetValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] pvData: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHSetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, dwType: u32, #[size_param(5)] #[opt] pvData: LPCVOID, cbData: u32) -> LSTATUS;
+        extern fn SHSetValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hkey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubKey: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszValue: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwType: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] pvData: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: DWORD) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHSkipJunction(#[opt] pbc: IBindCtx, pclsid: *const GUID) -> BOOL;
+        extern fn SHSkipJunction(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pbc: IBindCtx, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pclsid: *const CLSID) -> BOOL;
+        #[library("SHLWAPI.dll", import = "SHStrDupA")]
+        extern fn SHStrDup(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppwsz: *mut LPWSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHStrDupA(psz: PCSTR, ppwsz: *mut PWSTR) -> HRESULT;
+        extern fn SHStrDupA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppwsz: *mut LPWSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHStrDupW(psz: PCWSTR, ppwsz: *mut PWSTR) -> HRESULT;
+        extern fn SHStrDupW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppwsz: *mut LPWSTR) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "SHStripMneumonicA")]
+        extern fn SHStripMneumonic(#[in] #[out] pszMenu: LPSTR) -> CHAR;
         #[library("SHLWAPI.dll")]
-        extern fn SHStripMneumonicA(#[in] #[out] pszMenu: PSTR) -> i8;
+        extern fn SHStripMneumonicA(#[in] #[out] pszMenu: LPSTR) -> CHAR;
         #[library("SHLWAPI.dll")]
-        extern fn SHStripMneumonicW(#[in] #[out] pszMenu: PWSTR) -> u16;
+        extern fn SHStripMneumonicW(#[in] #[out] pszMenu: LPWSTR) -> WCHAR;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return > 0", "return > 0")]
         #[library("SHLWAPI.dll")]
-        extern fn SHUnicodeToAnsi(pwszSrc: PCWSTR, #[len_param(2)] #[out] pszDst: PSTR, cchBuf: i32) -> i32;
+        extern fn SHUnicodeToAnsi(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszSrc: PCWSTR, #[out] #[len_param(2)] pszDst: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchBuf: i32) -> i32;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return > 0", "return > 0")]
         #[library("SHLWAPI.dll")]
-        extern fn SHUnicodeToUnicode(pwzSrc: PCWSTR, #[len_param(2)] #[out] pwzDst: PWSTR, cwchBuf: i32) -> i32;
+        extern fn SHUnicodeToUnicode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzSrc: PCWSTR, #[out] #[len_param(2)] pwzDst: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cwchBuf: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn SHUnlockShared(#[in] pvData: *mut void) -> BOOL;
+        extern fn SHUnlockShared(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"header-preceded\")", "_Inexpressible_(\"header-preceded\")")] #[in] pvData: *mut void) -> BOOL;
         type SRRF = i32;
         const SRRF_NOEXPAND: i32 = 268435456;
         const SRRF_NOVIRT: i32 = 1073741824;
@@ -868,154 +1065,258 @@ mod Windows {
         const SZ_CONTENTTYPE_HTMLA: String = "text/html";
         #[encoding("utf-16")]
         const SZ_CONTENTTYPE_HTMLW: String = "text/html";
+        #[library("SHLWAPI.dll", import = "StrCSpnA")]
+        extern fn StrCSpn(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSet: PCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCSpnA(pszStr: PCSTR, pszSet: PCSTR) -> i32;
+        extern fn StrCSpnA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSet: PCSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "StrCSpnIA")]
+        extern fn StrCSpnI(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSet: PCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCSpnIA(pszStr: PCSTR, pszSet: PCSTR) -> i32;
+        extern fn StrCSpnIA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSet: PCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCSpnIW(pszStr: PCWSTR, pszSet: PCWSTR) -> i32;
+        extern fn StrCSpnIW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSet: PCWSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCSpnW(pszStr: PCWSTR, pszSet: PCWSTR) -> i32;
+        extern fn StrCSpnW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSet: PCWSTR) -> i32;
+        #[library("KERNEL32.dll", import = "lstrcatA")]
+        extern fn StrCat(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_z_", "_String_length_(lpString1) + _String_length_(lpString2) + 1", "_String_length_(lpString1) + _String_length_(lpString2) + 1")] #[in] #[out] lpString1: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR) -> LPSTR;
+        #[library("KERNEL32.dll", import = "lstrcatA")]
+        extern fn StrCatA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_z_", "_String_length_(lpString1) + _String_length_(lpString2) + 1", "_String_length_(lpString1) + _String_length_(lpString2) + 1")] #[in] #[out] lpString1: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR) -> LPSTR;
+        #[library("SHLWAPI.dll", import = "StrCatBuffA")]
+        extern fn StrCatBuff(#[in] #[out] #[len_param(2)] pszDest: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: PCSTR, cchDestBuffSize: i32) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrCatBuffA(#[len_param(2)] #[in] #[out] pszDest: PSTR, pszSrc: PCSTR, cchDestBuffSize: i32) -> PSTR;
+        extern fn StrCatBuffA(#[in] #[out] #[len_param(2)] pszDest: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: PCSTR, cchDestBuffSize: i32) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrCatBuffW(#[len_param(2)] #[in] #[out] pszDest: PWSTR, pszSrc: PCWSTR, cchDestBuffSize: i32) -> PWSTR;
+        extern fn StrCatBuffW(#[in] #[out] #[len_param(2)] pszDest: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: PCWSTR, cchDestBuffSize: i32) -> PWSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrCatChainW(#[len_param(1)] #[out] pszDst: PWSTR, cchDst: u32, ichAt: u32, pszSrc: PCWSTR) -> u32;
+        extern fn StrCatChainW(#[out] #[len_param(1)] pszDst: PWSTR, cchDst: DWORD, ichAt: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: PCWSTR) -> DWORD;
+        #[library("SHLWAPI.dll", import = "StrNCatA")]
+        extern fn StrCatN(#[in] #[out] #[len_param(2)] psz1: PSTR, psz2: PCSTR, cchMax: i32) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrCatW(#[in] #[out] psz1: PWSTR, psz2: PCWSTR) -> PWSTR;
+        extern fn StrCatW(#[in] #[out] psz1: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll", import = "StrChrA")]
+        extern fn StrChr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCSTR, wMatch: WORD) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrChrA(pszStart: PCSTR, wMatch: u16) -> PSTR;
+        extern fn StrChrA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCSTR, wMatch: WORD) -> PSTR;
+        #[library("SHLWAPI.dll", import = "StrChrIA")]
+        extern fn StrChrI(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCSTR, wMatch: WORD) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrChrIA(pszStart: PCSTR, wMatch: u16) -> PSTR;
+        extern fn StrChrIA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCSTR, wMatch: WORD) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrChrIW(pszStart: PCWSTR, wMatch: u16) -> PWSTR;
+        extern fn StrChrIW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCWSTR, wMatch: WCHAR) -> PWSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrChrNIW(pszStart: PCWSTR, wMatch: u16, cchMax: u32) -> PWSTR;
+        extern fn StrChrNIW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCWSTR, wMatch: WCHAR, cchMax: UINT) -> PWSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrChrNW(pszStart: PCWSTR, wMatch: u16, cchMax: u32) -> PWSTR;
+        extern fn StrChrNW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCWSTR, wMatch: WCHAR, cchMax: UINT) -> PWSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrChrW(pszStart: PCWSTR, wMatch: u16) -> PWSTR;
+        extern fn StrChrW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCWSTR, wMatch: WCHAR) -> PWSTR;
+        #[library("KERNEL32.dll", import = "lstrcmpA")]
+        extern fn StrCmp(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR) -> i32;
+        #[library("KERNEL32.dll", import = "lstrcmpA")]
+        extern fn StrCmpA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "StrCmpCA")]
+        extern fn StrCmpC(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr2: LPCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpCA(pszStr1: PCSTR, pszStr2: PCSTR) -> i32;
+        extern fn StrCmpCA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr2: LPCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpCW(pszStr1: PCWSTR, pszStr2: PCWSTR) -> i32;
+        extern fn StrCmpCW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr2: LPCWSTR) -> i32;
+        #[library("KERNEL32.dll", import = "lstrcmpiA")]
+        extern fn StrCmpI(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR) -> i32;
+        #[library("KERNEL32.dll", import = "lstrcmpiA")]
+        extern fn StrCmpIA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "StrCmpICA")]
+        extern fn StrCmpIC(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr2: LPCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpICA(pszStr1: PCSTR, pszStr2: PCSTR) -> i32;
+        extern fn StrCmpICA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr2: LPCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpICW(pszStr1: PCWSTR, pszStr2: PCWSTR) -> i32;
+        extern fn StrCmpICW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr2: LPCWSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpIW(psz1: PCWSTR, psz2: PCWSTR) -> i32;
+        extern fn StrCmpIW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCWSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpLogicalW(psz1: PCWSTR, psz2: PCWSTR) -> i32;
+        extern fn StrCmpLogicalW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "StrCmpNA")]
+        extern fn StrCmpN(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCSTR, nChar: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpNA(psz1: PCSTR, psz2: PCSTR, nChar: i32) -> i32;
+        extern fn StrCmpNA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCSTR, nChar: i32) -> i32;
+        #[library("SHLWAPI.dll", import = "StrCmpNCA")]
+        extern fn StrCmpNC(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr2: LPCSTR, nChar: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpNCA(pszStr1: PCSTR, pszStr2: PCSTR, nChar: i32) -> i32;
+        extern fn StrCmpNCA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr2: LPCSTR, nChar: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpNCW(pszStr1: PCWSTR, pszStr2: PCWSTR, nChar: i32) -> i32;
+        extern fn StrCmpNCW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr2: LPCWSTR, nChar: i32) -> i32;
+        #[library("SHLWAPI.dll", import = "StrCmpNIA")]
+        extern fn StrCmpNI(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCSTR, nChar: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpNIA(psz1: PCSTR, psz2: PCSTR, nChar: i32) -> i32;
+        extern fn StrCmpNIA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCSTR, nChar: i32) -> i32;
+        #[library("SHLWAPI.dll", import = "StrCmpNICA")]
+        extern fn StrCmpNIC(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr2: LPCSTR, nChar: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpNICA(pszStr1: PCSTR, pszStr2: PCSTR, nChar: i32) -> i32;
+        extern fn StrCmpNICA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr2: LPCSTR, nChar: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpNICW(pszStr1: PCWSTR, pszStr2: PCWSTR, nChar: i32) -> i32;
+        extern fn StrCmpNICW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStr2: LPCWSTR, nChar: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpNIW(psz1: PCWSTR, psz2: PCWSTR, nChar: i32) -> i32;
+        extern fn StrCmpNIW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCWSTR, nChar: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpNW(psz1: PCWSTR, psz2: PCWSTR, nChar: i32) -> i32;
+        extern fn StrCmpNW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCWSTR, nChar: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrCmpW(psz1: PCWSTR, psz2: PCWSTR) -> i32;
+        extern fn StrCmpW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCWSTR) -> i32;
+        #[library("KERNEL32.dll", import = "lstrcpyA")]
+        extern fn StrCpy(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_String_length_(lpString2) + 1", "_String_length_(lpString2) + 1")] #[out] lpString1: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR) -> LPSTR;
+        #[library("KERNEL32.dll", import = "lstrcpyA")]
+        extern fn StrCpyA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_String_length_(lpString2) + 1", "_String_length_(lpString2) + 1")] #[out] lpString1: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR) -> LPSTR;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_satisfies_", "return == lpString1", "return == lpString1")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        #[library("KERNEL32.dll", import = "lstrcpynA")]
+        extern fn StrCpyN(#[out] #[len_param(2)] lpString1: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iMaxLength: i32) -> LPSTR;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_satisfies_", "return == lpString1", "return == lpString1")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        #[library("KERNEL32.dll", import = "lstrcpynA")]
+        extern fn StrCpyNA(#[out] #[len_param(2)] lpString1: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iMaxLength: i32) -> LPSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrCpyNW(#[len_param(2)] #[out] pszDst: PWSTR, pszSrc: PCWSTR, cchMax: i32) -> PWSTR;
+        extern fn StrCpyNW(#[out] #[len_param(2)] pszDst: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: PCWSTR, cchMax: i32) -> PWSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrCpyW(#[out] psz1: PWSTR, psz2: PCWSTR) -> PWSTR;
+        extern fn StrCpyW(#[out] psz1: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll", import = "StrDupA")]
+        extern fn StrDup(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCSTR) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrDupA(pszSrch: PCSTR) -> PSTR;
+        extern fn StrDupA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCSTR) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrDupW(pszSrch: PCWSTR) -> PWSTR;
+        extern fn StrDupW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll", import = "StrFormatByteSizeA")]
+        extern fn StrFormatByteSize(dw: DWORD, #[out] #[len_param(2)] pszBuf: PSTR, cchBuf: UINT) -> PSTR;
+        #[library("SHLWAPI.dll", import = "StrFormatByteSize64A")]
+        extern fn StrFormatByteSize64(qdw: LONGLONG, #[out] #[len_param(2)] pszBuf: PSTR, cchBuf: UINT) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrFormatByteSize64A(qdw: i64, #[len_param(2)] #[out] pszBuf: PSTR, cchBuf: u32) -> PSTR;
+        extern fn StrFormatByteSize64A(qdw: LONGLONG, #[out] #[len_param(2)] pszBuf: PSTR, cchBuf: UINT) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrFormatByteSizeA(dw: u32, #[len_param(2)] #[out] pszBuf: PSTR, cchBuf: u32) -> PSTR;
+        extern fn StrFormatByteSizeA(dw: DWORD, #[out] #[len_param(2)] pszBuf: PSTR, cchBuf: UINT) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrFormatByteSizeEx(ull: u64, flags: SFBS_FLAGS, #[len_param(3)] #[out] pszBuf: PWSTR, cchBuf: u32) -> HRESULT;
+        extern fn StrFormatByteSizeEx(ull: ULONGLONG, flags: SFBS_FLAGS, #[out] #[len_param(3)] pszBuf: PWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", ">,0", ">,0")] cchBuf: UINT) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn StrFormatByteSizeW(qdw: i64, #[len_param(2)] #[out] pszBuf: PWSTR, cchBuf: u32) -> PWSTR;
+        extern fn StrFormatByteSizeW(qdw: LONGLONG, #[out] #[len_param(2)] pszBuf: PWSTR, cchBuf: UINT) -> PWSTR;
+        #[library("SHLWAPI.dll", import = "StrFormatKBSizeA")]
+        extern fn StrFormatKBSize(qdw: LONGLONG, #[out] #[len_param(2)] pszBuf: PSTR, cchBuf: UINT) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrFormatKBSizeA(qdw: i64, #[len_param(2)] #[out] pszBuf: PSTR, cchBuf: u32) -> PSTR;
+        extern fn StrFormatKBSizeA(qdw: LONGLONG, #[out] #[len_param(2)] pszBuf: PSTR, cchBuf: UINT) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrFormatKBSizeW(qdw: i64, #[len_param(2)] #[out] pszBuf: PWSTR, cchBuf: u32) -> PWSTR;
+        extern fn StrFormatKBSizeW(qdw: LONGLONG, #[out] #[len_param(2)] pszBuf: PWSTR, cchBuf: UINT) -> PWSTR;
+        #[library("SHLWAPI.dll", import = "StrFromTimeIntervalA")]
+        extern fn StrFromTimeInterval(#[out] #[len_param(1)] pszOut: PSTR, cchMax: UINT, dwTimeMS: DWORD, digits: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrFromTimeIntervalA(#[len_param(1)] #[out] pszOut: PSTR, cchMax: u32, dwTimeMS: u32, digits: i32) -> i32;
+        extern fn StrFromTimeIntervalA(#[out] #[len_param(1)] pszOut: PSTR, cchMax: UINT, dwTimeMS: DWORD, digits: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrFromTimeIntervalW(#[len_param(1)] #[out] pszOut: PWSTR, cchMax: u32, dwTimeMS: u32, digits: i32) -> i32;
+        extern fn StrFromTimeIntervalW(#[out] #[len_param(1)] pszOut: PWSTR, cchMax: UINT, dwTimeMS: DWORD, digits: i32) -> i32;
+        #[library("SHLWAPI.dll", import = "StrIsIntlEqualA")]
+        extern fn StrIsIntlEqual(fCaseSens: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszString1: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszString2: PCSTR, nChar: i32) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn StrIsIntlEqualA(fCaseSens: BOOL, pszString1: PCSTR, pszString2: PCSTR, nChar: i32) -> BOOL;
+        extern fn StrIsIntlEqualA(fCaseSens: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszString1: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszString2: PCSTR, nChar: i32) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn StrIsIntlEqualW(fCaseSens: BOOL, pszString1: PCWSTR, pszString2: PCWSTR, nChar: i32) -> BOOL;
+        extern fn StrIsIntlEqualW(fCaseSens: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszString1: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszString2: PCWSTR, nChar: i32) -> BOOL;
+        #[library("SHLWAPI.dll", import = "StrNCatA")]
+        extern fn StrNCat(#[in] #[out] #[len_param(2)] psz1: PSTR, psz2: PCSTR, cchMax: i32) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrNCatA(#[len_param(2)] #[in] #[out] psz1: PSTR, psz2: PCSTR, cchMax: i32) -> PSTR;
+        extern fn StrNCatA(#[in] #[out] #[len_param(2)] psz1: PSTR, psz2: PCSTR, cchMax: i32) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrNCatW(#[len_param(2)] #[in] #[out] psz1: PWSTR, psz2: PCWSTR, cchMax: i32) -> PWSTR;
+        extern fn StrNCatW(#[in] #[out] #[len_param(2)] psz1: PWSTR, psz2: PCWSTR, cchMax: i32) -> PWSTR;
+        #[library("SHLWAPI.dll", import = "StrCmpNA")]
+        extern fn StrNCmp(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCSTR, nChar: i32) -> i32;
+        #[library("SHLWAPI.dll", import = "StrCmpNIA")]
+        extern fn StrNCmpI(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCSTR, nChar: i32) -> i32;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_satisfies_", "return == lpString1", "return == lpString1")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        #[library("KERNEL32.dll", import = "lstrcpynA")]
+        extern fn StrNCpy(#[out] #[len_param(2)] lpString1: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iMaxLength: i32) -> LPSTR;
+        #[library("SHLWAPI.dll", import = "StrPBrkA")]
+        extern fn StrPBrk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSet: PCSTR) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrPBrkA(psz: PCSTR, pszSet: PCSTR) -> PSTR;
+        extern fn StrPBrkA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSet: PCSTR) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrPBrkW(psz: PCWSTR, pszSet: PCWSTR) -> PWSTR;
+        extern fn StrPBrkW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSet: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll", import = "StrRChrA")]
+        extern fn StrRChr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEnd: PCSTR, wMatch: WORD) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrRChrA(pszStart: PCSTR, #[opt] pszEnd: PCSTR, wMatch: u16) -> PSTR;
+        extern fn StrRChrA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEnd: PCSTR, wMatch: WORD) -> PSTR;
+        #[library("SHLWAPI.dll", import = "StrRChrIA")]
+        extern fn StrRChrI(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEnd: PCSTR, wMatch: WORD) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrRChrIA(pszStart: PCSTR, #[opt] pszEnd: PCSTR, wMatch: u16) -> PSTR;
+        extern fn StrRChrIA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEnd: PCSTR, wMatch: WORD) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrRChrIW(pszStart: PCWSTR, #[opt] pszEnd: PCWSTR, wMatch: u16) -> PWSTR;
+        extern fn StrRChrIW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEnd: PCWSTR, wMatch: WCHAR) -> PWSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrRChrW(pszStart: PCWSTR, #[opt] pszEnd: PCWSTR, wMatch: u16) -> PWSTR;
+        extern fn StrRChrW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszStart: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEnd: PCWSTR, wMatch: WCHAR) -> PWSTR;
+        #[library("SHLWAPI.dll", import = "StrRStrIA")]
+        extern fn StrRStrI(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSource: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszLast: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCSTR) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrRStrIA(pszSource: PCSTR, #[opt] pszLast: PCSTR, pszSrch: PCSTR) -> PSTR;
+        extern fn StrRStrIA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSource: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszLast: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCSTR) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrRStrIW(pszSource: PCWSTR, #[opt] pszLast: PCWSTR, pszSrch: PCWSTR) -> PWSTR;
+        extern fn StrRStrIW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSource: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszLast: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCWSTR) -> PWSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrRetToBSTR(#[in] #[out] pstr: *mut STRRET, #[opt] pidl: LPCITEMIDLIST, pbstr: *mut BSTR) -> HRESULT;
+        extern fn StrRetToBSTR(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPCITEMIDLIST, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstr: *mut BSTR) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "StrRetToBufA")]
+        extern fn StrRetToBuf(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPCITEMIDLIST, #[out] #[len_param(3)] pszBuf: LPSTR, cchBuf: UINT) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn StrRetToBufA(#[in] #[out] pstr: *mut STRRET, #[opt] pidl: LPCITEMIDLIST, #[len_param(3)] #[out] pszBuf: PSTR, cchBuf: u32) -> HRESULT;
+        extern fn StrRetToBufA(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPCITEMIDLIST, #[out] #[len_param(3)] pszBuf: LPSTR, cchBuf: UINT) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn StrRetToBufW(#[in] #[out] pstr: *mut STRRET, #[opt] pidl: LPCITEMIDLIST, #[len_param(3)] #[out] pszBuf: PWSTR, cchBuf: u32) -> HRESULT;
+        extern fn StrRetToBufW(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPCITEMIDLIST, #[out] #[len_param(3)] pszBuf: LPWSTR, cchBuf: UINT) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "StrRetToStrA")]
+        extern fn StrRetToStr(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPCITEMIDLIST, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppsz: *mut LPSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn StrRetToStrA(#[in] #[out] pstr: *mut STRRET, #[opt] pidl: LPCITEMIDLIST, ppsz: *mut PSTR) -> HRESULT;
+        extern fn StrRetToStrA(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPCITEMIDLIST, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppsz: *mut LPSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn StrRetToStrW(#[in] #[out] pstr: *mut STRRET, #[opt] pidl: LPCITEMIDLIST, ppsz: *mut PWSTR) -> HRESULT;
+        extern fn StrRetToStrW(#[in] #[out] pstr: *mut STRRET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPCITEMIDLIST, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppsz: *mut LPWSTR) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "StrSpnA")]
+        extern fn StrSpn(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSet: PCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrSpnA(psz: PCSTR, pszSet: PCSTR) -> i32;
+        extern fn StrSpnA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSet: PCSTR) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn StrSpnW(psz: PCWSTR, pszSet: PCWSTR) -> i32;
+        extern fn StrSpnW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSet: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "StrStrA")]
+        extern fn StrStr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFirst: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCSTR) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrStrA(pszFirst: PCSTR, pszSrch: PCSTR) -> PSTR;
+        extern fn StrStrA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFirst: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCSTR) -> PSTR;
+        #[library("SHLWAPI.dll", import = "StrStrIA")]
+        extern fn StrStrI(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFirst: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCSTR) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrStrIA(pszFirst: PCSTR, pszSrch: PCSTR) -> PSTR;
+        extern fn StrStrIA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFirst: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCSTR) -> PSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrStrIW(pszFirst: PCWSTR, pszSrch: PCWSTR) -> PWSTR;
+        extern fn StrStrIW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFirst: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCWSTR) -> PWSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrStrNIW(pszFirst: PCWSTR, pszSrch: PCWSTR, cchMax: u32) -> PWSTR;
+        extern fn StrStrNIW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFirst: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCWSTR, cchMax: UINT) -> PWSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrStrNW(pszFirst: PCWSTR, pszSrch: PCWSTR, cchMax: u32) -> PWSTR;
+        extern fn StrStrNW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFirst: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCWSTR, cchMax: UINT) -> PWSTR;
         #[library("SHLWAPI.dll")]
-        extern fn StrStrW(pszFirst: PCWSTR, pszSrch: PCWSTR) -> PWSTR;
+        extern fn StrStrW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFirst: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrch: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll", import = "StrToIntA")]
+        extern fn StrToInt(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: PCSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "StrToInt64ExA")]
+        extern fn StrToInt64Ex(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszString: PCSTR, dwFlags: STIF_FLAGS, #[out] pllRet: *mut LONGLONG) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn StrToInt64ExA(pszString: PCSTR, dwFlags: STIF_FLAGS, pllRet: *mut i64) -> BOOL;
+        extern fn StrToInt64ExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszString: PCSTR, dwFlags: STIF_FLAGS, #[out] pllRet: *mut LONGLONG) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn StrToInt64ExW(pszString: PCWSTR, dwFlags: STIF_FLAGS, pllRet: *mut i64) -> BOOL;
+        extern fn StrToInt64ExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszString: PCWSTR, dwFlags: STIF_FLAGS, #[out] pllRet: *mut LONGLONG) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn StrToIntA(pszSrc: PCSTR) -> i32;
+        extern fn StrToIntA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: PCSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "StrToIntExA")]
+        extern fn StrToIntEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszString: PCSTR, dwFlags: STIF_FLAGS, #[out] piRet: *mut i32) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn StrToIntExA(pszString: PCSTR, dwFlags: STIF_FLAGS, piRet: *mut i32) -> BOOL;
+        extern fn StrToIntExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszString: PCSTR, dwFlags: STIF_FLAGS, #[out] piRet: *mut i32) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn StrToIntExW(pszString: PCWSTR, dwFlags: STIF_FLAGS, piRet: *mut i32) -> BOOL;
+        extern fn StrToIntExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszString: PCWSTR, dwFlags: STIF_FLAGS, #[out] piRet: *mut i32) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn StrToIntW(pszSrc: PCWSTR) -> i32;
+        extern fn StrToIntW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "StrToIntA")]
+        extern fn StrToLong(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSrc: PCSTR) -> i32;
+        #[library("SHLWAPI.dll", import = "StrTrimA")]
+        extern fn StrTrim(#[in] #[out] psz: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTrimChars: PCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn StrTrimA(#[in] #[out] psz: PSTR, pszTrimChars: PCSTR) -> BOOL;
+        extern fn StrTrimA(#[in] #[out] psz: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTrimChars: PCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn StrTrimW(#[in] #[out] psz: PWSTR, pszTrimChars: PCWSTR) -> BOOL;
+        extern fn StrTrimW(#[in] #[out] psz: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTrimChars: PCWSTR) -> BOOL;
         #[repr(i32)]
         enum URLIS {
             URLIS_URL = 0,
@@ -1096,74 +1397,102 @@ mod Windows {
         const URL_UNESCAPE_INPLACE: i32 = 1048576;
         const URL_UNESCAPE_URI_COMPONENT: i32 = 262144;
         const URL_WININET_COMPATIBILITY: u32 = 2147483648;
+        #[library("SHLWAPI.dll", import = "UrlApplySchemeA")]
+        extern fn UrlApplyScheme(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszIn: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchOut", "*pcchOut")] #[out] pszOut: PSTR, #[in] #[out] pcchOut: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlApplySchemeA(pszIn: PCSTR, #[len_param(2)] #[out] pszOut: PSTR, #[in] #[out] pcchOut: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlApplySchemeA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszIn: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchOut", "*pcchOut")] #[out] pszOut: PSTR, #[in] #[out] pcchOut: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlApplySchemeW(pszIn: PCWSTR, #[len_param(2)] #[out] pszOut: PWSTR, #[in] #[out] pcchOut: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlApplySchemeW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszIn: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchOut", "*pcchOut")] #[out] pszOut: PWSTR, #[in] #[out] pcchOut: *mut DWORD, dwFlags: DWORD) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "UrlCanonicalizeA")]
+        extern fn UrlCanonicalize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchCanonicalized,*pcchCanonicalized", "*pcchCanonicalized,*pcchCanonicalized")] #[out] pszCanonicalized: PSTR, #[in] #[out] pcchCanonicalized: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlCanonicalizeA(pszUrl: PCSTR, #[len_param(2)] #[out] pszCanonicalized: PSTR, #[in] #[out] pcchCanonicalized: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlCanonicalizeA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchCanonicalized,*pcchCanonicalized", "*pcchCanonicalized,*pcchCanonicalized")] #[out] pszCanonicalized: PSTR, #[in] #[out] pcchCanonicalized: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlCanonicalizeW(pszUrl: PCWSTR, #[len_param(2)] #[out] pszCanonicalized: PWSTR, #[in] #[out] pcchCanonicalized: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlCanonicalizeW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchCanonicalized,*pcchCanonicalized", "*pcchCanonicalized,*pcchCanonicalized")] #[out] pszCanonicalized: PWSTR, #[in] #[out] pcchCanonicalized: *mut DWORD, dwFlags: DWORD) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "UrlCombineA")]
+        extern fn UrlCombine(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszBase: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRelative: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*pcchCombined,*pcchCombined", "*pcchCombined,*pcchCombined")] #[out] #[opt] pszCombined: PSTR, #[in] #[out] pcchCombined: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlCombineA(pszBase: PCSTR, pszRelative: PCSTR, #[len_param(3)] #[out] #[opt] pszCombined: PSTR, #[in] #[out] pcchCombined: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlCombineA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszBase: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRelative: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*pcchCombined,*pcchCombined", "*pcchCombined,*pcchCombined")] #[out] #[opt] pszCombined: PSTR, #[in] #[out] pcchCombined: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlCombineW(pszBase: PCWSTR, pszRelative: PCWSTR, #[len_param(3)] #[out] #[opt] pszCombined: PWSTR, #[in] #[out] pcchCombined: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlCombineW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszBase: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRelative: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*pcchCombined,*pcchCombined", "*pcchCombined,*pcchCombined")] #[out] #[opt] pszCombined: PWSTR, #[in] #[out] pcchCombined: *mut DWORD, dwFlags: DWORD) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "UrlCompareA")]
+        extern fn UrlCompare(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCSTR, fIgnoreSlash: BOOL) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn UrlCompareA(psz1: PCSTR, psz2: PCSTR, fIgnoreSlash: BOOL) -> i32;
+        extern fn UrlCompareA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCSTR, fIgnoreSlash: BOOL) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn UrlCompareW(psz1: PCWSTR, psz2: PCWSTR, fIgnoreSlash: BOOL) -> i32;
+        extern fn UrlCompareW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz1: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psz2: PCWSTR, fIgnoreSlash: BOOL) -> i32;
+        #[library("SHLWAPI.dll", import = "UrlCreateFromPathA")]
+        extern fn UrlCreateFromPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchUrl,*pcchUrl", "*pcchUrl,*pcchUrl")] #[out] pszUrl: PSTR, #[in] #[out] pcchUrl: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlCreateFromPathA(pszPath: PCSTR, #[len_param(2)] #[out] pszUrl: PSTR, #[in] #[out] pcchUrl: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlCreateFromPathA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchUrl,*pcchUrl", "*pcchUrl,*pcchUrl")] #[out] pszUrl: PSTR, #[in] #[out] pcchUrl: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlCreateFromPathW(pszPath: PCWSTR, #[len_param(2)] #[out] pszUrl: PWSTR, #[in] #[out] pcchUrl: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlCreateFromPathW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchUrl,*pcchUrl", "*pcchUrl,*pcchUrl")] #[out] pszUrl: PWSTR, #[in] #[out] pcchUrl: *mut DWORD, dwFlags: DWORD) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "UrlEscapeA")]
+        extern fn UrlEscape(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchEscaped,*pcchEscaped", "*pcchEscaped,*pcchEscaped")] #[out] pszEscaped: PSTR, #[in] #[out] pcchEscaped: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlEscapeA(pszUrl: PCSTR, #[len_param(2)] #[out] pszEscaped: PSTR, #[in] #[out] pcchEscaped: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlEscapeA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchEscaped,*pcchEscaped", "*pcchEscaped,*pcchEscaped")] #[out] pszEscaped: PSTR, #[in] #[out] pcchEscaped: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlEscapeW(pszUrl: PCWSTR, #[len_param(2)] #[out] pszEscaped: PWSTR, #[in] #[out] pcchEscaped: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlEscapeW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchEscaped,*pcchEscaped", "*pcchEscaped,*pcchEscaped")] #[out] pszEscaped: PWSTR, #[in] #[out] pcchEscaped: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlFixupW(pcszUrl: PCWSTR, #[len_param(2)] #[out] pszTranslatedUrl: PWSTR, cchMax: u32) -> HRESULT;
+        extern fn UrlFixupW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszUrl: PCWSTR, #[out] #[len_param(2)] pszTranslatedUrl: PWSTR, cchMax: DWORD) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "UrlGetLocationA")]
+        extern fn UrlGetLocation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszURL: PCSTR) -> LPCSTR;
         #[library("SHLWAPI.dll")]
-        extern fn UrlGetLocationA(pszURL: PCSTR) -> PCSTR;
+        extern fn UrlGetLocationA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszURL: PCSTR) -> LPCSTR;
         #[library("SHLWAPI.dll")]
-        extern fn UrlGetLocationW(pszURL: PCWSTR) -> PCWSTR;
+        extern fn UrlGetLocationW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszURL: PCWSTR) -> LPCWSTR;
+        #[library("SHLWAPI.dll", import = "UrlGetPartA")]
+        extern fn UrlGetPart(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszIn: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchOut", "*pcchOut")] #[out] pszOut: PSTR, #[in] #[out] pcchOut: *mut DWORD, dwPart: DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlGetPartA(pszIn: PCSTR, #[len_param(2)] #[out] pszOut: PSTR, #[in] #[out] pcchOut: *mut u32, dwPart: u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlGetPartA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszIn: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchOut", "*pcchOut")] #[out] pszOut: PSTR, #[in] #[out] pcchOut: *mut DWORD, dwPart: DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlGetPartW(pszIn: PCWSTR, #[len_param(2)] #[out] pszOut: PWSTR, #[in] #[out] pcchOut: *mut u32, dwPart: u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlGetPartW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszIn: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchOut", "*pcchOut")] #[out] pszOut: PWSTR, #[in] #[out] pcchOut: *mut DWORD, dwPart: DWORD, dwFlags: DWORD) -> HRESULT;
+        #[library("SHLWAPI.dll", import = "UrlHashA")]
+        extern fn UrlHash(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCSTR, #[out] #[size_param(2)] pbHash: *mut BYTE, cbHash: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlHashA(pszUrl: PCSTR, #[size_param(2)] pbHash: *mut u8, cbHash: u32) -> HRESULT;
+        extern fn UrlHashA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCSTR, #[out] #[size_param(2)] pbHash: *mut BYTE, cbHash: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlHashW(pszUrl: PCWSTR, #[size_param(2)] pbHash: *mut u8, cbHash: u32) -> HRESULT;
+        extern fn UrlHashW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCWSTR, #[out] #[size_param(2)] pbHash: *mut BYTE, cbHash: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll", import = "UrlIsA")]
-        extern fn UrlIs(pszUrl: PCSTR, UrlIs: URLIS) -> BOOL;
+        extern fn UrlIs(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCSTR, UrlIs: URLIS) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn UrlIsNoHistoryA(pszURL: PCSTR) -> BOOL;
+        extern fn UrlIsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCSTR, UrlIs: URLIS) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn UrlIsNoHistoryW(pszURL: PCWSTR) -> BOOL;
+        extern fn UrlIsNoHistoryA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszURL: PCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn UrlIsOpaqueA(pszURL: PCSTR) -> BOOL;
+        extern fn UrlIsNoHistoryW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszURL: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll", import = "UrlIsOpaqueA")]
+        extern fn UrlIsOpaque(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszURL: PCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn UrlIsOpaqueW(pszURL: PCWSTR) -> BOOL;
+        extern fn UrlIsOpaqueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszURL: PCSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn UrlIsW(pszUrl: PCWSTR, UrlIs: URLIS) -> BOOL;
+        extern fn UrlIsOpaqueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszURL: PCWSTR) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn UrlUnescapeA(#[in] #[out] pszUrl: PSTR, #[len_param(2)] #[out] #[opt] pszUnescaped: PSTR, #[in] #[out] #[opt] pcchUnescaped: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlIsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUrl: PCWSTR, UrlIs: URLIS) -> BOOL;
+        #[library("SHLWAPI.dll", import = "UrlUnescapeA")]
+        extern fn UrlUnescape(#[in] #[out] pszUrl: PSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*pcchUnescaped,*pcchUnescaped", "*pcchUnescaped,*pcchUnescaped")] #[out] #[opt] pszUnescaped: PSTR, #[in] #[out] #[opt] pcchUnescaped: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn UrlUnescapeW(#[in] #[out] pszUrl: PWSTR, #[len_param(2)] #[out] #[opt] pszUnescaped: PWSTR, #[in] #[out] #[opt] pcchUnescaped: *mut u32, dwFlags: u32) -> HRESULT;
+        extern fn UrlUnescapeA(#[in] #[out] pszUrl: PSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*pcchUnescaped,*pcchUnescaped", "*pcchUnescaped,*pcchUnescaped")] #[out] #[opt] pszUnescaped: PSTR, #[in] #[out] #[opt] pcchUnescaped: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn WhichPlatform() -> u32;
+        extern fn UrlUnescapeW(#[in] #[out] pszUrl: PWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*pcchUnescaped,*pcchUnescaped", "*pcchUnescaped,*pcchUnescaped")] #[out] #[opt] pszUnescaped: PWSTR, #[in] #[out] #[opt] pcchUnescaped: *mut DWORD, dwFlags: DWORD) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn WhichPlatform() -> UINT;
         #[repr(i32)]
         enum tagSFBS_FLAGS {
             SFBS_FLAGS_ROUND_TO_NEAREST_DISPLAYED_DIGIT = 1,
             SFBS_FLAGS_TRUNCATE_UNDISPLAYED_DECIMAL_DIGITS = 2,
         }
+        #[library("SHLWAPI.dll", import = "wnsprintfA")]
+        extern "C" fn wnsprintf(#[out] #[len_param(1)] pszDest: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFmt: PCSTR, ...) -> i32;
         #[library("SHLWAPI.dll")]
-        extern "C" fn wnsprintfA(#[len_param(1)] #[out] pszDest: PSTR, cchDest: i32, pszFmt: PCSTR, ...) -> i32;
+        extern "C" fn wnsprintfA(#[out] #[len_param(1)] pszDest: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFmt: PCSTR, ...) -> i32;
         #[library("SHLWAPI.dll")]
-        extern "C" fn wnsprintfW(#[len_param(1)] #[out] pszDest: PWSTR, cchDest: i32, pszFmt: PCWSTR, ...) -> i32;
+        extern "C" fn wnsprintfW(#[out] #[len_param(1)] pszDest: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFmt: PCWSTR, ...) -> i32;
+        #[library("SHLWAPI.dll", import = "wvnsprintfA")]
+        extern fn wvnsprintf(#[out] #[len_param(1)] pszDest: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFmt: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] arglist: va_list) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn wvnsprintfA(#[len_param(1)] #[out] pszDest: PSTR, cchDest: i32, pszFmt: PCSTR, arglist: va_list) -> i32;
+        extern fn wvnsprintfA(#[out] #[len_param(1)] pszDest: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFmt: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] arglist: va_list) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn wvnsprintfW(#[len_param(1)] #[out] pszDest: PWSTR, cchDest: i32, pszFmt: PCWSTR, arglist: va_list) -> i32;
+        extern fn wvnsprintfW(#[out] #[len_param(1)] pszDest: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFmt: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] arglist: va_list) -> i32;
     }
 }

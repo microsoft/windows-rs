@@ -6,23 +6,23 @@ mod Windows {
             D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_TILED_RESOURCE = 1,
         }
         struct D3D11_PACKED_MIP_DESC {
-            NumStandardMips: u8,
-            NumPackedMips: u8,
-            NumTilesForPackedMips: u32,
-            StartTileIndexInOverallResource: u32,
+            NumStandardMips: UINT8,
+            NumPackedMips: UINT8,
+            NumTilesForPackedMips: UINT,
+            StartTileIndexInOverallResource: UINT,
         }
         const D3D11_PACKED_TILE: u32 = 4294967295;
         struct D3D11_SUBRESOURCE_TILING {
-            WidthInTiles: u32,
-            HeightInTiles: u16,
-            DepthInTiles: u16,
-            StartTileIndexInOverallResource: u32,
+            WidthInTiles: UINT,
+            HeightInTiles: UINT16,
+            DepthInTiles: UINT16,
+            StartTileIndexInOverallResource: UINT,
         }
         struct D3D11_TILED_RESOURCE_COORDINATE {
-            X: u32,
-            Y: u32,
-            Z: u32,
-            Subresource: u32,
+            X: UINT,
+            Y: UINT,
+            Z: UINT,
+            Subresource: UINT,
         }
         #[repr(i32)]
         enum D3D11_TILE_COPY_FLAG {
@@ -41,36 +41,38 @@ mod Windows {
             D3D11_TILE_RANGE_REUSE_SINGLE_TILE = 4,
         }
         struct D3D11_TILE_REGION_SIZE {
-            NumTiles: u32,
+            NumTiles: UINT,
             bUseBox: BOOL,
-            Width: u32,
-            Height: u16,
-            Depth: u16,
+            Width: UINT,
+            Height: UINT16,
+            Depth: UINT16,
         }
         struct D3D11_TILE_SHAPE {
-            WidthInTexels: u32,
-            HeightInTexels: u32,
-            DepthInTexels: u32,
+            WidthInTexels: UINT,
+            HeightInTexels: UINT,
+            DepthInTexels: UINT,
         }
         #[guid(0x9d06dffa_d1e5_4d07_83a8_1bb123f2f841)]
         interface ID3D11Device2: ID3D11Device1 {
-            fn GetImmediateContext2(&self, ppImmediateContext: *mut ID3D11DeviceContext2);
-            fn CreateDeferredContext2(&self, ContextFlags: u32, #[opt] ppDeferredContext: *mut ID3D11DeviceContext2) -> HRESULT;
-            fn GetResourceTiling(&self, pTiledResource: ID3D11Resource, #[opt] pNumTilesForEntireResource: *mut u32, #[opt] pPackedMipDesc: *mut D3D11_PACKED_MIP_DESC, #[opt] pStandardTileShapeForNonPackedMips: *mut D3D11_TILE_SHAPE, #[in] #[out] #[opt] pNumSubresourceTilings: *mut u32, FirstSubresourceTilingToGet: u32, #[len_param(4)] pSubresourceTilingsForNonPackedMips: *mut D3D11_SUBRESOURCE_TILING);
-            fn CheckMultisampleQualityLevels1(&self, Format: DXGI_FORMAT, SampleCount: u32, Flags: u32, pNumQualityLevels: *mut u32) -> HRESULT;
+            fn GetImmediateContext2(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppImmediateContext: *mut ID3D11DeviceContext2);
+            fn CreateDeferredContext2(&self, ContextFlags: UINT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppDeferredContext: *mut ID3D11DeviceContext2) -> HRESULT;
+            fn GetResourceTiling(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTiledResource: ID3D11Resource, #[out] #[opt] pNumTilesForEntireResource: *mut UINT, #[out] #[opt] pPackedMipDesc: *mut D3D11_PACKED_MIP_DESC, #[out] #[opt] pStandardTileShapeForNonPackedMips: *mut D3D11_TILE_SHAPE, #[in] #[out] #[opt] pNumSubresourceTilings: *mut UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FirstSubresourceTilingToGet: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pNumSubresourceTilings", "*pNumSubresourceTilings")] #[out] pSubresourceTilingsForNonPackedMips: *mut D3D11_SUBRESOURCE_TILING);
+            fn CheckMultisampleQualityLevels1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DXGI_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SampleCount: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: UINT, #[out] pNumQualityLevels: *mut UINT) -> HRESULT;
         }
         #[guid(0x420d5b32_b90c_4da4_bef0_359f6a24a83a)]
         interface ID3D11DeviceContext2: ID3D11DeviceContext1 {
-            fn UpdateTileMappings(&self, pTiledResource: ID3D11Resource, NumTiledResourceRegions: u32, #[len_param(1)] #[opt] pTiledResourceRegionStartCoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, #[len_param(1)] #[opt] pTiledResourceRegionSizes: *const D3D11_TILE_REGION_SIZE, #[opt] pTilePool: ID3D11Buffer, NumRanges: u32, #[len_param(5)] #[opt] pRangeFlags: *const u32, #[len_param(5)] #[opt] pTilePoolStartOffsets: *const u32, #[len_param(5)] #[opt] pRangeTileCounts: *const u32, Flags: u32) -> HRESULT;
-            fn CopyTileMappings(&self, pDestTiledResource: ID3D11Resource, pDestRegionStartCoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pSourceTiledResource: ID3D11Resource, pSourceRegionStartCoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pTileRegionSize: *const D3D11_TILE_REGION_SIZE, Flags: u32) -> HRESULT;
-            fn CopyTiles(&self, pTiledResource: ID3D11Resource, pTileRegionStartCoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pTileRegionSize: *const D3D11_TILE_REGION_SIZE, pBuffer: ID3D11Buffer, BufferStartOffsetInBytes: u64, Flags: u32);
-            fn UpdateTiles(&self, pDestTiledResource: ID3D11Resource, pDestTileRegionStartCoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pDestTileRegionSize: *const D3D11_TILE_REGION_SIZE, pSourceTileData: *const void, Flags: u32);
-            fn ResizeTilePool(&self, pTilePool: ID3D11Buffer, NewSizeInBytes: u64) -> HRESULT;
-            fn TiledResourceBarrier(&self, #[opt] pTiledResourceOrViewAccessBeforeBarrier: ID3D11DeviceChild, #[opt] pTiledResourceOrViewAccessAfterBarrier: ID3D11DeviceChild);
+            fn UpdateTileMappings(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTiledResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumTiledResourceRegions: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pTiledResourceRegionStartCoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pTiledResourceRegionSizes: *const D3D11_TILE_REGION_SIZE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTilePool: ID3D11Buffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumRanges: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] pRangeFlags: *const UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] pTilePoolStartOffsets: *const UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] pRangeTileCounts: *const UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: UINT) -> HRESULT;
+            fn CopyTileMappings(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDestTiledResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDestRegionStartCoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSourceTiledResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSourceRegionStartCoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTileRegionSize: *const D3D11_TILE_REGION_SIZE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: UINT) -> HRESULT;
+            fn CopyTiles(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTiledResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTileRegionStartCoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTileRegionSize: *const D3D11_TILE_REGION_SIZE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBuffer: ID3D11Buffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferStartOffsetInBytes: UINT64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: UINT);
+            fn UpdateTiles(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDestTiledResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDestTileRegionStartCoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDestTileRegionSize: *const D3D11_TILE_REGION_SIZE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSourceTileData: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: UINT);
+            fn ResizeTilePool(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTilePool: ID3D11Buffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewSizeInBytes: UINT64) -> HRESULT;
+            fn TiledResourceBarrier(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTiledResourceOrViewAccessBeforeBarrier: ID3D11DeviceChild, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTiledResourceOrViewAccessAfterBarrier: ID3D11DeviceChild);
             fn IsAnnotationEnabled(&self) -> BOOL;
-            fn SetMarkerInt(&self, pLabel: PCWSTR, Data: i32);
-            fn BeginEventInt(&self, pLabel: PCWSTR, Data: i32);
+            fn SetMarkerInt(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLabel: LPCWSTR, Data: INT);
+            fn BeginEventInt(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLabel: LPCWSTR, Data: INT);
             fn EndEvent(&self);
         }
+        const IID_ID3D11Device2: GUID = 0x9d06dffa_d1e5_4d07_83a8_1bb123f2f841;
+        const IID_ID3D11DeviceContext2: GUID = 0x420d5b32_b90c_4da4_bef0_359f6a24a83a;
     }
 }

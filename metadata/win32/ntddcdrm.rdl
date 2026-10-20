@@ -27,33 +27,33 @@ mod Windows {
         const CDROM_CD_TEXT_PACK_UPC_EAN: i32 = 142;
         const CDROM_DISK_AUDIO_TRACK: i32 = 1;
         struct CDROM_DISK_DATA {
-            DiskData: u32,
+            DiskData: ULONG,
         }
         const CDROM_DISK_DATA_TRACK: i32 = 2;
         struct CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR {
-            Lba: [u8; 4],
-            Time: [u8; 2],
+            Lba: [UCHAR; 4],
+            Time: [UCHAR; 2],
         }
         struct CDROM_EXCLUSIVE_ACCESS {
             RequestType: EXCLUSIVE_ACCESS_REQUEST_TYPE,
-            Flags: u32,
+            Flags: ULONG,
         }
         const CDROM_EXCLUSIVE_CALLER_LENGTH: i32 = 64;
         struct CDROM_EXCLUSIVE_LOCK {
             Access: CDROM_EXCLUSIVE_ACCESS,
-            CallerName: [u8; 64],
+            CallerName: [UCHAR; 64],
         }
         struct CDROM_EXCLUSIVE_LOCK_STATE {
             LockState: BOOLEAN,
-            CallerName: [u8; 64],
+            CallerName: [UCHAR; 64],
         }
         const CDROM_IN_EXCLUSIVE_MODE: i32 = 1;
         const CDROM_LOCK_IGNORE_VOLUME: i32 = 1;
         struct CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR {
-            StartLba: [u8; 4],
-            StartPerformance: [u8; 4],
-            EndLba: [u8; 4],
-            EndPerformance: [u8; 4],
+            StartLba: [UCHAR; 4],
+            StartPerformance: [UCHAR; 4],
+            EndLba: [UCHAR; 4],
+            EndPerformance: [UCHAR; 4],
         }
         const CDROM_NOT_IN_EXCLUSIVE_MODE: i32 = 0;
         const CDROM_NO_MEDIA_NOTIFICATIONS: i32 = 2;
@@ -68,21 +68,20 @@ mod Windows {
             CdromPerformanceExceptionsOnly = 3,
         }
         struct CDROM_PERFORMANCE_HEADER {
-            DataLength: [u8; 4],
-            _bitfield: u8 {
-                Except: 1,
-                Write: 1,
-                Reserved1: 6,
-            },
-            Reserved2: [u8; 3],
-            Data: [u8; 0],
+            DataLength: [UCHAR; 4],
+            #[Windows::Win32::Metadata::NativeBitfield("Except", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 2, 6, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Write", 1, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
+            Data: [UCHAR; 0],
         }
         struct CDROM_PERFORMANCE_REQUEST {
             RequestType: CDROM_PERFORMANCE_REQUEST_TYPE,
             PerformanceType: CDROM_PERFORMANCE_TYPE,
             Exceptions: CDROM_PERFORMANCE_EXCEPTION_TYPE,
             Tolerance: CDROM_PERFORMANCE_TOLERANCE_TYPE,
-            StaringLba: u32,
+            StaringLba: ULONG,
         }
         #[repr(i32)]
         enum CDROM_PERFORMANCE_REQUEST_TYPE {
@@ -99,22 +98,21 @@ mod Windows {
             CdromWritePerformance = 2,
         }
         struct CDROM_PLAY_AUDIO_MSF {
-            StartingM: u8,
-            StartingS: u8,
-            StartingF: u8,
-            EndingM: u8,
-            EndingS: u8,
-            EndingF: u8,
+            StartingM: UCHAR,
+            StartingS: UCHAR,
+            StartingF: UCHAR,
+            EndingM: UCHAR,
+            EndingS: UCHAR,
+            EndingF: UCHAR,
         }
         struct CDROM_READ_TOC_EX {
-            _bitfield: u8 {
-                Format: 4,
-                Reserved1: 3,
-                Msf: 1,
-            },
-            SessionTrack: u8,
-            Reserved2: u8,
-            Reserved3: u8,
+            #[Windows::Win32::Metadata::NativeBitfield("Format", 0, 4, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Msf", 7, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 4, 3, MemberType = UCHAR)]
+            _bitfield: u8,
+            SessionTrack: UCHAR,
+            Reserved2: UCHAR,
+            Reserved3: UCHAR,
         }
         const CDROM_READ_TOC_EX_FORMAT_ATIP: i32 = 4;
         const CDROM_READ_TOC_EX_FORMAT_CDTEXT: i32 = 5;
@@ -123,24 +121,24 @@ mod Windows {
         const CDROM_READ_TOC_EX_FORMAT_SESSION: i32 = 1;
         const CDROM_READ_TOC_EX_FORMAT_TOC: i32 = 0;
         struct CDROM_SEEK_AUDIO_MSF {
-            M: u8,
-            S: u8,
-            F: u8,
+            M: UCHAR,
+            S: UCHAR,
+            F: UCHAR,
         }
         struct CDROM_SET_SPEED {
             RequestType: CDROM_SPEED_REQUEST,
-            ReadSpeed: u16,
-            WriteSpeed: u16,
+            ReadSpeed: USHORT,
+            WriteSpeed: USHORT,
             RotationControl: WRITE_ROTATION,
         }
         struct CDROM_SET_STREAMING {
             RequestType: CDROM_SPEED_REQUEST,
-            ReadSize: u32,
-            ReadTime: u32,
-            WriteSize: u32,
-            WriteTime: u32,
-            StartLba: u32,
-            EndLba: u32,
+            ReadSize: ULONG,
+            ReadTime: ULONG,
+            WriteSize: ULONG,
+            WriteTime: ULONG,
+            StartLba: ULONG,
+            EndLba: ULONG,
             RotationControl: WRITE_ROTATION,
             RestoreDefaults: BOOLEAN,
             SetExact: BOOLEAN,
@@ -161,105 +159,100 @@ mod Windows {
             RequestType: STREAMING_CONTROL_REQUEST_TYPE,
         }
         struct CDROM_SUB_Q_DATA_FORMAT {
-            Format: u8,
-            Track: u8,
+            Format: UCHAR,
+            Track: UCHAR,
         }
         struct CDROM_TOC {
-            Length: [u8; 2],
-            FirstTrack: u8,
-            LastTrack: u8,
+            Length: [UCHAR; 2],
+            FirstTrack: UCHAR,
+            LastTrack: UCHAR,
             TrackData: [TRACK_DATA; 100],
         }
         struct CDROM_TOC_ATIP_DATA {
-            Length: [u8; 2],
-            Reserved1: u8,
-            Reserved2: u8,
+            Length: [UCHAR; 2],
+            Reserved1: UCHAR,
+            Reserved2: UCHAR,
             Descriptors: [CDROM_TOC_ATIP_DATA_BLOCK; 0],
         }
         struct CDROM_TOC_ATIP_DATA_BLOCK {
-            _bitfield1: u8 {
-                CdrwReferenceSpeed: 3,
-                Reserved3: 1,
-                WritePower: 3,
-                True1: 1,
-            },
-            _bitfield2: u8 {
-                Reserved4: 6,
-                UnrestrictedUse: 1,
-                Reserved5: 1,
-            },
-            _bitfield3: u8 {
-                A3Valid: 1,
-                A2Valid: 1,
-                A1Valid: 1,
-                DiscSubType: 3,
-                IsCdrw: 1,
-                True2: 1,
-            },
-            Reserved7: u8,
-            LeadInMsf: [u8; 3],
-            Reserved8: u8,
-            LeadOutMsf: [u8; 3],
-            Reserved9: u8,
-            A1Values: [u8; 3],
-            Reserved10: u8,
-            A2Values: [u8; 3],
-            Reserved11: u8,
-            A3Values: [u8; 3],
-            Reserved12: u8,
+            #[Windows::Win32::Metadata::NativeBitfield("CdrwReferenceSpeed", 0, 3, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved3", 3, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("True1", 7, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("WritePower", 4, 3, MemberType = UCHAR)]
+            _bitfield1: u8,
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved4", 0, 6, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved5", 7, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("UnrestrictedUse", 6, 1, MemberType = UCHAR)]
+            _bitfield2: u8,
+            #[Windows::Win32::Metadata::NativeBitfield("A1Valid", 2, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("A2Valid", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("A3Valid", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("DiscSubType", 3, 3, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("IsCdrw", 6, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("True2", 7, 1, MemberType = UCHAR)]
+            _bitfield3: u8,
+            Reserved7: UCHAR,
+            LeadInMsf: [UCHAR; 3],
+            Reserved8: UCHAR,
+            LeadOutMsf: [UCHAR; 3],
+            Reserved9: UCHAR,
+            A1Values: [UCHAR; 3],
+            Reserved10: UCHAR,
+            A2Values: [UCHAR; 3],
+            Reserved11: UCHAR,
+            A3Values: [UCHAR; 3],
+            Reserved12: UCHAR,
         }
         struct CDROM_TOC_CD_TEXT_DATA {
-            Length: [u8; 2],
-            Reserved1: u8,
-            Reserved2: u8,
+            Length: [UCHAR; 2],
+            Reserved1: UCHAR,
+            Reserved2: UCHAR,
             Descriptors: [CDROM_TOC_CD_TEXT_DATA_BLOCK; 0],
         }
         struct CDROM_TOC_CD_TEXT_DATA_BLOCK {
-            PackType: u8,
-            _bitfield1: u8 {
-                TrackNumber: 7,
-                ExtensionFlag: 1,
-            },
-            SequenceNumber: u8,
-            _bitfield2: u8 {
-                CharacterPosition: 4,
-                BlockNumber: 3,
-                Unicode: 1,
-            },
-            Anonymous: union {
-                Text: [u8; 12],
-                WText: [u16; 6],
-            },
-            CRC: [u8; 2],
+            union CDROM_TOC_CD_TEXT_DATA_BLOCK_7 {
+                Text: [UCHAR; 12],
+                WText: [WCHAR; 6],
+            }
+            PackType: UCHAR,
+            #[Windows::Win32::Metadata::NativeBitfield("ExtensionFlag", 7, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("TrackNumber", 0, 7, MemberType = UCHAR)]
+            _bitfield1: u8,
+            SequenceNumber: UCHAR,
+            #[Windows::Win32::Metadata::NativeBitfield("BlockNumber", 4, 3, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("CharacterPosition", 0, 4, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Unicode", 7, 1, MemberType = UCHAR)]
+            _bitfield2: u8,
+            Anonymous: CDROM_TOC_CD_TEXT_DATA_BLOCK::CDROM_TOC_CD_TEXT_DATA_BLOCK_7,
+            CRC: [UCHAR; 2],
         }
         struct CDROM_TOC_FULL_TOC_DATA {
-            Length: [u8; 2],
-            FirstCompleteSession: u8,
-            LastCompleteSession: u8,
+            Length: [UCHAR; 2],
+            FirstCompleteSession: UCHAR,
+            LastCompleteSession: UCHAR,
             Descriptors: [CDROM_TOC_FULL_TOC_DATA_BLOCK; 0],
         }
         struct CDROM_TOC_FULL_TOC_DATA_BLOCK {
-            SessionNumber: u8,
-            _bitfield: u8 {
-                Control: 4,
-                Adr: 4,
-            },
-            Reserved1: u8,
-            Point: u8,
-            MsfExtra: [u8; 3],
-            Zero: u8,
-            Msf: [u8; 3],
+            SessionNumber: UCHAR,
+            #[Windows::Win32::Metadata::NativeBitfield("Adr", 4, 4, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Control", 0, 4, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved1: UCHAR,
+            Point: UCHAR,
+            MsfExtra: [UCHAR; 3],
+            Zero: UCHAR,
+            Msf: [UCHAR; 3],
         }
         struct CDROM_TOC_PMA_DATA {
-            Length: [u8; 2],
-            Reserved1: u8,
-            Reserved2: u8,
+            Length: [UCHAR; 2],
+            Reserved1: UCHAR,
+            Reserved2: UCHAR,
             Descriptors: [CDROM_TOC_FULL_TOC_DATA_BLOCK; 0],
         }
         struct CDROM_TOC_SESSION_DATA {
-            Length: [u8; 2],
-            FirstCompleteSession: u8,
-            LastCompleteSession: u8,
+            Length: [UCHAR; 2],
+            FirstCompleteSession: UCHAR,
+            LastCompleteSession: UCHAR,
             TrackData: [TRACK_DATA; 1],
         }
         #[arch(X64 | Arm64)]
@@ -267,17 +260,16 @@ mod Windows {
         #[arch(X86)]
         const CDROM_TOC_SIZE: u32 = 804;
         struct CDROM_WRITE_SPEED_DESCRIPTOR {
-            _bitfield: u8 {
-                MixedReadWrite: 1,
-                Exact: 1,
-                Reserved1: 1,
-                WriteRotationControl: 2,
-                Reserved2: 3,
-            },
-            Reserved3: [u8; 3],
-            EndLba: [u8; 4],
-            ReadSpeed: [u8; 4],
-            WriteSpeed: [u8; 4],
+            #[Windows::Win32::Metadata::NativeBitfield("Exact", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("MixedReadWrite", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 2, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 5, 3, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("WriteRotationControl", 3, 2, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved3: [UCHAR; 3],
+            EndLba: [UCHAR; 4],
+            ReadSpeed: [UCHAR; 4],
+            WriteSpeed: [UCHAR; 4],
         }
         struct CDROM_WRITE_SPEED_REQUEST {
             RequestType: CDROM_PERFORMANCE_REQUEST_TYPE,
@@ -394,7 +386,7 @@ mod Windows {
         type PWRITE_ROTATION = *mut WRITE_ROTATION;
         struct RAW_READ_INFO {
             DiskOffset: LARGE_INTEGER,
-            SectorCount: u32,
+            SectorCount: ULONG,
             TrackMode: TRACK_MODE_TYPE,
         }
         #[repr(i32)]
@@ -411,52 +403,48 @@ mod Windows {
         }
         struct SUB_Q_CURRENT_POSITION {
             Header: SUB_Q_HEADER,
-            FormatCode: u8,
-            _bitfield: u8 {
-                Control: 4,
-                ADR: 4,
-            },
-            TrackNumber: u8,
-            IndexNumber: u8,
-            AbsoluteAddress: [u8; 4],
-            TrackRelativeAddress: [u8; 4],
+            FormatCode: UCHAR,
+            #[Windows::Win32::Metadata::NativeBitfield("ADR", 4, 4, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Control", 0, 4, MemberType = UCHAR)]
+            _bitfield: u8,
+            TrackNumber: UCHAR,
+            IndexNumber: UCHAR,
+            AbsoluteAddress: [UCHAR; 4],
+            TrackRelativeAddress: [UCHAR; 4],
         }
         struct SUB_Q_HEADER {
-            Reserved: u8,
-            AudioStatus: u8,
-            DataLength: [u8; 2],
+            Reserved: UCHAR,
+            AudioStatus: UCHAR,
+            DataLength: [UCHAR; 2],
         }
         struct SUB_Q_MEDIA_CATALOG_NUMBER {
             Header: SUB_Q_HEADER,
-            FormatCode: u8,
-            Reserved: [u8; 3],
-            _bitfield: u8 {
-                Reserved1: 7,
-                Mcval: 1,
-            },
-            MediaCatalog: [u8; 15],
+            FormatCode: UCHAR,
+            Reserved: [UCHAR; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("Mcval", 7, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 0, 7, MemberType = UCHAR)]
+            _bitfield: u8,
+            MediaCatalog: [UCHAR; 15],
         }
         struct SUB_Q_TRACK_ISRC {
             Header: SUB_Q_HEADER,
-            FormatCode: u8,
-            Reserved0: u8,
-            Track: u8,
-            Reserved1: u8,
-            _bitfield: u8 {
-                Reserved2: 7,
-                Tcval: 1,
-            },
-            TrackIsrc: [u8; 15],
+            FormatCode: UCHAR,
+            Reserved0: UCHAR,
+            Track: UCHAR,
+            Reserved1: UCHAR,
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 0, 7, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Tcval", 7, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            TrackIsrc: [UCHAR; 15],
         }
         struct TRACK_DATA {
-            Reserved: u8,
-            _bitfield: u8 {
-                Control: 4,
-                Adr: 4,
-            },
-            TrackNumber: u8,
-            Reserved1: u8,
-            Address: [u8; 4],
+            Reserved: UCHAR,
+            #[Windows::Win32::Metadata::NativeBitfield("Adr", 4, 4, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Control", 0, 4, MemberType = UCHAR)]
+            _bitfield: u8,
+            TrackNumber: UCHAR,
+            Reserved1: UCHAR,
+            Address: [UCHAR; 4],
         }
         #[repr(i32)]
         enum TRACK_MODE_TYPE {
@@ -469,7 +457,7 @@ mod Windows {
         }
         const TWO_FOUR_CHANNEL_AUDIO: i32 = 8;
         struct VOLUME_CONTROL {
-            PortVolume: [u8; 4],
+            PortVolume: [UCHAR; 4],
         }
         #[repr(i32)]
         enum WRITE_ROTATION {

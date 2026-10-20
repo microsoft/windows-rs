@@ -3,8 +3,8 @@ mod Windows {
     mod Win32 {
         const DNS_ADDRESS_STRING_LENGTH: i32 = 65;
         struct DNS_APPLICATION_SETTINGS {
-            Version: u32,
-            Flags: u64,
+            Version: ULONG,
+            Flags: ULONG64,
         }
         const DNS_APP_SETTINGS_EXCLUSIVE_SERVERS: i32 = 1;
         const DNS_APP_SETTINGS_VERSION1: i32 = 1;
@@ -42,32 +42,32 @@ mod Windows {
         }
         struct DNS_CONNECTION_IFINDEX_ENTRY {
             pwszConnectionName: PCWSTR,
-            dwIfIndex: u32,
+            dwIfIndex: DWORD,
         }
         struct DNS_CONNECTION_IFINDEX_LIST {
             pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_ENTRY,
-            nEntries: u32,
+            nEntries: DWORD,
         }
         struct DNS_CONNECTION_NAME {
-            wszName: [u16; 65],
+            wszName: [WCHAR; 65],
         }
         struct DNS_CONNECTION_NAME_LIST {
-            cNames: u32,
+            cNames: DWORD,
             pNames: *mut DNS_CONNECTION_NAME,
         }
         const DNS_CONNECTION_NAME_MAX_LENGTH: i32 = 64;
         struct DNS_CONNECTION_POLICY_ENTRY {
             pwszHost: PCWSTR,
             pwszAppId: PCWSTR,
-            cbAppSid: u32,
+            cbAppSid: DWORD,
             pbAppSid: PBYTE,
-            nConnections: u32,
+            nConnections: DWORD,
             ppwszConnections: *mut PCWSTR,
-            dwPolicyEntryFlags: u32,
+            dwPolicyEntryFlags: DWORD,
         }
         struct DNS_CONNECTION_POLICY_ENTRY_LIST {
             pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
-            nEntries: u32,
+            nEntries: DWORD,
         }
         const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: i32 = 1;
         #[repr(i32)]
@@ -81,20 +81,33 @@ mod Windows {
             Info: DNS_CONNECTION_PROXY_INFO,
         }
         struct DNS_CONNECTION_PROXY_INFO {
-            Version: u32,
-            pwszFriendlyName: *mut u16,
-            Flags: u32,
+            Version: DWORD,
+            pwszFriendlyName: *mut WCHAR,
+            Flags: DWORD,
             Switch: DNS_CONNECTION_PROXY_INFO_SWITCH,
             Anonymous: union {
-                Config: _DNS_CONNECTION_PROXY_INFO_CONFIG,
-                Script: _DNS_CONNECTION_PROXY_INFO_SCRIPT,
+                struct _DNS_CONNECTION_PROXY_INFO_CONFIG {
+                    pwszServer: *mut WCHAR,
+                    pwszUsername: *mut WCHAR,
+                    pwszPassword: *mut WCHAR,
+                    pwszException: *mut WCHAR,
+                    pwszExtraInfo: *mut WCHAR,
+                    Port: WORD,
+                }
+                struct _DNS_CONNECTION_PROXY_INFO_SCRIPT {
+                    pwszScript: *mut WCHAR,
+                    pwszUsername: *mut WCHAR,
+                    pwszPassword: *mut WCHAR,
+                }
+                Config: DNS_CONNECTION_PROXY_INFO::DNS_CONNECTION_PROXY_INFO_4::_DNS_CONNECTION_PROXY_INFO_CONFIG,
+                Script: DNS_CONNECTION_PROXY_INFO::DNS_CONNECTION_PROXY_INFO_4::_DNS_CONNECTION_PROXY_INFO_SCRIPT,
             },
         }
         const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: i32 = 1;
         struct DNS_CONNECTION_PROXY_INFO_EX {
             ProxyInfo: DNS_CONNECTION_PROXY_INFO,
-            dwInterfaceIndex: u32,
-            pwszConnectionName: *mut u16,
+            dwInterfaceIndex: DWORD,
+            pwszConnectionName: *mut WCHAR,
             fDirectConfiguration: BOOL,
             hConnection: HANDLE,
         }
@@ -113,7 +126,7 @@ mod Windows {
         }
         const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: i32 = 128;
         struct DNS_CONNECTION_PROXY_LIST {
-            cProxies: u32,
+            cProxies: DWORD,
             pProxies: *mut DNS_CONNECTION_PROXY_ELEMENT,
         }
         #[repr(i32)]
@@ -177,10 +190,13 @@ mod Windows {
         const DNS_PROTOCOL_TCP: i32 = 2;
         const DNS_PROTOCOL_UDP: i32 = 1;
         const DNS_PROTOCOL_UNSPECIFIED: i32 = 0;
-        extern fn DNS_PROXY_COMPLETION_ROUTINE(#[in] #[opt] completionContext: *mut void, status: DNS_STATUS);
+        extern fn DNS_PROXY_COMPLETION_ROUTINE(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] completionContext: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] status: DNS_STATUS);
         struct DNS_PROXY_INFORMATION {
-            version: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
+            version: ULONG,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             proxyInformationType: DNS_PROXY_INFORMATION_TYPE,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Out_opt_", "", "")]
             proxyName: PWSTR,
         }
         #[repr(i32)]
@@ -197,9 +213,9 @@ mod Windows {
         const DNS_QUERY_CACHE_ONLY: i32 = 16;
         #[align(8)]
         struct DNS_QUERY_CANCEL {
-            Reserved: [i8; 32],
+            Reserved: [CHAR; 32],
         }
-        extern fn DNS_QUERY_COMPLETION_ROUTINE(#[in] pQueryContext: *mut void, #[in] #[out] pQueryResults: PDNS_QUERY_RESULT);
+        extern fn DNS_QUERY_COMPLETION_ROUTINE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryContext: PVOID, #[in] #[out] pQueryResults: PDNS_QUERY_RESULT);
         const DNS_QUERY_DISABLE_IDN_ENCODING: i32 = 2097152;
         const DNS_QUERY_DNSSEC_CHECKING_DISABLED: i32 = 33554432;
         const DNS_QUERY_DNSSEC_OK: i32 = 16777216;
@@ -216,69 +232,81 @@ mod Windows {
         const DNS_QUERY_PARSE_ALL_RECORDS: i64 = 288230376151711744;
         #[align(8)]
         struct DNS_QUERY_RAW_CANCEL {
-            reserved: [i8; 32],
+            reserved: [CHAR; 32],
         }
-        extern fn DNS_QUERY_RAW_COMPLETION_ROUTINE(#[in] queryContext: *mut void, #[in] queryResults: *mut DNS_QUERY_RAW_RESULT);
+        extern fn DNS_QUERY_RAW_COMPLETION_ROUTINE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] queryContext: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] queryResults: *mut DNS_QUERY_RAW_RESULT);
         const DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE: i32 = 1;
         struct DNS_QUERY_RAW_REQUEST {
-            version: u32,
-            resultsVersion: u32,
-            dnsQueryRawSize: u32,
-            dnsQueryRaw: *mut u8,
+            version: ULONG,
+            resultsVersion: ULONG,
+            dnsQueryRawSize: ULONG,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "dnsQueryRawSize", IsByteCount = true, MayBeNull = false)]
+            dnsQueryRaw: *mut BYTE,
             dnsQueryName: PWSTR,
-            dnsQueryType: u16,
-            queryOptions: u64,
-            interfaceIndex: u32,
+            dnsQueryType: USHORT,
+            queryOptions: ULONG64,
+            interfaceIndex: ULONG,
             queryCompletionCallback: DNS_QUERY_RAW_COMPLETION_ROUTINE,
             queryContext: *mut void,
-            queryRawOptions: u64,
-            customServersSize: u32,
+            queryRawOptions: ULONG64,
+            customServersSize: ULONG,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "customServersSize", IsByteCount = false, MayBeNull = false)]
             customServers: *mut DNS_CUSTOM_SERVER,
-            protocol: u32,
+            protocol: ULONG,
             Anonymous: union {
                 sourceAddr: SOCKADDR_INET,
-                maxSa: [i8; 32],
+                maxSa: [CHAR; 32],
             },
         }
         const DNS_QUERY_RAW_REQUEST_VERSION1: i32 = 1;
         struct DNS_QUERY_RAW_RESULT {
-            version: u32,
+            version: ULONG,
             queryStatus: DNS_STATUS,
-            queryOptions: u64,
-            queryRawOptions: u64,
-            responseFlags: u64,
-            queryRawResponseSize: u32,
-            queryRawResponse: *mut u8,
+            queryOptions: ULONG64,
+            queryRawOptions: ULONG64,
+            responseFlags: ULONG64,
+            queryRawResponseSize: ULONG,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "queryRawResponseSize", IsByteCount = true, MayBeNull = false)]
+            queryRawResponse: *mut BYTE,
             queryRecords: PDNS_RECORD,
-            protocol: u32,
+            protocol: ULONG,
             Anonymous: union {
                 sourceAddr: SOCKADDR_INET,
-                maxSa: [i8; 32],
+                maxSa: [CHAR; 32],
             },
         }
         const DNS_QUERY_RAW_RESULTS_VERSION1: i32 = 1;
         struct DNS_QUERY_REQUEST {
-            Version: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
+            Version: ULONG,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             QueryName: PCWSTR,
-            QueryType: u16,
-            QueryOptions: u64,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
+            QueryType: WORD,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
+            QueryOptions: ULONG64,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pDnsServerList: PDNS_ADDR_ARRAY,
-            InterfaceIndex: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
+            InterfaceIndex: ULONG,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
             pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
-            pQueryContext: *mut void,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
+            pQueryContext: PVOID,
         }
         struct DNS_QUERY_REQUEST3 {
-            Version: u32,
+            Version: ULONG,
             QueryName: PCWSTR,
-            QueryType: u16,
-            QueryOptions: u64,
+            QueryType: WORD,
+            QueryOptions: ULONG64,
             pDnsServerList: PDNS_ADDR_ARRAY,
-            InterfaceIndex: u32,
+            InterfaceIndex: ULONG,
             pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
-            pQueryContext: *mut void,
+            pQueryContext: PVOID,
             IsNetworkQueryRequired: BOOL,
-            RequiredNetworkIndex: u32,
-            cCustomServers: u32,
+            RequiredNetworkIndex: DWORD,
+            cCustomServers: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cCustomServers", IsByteCount = false, MayBeNull = false)]
             pCustomServers: *mut DNS_CUSTOM_SERVER,
         }
         const DNS_QUERY_REQUEST_VERSION1: i32 = 1;
@@ -286,11 +314,16 @@ mod Windows {
         const DNS_QUERY_REQUEST_VERSION3: i32 = 3;
         const DNS_QUERY_RESERVED: u32 = 4026531840;
         struct DNS_QUERY_RESULT {
-            Version: u32,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
+            Version: ULONG,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             QueryStatus: DNS_STATUS,
-            QueryOptions: u64,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
+            QueryOptions: ULONG64,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             pQueryRecords: PDNS_RECORD,
-            Reserved: *mut void,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Inout_opt_", "", "")]
+            Reserved: PVOID,
         }
         const DNS_QUERY_RESULTS_VERSION1: i32 = 1;
         const DNS_QUERY_RETURN_MESSAGE: i32 = 512;
@@ -332,50 +365,50 @@ mod Windows {
             pFirstRR: PDNS_RECORD,
             pLastRR: PDNS_RECORD,
         }
-        extern fn DNS_SERVICE_BROWSE_CALLBACK(Status: u32, #[in] pQueryContext: *mut void, pDnsRecord: PDNS_RECORD);
+        extern fn DNS_SERVICE_BROWSE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Status: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDnsRecord: PDNS_RECORD);
         struct DNS_SERVICE_BROWSE_REQUEST {
-            Version: u32,
-            InterfaceIndex: u32,
+            Version: ULONG,
+            InterfaceIndex: ULONG,
             QueryName: PCWSTR,
             Anonymous: union {
                 pBrowseCallback: PDNS_SERVICE_BROWSE_CALLBACK,
                 pBrowseCallbackV2: DNS_QUERY_COMPLETION_ROUTINE,
             },
-            pQueryContext: *mut void,
+            pQueryContext: PVOID,
         }
         struct DNS_SERVICE_CANCEL {
-            reserved: *mut void,
+            reserved: PVOID,
         }
         struct DNS_SERVICE_INSTANCE {
-            pszInstanceName: PWSTR,
-            pszHostName: PWSTR,
+            pszInstanceName: LPWSTR,
+            pszHostName: LPWSTR,
             ip4Address: *mut IP4_ADDRESS,
             ip6Address: *mut IP6_ADDRESS,
-            wPort: u16,
-            wPriority: u16,
-            wWeight: u16,
-            dwPropertyCount: u32,
+            wPort: WORD,
+            wPriority: WORD,
+            wWeight: WORD,
+            dwPropertyCount: DWORD,
             keys: *mut PWSTR,
             values: *mut PWSTR,
-            dwInterfaceIndex: u32,
+            dwInterfaceIndex: DWORD,
         }
-        extern fn DNS_SERVICE_REGISTER_COMPLETE(Status: u32, #[in] pQueryContext: *mut void, pInstance: PDNS_SERVICE_INSTANCE);
+        extern fn DNS_SERVICE_REGISTER_COMPLETE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Status: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInstance: PDNS_SERVICE_INSTANCE);
         struct DNS_SERVICE_REGISTER_REQUEST {
-            Version: u32,
-            InterfaceIndex: u32,
+            Version: ULONG,
+            InterfaceIndex: ULONG,
             pServiceInstance: PDNS_SERVICE_INSTANCE,
             pRegisterCompletionCallback: PDNS_SERVICE_REGISTER_COMPLETE,
-            pQueryContext: *mut void,
+            pQueryContext: PVOID,
             hCredentials: HANDLE,
             unicastEnabled: BOOL,
         }
-        extern fn DNS_SERVICE_RESOLVE_COMPLETE(Status: u32, #[in] pQueryContext: *mut void, pInstance: PDNS_SERVICE_INSTANCE);
+        extern fn DNS_SERVICE_RESOLVE_COMPLETE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Status: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInstance: PDNS_SERVICE_INSTANCE);
         struct DNS_SERVICE_RESOLVE_REQUEST {
-            Version: u32,
-            InterfaceIndex: u32,
+            Version: ULONG,
+            InterfaceIndex: ULONG,
             QueryName: PWSTR,
             pResolveCompletionCallback: PDNS_SERVICE_RESOLVE_COMPLETE,
-            pQueryContext: *mut void,
+            pQueryContext: PVOID,
         }
         const DNS_UPDATE_CACHE_SECURITY_CONTEXT: i32 = 512;
         const DNS_UPDATE_FORCE_SECURITY_NEGO: i32 = 2048;
@@ -400,212 +433,295 @@ mod Windows {
         const DNS_WINS_FLAG_SCOPE: u32 = 2147483648;
         #[packed(1)]
         struct DNS_WIRE_QUESTION {
-            QuestionType: u16,
-            QuestionClass: u16,
+            QuestionType: WORD,
+            QuestionClass: WORD,
         }
         #[packed(1)]
         struct DNS_WIRE_RECORD {
-            RecordType: u16,
-            RecordClass: u16,
-            TimeToLive: u32,
-            DataLength: u16,
+            RecordType: WORD,
+            RecordClass: WORD,
+            TimeToLive: DWORD,
+            DataLength: WORD,
         }
+        #[library("DNSAPI.dll", import = "DnsAcquireContextHandle_A")]
+        extern fn DnsAcquireContextHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CredentialFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Credentials: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pContext: PHANDLE) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsAcquireContextHandle_A(CredentialFlags: u32, #[in] #[opt] Credentials: *mut void, pContext: PHANDLE) -> DNS_STATUS;
+        extern fn DnsAcquireContextHandle_A(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CredentialFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Credentials: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pContext: PHANDLE) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsAcquireContextHandle_W(CredentialFlags: u32, #[in] #[opt] Credentials: *mut void, pContext: PHANDLE) -> DNS_STATUS;
+        extern fn DnsAcquireContextHandle_W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CredentialFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Credentials: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pContext: PHANDLE) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsCancelQuery(pCancelHandle: PDNS_QUERY_CANCEL) -> DNS_STATUS;
+        extern fn DnsCancelQuery(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCancelHandle: PDNS_QUERY_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsCancelQueryRaw(#[in] cancelHandle: *mut DNS_QUERY_RAW_CANCEL) -> DNS_STATUS;
+        extern fn DnsCancelQueryRaw(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cancelHandle: *mut DNS_QUERY_RAW_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsConnectionDeletePolicyEntries(PolicyEntryTag: DNS_CONNECTION_POLICY_TAG) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsConnectionDeletePolicyEntries(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyEntryTag: DNS_CONNECTION_POLICY_TAG) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsConnectionDeleteProxyInfo(pwszConnectionName: PCWSTR, Type: DNS_CONNECTION_PROXY_TYPE) -> u32;
+        #[arch(X86)]
+        extern fn DnsConnectionDeletePolicyEntries(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyEntryTag: DNS_CONNECTION_POLICY_TAG) -> DWORD;
         #[library("DNSAPI.dll")]
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsConnectionDeleteProxyInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszConnectionName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DNS_CONNECTION_PROXY_TYPE) -> DWORD;
+        #[library("DNSAPI.dll")]
+        #[arch(X86)]
+        extern fn DnsConnectionDeleteProxyInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszConnectionName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DNS_CONNECTION_PROXY_TYPE) -> DWORD;
+        #[library("DNSAPI.dll")]
+        #[arch(X64 | Arm64)]
         extern "C" fn DnsConnectionFreeNameList(#[in] #[out] pNameList: *mut DNS_CONNECTION_NAME_LIST);
         #[library("DNSAPI.dll")]
+        #[arch(X86)]
+        extern fn DnsConnectionFreeNameList(#[in] #[out] pNameList: *mut DNS_CONNECTION_NAME_LIST);
+        #[library("DNSAPI.dll")]
+        #[arch(X64 | Arm64)]
         extern "C" fn DnsConnectionFreeProxyInfo(#[in] #[out] pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO);
         #[library("DNSAPI.dll")]
+        #[arch(X86)]
+        extern fn DnsConnectionFreeProxyInfo(#[in] #[out] pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO);
+        #[library("DNSAPI.dll")]
+        #[arch(X64 | Arm64)]
         extern "C" fn DnsConnectionFreeProxyInfoEx(#[in] #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX);
         #[library("DNSAPI.dll")]
+        #[arch(X86)]
+        extern fn DnsConnectionFreeProxyInfoEx(#[in] #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX);
+        #[library("DNSAPI.dll")]
+        #[arch(X64 | Arm64)]
         extern "C" fn DnsConnectionFreeProxyList(#[in] #[out] pProxyList: *mut DNS_CONNECTION_PROXY_LIST);
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsConnectionGetNameList(pNameList: *mut DNS_CONNECTION_NAME_LIST) -> u32;
+        #[arch(X86)]
+        extern fn DnsConnectionFreeProxyList(#[in] #[out] pProxyList: *mut DNS_CONNECTION_PROXY_LIST);
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsConnectionGetProxyInfo(pwszConnectionName: PCWSTR, Type: DNS_CONNECTION_PROXY_TYPE, pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsConnectionGetNameList(#[out] pNameList: *mut DNS_CONNECTION_NAME_LIST) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsConnectionGetProxyInfoForHostUrl(pwszHostUrl: PCWSTR, #[len_param(2)] #[in] #[opt] pSelectionContext: *mut u8, dwSelectionContextLength: u32, dwExplicitInterfaceIndex: u32, pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32;
+        #[arch(X86)]
+        extern fn DnsConnectionGetNameList(#[out] pNameList: *mut DNS_CONNECTION_NAME_LIST) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsConnectionGetProxyInfoForHostUrlEx(pwszHostUrl: PCWSTR, #[len_param(2)] #[in] #[opt] pSelectionContext: *mut u8, dwSelectionContextLength: u32, dwExplicitInterfaceIndex: u32, #[opt] pwszConnectionName: PCWSTR, pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsConnectionGetProxyInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszConnectionName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DNS_CONNECTION_PROXY_TYPE, #[out] pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsConnectionGetProxyList(pwszConnectionName: PCWSTR, pProxyList: *mut DNS_CONNECTION_PROXY_LIST) -> u32;
+        #[arch(X86)]
+        extern fn DnsConnectionGetProxyInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszConnectionName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DNS_CONNECTION_PROXY_TYPE, #[out] pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsConnectionSetPolicyEntries(PolicyEntryTag: DNS_CONNECTION_POLICY_TAG, #[in] pPolicyEntryList: *mut DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsConnectionGetProxyInfoForHostUrl(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszHostUrl: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pSelectionContext: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSelectionContextLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwExplicitInterfaceIndex: DWORD, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsConnectionSetProxyInfo(pwszConnectionName: PCWSTR, Type: DNS_CONNECTION_PROXY_TYPE, pProxyInfo: *const DNS_CONNECTION_PROXY_INFO) -> u32;
+        #[arch(X86)]
+        extern fn DnsConnectionGetProxyInfoForHostUrl(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszHostUrl: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pSelectionContext: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSelectionContextLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwExplicitInterfaceIndex: DWORD, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsConnectionUpdateIfIndexTable(#[in] pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_LIST) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsConnectionGetProxyInfoForHostUrlEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszHostUrl: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pSelectionContext: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSelectionContextLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwExplicitInterfaceIndex: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszConnectionName: PCWSTR, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsExtractRecordsFromMessage_UTF8(pDnsBuffer: PDNS_MESSAGE_BUFFER, wMessageLength: u16, ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
+        #[arch(X86)]
+        extern fn DnsConnectionGetProxyInfoForHostUrlEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszHostUrl: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pSelectionContext: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSelectionContextLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwExplicitInterfaceIndex: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszConnectionName: PCWSTR, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsExtractRecordsFromMessage_W(pDnsBuffer: PDNS_MESSAGE_BUFFER, wMessageLength: u16, ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsConnectionGetProxyList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszConnectionName: PCWSTR, #[out] pProxyList: *mut DNS_CONNECTION_PROXY_LIST) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsFree(pData: *mut void, FreeType: DNS_FREE_TYPE);
+        #[arch(X86)]
+        extern fn DnsConnectionGetProxyList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszConnectionName: PCWSTR, #[out] pProxyList: *mut DNS_CONNECTION_PROXY_LIST) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsFreeCustomServers(#[in] #[out] pcServers: *mut u32, #[in] #[out] ppServers: *mut *mut DNS_CUSTOM_SERVER);
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsConnectionSetPolicyEntries(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyEntryTag: DNS_CONNECTION_POLICY_TAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPolicyEntryList: *mut DNS_CONNECTION_POLICY_ENTRY_LIST) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsFreeProxyName(proxyName: PWSTR);
+        #[arch(X86)]
+        extern fn DnsConnectionSetPolicyEntries(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyEntryTag: DNS_CONNECTION_POLICY_TAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPolicyEntryList: *mut DNS_CONNECTION_POLICY_ENTRY_LIST) -> DWORD;
+        #[library("DNSAPI.dll")]
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsConnectionSetProxyInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszConnectionName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DNS_CONNECTION_PROXY_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProxyInfo: *const DNS_CONNECTION_PROXY_INFO) -> DWORD;
+        #[library("DNSAPI.dll")]
+        #[arch(X86)]
+        extern fn DnsConnectionSetProxyInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszConnectionName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DNS_CONNECTION_PROXY_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProxyInfo: *const DNS_CONNECTION_PROXY_INFO) -> DWORD;
+        #[library("DNSAPI.dll")]
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsConnectionUpdateIfIndexTable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_LIST) -> DWORD;
+        #[library("DNSAPI.dll")]
+        #[arch(X86)]
+        extern fn DnsConnectionUpdateIfIndexTable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_LIST) -> DWORD;
+        #[library("DNSAPI.dll")]
+        extern fn DnsExtractRecordsFromMessage_UTF8(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wMessageLength: WORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsExtractRecordsFromMessage_W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wMessageLength: WORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsFree(#[Windows::Win32::Metadata::NativeSal("2", "_Pre_opt_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] pData: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FreeType: DNS_FREE_TYPE);
+        #[library("DNSAPI.dll")]
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsFreeCustomServers(#[in] #[out] pcServers: *mut DWORD, #[in] #[out] ppServers: *mut *mut DNS_CUSTOM_SERVER);
+        #[library("DNSAPI.dll")]
+        #[arch(X86)]
+        extern fn DnsFreeCustomServers(#[in] #[out] pcServers: *mut DWORD, #[in] #[out] ppServers: *mut *mut DNS_CUSTOM_SERVER);
+        #[library("DNSAPI.dll")]
+        extern fn DnsFreeProxyName(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] proxyName: PWSTR);
         const DnsFreeRecordListDeep: DNS_FREE_TYPE = 1;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsGetApplicationSettings(pcServers: *mut u32, ppDefaultServers: *mut *mut DNS_CUSTOM_SERVER, #[opt] pSettings: *mut DNS_APPLICATION_SETTINGS) -> u32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsGetApplicationSettings(#[out] pcServers: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcServers", "*pcServers")] #[out] ppDefaultServers: *mut *mut DNS_CUSTOM_SERVER, #[out] #[opt] pSettings: *mut DNS_APPLICATION_SETTINGS) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsGetProxyInformation(hostName: PCWSTR, #[in] #[out] proxyInformation: *mut DNS_PROXY_INFORMATION, #[in] #[out] #[opt] defaultProxyInformation: *mut DNS_PROXY_INFORMATION, #[opt] completionRoutine: DNS_PROXY_COMPLETION_ROUTINE, #[in] #[opt] completionContext: *mut void) -> u32;
+        #[arch(X86)]
+        extern fn DnsGetApplicationSettings(#[out] pcServers: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcServers", "*pcServers")] #[out] ppDefaultServers: *mut *mut DNS_CUSTOM_SERVER, #[out] #[opt] pSettings: *mut DNS_APPLICATION_SETTINGS) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsIsFlatRecord(pRecord: PDNS_RECORD, ullFlags: u64, pfFlat: *mut BOOL) -> DNS_STATUS;
+        extern fn DnsGetProxyInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hostName: PCWSTR, #[in] #[out] proxyInformation: *mut DNS_PROXY_INFORMATION, #[in] #[out] #[opt] defaultProxyInformation: *mut DNS_PROXY_INFORMATION, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] completionRoutine: DNS_PROXY_COMPLETION_ROUTINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] completionContext: *mut void) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsModifyRecordsInSet_A(#[opt] pAddRecords: PDNS_RECORD, #[opt] pDeleteRecords: PDNS_RECORD, Options: u32, #[opt] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: *mut void, #[in] #[out] #[opt] pReserved: *mut void) -> DNS_STATUS;
+        extern fn DnsIsFlatRecord(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRecord: PDNS_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ullFlags: ULONG64, #[out] pfFlat: *mut BOOL) -> DNS_STATUS;
+        #[library("DNSAPI.dll", import = "DnsModifyRecordsInSet_A")]
+        extern fn DnsModifyRecordsInSet(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddRecords: PDNS_RECORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeleteRecords: PDNS_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsModifyRecordsInSet_UTF8(#[opt] pAddRecords: PDNS_RECORD, #[opt] pDeleteRecords: PDNS_RECORD, Options: u32, #[opt] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: *mut void, #[in] #[out] #[opt] pReserved: *mut void) -> DNS_STATUS;
+        extern fn DnsModifyRecordsInSet_A(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddRecords: PDNS_RECORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeleteRecords: PDNS_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsModifyRecordsInSet_W(#[opt] pAddRecords: PDNS_RECORD, #[opt] pDeleteRecords: PDNS_RECORD, Options: u32, #[opt] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: *mut void, #[in] #[out] #[opt] pReserved: *mut void) -> DNS_STATUS;
+        extern fn DnsModifyRecordsInSet_UTF8(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddRecords: PDNS_RECORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeleteRecords: PDNS_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsNameCompare_A(pName1: PCSTR, pName2: PCSTR) -> BOOL;
+        extern fn DnsModifyRecordsInSet_W(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddRecords: PDNS_RECORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeleteRecords: PDNS_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsNameCompare_W(pName1: PCWSTR, pName2: PCWSTR) -> BOOL;
+        extern fn DnsNameCompare_A(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pName1: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pName2: PCSTR) -> BOOL;
         #[library("DNSAPI.dll")]
-        extern fn DnsQueryConfig(Config: DNS_CONFIG_TYPE, Flag: u32, #[opt] pwsAdapterName: PCWSTR, #[in] #[opt] pReserved: *mut void, #[size_param(5)] #[opt] pBuffer: *mut void, #[in] #[out] pBufLen: PDWORD) -> DNS_STATUS;
+        extern fn DnsNameCompare_W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pName1: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pName2: PCWSTR) -> BOOL;
+        #[library("DNSAPI.dll", import = "DnsQuery_A")]
+        extern fn DnsQuery(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wType: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD, #[in] #[out] #[opt] pExtra: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppQueryResults: *mut PDNS_RECORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] pReserved: *mut PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsQueryEx(pQueryRequest: PDNS_QUERY_REQUEST, #[in] #[out] pQueryResults: PDNS_QUERY_RESULT, #[in] #[out] #[opt] pCancelHandle: PDNS_QUERY_CANCEL) -> DNS_STATUS;
+        extern fn DnsQueryConfig(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Config: DNS_CONFIG_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flag: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwsAdapterName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReserved: PVOID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pBufLen,*pBufLen", "*pBufLen,*pBufLen")] #[out] #[opt] pBuffer: PVOID, #[in] #[out] pBufLen: PDWORD) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsQueryRaw(#[in] queryRequest: *mut DNS_QUERY_RAW_REQUEST, #[in] #[out] cancelHandle: *mut DNS_QUERY_RAW_CANCEL) -> DNS_STATUS;
+        extern fn DnsQueryEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryRequest: PDNS_QUERY_REQUEST, #[in] #[out] pQueryResults: PDNS_QUERY_RESULT, #[in] #[out] #[opt] pCancelHandle: PDNS_QUERY_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsQueryRawResultFree(queryResults: *mut DNS_QUERY_RAW_RESULT);
+        extern fn DnsQueryRaw(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] queryRequest: *mut DNS_QUERY_RAW_REQUEST, #[in] #[out] cancelHandle: *mut DNS_QUERY_RAW_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsQuery_A(pszName: PCSTR, wType: u16, Options: u32, #[in] #[out] #[opt] pExtra: *mut void, ppQueryResults: *mut PDNS_RECORD, pReserved: *mut *mut void) -> DNS_STATUS;
+        extern fn DnsQueryRawResultFree(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] queryResults: *mut DNS_QUERY_RAW_RESULT);
         #[library("DNSAPI.dll")]
-        extern fn DnsQuery_UTF8(pszName: PCSTR, wType: u16, Options: u32, #[in] #[out] #[opt] pExtra: *mut void, ppQueryResults: *mut PDNS_RECORD, pReserved: *mut *mut void) -> DNS_STATUS;
+        extern fn DnsQuery_A(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wType: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD, #[in] #[out] #[opt] pExtra: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppQueryResults: *mut PDNS_RECORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] pReserved: *mut PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsQuery_W(pszName: PCWSTR, wType: u16, Options: u32, #[in] #[out] #[opt] pExtra: *mut void, ppQueryResults: *mut PDNS_RECORD, pReserved: *mut *mut void) -> DNS_STATUS;
+        extern fn DnsQuery_UTF8(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wType: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD, #[in] #[out] #[opt] pExtra: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppQueryResults: *mut PDNS_RECORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] pReserved: *mut PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsRecordCompare(pRecord1: PDNS_RECORD, pRecord2: PDNS_RECORD) -> BOOL;
+        extern fn DnsQuery_W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wType: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD, #[in] #[out] #[opt] pExtra: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppQueryResults: *mut PDNS_RECORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] pReserved: *mut PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsRecordCopyEx(pRecord: PDNS_RECORD, CharSetIn: DNS_CHARSET, CharSetOut: DNS_CHARSET) -> PDNS_RECORD;
+        extern fn DnsRecordCompare(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRecord1: PDNS_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRecord2: PDNS_RECORD) -> BOOL;
         #[library("DNSAPI.dll")]
-        extern fn DnsRecordSetCompare(#[in] #[out] pRR1: PDNS_RECORD, #[in] #[out] pRR2: PDNS_RECORD, ppDiff1: *mut PDNS_RECORD, ppDiff2: *mut PDNS_RECORD) -> BOOL;
+        extern fn DnsRecordCopyEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRecord: PDNS_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CharSetIn: DNS_CHARSET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CharSetOut: DNS_CHARSET) -> PDNS_RECORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsRecordSetCopyEx(pRecordSet: PDNS_RECORD, CharSetIn: DNS_CHARSET, CharSetOut: DNS_CHARSET) -> PDNS_RECORD;
+        extern fn DnsRecordSetCompare(#[in] #[out] pRR1: PDNS_RECORD, #[in] #[out] pRR2: PDNS_RECORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppDiff1: *mut PDNS_RECORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppDiff2: *mut PDNS_RECORD) -> BOOL;
         #[library("DNSAPI.dll")]
+        extern fn DnsRecordSetCopyEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRecordSet: PDNS_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CharSetIn: DNS_CHARSET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CharSetOut: DNS_CHARSET) -> PDNS_RECORD;
+        #[library("DNSAPI.dll")]
+        #[arch(X64 | Arm64)]
         extern "C" fn DnsRecordSetDetach(#[in] #[out] pRecordList: PDNS_RECORD) -> PDNS_RECORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsReleaseContextHandle(hContext: HANDLE);
+        #[arch(X86)]
+        extern fn DnsRecordSetDetach(#[in] #[out] pRecordList: PDNS_RECORD) -> PDNS_RECORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsReplaceRecordSetA(pReplaceSet: PDNS_RECORD, Options: u32, #[opt] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: *mut void, #[in] #[out] #[opt] pReserved: *mut void) -> DNS_STATUS;
+        extern fn DnsReleaseContextHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hContext: HANDLE);
+        #[library("DNSAPI.dll", import = "DnsReplaceRecordSetA")]
+        extern fn DnsReplaceRecordSet(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReplaceSet: PDNS_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsReplaceRecordSetUTF8(pReplaceSet: PDNS_RECORD, Options: u32, #[opt] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: *mut void, #[in] #[out] #[opt] pReserved: *mut void) -> DNS_STATUS;
+        extern fn DnsReplaceRecordSetA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReplaceSet: PDNS_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsReplaceRecordSetW(pReplaceSet: PDNS_RECORD, Options: u32, #[opt] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: *mut void, #[in] #[out] #[opt] pReserved: *mut void) -> DNS_STATUS;
+        extern fn DnsReplaceRecordSetUTF8(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReplaceSet: PDNS_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsServiceBrowse(pRequest: PDNS_SERVICE_BROWSE_REQUEST, #[in] #[out] pCancel: PDNS_SERVICE_CANCEL) -> DNS_STATUS;
+        extern fn DnsReplaceRecordSetW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReplaceSet: PDNS_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Options: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsServiceBrowseCancel(pCancelHandle: PDNS_SERVICE_CANCEL) -> DNS_STATUS;
+        extern fn DnsServiceBrowse(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRequest: PDNS_SERVICE_BROWSE_REQUEST, #[in] #[out] pCancel: PDNS_SERVICE_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsServiceConstructInstance(pServiceName: PCWSTR, pHostName: PCWSTR, #[opt] pIp4: PIP4_ADDRESS, #[opt] pIp6: PIP6_ADDRESS, wPort: u16, wPriority: u16, wWeight: u16, dwPropertiesCount: u32, #[len_param(7)] #[in] keys: *mut PCWSTR, #[len_param(7)] #[in] values: *mut PCWSTR) -> PDNS_SERVICE_INSTANCE;
+        extern fn DnsServiceBrowseCancel(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCancelHandle: PDNS_SERVICE_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsServiceCopyInstance(pOrig: PDNS_SERVICE_INSTANCE) -> PDNS_SERVICE_INSTANCE;
+        extern fn DnsServiceConstructInstance(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServiceName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pHostName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIp4: PIP4_ADDRESS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIp6: PIP6_ADDRESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wPort: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wPriority: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wWeight: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPropertiesCount: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(7)] keys: *mut PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(7)] values: *mut PCWSTR) -> PDNS_SERVICE_INSTANCE;
         #[library("DNSAPI.dll")]
-        extern fn DnsServiceDeRegister(pRequest: PDNS_SERVICE_REGISTER_REQUEST, #[in] #[out] #[opt] pCancel: PDNS_SERVICE_CANCEL) -> u32;
+        extern fn DnsServiceCopyInstance(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOrig: PDNS_SERVICE_INSTANCE) -> PDNS_SERVICE_INSTANCE;
         #[library("DNSAPI.dll")]
-        extern fn DnsServiceFreeInstance(pInstance: PDNS_SERVICE_INSTANCE);
+        extern fn DnsServiceDeRegister(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRequest: PDNS_SERVICE_REGISTER_REQUEST, #[in] #[out] #[opt] pCancel: PDNS_SERVICE_CANCEL) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsServiceRegister(pRequest: PDNS_SERVICE_REGISTER_REQUEST, #[in] #[out] #[opt] pCancel: PDNS_SERVICE_CANCEL) -> u32;
+        extern fn DnsServiceFreeInstance(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInstance: PDNS_SERVICE_INSTANCE);
         #[library("DNSAPI.dll")]
-        extern fn DnsServiceRegisterCancel(pCancelHandle: PDNS_SERVICE_CANCEL) -> u32;
+        extern fn DnsServiceRegister(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRequest: PDNS_SERVICE_REGISTER_REQUEST, #[in] #[out] #[opt] pCancel: PDNS_SERVICE_CANCEL) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsServiceResolve(pRequest: PDNS_SERVICE_RESOLVE_REQUEST, #[in] #[out] pCancel: PDNS_SERVICE_CANCEL) -> DNS_STATUS;
+        extern fn DnsServiceRegisterCancel(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCancelHandle: PDNS_SERVICE_CANCEL) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsServiceResolveCancel(pCancelHandle: PDNS_SERVICE_CANCEL) -> DNS_STATUS;
+        extern fn DnsServiceResolve(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRequest: PDNS_SERVICE_RESOLVE_REQUEST, #[in] #[out] pCancel: PDNS_SERVICE_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsSetApplicationSettings(cServers: u32, #[len_param(0)] pServers: *const DNS_CUSTOM_SERVER, #[opt] pSettings: *const DNS_APPLICATION_SETTINGS) -> u32;
+        extern fn DnsServiceResolveCancel(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCancelHandle: PDNS_SERVICE_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsStartMulticastQuery(pQueryRequest: PMDNS_QUERY_REQUEST, #[in] #[out] pHandle: PMDNS_QUERY_HANDLE) -> DNS_STATUS;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsSetApplicationSettings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cServers: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pServers: *const DNS_CUSTOM_SERVER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSettings: *const DNS_APPLICATION_SETTINGS) -> DWORD;
+        #[library("DNSAPI.dll")]
+        #[arch(X86)]
+        extern fn DnsSetApplicationSettings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cServers: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pServers: *const DNS_CUSTOM_SERVER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSettings: *const DNS_APPLICATION_SETTINGS) -> DWORD;
+        #[library("DNSAPI.dll")]
+        extern fn DnsStartMulticastQuery(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryRequest: PMDNS_QUERY_REQUEST, #[in] #[out] pHandle: PMDNS_QUERY_HANDLE) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsStopMulticastQuery(#[in] #[out] pHandle: PMDNS_QUERY_HANDLE) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsValidateName_A(pszName: PCSTR, Format: DNS_NAME_FORMAT) -> DNS_STATUS;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsValidateName_A(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsValidateName_UTF8(pszName: PCSTR, Format: DNS_NAME_FORMAT) -> DNS_STATUS;
+        #[arch(X86)]
+        extern fn DnsValidateName_A(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsValidateName_W(pszName: PCWSTR, Format: DNS_NAME_FORMAT) -> DNS_STATUS;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsValidateName_UTF8(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern "C" fn DnsValidateServerStatus(server: PSOCKADDR, #[opt] queryName: PCWSTR, #[out] serverStatus: PDWORD) -> DNS_STATUS;
+        #[arch(X86)]
+        extern fn DnsValidateName_UTF8(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsWriteQuestionToBuffer_UTF8(#[in] #[out] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] #[out] pdwBufferSize: PDWORD, pszName: PCSTR, wType: u16, Xid: u16, fRecursionDesired: BOOL) -> BOOL;
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsValidateName_W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsWriteQuestionToBuffer_W(#[in] #[out] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] #[out] pdwBufferSize: PDWORD, pszName: PCWSTR, wType: u16, Xid: u16, fRecursionDesired: BOOL) -> BOOL;
+        #[arch(X86)]
+        extern fn DnsValidateName_W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        #[arch(X64 | Arm64)]
+        extern "C" fn DnsValidateServerStatus(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] server: PSOCKADDR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] queryName: PCWSTR, #[out] serverStatus: PDWORD) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        #[arch(X86)]
+        extern fn DnsValidateServerStatus(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] server: PSOCKADDR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] queryName: PCWSTR, #[out] serverStatus: PDWORD) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsWriteQuestionToBuffer_UTF8(#[in] #[out] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] #[out] pdwBufferSize: PDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wType: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Xid: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fRecursionDesired: BOOL) -> BOOL;
+        #[library("DNSAPI.dll")]
+        extern fn DnsWriteQuestionToBuffer_W(#[in] #[out] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] #[out] pdwBufferSize: PDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wType: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Xid: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fRecursionDesired: BOOL) -> BOOL;
         const INTERNET_DEFAULT_DNS_PORT: i32 = 53;
         const INTERNET_DEFAULT_DOT_PORT: i32 = 853;
         struct IP4_ARRAY {
-            AddrCount: u32,
+            AddrCount: DWORD,
             AddrArray: [IP4_ADDRESS; 1],
         }
         const IP6_ADDRESS_STRING_BUFFER_LENGTH: i32 = 65;
         const IP6_ADDRESS_STRING_LENGTH: i32 = 65;
-        extern fn MDNS_QUERY_CALLBACK(#[in] pQueryContext: *mut void, #[in] #[out] pQueryHandle: PMDNS_QUERY_HANDLE, #[in] #[out] pQueryResults: PDNS_QUERY_RESULT);
+        extern fn MDNS_QUERY_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryContext: PVOID, #[in] #[out] pQueryHandle: PMDNS_QUERY_HANDLE, #[in] #[out] pQueryResults: PDNS_QUERY_RESULT);
         struct MDNS_QUERY_HANDLE {
-            nameBuf: [u16; 256],
-            wType: u16,
-            pSubscription: *mut void,
-            pWnfCallbackParams: *mut void,
-            stateNameData: [u32; 2],
+            nameBuf: [WCHAR; 256],
+            wType: WORD,
+            pSubscription: PVOID,
+            pWnfCallbackParams: PVOID,
+            stateNameData: [ULONG; 2],
         }
         struct MDNS_QUERY_REQUEST {
-            Version: u32,
-            ulRefCount: u32,
+            Version: ULONG,
+            ulRefCount: ULONG,
             Query: PCWSTR,
-            QueryType: u16,
-            QueryOptions: u64,
-            InterfaceIndex: u32,
+            QueryType: WORD,
+            QueryOptions: ULONG64,
+            InterfaceIndex: ULONG,
             pQueryCallback: PMDNS_QUERY_CALLBACK,
-            pQueryContext: *mut void,
+            pQueryContext: PVOID,
             fAnswerReceived: BOOL,
-            ulResendCount: u32,
+            ulResendCount: ULONG,
         }
         type PDNS_CONNECTION_POLICY_ENTRY = *mut DNS_CONNECTION_POLICY_ENTRY;
         type PDNS_CONNECTION_PROXY_INFO = *mut DNS_CONNECTION_PROXY_INFO;
         type PDNS_CONNECTION_PROXY_INFO_EX = *mut DNS_CONNECTION_PROXY_INFO_EX;
         type PDNS_QUERY_CANCEL = *mut DNS_QUERY_CANCEL;
-        extern fn PDNS_QUERY_COMPLETION_ROUTINE(#[in] pQueryContext: *mut void, #[in] #[out] pQueryResults: PDNS_QUERY_RESULT);
+        extern fn PDNS_QUERY_COMPLETION_ROUTINE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryContext: PVOID, #[in] #[out] pQueryResults: PDNS_QUERY_RESULT);
         type PDNS_QUERY_REQUEST = *mut DNS_QUERY_REQUEST;
         type PDNS_QUERY_REQUEST3 = *mut DNS_QUERY_REQUEST3;
         type PDNS_QUERY_RESULT = *mut DNS_QUERY_RESULT;
         type PDNS_RRSET = *mut DNS_RRSET;
-        extern fn PDNS_SERVICE_BROWSE_CALLBACK(Status: u32, #[in] pQueryContext: *mut void, pDnsRecord: PDNS_RECORD);
+        extern fn PDNS_SERVICE_BROWSE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Status: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDnsRecord: PDNS_RECORD);
         type PDNS_SERVICE_BROWSE_REQUEST = *mut DNS_SERVICE_BROWSE_REQUEST;
         type PDNS_SERVICE_CANCEL = *mut DNS_SERVICE_CANCEL;
         type PDNS_SERVICE_INSTANCE = *mut DNS_SERVICE_INSTANCE;
-        extern fn PDNS_SERVICE_REGISTER_COMPLETE(Status: u32, #[in] pQueryContext: *mut void, pInstance: PDNS_SERVICE_INSTANCE);
+        extern fn PDNS_SERVICE_REGISTER_COMPLETE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Status: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInstance: PDNS_SERVICE_INSTANCE);
         type PDNS_SERVICE_REGISTER_REQUEST = *mut DNS_SERVICE_REGISTER_REQUEST;
-        extern fn PDNS_SERVICE_RESOLVE_COMPLETE(Status: u32, #[in] pQueryContext: *mut void, pInstance: PDNS_SERVICE_INSTANCE);
+        extern fn PDNS_SERVICE_RESOLVE_COMPLETE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Status: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInstance: PDNS_SERVICE_INSTANCE);
         type PDNS_SERVICE_RESOLVE_REQUEST = *mut DNS_SERVICE_RESOLVE_REQUEST;
         type PDNS_WIRE_QUESTION = *mut DNS_WIRE_QUESTION;
         type PDNS_WIRE_RECORD = *mut DNS_WIRE_RECORD;
         type PIP4_ARRAY = *mut IP4_ARRAY;
-        extern fn PMDNS_QUERY_CALLBACK(#[in] pQueryContext: *mut void, #[in] #[out] pQueryHandle: PMDNS_QUERY_HANDLE, #[in] #[out] pQueryResults: PDNS_QUERY_RESULT);
+        extern fn PMDNS_QUERY_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryContext: PVOID, #[in] #[out] pQueryHandle: PMDNS_QUERY_HANDLE, #[in] #[out] pQueryResults: PDNS_QUERY_RESULT);
         type PMDNS_QUERY_HANDLE = *mut MDNS_QUERY_HANDLE;
         type PMDNS_QUERY_REQUEST = *mut MDNS_QUERY_REQUEST;
-        struct _DNS_CONNECTION_PROXY_INFO_CONFIG {
-            pwszServer: *mut u16,
-            pwszUsername: *mut u16,
-            pwszPassword: *mut u16,
-            pwszException: *mut u16,
-            pwszExtraInfo: *mut u16,
-            Port: u16,
-        }
-        struct _DNS_CONNECTION_PROXY_INFO_SCRIPT {
-            pwszScript: *mut u16,
-            pwszUsername: *mut u16,
-            pwszPassword: *mut u16,
-        }
     }
 }

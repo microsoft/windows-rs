@@ -9,12 +9,12 @@ mod Windows {
         const CLSCTX_ALL: CLSCTX = 23;
         const CLSCTX_INPROC: CLSCTX = 3;
         const CLSCTX_SERVER: CLSCTX = 21;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CLSIDFromProgID(lpszProgID: LPCOLESTR, #[out] lpclsid: LPCLSID) -> HRESULT;
+        extern fn CLSIDFromProgID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpszProgID: LPCOLESTR, #[out] lpclsid: LPCLSID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CLSIDFromProgIDEx(lpszProgID: LPCOLESTR, #[out] lpclsid: LPCLSID) -> HRESULT;
-        #[library("ole32.dll")]
-        extern fn CLSIDFromString(lpsz: LPCOLESTR, #[out] pclsid: LPCLSID) -> HRESULT;
+        extern fn CLSIDFromString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpsz: LPCOLESTR, #[out] pclsid: LPCLSID) -> HRESULT;
         #[repr(i32)]
         enum COINITBASE {
             COINITBASE_MULTITHREADED = 0,
@@ -26,8 +26,7 @@ mod Windows {
         const COM_RIGHTS_EXECUTE_REMOTE: i32 = 4;
         const COM_RIGHTS_RESERVED1: i32 = 32;
         const COM_RIGHTS_RESERVED2: i32 = 64;
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum COWAIT_FLAGS {
             COWAIT_DEFAULT = 0,
             COWAIT_WAITALL = 1,
@@ -37,15 +36,16 @@ mod Windows {
             COWAIT_DISPATCH_WINDOW_MESSAGES = 16,
         }
         type CO_DEVICE_CATALOG_COOKIE = *mut CO_DEVICE_CATALOG_COOKIE__;
+        #[packed(8)]
         struct CO_DEVICE_CATALOG_COOKIE__ {
             unused: i32,
         }
         type CO_MTA_USAGE_COOKIE = *mut CO_MTA_USAGE_COOKIE__;
+        #[packed(8)]
         struct CO_MTA_USAGE_COOKIE__ {
             unused: i32,
         }
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum CWMO_FLAGS {
             CWMO_DEFAULT = 0,
             CWMO_DISPATCH_CALLS = 1,
@@ -53,168 +53,222 @@ mod Windows {
         }
         const CWMO_MAX_HANDLES: i32 = 56;
         #[library("ole32.dll")]
-        extern fn CoAddRefServerProcess() -> u32;
+        extern fn CoAddRefServerProcess() -> ULONG;
         #[library("ole32.dll")]
-        extern fn CoAllowUnmarshalerCLSID(clsid: *const GUID) -> HRESULT;
+        extern fn CoAllowUnmarshalerCLSID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clsid: &IID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoCancelCall(dwThreadId: u32, ulTimeout: u32) -> HRESULT;
+        extern fn CoCancelCall(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwThreadId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulTimeout: ULONG) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoCopyProxy(pProxy: IUnknown, ppCopy: *mut IUnknown) -> HRESULT;
+        extern fn CoCopyProxy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProxy: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCopy: *mut IUnknown) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoCreateFreeThreadedMarshaler(#[opt] punkOuter: IUnknown, ppunkMarshal: *mut IUnknown) -> HRESULT;
+        extern fn CoCreateFreeThreadedMarshaler(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkOuter: LPUNKNOWN, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppunkMarshal: *mut LPUNKNOWN) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoCreateGuid(pguid: *mut GUID) -> HRESULT;
+        extern fn CoCreateGuid(#[out] pguid: *mut GUID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoCreateInstance(rclsid: *const GUID, #[opt] pUnkOuter: IUnknown, dwClsContext: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn CoCreateInstance(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rclsid: &IID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: LPUNKNOWN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwClsContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*ppv,_Post_readable_size_(_Inexpressible_(varies))", "*ppv, _Post_readable_size_(_Inexpressible_(varies))")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut LPVOID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoCreateInstanceEx(Clsid: *const GUID, #[opt] punkOuter: IUnknown, dwClsCtx: u32, #[in] #[opt] pServerInfo: *mut COSERVERINFO, dwCount: u32, #[len_param(4)] #[in] #[out] pResults: *mut MULTI_QI) -> HRESULT;
+        extern fn CoCreateInstanceEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Clsid: &IID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkOuter: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwClsCtx: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServerInfo: *mut COSERVERINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCount: DWORD, #[in] #[out] #[len_param(4)] pResults: *mut MULTI_QI) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoCreateInstanceFromApp(Clsid: *const GUID, #[opt] punkOuter: IUnknown, dwClsCtx: u32, #[in] #[opt] reserved: *mut void, dwCount: u32, #[len_param(4)] #[in] #[out] pResults: *mut MULTI_QI) -> HRESULT;
+        extern fn CoCreateInstanceFromApp(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Clsid: &IID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkOuter: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwClsCtx: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] reserved: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCount: DWORD, #[in] #[out] #[len_param(4)] pResults: *mut MULTI_QI) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoDecodeProxy(dwClientPid: u32, ui64ProxyAddress: u64, #[out] pServerInformation: PServerInformation) -> HRESULT;
+        extern fn CoDecodeProxy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwClientPid: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ui64ProxyAddress: UINT64, #[out] pServerInformation: PServerInformation) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoDecrementMTAUsage(Cookie: CO_MTA_USAGE_COOKIE) -> HRESULT;
+        extern fn CoDecrementMTAUsage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Cookie: CO_MTA_USAGE_COOKIE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoDisableCallCancellation(#[in] #[opt] pReserved: *mut void) -> HRESULT;
+        extern fn CoDisableCallCancellation(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReserved: LPVOID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoDisconnectContext(dwTimeout: u32) -> HRESULT;
+        extern fn CoDisconnectContext(dwTimeout: DWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoDisconnectObject(pUnk: IUnknown, dwReserved: u32) -> HRESULT;
+        extern fn CoDisconnectObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnk: LPUNKNOWN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReserved: DWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoEnableCallCancellation(#[in] #[opt] pReserved: *mut void) -> HRESULT;
-        #[library("ole32.dll")]
-        extern fn CoFileTimeNow(lpFileTime: *mut FILETIME) -> HRESULT;
+        extern fn CoEnableCallCancellation(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReserved: LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoFreeUnusedLibraries();
         #[library("ole32.dll")]
-        extern fn CoFreeUnusedLibrariesEx(dwUnloadDelay: u32, dwReserved: u32);
+        extern fn CoFreeUnusedLibrariesEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUnloadDelay: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReserved: DWORD);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetApartmentType(pAptType: *mut APTTYPE, pAptQualifier: *mut APTTYPEQUALIFIER) -> HRESULT;
+        extern fn CoGetApartmentType(#[out] pAptType: *mut APTTYPE, #[out] pAptQualifier: *mut APTTYPEQUALIFIER) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetCallContext(riid: *const GUID, ppInterface: *mut *mut void) -> HRESULT;
+        extern fn CoGetCallContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppInterface: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoGetCallerTID(#[out] lpdwTID: LPDWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetCancelObject(dwThreadId: u32, iid: *const GUID, ppUnk: *mut *mut void) -> HRESULT;
+        extern fn CoGetCancelObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwThreadId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppUnk: *mut *mut void) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetClassObject(rclsid: *const GUID, dwClsContext: u32, #[in] #[opt] pvReserved: *mut void, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn CoGetClassObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rclsid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwClsContext: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvReserved: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut LPVOID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetContextToken(pToken: *mut usize) -> HRESULT;
+        extern fn CoGetContextToken(#[out] pToken: *mut ULONG_PTR) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoGetCurrentLogicalThreadId(pguid: *mut GUID) -> HRESULT;
+        extern fn CoGetCurrentLogicalThreadId(#[out] pguid: *mut GUID) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoGetCurrentProcess() -> u32;
+        extern fn CoGetCurrentProcess() -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetDefaultContext(aptType: APTTYPE, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn CoGetDefaultContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] aptType: APTTYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetInterfaceAndReleaseStream(pStm: IStream, iid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn CoGetInterfaceAndReleaseStream(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStm: LPSTREAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut LPVOID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetMalloc(dwMemContext: u32, ppMalloc: *mut IMalloc) -> HRESULT;
+        extern fn CoGetMalloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMemContext: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppMalloc: *mut LPMALLOC) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetMarshalSizeMax(pulSize: *mut u32, riid: *const GUID, pUnk: IUnknown, dwDestContext: u32, #[in] #[opt] pvDestContext: *mut void, mshlflags: u32) -> HRESULT;
+        extern fn CoGetMarshalSizeMax(#[out] pulSize: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnk: LPUNKNOWN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDestContext: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvDestContext: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mshlflags: DWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetObjectContext(riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn CoGetObjectContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut LPVOID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetPSClsid(riid: *const GUID, pClsid: *mut GUID) -> HRESULT;
+        extern fn CoGetPSClsid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] pClsid: *mut CLSID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetStandardMarshal(riid: *const GUID, #[opt] pUnk: IUnknown, dwDestContext: u32, #[in] #[opt] pvDestContext: *mut void, mshlflags: u32, ppMarshal: *mut IMarshal) -> HRESULT;
+        extern fn CoGetStandardMarshal(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnk: LPUNKNOWN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDestContext: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvDestContext: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mshlflags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppMarshal: *mut LPMARSHAL) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetStdMarshalEx(pUnkOuter: IUnknown, smexflags: u32, ppUnkInner: *mut IUnknown) -> HRESULT;
+        extern fn CoGetStdMarshalEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: LPUNKNOWN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] smexflags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppUnkInner: *mut LPUNKNOWN) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoGetTreatAsClass(clsidOld: *const GUID, #[out] pClsidNew: LPCLSID) -> HRESULT;
+        extern fn CoGetTreatAsClass(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clsidOld: &IID, #[out] pClsidNew: LPCLSID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
         extern fn CoImpersonateClient() -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoIncrementMTAUsage(pCookie: *mut CO_MTA_USAGE_COOKIE) -> HRESULT;
+        extern fn CoIncrementMTAUsage(#[out] pCookie: *mut CO_MTA_USAGE_COOKIE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoInitializeEx(#[in] #[opt] pvReserved: *mut void, dwCoInit: u32) -> HRESULT;
+        extern fn CoInitializeEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvReserved: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCoInit: DWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoInitializeSecurity(#[opt] pSecDesc: PSECURITY_DESCRIPTOR, cAuthSvc: i32, #[len_param(1)] #[in] #[opt] asAuthSvc: *mut SOLE_AUTHENTICATION_SERVICE, #[in] #[opt] pReserved1: *mut void, dwAuthnLevel: u32, dwImpLevel: u32, #[in] #[opt] pAuthList: *mut void, dwCapabilities: u32, #[in] #[opt] pReserved3: *mut void) -> HRESULT;
+        extern fn CoInitializeSecurity(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSecDesc: PSECURITY_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cAuthSvc: LONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] asAuthSvc: *mut SOLE_AUTHENTICATION_SERVICE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReserved1: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthnLevel: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwImpLevel: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthList: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCapabilities: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReserved3: *mut void) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoInvalidateRemoteMachineBindings(pszMachineName: LPOLESTR) -> HRESULT;
+        extern fn CoInvalidateRemoteMachineBindings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszMachineName: LPOLESTR) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoIsHandlerConnected(pUnk: IUnknown) -> BOOL;
+        extern fn CoIsHandlerConnected(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnk: LPUNKNOWN) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoLockObjectExternal(pUnk: IUnknown, fLock: BOOL, fLastUnlockReleases: BOOL) -> HRESULT;
+        extern fn CoLockObjectExternal(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnk: LPUNKNOWN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fLock: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fLastUnlockReleases: BOOL) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoMarshalHresult(pstm: IStream, hresult: HRESULT) -> HRESULT;
+        extern fn CoMarshalHresult(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstm: LPSTREAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hresult: HRESULT) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoMarshalInterThreadInterfaceInStream(riid: *const GUID, pUnk: IUnknown, ppStm: *mut IStream) -> HRESULT;
+        extern fn CoMarshalInterThreadInterfaceInStream(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnk: LPUNKNOWN, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppStm: *mut LPSTREAM) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoMarshalInterface(pStm: IStream, riid: *const GUID, pUnk: IUnknown, dwDestContext: u32, #[in] #[opt] pvDestContext: *mut void, mshlflags: u32) -> HRESULT;
+        extern fn CoMarshalInterface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStm: LPSTREAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnk: LPUNKNOWN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDestContext: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvDestContext: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mshlflags: DWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoQueryAuthenticationServices(pcAuthSvc: *mut u32, asAuthSvc: *mut *mut SOLE_AUTHENTICATION_SERVICE) -> HRESULT;
+        extern fn CoQueryAuthenticationServices(#[out] pcAuthSvc: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcAuthSvc", "*pcAuthSvc")] #[out] asAuthSvc: *mut *mut SOLE_AUTHENTICATION_SERVICE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoQueryClientBlanket(#[opt] pAuthnSvc: *mut u32, #[opt] pAuthzSvc: *mut u32, pServerPrincName: *mut LPOLESTR, #[opt] pAuthnLevel: *mut u32, #[opt] pImpLevel: *mut u32, pPrivs: *mut RPC_AUTHZ_HANDLE, #[in] #[out] #[opt] pCapabilities: *mut u32) -> HRESULT;
+        extern fn CoQueryClientBlanket(#[out] #[opt] pAuthnSvc: *mut DWORD, #[out] #[opt] pAuthzSvc: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pServerPrincName: *mut LPOLESTR, #[out] #[opt] pAuthnLevel: *mut DWORD, #[out] #[opt] pImpLevel: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_buffer_", "_Inexpressible_(\"depends on pAuthnSvc\")", "_Inexpressible_(\"depends on pAuthnSvc\")")] #[out] #[opt] pPrivs: *mut RPC_AUTHZ_HANDLE, #[in] #[out] #[opt] pCapabilities: *mut DWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoQueryProxyBlanket(pProxy: IUnknown, #[opt] pwAuthnSvc: *mut u32, #[opt] pAuthzSvc: *mut u32, pServerPrincName: *mut LPOLESTR, #[opt] pAuthnLevel: *mut u32, #[opt] pImpLevel: *mut u32, #[opt] pAuthInfo: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] pCapabilites: *mut u32) -> HRESULT;
+        extern fn CoQueryProxyBlanket(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProxy: IUnknown, #[out] #[opt] pwAuthnSvc: *mut DWORD, #[out] #[opt] pAuthzSvc: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pServerPrincName: *mut LPOLESTR, #[out] #[opt] pAuthnLevel: *mut DWORD, #[out] #[opt] pImpLevel: *mut DWORD, #[out] #[opt] pAuthInfo: *mut RPC_AUTH_IDENTITY_HANDLE, #[out] #[opt] pCapabilites: *mut DWORD) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoRegisterActivationFilter(pActivationFilter: IActivationFilter) -> HRESULT;
+        extern fn CoRegisterActivationFilter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pActivationFilter: IActivationFilter) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoRegisterClassObject(rclsid: *const GUID, pUnk: IUnknown, dwClsContext: u32, flags: u32, #[out] lpdwRegister: LPDWORD) -> HRESULT;
+        extern fn CoRegisterClassObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rclsid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnk: LPUNKNOWN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwClsContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: DWORD, #[out] lpdwRegister: LPDWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("api-ms-win-core-com-l1-1-3.dll")]
-        extern fn CoRegisterDeviceCatalog(deviceInstanceId: PCWSTR, cookie: *mut CO_DEVICE_CATALOG_COOKIE) -> HRESULT;
+        extern fn CoRegisterDeviceCatalog(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] deviceInstanceId: PCWSTR, #[out] cookie: *mut CO_DEVICE_CATALOG_COOKIE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoRegisterPSClsid(riid: *const GUID, rclsid: *const GUID) -> HRESULT;
+        extern fn CoRegisterPSClsid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rclsid: &IID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoRegisterSurrogate(pSurrogate: ISurrogate) -> HRESULT;
+        extern fn CoRegisterSurrogate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSurrogate: LPSURROGATE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoReleaseMarshalData(pStm: IStream) -> HRESULT;
+        extern fn CoReleaseMarshalData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStm: LPSTREAM) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoReleaseServerProcess() -> u32;
+        extern fn CoReleaseServerProcess() -> ULONG;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
         extern fn CoResumeClassObjects() -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
         extern fn CoRevertToSelf() -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoRevokeClassObject(dwRegister: u32) -> HRESULT;
+        extern fn CoRevokeClassObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwRegister: DWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("api-ms-win-core-com-l1-1-3.dll")]
-        extern fn CoRevokeDeviceCatalog(cookie: CO_DEVICE_CATALOG_COOKIE) -> HRESULT;
+        extern fn CoRevokeDeviceCatalog(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cookie: CO_DEVICE_CATALOG_COOKIE) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoSetCancelObject(#[opt] pUnk: IUnknown) -> HRESULT;
+        extern fn CoSetCancelObject(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnk: IUnknown) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoSetProxyBlanket(pProxy: IUnknown, dwAuthnSvc: u32, dwAuthzSvc: u32, #[in] #[opt] pServerPrincName: *mut OLECHAR, dwAuthnLevel: u32, dwImpLevel: u32, #[opt] pAuthInfo: RPC_AUTH_IDENTITY_HANDLE, dwCapabilities: u32) -> HRESULT;
+        extern fn CoSetProxyBlanket(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProxy: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthnSvc: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthzSvc: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServerPrincName: *mut OLECHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthnLevel: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwImpLevel: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthInfo: RPC_AUTH_IDENTITY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCapabilities: DWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
         extern fn CoSuspendClassObjects() -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoSwitchCallContext(#[opt] pNewObject: IUnknown, ppOldObject: *mut IUnknown) -> HRESULT;
+        extern fn CoSwitchCallContext(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pNewObject: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppOldObject: *mut IUnknown) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("1.1", "_Ret_opt_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "cb", "cb")]
+        #[Windows::Win32::Metadata::NativeSal("L", "__drv_allocatesMem", "Mem", "Mem")]
         #[library("ole32.dll")]
-        extern fn CoTaskMemAlloc(cb: usize) -> *mut void;
+        extern fn CoTaskMemAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: SIZE_T) -> LPVOID;
         #[library("ole32.dll")]
-        extern fn CoTaskMemFree(pv: *mut void);
+        extern fn CoTaskMemFree(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] pv: LPVOID);
+        #[Windows::Win32::Metadata::NativeSal("1.1", "_Ret_opt_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "cb", "cb")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cb > 0,__drv_allocatesMem(Mem) _Check_return_", "cb > 0, __drv_allocatesMem(Mem) _Check_return_")]
         #[library("ole32.dll")]
-        extern fn CoTaskMemRealloc(pv: *mut void, cb: usize) -> *mut void;
+        extern fn CoTaskMemRealloc(#[Windows::Win32::Metadata::NativeSal("2", "_Post_invalid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] #[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] pv: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: SIZE_T) -> LPVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
         extern fn CoTestCancel() -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoUninitialize();
         #[library("ole32.dll")]
-        extern fn CoUnmarshalHresult(pstm: IStream, phresult: *mut HRESULT) -> HRESULT;
+        extern fn CoUnmarshalHresult(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstm: LPSTREAM, #[out] phresult: *mut HRESULT) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoUnmarshalInterface(pStm: IStream, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn CoUnmarshalInterface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStm: LPSTREAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut LPVOID) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CoWaitForMultipleHandles(dwFlags: u32, dwTimeout: u32, cHandles: u32, #[len_param(2)] pHandles: LPHANDLE, #[out] lpdwindex: LPDWORD) -> HRESULT;
+        extern fn CoWaitForMultipleHandles(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTimeout: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cHandles: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pHandles: LPHANDLE, #[out] lpdwindex: LPDWORD) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoWaitForMultipleObjects(dwFlags: u32, dwTimeout: u32, cHandles: u32, #[len_param(2)] pHandles: *const HANDLE, #[out] lpdwindex: LPDWORD) -> HRESULT;
+        extern fn CoWaitForMultipleObjects(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTimeout: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cHandles: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pHandles: *const HANDLE, #[out] lpdwindex: LPDWORD) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn CreateStreamOnHGlobal(hGlobal: HGLOBAL, fDeleteOnRelease: BOOL, ppstm: *mut IStream) -> HRESULT;
+        extern fn CreateStreamOnHGlobal(hGlobal: HGLOBAL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fDeleteOnRelease: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppstm: *mut LPSTREAM) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn FreePropVariantArray(cVariants: u32, #[len_param(0)] #[in] #[out] rgvars: *mut PROPVARIANT) -> HRESULT;
+        extern fn GetHGlobalFromStream(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstm: LPSTREAM, #[out] phglobal: *mut HGLOBAL) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn GetHGlobalFromStream(pstm: IStream, phglobal: *mut HGLOBAL) -> HRESULT;
-        #[library("ole32.dll")]
-        extern fn IIDFromString(lpsz: LPCOLESTR, #[out] lpiid: LPIID) -> HRESULT;
+        extern fn IIDFromString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpsz: LPCOLESTR, #[out] lpiid: LPIID) -> HRESULT;
         extern fn LPFNCANUNLOADNOW() -> HRESULT;
-        extern fn LPFNGETCLASSOBJECT(param0: *const GUID, param1: *const GUID, param2: *mut *mut void) -> HRESULT;
+        extern fn LPFNGETCLASSOBJECT(param0: &IID, param1: &IID, param2: *mut LPVOID) -> HRESULT;
         type PServerInformation = *mut ServerInformation;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn ProgIDFromCLSID(clsid: *const GUID, lplpszProgID: *mut LPOLESTR) -> HRESULT;
-        #[library("ole32.dll")]
-        extern fn PropVariantClear(#[in] #[out] pvar: *mut PROPVARIANT) -> HRESULT;
-        #[library("ole32.dll")]
-        extern fn PropVariantCopy(pvarDest: *mut PROPVARIANT, pvarSrc: *const PROPVARIANT) -> HRESULT;
-        #[repr(u32)]
-        #[flags]
+        extern fn ProgIDFromCLSID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clsid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] lplpszProgID: *mut LPOLESTR) -> HRESULT;
+        #[repr(i32)]
         enum REGCLS {
             REGCLS_SINGLEUSE = 0,
             REGCLS_MULTIPLEUSE = 1,
@@ -223,29 +277,34 @@ mod Windows {
             REGCLS_SURROGATE = 8,
             REGCLS_AGILE = 16,
         }
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const GUID, pUnk: IUnknown, ppAgileReference: *mut IAgileReference) -> HRESULT;
+        extern fn RoGetAgileReference(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] options: AgileReferenceOptions, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnk: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppAgileReference: *mut IAgileReference) -> HRESULT;
         #[repr(i32)]
         enum STDMSHLFLAGS {
             SMEXF_SERVER = 1,
             SMEXF_HANDLER = 2,
         }
+        #[packed(8)]
         struct ServerInformation {
-            dwServerPid: u32,
-            dwServerTid: u32,
-            ui64ServerAddress: u64,
+            dwServerPid: DWORD,
+            dwServerTid: DWORD,
+            ui64ServerAddress: UINT64,
         }
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn StringFromCLSID(rclsid: *const GUID, lplpsz: *mut LPOLESTR) -> HRESULT;
+        extern fn StringFromCLSID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rclsid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] lplpsz: *mut LPOLESTR) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn StringFromGUID2(rguid: *const GUID, #[len_param(2)] #[out] lpsz: LPOLESTR, cchMax: i32) -> i32;
+        extern fn StringFromGUID2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rguid: &GUID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "cchMax,return", "cchMax,return")] #[out] #[len_param(2)] lpsz: LPOLESTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMax: i32) -> i32;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ole32.dll")]
-        extern fn StringFromIID(rclsid: *const GUID, lplpsz: *mut LPOLESTR) -> HRESULT;
+        extern fn StringFromIID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rclsid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] lplpsz: *mut LPOLESTR) -> HRESULT;
+        #[encoding("ansi")]
         #[arch(X64 | Arm64)]
-        #[encoding("ansi")]
         const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: String = "";
-        #[arch(X86)]
         #[encoding("ansi")]
+        #[arch(X86)]
         const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: String = "_";
     }
 }

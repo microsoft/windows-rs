@@ -7,26 +7,26 @@ mod Windows {
             hFile: HANDLE,
             hProcess: HANDLE,
             hThread: HANDLE,
-            lpBaseOfImage: *mut void,
-            dwDebugInfoFileOffset: u32,
-            nDebugInfoSize: u32,
-            lpThreadLocalBase: *mut void,
+            lpBaseOfImage: LPVOID,
+            dwDebugInfoFileOffset: DWORD,
+            nDebugInfoSize: DWORD,
+            lpThreadLocalBase: LPVOID,
             lpStartAddress: LPTHREAD_START_ROUTINE,
-            lpImageName: *mut void,
-            fUnicode: u16,
+            lpImageName: LPVOID,
+            fUnicode: WORD,
         }
         const CREATE_THREAD_DEBUG_EVENT: i32 = 2;
         struct CREATE_THREAD_DEBUG_INFO {
             hThread: HANDLE,
-            lpThreadLocalBase: *mut void,
+            lpThreadLocalBase: LPVOID,
             lpStartAddress: LPTHREAD_START_ROUTINE,
         }
         type CRITICAL_SECTION = RTL_CRITICAL_SECTION;
-        type CRITICAL_SECTION_DEBUG = RTL_CRITICAL_SECTION_DEBUG;
+        type CRITICAL_SECTION_DEBUG = _RTL_CRITICAL_SECTION_DEBUG;
         struct DEBUG_EVENT {
-            dwDebugEventCode: u32,
-            dwProcessId: u32,
-            dwThreadId: u32,
+            dwDebugEventCode: DWORD,
+            dwProcessId: DWORD,
+            dwThreadId: DWORD,
             u: union {
                 Exception: EXCEPTION_DEBUG_INFO,
                 CreateThread: CREATE_THREAD_DEBUG_INFO,
@@ -46,7 +46,7 @@ mod Windows {
         const EXCEPTION_DEBUG_EVENT: i32 = 1;
         struct EXCEPTION_DEBUG_INFO {
             ExceptionRecord: EXCEPTION_RECORD,
-            dwFirstChance: u32,
+            dwFirstChance: DWORD,
         }
         const EXCEPTION_FLT_DENORMAL_OPERAND: NTSTATUS = -1073741683;
         const EXCEPTION_FLT_DIVIDE_BY_ZERO: NTSTATUS = -1073741682;
@@ -69,11 +69,11 @@ mod Windows {
         const EXCEPTION_STACK_OVERFLOW: NTSTATUS = -1073741571;
         const EXIT_PROCESS_DEBUG_EVENT: i32 = 5;
         struct EXIT_PROCESS_DEBUG_INFO {
-            dwExitCode: u32,
+            dwExitCode: DWORD,
         }
         const EXIT_THREAD_DEBUG_EVENT: i32 = 4;
         struct EXIT_THREAD_DEBUG_INFO {
-            dwExitCode: u32,
+            dwExitCode: DWORD,
         }
         #[repr(i32)]
         enum FILE_INFO_BY_HANDLE_CLASS {
@@ -148,90 +148,93 @@ mod Windows {
         const LOAD_DLL_DEBUG_EVENT: i32 = 6;
         struct LOAD_DLL_DEBUG_INFO {
             hFile: HANDLE,
-            lpBaseOfDll: *mut void,
-            dwDebugInfoFileOffset: u32,
-            nDebugInfoSize: u32,
-            lpImageName: *mut void,
-            fUnicode: u16,
+            lpBaseOfDll: LPVOID,
+            dwDebugInfoFileOffset: DWORD,
+            nDebugInfoSize: DWORD,
+            lpImageName: LPVOID,
+            fUnicode: WORD,
         }
         const LOCKFILE_EXCLUSIVE_LOCK: i32 = 2;
         const LOCKFILE_FAIL_IMMEDIATELY: i32 = 1;
-        type LPCONTEXT = PCONTEXT;
+        #[arch(Arm64)]
+        type LPCONTEXT = *mut ARM64_NT_CONTEXT;
+        #[arch(X86 | X64)]
+        type LPCONTEXT = *mut CONTEXT;
         type LPCREATE_PROCESS_DEBUG_INFO = *mut CREATE_PROCESS_DEBUG_INFO;
         type LPCREATE_THREAD_DEBUG_INFO = *mut CREATE_THREAD_DEBUG_INFO;
-        type LPCRITICAL_SECTION = PRTL_CRITICAL_SECTION;
-        type LPCRITICAL_SECTION_DEBUG = PRTL_CRITICAL_SECTION_DEBUG;
+        type LPCRITICAL_SECTION = *mut RTL_CRITICAL_SECTION;
+        type LPCRITICAL_SECTION_DEBUG = *mut _RTL_CRITICAL_SECTION_DEBUG;
         type LPDEBUG_EVENT = *mut DEBUG_EVENT;
-        type LPENCLAVE_ROUTINE = PENCLAVE_ROUTINE;
+        extern fn LPENCLAVE_ROUTINE(lpThreadParameter: LPVOID) -> LPVOID;
         type LPEXCEPTION_DEBUG_INFO = *mut EXCEPTION_DEBUG_INFO;
         type LPEXIT_PROCESS_DEBUG_INFO = *mut EXIT_PROCESS_DEBUG_INFO;
         type LPEXIT_THREAD_DEBUG_INFO = *mut EXIT_THREAD_DEBUG_INFO;
         type LPLOAD_DLL_DEBUG_INFO = *mut LOAD_DLL_DEBUG_INFO;
         type LPOUTPUT_DEBUG_STRING_INFO = *mut OUTPUT_DEBUG_STRING_INFO;
         type LPOVERLAPPED = *mut OVERLAPPED;
-        extern fn LPOVERLAPPED_COMPLETION_ROUTINE(dwErrorCode: u32, dwNumberOfBytesTransfered: u32, #[in] #[out] lpOverlapped: LPOVERLAPPED);
+        extern fn LPOVERLAPPED_COMPLETION_ROUTINE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwErrorCode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwNumberOfBytesTransfered: DWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED);
         type LPOVERLAPPED_ENTRY = *mut OVERLAPPED_ENTRY;
         type LPPROCESS_HEAP_ENTRY = *mut PROCESS_HEAP_ENTRY;
         type LPRIP_INFO = *mut RIP_INFO;
         type LPSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
         type LPSYSTEMTIME = *mut SYSTEMTIME;
-        type LPTHREAD_START_ROUTINE = PTHREAD_START_ROUTINE;
+        extern fn LPTHREAD_START_ROUTINE(lpThreadParameter: LPVOID) -> DWORD;
         const LPTR: i32 = 64;
         type LPUNLOAD_DLL_DEBUG_INFO = *mut UNLOAD_DLL_DEBUG_INFO;
-        type LPWIN32_FIND_DATA = LPWIN32_FIND_DATAA;
+        type LPWIN32_FIND_DATA = *mut WIN32_FIND_DATAA;
         type LPWIN32_FIND_DATAA = *mut WIN32_FIND_DATAA;
         type LPWIN32_FIND_DATAW = *mut WIN32_FIND_DATAW;
         const NONZEROLHND: i32 = 2;
         const NONZEROLPTR: i32 = 0;
-        const NUMA_NO_PREFERRED_NODE: u32 = 4294967295;
+        const NUMA_NO_PREFERRED_NODE: DWORD = 4294967295;
         const OUTPUT_DEBUG_STRING_EVENT: i32 = 8;
         struct OUTPUT_DEBUG_STRING_INFO {
-            lpDebugStringData: PSTR,
-            fUnicode: u16,
-            nDebugStringLength: u16,
+            lpDebugStringData: LPSTR,
+            fUnicode: WORD,
+            nDebugStringLength: WORD,
         }
         struct OVERLAPPED {
-            Internal: usize,
-            InternalHigh: usize,
+            Internal: ULONG_PTR,
+            InternalHigh: ULONG_PTR,
             Anonymous: union {
                 Anonymous: struct {
-                    Offset: u32,
-                    OffsetHigh: u32,
+                    Offset: DWORD,
+                    OffsetHigh: DWORD,
                 },
-                Pointer: *mut void,
+                Pointer: PVOID,
             },
             hEvent: HANDLE,
         }
         struct OVERLAPPED_ENTRY {
-            lpCompletionKey: usize,
+            lpCompletionKey: ULONG_PTR,
             lpOverlapped: LPOVERLAPPED,
-            Internal: usize,
-            dwNumberOfBytesTransferred: u32,
+            Internal: ULONG_PTR,
+            dwNumberOfBytesTransferred: DWORD,
         }
-        type PCRITICAL_SECTION = PRTL_CRITICAL_SECTION;
-        type PCRITICAL_SECTION_DEBUG = PRTL_CRITICAL_SECTION_DEBUG;
-        extern fn PENCLAVE_ROUTINE(lpThreadParameter: *mut void) -> *mut void;
+        type PCRITICAL_SECTION = *mut RTL_CRITICAL_SECTION;
+        type PCRITICAL_SECTION_DEBUG = *mut _RTL_CRITICAL_SECTION_DEBUG;
+        extern fn PENCLAVE_ROUTINE(lpThreadParameter: LPVOID) -> LPVOID;
         type PFILE_INFO_BY_HANDLE_CLASS = *mut FILE_INFO_BY_HANDLE_CLASS;
         type PFILE_INFO_BY_NAME_CLASS = *mut FILE_INFO_BY_NAME_CLASS;
         type PPROCESS_HEAP_ENTRY = *mut PROCESS_HEAP_ENTRY;
         type PREAD_DIRECTORY_NOTIFY_INFORMATION_CLASS = *mut READ_DIRECTORY_NOTIFY_INFORMATION_CLASS;
         type PREASON_CONTEXT = *mut REASON_CONTEXT;
         struct PROCESS_HEAP_ENTRY {
-            lpData: *mut void,
-            cbData: u32,
-            cbOverhead: u8,
-            iRegionIndex: u8,
-            wFlags: u16,
+            lpData: PVOID,
+            cbData: DWORD,
+            cbOverhead: BYTE,
+            iRegionIndex: BYTE,
+            wFlags: WORD,
             Anonymous: union {
                 Block: struct {
                     hMem: HANDLE,
-                    dwReserved: [u32; 3],
+                    dwReserved: [DWORD; 3],
                 },
                 Region: struct {
-                    dwCommittedSize: u32,
-                    dwUnCommittedSize: u32,
-                    lpFirstBlock: *mut void,
-                    lpLastBlock: *mut void,
+                    dwCommittedSize: DWORD,
+                    dwUnCommittedSize: DWORD,
+                    lpFirstBlock: LPVOID,
+                    lpLastBlock: LPVOID,
                 },
             },
         }
@@ -243,8 +246,8 @@ mod Windows {
         const PROCESS_HEAP_UNCOMMITTED_RANGE: i32 = 2;
         type PSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
         type PSYSTEMTIME = *mut SYSTEMTIME;
-        extern fn PTHREAD_START_ROUTINE(lpThreadParameter: *mut void) -> u32;
-        type PWIN32_FIND_DATA = PWIN32_FIND_DATAA;
+        extern fn PTHREAD_START_ROUTINE(lpThreadParameter: LPVOID) -> DWORD;
+        type PWIN32_FIND_DATA = *mut WIN32_FIND_DATAA;
         type PWIN32_FIND_DATAA = *mut WIN32_FIND_DATAA;
         type PWIN32_FIND_DATAW = *mut WIN32_FIND_DATAW;
         #[repr(i32)]
@@ -255,67 +258,71 @@ mod Windows {
             ReadDirectoryNotifyMaximumInformation = 4,
         }
         struct REASON_CONTEXT {
-            Version: u32,
-            Flags: u32,
+            Version: ULONG,
+            Flags: DWORD,
             Reason: union {
                 Detailed: struct {
                     LocalizedReasonModule: HMODULE,
-                    LocalizedReasonId: u32,
-                    ReasonStringCount: u32,
-                    ReasonStrings: *mut PWSTR,
+                    LocalizedReasonId: ULONG,
+                    ReasonStringCount: ULONG,
+                    ReasonStrings: *mut LPWSTR,
                 },
-                SimpleReasonString: PWSTR,
+                SimpleReasonString: LPWSTR,
             },
         }
         const RIP_EVENT: i32 = 9;
         struct RIP_INFO {
-            dwError: u32,
-            dwType: u32,
+            dwError: DWORD,
+            dwType: DWORD,
         }
         struct SECURITY_ATTRIBUTES {
-            nLength: u32,
-            lpSecurityDescriptor: *mut void,
+            nLength: DWORD,
+            lpSecurityDescriptor: LPVOID,
             bInheritHandle: BOOL,
         }
         const STILL_ACTIVE: NTSTATUS = 259;
         struct SYSTEMTIME {
-            wYear: u16,
-            wMonth: u16,
-            wDayOfWeek: u16,
-            wDay: u16,
-            wHour: u16,
-            wMinute: u16,
-            wSecond: u16,
-            wMilliseconds: u16,
+            wYear: WORD,
+            wMonth: WORD,
+            wDayOfWeek: WORD,
+            wDay: WORD,
+            wHour: WORD,
+            wMinute: WORD,
+            wSecond: WORD,
+            wMilliseconds: WORD,
         }
         const UNLOAD_DLL_DEBUG_EVENT: i32 = 7;
         struct UNLOAD_DLL_DEBUG_INFO {
-            lpBaseOfDll: *mut void,
+            lpBaseOfDll: LPVOID,
         }
         type WIN32_FIND_DATA = WIN32_FIND_DATAA;
         struct WIN32_FIND_DATAA {
-            dwFileAttributes: u32,
+            dwFileAttributes: DWORD,
             ftCreationTime: FILETIME,
             ftLastAccessTime: FILETIME,
             ftLastWriteTime: FILETIME,
-            nFileSizeHigh: u32,
-            nFileSizeLow: u32,
-            dwReserved0: u32,
-            dwReserved1: u32,
-            cFileName: [i8; 260],
-            cAlternateFileName: [i8; 14],
+            nFileSizeHigh: DWORD,
+            nFileSizeLow: DWORD,
+            dwReserved0: DWORD,
+            dwReserved1: DWORD,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
+            cFileName: [CHAR; 260],
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
+            cAlternateFileName: [CHAR; 14],
         }
         struct WIN32_FIND_DATAW {
-            dwFileAttributes: u32,
+            dwFileAttributes: DWORD,
             ftCreationTime: FILETIME,
             ftLastAccessTime: FILETIME,
             ftLastWriteTime: FILETIME,
-            nFileSizeHigh: u32,
-            nFileSizeLow: u32,
-            dwReserved0: u32,
-            dwReserved1: u32,
-            cFileName: [u16; 260],
-            cAlternateFileName: [u16; 14],
+            nFileSizeHigh: DWORD,
+            nFileSizeLow: DWORD,
+            dwReserved0: DWORD,
+            dwReserved1: DWORD,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
+            cFileName: [WCHAR; 260],
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
+            cAlternateFileName: [WCHAR; 14],
         }
     }
 }

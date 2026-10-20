@@ -17,9 +17,9 @@ mod Windows {
             CHUNK_EOC = 4,
         }
         struct FILTERREGION {
-            idChunk: u32,
-            cwcStart: u32,
-            cwcExtent: u32,
+            idChunk: ULONG,
+            cwcStart: ULONG,
+            cwcExtent: ULONG,
         }
         struct FULLPROPSPEC {
             guidPropSet: GUID,
@@ -47,15 +47,15 @@ mod Windows {
         }
         #[guid(0x89bcb740_6119_101a_bcb7_00dd010655af)]
         interface IFilter: IUnknown {
-            fn Init(&self, grfFlags: u32, cAttributes: u32, aAttributes: *const FULLPROPSPEC, pFlags: *mut u32) -> SCODE;
+            fn Init(&self, grfFlags: ULONG, cAttributes: ULONG, aAttributes: *const FULLPROPSPEC, pFlags: *mut ULONG) -> SCODE;
             fn GetChunk(&self, pStat: *mut STAT_CHUNK) -> SCODE;
-            fn GetText(&self, #[in] #[out] pcwcBuffer: *mut u32, awcBuffer: *mut u16) -> SCODE;
+            fn GetText(&self, pcwcBuffer: *mut ULONG, awcBuffer: *mut WCHAR) -> SCODE;
             fn GetValue(&self, ppPropValue: *mut *mut PROPVARIANT) -> SCODE;
-            fn BindRegion(&self, origPos: FILTERREGION, riid: *const GUID, ppunk: *mut *mut void) -> SCODE;
+            fn BindRegion(&self, origPos: FILTERREGION, riid: &IID, ppunk: *mut *mut void) -> SCODE;
         }
         struct IMAGE_INFO {
-            Width: u32,
-            Height: u32,
+            Width: UINT,
+            Height: UINT,
             Format: IMAGE_PIXELFORMAT,
         }
         #[repr(i32)]
@@ -66,18 +66,18 @@ mod Windows {
         }
         #[guid(0x3d7df9a7_8da6_4fbf_a45b_7592f06d93a9)]
         interface IPixelFilter: IFilter {
-            fn GetImageInfo(&self, imageInfo: *mut IMAGE_INFO) -> HRESULT;
-            fn GetPixelsForImage(&self, scalingFactor: f32, sourceRect: *const RECT, pixelBufferSize: u32, pixelBuffer: *mut u8) -> HRESULT;
+            fn GetImageInfo(&self, #[out] imageInfo: *mut IMAGE_INFO) -> HRESULT;
+            fn GetPixelsForImage(&self, scalingFactor: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] sourceRect: *const RECT, pixelBufferSize: ULONG, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = false)] pixelBuffer: *mut BYTE) -> HRESULT;
         }
         struct STAT_CHUNK {
-            idChunk: u32,
+            idChunk: ULONG,
             breakType: CHUNK_BREAKTYPE,
             flags: CHUNKSTATE,
             locale: LCID,
             attribute: FULLPROPSPEC,
-            idChunkSource: u32,
-            cwcStartSource: u32,
-            cwcLenSource: u32,
+            idChunkSource: ULONG,
+            cwcStartSource: ULONG,
+            cwcLenSource: ULONG,
         }
     }
 }

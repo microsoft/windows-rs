@@ -2,11 +2,11 @@
 mod Windows {
     mod Win32 {
         struct DOT11_ACCESSNETWORKOPTIONS {
-            AccessNetworkType: u8,
-            Internet: u8,
-            ASRA: u8,
-            ESR: u8,
-            UESA: u8,
+            AccessNetworkType: UINT8,
+            Internet: UINT8,
+            ASRA: UINT8,
+            ESR: UINT8,
+            UESA: UINT8,
         }
         #[repr(i32)]
         enum DOT11_AUTH_ALGORITHM {
@@ -68,19 +68,20 @@ mod Windows {
             DOT11_CIPHER_ALGO_IHV_END = -1,
         }
         struct DOT11_OI {
-            OILength: u16,
-            OI: [u8; 5],
+            OILength: USHORT,
+            OI: [UCHAR; 5],
         }
         const DOT11_OI_MAX_LENGTH: i32 = 5;
         const DOT11_OI_MIN_LENGTH: i32 = 3;
         struct DOT11_SSID {
-            uSSIDLength: u32,
-            ucSSID: [u8; 32],
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "0,32", "0,32")]
+            uSSIDLength: ULONG,
+            ucSSID: [UCHAR; 32],
         }
         const DOT11_SSID_MAX_LENGTH: i32 = 32;
         struct DOT11_VENUEINFO {
-            VenueGroup: u8,
-            VenueType: u8,
+            VenueGroup: UINT8,
+            VenueType: UINT8,
         }
         type PDOT11_ACCESSNETWORKOPTIONS = *mut DOT11_ACCESSNETWORKOPTIONS;
         type PDOT11_AUTH_ALGORITHM = *mut DOT11_AUTH_ALGORITHM;

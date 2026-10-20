@@ -3,162 +3,162 @@ mod Windows {
     mod Win32 {
         #[guid(0x10ece955_cf41_4728_bfa0_41eedf1bbf19)]
         interface IEnumPortableDeviceObjectIDs: IUnknown {
-            fn Next(&self, cObjects: u32, pObjIDs: *mut PWSTR, #[in] #[out] pcFetched: *mut u32) -> HRESULT;
-            fn Skip(&self, cObjects: u32) -> HRESULT;
+            fn Next(&self, cObjects: ULONG, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] pObjIDs: *mut LPWSTR, #[in] #[out] #[opt] pcFetched: *mut ULONG) -> HRESULT;
+            fn Skip(&self, cObjects: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, ppEnum: *mut IEnumPortableDeviceObjectIDs) -> HRESULT;
+            fn Clone(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppEnum: *mut IEnumPortableDeviceObjectIDs) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
         }
         #[guid(0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c)]
         interface IPortableDevice: IUnknown {
-            fn Open(&self, pszPnPDeviceID: PCWSTR, pClientInfo: IPortableDeviceValues) -> HRESULT;
-            fn SendCommand(&self, dwFlags: u32, pParameters: IPortableDeviceValues, ppResults: *mut IPortableDeviceValues) -> HRESULT;
-            fn Content(&self, ppContent: *mut IPortableDeviceContent) -> HRESULT;
-            fn Capabilities(&self, ppCapabilities: *mut IPortableDeviceCapabilities) -> HRESULT;
+            fn Open(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszPnPDeviceID: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pClientInfo: IPortableDeviceValues) -> HRESULT;
+            fn SendCommand(&self, dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pParameters: IPortableDeviceValues, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResults: *mut IPortableDeviceValues) -> HRESULT;
+            fn Content(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppContent: *mut IPortableDeviceContent) -> HRESULT;
+            fn Capabilities(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCapabilities: *mut IPortableDeviceCapabilities) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
             fn Close(&self) -> HRESULT;
-            fn Advise(&self, dwFlags: u32, pCallback: IPortableDeviceEventCallback, pParameters: IPortableDeviceValues, ppszCookie: *mut PWSTR) -> HRESULT;
-            fn Unadvise(&self, pszCookie: PCWSTR) -> HRESULT;
-            fn GetPnPDeviceID(&self, ppszPnPDeviceID: *mut PWSTR) -> HRESULT;
+            fn Advise(&self, dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pCallback: IPortableDeviceEventCallback, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pParameters: IPortableDeviceValues, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszCookie: *mut LPWSTR) -> HRESULT;
+            fn Unadvise(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszCookie: LPCWSTR) -> HRESULT;
+            fn GetPnPDeviceID(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszPnPDeviceID: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x2c8c6dbf_e3dc_4061_becc_8542e810d126)]
         interface IPortableDeviceCapabilities: IUnknown {
-            fn GetSupportedCommands(&self, ppCommands: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetCommandOptions(&self, Command: *const PROPERTYKEY, ppOptions: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetFunctionalCategories(&self, ppCategories: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetFunctionalObjects(&self, Category: *const GUID, ppObjectIDs: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetSupportedContentTypes(&self, Category: *const GUID, ppContentTypes: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetSupportedFormats(&self, ContentType: *const GUID, ppFormats: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetSupportedFormatProperties(&self, Format: *const GUID, ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetFixedPropertyAttributes(&self, Format: *const GUID, Key: *const PROPERTYKEY, ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedCommands(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCommands: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetCommandOptions(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Command: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppOptions: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetFunctionalCategories(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCategories: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetFunctionalObjects(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Category: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppObjectIDs: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetSupportedContentTypes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Category: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppContentTypes: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetSupportedFormats(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ContentType: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppFormats: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetSupportedFormatProperties(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Format: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetFixedPropertyAttributes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Format: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Key: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
-            fn GetSupportedEvents(&self, ppEvents: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetEventOptions(&self, Event: *const GUID, ppOptions: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedEvents(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppEvents: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetEventOptions(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Event: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppOptions: *mut IPortableDeviceValues) -> HRESULT;
         }
         #[guid(0x6a96ed84_7c73_4480_9938_bf5af477d426)]
         interface IPortableDeviceContent: IUnknown {
-            fn EnumObjects(&self, dwFlags: u32, pszParentObjectID: PCWSTR, pFilter: IPortableDeviceValues, ppEnum: *mut IEnumPortableDeviceObjectIDs) -> HRESULT;
-            fn Properties(&self, ppProperties: *mut IPortableDeviceProperties) -> HRESULT;
-            fn Transfer(&self, ppResources: *mut IPortableDeviceResources) -> HRESULT;
-            fn CreateObjectWithPropertiesOnly(&self, pValues: IPortableDeviceValues, #[in] #[out] ppszObjectID: *mut PWSTR) -> HRESULT;
-            fn CreateObjectWithPropertiesAndData(&self, pValues: IPortableDeviceValues, ppData: *mut IStream, #[in] #[out] pdwOptimalWriteBufferSize: *mut u32, #[in] #[out] ppszCookie: *mut PWSTR) -> HRESULT;
-            fn Delete(&self, dwOptions: u32, pObjectIDs: IPortableDevicePropVariantCollection, #[in] #[out] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetObjectIDsFromPersistentUniqueIDs(&self, pPersistentUniqueIDs: IPortableDevicePropVariantCollection, ppObjectIDs: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn EnumObjects(&self, dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszParentObjectID: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pFilter: IPortableDeviceValues, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppEnum: *mut IEnumPortableDeviceObjectIDs) -> HRESULT;
+            fn Properties(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppProperties: *mut IPortableDeviceProperties) -> HRESULT;
+            fn Transfer(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResources: *mut IPortableDeviceResources) -> HRESULT;
+            fn CreateObjectWithPropertiesOnly(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValues: IPortableDeviceValues, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppszObjectID: *mut LPWSTR) -> HRESULT;
+            fn CreateObjectWithPropertiesAndData(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValues: IPortableDeviceValues, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppData: *mut IStream, #[in] #[out] #[opt] pdwOptimalWriteBufferSize: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppszCookie: *mut LPWSTR) -> HRESULT;
+            fn Delete(&self, dwOptions: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pObjectIDs: IPortableDevicePropVariantCollection, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetObjectIDsFromPersistentUniqueIDs(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pPersistentUniqueIDs: IPortableDevicePropVariantCollection, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppObjectIDs: *mut IPortableDevicePropVariantCollection) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
-            fn Move(&self, pObjectIDs: IPortableDevicePropVariantCollection, pszDestinationFolderObjectID: PCWSTR, #[in] #[out] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn Copy(&self, pObjectIDs: IPortableDevicePropVariantCollection, pszDestinationFolderObjectID: PCWSTR, #[in] #[out] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn Move(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pObjectIDs: IPortableDevicePropVariantCollection, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszDestinationFolderObjectID: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn Copy(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pObjectIDs: IPortableDevicePropVariantCollection, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszDestinationFolderObjectID: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppResults: *mut IPortableDevicePropVariantCollection) -> HRESULT;
         }
         #[guid(0x9b4add96_f6bf_4034_8708_eca72bf10554)]
         interface IPortableDeviceContent2: IPortableDeviceContent {
-            fn UpdateObjectWithPropertiesAndData(&self, pszObjectID: PCWSTR, pProperties: IPortableDeviceValues, ppData: *mut IStream, #[in] #[out] pdwOptimalWriteBufferSize: *mut u32) -> HRESULT;
+            fn UpdateObjectWithPropertiesAndData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszObjectID: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pProperties: IPortableDeviceValues, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppData: *mut IStream, #[in] #[out] #[opt] pdwOptimalWriteBufferSize: *mut DWORD) -> HRESULT;
         }
         #[guid(0x88e04db3_1012_4d64_9996_f703a950d3f4)]
         interface IPortableDeviceDataStream: IStream {
-            fn GetObjectID(&self, ppszObjectID: *mut PWSTR) -> HRESULT;
+            fn GetObjectID(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszObjectID: *mut LPWSTR) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
         }
         #[guid(0x5e1eafc3_e3d7_4132_96fa_759c0f9d1e0f)]
         interface IPortableDeviceDispatchFactory: IUnknown {
-            fn GetDeviceDispatch(&self, pszPnPDeviceID: PCWSTR, ppDeviceDispatch: *mut IDispatch) -> HRESULT;
+            fn GetDeviceDispatch(&self, pszPnPDeviceID: LPCWSTR, ppDeviceDispatch: *mut IDispatch) -> HRESULT;
         }
         #[guid(0xa8792a31_f385_493c_a893_40f64eb45f6e)]
         interface IPortableDeviceEventCallback: IUnknown {
-            fn OnEvent(&self, pEventParameters: IPortableDeviceValues) -> HRESULT;
+            fn OnEvent(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pEventParameters: IPortableDeviceValues) -> HRESULT;
         }
         #[guid(0xa1567595_4c2f_4574_a6fa_ecef917b9a40)]
         interface IPortableDeviceManager: IUnknown {
-            fn GetDevices(&self, #[in] #[out] pPnPDeviceIDs: *mut PWSTR, #[in] #[out] pcPnPDeviceIDs: *mut u32) -> HRESULT;
+            fn GetDevices(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] pPnPDeviceIDs: *mut LPWSTR, #[in] #[out] pcPnPDeviceIDs: *mut DWORD) -> HRESULT;
             fn RefreshDeviceList(&self) -> HRESULT;
-            fn GetDeviceFriendlyName(&self, pszPnPDeviceID: PCWSTR, #[in] #[out] pDeviceFriendlyName: *mut u16, #[in] #[out] pcchDeviceFriendlyName: *mut u32) -> HRESULT;
-            fn GetDeviceDescription(&self, pszPnPDeviceID: PCWSTR, #[in] #[out] pDeviceDescription: *mut u16, #[in] #[out] pcchDeviceDescription: *mut u32) -> HRESULT;
-            fn GetDeviceManufacturer(&self, pszPnPDeviceID: PCWSTR, #[in] #[out] pDeviceManufacturer: *mut u16, #[in] #[out] pcchDeviceManufacturer: *mut u32) -> HRESULT;
-            fn GetDeviceProperty(&self, pszPnPDeviceID: PCWSTR, pszDevicePropertyName: PCWSTR, #[in] #[out] pData: *mut u8, #[in] #[out] pcbData: *mut u32, #[in] #[out] pdwType: *mut u32) -> HRESULT;
-            fn GetPrivateDevices(&self, #[in] #[out] pPnPDeviceIDs: *mut PWSTR, #[in] #[out] pcPnPDeviceIDs: *mut u32) -> HRESULT;
+            fn GetDeviceFriendlyName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszPnPDeviceID: LPCWSTR, #[in] #[out] #[opt] pDeviceFriendlyName: *mut WCHAR, #[in] #[out] pcchDeviceFriendlyName: *mut DWORD) -> HRESULT;
+            fn GetDeviceDescription(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszPnPDeviceID: LPCWSTR, #[in] #[out] #[opt] pDeviceDescription: *mut WCHAR, #[in] #[out] pcchDeviceDescription: *mut DWORD) -> HRESULT;
+            fn GetDeviceManufacturer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszPnPDeviceID: LPCWSTR, #[in] #[out] #[opt] pDeviceManufacturer: *mut WCHAR, #[in] #[out] pcchDeviceManufacturer: *mut DWORD) -> HRESULT;
+            fn GetDeviceProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszPnPDeviceID: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszDevicePropertyName: LPCWSTR, #[in] #[out] #[opt] pData: *mut BYTE, #[in] #[out] #[opt] pcbData: *mut DWORD, #[in] #[out] #[opt] pdwType: *mut DWORD) -> HRESULT;
+            fn GetPrivateDevices(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] pPnPDeviceIDs: *mut LPWSTR, #[in] #[out] pcPnPDeviceIDs: *mut DWORD) -> HRESULT;
         }
         #[guid(0x7f6d695c_03df_4439_a809_59266beee3a6)]
         interface IPortableDeviceProperties: IUnknown {
-            fn GetSupportedProperties(&self, pszObjectID: PCWSTR, ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetPropertyAttributes(&self, pszObjectID: PCWSTR, Key: *const PROPERTYKEY, ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetValues(&self, pszObjectID: PCWSTR, pKeys: IPortableDeviceKeyCollection, ppValues: *mut IPortableDeviceValues) -> HRESULT;
-            fn SetValues(&self, pszObjectID: PCWSTR, pValues: IPortableDeviceValues, ppResults: *mut IPortableDeviceValues) -> HRESULT;
-            fn Delete(&self, pszObjectID: PCWSTR, pKeys: IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetSupportedProperties(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszObjectID: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetPropertyAttributes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszObjectID: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Key: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetValues(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszObjectID: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pKeys: IPortableDeviceKeyCollection, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppValues: *mut IPortableDeviceValues) -> HRESULT;
+            fn SetValues(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszObjectID: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValues: IPortableDeviceValues, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResults: *mut IPortableDeviceValues) -> HRESULT;
+            fn Delete(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszObjectID: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pKeys: IPortableDeviceKeyCollection) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
         }
         #[guid(0x482b05c0_4056_44ed_9e0f_5e23b009da93)]
         interface IPortableDevicePropertiesBulk: IUnknown {
-            fn QueueGetValuesByObjectList(&self, pObjectIDs: IPortableDevicePropVariantCollection, pKeys: IPortableDeviceKeyCollection, pCallback: IPortableDevicePropertiesBulkCallback, pContext: *mut GUID) -> HRESULT;
-            fn QueueGetValuesByObjectFormat(&self, pguidObjectFormat: *const GUID, pszParentObjectID: PCWSTR, dwDepth: u32, pKeys: IPortableDeviceKeyCollection, pCallback: IPortableDevicePropertiesBulkCallback, pContext: *mut GUID) -> HRESULT;
-            fn QueueSetValuesByObjectList(&self, pObjectValues: IPortableDeviceValuesCollection, pCallback: IPortableDevicePropertiesBulkCallback, pContext: *mut GUID) -> HRESULT;
-            fn Start(&self, pContext: *const GUID) -> HRESULT;
-            fn Cancel(&self, pContext: *const GUID) -> HRESULT;
+            fn QueueGetValuesByObjectList(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pObjectIDs: IPortableDevicePropVariantCollection, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pKeys: IPortableDeviceKeyCollection, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pCallback: IPortableDevicePropertiesBulkCallback, #[out] pContext: *mut GUID) -> HRESULT;
+            fn QueueGetValuesByObjectFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pguidObjectFormat: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszParentObjectID: LPCWSTR, dwDepth: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pKeys: IPortableDeviceKeyCollection, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pCallback: IPortableDevicePropertiesBulkCallback, #[out] pContext: *mut GUID) -> HRESULT;
+            fn QueueSetValuesByObjectList(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pObjectValues: IPortableDeviceValuesCollection, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pCallback: IPortableDevicePropertiesBulkCallback, #[out] pContext: *mut GUID) -> HRESULT;
+            fn Start(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pContext: &GUID) -> HRESULT;
+            fn Cancel(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pContext: &GUID) -> HRESULT;
         }
         #[guid(0x9deacb80_11e8_40e3_a9f3_f557986a7845)]
         interface IPortableDevicePropertiesBulkCallback: IUnknown {
-            fn OnStart(&self, pContext: *const GUID) -> HRESULT;
-            fn OnProgress(&self, pContext: *const GUID, pResults: IPortableDeviceValuesCollection) -> HRESULT;
-            fn OnEnd(&self, pContext: *const GUID, hrStatus: HRESULT) -> HRESULT;
+            fn OnStart(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pContext: &GUID) -> HRESULT;
+            fn OnProgress(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pContext: &GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pResults: IPortableDeviceValuesCollection) -> HRESULT;
+            fn OnEnd(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pContext: &GUID, hrStatus: HRESULT) -> HRESULT;
         }
         #[guid(0xfd8878ac_d841_4d17_891c_e6829cdb6934)]
         interface IPortableDeviceResources: IUnknown {
-            fn GetSupportedResources(&self, pszObjectID: PCWSTR, ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetResourceAttributes(&self, pszObjectID: PCWSTR, Key: *const PROPERTYKEY, ppResourceAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetStream(&self, pszObjectID: PCWSTR, Key: *const PROPERTYKEY, dwMode: u32, #[in] #[out] pdwOptimalBufferSize: *mut u32, ppStream: *mut IStream) -> HRESULT;
-            fn Delete(&self, pszObjectID: PCWSTR, pKeys: IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetSupportedResources(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszObjectID: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetResourceAttributes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszObjectID: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Key: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResourceAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetStream(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszObjectID: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Key: &PROPERTYKEY, dwMode: DWORD, #[in] #[out] #[opt] pdwOptimalBufferSize: *mut DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppStream: *mut IStream) -> HRESULT;
+            fn Delete(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszObjectID: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pKeys: IPortableDeviceKeyCollection) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
-            fn CreateResource(&self, pResourceAttributes: IPortableDeviceValues, ppData: *mut IStream, #[in] #[out] pdwOptimalWriteBufferSize: *mut u32, #[in] #[out] ppszCookie: *mut PWSTR) -> HRESULT;
+            fn CreateResource(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pResourceAttributes: IPortableDeviceValues, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppData: *mut IStream, #[in] #[out] #[opt] pdwOptimalWriteBufferSize: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppszCookie: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xd3bd3a44_d7b5_40a9_98b7_2fa4d01dec08)]
         interface IPortableDeviceService: IUnknown {
-            fn Open(&self, pszPnPServiceID: PCWSTR, pClientInfo: IPortableDeviceValues) -> HRESULT;
-            fn Capabilities(&self, ppCapabilities: *mut IPortableDeviceServiceCapabilities) -> HRESULT;
-            fn Content(&self, ppContent: *mut IPortableDeviceContent2) -> HRESULT;
-            fn Methods(&self, ppMethods: *mut IPortableDeviceServiceMethods) -> HRESULT;
+            fn Open(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszPnPServiceID: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pClientInfo: IPortableDeviceValues) -> HRESULT;
+            fn Capabilities(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCapabilities: *mut IPortableDeviceServiceCapabilities) -> HRESULT;
+            fn Content(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppContent: *mut IPortableDeviceContent2) -> HRESULT;
+            fn Methods(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppMethods: *mut IPortableDeviceServiceMethods) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
             fn Close(&self) -> HRESULT;
-            fn GetServiceObjectID(&self, ppszServiceObjectID: *mut PWSTR) -> HRESULT;
-            fn GetPnPServiceID(&self, ppszPnPServiceID: *mut PWSTR) -> HRESULT;
-            fn Advise(&self, dwFlags: u32, pCallback: IPortableDeviceEventCallback, pParameters: IPortableDeviceValues, ppszCookie: *mut PWSTR) -> HRESULT;
-            fn Unadvise(&self, pszCookie: PCWSTR) -> HRESULT;
-            fn SendCommand(&self, dwFlags: u32, pParameters: IPortableDeviceValues, ppResults: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetServiceObjectID(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszServiceObjectID: *mut LPWSTR) -> HRESULT;
+            fn GetPnPServiceID(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszPnPServiceID: *mut LPWSTR) -> HRESULT;
+            fn Advise(&self, dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pCallback: IPortableDeviceEventCallback, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pParameters: IPortableDeviceValues, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszCookie: *mut LPWSTR) -> HRESULT;
+            fn Unadvise(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszCookie: LPCWSTR) -> HRESULT;
+            fn SendCommand(&self, dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pParameters: IPortableDeviceValues, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResults: *mut IPortableDeviceValues) -> HRESULT;
         }
         #[guid(0xe56b0534_d9b9_425c_9b99_75f97cb3d7c8)]
         interface IPortableDeviceServiceActivation: IUnknown {
-            fn OpenAsync(&self, pszPnPServiceID: PCWSTR, pClientInfo: IPortableDeviceValues, pCallback: IPortableDeviceServiceOpenCallback) -> HRESULT;
+            fn OpenAsync(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszPnPServiceID: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pClientInfo: IPortableDeviceValues, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pCallback: IPortableDeviceServiceOpenCallback) -> HRESULT;
             fn CancelOpenAsync(&self) -> HRESULT;
         }
         #[guid(0x24dbd89d_413e_43e0_bd5b_197f3c56c886)]
         interface IPortableDeviceServiceCapabilities: IUnknown {
-            fn GetSupportedMethods(&self, ppMethods: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetSupportedMethodsByFormat(&self, Format: *const GUID, ppMethods: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetMethodAttributes(&self, Method: *const GUID, ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetMethodParameterAttributes(&self, Method: *const GUID, Parameter: *const PROPERTYKEY, ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetSupportedFormats(&self, ppFormats: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetFormatAttributes(&self, Format: *const GUID, ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetSupportedFormatProperties(&self, Format: *const GUID, ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetFormatPropertyAttributes(&self, Format: *const GUID, Property: *const PROPERTYKEY, ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetSupportedEvents(&self, ppEvents: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetEventAttributes(&self, Event: *const GUID, ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetEventParameterAttributes(&self, Event: *const GUID, Parameter: *const PROPERTYKEY, ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetInheritedServices(&self, dwInheritanceType: u32, ppServices: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetFormatRenderingProfiles(&self, Format: *const GUID, ppRenderingProfiles: *mut IPortableDeviceValuesCollection) -> HRESULT;
-            fn GetSupportedCommands(&self, ppCommands: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetCommandOptions(&self, Command: *const PROPERTYKEY, ppOptions: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedMethods(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppMethods: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetSupportedMethodsByFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Format: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppMethods: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetMethodAttributes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Method: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetMethodParameterAttributes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Method: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Parameter: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedFormats(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppFormats: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetFormatAttributes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Format: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedFormatProperties(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Format: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppKeys: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetFormatPropertyAttributes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Format: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Property: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedEvents(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppEvents: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetEventAttributes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Event: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetEventParameterAttributes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Event: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Parameter: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAttributes: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetInheritedServices(&self, dwInheritanceType: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppServices: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetFormatRenderingProfiles(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Format: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppRenderingProfiles: *mut IPortableDeviceValuesCollection) -> HRESULT;
+            fn GetSupportedCommands(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCommands: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetCommandOptions(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Command: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppOptions: *mut IPortableDeviceValues) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
         }
         #[guid(0xa8abc4e9_a84a_47a9_80b3_c5d9b172a961)]
         interface IPortableDeviceServiceManager: IUnknown {
-            fn GetDeviceServices(&self, pszPnPDeviceID: PCWSTR, guidServiceCategory: *const GUID, #[in] #[out] pServices: *mut PWSTR, #[in] #[out] pcServices: *mut u32) -> HRESULT;
-            fn GetDeviceForService(&self, pszPnPServiceID: PCWSTR, ppszPnPDeviceID: *mut PWSTR) -> HRESULT;
+            fn GetDeviceServices(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszPnPDeviceID: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidServiceCategory: &GUID, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] pServices: *mut LPWSTR, #[in] #[out] pcServices: *mut DWORD) -> HRESULT;
+            fn GetDeviceForService(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszPnPServiceID: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszPnPDeviceID: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xc424233c_afce_4828_a756_7ed7a2350083)]
         interface IPortableDeviceServiceMethodCallback: IUnknown {
-            fn OnComplete(&self, hrStatus: HRESULT, pResults: IPortableDeviceValues) -> HRESULT;
+            fn OnComplete(&self, hrStatus: HRESULT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pResults: IPortableDeviceValues) -> HRESULT;
         }
         #[guid(0xe20333c9_fd34_412d_a381_cc6f2d820df7)]
         interface IPortableDeviceServiceMethods: IUnknown {
-            fn Invoke(&self, Method: *const GUID, pParameters: IPortableDeviceValues, #[in] #[out] ppResults: *mut IPortableDeviceValues) -> HRESULT;
-            fn InvokeAsync(&self, Method: *const GUID, pParameters: IPortableDeviceValues, pCallback: IPortableDeviceServiceMethodCallback) -> HRESULT;
-            fn Cancel(&self, pCallback: IPortableDeviceServiceMethodCallback) -> HRESULT;
+            fn Invoke(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Method: &GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pParameters: IPortableDeviceValues, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppResults: *mut IPortableDeviceValues) -> HRESULT;
+            fn InvokeAsync(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Method: &GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pParameters: IPortableDeviceValues, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pCallback: IPortableDeviceServiceMethodCallback) -> HRESULT;
+            fn Cancel(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pCallback: IPortableDeviceServiceMethodCallback) -> HRESULT;
         }
         #[guid(0xbced49c8_8efe_41ed_960b_61313abd47a9)]
         interface IPortableDeviceServiceOpenCallback: IUnknown {
@@ -166,13 +166,13 @@ mod Windows {
         }
         #[guid(0x5e98025f_bfc4_47a2_9a5f_bc900a507c67)]
         interface IPortableDeviceUnitsStream: IUnknown {
-            fn SeekInUnits(&self, dlibMove: LARGE_INTEGER, units: WPD_STREAM_UNITS, dwOrigin: u32, #[opt] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
+            fn SeekInUnits(&self, dlibMove: LARGE_INTEGER, units: WPD_STREAM_UNITS, dwOrigin: DWORD, #[out] #[opt] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
         }
         #[guid(0x94fc7953_5ca1_483a_8aee_df52e7747d00)]
         interface IPortableDeviceWebControl: IDispatch {
-            fn GetDeviceFromId(&self, deviceId: BSTR, #[retval] ppDevice: *mut IDispatch) -> HRESULT;
-            fn GetDeviceFromIdAsync(&self, deviceId: BSTR, pCompletionHandler: IDispatch, #[opt] pErrorHandler: IDispatch) -> HRESULT;
+            fn GetDeviceFromId(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] deviceId: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppDevice: *mut IDispatch) -> HRESULT;
+            fn GetDeviceFromIdAsync(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] deviceId: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCompletionHandler: IDispatch, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pErrorHandler: IDispatch) -> HRESULT;
         }
         const PortableDevice: GUID = 0x728a21c5_3d9e_48d7_9810_864848f0f404;
         const PortableDeviceDispatchFactory: GUID = 0x43232233_8338_4658_ae01_0b4ae830b6b0;

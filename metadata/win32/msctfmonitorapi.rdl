@@ -5,11 +5,11 @@ mod Windows {
         const DCM_FLAGS_LOCALTHREADTSF: i32 = 4;
         const DCM_FLAGS_TASKENG: i32 = 1;
         #[library("MsCtfMonitor.DLL")]
-        extern fn DoMsCtfMonitor(dwFlags: u32, hEventForServiceStop: HANDLE) -> BOOL;
+        extern fn DoMsCtfMonitor(dwFlags: DWORD, hEventForServiceStop: HANDLE) -> BOOL;
         const ILMCM_CHECKLAYOUTANDTIPENABLED: i32 = 1;
         const ILMCM_LANGUAGEBAROFF: i32 = 2;
         #[library("MsCtfMonitor.DLL")]
-        extern fn InitLocalMsCtfMonitor(dwFlags: u32) -> HRESULT;
+        extern fn InitLocalMsCtfMonitor(dwFlags: DWORD) -> HRESULT;
         #[library("MsCtfMonitor.DLL")]
         extern fn UninitLocalMsCtfMonitor() -> HRESULT;
     }

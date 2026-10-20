@@ -2,10 +2,10 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn GetProcessGroupAffinity(hProcess: HANDLE, #[in] #[out] GroupCount: PUSHORT, #[len_param(1)] #[out] GroupArray: PUSHORT) -> BOOL;
+        extern fn GetProcessGroupAffinity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] GroupCount: PUSHORT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*GroupCount", "*GroupCount")] #[out] GroupArray: PUSHORT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadGroupAffinity(hThread: HANDLE, #[out] GroupAffinity: PGROUP_AFFINITY) -> BOOL;
+        extern fn GetThreadGroupAffinity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[out] GroupAffinity: PGROUP_AFFINITY) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadGroupAffinity(hThread: HANDLE, GroupAffinity: *const GROUP_AFFINITY, #[out] #[opt] PreviousGroupAffinity: PGROUP_AFFINITY) -> BOOL;
+        extern fn SetThreadGroupAffinity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GroupAffinity: *const GROUP_AFFINITY, #[out] #[opt] PreviousGroupAffinity: PGROUP_AFFINITY) -> BOOL;
     }
 }

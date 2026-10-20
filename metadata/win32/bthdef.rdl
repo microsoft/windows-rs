@@ -9,6 +9,7 @@ mod Windows {
         const A2DP_SOURCE_SUPPORTED_FEATURES_MIXER: i32 = 8;
         const A2DP_SOURCE_SUPPORTED_FEATURES_PLAYER: i32 = 1;
         const A2DP_SOURCE_SUPPORTED_FEATURES_TUNER: i32 = 4;
+        const ATT_PROTOCOL_UUID: GUID = 0x00000007_0000_1000_8000_00805f9b34fb;
         const ATT_PROTOCOL_UUID16: i32 = 7;
         #[repr(i32)]
         enum AUTHENTICATION_REQUIREMENTS {
@@ -20,7 +21,9 @@ mod Windows {
             MITMProtectionRequiredGeneralBonding = 5,
             MITMProtectionNotDefined = 255,
         }
+        const AVCTP_PROTOCOL_UUID: GUID = 0x00000017_0000_1000_8000_00805f9b34fb;
         const AVCTP_PROTOCOL_UUID16: i32 = 23;
+        const AVDTP_PROTOCOL_UUID: GUID = 0x00000019_0000_1000_8000_00805f9b34fb;
         const AVDTP_PROTOCOL_UUID16: i32 = 25;
         const AVRCP_SUPPORTED_FEATURES_CATEGORY_1: i32 = 1;
         const AVRCP_SUPPORTED_FEATURES_CATEGORY_2: i32 = 2;
@@ -35,15 +38,22 @@ mod Windows {
         const AVRCP_SUPPORTED_FEATURES_TG_GROUP_NAVIGATION: i32 = 32;
         const AVRCP_SUPPORTED_FEATURES_TG_MULTIPLE_PLAYER_APPLICATIONS: i32 = 128;
         const AVRCP_SUPPORTED_FEATURES_TG_PLAYER_APPLICATION_SETTINGS: i32 = 16;
+        const AVRemoteControlControllerServiceClass_UUID: GUID = 0x0000110f_0000_1000_8000_00805f9b34fb;
         const AVRemoteControlControllerServiceClass_UUID16: i32 = 4367;
         const AVRemoteControlServiceClassID_UUID16: i32 = 4366;
+        const AVRemoteControlServiceClass_UUID: GUID = 0x0000110e_0000_1000_8000_00805f9b34fb;
         const AVRemoteControlTargetServiceClassID_UUID16: i32 = 4364;
+        const AVRemoteControlTargetServiceClass_UUID: GUID = 0x0000110c_0000_1000_8000_00805f9b34fb;
         const AdvancedAudioDistributionProfileID_UUID16: i32 = 4365;
+        const AdvancedAudioDistributionProfile_UUID: GUID = 0x0000110d_0000_1000_8000_00805f9b34fb;
         const AdvancedAudioDistributionServiceClassID_UUID16: i32 = 4365;
         const AudioSinkServiceClassID_UUID16: i32 = 4363;
+        const AudioSinkServiceClass_UUID: GUID = 0x0000110b_0000_1000_8000_00805f9b34fb;
         const AudioSinkSourceServiceClassID_UUID16: i32 = 4363;
         const AudioSourceServiceClassID_UUID16: i32 = 4362;
+        const AudioSourceServiceClass_UUID: GUID = 0x0000110a_0000_1000_8000_00805f9b34fb;
         const AudioVideoServiceClassID_UUID16: i32 = 4396;
+        const AudioVideoServiceClass_UUID: GUID = 0x0000112c_0000_1000_8000_00805f9b34fb;
         const AudioVideoServiceClass_UUID16: i32 = 4396;
         const BDIF_ADDRESS: i32 = 1;
         const BDIF_BR: i32 = 16384;
@@ -76,20 +86,20 @@ mod Windows {
         const BDIF_TX_POWER: u32 = 2147483648;
         const BDIF_VALID_FLAGS: u32 = 4227856127;
         const BDIF_VISIBLE: i32 = 128;
+        const BNEP_PROTOCOL_UUID: GUID = 0x0000000f_0000_1000_8000_00805f9b34fb;
         const BNEP_PROTOCOL_UUID16: i32 = 15;
         type BTHSTATUS = u8;
-        type BTH_ADDR = u64;
         const BTH_ADDR_GIAC: i32 = 10390323;
         const BTH_ADDR_IAC_FIRST: i32 = 10390272;
         const BTH_ADDR_IAC_LAST: i32 = 10390335;
         const BTH_ADDR_LIAC: i32 = 10390272;
-        const BTH_ADDR_NULL: u64 = 0;
+        const BTH_ADDR_NULL: ULONGLONG = 0;
         type BTH_COD = u32;
         struct BTH_DEVICE_INFO {
-            flags: u32,
+            flags: ULONG,
             address: BTH_ADDR,
             classOfDevice: BTH_COD,
-            name: [i8; 248],
+            name: [CHAR; 248],
         }
         const BTH_EIR_128_UUIDS_COMPLETE_ID: i32 = 7;
         const BTH_EIR_128_UUIDS_PARTIAL_ID: i32 = 6;
@@ -178,14 +188,14 @@ mod Windows {
         const BTH_ERROR_UNSUPPORTED_REMOTE_FEATURE: i32 = 26;
         struct BTH_HCI_EVENT_INFO {
             bthAddress: BTH_ADDR,
-            connectionType: u8,
-            connected: u8,
+            connectionType: UCHAR,
+            connected: UCHAR,
         }
         struct BTH_L2CAP_EVENT_INFO {
             bthAddress: BTH_ADDR,
-            psm: u16,
-            connected: u8,
-            initiated: u8,
+            psm: USHORT,
+            connected: UCHAR,
+            initiated: UCHAR,
         }
         type BTH_LAP = u32;
         const BTH_LINK_KEY_LENGTH: i32 = 16;
@@ -246,13 +256,16 @@ mod Windows {
         const BTH_MINORVERSION: i32 = 1;
         struct BTH_RADIO_IN_RANGE {
             deviceInfo: BTH_DEVICE_INFO,
-            previousDeviceFlags: u32,
+            previousDeviceFlags: ULONG,
         }
         const BTH_VID_DEFAULT_VALUE: i32 = 65535;
         const BasicPrintingProfileID_UUID16: i32 = 4386;
+        const BasicPrintingProfile_UUID: GUID = 0x00001122_0000_1000_8000_00805f9b34fb;
         const BasicPrintingServiceClassID_UUID16: i32 = 4386;
         const Bluetooth_Base_UUID: GUID = 0x00000000_0000_1000_8000_00805f9b34fb;
+        const BrowseGroupDescriptorServiceClassID_UUID: GUID = 0x00001001_0000_1000_8000_00805f9b34fb;
         const BrowseGroupDescriptorServiceClassID_UUID16: i32 = 4097;
+        const CMPT_PROTOCOL_UUID: GUID = 0x0000001b_0000_1000_8000_00805f9b34fb;
         const CMPT_PROTOCOL_UUID16: i32 = 27;
         const COD_AUDIO_MINOR_CAMCORDER: i32 = 13;
         const COD_AUDIO_MINOR_CAR_AUDIO: i32 = 8;
@@ -365,26 +378,42 @@ mod Windows {
         const CORDLESS_EXTERNAL_NETWORK_PACKET_SWITCHED: i32 = 6;
         const CORDLESS_EXTERNAL_NETWORK_PSTN: i32 = 1;
         const CTNAccessServiceClassID_UUID16: i32 = 4412;
+        const CTNAccessServiceClass_UUID: GUID = 0x0000113c_0000_1000_8000_00805f9b34fb;
         const CTNNotificationServiceClassID_UUID16: i32 = 4413;
+        const CTNNotificationServiceClass_UUID: GUID = 0x0000113d_0000_1000_8000_00805f9b34fb;
         const CTNProfileID_UUID16: i32 = 4414;
+        const CTNProfile_UUID: GUID = 0x0000113e_0000_1000_8000_00805f9b34fb;
         const CommonISDNAccessServiceClassID_UUID16: i32 = 4392;
+        const CommonISDNAccessServiceClass_UUID: GUID = 0x00001128_0000_1000_8000_00805f9b34fb;
         const CommonISDNAccessServiceClass_UUID16: i32 = 4392;
         const CordlessServiceClassID_UUID16: i32 = 4361;
         const CordlessTelephonyServiceClassID_UUID16: i32 = 4361;
+        const CordlessTelephonyServiceClass_UUID: GUID = 0x00001109_0000_1000_8000_00805f9b34fb;
         const DI_VENDOR_ID_SOURCE_BLUETOOTH_SIG: i32 = 1;
         const DI_VENDOR_ID_SOURCE_USB_IF: i32 = 2;
         const DialupNetworkingServiceClassID_UUID16: i32 = 4355;
+        const DialupNetworkingServiceClass_UUID: GUID = 0x00001103_0000_1000_8000_00805f9b34fb;
         const DirectPrintingReferenceObjectsServiceClassID_UUID16: i32 = 4384;
+        const DirectPrintingReferenceObjectsServiceClass_UUID: GUID = 0x00001120_0000_1000_8000_00805f9b34fb;
         const DirectPrintingServiceClassID_UUID16: i32 = 4376;
+        const DirectPrintingServiceClass_UUID: GUID = 0x00001118_0000_1000_8000_00805f9b34fb;
         const ENCODING_UTF_8: i32 = 106;
         const ESdpUpnpIpLapServiceClassID_UUID16: i32 = 4865;
+        const ESdpUpnpIpLapServiceClass_UUID: GUID = 0x00001301_0000_1000_8000_00805f9b34fb;
         const ESdpUpnpIpPanServiceClassID_UUID16: i32 = 4864;
+        const ESdpUpnpIpPanServiceClass_UUID: GUID = 0x00001300_0000_1000_8000_00805f9b34fb;
         const ESdpUpnpL2capServiceClassID_UUID16: i32 = 4866;
+        const ESdpUpnpL2capServiceClass_UUID: GUID = 0x00001302_0000_1000_8000_00805f9b34fb;
+        const FTP_PROTOCOL_UUID: GUID = 0x0000000a_0000_1000_8000_00805f9b34fb;
         const FTP_PROTOCOL_UUID16: i32 = 10;
         const FaxServiceClassID_UUID16: i32 = 4369;
+        const FaxServiceClass_UUID: GUID = 0x00001111_0000_1000_8000_00805f9b34fb;
         const GNSSProfileID_UUID16: i32 = 4405;
+        const GNSSProfile_UUID: GUID = 0x00001135_0000_1000_8000_00805f9b34fb;
         const GNSSServerServiceClassID_UUID16: i32 = 4406;
+        const GNSSServerServiceClass_UUID: GUID = 0x00001136_0000_1000_8000_00805f9b34fb;
         const GNServiceClassID_UUID16: i32 = 4375;
+        const GNServiceClass_UUID: GUID = 0x00001117_0000_1000_8000_00805f9b34fb;
         const GUID_BLUETOOTH_AUTHENTICATION_REQUEST: GUID = 0x5dc9136d_996c_46db_84f5_32c0a3f47352;
         const GUID_BLUETOOTH_HCI_EVENT: GUID = 0xfc240062_1541_49be_b463_84c4dcd7bf7f;
         const GUID_BLUETOOTH_HCI_VENDOR_EVENT: GUID = 0x547247e6_45bb_4c33_af8c_c00efe15a71d;
@@ -395,19 +424,28 @@ mod Windows {
         const GUID_BTHPORT_DEVICE_INTERFACE: GUID = 0x0850302a_b344_4fda_9be9_90576b8d46f0;
         const GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: GUID = 0xb142fc3e_fa4e_460b_8abc_072b628b3c70;
         const GenericAudioServiceClassID_UUID16: i32 = 4611;
+        const GenericAudioServiceClass_UUID: GUID = 0x00001203_0000_1000_8000_00805f9b34fb;
         const GenericFileTransferServiceClassID_UUID16: i32 = 4610;
+        const GenericFileTransferServiceClass_UUID: GUID = 0x00001202_0000_1000_8000_00805f9b34fb;
         const GenericNetworkingServiceClassID_UUID16: i32 = 4609;
+        const GenericNetworkingServiceClass_UUID: GUID = 0x00001201_0000_1000_8000_00805f9b34fb;
         const GenericTelephonyServiceClassID_UUID16: i32 = 4612;
+        const GenericTelephonyServiceClass_UUID: GUID = 0x00001204_0000_1000_8000_00805f9b34fb;
+        const HCCC_PROTOCOL_UUID: GUID = 0x00000012_0000_1000_8000_00805f9b34fb;
         const HCCC_PROTOCOL_UUID16: i32 = 18;
+        const HCDC_PROTOCOL_UUID: GUID = 0x00000014_0000_1000_8000_00805f9b34fb;
         const HCDC_PROTOCOL_UUID16: i32 = 20;
         const HCI_CONNECTION_TYPE_ACL: i32 = 1;
         const HCI_CONNECTION_TYPE_LE: i32 = 3;
         const HCI_CONNECTION_TYPE_SCO: i32 = 2;
         const HCI_CONNNECTION_TYPE_ACL: i32 = 1;
         const HCI_CONNNECTION_TYPE_SCO: i32 = 2;
+        const HCN_PROTOCOL_UUID: GUID = 0x00000016_0000_1000_8000_00805f9b34fb;
         const HCN_PROTOCOL_UUID16: i32 = 22;
         const HCRPrintServiceClassID_UUID16: i32 = 4390;
+        const HCRPrintServiceClass_UUID: GUID = 0x00001126_0000_1000_8000_00805f9b34fb;
         const HCRScanServiceClassID_UUID16: i32 = 4391;
+        const HCRScanServiceClass_UUID: GUID = 0x00001127_0000_1000_8000_00805f9b34fb;
         const HFP_AG_BRSF_SUPPORTED_FEATURE_CODEC_NEGOTIATION: i32 = 512;
         const HFP_AG_BRSF_SUPPORTED_FEATURE_ECHO_CANCELLATION: i32 = 2;
         const HFP_AG_BRSF_SUPPORTED_FEATURE_ENHANCED_CALL_CONTROL: i32 = 128;
@@ -451,19 +489,31 @@ mod Windows {
         const HFP_HF_SDP_SUPPORTED_FEATURE_WIDE_BAND_SPEECH: i32 = 32;
         const HFP_NETWORK_ABILITY_TO_REJECT: i32 = 1;
         const HFP_NETWORK_NO_ABILITY_TO_REJECT: i32 = 0;
+        const HID_PROTOCOL_UUID: GUID = 0x00000011_0000_1000_8000_00805f9b34fb;
         const HID_PROTOCOL_UUID16: i32 = 17;
+        const HTTP_PROTOCOL_UUID: GUID = 0x0000000c_0000_1000_8000_00805f9b34fb;
         const HTTP_PROTOCOL_UUID16: i32 = 12;
         const HandsfreeAudioGatewayServiceClassID_UUID16: i32 = 4383;
+        const HandsfreeAudioGatewayServiceClass_UUID: GUID = 0x0000111f_0000_1000_8000_00805f9b34fb;
         const HandsfreeServiceClassID_UUID16: i32 = 4382;
+        const HandsfreeServiceClass_UUID: GUID = 0x0000111e_0000_1000_8000_00805f9b34fb;
         const HardcopyCableReplacementProfileID_UUID16: i32 = 4389;
+        const HardcopyCableReplacementProfile_UUID: GUID = 0x00001125_0000_1000_8000_00805f9b34fb;
         const HardcopyCableReplacementServiceClassID_UUID16: i32 = 4389;
         const HeadsetAudioGatewayServiceClassID_UUID16: i32 = 4370;
+        const HeadsetAudioGatewayServiceClass_UUID: GUID = 0x00001112_0000_1000_8000_00805f9b34fb;
         const HeadsetHSServiceClassID_UUID16: i32 = 4401;
+        const HeadsetHSServiceClass_UUID: GUID = 0x00001131_0000_1000_8000_00805f9b34fb;
         const HeadsetServiceClassID_UUID16: i32 = 4360;
+        const HeadsetServiceClass_UUID: GUID = 0x00001108_0000_1000_8000_00805f9b34fb;
         const HealthDeviceProfileID_UUID16: i32 = 5120;
         const HealthDeviceProfileSinkServiceClassID_UUID16: i32 = 5122;
+        const HealthDeviceProfileSinkServiceClass_UUID: GUID = 0x00001402_0000_1000_8000_00805f9b34fb;
         const HealthDeviceProfileSourceServiceClassID_UUID16: i32 = 5121;
+        const HealthDeviceProfileSourceServiceClass_UUID: GUID = 0x00001401_0000_1000_8000_00805f9b34fb;
+        const HealthDeviceProfile_UUID: GUID = 0x00001400_0000_1000_8000_00805f9b34fb;
         const HumanInterfaceDeviceServiceClassID_UUID16: i32 = 4388;
+        const HumanInterfaceDeviceServiceClass_UUID: GUID = 0x00001124_0000_1000_8000_00805f9b34fb;
         #[repr(i32)]
         enum IO_CAPABILITY {
             IoCaps_DisplayOnly = 0,
@@ -472,20 +522,30 @@ mod Windows {
             IoCaps_NoInputNoOutput = 3,
             IoCaps_Undefined = 255,
         }
+        const IP_PROTOCOL_UUID: GUID = 0x00000009_0000_1000_8000_00805f9b34fb;
         const IP_PROTOCOL_UUID16: i32 = 9;
         const ImagingAutomaticArchiveServiceClassID_UUID16: i32 = 4380;
+        const ImagingAutomaticArchiveServiceClass_UUID: GUID = 0x0000111c_0000_1000_8000_00805f9b34fb;
         const ImagingReferenceObjectsServiceClassID_UUID16: i32 = 4381;
+        const ImagingReferenceObjectsServiceClass_UUID: GUID = 0x0000111d_0000_1000_8000_00805f9b34fb;
         const ImagingResponderServiceClassID_UUID16: i32 = 4379;
+        const ImagingResponderServiceClass_UUID: GUID = 0x0000111b_0000_1000_8000_00805f9b34fb;
         const ImagingServiceClassID_UUID16: i32 = 4378;
         const ImagingServiceProfileID_UUID16: i32 = 4378;
+        const ImagingServiceProfile_UUID: GUID = 0x0000111a_0000_1000_8000_00805f9b34fb;
         const IntercomServiceClassID_UUID16: i32 = 4368;
+        const IntercomServiceClass_UUID: GUID = 0x00001110_0000_1000_8000_00805f9b34fb;
+        const IrMCSyncCommandServiceClass_UUID: GUID = 0x00001107_0000_1000_8000_00805f9b34fb;
         const IrMCSyncServiceClassID_UUID16: i32 = 4356;
+        const IrMCSyncServiceClass_UUID: GUID = 0x00001104_0000_1000_8000_00805f9b34fb;
         const IrMcSyncCommandServiceClassID_UUID16: i32 = 4359;
         const L2CAP_DEFAULT_MTU: i32 = 672;
         const L2CAP_MAX_MTU: i32 = 65535;
         const L2CAP_MIN_MTU: i32 = 48;
+        const L2CAP_PROTOCOL_UUID: GUID = 0x00000100_0000_1000_8000_00805f9b34fb;
         const L2CAP_PROTOCOL_UUID16: i32 = 256;
         const LANAccessUsingPPPServiceClassID_UUID16: i32 = 4354;
+        const LANAccessUsingPPPServiceClass_UUID: GUID = 0x00001102_0000_1000_8000_00805f9b34fb;
         const LANGUAGE_EN_US: i32 = 25966;
         const LANG_BASE_ENCODING_INDEX: i32 = 1;
         const LANG_BASE_LANGUAGE_INDEX: i32 = 0;
@@ -497,15 +557,24 @@ mod Windows {
         const MAX_L2CAP_PING_DATA_LENGTH: i32 = 44;
         const MAX_UUIDS_IN_QUERY: i32 = 12;
         const MPSProfileID_UUID16: i32 = 4410;
+        const MPSProfile_UUID: GUID = 0x0000113a_0000_1000_8000_00805f9b34fb;
         const MPSServiceClassID_UUID16: i32 = 4411;
+        const MPSServiceClass_UUID: GUID = 0x0000113b_0000_1000_8000_00805f9b34fb;
         const MessageAccessProfileID_UUID16: i32 = 4404;
+        const MessageAccessProfile_UUID: GUID = 0x00001134_0000_1000_8000_00805f9b34fb;
         const MessageAccessServerServiceClassID_UUID16: i32 = 4402;
+        const MessageAccessServerServiceClass_UUID: GUID = 0x00001132_0000_1000_8000_00805f9b34fb;
         const MessageNotificationServerServiceClassID_UUID16: i32 = 4403;
+        const MessageNotificationServerServiceClass_UUID: GUID = 0x00001133_0000_1000_8000_00805f9b34fb;
         const NAPServiceClassID_UUID16: i32 = 4374;
+        const NAPServiceClass_UUID: GUID = 0x00001116_0000_1000_8000_00805f9b34fb;
         const NAP_BIT_OFFSET: i32 = 32;
-        const NAP_MASK: u64 = 281470681743360;
+        const NAP_MASK: ULONGLONG = 281470681743360;
         const OBEXFileTransferServiceClassID_UUID16: i32 = 4358;
+        const OBEXFileTransferServiceClass_UUID: GUID = 0x00001106_0000_1000_8000_00805f9b34fb;
         const OBEXObjectPushServiceClassID_UUID16: i32 = 4357;
+        const OBEXObjectPushServiceClass_UUID: GUID = 0x00001105_0000_1000_8000_00805f9b34fb;
+        const OBEX_PROTOCOL_UUID: GUID = 0x00000008_0000_1000_8000_00805f9b34fb;
         const OBEX_PROTOCOL_UUID16: i32 = 8;
         const OBJECT_PUSH_FORMAT_ANY: i32 = 255;
         const OBJECT_PUSH_FORMAT_ICAL_2_0: i32 = 4;
@@ -515,6 +584,7 @@ mod Windows {
         const OBJECT_PUSH_FORMAT_VMESSAGE: i32 = 6;
         const OBJECT_PUSH_FORMAT_VNOTE: i32 = 5;
         const PANUServiceClassID_UUID16: i32 = 4373;
+        const PANUServiceClass_UUID: GUID = 0x00001115_0000_1000_8000_00805f9b34fb;
         type PBTHSTATUS = *mut u8;
         type PBTH_ADDR = *mut u64;
         type PBTH_COD = *mut u32;
@@ -539,16 +609,25 @@ mod Windows {
         const PSM_UDI_C_PLANE: i32 = 29;
         const PSM_UPNP: i32 = 21;
         const PhonebookAccessPceServiceClassID_UUID16: i32 = 4398;
+        const PhonebookAccessPceServiceClass_UUID: GUID = 0x0000112e_0000_1000_8000_00805f9b34fb;
         const PhonebookAccessProfileID_UUID16: i32 = 4400;
+        const PhonebookAccessProfile_UUID: GUID = 0x00001130_0000_1000_8000_00805f9b34fb;
         const PhonebookAccessPseServiceClassID_UUID16: i32 = 4399;
+        const PhonebookAccessPseServiceClass_UUID: GUID = 0x0000112f_0000_1000_8000_00805f9b34fb;
         const PnPInformationServiceClassID_UUID16: i32 = 4608;
+        const PnPInformationServiceClass_UUID: GUID = 0x00001200_0000_1000_8000_00805f9b34fb;
         const PrintingStatusServiceClassID_UUID16: i32 = 4387;
+        const PrintingStatusServiceClass_UUID: GUID = 0x00001123_0000_1000_8000_00805f9b34fb;
         const PublicBrowseGroupServiceClassID_UUID16: i32 = 4098;
+        const PublicBrowseGroupServiceClass_UUID: GUID = 0x00001002_0000_1000_8000_00805f9b34fb;
+        const RFCOMM_PROTOCOL_UUID: GUID = 0x00000003_0000_1000_8000_00805f9b34fb;
         const RFCOMM_PROTOCOL_UUID16: i32 = 3;
         const ReferencePrintingServiceClassID_UUID16: i32 = 4377;
+        const ReferencePrintingServiceClass_UUID: GUID = 0x00001119_0000_1000_8000_00805f9b34fb;
+        const ReflectedUIServiceClass_UUID: GUID = 0x00001121_0000_1000_8000_00805f9b34fb;
         const ReflectsUIServiceClassID_UUID16: i32 = 4385;
         const SAP_BIT_OFFSET: i32 = 0;
-        const SAP_MASK: u64 = 4294967295;
+        const SAP_MASK: ULONGLONG = 4294967295;
         const SDP_ATTRIB_A2DP_SUPPORTED_FEATURES: i32 = 785;
         const SDP_ATTRIB_ADDITIONAL_PROTOCOL_DESCRIPTOR_LIST: i32 = 13;
         const SDP_ATTRIB_AVAILABILITY: i32 = 8;
@@ -626,6 +705,7 @@ mod Windows {
         const SDP_ERROR_SERVER_INVALID_RESPONSE: SDP_ERROR = 256;
         const SDP_ERROR_SERVER_RESPONSE_DID_NOT_PARSE: SDP_ERROR = 512;
         const SDP_ERROR_SUCCESS: SDP_ERROR = 0;
+        const SDP_PROTOCOL_UUID: GUID = 0x00000001_0000_1000_8000_00805f9b34fb;
         const SDP_PROTOCOL_UUID16: i32 = 1;
         const STRING_DESCRIPTION_OFFSET: i32 = 1;
         const STRING_NAME_OFFSET: i32 = 0;
@@ -653,31 +733,54 @@ mod Windows {
         const SYNCH_DATA_STORE_NOTES: i32 = 5;
         const SYNCH_DATA_STORE_PHONEBOOK: i32 = 1;
         const SerialPortServiceClassID_UUID16: i32 = 4353;
+        const SerialPortServiceClass_UUID: GUID = 0x00001101_0000_1000_8000_00805f9b34fb;
+        const ServiceDiscoveryServerServiceClassID_UUID: GUID = 0x00001000_0000_1000_8000_00805f9b34fb;
         const ServiceDiscoveryServerServiceClassID_UUID16: i32 = 4096;
         const SimAccessServiceClassID_UUID16: i32 = 4397;
+        const SimAccessServiceClass_UUID: GUID = 0x0000112d_0000_1000_8000_00805f9b34fb;
+        const TCP_PROTOCOL_UUID: GUID = 0x00000004_0000_1000_8000_00805f9b34fb;
         const TCP_PROTOCOL_UUID16: i32 = 4;
+        const TCSAT_PROTOCOL_UUID: GUID = 0x00000006_0000_1000_8000_00805f9b34fb;
         const TCSAT_PROTOCOL_UUID16: i32 = 6;
+        const TCSBIN_PROTOCOL_UUID: GUID = 0x00000005_0000_1000_8000_00805f9b34fb;
         const TCSBIN_PROTOCOL_UUID16: i32 = 5;
         const ThreeDimensionalDisplayServiceClassID_UUID16: i32 = 4407;
+        const ThreeDimensionalDisplayServiceClass_UUID: GUID = 0x00001137_0000_1000_8000_00805f9b34fb;
         const ThreeDimensionalGlassesServiceClassID_UUID16: i32 = 4408;
+        const ThreeDimensionalGlassesServiceClass_UUID: GUID = 0x00001138_0000_1000_8000_00805f9b34fb;
         const ThreeDimensionalSynchronizationProfileID_UUID16: i32 = 4409;
+        const ThreeDimensionalSynchronizationProfile_UUID: GUID = 0x00001139_0000_1000_8000_00805f9b34fb;
         const UDIMTServiceClassID_UUID16: i32 = 4394;
+        const UDIMTServiceClass_UUID: GUID = 0x0000112a_0000_1000_8000_00805f9b34fb;
         const UDIMTServiceClass_UUID16: i32 = 4394;
         const UDITAServiceClassID_UUID16: i32 = 4395;
+        const UDITAServiceClass_UUID: GUID = 0x0000112b_0000_1000_8000_00805f9b34fb;
         const UDITAServiceClass_UUID16: i32 = 4395;
+        const UDI_C_PLANE_PROTOCOL_UUID: GUID = 0x0000001d_0000_1000_8000_00805f9b34fb;
         const UDI_C_PLANE_PROTOCOL_UUID16: i32 = 29;
+        const UDP_PROTOCOL_UUID: GUID = 0x00000002_0000_1000_8000_00805f9b34fb;
         const UDP_PROTOCOL_UUID16: i32 = 2;
+        const UPNP_PROTOCOL_UUID: GUID = 0x00000010_0000_1000_8000_00805f9b34fb;
         const UPNP_PROTOCOL_UUID16: i32 = 16;
         const UPnpIpServiceClassID_UUID16: i32 = 4614;
+        const UPnpIpServiceClass_UUID: GUID = 0x00001206_0000_1000_8000_00805f9b34fb;
         const UPnpServiceClassID_UUID16: i32 = 4613;
+        const UPnpServiceClass_UUID: GUID = 0x00001205_0000_1000_8000_00805f9b34fb;
         const VideoConferencingGWServiceClassID_UUID16: i32 = 4393;
+        const VideoConferencingGWServiceClass_UUID: GUID = 0x00001129_0000_1000_8000_00805f9b34fb;
         const VideoConferencingGWServiceClass_UUID16: i32 = 4393;
         const VideoConferencingServiceClassID_UUID16: i32 = 4367;
         const VideoDistributionProfileID_UUID16: i32 = 4869;
+        const VideoDistributionProfile_UUID: GUID = 0x00001305_0000_1000_8000_00805f9b34fb;
         const VideoSinkServiceClassID_UUID16: i32 = 4868;
+        const VideoSinkServiceClass_UUID: GUID = 0x00001304_0000_1000_8000_00805f9b34fb;
         const VideoSourceServiceClassID_UUID16: i32 = 4867;
+        const VideoSourceServiceClass_UUID: GUID = 0x00001303_0000_1000_8000_00805f9b34fb;
         const WAPClientServiceClassID_UUID16: i32 = 4372;
+        const WAPClientServiceClass_UUID: GUID = 0x00001114_0000_1000_8000_00805f9b34fb;
         const WAPServiceClassID_UUID16: i32 = 4371;
+        const WAPServiceClass_UUID: GUID = 0x00001113_0000_1000_8000_00805f9b34fb;
+        const WSP_PROTOCOL_UUID: GUID = 0x0000000e_0000_1000_8000_00805f9b34fb;
         const WSP_PROTOCOL_UUID16: i32 = 14;
     }
 }

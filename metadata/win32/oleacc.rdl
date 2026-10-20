@@ -7,17 +7,17 @@ mod Windows {
         const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: i32 = 16;
         const ANRUS_TOUCH_MODIFICATION_ACTIVE: i32 = 2;
         #[library("OLEACC.dll")]
-        extern fn AccNotifyTouchInteraction(hwndApp: HWND, hwndTarget: HWND, ptTarget: POINT) -> HRESULT;
+        extern fn AccNotifyTouchInteraction(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndApp: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndTarget: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ptTarget: POINT) -> HRESULT;
         #[library("OLEACC.dll")]
-        extern fn AccSetRunningUtilityState(hwndApp: HWND, dwUtilityStateMask: u32, dwUtilityState: u32) -> HRESULT;
+        extern fn AccSetRunningUtilityState(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndApp: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUtilityStateMask: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUtilityState: DWORD) -> HRESULT;
         #[library("OLEACC.dll")]
-        extern fn AccessibleChildren(paccContainer: IAccessible, iChildStart: i32, cChildren: i32, #[len_param(2)] rgvarChildren: *mut VARIANT, pcObtained: *mut i32) -> HRESULT;
+        extern fn AccessibleChildren(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] paccContainer: IAccessible, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iChildStart: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cChildren: LONG, #[out] #[len_param(2)] rgvarChildren: *mut VARIANT, #[out] pcObtained: *mut LONG) -> HRESULT;
         #[library("OLEACC.dll")]
-        extern fn AccessibleObjectFromEvent(hwnd: HWND, dwId: u32, dwChildId: u32, ppacc: *mut IAccessible, pvarChild: *mut VARIANT) -> HRESULT;
+        extern fn AccessibleObjectFromEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwChildId: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppacc: *mut IAccessible, #[out] pvarChild: *mut VARIANT) -> HRESULT;
         #[library("OLEACC.dll")]
-        extern fn AccessibleObjectFromPoint(ptScreen: POINT, ppacc: *mut IAccessible, pvarChild: *mut VARIANT) -> HRESULT;
+        extern fn AccessibleObjectFromPoint(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ptScreen: POINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppacc: *mut IAccessible, #[out] pvarChild: *mut VARIANT) -> HRESULT;
         #[library("OLEACC.dll")]
-        extern fn AccessibleObjectFromWindow(hwnd: HWND, dwId: u32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn AccessibleObjectFromWindow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObject: *mut *mut void) -> HRESULT;
         #[repr(i32)]
         enum AnnoScope {
             ANNO_THIS = 0,
@@ -26,11 +26,13 @@ mod Windows {
         const CAccPropServices: GUID = 0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7;
         const CLSID_AccPropServices: GUID = 0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7;
         #[library("OLEACC.dll")]
-        extern fn CreateStdAccessibleObject(hwnd: HWND, idObject: i32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn CreateStdAccessibleObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] idObject: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObject: *mut *mut void) -> HRESULT;
+        #[library("OLEACC.dll", import = "CreateStdAccessibleProxyA")]
+        extern fn CreateStdAccessibleProxy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] idObject: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObject: *mut *mut void) -> HRESULT;
         #[library("OLEACC.dll")]
-        extern fn CreateStdAccessibleProxyA(hwnd: HWND, pClassName: PCSTR, idObject: i32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn CreateStdAccessibleProxyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] idObject: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObject: *mut *mut void) -> HRESULT;
         #[library("OLEACC.dll")]
-        extern fn CreateStdAccessibleProxyW(hwnd: HWND, pClassName: PCWSTR, idObject: i32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn CreateStdAccessibleProxyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] idObject: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObject: *mut *mut void) -> HRESULT;
         const DISPID_ACC_CHILD: i32 = -5002;
         const DISPID_ACC_CHILDCOUNT: i32 = -5001;
         const DISPID_ACC_DEFAULTACTION: i32 = -5013;
@@ -51,109 +53,108 @@ mod Windows {
         const DISPID_ACC_STATE: i32 = -5007;
         const DISPID_ACC_VALUE: i32 = -5004;
         #[library("OLEACC.dll")]
-        extern fn GetOleaccVersionInfo(pVer: *mut u32, pBuild: *mut u32);
+        extern fn GetOleaccVersionInfo(#[out] pVer: *mut DWORD, #[out] pBuild: *mut DWORD);
+        #[library("OLEACC.dll", import = "GetRoleTextA")]
+        extern fn GetRoleText(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lRole: DWORD, #[out] #[opt] #[len_param(2)] lpszRole: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchRoleMax: UINT) -> UINT;
         #[library("OLEACC.dll")]
-        extern fn GetRoleTextA(lRole: u32, #[len_param(2)] #[out] #[opt] lpszRole: PSTR, cchRoleMax: u32) -> u32;
+        extern fn GetRoleTextA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lRole: DWORD, #[out] #[opt] #[len_param(2)] lpszRole: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchRoleMax: UINT) -> UINT;
         #[library("OLEACC.dll")]
-        extern fn GetRoleTextW(lRole: u32, #[len_param(2)] #[out] #[opt] lpszRole: PWSTR, cchRoleMax: u32) -> u32;
+        extern fn GetRoleTextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lRole: DWORD, #[out] #[opt] #[len_param(2)] lpszRole: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchRoleMax: UINT) -> UINT;
+        #[library("OLEACC.dll", import = "GetStateTextA")]
+        extern fn GetStateText(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lStateBit: DWORD, #[out] #[opt] #[len_param(2)] lpszState: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchState: UINT) -> UINT;
         #[library("OLEACC.dll")]
-        extern fn GetStateTextA(lStateBit: u32, #[len_param(2)] #[out] #[opt] lpszState: PSTR, cchState: u32) -> u32;
+        extern fn GetStateTextA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lStateBit: DWORD, #[out] #[opt] #[len_param(2)] lpszState: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchState: UINT) -> UINT;
         #[library("OLEACC.dll")]
-        extern fn GetStateTextW(lStateBit: u32, #[len_param(2)] #[out] #[opt] lpszState: PWSTR, cchState: u32) -> u32;
+        extern fn GetStateTextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lStateBit: DWORD, #[out] #[opt] #[len_param(2)] lpszState: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchState: UINT) -> UINT;
         #[guid(0x7852b78d_1cfd_41c1_a615_9c0c85960b5f)]
         interface IAccIdentity: IUnknown {
-            fn GetIdentityString(&self, dwIDChild: u32, ppIDString: *mut *mut u8, pdwIDStringLen: *mut u32) -> HRESULT;
+            fn GetIdentityString(&self, dwIDChild: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*pdwIDStringLen", "*pdwIDStringLen")] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
         }
         #[guid(0x76c0dbbb_15e0_4e7b_b61b_20eeea2001e0)]
         interface IAccPropServer: IUnknown {
-            fn GetPropValue(&self, pIDString: *const u8, dwIDStringLen: u32, idProp: MSAAPROPID, pvarValue: *mut VARIANT, pfHasProp: *mut BOOL) -> HRESULT;
+            fn GetPropValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] pIDString: *const BYTE, dwIDStringLen: DWORD, idProp: MSAAPROPID, #[out] pvarValue: *mut VARIANT, #[out] pfHasProp: *mut BOOL) -> HRESULT;
         }
         #[guid(0x6e26e776_04f0_495d_80e4_3330352e3169)]
         interface IAccPropServices: IUnknown {
-            fn SetPropValue(&self, pIDString: *const u8, dwIDStringLen: u32, idProp: MSAAPROPID, var: VARIANT) -> HRESULT;
-            fn SetPropServer(&self, pIDString: *const u8, dwIDStringLen: u32, paProps: *const MSAAPROPID, cProps: i32, pServer: IAccPropServer, annoScope: AnnoScope) -> HRESULT;
-            fn ClearProps(&self, pIDString: *const u8, dwIDStringLen: u32, paProps: *const MSAAPROPID, cProps: i32) -> HRESULT;
-            fn SetHwndProp(&self, hwnd: HWND, idObject: u32, idChild: u32, idProp: MSAAPROPID, var: VARIANT) -> HRESULT;
-            fn SetHwndPropStr(&self, hwnd: HWND, idObject: u32, idChild: u32, idProp: MSAAPROPID, str: PCWSTR) -> HRESULT;
-            fn SetHwndPropServer(&self, hwnd: HWND, idObject: u32, idChild: u32, paProps: *const MSAAPROPID, cProps: i32, pServer: IAccPropServer, annoScope: AnnoScope) -> HRESULT;
-            fn ClearHwndProps(&self, hwnd: HWND, idObject: u32, idChild: u32, paProps: *const MSAAPROPID, cProps: i32) -> HRESULT;
-            fn ComposeHwndIdentityString(&self, hwnd: HWND, idObject: u32, idChild: u32, ppIDString: *mut *mut u8, pdwIDStringLen: *mut u32) -> HRESULT;
-            fn DecomposeHwndIdentityString(&self, pIDString: *const u8, dwIDStringLen: u32, phwnd: *mut HWND, pidObject: *mut u32, pidChild: *mut u32) -> HRESULT;
-            fn SetHmenuProp(&self, hmenu: HMENU, idChild: u32, idProp: MSAAPROPID, var: VARIANT) -> HRESULT;
-            fn SetHmenuPropStr(&self, hmenu: HMENU, idChild: u32, idProp: MSAAPROPID, str: PCWSTR) -> HRESULT;
-            fn SetHmenuPropServer(&self, hmenu: HMENU, idChild: u32, paProps: *const MSAAPROPID, cProps: i32, pServer: IAccPropServer, annoScope: AnnoScope) -> HRESULT;
-            fn ClearHmenuProps(&self, hmenu: HMENU, idChild: u32, paProps: *const MSAAPROPID, cProps: i32) -> HRESULT;
-            fn ComposeHmenuIdentityString(&self, hmenu: HMENU, idChild: u32, ppIDString: *mut *mut u8, pdwIDStringLen: *mut u32) -> HRESULT;
-            fn DecomposeHmenuIdentityString(&self, pIDString: *const u8, dwIDStringLen: u32, phmenu: *mut HMENU, pidChild: *mut u32) -> HRESULT;
+            fn SetPropValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] pIDString: *const BYTE, dwIDStringLen: DWORD, idProp: MSAAPROPID, var: VARIANT) -> HRESULT;
+            fn SetPropServer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] pIDString: *const BYTE, dwIDStringLen: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(3)] paProps: *const MSAAPROPID, cProps: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pServer: IAccPropServer, annoScope: AnnoScope) -> HRESULT;
+            fn ClearProps(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] pIDString: *const BYTE, dwIDStringLen: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(3)] paProps: *const MSAAPROPID, cProps: i32) -> HRESULT;
+            fn SetHwndProp(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] hwnd: HWND, idObject: DWORD, idChild: DWORD, idProp: MSAAPROPID, var: VARIANT) -> HRESULT;
+            fn SetHwndPropStr(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] hwnd: HWND, idObject: DWORD, idChild: DWORD, idProp: MSAAPROPID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] str: LPCWSTR) -> HRESULT;
+            fn SetHwndPropServer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] hwnd: HWND, idObject: DWORD, idChild: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(4)] paProps: *const MSAAPROPID, cProps: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pServer: IAccPropServer, annoScope: AnnoScope) -> HRESULT;
+            fn ClearHwndProps(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] hwnd: HWND, idObject: DWORD, idChild: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(4)] paProps: *const MSAAPROPID, cProps: i32) -> HRESULT;
+            fn ComposeHwndIdentityString(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] hwnd: HWND, idObject: DWORD, idChild: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*pdwIDStringLen", "*pdwIDStringLen")] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
+            fn DecomposeHwndIdentityString(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] pIDString: *const BYTE, dwIDStringLen: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] phwnd: *mut HWND, #[out] pidObject: *mut DWORD, #[out] pidChild: *mut DWORD) -> HRESULT;
+            fn SetHmenuProp(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] hmenu: HMENU, idChild: DWORD, idProp: MSAAPROPID, var: VARIANT) -> HRESULT;
+            fn SetHmenuPropStr(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] hmenu: HMENU, idChild: DWORD, idProp: MSAAPROPID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] str: LPCWSTR) -> HRESULT;
+            fn SetHmenuPropServer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] hmenu: HMENU, idChild: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(3)] paProps: *const MSAAPROPID, cProps: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pServer: IAccPropServer, annoScope: AnnoScope) -> HRESULT;
+            fn ClearHmenuProps(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] hmenu: HMENU, idChild: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(3)] paProps: *const MSAAPROPID, cProps: i32) -> HRESULT;
+            fn ComposeHmenuIdentityString(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] hmenu: HMENU, idChild: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*pdwIDStringLen", "*pdwIDStringLen")] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
+            fn DecomposeHmenuIdentityString(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] pIDString: *const BYTE, dwIDStringLen: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] phmenu: *mut HMENU, #[out] pidChild: *mut DWORD) -> HRESULT;
         }
         #[guid(0x618736e0_3c3d_11cf_810c_00aa00389b71)]
         interface IAccessible: IDispatch {
-            #[special]
-            fn get_accParent(&self, #[retval] ppdispParent: *mut IDispatch) -> HRESULT;
-            #[special]
-            fn get_accChildCount(&self, #[retval] pcountChildren: *mut i32) -> HRESULT;
-            #[special]
-            fn get_accChild(&self, varChild: VARIANT, #[retval] ppdispChild: *mut IDispatch) -> HRESULT;
-            #[special]
-            fn get_accName(&self, #[opt] varChild: VARIANT, #[retval] pszName: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_accValue(&self, #[opt] varChild: VARIANT, #[retval] pszValue: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_accDescription(&self, #[opt] varChild: VARIANT, #[retval] pszDescription: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_accRole(&self, #[opt] varChild: VARIANT, #[retval] pvarRole: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_accState(&self, #[opt] varChild: VARIANT, #[retval] pvarState: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_accHelp(&self, #[opt] varChild: VARIANT, #[retval] pszHelp: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_accHelpTopic(&self, pszHelpFile: *mut BSTR, #[opt] varChild: VARIANT, #[retval] pidTopic: *mut i32) -> HRESULT;
-            #[special]
-            fn get_accKeyboardShortcut(&self, #[opt] varChild: VARIANT, #[retval] pszKeyboardShortcut: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_accFocus(&self, #[retval] pvarChild: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_accSelection(&self, #[retval] pvarChildren: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_accDefaultAction(&self, #[opt] varChild: VARIANT, #[retval] pszDefaultAction: *mut BSTR) -> HRESULT;
-            fn accSelect(&self, flagsSelect: i32, #[opt] varChild: VARIANT) -> HRESULT;
-            fn accLocation(&self, pxLeft: *mut i32, pyTop: *mut i32, pcxWidth: *mut i32, pcyHeight: *mut i32, #[opt] varChild: VARIANT) -> HRESULT;
-            fn accNavigate(&self, navDir: i32, #[opt] varStart: VARIANT, #[retval] pvarEndUpAt: *mut VARIANT) -> HRESULT;
-            fn accHitTest(&self, xLeft: i32, yTop: i32, #[retval] pvarChild: *mut VARIANT) -> HRESULT;
-            fn accDoDefaultAction(&self, #[opt] varChild: VARIANT) -> HRESULT;
-            #[special]
-            fn put_accName(&self, #[opt] varChild: VARIANT, szName: BSTR) -> HRESULT;
-            #[special]
-            fn put_accValue(&self, #[opt] varChild: VARIANT, szValue: BSTR) -> HRESULT;
+            fn get_accParent(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppdispParent: *mut IDispatch) -> HRESULT;
+            fn get_accChildCount(&self, #[out] #[retval] pcountChildren: *mut i32) -> HRESULT;
+            fn get_accChild(&self, varChild: VARIANT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppdispChild: *mut IDispatch) -> HRESULT;
+            fn get_accName(&self, varChild: VARIANT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pszName: *mut BSTR) -> HRESULT;
+            fn get_accValue(&self, varChild: VARIANT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pszValue: *mut BSTR) -> HRESULT;
+            fn get_accDescription(&self, varChild: VARIANT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pszDescription: *mut BSTR) -> HRESULT;
+            fn get_accRole(&self, varChild: VARIANT, #[out] #[retval] pvarRole: *mut VARIANT) -> HRESULT;
+            fn get_accState(&self, varChild: VARIANT, #[out] #[retval] pvarState: *mut VARIANT) -> HRESULT;
+            fn get_accHelp(&self, varChild: VARIANT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pszHelp: *mut BSTR) -> HRESULT;
+            fn get_accHelpTopic(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pszHelpFile: *mut BSTR, varChild: VARIANT, #[out] #[retval] pidTopic: *mut i32) -> HRESULT;
+            fn get_accKeyboardShortcut(&self, varChild: VARIANT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pszKeyboardShortcut: *mut BSTR) -> HRESULT;
+            fn get_accFocus(&self, #[out] #[retval] pvarChild: *mut VARIANT) -> HRESULT;
+            fn get_accSelection(&self, #[out] #[retval] pvarChildren: *mut VARIANT) -> HRESULT;
+            fn get_accDefaultAction(&self, varChild: VARIANT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pszDefaultAction: *mut BSTR) -> HRESULT;
+            fn accSelect(&self, flagsSelect: i32, varChild: VARIANT) -> HRESULT;
+            fn accLocation(&self, #[out] pxLeft: *mut i32, #[out] pyTop: *mut i32, #[out] pcxWidth: *mut i32, #[out] pcyHeight: *mut i32, varChild: VARIANT) -> HRESULT;
+            fn accNavigate(&self, navDir: i32, varStart: VARIANT, #[out] #[retval] pvarEndUpAt: *mut VARIANT) -> HRESULT;
+            fn accHitTest(&self, xLeft: i32, yTop: i32, #[out] #[retval] pvarChild: *mut VARIANT) -> HRESULT;
+            fn accDoDefaultAction(&self, varChild: VARIANT) -> HRESULT;
+            fn put_accName(&self, varChild: VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szName: BSTR) -> HRESULT;
+            fn put_accValue(&self, varChild: VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szValue: BSTR) -> HRESULT;
         }
         #[guid(0x03022430_abc4_11d0_bde2_00aa001a1953)]
         interface IAccessibleHandler: IUnknown {
-            fn AccessibleObjectFromID(&self, hwnd: i32, lObjectID: i32, pIAccessible: *mut IAccessible) -> HRESULT;
+            fn AccessibleObjectFromID(&self, hwnd: i32, lObjectID: i32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pIAccessible: *mut LPACCESSIBLE) -> HRESULT;
         }
         #[guid(0xbf3abd9c_76da_4389_9eb6_1427d25abab7)]
         interface IAccessibleWindowlessSite: IUnknown {
-            fn AcquireObjectIdRange(&self, rangeSize: i32, pRangeOwner: IAccessibleHandler, pRangeBase: *mut i32) -> HRESULT;
-            fn ReleaseObjectIdRange(&self, rangeBase: i32, pRangeOwner: IAccessibleHandler) -> HRESULT;
-            fn QueryObjectIdRanges(&self, pRangesOwner: IAccessibleHandler, psaRanges: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetParentAccessible(&self, ppParent: *mut IAccessible) -> HRESULT;
+            fn AcquireObjectIdRange(&self, rangeSize: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pRangeOwner: IAccessibleHandler, #[out] pRangeBase: *mut i32) -> HRESULT;
+            fn ReleaseObjectIdRange(&self, rangeBase: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pRangeOwner: IAccessibleHandler) -> HRESULT;
+            fn QueryObjectIdRanges(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pRangesOwner: IAccessibleHandler, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] psaRanges: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetParentAccessible(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppParent: *mut IAccessible) -> HRESULT;
         }
+        const IID_IAccIdentity: GUID = 0x7852b78d_1cfd_41c1_a615_9c0c85960b5f;
         const IID_IAccPropMgrInternal: GUID = 0x2bd370a9_3e7f_4edd_8a85_f8fed1f8e51f;
+        const IID_IAccPropServer: GUID = 0x76c0dbbb_15e0_4e7b_b61b_20eeea2001e0;
+        const IID_IAccPropServices: GUID = 0x6e26e776_04f0_495d_80e4_3330352e3169;
+        const IID_IAccessible: GUID = 0x618736e0_3c3d_11cf_810c_00aa00389b71;
+        const IID_IAccessibleHandler: GUID = 0x03022430_abc4_11d0_bde2_00aa001a1953;
         const IIS_ControlAccessible: GUID = 0x38c682a6_9731_43f2_9fae_e901e641b101;
         const IIS_IsOleaccProxy: GUID = 0x902697fa_80e4_4560_802a_a13f22a64709;
         const LIBID_Accessibility: GUID = 0x1ea4dbf0_3c3b_11cf_810c_00aa00389b71;
-        extern fn LPFNACCESSIBLECHILDREN(paccContainer: IAccessible, iChildStart: i32, cChildren: i32, rgvarChildren: *mut VARIANT, pcObtained: *mut i32) -> HRESULT;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPACCESSIBLE = IAccessible;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPACCESSIBLEHANDLER = IAccessibleHandler;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPACCESSIBLEWINDOWLESSSITE = IAccessibleWindowlessSite;
+        extern fn LPFNACCESSIBLECHILDREN(paccContainer: IAccessible, iChildStart: LONG, cChildren: LONG, rgvarChildren: *mut VARIANT, pcObtained: *mut LONG) -> HRESULT;
         extern fn LPFNACCESSIBLEOBJECTFROMPOINT(ptScreen: POINT, ppacc: *mut IAccessible, pvarChild: *mut VARIANT) -> HRESULT;
-        extern fn LPFNACCESSIBLEOBJECTFROMWINDOW(hwnd: HWND, dwId: u32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
-        extern fn LPFNCREATESTDACCESSIBLEOBJECT(hwnd: HWND, idObject: i32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
-        extern fn LPFNLRESULTFROMOBJECT(riid: *const GUID, wParam: WPARAM, punk: IUnknown) -> LRESULT;
-        extern fn LPFNOBJECTFROMLRESULT(lResult: LRESULT, riid: *const GUID, wParam: WPARAM, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn LPFNACCESSIBLEOBJECTFROMWINDOW(hwnd: HWND, dwId: DWORD, riid: &IID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn LPFNCREATESTDACCESSIBLEOBJECT(hwnd: HWND, idObject: LONG, riid: &IID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn LPFNLRESULTFROMOBJECT(riid: &IID, wParam: WPARAM, punk: LPUNKNOWN) -> LRESULT;
+        extern fn LPFNOBJECTFROMLRESULT(lResult: LRESULT, riid: &IID, wParam: WPARAM, ppvObject: *mut *mut void) -> HRESULT;
         type LPMSAAMENUINFO = *mut MSAAMENUINFO;
         #[library("OLEACC.dll")]
-        extern fn LresultFromObject(riid: *const GUID, wParam: WPARAM, punk: IUnknown) -> LRESULT;
+        extern fn LresultFromObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wParam: WPARAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punk: LPUNKNOWN) -> LRESULT;
         struct MSAAMENUINFO {
-            dwMSAASignature: u32,
-            cchWText: u32,
-            pszWText: PWSTR,
+            dwMSAASignature: DWORD,
+            cchWText: DWORD,
+            pszWText: LPWSTR,
         }
         type MSAAPROPID = GUID;
         const MSAA_MENU_SIG: u32 = 2853040141;
@@ -168,7 +169,7 @@ mod Windows {
         const NAVDIR_RIGHT: i32 = 4;
         const NAVDIR_UP: i32 = 1;
         #[library("OLEACC.dll")]
-        extern fn ObjectFromLresult(lResult: LRESULT, riid: *const GUID, wParam: WPARAM, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn ObjectFromLresult(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lResult: LRESULT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wParam: WPARAM, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObject: *mut *mut void) -> HRESULT;
         const PROPID_ACC_DEFAULTACTION: GUID = 0x180c072b_c27f_43c7_9922_f63562a4632b;
         const PROPID_ACC_DESCRIPTION: GUID = 0x4d48dfe4_bd3f_491f_a648_492d6f20c588;
         const PROPID_ACC_DESCRIPTIONMAP: GUID = 0x1ff1435f_8a14_477b_b226_a0abe279975d;
@@ -267,6 +268,6 @@ mod Windows {
         const SELFLAG_VALID: i32 = 31;
         const STATE_SYSTEM_HASPOPUP: i32 = 1073741824;
         #[library("OLEACC.dll")]
-        extern fn WindowFromAccessibleObject(param0: IAccessible, #[opt] phwnd: *mut HWND) -> HRESULT;
+        extern fn WindowFromAccessibleObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: IAccessible, #[out] #[opt] phwnd: *mut HWND) -> HRESULT;
     }
 }

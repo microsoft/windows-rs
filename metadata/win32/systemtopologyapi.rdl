@@ -3,11 +3,12 @@ mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
         extern fn GetNumaHighestNodeNumber(#[out] HighestNodeNumber: PULONG) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != false", "return != false")]
         #[library("KERNEL32.dll")]
-        extern fn GetNumaNodeProcessorMask2(NodeNumber: u16, #[len_param(2)] #[out] #[opt] ProcessorMasks: PGROUP_AFFINITY, ProcessorMaskCount: u16, #[out] RequiredMaskCount: PUSHORT) -> BOOL;
+        extern fn GetNumaNodeProcessorMask2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NodeNumber: USHORT, #[out] #[opt] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] ProcessorMasks: PGROUP_AFFINITY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessorMaskCount: USHORT, #[out] RequiredMaskCount: PUSHORT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetNumaNodeProcessorMaskEx(Node: u16, #[out] ProcessorMask: PGROUP_AFFINITY) -> BOOL;
+        extern fn GetNumaNodeProcessorMaskEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Node: USHORT, #[out] ProcessorMask: PGROUP_AFFINITY) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetNumaProximityNodeEx(ProximityId: u32, #[out] NodeNumber: PUSHORT) -> BOOL;
+        extern fn GetNumaProximityNodeEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProximityId: ULONG, #[out] NodeNumber: PUSHORT) -> BOOL;
     }
 }

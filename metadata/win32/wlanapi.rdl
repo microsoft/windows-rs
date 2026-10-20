@@ -84,8 +84,9 @@ mod Windows {
             dot11BssType: DOT11_BSS_TYPE,
         }
         struct DOT11_NETWORK_LIST {
-            dwNumberOfItems: u32,
-            dwIndex: u32,
+            dwNumberOfItems: DWORD,
+            dwIndex: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "dwNumberOfItems", IsByteCount = false, MayBeNull = false)]
             Network: [DOT11_NETWORK; 1],
         }
         const DOT11_PSD_IE_MAX_DATA_SIZE: i32 = 240;
@@ -171,26 +172,26 @@ mod Windows {
         type PWLAN_STATISTICS = *mut WLAN_STATISTICS;
         type PWL_DISPLAY_PAGES = *mut WL_DISPLAY_PAGES;
         #[library("wlanapi.dll")]
-        extern fn WFDCancelOpenSession(hSessionHandle: HANDLE) -> u32;
+        extern fn WFDCancelOpenSession(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSessionHandle: HANDLE) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WFDCloseHandle(hClientHandle: HANDLE) -> u32;
+        extern fn WFDCloseHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WFDCloseSession(hSessionHandle: HANDLE) -> u32;
+        extern fn WFDCloseSession(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSessionHandle: HANDLE) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WFDOpenHandle(dwClientVersion: u32, #[out] pdwNegotiatedVersion: PDWORD, #[out] phClientHandle: PHANDLE) -> u32;
+        extern fn WFDOpenHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwClientVersion: DWORD, #[out] pdwNegotiatedVersion: PDWORD, #[out] phClientHandle: PHANDLE) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WFDOpenLegacySession(hClientHandle: HANDLE, pLegacyMacAddress: PDOT11_MAC_ADDRESS, phSessionHandle: *mut HANDLE, pGuidSessionInterface: *mut GUID) -> u32;
+        extern fn WFDOpenLegacySession(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLegacyMacAddress: PDOT11_MAC_ADDRESS, #[out] phSessionHandle: *mut HANDLE, #[out] pGuidSessionInterface: *mut GUID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WFDStartOpenSession(hClientHandle: HANDLE, pDeviceAddress: PDOT11_MAC_ADDRESS, #[in] #[opt] pvContext: *mut void, pfnCallback: WFD_OPEN_SESSION_COMPLETE_CALLBACK, #[out] phSessionHandle: PHANDLE) -> u32;
+        extern fn WFDStartOpenSession(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceAddress: PDOT11_MAC_ADDRESS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnCallback: WFD_OPEN_SESSION_COMPLETE_CALLBACK, #[out] phSessionHandle: PHANDLE) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WFDUpdateDeviceVisibility(pDeviceAddress: PDOT11_MAC_ADDRESS) -> u32;
+        extern fn WFDUpdateDeviceVisibility(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceAddress: PDOT11_MAC_ADDRESS) -> DWORD;
         const WFD_API_VERSION: i32 = 1;
         const WFD_API_VERSION_1_0: i32 = 1;
         struct WFD_GROUP_ID {
             DeviceAddress: DOT11_MAC_ADDRESS,
             GroupSSID: DOT11_SSID,
         }
-        extern fn WFD_OPEN_SESSION_COMPLETE_CALLBACK(hSessionHandle: HANDLE, #[in] pvContext: *mut void, guidSessionInterface: GUID, dwError: u32, dwReasonCode: u32);
+        extern fn WFD_OPEN_SESSION_COMPLETE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSessionHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidSessionInterface: GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwError: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReasonCode: DWORD);
         #[repr(i32)]
         enum WFD_ROLE_TYPE {
             WFD_ROLE_TYPE_NONE = 0,
@@ -212,13 +213,13 @@ mod Windows {
             dot11BssType: DOT11_BSS_TYPE,
             dot11Bssid: DOT11_MAC_ADDRESS,
             dot11PhyType: DOT11_PHY_TYPE,
-            uDot11PhyIndex: u32,
+            uDot11PhyIndex: ULONG,
             wlanSignalQuality: WLAN_SIGNAL_QUALITY,
-            ulRxRate: u32,
-            ulTxRate: u32,
+            ulRxRate: ULONG,
+            ulTxRate: ULONG,
         }
         struct WLAN_AUTH_CIPHER_PAIR_LIST {
-            dwNumberOfItems: u32,
+            dwNumberOfItems: DWORD,
             pAuthCipherPairList: [DOT11_AUTH_CIPHER_PAIR; 1],
         }
         #[repr(i32)]
@@ -233,21 +234,21 @@ mod Windows {
             wlan_autoconf_opcode_end = 7,
         }
         struct WLAN_AVAILABLE_NETWORK {
-            strProfileName: [u16; 256],
+            strProfileName: [WCHAR; 256],
             dot11Ssid: DOT11_SSID,
             dot11BssType: DOT11_BSS_TYPE,
-            uNumberOfBssids: u32,
+            uNumberOfBssids: ULONG,
             bNetworkConnectable: BOOL,
             wlanNotConnectableReason: WLAN_REASON_CODE,
-            uNumberOfPhyTypes: u32,
+            uNumberOfPhyTypes: ULONG,
             dot11PhyTypes: [DOT11_PHY_TYPE; 8],
             bMorePhyTypes: BOOL,
             wlanSignalQuality: WLAN_SIGNAL_QUALITY,
             bSecurityEnabled: BOOL,
             dot11DefaultAuthAlgorithm: DOT11_AUTH_ALGORITHM,
             dot11DefaultCipherAlgorithm: DOT11_CIPHER_ALGORITHM,
-            dwFlags: u32,
-            dwReserved: u32,
+            dwFlags: DWORD,
+            dwReserved: DWORD,
         }
         const WLAN_AVAILABLE_NETWORK_ANQP_SUPPORTED: i32 = 32;
         const WLAN_AVAILABLE_NETWORK_AUTO_CONNECT_FAILED: i32 = 256;
@@ -261,63 +262,63 @@ mod Windows {
         const WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_MANUAL_HIDDEN_PROFILES: i32 = 2;
         const WLAN_AVAILABLE_NETWORK_INTERWORKING_SUPPORTED: i32 = 8;
         struct WLAN_AVAILABLE_NETWORK_LIST {
-            dwNumberOfItems: u32,
-            dwIndex: u32,
+            dwNumberOfItems: DWORD,
+            dwIndex: DWORD,
             Network: [WLAN_AVAILABLE_NETWORK; 1],
         }
         struct WLAN_AVAILABLE_NETWORK_LIST_V2 {
-            dwNumberOfItems: u32,
-            dwIndex: u32,
+            dwNumberOfItems: DWORD,
+            dwIndex: DWORD,
             Network: [WLAN_AVAILABLE_NETWORK_V2; 1],
         }
         struct WLAN_AVAILABLE_NETWORK_V2 {
-            strProfileName: [u16; 256],
+            strProfileName: [WCHAR; 256],
             dot11Ssid: DOT11_SSID,
             dot11BssType: DOT11_BSS_TYPE,
-            uNumberOfBssids: u32,
+            uNumberOfBssids: ULONG,
             bNetworkConnectable: BOOL,
             wlanNotConnectableReason: WLAN_REASON_CODE,
-            uNumberOfPhyTypes: u32,
+            uNumberOfPhyTypes: ULONG,
             dot11PhyTypes: [DOT11_PHY_TYPE; 8],
             bMorePhyTypes: BOOL,
             wlanSignalQuality: WLAN_SIGNAL_QUALITY,
             bSecurityEnabled: BOOL,
             dot11DefaultAuthAlgorithm: DOT11_AUTH_ALGORITHM,
             dot11DefaultCipherAlgorithm: DOT11_CIPHER_ALGORITHM,
-            dwFlags: u32,
+            dwFlags: DWORD,
             AccessNetworkOptions: DOT11_ACCESSNETWORKOPTIONS,
             dot11HESSID: DOT11_HESSID,
             VenueInfo: DOT11_VENUEINFO,
-            dwReserved: u32,
+            dwReserved: DWORD,
         }
         struct WLAN_BSS_ENTRY {
             dot11Ssid: DOT11_SSID,
-            uPhyId: u32,
+            uPhyId: ULONG,
             dot11Bssid: DOT11_MAC_ADDRESS,
             dot11BssType: DOT11_BSS_TYPE,
             dot11BssPhyType: DOT11_PHY_TYPE,
-            lRssi: i32,
-            uLinkQuality: u32,
+            lRssi: LONG,
+            uLinkQuality: ULONG,
             bInRegDomain: BOOLEAN,
-            usBeaconPeriod: u16,
-            ullTimestamp: u64,
-            ullHostTimestamp: u64,
-            usCapabilityInformation: u16,
-            ulChCenterFrequency: u32,
+            usBeaconPeriod: USHORT,
+            ullTimestamp: ULONGLONG,
+            ullHostTimestamp: ULONGLONG,
+            usCapabilityInformation: USHORT,
+            ulChCenterFrequency: ULONG,
             wlanRateSet: WLAN_RATE_SET,
-            ulIeOffset: u32,
-            ulIeSize: u32,
+            ulIeOffset: ULONG,
+            ulIeSize: ULONG,
         }
         struct WLAN_BSS_LIST {
-            dwTotalSize: u32,
-            dwNumberOfItems: u32,
+            dwTotalSize: DWORD,
+            dwNumberOfItems: DWORD,
             wlanBssEntries: [WLAN_BSS_ENTRY; 1],
         }
         const WLAN_CONNECTION_ADHOC_JOIN_ONLY: i32 = 2;
         struct WLAN_CONNECTION_ATTRIBUTES {
             isState: WLAN_INTERFACE_STATE,
             wlanConnectionMode: WLAN_CONNECTION_MODE,
-            strProfileName: [u16; 256],
+            strProfileName: [WCHAR; 256],
             wlanAssociationAttributes: WLAN_ASSOCIATION_ATTRIBUTES,
             wlanSecurityAttributes: WLAN_SECURITY_ATTRIBUTES,
         }
@@ -337,30 +338,30 @@ mod Windows {
         const WLAN_CONNECTION_NOTIFICATION_CONSOLE_USER_PROFILE: i32 = 4;
         struct WLAN_CONNECTION_NOTIFICATION_DATA {
             wlanConnectionMode: WLAN_CONNECTION_MODE,
-            strProfileName: [u16; 256],
+            strProfileName: [WCHAR; 256],
             dot11Ssid: DOT11_SSID,
             dot11BssType: DOT11_BSS_TYPE,
             bSecurityEnabled: BOOL,
             wlanReasonCode: WLAN_REASON_CODE,
-            dwFlags: u32,
-            strProfileXml: [u16; 1],
+            dwFlags: DWORD,
+            strProfileXml: [WCHAR; 1],
         }
         struct WLAN_CONNECTION_PARAMETERS {
             wlanConnectionMode: WLAN_CONNECTION_MODE,
-            strProfile: PCWSTR,
+            strProfile: LPCWSTR,
             pDot11Ssid: PDOT11_SSID,
             pDesiredBssidList: PDOT11_BSSID_LIST,
             dot11BssType: DOT11_BSS_TYPE,
-            dwFlags: u32,
+            dwFlags: DWORD,
         }
         struct WLAN_CONNECTION_PARAMETERS_V2 {
             wlanConnectionMode: WLAN_CONNECTION_MODE,
-            strProfile: PCWSTR,
+            strProfile: LPCWSTR,
             pDot11Ssid: PDOT11_SSID,
             pDot11Hessid: PDOT11_HESSID,
             pDesiredBssidList: PDOT11_BSSID_LIST,
             dot11BssType: DOT11_BSS_TYPE,
-            dwFlags: u32,
+            dwFlags: DWORD,
             pDot11AccessNetworkOptions: PDOT11_ACCESSNETWORKOPTIONS,
         }
         const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE: i32 = 16;
@@ -370,23 +371,23 @@ mod Windows {
             peerCapabilities: WLAN_QOS_CAPABILITIES,
             bMSCSConfigured: BOOL,
             bDSCPToUPMappingConfigured: BOOL,
-            ulNumConfiguredSCSStreams: u32,
-            ulNumConfiguredDSCPPolicies: u32,
+            ulNumConfiguredSCSStreams: ULONG,
+            ulNumConfiguredDSCPPolicies: ULONG,
         }
         struct WLAN_COUNTRY_OR_REGION_STRING_LIST {
-            dwNumberOfItems: u32,
+            dwNumberOfItems: DWORD,
             pCountryOrRegionStringList: [DOT11_COUNTRY_OR_REGION_STRING; 1],
         }
         struct WLAN_DEVICE_SERVICE_GUID_LIST {
-            dwNumberOfItems: u32,
-            dwIndex: u32,
+            dwNumberOfItems: DWORD,
+            dwIndex: DWORD,
             DeviceService: [GUID; 1],
         }
         struct WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
             DeviceService: GUID,
-            dwOpCode: u32,
-            dwDataSize: u32,
-            DataBlob: [u8; 1],
+            dwOpCode: DWORD,
+            dwDataSize: DWORD,
+            DataBlob: [BYTE; 1],
         }
         const WLAN_EXECUTE_ACCESS: i32 = 131105;
         #[repr(i32)]
@@ -398,7 +399,7 @@ mod Windows {
         }
         struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
             hostedNetworkSSID: DOT11_SSID,
-            dwMaxNumberOfPeers: u32,
+            dwMaxNumberOfPeers: DWORD,
         }
         struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
             OldState: WLAN_HOSTED_NETWORK_PEER_STATE,
@@ -483,8 +484,8 @@ mod Windows {
             IPDeviceID: GUID,
             wlanHostedNetworkBSSID: DOT11_MAC_ADDRESS,
             dot11PhyType: DOT11_PHY_TYPE,
-            ulChannelFrequency: u32,
-            dwNumberOfPeers: u32,
+            ulChannelFrequency: ULONG,
+            dwNumberOfPeers: DWORD,
             PeerList: [WLAN_HOSTED_NETWORK_PEER_STATE; 1],
         }
         #[repr(i32)]
@@ -495,19 +496,19 @@ mod Windows {
         struct WLAN_INTERFACE_CAPABILITY {
             interfaceType: WLAN_INTERFACE_TYPE,
             bDot11DSupported: BOOL,
-            dwMaxDesiredSsidListSize: u32,
-            dwMaxDesiredBssidListSize: u32,
-            dwNumberOfSupportedPhys: u32,
+            dwMaxDesiredSsidListSize: DWORD,
+            dwMaxDesiredBssidListSize: DWORD,
+            dwNumberOfSupportedPhys: DWORD,
             dot11PhyTypes: [DOT11_PHY_TYPE; 64],
         }
         struct WLAN_INTERFACE_INFO {
             InterfaceGuid: GUID,
-            strInterfaceDescription: [u16; 256],
+            strInterfaceDescription: [WCHAR; 256],
             isState: WLAN_INTERFACE_STATE,
         }
         struct WLAN_INTERFACE_INFO_LIST {
-            dwNumberOfItems: u32,
-            dwIndex: u32,
+            dwNumberOfItems: DWORD,
+            dwIndex: DWORD,
             InterfaceInfo: [WLAN_INTERFACE_INFO; 1],
         }
         #[repr(i32)]
@@ -561,25 +562,25 @@ mod Windows {
             wlan_intf_opcode_ihv_end = 1073741823,
         }
         struct WLAN_MAC_FRAME_STATISTICS {
-            ullTransmittedFrameCount: u64,
-            ullReceivedFrameCount: u64,
-            ullWEPExcludedCount: u64,
-            ullTKIPLocalMICFailures: u64,
-            ullTKIPReplays: u64,
-            ullTKIPICVErrorCount: u64,
-            ullCCMPReplays: u64,
-            ullCCMPDecryptErrors: u64,
-            ullWEPUndecryptableCount: u64,
-            ullWEPICVErrorCount: u64,
-            ullDecryptSuccessCount: u64,
-            ullDecryptFailureCount: u64,
+            ullTransmittedFrameCount: ULONGLONG,
+            ullReceivedFrameCount: ULONGLONG,
+            ullWEPExcludedCount: ULONGLONG,
+            ullTKIPLocalMICFailures: ULONGLONG,
+            ullTKIPReplays: ULONGLONG,
+            ullTKIPICVErrorCount: ULONGLONG,
+            ullCCMPReplays: ULONGLONG,
+            ullCCMPDecryptErrors: ULONGLONG,
+            ullWEPUndecryptableCount: ULONGLONG,
+            ullWEPICVErrorCount: ULONGLONG,
+            ullDecryptSuccessCount: ULONGLONG,
+            ullDecryptFailureCount: ULONGLONG,
         }
         const WLAN_MAX_NAME_LENGTH: i32 = 256;
         const WLAN_MAX_PHY_INDEX: i32 = 64;
         const WLAN_MAX_PHY_TYPE_NUMBER: i32 = 8;
         struct WLAN_MSM_NOTIFICATION_DATA {
             wlanConnectionMode: WLAN_CONNECTION_MODE,
-            strProfileName: [u16; 256],
+            strProfileName: [WCHAR; 256],
             dot11Ssid: DOT11_SSID,
             dot11BssType: DOT11_BSS_TYPE,
             dot11MacAddr: DOT11_MAC_ADDRESS,
@@ -620,7 +621,7 @@ mod Windows {
             wlan_notification_acm_operational_state_change = 27,
             wlan_notification_acm_end = 28,
         }
-        extern fn WLAN_NOTIFICATION_CALLBACK(param0: PWLAN_NOTIFICATION_DATA, param1: *mut void);
+        extern fn WLAN_NOTIFICATION_CALLBACK(param0: PWLAN_NOTIFICATION_DATA, param1: PVOID);
         type WLAN_NOTIFICATION_DATA = L2_NOTIFICATION_DATA;
         #[repr(i32)]
         enum WLAN_NOTIFICATION_MSM {
@@ -673,27 +674,27 @@ mod Windows {
             wlan_operational_state_going_on = 4,
         }
         struct WLAN_PHY_FRAME_STATISTICS {
-            ullTransmittedFrameCount: u64,
-            ullMulticastTransmittedFrameCount: u64,
-            ullFailedCount: u64,
-            ullRetryCount: u64,
-            ullMultipleRetryCount: u64,
-            ullMaxTXLifetimeExceededCount: u64,
-            ullTransmittedFragmentCount: u64,
-            ullRTSSuccessCount: u64,
-            ullRTSFailureCount: u64,
-            ullACKFailureCount: u64,
-            ullReceivedFrameCount: u64,
-            ullMulticastReceivedFrameCount: u64,
-            ullPromiscuousReceivedFrameCount: u64,
-            ullMaxRXLifetimeExceededCount: u64,
-            ullFrameDuplicateCount: u64,
-            ullReceivedFragmentCount: u64,
-            ullPromiscuousReceivedFragmentCount: u64,
-            ullFCSErrorCount: u64,
+            ullTransmittedFrameCount: ULONGLONG,
+            ullMulticastTransmittedFrameCount: ULONGLONG,
+            ullFailedCount: ULONGLONG,
+            ullRetryCount: ULONGLONG,
+            ullMultipleRetryCount: ULONGLONG,
+            ullMaxTXLifetimeExceededCount: ULONGLONG,
+            ullTransmittedFragmentCount: ULONGLONG,
+            ullRTSSuccessCount: ULONGLONG,
+            ullRTSFailureCount: ULONGLONG,
+            ullACKFailureCount: ULONGLONG,
+            ullReceivedFrameCount: ULONGLONG,
+            ullMulticastReceivedFrameCount: ULONGLONG,
+            ullPromiscuousReceivedFrameCount: ULONGLONG,
+            ullMaxRXLifetimeExceededCount: ULONGLONG,
+            ullFrameDuplicateCount: ULONGLONG,
+            ullReceivedFragmentCount: ULONGLONG,
+            ullPromiscuousReceivedFragmentCount: ULONGLONG,
+            ullFCSErrorCount: ULONGLONG,
         }
         struct WLAN_PHY_RADIO_STATE {
-            dwPhyIndex: u32,
+            dwPhyIndex: DWORD,
             dot11SoftwareRadioState: DOT11_RADIO_STATE,
             dot11HardwareRadioState: DOT11_RADIO_STATE,
         }
@@ -710,12 +711,12 @@ mod Windows {
         const WLAN_PROFILE_GET_PLAINTEXT_KEY: i32 = 4;
         const WLAN_PROFILE_GROUP_POLICY: i32 = 1;
         struct WLAN_PROFILE_INFO {
-            strProfileName: [u16; 256],
-            dwFlags: u32,
+            strProfileName: [WCHAR; 256],
+            dwFlags: DWORD,
         }
         struct WLAN_PROFILE_INFO_LIST {
-            dwNumberOfItems: u32,
-            dwIndex: u32,
+            dwNumberOfItems: DWORD,
+            dwIndex: DWORD,
             ProfileInfo: [WLAN_PROFILE_INFO; 1],
         }
         const WLAN_PROFILE_USER: i32 = 2;
@@ -731,41 +732,42 @@ mod Windows {
             connectionQoSInfo: WLAN_CONNECTION_QOS_INFO,
         }
         struct WLAN_RADIO_STATE {
-            dwNumberOfPhys: u32,
+            dwNumberOfPhys: DWORD,
             PhyRadioState: [WLAN_PHY_RADIO_STATE; 64],
         }
         struct WLAN_RATE_SET {
-            uRateSetLength: u32,
-            usRateSet: [u16; 126],
+            uRateSetLength: ULONG,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_part_", "126, uRateSetLength", "126, uRateSetLength")]
+            usRateSet: [USHORT; 126],
         }
         struct WLAN_RAW_DATA {
-            dwDataSize: u32,
-            DataBlob: [u8; 1],
+            dwDataSize: DWORD,
+            DataBlob: [BYTE; 1],
         }
         struct WLAN_RAW_DATA_LIST {
-            dwTotalSize: u32,
-            dwNumberOfItems: u32,
-            DataList: [WLAN_RAW_DATA_LIST_0; 1],
-        }
-        struct WLAN_RAW_DATA_LIST_0 {
-            dwDataOffset: u32,
-            dwDataSize: u32,
+            struct WLAN_RAW_DATA_LIST_2 {
+                dwDataOffset: DWORD,
+                dwDataSize: DWORD,
+            }
+            dwTotalSize: DWORD,
+            dwNumberOfItems: DWORD,
+            DataList: [WLAN_RAW_DATA_LIST::WLAN_RAW_DATA_LIST_2; 1],
         }
         const WLAN_READ_ACCESS: i32 = 131073;
         struct WLAN_REALTIME_CONNECTION_QUALITY {
             dot11PhyType: DOT11_PHY_TYPE,
-            ulLinkQuality: u32,
-            ulRxRate: u32,
-            ulTxRate: u32,
+            ulLinkQuality: ULONG,
+            ulRxRate: ULONG,
+            ulTxRate: ULONG,
             bIsMLOConnection: BOOL,
-            ulNumLinks: u32,
+            ulNumLinks: ULONG,
             linksInfo: [WLAN_REALTIME_CONNECTION_QUALITY_LINK_INFO; 1],
         }
         struct WLAN_REALTIME_CONNECTION_QUALITY_LINK_INFO {
-            ucLinkID: u8,
-            ulChannelCenterFrequencyMhz: u32,
-            ulBandwidth: u32,
-            lRssi: i32,
+            ucLinkID: UCHAR,
+            ulChannelCenterFrequencyMhz: ULONG,
+            ulBandwidth: ULONG,
+            lRssi: LONG,
             wlanRateSet: WLAN_RATE_SET,
         }
         type WLAN_REASON_CODE = u32;
@@ -954,12 +956,12 @@ mod Windows {
         const WLAN_SET_EAPHOST_DATA_ALL_USERS: i32 = 1;
         type WLAN_SIGNAL_QUALITY = u32;
         struct WLAN_STATISTICS {
-            ullFourWayHandshakeFailures: u64,
-            ullTKIPCounterMeasuresInvoked: u64,
-            ullReserved: u64,
+            ullFourWayHandshakeFailures: ULONGLONG,
+            ullTKIPCounterMeasuresInvoked: ULONGLONG,
+            ullReserved: ULONGLONG,
             MacUcastCounters: WLAN_MAC_FRAME_STATISTICS,
             MacMcastCounters: WLAN_MAC_FRAME_STATISTICS,
-            dwNumberOfPhys: u32,
+            dwNumberOfPhys: DWORD,
             PhyCounters: [WLAN_PHY_FRAME_STATISTICS; 1],
         }
         const WLAN_UI_API_INITIAL_VERSION: i32 = 1;
@@ -972,112 +974,112 @@ mod Windows {
             WLAdvPage = 2,
         }
         #[library("wlanapi.dll")]
-        extern fn WlanAllocateMemory(dwMemorySize: u32) -> *mut void;
+        extern fn WlanAllocateMemory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMemorySize: DWORD) -> PVOID;
         #[library("wlanapi.dll")]
-        extern fn WlanCloseHandle(hClientHandle: HANDLE, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanCloseHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanConnect(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, pConnectionParameters: PWLAN_CONNECTION_PARAMETERS, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanConnect(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConnectionParameters: PWLAN_CONNECTION_PARAMETERS, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanConnect2(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, pConnectionParameters: PWLAN_CONNECTION_PARAMETERS_V2, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanConnect2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConnectionParameters: PWLAN_CONNECTION_PARAMETERS_V2, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanDeleteProfile(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanDeleteProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strProfileName: LPCWSTR, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanDeviceServiceCommand(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, pDeviceServiceGuid: LPGUID, dwOpCode: u32, dwInBufferSize: u32, #[size_param(4)] #[in] #[opt] pInBuffer: *mut void, dwOutBufferSize: u32, #[size_param(6)] #[in] #[out] #[opt] pOutBuffer: *mut void, #[out] pdwBytesReturned: PDWORD) -> u32;
+        extern fn WlanDeviceServiceCommand(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceServiceGuid: LPGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOpCode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInBufferSize: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pInBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOutBufferSize: DWORD, #[in] #[out] #[opt] #[size_param(6)] pOutBuffer: PVOID, #[out] pdwBytesReturned: PDWORD) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanDisconnect(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanDisconnect(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanEnumInterfaces(hClientHandle: HANDLE, #[reserved] pReserved: *mut void, ppInterfaceList: *mut PWLAN_INTERFACE_INFO_LIST) -> u32;
+        extern fn WlanEnumInterfaces(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[reserved] pReserved: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppInterfaceList: *mut PWLAN_INTERFACE_INFO_LIST) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanExtractPsdIEDataList(hClientHandle: HANDLE, dwIeDataSize: u32, #[size_param(1)] pRawIeData: PBYTE, strFormat: PCWSTR, #[reserved] pReserved: *mut void, ppPsdIEDataList: *mut PWLAN_RAW_DATA_LIST) -> u32;
+        extern fn WlanExtractPsdIEDataList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIeDataSize: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pRawIeData: PBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strFormat: LPCWSTR, #[reserved] pReserved: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppPsdIEDataList: *mut PWLAN_RAW_DATA_LIST) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanFreeMemory(#[in] pMemory: *mut void);
+        extern fn WlanFreeMemory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMemory: PVOID);
         #[library("wlanapi.dll")]
-        extern fn WlanGetAvailableNetworkList(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, dwFlags: u32, #[reserved] pReserved: *mut void, ppAvailableNetworkList: *mut PWLAN_AVAILABLE_NETWORK_LIST) -> u32;
+        extern fn WlanGetAvailableNetworkList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[reserved] pReserved: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAvailableNetworkList: *mut PWLAN_AVAILABLE_NETWORK_LIST) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanGetAvailableNetworkList2(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, dwFlags: u32, #[reserved] pReserved: *mut void, ppAvailableNetworkList: *mut PWLAN_AVAILABLE_NETWORK_LIST_V2) -> u32;
+        extern fn WlanGetAvailableNetworkList2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[reserved] pReserved: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAvailableNetworkList: *mut PWLAN_AVAILABLE_NETWORK_LIST_V2) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanGetFilterList(hClientHandle: HANDLE, wlanFilterListType: WLAN_FILTER_LIST_TYPE, #[reserved] pReserved: *mut void, ppNetworkList: *mut PDOT11_NETWORK_LIST) -> u32;
+        extern fn WlanGetFilterList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wlanFilterListType: WLAN_FILTER_LIST_TYPE, #[reserved] pReserved: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppNetworkList: *mut PDOT11_NETWORK_LIST) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanGetInterfaceCapability(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, #[reserved] pReserved: *mut void, ppCapability: *mut PWLAN_INTERFACE_CAPABILITY) -> u32;
+        extern fn WlanGetInterfaceCapability(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[reserved] pReserved: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCapability: *mut PWLAN_INTERFACE_CAPABILITY) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanGetNetworkBssList(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, #[opt] pDot11Ssid: PDOT11_SSID, dot11BssType: DOT11_BSS_TYPE, bSecurityEnabled: BOOL, #[reserved] pReserved: *mut void, ppWlanBssList: *mut PWLAN_BSS_LIST) -> u32;
+        extern fn WlanGetNetworkBssList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDot11Ssid: PDOT11_SSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dot11BssType: DOT11_BSS_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bSecurityEnabled: BOOL, #[reserved] pReserved: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppWlanBssList: *mut PWLAN_BSS_LIST) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanGetProfile(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, #[reserved] pReserved: *mut void, pstrProfileXml: *mut PWSTR, #[in] #[out] #[opt] pdwFlags: *mut u32, #[opt] pdwGrantedAccess: *mut u32) -> u32;
+        extern fn WlanGetProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strProfileName: LPCWSTR, #[reserved] pReserved: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrProfileXml: *mut LPWSTR, #[in] #[out] #[opt] pdwFlags: *mut DWORD, #[out] #[opt] pdwGrantedAccess: *mut DWORD) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanGetProfileCustomUserData(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, #[reserved] pReserved: *mut void, pdwDataSize: *mut u32, ppData: *mut PBYTE) -> u32;
+        extern fn WlanGetProfileCustomUserData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strProfileName: LPCWSTR, #[reserved] pReserved: PVOID, #[out] pdwDataSize: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pdwDataSize", "*pdwDataSize")] #[out] ppData: *mut PBYTE) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanGetProfileList(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, #[reserved] pReserved: *mut void, ppProfileList: *mut PWLAN_PROFILE_INFO_LIST) -> u32;
+        extern fn WlanGetProfileList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[reserved] pReserved: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppProfileList: *mut PWLAN_PROFILE_INFO_LIST) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanGetSecuritySettings(hClientHandle: HANDLE, SecurableObject: WLAN_SECURABLE_OBJECT, #[out] #[opt] pValueType: PWLAN_OPCODE_VALUE_TYPE, pstrCurrentSDDL: *mut PWSTR, #[out] pdwGrantedAccess: PDWORD) -> u32;
+        extern fn WlanGetSecuritySettings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurableObject: WLAN_SECURABLE_OBJECT, #[out] #[opt] pValueType: PWLAN_OPCODE_VALUE_TYPE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrCurrentSDDL: *mut LPWSTR, #[out] pdwGrantedAccess: PDWORD) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanGetSupportedDeviceServices(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, ppDevSvcGuidList: *mut PWLAN_DEVICE_SERVICE_GUID_LIST) -> u32;
+        extern fn WlanGetSupportedDeviceServices(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDevSvcGuidList: *mut PWLAN_DEVICE_SERVICE_GUID_LIST) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkForceStart(hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *mut void) -> u32;
+        extern fn WlanHostedNetworkForceStart(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkForceStop(hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *mut void) -> u32;
+        extern fn WlanHostedNetworkForceStop(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkInitSettings(hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *mut void) -> u32;
+        extern fn WlanHostedNetworkInitSettings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkQueryProperty(hClientHandle: HANDLE, OpCode: WLAN_HOSTED_NETWORK_OPCODE, #[out] pdwDataSize: PDWORD, ppvData: *mut *mut void, #[out] pWlanOpcodeValueType: PWLAN_OPCODE_VALUE_TYPE, #[reserved] pvReserved: *mut void) -> u32;
+        extern fn WlanHostedNetworkQueryProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OpCode: WLAN_HOSTED_NETWORK_OPCODE, #[out] pdwDataSize: PDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pdwDataSize", "*pdwDataSize")] #[out] ppvData: *mut PVOID, #[out] pWlanOpcodeValueType: PWLAN_OPCODE_VALUE_TYPE, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkQuerySecondaryKey(hClientHandle: HANDLE, #[out] pdwKeyLength: PDWORD, ppucKeyData: *mut PUCHAR, #[out] pbIsPassPhrase: PBOOL, #[out] pbPersistent: PBOOL, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *mut void) -> u32;
+        extern fn WlanHostedNetworkQuerySecondaryKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[out] pdwKeyLength: PDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pdwKeyLength", "*pdwKeyLength")] #[out] ppucKeyData: *mut PUCHAR, #[out] pbIsPassPhrase: PBOOL, #[out] pbPersistent: PBOOL, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkQueryStatus(hClientHandle: HANDLE, ppWlanHostedNetworkStatus: *mut PWLAN_HOSTED_NETWORK_STATUS, #[reserved] pvReserved: *mut void) -> u32;
+        extern fn WlanHostedNetworkQueryStatus(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppWlanHostedNetworkStatus: *mut PWLAN_HOSTED_NETWORK_STATUS, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkRefreshSecuritySettings(hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *mut void) -> u32;
+        extern fn WlanHostedNetworkRefreshSecuritySettings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkSetProperty(hClientHandle: HANDLE, OpCode: WLAN_HOSTED_NETWORK_OPCODE, dwDataSize: u32, #[size_param(2)] #[in] pvData: *mut void, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *mut void) -> u32;
+        extern fn WlanHostedNetworkSetProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OpCode: WLAN_HOSTED_NETWORK_OPCODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDataSize: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pvData: PVOID, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkSetSecondaryKey(hClientHandle: HANDLE, dwKeyLength: u32, #[size_param(1)] pucKeyData: PUCHAR, bIsPassPhrase: BOOL, bPersistent: BOOL, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *mut void) -> u32;
+        extern fn WlanHostedNetworkSetSecondaryKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwKeyLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pucKeyData: PUCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bIsPassPhrase: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bPersistent: BOOL, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkStartUsing(hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *mut void) -> u32;
+        extern fn WlanHostedNetworkStartUsing(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkStopUsing(hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *mut void) -> u32;
+        extern fn WlanHostedNetworkStopUsing(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanIhvControl(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, Type: WLAN_IHV_CONTROL_TYPE, dwInBufferSize: u32, #[size_param(3)] #[in] pInBuffer: *mut void, dwOutBufferSize: u32, #[size_param(5)] #[in] #[out] #[opt] pOutBuffer: *mut void, #[out] pdwBytesReturned: PDWORD) -> u32;
+        extern fn WlanIhvControl(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: WLAN_IHV_CONTROL_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInBufferSize: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pInBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOutBufferSize: DWORD, #[in] #[out] #[opt] #[size_param(5)] pOutBuffer: PVOID, #[out] pdwBytesReturned: PDWORD) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanOpenHandle(dwClientVersion: u32, #[reserved] pReserved: *mut void, #[out] pdwNegotiatedVersion: PDWORD, #[out] phClientHandle: PHANDLE) -> u32;
+        extern fn WlanOpenHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwClientVersion: DWORD, #[reserved] pReserved: PVOID, #[out] pdwNegotiatedVersion: PDWORD, #[out] phClientHandle: PHANDLE) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanQueryAutoConfigParameter(hClientHandle: HANDLE, OpCode: WLAN_AUTOCONF_OPCODE, #[reserved] pReserved: *mut void, #[out] pdwDataSize: PDWORD, ppData: *mut *mut void, #[out] #[opt] pWlanOpcodeValueType: PWLAN_OPCODE_VALUE_TYPE) -> u32;
+        extern fn WlanQueryAutoConfigParameter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OpCode: WLAN_AUTOCONF_OPCODE, #[reserved] pReserved: PVOID, #[out] pdwDataSize: PDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pdwDataSize", "*pdwDataSize")] #[out] ppData: *mut PVOID, #[out] #[opt] pWlanOpcodeValueType: PWLAN_OPCODE_VALUE_TYPE) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanQueryInterface(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, OpCode: WLAN_INTF_OPCODE, #[reserved] pReserved: *mut void, #[out] pdwDataSize: PDWORD, ppData: *mut *mut void, #[out] #[opt] pWlanOpcodeValueType: PWLAN_OPCODE_VALUE_TYPE) -> u32;
+        extern fn WlanQueryInterface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OpCode: WLAN_INTF_OPCODE, #[reserved] pReserved: PVOID, #[out] pdwDataSize: PDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pdwDataSize", "*pdwDataSize")] #[out] ppData: *mut PVOID, #[out] #[opt] pWlanOpcodeValueType: PWLAN_OPCODE_VALUE_TYPE) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanReasonCodeToString(dwReasonCode: u32, dwBufferSize: u32, #[len_param(1)] pStringBuffer: PWCHAR, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanReasonCodeToString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReasonCode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBufferSize: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pStringBuffer: PWCHAR, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanRegisterDeviceServiceNotification(hClientHandle: HANDLE, #[opt] pDevSvcGuidList: PWLAN_DEVICE_SERVICE_GUID_LIST) -> u32;
+        extern fn WlanRegisterDeviceServiceNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDevSvcGuidList: PWLAN_DEVICE_SERVICE_GUID_LIST) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanRegisterNotification(hClientHandle: HANDLE, dwNotifSource: u32, bIgnoreDuplicate: BOOL, #[opt] funcCallback: WLAN_NOTIFICATION_CALLBACK, #[in] #[opt] pCallbackContext: *mut void, #[reserved] pReserved: *mut void, #[out] #[opt] pdwPrevNotifSource: PDWORD) -> u32;
+        extern fn WlanRegisterNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwNotifSource: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bIgnoreDuplicate: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] funcCallback: WLAN_NOTIFICATION_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCallbackContext: PVOID, #[reserved] pReserved: PVOID, #[out] #[opt] pdwPrevNotifSource: PDWORD) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanRegisterVirtualStationNotification(hClientHandle: HANDLE, bRegister: BOOL, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanRegisterVirtualStationNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bRegister: BOOL, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanRenameProfile(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strOldProfileName: PCWSTR, strNewProfileName: PCWSTR, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanRenameProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strOldProfileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strNewProfileName: LPCWSTR, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanSaveTemporaryProfile(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, #[opt] strAllUserProfileSecurity: PCWSTR, dwFlags: u32, bOverWrite: BOOL, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanSaveTemporaryProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strProfileName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strAllUserProfileSecurity: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bOverWrite: BOOL, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanScan(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, #[opt] pDot11Ssid: PDOT11_SSID, #[opt] pIeData: PWLAN_RAW_DATA, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanScan(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDot11Ssid: PDOT11_SSID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIeData: PWLAN_RAW_DATA, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanSetAutoConfigParameter(hClientHandle: HANDLE, OpCode: WLAN_AUTOCONF_OPCODE, dwDataSize: u32, #[size_param(2)] #[in] pData: *mut void, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanSetAutoConfigParameter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OpCode: WLAN_AUTOCONF_OPCODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDataSize: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pData: PVOID, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanSetFilterList(hClientHandle: HANDLE, wlanFilterListType: WLAN_FILTER_LIST_TYPE, #[opt] pNetworkList: PDOT11_NETWORK_LIST, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanSetFilterList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wlanFilterListType: WLAN_FILTER_LIST_TYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pNetworkList: PDOT11_NETWORK_LIST, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanSetInterface(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, OpCode: WLAN_INTF_OPCODE, dwDataSize: u32, #[size_param(3)] #[in] pData: *mut void, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanSetInterface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OpCode: WLAN_INTF_OPCODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDataSize: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pData: PVOID, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanSetProfile(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, dwFlags: u32, strProfileXml: PCWSTR, #[opt] strAllUserProfileSecurity: PCWSTR, bOverwrite: BOOL, #[reserved] pReserved: *mut void, pdwReasonCode: *mut u32) -> u32;
+        extern fn WlanSetProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strProfileXml: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strAllUserProfileSecurity: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bOverwrite: BOOL, #[reserved] pReserved: PVOID, #[out] pdwReasonCode: *mut DWORD) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanSetProfileCustomUserData(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, dwDataSize: u32, #[size_param(3)] pData: PBYTE, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanSetProfileCustomUserData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strProfileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDataSize: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pData: PBYTE, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanSetProfileEapUserData(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, eapType: EAP_METHOD_TYPE, dwFlags: u32, dwEapUserDataSize: u32, #[size_param(5)] #[opt] pbEapUserData: LPBYTE, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanSetProfileEapUserData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strProfileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eapType: EAP_METHOD_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwEapUserDataSize: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] pbEapUserData: LPBYTE, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanSetProfileEapXmlUserData(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, dwFlags: u32, strEapXmlUserData: PCWSTR, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanSetProfileEapXmlUserData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strProfileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strEapXmlUserData: LPCWSTR, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanSetProfileList(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, dwItems: u32, #[len_param(2)] #[in] strProfileNames: *mut PCWSTR, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanSetProfileList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwItems: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] strProfileNames: *mut LPCWSTR, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanSetProfilePosition(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, dwPosition: u32, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanSetProfilePosition(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strProfileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPosition: DWORD, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanSetPsdIEDataList(hClientHandle: HANDLE, #[opt] strFormat: PCWSTR, #[opt] pPsdIEDataList: PWLAN_RAW_DATA_LIST, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WlanSetPsdIEDataList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strFormat: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPsdIEDataList: PWLAN_RAW_DATA_LIST, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanSetSecuritySettings(hClientHandle: HANDLE, SecurableObject: WLAN_SECURABLE_OBJECT, strModifiedSDDL: PCWSTR) -> u32;
+        extern fn WlanSetSecuritySettings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurableObject: WLAN_SECURABLE_OBJECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strModifiedSDDL: LPCWSTR) -> DWORD;
         #[library("wlanui.dll")]
-        extern fn WlanUIEditProfile(dwClientVersion: u32, wstrProfileName: PCWSTR, #[in] pInterfaceGuid: *mut GUID, hWnd: HWND, wlStartPage: WL_DISPLAY_PAGES, #[reserved] pReserved: *mut void, #[out] #[opt] pWlanReasonCode: PWLAN_REASON_CODE) -> u32;
+        extern fn WlanUIEditProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwClientVersion: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wstrProfileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceGuid: *mut GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wlStartPage: WL_DISPLAY_PAGES, #[reserved] pReserved: PVOID, #[out] #[opt] pWlanReasonCode: PWLAN_REASON_CODE) -> DWORD;
     }
 }

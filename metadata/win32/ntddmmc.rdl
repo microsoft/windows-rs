@@ -2,30 +2,28 @@
 mod Windows {
     mod Win32 {
         struct BD_CLASS_SUPPORT_BITMAP {
-            _bitfield1: u8 {
-                Version8: 1,
-                Version9: 1,
-                Version10: 1,
-                Version11: 1,
-                Version12: 1,
-                Version13: 1,
-                Version14: 1,
-                Version15: 1,
-            },
-            _bitfield2: u8 {
-                Version0: 1,
-                Version1: 1,
-                Version2: 1,
-                Version3: 1,
-                Version4: 1,
-                Version5: 1,
-                Version6: 1,
-                Version7: 1,
-            },
+            #[Windows::Win32::Metadata::NativeBitfield("Version10", 2, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version11", 3, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version12", 4, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version13", 5, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version14", 6, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version15", 7, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version8", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version9", 1, 1, MemberType = UCHAR)]
+            _bitfield1: u8,
+            #[Windows::Win32::Metadata::NativeBitfield("Version0", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version1", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version2", 2, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version3", 3, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version4", 4, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version5", 5, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version6", 6, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version7", 7, 1, MemberType = UCHAR)]
+            _bitfield2: u8,
         }
         struct FEATURE_BD_READ {
             Header: FEATURE_HEADER,
-            Reserved: [u8; 4],
+            Reserved: [UCHAR; 4],
             Class0BitmapBDREReadSupport: BD_CLASS_SUPPORT_BITMAP,
             Class1BitmapBDREReadSupport: BD_CLASS_SUPPORT_BITMAP,
             Class2BitmapBDREReadSupport: BD_CLASS_SUPPORT_BITMAP,
@@ -41,15 +39,14 @@ mod Windows {
         }
         struct FEATURE_BD_R_PSEUDO_OVERWRITE {
             Header: FEATURE_HEADER,
-            Reserved: [u8; 4],
+            Reserved: [UCHAR; 4],
         }
         struct FEATURE_BD_WRITE {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                SupportsVerifyNotRequired: 1,
-                Reserved1: 7,
-            },
-            Reserved2: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("SupportsVerifyNotRequired", 0, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
             Class0BitmapBDREWriteSupport: BD_CLASS_SUPPORT_BITMAP,
             Class1BitmapBDREWriteSupport: BD_CLASS_SUPPORT_BITMAP,
             Class2BitmapBDREWriteSupport: BD_CLASS_SUPPORT_BITMAP,
@@ -61,338 +58,305 @@ mod Windows {
         }
         struct FEATURE_CD_RW_MEDIA_WRITE_SUPPORT {
             Header: FEATURE_HEADER,
-            Reserved1: u8,
+            Reserved1: UCHAR,
             CDRWMediaSubtypeSupport: struct {
-                _bitfield: u8 {
-                    Subtype0: 1,
-                    Subtype1: 1,
-                    Subtype2: 1,
-                    Subtype3: 1,
-                    Subtype4: 1,
-                    Subtype5: 1,
-                    Subtype6: 1,
-                    Subtype7: 1,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("Subtype0", 0, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Subtype1", 1, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Subtype2", 2, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Subtype3", 3, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Subtype4", 4, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Subtype5", 5, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Subtype6", 6, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Subtype7", 7, 1, MemberType = UCHAR)]
+                _bitfield: u8,
             },
-            Reserved2: [u8; 2],
+            Reserved2: [UCHAR; 2],
         }
         struct FEATURE_DATA_AACS {
             Header: FEATURE_HEADER,
-            _bitfield1: u8 {
-                BindingNonceGeneration: 1,
-                Reserved0: 7,
-            },
-            BindingNonceBlockCount: u8,
-            _bitfield2: u8 {
-                NumberOfAGIDs: 4,
-                Reserved1: 4,
-            },
-            AACSVersion: u8,
+            #[Windows::Win32::Metadata::NativeBitfield("BindingNonceGeneration", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 1, 7, MemberType = UCHAR)]
+            _bitfield1: u8,
+            BindingNonceBlockCount: UCHAR,
+            #[Windows::Win32::Metadata::NativeBitfield("NumberOfAGIDs", 0, 4, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 4, 4, MemberType = UCHAR)]
+            _bitfield2: u8,
+            AACSVersion: UCHAR,
         }
         struct FEATURE_DATA_CDRW_CAV_WRITE {
             Header: FEATURE_HEADER,
-            Reserved1: [u8; 4],
+            Reserved1: [UCHAR; 4],
         }
         struct FEATURE_DATA_CD_AUDIO_ANALOG_PLAY {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                SeperateVolume: 1,
-                SeperateChannelMute: 1,
-                ScanSupported: 1,
-                Reserved1: 5,
-            },
-            Reserved2: u8,
-            NumerOfVolumeLevels: [u8; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 3, 5, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("ScanSupported", 2, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("SeperateChannelMute", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("SeperateVolume", 0, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: UCHAR,
+            NumerOfVolumeLevels: [UCHAR; 2],
         }
         struct FEATURE_DATA_CD_MASTERING {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                RWSubchannelsRecordable: 1,
-                CdRewritable: 1,
-                TestWriteOk: 1,
-                RawRecordingOk: 1,
-                RawMultiSessionOk: 1,
-                SessionAtOnceOk: 1,
-                BufferUnderrunFree: 1,
-                Reserved1: 1,
-            },
-            MaximumCueSheetLength: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("BufferUnderrunFree", 6, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("CdRewritable", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("RWSubchannelsRecordable", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("RawMultiSessionOk", 4, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("RawRecordingOk", 3, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 7, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("SessionAtOnceOk", 5, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("TestWriteOk", 2, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            MaximumCueSheetLength: [UCHAR; 3],
         }
         struct FEATURE_DATA_CD_READ {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                CDText: 1,
-                C2ErrorData: 1,
-                Reserved01: 5,
-                DigitalAudioPlay: 1,
-            },
-            Reserved2: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("C2ErrorData", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("CDText", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("DigitalAudioPlay", 7, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved01", 2, 5, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
         }
         struct FEATURE_DATA_CD_TRACK_AT_ONCE {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                RWSubchannelsRecordable: 1,
-                CdRewritable: 1,
-                TestWriteOk: 1,
-                RWSubchannelPackedOk: 1,
-                RWSubchannelRawOk: 1,
-                Reserved1: 1,
-                BufferUnderrunFree: 1,
-                Reserved3: 1,
-            },
-            Reserved2: u8,
-            DataTypeSupported: [u8; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("BufferUnderrunFree", 6, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("CdRewritable", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("RWSubchannelPackedOk", 3, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("RWSubchannelRawOk", 4, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("RWSubchannelsRecordable", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 5, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved3", 7, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("TestWriteOk", 2, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: UCHAR,
+            DataTypeSupported: [UCHAR; 2],
         }
         struct FEATURE_DATA_CORE {
             Header: FEATURE_HEADER,
-            PhysicalInterface: [u8; 4],
-            _bitfield: u8 {
-                DeviceBusyEvent: 1,
-                INQUIRY2: 1,
-                Reserved1: 6,
-            },
-            Reserved2: [u8; 3],
+            PhysicalInterface: [UCHAR; 4],
+            #[Windows::Win32::Metadata::NativeBitfield("DeviceBusyEvent", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("INQUIRY2", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 2, 6, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
         }
         struct FEATURE_DATA_DDCD_READ {
             Header: FEATURE_HEADER,
         }
         struct FEATURE_DATA_DDCD_RW_WRITE {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                Blank: 1,
-                Intermediate: 1,
-                Reserved1: 6,
-            },
-            Reserved2: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("Blank", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Intermediate", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 2, 6, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
         }
         struct FEATURE_DATA_DDCD_R_WRITE {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                Reserved1: 2,
-                TestWrite: 1,
-                Reserved2: 5,
-            },
-            Reserved3: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 0, 2, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 3, 5, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("TestWrite", 2, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved3: [UCHAR; 3],
         }
         struct FEATURE_DATA_DEFECT_MANAGEMENT {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                Reserved1: 7,
-                SupplimentalSpareArea: 1,
-            },
-            Reserved2: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 0, 7, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("SupplimentalSpareArea", 7, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
         }
         struct FEATURE_DATA_DISC_CONTROL_BLOCKS {
             Header: FEATURE_HEADER,
             Data: [FEATURE_DATA_DISC_CONTROL_BLOCKS_EX; 0],
         }
         struct FEATURE_DATA_DISC_CONTROL_BLOCKS_EX {
-            ContentDescriptor: [u8; 4],
+            ContentDescriptor: [UCHAR; 4],
         }
         struct FEATURE_DATA_DVD_CPRM {
             Header: FEATURE_HEADER,
-            Reserved0: [u8; 3],
-            CPRMVersion: u8,
+            Reserved0: [UCHAR; 3],
+            CPRMVersion: UCHAR,
         }
         struct FEATURE_DATA_DVD_CSS {
             Header: FEATURE_HEADER,
-            Reserved1: [u8; 3],
-            CssVersion: u8,
+            Reserved1: [UCHAR; 3],
+            CssVersion: UCHAR,
         }
         struct FEATURE_DATA_DVD_PLUS_R {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                Write: 1,
-                Reserved1: 7,
-            },
-            Reserved2: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Write", 0, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
         }
         struct FEATURE_DATA_DVD_PLUS_RW {
             Header: FEATURE_HEADER,
-            _bitfield1: u8 {
-                Write: 1,
-                Reserved1: 7,
-            },
-            _bitfield2: u8 {
-                CloseOnly: 1,
-                QuickStart: 1,
-                Reserved02: 6,
-            },
-            Reserved03: [u8; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Write", 0, 1, MemberType = UCHAR)]
+            _bitfield1: u8,
+            #[Windows::Win32::Metadata::NativeBitfield("CloseOnly", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("QuickStart", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved02", 2, 6, MemberType = UCHAR)]
+            _bitfield2: u8,
+            Reserved03: [UCHAR; 2],
         }
         struct FEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER {
             Header: FEATURE_HEADER,
-            _bitfield1: u8 {
-                Write: 1,
-                Reserved1: 7,
-            },
-            _bitfield2: u8 {
-                CloseOnly: 1,
-                QuickStart: 1,
-                Reserved2: 6,
-            },
-            Reserved3: [u8; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Write", 0, 1, MemberType = UCHAR)]
+            _bitfield1: u8,
+            #[Windows::Win32::Metadata::NativeBitfield("CloseOnly", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("QuickStart", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 2, 6, MemberType = UCHAR)]
+            _bitfield2: u8,
+            Reserved3: [UCHAR; 2],
         }
         struct FEATURE_DATA_DVD_PLUS_R_DUAL_LAYER {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                Write: 1,
-                Reserved1: 7,
-            },
-            Reserved2: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Write", 0, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
         }
         struct FEATURE_DATA_DVD_READ {
             Header: FEATURE_HEADER,
-            _bitfield1: u8 {
-                Multi110: 1,
-                Reserved1: 7,
-            },
-            Reserved2: u8,
-            _bitfield2: u8 {
-                DualDashR: 1,
-                Reserved3: 7,
-            },
-            Reserved4: u8,
+            #[Windows::Win32::Metadata::NativeBitfield("Multi110", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            _bitfield1: u8,
+            Reserved2: UCHAR,
+            #[Windows::Win32::Metadata::NativeBitfield("DualDashR", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved3", 1, 7, MemberType = UCHAR)]
+            _bitfield2: u8,
+            Reserved4: UCHAR,
         }
         struct FEATURE_DATA_DVD_RECORDABLE_WRITE {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                Reserved1: 1,
-                DVD_RW: 1,
-                TestWrite: 1,
-                RDualLayer: 1,
-                Reserved02: 2,
-                BufferUnderrunFree: 1,
-                Reserved3: 1,
-            },
-            Reserved4: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("BufferUnderrunFree", 6, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("DVD_RW", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("RDualLayer", 3, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved02", 4, 2, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved3", 7, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("TestWrite", 2, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved4: [UCHAR; 3],
         }
         struct FEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                Blank: 1,
-                Intermediate: 1,
-                DefectStatusDataRead: 1,
-                DefectStatusDataGenerate: 1,
-                Reserved0: 4,
-            },
-            Reserved1: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("Blank", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("DefectStatusDataGenerate", 3, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("DefectStatusDataRead", 2, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Intermediate", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 4, 4, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved1: [UCHAR; 3],
         }
         struct FEATURE_DATA_EMBEDDED_CHANGER {
             Header: FEATURE_HEADER,
-            _bitfield1: u8 {
-                Reserved1: 2,
-                SupportsDiscPresent: 1,
-                Reserved2: 1,
-                SideChangeCapable: 1,
-                Reserved3: 3,
-            },
-            Reserved4: [u8; 2],
-            _bitfield2: u8 {
-                HighestSlotNumber: 5,
-                Reserved: 3,
-            },
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 0, 2, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 3, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved3", 5, 3, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("SideChangeCapable", 4, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("SupportsDiscPresent", 2, 1, MemberType = UCHAR)]
+            _bitfield1: u8,
+            Reserved4: [UCHAR; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("HighestSlotNumber", 0, 5, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved", 5, 3, MemberType = UCHAR)]
+            _bitfield2: u8,
         }
         struct FEATURE_DATA_FIRMWARE_DATE {
             Header: FEATURE_HEADER,
-            Year: [u8; 4],
-            Month: [u8; 2],
-            Day: [u8; 2],
-            Hour: [u8; 2],
-            Minute: [u8; 2],
-            Seconds: [u8; 2],
-            Reserved: [u8; 2],
+            Year: [UCHAR; 4],
+            Month: [UCHAR; 2],
+            Day: [UCHAR; 2],
+            Hour: [UCHAR; 2],
+            Minute: [UCHAR; 2],
+            Seconds: [UCHAR; 2],
+            Reserved: [UCHAR; 2],
         }
         struct FEATURE_DATA_FORMATTABLE {
             Header: FEATURE_HEADER,
-            _bitfield1: u8 {
-                FullCertification: 1,
-                QuickCertification: 1,
-                SpareAreaExpansion: 1,
-                RENoSpareAllocated: 1,
-                Reserved1: 4,
-            },
-            Reserved2: [u8; 3],
-            _bitfield2: u8 {
-                RRandomWritable: 1,
-                Reserved3: 7,
-            },
-            Reserved4: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("FullCertification", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("QuickCertification", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("RENoSpareAllocated", 3, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 4, 4, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("SpareAreaExpansion", 2, 1, MemberType = UCHAR)]
+            _bitfield1: u8,
+            Reserved2: [UCHAR; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("RRandomWritable", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved3", 1, 7, MemberType = UCHAR)]
+            _bitfield2: u8,
+            Reserved4: [UCHAR; 3],
         }
         struct FEATURE_DATA_HDDVD_READ {
             Header: FEATURE_HEADER,
-            _bitfield1: u8 {
-                Recordable: 1,
-                Reserved0: 7,
-            },
-            Reserved1: u8,
-            _bitfield2: u8 {
-                Rewritable: 1,
-                Reserved2: 7,
-            },
-            Reserved3: u8,
+            #[Windows::Win32::Metadata::NativeBitfield("Recordable", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 1, 7, MemberType = UCHAR)]
+            _bitfield1: u8,
+            Reserved1: UCHAR,
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 1, 7, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Rewritable", 0, 1, MemberType = UCHAR)]
+            _bitfield2: u8,
+            Reserved3: UCHAR,
         }
         struct FEATURE_DATA_HDDVD_WRITE {
             Header: FEATURE_HEADER,
-            _bitfield1: u8 {
-                Recordable: 1,
-                Reserved0: 7,
-            },
-            Reserved1: u8,
-            _bitfield2: u8 {
-                Rewritable: 1,
-                Reserved2: 7,
-            },
-            Reserved3: u8,
+            #[Windows::Win32::Metadata::NativeBitfield("Recordable", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 1, 7, MemberType = UCHAR)]
+            _bitfield1: u8,
+            Reserved1: UCHAR,
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 1, 7, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Rewritable", 0, 1, MemberType = UCHAR)]
+            _bitfield2: u8,
+            Reserved3: UCHAR,
         }
         struct FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE {
             Header: FEATURE_HEADER,
-            DataTypeSupported: [u8; 2],
-            _bitfield: u8 {
-                BufferUnderrunFree: 1,
-                AddressModeReservation: 1,
-                TrackRessourceInformation: 1,
-                Reserved01: 5,
-            },
-            NumberOfLinkSizes: u8,
-            LinkSize: [u8; 0],
+            DataTypeSupported: [UCHAR; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("AddressModeReservation", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("BufferUnderrunFree", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved01", 3, 5, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("TrackRessourceInformation", 2, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            NumberOfLinkSizes: UCHAR,
+            LinkSize: [UCHAR; 0],
         }
         struct FEATURE_DATA_LAYER_JUMP_RECORDING {
             Header: FEATURE_HEADER,
-            Reserved0: [u8; 3],
-            NumberOfLinkSizes: u8,
-            LinkSizes: [u8; 0],
+            Reserved0: [UCHAR; 3],
+            NumberOfLinkSizes: UCHAR,
+            LinkSizes: [UCHAR; 0],
         }
         struct FEATURE_DATA_LOGICAL_UNIT_SERIAL_NUMBER {
             Header: FEATURE_HEADER,
-            SerialNumber: [u8; 0],
+            SerialNumber: [UCHAR; 0],
         }
         struct FEATURE_DATA_MICROCODE_UPDATE {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                M5: 1,
-                Reserved1: 7,
-            },
-            Reserved2: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("M5", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
         }
         struct FEATURE_DATA_MORPHING {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                Asynchronous: 1,
-                OCEvent: 1,
-                Reserved01: 6,
-            },
-            Reserved2: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("Asynchronous", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("OCEvent", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved01", 2, 6, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
         }
         struct FEATURE_DATA_MRW {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                Write: 1,
-                DvdPlusRead: 1,
-                DvdPlusWrite: 1,
-                Reserved01: 5,
-            },
-            Reserved2: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("DvdPlusRead", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("DvdPlusWrite", 2, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved01", 3, 5, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Write", 0, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
         }
         struct FEATURE_DATA_MULTI_READ {
             Header: FEATURE_HEADER,
@@ -405,61 +369,56 @@ mod Windows {
             Profiles: [FEATURE_DATA_PROFILE_LIST_EX; 0],
         }
         struct FEATURE_DATA_PROFILE_LIST_EX {
-            ProfileNumber: [u8; 2],
-            _bitfield: u8 {
-                Current: 1,
-                Reserved1: 7,
-            },
-            Reserved2: u8,
+            ProfileNumber: [UCHAR; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("Current", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: UCHAR,
         }
         struct FEATURE_DATA_RANDOM_READABLE {
             Header: FEATURE_HEADER,
-            LogicalBlockSize: [u8; 4],
-            Blocking: [u8; 2],
-            _bitfield: u8 {
-                ErrorRecoveryPagePresent: 1,
-                Reserved1: 7,
-            },
-            Reserved2: u8,
+            LogicalBlockSize: [UCHAR; 4],
+            Blocking: [UCHAR; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("ErrorRecoveryPagePresent", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: UCHAR,
         }
         struct FEATURE_DATA_RANDOM_WRITABLE {
             Header: FEATURE_HEADER,
-            LastLBA: [u8; 4],
-            LogicalBlockSize: [u8; 4],
-            Blocking: [u8; 2],
-            _bitfield: u8 {
-                ErrorRecoveryPagePresent: 1,
-                Reserved1: 7,
-            },
-            Reserved2: u8,
+            LastLBA: [UCHAR; 4],
+            LogicalBlockSize: [UCHAR; 4],
+            Blocking: [UCHAR; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("ErrorRecoveryPagePresent", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: UCHAR,
         }
         struct FEATURE_DATA_REAL_TIME_STREAMING {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                StreamRecording: 1,
-                WriteSpeedInGetPerf: 1,
-                WriteSpeedInMP2A: 1,
-                SetCDSpeed: 1,
-                ReadBufferCapacityBlock: 1,
-                Reserved1: 3,
-            },
-            Reserved2: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("ReadBufferCapacityBlock", 4, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 5, 3, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("SetCDSpeed", 3, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("StreamRecording", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("WriteSpeedInGetPerf", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("WriteSpeedInMP2A", 2, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
         }
         struct FEATURE_DATA_REMOVABLE_MEDIUM {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                Lockable: 1,
-                DBML: 1,
-                DefaultToPrevent: 1,
-                Eject: 1,
-                Load: 1,
-                LoadingMechanism: 3,
-            },
-            Reserved3: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("DBML", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("DefaultToPrevent", 2, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Eject", 3, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Load", 4, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("LoadingMechanism", 5, 3, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Lockable", 0, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved3: [UCHAR; 3],
         }
         struct FEATURE_DATA_RESERVED {
             Header: FEATURE_HEADER,
-            Data: [u8; 0],
+            Data: [UCHAR; 0],
         }
         struct FEATURE_DATA_RESTRICTED_OVERWRITE {
             Header: FEATURE_HEADER,
@@ -469,72 +428,65 @@ mod Windows {
         }
         struct FEATURE_DATA_SMART {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                FaultFailureReportingPagePresent: 1,
-                Reserved1: 7,
-            },
-            Reserved02: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("FaultFailureReportingPagePresent", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved02: [UCHAR; 3],
         }
         struct FEATURE_DATA_TIMEOUT {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                Group3: 1,
-                Reserved1: 7,
-            },
-            Reserved2: u8,
-            UnitLength: [u8; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("Group3", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: UCHAR,
+            UnitLength: [UCHAR; 2],
         }
         struct FEATURE_DATA_VENDOR_SPECIFIC {
             Header: FEATURE_HEADER,
-            VendorSpecificData: [u8; 0],
+            VendorSpecificData: [UCHAR; 0],
         }
         struct FEATURE_DATA_WRITE_ONCE {
             Header: FEATURE_HEADER,
-            LogicalBlockSize: [u8; 4],
-            Blocking: [u8; 2],
-            _bitfield: u8 {
-                ErrorRecoveryPagePresent: 1,
-                Reserved1: 7,
-            },
-            Reserved2: u8,
+            LogicalBlockSize: [UCHAR; 4],
+            Blocking: [UCHAR; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("ErrorRecoveryPagePresent", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: UCHAR,
         }
         struct FEATURE_DATA_WRITE_PROTECT {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                SupportsSWPPBit: 1,
-                SupportsPersistentWriteProtect: 1,
-                WriteInhibitDCB: 1,
-                DiscWriteProtectPAC: 1,
-                Reserved01: 4,
-            },
-            Reserved2: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("DiscWriteProtectPAC", 3, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved01", 4, 4, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("SupportsPersistentWriteProtect", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("SupportsSWPPBit", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("WriteInhibitDCB", 2, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
         }
         struct FEATURE_ENHANCED_DEFECT_REPORTING {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                DRTDMSupported: 1,
-                Reserved0: 7,
-            },
-            NumberOfDBICacheZones: u8,
-            NumberOfEntries: [u8; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("DRTDMSupported", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 1, 7, MemberType = UCHAR)]
+            _bitfield: u8,
+            NumberOfDBICacheZones: UCHAR,
+            NumberOfEntries: [UCHAR; 2],
         }
         struct FEATURE_HEADER {
-            FeatureCode: [u8; 2],
-            _bitfield: u8 {
-                Current: 1,
-                Persistent: 1,
-                Version: 4,
-                Reserved0: 2,
-            },
-            AdditionalLength: u8,
+            FeatureCode: [UCHAR; 2],
+            #[Windows::Win32::Metadata::NativeBitfield("Current", 0, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Persistent", 1, 1, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 6, 2, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("Version", 2, 4, MemberType = UCHAR)]
+            _bitfield: u8,
+            AdditionalLength: UCHAR,
         }
         struct FEATURE_HYBRID_DISC {
             Header: FEATURE_HEADER,
-            _bitfield: u8 {
-                ResetImmunity: 1,
-                Reserved1: 7,
-            },
-            Reserved2: [u8; 3],
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 1, 7, MemberType = UCHAR)]
+            #[Windows::Win32::Metadata::NativeBitfield("ResetImmunity", 0, 1, MemberType = UCHAR)]
+            _bitfield: u8,
+            Reserved2: [UCHAR; 3],
         }
         struct FEATURE_MEDIA_SERIAL_NUMBER {
             Header: FEATURE_HEADER,
@@ -638,24 +590,18 @@ mod Windows {
         }
         struct FEATURE_VCPS {
             Header: FEATURE_HEADER,
-            Reserved: [u8; 4],
+            Reserved: [UCHAR; 4],
         }
         struct GET_CONFIGURATION_HEADER {
-            DataLength: [u8; 4],
-            Reserved: [u8; 2],
-            CurrentProfile: [u8; 2],
-            Data: [u8; 0],
+            DataLength: [UCHAR; 4],
+            Reserved: [UCHAR; 2],
+            CurrentProfile: [UCHAR; 2],
+            Data: [UCHAR; 0],
         }
         struct GET_CONFIGURATION_IOCTL_INPUT {
             Feature: FEATURE_NUMBER,
-            RequestType: u32,
-            Reserved: [*mut void; 2],
-        }
-        #[arch(X64 | Arm64)]
-        struct GET_CONFIGURATION_IOCTL_INPUT32 {
-            Feature: FEATURE_NUMBER,
-            RequestType: u32,
-            Reserved: [*mut void; 2],
+            RequestType: ULONG,
+            Reserved: [PVOID; 2],
         }
         type PBD_CLASS_SUPPORT_BITMAP = *mut BD_CLASS_SUPPORT_BITMAP;
         type PFEATURE_BD_READ = *mut FEATURE_BD_READ;
@@ -721,8 +667,6 @@ mod Windows {
         type PFEATURE_VCPS = *mut FEATURE_VCPS;
         type PGET_CONFIGURATION_HEADER = *mut GET_CONFIGURATION_HEADER;
         type PGET_CONFIGURATION_IOCTL_INPUT = *mut GET_CONFIGURATION_IOCTL_INPUT;
-        #[arch(X64 | Arm64)]
-        type PGET_CONFIGURATION_IOCTL_INPUT32 = *mut GET_CONFIGURATION_IOCTL_INPUT32;
         const SCSI_GET_CONFIGURATION_REQUEST_TYPE_ALL: i32 = 0;
         const SCSI_GET_CONFIGURATION_REQUEST_TYPE_CURRENT: i32 = 1;
         const SCSI_GET_CONFIGURATION_REQUEST_TYPE_ONE: i32 = 2;

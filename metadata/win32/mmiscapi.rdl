@@ -3,24 +3,24 @@ mod Windows {
     mod Win32 {
         const CFSEPCHAR: i8 = 43;
         #[library("WINMM.dll")]
-        extern fn CloseDriver(hDriver: HDRVR, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
-        extern fn DRIVERMSGPROC(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32;
-        extern fn DRIVERPROC(param0: usize, param1: HDRVR, param2: u32, param3: LPARAM, param4: LPARAM) -> LRESULT;
+        extern fn CloseDriver(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDriver: HDRVR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam1: LPARAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam2: LPARAM) -> LRESULT;
+        extern fn DRIVERMSGPROC(param0: DWORD, param1: DWORD, param2: DWORD_PTR, param3: DWORD_PTR, param4: DWORD_PTR) -> DWORD;
+        extern fn DRIVERPROC(param0: DWORD_PTR, param1: HDRVR, param2: UINT, param3: LPARAM, param4: LPARAM) -> LRESULT;
         const DRVCNF_CANCEL: i32 = 0;
         const DRVCNF_OK: i32 = 1;
         const DRVCNF_RESTART: i32 = 2;
         #[packed(1)]
         struct DRVCONFIGINFO {
-            dwDCISize: u32,
-            lpszDCISectionName: PCWSTR,
-            lpszDCIAliasName: PCWSTR,
+            dwDCISize: DWORD,
+            lpszDCISectionName: LPCWSTR,
+            lpszDCIAliasName: LPCWSTR,
         }
         #[packed(1)]
         struct DRVCONFIGINFOEX {
-            dwDCISize: u32,
-            lpszDCISectionName: PCWSTR,
-            lpszDCIAliasName: PCWSTR,
-            dnDevNode: u32,
+            dwDCISize: DWORD,
+            lpszDCISectionName: LPCWSTR,
+            lpszDCIAliasName: LPCWSTR,
+            dnDevNode: DWORD,
         }
         const DRV_CANCEL: i32 = 0;
         const DRV_CLOSE: i32 = 4;
@@ -42,18 +42,18 @@ mod Windows {
         const DRV_RESTART: i32 = 2;
         const DRV_USER: i32 = 16384;
         #[library("WINMM.dll")]
-        extern fn DefDriverProc(dwDriverIdentifier: usize, hdrvr: HDRVR, uMsg: u32, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
+        extern fn DefDriverProc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDriverIdentifier: DWORD_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdrvr: HDRVR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam1: LPARAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam2: LPARAM) -> LRESULT;
         #[library("WINMM.dll")]
-        extern fn DriverCallback(dwCallback: usize, dwFlags: u32, hDevice: HDRVR, dwMsg: u32, dwUser: usize, dwParam1: usize, dwParam2: usize) -> BOOL;
+        extern fn DriverCallback(dwCallback: DWORD_PTR, dwFlags: DWORD, hDevice: HDRVR, dwMsg: DWORD, dwUser: DWORD_PTR, dwParam1: DWORD_PTR, dwParam2: DWORD_PTR) -> BOOL;
         #[library("WINMM.dll")]
-        extern fn DrvGetModuleHandle(hDriver: HDRVR) -> HMODULE;
+        extern fn DrvGetModuleHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDriver: HDRVR) -> HMODULE;
         type FOURCC = u32;
-        const FOURCC_DOS: u32 = 542330692;
-        const FOURCC_LIST: u32 = 1414744396;
-        const FOURCC_MEM: u32 = 541934925;
-        const FOURCC_RIFF: u32 = 1179011410;
+        const FOURCC_DOS: DWORD = 542330692;
+        const FOURCC_LIST: DWORD = 1414744396;
+        const FOURCC_MEM: DWORD = 541934925;
+        const FOURCC_RIFF: DWORD = 1179011410;
         #[library("WINMM.dll")]
-        extern fn GetDriverModuleHandle(hDriver: HDRVR) -> HMODULE;
+        extern fn GetDriverModuleHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDriver: HDRVR) -> HMODULE;
         type HMMIO = *mut HMMIO__;
         #[packed(1)]
         struct HMMIO__ {
@@ -66,14 +66,14 @@ mod Windows {
         type LPDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
         type LPMMCKINFO = *mut MMCKINFO;
         type LPMMIOINFO = *mut MMIOINFO;
-        extern fn LPMMIOPROC(lpmmioinfo: PSTR, uMsg: u32, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
+        extern fn LPMMIOPROC(lpmmioinfo: LPSTR, uMsg: UINT, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
         #[packed(1)]
         struct MMCKINFO {
             ckid: FOURCC,
-            cksize: u32,
+            cksize: DWORD,
             fccType: FOURCC,
-            dwDataOffset: u32,
-            dwFlags: u32,
+            dwDataOffset: DWORD,
+            dwFlags: DWORD,
         }
         const MMIOERR_ACCESSDENIED: i32 = 268;
         const MMIOERR_BASE: i32 = 256;
@@ -94,21 +94,21 @@ mod Windows {
         const MMIOERR_UNBUFFERED: i32 = 266;
         #[packed(1)]
         struct MMIOINFO {
-            dwFlags: u32,
+            dwFlags: DWORD,
             fccIOProc: FOURCC,
             pIOProc: LPMMIOPROC,
-            wErrorRet: u32,
+            wErrorRet: UINT,
             htask: HTASK,
-            cchBuffer: i32,
+            cchBuffer: LONG,
             pchBuffer: HPSTR,
             pchNext: HPSTR,
             pchEndRead: HPSTR,
             pchEndWrite: HPSTR,
-            lBufOffset: i32,
-            lDiskOffset: i32,
-            adwInfo: [u32; 3],
-            dwReserved1: u32,
-            dwReserved2: u32,
+            lBufOffset: LONG,
+            lDiskOffset: LONG,
+            adwInfo: [DWORD; 3],
+            dwReserved1: DWORD,
+            dwReserved2: DWORD,
             hmmio: HMMIO,
         }
         const MMIOM_CLOSE: i32 = 4;
@@ -119,7 +119,7 @@ mod Windows {
         const MMIOM_USER: i32 = 32768;
         const MMIOM_WRITE: i32 = 1;
         const MMIOM_WRITEFLUSH: i32 = 5;
-        extern fn MMIOPROC(lpmmioinfo: PSTR, uMsg: u32, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
+        extern fn MMIOPROC(lpmmioinfo: LPSTR, uMsg: UINT, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
         const MMIO_ALLOCBUF: i32 = 65536;
         const MMIO_COMPAT: i32 = 0;
         const MMIO_CREATE: i32 = 4096;
@@ -156,7 +156,7 @@ mod Windows {
         type NPMMCKINFO = *mut MMCKINFO;
         type NPMMIOINFO = *mut MMIOINFO;
         #[library("WINMM.dll")]
-        extern fn OpenDriver(szDriverName: PCWSTR, szSectionName: PCWSTR, lParam2: LPARAM) -> HDRVR;
+        extern fn OpenDriver(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szDriverName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSectionName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam2: LPARAM) -> HDRVR;
         type PDRVCONFIGINFO = *mut DRVCONFIGINFO;
         type PDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
         type PMMCKINFO = *mut MMCKINFO;
@@ -165,52 +165,60 @@ mod Windows {
         const SEEK_END: i32 = 2;
         const SEEK_SET: i32 = 0;
         #[library("WINMM.dll")]
-        extern fn SendDriverMessage(hDriver: HDRVR, message: u32, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
+        extern fn SendDriverMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDriver: HDRVR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] message: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam1: LPARAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam2: LPARAM) -> LRESULT;
         #[library("WINMM.dll")]
-        extern fn mmDrvInstall(hDriver: HDRVR, wszDrvEntry: PCWSTR, drvMessage: DRIVERMSGPROC, wFlags: u32) -> u32;
+        extern fn mmDrvInstall(hDriver: HDRVR, wszDrvEntry: LPCWSTR, drvMessage: DRIVERMSGPROC, wFlags: UINT) -> UINT;
         #[library("WINMM.dll")]
-        extern fn mmioAdvance(hmmio: HMMIO, #[opt] pmmioinfo: LPMMIOINFO, fuAdvance: u32) -> MMRESULT;
+        extern fn mmioAdvance(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmmioinfo: LPMMIOINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuAdvance: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mmioAscend(hmmio: HMMIO, pmmcki: LPMMCKINFO, fuAscend: u32) -> MMRESULT;
+        extern fn mmioAscend(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmmcki: LPMMCKINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuAscend: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mmioClose(hmmio: HMMIO, fuClose: u32) -> MMRESULT;
+        extern fn mmioClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuClose: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mmioCreateChunk(hmmio: HMMIO, pmmcki: LPMMCKINFO, fuCreate: u32) -> MMRESULT;
+        extern fn mmioCreateChunk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmmcki: LPMMCKINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuCreate: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mmioDescend(hmmio: HMMIO, #[in] #[out] pmmcki: LPMMCKINFO, #[opt] pmmckiParent: *const MMCKINFO, fuDescend: u32) -> MMRESULT;
+        extern fn mmioDescend(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[in] #[out] pmmcki: LPMMCKINFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmmckiParent: *const MMCKINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuDescend: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mmioFlush(hmmio: HMMIO, fuFlush: u32) -> MMRESULT;
+        extern fn mmioFlush(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuFlush: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mmioGetInfo(hmmio: HMMIO, #[out] pmmioinfo: LPMMIOINFO, fuInfo: u32) -> MMRESULT;
+        extern fn mmioGetInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[out] pmmioinfo: LPMMIOINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuInfo: UINT) -> MMRESULT;
+        #[library("WINMM.dll", import = "mmioInstallIOProcA")]
+        extern fn mmioInstallIOProc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fccIOProc: FOURCC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIOProc: LPMMIOPROC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LPMMIOPROC;
         #[library("WINMM.dll")]
-        extern fn mmioInstallIOProcA(fccIOProc: FOURCC, #[opt] pIOProc: LPMMIOPROC, dwFlags: u32) -> LPMMIOPROC;
+        extern fn mmioInstallIOProcA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fccIOProc: FOURCC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIOProc: LPMMIOPROC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LPMMIOPROC;
         #[library("WINMM.dll")]
-        extern fn mmioInstallIOProcW(fccIOProc: FOURCC, #[opt] pIOProc: LPMMIOPROC, dwFlags: u32) -> LPMMIOPROC;
+        extern fn mmioInstallIOProcW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fccIOProc: FOURCC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIOProc: LPMMIOPROC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LPMMIOPROC;
+        #[library("WINMM.dll", import = "mmioOpenA")]
+        extern fn mmioOpen(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_opt_", "128", "128")] #[in] #[out] #[opt] pszFileName: LPSTR, #[in] #[out] #[opt] pmmioinfo: LPMMIOINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwOpen: DWORD) -> HMMIO;
         #[library("WINMM.dll")]
-        extern fn mmioOpenA(#[len_const(128)] #[in] #[out] #[opt] pszFileName: PSTR, #[in] #[out] #[opt] pmmioinfo: LPMMIOINFO, fdwOpen: u32) -> HMMIO;
+        extern fn mmioOpenA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_opt_", "128", "128")] #[in] #[out] #[opt] pszFileName: LPSTR, #[in] #[out] #[opt] pmmioinfo: LPMMIOINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwOpen: DWORD) -> HMMIO;
         #[library("WINMM.dll")]
-        extern fn mmioOpenW(#[len_const(64)] #[in] #[out] #[opt] pszFileName: PWSTR, #[in] #[out] #[opt] pmmioinfo: LPMMIOINFO, fdwOpen: u32) -> HMMIO;
+        extern fn mmioOpenW(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_opt_", "128", "128")] #[in] #[out] #[opt] pszFileName: LPWSTR, #[in] #[out] #[opt] pmmioinfo: LPMMIOINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwOpen: DWORD) -> HMMIO;
         #[library("WINMM.dll")]
-        extern fn mmioRead(hmmio: HMMIO, #[size_param(2)] #[out] pch: HPSTR, cch: i32) -> i32;
+        extern fn mmioRead(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[out] #[size_param(2)] pch: HPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cch: LONG) -> LONG;
+        #[library("WINMM.dll", import = "mmioRenameA")]
+        extern fn mmioRename(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFileName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszNewFileName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmmioinfo: LPCMMIOINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwRename: DWORD) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mmioRenameA(pszFileName: PCSTR, pszNewFileName: PCSTR, #[opt] pmmioinfo: LPCMMIOINFO, fdwRename: u32) -> MMRESULT;
+        extern fn mmioRenameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFileName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszNewFileName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmmioinfo: LPCMMIOINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwRename: DWORD) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mmioRenameW(pszFileName: PCWSTR, pszNewFileName: PCWSTR, #[opt] pmmioinfo: LPCMMIOINFO, fdwRename: u32) -> MMRESULT;
+        extern fn mmioRenameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszNewFileName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmmioinfo: LPCMMIOINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwRename: DWORD) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mmioSeek(hmmio: HMMIO, lOffset: i32, iOrigin: i32) -> i32;
+        extern fn mmioSeek(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lOffset: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iOrigin: i32) -> LONG;
         #[library("WINMM.dll")]
-        extern fn mmioSendMessage(hmmio: HMMIO, uMsg: u32, #[opt] lParam1: LPARAM, #[opt] lParam2: LPARAM) -> LRESULT;
+        extern fn mmioSendMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam1: LPARAM, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam2: LPARAM) -> LRESULT;
         #[library("WINMM.dll")]
-        extern fn mmioSetBuffer(hmmio: HMMIO, #[len_param(2)] #[out] #[opt] pchBuffer: PSTR, cchBuffer: i32, fuBuffer: u32) -> MMRESULT;
+        extern fn mmioSetBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[out] #[opt] #[len_param(2)] pchBuffer: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchBuffer: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuBuffer: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: LPCMMIOINFO, fuInfo: u32) -> MMRESULT;
+        extern fn mmioSetInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmmioinfo: LPCMMIOINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuInfo: UINT) -> MMRESULT;
+        #[library("WINMM.dll", import = "mmioStringToFOURCCA")]
+        extern fn mmioStringToFOURCC(sz: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: UINT) -> FOURCC;
         #[library("WINMM.dll")]
-        extern fn mmioStringToFOURCCA(sz: PCSTR, uFlags: u32) -> FOURCC;
+        extern fn mmioStringToFOURCCA(sz: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: UINT) -> FOURCC;
         #[library("WINMM.dll")]
-        extern fn mmioStringToFOURCCW(sz: PCWSTR, uFlags: u32) -> FOURCC;
+        extern fn mmioStringToFOURCCW(sz: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: UINT) -> FOURCC;
         #[library("WINMM.dll")]
-        extern fn mmioWrite(hmmio: HMMIO, #[size_param(2)] pch: *const i8, cch: i32) -> i32;
+        extern fn mmioWrite(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmmio: HMMIO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pch: *const i8, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cch: LONG) -> LONG;
         #[library("api-ms-win-mm-misc-l1-1-1.dll")]
-        extern fn sndOpenSound(EventName: PCWSTR, AppName: PCWSTR, Flags: i32, FileHandle: PHANDLE) -> i32;
+        extern fn sndOpenSound(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AppName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: INT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] FileHandle: PHANDLE) -> LONG;
     }
 }

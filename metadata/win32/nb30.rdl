@@ -2,38 +2,38 @@
 mod Windows {
     mod Win32 {
         struct ACTION_HEADER {
-            transport_id: u32,
-            action_code: u16,
-            reserved: u16,
+            transport_id: ULONG,
+            action_code: USHORT,
+            reserved: USHORT,
         }
         struct ADAPTER_STATUS {
-            adapter_address: [u8; 6],
-            rev_major: u8,
-            reserved0: u8,
-            adapter_type: u8,
-            rev_minor: u8,
-            duration: u16,
-            frmr_recv: u16,
-            frmr_xmit: u16,
-            iframe_recv_err: u16,
-            xmit_aborts: u16,
-            xmit_success: u32,
-            recv_success: u32,
-            iframe_xmit_err: u16,
-            recv_buff_unavail: u16,
-            t1_timeouts: u16,
-            ti_timeouts: u16,
-            reserved1: u32,
-            free_ncbs: u16,
-            max_cfg_ncbs: u16,
-            max_ncbs: u16,
-            xmit_buf_unavail: u16,
-            max_dgram_size: u16,
-            pending_sess: u16,
-            max_cfg_sess: u16,
-            max_sess: u16,
-            max_sess_pkt_size: u16,
-            name_count: u16,
+            adapter_address: [UCHAR; 6],
+            rev_major: UCHAR,
+            reserved0: UCHAR,
+            adapter_type: UCHAR,
+            rev_minor: UCHAR,
+            duration: WORD,
+            frmr_recv: WORD,
+            frmr_xmit: WORD,
+            iframe_recv_err: WORD,
+            xmit_aborts: WORD,
+            xmit_success: DWORD,
+            recv_success: DWORD,
+            iframe_xmit_err: WORD,
+            recv_buff_unavail: WORD,
+            t1_timeouts: WORD,
+            ti_timeouts: WORD,
+            reserved1: DWORD,
+            free_ncbs: WORD,
+            max_cfg_ncbs: WORD,
+            max_ncbs: WORD,
+            xmit_buf_unavail: WORD,
+            max_dgram_size: WORD,
+            pending_sess: WORD,
+            max_cfg_sess: WORD,
+            max_sess: WORD,
+            max_sess_pkt_size: WORD,
+            name_count: WORD,
         }
         #[encoding("ansi")]
         const ALL_TRANSPORTS: String = "M\0\0\0";
@@ -43,69 +43,69 @@ mod Windows {
         const DUPLICATE: i32 = 6;
         const DUPLICATE_DEREG: i32 = 7;
         struct FIND_NAME_BUFFER {
-            length: u8,
-            access_control: u8,
-            frame_control: u8,
-            destination_addr: [u8; 6],
-            source_addr: [u8; 6],
-            routing_info: [u8; 18],
+            length: UCHAR,
+            access_control: UCHAR,
+            frame_control: UCHAR,
+            destination_addr: [UCHAR; 6],
+            source_addr: [UCHAR; 6],
+            routing_info: [UCHAR; 18],
         }
         struct FIND_NAME_HEADER {
-            node_count: u16,
-            reserved: u8,
-            unique_group: u8,
+            node_count: WORD,
+            reserved: UCHAR,
+            unique_group: UCHAR,
         }
         const GROUP_NAME: i32 = 128;
         const HANGUP_COMPLETE: i32 = 5;
         const HANGUP_PENDING: i32 = 4;
         struct LANA_ENUM {
-            length: u8,
-            lana: [u8; 255],
+            length: UCHAR,
+            lana: [UCHAR; 255],
         }
         const LISTEN_OUTSTANDING: i32 = 1;
         const MAX_LANA: i32 = 254;
         #[encoding("ansi")]
         const MS_NBF: String = "MNBF";
         struct NAME_BUFFER {
-            name: [u8; 16],
-            name_num: u8,
-            name_flags: u8,
+            name: [UCHAR; 16],
+            name_num: UCHAR,
+            name_flags: UCHAR,
         }
         const NAME_FLAGS_MASK: i32 = 135;
         #[arch(X64 | Arm64)]
         struct NCB {
-            ncb_command: u8,
-            ncb_retcode: u8,
-            ncb_lsn: u8,
-            ncb_num: u8,
+            ncb_command: UCHAR,
+            ncb_retcode: UCHAR,
+            ncb_lsn: UCHAR,
+            ncb_num: UCHAR,
             ncb_buffer: PUCHAR,
-            ncb_length: u16,
-            ncb_callname: [u8; 16],
-            ncb_name: [u8; 16],
-            ncb_rto: u8,
-            ncb_sto: u8,
-            ncb_post: *mut u8,
-            ncb_lana_num: u8,
-            ncb_cmd_cplt: u8,
-            ncb_reserve: [u8; 18],
+            ncb_length: WORD,
+            ncb_callname: [UCHAR; 16],
+            ncb_name: [UCHAR; 16],
+            ncb_rto: UCHAR,
+            ncb_sto: UCHAR,
+            ncb_post: extern fn(*mut NCB),
+            ncb_lana_num: UCHAR,
+            ncb_cmd_cplt: UCHAR,
+            ncb_reserve: [UCHAR; 18],
             ncb_event: HANDLE,
         }
         #[arch(X86)]
         struct NCB {
-            ncb_command: u8,
-            ncb_retcode: u8,
-            ncb_lsn: u8,
-            ncb_num: u8,
+            ncb_command: UCHAR,
+            ncb_retcode: UCHAR,
+            ncb_lsn: UCHAR,
+            ncb_num: UCHAR,
             ncb_buffer: PUCHAR,
-            ncb_length: u16,
-            ncb_callname: [u8; 16],
-            ncb_name: [u8; 16],
-            ncb_rto: u8,
-            ncb_sto: u8,
-            ncb_post: *mut u8,
-            ncb_lana_num: u8,
-            ncb_cmd_cplt: u8,
-            ncb_reserve: [u8; 10],
+            ncb_length: WORD,
+            ncb_callname: [UCHAR; 16],
+            ncb_name: [UCHAR; 16],
+            ncb_rto: UCHAR,
+            ncb_sto: UCHAR,
+            ncb_post: extern fn(*mut NCB),
+            ncb_lana_num: UCHAR,
+            ncb_cmd_cplt: UCHAR,
+            ncb_reserve: [UCHAR; 10],
             ncb_event: HANDLE,
         }
         const NCBACTION: i32 = 119;
@@ -175,7 +175,7 @@ mod Windows {
         const NRC_SYSTEM: i32 = 64;
         const NRC_TOOMANY: i32 = 34;
         #[library("NETAPI32.dll")]
-        extern fn Netbios(pncb: PNCB) -> u8;
+        extern fn Netbios(pncb: PNCB) -> UCHAR;
         type PACTION_HEADER = *mut ACTION_HEADER;
         type PADAPTER_STATUS = *mut ADAPTER_STATUS;
         type PFIND_NAME_BUFFER = *mut FIND_NAME_BUFFER;
@@ -189,19 +189,19 @@ mod Windows {
         const REGISTERING: i32 = 0;
         const SESSION_ABORTED: i32 = 6;
         struct SESSION_BUFFER {
-            lsn: u8,
-            state: u8,
-            local_name: [u8; 16],
-            remote_name: [u8; 16],
-            rcvs_outstanding: u8,
-            sends_outstanding: u8,
+            lsn: UCHAR,
+            state: UCHAR,
+            local_name: [UCHAR; 16],
+            remote_name: [UCHAR; 16],
+            rcvs_outstanding: UCHAR,
+            sends_outstanding: UCHAR,
         }
         const SESSION_ESTABLISHED: i32 = 3;
         struct SESSION_HEADER {
-            sess_name: u8,
-            num_sess: u8,
-            rcv_dg_outstanding: u8,
-            rcv_any_outstanding: u8,
+            sess_name: UCHAR,
+            num_sess: UCHAR,
+            rcv_dg_outstanding: UCHAR,
+            rcv_any_outstanding: UCHAR,
         }
         const UNIQUE_NAME: i32 = 0;
     }

@@ -1,0 +1,9 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const __drv_typeBitset: i32 = 2;
+        const __drv_typeCond: i32 = 1;
+        const __drv_typeConst: i32 = 0;
+        const __drv_typeExpr: i32 = 3;
+    }
+}

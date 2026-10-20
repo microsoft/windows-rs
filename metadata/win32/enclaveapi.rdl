@@ -1,23 +1,36 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        extern fn CallEnclave(lpRoutine: LPENCLAVE_ROUTINE, #[in] lpParameter: *mut void, fWaitForThread: BOOL, lpReturnValue: *mut *mut void) -> BOOL;
+        extern fn CallEnclave(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpRoutine: LPENCLAVE_ROUTINE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpParameter: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fWaitForThread: BOOL, #[out] lpReturnValue: *mut LPVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwSize", "dwSize")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn CreateEnclave(hProcess: HANDLE, #[in] #[opt] lpAddress: *mut void, dwSize: usize, dwInitialCommitment: usize, flEnclaveType: u32, #[size_param(6)] lpEnclaveInformation: LPCVOID, dwInfoLength: u32, #[out] #[opt] lpEnclaveError: LPDWORD) -> *mut void;
+        extern fn CreateEnclave(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInitialCommitment: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flEnclaveType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(6)] lpEnclaveInformation: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInfoLength: DWORD, #[out] #[opt] lpEnclaveError: LPDWORD) -> LPVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        extern fn DeleteEnclave(#[in] lpAddress: *mut void) -> BOOL;
+        extern fn DeleteEnclave(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn InitializeEnclave(hProcess: HANDLE, #[in] lpAddress: *mut void, #[size_param(3)] lpEnclaveInformation: LPCVOID, dwInfoLength: u32, #[out] #[opt] lpEnclaveError: LPDWORD) -> BOOL;
+        extern fn InitializeEnclave(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] lpEnclaveInformation: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInfoLength: DWORD, #[out] #[opt] lpEnclaveError: LPDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn IsEnclaveTypeSupported(flEnclaveType: u32) -> BOOL;
+        extern fn IsEnclaveTypeSupported(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flEnclaveType: DWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn LoadEnclaveData(hProcess: HANDLE, #[in] lpAddress: *mut void, #[size_param(3)] lpBuffer: LPCVOID, nSize: usize, flProtect: u32, #[size_param(6)] lpPageInformation: LPCVOID, dwInfoLength: u32, #[out] lpNumberOfBytesWritten: PSIZE_T, #[out] #[opt] lpEnclaveError: LPDWORD) -> BOOL;
+        extern fn LoadEnclaveData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] lpBuffer: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flProtect: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(6)] lpPageInformation: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInfoLength: DWORD, #[out] lpNumberOfBytesWritten: PSIZE_T, #[out] #[opt] lpEnclaveError: LPDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        #[library("api-ms-win-core-enclave-l1-1-1.dll", import = "LoadEnclaveImageA")]
+        extern fn LoadEnclaveImage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEnclaveAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpImageName: LPCSTR) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        extern fn LoadEnclaveImageA(#[in] lpEnclaveAddress: *mut void, lpImageName: PCSTR) -> BOOL;
+        extern fn LoadEnclaveImageA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEnclaveAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpImageName: LPCSTR) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        extern fn LoadEnclaveImageW(#[in] lpEnclaveAddress: *mut void, lpImageName: PCWSTR) -> BOOL;
+        extern fn LoadEnclaveImageW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEnclaveAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpImageName: LPCWSTR) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        extern fn TerminateEnclave(#[in] lpAddress: *mut void, fWait: BOOL) -> BOOL;
+        extern fn TerminateEnclave(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fWait: BOOL) -> BOOL;
     }
 }

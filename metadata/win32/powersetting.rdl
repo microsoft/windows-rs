@@ -13,28 +13,30 @@ mod Windows {
             EffectivePowerModeGameMode = 5,
             EffectivePowerModeMixedReality = 6,
         }
-        extern fn EFFECTIVE_POWER_MODE_CALLBACK(Mode: EFFECTIVE_POWER_MODE, #[in] #[opt] Context: *mut void);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "EFFECTIVE_POWER_MODE_CALLBACK", "EFFECTIVE_POWER_MODE_CALLBACK")]
+        extern fn EFFECTIVE_POWER_MODE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Mode: EFFECTIVE_POWER_MODE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Context: *mut void);
         const EFFECTIVE_POWER_MODE_V1: i32 = 1;
         const EFFECTIVE_POWER_MODE_V2: i32 = 2;
         #[library("POWRPROF.dll")]
-        extern fn PowerGetActiveScheme(#[opt] UserRootPowerKey: HKEY, ActivePolicyGuid: *mut *mut GUID) -> u32;
+        extern fn PowerGetActiveScheme(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserRootPowerKey: HKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ActivePolicyGuid: *mut *mut GUID) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerReadACValue(#[opt] RootPowerKey: HKEY, #[opt] SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[out] #[opt] Type: PULONG, #[size_param(6)] #[out] #[opt] Buffer: LPBYTE, #[in] #[out] #[opt] BufferSize: LPDWORD) -> u32;
+        extern fn PowerReadACValue(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RootPowerKey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SchemeGuid: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PowerSettingGuid: *const GUID, #[out] #[opt] Type: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*BufferSize", "*BufferSize")] #[out] #[opt] Buffer: LPBYTE, #[in] #[out] #[opt] BufferSize: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerReadDCValue(#[opt] RootPowerKey: HKEY, #[opt] SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[out] #[opt] Type: PULONG, #[size_param(6)] #[out] #[opt] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> u32;
+        extern fn PowerReadDCValue(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RootPowerKey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SchemeGuid: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PowerSettingGuid: *const GUID, #[out] #[opt] Type: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*BufferSize", "*BufferSize")] #[out] #[opt] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("POWRPROF.dll")]
-        extern fn PowerRegisterForEffectivePowerModeNotifications(Version: u32, Callback: EFFECTIVE_POWER_MODE_CALLBACK, #[in] #[opt] Context: *mut void, RegistrationHandle: *mut *mut void) -> HRESULT;
+        extern fn PowerRegisterForEffectivePowerModeNotifications(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Version: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: EFFECTIVE_POWER_MODE_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Context: PVOID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] RegistrationHandle: *mut PVOID) -> HRESULT;
         #[library("POWRPROF.dll")]
-        extern fn PowerSetActiveScheme(#[opt] UserRootPowerKey: HKEY, #[opt] SchemeGuid: *const GUID) -> u32;
+        extern fn PowerSetActiveScheme(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserRootPowerKey: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SchemeGuid: *const GUID) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerSettingRegisterNotification(SettingGuid: LPCGUID, Flags: u32, Recipient: HANDLE, #[out] RegistrationHandle: PHPOWERNOTIFY) -> u32;
+        extern fn PowerSettingRegisterNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SettingGuid: LPCGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Recipient: HANDLE, #[out] RegistrationHandle: PHPOWERNOTIFY) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerSettingUnregisterNotification(#[in] #[out] RegistrationHandle: HPOWERNOTIFY) -> u32;
+        extern fn PowerSettingUnregisterNotification(#[in] #[out] RegistrationHandle: HPOWERNOTIFY) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerUnregisterFromEffectivePowerModeNotifications(#[in] RegistrationHandle: *mut void) -> HRESULT;
+        extern fn PowerUnregisterFromEffectivePowerModeNotifications(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RegistrationHandle: PVOID) -> HRESULT;
         #[library("POWRPROF.dll")]
-        extern fn PowerWriteACValueIndex(#[opt] RootPowerKey: HKEY, SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, AcValueIndex: u32) -> u32;
+        extern fn PowerWriteACValueIndex(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RootPowerKey: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SchemeGuid: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PowerSettingGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AcValueIndex: DWORD) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerWriteDCValueIndex(#[opt] RootPowerKey: HKEY, SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, DcValueIndex: u32) -> u32;
+        extern fn PowerWriteDCValueIndex(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RootPowerKey: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SchemeGuid: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PowerSettingGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DcValueIndex: DWORD) -> DWORD;
     }
 }

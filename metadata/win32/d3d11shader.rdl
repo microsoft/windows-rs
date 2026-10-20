@@ -3,137 +3,137 @@ mod Windows {
     mod Win32 {
         type D3D11_CBUFFER_TYPE = D3D_CBUFFER_TYPE;
         struct D3D11_FUNCTION_DESC {
-            Version: u32,
-            Creator: PCSTR,
-            Flags: u32,
-            ConstantBuffers: u32,
-            BoundResources: u32,
-            InstructionCount: u32,
-            TempRegisterCount: u32,
-            TempArrayCount: u32,
-            DefCount: u32,
-            DclCount: u32,
-            TextureNormalInstructions: u32,
-            TextureLoadInstructions: u32,
-            TextureCompInstructions: u32,
-            TextureBiasInstructions: u32,
-            TextureGradientInstructions: u32,
-            FloatInstructionCount: u32,
-            IntInstructionCount: u32,
-            UintInstructionCount: u32,
-            StaticFlowControlCount: u32,
-            DynamicFlowControlCount: u32,
-            MacroInstructionCount: u32,
-            ArrayInstructionCount: u32,
-            MovInstructionCount: u32,
-            MovcInstructionCount: u32,
-            ConversionInstructionCount: u32,
-            BitwiseInstructionCount: u32,
+            Version: UINT,
+            Creator: LPCSTR,
+            Flags: UINT,
+            ConstantBuffers: UINT,
+            BoundResources: UINT,
+            InstructionCount: UINT,
+            TempRegisterCount: UINT,
+            TempArrayCount: UINT,
+            DefCount: UINT,
+            DclCount: UINT,
+            TextureNormalInstructions: UINT,
+            TextureLoadInstructions: UINT,
+            TextureCompInstructions: UINT,
+            TextureBiasInstructions: UINT,
+            TextureGradientInstructions: UINT,
+            FloatInstructionCount: UINT,
+            IntInstructionCount: UINT,
+            UintInstructionCount: UINT,
+            StaticFlowControlCount: UINT,
+            DynamicFlowControlCount: UINT,
+            MacroInstructionCount: UINT,
+            ArrayInstructionCount: UINT,
+            MovInstructionCount: UINT,
+            MovcInstructionCount: UINT,
+            ConversionInstructionCount: UINT,
+            BitwiseInstructionCount: UINT,
             MinFeatureLevel: D3D_FEATURE_LEVEL,
-            RequiredFeatureFlags: u64,
-            Name: PCSTR,
-            FunctionParameterCount: i32,
+            RequiredFeatureFlags: UINT64,
+            Name: LPCSTR,
+            FunctionParameterCount: INT,
             HasReturn: BOOL,
             Has10Level9VertexShader: BOOL,
             Has10Level9PixelShader: BOOL,
         }
         struct D3D11_LIBRARY_DESC {
-            Creator: PCSTR,
-            Flags: u32,
-            FunctionCount: u32,
+            Creator: LPCSTR,
+            Flags: UINT,
+            FunctionCount: UINT,
         }
         struct D3D11_PARAMETER_DESC {
-            Name: PCSTR,
-            SemanticName: PCSTR,
+            Name: LPCSTR,
+            SemanticName: LPCSTR,
             Type: D3D_SHADER_VARIABLE_TYPE,
             Class: D3D_SHADER_VARIABLE_CLASS,
-            Rows: u32,
-            Columns: u32,
+            Rows: UINT,
+            Columns: UINT,
             InterpolationMode: D3D_INTERPOLATION_MODE,
             Flags: D3D_PARAMETER_FLAGS,
-            FirstInRegister: u32,
-            FirstInComponent: u32,
-            FirstOutRegister: u32,
-            FirstOutComponent: u32,
+            FirstInRegister: UINT,
+            FirstInComponent: UINT,
+            FirstOutRegister: UINT,
+            FirstOutComponent: UINT,
         }
         type D3D11_RESOURCE_RETURN_TYPE = D3D_RESOURCE_RETURN_TYPE;
         struct D3D11_SHADER_BUFFER_DESC {
-            Name: PCSTR,
+            Name: LPCSTR,
             Type: D3D_CBUFFER_TYPE,
-            Variables: u32,
-            Size: u32,
-            uFlags: u32,
+            Variables: UINT,
+            Size: UINT,
+            uFlags: UINT,
         }
         struct D3D11_SHADER_DESC {
-            Version: u32,
-            Creator: PCSTR,
-            Flags: u32,
-            ConstantBuffers: u32,
-            BoundResources: u32,
-            InputParameters: u32,
-            OutputParameters: u32,
-            InstructionCount: u32,
-            TempRegisterCount: u32,
-            TempArrayCount: u32,
-            DefCount: u32,
-            DclCount: u32,
-            TextureNormalInstructions: u32,
-            TextureLoadInstructions: u32,
-            TextureCompInstructions: u32,
-            TextureBiasInstructions: u32,
-            TextureGradientInstructions: u32,
-            FloatInstructionCount: u32,
-            IntInstructionCount: u32,
-            UintInstructionCount: u32,
-            StaticFlowControlCount: u32,
-            DynamicFlowControlCount: u32,
-            MacroInstructionCount: u32,
-            ArrayInstructionCount: u32,
-            CutInstructionCount: u32,
-            EmitInstructionCount: u32,
+            Version: UINT,
+            Creator: LPCSTR,
+            Flags: UINT,
+            ConstantBuffers: UINT,
+            BoundResources: UINT,
+            InputParameters: UINT,
+            OutputParameters: UINT,
+            InstructionCount: UINT,
+            TempRegisterCount: UINT,
+            TempArrayCount: UINT,
+            DefCount: UINT,
+            DclCount: UINT,
+            TextureNormalInstructions: UINT,
+            TextureLoadInstructions: UINT,
+            TextureCompInstructions: UINT,
+            TextureBiasInstructions: UINT,
+            TextureGradientInstructions: UINT,
+            FloatInstructionCount: UINT,
+            IntInstructionCount: UINT,
+            UintInstructionCount: UINT,
+            StaticFlowControlCount: UINT,
+            DynamicFlowControlCount: UINT,
+            MacroInstructionCount: UINT,
+            ArrayInstructionCount: UINT,
+            CutInstructionCount: UINT,
+            EmitInstructionCount: UINT,
             GSOutputTopology: D3D_PRIMITIVE_TOPOLOGY,
-            GSMaxOutputVertexCount: u32,
+            GSMaxOutputVertexCount: UINT,
             InputPrimitive: D3D_PRIMITIVE,
-            PatchConstantParameters: u32,
-            cGSInstanceCount: u32,
-            cControlPoints: u32,
+            PatchConstantParameters: UINT,
+            cGSInstanceCount: UINT,
+            cControlPoints: UINT,
             HSOutputPrimitive: D3D_TESSELLATOR_OUTPUT_PRIMITIVE,
             HSPartitioning: D3D_TESSELLATOR_PARTITIONING,
             TessellatorDomain: D3D_TESSELLATOR_DOMAIN,
-            cBarrierInstructions: u32,
-            cInterlockedInstructions: u32,
-            cTextureStoreInstructions: u32,
+            cBarrierInstructions: UINT,
+            cInterlockedInstructions: UINT,
+            cTextureStoreInstructions: UINT,
         }
         struct D3D11_SHADER_INPUT_BIND_DESC {
-            Name: PCSTR,
+            Name: LPCSTR,
             Type: D3D_SHADER_INPUT_TYPE,
-            BindPoint: u32,
-            BindCount: u32,
-            uFlags: u32,
+            BindPoint: UINT,
+            BindCount: UINT,
+            uFlags: UINT,
             ReturnType: D3D_RESOURCE_RETURN_TYPE,
             Dimension: D3D_SRV_DIMENSION,
-            NumSamples: u32,
+            NumSamples: UINT,
         }
         struct D3D11_SHADER_TYPE_DESC {
             Class: D3D_SHADER_VARIABLE_CLASS,
             Type: D3D_SHADER_VARIABLE_TYPE,
-            Rows: u32,
-            Columns: u32,
-            Elements: u32,
-            Members: u32,
-            Offset: u32,
-            Name: PCSTR,
+            Rows: UINT,
+            Columns: UINT,
+            Elements: UINT,
+            Members: UINT,
+            Offset: UINT,
+            Name: LPCSTR,
         }
         struct D3D11_SHADER_VARIABLE_DESC {
-            Name: PCSTR,
-            StartOffset: u32,
-            Size: u32,
-            uFlags: u32,
-            DefaultValue: *mut void,
-            StartTexture: u32,
-            TextureSize: u32,
-            StartSampler: u32,
-            SamplerSize: u32,
+            Name: LPCSTR,
+            StartOffset: UINT,
+            Size: UINT,
+            uFlags: UINT,
+            DefaultValue: LPVOID,
+            StartTexture: UINT,
+            TextureSize: UINT,
+            StartSampler: UINT,
+            SamplerSize: UINT,
         }
         #[repr(i32)]
         enum D3D11_SHADER_VERSION_TYPE {
@@ -146,132 +146,274 @@ mod Windows {
             D3D11_SHVER_RESERVED0 = 65520,
         }
         struct D3D11_SIGNATURE_PARAMETER_DESC {
-            SemanticName: PCSTR,
-            SemanticIndex: u32,
-            Register: u32,
+            SemanticName: LPCSTR,
+            SemanticIndex: UINT,
+            Register: UINT,
             SystemValueType: D3D_NAME,
             ComponentType: D3D_REGISTER_COMPONENT_TYPE,
-            Mask: u8,
-            ReadWriteMask: u8,
-            Stream: u32,
+            Mask: BYTE,
+            ReadWriteMask: BYTE,
+            Stream: UINT,
             MinPrecision: D3D_MIN_PRECISION,
         }
         type D3D11_TESSELLATOR_DOMAIN = D3D_TESSELLATOR_DOMAIN;
         type D3D11_TESSELLATOR_OUTPUT_PRIMITIVE = D3D_TESSELLATOR_OUTPUT_PRIMITIVE;
         type D3D11_TESSELLATOR_PARTITIONING = D3D_TESSELLATOR_PARTITIONING;
-        const D3D_RETURN_PARAMETER_INDEX: i32 = -1;
-        const D3D_SHADER_REQUIRES_11_1_DOUBLE_EXTENSIONS: i32 = 32;
-        const D3D_SHADER_REQUIRES_11_1_SHADER_EXTENSIONS: i32 = 64;
-        const D3D_SHADER_REQUIRES_64_UAVS: i32 = 8;
-        const D3D_SHADER_REQUIRES_DOUBLES: i32 = 1;
-        const D3D_SHADER_REQUIRES_EARLY_DEPTH_STENCIL: i32 = 2;
-        const D3D_SHADER_REQUIRES_LEVEL_9_COMPARISON_FILTERING: i32 = 128;
-        const D3D_SHADER_REQUIRES_MINIMUM_PRECISION: i32 = 16;
-        const D3D_SHADER_REQUIRES_TILED_RESOURCES: i32 = 256;
-        const D3D_SHADER_REQUIRES_UAVS_AT_EVERY_STAGE: i32 = 4;
         #[guid(0x54133220_1ce8_43d3_8236_9855c5ceecff)]
         interface ID3D11FunctionLinkingGraph: IUnknown {
-            fn CreateModuleInstance(&self, ppModuleInstance: *mut ID3D11ModuleInstance, ppErrorBuffer: *mut ID3DBlob) -> HRESULT;
-            fn SetInputSignature(&self, pInputParameters: *const D3D11_PARAMETER_DESC, cInputParameters: u32, ppInputNode: *mut ID3D11LinkingNode) -> HRESULT;
-            fn SetOutputSignature(&self, pOutputParameters: *const D3D11_PARAMETER_DESC, cOutputParameters: u32, ppOutputNode: *mut ID3D11LinkingNode) -> HRESULT;
-            fn CallFunction(&self, #[opt] pModuleInstanceNamespace: PCSTR, pModuleWithFunctionPrototype: ID3D11Module, pFunctionName: PCSTR, ppCallNode: *mut ID3D11LinkingNode) -> HRESULT;
-            fn PassValue(&self, pSrcNode: ID3D11LinkingNode, SrcParameterIndex: i32, pDstNode: ID3D11LinkingNode, DstParameterIndex: i32) -> HRESULT;
-            fn PassValueWithSwizzle(&self, pSrcNode: ID3D11LinkingNode, SrcParameterIndex: i32, pSrcSwizzle: PCSTR, pDstNode: ID3D11LinkingNode, DstParameterIndex: i32, pDstSwizzle: PCSTR) -> HRESULT;
-            fn GetLastError(&self, ppErrorBuffer: *mut ID3DBlob) -> HRESULT;
-            fn GenerateHlsl(&self, uFlags: u32, ppBuffer: *mut ID3DBlob) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] ppv: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateModuleInstance(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppModuleInstance: *mut ID3D11ModuleInstance, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetInputSignature(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pInputParameters: *const D3D11_PARAMETER_DESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cInputParameters: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppInputNode: *mut ID3D11LinkingNode) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetOutputSignature(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pOutputParameters: *const D3D11_PARAMETER_DESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cOutputParameters: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppOutputNode: *mut ID3D11LinkingNode) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CallFunction(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pModuleInstanceNamespace: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pModuleWithFunctionPrototype: ID3D11Module, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFunctionName: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppCallNode: *mut ID3D11LinkingNode) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn PassValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcNode: ID3D11LinkingNode, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcParameterIndex: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstNode: ID3D11LinkingNode, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstParameterIndex: INT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn PassValueWithSwizzle(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcNode: ID3D11LinkingNode, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcParameterIndex: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcSwizzle: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstNode: ID3D11LinkingNode, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstParameterIndex: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstSwizzle: LPCSTR) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLastError(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GenerateHlsl(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppBuffer: *mut ID3D10Blob) -> HRESULT;
         }
         #[guid(0x42757488_334f_47fe_982e_1a65d08cc462)]
         interface ID3D11FunctionParameterReflection {
-            fn GetDesc(&self, pDesc: *mut D3D11_PARAMETER_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDesc(&self, #[out] pDesc: *mut D3D11_PARAMETER_DESC) -> HRESULT;
         }
         #[guid(0x207bcecb_d683_4a06_a8a3_9b149b9f73a4)]
         interface ID3D11FunctionReflection {
-            fn GetDesc(&self, pDesc: *mut D3D11_FUNCTION_DESC) -> HRESULT;
-            fn GetConstantBufferByIndex(&self, BufferIndex: u32) -> ID3D11ShaderReflectionConstantBuffer;
-            fn GetConstantBufferByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionConstantBuffer;
-            fn GetResourceBindingDesc(&self, ResourceIndex: u32, pDesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> HRESULT;
-            fn GetVariableByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionVariable;
-            fn GetResourceBindingDescByName(&self, Name: PCSTR, pDesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> HRESULT;
-            fn GetFunctionParameter(&self, ParameterIndex: i32) -> ID3D11FunctionParameterReflection;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDesc(&self, #[out] pDesc: *mut D3D11_FUNCTION_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetConstantBufferByIndex(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferIndex: UINT) -> ID3D11ShaderReflectionConstantBuffer;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetConstantBufferByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: LPCSTR) -> ID3D11ShaderReflectionConstantBuffer;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetResourceBindingDesc(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ResourceIndex: UINT, #[out] pDesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetVariableByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: LPCSTR) -> ID3D11ShaderReflectionVariable;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetResourceBindingDescByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: LPCSTR, #[out] pDesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFunctionParameter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParameterIndex: INT) -> ID3D11FunctionParameterReflection;
         }
         #[guid(0x54384f1b_5b3e_4bb7_ae01_60ba3097cbb6)]
         interface ID3D11LibraryReflection: IUnknown {
-            fn GetDesc(&self, pDesc: *mut D3D11_LIBRARY_DESC) -> HRESULT;
-            fn GetFunctionByIndex(&self, FunctionIndex: i32) -> ID3D11FunctionReflection;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] ppv: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDesc(&self, #[out] pDesc: *mut D3D11_LIBRARY_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFunctionByIndex(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FunctionIndex: INT) -> ID3D11FunctionReflection;
         }
         #[guid(0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e)]
         interface ID3D11Linker: IUnknown {
-            fn Link(&self, pEntry: ID3D11ModuleInstance, pEntryName: PCSTR, pTargetName: PCSTR, uFlags: u32, ppShaderBlob: *mut ID3DBlob, ppErrorBuffer: *mut ID3DBlob) -> HRESULT;
-            fn UseLibrary(&self, pLibraryMI: ID3D11ModuleInstance) -> HRESULT;
-            fn AddClipPlaneFromCBuffer(&self, uCBufferSlot: u32, uCBufferEntry: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] ppv: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Link(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEntry: ID3D11ModuleInstance, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEntryName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppShaderBlob: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn UseLibrary(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLibraryMI: ID3D11ModuleInstance) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddClipPlaneFromCBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uCBufferSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uCBufferEntry: UINT) -> HRESULT;
         }
         #[guid(0xd80dd70c_8d2f_4751_94a1_03c79b3556db)]
-        interface ID3D11LinkingNode: IUnknown {}
+        interface ID3D11LinkingNode: IUnknown {
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] ppv: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+        }
         #[guid(0xcac701ee_80fc_4122_8242_10b39c8cec34)]
         interface ID3D11Module: IUnknown {
-            fn CreateInstance(&self, #[opt] pNamespace: PCSTR, ppModuleInstance: *mut ID3D11ModuleInstance) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] ppv: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateInstance(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pNamespace: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppModuleInstance: *mut ID3D11ModuleInstance) -> HRESULT;
         }
         #[guid(0x469e07f7_045a_48d5_aa12_68a478cdf75d)]
         interface ID3D11ModuleInstance: IUnknown {
-            fn BindConstantBuffer(&self, uSrcSlot: u32, uDstSlot: u32, cbDstOffset: u32) -> HRESULT;
-            fn BindConstantBufferByName(&self, pName: PCSTR, uDstSlot: u32, cbDstOffset: u32) -> HRESULT;
-            fn BindResource(&self, uSrcSlot: u32, uDstSlot: u32, uCount: u32) -> HRESULT;
-            fn BindResourceByName(&self, pName: PCSTR, uDstSlot: u32, uCount: u32) -> HRESULT;
-            fn BindSampler(&self, uSrcSlot: u32, uDstSlot: u32, uCount: u32) -> HRESULT;
-            fn BindSamplerByName(&self, pName: PCSTR, uDstSlot: u32, uCount: u32) -> HRESULT;
-            fn BindUnorderedAccessView(&self, uSrcSlot: u32, uDstSlot: u32, uCount: u32) -> HRESULT;
-            fn BindUnorderedAccessViewByName(&self, pName: PCSTR, uDstSlot: u32, uCount: u32) -> HRESULT;
-            fn BindResourceAsUnorderedAccessView(&self, uSrcSrvSlot: u32, uDstUavSlot: u32, uCount: u32) -> HRESULT;
-            fn BindResourceAsUnorderedAccessViewByName(&self, pSrvName: PCSTR, uDstUavSlot: u32, uCount: u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] ppv: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindConstantBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSrcSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDstSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbDstOffset: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindConstantBufferByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDstSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbDstOffset: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindResource(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSrcSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDstSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uCount: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindResourceByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDstSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uCount: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindSampler(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSrcSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDstSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uCount: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindSamplerByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDstSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uCount: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindUnorderedAccessView(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSrcSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDstSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uCount: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindUnorderedAccessViewByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDstSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uCount: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindResourceAsUnorderedAccessView(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSrcSrvSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDstUavSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uCount: UINT) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BindResourceAsUnorderedAccessViewByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrvName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDstUavSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uCount: UINT) -> HRESULT;
         }
         #[guid(0x8d536ca1_0cca_4956_a837_786963755584)]
         interface ID3D11ShaderReflection: IUnknown {
-            fn GetDesc(&self, pDesc: *mut D3D11_SHADER_DESC) -> HRESULT;
-            fn GetConstantBufferByIndex(&self, Index: u32) -> ID3D11ShaderReflectionConstantBuffer;
-            fn GetConstantBufferByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionConstantBuffer;
-            fn GetResourceBindingDesc(&self, ResourceIndex: u32, pDesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> HRESULT;
-            fn GetInputParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D11_SIGNATURE_PARAMETER_DESC) -> HRESULT;
-            fn GetOutputParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D11_SIGNATURE_PARAMETER_DESC) -> HRESULT;
-            fn GetPatchConstantParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D11_SIGNATURE_PARAMETER_DESC) -> HRESULT;
-            fn GetVariableByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionVariable;
-            fn GetResourceBindingDescByName(&self, Name: PCSTR, pDesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> HRESULT;
-            fn GetMovInstructionCount(&self) -> u32;
-            fn GetMovcInstructionCount(&self) -> u32;
-            fn GetConversionInstructionCount(&self) -> u32;
-            fn GetBitwiseInstructionCount(&self) -> u32;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] ppv: *mut LPVOID) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AddRef(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Release(&self) -> ULONG;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDesc(&self, #[out] pDesc: *mut D3D11_SHADER_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetConstantBufferByIndex(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT) -> ID3D11ShaderReflectionConstantBuffer;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetConstantBufferByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: LPCSTR) -> ID3D11ShaderReflectionConstantBuffer;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetResourceBindingDesc(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ResourceIndex: UINT, #[out] pDesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetInputParameterDesc(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParameterIndex: UINT, #[out] pDesc: *mut D3D11_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetOutputParameterDesc(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParameterIndex: UINT, #[out] pDesc: *mut D3D11_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetPatchConstantParameterDesc(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParameterIndex: UINT, #[out] pDesc: *mut D3D11_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetVariableByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: LPCSTR) -> ID3D11ShaderReflectionVariable;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetResourceBindingDescByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: LPCSTR, #[out] pDesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMovInstructionCount(&self) -> UINT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMovcInstructionCount(&self) -> UINT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetConversionInstructionCount(&self) -> UINT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetBitwiseInstructionCount(&self) -> UINT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetGSInputPrimitive(&self) -> D3D_PRIMITIVE;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn IsSampleFrequencyShader(&self) -> BOOL;
-            fn GetNumInterfaceSlots(&self) -> u32;
-            fn GetMinFeatureLevel(&self, pLevel: *mut D3D_FEATURE_LEVEL) -> HRESULT;
-            fn GetThreadGroupSize(&self, #[opt] pSizeX: *mut u32, #[opt] pSizeY: *mut u32, #[opt] pSizeZ: *mut u32) -> u32;
-            fn GetRequiresFlags(&self) -> u64;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetNumInterfaceSlots(&self) -> UINT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMinFeatureLevel(&self, #[out] pLevel: *mut D3D_FEATURE_LEVEL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetThreadGroupSize(&self, #[out] #[opt] pSizeX: *mut UINT, #[out] #[opt] pSizeY: *mut UINT, #[out] #[opt] pSizeZ: *mut UINT) -> UINT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetRequiresFlags(&self) -> UINT64;
         }
         #[guid(0xeb62d63d_93dd_4318_8ae8_c6f83ad371b8)]
         interface ID3D11ShaderReflectionConstantBuffer {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDesc(&self, pDesc: *mut D3D11_SHADER_BUFFER_DESC) -> HRESULT;
-            fn GetVariableByIndex(&self, Index: u32) -> ID3D11ShaderReflectionVariable;
-            fn GetVariableByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionVariable;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetVariableByIndex(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT) -> ID3D11ShaderReflectionVariable;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetVariableByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: LPCSTR) -> ID3D11ShaderReflectionVariable;
         }
         #[guid(0x6e6ffa6a_9bae_4613_a51e_91652d508c21)]
         interface ID3D11ShaderReflectionType {
-            fn GetDesc(&self, pDesc: *mut D3D11_SHADER_TYPE_DESC) -> HRESULT;
-            fn GetMemberTypeByIndex(&self, Index: u32) -> ID3D11ShaderReflectionType;
-            fn GetMemberTypeByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionType;
-            fn GetMemberTypeName(&self, Index: u32) -> PCSTR;
-            fn IsEqual(&self, pType: ID3D11ShaderReflectionType) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDesc(&self, #[out] pDesc: *mut D3D11_SHADER_TYPE_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMemberTypeByIndex(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT) -> ID3D11ShaderReflectionType;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMemberTypeByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: LPCSTR) -> ID3D11ShaderReflectionType;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMemberTypeName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT) -> LPCSTR;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn IsEqual(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pType: ID3D11ShaderReflectionType) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetSubType(&self) -> ID3D11ShaderReflectionType;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetBaseClass(&self) -> ID3D11ShaderReflectionType;
-            fn GetNumInterfaces(&self) -> u32;
-            fn GetInterfaceByIndex(&self, uIndex: u32) -> ID3D11ShaderReflectionType;
-            fn IsOfType(&self, pType: ID3D11ShaderReflectionType) -> HRESULT;
-            fn ImplementsInterface(&self, pBase: ID3D11ShaderReflectionType) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetNumInterfaces(&self) -> UINT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetInterfaceByIndex(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uIndex: UINT) -> ID3D11ShaderReflectionType;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn IsOfType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pType: ID3D11ShaderReflectionType) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn ImplementsInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBase: ID3D11ShaderReflectionType) -> HRESULT;
         }
         #[guid(0x51f23923_f3e5_4bd1_91cb_606177d8db4c)]
         interface ID3D11ShaderReflectionVariable {
-            fn GetDesc(&self, pDesc: *mut D3D11_SHADER_VARIABLE_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDesc(&self, #[out] pDesc: *mut D3D11_SHADER_VARIABLE_DESC) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetType(&self) -> ID3D11ShaderReflectionType;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetBuffer(&self) -> ID3D11ShaderReflectionConstantBuffer;
-            fn GetInterfaceSlot(&self, uArrayIndex: u32) -> u32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetInterfaceSlot(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uArrayIndex: UINT) -> UINT;
         }
+        const IID_ID3D11FunctionLinkingGraph: GUID = 0x54133220_1ce8_43d3_8236_9855c5ceecff;
+        const IID_ID3D11FunctionParameterReflection: GUID = 0x42757488_334f_47fe_982e_1a65d08cc462;
+        const IID_ID3D11FunctionReflection: GUID = 0x207bcecb_d683_4a06_a8a3_9b149b9f73a4;
+        const IID_ID3D11LibraryReflection: GUID = 0x54384f1b_5b3e_4bb7_ae01_60ba3097cbb6;
+        const IID_ID3D11Linker: GUID = 0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e;
+        const IID_ID3D11LinkingNode: GUID = 0xd80dd70c_8d2f_4751_94a1_03c79b3556db;
+        const IID_ID3D11Module: GUID = 0xcac701ee_80fc_4122_8242_10b39c8cec34;
+        const IID_ID3D11ModuleInstance: GUID = 0x469e07f7_045a_48d5_aa12_68a478cdf75d;
+        const IID_ID3D11ShaderReflection: GUID = 0x8d536ca1_0cca_4956_a837_786963755584;
+        const IID_ID3D11ShaderReflectionConstantBuffer: GUID = 0xeb62d63d_93dd_4318_8ae8_c6f83ad371b8;
+        const IID_ID3D11ShaderReflectionType: GUID = 0x6e6ffa6a_9bae_4613_a51e_91652d508c21;
+        const IID_ID3D11ShaderReflectionVariable: GUID = 0x51f23923_f3e5_4bd1_91cb_606177d8db4c;
+        type LPD3D11FUNCTIONPARAMETERREFLECTION = ID3D11FunctionParameterReflection;
+        type LPD3D11FUNCTIONREFLECTION = ID3D11FunctionReflection;
+        type LPD3D11LIBRARYREFLECTION = ID3D11LibraryReflection;
+        type LPD3D11SHADERREFLECTION = ID3D11ShaderReflection;
+        type LPD3D11SHADERREFLECTIONCONSTANTBUFFER = ID3D11ShaderReflectionConstantBuffer;
+        type LPD3D11SHADERREFLECTIONTYPE = ID3D11ShaderReflectionType;
+        type LPD3D11SHADERREFLECTIONVARIABLE = ID3D11ShaderReflectionVariable;
     }
 }

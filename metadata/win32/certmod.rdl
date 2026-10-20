@@ -5,9 +5,23 @@ mod Windows {
         const CMM_REFRESHONLY: i32 = 1;
         #[guid(0xe7d7ad42_bd3d_11d1_9a4d_00c04fc297eb)]
         interface ICertManageModule: IDispatch {
-            fn GetProperty(&self, strConfig: BSTR, strStorageLocation: BSTR, strPropertyName: BSTR, Flags: i32, #[retval] pvarProperty: *mut VARIANT) -> HRESULT;
-            fn SetProperty(&self, strConfig: BSTR, strStorageLocation: BSTR, strPropertyName: BSTR, Flags: i32, pvarProperty: *const VARIANT) -> HRESULT;
-            fn Configure(&self, strConfig: BSTR, strStorageLocation: BSTR, Flags: i32) -> HRESULT;
+            fn GetProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strConfig: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strStorageLocation: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strPropertyName: BSTR, Flags: LONG, #[out] #[retval] pvarProperty: *mut VARIANT) -> HRESULT;
+            fn SetProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strConfig: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strStorageLocation: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strPropertyName: BSTR, Flags: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pvarProperty: *const VARIANT) -> HRESULT;
+            fn Configure(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strConfig: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strStorageLocation: BSTR, Flags: LONG) -> HRESULT;
         }
+        #[encoding("utf-16")]
+        const wszCMM_PROP_COPYRIGHT: String = "Copyright";
+        #[encoding("utf-16")]
+        const wszCMM_PROP_DESCRIPTION: String = "Description";
+        #[encoding("utf-16")]
+        const wszCMM_PROP_DISPLAY_HWND: String = "HWND";
+        #[encoding("utf-16")]
+        const wszCMM_PROP_FILEVER: String = "File Version";
+        #[encoding("utf-16")]
+        const wszCMM_PROP_ISMULTITHREADED: String = "IsMultiThreaded";
+        #[encoding("utf-16")]
+        const wszCMM_PROP_NAME: String = "Name";
+        #[encoding("utf-16")]
+        const wszCMM_PROP_PRODUCTVER: String = "Product Version";
     }
 }

@@ -3,96 +3,80 @@ mod Windows {
     mod Win32 {
         #[guid(0xdada2357_e0ad_492e_98db_dd61c53ba353)]
         interface IPortableDeviceKeyCollection: IUnknown {
-            fn GetCount(&self, #[in] pcElems: *mut u32) -> HRESULT;
-            fn GetAt(&self, dwIndex: u32, #[in] pKey: *mut PROPERTYKEY) -> HRESULT;
-            fn Add(&self, Key: *const PROPERTYKEY) -> HRESULT;
+            fn GetCount(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pcElems: *mut DWORD) -> HRESULT;
+            fn GetAt(&self, dwIndex: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pKey: *mut PROPERTYKEY) -> HRESULT;
+            fn Add(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Key: &PROPERTYKEY) -> HRESULT;
             fn Clear(&self) -> HRESULT;
-            fn RemoveAt(&self, dwIndex: u32) -> HRESULT;
+            fn RemoveAt(&self, dwIndex: DWORD) -> HRESULT;
         }
         #[guid(0x89b2e422_4f1b_4316_bcef_a44afea83eb3)]
         interface IPortableDevicePropVariantCollection: IUnknown {
-            fn GetCount(&self, #[in] pcElems: *mut u32) -> HRESULT;
-            fn GetAt(&self, dwIndex: u32, #[in] pValue: *mut PROPVARIANT) -> HRESULT;
-            fn Add(&self, pValue: *const PROPVARIANT) -> HRESULT;
-            fn GetType(&self, pvt: *mut VARTYPE) -> HRESULT;
+            fn GetCount(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pcElems: *mut DWORD) -> HRESULT;
+            fn GetAt(&self, dwIndex: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn Add(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValue: *const PROPVARIANT) -> HRESULT;
+            fn GetType(&self, #[out] pvt: *mut VARTYPE) -> HRESULT;
             fn ChangeType(&self, vt: VARTYPE) -> HRESULT;
             fn Clear(&self) -> HRESULT;
-            fn RemoveAt(&self, dwIndex: u32) -> HRESULT;
+            fn RemoveAt(&self, dwIndex: DWORD) -> HRESULT;
         }
         #[guid(0x6848f6f2_3155_4f86_b6f5_263eeeab3143)]
         interface IPortableDeviceValues: IUnknown {
-            fn GetCount(&self, #[in] pcelt: *mut u32) -> HRESULT;
-            fn GetAt(&self, index: u32, #[in] #[out] pKey: *mut PROPERTYKEY, #[in] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
-            fn SetValue(&self, key: *const PROPERTYKEY, pValue: *const PROPVARIANT) -> HRESULT;
-            fn GetValue(&self, key: *const PROPERTYKEY, pValue: *mut PROPVARIANT) -> HRESULT;
-            fn SetStringValue(&self, key: *const PROPERTYKEY, Value: PCWSTR) -> HRESULT;
-            fn GetStringValue(&self, key: *const PROPERTYKEY, pValue: *mut PWSTR) -> HRESULT;
-            fn SetUnsignedIntegerValue(&self, key: *const PROPERTYKEY, Value: u32) -> HRESULT;
-            fn GetUnsignedIntegerValue(&self, key: *const PROPERTYKEY, pValue: *mut u32) -> HRESULT;
-            fn SetSignedIntegerValue(&self, key: *const PROPERTYKEY, Value: i32) -> HRESULT;
-            fn GetSignedIntegerValue(&self, key: *const PROPERTYKEY, pValue: *mut i32) -> HRESULT;
-            fn SetUnsignedLargeIntegerValue(&self, key: *const PROPERTYKEY, Value: u64) -> HRESULT;
-            fn GetUnsignedLargeIntegerValue(&self, key: *const PROPERTYKEY, pValue: *mut u64) -> HRESULT;
-            fn SetSignedLargeIntegerValue(&self, key: *const PROPERTYKEY, Value: i64) -> HRESULT;
-            fn GetSignedLargeIntegerValue(&self, key: *const PROPERTYKEY, pValue: *mut i64) -> HRESULT;
-            fn SetFloatValue(&self, key: *const PROPERTYKEY, Value: f32) -> HRESULT;
-            fn GetFloatValue(&self, key: *const PROPERTYKEY, pValue: *mut f32) -> HRESULT;
-            fn SetErrorValue(&self, key: *const PROPERTYKEY, Value: HRESULT) -> HRESULT;
-            fn GetErrorValue(&self, key: *const PROPERTYKEY, pValue: *mut HRESULT) -> HRESULT;
-            fn SetKeyValue(&self, key: *const PROPERTYKEY, Value: *const PROPERTYKEY) -> HRESULT;
-            fn GetKeyValue(&self, key: *const PROPERTYKEY, pValue: *mut PROPERTYKEY) -> HRESULT;
-            fn SetBoolValue(&self, key: *const PROPERTYKEY, Value: BOOL) -> HRESULT;
-            fn GetBoolValue(&self, key: *const PROPERTYKEY, pValue: *mut BOOL) -> HRESULT;
-            fn SetIUnknownValue(&self, key: *const PROPERTYKEY, pValue: IUnknown) -> HRESULT;
-            fn GetIUnknownValue(&self, key: *const PROPERTYKEY, ppValue: *mut IUnknown) -> HRESULT;
-            fn SetGuidValue(&self, key: *const PROPERTYKEY, Value: *const GUID) -> HRESULT;
-            fn GetGuidValue(&self, key: *const PROPERTYKEY, pValue: *mut GUID) -> HRESULT;
-            fn SetBufferValue(&self, key: *const PROPERTYKEY, #[in] pValue: *mut u8, cbValue: u32) -> HRESULT;
-            fn GetBufferValue(&self, key: *const PROPERTYKEY, ppValue: *mut *mut u8, pcbValue: *mut u32) -> HRESULT;
-            fn SetIPortableDeviceValuesValue(&self, key: *const PROPERTYKEY, pValue: IPortableDeviceValues) -> HRESULT;
-            fn GetIPortableDeviceValuesValue(&self, key: *const PROPERTYKEY, ppValue: *mut IPortableDeviceValues) -> HRESULT;
-            fn SetIPortableDevicePropVariantCollectionValue(&self, key: *const PROPERTYKEY, pValue: IPortableDevicePropVariantCollection) -> HRESULT;
-            fn GetIPortableDevicePropVariantCollectionValue(&self, key: *const PROPERTYKEY, ppValue: *mut IPortableDevicePropVariantCollection) -> HRESULT;
-            fn SetIPortableDeviceKeyCollectionValue(&self, key: *const PROPERTYKEY, pValue: IPortableDeviceKeyCollection) -> HRESULT;
-            fn GetIPortableDeviceKeyCollectionValue(&self, key: *const PROPERTYKEY, ppValue: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn SetIPortableDeviceValuesCollectionValue(&self, key: *const PROPERTYKEY, pValue: IPortableDeviceValuesCollection) -> HRESULT;
-            fn GetIPortableDeviceValuesCollectionValue(&self, key: *const PROPERTYKEY, ppValue: *mut IPortableDeviceValuesCollection) -> HRESULT;
-            fn RemoveValue(&self, key: *const PROPERTYKEY) -> HRESULT;
-            fn CopyValuesFromPropertyStore(&self, pStore: IPropertyStore) -> HRESULT;
-            fn CopyValuesToPropertyStore(&self, pStore: IPropertyStore) -> HRESULT;
+            fn GetCount(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pcelt: *mut DWORD) -> HRESULT;
+            fn GetAt(&self, index: DWORD, #[in] #[out] #[opt] pKey: *mut PROPERTYKEY, #[in] #[out] #[opt] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn SetValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValue: *const PROPVARIANT) -> HRESULT;
+            fn GetValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn SetStringValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Value: LPCWSTR) -> HRESULT;
+            fn GetStringValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pValue: *mut LPWSTR) -> HRESULT;
+            fn SetUnsignedIntegerValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, Value: ULONG) -> HRESULT;
+            fn GetUnsignedIntegerValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pValue: *mut ULONG) -> HRESULT;
+            fn SetSignedIntegerValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, Value: LONG) -> HRESULT;
+            fn GetSignedIntegerValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pValue: *mut LONG) -> HRESULT;
+            fn SetUnsignedLargeIntegerValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, Value: ULONGLONG) -> HRESULT;
+            fn GetUnsignedLargeIntegerValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pValue: *mut ULONGLONG) -> HRESULT;
+            fn SetSignedLargeIntegerValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, Value: LONGLONG) -> HRESULT;
+            fn GetSignedLargeIntegerValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pValue: *mut LONGLONG) -> HRESULT;
+            fn SetFloatValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, Value: FLOAT) -> HRESULT;
+            fn GetFloatValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pValue: *mut FLOAT) -> HRESULT;
+            fn SetErrorValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, Value: HRESULT) -> HRESULT;
+            fn GetErrorValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pValue: *mut HRESULT) -> HRESULT;
+            fn SetKeyValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Value: &PROPERTYKEY) -> HRESULT;
+            fn GetKeyValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pValue: *mut PROPERTYKEY) -> HRESULT;
+            fn SetBoolValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, Value: BOOL) -> HRESULT;
+            fn GetBoolValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pValue: *mut BOOL) -> HRESULT;
+            fn SetIUnknownValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValue: IUnknown) -> HRESULT;
+            fn GetIUnknownValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppValue: *mut IUnknown) -> HRESULT;
+            fn SetGuidValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Value: &GUID) -> HRESULT;
+            fn GetGuidValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pValue: *mut GUID) -> HRESULT;
+            fn SetBufferValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(2)] pValue: *mut BYTE, cbValue: DWORD) -> HRESULT;
+            fn GetBufferValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*pcbValue", "*pcbValue")] ppValue: *mut *mut BYTE, #[out] pcbValue: *mut DWORD) -> HRESULT;
+            fn SetIPortableDeviceValuesValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValue: IPortableDeviceValues) -> HRESULT;
+            fn GetIPortableDeviceValuesValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppValue: *mut IPortableDeviceValues) -> HRESULT;
+            fn SetIPortableDevicePropVariantCollectionValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValue: IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetIPortableDevicePropVariantCollectionValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppValue: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn SetIPortableDeviceKeyCollectionValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValue: IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetIPortableDeviceKeyCollectionValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppValue: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn SetIPortableDeviceValuesCollectionValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValue: IPortableDeviceValuesCollection) -> HRESULT;
+            fn GetIPortableDeviceValuesCollectionValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppValue: *mut IPortableDeviceValuesCollection) -> HRESULT;
+            fn RemoveValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY) -> HRESULT;
+            fn CopyValuesFromPropertyStore(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pStore: IPropertyStore) -> HRESULT;
+            fn CopyValuesToPropertyStore(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pStore: IPropertyStore) -> HRESULT;
             fn Clear(&self) -> HRESULT;
         }
         #[guid(0x6e3f2d79_4e07_48c4_8208_d8c2e5af4a99)]
         interface IPortableDeviceValuesCollection: IUnknown {
-            fn GetCount(&self, #[in] pcElems: *mut u32) -> HRESULT;
-            fn GetAt(&self, dwIndex: u32, ppValues: *mut IPortableDeviceValues) -> HRESULT;
-            fn Add(&self, pValues: IPortableDeviceValues) -> HRESULT;
+            fn GetCount(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pcElems: *mut DWORD) -> HRESULT;
+            fn GetAt(&self, dwIndex: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppValues: *mut IPortableDeviceValues) -> HRESULT;
+            fn Add(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValues: IPortableDeviceValues) -> HRESULT;
             fn Clear(&self) -> HRESULT;
-            fn RemoveAt(&self, dwIndex: u32) -> HRESULT;
+            fn RemoveAt(&self, dwIndex: DWORD) -> HRESULT;
         }
         #[guid(0xb32f4002_bb27_45ff_af4f_06631c1e8dad)]
         interface IWpdSerializer: IUnknown {
-            fn GetIPortableDeviceValuesFromBuffer(&self, #[in] pBuffer: *mut u8, dwInputBufferLength: u32, ppParams: *mut IPortableDeviceValues) -> HRESULT;
-            fn WriteIPortableDeviceValuesToBuffer(&self, dwOutputBufferLength: u32, pResults: IPortableDeviceValues, pBuffer: *mut u8, pdwBytesWritten: *mut u32) -> HRESULT;
-            fn GetBufferFromIPortableDeviceValues(&self, pSource: IPortableDeviceValues, ppBuffer: *mut *mut u8, pdwBufferSize: *mut u32) -> HRESULT;
-            fn GetSerializedSize(&self, pSource: IPortableDeviceValues, pdwSize: *mut u32) -> HRESULT;
+            fn GetIPortableDeviceValuesFromBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] pBuffer: *mut BYTE, dwInputBufferLength: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppParams: *mut IPortableDeviceValues) -> HRESULT;
+            fn WriteIPortableDeviceValuesToBuffer(&self, dwOutputBufferLength: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pResults: IPortableDeviceValues, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] pBuffer: *mut BYTE, #[out] pdwBytesWritten: *mut DWORD) -> HRESULT;
+            fn GetBufferFromIPortableDeviceValues(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pSource: IPortableDeviceValues, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*pdwBufferSize", "*pdwBufferSize")] ppBuffer: *mut *mut BYTE, #[out] pdwBufferSize: *mut DWORD) -> HRESULT;
+            fn GetSerializedSize(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pSource: IPortableDeviceValues, #[out] pdwSize: *mut DWORD) -> HRESULT;
         }
-        #[library("OLEAUT32.dll")]
-        extern fn LPSAFEARRAY_UserFree(param0: *mut u32, param1: *mut LPSAFEARRAY);
-        #[library("OLEAUT32.dll")]
-        extern fn LPSAFEARRAY_UserFree64(param0: *mut u32, param1: *mut LPSAFEARRAY);
-        #[library("OLEAUT32.dll")]
-        extern fn LPSAFEARRAY_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut LPSAFEARRAY) -> *mut u8;
-        #[library("OLEAUT32.dll")]
-        extern fn LPSAFEARRAY_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut LPSAFEARRAY) -> *mut u8;
-        #[library("OLEAUT32.dll")]
-        extern fn LPSAFEARRAY_UserSize(param0: *mut u32, param1: u32, param2: *mut LPSAFEARRAY) -> u32;
-        #[library("OLEAUT32.dll")]
-        extern fn LPSAFEARRAY_UserSize64(param0: *mut u32, param1: u32, param2: *mut LPSAFEARRAY) -> u32;
-        #[library("OLEAUT32.dll")]
-        extern fn LPSAFEARRAY_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut LPSAFEARRAY) -> *mut u8;
-        #[library("OLEAUT32.dll")]
-        extern fn LPSAFEARRAY_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut LPSAFEARRAY) -> *mut u8;
         const PortableDeviceKeyCollection: GUID = 0xde2d022d_2480_43be_97f0_d1fa2cf98f4f;
         const PortableDevicePropVariantCollection: GUID = 0x08a99e2f_6d6d_4b80_af5a_baf2bcbe4cb9;
         const PortableDeviceValues: GUID = 0x0c15d503_d017_47ce_9016_7b3f978721cc;

@@ -1,25 +1,34 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn AllocateUserPhysicalPages(hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[len_param(1)] #[out] PageArray: PULONG_PTR) -> BOOL;
+        extern fn AllocateUserPhysicalPages(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*NumberOfPages,*NumberOfPages", "*NumberOfPages,*NumberOfPages")] #[out] PageArray: PULONG_PTR) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("api-ms-win-core-memory-l1-1-8.dll")]
-        extern fn AllocateUserPhysicalPages2(ObjectHandle: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[len_param(1)] #[out] PageArray: PULONG_PTR, #[len_param(4)] #[in] #[out] #[opt] ExtendedParameters: PMEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> BOOL;
+        extern fn AllocateUserPhysicalPages2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectHandle: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*NumberOfPages", "*NumberOfPages")] #[out] PageArray: PULONG_PTR, #[in] #[out] #[opt] #[len_param(4)] ExtendedParameters: PMEM_EXTENDED_PARAMETER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ExtendedParameterCount: ULONG) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn AllocateUserPhysicalPagesNuma(hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[len_param(1)] #[out] PageArray: PULONG_PTR, nndPreferred: u32) -> BOOL;
+        extern fn AllocateUserPhysicalPagesNuma(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*NumberOfPages,*NumberOfPages", "*NumberOfPages,*NumberOfPages")] #[out] PageArray: PULONG_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nndPreferred: DWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "BAD_MEMORY_CALLBACK_ROUTINE", "BAD_MEMORY_CALLBACK_ROUTINE")]
         extern fn BAD_MEMORY_CALLBACK_ROUTINE();
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("api-ms-win-core-memory-l1-1-7.dll")]
-        extern fn CreateFileMapping2(File: HANDLE, #[in] #[opt] SecurityAttributes: *mut SECURITY_ATTRIBUTES, DesiredAccess: u32, PageProtection: u32, AllocationAttributes: u32, MaximumSize: u64, #[opt] Name: PCWSTR, #[len_param(8)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ParameterCount: u32) -> HANDLE;
+        extern fn CreateFileMapping2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] File: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityAttributes: *mut SECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PageProtection: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AllocationAttributes: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaximumSize: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCWSTR, #[in] #[out] #[opt] #[len_param(8)] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParameterCount: ULONG) -> HANDLE;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn CreateFileMappingFromApp(hFile: HANDLE, #[opt] SecurityAttributes: PSECURITY_ATTRIBUTES, PageProtection: u32, MaximumSize: u64, #[opt] Name: PCWSTR) -> HANDLE;
+        extern fn CreateFileMappingFromApp(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityAttributes: PSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PageProtection: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaximumSize: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCWSTR) -> HANDLE;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn CreateFileMappingNumaW(hFile: HANDLE, #[opt] lpFileMappingAttributes: LPSECURITY_ATTRIBUTES, flProtect: u32, dwMaximumSizeHigh: u32, dwMaximumSizeLow: u32, #[opt] lpName: PCWSTR, nndPreferred: u32) -> HANDLE;
+        extern fn CreateFileMappingNumaW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFileMappingAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flProtect: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMaximumSizeHigh: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMaximumSizeLow: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nndPreferred: DWORD) -> HANDLE;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn CreateFileMappingW(hFile: HANDLE, #[opt] lpFileMappingAttributes: LPSECURITY_ATTRIBUTES, flProtect: u32, dwMaximumSizeHigh: u32, dwMaximumSizeLow: u32, #[opt] lpName: PCWSTR) -> HANDLE;
+        extern fn CreateFileMappingW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFileMappingAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flProtect: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMaximumSizeHigh: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMaximumSizeLow: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR) -> HANDLE;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn CreateMemoryResourceNotification(NotificationType: MEMORY_RESOURCE_NOTIFICATION_TYPE) -> HANDLE;
+        extern fn CreateMemoryResourceNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NotificationType: MEMORY_RESOURCE_NOTIFICATION_TYPE) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn DiscardVirtualMemory(#[len_param(1)] #[in] #[out] VirtualAddress: *mut void, Size: usize) -> u32;
+        extern fn DiscardVirtualMemory(#[in] #[out] #[len_param(1)] VirtualAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: SIZE_T) -> DWORD;
         const FILE_CACHE_MAX_HARD_DISABLE: i32 = 2;
         const FILE_CACHE_MAX_HARD_ENABLE: i32 = 1;
         const FILE_CACHE_MIN_HARD_DISABLE: i32 = 8;
@@ -33,68 +42,86 @@ mod Windows {
         const FILE_MAP_TARGETS_INVALID: i32 = 1073741824;
         const FILE_MAP_WRITE: i32 = 2;
         #[library("KERNEL32.dll")]
-        extern fn FlushViewOfFile(lpBaseAddress: LPCVOID, dwNumberOfBytesToFlush: usize) -> BOOL;
+        extern fn FlushViewOfFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBaseAddress: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwNumberOfBytesToFlush: SIZE_T) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn FreeUserPhysicalPages(hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[len_param(1)] PageArray: PULONG_PTR) -> BOOL;
+        extern fn FreeUserPhysicalPages(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "*NumberOfPages", "*NumberOfPages")] #[in] PageArray: PULONG_PTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetLargePageMinimum() -> usize;
+        extern fn GetLargePageMinimum() -> SIZE_T;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
         extern fn GetMemoryErrorHandlingCapabilities(#[out] Capabilities: PULONG) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("api-ms-win-core-memory-l1-1-9.dll")]
-        extern fn GetNumaNodeMemoryClosestInitiatorNode(TargetNodeNumber: u16, InitiatorNodeNumber: *mut u16) -> BOOL;
+        extern fn GetNumaNodeMemoryClosestInitiatorNode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetNodeNumber: USHORT, #[out] InitiatorNodeNumber: *mut USHORT) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-9.dll")]
-        extern fn GetNumaNodeMemoryReadBandwidth(TargetNodeNumber: u16, InitiatorNodeNumber: u16, Bandwidth: *mut NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH) -> BOOL;
+        extern fn GetNumaNodeMemoryReadBandwidth(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetNodeNumber: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InitiatorNodeNumber: USHORT, #[out] Bandwidth: *mut NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-9.dll")]
-        extern fn GetNumaNodeMemoryReadLatency(TargetNodeNumber: u16, InitiatorNodeNumber: u16, Latency: *mut NUMA_NODE_MEMORY_PERFORMANCE_LATENCY) -> BOOL;
+        extern fn GetNumaNodeMemoryReadLatency(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetNodeNumber: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InitiatorNodeNumber: USHORT, #[out] Latency: *mut NUMA_NODE_MEMORY_PERFORMANCE_LATENCY) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-9.dll")]
-        extern fn GetNumaNodeMemoryWriteBandwidth(TargetNodeNumber: u16, InitiatorNodeNumber: u16, Bandwidth: *mut NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH) -> BOOL;
+        extern fn GetNumaNodeMemoryWriteBandwidth(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetNodeNumber: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InitiatorNodeNumber: USHORT, #[out] Bandwidth: *mut NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-9.dll")]
-        extern fn GetNumaNodeMemoryWriteLatency(TargetNodeNumber: u16, InitiatorNodeNumber: u16, Latency: *mut NUMA_NODE_MEMORY_PERFORMANCE_LATENCY) -> BOOL;
+        extern fn GetNumaNodeMemoryWriteLatency(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetNodeNumber: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InitiatorNodeNumber: USHORT, #[out] Latency: *mut NUMA_NODE_MEMORY_PERFORMANCE_LATENCY) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessWorkingSetSize(hProcess: HANDLE, #[out] lpMinimumWorkingSetSize: PSIZE_T, #[out] lpMaximumWorkingSetSize: PSIZE_T) -> BOOL;
+        extern fn GetProcessWorkingSetSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] lpMinimumWorkingSetSize: PSIZE_T, #[out] lpMaximumWorkingSetSize: PSIZE_T) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn GetProcessWorkingSetSizeEx(hProcess: HANDLE, #[out] lpMinimumWorkingSetSize: PSIZE_T, #[out] lpMaximumWorkingSetSize: PSIZE_T, #[out] Flags: PDWORD) -> BOOL;
+        extern fn GetProcessWorkingSetSizeEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] lpMinimumWorkingSetSize: PSIZE_T, #[out] lpMaximumWorkingSetSize: PSIZE_T, #[out] Flags: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
         extern fn GetSystemFileCacheSize(#[out] lpMinimumFileCacheSize: PSIZE_T, #[out] lpMaximumFileCacheSize: PSIZE_T, #[out] lpFlags: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
         #[library("KERNEL32.dll")]
-        extern fn GetWriteWatch(dwFlags: u32, #[in] lpBaseAddress: *mut void, dwRegionSize: usize, #[len_param(4)] #[opt] lpAddresses: *mut *mut void, #[in] #[out] #[opt] lpdwCount: *mut usize, #[out] #[opt] lpdwGranularity: LPDWORD) -> u32;
+        extern fn GetWriteWatch(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBaseAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwRegionSize: SIZE_T, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*lpdwCount,*lpdwCount", "*lpdwCount,*lpdwCount")] #[out] #[opt] lpAddresses: *mut PVOID, #[in] #[out] #[opt] lpdwCount: *mut ULONG_PTR, #[out] #[opt] lpdwGranularity: LPDWORD) -> UINT;
         const MEHC_PATROL_SCRUBBER_PRESENT: i32 = 1;
         #[repr(i32)]
         enum MEMORY_RESOURCE_NOTIFICATION_TYPE {
             LowMemoryResourceNotification = 0,
             HighMemoryResourceNotification = 1,
         }
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn MapUserPhysicalPages(#[in] VirtualAddress: *mut void, NumberOfPages: usize, #[len_param(1)] #[opt] PageArray: PULONG_PTR) -> BOOL;
+        extern fn MapUserPhysicalPages(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumberOfPages: ULONG_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] PageArray: PULONG_PTR) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("KERNEL32.dll")]
-        extern fn MapViewOfFile(hFileMappingObject: HANDLE, dwDesiredAccess: u32, dwFileOffsetHigh: u32, dwFileOffsetLow: u32, dwNumberOfBytesToMap: usize) -> *mut void;
+        extern fn MapViewOfFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFileMappingObject: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFileOffsetHigh: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFileOffsetLow: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwNumberOfBytesToMap: SIZE_T) -> LPVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("api-ms-win-core-memory-l1-1-6.dll")]
-        extern fn MapViewOfFile3(FileMapping: HANDLE, #[opt] Process: HANDLE, #[in] #[opt] BaseAddress: *mut void, Offset: u64, ViewSize: usize, AllocationType: u32, PageProtection: u32, #[len_param(8)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ParameterCount: u32) -> *mut void;
+        extern fn MapViewOfFile3(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileMapping: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Offset: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ViewSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AllocationType: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PageProtection: ULONG, #[in] #[out] #[opt] #[len_param(8)] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParameterCount: ULONG) -> PVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("api-ms-win-core-memory-l1-1-6.dll")]
-        extern fn MapViewOfFile3FromApp(FileMapping: HANDLE, #[opt] Process: HANDLE, #[in] #[opt] BaseAddress: *mut void, Offset: u64, ViewSize: usize, AllocationType: u32, PageProtection: u32, #[len_param(8)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ParameterCount: u32) -> *mut void;
+        extern fn MapViewOfFile3FromApp(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileMapping: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Offset: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ViewSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AllocationType: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PageProtection: ULONG, #[in] #[out] #[opt] #[len_param(8)] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParameterCount: ULONG) -> PVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("KERNEL32.dll")]
-        extern fn MapViewOfFileEx(hFileMappingObject: HANDLE, dwDesiredAccess: u32, dwFileOffsetHigh: u32, dwFileOffsetLow: u32, dwNumberOfBytesToMap: usize, #[in] #[opt] lpBaseAddress: *mut void) -> *mut void;
+        extern fn MapViewOfFileEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFileMappingObject: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFileOffsetHigh: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFileOffsetLow: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwNumberOfBytesToMap: SIZE_T, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBaseAddress: LPVOID) -> LPVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("KERNEL32.dll")]
-        extern fn MapViewOfFileFromApp(hFileMappingObject: HANDLE, DesiredAccess: u32, FileOffset: u64, NumberOfBytesToMap: usize) -> *mut void;
+        extern fn MapViewOfFileFromApp(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFileMappingObject: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileOffset: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumberOfBytesToMap: SIZE_T) -> PVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")]
         #[library("api-ms-win-core-memory-l1-1-5.dll")]
-        extern fn MapViewOfFileNuma2(FileMappingHandle: HANDLE, ProcessHandle: HANDLE, Offset: u64, #[in] #[opt] BaseAddress: *mut void, ViewSize: usize, AllocationType: u32, PageProtection: u32, PreferredNode: u32) -> *mut void;
+        extern fn MapViewOfFileNuma2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileMappingHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Offset: ULONG64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ViewSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AllocationType: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PageProtection: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PreferredNode: ULONG) -> PVOID;
         struct NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH {
             Condition: NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION,
-            Bandwidth: u64,
+            Bandwidth: ULONGLONG,
         }
         struct NUMA_NODE_MEMORY_PERFORMANCE_LATENCY {
             Condition: NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION,
-            Latency: u64,
+            Latency: ULONGLONG,
         }
         struct NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION {
             Flags: struct {
-                _bitfield: u8 {
-                    MinTransferSizeToAchieveValues: 1,
-                    NonSequentialTransfers: 1,
-                    Reserved: 6,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("MinTransferSizeToAchieveValues", 0, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("NonSequentialTransfers", 1, 1, MemberType = UCHAR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 6, MemberType = UCHAR)]
+                _bitfield: u8,
             },
-            MinTransferSizeInBytes: u64,
+            MinTransferSizeInBytes: ULONGLONG,
         }
         #[repr(i32)]
         enum OFFER_PRIORITY {
@@ -104,103 +131,136 @@ mod Windows {
             VmOfferPriorityNormal = 4,
         }
         #[library("KERNEL32.dll")]
-        extern fn OfferVirtualMemory(#[len_param(1)] #[in] #[out] VirtualAddress: *mut void, Size: usize, Priority: OFFER_PRIORITY) -> u32;
+        extern fn OfferVirtualMemory(#[in] #[out] #[len_param(1)] VirtualAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Priority: OFFER_PRIORITY) -> DWORD;
         #[library("api-ms-win-core-memory-l1-1-8.dll")]
-        extern fn OpenDedicatedMemoryPartition(Partition: HANDLE, DedicatedMemoryTypeId: u64, DesiredAccess: ACCESS_MASK, InheritHandle: BOOL) -> HANDLE;
+        extern fn OpenDedicatedMemoryPartition(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Partition: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DedicatedMemoryTypeId: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: ACCESS_MASK, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InheritHandle: BOOL) -> HANDLE;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("api-ms-win-core-memory-l1-1-3.dll")]
-        extern fn OpenFileMappingFromApp(DesiredAccess: u32, InheritHandle: BOOL, Name: PCWSTR) -> HANDLE;
+        extern fn OpenFileMappingFromApp(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InheritHandle: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: PCWSTR) -> HANDLE;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn OpenFileMappingW(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCWSTR) -> HANDLE;
+        extern fn OpenFileMappingW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandle: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR) -> HANDLE;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "BAD_MEMORY_CALLBACK_ROUTINE", "BAD_MEMORY_CALLBACK_ROUTINE", TypedefName = "BAD_MEMORY_CALLBACK_ROUTINE")]
         extern fn PBAD_MEMORY_CALLBACK_ROUTINE();
         type PWIN32_MEMORY_RANGE_ENTRY = *mut WIN32_MEMORY_RANGE_ENTRY;
         #[library("KERNEL32.dll")]
-        extern fn PrefetchVirtualMemory(hProcess: HANDLE, NumberOfEntries: usize, #[len_param(1)] VirtualAddresses: PWIN32_MEMORY_RANGE_ENTRY, Flags: u32) -> BOOL;
+        extern fn PrefetchVirtualMemory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumberOfEntries: ULONG_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] VirtualAddresses: PWIN32_MEMORY_RANGE_ENTRY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: ULONG) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn QueryMemoryResourceNotification(ResourceNotificationHandle: HANDLE, #[out] ResourceState: PBOOL) -> BOOL;
+        extern fn QueryMemoryResourceNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ResourceNotificationHandle: HANDLE, #[out] ResourceState: PBOOL) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("api-ms-win-core-memory-l1-1-8.dll")]
-        extern fn QueryPartitionInformation(Partition: HANDLE, PartitionInformationClass: WIN32_MEMORY_PARTITION_INFORMATION_CLASS, #[size_param(3)] #[in] #[out] PartitionInformation: *mut void, PartitionInformationLength: u32) -> BOOL;
+        extern fn QueryPartitionInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Partition: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PartitionInformationClass: WIN32_MEMORY_PARTITION_INFORMATION_CLASS, #[in] #[out] #[size_param(3)] PartitionInformation: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PartitionInformationLength: ULONG) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("api-ms-win-core-memory-l1-1-4.dll")]
-        extern fn QueryVirtualMemoryInformation(Process: HANDLE, VirtualAddress: *const void, MemoryInformationClass: WIN32_MEMORY_INFORMATION_CLASS, #[size_param(4)] MemoryInformation: *mut void, MemoryInformationSize: usize, #[out] #[opt] ReturnSize: PSIZE_T) -> BOOL;
+        extern fn QueryVirtualMemoryInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualAddress: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MemoryInformationClass: WIN32_MEMORY_INFORMATION_CLASS, #[out] #[size_param(4)] MemoryInformation: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MemoryInformationSize: SIZE_T, #[out] #[opt] ReturnSize: PSIZE_T) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn ReadProcessMemory(hProcess: HANDLE, lpBaseAddress: LPCVOID, #[size_param(3)] lpBuffer: *mut void, nSize: usize, #[opt] lpNumberOfBytesRead: *mut usize) -> BOOL;
+        extern fn ReadProcessMemory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBaseAddress: LPCVOID, #[out] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: SIZE_T, #[out] #[opt] lpNumberOfBytesRead: *mut SIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ReclaimVirtualMemory(#[len_param(1)] VirtualAddress: *const void, Size: usize) -> u32;
+        extern fn ReclaimVirtualMemory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] VirtualAddress: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: SIZE_T) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn RegisterBadMemoryNotification(Callback: PBAD_MEMORY_CALLBACK_ROUTINE) -> *mut void;
+        extern fn RegisterBadMemoryNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PBAD_MEMORY_CALLBACK_ROUTINE) -> PVOID;
         #[library("KERNEL32.dll")]
-        extern fn ResetWriteWatch(#[in] lpBaseAddress: *mut void, dwRegionSize: usize) -> u32;
+        extern fn ResetWriteWatch(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBaseAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwRegionSize: SIZE_T) -> UINT;
         #[library("api-ms-win-core-memory-l1-1-3.dll")]
-        extern fn SetProcessValidCallTargets(hProcess: HANDLE, #[in] VirtualAddress: *mut void, RegionSize: usize, NumberOfOffsets: u32, #[len_param(3)] #[in] #[out] OffsetInformation: PCFG_CALL_TARGET_INFO) -> BOOL;
+        extern fn SetProcessValidCallTargets(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RegionSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumberOfOffsets: ULONG, #[in] #[out] #[len_param(3)] OffsetInformation: PCFG_CALL_TARGET_INFO) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-7.dll")]
-        extern fn SetProcessValidCallTargetsForMappedView(Process: HANDLE, #[in] VirtualAddress: *mut void, RegionSize: usize, NumberOfOffsets: u32, #[len_param(3)] #[in] #[out] OffsetInformation: PCFG_CALL_TARGET_INFO, Section: HANDLE, ExpectedFileOffset: u64) -> BOOL;
+        extern fn SetProcessValidCallTargetsForMappedView(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VirtualAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RegionSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumberOfOffsets: ULONG, #[in] #[out] #[len_param(3)] OffsetInformation: PCFG_CALL_TARGET_INFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Section: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ExpectedFileOffset: ULONG64) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessWorkingSetSize(hProcess: HANDLE, dwMinimumWorkingSetSize: usize, dwMaximumWorkingSetSize: usize) -> BOOL;
+        extern fn SetProcessWorkingSetSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMinimumWorkingSetSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMaximumWorkingSetSize: SIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessWorkingSetSizeEx(hProcess: HANDLE, dwMinimumWorkingSetSize: usize, dwMaximumWorkingSetSize: usize, Flags: u32) -> BOOL;
+        extern fn SetProcessWorkingSetSizeEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMinimumWorkingSetSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMaximumWorkingSetSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetSystemFileCacheSize(MinimumFileCacheSize: usize, MaximumFileCacheSize: usize, Flags: u32) -> BOOL;
+        extern fn SetSystemFileCacheSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MinimumFileCacheSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaximumFileCacheSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn UnmapViewOfFile(lpBaseAddress: LPCVOID) -> BOOL;
+        extern fn UnmapViewOfFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBaseAddress: LPCVOID) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-5.dll")]
-        extern fn UnmapViewOfFile2(Process: HANDLE, #[in] BaseAddress: *mut void, UnmapFlags: u32) -> BOOL;
+        extern fn UnmapViewOfFile2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UnmapFlags: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn UnmapViewOfFileEx(#[in] BaseAddress: *mut void, UnmapFlags: u32) -> BOOL;
+        extern fn UnmapViewOfFileEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UnmapFlags: ULONG) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn UnregisterBadMemoryNotification(#[in] RegistrationHandle: *mut void) -> BOOL;
+        extern fn UnregisterBadMemoryNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RegistrationHandle: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwSize", "dwSize")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn VirtualAlloc(#[in] #[opt] lpAddress: *mut void, dwSize: usize, flAllocationType: u32, flProtect: u32) -> *mut void;
+        extern fn VirtualAlloc(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flAllocationType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flProtect: DWORD) -> LPVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "Size", "Size")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("api-ms-win-core-memory-l1-1-6.dll")]
-        extern fn VirtualAlloc2(#[opt] Process: HANDLE, #[in] #[opt] BaseAddress: *mut void, Size: usize, AllocationType: u32, PageProtection: u32, #[len_param(6)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ParameterCount: u32) -> *mut void;
+        extern fn VirtualAlloc2(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AllocationType: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PageProtection: ULONG, #[in] #[out] #[opt] #[len_param(6)] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParameterCount: ULONG) -> PVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "Size", "Size")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("api-ms-win-core-memory-l1-1-6.dll")]
-        extern fn VirtualAlloc2FromApp(#[opt] Process: HANDLE, #[in] #[opt] BaseAddress: *mut void, Size: usize, AllocationType: u32, PageProtection: u32, #[len_param(6)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ParameterCount: u32) -> *mut void;
+        extern fn VirtualAlloc2FromApp(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AllocationType: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PageProtection: ULONG, #[in] #[out] #[opt] #[len_param(6)] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParameterCount: ULONG) -> PVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwSize", "dwSize")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn VirtualAllocEx(hProcess: HANDLE, #[in] #[opt] lpAddress: *mut void, dwSize: usize, flAllocationType: u32, flProtect: u32) -> *mut void;
+        extern fn VirtualAllocEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flAllocationType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flProtect: DWORD) -> LPVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwSize", "dwSize")]
         #[library("KERNEL32.dll")]
-        extern fn VirtualAllocExNuma(hProcess: HANDLE, #[in] #[opt] lpAddress: *mut void, dwSize: usize, flAllocationType: u32, flProtect: u32, nndPreferred: u32) -> *mut void;
+        extern fn VirtualAllocExNuma(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flAllocationType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flProtect: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nndPreferred: DWORD) -> LPVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "Size", "Size")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("api-ms-win-core-memory-l1-1-3.dll")]
-        extern fn VirtualAllocFromApp(#[in] #[opt] BaseAddress: *mut void, Size: usize, AllocationType: u32, Protection: u32) -> *mut void;
+        extern fn VirtualAllocFromApp(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AllocationType: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Protection: ULONG) -> PVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "((dwFreeType&(MEM_RELEASE|MEM_DECOMMIT)))==(MEM_RELEASE|MEM_DECOMMIT),__drv_reportError(\"Passing both MEM_RELEASE and MEM_DECOMMIT to VirtualFree is not allowed. This results in the failure of this call\")", "((dwFreeType&(0x00008000|0x00004000)))==(0x00008000|0x00004000), __drv_reportError(\"Passing both MEM_RELEASE and MEM_DECOMMIT to VirtualFree is not allowed. This results in the failure of this call\")")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "((dwFreeType&MEM_RELEASE))!=0 && dwSize!=0,__drv_reportError(\"Passing MEM_RELEASE and a non-zero dwSize parameter to VirtualFree is not allowed. This results in the failure of this call\")", "((dwFreeType&0x00008000))!=0 && dwSize!=0, __drv_reportError(\"Passing MEM_RELEASE and a non-zero dwSize parameter to VirtualFree is not allowed. This results in the failure of this call\")")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFreeType==0,__drv_reportError(\"Passing zero as the dwFreeType parameter to VirtualFree is not allowed. This results in the failure of this call\")", "dwFreeType==0, __drv_reportError(\"Passing zero as the dwFreeType parameter to VirtualFree is not allowed. This results in the failure of this call\")")]
         #[library("KERNEL32.dll")]
-        extern fn VirtualFree(lpAddress: *mut void, dwSize: usize, dwFreeType: u32) -> BOOL;
+        extern fn VirtualFree(#[Windows::Win32::Metadata::NativeSal("2", "_Pre_notnull_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFreeType == MEM_DECOMMIT,_Post_invalid_", "dwFreeType == 0x00004000, _Post_invalid_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFreeType == MEM_RELEASE,_Post_ptr_invalid_", "dwFreeType == 0x00008000, _Post_ptr_invalid_")] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFreeType: DWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "((dwFreeType&(MEM_RELEASE|MEM_DECOMMIT)))==(MEM_RELEASE|MEM_DECOMMIT),__drv_reportError(\"Passing both MEM_RELEASE and MEM_DECOMMIT to VirtualFree is not allowed. This results in the failure of this call\")", "((dwFreeType&(0x00008000|0x00004000)))==(0x00008000|0x00004000), __drv_reportError(\"Passing both MEM_RELEASE and MEM_DECOMMIT to VirtualFree is not allowed. This results in the failure of this call\")")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "((dwFreeType&MEM_DECOMMIT))!=0,__drv_reportError(\"Calling VirtualFreeEx without the MEM_RELEASE flag frees memory but not address descriptors (VADs); results in address space leaks\")", "((dwFreeType&0x00004000))!=0, __drv_reportError(\"Calling VirtualFreeEx without the MEM_RELEASE flag frees memory but not address descriptors (VADs); results in address space leaks\")")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "((dwFreeType&MEM_RELEASE))!=0 && dwSize!=0,__drv_reportError(\"Passing MEM_RELEASE and a non-zero dwSize parameter to VirtualFree is not allowed. This results in the failure of this call\")", "((dwFreeType&0x00008000))!=0 && dwSize!=0, __drv_reportError(\"Passing MEM_RELEASE and a non-zero dwSize parameter to VirtualFree is not allowed. This results in the failure of this call\")")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFreeType==0,__drv_reportError(\"Passing zero as the dwFreeType parameter to VirtualFree is not allowed. This results in the failure of this call\")", "dwFreeType==0, __drv_reportError(\"Passing zero as the dwFreeType parameter to VirtualFree is not allowed. This results in the failure of this call\")")]
         #[library("KERNEL32.dll")]
-        extern fn VirtualFreeEx(hProcess: HANDLE, lpAddress: *mut void, dwSize: usize, dwFreeType: u32) -> BOOL;
+        extern fn VirtualFreeEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_notnull_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFreeType == MEM_DECOMMIT,_Post_invalid_", "dwFreeType == 0x00004000, _Post_invalid_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwFreeType == MEM_RELEASE,_Post_ptr_invalid_", "dwFreeType == 0x00008000, _Post_ptr_invalid_")] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFreeType: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn VirtualLock(#[in] lpAddress: *mut void, dwSize: usize) -> BOOL;
+        extern fn VirtualLock(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: SIZE_T) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn VirtualProtect(#[in] lpAddress: *mut void, dwSize: usize, flNewProtect: u32, #[out] lpflOldProtect: PDWORD) -> BOOL;
+        extern fn VirtualProtect(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flNewProtect: DWORD, #[out] lpflOldProtect: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn VirtualProtectEx(hProcess: HANDLE, #[in] lpAddress: *mut void, dwSize: usize, flNewProtect: u32, #[out] lpflOldProtect: PDWORD) -> BOOL;
+        extern fn VirtualProtectEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flNewProtect: DWORD, #[out] lpflOldProtect: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("api-ms-win-core-memory-l1-1-3.dll")]
-        extern fn VirtualProtectFromApp(#[in] Address: *mut void, Size: usize, NewProtection: u32, #[out] OldProtection: PULONG) -> BOOL;
+        extern fn VirtualProtectFromApp(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewProtection: ULONG, #[out] OldProtection: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn VirtualQuery(#[opt] lpAddress: LPCVOID, #[size_param(2)] #[out] lpBuffer: PMEMORY_BASIC_INFORMATION, dwLength: usize) -> usize;
+        extern fn VirtualQuery(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPCVOID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "dwLength,return", "dwLength,return")] #[out] #[size_param(2)] lpBuffer: PMEMORY_BASIC_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLength: SIZE_T) -> SIZE_T;
         #[library("KERNEL32.dll")]
-        extern fn VirtualQueryEx(hProcess: HANDLE, #[opt] lpAddress: LPCVOID, #[size_param(3)] #[out] lpBuffer: PMEMORY_BASIC_INFORMATION, dwLength: usize) -> usize;
+        extern fn VirtualQueryEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPCVOID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "dwLength,return", "dwLength,return")] #[out] #[size_param(3)] lpBuffer: PMEMORY_BASIC_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLength: SIZE_T) -> SIZE_T;
         #[library("KERNEL32.dll")]
-        extern fn VirtualUnlock(#[in] lpAddress: *mut void, dwSize: usize) -> BOOL;
+        extern fn VirtualUnlock(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: SIZE_T) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-5.dll")]
-        extern fn VirtualUnlockEx(#[opt] Process: HANDLE, #[in] Address: *mut void, Size: usize) -> BOOL;
+        extern fn VirtualUnlockEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: SIZE_T) -> BOOL;
         #[repr(i32)]
         enum WIN32_MEMORY_INFORMATION_CLASS {
             MemoryRegionInfo = 0,
         }
+        #[align(8)]
         struct WIN32_MEMORY_PARTITION_INFORMATION {
-            Flags: u32,
-            NumaNode: u32,
-            Channel: u32,
-            NumberOfNumaNodes: u32,
-            ResidentAvailablePages: u64,
-            CommittedPages: u64,
-            CommitLimit: u64,
-            PeakCommitment: u64,
-            TotalNumberOfPages: u64,
-            AvailablePages: u64,
-            ZeroPages: u64,
-            FreePages: u64,
-            StandbyPages: u64,
-            Reserved: [u64; 16],
-            MaximumCommitLimit: u64,
-            Reserved2: u64,
-            PartitionId: u32,
+            Flags: ULONG,
+            NumaNode: ULONG,
+            Channel: ULONG,
+            NumberOfNumaNodes: ULONG,
+            ResidentAvailablePages: ULONG64,
+            CommittedPages: ULONG64,
+            CommitLimit: ULONG64,
+            PeakCommitment: ULONG64,
+            TotalNumberOfPages: ULONG64,
+            AvailablePages: ULONG64,
+            ZeroPages: ULONG64,
+            FreePages: ULONG64,
+            StandbyPages: ULONG64,
+            Reserved: [ULONG64; 16],
+            MaximumCommitLimit: ULONG64,
+            Reserved2: ULONG64,
+            PartitionId: ULONG,
         }
         #[repr(i32)]
         enum WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
@@ -208,30 +268,30 @@ mod Windows {
             MemoryPartitionDedicatedMemoryInfo = 1,
         }
         struct WIN32_MEMORY_RANGE_ENTRY {
-            VirtualAddress: *mut void,
-            NumberOfBytes: usize,
+            VirtualAddress: PVOID,
+            NumberOfBytes: SIZE_T,
         }
         struct WIN32_MEMORY_REGION_INFORMATION {
-            AllocationBase: *mut void,
-            AllocationProtect: u32,
+            AllocationBase: PVOID,
+            AllocationProtect: ULONG,
             Anonymous: union {
-                Flags: u32,
+                Flags: ULONG,
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        Private: 1,
-                        MappedDataFile: 1,
-                        MappedImage: 1,
-                        MappedPageFile: 1,
-                        MappedPhysical: 1,
-                        DirectMapped: 1,
-                        Reserved: 26,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("DirectMapped", 5, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("MappedDataFile", 1, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("MappedImage", 2, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("MappedPageFile", 3, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("MappedPhysical", 4, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Private", 0, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 6, 26, MemberType = ULONG)]
+                    _bitfield: u32,
                 },
             },
-            RegionSize: usize,
-            CommitSize: usize,
+            RegionSize: SIZE_T,
+            CommitSize: SIZE_T,
         }
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn WriteProcessMemory(hProcess: HANDLE, #[in] lpBaseAddress: *mut void, #[size_param(3)] lpBuffer: LPCVOID, nSize: usize, #[opt] lpNumberOfBytesWritten: *mut usize) -> BOOL;
+        extern fn WriteProcessMemory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBaseAddress: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] lpBuffer: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: SIZE_T, #[out] #[opt] lpNumberOfBytesWritten: *mut SIZE_T) -> BOOL;
     }
 }

@@ -1,9 +1,10 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        const CLSID_MFMediaEngineClassFactory: GUID = 0xb44392da_499b_446b_a4cb_005fead0e6d5;
         #[guid(0xebbaf249_afc2_4582_91c6_b60df2e84954)]
         interface IAudioSourceProvider: IUnknown {
-            fn ProvideInput(&self, dwSampleCount: u32, #[in] #[out] pdwChannelCount: *mut u32, #[opt] pInterleavedAudioData: *mut f32) -> HRESULT;
+            fn ProvideInput(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSampleCount: DWORD, #[in] #[out] pdwChannelCount: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "dwSampleCount * (*pdwChannelCount)", "dwSampleCount * (*pdwChannelCount)")] #[out] #[opt] pInterleavedAudioData: *mut f32) -> HRESULT;
         }
         #[guid(0x24cd47f7_81d8_4785_adb2_af697a963cd2)]
         interface IMFBufferListNotify: IUnknown {
@@ -17,253 +18,253 @@ mod Windows {
         }
         #[guid(0x332ec562_3758_468d_a784_e38f23552128)]
         interface IMFExtendedDRMTypeSupport: IUnknown {
-            fn IsTypeSupportedEx(&self, #[opt] r#type: BSTR, keySystem: BSTR, pAnswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> HRESULT;
+            fn IsTypeSupportedEx(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#type: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] keySystem: BSTR, #[out] pAnswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> HRESULT;
         }
         #[guid(0xde400f54_5bf1_40cf_8964_0bea136b1e3d)]
         interface IMFHDCPStatus: IUnknown {
             fn Query(&self, #[in] #[out] pStatus: *mut MF_HDCP_STATUS, #[in] #[out] pfStatus: *mut BOOL) -> HRESULT;
-            fn Set(&self, status: MF_HDCP_STATUS) -> HRESULT;
+            fn Set(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] status: MF_HDCP_STATUS) -> HRESULT;
         }
         #[guid(0x98a1b0bb_03eb_4935_ae7c_93c1fa0e1c93)]
         interface IMFMediaEngine: IUnknown {
-            fn GetError(&self, ppError: *mut IMFMediaError) -> HRESULT;
-            fn SetErrorCode(&self, error: MF_MEDIA_ENGINE_ERR) -> HRESULT;
-            fn SetSourceElements(&self, pSrcElements: IMFMediaEngineSrcElements) -> HRESULT;
-            fn SetSource(&self, pUrl: BSTR) -> HRESULT;
-            fn GetCurrentSource(&self, ppUrl: *mut BSTR) -> HRESULT;
-            fn GetNetworkState(&self) -> u16;
+            fn GetError(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppError: *mut IMFMediaError) -> HRESULT;
+            fn SetErrorCode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] error: MF_MEDIA_ENGINE_ERR) -> HRESULT;
+            fn SetSourceElements(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcElements: IMFMediaEngineSrcElements) -> HRESULT;
+            fn SetSource(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUrl: BSTR) -> HRESULT;
+            fn GetCurrentSource(&self, #[out] ppUrl: *mut BSTR) -> HRESULT;
+            fn GetNetworkState(&self) -> USHORT;
             fn GetPreload(&self) -> MF_MEDIA_ENGINE_PRELOAD;
-            fn SetPreload(&self, Preload: MF_MEDIA_ENGINE_PRELOAD) -> HRESULT;
-            fn GetBuffered(&self, ppBuffered: *mut IMFMediaTimeRange) -> HRESULT;
+            fn SetPreload(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Preload: MF_MEDIA_ENGINE_PRELOAD) -> HRESULT;
+            fn GetBuffered(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppBuffered: *mut IMFMediaTimeRange) -> HRESULT;
             fn Load(&self) -> HRESULT;
-            fn CanPlayType(&self, r#type: BSTR, pAnswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> HRESULT;
-            fn GetReadyState(&self) -> u16;
+            fn CanPlayType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#type: BSTR, #[out] pAnswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> HRESULT;
+            fn GetReadyState(&self) -> USHORT;
             fn IsSeeking(&self) -> BOOL;
             fn GetCurrentTime(&self) -> f64;
-            fn SetCurrentTime(&self, seekTime: f64) -> HRESULT;
+            fn SetCurrentTime(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] seekTime: f64) -> HRESULT;
             fn GetStartTime(&self) -> f64;
             fn GetDuration(&self) -> f64;
             fn IsPaused(&self) -> BOOL;
             fn GetDefaultPlaybackRate(&self) -> f64;
-            fn SetDefaultPlaybackRate(&self, Rate: f64) -> HRESULT;
+            fn SetDefaultPlaybackRate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Rate: f64) -> HRESULT;
             fn GetPlaybackRate(&self) -> f64;
-            fn SetPlaybackRate(&self, Rate: f64) -> HRESULT;
-            fn GetPlayed(&self, ppPlayed: *mut IMFMediaTimeRange) -> HRESULT;
-            fn GetSeekable(&self, ppSeekable: *mut IMFMediaTimeRange) -> HRESULT;
+            fn SetPlaybackRate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Rate: f64) -> HRESULT;
+            fn GetPlayed(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppPlayed: *mut IMFMediaTimeRange) -> HRESULT;
+            fn GetSeekable(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSeekable: *mut IMFMediaTimeRange) -> HRESULT;
             fn IsEnded(&self) -> BOOL;
             fn GetAutoPlay(&self) -> BOOL;
-            fn SetAutoPlay(&self, AutoPlay: BOOL) -> HRESULT;
+            fn SetAutoPlay(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AutoPlay: BOOL) -> HRESULT;
             fn GetLoop(&self) -> BOOL;
-            fn SetLoop(&self, Loop: BOOL) -> HRESULT;
+            fn SetLoop(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Loop: BOOL) -> HRESULT;
             fn Play(&self) -> HRESULT;
             fn Pause(&self) -> HRESULT;
             fn GetMuted(&self) -> BOOL;
-            fn SetMuted(&self, Muted: BOOL) -> HRESULT;
+            fn SetMuted(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Muted: BOOL) -> HRESULT;
             fn GetVolume(&self) -> f64;
-            fn SetVolume(&self, Volume: f64) -> HRESULT;
+            fn SetVolume(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Volume: f64) -> HRESULT;
             fn HasVideo(&self) -> BOOL;
             fn HasAudio(&self) -> BOOL;
-            fn GetNativeVideoSize(&self, #[opt] cx: *mut u32, #[opt] cy: *mut u32) -> HRESULT;
-            fn GetVideoAspectRatio(&self, #[opt] cx: *mut u32, #[opt] cy: *mut u32) -> HRESULT;
+            fn GetNativeVideoSize(&self, #[out] #[opt] cx: *mut DWORD, #[out] #[opt] cy: *mut DWORD) -> HRESULT;
+            fn GetVideoAspectRatio(&self, #[out] #[opt] cx: *mut DWORD, #[out] #[opt] cy: *mut DWORD) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
-            fn TransferVideoFrame(&self, pDstSurf: IUnknown, #[opt] pSrc: *const MFVideoNormalizedRect, pDst: *const RECT, #[opt] pBorderClr: *const MFARGB) -> HRESULT;
-            fn OnVideoStreamTick(&self, pPts: *mut i64) -> HRESULT;
+            fn TransferVideoFrame(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstSurf: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrc: *const MFVideoNormalizedRect, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDst: *const RECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBorderClr: *const MFARGB) -> HRESULT;
+            fn OnVideoStreamTick(&self, #[out] pPts: *mut LONGLONG) -> HRESULT;
         }
         #[guid(0x7a3bac98_0e76_49fb_8c20_8a86fd98eaf2)]
         interface IMFMediaEngineAudioEndpointId: IUnknown {
-            fn SetAudioEndpointId(&self, #[opt] pszEndpointId: PCWSTR) -> HRESULT;
-            fn GetAudioEndpointId(&self, ppszEndpointId: *mut PWSTR) -> HRESULT;
+            fn SetAudioEndpointId(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEndpointId: LPCWSTR) -> HRESULT;
+            fn GetAudioEndpointId(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszEndpointId: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x4d645ace_26aa_4688_9be1_df3516990b93)]
         interface IMFMediaEngineClassFactory: IUnknown {
-            fn CreateInstance(&self, dwFlags: u32, pAttr: IMFAttributes, ppPlayer: *mut IMFMediaEngine) -> HRESULT;
-            fn CreateTimeRange(&self, ppTimeRange: *mut IMFMediaTimeRange) -> HRESULT;
-            fn CreateError(&self, ppError: *mut IMFMediaError) -> HRESULT;
+            fn CreateInstance(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAttr: IMFAttributes, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppPlayer: *mut IMFMediaEngine) -> HRESULT;
+            fn CreateTimeRange(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTimeRange: *mut IMFMediaTimeRange) -> HRESULT;
+            fn CreateError(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppError: *mut IMFMediaError) -> HRESULT;
         }
         #[guid(0x09083cef_867f_4bf6_8776_dee3a7b42fca)]
         interface IMFMediaEngineClassFactory2: IUnknown {
-            fn CreateMediaKeys2(&self, keySystem: BSTR, defaultCdmStorePath: BSTR, #[opt] inprivateCdmStorePath: BSTR, ppKeys: *mut IMFMediaKeys) -> HRESULT;
+            fn CreateMediaKeys2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] keySystem: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] defaultCdmStorePath: BSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] inprivateCdmStorePath: BSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppKeys: *mut IMFMediaKeys) -> HRESULT;
         }
         #[guid(0x3787614f_65f7_4003_b673_ead8293a0e60)]
         interface IMFMediaEngineClassFactory3: IUnknown {
-            fn CreateMediaKeySystemAccess(&self, keySystem: BSTR, ppSupportedConfigurationsArray: *mut IPropertyStore, uSize: u32, ppKeyAccess: *mut IMFMediaKeySystemAccess) -> HRESULT;
+            fn CreateMediaKeySystemAccess(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] keySystem: BSTR, #[Windows::Win32::Metadata::NativeSal("1.1", "_In_count_", "uSize", "uSize")] ppSupportedConfigurationsArray: *mut IPropertyStore, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSize: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppKeyAccess: *mut IMFMediaKeySystemAccess) -> HRESULT;
         }
         #[guid(0xfbe256c1_43cf_4a9b_8cb8_ce8632a34186)]
         interface IMFMediaEngineClassFactory4: IUnknown {
-            fn CreateContentDecryptionModuleFactory(&self, keySystem: PCWSTR, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn CreateContentDecryptionModuleFactory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] keySystem: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppvObject: *mut LPVOID) -> HRESULT;
         }
         #[guid(0xc56156c6_ea5b_48a5_9df8_fbe035d0929e)]
         interface IMFMediaEngineClassFactoryEx: IMFMediaEngineClassFactory {
-            fn CreateMediaSourceExtension(&self, dwFlags: u32, pAttr: IMFAttributes, ppMSE: *mut IMFMediaSourceExtension) -> HRESULT;
-            fn CreateMediaKeys(&self, keySystem: BSTR, #[opt] cdmStorePath: BSTR, ppKeys: *mut IMFMediaKeys) -> HRESULT;
-            fn IsTypeSupported(&self, #[opt] r#type: BSTR, keySystem: BSTR, isSupported: *mut BOOL) -> HRESULT;
+            fn CreateMediaSourceExtension(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAttr: IMFAttributes, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppMSE: *mut IMFMediaSourceExtension) -> HRESULT;
+            fn CreateMediaKeys(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] keySystem: BSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cdmStorePath: BSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppKeys: *mut IMFMediaKeys) -> HRESULT;
+            fn IsTypeSupported(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#type: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] keySystem: BSTR, #[out] isSupported: *mut BOOL) -> HRESULT;
         }
         #[guid(0x50dc93e4_ba4f_4275_ae66_83e836e57469)]
         interface IMFMediaEngineEME: IUnknown {
-            fn get_Keys(&self, keys: *mut IMFMediaKeys) -> HRESULT;
-            fn SetMediaKeys(&self, #[opt] keys: IMFMediaKeys) -> HRESULT;
+            fn get_Keys(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = true)] keys: *mut IMFMediaKeys) -> HRESULT;
+            fn SetMediaKeys(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] keys: IMFMediaKeys) -> HRESULT;
         }
         #[guid(0x9e184d15_cdb7_4f86_b49e_566689f4a601)]
         interface IMFMediaEngineEMENotify: IUnknown {
-            fn Encrypted(&self, #[size_param(1)] #[opt] pbInitData: *const u8, cb: u32, bstrInitDataType: BSTR);
+            fn Encrypted(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pbInitData: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bstrInitDataType: BSTR);
             fn WaitingForKey(&self);
         }
         #[guid(0x83015ead_b1e6_40d0_a98a_37145ffe1ad1)]
         interface IMFMediaEngineEx: IMFMediaEngine {
-            fn SetSourceFromByteStream(&self, pByteStream: IMFByteStream, pURL: BSTR) -> HRESULT;
-            fn GetStatistics(&self, StatisticID: MF_MEDIA_ENGINE_STATISTIC, pStatistic: *mut PROPVARIANT) -> HRESULT;
-            fn UpdateVideoStream(&self, #[opt] pSrc: *const MFVideoNormalizedRect, #[opt] pDst: *const RECT, #[opt] pBorderClr: *const MFARGB) -> HRESULT;
+            fn SetSourceFromByteStream(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pByteStream: IMFByteStream, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pURL: BSTR) -> HRESULT;
+            fn GetStatistics(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StatisticID: MF_MEDIA_ENGINE_STATISTIC, #[out] pStatistic: *mut PROPVARIANT) -> HRESULT;
+            fn UpdateVideoStream(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrc: *const MFVideoNormalizedRect, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDst: *const RECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBorderClr: *const MFARGB) -> HRESULT;
             fn GetBalance(&self) -> f64;
-            fn SetBalance(&self, balance: f64) -> HRESULT;
-            fn IsPlaybackRateSupported(&self, rate: f64) -> BOOL;
-            fn FrameStep(&self, Forward: BOOL) -> HRESULT;
-            fn GetResourceCharacteristics(&self, pCharacteristics: *mut u32) -> HRESULT;
-            fn GetPresentationAttribute(&self, guidMFAttribute: *const GUID, pvValue: *mut PROPVARIANT) -> HRESULT;
-            fn GetNumberOfStreams(&self, pdwStreamCount: *mut u32) -> HRESULT;
-            fn GetStreamAttribute(&self, dwStreamIndex: u32, guidMFAttribute: *const GUID, pvValue: *mut PROPVARIANT) -> HRESULT;
-            fn GetStreamSelection(&self, dwStreamIndex: u32, pEnabled: *mut BOOL) -> HRESULT;
-            fn SetStreamSelection(&self, dwStreamIndex: u32, Enabled: BOOL) -> HRESULT;
+            fn SetBalance(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] balance: f64) -> HRESULT;
+            fn IsPlaybackRateSupported(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rate: f64) -> BOOL;
+            fn FrameStep(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Forward: BOOL) -> HRESULT;
+            fn GetResourceCharacteristics(&self, #[out] pCharacteristics: *mut DWORD) -> HRESULT;
+            fn GetPresentationAttribute(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidMFAttribute: &GUID, #[out] pvValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetNumberOfStreams(&self, #[out] pdwStreamCount: *mut DWORD) -> HRESULT;
+            fn GetStreamAttribute(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStreamIndex: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidMFAttribute: &GUID, #[out] pvValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetStreamSelection(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStreamIndex: DWORD, #[out] pEnabled: *mut BOOL) -> HRESULT;
+            fn SetStreamSelection(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStreamIndex: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enabled: BOOL) -> HRESULT;
             fn ApplyStreamSelections(&self) -> HRESULT;
-            fn IsProtected(&self, pProtected: *mut BOOL) -> HRESULT;
-            fn InsertVideoEffect(&self, pEffect: IUnknown, fOptional: BOOL) -> HRESULT;
-            fn InsertAudioEffect(&self, pEffect: IUnknown, fOptional: BOOL) -> HRESULT;
+            fn IsProtected(&self, #[out] pProtected: *mut BOOL) -> HRESULT;
+            fn InsertVideoEffect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEffect: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fOptional: BOOL) -> HRESULT;
+            fn InsertAudioEffect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEffect: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fOptional: BOOL) -> HRESULT;
             fn RemoveAllEffects(&self) -> HRESULT;
-            fn SetTimelineMarkerTimer(&self, timeToFire: f64) -> HRESULT;
-            fn GetTimelineMarkerTimer(&self, pTimeToFire: *mut f64) -> HRESULT;
+            fn SetTimelineMarkerTimer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeToFire: f64) -> HRESULT;
+            fn GetTimelineMarkerTimer(&self, #[out] pTimeToFire: *mut f64) -> HRESULT;
             fn CancelTimelineMarkerTimer(&self) -> HRESULT;
             fn IsStereo3D(&self) -> BOOL;
-            fn GetStereo3DFramePackingMode(&self, packMode: *mut MF_MEDIA_ENGINE_S3D_PACKING_MODE) -> HRESULT;
-            fn SetStereo3DFramePackingMode(&self, packMode: MF_MEDIA_ENGINE_S3D_PACKING_MODE) -> HRESULT;
-            fn GetStereo3DRenderMode(&self, outputType: *mut MF3DVideoOutputType) -> HRESULT;
-            fn SetStereo3DRenderMode(&self, outputType: MF3DVideoOutputType) -> HRESULT;
-            fn EnableWindowlessSwapchainMode(&self, fEnable: BOOL) -> HRESULT;
-            fn GetVideoSwapchainHandle(&self, phSwapchain: *mut HANDLE) -> HRESULT;
-            fn EnableHorizontalMirrorMode(&self, fEnable: BOOL) -> HRESULT;
-            fn GetAudioStreamCategory(&self, pCategory: *mut u32) -> HRESULT;
-            fn SetAudioStreamCategory(&self, category: u32) -> HRESULT;
-            fn GetAudioEndpointRole(&self, pRole: *mut u32) -> HRESULT;
-            fn SetAudioEndpointRole(&self, role: u32) -> HRESULT;
-            fn GetRealTimeMode(&self, pfEnabled: *mut BOOL) -> HRESULT;
-            fn SetRealTimeMode(&self, fEnable: BOOL) -> HRESULT;
-            fn SetCurrentTimeEx(&self, seekTime: f64, seekMode: MF_MEDIA_ENGINE_SEEK_MODE) -> HRESULT;
-            fn EnableTimeUpdateTimer(&self, fEnableTimer: BOOL) -> HRESULT;
+            fn GetStereo3DFramePackingMode(&self, #[out] packMode: *mut MF_MEDIA_ENGINE_S3D_PACKING_MODE) -> HRESULT;
+            fn SetStereo3DFramePackingMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packMode: MF_MEDIA_ENGINE_S3D_PACKING_MODE) -> HRESULT;
+            fn GetStereo3DRenderMode(&self, #[out] outputType: *mut MF3DVideoOutputType) -> HRESULT;
+            fn SetStereo3DRenderMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] outputType: MF3DVideoOutputType) -> HRESULT;
+            fn EnableWindowlessSwapchainMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fEnable: BOOL) -> HRESULT;
+            fn GetVideoSwapchainHandle(&self, #[out] phSwapchain: *mut HANDLE) -> HRESULT;
+            fn EnableHorizontalMirrorMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fEnable: BOOL) -> HRESULT;
+            fn GetAudioStreamCategory(&self, #[out] pCategory: *mut UINT32) -> HRESULT;
+            fn SetAudioStreamCategory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] category: UINT32) -> HRESULT;
+            fn GetAudioEndpointRole(&self, #[out] pRole: *mut UINT32) -> HRESULT;
+            fn SetAudioEndpointRole(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] role: UINT32) -> HRESULT;
+            fn GetRealTimeMode(&self, #[out] pfEnabled: *mut BOOL) -> HRESULT;
+            fn SetRealTimeMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fEnable: BOOL) -> HRESULT;
+            fn SetCurrentTimeEx(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] seekTime: f64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] seekMode: MF_MEDIA_ENGINE_SEEK_MODE) -> HRESULT;
+            fn EnableTimeUpdateTimer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fEnableTimer: BOOL) -> HRESULT;
         }
         #[guid(0x2f69d622_20b5_41e9_afdf_89ced1dda04e)]
         interface IMFMediaEngineExtension: IUnknown {
-            fn CanPlayType(&self, AudioOnly: BOOL, MimeType: BSTR, pAnswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> HRESULT;
-            fn BeginCreateObject(&self, bstrURL: BSTR, #[opt] pByteStream: IMFByteStream, r#type: MF_OBJECT_TYPE, ppIUnknownCancelCookie: *mut IUnknown, pCallback: IMFAsyncCallback, #[opt] punkState: IUnknown) -> HRESULT;
-            fn CancelObjectCreation(&self, pIUnknownCancelCookie: IUnknown) -> HRESULT;
-            fn EndCreateObject(&self, pResult: IMFAsyncResult, ppObject: *mut IUnknown) -> HRESULT;
+            fn CanPlayType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AudioOnly: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MimeType: BSTR, #[out] pAnswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> HRESULT;
+            fn BeginCreateObject(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bstrURL: BSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pByteStream: IMFByteStream, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#type: MF_OBJECT_TYPE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppIUnknownCancelCookie: *mut IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCallback: IMFAsyncCallback, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkState: IUnknown) -> HRESULT;
+            fn CancelObjectCreation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIUnknownCancelCookie: IUnknown) -> HRESULT;
+            fn EndCreateObject(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResult: IMFAsyncResult, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppObject: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x46a30204_a696_4b18_8804_246b8f031bb1)]
         interface IMFMediaEngineNeedKeyNotify: IUnknown {
-            fn NeedKey(&self, #[size_param(1)] #[opt] initData: *const u8, cb: u32);
+            fn NeedKey(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] initData: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD);
         }
         #[guid(0xfee7c112_e776_42b5_9bbf_0048524e2bd5)]
         interface IMFMediaEngineNotify: IUnknown {
-            fn EventNotify(&self, event: u32, param1: usize, param2: u32) -> HRESULT;
+            fn EventNotify(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] event: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: DWORD_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD) -> HRESULT;
         }
         #[guid(0x765763e6_6c01_4b01_bb0f_b829f60ed28c)]
         interface IMFMediaEngineOPMInfo: IUnknown {
-            fn GetOPMInfo(&self, pStatus: *mut MF_MEDIA_ENGINE_OPM_STATUS, pConstricted: *mut BOOL) -> HRESULT;
+            fn GetOPMInfo(&self, #[out] pStatus: *mut MF_MEDIA_ENGINE_OPM_STATUS, #[out] pConstricted: *mut BOOL) -> HRESULT;
         }
         #[guid(0x9f8021e8_9c8c_487e_bb5c_79aa4779938c)]
         interface IMFMediaEngineProtectedContent: IUnknown {
-            fn ShareResources(&self, pUnkDeviceContext: IUnknown) -> HRESULT;
-            fn GetRequiredProtections(&self, pFrameProtectionFlags: *mut u32) -> HRESULT;
-            fn SetOPMWindow(&self, hwnd: HWND) -> HRESULT;
-            fn TransferVideoFrame(&self, pDstSurf: IUnknown, #[opt] pSrc: *const MFVideoNormalizedRect, pDst: *const RECT, #[opt] pBorderClr: *const MFARGB, pFrameProtectionFlags: *mut u32) -> HRESULT;
-            fn SetContentProtectionManager(&self, #[opt] pCPM: IMFContentProtectionManager) -> HRESULT;
-            fn SetApplicationCertificate(&self, #[size_param(1)] pbBlob: *const u8, cbBlob: u32) -> HRESULT;
+            fn ShareResources(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkDeviceContext: IUnknown) -> HRESULT;
+            fn GetRequiredProtections(&self, #[out] pFrameProtectionFlags: *mut DWORD) -> HRESULT;
+            fn SetOPMWindow(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND) -> HRESULT;
+            fn TransferVideoFrame(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstSurf: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrc: *const MFVideoNormalizedRect, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDst: *const RECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBorderClr: *const MFARGB, #[out] pFrameProtectionFlags: *mut DWORD) -> HRESULT;
+            fn SetContentProtectionManager(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCPM: IMFContentProtectionManager) -> HRESULT;
+            fn SetApplicationCertificate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pbBlob: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBlob: DWORD) -> HRESULT;
         }
         #[guid(0x7a5e5354_b114_4c72_b991_3131d75032ea)]
         interface IMFMediaEngineSrcElements: IUnknown {
-            fn GetLength(&self) -> u32;
-            fn GetURL(&self, index: u32, pURL: *mut BSTR) -> HRESULT;
-            fn GetType(&self, index: u32, pType: *mut BSTR) -> HRESULT;
-            fn GetMedia(&self, index: u32, pMedia: *mut BSTR) -> HRESULT;
-            fn AddElement(&self, #[opt] pURL: BSTR, #[opt] pType: BSTR, #[opt] pMedia: BSTR) -> HRESULT;
+            fn GetLength(&self) -> DWORD;
+            fn GetURL(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: DWORD, #[out] pURL: *mut BSTR) -> HRESULT;
+            fn GetType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: DWORD, #[out] pType: *mut BSTR) -> HRESULT;
+            fn GetMedia(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: DWORD, #[out] pMedia: *mut BSTR) -> HRESULT;
+            fn AddElement(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pURL: BSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pType: BSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMedia: BSTR) -> HRESULT;
             fn RemoveAllElements(&self) -> HRESULT;
         }
         #[guid(0x654a6bb3_e1a3_424a_9908_53a43a0dfda0)]
         interface IMFMediaEngineSrcElementsEx: IMFMediaEngineSrcElements {
-            fn AddElementEx(&self, #[opt] pURL: BSTR, #[opt] pType: BSTR, #[opt] pMedia: BSTR, #[opt] keySystem: BSTR) -> HRESULT;
-            fn GetKeySystem(&self, index: u32, pType: *mut BSTR) -> HRESULT;
+            fn AddElementEx(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pURL: BSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pType: BSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMedia: BSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] keySystem: BSTR) -> HRESULT;
+            fn GetKeySystem(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] pType: *mut BSTR) -> HRESULT;
         }
         #[guid(0xa724b056_1b2e_4642_a6f3_db9420c52908)]
         interface IMFMediaEngineSupportsSourceTransfer: IUnknown {
-            fn ShouldTransferSource(&self, pfShouldTransfer: *mut BOOL) -> HRESULT;
-            fn DetachMediaSource(&self, ppByteStream: *mut IMFByteStream, ppMediaSource: *mut IMFMediaSource, ppMSE: *mut IMFMediaSourceExtension) -> HRESULT;
-            fn AttachMediaSource(&self, #[opt] pByteStream: IMFByteStream, pMediaSource: IMFMediaSource, #[opt] pMSE: IMFMediaSourceExtension) -> HRESULT;
+            fn ShouldTransferSource(&self, #[out] pfShouldTransfer: *mut BOOL) -> HRESULT;
+            fn DetachMediaSource(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppByteStream: *mut IMFByteStream, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppMediaSource: *mut IMFMediaSource, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppMSE: *mut IMFMediaSourceExtension) -> HRESULT;
+            fn AttachMediaSource(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pByteStream: IMFByteStream, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMediaSource: IMFMediaSource, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMSE: IMFMediaSourceExtension) -> HRESULT;
         }
         #[guid(0x24230452_fe54_40cc_94f3_fcc394c340d6)]
         interface IMFMediaEngineTransferSource: IUnknown {
-            fn TransferSourceToMediaEngine(&self, destination: IMFMediaEngine) -> HRESULT;
+            fn TransferSourceToMediaEngine(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] destination: IMFMediaEngine) -> HRESULT;
         }
         #[guid(0x6bdf1188_6ec8_44ff_8ccc_bfca0d12afa3)]
         interface IMFMediaEngineVideoRendererEffect: IUnknown {
-            fn SetEffect(&self, pEffect: IUnknown) -> HRESULT;
+            fn SetEffect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEffect: IUnknown) -> HRESULT;
             fn ClearEffect(&self) -> HRESULT;
         }
         #[guid(0xba2743a1_07e0_48ef_84b6_9a2ed023ca6c)]
         interface IMFMediaEngineWebSupport: IUnknown {
             fn ShouldDelayTheLoadEvent(&self) -> BOOL;
-            fn ConnectWebAudio(&self, dwSampleRate: u32, ppSourceProvider: *mut IAudioSourceProvider) -> HRESULT;
+            fn ConnectWebAudio(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSampleRate: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppSourceProvider: *mut IAudioSourceProvider) -> HRESULT;
             fn DisconnectWebAudio(&self) -> HRESULT;
         }
         #[guid(0xfc0e10d2_ab2a_4501_a951_06bb1075184c)]
         interface IMFMediaError: IUnknown {
-            fn GetErrorCode(&self) -> u16;
+            fn GetErrorCode(&self) -> USHORT;
             fn GetExtendedErrorCode(&self) -> HRESULT;
-            fn SetErrorCode(&self, error: MF_MEDIA_ENGINE_ERR) -> HRESULT;
-            fn SetExtendedErrorCode(&self, error: HRESULT) -> HRESULT;
+            fn SetErrorCode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] error: MF_MEDIA_ENGINE_ERR) -> HRESULT;
+            fn SetExtendedErrorCode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] error: HRESULT) -> HRESULT;
         }
         #[guid(0x24fa67d5_d1d0_4dc5_995c_c0efdc191fb5)]
         interface IMFMediaKeySession: IUnknown {
-            fn GetError(&self, code: *mut u16, systemCode: *mut u32) -> HRESULT;
-            fn get_KeySystem(&self, keySystem: *mut BSTR) -> HRESULT;
-            fn get_SessionId(&self, sessionId: *mut BSTR) -> HRESULT;
-            fn Update(&self, #[size_param(1)] key: *const u8, cb: u32) -> HRESULT;
+            fn GetError(&self, #[out] code: *mut USHORT, #[out] systemCode: *mut DWORD) -> HRESULT;
+            fn get_KeySystem(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] keySystem: *mut BSTR) -> HRESULT;
+            fn get_SessionId(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] sessionId: *mut BSTR) -> HRESULT;
+            fn Update(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] key: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xe9707e05_6d55_4636_b185_3de21210bd75)]
         interface IMFMediaKeySession2: IMFMediaKeySession {
-            fn get_KeyStatuses(&self, pKeyStatusesArray: *mut *mut MFMediaKeyStatus, puSize: *mut u32) -> HRESULT;
-            fn Load(&self, bstrSessionId: BSTR, pfLoaded: *mut BOOL) -> HRESULT;
-            fn GenerateRequest(&self, initDataType: BSTR, #[size_param(2)] pbInitData: *const u8, cb: u32) -> HRESULT;
-            fn get_Expiration(&self, dblExpiration: *mut f64) -> HRESULT;
+            fn get_KeyStatuses(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*puSize", "*puSize")] #[out] pKeyStatusesArray: *mut *mut MFMediaKeyStatus, #[out] puSize: *mut UINT) -> HRESULT;
+            fn Load(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bstrSessionId: BSTR, #[out] pfLoaded: *mut BOOL) -> HRESULT;
+            fn GenerateRequest(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] initDataType: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pbInitData: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> HRESULT;
+            fn get_Expiration(&self, #[out] dblExpiration: *mut f64) -> HRESULT;
             fn Remove(&self) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
         }
         #[guid(0x6a0083f9_8947_4c1d_9ce0_cdee22b23135)]
         interface IMFMediaKeySessionNotify: IUnknown {
-            fn KeyMessage(&self, #[opt] destinationURL: BSTR, #[size_param(2)] message: *const u8, cb: u32);
+            fn KeyMessage(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] destinationURL: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] message: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD);
             fn KeyAdded(&self);
-            fn KeyError(&self, code: u16, systemCode: u32);
+            fn KeyError(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] code: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] systemCode: DWORD);
         }
         #[guid(0xc3a9e92a_da88_46b0_a110_6cf953026cb9)]
         interface IMFMediaKeySessionNotify2: IMFMediaKeySessionNotify {
-            fn KeyMessage2(&self, eMessageType: MF_MEDIAKEYSESSION_MESSAGETYPE, #[opt] destinationURL: BSTR, #[size_param(3)] pbMessage: *const u8, cbMessage: u32);
+            fn KeyMessage2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eMessageType: MF_MEDIAKEYSESSION_MESSAGETYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] destinationURL: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pbMessage: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbMessage: DWORD);
             fn KeyStatusChange(&self);
         }
         #[guid(0xaec63fda_7a97_4944_b35c_6c6df8085cc3)]
         interface IMFMediaKeySystemAccess: IUnknown {
-            fn CreateMediaKeys(&self, #[opt] pCdmCustomConfig: IPropertyStore, ppKeys: *mut IMFMediaKeys2) -> HRESULT;
-            fn get_SupportedConfiguration(&self, ppSupportedConfiguration: *mut IPropertyStore) -> HRESULT;
-            fn get_KeySystem(&self, pKeySystem: *mut BSTR) -> HRESULT;
+            fn CreateMediaKeys(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCdmCustomConfig: IPropertyStore, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppKeys: *mut IMFMediaKeys2) -> HRESULT;
+            fn get_SupportedConfiguration(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppSupportedConfiguration: *mut IPropertyStore) -> HRESULT;
+            fn get_KeySystem(&self, #[out] pKeySystem: *mut BSTR) -> HRESULT;
         }
         #[guid(0x5cb31c05_61ff_418f_afda_caaf41421a38)]
         interface IMFMediaKeys: IUnknown {
-            fn CreateSession(&self, #[opt] mimeType: BSTR, #[size_param(2)] #[opt] initData: *const u8, #[opt] cb: u32, #[size_param(4)] #[opt] customData: *const u8, cbCustomData: u32, notify: IMFMediaKeySessionNotify, ppSession: *mut IMFMediaKeySession) -> HRESULT;
-            fn get_KeySystem(&self, keySystem: *mut BSTR) -> HRESULT;
+            fn CreateSession(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mimeType: BSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] initData: *const BYTE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] customData: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbCustomData: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] notify: IMFMediaKeySessionNotify, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppSession: *mut IMFMediaKeySession) -> HRESULT;
+            fn get_KeySystem(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] keySystem: *mut BSTR) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
-            fn GetSuspendNotify(&self, notify: *mut IMFCdmSuspendNotify) -> HRESULT;
+            fn GetSuspendNotify(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] notify: *mut IMFCdmSuspendNotify) -> HRESULT;
         }
         #[guid(0x45892507_ad66_4de2_83a2_acbb13cd8d43)]
         interface IMFMediaKeys2: IMFMediaKeys {
-            fn CreateSession2(&self, eSessionType: MF_MEDIAKEYSESSION_TYPE, pMFMediaKeySessionNotify2: IMFMediaKeySessionNotify2, ppSession: *mut IMFMediaKeySession2) -> HRESULT;
-            fn SetServerCertificate(&self, #[size_param(1)] #[opt] pbServerCertificate: *const u8, cb: u32) -> HRESULT;
-            fn GetDOMException(&self, systemCode: HRESULT, code: *mut HRESULT) -> HRESULT;
+            fn CreateSession2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eSessionType: MF_MEDIAKEYSESSION_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFMediaKeySessionNotify2: IMFMediaKeySessionNotify2, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppSession: *mut IMFMediaKeySession2) -> HRESULT;
+            fn SetServerCertificate(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pbServerCertificate: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> HRESULT;
+            fn GetDOMException(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] systemCode: HRESULT, #[out] code: *mut HRESULT) -> HRESULT;
         }
         #[guid(0xe467b94e_a713_4562_a802_816a42e9008a)]
         interface IMFMediaSourceExtension: IUnknown {
@@ -271,16 +272,16 @@ mod Windows {
             fn GetActiveSourceBuffers(&self) -> IMFSourceBufferList;
             fn GetReadyState(&self) -> MF_MSE_READY;
             fn GetDuration(&self) -> f64;
-            fn SetDuration(&self, duration: f64) -> HRESULT;
-            fn AddSourceBuffer(&self, r#type: BSTR, pNotify: IMFSourceBufferNotify, ppSourceBuffer: *mut IMFSourceBuffer) -> HRESULT;
-            fn RemoveSourceBuffer(&self, pSourceBuffer: IMFSourceBuffer) -> HRESULT;
-            fn SetEndOfStream(&self, error: MF_MSE_ERROR) -> HRESULT;
-            fn IsTypeSupported(&self, r#type: BSTR) -> BOOL;
-            fn GetSourceBuffer(&self, dwStreamIndex: u32) -> IMFSourceBuffer;
+            fn SetDuration(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: f64) -> HRESULT;
+            fn AddSourceBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#type: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pNotify: IMFSourceBufferNotify, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSourceBuffer: *mut IMFSourceBuffer) -> HRESULT;
+            fn RemoveSourceBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSourceBuffer: IMFSourceBuffer) -> HRESULT;
+            fn SetEndOfStream(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] error: MF_MSE_ERROR) -> HRESULT;
+            fn IsTypeSupported(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#type: BSTR) -> BOOL;
+            fn GetSourceBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStreamIndex: DWORD) -> IMFSourceBuffer;
         }
         #[guid(0x5d1abfd6_450a_4d92_9efc_d6b6cbc1f4da)]
         interface IMFMediaSourceExtensionLiveSeekableRange: IUnknown {
-            fn SetLiveSeekableRange(&self, start: f64, end: f64) -> HRESULT;
+            fn SetLiveSeekableRange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] start: f64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] end: f64) -> HRESULT;
             fn ClearLiveSeekableRange(&self) -> HRESULT;
         }
         #[guid(0xa7901327_05dd_4469_a7b7_0e01979e361d)]
@@ -291,180 +292,202 @@ mod Windows {
         }
         #[guid(0xdb71a2fc_078a_414e_9df9_8c2531b0aa6c)]
         interface IMFMediaTimeRange: IUnknown {
-            fn GetLength(&self) -> u32;
-            fn GetStart(&self, index: u32, pStart: *mut f64) -> HRESULT;
-            fn GetEnd(&self, index: u32, pEnd: *mut f64) -> HRESULT;
-            fn ContainsTime(&self, time: f64) -> BOOL;
-            fn AddRange(&self, startTime: f64, endTime: f64) -> HRESULT;
+            fn GetLength(&self) -> DWORD;
+            fn GetStart(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: DWORD, #[out] pStart: *mut f64) -> HRESULT;
+            fn GetEnd(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: DWORD, #[out] pEnd: *mut f64) -> HRESULT;
+            fn ContainsTime(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] time: f64) -> BOOL;
+            fn AddRange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] startTime: f64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] endTime: f64) -> HRESULT;
             fn Clear(&self) -> HRESULT;
         }
         #[guid(0xe2cd3a4b_af25_4d3d_9110_da0e6f8ee877)]
         interface IMFSourceBuffer: IUnknown {
             fn GetUpdating(&self) -> BOOL;
-            fn GetBuffered(&self, ppBuffered: *mut IMFMediaTimeRange) -> HRESULT;
+            fn GetBuffered(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppBuffered: *mut IMFMediaTimeRange) -> HRESULT;
             fn GetTimeStampOffset(&self) -> f64;
-            fn SetTimeStampOffset(&self, offset: f64) -> HRESULT;
+            fn SetTimeStampOffset(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offset: f64) -> HRESULT;
             fn GetAppendWindowStart(&self) -> f64;
-            fn SetAppendWindowStart(&self, time: f64) -> HRESULT;
+            fn SetAppendWindowStart(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] time: f64) -> HRESULT;
             fn GetAppendWindowEnd(&self) -> f64;
-            fn SetAppendWindowEnd(&self, time: f64) -> HRESULT;
-            fn Append(&self, #[size_param(1)] pData: *const u8, len: u32) -> HRESULT;
-            fn AppendByteStream(&self, pStream: IMFByteStream, #[in] #[opt] pMaxLen: *mut DWORDLONG) -> HRESULT;
+            fn SetAppendWindowEnd(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] time: f64) -> HRESULT;
+            fn Append(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pData: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] len: DWORD) -> HRESULT;
+            fn AppendByteStream(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStream: IMFByteStream, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMaxLen: *mut DWORDLONG) -> HRESULT;
             fn Abort(&self) -> HRESULT;
-            fn Remove(&self, start: f64, end: f64) -> HRESULT;
+            fn Remove(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] start: f64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] end: f64) -> HRESULT;
         }
         #[guid(0x19666fb4_babe_4c55_bc03_0a074da37e2a)]
         interface IMFSourceBufferAppendMode: IUnknown {
             fn GetAppendMode(&self) -> MF_MSE_APPEND_MODE;
-            fn SetAppendMode(&self, mode: MF_MSE_APPEND_MODE) -> HRESULT;
+            fn SetAppendMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mode: MF_MSE_APPEND_MODE) -> HRESULT;
         }
         #[guid(0x249981f8_8325_41f3_b80c_3b9e3aad0cbe)]
         interface IMFSourceBufferList: IUnknown {
-            fn GetLength(&self) -> u32;
-            fn GetSourceBuffer(&self, index: u32) -> IMFSourceBuffer;
+            fn GetLength(&self) -> DWORD;
+            fn GetSourceBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: DWORD) -> IMFSourceBuffer;
         }
         #[guid(0x87e47623_2ceb_45d6_9b88_d8520c4dcbbc)]
         interface IMFSourceBufferNotify: IUnknown {
             fn OnUpdateStart(&self);
             fn OnAbort(&self);
-            fn OnError(&self, hr: HRESULT);
+            fn OnError(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hr: HRESULT);
             fn OnUpdate(&self);
             fn OnUpdateEnd(&self);
         }
         #[guid(0x1f2a94c9_a3df_430d_9d0f_acd85ddc29af)]
         interface IMFTimedText: IUnknown {
-            fn RegisterNotifications(&self, #[opt] notify: IMFTimedTextNotify) -> HRESULT;
-            fn SelectTrack(&self, trackId: u32, selected: BOOL) -> HRESULT;
-            fn AddDataSource(&self, byteStream: IMFByteStream, #[opt] label: PCWSTR, #[opt] language: PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, isDefault: BOOL, #[in] #[out] trackId: *mut u32) -> HRESULT;
-            fn AddDataSourceFromUrl(&self, url: PCWSTR, #[opt] label: PCWSTR, #[opt] language: PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, isDefault: BOOL, #[in] #[out] trackId: *mut u32) -> HRESULT;
-            fn AddTrack(&self, #[opt] label: PCWSTR, #[opt] language: PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, track: *mut IMFTimedTextTrack) -> HRESULT;
-            fn RemoveTrack(&self, track: IMFTimedTextTrack) -> HRESULT;
-            fn GetCueTimeOffset(&self, offset: *mut f64) -> HRESULT;
-            fn SetCueTimeOffset(&self, offset: f64) -> HRESULT;
-            fn GetTracks(&self, tracks: *mut IMFTimedTextTrackList) -> HRESULT;
-            fn GetActiveTracks(&self, activeTracks: *mut IMFTimedTextTrackList) -> HRESULT;
-            fn GetTextTracks(&self, textTracks: *mut IMFTimedTextTrackList) -> HRESULT;
-            fn GetMetadataTracks(&self, metadataTracks: *mut IMFTimedTextTrackList) -> HRESULT;
-            fn SetInBandEnabled(&self, enabled: BOOL) -> HRESULT;
+            fn RegisterNotifications(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] notify: IMFTimedTextNotify) -> HRESULT;
+            fn SelectTrack(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] trackId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] selected: BOOL) -> HRESULT;
+            fn AddDataSource(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] byteStream: IMFByteStream, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] label: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] language: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] kind: MF_TIMED_TEXT_TRACK_KIND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] isDefault: BOOL, #[out] trackId: *mut DWORD) -> HRESULT;
+            fn AddDataSourceFromUrl(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] url: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] label: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] language: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] kind: MF_TIMED_TEXT_TRACK_KIND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] isDefault: BOOL, #[out] trackId: *mut DWORD) -> HRESULT;
+            fn AddTrack(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] label: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] language: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] kind: MF_TIMED_TEXT_TRACK_KIND, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] track: *mut IMFTimedTextTrack) -> HRESULT;
+            fn RemoveTrack(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] track: IMFTimedTextTrack) -> HRESULT;
+            fn GetCueTimeOffset(&self, #[out] offset: *mut f64) -> HRESULT;
+            fn SetCueTimeOffset(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offset: f64) -> HRESULT;
+            fn GetTracks(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] tracks: *mut IMFTimedTextTrackList) -> HRESULT;
+            fn GetActiveTracks(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] activeTracks: *mut IMFTimedTextTrackList) -> HRESULT;
+            fn GetTextTracks(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] textTracks: *mut IMFTimedTextTrackList) -> HRESULT;
+            fn GetMetadataTracks(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] metadataTracks: *mut IMFTimedTextTrackList) -> HRESULT;
+            fn SetInBandEnabled(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enabled: BOOL) -> HRESULT;
             fn IsInBandEnabled(&self) -> BOOL;
         }
         #[guid(0x4ae3a412_0545_43c4_bf6f_6b97a5c6c432)]
         interface IMFTimedTextBinary: IUnknown {
-            fn GetData(&self, #[out] data: *const *const u8, length: *mut u32) -> HRESULT;
+            fn GetData(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*length", "*length")] #[out] data: *mut *const BYTE, #[out] length: *mut DWORD) -> HRESULT;
         }
         #[guid(0x3c5f3e8a_90c0_464e_8136_898d2975f847)]
         interface IMFTimedTextBouten: IUnknown {
-            fn GetBoutenType(&self, value: *mut MF_TIMED_TEXT_BOUTEN_TYPE) -> HRESULT;
-            fn GetBoutenColor(&self, value: *mut MFARGB) -> HRESULT;
-            fn GetBoutenPosition(&self, value: *mut MF_TIMED_TEXT_BOUTEN_POSITION) -> HRESULT;
+            fn GetBoutenType(&self, #[out] value: *mut MF_TIMED_TEXT_BOUTEN_TYPE) -> HRESULT;
+            fn GetBoutenColor(&self, #[out] value: *mut MFARGB) -> HRESULT;
+            fn GetBoutenPosition(&self, #[out] value: *mut MF_TIMED_TEXT_BOUTEN_POSITION) -> HRESULT;
         }
         #[guid(0x1e560447_9a2b_43e1_a94c_b0aaabfbfbc9)]
         interface IMFTimedTextCue: IUnknown {
-            fn GetId(&self) -> u32;
-            fn GetOriginalId(&self, originalId: *mut PWSTR) -> HRESULT;
+            fn GetId(&self) -> DWORD;
+            fn GetOriginalId(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] originalId: *mut LPWSTR) -> HRESULT;
             fn GetCueKind(&self) -> MF_TIMED_TEXT_TRACK_KIND;
             fn GetStartTime(&self) -> f64;
             fn GetDuration(&self) -> f64;
-            fn GetTrackId(&self) -> u32;
-            fn GetData(&self, data: *mut IMFTimedTextBinary) -> HRESULT;
-            fn GetRegion(&self, region: *mut IMFTimedTextRegion) -> HRESULT;
-            fn GetStyle(&self, style: *mut IMFTimedTextStyle) -> HRESULT;
-            fn GetLineCount(&self) -> u32;
-            fn GetLine(&self, index: u32, line: *mut IMFTimedTextFormattedText) -> HRESULT;
+            fn GetTrackId(&self) -> DWORD;
+            fn GetData(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = true)] data: *mut IMFTimedTextBinary) -> HRESULT;
+            fn GetRegion(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = true)] region: *mut IMFTimedTextRegion) -> HRESULT;
+            fn GetStyle(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = true)] style: *mut IMFTimedTextStyle) -> HRESULT;
+            fn GetLineCount(&self) -> DWORD;
+            fn GetLine(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] line: *mut IMFTimedTextFormattedText) -> HRESULT;
         }
         #[guid(0xad128745_211b_40a0_9981_fe65f166d0fd)]
         interface IMFTimedTextCueList: IUnknown {
-            fn GetLength(&self) -> u32;
-            fn GetCueByIndex(&self, index: u32, cue: *mut IMFTimedTextCue) -> HRESULT;
-            fn GetCueById(&self, id: u32, cue: *mut IMFTimedTextCue) -> HRESULT;
-            fn GetCueByOriginalId(&self, originalId: PCWSTR, cue: *mut IMFTimedTextCue) -> HRESULT;
-            fn AddTextCue(&self, start: f64, duration: f64, text: PCWSTR, #[opt] cue: *mut IMFTimedTextCue) -> HRESULT;
-            fn AddDataCue(&self, start: f64, duration: f64, #[size_param(3)] data: *const u8, dataSize: u32, #[opt] cue: *mut IMFTimedTextCue) -> HRESULT;
-            fn RemoveCue(&self, cue: IMFTimedTextCue) -> HRESULT;
+            fn GetLength(&self) -> DWORD;
+            fn GetCueByIndex(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn GetCueById(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn GetCueByOriginalId(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] originalId: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn AddTextCue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] start: f64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: f64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] text: LPCWSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn AddDataCue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] start: f64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duration: f64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] data: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dataSize: DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn RemoveCue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cue: IMFTimedTextCue) -> HRESULT;
         }
         #[guid(0xe13af3c1_4d47_4354_b1f5_e83ae0ecae60)]
         interface IMFTimedTextFormattedText: IUnknown {
-            fn GetText(&self, text: *mut PWSTR) -> HRESULT;
-            fn GetSubformattingCount(&self) -> u32;
-            fn GetSubformatting(&self, index: u32, firstChar: *mut u32, charLength: *mut u32, style: *mut IMFTimedTextStyle) -> HRESULT;
+            fn GetText(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] text: *mut LPWSTR) -> HRESULT;
+            fn GetSubformattingCount(&self) -> DWORD;
+            fn GetSubformatting(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: DWORD, #[out] firstChar: *mut DWORD, #[out] charLength: *mut DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = true)] style: *mut IMFTimedTextStyle) -> HRESULT;
         }
         #[guid(0xdf6b87b6_ce12_45db_aba7_432fe054e57d)]
         interface IMFTimedTextNotify: IUnknown {
-            fn TrackAdded(&self, trackId: u32);
-            fn TrackRemoved(&self, trackId: u32);
-            fn TrackSelected(&self, trackId: u32, selected: BOOL);
-            fn TrackReadyStateChanged(&self, trackId: u32);
-            fn Error(&self, errorCode: MF_TIMED_TEXT_ERROR_CODE, extendedErrorCode: HRESULT, sourceTrackId: u32);
-            fn Cue(&self, cueEvent: MF_TIMED_TEXT_CUE_EVENT, currentTime: f64, #[opt] cue: IMFTimedTextCue);
+            fn TrackAdded(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] trackId: DWORD);
+            fn TrackRemoved(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] trackId: DWORD);
+            fn TrackSelected(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] trackId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] selected: BOOL);
+            fn TrackReadyStateChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] trackId: DWORD);
+            fn Error(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] errorCode: MF_TIMED_TEXT_ERROR_CODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] extendedErrorCode: HRESULT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sourceTrackId: DWORD);
+            fn Cue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cueEvent: MF_TIMED_TEXT_CUE_EVENT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] currentTime: f64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cue: IMFTimedTextCue);
             fn Reset(&self);
         }
         #[guid(0xc8d22afc_bc47_4bdf_9b04_787e49ce3f58)]
         interface IMFTimedTextRegion: IUnknown {
-            fn GetName(&self, name: *mut PWSTR) -> HRESULT;
-            fn GetPosition(&self, pX: *mut f64, pY: *mut f64, unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
-            fn GetExtent(&self, pWidth: *mut f64, pHeight: *mut f64, unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
-            fn GetBackgroundColor(&self, bgColor: *mut MFARGB) -> HRESULT;
-            fn GetWritingMode(&self, writingMode: *mut MF_TIMED_TEXT_WRITING_MODE) -> HRESULT;
-            fn GetDisplayAlignment(&self, displayAlign: *mut MF_TIMED_TEXT_DISPLAY_ALIGNMENT) -> HRESULT;
-            fn GetLineHeight(&self, pLineHeight: *mut f64, unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
-            fn GetClipOverflow(&self, clipOverflow: *mut BOOL) -> HRESULT;
-            fn GetPadding(&self, before: *mut f64, start: *mut f64, after: *mut f64, end: *mut f64, unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
-            fn GetWrap(&self, wrap: *mut BOOL) -> HRESULT;
-            fn GetZIndex(&self, zIndex: *mut i32) -> HRESULT;
-            fn GetScrollMode(&self, scrollMode: *mut MF_TIMED_TEXT_SCROLL_MODE) -> HRESULT;
+            fn GetName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] name: *mut LPWSTR) -> HRESULT;
+            fn GetPosition(&self, #[out] pX: *mut f64, #[out] pY: *mut f64, #[out] unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
+            fn GetExtent(&self, #[out] pWidth: *mut f64, #[out] pHeight: *mut f64, #[out] unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
+            fn GetBackgroundColor(&self, #[out] bgColor: *mut MFARGB) -> HRESULT;
+            fn GetWritingMode(&self, #[out] writingMode: *mut MF_TIMED_TEXT_WRITING_MODE) -> HRESULT;
+            fn GetDisplayAlignment(&self, #[out] displayAlign: *mut MF_TIMED_TEXT_DISPLAY_ALIGNMENT) -> HRESULT;
+            fn GetLineHeight(&self, #[out] pLineHeight: *mut f64, #[out] unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
+            fn GetClipOverflow(&self, #[out] clipOverflow: *mut BOOL) -> HRESULT;
+            fn GetPadding(&self, #[out] before: *mut f64, #[out] start: *mut f64, #[out] after: *mut f64, #[out] end: *mut f64, #[out] unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
+            fn GetWrap(&self, #[out] wrap: *mut BOOL) -> HRESULT;
+            fn GetZIndex(&self, #[out] zIndex: *mut INT32) -> HRESULT;
+            fn GetScrollMode(&self, #[out] scrollMode: *mut MF_TIMED_TEXT_SCROLL_MODE) -> HRESULT;
         }
         #[guid(0x76c6a6f5_4955_4de5_b27b_14b734cc14b4)]
         interface IMFTimedTextRuby: IUnknown {
-            fn GetRubyText(&self, rubyText: *mut PWSTR) -> HRESULT;
-            fn GetRubyPosition(&self, value: *mut MF_TIMED_TEXT_RUBY_POSITION) -> HRESULT;
-            fn GetRubyAlign(&self, value: *mut MF_TIMED_TEXT_RUBY_ALIGN) -> HRESULT;
-            fn GetRubyReserve(&self, value: *mut MF_TIMED_TEXT_RUBY_RESERVE) -> HRESULT;
+            fn GetRubyText(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] rubyText: *mut LPWSTR) -> HRESULT;
+            fn GetRubyPosition(&self, #[out] value: *mut MF_TIMED_TEXT_RUBY_POSITION) -> HRESULT;
+            fn GetRubyAlign(&self, #[out] value: *mut MF_TIMED_TEXT_RUBY_ALIGN) -> HRESULT;
+            fn GetRubyReserve(&self, #[out] value: *mut MF_TIMED_TEXT_RUBY_RESERVE) -> HRESULT;
         }
         #[guid(0x09b2455d_b834_4f01_a347_9052e21c450e)]
         interface IMFTimedTextStyle: IUnknown {
-            fn GetName(&self, name: *mut PWSTR) -> HRESULT;
+            fn GetName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] name: *mut LPWSTR) -> HRESULT;
             fn IsExternal(&self) -> BOOL;
-            fn GetFontFamily(&self, fontFamily: *mut PWSTR) -> HRESULT;
-            fn GetFontSize(&self, fontSize: *mut f64, unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
-            fn GetColor(&self, color: *mut MFARGB) -> HRESULT;
-            fn GetBackgroundColor(&self, bgColor: *mut MFARGB) -> HRESULT;
-            fn GetShowBackgroundAlways(&self, showBackgroundAlways: *mut BOOL) -> HRESULT;
-            fn GetFontStyle(&self, fontStyle: *mut MF_TIMED_TEXT_FONT_STYLE) -> HRESULT;
-            fn GetBold(&self, bold: *mut BOOL) -> HRESULT;
-            fn GetRightToLeft(&self, rightToLeft: *mut BOOL) -> HRESULT;
-            fn GetTextAlignment(&self, textAlign: *mut MF_TIMED_TEXT_ALIGNMENT) -> HRESULT;
-            fn GetTextDecoration(&self, textDecoration: *mut u32) -> HRESULT;
-            fn GetTextOutline(&self, color: *mut MFARGB, thickness: *mut f64, blurRadius: *mut f64, unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
+            fn GetFontFamily(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] fontFamily: *mut LPWSTR) -> HRESULT;
+            fn GetFontSize(&self, #[out] fontSize: *mut f64, #[out] unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
+            fn GetColor(&self, #[out] color: *mut MFARGB) -> HRESULT;
+            fn GetBackgroundColor(&self, #[out] bgColor: *mut MFARGB) -> HRESULT;
+            fn GetShowBackgroundAlways(&self, #[out] showBackgroundAlways: *mut BOOL) -> HRESULT;
+            fn GetFontStyle(&self, #[out] fontStyle: *mut MF_TIMED_TEXT_FONT_STYLE) -> HRESULT;
+            fn GetBold(&self, #[out] bold: *mut BOOL) -> HRESULT;
+            fn GetRightToLeft(&self, #[out] rightToLeft: *mut BOOL) -> HRESULT;
+            fn GetTextAlignment(&self, #[out] textAlign: *mut MF_TIMED_TEXT_ALIGNMENT) -> HRESULT;
+            fn GetTextDecoration(&self, #[out] textDecoration: *mut DWORD) -> HRESULT;
+            fn GetTextOutline(&self, #[out] color: *mut MFARGB, #[out] thickness: *mut f64, #[out] blurRadius: *mut f64, #[out] unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
         }
         #[guid(0xdb639199_c809_4c89_bfca_d0bbb9729d6e)]
         interface IMFTimedTextStyle2: IUnknown {
-            fn GetRuby(&self, ruby: *mut IMFTimedTextRuby) -> HRESULT;
-            fn GetBouten(&self, bouten: *mut IMFTimedTextBouten) -> HRESULT;
-            fn IsTextCombined(&self, value: *mut BOOL) -> HRESULT;
-            fn GetFontAngleInDegrees(&self, value: *mut f64) -> HRESULT;
+            fn GetRuby(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = true)] ruby: *mut IMFTimedTextRuby) -> HRESULT;
+            fn GetBouten(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = true)] bouten: *mut IMFTimedTextBouten) -> HRESULT;
+            fn IsTextCombined(&self, #[out] value: *mut BOOL) -> HRESULT;
+            fn GetFontAngleInDegrees(&self, #[out] value: *mut f64) -> HRESULT;
         }
         #[guid(0x8822c32d_654e_4233_bf21_d7f2e67d30d4)]
         interface IMFTimedTextTrack: IUnknown {
-            fn GetId(&self) -> u32;
-            fn GetLabel(&self, label: *mut PWSTR) -> HRESULT;
-            fn SetLabel(&self, label: PCWSTR) -> HRESULT;
-            fn GetLanguage(&self, language: *mut PWSTR) -> HRESULT;
+            fn GetId(&self) -> DWORD;
+            fn GetLabel(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] label: *mut LPWSTR) -> HRESULT;
+            fn SetLabel(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] label: LPCWSTR) -> HRESULT;
+            fn GetLanguage(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] language: *mut LPWSTR) -> HRESULT;
             fn GetTrackKind(&self) -> MF_TIMED_TEXT_TRACK_KIND;
             fn IsInBand(&self) -> BOOL;
-            fn GetInBandMetadataTrackDispatchType(&self, dispatchType: *mut PWSTR) -> HRESULT;
+            fn GetInBandMetadataTrackDispatchType(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] dispatchType: *mut LPWSTR) -> HRESULT;
             fn IsActive(&self) -> BOOL;
             fn GetErrorCode(&self) -> MF_TIMED_TEXT_ERROR_CODE;
             fn GetExtendedErrorCode(&self) -> HRESULT;
-            fn GetDataFormat(&self, format: *mut GUID) -> HRESULT;
+            fn GetDataFormat(&self, #[out] format: *mut GUID) -> HRESULT;
             fn GetReadyState(&self) -> MF_TIMED_TEXT_TRACK_READY_STATE;
-            fn GetCueList(&self, cues: *mut IMFTimedTextCueList) -> HRESULT;
+            fn GetCueList(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] cues: *mut IMFTimedTextCueList) -> HRESULT;
         }
         #[guid(0x23ff334c_442c_445f_bccc_edc438aa11e2)]
         interface IMFTimedTextTrackList: IUnknown {
-            fn GetLength(&self) -> u32;
-            fn GetTrack(&self, index: u32, track: *mut IMFTimedTextTrack) -> HRESULT;
-            fn GetTrackById(&self, trackId: u32, track: *mut IMFTimedTextTrack) -> HRESULT;
+            fn GetLength(&self) -> DWORD;
+            fn GetTrack(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] track: *mut IMFTimedTextTrack) -> HRESULT;
+            fn GetTrackById(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] trackId: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] track: *mut IMFTimedTextTrack) -> HRESULT;
         }
+        #[guid(0x980fbb84_297d_4ea7_895f_bcf28a462881)]
+        const MF_EME_AUDIOCAPABILITIES: PROPERTYKEY = 6;
+        #[guid(0xec305fd9_039f_4ac8_98da_e7921e006a90)]
+        const MF_EME_CDM_INPRIVATESTOREPATH: PROPERTYKEY = 3;
+        #[guid(0xf795841e_99f9_44d7_afc0_d309c04c94ab)]
+        const MF_EME_CDM_STOREPATH: PROPERTYKEY = 4;
+        #[guid(0x289fb1fc_d9c4_4cc7_b2be_972b0e9b283a)]
+        const MF_EME_CONTENTTYPE: PROPERTYKEY = 4;
+        #[guid(0x7dc9c4a5_12be_497e_8bff_9b60b2dc5845)]
+        const MF_EME_DISTINCTIVEID: PROPERTYKEY = 4;
+        #[guid(0x497d231b_4eb9_4df0_b474_b9afeb0adf38)]
+        const MF_EME_INITDATATYPES: PROPERTYKEY = 3;
+        #[guid(0x9eae270e_b2d7_4817_b88f_540099f2ef4e)]
+        const MF_EME_LABEL: PROPERTYKEY = 8;
+        #[guid(0x5d4df6ae_9af1_4e3d_955b_0e4bd22fedf0)]
+        const MF_EME_PERSISTEDSTATE: PROPERTYKEY = 5;
+        #[guid(0x9d3d2b9e_7023_4944_a8f5_ecca52a46990)]
+        const MF_EME_ROBUSTNESS: PROPERTYKEY = 3;
+        #[guid(0x7623384f_00f5_4376_8698_3458db030ed5)]
+        const MF_EME_SESSIONTYPES: PROPERTYKEY = 9;
+        #[guid(0xb172f83d_30dd_4c10_8006_ed53da4d3bdb)]
+        const MF_EME_VIDEOCAPABILITIES: PROPERTYKEY = 7;
         #[repr(i32)]
         enum MF_HDCP_STATUS {
             MF_HDCP_STATUS_ON = 0,
@@ -478,12 +501,27 @@ mod Windows {
             MF_MEDIAKEYS_REQUIREMENT_OPTIONAL = 2,
             MF_MEDIAKEYS_REQUIREMENT_NOT_ALLOWED = 3,
         }
+        const MF_MEDIA_ENGINE_AUDIO_CATEGORY: GUID = 0xc8d4c51d_350e_41f2_ba46_faebbb0857f6;
+        const MF_MEDIA_ENGINE_AUDIO_ENDPOINT_ROLE: GUID = 0xd2cb93d1_116a_44f2_9385_f7d0fda2fb46;
+        const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE: GUID = 0x4e0212e2_e18f_41e1_95e5_c0e7e9235bc3;
+        const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE10: GUID = 0x11a47afd_6589_4124_b312_6158ec517fc3;
+        const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE11: GUID = 0x1cf1315f_ce3f_4035_9391_16142f775189;
+        const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE9: GUID = 0x052c2d39_40c0_4188_ab86_f828273b7522;
+        const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE_EDGE: GUID = 0xa6f3e465_3aca_442c_a3f0_ad6ddad839ae;
+        const MF_MEDIA_ENGINE_CALLBACK: GUID = 0xc60381b8_83a4_41f8_a3d0_de05076849a9;
         #[repr(i32)]
         enum MF_MEDIA_ENGINE_CANPLAY {
             MF_MEDIA_ENGINE_CANPLAY_NOT_SUPPORTED = 0,
             MF_MEDIA_ENGINE_CANPLAY_MAYBE = 1,
             MF_MEDIA_ENGINE_CANPLAY_PROBABLY = 2,
         }
+        const MF_MEDIA_ENGINE_COMPATIBILITY_MODE: GUID = 0x3ef26ad4_dc54_45de_b9af_76c8c66bfa8e;
+        const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WIN10: GUID = 0x5b25e089_6ca7_4139_a2cb_fcaab39552a3;
+        const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WWA_EDGE: GUID = 0x15b29098_9f01_4e4d_b65a_c06c6c89da2a;
+        const MF_MEDIA_ENGINE_CONTENT_PROTECTION_FLAGS: GUID = 0xe0350223_5aaf_4d76_a7c3_06de70894db4;
+        const MF_MEDIA_ENGINE_CONTENT_PROTECTION_MANAGER: GUID = 0xfdd6dfaa_bd85_4af3_9e0f_a01d539d876a;
+        const MF_MEDIA_ENGINE_CONTINUE_ON_CODEC_ERROR: GUID = 0xdbcdb7f9_48e4_4295_b70d_d518234eeb38;
+        const MF_MEDIA_ENGINE_COREWINDOW: GUID = 0xfccae4dc_0b7f_41c2_9f96_4659948acddc;
         #[repr(i32)]
         enum MF_MEDIA_ENGINE_CREATEFLAGS {
             MF_MEDIA_ENGINE_AUDIOONLY = 1,
@@ -493,6 +531,8 @@ mod Windows {
             MF_MEDIA_ENGINE_DISABLE_LOCAL_PLUGINS = 16,
             MF_MEDIA_ENGINE_CREATEFLAGS_MASK = 31,
         }
+        const MF_MEDIA_ENGINE_DXGI_MANAGER: GUID = 0x065702da_1094_486d_8617_ee7cc4ee4648;
+        const MF_MEDIA_ENGINE_EME_CALLBACK: GUID = 0x494553a7_a481_4cb7_bec5_380903513731;
         #[repr(i32)]
         enum MF_MEDIA_ENGINE_ERR {
             MF_MEDIA_ENGINE_ERR_NOERROR = 0,
@@ -544,6 +584,7 @@ mod Windows {
             MF_MEDIA_ENGINE_EVENT_SUPPORTEDRATES_CHANGED = 1015,
             MF_MEDIA_ENGINE_EVENT_AUDIOENDPOINTCHANGE = 1016,
         }
+        const MF_MEDIA_ENGINE_EXTENSION: GUID = 0x3109fd46_060d_4b62_8dcf_faff811318d2;
         #[repr(i32)]
         enum MF_MEDIA_ENGINE_EXTENSION_TYPE {
             MF_MEDIA_ENGINE_EXTENSION_TYPE_MEDIASOURCE = 0,
@@ -564,6 +605,8 @@ mod Windows {
             MF_MEDIAENGINE_KEYERR_HARDWARECHANGE = 5,
             MF_MEDIAENGINE_KEYERR_DOMAIN = 6,
         }
+        const MF_MEDIA_ENGINE_MEDIA_PLAYER_MODE: GUID = 0x3ddd8d45_5aa1_4112_82e5_36f6a2197e6e;
+        const MF_MEDIA_ENGINE_NEEDKEY_CALLBACK: GUID = 0x7ea80843_b6e4_432c_8ea4_7848ffe4220e;
         #[repr(i32)]
         enum MF_MEDIA_ENGINE_NETWORK {
             MF_MEDIA_ENGINE_NETWORK_EMPTY = 0,
@@ -571,6 +614,7 @@ mod Windows {
             MF_MEDIA_ENGINE_NETWORK_LOADING = 2,
             MF_MEDIA_ENGINE_NETWORK_NO_SOURCE = 3,
         }
+        const MF_MEDIA_ENGINE_OPM_HWND: GUID = 0xa0be8ee7_0572_4f2c_a801_2a151bd3e726;
         #[repr(i32)]
         enum MF_MEDIA_ENGINE_OPM_STATUS {
             MF_MEDIA_ENGINE_OPM_NOT_REQUESTED = 0,
@@ -580,6 +624,8 @@ mod Windows {
             MF_MEDIA_ENGINE_OPM_FAILED_UNSIGNED_DRIVER = 4,
             MF_MEDIA_ENGINE_OPM_FAILED = 5,
         }
+        const MF_MEDIA_ENGINE_PLAYBACK_HWND: GUID = 0xd988879b_67c9_4d92_baa7_6eadd446039d;
+        const MF_MEDIA_ENGINE_PLAYBACK_VISUAL: GUID = 0x6debd26f_6ab9_4d7e_b0ee_c61a73ffad15;
         #[repr(i32)]
         enum MF_MEDIA_ENGINE_PRELOAD {
             MF_MEDIA_ENGINE_PRELOAD_MISSING = 0,
@@ -613,6 +659,7 @@ mod Windows {
             MF_MEDIA_ENGINE_SEEK_MODE_NORMAL = 0,
             MF_MEDIA_ENGINE_SEEK_MODE_APPROXIMATE = 1,
         }
+        const MF_MEDIA_ENGINE_SOURCE_RESOLVER_CONFIG_STORE: GUID = 0x0ac0c497_b3c4_48c9_9cde_bb8ca2442ca3;
         #[repr(i32)]
         enum MF_MEDIA_ENGINE_STATISTIC {
             MF_MEDIA_ENGINE_STATISTIC_FRAMES_RENDERED = 0,
@@ -630,11 +677,20 @@ mod Windows {
             MF_MEDIA_ENGINE_STREAMTYPE_FAILED_AUDIO = 1,
             MF_MEDIA_ENGINE_STREAMTYPE_FAILED_VIDEO = 2,
         }
+        const MF_MEDIA_ENGINE_STREAM_CONTAINS_ALPHA_CHANNEL: GUID = 0x5cbfaf44_d2b2_4cfb_80a7_d429c74c789d;
+        const MF_MEDIA_ENGINE_SYNCHRONOUS_CLOSE: GUID = 0xc3c2e12f_7e0e_4e43_b91c_dc992ccdfa5e;
+        const MF_MEDIA_ENGINE_TELEMETRY_APPLICATION_ID: GUID = 0x1e7b273b_a7e4_402a_8f51_c48e88a2cabc;
+        const MF_MEDIA_ENGINE_TIMEDTEXT: GUID = 0x805ea411_92e0_4e59_9b6e_5c7d7915e64f;
+        const MF_MEDIA_ENGINE_TRACK_ID: GUID = 0x65bea312_4043_4815_8eab_44dce2ef8f2a;
+        const MF_MEDIA_ENGINE_VIDEO_OUTPUT_FORMAT: GUID = 0x5066893c_8cf9_42bc_8b8a_472212e52726;
+        const MF_MSE_ACTIVELIST_CALLBACK: GUID = 0x949bda0f_4549_46d5_ad7f_b846e1ab1652;
         #[repr(i32)]
         enum MF_MSE_APPEND_MODE {
             MF_MSE_APPEND_MODE_SEGMENTS = 0,
             MF_MSE_APPEND_MODE_SEQUENCE = 1,
         }
+        const MF_MSE_BUFFERLIST_CALLBACK: GUID = 0x42e669b0_d60e_4afb_a85b_d8e5fe6bdab5;
+        const MF_MSE_CALLBACK: GUID = 0x9063a7c0_42c5_4ffd_a8a8_6fcf9ea3d00c;
         #[repr(i32)]
         enum MF_MSE_ERROR {
             MF_MSE_ERROR_NOERROR = 0,
@@ -642,6 +698,7 @@ mod Windows {
             MF_MSE_ERROR_DECODE = 2,
             MF_MSE_ERROR_UNKNOWN_ERROR = 3,
         }
+        const MF_MSE_OPUS_SUPPORT: GUID = 0x4d224cc1_8cc4_48a3_a7a7_e4c16ce6388a;
         #[repr(i32)]
         enum MF_MSE_OPUS_SUPPORT_TYPE {
             MF_MSE_OPUS_SUPPORT_ON = 0,
@@ -653,6 +710,7 @@ mod Windows {
             MF_MSE_READY_OPEN = 2,
             MF_MSE_READY_ENDED = 3,
         }
+        const MF_MSE_VP9_SUPPORT: GUID = 0x92d78429_d88b_4ff0_8322_803efa6e9626;
         #[repr(i32)]
         enum MF_MSE_VP9_SUPPORT_TYPE {
             MF_MSE_VP9_SUPPORT_DEFAULT = 0,

@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("d3d10_1.dll")]
-        extern fn D3D10CreateDevice1(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: u32, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: u32, #[opt] ppDevice: *mut ID3D10Device1) -> HRESULT;
+        extern fn D3D10CreateDevice1(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: UINT, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: UINT, #[out] #[opt] ppDevice: *mut ID3D10Device1) -> HRESULT;
         #[library("d3d10_1.dll")]
-        extern fn D3D10CreateDeviceAndSwapChain1(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: u32, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: u32, #[in] #[opt] pSwapChainDesc: *mut DXGI_SWAP_CHAIN_DESC, #[opt] ppSwapChain: *mut IDXGISwapChain, #[opt] ppDevice: *mut ID3D10Device1) -> HRESULT;
+        extern fn D3D10CreateDeviceAndSwapChain1(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: UINT, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSwapChainDesc: *mut DXGI_SWAP_CHAIN_DESC, #[out] #[opt] ppSwapChain: *mut IDXGISwapChain, #[out] #[opt] ppDevice: *mut ID3D10Device1) -> HRESULT;
         const D3D10_1_DEFAULT_SAMPLE_MASK: u32 = 4294967295;
         const D3D10_1_FLOAT16_FUSED_TOLERANCE_IN_ULP: f64 = 0.6;
         const D3D10_1_FLOAT32_TO_INTEGER_TOLERANCE_IN_ULP: f32 = 0.6;
@@ -48,7 +48,7 @@ mod Windows {
             SrcBlendAlpha: D3D10_BLEND,
             DestBlendAlpha: D3D10_BLEND,
             BlendOpAlpha: D3D10_BLEND_OP,
-            RenderTargetWriteMask: u8,
+            RenderTargetWriteMask: UINT8,
         }
         struct D3D10_SHADER_RESOURCE_VIEW_DESC1 {
             Format: DXGI_FORMAT,
@@ -73,26 +73,29 @@ mod Windows {
             D3D10_CENTER_MULTISAMPLE_PATTERN = -2,
         }
         struct D3D10_TEXCUBE_ARRAY_SRV1 {
-            MostDetailedMip: u32,
-            MipLevels: u32,
-            First2DArrayFace: u32,
-            NumCubes: u32,
+            MostDetailedMip: UINT,
+            MipLevels: UINT,
+            First2DArrayFace: UINT,
+            NumCubes: UINT,
         }
         #[guid(0xedad8d99_8a35_4d6d_8566_2ea276cde161)]
         interface ID3D10BlendState1: ID3D10BlendState {
-            fn GetDesc1(&self, pDesc: *mut D3D10_BLEND_DESC1);
+            fn GetDesc1(&self, #[out] pDesc: *mut D3D10_BLEND_DESC1);
         }
         #[guid(0x9b7e4c8f_342c_4106_a19f_4f2704f689f0)]
         interface ID3D10Device1: ID3D10Device {
-            fn CreateShaderResourceView1(&self, pResource: ID3D10Resource, #[opt] pDesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, #[opt] ppSRView: *mut ID3D10ShaderResourceView1) -> HRESULT;
-            fn CreateBlendState1(&self, pBlendStateDesc: *const D3D10_BLEND_DESC1, #[opt] ppBlendState: *mut ID3D10BlendState1) -> HRESULT;
+            fn CreateShaderResourceView1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D10Resource, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, #[out] #[opt] ppSRView: *mut ID3D10ShaderResourceView1) -> HRESULT;
+            fn CreateBlendState1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBlendStateDesc: *const D3D10_BLEND_DESC1, #[out] #[opt] ppBlendState: *mut ID3D10BlendState1) -> HRESULT;
             fn GetFeatureLevel(&self) -> D3D10_FEATURE_LEVEL1;
         }
         #[guid(0x9b7e4c87_342c_4106_a19f_4f2704f689f0)]
         interface ID3D10ShaderResourceView1: ID3D10ShaderResourceView {
-            fn GetDesc1(&self, pDesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC1);
+            fn GetDesc1(&self, #[out] pDesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC1);
         }
-        extern fn PFN_D3D10_CREATE_DEVICE1(param0: IDXGIAdapter, param1: D3D10_DRIVER_TYPE, param2: HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut ID3D10Device1) -> HRESULT;
-        extern fn PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(param0: IDXGIAdapter, param1: D3D10_DRIVER_TYPE, param2: HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut DXGI_SWAP_CHAIN_DESC, param7: *mut IDXGISwapChain, param8: *mut ID3D10Device1) -> HRESULT;
+        const IID_ID3D10BlendState1: GUID = 0xedad8d99_8a35_4d6d_8566_2ea276cde161;
+        const IID_ID3D10Device1: GUID = 0x9b7e4c8f_342c_4106_a19f_4f2704f689f0;
+        const IID_ID3D10ShaderResourceView1: GUID = 0x9b7e4c87_342c_4106_a19f_4f2704f689f0;
+        extern fn PFN_D3D10_CREATE_DEVICE1(param0: IDXGIAdapter, param1: D3D10_DRIVER_TYPE, param2: HMODULE, param3: UINT, param4: D3D10_FEATURE_LEVEL1, param5: UINT, param6: *mut ID3D10Device1) -> HRESULT;
+        extern fn PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(param0: IDXGIAdapter, param1: D3D10_DRIVER_TYPE, param2: HMODULE, param3: UINT, param4: D3D10_FEATURE_LEVEL1, param5: UINT, param6: *mut DXGI_SWAP_CHAIN_DESC, param7: *mut IDXGISwapChain, param8: *mut ID3D10Device1) -> HRESULT;
     }
 }

@@ -1,0 +1,6 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const __RPCSAL_H_VERSION__: i32 = 100;
+    }
+}

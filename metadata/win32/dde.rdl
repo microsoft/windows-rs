@@ -2,73 +2,67 @@
 mod Windows {
     mod Win32 {
         struct DDEACK {
-            _bitfield: u16 {
-                bAppReturnCode: 8,
-                reserved: 6,
-                fBusy: 1,
-                fAck: 1,
-            },
+            #[Windows::Win32::Metadata::NativeBitfield("bAppReturnCode", 0, 8, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("fAck", 15, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("fBusy", 14, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("reserved", 8, 6, MemberType = u16)]
+            _bitfield: u16,
         }
         struct DDEADVISE {
-            _bitfield: u16 {
-                reserved: 14,
-                fDeferUpd: 1,
-                fAckReq: 1,
-            },
+            #[Windows::Win32::Metadata::NativeBitfield("fAckReq", 15, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("fDeferUpd", 14, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("reserved", 0, 14, MemberType = u16)]
+            _bitfield: u16,
             cfFormat: i16,
         }
         struct DDEDATA {
-            _bitfield: u16 {
-                unused: 12,
-                fResponse: 1,
-                fRelease: 1,
-                reserved: 1,
-                fAckReq: 1,
-            },
+            #[Windows::Win32::Metadata::NativeBitfield("fAckReq", 15, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("fRelease", 13, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("fResponse", 12, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("reserved", 14, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("unused", 0, 12, MemberType = u16)]
+            _bitfield: u16,
             cfFormat: i16,
-            Value: [u8; 1],
+            Value: [BYTE; 1],
         }
         struct DDELN {
-            _bitfield: u16 {
-                unused: 13,
-                fRelease: 1,
-                fDeferUpd: 1,
-                fAckReq: 1,
-            },
+            #[Windows::Win32::Metadata::NativeBitfield("fAckReq", 15, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("fDeferUpd", 14, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("fRelease", 13, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("unused", 0, 13, MemberType = u16)]
+            _bitfield: u16,
             cfFormat: i16,
         }
         struct DDEPOKE {
-            _bitfield: u16 {
-                unused: 13,
-                fRelease: 1,
-                fReserved: 2,
-            },
+            #[Windows::Win32::Metadata::NativeBitfield("fRelease", 13, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("fReserved", 14, 2, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("unused", 0, 13, MemberType = u16)]
+            _bitfield: u16,
             cfFormat: i16,
-            Value: [u8; 1],
+            Value: [BYTE; 1],
         }
         struct DDEUP {
-            _bitfield: u16 {
-                unused: 12,
-                fAck: 1,
-                fRelease: 1,
-                fReserved: 1,
-                fAckReq: 1,
-            },
+            #[Windows::Win32::Metadata::NativeBitfield("fAck", 12, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("fAckReq", 15, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("fRelease", 13, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("fReserved", 14, 1, MemberType = u16)]
+            #[Windows::Win32::Metadata::NativeBitfield("unused", 0, 12, MemberType = u16)]
+            _bitfield: u16,
             cfFormat: i16,
-            rgb: [u8; 1],
+            rgb: [BYTE; 1],
         }
         #[library("USER32.dll")]
         extern fn DdeSetQualityOfService(hwndClient: HWND, pqosNew: *const SECURITY_QUALITY_OF_SERVICE, pqosPrev: PSECURITY_QUALITY_OF_SERVICE) -> BOOL;
         #[library("USER32.dll")]
-        extern fn FreeDDElParam(msg: u32, lParam: LPARAM) -> BOOL;
+        extern fn FreeDDElParam(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] msg: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LPARAM) -> BOOL;
         #[library("USER32.dll")]
         extern fn ImpersonateDdeClientWindow(hWndClient: HWND, hWndServer: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn PackDDElParam(msg: u32, uiLo: usize, uiHi: usize) -> LPARAM;
+        extern fn PackDDElParam(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] msg: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uiLo: UINT_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uiHi: UINT_PTR) -> LPARAM;
         #[library("USER32.dll")]
-        extern fn ReuseDDElParam(lParam: LPARAM, msgIn: u32, msgOut: u32, uiLo: usize, uiHi: usize) -> LPARAM;
+        extern fn ReuseDDElParam(lParam: LPARAM, msgIn: UINT, msgOut: UINT, uiLo: UINT_PTR, uiHi: UINT_PTR) -> LPARAM;
         #[library("USER32.dll")]
-        extern fn UnpackDDElParam(msg: u32, lParam: LPARAM, #[out] puiLo: PUINT_PTR, #[out] puiHi: PUINT_PTR) -> BOOL;
+        extern fn UnpackDDElParam(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] msg: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LPARAM, #[out] puiLo: PUINT_PTR, #[out] puiHi: PUINT_PTR) -> BOOL;
         const WM_DDE_ACK: i32 = 996;
         const WM_DDE_ADVISE: i32 = 994;
         const WM_DDE_DATA: i32 = 997;

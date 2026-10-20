@@ -93,7 +93,7 @@ mod Windows {
             EvtFormatMessageId = 8,
             EvtFormatMessageXml = 9,
         }
-        type EVT_HANDLE = HANDLE;
+        type EVT_HANDLE = *mut void;
         #[repr(i32)]
         enum EVT_LOGIN_CLASS {
             EvtRpcLogin = 1,
@@ -109,7 +109,7 @@ mod Windows {
             EvtLogOldestRecordNumber = 6,
             EvtLogFull = 7,
         }
-        type EVT_OBJECT_ARRAY_PROPERTY_HANDLE = HANDLE;
+        type EVT_OBJECT_ARRAY_PROPERTY_HANDLE = *mut void;
         #[repr(i32)]
         enum EVT_OPEN_LOG_FLAGS {
             EvtOpenChannelPath = 1,
@@ -176,11 +176,11 @@ mod Windows {
             EvtRenderBookmark = 2,
         }
         struct EVT_RPC_LOGIN {
-            Server: PWSTR,
-            User: PWSTR,
-            Domain: PWSTR,
-            Password: PWSTR,
-            Flags: u32,
+            Server: LPWSTR,
+            User: LPWSTR,
+            Domain: LPWSTR,
+            Password: LPWSTR,
+            Flags: DWORD,
         }
         #[repr(i32)]
         enum EVT_RPC_LOGIN_FLAGS {
@@ -198,7 +198,7 @@ mod Windows {
             EvtSeekOriginMask = 7,
             EvtSeekStrict = 65536,
         }
-        extern fn EVT_SUBSCRIBE_CALLBACK(Action: EVT_SUBSCRIBE_NOTIFY_ACTION, UserContext: *mut void, Event: EVT_HANDLE) -> u32;
+        extern fn EVT_SUBSCRIBE_CALLBACK(Action: EVT_SUBSCRIBE_NOTIFY_ACTION, #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")] UserContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Event: EVT_HANDLE) -> DWORD;
         #[repr(i32)]
         enum EVT_SUBSCRIBE_FLAGS {
             EvtSubscribeToFutureEvents = 1,
@@ -238,48 +238,48 @@ mod Windows {
         struct EVT_VARIANT {
             Anonymous: union {
                 BooleanVal: BOOL,
-                SByteVal: i8,
-                Int16Val: i16,
-                Int32Val: i32,
-                Int64Val: i64,
-                ByteVal: u8,
-                UInt16Val: u16,
-                UInt32Val: u32,
-                UInt64Val: u64,
+                SByteVal: INT8,
+                Int16Val: INT16,
+                Int32Val: INT32,
+                Int64Val: INT64,
+                ByteVal: UINT8,
+                UInt16Val: UINT16,
+                UInt32Val: UINT32,
+                UInt64Val: UINT64,
                 SingleVal: f32,
                 DoubleVal: f64,
-                FileTimeVal: u64,
+                FileTimeVal: ULONGLONG,
                 SysTimeVal: *mut SYSTEMTIME,
                 GuidVal: *mut GUID,
-                StringVal: PCWSTR,
-                AnsiStringVal: PCSTR,
+                StringVal: LPCWSTR,
+                AnsiStringVal: LPCSTR,
                 BinaryVal: PBYTE,
                 SidVal: PSID,
-                SizeTVal: usize,
+                SizeTVal: size_t,
                 BooleanArr: *mut BOOL,
-                SByteArr: *mut i8,
-                Int16Arr: *mut i16,
-                Int32Arr: *mut i32,
-                Int64Arr: *mut i64,
-                ByteArr: *mut u8,
-                UInt16Arr: *mut u16,
-                UInt32Arr: *mut u32,
-                UInt64Arr: *mut u64,
+                SByteArr: *mut INT8,
+                Int16Arr: *mut INT16,
+                Int32Arr: *mut INT32,
+                Int64Arr: *mut INT64,
+                ByteArr: *mut UINT8,
+                UInt16Arr: *mut UINT16,
+                UInt32Arr: *mut UINT32,
+                UInt64Arr: *mut UINT64,
                 SingleArr: *mut f32,
                 DoubleArr: *mut f64,
                 FileTimeArr: *mut FILETIME,
                 SysTimeArr: *mut SYSTEMTIME,
                 GuidArr: *mut GUID,
-                StringArr: *mut PWSTR,
-                AnsiStringArr: *mut PSTR,
+                StringArr: *mut LPWSTR,
+                AnsiStringArr: *mut LPSTR,
                 SidArr: *mut PSID,
-                SizeTArr: *mut usize,
+                SizeTArr: *mut size_t,
                 EvtHandleVal: EVT_HANDLE,
-                XmlVal: PCWSTR,
-                XmlValArr: *mut PCWSTR,
+                XmlVal: LPCWSTR,
+                XmlValArr: *mut LPCWSTR,
             },
-            Count: u32,
-            Type: u32,
+            Count: DWORD,
+            Type: DWORD,
         }
         #[repr(i32)]
         enum EVT_VARIANT_TYPE {
@@ -312,76 +312,91 @@ mod Windows {
         const EVT_VARIANT_TYPE_MASK: i32 = 127;
         const EVT_WRITE_ACCESS: i32 = 2;
         #[library("wevtapi.dll")]
-        extern fn EvtArchiveExportedLog(#[opt] Session: EVT_HANDLE, LogFilePath: PCWSTR, Locale: LCID, Flags: u32) -> BOOL;
+        extern fn EvtArchiveExportedLog(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Session: EVT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] LogFilePath: LPCWSTR, Locale: LCID, Flags: DWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtCancel(#[opt] Object: EVT_HANDLE) -> BOOL;
+        extern fn EvtCancel(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Object: EVT_HANDLE) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtClearLog(#[opt] Session: EVT_HANDLE, ChannelPath: PCWSTR, #[opt] TargetFilePath: PCWSTR, Flags: u32) -> BOOL;
+        extern fn EvtClearLog(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Session: EVT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ChannelPath: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] TargetFilePath: LPCWSTR, Flags: DWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtClose(Object: EVT_HANDLE) -> BOOL;
+        extern fn EvtClose(#[Windows::Win32::Metadata::NativeSal("2", "_Post_invalid_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Object: EVT_HANDLE) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtCreateBookmark(#[opt] BookmarkXml: PCWSTR) -> EVT_HANDLE;
+        extern fn EvtCreateBookmark(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] BookmarkXml: LPCWSTR) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtCreateRenderContext(ValuePathsCount: u32, #[len_param(0)] #[in] #[opt] ValuePaths: *mut PCWSTR, Flags: u32) -> EVT_HANDLE;
+        extern fn EvtCreateRenderContext(ValuePathsCount: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] ValuePaths: *mut LPCWSTR, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtExportLog(#[opt] Session: EVT_HANDLE, #[opt] Path: PCWSTR, #[opt] Query: PCWSTR, TargetFilePath: PCWSTR, Flags: u32) -> BOOL;
+        extern fn EvtExportLog(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Session: EVT_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] Path: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] Query: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] TargetFilePath: LPCWSTR, Flags: DWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtFormatMessage(#[opt] PublisherMetadata: EVT_HANDLE, #[opt] Event: EVT_HANDLE, MessageId: u32, ValueCount: u32, #[len_param(3)] #[opt] Values: PEVT_VARIANT, Flags: u32, BufferSize: u32, #[len_param(6)] #[out] #[opt] Buffer: PWSTR, #[out] BufferUsed: PDWORD) -> BOOL;
+        extern fn EvtFormatMessage(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PublisherMetadata: EVT_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Event: EVT_HANDLE, MessageId: DWORD, ValueCount: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] Values: PEVT_VARIANT, Flags: DWORD, BufferSize: DWORD, #[out] #[opt] #[len_param(6)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 8, IsByteCount = false, Dereference = true)] Buffer: LPWSTR, #[out] BufferUsed: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtGetChannelConfigProperty(ChannelConfig: EVT_HANDLE, PropertyId: EVT_CHANNEL_CONFIG_PROPERTY_ID, Flags: u32, PropertyValueBufferSize: u32, #[size_param(3)] #[out] #[opt] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
+        extern fn EvtGetChannelConfigProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ChannelConfig: EVT_HANDLE, PropertyId: EVT_CHANNEL_CONFIG_PROPERTY_ID, Flags: DWORD, PropertyValueBufferSize: DWORD, #[out] #[opt] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 5, IsByteCount = true, Dereference = true)] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtGetEventInfo(Event: EVT_HANDLE, PropertyId: EVT_EVENT_PROPERTY_ID, PropertyValueBufferSize: u32, #[size_param(2)] #[out] #[opt] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
+        extern fn EvtGetEventInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Event: EVT_HANDLE, PropertyId: EVT_EVENT_PROPERTY_ID, PropertyValueBufferSize: DWORD, #[out] #[opt] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtGetEventMetadataProperty(EventMetadata: EVT_HANDLE, PropertyId: EVT_EVENT_METADATA_PROPERTY_ID, Flags: u32, EventMetadataPropertyBufferSize: u32, #[size_param(3)] #[out] #[opt] EventMetadataPropertyBuffer: PEVT_VARIANT, #[out] EventMetadataPropertyBufferUsed: PDWORD) -> BOOL;
+        extern fn EvtGetEventMetadataProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventMetadata: EVT_HANDLE, PropertyId: EVT_EVENT_METADATA_PROPERTY_ID, Flags: DWORD, EventMetadataPropertyBufferSize: DWORD, #[out] #[opt] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 5, IsByteCount = true, Dereference = true)] EventMetadataPropertyBuffer: PEVT_VARIANT, #[out] EventMetadataPropertyBufferUsed: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
         #[library("wevtapi.dll")]
-        extern fn EvtGetExtendedStatus(BufferSize: u32, #[len_param(0)] #[out] #[opt] Buffer: PWSTR, #[out] BufferUsed: PDWORD) -> u32;
+        extern fn EvtGetExtendedStatus(BufferSize: DWORD, #[out] #[opt] #[len_param(0)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] Buffer: LPWSTR, #[out] BufferUsed: PDWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtGetLogInfo(Log: EVT_HANDLE, PropertyId: EVT_LOG_PROPERTY_ID, PropertyValueBufferSize: u32, #[size_param(2)] #[out] #[opt] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
+        extern fn EvtGetLogInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Log: EVT_HANDLE, PropertyId: EVT_LOG_PROPERTY_ID, PropertyValueBufferSize: DWORD, #[out] #[opt] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtGetObjectArrayProperty(ObjectArray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, PropertyId: u32, ArrayIndex: u32, Flags: u32, PropertyValueBufferSize: u32, #[size_param(4)] #[out] #[opt] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
+        extern fn EvtGetObjectArrayProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectArray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, PropertyId: DWORD, ArrayIndex: DWORD, Flags: DWORD, PropertyValueBufferSize: DWORD, #[out] #[opt] #[size_param(4)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 6, IsByteCount = true, Dereference = true)] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtGetObjectArraySize(ObjectArray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, #[out] ObjectArraySize: PDWORD) -> BOOL;
+        extern fn EvtGetObjectArraySize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectArray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, #[out] ObjectArraySize: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtGetPublisherMetadataProperty(PublisherMetadata: EVT_HANDLE, PropertyId: EVT_PUBLISHER_METADATA_PROPERTY_ID, Flags: u32, PublisherMetadataPropertyBufferSize: u32, #[size_param(3)] #[out] #[opt] PublisherMetadataPropertyBuffer: PEVT_VARIANT, #[out] PublisherMetadataPropertyBufferUsed: PDWORD) -> BOOL;
+        extern fn EvtGetPublisherMetadataProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PublisherMetadata: EVT_HANDLE, PropertyId: EVT_PUBLISHER_METADATA_PROPERTY_ID, Flags: DWORD, PublisherMetadataPropertyBufferSize: DWORD, #[out] #[opt] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 5, IsByteCount = true, Dereference = true)] PublisherMetadataPropertyBuffer: PEVT_VARIANT, #[out] PublisherMetadataPropertyBufferUsed: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtGetQueryInfo(QueryOrSubscription: EVT_HANDLE, PropertyId: EVT_QUERY_PROPERTY_ID, PropertyValueBufferSize: u32, #[size_param(2)] #[out] #[opt] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
+        extern fn EvtGetQueryInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QueryOrSubscription: EVT_HANDLE, PropertyId: EVT_QUERY_PROPERTY_ID, PropertyValueBufferSize: DWORD, #[out] #[opt] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtNext(ResultSet: EVT_HANDLE, EventsSize: u32, #[len_param(1)] #[out] Events: PEVT_HANDLE, Timeout: u32, Flags: u32, Returned: PDWORD) -> BOOL;
+        extern fn EvtNext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ResultSet: EVT_HANDLE, EventsSize: DWORD, #[out] #[len_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 5, IsByteCount = false, Dereference = true)] Events: PEVT_HANDLE, Timeout: DWORD, Flags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,EventsSize", "0,EventsSize")] Returned: PDWORD) -> BOOL;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtNextChannelPath(ChannelEnum: EVT_HANDLE, ChannelPathBufferSize: u32, #[len_param(1)] #[out] #[opt] ChannelPathBuffer: PWSTR, #[out] ChannelPathBufferUsed: PDWORD) -> BOOL;
+        extern fn EvtNextChannelPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ChannelEnum: EVT_HANDLE, ChannelPathBufferSize: DWORD, #[out] #[opt] #[len_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] ChannelPathBuffer: LPWSTR, #[out] ChannelPathBufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtNextEventMetadata(EventMetadataEnum: EVT_HANDLE, Flags: u32) -> EVT_HANDLE;
+        extern fn EvtNextEventMetadata(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventMetadataEnum: EVT_HANDLE, Flags: DWORD) -> EVT_HANDLE;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtNextPublisherId(PublisherEnum: EVT_HANDLE, PublisherIdBufferSize: u32, #[len_param(1)] #[out] #[opt] PublisherIdBuffer: PWSTR, #[out] PublisherIdBufferUsed: PDWORD) -> BOOL;
+        extern fn EvtNextPublisherId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PublisherEnum: EVT_HANDLE, PublisherIdBufferSize: DWORD, #[out] #[opt] #[len_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] PublisherIdBuffer: LPWSTR, #[out] PublisherIdBufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtOpenChannelConfig(#[opt] Session: EVT_HANDLE, ChannelPath: PCWSTR, Flags: u32) -> EVT_HANDLE;
+        extern fn EvtOpenChannelConfig(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Session: EVT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ChannelPath: LPCWSTR, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtOpenChannelEnum(#[opt] Session: EVT_HANDLE, Flags: u32) -> EVT_HANDLE;
+        extern fn EvtOpenChannelEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Session: EVT_HANDLE, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtOpenEventMetadataEnum(PublisherMetadata: EVT_HANDLE, Flags: u32) -> EVT_HANDLE;
+        extern fn EvtOpenEventMetadataEnum(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PublisherMetadata: EVT_HANDLE, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtOpenLog(#[opt] Session: EVT_HANDLE, Path: PCWSTR, Flags: u32) -> EVT_HANDLE;
+        extern fn EvtOpenLog(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Session: EVT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] Path: LPCWSTR, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtOpenPublisherEnum(#[opt] Session: EVT_HANDLE, Flags: u32) -> EVT_HANDLE;
+        extern fn EvtOpenPublisherEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Session: EVT_HANDLE, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtOpenPublisherMetadata(#[opt] Session: EVT_HANDLE, PublisherId: PCWSTR, #[opt] LogFilePath: PCWSTR, Locale: LCID, Flags: u32) -> EVT_HANDLE;
+        extern fn EvtOpenPublisherMetadata(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Session: EVT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] PublisherId: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] LogFilePath: LPCWSTR, Locale: LCID, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtOpenSession(LoginClass: EVT_LOGIN_CLASS, Login: *mut void, #[reserved] Timeout: u32, #[reserved] Flags: u32) -> EVT_HANDLE;
+        extern fn EvtOpenSession(LoginClass: EVT_LOGIN_CLASS, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(LoginClass == EvtRpcLogin),_In_reads_bytes_(sizeof(EVT_RPC_LOGIN))", "(LoginClass == EvtRpcLogin), _In_reads_bytes_(sizeof(EVT_RPC_LOGIN))")] Login: PVOID, #[reserved] Timeout: DWORD, #[reserved] Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtQuery(#[opt] Session: EVT_HANDLE, #[opt] Path: PCWSTR, #[opt] Query: PCWSTR, Flags: u32) -> EVT_HANDLE;
+        extern fn EvtQuery(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Session: EVT_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] Path: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] Query: LPCWSTR, Flags: DWORD) -> EVT_HANDLE;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("wevtapi.dll")]
-        extern fn EvtRender(#[opt] Context: EVT_HANDLE, Fragment: EVT_HANDLE, Flags: u32, BufferSize: u32, #[size_param(3)] #[opt] Buffer: *mut void, #[out] BufferUsed: PDWORD, #[out] PropertyCount: PDWORD) -> BOOL;
+        extern fn EvtRender(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Context: EVT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Fragment: EVT_HANDLE, Flags: DWORD, BufferSize: DWORD, #[out] #[opt] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 5, IsByteCount = true, Dereference = true)] Buffer: PVOID, #[out] BufferUsed: PDWORD, #[out] PropertyCount: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtSaveChannelConfig(ChannelConfig: EVT_HANDLE, Flags: u32) -> BOOL;
+        extern fn EvtSaveChannelConfig(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ChannelConfig: EVT_HANDLE, Flags: DWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtSeek(ResultSet: EVT_HANDLE, Position: i64, #[opt] Bookmark: EVT_HANDLE, #[reserved] Timeout: u32, Flags: u32) -> BOOL;
+        extern fn EvtSeek(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ResultSet: EVT_HANDLE, Position: LONGLONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Bookmark: EVT_HANDLE, #[reserved] Timeout: DWORD, Flags: DWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtSetChannelConfigProperty(ChannelConfig: EVT_HANDLE, PropertyId: EVT_CHANNEL_CONFIG_PROPERTY_ID, Flags: u32, PropertyValue: PEVT_VARIANT) -> BOOL;
+        extern fn EvtSetChannelConfigProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ChannelConfig: EVT_HANDLE, PropertyId: EVT_CHANNEL_CONFIG_PROPERTY_ID, Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PropertyValue: PEVT_VARIANT) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtSubscribe(#[opt] Session: EVT_HANDLE, #[opt] SignalEvent: HANDLE, #[opt] ChannelPath: PCWSTR, #[opt] Query: PCWSTR, #[opt] Bookmark: EVT_HANDLE, Context: *mut void, Callback: EVT_SUBSCRIBE_CALLBACK, Flags: u32) -> EVT_HANDLE;
+        extern fn EvtSubscribe(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Session: EVT_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SignalEvent: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] ChannelPath: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] Query: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Bookmark: EVT_HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")] Context: PVOID, #[Windows::Win32::Metadata::NativeSal("2", "_Maybenull_", "", "")] Callback: EVT_SUBSCRIBE_CALLBACK, Flags: DWORD) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtUpdateBookmark(Bookmark: EVT_HANDLE, Event: EVT_HANDLE) -> BOOL;
-        type PEVT_HANDLE = *mut HANDLE;
+        extern fn EvtUpdateBookmark(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Bookmark: EVT_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Event: EVT_HANDLE) -> BOOL;
+        type PEVT_HANDLE = *mut *mut void;
         type PEVT_VARIANT = *mut EVT_VARIANT;
     }
 }

@@ -8,7 +8,7 @@ mod Windows {
         const MACHINE_ACTION_DISCONNECT: String = "DISCONNECT";
         #[encoding("utf-16")]
         const MACHINE_ACTION_TIDY: String = "TIDY";
-        type MGMTPROPID = PROPID;
+        type MGMTPROPID = u32;
         #[encoding("utf-16")]
         const MGMT_QUEUE_CORRECT_TYPE: String = "YES";
         #[encoding("utf-16")]
@@ -60,19 +60,19 @@ mod Windows {
         #[encoding("utf-16")]
         const MO_QUEUE_TOKEN: String = "QUEUE";
         #[library("mqrt.dll")]
-        extern fn MQADsPathToFormatName(lpwcsADsPath: PCWSTR, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
+        extern fn MQADsPathToFormatName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwcsADsPath: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*lpdwFormatNameLength", "*lpdwFormatNameLength")] #[out] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQBeginTransaction(ppTransaction: *mut ITransaction) -> HRESULT;
+        extern fn MQBeginTransaction(#[out] ppTransaction: *mut ITransaction) -> HRESULT;
         const MQCERT_REGISTER_ALWAYS: i32 = 1;
         const MQCERT_REGISTER_IF_NOT_EXIST: i32 = 2;
         struct MQCOLUMNSET {
-            cCol: u32,
+            cCol: ULONG,
             aCol: *mut PROPID,
         }
         #[library("mqrt.dll")]
-        extern fn MQCloseCursor(hCursor: HANDLE) -> HRESULT;
+        extern fn MQCloseCursor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCursor: HANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQCloseQueue(hQueue: QUEUEHANDLE) -> HRESULT;
+        extern fn MQCloseQueue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hQueue: QUEUEHANDLE) -> HRESULT;
         #[repr(i32)]
         enum MQConnectionState {
             MQCONN_NOFAILURE = 0,
@@ -94,55 +94,61 @@ mod Windows {
             MQCONN_OUT_OF_MEMORY = -2147483635,
         }
         #[library("mqrt.dll")]
-        extern fn MQCreateCursor(hQueue: QUEUEHANDLE, #[out] phCursor: PHANDLE) -> HRESULT;
+        extern fn MQCreateCursor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hQueue: QUEUEHANDLE, #[out] phCursor: PHANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQCreateQueue(#[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS, #[len_param(3)] #[out] #[opt] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
+        extern fn MQCreateQueue(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpdwFormatNameLength", "*lpdwFormatNameLength")] #[out] #[opt] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQDeleteQueue(lpwcsFormatName: PCWSTR) -> HRESULT;
+        extern fn MQDeleteQueue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwcsFormatName: LPCWSTR) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQFreeMemory(#[in] pvMemory: *mut void);
+        extern fn MQFreeMemory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvMemory: PVOID);
         #[library("mqrt.dll")]
-        extern fn MQFreeSecurityContext(hSecurityContext: HANDLE);
+        extern fn MQFreeSecurityContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSecurityContext: HANDLE);
         #[library("mqrt.dll")]
-        extern fn MQGetMachineProperties(#[opt] lpwcsMachineName: PCWSTR, #[opt] pguidMachineId: *const GUID, #[in] #[out] pQMProps: *mut MQQMPROPS) -> HRESULT;
+        extern fn MQGetMachineProperties(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwcsMachineName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pguidMachineId: *const GUID, #[in] #[out] pQMProps: *mut MQQMPROPS) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetOverlappedResult(lpOverlapped: LPOVERLAPPED) -> HRESULT;
+        extern fn MQGetOverlappedResult(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetPrivateComputerInformation(#[opt] lpwcsComputerName: PCWSTR, #[in] #[out] pPrivateProps: *mut MQPRIVATEPROPS) -> HRESULT;
+        extern fn MQGetPrivateComputerInformation(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwcsComputerName: LPCWSTR, #[in] #[out] pPrivateProps: *mut MQPRIVATEPROPS) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetQueueProperties(lpwcsFormatName: PCWSTR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS) -> HRESULT;
+        extern fn MQGetQueueProperties(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwcsFormatName: LPCWSTR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetQueueSecurity(lpwcsFormatName: PCWSTR, RequestedInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] pSecurityDescriptor: PSECURITY_DESCRIPTOR, nLength: u32, #[out] lpnLengthNeeded: LPDWORD) -> HRESULT;
+        extern fn MQGetQueueSecurity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwcsFormatName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RequestedInformation: SECURITY_INFORMATION, #[out] #[size_param(3)] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nLength: DWORD, #[out] lpnLengthNeeded: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetSecurityContext(#[size_param(1)] #[in] #[opt] lpCertBuffer: *mut void, dwCertBufferLength: u32, phSecurityContext: *mut HANDLE) -> HRESULT;
+        extern fn MQGetSecurityContext(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] lpCertBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCertBufferLength: DWORD, #[out] phSecurityContext: *mut HANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetSecurityContextEx(#[size_param(1)] #[in] #[opt] lpCertBuffer: *mut void, dwCertBufferLength: u32, phSecurityContext: *mut HANDLE) -> HRESULT;
+        extern fn MQGetSecurityContextEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] lpCertBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCertBufferLength: DWORD, #[out] phSecurityContext: *mut HANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQHandleToFormatName(hQueue: QUEUEHANDLE, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
+        extern fn MQHandleToFormatName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hQueue: QUEUEHANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*lpdwFormatNameLength", "*lpdwFormatNameLength")] #[out] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQInstanceToFormatName(#[in] pGuid: *mut GUID, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
+        extern fn MQInstanceToFormatName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuid: *mut GUID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*lpdwFormatNameLength", "*lpdwFormatNameLength")] #[out] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQLocateBegin(#[opt] lpwcsContext: PCWSTR, #[in] #[opt] pRestriction: *mut MQRESTRICTION, #[in] pColumns: *mut MQCOLUMNSET, #[in] pSort: *mut MQSORTSET, #[out] phEnum: PHANDLE) -> HRESULT;
+        extern fn MQLocateBegin(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwcsContext: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRestriction: *mut MQRESTRICTION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pColumns: *mut MQCOLUMNSET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSort: *mut MQSORTSET, #[out] phEnum: PHANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQLocateEnd(hEnum: HANDLE) -> HRESULT;
+        extern fn MQLocateEnd(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEnum: HANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQLocateNext(hEnum: HANDLE, #[in] #[out] pcProps: *mut u32, aPropVar: *mut MQPROPVARIANT) -> HRESULT;
+        extern fn MQLocateNext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEnum: HANDLE, #[in] #[out] pcProps: *mut DWORD, #[out] aPropVar: *mut MQPROPVARIANT) -> HRESULT;
         struct MQMGMTPROPS {
-            cProp: u32,
+            cProp: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = false)]
             aPropID: *mut MGMTPROPID,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = false)]
             aPropVar: *mut MQPROPVARIANT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = true)]
             aStatus: *mut HRESULT,
         }
         struct MQMSGPROPS {
-            cProp: u32,
+            cProp: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = false)]
             aPropID: *mut MSGPROPID,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = false)]
             aPropVar: *mut MQPROPVARIANT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = true)]
             aStatus: *mut HRESULT,
         }
-        const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: u8 = 5;
-        const MQMSG_ACKNOWLEDGMENT_FULL_RECEIVE: u8 = 14;
-        const MQMSG_ACKNOWLEDGMENT_NACK_REACH_QUEUE: u8 = 4;
-        const MQMSG_ACKNOWLEDGMENT_NACK_RECEIVE: u8 = 12;
+        const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: UCHAR = 5;
+        const MQMSG_ACKNOWLEDGMENT_FULL_RECEIVE: UCHAR = 14;
+        const MQMSG_ACKNOWLEDGMENT_NACK_REACH_QUEUE: UCHAR = 4;
+        const MQMSG_ACKNOWLEDGMENT_NACK_RECEIVE: UCHAR = 12;
         const MQMSG_ACKNOWLEDGMENT_NEG_ARRIVAL: i32 = 4;
         const MQMSG_ACKNOWLEDGMENT_NEG_RECEIVE: i32 = 8;
         const MQMSG_ACKNOWLEDGMENT_NONE: i32 = 0;
@@ -163,29 +169,29 @@ mod Windows {
         const MQMSG_AUTH_LEVEL_SIG10: i32 = 2;
         const MQMSG_AUTH_LEVEL_SIG20: i32 = 4;
         const MQMSG_AUTH_LEVEL_SIG30: i32 = 8;
-        const MQMSG_CLASS_ACK_REACH_QUEUE: u16 = 2;
-        const MQMSG_CLASS_ACK_RECEIVE: u16 = 16384;
-        const MQMSG_CLASS_NACK_ACCESS_DENIED: u16 = 32772;
-        const MQMSG_CLASS_NACK_BAD_DST_Q: u16 = 32768;
-        const MQMSG_CLASS_NACK_BAD_ENCRYPTION: u16 = 32775;
-        const MQMSG_CLASS_NACK_BAD_SIGNATURE: u16 = 32774;
-        const MQMSG_CLASS_NACK_COULD_NOT_ENCRYPT: u16 = 32776;
-        const MQMSG_CLASS_NACK_HOP_COUNT_EXCEEDED: u16 = 32773;
-        const MQMSG_CLASS_NACK_MESSAGE_TOO_LARGE: u16 = 32781;
-        const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_MSG: u16 = 32778;
-        const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_Q: u16 = 32777;
-        const MQMSG_CLASS_NACK_PURGED: u16 = 32769;
-        const MQMSG_CLASS_NACK_Q_DELETED: u16 = 49152;
-        const MQMSG_CLASS_NACK_Q_EXCEED_QUOTA: u16 = 32771;
-        const MQMSG_CLASS_NACK_Q_PURGED: u16 = 49153;
-        const MQMSG_CLASS_NACK_REACH_QUEUE_TIMEOUT: u16 = 32770;
-        const MQMSG_CLASS_NACK_RECEIVE_REJECTED: u16 = 49156;
-        const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT: u16 = 49154;
-        const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT_AT_SENDER: u16 = 49155;
-        const MQMSG_CLASS_NACK_SOURCE_COMPUTER_GUID_CHANGED: u16 = 32780;
-        const MQMSG_CLASS_NACK_UNSUPPORTED_CRYPTO_PROVIDER: u16 = 32779;
-        const MQMSG_CLASS_NORMAL: u16 = 0;
-        const MQMSG_CLASS_REPORT: u16 = 1;
+        const MQMSG_CLASS_ACK_REACH_QUEUE: USHORT = 2;
+        const MQMSG_CLASS_ACK_RECEIVE: USHORT = 16384;
+        const MQMSG_CLASS_NACK_ACCESS_DENIED: USHORT = 32772;
+        const MQMSG_CLASS_NACK_BAD_DST_Q: USHORT = 32768;
+        const MQMSG_CLASS_NACK_BAD_ENCRYPTION: USHORT = 32775;
+        const MQMSG_CLASS_NACK_BAD_SIGNATURE: USHORT = 32774;
+        const MQMSG_CLASS_NACK_COULD_NOT_ENCRYPT: USHORT = 32776;
+        const MQMSG_CLASS_NACK_HOP_COUNT_EXCEEDED: USHORT = 32773;
+        const MQMSG_CLASS_NACK_MESSAGE_TOO_LARGE: USHORT = 32781;
+        const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_MSG: USHORT = 32778;
+        const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_Q: USHORT = 32777;
+        const MQMSG_CLASS_NACK_PURGED: USHORT = 32769;
+        const MQMSG_CLASS_NACK_Q_DELETED: USHORT = 49152;
+        const MQMSG_CLASS_NACK_Q_EXCEED_QUOTA: USHORT = 32771;
+        const MQMSG_CLASS_NACK_Q_PURGED: USHORT = 49153;
+        const MQMSG_CLASS_NACK_REACH_QUEUE_TIMEOUT: USHORT = 32770;
+        const MQMSG_CLASS_NACK_RECEIVE_REJECTED: USHORT = 49156;
+        const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT: USHORT = 49154;
+        const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT_AT_SENDER: USHORT = 49155;
+        const MQMSG_CLASS_NACK_SOURCE_COMPUTER_GUID_CHANGED: USHORT = 32780;
+        const MQMSG_CLASS_NACK_UNSUPPORTED_CRYPTO_PROVIDER: USHORT = 32779;
+        const MQMSG_CLASS_NORMAL: USHORT = 0;
+        const MQMSG_CLASS_REPORT: USHORT = 1;
         const MQMSG_DEADLETTER: i32 = 1;
         const MQMSG_DELIVERY_EXPRESS: i32 = 0;
         const MQMSG_DELIVERY_RECOVERABLE: i32 = 1;
@@ -204,53 +210,62 @@ mod Windows {
         const MQMSG_SEND_ROUTE_TO_REPORT_QUEUE: i32 = 1;
         const MQMSG_TRACE_NONE: i32 = 0;
         #[library("mqrt.dll")]
-        extern fn MQMarkMessageRejected(hQueue: HANDLE, ullLookupId: u64) -> HRESULT;
+        extern fn MQMarkMessageRejected(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hQueue: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ullLookupId: ULONGLONG) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQMgmtAction(#[opt] pComputerName: PCWSTR, pObjectName: PCWSTR, pAction: PCWSTR) -> HRESULT;
+        extern fn MQMgmtAction(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pComputerName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pObjectName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAction: LPCWSTR) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQMgmtGetInfo(#[opt] pComputerName: PCWSTR, pObjectName: PCWSTR, #[in] #[out] pMgmtProps: *mut MQMGMTPROPS) -> HRESULT;
+        extern fn MQMgmtGetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pComputerName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pObjectName: LPCWSTR, #[in] #[out] pMgmtProps: *mut MQMGMTPROPS) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQMoveMessage(hSourceQueue: QUEUEHANDLE, hDestinationQueue: QUEUEHANDLE, ullLookupId: u64, #[opt] pTransaction: ITransaction) -> HRESULT;
+        extern fn MQMoveMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSourceQueue: QUEUEHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDestinationQueue: QUEUEHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ullLookupId: ULONGLONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTransaction: ITransaction) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQOpenQueue(lpwcsFormatName: PCWSTR, dwAccess: u32, dwShareMode: u32, phQueue: *mut QUEUEHANDLE) -> HRESULT;
+        extern fn MQOpenQueue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwcsFormatName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwShareMode: DWORD, #[out] phQueue: *mut QUEUEHANDLE) -> HRESULT;
         struct MQPRIVATEPROPS {
-            cProp: u32,
+            cProp: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = false)]
             aPropID: *mut QMPROPID,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = false)]
             aPropVar: *mut MQPROPVARIANT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = true)]
             aStatus: *mut HRESULT,
         }
         struct MQPROPERTYRESTRICTION {
-            rel: u32,
+            rel: ULONG,
             prop: PROPID,
             prval: MQPROPVARIANT,
         }
-        type MQPROPVARIANT = tagMQPROPVARIANT;
+        type MQPROPVARIANT = tagPROPVARIANT;
         #[library("mqrt.dll")]
-        extern fn MQPathNameToFormatName(lpwcsPathName: PCWSTR, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
+        extern fn MQPathNameToFormatName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwcsPathName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*lpdwFormatNameLength", "*lpdwFormatNameLength")] #[out] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQPurgeQueue(hQueue: QUEUEHANDLE) -> HRESULT;
+        extern fn MQPurgeQueue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hQueue: QUEUEHANDLE) -> HRESULT;
         struct MQQMPROPS {
-            cProp: u32,
+            cProp: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = false)]
             aPropID: *mut QMPROPID,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = false)]
             aPropVar: *mut MQPROPVARIANT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = true)]
             aStatus: *mut HRESULT,
         }
         struct MQQUEUEPROPS {
-            cProp: u32,
+            cProp: DWORD,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = false)]
             aPropID: *mut QUEUEPROPID,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = false)]
             aPropVar: *mut MQPROPVARIANT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cProp", IsByteCount = false, MayBeNull = true)]
             aStatus: *mut HRESULT,
         }
         struct MQRESTRICTION {
-            cRes: u32,
+            cRes: ULONG,
             paPropRes: *mut MQPROPERTYRESTRICTION,
         }
         #[library("mqrt.dll")]
-        extern fn MQReceiveMessage(hSource: QUEUEHANDLE, dwTimeout: u32, dwAction: u32, #[in] #[out] #[opt] pMessageProps: *mut MQMSGPROPS, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[opt] fnReceiveCallback: PMQRECEIVECALLBACK, #[opt] hCursor: HANDLE, #[opt] pTransaction: ITransaction) -> HRESULT;
+        extern fn MQReceiveMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSource: QUEUEHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTimeout: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAction: DWORD, #[in] #[out] #[opt] pMessageProps: *mut MQMSGPROPS, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fnReceiveCallback: PMQRECEIVECALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCursor: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTransaction: ITransaction) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQReceiveMessageByLookupId(hSource: QUEUEHANDLE, ullLookupId: u64, dwLookupAction: u32, #[in] #[out] #[opt] pMessageProps: *mut MQMSGPROPS, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[opt] fnReceiveCallback: PMQRECEIVECALLBACK, #[opt] pTransaction: ITransaction) -> HRESULT;
+        extern fn MQReceiveMessageByLookupId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSource: QUEUEHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ullLookupId: ULONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLookupAction: DWORD, #[in] #[out] #[opt] pMessageProps: *mut MQMSGPROPS, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fnReceiveCallback: PMQRECEIVECALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTransaction: ITransaction) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQRegisterCertificate(dwFlags: u32, #[in] lpCertBuffer: *mut void, dwCertBufferLength: u32) -> HRESULT;
+        extern fn MQRegisterCertificate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCertBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCertBufferLength: DWORD) -> HRESULT;
         const MQSEC_CHANGE_QUEUE_PERMISSIONS: i32 = 262144;
         const MQSEC_DELETE_JOURNAL_MESSAGE: i32 = 8;
         const MQSEC_DELETE_MESSAGE: i32 = 1;
@@ -269,18 +284,18 @@ mod Windows {
         const MQSEC_WRITE_MESSAGE: i32 = 4;
         struct MQSORTKEY {
             propColumn: PROPID,
-            dwOrder: u32,
+            dwOrder: ULONG,
         }
         struct MQSORTSET {
-            cCol: u32,
+            cCol: ULONG,
             aCol: *mut MQSORTKEY,
         }
         #[library("mqrt.dll")]
-        extern fn MQSendMessage(hDestinationQueue: QUEUEHANDLE, #[in] pMessageProps: *mut MQMSGPROPS, #[opt] pTransaction: ITransaction) -> HRESULT;
+        extern fn MQSendMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDestinationQueue: QUEUEHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMessageProps: *mut MQMSGPROPS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTransaction: ITransaction) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQSetQueueProperties(lpwcsFormatName: PCWSTR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS) -> HRESULT;
+        extern fn MQSetQueueProperties(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwcsFormatName: LPCWSTR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQSetQueueSecurity(lpwcsFormatName: PCWSTR, SecurityInformation: SECURITY_INFORMATION, #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> HRESULT;
+        extern fn MQSetQueueSecurity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwcsFormatName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityInformation: SECURITY_INFORMATION, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> HRESULT;
         const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648;
         const MQ_ACTION_PEEK_NEXT: u32 = 2147483649;
         const MQ_ACTION_RECEIVE: i32 = 0;
@@ -452,7 +467,6 @@ mod Windows {
         const MQ_MAX_Q_NAME_LEN: i32 = 124;
         const MQ_MIN_PRIORITY: i32 = 0;
         const MQ_MOVE_ACCESS: i32 = 4;
-        const MQ_MTS_TRANSACTION: *mut ITransaction = 1;
         const MQ_NO_TRANSACTION: i32 = 0;
         const MQ_OK: HRESULT = 0;
         const MQ_PEEK_ACCESS: i32 = 32;
@@ -461,16 +475,14 @@ mod Windows {
         const MQ_PRIV_LEVEL_OPTIONAL: u32 = 1;
         const MQ_RECEIVE_ACCESS: i32 = 1;
         const MQ_SEND_ACCESS: i32 = 2;
-        const MQ_SINGLE_MESSAGE: *mut ITransaction = 3;
         const MQ_TRANSACTIONAL: u8 = 1;
         const MQ_TRANSACTIONAL_NONE: u8 = 0;
-        const MQ_XA_TRANSACTION: *mut ITransaction = 2;
-        type MSGPROPID = PROPID;
+        type MSGPROPID = u32;
         #[encoding("utf-16")]
         const MSMQ_CONNECTED: String = "CONNECTED";
         #[encoding("utf-16")]
         const MSMQ_DISCONNECTED: String = "DISCONNECTED";
-        extern fn PMQRECEIVECALLBACK(hrStatus: HRESULT, hSource: QUEUEHANDLE, dwTimeout: u32, dwAction: u32, pMessageProps: *mut MQMSGPROPS, lpOverlapped: LPOVERLAPPED, hCursor: HANDLE);
+        extern fn PMQRECEIVECALLBACK(hrStatus: HRESULT, hSource: QUEUEHANDLE, dwTimeout: DWORD, dwAction: DWORD, pMessageProps: *mut MQMSGPROPS, lpOverlapped: LPOVERLAPPED, hCursor: HANDLE);
         const PREQ: i32 = 4;
         const PRGE: i32 = 3;
         const PRGT: i32 = 2;
@@ -617,11 +629,11 @@ mod Windows {
         const PROPID_Q_QUOTA: i32 = 105;
         const PROPID_Q_TRANSACTION: i32 = 113;
         const PROPID_Q_TYPE: i32 = 102;
-        type QMPROPID = PROPID;
+        type QMPROPID = u32;
         const QUERY_SORTASCEND: i32 = 0;
         const QUERY_SORTDESCEND: i32 = 1;
-        type QUEUEHANDLE = HANDLE;
-        type QUEUEPROPID = PROPID;
+        type QUEUEHANDLE = *mut void;
+        type QUEUEPROPID = u32;
         #[encoding("utf-16")]
         const QUEUE_ACTION_EOD_RESEND: String = "EOD_RESEND";
         #[encoding("utf-16")]
@@ -629,10 +641,10 @@ mod Windows {
         #[encoding("utf-16")]
         const QUEUE_ACTION_RESUME: String = "RESUME";
         struct SEQUENCE_INFO {
-            SeqID: i64,
-            SeqNo: u32,
-            PrevNo: u32,
+            SeqID: LONGLONG,
+            SeqNo: ULONG,
+            PrevNo: ULONG,
         }
-        type tagMQPROPVARIANT = PROPVARIANT;
+        type tagMQPROPVARIANT = tagPROPVARIANT;
     }
 }

@@ -2,6 +2,7 @@
 mod Windows {
     mod Win32 {
         type I_RPC_HANDLE = *mut void;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return == 0", "return == 0")]
         type RPC_STATUS = i32;
     }
 }

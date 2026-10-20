@@ -5,11 +5,11 @@ mod Windows {
             Format: D3DDDIFORMAT,
             Pool: D3DDDI_POOL,
             MultisampleType: D3DDDIMULTISAMPLE_TYPE,
-            MultisampleQuality: u32,
+            MultisampleQuality: UINT,
             pSurfList: *const D3DDDI_SURFACEINFO,
-            SurfCount: u32,
-            MipLevels: u32,
-            Fvf: u32,
+            SurfCount: UINT,
+            MipLevels: UINT,
+            Fvf: UINT,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             RefreshRate: D3DDDI_RATIONAL,
             hResource: HANDLE,
@@ -20,11 +20,11 @@ mod Windows {
             Format: D3DDDIFORMAT,
             Pool: D3DDDI_POOL,
             MultisampleType: D3DDDIMULTISAMPLE_TYPE,
-            MultisampleQuality: u32,
+            MultisampleQuality: UINT,
             pSurfList: *const D3DDDI_SURFACEINFO,
-            SurfCount: u32,
-            MipLevels: u32,
-            Fvf: u32,
+            SurfCount: UINT,
+            MipLevels: UINT,
+            Fvf: UINT,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             RefreshRate: D3DDDI_RATIONAL,
             hResource: HANDLE,
@@ -35,59 +35,55 @@ mod Windows {
         struct D3DDDICB_DESTROYALLOCATION2FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        AssumeNotInUse: 1,
-                        SynchronousDestroy: 1,
-                        Reserved: 29,
-                        SystemUseOnly: 1,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("AssumeNotInUse", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 29, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SynchronousDestroy", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SystemUseOnly", 31, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDICB_LOCK2FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        Reserved: 32,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 0, 32, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDICB_LOCKFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        ReadOnly: 1,
-                        WriteOnly: 1,
-                        DonotWait: 1,
-                        IgnoreSync: 1,
-                        LockEntire: 1,
-                        DonotEvict: 1,
-                        AcquireAperture: 1,
-                        Discard: 1,
-                        NoExistingReference: 1,
-                        UseAlternateVA: 1,
-                        IgnoreReadSync: 1,
-                        Reserved: 21,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("AcquireAperture", 6, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Discard", 7, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DonotEvict", 5, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DonotWait", 2, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("IgnoreReadSync", 10, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("IgnoreSync", 3, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("LockEntire", 4, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoExistingReference", 8, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("ReadOnly", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 11, 21, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("UseAlternateVA", 9, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("WriteOnly", 1, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDICB_SIGNALFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        SignalAtSubmission: 1,
-                        EnqueueCpuEvent: 1,
-                        AllowFenceRewind: 1,
-                        Reserved: 28,
-                        DXGK_SIGNAL_FLAG_INTERNAL0: 1,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("AllowFenceRewind", 2, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DXGK_SIGNAL_FLAG_INTERNAL0", 31, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("EnqueueCpuEvent", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 3, 28, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SignalAtSubmission", 0, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         #[repr(i32)]
@@ -203,16 +199,15 @@ mod Windows {
         struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u64 {
-                        Write: 1,
-                        Execute: 1,
-                        Zero: 1,
-                        NoAccess: 1,
-                        SystemUseOnly: 1,
-                        Reserved: 59,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Execute", 1, 1, MemberType = UINT64)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoAccess", 3, 1, MemberType = UINT64)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 5, 59, MemberType = UINT64)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SystemUseOnly", 4, 1, MemberType = UINT64)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Write", 0, 1, MemberType = UINT64)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Zero", 2, 1, MemberType = UINT64)]
+                    _bitfield: u64,
                 },
-                Value: u64,
+                Value: UINT64,
             },
         }
         #[repr(i32)]
@@ -243,26 +238,25 @@ mod Windows {
             D3DDDIMULTISAMPLE_FORCE_UINT = 2147483647,
         }
         struct D3DDDIRECT {
-            left: i32,
-            top: i32,
-            right: i32,
-            bottom: i32,
+            left: LONG,
+            top: LONG,
+            right: LONG,
+            bottom: LONG,
         }
         struct D3DDDI_ALLOCATIONINFO {
             hAllocation: D3DKMT_HANDLE,
             pSystemMem: *const void,
             pPrivateDriverData: *mut void,
-            PrivateDriverDataSize: u32,
+            PrivateDriverDataSize: UINT,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             Flags: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        Primary: 1,
-                        Stereo: 1,
-                        Reserved: 30,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Primary", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Stereo", 1, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_ALLOCATIONINFO2 {
@@ -272,38 +266,36 @@ mod Windows {
                 pSystemMem: *const void,
             },
             pPrivateDriverData: *mut void,
-            PrivateDriverDataSize: u32,
+            PrivateDriverDataSize: UINT,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             Flags: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        Primary: 1,
-                        Stereo: 1,
-                        OverridePriority: 1,
-                        Reserved: 29,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("OverridePriority", 2, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Primary", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 3, 29, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Stereo", 1, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
             GpuVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
             Anonymous2: union {
-                Priority: u32,
-                Unused: usize,
+                Priority: UINT,
+                Unused: ULONG_PTR,
             },
-            Reserved: [usize; 5],
+            Reserved: [ULONG_PTR; 5],
         }
         struct D3DDDI_ALLOCATIONLIST {
             hAllocation: D3DKMT_HANDLE,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        WriteOperation: 1,
-                        DoNotRetireInstance: 1,
-                        OfferPriority: 3,
-                        Reserved: 27,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("DoNotRetireInstance", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("OfferPriority", 2, 3, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 5, 27, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("WriteOperation", 0, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         const D3DDDI_ALLOCATIONPRIORITY_HIGH: u32 = 2684354560;
@@ -314,12 +306,11 @@ mod Windows {
         struct D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        HardwareQueue: 1,
-                        Reserved: 31,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("HardwareQueue", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 1, 31, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         #[repr(i32)]
@@ -355,61 +346,57 @@ mod Windows {
         struct D3DDDI_CREATECONTEXTFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        NullRendering: 1,
-                        InitialData: 1,
-                        DisableGpuTimeout: 1,
-                        SynchronizationOnly: 1,
-                        HwQueueSupported: 1,
-                        NoKmdAccess: 1,
-                        TestContext: 1,
-                        Reserved: 25,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("DisableGpuTimeout", 2, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("HwQueueSupported", 4, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("InitialData", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoKmdAccess", 5, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NullRendering", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 7, 25, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SynchronizationOnly", 3, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("TestContext", 6, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_CREATEHWCONTEXTFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        Reserved: 32,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 0, 32, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_CREATEHWQUEUEFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        DisableGpuTimeout: 1,
-                        NoBroadcastSignal: 1,
-                        NoBroadcastWait: 1,
-                        NoKmdAccess: 1,
-                        UserModeSubmission: 1,
-                        NativeProgressFence: 1,
-                        TestQueue: 1,
-                        Reserved: 25,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("DisableGpuTimeout", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NativeProgressFence", 5, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoBroadcastSignal", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoBroadcastWait", 2, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoKmdAccess", 3, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 7, 25, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("TestQueue", 6, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("UserModeSubmission", 4, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        DisableGpuTimeout: 1,
-                        NoBroadcastSignal: 1,
-                        NoBroadcastWait: 1,
-                        NoKmdAccess: 1,
-                        TestQueue: 1,
-                        DoorbellRequiresSecondaryCpuVA: 1,
-                        Reserved: 26,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("DisableGpuTimeout", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DoorbellRequiresSecondaryCpuVA", 5, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoBroadcastSignal", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoBroadcastWait", 2, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoKmdAccess", 3, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 6, 26, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("TestQueue", 4, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_DESTROYPAGINGQUEUE {
@@ -441,18 +428,20 @@ mod Windows {
             hContext: D3DKMT_HANDLE,
             Flags: D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS,
             Command: D3DDDI_TESTCOMMANDBUFFER,
-            pDmaBuffer: *mut void,
-            pDmaBufferPrivateData: *mut void,
-            DmaBufferSize: u32,
-            DmaBufferPrivateDataSize: u32,
-            HardwareProgressFenceId: u64,
-            HardwareProgressFenceGpuVa: u64,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DmaBufferSize", IsByteCount = true, MayBeNull = false)]
+            pDmaBuffer: PVOID,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DmaBufferPrivateDataSize", IsByteCount = true, MayBeNull = false)]
+            pDmaBufferPrivateData: PVOID,
+            DmaBufferSize: UINT,
+            DmaBufferPrivateDataSize: UINT,
+            HardwareProgressFenceId: UINT64,
+            HardwareProgressFenceGpuVa: UINT64,
         }
         struct D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
             EscapeType: D3DDDI_DRIVERESCAPETYPE,
             hSyncObject: D3DKMT_HANDLE,
-            hKmdCpuEvent: u64,
-            Usage: [u32; 8],
+            hKmdCpuEvent: UINT64,
+            Usage: [UINT; 8],
         }
         struct D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {
             EscapeType: D3DDDI_DRIVERESCAPETYPE,
@@ -470,31 +459,29 @@ mod Windows {
         struct D3DDDI_ESCAPEFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        HardwareAccess: 1,
-                        DeviceStatusQuery: 1,
-                        ChangeFrameLatency: 1,
-                        NoAdapterSynchronization: 1,
-                        Reserved: 1,
-                        VirtualMachineData: 1,
-                        DriverKnownEscape: 1,
-                        DriverCommonEscape: 1,
-                        Reserved2: 24,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("ChangeFrameLatency", 2, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DeviceStatusQuery", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DriverCommonEscape", 7, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DriverKnownEscape", 6, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("HardwareAccess", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoAdapterSynchronization", 3, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 4, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved2", 8, 24, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("VirtualMachineData", 5, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_EVICT_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        EvictOnlyIfNecessary: 1,
-                        NotWrittenTo: 1,
-                        Reserved: 30,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("EvictOnlyIfNecessary", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NotWrittenTo", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         #[repr(i32)]
@@ -521,27 +508,27 @@ mod Windows {
             GammaCurve: [D3DDDI_DXGI_RGB; 1025],
         }
         struct D3DDDI_GAMMA_RAMP_RGB256x3x16 {
-            Red: [u16; 256],
-            Green: [u16; 256],
-            Blue: [u16; 256],
+            Red: [USHORT; 256],
+            Green: [USHORT; 256],
+            Blue: [USHORT; 256],
         }
         struct D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
             hResource: D3DKMT_HANDLE,
-            PrivateDriverDataSize: u32,
-            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: UINT,
+            pPrivateDriverData: PVOID,
         }
         struct D3DDDI_HDR_METADATA_HDR10 {
-            RedPrimary: [u16; 2],
-            GreenPrimary: [u16; 2],
-            BluePrimary: [u16; 2],
-            WhitePoint: [u16; 2],
-            MaxMasteringLuminance: u32,
-            MinMasteringLuminance: u32,
-            MaxContentLightLevel: u16,
-            MaxFrameAverageLightLevel: u16,
+            RedPrimary: [UINT16; 2],
+            GreenPrimary: [UINT16; 2],
+            BluePrimary: [UINT16; 2],
+            WhitePoint: [UINT16; 2],
+            MaxMasteringLuminance: UINT,
+            MinMasteringLuminance: UINT,
+            MaxContentLightLevel: UINT16,
+            MaxFrameAverageLightLevel: UINT16,
         }
         struct D3DDDI_HDR_METADATA_HDR10PLUS {
-            Data: [u8; 72],
+            Data: [BYTE; 72],
         }
         #[repr(i32)]
         enum D3DDDI_HDR_METADATA_TYPE {
@@ -549,36 +536,36 @@ mod Windows {
             D3DDDI_HDR_METADATA_TYPE_HDR10 = 1,
             D3DDDI_HDR_METADATA_TYPE_HDR10PLUS = 2,
         }
-        const D3DDDI_ID_ALL: u32 = 4294967293;
-        const D3DDDI_ID_ANY: u32 = 4294967294;
-        const D3DDDI_ID_NOTAPPLICABLE: u32 = 0;
-        const D3DDDI_ID_UNINITIALIZED: u32 = 4294967295;
+        const D3DDDI_ID_ALL: UINT = 4294967293;
+        const D3DDDI_ID_ANY: UINT = 4294967294;
+        const D3DDDI_ID_NOTAPPLICABLE: UINT = 0;
+        const D3DDDI_ID_UNINITIALIZED: UINT = 4294967295;
         struct D3DDDI_KERNELOVERLAYINFO {
             hAllocation: D3DKMT_HANDLE,
             DstRect: D3DDDIRECT,
             SrcRect: D3DDDIRECT,
             pPrivateDriverData: *mut void,
-            PrivateDriverDataSize: u32,
+            PrivateDriverDataSize: UINT,
         }
         struct D3DDDI_MAKERESIDENT {
             hPagingQueue: D3DKMT_HANDLE,
-            NumAllocations: u32,
+            NumAllocations: UINT,
+            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumAllocations", IsByteCount = false, MayBeNull = false)]
             AllocationList: *const D3DKMT_HANDLE,
-            PriorityList: *const u32,
+            PriorityList: *const UINT,
             Flags: D3DDDI_MAKERESIDENT_FLAGS,
-            PagingFenceValue: u64,
-            NumBytesToTrim: u64,
+            PagingFenceValue: UINT64,
+            NumBytesToTrim: UINT64,
         }
         struct D3DDDI_MAKERESIDENT_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        CantTrimFurther: 1,
-                        MustSucceed: 1,
-                        Reserved: 30,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("CantTrimFurther", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("MustSucceed", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_MAPGPUVIRTUALADDRESS {
@@ -590,11 +577,11 @@ mod Windows {
             OffsetInPages: D3DGPU_SIZE_T,
             SizeInPages: D3DGPU_SIZE_T,
             Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
-            DriverProtection: u64,
-            Reserved0: u32,
-            Reserved1: u64,
+            DriverProtection: UINT64,
+            Reserved0: UINT,
+            Reserved1: UINT64,
             VirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-            PagingFenceValue: u64,
+            PagingFenceValue: UINT64,
         }
         const D3DDDI_MAXTESTBUFFERPRIVATEDRIVERDATASIZE: i32 = 1024;
         const D3DDDI_MAXTESTBUFFERSIZE: i32 = 4096;
@@ -604,30 +591,30 @@ mod Windows {
         const D3DDDI_MAX_OBJECT_WAITED_ON: i32 = 32;
         const D3DDDI_MAX_WRITTEN_PRIMARIES: i32 = 16;
         struct D3DDDI_MULTISAMPLINGMETHOD {
-            NumSamples: u32,
-            NumQualityLevels: u32,
+            NumSamples: UINT,
+            NumQualityLevels: UINT,
         }
         struct D3DDDI_NATIVEFENCEINFO {
-            InitialFenceValue: u64,
-            EngineAffinity: u32,
+            InitialFenceValue: UINT64,
+            EngineAffinity: UINT,
             Type: D3DDDI_NATIVEFENCE_TYPE,
             Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
             NativeFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
-            PhysicalAdapterIndex: u32,
-            Reserved: [u8; 24],
+            PhysicalAdapterIndex: UINT,
+            Reserved: [BYTE; 24],
         }
         struct D3DDDI_NATIVEFENCELOGDETAIL {
-            WaitLogNumberOfEntries: u32,
-            SignalLogNumberOfEntries: u32,
+            WaitLogNumberOfEntries: UINT32,
+            SignalLogNumberOfEntries: UINT32,
             WaitLogGpuBaseAddress: D3DGPU_VIRTUAL_ADDRESS,
             SignalLogGpuBaseAddress: D3DGPU_VIRTUAL_ADDRESS,
-            Reserved: [u8; 64],
+            Reserved: [BYTE; 64],
         }
         struct D3DDDI_NATIVEFENCEMAPPING {
             CurrentValueCpuVa: *mut void,
             CurrentValueGpuVa: D3DGPU_VIRTUAL_ADDRESS,
             MonitoredValueGpuVa: D3DGPU_VIRTUAL_ADDRESS,
-            Reserved: [u8; 32],
+            Reserved: [BYTE; 32],
         }
         #[repr(i32)]
         enum D3DDDI_NATIVEFENCE_TYPE {
@@ -638,12 +625,11 @@ mod Windows {
         struct D3DDDI_OFFER_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        AllowDecommit: 1,
-                        Reserved: 31,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("AllowDecommit", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 1, 31, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         #[repr(i32)]
@@ -657,14 +643,14 @@ mod Windows {
         struct D3DDDI_OPENALLOCATIONINFO {
             hAllocation: D3DKMT_HANDLE,
             pPrivateDriverData: *const void,
-            PrivateDriverDataSize: u32,
+            PrivateDriverDataSize: UINT,
         }
         struct D3DDDI_OPENALLOCATIONINFO2 {
             hAllocation: D3DKMT_HANDLE,
             pPrivateDriverData: *const void,
-            PrivateDriverDataSize: u32,
+            PrivateDriverDataSize: UINT,
             GpuVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-            Reserved: [usize; 6],
+            Reserved: [ULONG_PTR; 6],
         }
         #[repr(i32)]
         enum D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE {
@@ -683,20 +669,19 @@ mod Windows {
             D3DDDI_PAGINGQUEUE_PRIORITY_ABOVE_NORMAL = 1,
         }
         struct D3DDDI_PATCHLOCATIONLIST {
-            AllocationIndex: u32,
+            AllocationIndex: UINT,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        SlotId: 24,
-                        Reserved: 8,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 24, 8, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SlotId", 0, 24, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
-            DriverId: u32,
-            AllocationOffset: u32,
-            PatchOffset: u32,
-            SplitOffset: u32,
+            DriverId: UINT,
+            AllocationOffset: UINT,
+            PatchOffset: UINT,
+            SplitOffset: UINT,
         }
         #[repr(i32)]
         enum D3DDDI_POOL {
@@ -709,28 +694,27 @@ mod Windows {
         struct D3DDDI_QUERYREGISTRY_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        TranslatePath: 1,
-                        MutableValue: 1,
-                        Reserved: 30,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("MutableValue", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("TranslatePath", 0, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_QUERYREGISTRY_INFO {
             QueryType: D3DDDI_QUERYREGISTRY_TYPE,
             QueryFlags: D3DDDI_QUERYREGISTRY_FLAGS,
-            ValueName: [u16; 260],
-            ValueType: u32,
-            PhysicalAdapterIndex: u32,
-            OutputValueSize: u32,
+            ValueName: [WCHAR; 260],
+            ValueType: ULONG,
+            PhysicalAdapterIndex: ULONG,
+            OutputValueSize: ULONG,
             Status: D3DDDI_QUERYREGISTRY_STATUS,
             Anonymous: union {
-                OutputDword: u32,
-                OutputQword: u64,
-                OutputString: [u16; 1],
-                OutputBinary: [u8; 1],
+                OutputDword: DWORD,
+                OutputQword: UINT64,
+                OutputString: [WCHAR; 1],
+                OutputBinary: [BYTE; 1],
             },
         }
         #[repr(i32)]
@@ -749,8 +733,8 @@ mod Windows {
             D3DDDI_QUERYREGISTRY_MAX = 4,
         }
         struct D3DDDI_RATIONAL {
-            Numerator: u32,
-            Denominator: u32,
+            Numerator: UINT,
+            Denominator: UINT,
         }
         #[repr(i32)]
         enum D3DDDI_RECLAIM_RESULT {
@@ -769,71 +753,69 @@ mod Windows {
             Size: D3DGPU_SIZE_T,
             Anonymous2: union {
                 ReservationType: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE,
-                Reserved0: u32,
+                Reserved0: UINT,
             },
             Anonymous3: union {
-                DriverProtection: u64,
-                Reserved1: u64,
+                DriverProtection: UINT64,
+                Reserved1: UINT64,
             },
             VirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
             Anonymous4: union {
-                PagingFenceValue: u64,
-                Reserved2: u64,
+                PagingFenceValue: UINT64,
+                Reserved2: UINT64,
             },
         }
         struct D3DDDI_RESOURCEFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        RenderTarget: 1,
-                        ZBuffer: 1,
-                        Dynamic: 1,
-                        HintStatic: 1,
-                        AutogenMipmap: 1,
-                        DMap: 1,
-                        WriteOnly: 1,
-                        NotLockable: 1,
-                        Points: 1,
-                        RtPatches: 1,
-                        NPatches: 1,
-                        SharedResource: 1,
-                        DiscardRenderTarget: 1,
-                        Video: 1,
-                        CaptureBuffer: 1,
-                        Primary: 1,
-                        Texture: 1,
-                        CubeMap: 1,
-                        Volume: 1,
-                        VertexBuffer: 1,
-                        IndexBuffer: 1,
-                        DecodeRenderTarget: 1,
-                        DecodeCompressedBuffer: 1,
-                        VideoProcessRenderTarget: 1,
-                        CpuOptimized: 1,
-                        MightDrawFromLocked: 1,
-                        Overlay: 1,
-                        MatchGdiPrimary: 1,
-                        InterlacedRefresh: 1,
-                        TextApi: 1,
-                        RestrictedContent: 1,
-                        RestrictSharedAccess: 1,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("AutogenMipmap", 4, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("CaptureBuffer", 14, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("CpuOptimized", 24, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("CubeMap", 17, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DMap", 5, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DecodeCompressedBuffer", 22, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DecodeRenderTarget", 21, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("DiscardRenderTarget", 12, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Dynamic", 2, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("HintStatic", 3, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("IndexBuffer", 20, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("InterlacedRefresh", 28, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("MatchGdiPrimary", 27, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("MightDrawFromLocked", 25, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NPatches", 10, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NotLockable", 7, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Overlay", 26, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Points", 8, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Primary", 15, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("RenderTarget", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("RestrictSharedAccess", 31, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("RestrictedContent", 30, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("RtPatches", 9, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SharedResource", 11, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("TextApi", 29, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Texture", 16, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("VertexBuffer", 19, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Video", 13, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("VideoProcessRenderTarget", 23, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Volume", 18, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("WriteOnly", 6, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("ZBuffer", 1, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_RESOURCEFLAGS2 {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        VideoEncoder: 1,
-                        UserMemory: 1,
-                        CrossAdapter: 1,
-                        IsDisplayable: 1,
-                        Reserved: 28,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("CrossAdapter", 2, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("IsDisplayable", 3, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 4, 28, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("UserMemory", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("VideoEncoder", 0, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         #[repr(i32)]
@@ -852,30 +834,29 @@ mod Windows {
         struct D3DDDI_SEGMENTPREFERENCE {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        SegmentId0: 5,
-                        Direction0: 1,
-                        SegmentId1: 5,
-                        Direction1: 1,
-                        SegmentId2: 5,
-                        Direction2: 1,
-                        SegmentId3: 5,
-                        Direction3: 1,
-                        SegmentId4: 5,
-                        Direction4: 1,
-                        Reserved: 2,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Direction0", 5, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Direction1", 11, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Direction2", 17, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Direction3", 23, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Direction4", 29, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 30, 2, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SegmentId0", 0, 5, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SegmentId1", 6, 5, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SegmentId2", 12, 5, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SegmentId3", 18, 5, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SegmentId4", 24, 5, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_SURFACEINFO {
-            Width: u32,
-            Height: u32,
-            Depth: u32,
+            Width: UINT,
+            Height: UINT,
+            Depth: UINT,
             pSysMem: *const void,
-            SysMemPitch: u32,
-            SysMemSlicePitch: u32,
+            SysMemPitch: UINT,
+            SysMemSlicePitch: UINT,
         }
         struct D3DDDI_SYNCHRONIZATIONOBJECTINFO {
             Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
@@ -884,11 +865,11 @@ mod Windows {
                     InitialState: BOOL,
                 },
                 Semaphore: struct {
-                    MaxCount: u32,
-                    InitialCount: u32,
+                    MaxCount: UINT,
+                    InitialCount: UINT,
                 },
                 Reserved: struct {
-                    Reserved: [u32; 16],
+                    Reserved: [UINT; 16],
                 },
             },
         }
@@ -900,33 +881,33 @@ mod Windows {
                     InitialState: BOOL,
                 },
                 Semaphore: struct {
-                    MaxCount: u32,
-                    InitialCount: u32,
+                    MaxCount: UINT,
+                    InitialCount: UINT,
                 },
                 Fence: struct {
-                    FenceValue: u64,
+                    FenceValue: UINT64,
                 },
                 CPUNotification: struct {
                     Event: HANDLE,
                 },
                 MonitoredFence: struct {
-                    InitialFenceValue: u64,
+                    InitialFenceValue: UINT64,
                     FenceValueCPUVirtualAddress: *mut void,
                     FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-                    EngineAffinity: u32,
-                    Padding: u32,
+                    EngineAffinity: UINT,
+                    Padding: UINT,
                 },
                 PeriodicMonitoredFence: struct {
                     hAdapter: D3DKMT_HANDLE,
                     VidPnTargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
-                    Time: u64,
+                    Time: UINT64,
                     FenceValueCPUVirtualAddress: *mut void,
                     FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-                    EngineAffinity: u32,
-                    Padding: u32,
+                    EngineAffinity: UINT,
+                    Padding: UINT,
                 },
                 Reserved: struct {
-                    Reserved: [u64; 8],
+                    Reserved: [UINT64; 8],
                 },
             },
             SharedHandle: D3DKMT_HANDLE,
@@ -934,23 +915,22 @@ mod Windows {
         struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        Shared: 1,
-                        NtSecuritySharing: 1,
-                        CrossAdapter: 1,
-                        TopOfPipeline: 1,
-                        NoSignal: 1,
-                        NoWait: 1,
-                        NoSignalMaxValueOnTdr: 1,
-                        NoGPUAccess: 1,
-                        SignalByKmd: 1,
-                        Unused: 1,
-                        UnwaitCpuWaitersOnlyOnDestroy: 1,
-                        Reserved: 20,
-                        Reserved0: 1,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("CrossAdapter", 2, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoGPUAccess", 7, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoSignal", 4, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoSignalMaxValueOnTdr", 6, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoWait", 5, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NtSecuritySharing", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 11, 20, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 31, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Shared", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SignalByKmd", 8, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("TopOfPipeline", 3, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Unused", 9, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("UnwaitCpuWaitersOnlyOnDestroy", 10, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         #[repr(i32)]
@@ -974,7 +954,7 @@ mod Windows {
                 Reserved: [i8; 64],
             },
             Operation: D3DDDI_TESTCOMMANDBUFFEROP,
-            Reserved1: u32,
+            Reserved1: UINT,
         }
         #[repr(i32)]
         enum D3DDDI_TESTCOMMANDBUFFEROP {
@@ -989,57 +969,54 @@ mod Windows {
         struct D3DDDI_TESTCOMMANDBUFFER_COPY {
             SrcAddress: D3DGPU_VIRTUAL_ADDRESS,
             DstAddress: D3DGPU_VIRTUAL_ADDRESS,
-            NumBytes: u32,
+            NumBytes: UINT,
         }
         struct D3DDDI_TESTCOMMANDBUFFER_FILL {
             DstAddress: D3DGPU_VIRTUAL_ADDRESS,
-            NumBytes: u32,
-            Pattern: u32,
+            NumBytes: UINT,
+            Pattern: UINT,
         }
         struct D3DDDI_TRIMRESIDENCYSET_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        PeriodicTrim: 1,
-                        RestartPeriodicTrim: 1,
-                        TrimToBudget: 1,
-                        Reserved: 29,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("PeriodicTrim", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 3, 29, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("RestartPeriodicTrim", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("TrimToBudget", 2, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         const D3DDDI_UMS_PDD_SIZE: i32 = 64;
         struct D3DDDI_UPDATEALLOCPROPERTY {
             hPagingQueue: D3DKMT_HANDLE,
             hAllocation: D3DKMT_HANDLE,
-            SupportedSegmentSet: u32,
+            SupportedSegmentSet: UINT,
             PreferredSegment: D3DDDI_SEGMENTPREFERENCE,
             Flags: D3DDDI_UPDATEALLOCPROPERTY_FLAGS,
-            PagingFenceValue: u64,
+            PagingFenceValue: UINT64,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        SetAccessedPhysically: 1,
-                        SetSupportedSegmentSet: 1,
-                        SetPreferredSegment: 1,
-                        SetUnmoveable: 1,
-                        Reserved: 28,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 4, 28, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SetAccessedPhysically", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SetPreferredSegment", 2, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SetSupportedSegmentSet", 1, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SetUnmoveable", 3, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                PropertyMaskValue: u32,
+                PropertyMaskValue: UINT,
             },
         }
         struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        AccessedPhysically: 1,
-                        Unmoveable: 1,
-                        Reserved: 30,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("AccessedPhysically", 0, 1, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Unmoveable", 1, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
@@ -1059,7 +1036,7 @@ mod Windows {
                     AllocationOffsetInBytes: D3DGPU_SIZE_T,
                     AllocationSizeInBytes: D3DGPU_SIZE_T,
                     Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
-                    DriverProtection: u64,
+                    DriverProtection: UINT64,
                 },
                 Unmap: struct {
                     BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
@@ -1093,19 +1070,18 @@ mod Windows {
         struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        WaitAny: 1,
-                        Reserved: 31,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 1, 31, MemberType = UINT)]
+                    #[Windows::Win32::Metadata::NativeBitfield("WaitAny", 0, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         const D3DGPU_NULL: i32 = 0;
         struct D3DGPU_PHYSICAL_ADDRESS {
-            SegmentId: u32,
-            Padding: u32,
-            SegmentOffset: u64,
+            SegmentId: UINT,
+            Padding: UINT,
+            SegmentOffset: UINT64,
         }
         type D3DGPU_SIZE_T = u64;
         const D3DGPU_UNIQUE_DRIVER_PROTECTION: u64 = 9223372036854775808;
@@ -1134,10 +1110,19 @@ mod Windows {
         const D3DKMT_CROSS_ADAPTER_RESOURCE_HEIGHT_ALIGNMENT: i32 = 4;
         const D3DKMT_CROSS_ADAPTER_RESOURCE_PITCH_ALIGNMENT: i32 = 128;
         type D3DKMT_HANDLE = u32;
-        type D3DKMT_PTR_TYPE = HANDLE;
-        type D3DKMT_SIZE_T = usize;
-        type D3DKMT_UINT_PTR = usize;
-        type D3DKMT_ULONG_PTR = usize;
+        type D3DKMT_PTR_TYPE = *mut void;
+        #[arch(X64 | Arm64)]
+        type D3DKMT_SIZE_T = u64;
+        #[arch(X86)]
+        type D3DKMT_SIZE_T = u32;
+        #[arch(X64 | Arm64)]
+        type D3DKMT_UINT_PTR = u64;
+        #[arch(X86)]
+        type D3DKMT_UINT_PTR = u32;
+        #[arch(X64 | Arm64)]
+        type D3DKMT_ULONG_PTR = u64;
+        #[arch(X86)]
+        type D3DKMT_ULONG_PTR = u32;
         const D3D_UMD_INTERFACE_VERSION: i32 = 69633;
         const D3D_UMD_INTERFACE_VERSION_VISTA: i32 = 12;
         const D3D_UMD_INTERFACE_VERSION_WDDM1_3: i32 = 16386;
@@ -1222,21 +1207,20 @@ mod Windows {
             DeviceLuid: LUID,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        GuestVmRunning: 1,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("GuestVmRunning", 0, 1, MemberType = UINT)]
+                    _bitfield: u32,
                 },
-                Flags: u32,
+                Flags: UINT,
             },
         }
         struct DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
             Header: DXGKVGPU_ESCAPE_HEAD,
-            PowerState: u32,
+            PowerState: UINT,
         }
         struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
             Header: DXGKVGPU_ESCAPE_HEAD,
-            Offset: u32,
-            Size: u32,
+            Offset: UINT,
+            Size: UINT,
         }
         struct DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
             Header: DXGKVGPU_ESCAPE_HEAD,
@@ -1247,7 +1231,7 @@ mod Windows {
         struct DXGKVGPU_ESCAPE_RESUME {
             Header: DXGKVGPU_ESCAPE_HEAD,
             DeviceLuid: LUID,
-            Flags: u32,
+            Flags: UINT,
         }
         #[repr(i32)]
         enum DXGKVGPU_ESCAPE_TYPE {
@@ -1262,15 +1246,14 @@ mod Windows {
         }
         struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
             Header: DXGKVGPU_ESCAPE_HEAD,
-            Offset: u32,
-            Size: u32,
+            Offset: UINT,
+            Size: UINT,
         }
         union DXGK_DETAILED_FEATURE_ID {
             Anonymous: struct {
-                _bitfield: u32 {
-                    Feature: 28,
-                    Category: 4,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("Category", 28, 4, MemberType = UINT32)]
+                #[Windows::Win32::Metadata::NativeBitfield("Feature", 0, 28, MemberType = UINT32)]
+                _bitfield: u32,
             },
             Value: DXGK_FEATURE_ID,
         }
@@ -1385,18 +1368,17 @@ mod Windows {
         const DXGK_FEATURE_MAX: DXGK_DRIVER_FEATURE = 47;
         type DXGK_FEATURE_VERSION = u16;
         struct DXGK_ISFEATUREENABLED_RESULT {
-            Version: u16,
+            Version: UINT16,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u16 {
-                        Enabled: 1,
-                        KnownFeature: 1,
-                        SupportedByDriver: 1,
-                        SupportedOnCurrentConfig: 1,
-                        Available: 1,
-                        Experimental: 1,
-                        Reserved: 10,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Available", 4, 1, MemberType = UINT16)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Enabled", 0, 1, MemberType = UINT16)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Experimental", 5, 1, MemberType = UINT16)]
+                    #[Windows::Win32::Metadata::NativeBitfield("KnownFeature", 1, 1, MemberType = UINT16)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 6, 10, MemberType = UINT16)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SupportedByDriver", 2, 1, MemberType = UINT16)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SupportedOnCurrentConfig", 3, 1, MemberType = UINT16)]
+                    _bitfield: u16,
                 },
                 Value: DXGK_FEATURE_VERSION,
             },
@@ -1406,18 +1388,17 @@ mod Windows {
         const DXGK_MIN_PAGE_TABLE_LEVEL_COUNT: i32 = 2;
         union DXGK_MIRACAST_CHUNK_ID {
             Anonymous: struct {
-                _bitfield: u64 {
-                    FrameNumber: 40,
-                    PartNumber: 24,
-                },
+                #[Windows::Win32::Metadata::NativeBitfield("FrameNumber", 0, 40, MemberType = UINT64)]
+                #[Windows::Win32::Metadata::NativeBitfield("PartNumber", 40, 24, MemberType = UINT64)]
+                _bitfield: u64,
             },
-            Value: u64,
+            Value: UINT64,
         }
         struct DXGK_MIRACAST_CHUNK_INFO {
             ChunkType: DXGK_MIRACAST_CHUNK_TYPE,
             ChunkId: DXGK_MIRACAST_CHUNK_ID,
-            ProcessingTime: u32,
-            EncodeRate: u32,
+            ProcessingTime: UINT,
+            EncodeRate: UINT,
         }
         #[repr(i32)]
         enum DXGK_MIRACAST_CHUNK_TYPE {
@@ -1431,28 +1412,29 @@ mod Windows {
         }
         struct DXGK_NATIVE_FENCE_LOG_BUFFER {
             Header: DXGK_NATIVE_FENCE_LOG_HEADER,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "Header.NumberOfEntries", "Header.NumberOfEntries")]
             Entries: [DXGK_NATIVE_FENCE_LOG_ENTRY; 1],
         }
         struct DXGK_NATIVE_FENCE_LOG_ENTRY {
-            FenceValue: u64,
+            FenceValue: UINT64,
             hNativeFence: D3DKMT_HANDLE,
-            OperationType: u32,
-            Reserved0: u64,
-            FenceObservedGpuTimestamp: u64,
-            Reserved1: u64,
-            FenceEndGpuTimestamp: u64,
+            OperationType: UINT,
+            Reserved0: UINT64,
+            FenceObservedGpuTimestamp: UINT64,
+            Reserved1: UINT64,
+            FenceEndGpuTimestamp: UINT64,
         }
         struct DXGK_NATIVE_FENCE_LOG_HEADER {
             Anonymous: union {
                 Anonymous: struct {
-                    FirstFreeEntryIndex: u32,
-                    WraparoundCount: u32,
+                    FirstFreeEntryIndex: UINT32,
+                    WraparoundCount: UINT32,
                 },
                 AtomicWraparoundAndEntryIndex: ULARGE_INTEGER,
             },
             Type: DXGK_NATIVE_FENCE_LOG_TYPE,
-            NumberOfEntries: u64,
-            Reserved: [u64; 2],
+            NumberOfEntries: UINT64,
+            Reserved: [UINT64; 2],
         }
         #[repr(i32)]
         enum DXGK_NATIVE_FENCE_LOG_OPERATION {
@@ -1479,26 +1461,25 @@ mod Windows {
         struct DXGK_PTE {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u64 {
-                        Valid: 1,
-                        Zero: 1,
-                        CacheCoherent: 1,
-                        ReadOnly: 1,
-                        NoExecute: 1,
-                        Segment: 5,
-                        LargePage: 1,
-                        PhysicalAdapterIndex: 6,
-                        PageTablePageSize: 2,
-                        SystemReserved0: 1,
-                        BlockAccessMode: 2,
-                        Reserved: 42,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("BlockAccessMode", 20, 2, MemberType = ULONGLONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("CacheCoherent", 2, 1, MemberType = ULONGLONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("LargePage", 10, 1, MemberType = ULONGLONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoExecute", 4, 1, MemberType = ULONGLONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("PageTablePageSize", 17, 2, MemberType = ULONGLONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("PhysicalAdapterIndex", 11, 6, MemberType = ULONGLONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("ReadOnly", 3, 1, MemberType = ULONGLONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 22, 42, MemberType = ULONGLONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Segment", 5, 5, MemberType = ULONGLONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("SystemReserved0", 19, 1, MemberType = ULONGLONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Valid", 0, 1, MemberType = ULONGLONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Zero", 1, 1, MemberType = ULONGLONG)]
+                    _bitfield: u64,
                 },
-                Flags: u64,
+                Flags: ULONGLONG,
             },
             Anonymous2: union {
-                PageAddress: u64,
-                PageTableAddress: u64,
+                PageAddress: ULONGLONG,
+                PageTableAddress: ULONGLONG,
             },
         }
         #[repr(i32)]

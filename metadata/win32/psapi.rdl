@@ -2,94 +2,157 @@
 mod Windows {
     mod Win32 {
         struct ENUM_PAGE_FILE_INFORMATION {
-            cb: u32,
-            Reserved: u32,
-            TotalSize: usize,
-            TotalInUse: usize,
-            PeakUsage: usize,
+            cb: DWORD,
+            Reserved: DWORD,
+            TotalSize: SIZE_T,
+            TotalInUse: SIZE_T,
+            PeakUsage: SIZE_T,
         }
         #[library("KERNEL32.dll", import = "K32EmptyWorkingSet")]
-        extern fn EmptyWorkingSet(hProcess: HANDLE) -> BOOL;
+        extern fn EmptyWorkingSet(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE) -> BOOL;
         #[library("KERNEL32.dll", import = "K32EnumDeviceDrivers")]
-        extern fn EnumDeviceDrivers(#[size_param(1)] lpImageBase: *mut *mut void, cb: u32, #[out] lpcbNeeded: LPDWORD) -> BOOL;
+        extern fn EnumDeviceDrivers(#[out] #[size_param(1)] lpImageBase: *mut LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32EnumPageFilesA")]
-        extern fn EnumPageFilesA(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKA, pContext: *mut void) -> BOOL;
+        extern fn EnumPageFiles(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKA, pContext: LPVOID) -> BOOL;
+        #[library("KERNEL32.dll", import = "K32EnumPageFilesA")]
+        extern fn EnumPageFilesA(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKA, pContext: LPVOID) -> BOOL;
         #[library("KERNEL32.dll", import = "K32EnumPageFilesW")]
-        extern fn EnumPageFilesW(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKW, pContext: *mut void) -> BOOL;
+        extern fn EnumPageFilesW(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKW, pContext: LPVOID) -> BOOL;
         #[library("KERNEL32.dll", import = "K32EnumProcessModules")]
-        extern fn EnumProcessModules(hProcess: HANDLE, #[size_param(2)] lphModule: *mut HMODULE, cb: u32, #[out] lpcbNeeded: LPDWORD) -> BOOL;
+        extern fn EnumProcessModules(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[size_param(2)] lphModule: *mut HMODULE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32EnumProcessModulesEx")]
-        extern fn EnumProcessModulesEx(hProcess: HANDLE, #[size_param(2)] lphModule: *mut HMODULE, cb: u32, #[out] lpcbNeeded: LPDWORD, dwFilterFlag: u32) -> BOOL;
+        extern fn EnumProcessModulesEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[size_param(2)] lphModule: *mut HMODULE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD, #[out] lpcbNeeded: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFilterFlag: DWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32EnumProcesses")]
-        extern fn EnumProcesses(#[size_param(1)] lpidProcess: *mut u32, cb: u32, #[out] lpcbNeeded: LPDWORD) -> BOOL;
+        extern fn EnumProcesses(#[out] #[size_param(1)] lpidProcess: *mut DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32GetDeviceDriverBaseNameA")]
-        extern fn GetDeviceDriverBaseNameA(#[in] ImageBase: *mut void, #[len_param(2)] #[out] lpFilename: PSTR, nSize: u32) -> u32;
+        extern fn GetDeviceDriverBaseName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageBase: LPVOID, #[out] #[len_param(2)] lpFilename: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll", import = "K32GetDeviceDriverBaseNameA")]
+        extern fn GetDeviceDriverBaseNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageBase: LPVOID, #[out] #[len_param(2)] lpFilename: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetDeviceDriverBaseNameW")]
-        extern fn GetDeviceDriverBaseNameW(#[in] ImageBase: *mut void, #[len_param(2)] #[out] lpBaseName: PWSTR, nSize: u32) -> u32;
+        extern fn GetDeviceDriverBaseNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageBase: LPVOID, #[out] #[len_param(2)] lpBaseName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetDeviceDriverFileNameA")]
-        extern fn GetDeviceDriverFileNameA(#[in] ImageBase: *mut void, #[len_param(2)] #[out] lpFilename: PSTR, nSize: u32) -> u32;
+        extern fn GetDeviceDriverFileName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageBase: LPVOID, #[out] #[len_param(2)] lpFilename: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll", import = "K32GetDeviceDriverFileNameA")]
+        extern fn GetDeviceDriverFileNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageBase: LPVOID, #[out] #[len_param(2)] lpFilename: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetDeviceDriverFileNameW")]
-        extern fn GetDeviceDriverFileNameW(#[in] ImageBase: *mut void, #[len_param(2)] #[out] lpFilename: PWSTR, nSize: u32) -> u32;
+        extern fn GetDeviceDriverFileNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageBase: LPVOID, #[out] #[len_param(2)] lpFilename: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetMappedFileNameA")]
-        extern fn GetMappedFileNameA(hProcess: HANDLE, #[in] lpv: *mut void, #[len_param(3)] #[out] lpFilename: PSTR, nSize: u32) -> u32;
+        extern fn GetMappedFileName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpv: LPVOID, #[out] #[len_param(3)] lpFilename: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll", import = "K32GetMappedFileNameA")]
+        extern fn GetMappedFileNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpv: LPVOID, #[out] #[len_param(3)] lpFilename: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetMappedFileNameW")]
-        extern fn GetMappedFileNameW(hProcess: HANDLE, #[in] lpv: *mut void, #[len_param(3)] #[out] lpFilename: PWSTR, nSize: u32) -> u32;
+        extern fn GetMappedFileNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpv: LPVOID, #[out] #[len_param(3)] lpFilename: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetModuleBaseNameA")]
-        extern fn GetModuleBaseNameA(hProcess: HANDLE, #[opt] hModule: HMODULE, #[len_param(3)] #[out] lpBaseName: PSTR, nSize: u32) -> u32;
+        extern fn GetModuleBaseName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[out] #[len_param(3)] lpBaseName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll", import = "K32GetModuleBaseNameA")]
+        extern fn GetModuleBaseNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[out] #[len_param(3)] lpBaseName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetModuleBaseNameW")]
-        extern fn GetModuleBaseNameW(hProcess: HANDLE, #[opt] hModule: HMODULE, #[len_param(3)] #[out] lpBaseName: PWSTR, nSize: u32) -> u32;
+        extern fn GetModuleBaseNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[out] #[len_param(3)] lpBaseName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "1,nSize", "1,nSize")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll", import = "K32GetModuleFileNameExA")]
-        extern fn GetModuleFileNameExA(#[opt] hProcess: HANDLE, #[opt] hModule: HMODULE, lpFilename: PSTR, nSize: u32) -> u32;
+        extern fn GetModuleFileNameEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "1,nSize", "1,nSize")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        #[library("KERNEL32.dll", import = "K32GetModuleFileNameExA")]
+        extern fn GetModuleFileNameExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "1,nSize", "1,nSize")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll", import = "K32GetModuleFileNameExW")]
-        extern fn GetModuleFileNameExW(#[opt] hProcess: HANDLE, #[opt] hModule: HMODULE, lpFilename: PWSTR, nSize: u32) -> u32;
+        extern fn GetModuleFileNameExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetModuleInformation")]
-        extern fn GetModuleInformation(hProcess: HANDLE, hModule: HMODULE, #[out] lpmodinfo: LPMODULEINFO, cb: u32) -> BOOL;
+        extern fn GetModuleInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[out] lpmodinfo: LPMODULEINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32GetPerformanceInfo")]
-        extern fn GetPerformanceInfo(pPerformanceInformation: PPERFORMANCE_INFORMATION, cb: u32) -> BOOL;
+        extern fn GetPerformanceInfo(pPerformanceInformation: PPERFORMANCE_INFORMATION, cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32GetProcessImageFileNameA")]
-        extern fn GetProcessImageFileNameA(hProcess: HANDLE, #[len_param(2)] #[out] lpImageFileName: PSTR, nSize: u32) -> u32;
+        extern fn GetProcessImageFileName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[len_param(2)] lpImageFileName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll", import = "K32GetProcessImageFileNameA")]
+        extern fn GetProcessImageFileNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[len_param(2)] lpImageFileName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetProcessImageFileNameW")]
-        extern fn GetProcessImageFileNameW(hProcess: HANDLE, #[len_param(2)] #[out] lpImageFileName: PWSTR, nSize: u32) -> u32;
+        extern fn GetProcessImageFileNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[len_param(2)] lpImageFileName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetProcessMemoryInfo")]
-        extern fn GetProcessMemoryInfo(Process: HANDLE, #[size_param(2)] #[out] ppsmemCounters: PPROCESS_MEMORY_COUNTERS, cb: u32) -> BOOL;
+        extern fn GetProcessMemoryInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[out] #[size_param(2)] ppsmemCounters: PPROCESS_MEMORY_COUNTERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32GetWsChanges")]
-        extern fn GetWsChanges(hProcess: HANDLE, #[size_param(2)] #[out] lpWatchInfo: PPSAPI_WS_WATCH_INFORMATION, cb: u32) -> BOOL;
+        extern fn GetWsChanges(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[size_param(2)] lpWatchInfo: PPSAPI_WS_WATCH_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32GetWsChangesEx")]
-        extern fn GetWsChangesEx(hProcess: HANDLE, #[size_param(2)] #[out] lpWatchInfoEx: PPSAPI_WS_WATCH_INFORMATION_EX, #[in] #[out] cb: PDWORD) -> BOOL;
+        extern fn GetWsChangesEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*cb,*cb", "*cb,*cb")] #[out] lpWatchInfoEx: PPSAPI_WS_WATCH_INFORMATION_EX, #[in] #[out] cb: PDWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32InitializeProcessForWsWatch")]
-        extern fn InitializeProcessForWsWatch(hProcess: HANDLE) -> BOOL;
+        extern fn InitializeProcessForWsWatch(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32EmptyWorkingSet(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32EnumDeviceDrivers(#[out] #[size_param(1)] lpImageBase: *mut LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32EnumPageFilesA(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKA, pContext: LPVOID) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32EnumPageFilesW(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKW, pContext: LPVOID) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32EnumProcessModules(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[size_param(2)] lphModule: *mut HMODULE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32EnumProcessModulesEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[size_param(2)] lphModule: *mut HMODULE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD, #[out] lpcbNeeded: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFilterFlag: DWORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32EnumProcesses(#[out] #[size_param(1)] lpidProcess: *mut DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetDeviceDriverBaseNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageBase: LPVOID, #[out] #[len_param(2)] lpFilename: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetDeviceDriverBaseNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageBase: LPVOID, #[out] #[len_param(2)] lpBaseName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetDeviceDriverFileNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageBase: LPVOID, #[out] #[len_param(2)] lpFilename: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetDeviceDriverFileNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageBase: LPVOID, #[out] #[len_param(2)] lpFilename: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetMappedFileNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpv: LPVOID, #[out] #[len_param(3)] lpFilename: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetMappedFileNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpv: LPVOID, #[out] #[len_param(3)] lpFilename: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetModuleBaseNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[out] #[len_param(3)] lpBaseName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetModuleBaseNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[out] #[len_param(3)] lpBaseName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "1,nSize", "1,nSize")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        #[library("KERNEL32.dll")]
+        extern fn K32GetModuleFileNameExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "1,nSize", "1,nSize")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        #[library("KERNEL32.dll")]
+        extern fn K32GetModuleFileNameExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetModuleInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[out] lpmodinfo: LPMODULEINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetPerformanceInfo(pPerformanceInformation: PPERFORMANCE_INFORMATION, cb: DWORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetProcessImageFileNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[len_param(2)] lpImageFileName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetProcessImageFileNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[len_param(2)] lpImageFileName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSize: DWORD) -> DWORD;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetProcessMemoryInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[out] #[size_param(2)] ppsmemCounters: PPROCESS_MEMORY_COUNTERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetWsChanges(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[size_param(2)] lpWatchInfo: PPSAPI_WS_WATCH_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32GetWsChangesEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*cb,*cb", "*cb,*cb")] #[out] lpWatchInfoEx: PPSAPI_WS_WATCH_INFORMATION_EX, #[in] #[out] cb: PDWORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32InitializeProcessForWsWatch(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32QueryWorkingSet(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[size_param(2)] pv: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn K32QueryWorkingSetEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[size_param(2)] pv: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> BOOL;
         const LIST_MODULES_32BIT: i32 = 1;
         const LIST_MODULES_64BIT: i32 = 2;
         const LIST_MODULES_ALL: i32 = 3;
         const LIST_MODULES_DEFAULT: i32 = 0;
         type LPMODULEINFO = *mut MODULEINFO;
         struct MODULEINFO {
-            lpBaseOfDll: *mut void,
-            SizeOfImage: u32,
-            EntryPoint: *mut void,
+            lpBaseOfDll: LPVOID,
+            SizeOfImage: DWORD,
+            EntryPoint: LPVOID,
         }
-        extern fn PENUM_PAGE_FILE_CALLBACKA(pContext: *mut void, pPageFileInfo: PENUM_PAGE_FILE_INFORMATION, lpFilename: PCSTR) -> BOOL;
-        extern fn PENUM_PAGE_FILE_CALLBACKW(pContext: *mut void, pPageFileInfo: PENUM_PAGE_FILE_INFORMATION, lpFilename: PCWSTR) -> BOOL;
+        extern fn PENUM_PAGE_FILE_CALLBACKA(pContext: LPVOID, pPageFileInfo: PENUM_PAGE_FILE_INFORMATION, lpFilename: LPCSTR) -> BOOL;
+        extern fn PENUM_PAGE_FILE_CALLBACKW(pContext: LPVOID, pPageFileInfo: PENUM_PAGE_FILE_INFORMATION, lpFilename: LPCWSTR) -> BOOL;
         type PENUM_PAGE_FILE_INFORMATION = *mut ENUM_PAGE_FILE_INFORMATION;
-        type PERFORMACE_INFORMATION = PERFORMANCE_INFORMATION;
-        struct PERFORMANCE_INFORMATION {
-            cb: u32,
-            CommitTotal: usize,
-            CommitLimit: usize,
-            CommitPeak: usize,
-            PhysicalTotal: usize,
-            PhysicalAvailable: usize,
-            SystemCache: usize,
-            KernelTotal: usize,
-            KernelPaged: usize,
-            KernelNonpaged: usize,
-            PageSize: usize,
-            HandleCount: u32,
-            ProcessCount: u32,
-            ThreadCount: u32,
-        }
-        type PPERFORMACE_INFORMATION = *mut PERFORMANCE_INFORMATION;
-        type PPERFORMANCE_INFORMATION = *mut PERFORMANCE_INFORMATION;
+        type PERFORMACE_INFORMATION = _PERFORMANCE_INFORMATION;
+        type PERFORMANCE_INFORMATION = _PERFORMANCE_INFORMATION;
+        type PPERFORMACE_INFORMATION = *mut _PERFORMANCE_INFORMATION;
+        type PPERFORMANCE_INFORMATION = *mut _PERFORMANCE_INFORMATION;
         type PPROCESS_MEMORY_COUNTERS = *mut PROCESS_MEMORY_COUNTERS;
         type PPROCESS_MEMORY_COUNTERS_EX = *mut PROCESS_MEMORY_COUNTERS_EX;
         type PPROCESS_MEMORY_COUNTERS_EX2 = *mut PROCESS_MEMORY_COUNTERS_EX2;
@@ -100,107 +163,160 @@ mod Windows {
         type PPSAPI_WS_WATCH_INFORMATION = *mut PSAPI_WS_WATCH_INFORMATION;
         type PPSAPI_WS_WATCH_INFORMATION_EX = *mut PSAPI_WS_WATCH_INFORMATION_EX;
         struct PROCESS_MEMORY_COUNTERS {
-            cb: u32,
-            PageFaultCount: u32,
-            PeakWorkingSetSize: usize,
-            WorkingSetSize: usize,
-            QuotaPeakPagedPoolUsage: usize,
-            QuotaPagedPoolUsage: usize,
-            QuotaPeakNonPagedPoolUsage: usize,
-            QuotaNonPagedPoolUsage: usize,
-            PagefileUsage: usize,
-            PeakPagefileUsage: usize,
+            cb: DWORD,
+            PageFaultCount: DWORD,
+            PeakWorkingSetSize: SIZE_T,
+            WorkingSetSize: SIZE_T,
+            QuotaPeakPagedPoolUsage: SIZE_T,
+            QuotaPagedPoolUsage: SIZE_T,
+            QuotaPeakNonPagedPoolUsage: SIZE_T,
+            QuotaNonPagedPoolUsage: SIZE_T,
+            PagefileUsage: SIZE_T,
+            PeakPagefileUsage: SIZE_T,
         }
         struct PROCESS_MEMORY_COUNTERS_EX {
-            cb: u32,
-            PageFaultCount: u32,
-            PeakWorkingSetSize: usize,
-            WorkingSetSize: usize,
-            QuotaPeakPagedPoolUsage: usize,
-            QuotaPagedPoolUsage: usize,
-            QuotaPeakNonPagedPoolUsage: usize,
-            QuotaNonPagedPoolUsage: usize,
-            PagefileUsage: usize,
-            PeakPagefileUsage: usize,
-            PrivateUsage: usize,
+            cb: DWORD,
+            PageFaultCount: DWORD,
+            PeakWorkingSetSize: SIZE_T,
+            WorkingSetSize: SIZE_T,
+            QuotaPeakPagedPoolUsage: SIZE_T,
+            QuotaPagedPoolUsage: SIZE_T,
+            QuotaPeakNonPagedPoolUsage: SIZE_T,
+            QuotaNonPagedPoolUsage: SIZE_T,
+            PagefileUsage: SIZE_T,
+            PeakPagefileUsage: SIZE_T,
+            PrivateUsage: SIZE_T,
         }
         struct PROCESS_MEMORY_COUNTERS_EX2 {
-            cb: u32,
-            PageFaultCount: u32,
-            PeakWorkingSetSize: usize,
-            WorkingSetSize: usize,
-            QuotaPeakPagedPoolUsage: usize,
-            QuotaPagedPoolUsage: usize,
-            QuotaPeakNonPagedPoolUsage: usize,
-            QuotaNonPagedPoolUsage: usize,
-            PagefileUsage: usize,
-            PeakPagefileUsage: usize,
-            PrivateUsage: usize,
-            PrivateWorkingSetSize: usize,
-            SharedCommitUsage: u64,
+            cb: DWORD,
+            PageFaultCount: DWORD,
+            PeakWorkingSetSize: SIZE_T,
+            WorkingSetSize: SIZE_T,
+            QuotaPeakPagedPoolUsage: SIZE_T,
+            QuotaPagedPoolUsage: SIZE_T,
+            QuotaPeakNonPagedPoolUsage: SIZE_T,
+            QuotaNonPagedPoolUsage: SIZE_T,
+            PagefileUsage: SIZE_T,
+            PeakPagefileUsage: SIZE_T,
+            PrivateUsage: SIZE_T,
+            PrivateWorkingSetSize: SIZE_T,
+            SharedCommitUsage: ULONG64,
         }
         const PSAPI_VERSION: i32 = 2;
+        #[arch(X64 | Arm64)]
         union PSAPI_WORKING_SET_BLOCK {
-            Flags: usize,
+            Flags: ULONG_PTR,
             Anonymous: struct {
-                _bitfield: usize {
-                    Protection: 5,
-                    ShareCount: 3,
-                    Shared: 1,
-                    Reserved: 3,
-                    VirtualPage: 52,
+                #[Windows::Win32::Metadata::NativeBitfield("Protection", 0, 5, MemberType = ULONG_PTR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 9, 3, MemberType = ULONG_PTR)]
+                #[Windows::Win32::Metadata::NativeBitfield("ShareCount", 5, 3, MemberType = ULONG_PTR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Shared", 8, 1, MemberType = ULONG_PTR)]
+                #[Windows::Win32::Metadata::NativeBitfield("VirtualPage", 12, 52, MemberType = ULONG_PTR)]
+                _bitfield: u64,
+            },
+        }
+        #[arch(X86)]
+        union PSAPI_WORKING_SET_BLOCK {
+            Flags: ULONG_PTR,
+            Anonymous: struct {
+                #[Windows::Win32::Metadata::NativeBitfield("Protection", 0, 5, MemberType = ULONG_PTR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 9, 3, MemberType = ULONG_PTR)]
+                #[Windows::Win32::Metadata::NativeBitfield("ShareCount", 5, 3, MemberType = ULONG_PTR)]
+                #[Windows::Win32::Metadata::NativeBitfield("Shared", 8, 1, MemberType = ULONG_PTR)]
+                #[Windows::Win32::Metadata::NativeBitfield("VirtualPage", 12, 20, MemberType = ULONG_PTR)]
+                _bitfield: u32,
+            },
+        }
+        #[arch(X64 | Arm64)]
+        union PSAPI_WORKING_SET_EX_BLOCK {
+            Flags: ULONG_PTR,
+            Anonymous: union {
+                Anonymous: struct {
+                    #[Windows::Win32::Metadata::NativeBitfield("Bad", 31, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("LargePage", 23, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Locked", 22, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Node", 16, 6, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 24, 7, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("ReservedUlong", 32, 32, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("ShareCount", 1, 3, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Shared", 15, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Valid", 0, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Win32Protection", 4, 11, MemberType = ULONG_PTR)]
+                    _bitfield: u64,
+                },
+                Invalid: struct {
+                    #[Windows::Win32::Metadata::NativeBitfield("Bad", 31, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 1, 14, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 16, 15, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("ReservedUlong", 32, 32, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Shared", 15, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Valid", 0, 1, MemberType = ULONG_PTR)]
+                    _bitfield: u64,
                 },
             },
         }
+        #[arch(X86)]
         union PSAPI_WORKING_SET_EX_BLOCK {
-            Flags: usize,
+            Flags: ULONG_PTR,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: usize {
-                        Valid: 1,
-                        ShareCount: 3,
-                        Win32Protection: 11,
-                        Shared: 1,
-                        Node: 6,
-                        Locked: 1,
-                        LargePage: 1,
-                        Reserved: 7,
-                        Bad: 1,
-                        ReservedUlong: 32,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Bad", 31, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("LargePage", 23, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Locked", 22, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Node", 16, 6, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 24, 7, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("ShareCount", 1, 3, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Shared", 15, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Valid", 0, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Win32Protection", 4, 11, MemberType = ULONG_PTR)]
+                    _bitfield: u32,
                 },
                 Invalid: struct {
-                    _bitfield: usize {
-                        Valid: 1,
-                        Reserved0: 14,
-                        Shared: 1,
-                        Reserved1: 15,
-                        Bad: 1,
-                        ReservedUlong: 32,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("Bad", 31, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 1, 14, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 16, 15, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Shared", 15, 1, MemberType = ULONG_PTR)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Valid", 0, 1, MemberType = ULONG_PTR)]
+                    _bitfield: u32,
                 },
             },
         }
         struct PSAPI_WORKING_SET_EX_INFORMATION {
-            VirtualAddress: *mut void,
+            VirtualAddress: PVOID,
             VirtualAttributes: PSAPI_WORKING_SET_EX_BLOCK,
         }
         struct PSAPI_WORKING_SET_INFORMATION {
-            NumberOfEntries: usize,
+            NumberOfEntries: ULONG_PTR,
             WorkingSetInfo: [PSAPI_WORKING_SET_BLOCK; 1],
         }
         struct PSAPI_WS_WATCH_INFORMATION {
-            FaultingPc: *mut void,
-            FaultingVa: *mut void,
+            FaultingPc: LPVOID,
+            FaultingVa: LPVOID,
         }
         struct PSAPI_WS_WATCH_INFORMATION_EX {
             BasicInfo: PSAPI_WS_WATCH_INFORMATION,
-            FaultingThreadId: usize,
-            Flags: usize,
+            FaultingThreadId: ULONG_PTR,
+            Flags: ULONG_PTR,
         }
         #[library("KERNEL32.dll", import = "K32QueryWorkingSet")]
-        extern fn QueryWorkingSet(hProcess: HANDLE, #[size_param(2)] pv: *mut void, cb: u32) -> BOOL;
+        extern fn QueryWorkingSet(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[size_param(2)] pv: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32QueryWorkingSetEx")]
-        extern fn QueryWorkingSetEx(hProcess: HANDLE, #[size_param(2)] pv: *mut void, cb: u32) -> BOOL;
+        extern fn QueryWorkingSetEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[size_param(2)] pv: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: DWORD) -> BOOL;
+        struct _PERFORMANCE_INFORMATION {
+            cb: DWORD,
+            CommitTotal: SIZE_T,
+            CommitLimit: SIZE_T,
+            CommitPeak: SIZE_T,
+            PhysicalTotal: SIZE_T,
+            PhysicalAvailable: SIZE_T,
+            SystemCache: SIZE_T,
+            KernelTotal: SIZE_T,
+            KernelPaged: SIZE_T,
+            KernelNonpaged: SIZE_T,
+            PageSize: SIZE_T,
+            HandleCount: DWORD,
+            ProcessCount: DWORD,
+            ThreadCount: DWORD,
+        }
     }
 }

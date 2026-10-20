@@ -14,24 +14,25 @@ mod Windows {
             DWRITE_BASELINE_MAXIMUM = 8,
         }
         struct DWRITE_CARET_METRICS {
-            slopeRise: i16,
-            slopeRun: i16,
-            offset: i16,
+            slopeRise: INT16,
+            slopeRun: INT16,
+            offset: INT16,
         }
         struct DWRITE_FONT_METRICS1 {
-            Base: DWRITE_FONT_METRICS,
-            glyphBoxLeft: i16,
-            glyphBoxTop: i16,
-            glyphBoxRight: i16,
-            glyphBoxBottom: i16,
-            subscriptPositionX: i16,
-            subscriptPositionY: i16,
-            subscriptSizeX: i16,
-            subscriptSizeY: i16,
-            superscriptPositionX: i16,
-            superscriptPositionY: i16,
-            superscriptSizeX: i16,
-            superscriptSizeY: i16,
+            #[Windows::Win32::Metadata::NativeBase]
+            base: DWRITE_FONT_METRICS,
+            glyphBoxLeft: INT16,
+            glyphBoxTop: INT16,
+            glyphBoxRight: INT16,
+            glyphBoxBottom: INT16,
+            subscriptPositionX: INT16,
+            subscriptPositionY: INT16,
+            subscriptSizeX: INT16,
+            subscriptSizeY: INT16,
+            superscriptPositionX: INT16,
+            superscriptPositionY: INT16,
+            superscriptSizeX: INT16,
+            superscriptSizeY: INT16,
             hasTypographicMetrics: BOOL,
         }
         #[repr(i32)]
@@ -42,18 +43,17 @@ mod Windows {
             DWRITE_GLYPH_ORIENTATION_ANGLE_270_DEGREES = 3,
         }
         struct DWRITE_JUSTIFICATION_OPPORTUNITY {
-            expansionMinimum: f32,
-            expansionMaximum: f32,
-            compressionMaximum: f32,
-            _bitfield: u32 {
-                expansionPriority: 8,
-                compressionPriority: 8,
-                allowResidualExpansion: 1,
-                allowResidualCompression: 1,
-                applyToLeadingEdge: 1,
-                applyToTrailingEdge: 1,
-                reserved: 12,
-            },
+            expansionMinimum: FLOAT,
+            expansionMaximum: FLOAT,
+            compressionMaximum: FLOAT,
+            #[Windows::Win32::Metadata::NativeBitfield("allowResidualCompression", 17, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("allowResidualExpansion", 16, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("applyToLeadingEdge", 18, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("applyToTrailingEdge", 19, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("compressionPriority", 8, 8, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("expansionPriority", 0, 8, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("reserved", 20, 12, MemberType = UINT32)]
+            _bitfield: u32,
         }
         #[repr(i32)]
         enum DWRITE_OUTLINE_THRESHOLD {
@@ -61,55 +61,55 @@ mod Windows {
             DWRITE_OUTLINE_THRESHOLD_ALIASED = 1,
         }
         union DWRITE_PANOSE {
-            values: [u8; 10],
-            familyKind: u8,
+            values: [UINT8; 10],
+            familyKind: UINT8,
             text: struct {
-                familyKind: u8,
-                serifStyle: u8,
-                weight: u8,
-                proportion: u8,
-                contrast: u8,
-                strokeVariation: u8,
-                armStyle: u8,
-                letterform: u8,
-                midline: u8,
-                xHeight: u8,
+                familyKind: UINT8,
+                serifStyle: UINT8,
+                weight: UINT8,
+                proportion: UINT8,
+                contrast: UINT8,
+                strokeVariation: UINT8,
+                armStyle: UINT8,
+                letterform: UINT8,
+                midline: UINT8,
+                xHeight: UINT8,
             },
             script: struct {
-                familyKind: u8,
-                toolKind: u8,
-                weight: u8,
-                spacing: u8,
-                aspectRatio: u8,
-                contrast: u8,
-                scriptTopology: u8,
-                scriptForm: u8,
-                finials: u8,
-                xAscent: u8,
+                familyKind: UINT8,
+                toolKind: UINT8,
+                weight: UINT8,
+                spacing: UINT8,
+                aspectRatio: UINT8,
+                contrast: UINT8,
+                scriptTopology: UINT8,
+                scriptForm: UINT8,
+                finials: UINT8,
+                xAscent: UINT8,
             },
             decorative: struct {
-                familyKind: u8,
-                decorativeClass: u8,
-                weight: u8,
-                aspect: u8,
-                contrast: u8,
-                serifVariant: u8,
-                fill: u8,
-                lining: u8,
-                decorativeTopology: u8,
-                characterRange: u8,
+                familyKind: UINT8,
+                decorativeClass: UINT8,
+                weight: UINT8,
+                aspect: UINT8,
+                contrast: UINT8,
+                serifVariant: UINT8,
+                fill: UINT8,
+                lining: UINT8,
+                decorativeTopology: UINT8,
+                characterRange: UINT8,
             },
             symbol: struct {
-                familyKind: u8,
-                symbolKind: u8,
-                weight: u8,
-                spacing: u8,
-                aspectRatioAndContrast: u8,
-                aspectRatio94: u8,
-                aspectRatio119: u8,
-                aspectRatio157: u8,
-                aspectRatio163: u8,
-                aspectRatio211: u8,
+                familyKind: UINT8,
+                symbolKind: UINT8,
+                weight: UINT8,
+                spacing: UINT8,
+                aspectRatioAndContrast: UINT8,
+                aspectRatio94: UINT8,
+                aspectRatio119: UINT8,
+                aspectRatio157: UINT8,
+                aspectRatio163: UINT8,
+                aspectRatio211: UINT8,
             },
         }
         #[repr(i32)]
@@ -473,20 +473,19 @@ mod Windows {
             DWRITE_PANOSE_XHEIGHT_DUCKING_STD = 6,
         }
         struct DWRITE_SCRIPT_PROPERTIES {
-            isoScriptCode: u32,
-            isoScriptNumber: u32,
-            clusterLookahead: u32,
-            justificationCharacter: u32,
-            _bitfield: u32 {
-                restrictCaretToClusters: 1,
-                usesWordDividers: 1,
-                isDiscreteWriting: 1,
-                isBlockWriting: 1,
-                isDistributedWithinCluster: 1,
-                isConnectedWriting: 1,
-                isCursiveWriting: 1,
-                reserved: 25,
-            },
+            isoScriptCode: UINT32,
+            isoScriptNumber: UINT32,
+            clusterLookahead: UINT32,
+            justificationCharacter: UINT32,
+            #[Windows::Win32::Metadata::NativeBitfield("isBlockWriting", 3, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("isConnectedWriting", 5, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("isCursiveWriting", 6, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("isDiscreteWriting", 2, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("isDistributedWithinCluster", 4, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("reserved", 7, 25, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("restrictCaretToClusters", 0, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("usesWordDividers", 1, 1, MemberType = UINT32)]
+            _bitfield: u32,
         }
         #[repr(i32)]
         enum DWRITE_TEXT_ANTIALIAS_MODE {
@@ -494,8 +493,8 @@ mod Windows {
             DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE = 1,
         }
         struct DWRITE_UNICODE_RANGE {
-            first: u32,
-            last: u32,
+            first: UINT32,
+            last: UINT32,
         }
         #[repr(i32)]
         enum DWRITE_VERTICAL_GLYPH_ORIENTATION {
@@ -504,66 +503,102 @@ mod Windows {
         }
         #[guid(0x791e8298_3ef3_4230_9880_c9bdecc42064)]
         interface IDWriteBitmapRenderTarget1: IDWriteBitmapRenderTarget {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetTextAntialiasMode(&self) -> DWRITE_TEXT_ANTIALIAS_MODE;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetTextAntialiasMode(&self, antialiasMode: DWRITE_TEXT_ANTIALIAS_MODE) -> HRESULT;
         }
         #[guid(0x30572f99_dac6_41db_a16e_0486307e606a)]
         interface IDWriteFactory1: IDWriteFactory {
-            fn GetEudcFontCollection(&self, fontCollection: *mut IDWriteFontCollection, checkForUpdates: BOOL) -> HRESULT;
-            fn CreateCustomRenderingParams(&self, gamma: f32, enhancedContrast: f32, enhancedContrastGrayscale: f32, clearTypeLevel: f32, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, renderingParams: *mut IDWriteRenderingParams1) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetEudcFontCollection(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] fontCollection: *mut IDWriteFontCollection, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] checkForUpdates: BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateCustomRenderingParams(&self, gamma: FLOAT, enhancedContrast: FLOAT, enhancedContrastGrayscale: FLOAT, clearTypeLevel: FLOAT, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] renderingParams: *mut IDWriteRenderingParams1) -> HRESULT;
         }
         #[guid(0xacd16696_8c14_4f5d_877e_fe3fc1d32738)]
         interface IDWriteFont1: IDWriteFont {
-            fn GetMetrics(&self, fontMetrics: *mut DWRITE_FONT_METRICS1);
-            fn GetPanose(&self, panose: *mut DWRITE_PANOSE);
-            fn GetUnicodeRanges(&self, maxRangeCount: u32, #[len_param(0)] #[opt] unicodeRanges: *mut DWRITE_UNICODE_RANGE, actualRangeCount: *mut u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMetrics(&self, #[out] fontMetrics: *mut DWRITE_FONT_METRICS1);
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetPanose(&self, #[out] panose: *mut DWRITE_PANOSE);
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetUnicodeRanges(&self, maxRangeCount: UINT32, #[out] #[opt] #[len_param(0)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] unicodeRanges: *mut DWRITE_UNICODE_RANGE, #[out] actualRangeCount: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn IsMonospacedFont(&self) -> BOOL;
         }
         #[guid(0xa71efdb4_9fdb_4838_ad90_cfc3be8c3daf)]
         interface IDWriteFontFace1: IDWriteFontFace {
-            fn GetMetrics(&self, fontMetrics: *mut DWRITE_FONT_METRICS1);
-            fn GetGdiCompatibleMetrics(&self, emSize: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, fontMetrics: *mut DWRITE_FONT_METRICS1) -> HRESULT;
-            fn GetCaretMetrics(&self, caretMetrics: *mut DWRITE_CARET_METRICS);
-            fn GetUnicodeRanges(&self, maxRangeCount: u32, #[len_param(0)] #[opt] unicodeRanges: *mut DWRITE_UNICODE_RANGE, actualRangeCount: *mut u32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetMetrics(&self, #[out] fontMetrics: *mut DWRITE_FONT_METRICS1);
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGdiCompatibleMetrics(&self, emSize: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transform: *const DWRITE_MATRIX, #[out] fontMetrics: *mut DWRITE_FONT_METRICS1) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCaretMetrics(&self, #[out] caretMetrics: *mut DWRITE_CARET_METRICS);
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetUnicodeRanges(&self, maxRangeCount: UINT32, #[out] #[opt] #[len_param(0)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] unicodeRanges: *mut DWRITE_UNICODE_RANGE, #[out] actualRangeCount: *mut UINT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn IsMonospacedFont(&self) -> BOOL;
-            fn GetDesignGlyphAdvances(&self, glyphCount: u32, #[len_param(0)] glyphIndices: *const u16, #[len_param(0)] glyphAdvances: *mut i32, isSideways: BOOL) -> HRESULT;
-            fn GetGdiCompatibleGlyphAdvances(&self, emSize: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, isSideways: BOOL, glyphCount: u32, #[len_param(5)] glyphIndices: *const u16, #[len_param(5)] glyphAdvances: *mut i32) -> HRESULT;
-            fn GetKerningPairAdjustments(&self, glyphCount: u32, #[len_param(0)] glyphIndices: *const u16, #[len_param(0)] glyphAdvanceAdjustments: *mut i32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDesignGlyphAdvances(&self, glyphCount: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] glyphIndices: *const UINT16, #[out] #[len_param(0)] glyphAdvances: *mut INT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] isSideways: BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGdiCompatibleGlyphAdvances(&self, emSize: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, isSideways: BOOL, glyphCount: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] glyphIndices: *const UINT16, #[out] #[len_param(5)] glyphAdvances: *mut INT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetKerningPairAdjustments(&self, glyphCount: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] glyphIndices: *const UINT16, #[out] #[len_param(0)] glyphAdvanceAdjustments: *mut INT32) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn HasKerningPairs(&self) -> BOOL;
-            fn GetRecommendedRenderingMode(&self, fontEmSize: f32, dpiX: f32, dpiY: f32, #[opt] transform: *const DWRITE_MATRIX, isSideways: BOOL, outlineThreshold: DWRITE_OUTLINE_THRESHOLD, measuringMode: DWRITE_MEASURING_MODE, renderingMode: *mut DWRITE_RENDERING_MODE) -> HRESULT;
-            fn GetVerticalGlyphVariants(&self, glyphCount: u32, #[len_param(0)] nominalGlyphIndices: *const u16, #[len_param(0)] verticalGlyphIndices: *mut u16) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetRecommendedRenderingMode(&self, fontEmSize: FLOAT, dpiX: FLOAT, dpiY: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transform: *const DWRITE_MATRIX, isSideways: BOOL, outlineThreshold: DWRITE_OUTLINE_THRESHOLD, measuringMode: DWRITE_MEASURING_MODE, #[out] renderingMode: *mut DWRITE_RENDERING_MODE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetVerticalGlyphVariants(&self, glyphCount: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] nominalGlyphIndices: *const UINT16, #[out] #[len_param(0)] verticalGlyphIndices: *mut UINT16) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn HasVerticalGlyphVariants(&self) -> BOOL;
         }
         #[guid(0x94413cf4_a6fc_4248_8b50_6674348fcad3)]
         interface IDWriteRenderingParams1: IDWriteRenderingParams {
-            fn GetGrayscaleEnhancedContrast(&self) -> f32;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGrayscaleEnhancedContrast(&self) -> FLOAT;
         }
         #[guid(0xb0d941a0_85e7_4d8b_9fd3_5ced9934482a)]
         interface IDWriteTextAnalysisSink1: IDWriteTextAnalysisSink {
-            fn SetGlyphOrientation(&self, textPosition: u32, textLength: u32, glyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE, adjustedBidiLevel: u8, isSideways: BOOL, isRightToLeft: BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetGlyphOrientation(&self, textPosition: UINT32, textLength: UINT32, glyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE, adjustedBidiLevel: UINT8, isSideways: BOOL, isRightToLeft: BOOL) -> HRESULT;
         }
         #[guid(0x639cfad8_0fb4_4b21_a58a_067920120009)]
         interface IDWriteTextAnalysisSource1: IDWriteTextAnalysisSource {
-            fn GetVerticalGlyphOrientation(&self, textPosition: u32, textLength: *mut u32, glyphOrientation: *mut DWRITE_VERTICAL_GLYPH_ORIENTATION, bidiLevel: *mut u8) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetVerticalGlyphOrientation(&self, textPosition: UINT32, #[out] textLength: *mut UINT32, #[out] glyphOrientation: *mut DWRITE_VERTICAL_GLYPH_ORIENTATION, #[out] bidiLevel: *mut UINT8) -> HRESULT;
         }
         #[guid(0x80dad800_e21f_4e83_96ce_bfcce500db7c)]
         interface IDWriteTextAnalyzer1: IDWriteTextAnalyzer {
-            fn ApplyCharacterSpacing(&self, leadingSpacing: f32, trailingSpacing: f32, minimumAdvanceWidth: f32, textLength: u32, glyphCount: u32, #[len_param(3)] clusterMap: *const u16, #[len_param(4)] glyphAdvances: *const f32, #[len_param(4)] glyphOffsets: *const DWRITE_GLYPH_OFFSET, #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, #[len_param(4)] modifiedGlyphAdvances: *mut f32, #[len_param(4)] modifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
-            fn GetBaseline(&self, fontFace: IDWriteFontFace, baseline: DWRITE_BASELINE, isVertical: BOOL, isSimulationAllowed: BOOL, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: *const u16, baselineCoordinate: *mut i32, exists: *mut BOOL) -> HRESULT;
-            fn AnalyzeVerticalGlyphOrientation(&self, analysisSource: IDWriteTextAnalysisSource1, textPosition: u32, textLength: u32, analysisSink: IDWriteTextAnalysisSink1) -> HRESULT;
-            fn GetGlyphOrientationTransform(&self, glyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE, isSideways: BOOL, transform: *mut DWRITE_MATRIX) -> HRESULT;
-            fn GetScriptProperties(&self, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, scriptProperties: *mut DWRITE_SCRIPT_PROPERTIES) -> HRESULT;
-            fn GetTextComplexity(&self, #[len_param(1)] textString: *const u16, textLength: u32, fontFace: IDWriteFontFace, isTextSimple: *mut BOOL, textLengthRead: *mut u32, #[len_param(1)] #[opt] glyphIndices: *mut u16) -> HRESULT;
-            fn GetJustificationOpportunities(&self, #[opt] fontFace: IDWriteFontFace, fontEmSize: f32, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, textLength: u32, glyphCount: u32, #[len_param(3)] textString: *const u16, #[len_param(3)] clusterMap: *const u16, #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, #[len_param(4)] justificationOpportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> HRESULT;
-            fn JustifyGlyphAdvances(&self, lineWidth: f32, glyphCount: u32, #[len_param(1)] justificationOpportunities: *const DWRITE_JUSTIFICATION_OPPORTUNITY, #[len_param(1)] glyphAdvances: *const f32, #[len_param(1)] glyphOffsets: *const DWRITE_GLYPH_OFFSET, #[len_param(1)] justifiedGlyphAdvances: *mut f32, #[len_param(1)] #[opt] justifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
-            fn GetJustifiedGlyphs(&self, #[opt] fontFace: IDWriteFontFace, fontEmSize: f32, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, textLength: u32, glyphCount: u32, maxGlyphCount: u32, #[len_param(3)] #[opt] clusterMap: *const u16, #[len_param(4)] glyphIndices: *const u16, #[len_param(4)] glyphAdvances: *const f32, #[len_param(4)] justifiedGlyphAdvances: *const f32, #[len_param(4)] justifiedGlyphOffsets: *const DWRITE_GLYPH_OFFSET, #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, actualGlyphCount: *mut u32, #[len_param(3)] #[opt] modifiedClusterMap: *mut u16, #[len_param(5)] modifiedGlyphIndices: *mut u16, #[len_param(5)] modifiedGlyphAdvances: *mut f32, #[len_param(5)] modifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn ApplyCharacterSpacing(&self, leadingSpacing: FLOAT, trailingSpacing: FLOAT, minimumAdvanceWidth: FLOAT, textLength: UINT32, glyphCount: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] clusterMap: *const UINT16, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] glyphAdvances: *const FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] glyphOffsets: *const DWRITE_GLYPH_OFFSET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, #[out] #[len_param(4)] modifiedGlyphAdvances: *mut FLOAT, #[out] #[len_param(4)] modifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetBaseline(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontFace: IDWriteFontFace, baseline: DWRITE_BASELINE, isVertical: BOOL, isSimulationAllowed: BOOL, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] localeName: *const WCHAR, #[out] baselineCoordinate: *mut INT32, #[out] exists: *mut BOOL) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn AnalyzeVerticalGlyphOrientation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] analysisSource: IDWriteTextAnalysisSource1, textPosition: UINT32, textLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] analysisSink: IDWriteTextAnalysisSink1) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetGlyphOrientationTransform(&self, glyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE, isSideways: BOOL, #[out] transform: *mut DWRITE_MATRIX) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetScriptProperties(&self, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[out] scriptProperties: *mut DWRITE_SCRIPT_PROPERTIES) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetTextComplexity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] textString: *const WCHAR, textLength: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontFace: IDWriteFontFace, #[out] isTextSimple: *mut BOOL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,textLength", "0,textLength")] textLengthRead: *mut UINT32, #[out] #[opt] #[len_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = false, Dereference = true)] glyphIndices: *mut UINT16) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetJustificationOpportunities(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontFace: IDWriteFontFace, fontEmSize: FLOAT, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, textLength: UINT32, glyphCount: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] textString: *const WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] clusterMap: *const UINT16, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, #[out] #[len_param(4)] justificationOpportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn JustifyGlyphAdvances(&self, lineWidth: FLOAT, glyphCount: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] justificationOpportunities: *const DWRITE_JUSTIFICATION_OPPORTUNITY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] glyphAdvances: *const FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] glyphOffsets: *const DWRITE_GLYPH_OFFSET, #[out] #[len_param(1)] justifiedGlyphAdvances: *mut FLOAT, #[out] #[opt] #[len_param(1)] justifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetJustifiedGlyphs(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fontFace: IDWriteFontFace, fontEmSize: FLOAT, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, textLength: UINT32, glyphCount: UINT32, maxGlyphCount: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] clusterMap: *const UINT16, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] glyphIndices: *const UINT16, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] glyphAdvances: *const FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] justifiedGlyphAdvances: *const FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] justifiedGlyphOffsets: *const DWRITE_GLYPH_OFFSET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "glyphCount,maxGlyphCount", "glyphCount,maxGlyphCount")] actualGlyphCount: *mut UINT32, #[out] #[opt] #[len_param(3)] modifiedClusterMap: *mut UINT16, #[out] #[len_param(5)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 12, IsByteCount = false, Dereference = true)] modifiedGlyphIndices: *mut UINT16, #[out] #[len_param(5)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 12, IsByteCount = false, Dereference = true)] modifiedGlyphAdvances: *mut FLOAT, #[out] #[len_param(5)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 12, IsByteCount = false, Dereference = true)] modifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
         }
         #[guid(0x9064d822_80a7_465c_a986_df65f78b8feb)]
         interface IDWriteTextLayout1: IDWriteTextLayout {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetPairKerning(&self, isPairKerningEnabled: BOOL, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetPairKerning(&self, currentPosition: u32, isPairKerningEnabled: *mut BOOL, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn SetCharacterSpacing(&self, leadingSpacing: f32, trailingSpacing: f32, minimumAdvanceWidth: f32, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetCharacterSpacing(&self, currentPosition: u32, leadingSpacing: *mut f32, trailingSpacing: *mut f32, minimumAdvanceWidth: *mut f32, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetPairKerning(&self, currentPosition: UINT32, #[out] isPairKerningEnabled: *mut BOOL, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCharacterSpacing(&self, leadingSpacing: FLOAT, trailingSpacing: FLOAT, minimumAdvanceWidth: FLOAT, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCharacterSpacing(&self, currentPosition: UINT32, #[out] leadingSpacing: *mut FLOAT, #[out] trailingSpacing: *mut FLOAT, #[out] minimumAdvanceWidth: *mut FLOAT, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
         }
     }
 }

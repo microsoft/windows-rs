@@ -25,36 +25,36 @@ mod Windows {
         const ID_GDF_XML_STR: String = "__GDF_XML";
         #[guid(0xe7b2fb72_d728_49b3_a5f2_18ebf5f1349e)]
         interface IGameExplorer: IUnknown {
-            fn AddGame(&self, bstrGDFBinaryPath: BSTR, bstrGameInstallDirectory: BSTR, installScope: GAME_INSTALL_SCOPE, #[in] #[out] pguidInstanceID: *mut GUID) -> HRESULT;
+            fn AddGame(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrGDFBinaryPath: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrGameInstallDirectory: BSTR, installScope: GAME_INSTALL_SCOPE, #[in] #[out] pguidInstanceID: *mut GUID) -> HRESULT;
             fn RemoveGame(&self, guidInstanceID: GUID) -> HRESULT;
             fn UpdateGame(&self, guidInstanceID: GUID) -> HRESULT;
-            fn VerifyAccess(&self, bstrGDFBinaryPath: BSTR, pfHasAccess: *mut BOOL) -> HRESULT;
+            fn VerifyAccess(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrGDFBinaryPath: BSTR, #[out] pfHasAccess: *mut BOOL) -> HRESULT;
         }
         #[guid(0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3)]
         interface IGameExplorer2: IUnknown {
-            fn InstallGame(&self, binaryGDFPath: PCWSTR, installDirectory: PCWSTR, installScope: GAME_INSTALL_SCOPE) -> HRESULT;
-            fn UninstallGame(&self, binaryGDFPath: PCWSTR) -> HRESULT;
-            fn CheckAccess(&self, binaryGDFPath: PCWSTR, #[retval] pHasAccess: *mut BOOL) -> HRESULT;
+            fn InstallGame(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] binaryGDFPath: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] installDirectory: LPCWSTR, installScope: GAME_INSTALL_SCOPE) -> HRESULT;
+            fn UninstallGame(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] binaryGDFPath: LPCWSTR) -> HRESULT;
+            fn CheckAccess(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] binaryGDFPath: LPCWSTR, #[out] #[retval] pHasAccess: *mut BOOL) -> HRESULT;
         }
         #[guid(0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145)]
         interface IGameStatistics: IUnknown {
-            fn GetMaxCategoryLength(&self, #[retval] cch: *mut u32) -> HRESULT;
-            fn GetMaxNameLength(&self, #[retval] cch: *mut u32) -> HRESULT;
-            fn GetMaxValueLength(&self, #[retval] cch: *mut u32) -> HRESULT;
-            fn GetMaxCategories(&self, #[retval] pMax: *mut u16) -> HRESULT;
-            fn GetMaxStatsPerCategory(&self, #[retval] pMax: *mut u16) -> HRESULT;
-            fn SetCategoryTitle(&self, categoryIndex: u16, title: PCWSTR) -> HRESULT;
-            fn GetCategoryTitle(&self, categoryIndex: u16, #[retval] pTitle: *mut PWSTR) -> HRESULT;
-            fn GetStatistic(&self, categoryIndex: u16, statIndex: u16, #[in] #[out] pName: *mut PWSTR, #[in] #[out] pValue: *mut PWSTR) -> HRESULT;
-            fn SetStatistic(&self, categoryIndex: u16, statIndex: u16, name: PCWSTR, value: PCWSTR) -> HRESULT;
+            fn GetMaxCategoryLength(&self, #[out] #[retval] cch: *mut UINT) -> HRESULT;
+            fn GetMaxNameLength(&self, #[out] #[retval] cch: *mut UINT) -> HRESULT;
+            fn GetMaxValueLength(&self, #[out] #[retval] cch: *mut UINT) -> HRESULT;
+            fn GetMaxCategories(&self, #[out] #[retval] pMax: *mut WORD) -> HRESULT;
+            fn GetMaxStatsPerCategory(&self, #[out] #[retval] pMax: *mut WORD) -> HRESULT;
+            fn SetCategoryTitle(&self, categoryIndex: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] title: LPCWSTR) -> HRESULT;
+            fn GetCategoryTitle(&self, categoryIndex: WORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] pTitle: *mut LPWSTR) -> HRESULT;
+            fn GetStatistic(&self, categoryIndex: WORD, statIndex: WORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt_string", "", "")] pName: *mut LPWSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt_string", "", "")] pValue: *mut LPWSTR) -> HRESULT;
+            fn SetStatistic(&self, categoryIndex: WORD, statIndex: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] name: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] value: LPCWSTR) -> HRESULT;
             fn Save(&self, trackChanges: BOOL) -> HRESULT;
-            fn SetLastPlayedCategory(&self, categoryIndex: u32) -> HRESULT;
-            fn GetLastPlayedCategory(&self, #[retval] pCategoryIndex: *mut u32) -> HRESULT;
+            fn SetLastPlayedCategory(&self, categoryIndex: UINT) -> HRESULT;
+            fn GetLastPlayedCategory(&self, #[out] #[retval] pCategoryIndex: *mut UINT) -> HRESULT;
         }
         #[guid(0xaff3ea11_e70e_407d_95dd_35e612c41ce2)]
         interface IGameStatisticsMgr: IUnknown {
-            fn GetGameStatistics(&self, GDFBinaryPath: PCWSTR, openType: GAMESTATS_OPEN_TYPE, pOpenResult: *mut GAMESTATS_OPEN_RESULT, #[retval] ppiStats: *mut IGameStatistics) -> HRESULT;
-            fn RemoveGameStatistics(&self, GDFBinaryPath: PCWSTR) -> HRESULT;
+            fn GetGameStatistics(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] GDFBinaryPath: LPCWSTR, openType: GAMESTATS_OPEN_TYPE, #[out] pOpenResult: *mut GAMESTATS_OPEN_RESULT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppiStats: *mut IGameStatistics) -> HRESULT;
+            fn RemoveGameStatistics(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] GDFBinaryPath: LPCWSTR) -> HRESULT;
         }
     }
 }

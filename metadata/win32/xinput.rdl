@@ -51,13 +51,13 @@ mod Windows {
         const VK_PAD_X: i32 = 22530;
         const VK_PAD_Y: i32 = 22531;
         struct XINPUT_BATTERY_INFORMATION {
-            BatteryType: u8,
-            BatteryLevel: u8,
+            BatteryType: BYTE,
+            BatteryLevel: BYTE,
         }
         struct XINPUT_CAPABILITIES {
-            Type: u8,
-            SubType: u8,
-            Flags: u16,
+            Type: BYTE,
+            SubType: BYTE,
+            Flags: WORD,
             Gamepad: XINPUT_GAMEPAD,
             Vibration: XINPUT_VIBRATION,
         }
@@ -86,13 +86,13 @@ mod Windows {
         const XINPUT_DLL_W: String = "xinput1_4.dll";
         const XINPUT_FLAG_GAMEPAD: i32 = 1;
         struct XINPUT_GAMEPAD {
-            wButtons: u16,
-            bLeftTrigger: u8,
-            bRightTrigger: u8,
-            sThumbLX: i16,
-            sThumbLY: i16,
-            sThumbRX: i16,
-            sThumbRY: i16,
+            wButtons: WORD,
+            bLeftTrigger: BYTE,
+            bRightTrigger: BYTE,
+            sThumbLX: SHORT,
+            sThumbLY: SHORT,
+            sThumbRX: SHORT,
+            sThumbRY: SHORT,
         }
         const XINPUT_GAMEPAD_A: i32 = 4096;
         const XINPUT_GAMEPAD_B: i32 = 8192;
@@ -112,37 +112,44 @@ mod Windows {
         const XINPUT_GAMEPAD_X: i32 = 16384;
         const XINPUT_GAMEPAD_Y: i32 = 32768;
         struct XINPUT_KEYSTROKE {
-            VirtualKey: u16,
-            Unicode: u16,
-            Flags: u16,
-            UserIndex: u8,
-            HidCode: u8,
+            VirtualKey: WORD,
+            Unicode: WCHAR,
+            Flags: WORD,
+            UserIndex: BYTE,
+            HidCode: BYTE,
         }
         const XINPUT_KEYSTROKE_KEYDOWN: i32 = 1;
         const XINPUT_KEYSTROKE_KEYUP: i32 = 2;
         const XINPUT_KEYSTROKE_REPEAT: i32 = 4;
         struct XINPUT_STATE {
-            dwPacketNumber: u32,
+            dwPacketNumber: DWORD,
             Gamepad: XINPUT_GAMEPAD,
         }
         struct XINPUT_VIBRATION {
-            wLeftMotorSpeed: u16,
-            wRightMotorSpeed: u16,
+            wLeftMotorSpeed: WORD,
+            wRightMotorSpeed: WORD,
         }
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
         #[library("XINPUT1_4.dll")]
-        extern fn XInputEnable(enable: BOOL);
+        extern fn XInputEnable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enable: BOOL);
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
         #[library("XINPUT1_4.dll")]
-        extern fn XInputGetAudioDeviceIds(dwUserIndex: u32, #[len_param(2)] #[out] #[opt] pRenderDeviceId: PWSTR, #[in] #[out] #[opt] pRenderCount: *mut u32, #[len_param(4)] #[out] #[opt] pCaptureDeviceId: PWSTR, #[in] #[out] #[opt] pCaptureCount: *mut u32) -> u32;
+        extern fn XInputGetAudioDeviceIds(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUserIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pRenderCount", "*pRenderCount")] #[out] #[opt] pRenderDeviceId: LPWSTR, #[in] #[out] #[opt] pRenderCount: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pCaptureCount", "*pCaptureCount")] #[out] #[opt] pCaptureDeviceId: LPWSTR, #[in] #[out] #[opt] pCaptureCount: *mut UINT) -> DWORD;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
         #[library("XINPUT1_4.dll")]
-        extern fn XInputGetBatteryInformation(dwUserIndex: u32, devType: u8, pBatteryInformation: *mut XINPUT_BATTERY_INFORMATION) -> u32;
+        extern fn XInputGetBatteryInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUserIndex: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] devType: BYTE, #[out] pBatteryInformation: *mut XINPUT_BATTERY_INFORMATION) -> DWORD;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
         #[library("XINPUT1_4.dll")]
-        extern fn XInputGetCapabilities(dwUserIndex: u32, dwFlags: u32, pCapabilities: *mut XINPUT_CAPABILITIES) -> u32;
+        extern fn XInputGetCapabilities(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUserIndex: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] pCapabilities: *mut XINPUT_CAPABILITIES) -> DWORD;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
         #[library("XINPUT1_4.dll")]
-        extern fn XInputGetKeystroke(dwUserIndex: u32, #[reserved] dwReserved: u32, #[out] pKeystroke: PXINPUT_KEYSTROKE) -> u32;
+        extern fn XInputGetKeystroke(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUserIndex: DWORD, #[reserved] dwReserved: DWORD, #[out] pKeystroke: PXINPUT_KEYSTROKE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
         #[library("XINPUT1_4.dll")]
-        extern fn XInputGetState(dwUserIndex: u32, pState: *mut XINPUT_STATE) -> u32;
+        extern fn XInputGetState(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUserIndex: DWORD, #[out] pState: *mut XINPUT_STATE) -> DWORD;
+        #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
         #[library("XINPUT1_4.dll")]
-        extern fn XInputSetState(dwUserIndex: u32, #[in] pVibration: *mut XINPUT_VIBRATION) -> u32;
+        extern fn XInputSetState(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUserIndex: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVibration: *mut XINPUT_VIBRATION) -> DWORD;
         const XUSER_INDEX_ANY: i32 = 255;
         const XUSER_MAX_COUNT: i32 = 4;
     }

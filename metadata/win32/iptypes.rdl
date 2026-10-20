@@ -9,11 +9,11 @@ mod Windows {
             DomainName: [i8; 132],
             CurrentDnsServer: PIP_ADDR_STRING,
             DnsServerList: IP_ADDR_STRING,
-            NodeType: u32,
+            NodeType: UINT,
             ScopeId: [i8; 260],
-            EnableRouting: u32,
-            EnableProxy: u32,
-            EnableDns: u32,
+            EnableRouting: UINT,
+            EnableProxy: UINT,
+            EnableDns: UINT,
         }
         const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: i32 = 512;
         const GAA_FLAG_INCLUDE_ALL_INTERFACES: i32 = 256;
@@ -31,9 +31,9 @@ mod Windows {
         type IP_ADAPTER_ADDRESSES = IP_ADAPTER_ADDRESSES_LH;
         struct IP_ADAPTER_ADDRESSES_LH {
             Anonymous: union {
-                Alignment: u64,
+                Alignment: ULONGLONG,
                 Anonymous: struct {
-                    Length: u32,
+                    Length: ULONG,
                     IfIndex: IF_INDEX,
                 },
             },
@@ -46,37 +46,36 @@ mod Windows {
             DnsSuffix: PWCHAR,
             Description: PWCHAR,
             FriendlyName: PWCHAR,
-            PhysicalAddress: [u8; 8],
-            PhysicalAddressLength: u32,
+            PhysicalAddress: [BYTE; 8],
+            PhysicalAddressLength: ULONG,
             Anonymous2: union {
-                Flags: u32,
+                Flags: ULONG,
                 Anonymous: struct {
-                    _bitfield: u32 {
-                        DdnsEnabled: 1,
-                        RegisterAdapterSuffix: 1,
-                        Dhcpv4Enabled: 1,
-                        ReceiveOnly: 1,
-                        NoMulticast: 1,
-                        Ipv6OtherStatefulConfig: 1,
-                        NetbiosOverTcpipEnabled: 1,
-                        Ipv4Enabled: 1,
-                        Ipv6Enabled: 1,
-                        Ipv6ManagedAddressConfigurationSupported: 1,
-                    },
+                    #[Windows::Win32::Metadata::NativeBitfield("DdnsEnabled", 0, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Dhcpv4Enabled", 2, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Ipv4Enabled", 7, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Ipv6Enabled", 8, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Ipv6ManagedAddressConfigurationSupported", 9, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("Ipv6OtherStatefulConfig", 5, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NetbiosOverTcpipEnabled", 6, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("NoMulticast", 4, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("ReceiveOnly", 3, 1, MemberType = ULONG)]
+                    #[Windows::Win32::Metadata::NativeBitfield("RegisterAdapterSuffix", 1, 1, MemberType = ULONG)]
+                    _bitfield: u32,
                 },
             },
-            Mtu: u32,
+            Mtu: ULONG,
             IfType: IFTYPE,
             OperStatus: IF_OPER_STATUS,
             Ipv6IfIndex: IF_INDEX,
-            ZoneIndices: [u32; 16],
+            ZoneIndices: [ULONG; 16],
             FirstPrefix: PIP_ADAPTER_PREFIX_XP,
-            TransmitLinkSpeed: u64,
-            ReceiveLinkSpeed: u64,
+            TransmitLinkSpeed: ULONG64,
+            ReceiveLinkSpeed: ULONG64,
             FirstWinsServerAddress: PIP_ADAPTER_WINS_SERVER_ADDRESS_LH,
             FirstGatewayAddress: PIP_ADAPTER_GATEWAY_ADDRESS_LH,
-            Ipv4Metric: u32,
-            Ipv6Metric: u32,
+            Ipv4Metric: ULONG,
+            Ipv6Metric: ULONG,
             Luid: IF_LUID,
             Dhcpv4Server: SOCKET_ADDRESS,
             CompartmentId: NET_IF_COMPARTMENT_ID,
@@ -84,17 +83,17 @@ mod Windows {
             ConnectionType: NET_IF_CONNECTION_TYPE,
             TunnelType: TUNNEL_TYPE,
             Dhcpv6Server: SOCKET_ADDRESS,
-            Dhcpv6ClientDuid: [u8; 130],
-            Dhcpv6ClientDuidLength: u32,
-            Dhcpv6Iaid: u32,
+            Dhcpv6ClientDuid: [BYTE; 130],
+            Dhcpv6ClientDuidLength: ULONG,
+            Dhcpv6Iaid: ULONG,
             FirstDnsSuffix: PIP_ADAPTER_DNS_SUFFIX,
         }
         struct IP_ADAPTER_ADDRESSES_XP {
             Anonymous: union {
-                Alignment: u64,
+                Alignment: ULONGLONG,
                 Anonymous: struct {
-                    Length: u32,
-                    IfIndex: u32,
+                    Length: ULONG,
+                    IfIndex: DWORD,
                 },
             },
             Next: *mut IP_ADAPTER_ADDRESSES_XP,
@@ -106,14 +105,14 @@ mod Windows {
             DnsSuffix: PWCHAR,
             Description: PWCHAR,
             FriendlyName: PWCHAR,
-            PhysicalAddress: [u8; 8],
-            PhysicalAddressLength: u32,
-            Flags: u32,
-            Mtu: u32,
-            IfType: u32,
+            PhysicalAddress: [BYTE; 8],
+            PhysicalAddressLength: DWORD,
+            Flags: DWORD,
+            Mtu: DWORD,
+            IfType: DWORD,
             OperStatus: IF_OPER_STATUS,
-            Ipv6IfIndex: u32,
-            ZoneIndices: [u32; 16],
+            Ipv6IfIndex: DWORD,
+            ZoneIndices: [DWORD; 16],
             FirstPrefix: PIP_ADAPTER_PREFIX_XP,
         }
         const IP_ADAPTER_ADDRESS_DNS_ELIGIBLE: i32 = 1;
@@ -121,10 +120,10 @@ mod Windows {
         type IP_ADAPTER_ANYCAST_ADDRESS = IP_ADAPTER_ANYCAST_ADDRESS_XP;
         struct IP_ADAPTER_ANYCAST_ADDRESS_XP {
             Anonymous: union {
-                Alignment: u64,
+                Alignment: ULONGLONG,
                 Anonymous: struct {
-                    Length: u32,
-                    Flags: u32,
+                    Length: ULONG,
+                    Flags: DWORD,
                 },
             },
             Next: *mut IP_ADAPTER_ANYCAST_ADDRESS_XP,
@@ -135,10 +134,10 @@ mod Windows {
         type IP_ADAPTER_DNS_SERVER_ADDRESS = IP_ADAPTER_DNS_SERVER_ADDRESS_XP;
         struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
             Anonymous: union {
-                Alignment: u64,
+                Alignment: ULONGLONG,
                 Anonymous: struct {
-                    Length: u32,
-                    Reserved: u32,
+                    Length: ULONG,
+                    Reserved: DWORD,
                 },
             },
             Next: *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP,
@@ -146,15 +145,15 @@ mod Windows {
         }
         struct IP_ADAPTER_DNS_SUFFIX {
             Next: *mut IP_ADAPTER_DNS_SUFFIX,
-            String: [u16; 256],
+            String: [WCHAR; 256],
         }
         type IP_ADAPTER_GATEWAY_ADDRESS = IP_ADAPTER_GATEWAY_ADDRESS_LH;
         struct IP_ADAPTER_GATEWAY_ADDRESS_LH {
             Anonymous: union {
-                Alignment: u64,
+                Alignment: ULONGLONG,
                 Anonymous: struct {
-                    Length: u32,
-                    Reserved: u32,
+                    Length: ULONG,
+                    Reserved: DWORD,
                 },
             },
             Next: *mut IP_ADAPTER_GATEWAY_ADDRESS_LH,
@@ -162,14 +161,14 @@ mod Windows {
         }
         struct IP_ADAPTER_INFO {
             Next: *mut IP_ADAPTER_INFO,
-            ComboIndex: u32,
+            ComboIndex: DWORD,
             AdapterName: [i8; 260],
             Description: [i8; 132],
-            AddressLength: u32,
-            Address: [u8; 8],
-            Index: u32,
-            Type: u32,
-            DhcpEnabled: u32,
+            AddressLength: UINT,
+            Address: [BYTE; 8],
+            Index: DWORD,
+            Type: UINT,
+            DhcpEnabled: UINT,
             CurrentIpAddress: PIP_ADDR_STRING,
             IpAddressList: IP_ADDR_STRING,
             GatewayList: IP_ADDR_STRING,
@@ -187,10 +186,10 @@ mod Windows {
         type IP_ADAPTER_MULTICAST_ADDRESS = IP_ADAPTER_MULTICAST_ADDRESS_XP;
         struct IP_ADAPTER_MULTICAST_ADDRESS_XP {
             Anonymous: union {
-                Alignment: u64,
+                Alignment: ULONGLONG,
                 Anonymous: struct {
-                    Length: u32,
-                    Flags: u32,
+                    Length: ULONG,
+                    Flags: DWORD,
                 },
             },
             Next: *mut IP_ADAPTER_MULTICAST_ADDRESS_XP,
@@ -201,25 +200,25 @@ mod Windows {
         type IP_ADAPTER_PREFIX = IP_ADAPTER_PREFIX_XP;
         struct IP_ADAPTER_PREFIX_XP {
             Anonymous: union {
-                Alignment: u64,
+                Alignment: ULONGLONG,
                 Anonymous: struct {
-                    Length: u32,
-                    Flags: u32,
+                    Length: ULONG,
+                    Flags: DWORD,
                 },
             },
             Next: *mut IP_ADAPTER_PREFIX_XP,
             Address: SOCKET_ADDRESS,
-            PrefixLength: u32,
+            PrefixLength: ULONG,
         }
         const IP_ADAPTER_RECEIVE_ONLY: i32 = 8;
         const IP_ADAPTER_REGISTER_ADAPTER_SUFFIX: i32 = 2;
         type IP_ADAPTER_UNICAST_ADDRESS = IP_ADAPTER_UNICAST_ADDRESS_LH;
         struct IP_ADAPTER_UNICAST_ADDRESS_LH {
             Anonymous: union {
-                Alignment: u64,
+                Alignment: ULONGLONG,
                 Anonymous: struct {
-                    Length: u32,
-                    Flags: u32,
+                    Length: ULONG,
+                    Flags: DWORD,
                 },
             },
             Next: *mut IP_ADAPTER_UNICAST_ADDRESS_LH,
@@ -227,17 +226,17 @@ mod Windows {
             PrefixOrigin: IP_PREFIX_ORIGIN,
             SuffixOrigin: IP_SUFFIX_ORIGIN,
             DadState: IP_DAD_STATE,
-            ValidLifetime: u32,
-            PreferredLifetime: u32,
-            LeaseLifetime: u32,
-            OnLinkPrefixLength: u8,
+            ValidLifetime: ULONG,
+            PreferredLifetime: ULONG,
+            LeaseLifetime: ULONG,
+            OnLinkPrefixLength: UINT8,
         }
         struct IP_ADAPTER_UNICAST_ADDRESS_XP {
             Anonymous: union {
-                Alignment: u64,
+                Alignment: ULONGLONG,
                 Anonymous: struct {
-                    Length: u32,
-                    Flags: u32,
+                    Length: ULONG,
+                    Flags: DWORD,
                 },
             },
             Next: *mut IP_ADAPTER_UNICAST_ADDRESS_XP,
@@ -245,45 +244,46 @@ mod Windows {
             PrefixOrigin: IP_PREFIX_ORIGIN,
             SuffixOrigin: IP_SUFFIX_ORIGIN,
             DadState: IP_DAD_STATE,
-            ValidLifetime: u32,
-            PreferredLifetime: u32,
-            LeaseLifetime: u32,
+            ValidLifetime: ULONG,
+            PreferredLifetime: ULONG,
+            LeaseLifetime: ULONG,
         }
         type IP_ADAPTER_WINS_SERVER_ADDRESS = IP_ADAPTER_WINS_SERVER_ADDRESS_LH;
         struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
             Anonymous: union {
-                Alignment: u64,
+                Alignment: ULONGLONG,
                 Anonymous: struct {
-                    Length: u32,
-                    Reserved: u32,
+                    Length: ULONG,
+                    Reserved: DWORD,
                 },
             },
             Next: *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH,
             Address: SOCKET_ADDRESS,
         }
+        struct IP_ADDRESS_STRING {
+            String: [i8; 16],
+        }
         struct IP_ADDR_STRING {
             Next: *mut IP_ADDR_STRING,
-            IpAddress: IP_MASK_STRING,
+            IpAddress: IP_ADDRESS_STRING,
             IpMask: IP_MASK_STRING,
-            Context: u32,
+            Context: DWORD,
         }
         type IP_DAD_STATE = NL_DAD_STATE;
         type IP_INTERFACE_NAME_INFO = IP_INTERFACE_NAME_INFO_W2KSP1;
         struct IP_INTERFACE_NAME_INFO_W2KSP1 {
-            Index: u32,
-            MediaType: u32,
-            ConnectionType: u8,
-            AccessType: u8,
+            Index: ULONG,
+            MediaType: ULONG,
+            ConnectionType: UCHAR,
+            AccessType: UCHAR,
             DeviceGuid: GUID,
             InterfaceGuid: GUID,
         }
-        struct IP_MASK_STRING {
-            String: [i8; 16],
-        }
+        type IP_MASK_STRING = IP_ADDRESS_STRING;
         type IP_PER_ADAPTER_INFO = IP_PER_ADAPTER_INFO_W2KSP1;
         struct IP_PER_ADAPTER_INFO_W2KSP1 {
-            AutoconfigEnabled: u32,
-            AutoconfigActive: u32,
+            AutoconfigEnabled: UINT,
+            AutoconfigActive: UINT,
             CurrentDnsServer: PIP_ADDR_STRING,
             DnsServerList: IP_ADDR_STRING,
         }
@@ -321,11 +321,11 @@ mod Windows {
         type PIP_ADAPTER_UNICAST_ADDRESS_XP = *mut IP_ADAPTER_UNICAST_ADDRESS_XP;
         type PIP_ADAPTER_WINS_SERVER_ADDRESS = *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH;
         type PIP_ADAPTER_WINS_SERVER_ADDRESS_LH = *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH;
-        type PIP_ADDRESS_STRING = *mut IP_MASK_STRING;
+        type PIP_ADDRESS_STRING = *mut IP_ADDRESS_STRING;
         type PIP_ADDR_STRING = *mut IP_ADDR_STRING;
         type PIP_INTERFACE_NAME_INFO = *mut IP_INTERFACE_NAME_INFO_W2KSP1;
         type PIP_INTERFACE_NAME_INFO_W2KSP1 = *mut IP_INTERFACE_NAME_INFO_W2KSP1;
-        type PIP_MASK_STRING = *mut IP_MASK_STRING;
+        type PIP_MASK_STRING = *mut IP_ADDRESS_STRING;
         type PIP_PER_ADAPTER_INFO = *mut IP_PER_ADAPTER_INFO_W2KSP1;
         type PIP_PER_ADAPTER_INFO_W2KSP1 = *mut IP_PER_ADAPTER_INFO_W2KSP1;
     }

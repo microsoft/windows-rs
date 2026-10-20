@@ -1,6 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[packed(8)]
         struct FILE {
             _Placeholder: *mut void,
         }

@@ -2,26 +2,26 @@
 mod Windows {
     mod Win32 {
         struct GROUP_FILTER {
-            gf_interface: u32,
+            gf_interface: ULONG,
             gf_group: SOCKADDR_STORAGE,
             gf_fmode: MULTICAST_MODE_TYPE,
-            gf_numsrc: u32,
+            gf_numsrc: ULONG,
             gf_slist: [SOCKADDR_STORAGE; 1],
         }
         struct GROUP_REQ {
-            gr_interface: u32,
+            gr_interface: ULONG,
             gr_group: SOCKADDR_STORAGE,
         }
         struct GROUP_SOURCE_REQ {
-            gsr_interface: u32,
+            gsr_interface: ULONG,
             gsr_group: SOCKADDR_STORAGE,
             gsr_source: SOCKADDR_STORAGE,
         }
         struct ICMP_ERROR_INFO {
             srcaddress: SOCKADDR_INET,
             protocol: IPPROTO,
-            r#type: u8,
-            code: u8,
+            r#type: UINT8,
+            code: UINT8,
         }
         const IFF_BROADCAST: i32 = 2;
         const IFF_LOOPBACK: i32 = 4;
@@ -36,7 +36,7 @@ mod Windows {
         const IN6ADDR_V4MAPPEDPREFIX_LENGTH: i32 = 96;
         struct IN6_PKTINFO {
             ipi6_addr: IN6_ADDR,
-            ipi6_ifindex: u32,
+            ipi6_ifindex: ULONG,
         }
         struct IN6_PKTINFO_EX {
             pkt_info: IN6_PKTINFO,
@@ -45,20 +45,20 @@ mod Windows {
         const INET6_ADDRSTRLEN: i32 = 65;
         const INET_ADDRSTRLEN: i32 = 22;
         struct INTERFACE_INFO {
-            iiFlags: u32,
+            iiFlags: ULONG,
             iiAddress: sockaddr_gen,
             iiBroadcastAddress: sockaddr_gen,
             iiNetmask: sockaddr_gen,
         }
         struct INTERFACE_INFO_EX {
-            iiFlags: u32,
+            iiFlags: ULONG,
             iiAddress: SOCKET_ADDRESS,
             iiBroadcastAddress: SOCKET_ADDRESS,
             iiNetmask: SOCKET_ADDRESS,
         }
         struct IN_PKTINFO {
             ipi_addr: IN_ADDR,
-            ipi_ifindex: u32,
+            ipi_ifindex: ULONG,
         }
         struct IN_PKTINFO_EX {
             pkt_info: IN_PKTINFO,
@@ -66,9 +66,9 @@ mod Windows {
         }
         struct IN_RECVERR {
             protocol: IPPROTO,
-            info: u32,
-            r#type: u8,
-            code: u8,
+            info: ULONG,
+            r#type: UINT8,
+            code: UINT8,
         }
         #[arch(X64 | Arm64)]
         const IPV6_ADDRESS_BITS: u64 = 128;
@@ -90,7 +90,7 @@ mod Windows {
         const IPV6_LEAVE_GROUP: i32 = 13;
         struct IPV6_MREQ {
             ipv6mr_multiaddr: IN6_ADDR,
-            ipv6mr_interface: u32,
+            ipv6mr_interface: ULONG,
         }
         const IPV6_MTU: i32 = 72;
         const IPV6_MTU_DISCOVER: i32 = 71;
@@ -141,7 +141,7 @@ mod Windows {
             imsf_multiaddr: IN_ADDR,
             imsf_interface: IN_ADDR,
             imsf_fmode: MULTICAST_MODE_TYPE,
-            imsf_numsrc: u32,
+            imsf_numsrc: ULONG,
             imsf_slist: [IN_ADDR; 1],
         }
         const IP_MTU: i32 = 73;
@@ -213,7 +213,7 @@ mod Windows {
             IP_PMTUDISC_MAX = 4,
         }
         type PPMTUD_STATE = *mut PMTUD_STATE;
-        const PROTECTION_LEVEL_DEFAULT: u32 = 4294967295;
+        const PROTECTION_LEVEL_DEFAULT: UINT = 4294967295;
         const PROTECTION_LEVEL_EDGERESTRICTED: i32 = 20;
         const PROTECTION_LEVEL_RESTRICTED: i32 = 30;
         const PROTECTION_LEVEL_UNRESTRICTED: i32 = 10;
@@ -235,11 +235,11 @@ mod Windows {
         type SOCKADDR_IN6 = SOCKADDR_IN6_LH;
         struct SOCKADDR_IN6_LH {
             sin6_family: ADDRESS_FAMILY,
-            sin6_port: u16,
-            sin6_flowinfo: u32,
+            sin6_port: USHORT,
+            sin6_flowinfo: ULONG,
             sin6_addr: IN6_ADDR,
             Anonymous: union {
-                sin6_scope_id: u32,
+                sin6_scope_id: ULONG,
                 sin6_scope_struct: SCOPE_ID,
             },
         }
@@ -249,10 +249,10 @@ mod Windows {
         }
         struct SOCKADDR_IN6_W2KSP1 {
             sin6_family: i16,
-            sin6_port: u16,
-            sin6_flowinfo: u32,
+            sin6_port: USHORT,
+            sin6_flowinfo: ULONG,
             sin6_addr: IN6_ADDR,
-            sin6_scope_id: u32,
+            sin6_scope_id: ULONG,
         }
         union SOCKADDR_INET {
             Ipv4: SOCKADDR_IN,
@@ -290,9 +290,9 @@ mod Windows {
             AddressIn6: sockaddr_in6_old,
         }
         struct sockaddr_in6_old {
-            sin6_family: i16,
-            sin6_port: u16,
-            sin6_flowinfo: u32,
+            sin6_family: SHORT,
+            sin6_port: USHORT,
+            sin6_flowinfo: ULONG,
             sin6_addr: IN6_ADDR,
         }
     }
