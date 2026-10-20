@@ -1,6 +1,7 @@
 use std::rc::Rc;
 use windows_reactor::*;
 
+mod accessibility;
 mod application;
 mod background;
 mod canvas;
@@ -270,6 +271,7 @@ impl Component for ReorderFixture {
 
 pub fn run(fixture: &str) -> windows_core::Result<()> {
     match fixture {
+        "accessibility" => App::run_component::<accessibility::AccessibilityFixture>(())?,
         "application" => App::run_application::<application::ApplicationFixture>(())?,
         "background" => App::run_component::<background::BackgroundFixture>(())?,
         "window-replacement" => App::run_component::<application::ReplacingWindow>(false)?,

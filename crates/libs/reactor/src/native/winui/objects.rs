@@ -580,6 +580,7 @@ impl WinUiAdapter {
     /// completion, and replacement all end an object's native lifetime through this path.
     fn release_object(&mut self, object: ObjectId, handle: Handle) -> Result<(), WinUiError> {
         self.release_image(object);
+        self.live_regions.remove(&object);
         self.resource_override_keys.remove(&object);
         self.style_states.remove(&object);
         self.virtual_items.remove(&object);

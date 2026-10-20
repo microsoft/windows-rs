@@ -2964,7 +2964,6 @@ impl GeneratedHandle {
                     .cast::<native::FrameworkElement>()
                     .map_err(Into::into)
                     .and_then(|element| {
-                        let _ = native::AutomationHeadingLevel::None;
                         native::AutomationProperties::SetHeadingLevel(
                             &element,
                             match *variant {
@@ -2990,6 +2989,74 @@ impl GeneratedHandle {
                     .map_err(Into::into)
                     .and_then(|element| {
                         native::AutomationProperties::HeadingLevelProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::AutomationHelpText, Some(PropertyValue::String(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::AutomationProperties::SetHelpText(&element, value.as_ref())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::AutomationHelpText, None) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::AutomationProperties::SetHelpText(&element, "").map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::AutomationFullDescription, Some(PropertyValue::String(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::AutomationProperties::SetFullDescription(&element, value.as_ref())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::AutomationFullDescription, None) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::AutomationProperties::SetFullDescription(&element, "")
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                PropertyId::AutomationLiveSetting,
+                Some(PropertyValue::Enum {
+                    kind: "AutomationLiveSetting",
+                    variant,
+                }),
+            ) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::AutomationProperties::SetLiveSetting(
+                            &element,
+                            match *variant {
+                                "Off" => native::AutomationLiveSetting::Off,
+                                "Polite" => native::AutomationLiveSetting::Polite,
+                                "Assertive" => native::AutomationLiveSetting::Assertive,
+                                _ => unreachable!("validated enum variant"),
+                            },
+                        )
+                        .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::AutomationLiveSetting, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::AutomationProperties::LiveSettingProperty()
                             .map_err(Into::into)
                             .and_then(|property| element.ClearValue(&property).map_err(Into::into))
                     }),
